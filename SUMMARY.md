@@ -4,8 +4,7 @@
 
 ## Getting Started
 
-* [Signing in with GitHub](getting-started/signing-in-with-github.md)
-* [Running your first recipe](getting-started/running-your-first-recipe.md)
+* [Quick Start: Running your first recipe](getting-started/signing-in-with-github.md)
 
 ## How-to Guides <a id="how-to"></a>
 
@@ -15,14 +14,7 @@
 
 ## References
 
-* [Token Management](references/create-api-access-tokens.md)
+* [Repository Selection](references/repository-selection.md)
 * [GitHub Permissions](references/github-permissions.md)
-
-## Concepts
-
-* [Recipes](concepts/recipes.md)
-
----
-
-* [GraphQL API](graphql-api.md)
+* [Token Management](references/create-api-access-tokens.md)
 
