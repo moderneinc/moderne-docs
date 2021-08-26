@@ -19,3 +19,4 @@ The artifact information will appear in the table if Moderne.io successfully loc
 ## Step 3: View recipes in the catalog
 
 Your custom recipes will appear in the Catalog and be discoverable through search once successfully deployed.
+

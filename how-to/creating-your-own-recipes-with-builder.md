@@ -1,4 +1,4 @@
-# Create custom recipes with Builder
+# Creating your own recipes with Builder
 
 Moderne provides the ability to create custom recipes from our existing recipe catalog through _Recipe_ _Builder._
 
@@ -15,8 +15,7 @@ Let's build a custom recipe!
 Let's start with a simple recipe to import.
 
 {% code title="sample-recipe.yml" %}
-
-```yml
+```text
 type: specs.openrewrite.org/v1beta/recipe
 name: org.your_user_name.MyCustomRecipe
 displayName: My custom recipe
@@ -26,21 +25,24 @@ recipeList:
       fullyQualifiedTypeName: java.util.List
       checkAssignability: true
 ```
-
 {% endcode %}
 
 1. Click _Import YAML_ to open form
 2. Paste in the contents of the recipe above.
+
    ![](../.gitbook/assets/builder-import-yaml.png)
+
 3. Click _import_
+
    ![](../.gitbook/assets/builder-meta-data.png)
+
 4. Observe the _Recipe List_ now contains our `FindTypes` recipe and configuration
 
 ## Step 2: Change options
 
 Once we have imported a recipe from YAML, we can make further modifications before running the recipe.
 
-1. Click the _Settings_ button (Gear) next to `Find Types` to open the recipe editor.
+1. Click the _Settings_ button \(Gear\) next to `Find Types` to open the recipe editor.
 2. Change `java.util.List` to `java.util.Set`
 3. Click _Update_
 4. Observe in the _Recipe Preview_ on the right side that the recipe configuration updated.
@@ -52,3 +54,4 @@ In the _Recipe Meta Data_ form you can select which repositories to run the reci
 ## Step 4: Run Recipe
 
 Click _Dry Run_ to execute your custom recipe.
+

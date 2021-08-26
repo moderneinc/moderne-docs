@@ -4,11 +4,11 @@ To help orient you to Moderne, let's run a couple of recipes on some open source
 
 In this guide, we will
 
-- [ ] **Login with GitHub**
-- [ ] **Find a recipe to search across multiple repositories**
-- [ ] **Examine the results of our recipe**
-- [ ] **Narrow our focus and run a recipe to transform a repository based on the search**
-- [ ] **Verify the results and issue a Pull Request to transform the code**
+* [ ] **Login with GitHub**
+* [ ] **Find a recipe to search across multiple repositories**
+* [ ] **Examine the results of our recipe**
+* [ ] **Narrow our focus and run a recipe to transform a repository based on the search**
+* [ ] **Verify the results and issue a Pull Request to transform the code**
 
 ## Step 1: Go to [app.moderne.io](https://app.moderne.io) and _Login_
 
@@ -44,9 +44,9 @@ Let's find a good recipe to start from to help illustrate how to search across m
 
 To narrow our scope a little bit, from the Recipe details page for _SpringBoot 2.x Best Practices:_
 
-- Click the _Select Repositories_ button
-- In the search dropdown field, enter _OpenRewrite_
-- Click ![](../.gitbook/assets/select-only.png) to select the search results
+* Click the _Select Repositories_ button
+* In the search dropdown field, enter _OpenRewrite_
+* Click ![](../.gitbook/assets/select-only.png) to select the search results
 
 Now we should see a number in the _Select Repositories_ button indicating how many repositories we to search.
 
@@ -76,8 +76,8 @@ As an example, the screenshot above illustrates how this recipe converts `@Reque
 
 The next course of action is to commit the changes. There are a few options available:
 
-- Download a patch ![](../.gitbook/assets/result-diff-download-patch.png) of the change to test locally.
-- Create a branch and open a pull request ![](../.gitbook/assets/result-diff-create-branch.png).
+* Download a patch ![](../.gitbook/assets/result-diff-download-patch.png) of the change to test locally.
+* Create a branch and open a pull request ![](../.gitbook/assets/result-diff-create-branch.png).
 
 Clicking ![](../.gitbook/assets/result-diff-create-branch.png) present you with a prompt to select whether or not you wish to create a fork of the project into your personal GitHub.
 
@@ -90,3 +90,4 @@ If you have committer access to the repository, create a branch directly on the 
 {% endhint %}
 
 ## Step 9: 🎉 Profit
+

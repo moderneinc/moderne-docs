@@ -39,3 +39,4 @@ Use the name of the token to distinguish it from other tokens.
 From the _Access Token_ page, click _Delete_ next to the token you wish to revoke.
 
 ![](../.gitbook/assets/access-token-remove.png)
+
