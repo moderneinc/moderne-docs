@@ -1,6 +1,6 @@
 # Token Management
 
-Moderne.io offers the ability to Personal Access Tokens \(PATs\) that can be used to directly interface with the Moderne.io GraphQL API.
+You can create Personal Access Tokens \(PATs\) for interacting with the GraphQL API.
 
 ## Viewing your access tokens
 
@@ -18,18 +18,24 @@ You From [https://app.moderne.io/settings/tokens](https://app.moderne.io/setting
 
 ## Creating an access token
 
-### Step 1: Give your token a name / hint
+### Step 1: Go to the _Access Token_ page from the account menu
+
+### Step 2: Name your token
+
+{% hint style="info" %}
+Use the name of the token to distinguish it from other tokens.
+{% endhint %}
 
 ![This description is useful to help distinguish tokens apart](../.gitbook/assets/access-token-create.png)
 
-### Step 2: Click _Generate_
+### Step 3: Click _Generate_
 
 ![Hint: Click the clipboard icon to copy your access token](../.gitbook/assets/access-token-created.png)
 
-### Step 3: Copy your token
+### Step 4: Copy your token to your clipboard
 
 ## Revoking an access token
 
-From the Manage Access Token page, click _Delete_ next to the token you wish to revoke.
+From the _Access Token_ page, click _Delete_ next to the token you wish to revoke.
 
 ![](../.gitbook/assets/access-token-remove.png)

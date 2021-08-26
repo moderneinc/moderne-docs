@@ -1,6 +1,6 @@
 # Repository Selection
 
-Selecting repositories before running a recipe can help focus your efforts. Here are some shortcuts available from the repository selection widget:
+Before running recipes, selecting repositories can help focus your efforts. Here are some shortcuts available from the repository selection widget:
 
 | Icon                                                                                                   | Description                              |
 | :----------------------------------------------------------------------------------------------------- | :--------------------------------------- |
