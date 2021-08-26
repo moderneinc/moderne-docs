@@ -1,4 +1,4 @@
-# Creating your own recipes with Builder
+# Create custom recipes with _Builder_
 
 Moderne provides the ability to create custom recipes from our existing recipe catalog through _Recipe_ _Builder._
 
@@ -16,7 +16,7 @@ Let's start with a simple recipe to import.
 
 {% code title="sample-recipe.yml" %}
 
-```text
+```yml
 type: specs.openrewrite.org/v1beta/recipe
 name: org.your_user_name.MyCustomRecipe
 displayName: My custom recipe
@@ -29,7 +29,7 @@ recipeList:
 
 {% endcode %}
 
-1. Click _Import YAML_ to open form
+1. Click _Import YAML_ to open the form
 2. Paste in the contents of the recipe above.
 
    ![](../.gitbook/assets/builder-import-yaml.png)
@@ -51,8 +51,8 @@ Once we have imported a recipe from YAML, we can make further modifications befo
 
 ## Step 3: Confirm repository selection
 
-In the _Recipe Meta Data_ form you can select which repositories to run the recipe against.
+In the _Recipe Meta Data_ form, you can select which repositories to include in the recipe run.
 
-## Step 4: Run Recipe
+## Step 4: Run recipe
 
 Click _Dry Run_ to execute your custom recipe.
