@@ -7,4 +7,3 @@ You're about to do large-scale refactoring and code improvement without writing 
 A recipe is designed to transform code at the AST level. While resulting code may look different, the meaning of the code remains the same.
 
 {% embed url="https://youtu.be/uR9EPALJKjI" %}
-

@@ -12,7 +12,7 @@ In the top right-hand corner of the app, click on your profile avatar and select
 
 ### Step 2: View list of any existing tokens
 
-You From [https://app.moderne.io/settings/tokens](https://app.moderne.io/settings/tokens) 
+You From [https://app.moderne.io/settings/tokens](https://app.moderne.io/settings/tokens)
 
 ![](../.gitbook/assets/access-token-remove.png)
 
@@ -33,4 +33,3 @@ You From [https://app.moderne.io/settings/tokens](https://app.moderne.io/setting
 From the Manage Access Token page, click _Delete_ next to the token you wish to revoke.
 
 ![](../.gitbook/assets/access-token-remove.png)
-

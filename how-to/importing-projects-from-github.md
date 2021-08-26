@@ -9,4 +9,3 @@
 ![](../.gitbook/assets/configure-repos-no-repos-found.png)
 
 ![](../.gitbook/assets/configure-repos-filter.png)
-
