@@ -2,7 +2,7 @@
 
 To start performing analysis or code transformations on your projects, Moderne.io integration through our GitHub App and Action. Once connected and configured, your repositories are analyzed through our GitHub Action and imported into Moderne.io.
 
-## Installing the GitHub App
+## Installing the GitHub App & Ingest Action
 
 ### Step 1: Go to the _My Organizations & Repositories_ page
 
