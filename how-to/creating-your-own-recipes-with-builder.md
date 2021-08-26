@@ -15,6 +15,7 @@ Let's build a custom recipe!
 Let's start with a simple recipe to import.
 
 {% code title="sample-recipe.yml" %}
+
 ```text
 type: specs.openrewrite.org/v1beta/recipe
 name: org.your_user_name.MyCustomRecipe
@@ -25,6 +26,7 @@ recipeList:
       fullyQualifiedTypeName: java.util.List
       checkAssignability: true
 ```
+
 {% endcode %}
 
 1. Click _Import YAML_ to open form
@@ -54,4 +56,3 @@ In the _Recipe Meta Data_ form you can select which repositories to run the reci
 ## Step 4: Run Recipe
 
 Click _Dry Run_ to execute your custom recipe.
-
