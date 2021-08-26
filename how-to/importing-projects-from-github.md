@@ -10,8 +10,7 @@ Click on the _Configure_ link on the left-hand navigation.
 
 ### Step 2: Check Moderne.io GitHub App installation status
 
-First-time users may see the following message if the Moderne GitHub App is not configured.
-![](../.gitbook/assets/configure-repos-no-repos-found.png)
+First-time users may see the following message if the Moderne GitHub App is not configured. ![](../.gitbook/assets/configure-repos-no-repos-found.png)
 
 Click _Add Organization_ to install the GitHub App into one or more of your GitHub organizations and repositories.
 
@@ -33,3 +32,4 @@ Select a repository you would like to analyze or transform and click _Set up Git
 ### Step 5: Install the Moderne Ingest GitHub Action
 
 Click \_Add `moderne-ingest.yml` button. This action automatically creates a new GitHub Action workflow in the repository. After `moderne-ingest.yml` is installed in the repository, the Ingest process analyzes your code and imports it into Moderne.io.
+
