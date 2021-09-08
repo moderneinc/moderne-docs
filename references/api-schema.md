@@ -40,7 +40,7 @@
 | **recipeRunSummaryByRepository**  | | <a href="#reciperunsummary">RecipeRunSummary</a>! | | 
  | | `id` | <a href="#id">ID</a>! | Recipe Run ID | 
  | | `repositoryId` | <a href="#id">ID</a>! | Example: `Netflix:eureka` |
-| **recipes**  ⚠️ | | [<a href="#recipe">Recipe</a>!]! | Returns multiple recipes matching the list of strings provided <br/> @Deprecated -- use recipe(id) instead <br/> <p> use `recipe(id)` instead</p> | 
+| **recipes**  ⚠️ | | [<a href="#recipe">Recipe</a>!]! | Returns multiple recipes matching the list of strings provided <br/> @Deprecated -- use recipe(id) instead <br/> {% hint style="warning" %} **DEPRECATED** - use `recipe(id)` instead{% hint %} | 
  | | `names` | [<a href="#string">String</a>!]! | |
 | **repository**  | | <a href="#repository">Repository</a>! | This query is only apart of MRE for the purposes of schema composition <br/> Queries will be handled directly by a worker. | 
  | | `id` | <a href="#id">ID</a>! | |
