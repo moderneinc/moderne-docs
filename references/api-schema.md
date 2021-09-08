@@ -92,7 +92,7 @@
 
 ### AccessTokenView
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **created**  | | <a href="#datetime">DateTime</a>! | |
 | **description**  | | <a href="#string">String</a> | |
@@ -100,7 +100,7 @@
 
 ### BranchResponse
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **branchName**  | | <a href="#string">String</a>! | |
 | **commit**  | | <a href="#string">String</a>! | Commit SHA |
@@ -108,14 +108,14 @@
 
 ### Commit
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **branch**  | | <a href="#string">String</a>! | |
 | **changeset**  | | <a href="#string">String</a>! | Git SHA |
 
 ### GithubAppInstallation
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **accountLogin**  | | <a href="#string">String</a>! | |
 | **accountType**  | | <a href="#githubaccounttype">GithubAccountType</a>! | |
@@ -124,7 +124,7 @@
 
 ### GithubAppInstallationRepository
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **hasWorkflowInstalled**  | | <a href="#boolean">Boolean</a>! | |
 | **isWorkflowRunInProgress**  | | <a href="#boolean">Boolean</a>! | |
@@ -134,7 +134,7 @@
 
 ### GithubOrganization
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **id**  | | <a href="#id">ID</a>! | |
 | **name**  | | <a href="#string">String</a>! | |
@@ -143,7 +143,7 @@
 
 ### GithubRepository
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **defaultBranch**  | | <a href="#string">String</a>! | |
 | **fullName**  | | <a href="#string">String</a>! | |
@@ -153,14 +153,14 @@
 
 ### GithubUserAccessTokenResponse
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **accessToken**  | | <a href="#string">String</a>! | |
 | **refreshToken**  | | <a href="#string">String</a>! | |
 
 ### Option
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **description**  | | <a href="#string">String</a>! | |
 | **displayName**  | | <a href="#string">String</a>! | |
@@ -173,21 +173,21 @@
 
 ### Organization
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **id**  | | <a href="#id">ID</a>! | |
 | **name**  | | <a href="#string">String</a>! | |
 
 ### Page
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **endCursor**  | | <a href="#string">String</a>! | |
 | **hasNextPage**  | | <a href="#boolean">Boolean</a>! | |
 
 ### Recipe
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **description**  | | <a href="#string">String</a> | Note: May contain markdown formatting <br/> @markdown |
 | **id**  | | <a href="#id">ID</a>! | Example: `org.openrewrite.java.testing.junit5.IgnoreToDisabled` |
@@ -201,7 +201,7 @@
 
 ### RecipeArtifact
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **artifactId**  | | <a href="#string">String</a>! | |
 | **datedSnapshotVersion**  | | <a href="#string">String</a> | |
@@ -213,7 +213,7 @@
 
 ### RecipeCategory
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **breadcrumbs**  | | [<a href="#recipecategorybreadcrumb">RecipeCategoryBreadcrumb</a>!]! | |
 | **description**  | | <a href="#string">String</a> | @markdown |
@@ -226,14 +226,14 @@
 
 ### RecipeCategoryBreadcrumb
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **id**  | | <a href="#id">ID</a>! | |
 | **name**  | | <a href="#string">String</a>! | |
 
 ### RecipeRun
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **id**  | | <a href="#id">ID</a>! | |
 | **recipe**  | | <a href="#recipe">Recipe</a>! | |
@@ -244,7 +244,7 @@
 
 ### RecipeRunResultsByRepository
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **commit**  | | <a href="#commit">Commit</a>! | |
 | **patchLink**  | | <a href="#string">String</a> | |
@@ -254,7 +254,7 @@
 
 ### RecipeRunSummary
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **commit**  | | <a href="#commit">Commit</a>! | |
 | **lastUpdated**  | | <a href="#datetime">DateTime</a>! | |
@@ -268,7 +268,7 @@
 
 ### Repository
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **commit**  | | <a href="#commit">Commit</a>! | |
 | **id**  | | <a href="#id">ID</a>! | Example: `netflix:eureka` |
@@ -280,14 +280,14 @@
 
 ### RepositoryIndexItem
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **id**  | | <a href="#id">ID</a>! | |
 | **link**  | | <a href="#string">String</a>! | |
 
 ### RepositoryJavaVersion
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **createdBy**  | | <a href="#string">String</a>! | |
 | **sourceCompatibility**  | | <a href="#string">String</a>! | |
@@ -296,7 +296,7 @@
 
 ### Result
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **after**  | | <a href="#string">String</a>! | |
 | **afterSourcePath**  | | <a href="#string">String</a>! | |
@@ -306,21 +306,21 @@
 
 ### ResultConnection
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **edges**  | | [<a href="#resultedge">ResultEdge</a>!]! | |
 | **pageInfo**  | | <a href="#page">Page</a>! | |
 
 ### ResultEdge
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **cursor**  | | <a href="#string">String</a>! | |
 | **node**  | | <a href="#result">Result</a>! | |
 
 ### SourceFileTypeCount
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **count**  | | <a href="#int">Int</a>! | Example: 1392 |
 | **fileType**  | | <a href="#string">String</a>! | Example: `java` |
@@ -328,7 +328,7 @@
 
 ### Worker
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **connectedSince**  | | <a href="#datetime">DateTime</a>! | |
 | **name**  | | <a href="#string">String</a>! | |
