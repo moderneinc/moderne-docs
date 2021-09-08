@@ -340,21 +340,21 @@
 
 Recipe option input value type depends on the particular recipe
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **name**  | | <a href="#string">String</a>! | Example: `methodPattern` |
 | **value**  | | <a href="#object">Object</a>! | Example: `java.util.List add(..)` |
 
 ### RecipeInput
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **id**  | | <a href="#id">ID</a>! | Example: `org.openrewrite.java.search.FindMethods` |
 | **options**  | | [<a href="#optioninput">OptionInput</a>!] | |
 
 ### RecipeRunInput
 
-| Field | Argument | Type | Description | 
+| Field |  | Type | Description | 
 | ---- | ---- | ---- | ---- |
 | **recipe**  | | <a href="#recipeinput">RecipeInput</a>! | |
 | **repositoryFilter**  | | [<a href="#id">ID</a>!] | Send `null` to run on all repositories. <br/> Example: `airbnb:epoxy` |
