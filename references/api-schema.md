@@ -1,7 +1,7 @@
 # Moderne.io GraphQL API
 
-
 ## Query
+
 <table>
 <thead>
 <tr>
@@ -327,6 +327,7 @@ Return all known workers
 </table>
 
 ## Mutation
+
 <table>
 <thead>
 <tr>
@@ -338,12 +339,14 @@ Return all known workers
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>addIngestToGithubRepository</strong></td>
+<td  valign="top"><strong>addIngestToGithubRepository</strong></td>
+<td></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" align="right" valign="top">installationId</td>
+<td></td>
+<td align="right" valign="top">installationId</td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
@@ -1864,7 +1867,7 @@ HTTP Mapping: 400 Bad Request
 <td>
 
 The operation was rejected because the system is not in a state
-required for the operation's execution.  For example, the directory
+required for the operation's execution. For example, the directory
 to be deleted is non-empty, an rmdir operation is applied to
 a non-directory, etc.
 
@@ -1873,10 +1876,10 @@ between `FAILED_PRECONDITION` and `UNAVAILABLE`:
 
 - Use `UNAVAILABLE` if the client can retry just the failing call.
 - Use `FAILED_PRECONDITION` if the client should not retry until
-the system state has been explicitly fixed.  E.g., if an "rmdir"
-     fails because the directory is non-empty, `FAILED_PRECONDITION`
-should be returned since the client should not retry unless
-the files are deleted from the directory.
+  the system state has been explicitly fixed. E.g., if an "rmdir"
+  fails because the directory is non-empty, `FAILED_PRECONDITION`
+  should be returned since the client should not retry unless
+  the files are deleted from the directory.
 
 HTTP Mapping: 400 Bad Request or 500 Internal Server Error
 
@@ -1955,7 +1958,7 @@ HTTP Mapping: 401 Unauthorized
 
 Currently Unavailable.
 
-The service is currently unavailable.  This is most likely a
+The service is currently unavailable. This is most likely a
 transient condition, which can be corrected by retrying with
 a backoff.
 
@@ -1971,7 +1974,7 @@ Unknown error.
 
 For example, this error may be returned when
 an error code received from another address space belongs to
-an error space that is not known in this address space.  Also
+an error space that is not known in this address space. Also
 errors raised by APIs that do not return enough error information
 may be converted to this error.
 
@@ -2119,4 +2122,3 @@ An object scalar
 ### String
 
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
-
