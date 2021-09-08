@@ -1,5 +1,57 @@
 # Moderne.io GraphQL API
 
+<details>
+  <summary><strong>Table of Contents</strong></summary>
+
+  * [Query](#query)
+  * [Mutation](#mutation)
+  * [Objects](#objects)
+    * [AccessTokenView](#accesstokenview)
+    * [BranchResponse](#branchresponse)
+    * [Commit](#commit)
+    * [GithubAppInstallation](#githubappinstallation)
+    * [GithubAppInstallationRepository](#githubappinstallationrepository)
+    * [GithubOrganization](#githuborganization)
+    * [GithubRepository](#githubrepository)
+    * [GithubUserAccessTokenResponse](#githubuseraccesstokenresponse)
+    * [Option](#option)
+    * [Organization](#organization)
+    * [Page](#page)
+    * [Recipe](#recipe)
+    * [RecipeArtifact](#recipeartifact)
+    * [RecipeCategory](#recipecategory)
+    * [RecipeCategoryBreadcrumb](#recipecategorybreadcrumb)
+    * [RecipeRun](#reciperun)
+    * [RecipeRunResultsByRepository](#reciperunresultsbyrepository)
+    * [RecipeRunSummary](#reciperunsummary)
+    * [Repository](#repository)
+    * [RepositoryIndexItem](#repositoryindexitem)
+    * [RepositoryJavaVersion](#repositoryjavaversion)
+    * [Result](#result)
+    * [ResultConnection](#resultconnection)
+    * [ResultEdge](#resultedge)
+    * [SourceFileTypeCount](#sourcefiletypecount)
+    * [Worker](#worker)
+  * [Inputs](#inputs)
+    * [OptionInput](#optioninput)
+    * [RecipeInput](#recipeinput)
+    * [RecipeRunInput](#reciperuninput)
+  * [Enums](#enums)
+    * [ErrorDetail](#errordetail)
+    * [ErrorType](#errortype)
+    * [GithubAccountType](#githubaccounttype)
+    * [RecipeRunState](#reciperunstate)
+    * [RecipeRunSummaryState](#reciperunsummarystate)
+    * [SortOrder](#sortorder)
+  * [Scalars](#scalars)
+    * [Boolean](#boolean)
+    * [DateTime](#datetime)
+    * [ID](#id)
+    * [Int](#int)
+    * [Object](#object)
+    * [String](#string)
+
+</details>
 
 ## Query
 <table>
