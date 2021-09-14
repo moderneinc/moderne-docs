@@ -51,5 +51,5 @@ In the _Recipe Meta Data_ form, you can select which repositories to include in 
 
 ## Step 4: Run recipe
 
-Click _Dry Run_ to execute your custom recipe.
+Click _Dry Run_ to execute your custom recipe and view the results.
 
