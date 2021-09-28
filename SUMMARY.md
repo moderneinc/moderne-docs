@@ -11,6 +11,7 @@
 * [Creating your own recipes with Builder](how-to/creating-your-own-recipes-with-builder.md)
 * [Importing projects from GitHub](how-to/importing-projects-from-github.md)
 * [Importing External Recipes](how-to/importing-external-recipes.md)
+* [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
 
 ## References
 
