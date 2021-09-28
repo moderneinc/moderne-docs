@@ -1,4 +1,4 @@
-# GitHub Permissions
+# GitHub permissions
 
 Moderne.io uses a GitHub application to perform various actions on your behalf. Below is an explanation of those permissions and how they're uses by Moderne.io.
 

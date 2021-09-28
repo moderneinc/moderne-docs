@@ -1,4 +1,4 @@
-# Token Management
+# Token management
 
 You can create Personal Access Tokens \(PATs\) for interacting with the GraphQL API.
 

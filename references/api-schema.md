@@ -1,4 +1,4 @@
-# GraphQL API Documentation
+# GraphQL API documentation
 
 ## Query
 

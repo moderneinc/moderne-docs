@@ -1,4 +1,4 @@
-# Repository Selection
+# Repository selection
 
 Before running recipes, selecting repositories can help focus your efforts. Here are some shortcuts available from the repository selection widget:
 

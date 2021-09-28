@@ -1,4 +1,4 @@
-# Importing External Recipes
+# Importing external recipes
 
 External recipes can be imported into Moderne.io for use by your organization.
 
