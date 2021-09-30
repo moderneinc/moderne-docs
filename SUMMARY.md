@@ -5,6 +5,7 @@
 ## Getting Started
 
 * [Quick Start: Running your first recipe](getting-started/running-your-first-recipe.md)
+* [Publishing ASTs: Maven and Gradle](getting-started/publishing-asts-maven-and-gradle.md)
 
 ## How-to Guides <a id="how-to"></a>
 
