@@ -20,3 +20,7 @@
 * [Token management](references/create-api-access-tokens.md)
 * [GraphQL API documentation](references/api-schema.md)
 
+## Legal
+
+* [Terms of Service](legal/terms-of-service.md)
+
