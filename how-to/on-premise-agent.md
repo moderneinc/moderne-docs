@@ -23,7 +23,9 @@ The Moderne agent fetches secret configuration from Vault. It reads from a KV se
 
 ### Run the agent container
 
-The Moderne on-premise agent is available via [Docker Hub](https://hub.docker.com/repository/docker/moderne/agent). Several environment variables are required 
+The Moderne on-premise agent is available as an OCI image. Contact Moderne to obtain access. 
+
+The container requires several environment variables:
 
 * MODERNE\_API\_GATEWAY_\__RSOCKET_\__URI - URI used to connect to the Moderne API, provided by Moderne
 * MODERNE\_AGENT_\__ARTIFACTORY\_URL - Artifactory URL
