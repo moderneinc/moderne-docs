@@ -1,4 +1,4 @@
-# Publishing ASTs: Maven and Gradle
+# Integrating Private Repositories with the Moderne SaaS
 
 Having your build publish AST files to an artifact repository under your control is part of setting up the Moderne SaaS in your company's environment. This guide will show you how to set up your Maven and Gradle builds accordingly.
 
