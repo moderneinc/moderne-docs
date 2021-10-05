@@ -4,9 +4,9 @@ description: How to run the Moderne on-premise agent
 
 # On-Premise Agent
 
-The Moderne on-premise agent securely connects the Moderne SaaS to customers' environments. It's delivered as an OCI image and can be run using any OCI runtime \(i.e. Docker, Podman, etc\). 
+The Moderne on-premise agent securely connects the Moderne SaaS to customers' environments. It's delivered as an OCI image and can be run using any OCI runtime \(e.g., Docker, Podman\). 
 
-The purpose of the Moderne on-premise agent is to encrypt and ship AST artifacts from artifact repositories \(i.e. Artifactory\) to the Moderne SaaS, provide the symmetric key to be used for decryption, and forward requests from the Moderne SaaS to your version control system \(i.e. Github\).
+The purpose of the Moderne on-premise agent is to encrypt and ship AST artifacts from artifact repositories \(e.g., Artifactory\) to the Moderne SaaS, provide the symmetric key to be used for decryption, and forward requests from the Moderne SaaS to your version control system \(e.g., Github\).
 
 ## Getting Started
 

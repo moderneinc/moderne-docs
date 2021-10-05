@@ -27,9 +27,6 @@ recipeList:
 
 1. Click _Import YAML_ to open the form
 2. Paste in the contents of the recipe above.
-
-   ![](../.gitbook/assets/builder-import-yaml.png)
-
 3. Click _import_
 
    ![](../.gitbook/assets/builder-meta-data.png)
