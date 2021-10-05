@@ -10,6 +10,7 @@
 
 * [Creating your own recipes with Builder](how-to/creating-your-own-recipes-with-builder.md)
 * [Importing projects from GitHub](how-to/importing-projects-from-github.md)
+* [Integrating private code with Moderne SaaS](how-to/integrating-private-code.md)
 * [Importing external recipes](how-to/importing-external-recipes.md)
 * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
 * [On-Premise Agent](how-to/on-premise-agent.md)
