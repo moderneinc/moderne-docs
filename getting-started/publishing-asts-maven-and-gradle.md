@@ -1,9 +1,9 @@
-# Integrating Private Repositories with the Moderne SaaS
+# Integrating private code with Moderne SaaS
 
 Having your build publish AST files to an artifact repository under your control is part of setting up the Moderne SaaS in your company's environment. This guide will show you how to set up your Maven and Gradle builds accordingly.
 
 {% hint style="info" %}
-If you aren't trying to connect your organization's code to the Moderne SaaS then the [OpenRewrite plugins](https://docs.openrewrite.org/getting-started/getting-started) may be more appropriate. 
+Moderne build plugins include all the functionality of [OpenRewrite plugins](https://docs.openrewrite.org/getting-started/getting-started) plus integration with the Moderne SaaS. There is no benefit in using Moderne build plugins over OpenRewrite plugins locally because ASTs need to be imported into memory for the build tools to use them and ASTs need to be rebuilt whenever the code is changed.  
 {% endhint %}
 
 ## Step 1: Apply moderne-maven-plugin or moderne-gradle-plugin
