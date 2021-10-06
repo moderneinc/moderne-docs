@@ -18,7 +18,7 @@ The Moderne agent fetches secret configuration from Vault. It reads from a KV se
 2. In the "secret" KV secrets engine, create a new secret using "moderne-agent" as the "Path for this secret". 
 3. Add the following keys to the moderne-agent secret:
    * moderne.agent.token - Moderne SaaS agent connection token, provided by Moderne
-   * moderne.artifact.symmetricKey - 128 bit AES encryption key, base-64 encoded
+   * moderne.artifact.symmetricKey - 256 bit AES encryption key, hex encoded
    * moderne.agent.artifactory.password - Artifactory user password
 
 ### Run the agent container
