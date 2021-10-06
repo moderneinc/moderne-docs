@@ -3,7 +3,7 @@
 Having your build publish AST files to an artifact repository under your control is part of setting up the Moderne SaaS in your company's environment. This guide will show you how to set up your Maven and Gradle builds accordingly.
 
 {% hint style="info" %}
-Connecting your private code to the Moderne SaaS is the only reason to use these plugins instead of the [OpenRewrite plugins](https://docs.openrewrite.org/getting-started/getting-started). If you are not connecting private code to the Moderne SaaS you should use the OpenRewrite plugins instead. 
+Connecting your private code to the Moderne SaaS is the only reason to use these plugins instead of the [OpenRewrite plugins](https://docs.openrewrite.org/getting-started/getting-started). If you are not connecting private code to the Moderne SaaS you should use the OpenRewrite plugins instead.
 {% endhint %}
 
 ## Step 1: Apply moderne-maven-plugin or moderne-gradle-plugin
@@ -20,7 +20,7 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
       <plugin>
         <groupId>io.moderne</groupId>
         <artifactId>moderne-maven-plugin</artifactId>
-        <version>0.1.2</version>
+        <version>0.2.0</version>
         <configuration>
           <!-- Supports all of the same functionality as the OpenRewrite plugin -->
         </configuration>
@@ -68,7 +68,7 @@ The Moderne build plugins offer all of the functionality and configuration optio
 {% endhint %}
 
 {% hint style="warning" %}
-If you're a Maven user used to command line invocations such as `mvn rewrite:dryRun` or `mvn rewrite:run`, note that these invocations become `mvn moderne:dryRun` and `mvn moderne:run`. If you wish to continue invoking these commands with the "rewrite" prefix, such as to avoid having to alter CI workflows invoking `mvn rewrite:dryRun`, you can apply both plugins without conflict. 
+If you're a Maven user used to command line invocations such as `mvn rewrite:dryRun` or `mvn rewrite:run`, note that these invocations become `mvn moderne:dryRun` and `mvn moderne:run`. If you wish to continue invoking these commands with the "rewrite" prefix, such as to avoid having to alter CI workflows invoking `mvn rewrite:dryRun`, you can apply both plugins without conflict.
 
 Gradle users can continue invoking `gradlew rewriteDryRun` and `gradlew rewriteRun` as the names of those tasks remain the same in the moderne-gradle-plugin.
 {% endhint %}
@@ -81,6 +81,4 @@ Now whenever your project is published there will be a file with a "jar" extensi
 
 * [OpenRewrite Maven Plugin Configuration](https://docs.openrewrite.org/reference/maven-plugin-configuration)
 * [OpenRewrite Gradle Plugin Configuration](https://docs.openrewrite.org/reference/gradle-plugin-configuration)
-
-
 
