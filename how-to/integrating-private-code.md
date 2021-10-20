@@ -23,6 +23,9 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
         <version>0.3.1</version>
         <configuration>
           <!-- Supports all of the same functionality as the OpenRewrite plugin -->
+          <activeRecipes>
+            <recipe>org.openrewrite.java.cleanup.CommonStaticAnalysis</recipe>
+          </activeRecipes>
         </configuration>
         <executions>
           <execution>
