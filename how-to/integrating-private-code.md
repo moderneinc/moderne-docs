@@ -20,7 +20,7 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
       <plugin>
         <groupId>io.moderne</groupId>
         <artifactId>moderne-maven-plugin</artifactId>
-        <version>0.2.0</version>
+        <version>0.3.0</version>
         <configuration>
           <!-- Supports all of the same functionality as the OpenRewrite plugin -->
         </configuration>
