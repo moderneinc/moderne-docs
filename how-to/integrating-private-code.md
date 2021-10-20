@@ -46,7 +46,7 @@ plugins {
     id("maven-publish")
 
     // In a multi-project build, apply this only to the root project
-    id("io.moderne.rewrite") version("0.2.1")
+    id("io.moderne.rewrite") version("0.3.0")
 }
 
 repositories {
