@@ -14,7 +14,7 @@ The purpose of the Moderne on-premise agent is to encrypt and ship AST artifacts
 
 ### Run the agent container
 
-The Moderne on-premise agent is available as an OCI image. Contact Moderne to obtain access.&#x20;
+The Moderne on-premise agent is available as an OCI image. Contact Moderne to obtain access. Moderne will provide private registry and image names appropriate for your cloud platform. In example commands below we will refer to this as `${MODERNE_AGENT_IMAGE_NAME}.`
 
 The container requires several environment variables:
 
@@ -37,7 +37,7 @@ docker run \
 -e MODERNE_AGENT_ARTIFACTORY_USERNAME=admin \
 -e MODENRE_AGENT_ARTIFACTORY_PASSWORD=password \
 -e MODERNE_AGENT_ARTIFACTORY_ASTSQUERY='items.find({"repo":{"$eq":"example-maven"},"name":{"$match":"*-ast.jar"}})' \
-moderne/agent:latest
+${MODERNE_AGENT_IMAGE_NAME}
 ```
 
 ### Advanced Usage
@@ -59,30 +59,3 @@ To enable vault integration in the agent, omit environment variables that match 
 * SPRING\_CLOUD_\__VAULT\_URI - Vault URI used to retrieve the secret configuration properties below
 * SPRING\_CLOUD_\__VAULT\_TOKEN - Vault authentication token
 
-#### Local File Mode
-
-In some scenarios, it can be useful to encrypt and send an AST artifact without requiring an artifact repository. For these scenarios, the agent supports "local file mode". In this mode, the agent will encrypt and ship a single AST artifact from the local filesystem as specified by several environment variables. If the specified AST artifact file is modified, it is sent again. The agent must be kept running for as long as you'd like the Moderne single-tenant SaaS environment to be able to run recipes using the encrypted AST artifact.
-
-To use "local file mode", omit all environment variables that start with MODERNE\_AGENT\_ARTIFACTORY and specify the following environment variables:
-
-* MODERNE\_AGENT\_LOCALFILE\_GROUPID - AST artifact maven groupId
-* MODERNE\_AGENT\_LOCALFILE\_ARTIFACTID_ _- AST artifact maven artifactId
-* MODERNE\_AGENT\_LOCALFILE\_VERSION - AST artifact maven version
-* MODERNE\_AGENT\_LOCALFILE\_PATH - fully-qualified path to the AST artifact on the local filesystem
-
-Note that since the agent is delivered as an OCI container, the AST artifact file needs to be bind-mounted on the container and MODERNE\_AGENT\_LOCAL\_FILE\_PATH needs to refer to the in-container path where the file is mounted.
-
-"local file mode" example using docker (note that agent token and artifact symmetric key are random examples)
-
-```
-docker run \
--e MODERNE_API_GATEWAY_RSOCKET_URI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_TOKEN=W43qp4h952T4w2qV \
--e MODERNE_ARTIFACT_SYMMETRICKEY=546A576E5A7234753778217A25432A462D4A614E645267556B58703273357638 \
--e MODERNE_AGENT_LOCALFILE_GROUPID=com.example \
--e MODERNE_AGENT_LOCALFILE_ARTIFACTID=foobar \
--e MODERNE_AGENT_LOCALFILE_VERSION=1.0 \
--e MODERNE_AGENT_LOCALFILE_PATH=/agent/foobar-1.0-ast.jar \
--v /home/user/foobar-1.0-ast.jar:/agent/foobar-1.0-ast.jar \
-moderne/agent:latest
-```
