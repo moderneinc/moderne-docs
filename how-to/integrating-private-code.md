@@ -20,7 +20,7 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
       <plugin>
         <groupId>io.moderne</groupId>
         <artifactId>moderne-maven-plugin</artifactId>
-        <version>0.3.0</version>
+        <version>0.3.1</version>
         <configuration>
           <!-- Supports all of the same functionality as the OpenRewrite plugin -->
         </configuration>
@@ -81,4 +81,3 @@ Now whenever your project is published there will be a file with a "jar" extensi
 
 * [OpenRewrite Maven Plugin Configuration](https://docs.openrewrite.org/reference/maven-plugin-configuration)
 * [OpenRewrite Gradle Plugin Configuration](https://docs.openrewrite.org/reference/gradle-plugin-configuration)
-
