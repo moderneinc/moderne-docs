@@ -75,9 +75,7 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-
-
-
+###
 
 ### Advanced Usage
 
