@@ -41,7 +41,7 @@ docker run \
 -e MODERNE_AGENT_ARTIFACTORY_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_AGENT_ARTIFACTORY_USERNAME=admin \
 -e MODENRE_AGENT_ARTIFACTORY_PASSWORD=password \
--e MODERNE_AGENT_ARTIFACTORY_ASTSQUERY='items.find({"repo":{"$eq":"example-maven"},"name":{"$match":"*-ast.jar"}})' \
+-e MODERNE_AGENT_ARTIFACTORY_ASTSQUERY='{"repo":{"$eq":"example-maven"},"name":{"$match":"*-ast.jar"}}' \
 ${MODERNE_AGENT_IMAGE_NAME}
 ```
 {% endtab %}
