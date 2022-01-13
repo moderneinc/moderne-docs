@@ -2,6 +2,8 @@
 
 External recipes can be imported into Moderne.io for use by your organization.
 
+This requires an Administrator-level account in order to upload new recipe artifacts.
+
 ## Step 1: Go to Load Recipes
 
 Click on _Deploy_ in the left-hand menu.
@@ -19,4 +21,3 @@ The artifact information will appear in the table if Moderne.io successfully loc
 ## Step 3: View recipes in the catalog
 
 Your custom recipes will appear in the Catalog and be discoverable through search once successfully deployed.
-

@@ -6,9 +6,9 @@ You can create Personal Access Tokens \(PATs\) for interacting with the GraphQL 
 
 ### Step 1: Go to the account menu
 
-In the top right-hand corner of the app, click on your profile avatar and select _Access Tokens_
+In the top right-hand corner of the app, click on your profile avatar and select _Account Settings_
 
-![](../.gitbook/assets/global-account-menu.png)
+![](../.gitbook/assets/account-settings-menu.png)
 
 ### Step 2: View list of any existing tokens
 
@@ -18,7 +18,7 @@ You From [https://app.moderne.io/settings/tokens](https://app.moderne.io/setting
 
 ## Creating an access token
 
-### Step 1: Go to the _Access Token_ page from the account menu
+### Step 1: Go to the _Access Token_ tab from the _Account Settings_ page
 
 ### Step 2: Name your token
 
@@ -39,4 +39,3 @@ Use the name of the token to distinguish it from other tokens.
 From the _Access Token_ page, click _Delete_ next to the token you wish to revoke.
 
 ![](../.gitbook/assets/access-token-remove.png)
-
