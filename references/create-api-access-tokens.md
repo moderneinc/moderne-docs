@@ -42,4 +42,4 @@ From the _Access Token_ page, click _Delete_ next to the token you wish to revok
 
 ## Limitations
 
-* Access tokens do not retain roles that are granted to your user account. Actions that require roles (deploying recipes and uploading ASTs) will fail as forbidden if attempted with an access token.
+* Personal access tokens do not retain roles that are granted to your user account. Actions that require roles (deploying recipes and uploading ASTs) will fail as forbidden if attempted with an access token.
