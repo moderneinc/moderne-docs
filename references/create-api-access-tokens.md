@@ -1,6 +1,6 @@
 # Token management
 
-You can create Personal Access Tokens \(PATs\) for interacting with the GraphQL API.
+You can create Personal Access Tokens (PATs) for interacting with the GraphQL API.
 
 ## Viewing your access tokens
 
@@ -39,3 +39,7 @@ Use the name of the token to distinguish it from other tokens.
 From the _Access Token_ page, click _Delete_ next to the token you wish to revoke.
 
 ![](../.gitbook/assets/access-token-remove.png)
+
+## Limitations
+
+* Access tokens do not retain roles that are granted to your user account. Actions that require roles (deploying recipes and uploading ASTs) will fail as forbidden if attempted with an access token.

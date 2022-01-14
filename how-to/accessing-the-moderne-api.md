@@ -2,6 +2,8 @@
 
 Moderne.io offers a GraphQL API https://api.moderne.io for customers to interact with through the usage of a personal access token.
 
+Note: Access tokens do not retain roles that are granted to your user account. Actions that require roles (deploying recipes and uploading ASTs) will fail as forbidden if attempted with an access token.
+
 ## Prerequisites
 
 * Create a [Moderne Personal Access Token](../references/create-api-access-tokens.md)
