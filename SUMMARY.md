@@ -20,6 +20,7 @@
 
 * [GitHub permissions](references/github-permissions.md)
 * [Token management](references/create-api-access-tokens.md)
+* [User Roles](references/user-roles.md)
 
 ## Legal
 
