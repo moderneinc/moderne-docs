@@ -20,7 +20,7 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
       <plugin>
         <groupId>io.moderne</groupId>
         <artifactId>moderne-maven-plugin</artifactId>
-        <version>0.4.1</version>
+        <version>0.5.0</version>
         <configuration>
           <!-- Supports all of the same functionality as the OpenRewrite plugin -->
           <activeRecipes>
@@ -49,7 +49,7 @@ plugins {
     id("maven-publish")
 
     // In a multi-project build, apply this only to the root project
-    id("io.moderne.rewrite") version("0.4.0")
+    id("io.moderne.rewrite") version("0.5.0")
 }
 
 repositories {
