@@ -20,7 +20,7 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
       <plugin>
         <groupId>io.moderne</groupId>
         <artifactId>moderne-maven-plugin</artifactId>
-        <version>0.5.6</version>
+        <version>0.5.8</version>
         <configuration>
           <!-- Supports all of the same functionality as the OpenRewrite plugin -->
           <activeRecipes>
@@ -46,7 +46,7 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
 ```groovy
 plugins {
     // In a multi-project build, apply this only to the root project
-    id("io.moderne.rewrite") version("0.6.3")
+    id("io.moderne.rewrite") version("0.6.4")
 
     // Applying these is typical for Java projects, but not required
     id("java")
