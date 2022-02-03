@@ -12,11 +12,13 @@ Click on _Deploy_ in the left-hand menu.
 
 ![](../.gitbook/assets/deployer-upload-artifact.png)
 
-1. Click \_Upload Recipe Artifact to open the form.
+1. Click _Upload Recipe Artifact_ to open the form.
 2. Provide the `Group ID`, `Artifact ID`, and `Version` for the published artifact.
 3. Click _Upload Recipe Artifact_ to submit.
 
 The artifact information will appear in the table if Moderne.io successfully locates the requested artifact.
+
+**Note:** If you have an [on-premise agent](on-premise-agent.md) connected to an Artifactory instance, we will look up recipes in your Artifactory repositories in addition to [Nexus](https://oss.sonatype.org/) and [Maven Central](https://search.maven.org/).
 
 ## Step 3: View recipes in the catalog
 
