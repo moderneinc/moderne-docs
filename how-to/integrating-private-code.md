@@ -45,7 +45,7 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
 {% code title="build.gradle" %}
 ```groovy
 plugins {
-    id("io.moderne.rewrite") version("0.6.5")
+    id("io.moderne.rewrite") version("0.6.6")
 
     // Applying these is typical for Java projects, but not required
     id("java")
