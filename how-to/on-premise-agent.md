@@ -14,20 +14,20 @@ The purpose of the Moderne on-premise agent is to encrypt and ship AST artifacts
 
 ### Run the agent container
 
-The Moderne on-premise agent is available as an OCI image or as a spring-boot executable jar artifact. Contact Moderne to obtain access. Moderne will provide access details appropriate for your chosen platform. In example commands below we will refer to this as `${MODERNE_AGENT_IMAGE_NAME}.`
+The Moderne on-premise agent is available as an OCI image or as a spring-boot executable jar artifact. Contact Moderne to obtain access. Moderne will provide access details appropriate for your chosen platform. In example commands below we will refer to this as `${MODERNE_AGENT_IMAGE_NAME}.` The latest one will be displayed in the "Agent" section of [the releases page](releases/releases.md).
 
 {% tabs %}
 {% tab title="OCI Container" %}
 The agent container requires several environment variables:
 
-* MODERNE\_AGENT_\__API\_GATEWAY_\__RSOCKET_\__URI - URI used to connect to the Moderne API, provided by Moderne
+* MODERNE\_AGENT\_API\_GATEWAY\_RSOCKET\_URI - URI used to connect to the Moderne API, provided by Moderne
 * MODERNE\_AGENT\_TOKEN - Moderne SaaS agent connection token, provided by Moderne
-* MODERNE\_AGENT_\__CRYPTO_\__SYMMETRICKEY - 256 bit AES encryption key, hex encoded
+* MODERNE\_AGENT\_CRYPTO\_SYMMETRICKEY - 256 bit AES encryption key, hex encoded
   * example openssl command to generate: `openssl enc -aes-256-cbc -k secret -P` (use key from the output)
-* MODERNE\_AGENT_\__ARTIFACTORY\_URL - Artifactory URL
-* MODERNE\_AGENT_\__ARTIFACTORY\_USERNAME - username used to connect to Artifactory, requires permission to run AQL queries
-* MODERNE\_AGENT_\__ARTIFACTORY\_PASSWORD - password used to connect to Artifactory
-* MODERNE\_AGENT_\__ARTIFACTORY\_ASTSQUERY - AQL query fragment used to select AST artifacts to send to Moderne
+* MODERNE\_AGENT\_ARTIFACTORY\_URL - Artifactory URL
+* MODERNE\_AGENT\_ARTIFACTORY\_USERNAME - username used to connect to Artifactory, requires permission to run AQL queries
+* MODERNE\_AGENT\_ARTIFACTORY\_PASSWORD - password used to connect to Artifactory
+* MODERNE\_AGENT\_ARTIFACTORY\_ASTSQUERY - AQL query fragment used to select AST artifacts to send to Moderne
 
 
 
@@ -75,7 +75,20 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-###
+### Upgrading Agent Version
+
+{% tabs %}
+{% tab title="OCI Container" %}
+
+To upgrade your version of the OCI container, just follow the instructions above, but change  `${MODERNE_AGENT_IMAGE_NAME}` to the latest release of Agent on [the releases page](../releases/releases.md).
+
+{% endtab %}
+{% tab title="Executable JAR" %}
+
+To update your version of the Executable JAR, change the numbered version of {agent} in the instructions above to the latest on [the releases page](../releases/releases.md).
+
+{% endtab %}
+{% endtabs %}
 
 ### Advanced Usage
 
@@ -94,16 +107,16 @@ The Moderne agent optionally fetches secret configuration from Vault. It reads f
 {% tab title="OCI Container" %}
 To enable vault integration in the agent, omit environment variables that match keys specified in vault, and specify the following additional environment variables for the agent container:
 
-* SPRING\_PROFILES_\__ACTIVE - `vault`
-* SPRING\_CLOUD_\__VAULT\_URI - Vault URI used to retrieve the secret configuration properties below
-* SPRING\_CLOUD_\__VAULT\_TOKEN - Vault authentication token
+* SPRING\_PROFILES\_ACTIVE - `vault`
+* SPRING\_CLOUD\_VAULT\_URI - Vault URI used to retrieve the secret configuration properties below
+* SPRING\_CLOUD\_VAULT\_TOKEN - Vault authentication token
 {% endtab %}
 
 {% tab title="Executable JAR" %}
 To enable vault integration in the agent, omit arguments that match keys specified in vault, and specify the following additional arguments for the agent application:
 
 * spring.profiles.active - vault
-* spring.cloud.vault.uri SPRING\_CLOUD_\__VAULT\_URI - Vault URI used to retrieve the secret configuration properties below
-* SPRING\_CLOUD_\__VAULT\_TOKEN - Vault authentication token
+* spring.cloud.vault.uri SPRING\_CLOUD\_VAULT\_URI - Vault URI used to retrieve the secret configuration properties below
+* SPRING\_CLOUD\_VAULT\_TOKEN - Vault authentication token
 {% endtab %}
 {% endtabs %}

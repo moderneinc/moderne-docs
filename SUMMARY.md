@@ -16,6 +16,10 @@
 * [On-Premise Agent](how-to/on-premise-agent.md)
 * [🚀 Accessing the Moderne API](how-to/accessing-the-moderne-api.md)
 
+## Releases
+
+* [Versions of plugins and agent](releases/releases.md)
+
 ## References
 
 * [GitHub permissions](references/github-permissions.md)
