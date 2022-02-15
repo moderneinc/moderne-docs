@@ -13,4 +13,4 @@
 ## Agent
 
 * 0.28.0
-** OCI container: `moderne-dev/moderne/moderne-agent:0.28.0`
+    * OCI container: `moderne-dev/moderne/moderne-agent:0.28.0`
