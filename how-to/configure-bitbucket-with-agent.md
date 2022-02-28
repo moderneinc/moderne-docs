@@ -1,2 +1,0 @@
-# Configure BitBucket with Agent
-
