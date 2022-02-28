@@ -13,8 +13,8 @@
 * [Integrating private code with Moderne SaaS](how-to/integrating-private-code.md)
 * [Importing external recipes](how-to/importing-external-recipes.md)
 * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
-* [On-Premise Agent](how-to/on-premise-agent.md)
-* [Configure BitBucket with Agent](how-to/configure-bitbucket-to-agent.md)
+* [On-Premise Agent](how-to/on-premise-agent/README.md)
+  * [Configure BitBucket with Agent](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
 * [🚀 Accessing the Moderne API](how-to/accessing-the-moderne-api.md)
 
 ## Releases

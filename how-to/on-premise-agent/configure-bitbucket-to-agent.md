@@ -23,7 +23,7 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
 2. Select _Application Links_ from the _System_ section&#x20;
 3. Click on "Create link"
 4. Ensure that the _Application Type_ is set to _Atlassian product_
-5. Enter the the URL for your Moderne instances as the _Application URL_ ![create link](../.gitbook/assets/agent-bitbucket-create-link.png)
+5. Enter the the URL for your Moderne instances as the _Application URL_ ![create link](../../.gitbook/assets/agent-bitbucket-create-link.png)
 6. Click _Continue_
 7.  Define a new Incoming Application with the following settings:
 
@@ -56,7 +56,7 @@ To complete the set-up of BitBucket with the agent we will need to define the pr
 2. Remove the first and last line (header and footer) of the private key.&#x20;
    1. First and last lines would be: `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----`
 3. Remove all newline and return characters and copy the contents of the file as a single-line string.
-4. [Depending on how you run your Agent](on-premise-agent.md#run-the-agent-container), you will define the run-time variables `moderne.agent.bitbucket.private-key` with the single-line private key.
+4. [Depending on how you run your Agent](./#run-the-agent-container), you will define the run-time variables `moderne.agent.bitbucket.private-key` with the single-line private key.
 
 {% hint style="info" %}
 **Using Bash or other shells?**&#x20;

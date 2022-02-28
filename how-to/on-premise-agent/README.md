@@ -14,7 +14,7 @@ The purpose of the Moderne on-premise agent is to encrypt and ship AST artifacts
 
 ### Run the agent container
 
-The Moderne on-premise agent is available as an OCI image or as a spring-boot executable jar artifact. Contact Moderne to obtain access. Moderne will provide access details appropriate for your chosen platform. In example commands below we will refer to this as `${MODERNE_AGENT_IMAGE_NAME}.` The latest one will be displayed in the "Agent" section of [the releases page](releases/releases.md).
+The Moderne on-premise agent is available as an OCI image or as a spring-boot executable jar artifact. Contact Moderne to obtain access. Moderne will provide access details appropriate for your chosen platform. In example commands below we will refer to this as `${MODERNE_AGENT_IMAGE_NAME}.` The latest one will be displayed in the "Agent" section of [the releases page](../releases/releases.md).
 
 {% tabs %}
 {% tab title="OCI Container" %}
@@ -77,11 +77,11 @@ java -jar moderne-agent-{version}.jar \
 
 {% tabs %}
 {% tab title="OCI Container" %}
-To upgrade your version of the OCI container, just follow the instructions above, but change `${MODERNE_AGENT_IMAGE_NAME}` to the latest release of Agent on [the releases page](../releases/releases.md).
+To upgrade your version of the OCI container, just follow the instructions above, but change `${MODERNE_AGENT_IMAGE_NAME}` to the latest release of Agent on [the releases page](../../releases/releases.md).
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-To update your version of the Executable JAR, change the numbered version of {agent} in the instructions above to the latest on [the releases page](../releases/releases.md).
+To update your version of the Executable JAR, change the numbered version of {agent} in the instructions above to the latest on [the releases page](../../releases/releases.md).
 {% endtab %}
 {% endtabs %}
 
