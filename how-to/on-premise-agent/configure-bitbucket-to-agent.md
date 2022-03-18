@@ -73,18 +73,18 @@ Quickly get a single-line instance of your private key with the key header/foote
 
 The following arguments must be provided in addition to the arguments provided in ![on-premise agent](README.md). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
-* `moderne_agent_bitbucket[{index}]_private-key` - Private key configured in previous step
-* `moderne_agent_bitbucket[{index}]_host` - fully-qualified hostname of running bucketbucket instance. example: `bitbucket.org`
+* `moderne_agent_bitbucket_{index}_private-key` - Private key configured in previous step
+* `moderne_agent_bitbucket_{index}_host` - fully-qualified hostname of running bucketbucket instance. example: `bitbucket.org`
 
 Example using Docker (note that host and private-key are fake):
 
 ```
 docker run \
 ...
--e moderne_agent_bitbucket[0]_private-key=ABCDE \
--e moderne_agent_bitbucket[0]_host=bitbucket.myorg.com \
--e moderne_agent_bitbucket[1]_private-key=FGHIJ \
--e moderne_agent_bitbucket[1]_host=bitbucket2.myorg.com \
+-e moderne_agent_bitbucket_0_private-key=ABCDE \
+-e moderne_agent_bitbucket_0_host=bitbucket.myorg.com \
+-e moderne_agent_bitbucket_1_private-key=FGHIJ \
+-e moderne_agent_bitbucket_1_host=bitbucket2.myorg.com \
 ...
 ```
 {% endtab %}
