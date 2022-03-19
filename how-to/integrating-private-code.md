@@ -8,7 +8,7 @@ Connecting your private code to the Moderne SaaS is the only reason to use these
 
 ## Step 1: Apply moderne-maven-plugin or moderne-gradle-plugin
 
-In the pom.xml or build.gradle, add this entry to the `plugins` section to apply the rewrite plugin to the project.
+In the pom.xml or build.gradle, add this entry to the `plugins` section to apply the moderne plugin to the project.
 
 {% tabs %}
 {% tab title="Maven" %}
@@ -46,10 +46,6 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
 ```groovy
 plugins {
     id("io.moderne.rewrite") version("0.8.1")
-
-    // Applying these is typical for Java projects, but not required
-    id("java")
-    id("maven-publish")
 }
 
 // OpenRewrite and recipe modules are published to Maven Central
@@ -62,12 +58,18 @@ rewrite {
     // Supports all of the same functionality as the OpenRewrite plugin
 }
 ```
+In multi-project builds the behavior of the plugin will differ slightly depending on whether it is applied to the root project.
+When applied to the root project, the plugin applies itself to all projects in the build.
+When applied to a sub-project, the plugin applies itself only to that project.
+
+So if you want only certain projects within your multi-project build to be searchable and refactorable in the Moderne SaaS, you can apply the plugin only to those projects.
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
 
 {% hint style="success" %}
-The Moderne build plugins offer all of the functionality and configuration options of their OpenRewrite counterparts. If you were previously applying the OpenRewrite plugins, you can remove those declarations from your build files.
+The Moderne build plugins offer all the functionality and configuration options of their OpenRewrite counterparts. If you were previously applying the OpenRewrite plugins, you can remove those declarations from your build files.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -76,7 +78,46 @@ If you're a Maven user used to command line invocations such as `mvn rewrite:dry
 Gradle users can continue invoking `gradlew rewriteDryRun` and `gradlew rewriteRun` as the names of those tasks remain the same in the moderne-gradle-plugin.
 {% endhint %}
 
-## Step 2: Build and publish the next version of your project
+## Step 2: Configure Publishing
+
+The Moderne SaaS requires that the AST artifacts produced by the build plugin be published to your artifact repository.
+This may require you to publish AST artifacts from projects that do not currently publish anything.
+
+{% tabs %}
+{% tab title="Maven" %}
+
+Typically, no additional publishing configuration is required for Maven builds.
+
+{% endtab %}
+{% tab title="Gradle" %}
+Each project the plugin is applied to will have a `Jar` task named `moderneJar` which produces the AST jar in the project's build folder.
+This is the file that needs to be published to your artifact repository to enable Moderne SaaS integration.
+{% code title="single project build" %}
+```groovy
+plugins {
+    id("io.moderne.rewrite") version("0.8.1")
+    id("maven-publish")
+}
+
+publishing {
+    repositories {
+        // your repository configuration
+    }
+    publishing {
+        publications {
+            create("moderne", MavenPublication.class) {
+                artifact(tasks.named("moderneJar"))
+            }
+        }
+    }
+}
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+
+## Step 3: Build and publish the next version of your project
 
 Now whenever your project is published there will be a file with a "jar" extension and an "ast" classifier published alongside any other publications. So for a project named "example" publishing version "1.0", you can expect to see a file named `example-1.0-ast.jar` alongside the normal `example-1.0.jar`.
 
