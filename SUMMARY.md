@@ -14,7 +14,7 @@
 * [Importing external recipes](how-to/importing-external-recipes.md)
 * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
 * [On-Premise Agent](how-to/on-premise-agent/README.md)
-  * [Configure BitBucket with Agent](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
+  * [Configure Bitbucket with Agent](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
 * [🚀 Accessing the Moderne API](how-to/accessing-the-moderne-api.md)
 
 ## Releases

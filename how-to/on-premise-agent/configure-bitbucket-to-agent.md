@@ -1,14 +1,16 @@
-# Configure BitBucket with Agent
+# Configure Bitbucket with Agent
 
-Configuring your Moderne Agent instance with BitBucket is a prerequisite for both viewing recipe results within the Moderne application and committing changes from a recipe.
+## Configure Bitbucket with Agent
 
-This guide will walk you through configuring a new Application Link within your BitBucket Server or BitBucket Data Center instance.
+Configuring your Moderne Agent instance with Bitbucket is a prerequisite for both viewing recipe results within the Moderne application and committing changes from a recipe.
 
-### Prerequisites
+This guide will walk you through configuring a new Application Link within your Bitbucket Server or Bitbucket Data Center instance.
+
+#### Prerequisites
 
 * Administrator access to your BitBucket on-premise instance.
 
-## Step 1 - Generate a public and private key for BitBucket
+### Step 1 - Generate a public and private key for Bitbucket
 
 ```shell
 openssl genrsa -out bitbucket_privatekey.pem 1024
@@ -17,12 +19,12 @@ openssl pkcs8 -topk8 -nocrypt -in bitbucket_privatekey.pem -out bitbucket_privat
 openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.pem
 ```
 
-## Step 2 - Create an Application Link in BitBucket
+### Step 2 - Create an Application Link in Bitbucket
 
-1. Go to the Administration page of BitBucket
-2. Select _Application Links_ from the _System_ section&#x20;
+1. Go to the Administration page of Bitbucket
+2. Select _Application Links_ from the _System_ section
 3. Click on "Create link"
-4. Ensure that the _Application Type_ is set to _Atlassian product_
+4. Ensure that the _Application Type_ is set to _Atlassian product_ (this looks weird, but this is the [documented path](https://confluence.atlassian.com/bitbucketserver/link-to-other-applications-1018764620.html) for external applications to integrate)
 5. Enter the the URL for your Moderne instances as the _Application URL_ ![create link](../../.gitbook/assets/agent-bitbucket-create-link.png)
 6. Click _Continue_
 7.  Define a new Incoming Application with the following settings:
@@ -48,30 +50,29 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
     | Public Key    | Paste the public key (`bitbucket_publickey.pem`) from step 1 |
 10. Click _Continue_ to complete the Application Link creation
 
-## Step 3 - Configure Moderne Agent with BitBucket private key
+### Step 3 - Configure Moderne Agent with Bitbucket private key
 
-To complete the set-up of BitBucket with the agent we will need to define the private key, `bitbucket_privatekey.pcks8`, we generated in Step 1 as a run-time parameter for the agent.
+To complete the set-up of Bitbucket with the agent we will need to define the private key, `bitbucket_privatekey.pcks8`, we generated in Step 1 as a run-time parameter for the agent.
 
 1. Open up `bitbucket_privatekey.pcks8` in a text editor.
-2. Remove the first and last line (header and footer) of the private key.&#x20;
+2. Remove the first and last line (header and footer) of the private key.
    1. First and last lines would be: `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----`
 3. Remove all newline and return characters and copy the contents of the file as a single-line string.
 4. [Depending on how you run your Agent](./#run-the-agent-container), you will define the run-time variables `moderne.agent.bitbucket[0].private-key` with the single-line private key.
 
 {% hint style="info" %}
-**Using Bash or other shells?**&#x20;
+**Using Bash or other shells?**
 
 Quickly get a single-line instance of your private key with the key header/footer removed
 
 `cat bitbucket_privatekey.pcks8 | sed '1d;$d' | tr -d '\n'`
 {% endhint %}
 
-# Argument configuration
+## Argument configuration
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
-The following arguments must be provided in addition to the arguments provided in ![on-premise agent](README.md). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
+The following arguments must be provided in addition to the arguments provided in ![on-premise agent](./). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
 * `moderne_agent_bitbucket_{index}_private-key` - Private key configured in previous step
 * `moderne_agent_bitbucket_{index}_host` - fully-qualified hostname of running bitbucket instance. example: `bitbucket.org`
@@ -90,7 +91,7 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-The following arguments must be provided in addition to the arguments provided in ![on-premise agent](README.md). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
+The following arguments must be provided in addition to the arguments provided in ![on-premise agent](./). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
 * `moderne.agent.bitbucket[{index}].private-key` - Private key configured in previous step
 * `moderne.agent.bitbucket[{index}].host` - fully-qualified hostname of running bucketbucket instance. example: `bitbucket.org`
