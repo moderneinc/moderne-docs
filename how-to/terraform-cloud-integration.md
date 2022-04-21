@@ -8,6 +8,8 @@ Terraform Run Task enables your organization to integrate third-party tools with
 
 A run task works by sending run-related information to an external third-party system. At that point, the external system evaluates the information and returns a passed or failed response back to Terraform Cloud. The status response, combined with the task’s enforcement setting, determines whether a run should proceed to the next stage of the workflow.
 
+![](<../.gitbook/assets/Terraform Cloud Run Demo Thumbnail.png>)
+
 {% hint style="info" %}
 Partners participating in the beta can add their feedback [here](https://hashi.co/run-tasks-feedback).
 {% endhint %}
