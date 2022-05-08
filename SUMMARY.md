@@ -26,6 +26,7 @@
 * [GitHub permissions](references/github-permissions.md)
 * [Token management](references/create-api-access-tokens.md)
 * [User roles](references/user-roles.md)
+* [How Moderne applies changes](references/how-moderne-applies-changes.md)
 
 ## Legal
 
