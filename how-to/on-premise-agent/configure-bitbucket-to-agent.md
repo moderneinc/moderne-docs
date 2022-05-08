@@ -1,6 +1,4 @@
-# Configure Bitbucket with Agent
-
-## Configure Bitbucket with Agent
+# Configure an agent with Bitbucket access
 
 Configuring your Moderne Agent instance with Bitbucket is a prerequisite for both viewing recipe results within the Moderne application and committing changes from a recipe.
 
@@ -50,7 +48,7 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
     | Public Key    | Paste the public key (`bitbucket_publickey.pem`) from step 1 |
 10. Click _Continue_ to complete the Application Link creation
 
-### Step 3 - Configure Moderne Agent with Bitbucket private key
+### Step 3 - Configure the Moderne Agent with a Bitbucket private key
 
 To complete the set-up of Bitbucket with the agent we will need to define the private key, `bitbucket_privatekey.pcks8`, we generated in Step 1 as a run-time parameter for the agent.
 

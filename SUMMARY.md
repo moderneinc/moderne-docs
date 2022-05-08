@@ -13,8 +13,8 @@
 * [Integrating private code with Moderne SaaS](how-to/integrating-private-code.md)
 * [Importing external recipes](how-to/importing-external-recipes.md)
 * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
-* [On-Premise Agent](how-to/on-premise-agent/README.md)
-  * [Configure Bitbucket with Agent](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
+* [On-premise agent](how-to/on-premise-agent/README.md)
+  * [Configure an agent with Bitbucket access](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
 * [🚀 Accessing the Moderne API](how-to/accessing-the-moderne-api.md)
 
 ## Releases
@@ -25,8 +25,8 @@
 
 * [GitHub permissions](references/github-permissions.md)
 * [Token management](references/create-api-access-tokens.md)
-* [User Roles](references/user-roles.md)
+* [User roles](references/user-roles.md)
 
 ## Legal
 
-* [Terms of Service](legal/terms-of-service.md)
+* [Terms of service](legal/terms-of-service.md)
