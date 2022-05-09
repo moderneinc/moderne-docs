@@ -55,7 +55,7 @@ Now we should see a number in the _Select Repositories_ button indicating how ma
 
 Click _Dry Run_ to start the recipe.
 
-![](<../.gitbook/assets/image (11).png>)
+![](<../.gitbook/assets/image (11) (1).png>)
 
 On the results page, you see a summary of your recipe criteria and an indication of progress.
 

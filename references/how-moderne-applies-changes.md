@@ -1,4 +1,4 @@
-# How Moderne applies changes
+# Interactions with git when applying changes
 
 The Moderne platform consists of a set of serialized abstract syntax trees (ASTs). Inside each AST is a record of the repository that the AST was produced from as well as the branch and commit that it was produced from.
 
