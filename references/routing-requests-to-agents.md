@@ -16,9 +16,9 @@ The combinations of configurations are varied. A single agent instance may be co
 
 Depending on the action, requests to these agents are routed differently. Moderne can partition requests across agents, broadcast to matching agents or not, and filter agents.
 
-| Broadcast | Partition | Responses | Examples                                                                                                                   |
-| --------- | --------- | --------- | -------------------------------------------------------------------------------------------------------------------------- |
-| yes       | yes       | many      | Scraping metrics from every agent                                                                                          |
-| no        | yes       | many      | Syncing AST artifacts from a representative agent for each distinct artifact repository (partition by artifact repository) |
-| yes       | no        | many      | No current use case                                                                                                        |
-| no        | no        | one       | Git commit                                                                                                                 |
+| Broadcast | Partition                            | Responses | Examples                                                                                                                   |
+| --------- | ------------------------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------- |
+| yes       | <mark style="color:red;">N/A?</mark> | many      | Scraping metrics from every agent                                                                                          |
+| no        | yes                                  | many      | Syncing AST artifacts from a representative agent for each distinct artifact repository (partition by artifact repository) |
+| yes       | no                                   | many      | No current use case                                                                                                        |
+| no        | no                                   | one       | Git commit                                                                                                                 |
