@@ -12,7 +12,7 @@ In this guide, we will
 
 ## Step 1: Go to [app.moderne.io](https://app.moderne.io) and _login_
 
-__![](<../.gitbook/assets/image (13).png>)__
+__![](<../.gitbook/assets/image (16) (1).png>)__
 
 ## Step 2: Sign in with GitHub
 

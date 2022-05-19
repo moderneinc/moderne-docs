@@ -18,7 +18,7 @@ Click on _Deploy_ in the left-hand menu.
 
 The artifact information will appear in the table if Moderne.io successfully locates the requested artifact.
 
-**Note:** If you have an [on-premise agent](on-premise-agent/) connected to an Artifactory instance, we will look up recipes in your Artifactory repositories in addition to [Nexus](https://oss.sonatype.org) and [Maven Central](https://search.maven.org).
+**Note:** If you have an [on-premise agent](on-premise-agent/) connected to an Artifactory instance, we will look up recipes in your Artifactory repositories in addition to [Nexus](https://oss.sonatype.org/) and [Maven Central](https://search.maven.org/).
 
 ## Step 3: View recipes in the catalog
 
