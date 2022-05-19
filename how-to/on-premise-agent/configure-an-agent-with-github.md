@@ -14,10 +14,18 @@ This guide will walk you through configuring a new OAuth Application in GitHub
 1. Navigate to the settings page for your organization: `https://github.com/organizations/<yourorg>/settings/applications`
 2. Expand Developer settings on the bottom left of the page.![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 12.56.51 PM.png>)
 3. Click the `New OAuth App` button in the upper right of your screen.
-4. Supply the required fields and Register the application.                                          ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.01.11 PM.png>)
+4. Supply the required fields and Register the application.  (See examples below)                                  ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.01.11 PM.png>)
 5. On your newly created application click the `Generate a new client secret` button\
    ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.17.35 PM.png>)
 6. Copy the Client ID and Client secret from this page; they will be used as arguments for the Moderne Agent. &#x20;
+
+#### **Example values**
+
+| Field                      | Example                    |
+| -------------------------- | -------------------------- |
+| Application Name           | `Moderne SaaS`             |
+| Homepage URL               | `https://myorg.moderne.io` |
+| Authorization callback URL | `https://myorg.moderne.io` |
 
 #### Step 2 - Configure the Moderne Agent arguments
 
