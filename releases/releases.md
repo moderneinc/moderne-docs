@@ -3,5 +3,5 @@
 | Component                   | Current version                            |
 | --------------------------- |--------------------------------------------|
 | Moderne Maven build plugin  | 0.10.0                                     |
-| Moderne Gradle build plugin | 0.13.0                                     |
+| Moderne Gradle build plugin | 0.13.1                                     |
 | Agent                       | `moderne-dev/moderne/moderne-agent:0.34.0` |
