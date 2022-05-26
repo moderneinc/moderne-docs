@@ -73,7 +73,7 @@ Quickly get a single-line instance of your private key with the key header/foote
 The following arguments must be provided in addition to the arguments provided in ![on-premise agent](./). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
 * `moderne_agent_bitbucket_{index}_private-key` - Private key configured in previous step
-* `moderne_agent_bitbucket_{index}_host` - fully-qualified hostname of running bitbucket instance. example: `bitbucket.org`
+* `moderne_agent_bitbucket_{index}_url` - fully-qualified URL of running bitbucket instance. example: `https://bitbucket.org`
 
 Example using Docker (note that host and private-key are fake):
 
@@ -81,9 +81,9 @@ Example using Docker (note that host and private-key are fake):
 docker run \
 ...
 -e moderne_agent_bitbucket_0_private-key=ABCDE \
--e moderne_agent_bitbucket_0_host=bitbucket.myorg.com \
+-e moderne_agent_bitbucket_0_url=https://bitbucket.myorg.com \
 -e moderne_agent_bitbucket_1_private-key=FGHIJ \
--e moderne_agent_bitbucket_1_host=bitbucket2.myorg.com \
+-e moderne_agent_bitbucket_1_url=http://bitbucket2.myorg.com \
 ...
 ```
 {% endtab %}
@@ -92,7 +92,7 @@ docker run \
 The following arguments must be provided in addition to the arguments provided in ![on-premise agent](./). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
 * `moderne.agent.bitbucket[{index}].private-key` - Private key configured in previous step
-* `moderne.agent.bitbucket[{index}].host` - fully-qualified hostname of running bucketbucket instance. example: `bitbucket.org`
+* `moderne.agent.bitbucket[{index}].url` - fully-qualified URL of running bucketbucket instance. example: `https://bitbucket.org`
 
 Note: system properties can be used in place of arguments. As an example, use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}` as an argument.
 
@@ -102,9 +102,9 @@ Example (note that host and private-key are fake):
 java -jar moderne-agent-{version}.jar \
 ...
 --moderne.agent.bitbucket[0].private-key=ABCDE \
---moderne.agent.bitbucket[0].host=bitbucket.myorg.com \
+--moderne.agent.bitbucket[0].url=https://bitbucket.myorg.com \
 --moderne.agent.bitbucket[1].private-key=FGHIJ \
---moderne.agent.bitbucket[1].host=bitbucket2.myorg.com \
+--moderne.agent.bitbucket[1].url=http://bitbucket2.myorg.com \
 ...
 ```
 {% endtab %}
