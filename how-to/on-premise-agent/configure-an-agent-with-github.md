@@ -33,9 +33,13 @@ This guide will walk you through configuring a new OAuth Application in GitHub
 {% tab title="OCI Container" %}
 The following arguments must be provided in addition to the arguments provided in ![on-premise agent](./). You can configure multiple GitHub OAuth Apps by including multiple entries with different indices. The Client ID and secret of each index must match up with the host for that index.
 
-* `moderne_agent_github[{index}]_githubOauthClientId` - Client id configured in the previous step
-* `moderne_agent_github[{index}]_githubOauthClientSecret` - Client secret configured in the previous step
+* `moderne_agent_github[{index}]_oauth_clientId` - Client id configured in the previous step
+* `moderne_agent_github[{index}]_oauth_clientSecret` - Client secret configured in the previous step
 * `moderne_agent_github[{index}]_url` - fully-qualified hostname of running GitHub instance
+
+By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can include the following optional configuration:
+
+* `moderne_agent_github[{index}]_oauth_includePrivateRepos=true`
 
 
 
@@ -44,8 +48,9 @@ Example (note that host, client id,  and client secret are fake):
 ```
 docker run \
 ...
--e moderne_agent_github_0_githubOauthClientId=ABCDE\
--e moderne_agent_github_0_githubOauthClientSecret=d70a0527 \
+-e moderne_agent_github_0_oauth_clientId=ABCDE\
+-e moderne_agent_github_0_oauth_clientSecret=d70a0527 \
+-e moderne_agent_github_0_oauth_includePrivateRepos=true \
 -e moderne_agent_github_0_url=https://myorg.github.com \
 ...
 ```
@@ -54,9 +59,17 @@ docker run \
 {% tab title="Executeable JAR" %}
 The following arguments must be provided in addition to the arguments provided in ![on-premise agent](./). You can configure multiple GitHub OAuth Apps by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
-* `moderne.agent.github[{index}].githubOauthClientId` - Client id configured in the previous step
-* `moderne.agent.github[{index}].githubOauthClientSecret` - Client secret configured in the previous step
+* `moderne.agent.github[{index}].oauth.clientId` - Client id configured in the previous step
+* `moderne.agent.github[{index}].oauth.clientSecret` - Client secret configured in the previous step
 * `moderne.agent.github[{index}].url` - fully-qualified hostname of running GitHub instance
+
+
+
+By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can include the following optional configuration:
+
+* `moderne_agent_github[{index}]`.`oauth.includePrivateRepos=true`
+
+
 
 Note: system properties can be used in place of arguments. As an example, use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}` as an argument.
 
@@ -65,8 +78,9 @@ Example (note that host, client id,  and client secret are fake):
 ```
 java -jar moderne-agent-{version}.jar \
 ...
---moderne.agent.github[0].githubOauthClientId=ABCDE \
---moderne.agent.github[0].githubOauthClientSecret=d70a0527 \
+--moderne.agent.github[0].oauth.clientId=ABCDE \
+--moderne.agent.github[0].oauth.clientSecret=d70a0527 \
+--moderne.agent.github[0].oauth.includePrivateRepos=true \
 --moderne.agent.github[0].url=https://myorg.github.com \
 ...
 ```
