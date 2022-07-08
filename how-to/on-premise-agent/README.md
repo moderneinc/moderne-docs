@@ -2,7 +2,7 @@
 description: How to run the Moderne on-premise agent
 ---
 
-# On-Premise Agent
+# On-premise agent
 
 The Moderne on-premise agent securely connects the Moderne SaaS to customers' environments. It's delivered as an OCI image and can be run using any OCI runtime (e.g., Docker, Podman).
 
@@ -24,10 +24,10 @@ The agent container requires several environment variables:
 * `MODERNE_AGENT_TOKEN` - Moderne SaaS agent connection token, provided by Moderne
 * `MODERNE_AGENT_CRYPTO_SYMMETRICKEY` - 256 bit AES encryption key, hex encoded
   * example OpenSSL command to generate: `openssl enc -aes-256-cbc -k secret -P` (use key from the output)
-* `MODERNE_AGENT_ARTIFACTORY_URL` - Artifactory URL
-* `MODERNE_AGENT_ARTIFACTORY_USERNAME` - username used to connect to Artifactory, requires permission to run AQL queries
-* `MODERNE_AGENT_ARTIFACTORY_PASSWORD` - password used to connect to Artifactory
-* `MODERNE_AGENT_ARTIFACTORY_ASTSQUERY` - AQL query fragment used to select AST artifacts to send to Moderne
+* `MODERNE_AGENT_ARTIFACTORY_0_URL` - Artifactory URL
+* `MODERNE_AGENT_ARTIFACTORY_0_USERNAME` - username used to connect to Artifactory, requires permission to run AQL queries
+* `MODERNE_AGENT_ARTIFACTORY_0_PASSWORD` - password used to connect to Artifactory
+* `MODERNE_AGENT_ARTIFACTORY_0_ASTSQUERYFILTERS_0` - AQL query fragment used to select AST artifacts to send to Moderne
 
 Example using Docker (note that agent token and symmetric key are random examples)
 
@@ -36,10 +36,11 @@ docker run \
 -e MODERNE_AGENT_API_GATEWAY_RSOCKET_URI=https://api.tenant.moderne.io/rsocket \
 -e MODERNE_AGENT_TOKEN=W43qp4h952T4w2qV \
 -e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=546A576E5A7234753778217A25432A462D4A614E645267556B58703273357638 \
--e MODERNE_AGENT_ARTIFACTORY_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_USERNAME=admin \
--e MODERNE_AGENT_ARTIFACTORY_PASSWORD=password \
--e MODERNE_AGENT_ARTIFACTORY_ASTSQUERY='{"repo":{"$eq":"example-maven"},"name":{"$match":"*-ast.jar"}}' \
+-e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_AGENT_ARTIFACTORY_0_USERNAME=admin \
+-e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_AGENT_ARTIFACTORY_0_ASTSQUERYFILTERS_0='{"name":{"$match":"*-ast.jar"}}' \
+-e MODERNE_AGENT_ARTIFACTORY_0_ASTSQUERYFILTERS_1='{"repo":{"$eq":"example-maven"}}' \
 ${MODERNE_AGENT_IMAGE_NAME}
 ```
 {% endtab %}
@@ -47,14 +48,14 @@ ${MODERNE_AGENT_IMAGE_NAME}
 {% tab title="Executable JAR" %}
 The agent application requires several arguments:
 
-* `--moderne.agent.api-gateway-rsocket-uri` - URI used to connect to the Moderne API, provided by Moderne
+* `--moderne.agent.apiGatewayRsocketUri` - URI used to connect to the Moderne API, provided by Moderne
 * `--moderne.agent.token` - Moderne SaaS agent connection token, provided by Moderne
 * `--moderne.agent.crypto.symmetricKey` - 256 bit AES encryption key, hex encoded
   * example openssl command to generate: `openssl enc -aes-256-cbc -k secret -P` (use key from the output)
-* `--moderne.agent.artifactory.url` - Artifactory URL
-* `--moderne.agent.artifactory.username` - username used to connect to Artifactory, requires permission to run AQL queries
-* `--moderne.agent.artifactory.password` - password used to connect to Artifactory
-* `--moderne.agent.artifactory.astsQuery` - AQL query fragment used to select AST artifacts to send to Moderne
+* `--moderne.agent.artifactory[0].url` - Artifactory URL
+* `--moderne.agent.artifactory[0].username` - username used to connect to Artifactory, requires permission to run AQL queries
+* `--moderne.agent.artifactory[0].password` - password used to connect to Artifactory
+* `--moderne.agent.artifactory[0].astQueryFilters[0]` - AQL query fragment used to select AST artifacts to send to Moderne
 
 Note: system properties can be used in place of arguments. As an example, use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}` as an argument.
 
@@ -65,10 +66,11 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.api-gateway-roscket-uri==https://api.tenant.moderne.io/rsocket \
 --moderne.agent.token=W43qp4h952T4w2qV \
 --moderne.agent.crypto.symmetricKey=546A576E5A7234753778217A25432A462D4A614E645267556B58703273357638 \
---moderne.agent.artifactory.url=https://myartifactory.example.com/artifactory/ \
---moderne.agent.artifactory.username=admin \
---moderne.agent.artifactory.password==password \
---moderne.agent.artifactory.astsQuery='{"repo":{"$eq":"example-maven"},"name":{"$match":"*-ast.jar"}}'
+--moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
+--moderne.agent.artifactory[0].username=admin \
+--moderne.agent.artifactory[0].password=password \
+--moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}'
 ```
 {% endtab %}
 {% endtabs %}
@@ -96,7 +98,7 @@ The Moderne agent optionally fetches secret configuration from Vault. It reads f
 3. Add the following keys to the moderne-agent secret:
    * `moderne.agent.token` - Moderne SaaS agent connection token, provided by Moderne
    * `moderne.agent.crypto.symmetricKey` - 256 bit AES encryption key, hex encoded
-   * `moderne.agent.artifactory.password` - Artifactory user password
+   * `moderne.agent.artifactory[0].password` - Artifactory user password
 
 {% tabs %}
 {% tab title="OCI Container" %}
