@@ -16,7 +16,7 @@ This guide will walk you through configuring a new OAuth Application in GitHub
 3. Click the `New OAuth App` button in the upper right of your screen.
 4. Supply the required fields and Register the application.  (See examples below)                                  ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.01.11 PM.png>)
 5. On your newly created application click the `Generate a new client secret` button\
-   ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.17.35 PM.png>)
+   ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.17.35 PM (1).png>)
 6. Copy the Client ID and Client secret from this page; they will be used as arguments for the Moderne Agent. &#x20;
 
 #### **Example values**
@@ -31,7 +31,7 @@ This guide will walk you through configuring a new OAuth Application in GitHub
 
 {% tabs %}
 {% tab title="OCI Container" %}
-The following arguments must be provided in addition to the arguments provided in ![on-premise agent](./). You can configure multiple GitHub OAuth Apps by including multiple entries with different indices. The Client ID and secret of each index must match up with the host for that index.
+The following arguments must be provided in addition to the arguments provided in [.](./ "mention"). You can configure multiple GitHub OAuth Apps by including multiple entries with different indices. The Client ID and secret of each index must match up with the host for that index.
 
 * `moderne_agent_github[{index}]_oauth_clientId` - Client id configured in the previous step
 * `moderne_agent_github[{index}]_oauth_clientSecret` - Client secret configured in the previous step
@@ -56,8 +56,8 @@ docker run \
 ```
 {% endtab %}
 
-{% tab title="Executeable JAR" %}
-The following arguments must be provided in addition to the arguments provided in ![on-premise agent](./). You can configure multiple GitHub OAuth Apps by including multiple entries with different indices. The private key of each index must match up with the host for that index.
+{% tab title="Executable JAR" %}
+The following arguments must be provided in addition to the arguments provided in [.](./ "mention"). You can configure multiple GitHub OAuth Apps by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
 * `moderne.agent.github[{index}].oauth.clientId` - Client id configured in the previous step
 * `moderne.agent.github[{index}].oauth.clientSecret` - Client secret configured in the previous step

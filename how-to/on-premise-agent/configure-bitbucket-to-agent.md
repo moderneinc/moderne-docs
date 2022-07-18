@@ -70,7 +70,7 @@ Quickly get a single-line instance of your private key with the key header/foote
 
 {% tabs %}
 {% tab title="OCI Container" %}
-The following arguments must be provided in addition to the arguments provided in ![on-premise agent](./). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
+The following arguments must be provided in addition to the arguments provided in [.](./ "mention"). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
 * `moderne_agent_bitbucket_{index}_private-key` - Private key configured in previous step
 * `moderne_agent_bitbucket_{index}_url` - fully-qualified URL of running bitbucket instance. example: `https://bitbucket.org`
@@ -89,7 +89,7 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-The following arguments must be provided in addition to the arguments provided in ![on-premise agent](./). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
+The following arguments must be provided in addition to the arguments provided in [.](./ "mention"). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
 * `moderne.agent.bitbucket[{index}].private-key` - Private key configured in previous step
 * `moderne.agent.bitbucket[{index}].url` - fully-qualified URL of running bucketbucket instance. example: `https://bitbucket.org`

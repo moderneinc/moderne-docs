@@ -38,7 +38,7 @@ docker run \
 ```
 {% endtab %}
 
-{% tab title="Executeable JAR" %}
+{% tab title="Executable JAR" %}
 The following arguments must be provided in addition to the arguments provided in [.](./ "mention").&#x20;
 
 
