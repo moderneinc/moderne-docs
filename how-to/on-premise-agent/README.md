@@ -10,8 +10,6 @@ The purpose of the Moderne on-premise agent is to encrypt and ship AST artifacts
 
 ## Getting Started
 
-### Basic Usage
-
 ### Run the agent container
 
 The Moderne on-premise agent is available as an OCI image or as a spring-boot executable jar artifact. Contact Moderne to obtain access. Moderne will provide access details appropriate for your chosen platform. In example commands below we will refer to this as `${MODERNE_AGENT_IMAGE_NAME}.` The latest one will be displayed in the "Agent" section of [the releases page](https://docs.moderne.io/releases/releases).
