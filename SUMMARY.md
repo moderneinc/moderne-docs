@@ -15,6 +15,7 @@
 * [On-premise agent](how-to/on-premise-agent/README.md)
   * [Configure an agent with Bitbucket access](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
   * [Configure an agent with GitHub](how-to/on-premise-agent/configure-an-agent-with-github.md)
+  * [Configure an agent with Artifactory access](how-to/on-premise-agent/configure-an-agent-with-artifactory-access.md)
 * [🚀 Accessing the Moderne API](how-to/accessing-the-moderne-api.md)
 
 ## Releases
