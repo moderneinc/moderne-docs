@@ -13,6 +13,7 @@
 * [Importing external recipes](how-to/importing-external-recipes.md)
 * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
 * [On-premise agent](how-to/on-premise-agent/README.md)
+  * [Standard configuration](how-to/on-premise-agent/standard-configuration.md)
   * [Configure an agent with Bitbucket access](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
   * [Configure an agent with GitHub](how-to/on-premise-agent/configure-an-agent-with-github.md)
   * [Configure an agent with Artifactory access](how-to/on-premise-agent/configure-an-agent-with-artifactory-access.md)

@@ -29,6 +29,8 @@ This guide will walk you through configuring a new OAuth Application in GitHub
 
 #### Step 2 - Configure the Moderne Agent arguments
 
+Please note that the commands and options below omit standard options documented at [standard-configuration.md](standard-configuration.md "mention"). You will need to merge the standard options into the commands documented below, which is indicated via ellipses.
+
 {% tabs %}
 {% tab title="OCI Container" %}
 The following arguments must be provided in addition to the arguments provided in [.](./ "mention"). You can configure multiple GitHub OAuth Apps by including multiple entries with different indices. The Client ID and secret of each index must match up with the host for that index.
@@ -39,7 +41,7 @@ The following arguments must be provided in addition to the arguments provided i
 
 By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can include the following optional configuration:
 
-* `moderne_agent_github[{index}]_oauth_includePrivateRepos=true`
+* MODERNE\_AGENT\_GITHUB\_{index}\_OAUTH\_INCLUDEPRIVATEREPOS`=true`
 
 
 

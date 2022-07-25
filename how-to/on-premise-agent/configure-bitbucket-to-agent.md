@@ -68,6 +68,8 @@ Quickly get a single-line instance of your private key with the key header/foote
 
 ## Argument configuration
 
+Please note that the commands and options below omit standard options documented at [standard-configuration.md](standard-configuration.md "mention"). You will need to merge the standard options into the commands documented below, which is indicated via ellipses.
+
 {% tabs %}
 {% tab title="OCI Container" %}
 The following arguments must be provided in addition to the arguments provided in [.](./ "mention"). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.

@@ -9,6 +9,8 @@ This guide will walk you through configuring the Moderne on-premise agent connec
 
 * Username and password for an Artifactory user that is allowed to issue the relevant AQL queries that will be configured
 
+Please note that the commands and options below omit standard options documented at [standard-configuration.md](standard-configuration.md "mention"). You will need to merge the standard options into the commands documented below, which is indicated via ellipses.
+
 {% tabs %}
 {% tab title="OCI Container" %}
 The following arguments must be provided in addition to the arguments provided in [.](./ "mention").&#x20;
