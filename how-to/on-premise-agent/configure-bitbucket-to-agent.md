@@ -72,7 +72,7 @@ Please note that the commands and options below omit standard options documented
 
 {% tabs %}
 {% tab title="OCI Container" %}
-The following arguments must be provided in addition to the arguments provided in [.](./ "mention"). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
+You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
 * `MODERNE_AGENT_BITBUCKET_{index}_PRIVATE_KEY` - Private key configured in previous step
 * `MODERNE_AGENT_BITBUCKET_{index}_URL` - fully-qualified URL of running bitbucket instance. example: `https://bitbucket.org`
@@ -91,7 +91,7 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-The following arguments must be provided in addition to the arguments provided in [.](./ "mention"). You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
+You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
 * `moderne.agent.bitbucket[{index}].private-key` - Private key configured in previous step
 * `moderne.agent.bitbucket[{index}].url` - fully-qualified URL of running bucketbucket instance. example: `https://bitbucket.org`

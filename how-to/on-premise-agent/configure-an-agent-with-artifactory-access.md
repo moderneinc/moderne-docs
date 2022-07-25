@@ -12,39 +12,7 @@ This guide will walk you through configuring the Moderne on-premise agent connec
 Please note that the commands and options below omit standard options documented at [standard-configuration.md](standard-configuration.md "mention"). You will need to merge the standard options into the commands documented below, which is indicated via ellipses.
 
 {% tabs %}
-{% tab title="OCI Container" %}
-The following arguments must be provided in addition to the arguments provided in [.](./ "mention").&#x20;
-
-
-
-You can configure multiple Artifactory servers by including multiple entries with different indices. Within a given Artifactory server configuration, you can configure mulitple AST query filters by including multiple entries with difference indices.
-
-* `MODERNE_AGENT_ARTIFACTORY_0_URL` - Artifactory URL
-* `MODERNE_AGENT_ARTIFACTORY_0_USERNAME` - username used to connect to Artifactory, requires permission to run AQL queries
-* `MODERNE_AGENT_ARTIFACTORY_0_PASSWORD` - password used to connect to Artifactory
-* `MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0` - AQL query fragment used to select AST artifacts to send to Moderne
-
-
-
-Example
-
-```
-docker run \
-...
--e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=password \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
-...
-```
-{% endtab %}
-
 {% tab title="Executable JAR" %}
-The following arguments must be provided in addition to the arguments provided in [.](./ "mention").&#x20;
-
-
-
 You can configure multiple Artifactory servers by including multiple entries with different indices. Within a given Artifactory server configuration, you can configure mulitple AST query filters by including multiple entries with difference indices.
 
 

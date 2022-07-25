@@ -33,7 +33,7 @@ Please note that the commands and options below omit standard options documented
 
 {% tabs %}
 {% tab title="OCI Container" %}
-The following arguments must be provided in addition to the arguments provided in [.](./ "mention"). You can configure multiple GitHub OAuth Apps by including multiple entries with different indices. The Client ID and secret of each index must match up with the host for that index.
+You can configure multiple GitHub OAuth Apps by including multiple entries with different indices. The Client ID and secret of each index must match up with the host for that index.
 
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_CLIENTID` - Client id configured in the previous step
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_CLIENTSECRET` - Client secret configured in the previous step
@@ -59,7 +59,7 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-The following arguments must be provided in addition to the arguments provided in [.](./ "mention"). You can configure multiple GitHub OAuth Apps by including multiple entries with different indices. The private key of each index must match up with the host for that index.
+You can configure multiple GitHub OAuth Apps by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
 * `moderne.agent.github[{index}].oauth.clientId` - Client id configured in the previous step
 * `moderne.agent.github[{index}].oauth.clientSecret` - Client secret configured in the previous step
