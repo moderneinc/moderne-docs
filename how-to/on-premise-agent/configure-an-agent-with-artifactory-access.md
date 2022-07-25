@@ -20,7 +20,7 @@ You can configure multiple Artifactory servers by including multiple entries wit
 * `MODERNE_AGENT_ARTIFACTORY_0_URL` - Artifactory URL
 * `MODERNE_AGENT_ARTIFACTORY_0_USERNAME` - username used to connect to Artifactory, requires permission to run AQL queries
 * `MODERNE_AGENT_ARTIFACTORY_0_PASSWORD` - password used to connect to Artifactory
-* `MODERNE_AGENT_ARTIFACTORY_0_ASTSQUERYFILTERS_0` - AQL query fragment used to select AST artifacts to send to Moderne
+* `MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0` - AQL query fragment used to select AST artifacts to send to Moderne
 
 
 
@@ -32,8 +32,8 @@ docker run \
 -e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_AGENT_ARTIFACTORY_0_USERNAME=admin \
 -e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=password \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTSQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTSQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 ...
 ```
 {% endtab %}
