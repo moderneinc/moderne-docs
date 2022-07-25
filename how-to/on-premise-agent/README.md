@@ -22,10 +22,6 @@ The agent container requires several environment variables:
 * `MODERNE_AGENT_TOKEN` - Moderne SaaS agent connection token, provided by Moderne
 * `MODERNE_AGENT_CRYPTO_SYMMETRICKEY` - 256 bit AES encryption key, hex encoded
   * example OpenSSL command to generate: `openssl enc -aes-256-cbc -k secret -P` (use key from the output)
-* `MODERNE_AGENT_ARTIFACTORY_0_URL` - Artifactory URL
-* `MODERNE_AGENT_ARTIFACTORY_0_USERNAME` - username used to connect to Artifactory, requires permission to run AQL queries
-* `MODERNE_AGENT_ARTIFACTORY_0_PASSWORD` - password used to connect to Artifactory
-* `MODERNE_AGENT_ARTIFACTORY_0_ASTSQUERYFILTERS_0` - AQL query fragment used to select AST artifacts to send to Moderne
 
 Example using Docker (note that agent token and symmetric key are random examples)
 
