@@ -10,9 +10,9 @@ In the top right-hand corner of the app, click on your profile avatar and select
 
 ![](../.gitbook/assets/account-settings-menu.png)
 
-### Step 2: View list of any existing tokens
+### Step 2: View the list of any existing tokens
 
-You From [https://app.moderne.io/settings/tokens](https://app.moderne.io/settings/tokens)
+You From [https://public.moderne.io/settings/access-token](https://public.moderne.io/settings/access-token)
 
 ![](../.gitbook/assets/access-token-remove.png)
 

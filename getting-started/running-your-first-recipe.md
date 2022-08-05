@@ -10,7 +10,7 @@ In this guide, we will
 * [ ] **Narrow our focus and run a recipe to transform a repository based on the search**
 * [ ] **Verify the results and issue a Pull Request to transform the code**
 
-## Step 1: Go to [app.moderne.io](https://app.moderne.io) and _login_
+## Step 1: Go to [public.moderne.io](https://public.moderne.io/) and _login_
 
 __![](<../.gitbook/assets/image (16) (1).png>)__
 
