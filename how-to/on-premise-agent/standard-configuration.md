@@ -52,7 +52,7 @@ Example (note that agent token and symmetric key are random examples)
 ```
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.nickname=prod-1 \
---moderne.agent.api-gateway-roscket-uri==https://api.tenant.moderne.io/rsocket \
+--moderne.agent.api-gateway-rsocket-uri==https://api.tenant.moderne.io/rsocket \
 --moderne.agent.token=W43qp4h952T4w2qV \
 --moderne.agent.crypto.symmetricKey=546A576E5A7234753778217A25432A462D4A614E645267556B58703273357638
 ```
