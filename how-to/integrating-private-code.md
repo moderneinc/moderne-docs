@@ -20,7 +20,7 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
       <plugin>
         <groupId>io.moderne</groupId>
         <artifactId>moderne-maven-plugin</artifactId>
-        <version>0.16.0</version>
+        <version>0.18.0</version>
         <configuration>
           <!-- Supports all of the same functionality as the OpenRewrite plugin -->
           <activeRecipes>
@@ -45,7 +45,7 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
 {% code title="build.gradle" %}
 ```groovy
 plugins {
-    id("io.moderne.rewrite") version("0.17.0")
+    id("io.moderne.rewrite") version("0.18.0")
 }
 
 // OpenRewrite and recipe modules are published to Maven Central
@@ -58,12 +58,6 @@ rewrite {
     // Supports all of the same functionality as the OpenRewrite plugin
 }
 ```
-In multi-project builds the behavior of the plugin will differ slightly depending on whether it is applied to the root project.
-When applied to the root project, the plugin applies itself to all projects in the build.
-When applied to a sub-project, the plugin applies itself only to that project.
-
-So if you want only certain projects within your multi-project build to be searchable and refactorable in the Moderne SaaS, you can apply the plugin only to those projects.
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -80,18 +74,16 @@ Gradle users can continue invoking `gradlew rewriteDryRun` and `gradlew rewriteR
 
 ## Step 2: Configure Publishing
 
-The Moderne SaaS requires that the AST artifacts produced by the build plugin be published to your artifact repository.
-This may require you to publish AST artifacts from projects that do not currently publish anything.
+The Moderne SaaS requires that the AST artifacts produced by the build plugin be published to your artifact repository. This may require you to publish AST artifacts from projects that do not currently publish anything.
 
 {% tabs %}
 {% tab title="Maven" %}
-
 Typically, no additional publishing configuration is required for Maven builds.
-
 {% endtab %}
+
 {% tab title="Gradle" %}
-Each project the plugin is applied to will have a `Jar` task named `moderneJar` which produces the AST jar in the project's build folder.
-This is the file that needs to be published to your artifact repository to enable Moderne SaaS integration.
+Each project the plugin is applied to will have a `Jar` task named `moderneJar` which produces the AST jar in the project's build folder. This is the file that needs to be published to your artifact repository to enable Moderne SaaS integration.
+
 {% code title="single project build" %}
 ```groovy
 plugins {
@@ -115,7 +107,6 @@ publishing {
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
 
 ## Step 3: Build and publish the next version of your project
 
