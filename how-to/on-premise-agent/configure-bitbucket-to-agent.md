@@ -76,6 +76,7 @@ You can configure multiple bitbuckets by including multiple entries with differe
 
 * `MODERNE_AGENT_BITBUCKET_{index}_PRIVATE_KEY` - Private key configured in previous step
 * `MODERNE_AGENT_BITBUCKET_{index}_URL` - fully-qualified URL of running bitbucket instance. example: `https://bitbucket.org`
+* `MODERNE_AGENT_BITBUCKET_{index}_SKIP_SSL` - skip SSL validation for HTTP connections to this Bitbucket instance (defaults to false)
 
 Example using Docker (note that host and private-key are fake):
 
@@ -95,6 +96,7 @@ You can configure multiple bitbuckets by including multiple entries with differe
 
 * `moderne.agent.bitbucket[{index}].private-key` - Private key configured in previous step
 * `moderne.agent.bitbucket[{index}].url` - fully-qualified URL of running bucketbucket instance. example: `https://bitbucket.org`
+* `moderne.agent.bitbucket[{index}].skipSsl` - skip SSL validation for HTTP connections to this Bitbucket instance (defaults to false)
 
 Note: system properties can be used in place of arguments. As an example, use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}` as an argument.
 
