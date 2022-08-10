@@ -11,6 +11,7 @@ Moderne requires a select number of OAuth scopes necessary to help you transform
 | Repositories (public)   | Read/write | Create branches, create forks of public projects, and push changesets on your behalf.                                           |
 | ----------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | Organizations and teams | Read-only  | Understand the organizations you belong to and your level of access within them.                                                |
+| Workflow                | Read/write | Recipes that alter GitHub Action workflow files require this permission to make commits to them.                                |
 | Personal user data      | Read-only  | Recognize your account as a new or returning user. Email and Profile are included by default with OpenID Connect through OAuth. |
 
 ## GitHub OAuth applications vs. GitHub applications
