@@ -17,7 +17,8 @@ You can configure multiple Artifactory servers by including multiple entries wit
 * `MODERNE_AGENT_ARTIFACTORY_0_URL` - Artifactory URL
 * `MODERNE_AGENT_ARTIFACTORY_0_USERNAME` - username used to connect to Artifactory, requires permission to run AQL queries
 * `MODERNE_AGENT_ARTIFACTORY_0_PASSWORD` - password used to connect to Artifactory
-* `MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0` - AQL query fragment used to select AST artifacts to send to Moderne
+* `MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0` - AQL query fragment used to select AST artifacts to send to&#x20;
+* `MODERNE_AGENT_ARTIFACTORY_0_SKIP_SSL` - skip SSL validation for HTTP connections to this Artifactory instance (defaults to false)
 
 
 
@@ -44,6 +45,7 @@ You can configure multiple Artifactory servers by including multiple entries wit
 * `--moderne.agent.artifactory[0].username` - username used to connect to Artifactory, requires permission to run AQL queries
 * `--moderne.agent.artifactory[0].password` - password used to connect to Artifactory
 * `--moderne.agent.artifactory[0].astQueryFilters[0]` - AQL query fragment used to select AST artifacts to send to Moderne
+* `--moderne.agent.artifactory[0].skipSsl` - skip SSL validation for HTTP connections to this Artifactory instance (defaults to false)
 
 
 
