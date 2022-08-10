@@ -1,7 +1,6 @@
 # Configure an agent with Artifactory access
 
-Configuring your Moderne Agent instance with Artifactory is a prerequisite for viewing recipe results within the Moderne application.\
-
+Artifactory serves a source of AST artifacts for Moderne. This integration uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to identify AST artifacts that have not yet been encrypted and transmitted to Moderne in near real-time.
 
 This guide will walk you through configuring the Moderne on-premise agent connection to Artifactory.
 
@@ -9,7 +8,7 @@ This guide will walk you through configuring the Moderne on-premise agent connec
 
 * Username and password for an Artifactory user that is allowed to issue the relevant AQL queries that will be configured
 
-Please note that the commands and options below omit standard options documented at [standard-configuration.md](standard-configuration.md "mention"). You will need to merge the standard options into the commands documented below, which is indicated via ellipses.
+Please note that the commands and options below omit standard options documented at [standard-configuration.md](../standard-configuration.md "mention"). You will need to merge the standard options into the commands documented below, which is indicated via ellipses.
 
 {% tabs %}
 {% tab title="OCI Container" %}
