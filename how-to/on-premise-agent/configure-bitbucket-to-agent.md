@@ -33,7 +33,6 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
     | Application Type      | Generic Application              |
     | Service Provider Name | `moderne`                        |
     | Consumer key          | `OauthKey`                       |
-    | Shared secret         | Enter in your own secret         |
     | Request token URL     | `https://your-domain.moderne.io` |
     | Access token URL      | `https://your-domain.moderne.io` |
     | Authorize URL         | `https://your-domain.moderne.io` |
