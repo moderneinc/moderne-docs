@@ -3,7 +3,7 @@
 ### Running Moderne Agent Docker container
 
 ```
-docker run --env-file sample-agent.env moderne.azurecr.io/moderne-dev/moderne/moderne-agent:0.77.0
+docker run --env-file sample-agent.env moderne-dev/moderne/moderne-agent:0.74.0
 ```
 
 ### Example `sample-agent.env` file
@@ -33,4 +33,7 @@ MODERNE_AGENT_ARTIFACTORY_0_USERNAME=myartifactory
 MODERNE_AGENT_ARTIFACTORY_0_PASSWORD==myartifactory_password
 MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}'
 MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}'
+
+# (Optional) Artifactory Recipes
+MODERNE_AGENT_ARTIFACTORY_0_RECIPEREPOSITORIES_0=custom_recipes
 ```
