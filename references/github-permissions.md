@@ -8,11 +8,12 @@ Moderne requires a select number of OAuth scopes necessary to help you transform
 
 ![](../.gitbook/assets/authentication-github-permissions.png)
 
-| Repositories (public)   | Read/write | Create branches, create forks of public projects, and push changesets on your behalf.                                           |
-| ----------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Organizations and teams | Read-only  | Understand the organizations you belong to and your level of access within them.                                                |
-| Workflow                | Read/write | Recipes that alter GitHub Action workflow files require this permission to make commits to them.                                |
-| Personal user data      | Read-only  | Recognize your account as a new or returning user. Email and Profile are included by default with OpenID Connect through OAuth. |
+| Repositories (public)                 | Read/write | Create branches, create forks of public repositories, and push changesets on your behalf.                                                                                                                                                                                                                                                               |
+| ------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Repositories (private) **(optional)** | Read/write | <p>Create branches, create forks of private repositories, and push changesets on your behalf.<br><br>Only enabled if <code>includePrivateRepos=true</code> is set in agent configuration for GitHub. See <a data-mention href="../how-to/on-premise-agent/configure-an-agent-with-github.md">configure-an-agent-with-github.md</a> for more detail.</p> |
+| Organizations and teams               | Read-only  | Understand the organizations you belong to and your level of access within them.                                                                                                                                                                                                                                                                        |
+| Workflow                              | Read/write | Recipes that alter GitHub Action workflow files require this permission to make commits to them.                                                                                                                                                                                                                                                        |
+| Personal user data                    | Read-only  | Recognize your account as a new or returning user. Email and Profile are included by default with OpenID Connect through OAuth.                                                                                                                                                                                                                         |
 
 ## GitHub OAuth applications vs. GitHub applications
 
