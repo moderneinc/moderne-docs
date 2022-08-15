@@ -3,7 +3,7 @@
 ### Running Moderne Agent Docker container
 
 ```
-docker run --env-file sample-agent.env moderne-dev/moderne/moderne-agent:0.65.0
+docker run --env-file sample-agent.env moderne-dev/moderne/moderne-agent:0.74.0
 ```
 
 ### Example `sample-agent.env` file

@@ -58,7 +58,11 @@ You can configure multiple Maven repositories by including multiple entries with
 * `MODERNE_AGENT_MAVEN_0_URL` - repository URL
 * `MODERNE_AGENT_MAVEN_0_USERNAME` - username used to resolve artifacts, if any
 * `MODERNE_AGENT_MAVEN_0_PASSWORD` - password used to resolve artifacts, if any
-* `MODERNE_AGENT_MAVEN_0_LOCAL_REPOSITORY` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer). **Note:** If multiple mavens are configured on the same agent, they **must** have different `LOCAL_REPOSITORY` configured.
+* `MODERNE_AGENT_MAVEN_0_LOCAL_REPOSITORY` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer).&#x20;
+
+{% hint style="info" %}
+If multiple mavens are configured on the same agent, they **must** have different `MODERNE_AGENT_MAVEN_{index}_LOCAL_REPOSITORY` configured.
+{% endhint %}
 
 Example
 
