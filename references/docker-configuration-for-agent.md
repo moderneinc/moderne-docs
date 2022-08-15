@@ -3,7 +3,10 @@
 ### Running Moderne Agent Docker container
 
 ```
-docker run --env-file sample-agent.env -p 8080:8080 moderne.azurecr.io/moderne-dev/moderne/moderne-agent:0.77.0
+docker run \
+    --env-file sample-agent.env \
+    -p 8080:8080 \ 
+    moderne.azurecr.io/moderne-dev/moderne/moderne-agent:0.78.0
 ```
 
 ### Example `sample-agent.env` file

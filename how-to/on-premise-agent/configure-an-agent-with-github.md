@@ -40,7 +40,7 @@ You can configure multiple GitHub OAuth Apps by including multiple entries with 
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_CLIENTID` - Client id configured in the previous step
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_CLIENTSECRET` - Client secret configured in the previous step
 * `MODERNE_AGENT_GITHUB_{index}_URL` - fully-qualified hostname of running GitHub instance
-* `MODERNE_AGENT_GITHUB_{index}_SKIP_SSL` - skip SSL validation for HTTP connections to this GitHub instance (defaults to false)
+* `MODERNE_AGENT_GITHUB_{index}_SKIPSSL` - skip SSL validation for HTTP connections to this GitHub instance (defaults to false)
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_INCLUDEPRIVATEREPOS` - By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can include the following optional configuration:
 
 
