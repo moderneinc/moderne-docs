@@ -5,6 +5,8 @@ Configuring your Moderne Agent instance with GitHub is a prerequisite for both v
 
 This guide will walk you through configuring a new OAuth Application in GitHub
 
+[Why an OAuth app and not a GitHub app?](../../references/github-permissions.md)
+
 **Prerequisites**
 
 * Administrator access to your organization's GitHub account.
