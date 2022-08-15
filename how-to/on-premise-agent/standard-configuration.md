@@ -30,9 +30,10 @@ Example using Docker (note that agent token and symmetric key are random example
 ```
 docker run \
 -e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_API_GATEWAY_RSOCKET_URI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
 -e MODERNE_AGENT_TOKEN=W43qp4h952T4w2qV \
 -e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=546A576E5A7234753778217A25432A462D4A614E645267556B58703273357638 \
+-p 8080:8080
 ${MODERNE_AGENT_IMAGE_NAME}
 ```
 {% endtab %}
