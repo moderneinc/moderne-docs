@@ -20,7 +20,7 @@ docker login -u moderne-tenant -p <ACR password, provided by Moderne> moderne.az
 
 The agent container requires several environment variables:
 
-* `MODERNE_AGENT_API_GATEWAY_RSOCKET_URI` - URI used to connect to the Moderne API, provided by Moderne
+* `MODERNE_AGENT_APIGATEWAYRSOCKETURI` - URI used to connect to the Moderne API, provided by Moderne
 * `MODERNE_AGENT_TOKEN` - Moderne SaaS agent connection token, provided by Moderne
 * `MODERNE_AGENT_CRYPTO_SYMMETRICKEY` - 256 bit AES encryption key, hex encoded
   * example OpenSSL command to generate: `openssl enc -aes-256-cbc -k secret -P` (use key from the output)
