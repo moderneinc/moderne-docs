@@ -58,7 +58,7 @@ You can configure multiple Maven repositories by including multiple entries with
 * `MODERNE_AGENT_MAVEN_0_URL` - repository URL
 * `MODERNE_AGENT_MAVEN_0_USERNAME` - username used to resolve artifacts, if any
 * `MODERNE_AGENT_MAVEN_0_PASSWORD` - password used to resolve artifacts, if any
-* `MODERNE_AGENT_MAVEN_0_LOCAL_REPOSITORY` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer).
+* `MODERNE_AGENT_MAVEN_0_LOCAL_REPOSITORY` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer). **Note:** If multiple mavens are configured on the same agent, they **must** have different `LOCAL_REPOSITORY` configured.
 
 Example
 
@@ -78,7 +78,7 @@ You can configure multiple repositories by including multiple entries with diffe
 * `--moderne.agent.maven[0].url` - repository URL
 * `--moderne.agent.maven[0].username` - username used to resolve artifacts, if any
 * `--moderne.agent.maven[0].password` - password used to resolve artifacts, if any
-* `--moderne.agent.maven[0].localRepository` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer).
+* `--moderne.agent.maven[0].localRepository` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer). **Note:** If multiple mavens are configured on the same agent, they **must** have different `localRepository` configured.
 
 
 
