@@ -22,7 +22,7 @@ MODERNE_AGENT_NICKNAME=prod-1
 
 # Bitbucket Server
 MODERNE_AGENT_BITBUCKET_0_URL=https://mybitbucket.your-domain.com
-MODERNE_AGENT_BITBUCKET_0_PRIVATE_KEY=REALLY_LONG_PRIVATE_KEY_AS_ONE_LINE
+MODERNE_AGENT_BITBUCKET_0_PRIVATEKEY=REALLY_LONG_PRIVATE_KEY_AS_ONE_LINE
 
 # GitHub Configuration with GitHub OAuth Client
 MODERNE_AGENT_GITHUB_0_URL=https://github.com # https://github.on-prem.your-domain.com
