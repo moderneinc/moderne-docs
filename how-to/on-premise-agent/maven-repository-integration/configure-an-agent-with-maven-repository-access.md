@@ -58,11 +58,13 @@ You can configure multiple Maven repositories by including multiple entries with
 * `MODERNE_AGENT_MAVEN_0_URL` - repository URL
 * `MODERNE_AGENT_MAVEN_0_USERNAME` - username used to resolve artifacts, if any
 * `MODERNE_AGENT_MAVEN_0_PASSWORD` - password used to resolve artifacts, if any
-* `MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer).&#x20;
+* `MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer).
 
 {% hint style="info" %}
 If multiple mavens are configured on the same agent, they **must** have different `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` configured.
 {% endhint %}
+
+* `MODERNE_AGENT_MAVEN_0_SKIPSSL` - Skip SSL/TLS verification for calls from Agent to this Maven repository. Required if you use a self-signed SSL/TLS certificate.
 
 Example
 
@@ -82,7 +84,13 @@ You can configure multiple repositories by including multiple entries with diffe
 * `--moderne.agent.maven[0].url` - repository URL
 * `--moderne.agent.maven[0].username` - username used to resolve artifacts, if any
 * `--moderne.agent.maven[0].password` - password used to resolve artifacts, if any
-* `--moderne.agent.maven[0].localRepository` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer). **Note:** If multiple mavens are configured on the same agent, they **must** have different `localRepository` configured.
+* `--moderne.agent.maven[0].localRepository` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer).
+
+{% hint style="info" %}
+If multiple mavens are configured on the same agent, they **must** have different `localRepository` configured.
+{% endhint %}
+
+* `--moderne.agent.maven[0].skipSsl` - Skip SSL/TLS verification for calls from Agent to this Maven repository. Required if you use a self-signed SSL/TLS certificate.
 
 
 
