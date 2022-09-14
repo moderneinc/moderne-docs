@@ -59,7 +59,7 @@ Click _Dry Run_ to start the recipe.
 
 On the results page, you see a summary of your recipe criteria and an indication of progress.
 
-![](<../.gitbook/assets/image (12) (1).png>)
+![](<../.gitbook/assets/image (12).png>)
 
 Each result for a repository shows files searched and changes detected.
 

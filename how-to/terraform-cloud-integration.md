@@ -36,7 +36,7 @@ Think of this like a static analyzer but with auto-remediation!
 
 1\. Sign up for the Moderne platform using the request form at [Moderne.io](https://moderne.io). To test the integration without connecting any of your own code to the Moderne platform, you can create a copy of the [terraform-random](https://github.com/moderneinc/terraform-random) project using the "Use this template" button in Github:
 
-![](<../.gitbook/assets/image (2).png>)
+![](<../.gitbook/assets/image (2) (1).png>)
 
 2\. Login to Terraform Cloud and go into the organization global settings.
 
@@ -46,7 +46,7 @@ Think of this like a static analyzer but with auto-remediation!
 
 3\. Create a new Task Event Hook for Moderne, pointing the URL to https://api.moderne.io/terraform-cloud.
 
-![](<../.gitbook/assets/image (4) (1).png>)
+![](<../.gitbook/assets/image (4).png>)
 
 The `requestedRecipe` query parameter allows you to control which recipe will run. The recipe id for this query parameter can be copied from the recipe detail of any Terraform recipe on the Moderne platform.
 
@@ -60,7 +60,7 @@ workspace of choice.
 
 4\. Choose Tasks.
 
-![](<../.gitbook/assets/image (7) (1).png>)
+![](<../.gitbook/assets/image (7).png>)
 
 4\. Choose an enforcement level.
 
@@ -78,7 +78,7 @@ You should be able to complete the next scenarios as your org admin user or as a
 
 When all tasks pass, a run should be applyable. Whether a task passes or fails, you will be provided with a details link that links to the Moderne platform to display the result of the recipe that the task ran.
 
-![Two Moderne recipes ran as part of the Run Task run](<../.gitbook/assets/image (9) (1).png>)
+![Two Moderne recipes ran as part of the Run Task run](<../.gitbook/assets/image (9).png>)
 
 When a task fails, you can expect to see a diff in the Moderne platform along with commit and PR links that help you immediately fix the underlying issue.
 

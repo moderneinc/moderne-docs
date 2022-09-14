@@ -41,7 +41,8 @@ You can configure multiple GitHub OAuth Apps by including multiple entries with 
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_CLIENTSECRET` - Client secret configured in the previous step
 * `MODERNE_AGENT_GITHUB_{index}_URL` - fully-qualified hostname of running GitHub instance
 * `MODERNE_AGENT_GITHUB_{index}_SKIPSSL` - skip SSL validation for HTTP connections to this GitHub instance (defaults to false)
-* `MODERNE_AGENT_GITHUB_{index}_OAUTH_INCLUDEPRIVATEREPOS` - By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can include the following optional configuration:
+* `MODERNE_AGENT_GITHUB_{index}_OAUTH_INCLUDEPRIVATEREPOS` - By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can include the following optional configuration
+* `MODERNE_AGENT_GITHUB_{index}_ALLOWABLE_ORGANIZATIONS_{index}` - By default, there are no restrictions on which organizations can be committed to
 
 
 
@@ -54,6 +55,7 @@ docker run \
 -e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=d70a0527 \
 -e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 -e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
+-e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 ...
 ```
 {% endtab %}
@@ -65,6 +67,7 @@ You can configure multiple GitHub OAuth Apps by including multiple entries with 
 * `moderne.agent.github[{index}].oauth.clientSecret` - Client secret configured in the previous step
 * `moderne.agent.github[{index}].url` - fully-qualified hostname of running GitHub instance
 * `moderne.agent.github[{index}].skipSsl` - skip SSL validation for HTTP connections to this GitHub instance (defaults to false)
+* `moderne.agent.github[{index}].allowableOrganizations[{index}]` - By default, there are no restrictions on which organizations can be committed to.&#x20;
 
 
 
