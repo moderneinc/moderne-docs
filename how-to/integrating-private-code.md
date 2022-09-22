@@ -20,7 +20,7 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
       <plugin>
         <groupId>io.moderne</groupId>
         <artifactId>moderne-maven-plugin</artifactId>
-        <version>0.24.0</version>
+        <version>0.26.0</version>
         <configuration>
           <!-- Supports all of the same functionality as the OpenRewrite plugin -->
           <activeRecipes>
@@ -45,7 +45,7 @@ In the pom.xml or build.gradle, add this entry to the `plugins` section to apply
 {% code title="build.gradle" %}
 ```groovy
 plugins {
-    id("io.moderne.rewrite") version("0.24.0")
+    id("io.moderne.rewrite") version("0.26.0")
 }
 
 // OpenRewrite and recipe modules are published to Maven Central
@@ -87,7 +87,7 @@ Each project the plugin is applied to will have a `Jar` task named `moderneJar` 
 {% code title="single project build" %}
 ```groovy
 plugins {
-    id("io.moderne.rewrite") version("0.8.1")
+    id("io.moderne.rewrite") version("0.26.0")
     id("maven-publish")
 }
 
