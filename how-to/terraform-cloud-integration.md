@@ -46,7 +46,7 @@ Think of this like a static analyzer but with auto-remediation!
 
 3\. Create a new Task Event Hook for Moderne, pointing the URL to https://api.moderne.io/terraform-cloud.
 
-![](<../.gitbook/assets/image (4).png>)
+![](<../.gitbook/assets/image (4) (1).png>)
 
 The `requestedRecipe` query parameter allows you to control which recipe will run. The recipe id for this query parameter can be copied from the recipe detail of any Terraform recipe on the Moderne platform.
 
