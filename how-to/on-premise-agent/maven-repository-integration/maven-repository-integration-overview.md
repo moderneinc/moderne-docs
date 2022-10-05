@@ -4,7 +4,7 @@ Maven repositories are potential sources of both Abstract Syntax Tree (AST) arti
 
 A particular Maven repository may contain either ASTs or recipe artifacts, or a mixture of both. Several open source and commercial products exist to serve artifacts using the Maven repository format. A single instance of one of these products may contain multiple Maven repositories.
 
-![](<../../../.gitbook/assets/image (12) (1).png>)![](<../../../.gitbook/assets/image (4) (1) (1).png>)
+![](<../../../.gitbook/assets/image (12) (1).png>)![](<../../../.gitbook/assets/image (21).png>)
 
 ### Comparison of two Maven integrations
 
@@ -20,8 +20,8 @@ AST artifacts may be served via this integration if an index in the [Maven Index
 
 #### [Artifactory configuration](configure-an-agent-with-artifactory-access.md)
 
-The Artifactory repository configuration is built to serve AST artifacts only. If you wish to serve recipe artifacts from a Maven repository hosted by Artifactory, you should add a separate Maven repository configuration.
+The Artifactory repository configuration is built to serve AST artifacts only. If you wish to serve recipe artifacts from a Maven repository hosted by Artifactory, you will need to add a separate Maven repository configuration.
 
-AST artifacts will show up in near real time in the Moderne platform when they are published to Artifactory.&#x20;
+AST artifacts will show up in near-real time in the Moderne platform when they are published to Artifactory.&#x20;
 
 This integration uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to identify recently published artifacts. AQL queries Artifactory's internal relational database for information about artifacts rather than an index produced in a batch process.
