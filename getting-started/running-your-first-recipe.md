@@ -48,20 +48,28 @@ Let's find a good recipe to start from to help illustrate how to search across m
 By default, all of the repositories are selected. Let's change that so we only run our recipe on the OpenRewrite repositories. &#x20;
 
 1. Click on the _Select Repositories_ button.
-2. Click on the `<<` arrows at the bottom to clear the selected repositories. ![](../.gitbook/assets/RemoveRepositories.png)
+2.  Click on the `<<` arrows at the bottom to clear the selected repositories.&#x20;
+
+    <figure><img src="../.gitbook/assets/RemoveRepositories.png" alt=""><figcaption></figcaption></figure>
 3. Press the _Add Filter_ button.
-4. Enter _openrewrite_ in the text box.                                                                                       ![](../.gitbook/assets/OpenRewriteFilter.png)
+4.  Enter _openrewrite_ in the text box.                                                                                      &#x20;
+
+    <figure><img src="../.gitbook/assets/OpenRewriteFilter.png" alt=""><figcaption></figcaption></figure>
 5. Press the `>>` arrows at the top to select all of the OpenRewrite repositories.
-6. You should now see all of the OpenRewrite repositories listed under _Selected repositories._![](../.gitbook/assets/SelectedRepositories.png)__
+6.  You should now see all of the OpenRewrite repositories listed under _Selected repositories._
+
+    <figure><img src="../.gitbook/assets/SelectedRepositories.png" alt=""><figcaption></figcaption></figure>
 7. Click anywhere outside of the filter box to confirm your selection.
 
 ## Step 6: Run the recipe
 
 Click _Dry Run_ to start the recipe. You might be asked for additional GitHub permissions after you click this button.
 
-![](../.gitbook/assets/DryRun.png)
+<figure><img src="../.gitbook/assets/DryRun.png" alt=""><figcaption></figcaption></figure>
 
-On the results page, you will see a summary of your recipe criteria and an indication of progress.![](../.gitbook/assets/RecipeResults.png)
+On the results page, you will see a summary of your recipe criteria and an indication of progress.
+
+<figure><img src="../.gitbook/assets/RecipeResults.png" alt=""><figcaption></figcaption></figure>
 
 Each result shows the number of files searched and how many changes were detected.
 
@@ -71,7 +79,7 @@ To see the proposed changes, click on either the ![](../.gitbook/assets/diff-but
 
 The resulting diff allows you to preview the changes from the recipe before you decide what you want to do.
 
-![](../.gitbook/assets/RecipeDiff.png)
+<figure><img src="../.gitbook/assets/RecipeDiff.png" alt=""><figcaption></figcaption></figure>
 
 If you're unsure why something changed, you can click on the three dots (`...`) at the top right of any file and select `Why did this change?`
 
@@ -81,11 +89,15 @@ For instance, in the above example, `= false` was removed due to the [Explicit i
 
 Once you've confirmed you want to make the changes, the next course of action is to commit everything.&#x20;
 
-In the results view, select the repositories you want to commit and then click _Commit Selected_.![](../.gitbook/assets/CommitSelected.png)
+In the results view, select the repositories you want to commit and then click _Commit Selected_.
+
+<figure><img src="../.gitbook/assets/CommitSelected.png" alt=""><figcaption></figcaption></figure>
 
 This will open a prompt that allows you to select different actions such as committing directly, opening a pull request, etc.
 
-&#x20;![](../.gitbook/assets/CommitDialogue.png)
+&#x20;
+
+<figure><img src="../.gitbook/assets/CommitDialogue.png" alt=""><figcaption></figcaption></figure>
 
 From this prompt, you can customize either the _Branch Name_ or the _Commit Message_ to match the contributing guidelines of a particular repository.
 
