@@ -50,7 +50,7 @@ By default, all of the repositories are selected. Let's change that so we only r
 1. Click on the _Select Repositories_ button.
 2. Click on the `<<` arrows at the bottom to clear the selected repositories. ![](../.gitbook/assets/RemoveRepositories.png)
 3. Press the _Add Filter_ button.
-4. Enter _openrewrite_ in the text box.                                          ![](../.gitbook/assets/OpenRewriteFilter.png)
+4. Enter _openrewrite_ in the text box.                                                                                       ![](../.gitbook/assets/OpenRewriteFilter.png)
 5. Press the `>>` arrows at the top to select all of the OpenRewrite repositories.
 6. You should now see all of the OpenRewrite repositories listed under _Selected repositories._![](../.gitbook/assets/SelectedRepositories.png)__
 7. Click anywhere outside of the filter box to confirm your selection.
@@ -94,3 +94,5 @@ You will need to have [specific permissions](https://docs.moderne.io/references/
 {% endhint %}
 
 ## Step 9: 🎉 Profit
+
+You've now run and committed your first recipe. Way to go!
