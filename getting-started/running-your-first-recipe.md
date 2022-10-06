@@ -11,7 +11,7 @@ In this guide, we will:
 * [ ] ****[**Examine the results**](running-your-first-recipe.md#step-7-viewing-results)****
 * [ ] ****[**Commit the changes**](running-your-first-recipe.md#step-8-creating-a-branch-and-pull-request)****
 
-## Step 1: Go to [public.moderne.io](https://public.moderne.io/) and _login_
+## Step 1: Go to [public.moderne.io](https://public.moderne.io/) and log in
 
 ![Moderne login button](../.gitbook/assets/GitHubLogin.png)
 
