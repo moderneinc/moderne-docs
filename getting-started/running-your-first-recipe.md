@@ -13,7 +13,7 @@ In this guide, we will:
 
 ## Step 1: Go to [public.moderne.io](https://public.moderne.io/) and log in
 
-![Moderne login button](../.gitbook/assets/GitHubLogin.png)
+<figure><img src="../.gitbook/assets/GitHubLogin.png" alt=""><figcaption></figcaption></figure>
 
 ## Step 2: Sign in with GitHub
 
@@ -94,8 +94,6 @@ In the results view, select the repositories you want to commit and then click _
 <figure><img src="../.gitbook/assets/CommitSelected.png" alt=""><figcaption></figcaption></figure>
 
 This will open a prompt that allows you to select different actions such as committing directly, opening a pull request, etc.
-
-&#x20;
 
 <figure><img src="../.gitbook/assets/CommitDialogue.png" alt=""><figcaption></figcaption></figure>
 
