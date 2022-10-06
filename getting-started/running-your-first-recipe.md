@@ -41,7 +41,7 @@ Let's find a good recipe to start from to help illustrate how to search across m
 
 1. From the [Catalog ](https://public.moderne.io/catalog)page, click on [Java ](https://public.moderne.io/catalog/org.openrewrite.java)from the list of categories.
 2. Select the [Cleanup ](https://public.moderne.io/catalog/org.openrewrite.java.cleanup)sub-category.
-3. Click on the [Common static analysis issues](https://public.moderne.io/catalog/org.openrewrite.java.cleanup) recipe.
+3. Click on the `Common static analysis issues` recipe.
 
 ## Step 5: Select specific repositories
 
