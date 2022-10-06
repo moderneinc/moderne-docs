@@ -4,7 +4,7 @@ To help orient you to Moderne, let's walk through how to run a [recipe ](https:/
 
 In this guide, we will:
 
-* [ ] ****[**Login with GitHub**](running-your-first-recipe.md#step-2-sign-in-with-github)****
+* [ ] ****[**Sign in with GitHub**](running-your-first-recipe.md#step-2-sign-in-with-github)****
 * [ ] ****[**Find a recipe to run**](running-your-first-recipe.md#step-4-selecting-a-recipe)****
 * [ ] ****[**Filter the recipe to only run on specific repositories**](running-your-first-recipe.md#step-5-selecting-repositories)****
 * [ ] ****[**Run a recipe**](running-your-first-recipe.md#step-6-running-a-recipe)****
