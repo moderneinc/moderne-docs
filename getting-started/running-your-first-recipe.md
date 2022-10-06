@@ -67,7 +67,7 @@ Each result shows the number of files searched and how many changes were detecte
 
 To see the proposed changes, click on either the ![](../.gitbook/assets/diff-button.png) button under `Actions` or the name of the repository (e.g. _openrewrite/rewrite_).
 
-## Step 7: Viewing results
+## Step 7: View the results
 
 The resulting diff allows you to preview the changes from the recipe before you decide what you want to do.
 
