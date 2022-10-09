@@ -105,4 +105,4 @@ You will need to have [specific permissions](https://docs.moderne.io/references/
 
 ## Step 9: 🎉 Profit
 
-You've now run and committed your first recipe. Way to go!
+You've now run and committed your first recipe. Way to go!!
