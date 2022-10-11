@@ -1,7 +1,7 @@
 # Changelog
 
-Result diff change markers
+Notable changes to the Moderne platform
 
-## Version 1
+## Result diff improvements
 
-A new thing was added
+Now you can more easily view errors and other informative markers that are annotated in the AST.
