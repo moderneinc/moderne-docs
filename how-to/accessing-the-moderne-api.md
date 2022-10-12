@@ -1,6 +1,6 @@
 # 🚀 Accessing the Moderne API
 
-Moderne.io offers a GraphQL API at https://api.public.moderne.io for customers to interact with through the usage of a personal access token.
+Moderne.io offers a GraphQL API at [https://api.public.moderne.io](https://api.public.moderne.io/) for customers to interact with through the usage of a personal access token.
 
 Note: Personal access tokens do not retain roles that are granted to your user account. Actions that require roles (deploying recipes and uploading ASTs) will fail as forbidden if attempted with an access token.
 
