@@ -4,10 +4,10 @@ In order to use the [Moderne GraphQL API](https://api.public.moderne.io/), you w
 
 In this doc, you can find out:
 
-* How to make a new access token
-* How to view what access tokens already exist
-* How to revoke access tokens you no longer want
-* Some limitations around these access tokens
+* [How to make a new access token](create-api-access-tokens.md#how-to-make-an-access-token)
+* [How to view what access tokens already exist](create-api-access-tokens.md#how-to-view-your-access-tokens)
+* [How to revoke access tokens you no longer want](create-api-access-tokens.md#how-to-revoke-an-access-token)
+* [Some limitations around these access tokens](create-api-access-tokens.md#limitations)
 
 ## How to Make an Access Token
 
