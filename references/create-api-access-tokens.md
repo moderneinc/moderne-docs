@@ -2,6 +2,10 @@
 
 In order to use the [Moderne GraphQL API](https://api.public.moderne.io/), you will need to create a Personal Access Token.
 
+{% hint style="info" %}
+If you want to learn how to use an access token, please go to [Accessing the Moderne API](../how-to/accessing-the-moderne-api.md)
+{% endhint %}
+
 In this doc, you can find out:
 
 * [How to make a new access token](create-api-access-tokens.md#how-to-make-an-access-token)
