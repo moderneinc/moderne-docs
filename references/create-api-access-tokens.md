@@ -28,15 +28,15 @@ In this doc, you can find out:
 
 ## How to View Your Access Tokens
 
-1.  From the [Access Token](https://public.moderne.io/settings/access-token) page (where you previously created the token), you can see a list of all the tokens:
+From the [Access Token](https://public.moderne.io/settings/access-token) page (where you previously created the token), you can see a list of all the tokens:
 
-    ![Access Token List](../.gitbook/assets/access-token-list.png)
+![Access Token List](../.gitbook/assets/access-token-list.png)
 
 ## How to Revoke an Access Token
 
-1.  From the [Access Token](https://public.moderne.io/settings/access-token) page, click _Delete_ next to the token you wish to revoke:
+From the [Access Token](https://public.moderne.io/settings/access-token) page, click _Delete_ next to the token you wish to revoke:
 
-    ![Delete Access Token](../.gitbook/assets/delete-access-token.png)
+![Delete Access Token](../.gitbook/assets/delete-access-token.png)
 
 ## Limitations
 
