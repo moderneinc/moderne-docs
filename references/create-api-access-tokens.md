@@ -3,6 +3,7 @@
 In order to use the [Moderne GraphQL API](https://api.public.moderne.io/), you will need to create a Personal Access Token.
 
 In this doc, you can find out:
+
 * How to make a new access token
 * How to view what access tokens already exist
 * How to revoke access tokens you no longer want
@@ -10,39 +11,30 @@ In this doc, you can find out:
 
 ## How to Make an Access Token
 
-1. In the top right-hand corner of the app, click on your profile avatar and select _Account Settings_.
-    
-    ![Account Settings Menu](../.gitbook/assets/account-settings-menu.png)
+1.  In the top right-hand corner of the app, click on your profile avatar and select _Account Settings_.
 
-2. Click on _Access Tokens_ in the middle of the page:
+    ![Account Settings Menu](../.gitbook/assets/account-settings-menu.png)
+2.  Click on _Access Tokens_ in the middle of the page:
 
     ![Access Token Menu](../.gitbook/assets/access-token-menu.png)
-
-3. You should now see a page that looks like:
+3.  You should now see a page that looks like:
 
     ![Access Tokens Page](../.gitbook/assets/access-token-page.png)
-
-4. In the text box that says `Enter token name`, enter a descriptive name for your token.
-
-{% hint style="info" %}
-Use the name of the token to distinguish it from other tokens.
-{% endhint %}
-
-5. Press the `generate` button. You should see something like: 
+4. In the text box that says `Enter token name`, enter a descriptive name for your token so that it can easily be distinguished from other tokens.
+5.  Press the `generate` button. You should see something that looks like:
 
     ![Hint: Click the clipboard icon to copy your access token](../.gitbook/assets/obfuscated-token.png)
-
-6. Copy your token to a safe place such as a password manager. You won't be able to see the token again if you close the window. 
+6. Copy your token to a safe place such as a password manager. You won't be able to see the token again if you close the window.
 
 ## How to View Your Access Tokens
 
-1. From the [Access Token](https://public.moderne.io/settings/access-token) page (where you previously created the token), you can see a list of all the tokens:
+1.  From the [Access Token](https://public.moderne.io/settings/access-token) page (where you previously created the token), you can see a list of all the tokens:
 
     ![Access Token List](../.gitbook/assets/access-token-list.png)
 
 ## How to Revoke an Access Token
 
-1. From the [Access Token](https://public.moderne.io/settings/access-token) page, click _Delete_ next to the token you wish to revoke:
+1.  From the [Access Token](https://public.moderne.io/settings/access-token) page, click _Delete_ next to the token you wish to revoke:
 
     ![Delete Access Token](../.gitbook/assets/delete-access-token.png)
 
