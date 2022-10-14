@@ -44,4 +44,4 @@ From the [Access Token](https://public.moderne.io/settings/access-token) page, c
 
 ## Limitations
 
-* Personal access tokens do not have the same permissions as your user account. For instance, actions that require a specific role (such as deploying a recipe or uploading an AST) will fail as forbidden if attempted with an access token.
+* Personal access tokens have the lowest level of permissions possible. They do not have the same permissions as your user account. For instance, actions that require a specific role (such as deploying a recipe or uploading an AST) will fail as forbidden if attempted with an access token.
