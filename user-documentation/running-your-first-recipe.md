@@ -1,21 +1,25 @@
 # Quick Start: Running your first recipe
 
-To help orient you to Moderne, let's walk through how to run a [recipe ](https://docs.openrewrite.org/v1beta/recipes)on some open source projects that we have imported into Moderne.
+To help orient you to Moderne, let's walk through how to run a [recipe ](https://docs.openrewrite.org/v1beta/recipes)on some open-source projects that we have imported into Moderne.
 
 In this guide, we will:
 
-* [ ] ****[**Sign in with GitHub**](running-your-first-recipe.md#step-2-sign-in-with-github)****
+* [ ] ****[**Sign in to Moderne**](running-your-first-recipe.md#step-1-go-to-public.moderne.io-and-log-in) ****&#x20;
 * [ ] ****[**Find a recipe to run**](running-your-first-recipe.md#step-4-selecting-a-recipe)****
 * [ ] ****[**Filter the recipe to only run on specific repositories**](running-your-first-recipe.md#step-5-selecting-repositories)****
 * [ ] ****[**Run a recipe**](running-your-first-recipe.md#step-6-running-a-recipe)****
 * [ ] ****[**Examine the results**](running-your-first-recipe.md#step-7-viewing-results)****
 * [ ] ****[**Commit the changes**](running-your-first-recipe.md#step-8-creating-a-branch-and-pull-request)****
 
-## Step 1: Go to [public.moderne.io](https://public.moderne.io/) and log in
+## Step 1: Sign in
+
+If you're an enterprise user, you'll need to navigate and sign in via the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-navigate-to-the-recipe-catalog).&#x20;
+
+If you're not an enterprise user, go to [https://public.moderne.io](https://public.moderne.io) and press "Sign-in with GitHub" as seen below:
 
 <figure><img src="../.gitbook/assets/GitHubLogin.png" alt="Moderne Login Button"><figcaption></figcaption></figure>
 
-## Step 2: Sign in with GitHub
+## Step 2: Configure GitHub Permissions
 
 The first time you sign in to Moderne through GitHub, you will be presented with an authorization prompt for a few permissions to help enhance your experience.
 

@@ -2,9 +2,9 @@
 
 * [Welcome to Moderne](README.md)
 
-## Getting Started
+## User Documentation
 
-* [Quick Start: Running your first recipe](getting-started/running-your-first-recipe.md)
+* [Quick Start: Running your first recipe](user-documentation/running-your-first-recipe.md)
 
 ## How-to Guides <a href="#how-to" id="how-to"></a>
 
