@@ -4,12 +4,12 @@ To help orient you to Moderne, let's walk through how to run a [recipe ](https:/
 
 In this guide, we will:
 
-* ****[**Sign in to Moderne**](running-your-first-recipe.md#step-1-go-to-public.moderne.io-and-log-in) ****&#x20;
-* ****[**Find a recipe to run**](running-your-first-recipe.md#step-4-selecting-a-recipe)****
-* ****[**Filter the recipe to only run on specific repositories**](running-your-first-recipe.md#step-5-selecting-repositories)****
-* ****[**Run a recipe**](running-your-first-recipe.md#step-6-running-a-recipe)****
-* ****[**Examine the results**](running-your-first-recipe.md#step-7-viewing-results)****
-* ****[**Commit the changes**](running-your-first-recipe.md#step-8-creating-a-branch-and-pull-request)****
+* [**Sign in to Moderne**](#step-1-sign-in)
+* [**Find a recipe to run**](#step-4-select-a-recipe)
+* [**Filter the recipe to only run on specific repositories**](#step-5-select-specific-repositories)
+* [**Run a recipe**](#step-6-run-the-recipe)
+* [**Examine the results**](#step-7-view-the-results)
+* [**Commit the changes**](#step-8-commit-your-changes)
 
 ## Step 1: Sign in
 
