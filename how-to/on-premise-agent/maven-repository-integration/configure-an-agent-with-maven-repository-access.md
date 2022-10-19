@@ -39,7 +39,7 @@ Under the administration view, select "Tasks" on the left nav.&#x20;
 
 Select "Create task" and create a "Maven - Publish Maven Indexer files" task.
 
-![](<../../../.gitbook/assets/image (2).png>)
+![](<../../../.gitbook/assets/image (2) (2).png>)
 
 Select the repository that will serve AST artifacts and a frequency.
 

@@ -42,7 +42,7 @@ Think of this like a static analyzer but with auto-remediation!
 
 3\. Navigate to Settings>Task Event Hooks
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (3) (1).png>)
 
 3\. Create a new Task Event Hook for Moderne, pointing the URL to https://api.moderne.io/terraform-cloud.
 
@@ -82,4 +82,4 @@ When all tasks pass, a run should be applyable. Whether a task passes or fails, 
 
 When a task fails, you can expect to see a diff in the Moderne platform along with commit and PR links that help you immediately fix the underlying issue.
 
-![](<../.gitbook/assets/image (10).png>)
+![](<../.gitbook/assets/image (10) (1).png>)
