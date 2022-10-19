@@ -37,6 +37,10 @@
 * [How AST artifacts are produced](references/how-ast-artifacts-are-produced.md)
 * [Docker configuration for agent](references/docker-configuration-for-agent.md)
 
+## Concepts
+
+* [Abstract Syntax Trees](concepts/terms-of-service.md)
+
 ## Legal
 
 * [Terms of service](legal/terms-of-service.md)
