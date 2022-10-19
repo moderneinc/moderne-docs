@@ -39,7 +39,7 @@
 
 ## Concepts
 
-* [Abstract Syntax Trees](concepts/terms-of-service.md)
+* [Abstract Syntax Trees](concepts/abstract-syntax-trees.md)
 
 ## Legal
 
