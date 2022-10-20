@@ -7,7 +7,7 @@ Note: Personal access tokens do not retain roles that are granted to your user a
 {% hint style="info" %}
 If you want to write and test GraphQL queries, you can use the graphql icon at the top right of the UI or go directly to [https://public.moderne.io/graphql](https://public.moderne.io/graphql).
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (3) (2).png>)
 {% endhint %}
 
 ## Prerequisites
