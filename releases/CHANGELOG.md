@@ -2,6 +2,20 @@
 
 Deploying recipe artifacts now has an improved asynchronous experience. We've added the recipe artifact state and last deployment time to increase the visibility around the freshness of a recipe artifact.Notable changes to the Moderne platform
 
+### UI v9.11.0
+
+
+
+#### Only show error hunks
+
+In addition to using Moderne for running recipes it is also common to use the built in debugging tools for recipe development. &#x20;
+
+![](<../.gitbook/assets/image (6).png>)
+
+Previously, the `Only show errors` toggle would limit diffs to only those containing errors.  For very large files with multiple hunks of changes this behavior still required recipe authors to manually search for the errors that surfaced.\
+\
+We have changed this behavior so that `Only show errors` will now cause only the hunks with errors to render.
+
 ### UI v9.8.0
 
 #### Commit job status
@@ -38,7 +52,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>View recipe artifact state and last deployment time.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>View recipe artifact state and last deployment time.</p></figcaption></figure>
 
 ### UI v9.4.0
 

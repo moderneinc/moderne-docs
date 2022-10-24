@@ -56,11 +56,11 @@ The `requestedRecipe` query parameter allows you to control which recipe will ru
 
 workspace of choice.
 
-![](<../.gitbook/assets/image (6).png>)
+![](<../.gitbook/assets/image (6) (1).png>)
 
 4\. Choose Tasks.
 
-![](<../.gitbook/assets/image (7).png>)
+![](<../.gitbook/assets/image (7) (2).png>)
 
 4\. Choose an enforcement level.
 
