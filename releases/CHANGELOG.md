@@ -4,7 +4,7 @@ Deploying recipe artifacts now has an improved asynchronous experience. We've ad
 
 ### UI v9.11.0
 
-Only show error hunks
+#### Only show error hunks
 
 In addition to using Moderne for running recipes it is also common to use the built in debugging tools for recipe development. &#x20;
 
