@@ -4,16 +4,16 @@ To help orient you to Moderne, let's walk through how to run a [recipe ](https:/
 
 In this guide, we will:
 
-* [**Sign in to Moderne**](#step-1-sign-in)
-* [**Find a recipe to run**](#step-4-select-a-recipe)
-* [**Filter the recipe to only run on specific repositories**](#step-5-select-specific-repositories)
-* [**Run a recipe**](#step-6-run-the-recipe)
-* [**Examine the results**](#step-7-view-the-results)
-* [**Commit the changes**](#step-8-commit-your-changes)
+* [**Sign in to Moderne**](running-your-first-recipe.md#step-1-sign-in)
+* [**Find a recipe to run**](running-your-first-recipe.md#step-4-select-a-recipe)
+* [**Filter the recipe to only run on specific repositories**](running-your-first-recipe.md#step-5-select-specific-repositories)
+* [**Run a recipe**](running-your-first-recipe.md#step-6-run-the-recipe)
+* [**Examine the results**](running-your-first-recipe.md#step-7-view-the-results)
+* [**Commit the changes**](running-your-first-recipe.md#step-8-commit-your-changes)
 
 ## Step 1: Sign in
 
-If you're an enterprise user, you'll need to navigate and sign in via the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-navigate-to-the-recipe-catalog).&#x20;
+If you're an enterprise user, you'll need to navigate and sign in via the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-navigate-to-the-recipe-catalog).
 
 If you're not an enterprise user, go to [https://public.moderne.io](https://public.moderne.io) and press "Sign-in with GitHub" as seen below:
 
@@ -49,14 +49,14 @@ Let's find a good recipe to start from to help illustrate how to search across m
 
 ## Step 5: Select specific repositories
 
-By default, all of the repositories are selected. Let's change that so we only run our recipe on the OpenRewrite repositories. &#x20;
+By default, all of the repositories are selected. Let's change that so we only run our recipe on the OpenRewrite repositories.
 
 1. Click on the _Select Repositories_ button.
-2.  Click on the `<<` arrows at the bottom to clear the selected repositories.&#x20;
+2.  Click on the `<<` arrows at the bottom to clear the selected repositories.
 
     <figure><img src="../.gitbook/assets/RemoveRepositories.png" alt="List of all repositories"><figcaption></figcaption></figure>
 3. Press the _Add Filter_ button.
-4.  Enter _openrewrite_ in the text box.                                                                                      &#x20;
+4.  Enter _openrewrite_ in the text box.
 
     <figure><img src="../.gitbook/assets/OpenRewriteFilter.png" alt="OpenRewrite repositories not selected"><figcaption></figcaption></figure>
 5. Press the `>>` arrows at the top to select all of the OpenRewrite repositories.
@@ -64,6 +64,10 @@ By default, all of the repositories are selected. Let's change that so we only r
 
     <figure><img src="../.gitbook/assets/SelectedRepositories.png" alt="OpenRewrite repositories selected"><figcaption></figcaption></figure>
 7. Click anywhere outside of the filter box to confirm your selection.
+
+{% hint style="info" %}
+If you want to add repositories from many different organizations, you can press the "Add Filter" button again. This will display all results that match any of the filters; meaning that if you enter a filter for openrewrite and a filter for eclipse, the results will show the combination of the two.
+{% endhint %}
 
 ## Step 6: Run the recipe
 
@@ -87,11 +91,11 @@ The resulting diff allows you to preview the changes from the recipe before you 
 
 If you're unsure why something changed, you can click on the three dots (`...`) at the top right of any file and select `Why did this change?`
 
-For instance, in the above example, `= false` was removed due to the [Explicit initialization rule](https://public.moderne.io/recipes/org.openrewrite.java.cleanup.ExplicitInitialization).&#x20;
+For instance, in the above example, `= false` was removed due to the [Explicit initialization rule](https://public.moderne.io/recipes/org.openrewrite.java.cleanup.ExplicitInitialization).
 
 ## Step 8: Commit your changes
 
-Once you've confirmed you want to make the changes, the next course of action is to commit everything.&#x20;
+Once you've confirmed you want to make the changes, the next course of action is to commit everything.
 
 In the results view, select the repositories you want to commit and then click _Commit Selected_.
 
