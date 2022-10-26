@@ -10,7 +10,7 @@ To help you get accustomed to Moderne's search capabilities, in this guide, we w
 
 ## Using a search recipe
 
-As an example, let's say that you are wanting to find all of the places where your team is using the `createTempFile` method from `java.io.File`. If you searched for `createTempFile` in GitHub, you might end up with a ton of irrelevant results as this is a fairly common method name. To find results that match the method name _and_ are from the correct library please follow these steps:
+As an example, let's say that you are wanting to find all of the places where your team is using the `createFile` method from `java.nio.file.Files`. If you searched for `createFile` in GitHub, you might end up with a ton of irrelevant results as this is a fairly common method name. To find results that match the method name _and_ are from the correct library, please follow these steps:
 
 * From the [Java Search](https://public.moderne.io/catalog/org.openrewrite.java.search) page, scroll down and click on `Find method usages`. You will see this: 
 
@@ -20,23 +20,23 @@ As an example, let's say that you are wanting to find all of the places where yo
   * Click on `Select Repositories`.
   * Press `Add Filter`. 
   * Select what you want to filter on such as `Organization`.
-  * Type the text you want to search for such as `openrewrite`. You should see the repositories filter down as desired.
+  * Type the text you want to search for such as `eclipse`. You should see the repositories filter down as desired.
   * Press the `>>` button to select all of the filtered repositories. 
   * Click out of the modal to confirm your choices.
 
-* Enter the fully qualified class name of `java.io.File` in the receiver type field.
-* Enter the method name of `createTempFile` in the method name field.
+* Enter the fully qualified class name of `java.nio.file.Files` in the receiver type field.
+* Enter the method name of `createFile` in the method name field.
 * Enter `..` in the argument type field to denote that we want to search for any amount of arguments.
 * Select `none` for the flow.
 * Your window should look like: 
 
-    ![](../.gitbook/assets/find-method-usage-openrewrite.png)
+    ![](../.gitbook/assets/find-method-usage-eclipse.png)
 
 * Press `Dry Run` to begin the search. You will be redirected to a page that looks like:
 
     ![](../.gitbook/assets/find-method-usage-results.png)
 
-* If you click on one of the repository names such as `openrewrite/recipe-examples`, you'll be taken into the code for that repository. Lines that match the search will be underlined and marked with a magnifying glass icon. These lines match the type that was specified in the search. This means that if any other `createTempFile` method was invoked, you wouldn't see those results here. Instead, you will see:
+* If you click on one of the repository names such as `eclipse/rjkube`, you'll be taken into the code for that repository. Lines that match the search will be underlined and marked with a magnifying glass icon. These lines match the type that was specified in the search. This means that if any other `createFile` method was invoked, you wouldn't see those results here. Instead, you will see:
 
     ![](../.gitbook/assets/find-method-usage-result.png)
 
