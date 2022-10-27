@@ -1,4 +1,4 @@
-# Token management
+# Creating a Personal Access Token
 
 In order to use the [Moderne GraphQL API](https://api.public.moderne.io/), you will need to create a Personal Access Token.
 
