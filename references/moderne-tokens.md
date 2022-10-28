@@ -2,9 +2,9 @@
 
 There are three types of tokens used throughout the Moderne platform: 
 
-1. A JSON web token (JWT) that is created by Keycloak when a user logs in to Moderne
-2. A personal access token used for accessing the Moderne GraphQL API
-3. An oauth token used for interacting with source code managers (SCMs)
+1. A JSON Web Token (JWT) that is created when a user logs in to Moderne
+2. A personal access token used for programmatically accessing the Moderne GraphQL API
+3. An OAuth token used for interacting with Source Code Management systems (SCMs)
 
 In this doc, you can find detailed information about each of these.
 
@@ -28,9 +28,9 @@ This token can be used to make general GraphQL API calls. Please note, though, t
 
 ### Permissions
 
-In Keycloak, we have mapping rules in Identity Provider (IDP) connections for customers that take a claim from the IDP response during login and determine whether or not to grant the user an "admin" role — which is needed for things like viewing agent configurations, deleting repositories, or viewing the audit logs. 
+This token is used in combination with an Identity Provider (IDP) to determine access for users. The IDP configuration maps specific users to specific permissions in Moderne (such as an admin role). 
 
-What this means is that the JWT itself _does not_ have a concept of a "role". In order to limit access of the Moderne platform to specific groups, the IDP itself will need to be configured accordingly.
+What this means is that the JWT itself _does not_ have a concept of a "role". Rather, a user must be configured as an admin in the IDP in order for them to have admin permissions in Moderne (which grants access to things like agent configurations, repositories, and audit logs). Likewise, if a user has their admin permissions revoked in the IDP, the token can not be used for admin related functionality in Moderne.
 
 ### Expiration
 
@@ -42,7 +42,7 @@ Personal access tokens are used to make queries against the [Moderne GraphQL API
 
 ### Permissions
 
-These tokens **do not** have a role associated with them. That means that users can't do things like view agent configurations, delete repositories, or view the audit logs.
+These tokens **do not** have a role associated with them. That means that users can't do things like view agent configurations, delete repositories, or view the audit logs. These tokens are, effectively, the same thing as a [login token](#login-token) for users who are not admins.
 
 ### Expiration
 
@@ -52,7 +52,7 @@ Personal access tokens do not expire. If you want to revoke them, please follow 
 
 [](/references/create-api-access-tokens.md)
 
-## Source Code Manager (SCM) OAuth Token
+## Source Code Management (SCM) OAuth Token
 
 In order for users to see or interact with source code, an SCM token needs to be created. These tokens are created when a user clicks on one of the SCM logos in the top right corner of the screen OR when an action is performed that requires this token such as viewing a diff or committing code.
 
