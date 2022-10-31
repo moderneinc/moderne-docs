@@ -58,7 +58,7 @@ In order for users to see or interact with source code, an SCM token needs to be
 
 These SCM OAuth tokens are stored in association with a user, so if a user logs out and logs back in, that token remains until it expires.
 
-If an SCM token is currently valid, a user can use their [PAT](moderne-tokens.md#personal-access-tokens) or [JWT](moderne-tokens.md#login-token) to interact with the SCM.
+If an SCM token is currently valid, a user can use their [Personal Access Token](moderne-tokens.md#personal-access-tokens) or [JWT](moderne-tokens.md#login-token) to interact with the SCM.
 
 ### Permissions
 
