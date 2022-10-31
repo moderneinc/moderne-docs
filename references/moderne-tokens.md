@@ -50,7 +50,7 @@ Personal access tokens do not expire. If you want to revoke them, please follow 
 
 ### Further reading
 
-For instructions on how to create, view, or revoke access tokens, please read the [Personal Access Token doc](create-api-access-tokens.md)
+For instructions on how to create, view, or revoke personal access tokens, please read the [Personal Access Token doc](create-api-access-tokens.md).
 
 ## Source Code Management (SCM) OAuth Token
 
