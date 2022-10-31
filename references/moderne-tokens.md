@@ -2,9 +2,9 @@
 
 There are three types of tokens used throughout the Moderne platform: 
 
-1. A JSON Web Token (JWT) that is created when a user logs in to Moderne
-2. A personal access token used for programmatically accessing the Moderne GraphQL API
-3. An OAuth token used for interacting with Source Code Management systems (SCMs)
+1. [A JSON Web Token (JWT) that is created when a user logs in to Moderne](#login-token)
+2. [A personal access token used for programmatically accessing the Moderne GraphQL API](#personal-access-tokens)
+3. [An OAuth token used for interacting with Source Code Management systems (SCMs)](#source-code-management-scm-oauth-token)
 
 In this doc, you can find detailed information about each of these.
 
