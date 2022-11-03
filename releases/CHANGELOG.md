@@ -1,5 +1,23 @@
 # Changelog
 
+### UI v9.15.0
+
+#### Status page
+
+We have added a status page \`/status\` that displays a general summary of the site's health.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+#### Enhanced marker info
+
+Recipe run results summary view now has the option to view the number of markers returned for each repository
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+This can also be viewed in the extended summary.
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
 ### UI v9.14.0
 
 #### Named repository groups
@@ -50,7 +68,7 @@ We have changed this behavior so that `Only show errors` will now cause only the
 
 Previously the _Recent Commit Job_ page only reported the overall status of job completion. We now surface the number of successful, failed, or jobs with no changes.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.7.0
 
@@ -70,7 +88,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 ![](<../.gitbook/assets/image (10).png>)
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/image (4) (3).png>)
 
 ![](<../.gitbook/assets/image (16).png>)
 
@@ -82,7 +100,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 Deploying recipe artifacts now has an improved asynchronous experience. We've added the recipe artifact state and last deployment time to increase the visibility around the freshness of a recipe artifact.Notable changes to the Moderne platform
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>View recipe artifact state and last deployment time.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (3).png" alt=""><figcaption><p>View recipe artifact state and last deployment time.</p></figcaption></figure>
 
 ### UI v9.4.0
 
@@ -90,4 +108,4 @@ Deploying recipe artifacts now has an improved asynchronous experience. We've ad
 
 
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>If there is a Moderne update in the middle of your browser session, you should now see a prompt to refresh your page to ensure you have the latest version available.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (4).png" alt=""><figcaption><p>If there is a Moderne update in the middle of your browser session, you should now see a prompt to refresh your page to ensure you have the latest version available.</p></figcaption></figure>

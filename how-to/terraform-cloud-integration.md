@@ -42,7 +42,7 @@ Think of this like a static analyzer but with auto-remediation!
 
 3\. Navigate to Settings>Task Event Hooks
 
-![](<../.gitbook/assets/image (3) (1).png>)
+![](<../.gitbook/assets/image (3) (1) (1).png>)
 
 3\. Create a new Task Event Hook for Moderne, pointing the URL to https://api.moderne.io/terraform-cloud.
 
