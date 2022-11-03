@@ -1,6 +1,6 @@
 # Achieve and Maintain High Code Quality
 
-Every programming language has a vast number of conventions and rules that make up "ideal" code. While some of these conventions are stylistic, others can help prevent significant bugs like `NullPointerExceptions`. Unfortunately, even for the most experienced developers, it's extremely difficult to keep track of all of these rules and to follow them diligently in code. And, even if they do, trying to ensure that other developers follow those same conventions can be like parents trying to tell their kids to clean up their rooms.
+Every programming language has a vast number of conventions and rules that make up "ideal" code. While some of these conventions are stylistic, others can help prevent significant bugs like `NullPointerException`s. Unfortunately, even for the most experienced developers, it's extremely difficult to keep track of all of these rules and to follow them diligently in code. And, even if they do, trying to ensure that other developers follow those same conventions can be like parents trying to tell their kids to clean up their rooms.
 
 Over the years, a variety of static analysis tools have been created to try and help, but these tools do not actually _fix_ your code. Rather, they rely on developers to manually change every line that they warn about. If a new convention is standardized, this can easily result in thousands of lines that need to be changed across a
  vast number of repositories.
