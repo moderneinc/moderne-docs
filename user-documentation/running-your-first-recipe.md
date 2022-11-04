@@ -13,7 +13,7 @@ In this guide, we will:
 
 ## Step 1: Sign in
 
-If you're an enterprise user, you'll need to navigate and sign in via the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-optionally-create-a-repository-group).
+If you're an enterprise user, you'll need to navigate to and sign in with the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-optionally-create-a-repository-group).
 
 If you're not an enterprise user, go to [https://public.moderne.io](https://public.moderne.io) and press "Sign-in with GitHub" as seen below:
 
