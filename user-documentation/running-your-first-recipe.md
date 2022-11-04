@@ -5,8 +5,8 @@ To help orient you to Moderne, let's walk through how to run a [recipe ](https:/
 In this guide, we will:
 
 * [**Sign in to Moderne**](running-your-first-recipe.md#step-1-sign-in)
-* [**Find a recipe to run**](running-your-first-recipe.md#step-4-select-a-recipe)
-* [**Filter the recipe to only run on specific repositories**](running-your-first-recipe.md#step-5-select-specific-repositories)
+* [**Create a repository group**](running-your-first-recipe.md#step-3-optionally-create-a-repository-group)
+* [**Find a recipe to run**](running-your-first-recipe.md#step-5-select-a-recipe)
 * [**Run a recipe**](running-your-first-recipe.md#step-6-run-the-recipe)
 * [**Examine the results**](running-your-first-recipe.md#step-7-view-the-results)
 * [**Commit the changes**](running-your-first-recipe.md#step-8-commit-your-changes)
