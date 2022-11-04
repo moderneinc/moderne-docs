@@ -13,7 +13,7 @@ In this guide, we will:
 
 ## Step 1: Sign in
 
-If you're an enterprise user, you'll need to navigate and sign in via the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-navigate-to-the-recipe-catalog).
+If you're an enterprise user, you'll need to navigate and sign in via the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-optionally-create-a-repository-group).
 
 If you're not an enterprise user, go to [https://public.moderne.io](https://public.moderne.io) and press "Sign-in with GitHub" as seen below:
 
@@ -35,7 +35,7 @@ After you've logged in and granted the appropriate permissions, you'll arrive at
 
 If you went to run a recipe right now, your recipes would run on a default grouping of repositories. In public Moderne, the default group is a diverse selection of open-source repositories. In an enterprise instance of Moderne, the default group is every repository in your instance.
 
-If you'd prefer to run the recipes against a different group of repositories so that you can get relevant results more quickly, please follow [these instructions](/references/managing-repository-groups.md#how-to-create-a-repository-group) on how to make a repository group.
+If you'd prefer to run the recipes against a different group of repositories so that you can get relevant results more quickly, please follow [these instructions](../references/managing-repository-groups.md#how-to-create-a-repository-group) on how to make a repository group.
 
 ## Step 4: Navigate to the recipe catalog
 
