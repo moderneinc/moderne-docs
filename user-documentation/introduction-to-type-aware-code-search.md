@@ -16,13 +16,7 @@ As an example, let's say that you are wanting to find all of the places where yo
 
     ![](../.gitbook/assets/find-method-usage-empty.png)
 
-* (Optionally) Filter down to a specific group of repositories:
-  * Click on `Select Repositories`.
-  * Press `Add Filter`. 
-  * Select what you want to filter on such as `Organization`.
-  * Type the text you want to search for such as `eclipse`. You should see the repositories filter down as desired.
-  * Press the `>>` button to select all of the filtered repositories. 
-  * Click out of the modal to confirm your choices.
+* (Optionally) [Filter down to a specific group of repositories](/references/managing-repository-groups.md#how-to-create-a-repository-group).
 
 * Enter the fully qualified class name of `java.nio.file.Files` in the receiver type field.
 * Enter the method name of `createFile` in the method name field.

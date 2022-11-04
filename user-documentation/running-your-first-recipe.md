@@ -19,7 +19,7 @@ If you're not an enterprise user, go to [https://public.moderne.io](https://publ
 
 <figure><img src="../.gitbook/assets/GitHubLogin.png" alt="Moderne Login Button"><figcaption></figcaption></figure>
 
-## Step 2: Configure GitHub Permissions
+## Step 2: Configure GitHub permissions
 
 The first time you sign in to Moderne through GitHub, you will be presented with an authorization prompt for a few permissions to help enhance your experience.
 
@@ -29,9 +29,17 @@ For a better understanding of the permissions requested, please see [GitHub Perm
 
 <figure><img src="../.gitbook/assets/authentication-github-signin.png" alt="GitHub login permissions"><figcaption><p>GitHub permission request</p></figcaption></figure>
 
-## Step 3: Navigate to the recipe catalog
+## Step 3: (Optionally) Create a repository group
 
-After you've logged in and granted the appropriate permissions, you'll arrive at the [Moderne home page](https://public.moderne.io/). To explore the catalog of recipes, click on `Catalog` on the left side of the screen:
+After you've logged in and granted the appropriate permissions, you'll arrive at the [Moderne home page](https://public.moderne.io/).
+
+If you went to run a recipe right now, your recipes would run on a default grouping of repositories. In public Moderne, the default group is a diverse selection of open-source repositories. In an enterprise instance of Moderne, the default group is every repository in your instance.
+
+If you'd prefer to run the recipes against a different group of repositories so that you can get relevant results more quickly, please follow [these instructions](/references/managing-repository-groups.md#how-to-create-a-repository-group) on how to make a repository group.
+
+## Step 4: Navigate to the recipe catalog
+
+Once you've decided what repositories you want to run recipes against, click on `Catalog` on the left side of the screen:
 
 <figure><img src="../.gitbook/assets/ModerneCatalog.png" alt="Moderne Home Page"><figcaption><p>Moderne home page</p></figcaption></figure>
 
@@ -39,35 +47,13 @@ This will take you to a page that lists all of the recipe categories:
 
 <figure><img src="../.gitbook/assets/ModerneCatalog2.png" alt="Moderne Recipe Catalog"><figcaption><p>Moderne recipe catalog</p></figcaption></figure>
 
-## Step 4: Select a recipe
+## Step 5: Select a recipe
 
 Let's find a good recipe to start from to help illustrate how to search across multiple repositories.
 
 1. From the [Catalog ](https://public.moderne.io/catalog)page, click on [Java ](https://public.moderne.io/catalog/org.openrewrite.java)from the list of categories.
 2. Select the [Cleanup ](https://public.moderne.io/catalog/org.openrewrite.java.cleanup)sub-category.
 3. Click on the `Common static analysis issues` recipe.
-
-## Step 5: Select specific repositories
-
-By default, all of the repositories are selected. Let's change that so we only run our recipe on the OpenRewrite repositories.
-
-1. Click on the _Select Repositories_ button.
-2.  Click on the `<<` arrows at the bottom to clear the selected repositories.
-
-    <figure><img src="../.gitbook/assets/RemoveRepositories.png" alt="List of all repositories"><figcaption></figcaption></figure>
-3. Press the _Add Filter_ button.
-4.  Enter _openrewrite_ in the text box.
-
-    <figure><img src="../.gitbook/assets/OpenRewriteFilter.png" alt="OpenRewrite repositories not selected"><figcaption></figcaption></figure>
-5. Press the `>>` arrows at the top to select all of the OpenRewrite repositories.
-6.  You should now see all of the OpenRewrite repositories listed under _Selected repositories._
-
-    <figure><img src="../.gitbook/assets/SelectedRepositories.png" alt="OpenRewrite repositories selected"><figcaption></figcaption></figure>
-7. Click anywhere outside of the filter box to confirm your selection.
-
-{% hint style="info" %}
-If you want to add repositories from many different organizations, you can press the "Add Filter" button again. This will display all results that match any of the filters; meaning that if you enter a filter for openrewrite and a filter for eclipse, the results will show the combination of the two.
-{% endhint %}
 
 ## Step 6: Run the recipe
 
