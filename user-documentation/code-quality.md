@@ -1,6 +1,6 @@
 # Achieve and Maintain High Code Quality
 
-Every programming language has a vast number of conventions and rules that make up "ideal" code. While some of these conventions are stylistic, others can help prevent significant bugs like a `NullPointerException`. Unfortunately, even for the most experienced developers, it's extremely difficult to keep track of all of these rules and to follow them diligently in code. And, even if they do, trying to ensure that other developers follow those same conventions can be like parents trying to tell their kids to clean up their rooms.
+Every programming language has a vast number of conventions and rules that make up "ideal" code. While some of these conventions are stylistic, others can help prevent significant bugs like a `NullPointerException`. Unfortunately, even for the most experienced developers, it's extremely difficult to keep track of these rules and follow them diligently in code. And, even if they do, trying to ensure that other developers follow those same conventions can be like parents trying to tell their kids to clean up their rooms.
 
 Over the years, a variety of static analysis tools have been created to try and help, but these tools do not actually _fix_ your code. Rather, they rely on developers to manually change every line that they warn about. If a new convention is standardized, this can easily result in thousands of lines that need to be changed across a vast number of repositories.
 
@@ -8,8 +8,8 @@ Fortunately, Moderne can help with this tricky problem. Thanks to a [comprehensi
 
 To help you get a better understanding of how Moderne can help improve your code quality, this guide will:
 
-* Walk you through running a recipe that fixes common static analysis issues
-* Show you how to learn what is wrong with the code
+* [Walk you through running a recipe that fixes common static analysis issues](code-quality.md#fixing-common-static-analysis-issues)
+* [Show you how to learn what is wrong with the code](code-quality.md#learning-whats-wrong-with-the-code)
 
 ## Fixing Common Static Analysis Issues
 
@@ -19,7 +19,7 @@ To get to this recipe:
 
 * From the home page, click on `Catalog` in the top left corner. This will take you to the recipe catalog.
 * From there, click on `Java` and then `Cleanup`.
-*   At the top you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly. Click on `More details` to be taken to [this](https://public.moderne.io/recipes/org.openrewrite.java.cleanup.CommonStaticAnalysis) page:
+*   At the top, you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly. Click on `More details` to be taken to [this](https://public.moderne.io/recipes/org.openrewrite.java.cleanup.CommonStaticAnalysis) page:
 
     ![](../.gitbook/assets/common-static-analysis-recipe.png)
 
