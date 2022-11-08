@@ -23,24 +23,20 @@ To help you get started with repository groups, in this guide you will learn:
 
 4. At the top, you should enter a descriptive name for the group. This will be the identifier you'll see when you go to select which group you want to run a recipe on. 
 
-5. Once you've entered a name, it's time to select the repositories you want to be included in this group. By default, all of the repositories are selected. Press the `<<` arrows to remove them so you start with an empty list:
-
-    ![](../.gitbook/assets/repo-group-4.png)
-
-6. From there, press the `Add Filter` button and specify what organization/branch/name you want to filter on. 
+5. Once you've entered a name, it's time to select the repositories you want to be included in this group. You can filter which repositories to add to your group by pressing the `Add Filter` button.
     * Please note that you can add more than one filter. If you do, the filters are additive — meaning that if you select both `openrewrite` and `moderne`, you will get all repositories that belong to either one of those organizations: 
 
     ![](../.gitbook/assets/repo-group-5.png)
 
-7. When you've finished adding filters, press the `>>` arrows in the middle of the screen to confirm your selection: 
+6. When you've finished adding filters, press the `>>` arrows in the middle of the screen to confirm your selection: 
 
     ![](../.gitbook/assets/repo-group-6.png)
 
-8. Next, click on the `Save` button in the bottom right to create the group. You will be redirected to a page that displays all of your repository groups: 
+7. Next, click on the `Save` button in the bottom right to create the group. You will be redirected to a page that displays all of your repository groups: 
 
     ![](../.gitbook/assets/repo-group-7.png)
 
-9. Now, when you go to run any recipe, you can click on the group name in the top right corner of the screen to select which repository group you want to run the recipe on: 
+8. Now, when you go to run any recipe, you can click on the group name in the top right corner of the screen to select which repository group you want to run the recipe on: 
 
     ![](../.gitbook/assets/repo-group-8.png)
 
