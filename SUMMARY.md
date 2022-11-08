@@ -7,10 +7,10 @@
 * [Quick Start: Running your first recipe](user-documentation/running-your-first-recipe.md)
 * [Introduction to Type-Aware Code Search](user-documentation/introduction-to-type-aware-code-search.md)
 * [Achieve and Maintain High Code Quality](user-documentation/code-quality.md)
+* [Creating Custom Recipes With the Recipe Builder](how-to/creating-your-own-recipes-with-builder.md)
 
 ## How-to Guides <a href="#how-to" id="how-to"></a>
 
-* [Creating your own recipes with Builder](how-to/creating-your-own-recipes-with-builder.md)
 * [Integrating private code with Moderne SaaS](how-to/integrating-private-code.md)
 * [Importing external recipes](how-to/importing-external-recipes.md)
 * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
