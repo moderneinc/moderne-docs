@@ -7,7 +7,7 @@
 * [Quick Start: Running your first recipe](user-documentation/running-your-first-recipe.md)
 * [Introduction to Type-Aware Code Search](user-documentation/introduction-to-type-aware-code-search.md)
 * [Achieve and Maintain High Code Quality](user-documentation/code-quality.md)
-* [Creating Custom Recipes With the Recipe Builder](how-to/creating-your-own-recipes-with-builder.md)
+* [Creating Custom Recipes With the Recipe Builder](user-documentation/recipe-builder.md)
 
 ## How-to Guides <a href="#how-to" id="how-to"></a>
 
