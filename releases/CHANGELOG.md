@@ -1,12 +1,20 @@
 # Changelog
 
+### UI v9.21.0 (2022/11/18)
+
+#### Viewing result diffs
+
+Now it's even easier to filter down the result set to only those diffs that include errors from the result diff menu bar.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
 ### UI v9.15.0 (2022/11/03)
 
 #### Status page
 
 We have added a status page \`/status\` that displays a general summary of the site's health.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (4).png" alt=""><figcaption></figcaption></figure>
 
 #### Enhanced marker info
 
