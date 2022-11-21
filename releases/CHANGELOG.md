@@ -1,6 +1,6 @@
 # Changelog
 
-### UI v9.15.0
+### UI v9.15.0 (2022/11/03)
 
 #### Status page
 
@@ -10,7 +10,7 @@ We have added a status page \`/status\` that displays a general summary of the s
 
 #### Enhanced marker info
 
-Recipe run results summary view now has the option to view the number of markers returned for each repository
+Recipe run results summary view now has the option to view the number of markers returned for each repository.
 
 <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
@@ -18,11 +18,11 @@ This can also be viewed in the extended summary.
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-### UI v9.14.0
+### UI v9.14.0 (2022/11/02)
 
 #### Named repository groups
 
-Previously repository selection was performed at recipe run time. Now users will create named repository groups that will drive what repositories recipes are run against and what repositories are shown on the Organizations page. The group in use will be visible in the header. Groups can also be created from the repositories of a recipe run. There is also an `All` group by default that is all the repositories of the tenant. The named groups initially are stored in the browser's local storage.
+Previously repository selection was performed at recipe run time. Now users will create named repository groups that will drive what repositories recipes are run against and what repositories are shown on the Organizations page. The group in use will be visible in the header. Groups can also be created from the repositories of a recipe run. There is also a `All` group by default that is all the repositories of the tenant. The named groups are initially stored in the browser's local storage.
 
 &#x20;**Running a recipe**
 
@@ -32,7 +32,7 @@ Previously repository selection was performed at recipe run time. Now users will
 
 <figure><img src="https://user-images.githubusercontent.com/882752/198373476-a59acf07-65b3-445c-83dc-45b297b17641.png" alt=""><figcaption></figcaption></figure>
 
-From this menu, users can change their selection, create a new grouping, or navigate to the management page for all their groups
+From this menu, users can change their selection, create a new grouping, or navigate to the management page for all their groups.
 
 **Repository group creation**
 
@@ -50,15 +50,15 @@ As shown above, only repositories defined in the user's repository group are dis
 
 New groups can be created from the selected rows of a recipe run.
 
-### UI v9.11.0
+### UI v9.11.0 (2022/10/24)
 
 #### Only show error hunks
 
-In addition to using Moderne for running recipes it is also common to use the built in debugging tools for recipe development. &#x20;
+In addition to using Moderne for running recipes, it is also common to use the built-in debugging tools for recipe development. &#x20;
 
 <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-Previously, the `Only show errors` toggle would limit diffs to only those containing errors.  For very large files with multiple hunks of changes this behavior still required recipe authors to manually search for the errors that surfaced.\
+Previously, the `Only show errors` a toggle would limit diffs to only those containing errors.  For large files with multiple hunks of changes, this behavior still required recipe authors to manually search for the errors that surfaced.\
 \
 We have changed this behavior so that `Only show errors` will now cause only the hunks with errors to render.
 
@@ -74,7 +74,7 @@ Previously the _Recent Commit Job_ page only reported the overall status of job 
 
 #### More markers!
 
-We have increased the types of markers we annotate and surface in the diff view of the UI. Previously yThe new markers will now render as squiggly lines with an icon. If there are additional details, it will allow you to click in to see those details:\
+We have increased the types of markers we annotate and surface in the diff view of the UI. Previously the new markers will now render as squiggly lines with an icon. If there are additional details, it will allow you to click in to see those details:\
 ou may have noticed search markers displaying like this:\
 
 
