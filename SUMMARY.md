@@ -18,7 +18,7 @@
   * [Standard configuration](how-to/on-premise-agent/standard-configuration.md)
   * [Configure an agent with Bitbucket access](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
   * [Configure an agent with GitHub](how-to/on-premise-agent/configure-an-agent-with-github.md)
-  * [Maven repository integration](how-to/on-premise-agent/maven-repository-integration/README.md)
+  * [Artifact Repository Integration](how-to/on-premise-agent/maven-repository-integration/README.md)
     * [Maven repository integration overview](how-to/on-premise-agent/maven-repository-integration/maven-repository-integration-overview.md)
     * [Configure an agent with Maven repository access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-maven-repository-access.md)
     * [Configure an agent with Artifactory access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-artifactory-access.md)
