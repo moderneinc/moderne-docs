@@ -1,5 +1,13 @@
 # Changelog
 
+### UI v 9.23.0 (2022/11/30)
+
+#### Ignore whitespace changes
+
+You can now hide whitespace changes from diffs via the _Settings_ menu
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 ### UI v9.21.0 (2022/11/18)
 
 #### Viewing result diffs
@@ -24,7 +32,7 @@ Recipe run results summary view now has the option to view the number of markers
 
 This can also be viewed in the extended summary.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.14.0 (2022/11/02)
 
@@ -86,7 +94,7 @@ We have increased the types of markers we annotate and surface in the diff view 
 ou may have noticed search markers displaying like this:\
 
 
-<figure><img src="../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
