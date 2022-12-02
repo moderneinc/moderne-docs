@@ -23,6 +23,7 @@
     * [Configure an agent with Maven repository access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-maven-repository-access.md)
     * [Configure an agent with Artifactory access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-artifactory-access.md)
 * [🚀 Accessing the Moderne API](how-to/accessing-the-moderne-api.md)
+* [Recipe Execution and Commits with GraphQL](how-to/recipe-execution-and-commits-with-graphql.md)
 
 ## Releases
 
