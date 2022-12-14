@@ -1,5 +1,47 @@
 # Changelog
 
+### UI v 9.29.0 (2022/12/14)
+
+#### Show error when recipe no longer exists
+
+![](<../.gitbook/assets/Screenshot 2022-12-14 at 7.48.21 AM.png>)
+
+### UI v 9.28.0 (2022/12/10)
+
+#### Origin and base branch added to commit results table
+
+![](<../.gitbook/assets/Screenshot 2022-12-14 at 7.46.44 AM.png>)
+
+### UI v 9.26.0 (2022/12/09)
+
+#### Patch and commit are now disabled if there are no results to commit
+
+![](<../.gitbook/assets/Screenshot 2022-12-14 at 7.44.05 AM.png>)
+
+### UI v 9.25.0 (2022/12/08)
+
+#### Add error details to errors in diffs
+
+![](<../.gitbook/assets/Screenshot 2022-12-14 at 7.41.10 AM.png>)
+
+### UI v 9.24.0 (2022/12/02)
+
+#### Create a new repository group from existing
+
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.34.45 AM.png" alt=""><figcaption></figcaption></figure>
+
+#### Add see how to run GraphQL to more locations
+
+This has been added to the following pages:&#x20;
+
+* recent commits
+* commit jobs
+* organizations
+* workers
+* quarantine
+
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM.png" alt=""><figcaption></figcaption></figure>
+
 ### UI v 9.23.0 (2022/11/30)
 
 #### Ignore whitespace changes
@@ -104,7 +146,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 ![](<../.gitbook/assets/image (10).png>)
 
-![](<../.gitbook/assets/image (4) (3).png>)
+![](<../.gitbook/assets/image (1) (3).png>)
 
 ![](<../.gitbook/assets/image (16).png>)
 
