@@ -1,28 +1,43 @@
 # Changelog
 
+### UI v 9.31.0 (2022/12/16)
+
+#### Support for adding applicability tests to builder recipes
+
+The "Add to builder" button now has an additional drop-down to support adding the current recipe to the builder as an applicability test.
+
+These tests currently come in two variants:
+
+* `singleSource` - The custom recipe will _**only**_ be run on those source files that would have been changed by _**all**_ `singleSource` test recipes.&#x20;
+* `anySource` - The custom recipe will run on _**all**_ source files if there would have been a change from all `anySource` tests. Not all `anySource` tests have to change the _**same**_ file; as long as there would be one change from each test then the custom recipe would be run.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>For more information on applicability test see the <a href="https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-applicability-tests">OpenRewrite documentation</a>.</p></figcaption></figure>
+
 ### UI v 9.29.0 (2022/12/14)
 
 #### Show error when recipe no longer exists
 
-![](<../.gitbook/assets/Screenshot 2022-12-14 at 7.48.21 AM.png>)
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.48.21 AM.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v 9.28.0 (2022/12/10)
 
 #### Origin and base branch added to commit results table
 
-![](<../.gitbook/assets/Screenshot 2022-12-14 at 7.46.44 AM.png>)
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.46.44 AM.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v 9.26.0 (2022/12/09)
 
 #### Patch and commit are now disabled if there are no results to commit
 
-![](<../.gitbook/assets/Screenshot 2022-12-14 at 7.44.05 AM.png>)
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.44.05 AM.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v 9.25.0 (2022/12/08)
 
 #### Add error details to errors in diffs
 
-![](<../.gitbook/assets/Screenshot 2022-12-14 at 7.41.10 AM.png>)
+An Error card shows the code where the error was discovered, the error message, and now a new section called details that will show any extra details like stack traces. Additionally, the copy button in the upper right of the card now copies all sections as a string of Markdown to your copy buffer.
+
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.41.10 AM.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v 9.24.0 (2022/12/02)
 
@@ -40,7 +55,7 @@ This has been added to the following pages:&#x20;
 * workers
 * quarantine
 
-<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v 9.23.0 (2022/11/30)
 
@@ -48,7 +63,7 @@ This has been added to the following pages:&#x20;
 
 You can now hide whitespace changes from diffs via the _Settings_ menu
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.21.0 (2022/11/18)
 
@@ -114,7 +129,7 @@ New groups can be created from the selected rows of a recipe run.
 
 In addition to using Moderne for running recipes, it is also common to use the built-in debugging tools for recipe development. &#x20;
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (2).png" alt=""><figcaption></figcaption></figure>
 
 Previously, the `Only show errors` a toggle would limit diffs to only those containing errors.  For large files with multiple hunks of changes, this behavior still required recipe authors to manually search for the errors that surfaced.\
 \
@@ -146,7 +161,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 ![](<../.gitbook/assets/image (10).png>)
 
-![](<../.gitbook/assets/image (1) (3).png>)
+![](<../.gitbook/assets/image (4) (3).png>)
 
 ![](<../.gitbook/assets/image (16).png>)
 
