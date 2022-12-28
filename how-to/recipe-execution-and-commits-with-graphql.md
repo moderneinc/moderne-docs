@@ -26,7 +26,7 @@ This guide assumes that you:
 1.  Click the [Repository Group](../references/managing-repository-groups.md) selector on the right-hand side of the header and create a new group of your selected repositories.\
 
 
-    <figure><img src="../.gitbook/assets/Screenshot 2022-12-02 at 9.28.28 AM.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/Screenshot 2022-12-02 at 9.28.28 AM (1).png" alt=""><figcaption></figcaption></figure>
 2.  Navigate to the recipe you wish to run and fill out the recipe options.\
 
 
