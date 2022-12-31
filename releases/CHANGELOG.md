@@ -1,5 +1,26 @@
 # Changelog
 
+### UI v 9.35.0 (2022/12/16)
+
+#### Admin token management
+
+We have added the ability for admins to view and revoke Moderne personal access tokens of any user.  There is now a new Access tokens page under the admin navigations:\
+![](<../.gitbook/assets/image (23).png>)\
+
+
+#### Improved keyboard shortcuts
+
+While addressing some keyboard shortcuts that were reported to conflict with certain browsers we overhauled the keyboard shortcuts to primarily use single key commands and added more.  These commands will not fire if the focus of the browser is in a text input or any control like field.  Additionally, we have provided a new short cut cheat sheet that is activated with `shift`+`?`&#x20;
+
+![](<../.gitbook/assets/image (24).png>)
+
+#### Recipe source links
+
+We want to improve users and recipe authors' experience finding source code for a particular recipe.  We have added on the recipe details pages a link on OpenRewrite recipes that will use a specialized GitHub search query to find the source.  We have plans to expand this functionality in the future.\
+
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
 ### UI v 9.31.0 (2022/12/16)
 
 #### Support for adding applicability tests to builder recipes
