@@ -1,6 +1,6 @@
 # Changelog
 
-### UI v 9.35.0 (2022/12/16)
+### UI v 9.35.0 (2022/12/30)
 
 #### Admin token management
 
