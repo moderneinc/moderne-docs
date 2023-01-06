@@ -45,7 +45,7 @@
 
 ## Concepts
 
-* [Abstract Syntax Trees](concepts/abstract-syntax-trees.md)
+* [Lossless Semantic Trees](concepts/lossless-semantic-trees.md)
 
 ## Legal
 
