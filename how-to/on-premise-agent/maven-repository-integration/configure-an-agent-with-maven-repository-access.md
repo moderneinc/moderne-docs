@@ -56,8 +56,10 @@ Please note that the commands and options below omit standard options documented
 You can configure multiple Maven repositories by including multiple entries with different indices.
 
 * `MODERNE_AGENT_MAVEN_0_URL` - repository URL
-* `MODERNE_AGENT_MAVEN_0_USERNAME` - username used to resolve artifacts, if any
-* `MODERNE_AGENT_MAVEN_0_PASSWORD` - password used to resolve artifacts, if any
+* `MODERNE_AGENT_MAVEN_0_USERNAME` - (Optional; default: null) username used to resolve artifacts, if any
+* `MODERNE_AGENT_MAVEN_0_PASSWORD` - (Optional; default: null) password used to resolve artifacts, if any
+* `MODERNE_AGENT_MAVEN_0_RELEASES` - (Optional; default: true) true if this repository should be searched for releases, false otherwise.
+* `MODERNE_AGENT_MAVEN_0_SNAPSHOTS` - (Optional; default: true) true if this repository should be searched for snapshots, false otherwise.
 * `MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer).
 
 {% hint style="info" %}
@@ -84,6 +86,8 @@ You can configure multiple repositories by including multiple entries with diffe
 * `--moderne.agent.maven[0].url` - repository URL
 * `--moderne.agent.maven[0].username` - username used to resolve artifacts, if any
 * `--moderne.agent.maven[0].password` - password used to resolve artifacts, if any
+* `--moderne.agent.maven[0].snapshots` - (Optional; default: true) true if this repository should be searched for snapshots, false otherwise.
+* `--moderne.agent.maven[0].releases` - (Optional; default: true) true if this repository should be searched for releases, false otherwise.
 * `--moderne.agent.maven[0].localRepository` - the path on disk where AST artifacts and Maven index files will be downloaded. AST artifacts are deleted on disk after being transmitted to Moderne. Index files remain and only incremental updates are downloaded from the remote artifact repository (to limit data transfer).
 
 {% hint style="info" %}
