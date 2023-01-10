@@ -15,11 +15,19 @@ To help you understand how to automate recipe execution and commits, we'll walk 
 This guide assumes that you:
 
 1. Know how to use and interact with GraphQL APIs.&#x20;
-2. Have already [created a Moderne personal access token](../references/create-api-access-tokens.md).
-3. Have authorized your SCM provider in the Moderne UI to be able to retrieve diffs and perform commits. **Note:** SCM authentication tokens expire every 8 hours and can only be renewed via the Moderne UI at this time. \
-   &#x20;   To authorize click the SCM icon of your choice in the header:
+2. [Have created a Moderne personal access token](../references/create-api-access-tokens.md).
+3. Have authorized your SCM provider in the Moderne UI.
 
-<figure><img src="../.gitbook/assets/Screenshot 2022-12-02 at 9.43.37 AM.png" alt=""><figcaption></figcaption></figure>
+{% hint style="info" %}
+**Note:** SCM authentication through the Moderne SaaS are only valid for up to 8 hours. \
+To authorize click the SCM icon of your choice in the header:
+
+<img src="../.gitbook/assets/Screenshot 2022-12-02 at 9.43.37 AM.png" alt="" data-size="original">
+
+
+{% endhint %}
+
+****
 
 ### Recipe Execution
 
@@ -210,7 +218,7 @@ curl --request POST
 {% endtab %}
 {% endtabs %}
 
-2\. You can then use the `edges` array in the response, to build up the repository list that will be used in the next step of creating a pull request. Example response: &#x20;
+2\. You can then use the `edges` array in the response, to build up the repository list used in the next step of creating a pull request. Example response: &#x20;
 
 ```json
 {
@@ -245,6 +253,22 @@ curl --request POST
 
 1. Next, we will perform the `pullRequest` mutation to create a pull request with our changes. We will be using the`id` from [recipe execution ](recipe-execution-and-commits-with-graphql.md#recipe-execution)and the response from the previous step to construct the mutation variables for committing a pull request. See the mutation variables tab below.&#x20;
 
+{% hint style="info" %}
+**Optional: Bring your own Personal Access Token**
+
+Commit tasks like `pullRequest` now support optionally defining a Personal Access Token that you create through your SCM and provide as a GraphQL Mutation input.&#x20;
+
+You must grant sufficient permission when creating these Personal Access Tokens. These permissions will vary from provider to provider but generally include read/write access to Repositories and Pull Requests.
+
+_Bitbucket Data Center does not support this functionality._
+
+For more information on creating Personal Access Tokens, please see:
+
+* [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+* [GitLab - Personal access tokens](https://docs.gitlab.com/ee/user/profile/personal\_access\_tokens.html)
+* [Bitbucket Cloud - Generating App Password / Personal Access Token](https://support.blubracket.com/hc/en-us/articles/4404687343124-How-to-Generate-an-App-Password-or-Personal-Access-Token-PAT-in-Bitbucket)
+{% endhint %}
+
 {% tabs %}
 {% tab title="Pull Request Mutation" %}
 ```graphql
@@ -253,12 +277,15 @@ mutation pullRequest(
   $pullRequestTitle: String
   $pullRequestBody: Base64
   $isDraft: Boolean! = false
+  # Optional
+  $scmPersonalAccessToken = String
 ) {
   pullRequest(
     commit: $commitInput
     pullRequestTitle: $pullRequestTitle
     pullRequestBody: $pullRequestBody
     draft: $isDraft
+    scmAccessToken: $scmPersonalAccessToken
   ) {
     id
     started
@@ -294,7 +321,9 @@ mutation pullRequest(
         "origin": "github.com",
         "path": "gradle-nexus/publish-plugin"
       }
-    ]
+    ],
+    # Optional
+    "scmAccessToken": "MY_SCM_PERSONAL_ACCESS_TOKEN"
   },
   "pullRequestTitle": "refactor: Update a Gradle plugin by id", // Optional
   "pullRequestBody": "refactor: Update a Gradle plugin by id" // Optional
@@ -309,13 +338,13 @@ curl --request POST
 --url https://api.public.moderne.io/graphql
 --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>'
 --header 'Content-Type: application/json'
---data '{"query":"mutation pullRequest(\n $commitInput: CommitInput!\n $pullRequestTitle: String\n $pullRequestBody: Base64\n $isDraft: Boolean! = false\n) {\n commit: pullRequest(\n commit: $commitInput\n pullRequestTitle: $pullRequestTitle\n pullRequestBody: $pullRequestBody\n draft: $isDraft\n ) {\n id\n started\n email\n completed\n summaryResults {\n count\n successfulCount\n failedCount\n noChangeCount\n **typename\n }\n **typename\n }\n}","variables":{"isDraft":false,"commitInput":{"recipeRunId":"Dxvsv","branchName":"refactor/update-a-gradle-plugin-by-id","message":"refactor: Update a Gradle plugin by id","repositories":[{"branch":"master","origin":"github.com","path":"gradle/gradle-checksum"},{"branch":"master","origin":"github.com","path":"gradle-nexus/publish-plugin"}]},"pullRequestTitle":"refactor: Update a Gradle plugin by id","pullRequestBody":"refactor: Update a Gradle plugin by id"},"operationName":"pullRequest"}'
+--data '{"query":"mutation pullRequest(\n $commitInput: CommitInput!\n $pullRequestTitle: String\n $pullRequestBody: Base64\n $isDraft: Boolean! = false\n) {\n commit: pullRequest(\n commit: $commitInput\n pullRequestTitle: $pullRequestTitle\n pullRequestBody: $pullRequestBody\n draft: $isDraft\n scmAccessToken: $scmPersonalAccessToken) {\n id\n started\n email\n completed\n summaryResults {\n count\n successfulCount\n failedCount\n noChangeCount\n **typename\n }\n **typename\n }\n}","variables":{"isDraft":false,"commitInput":{"recipeRunId":"Dxvsv","branchName":"refactor/update-a-gradle-plugin-by-id","message":"refactor: Update a Gradle plugin by id","repositories":[{"branch":"master","origin":"github.com","path":"gradle/gradle-checksum"},{"branch":"master","origin":"github.com","path":"gradle-nexus/publish-plugin"}]},"pullRequestTitle":"refactor: Update a Gradle plugin by id","pullRequestBody":"refactor: Update a Gradle plugin by id", "scmPersonalAccessToken": "MY_SCM_PERSONAL_ACCESS_TOKEN"},"operationName":"pullRequest"}'
 ```
 {% endcode %}
 {% endtab %}
 {% endtabs %}
 
-2\. Once the mutation is executed we will receive a response with the commit `id` that we can then use to poll for the completion of the commit. Example response:
+2\. Once the mutation is executed we will receive a response with the commit `id` that we can then poll for the completion of the commit. Example response:
 
 ```json
 {
