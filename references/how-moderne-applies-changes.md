@@ -12,7 +12,7 @@ Regardless of whether you choose to initiate an action to direct commit the chan
 
 To illustrate the reconciliation process, suppose you are attempting to make a direct commit to the main branch of the remote.
 
-<img src="../.gitbook/assets/image (20).png" alt="" data-size="original">
+<img src="../.gitbook/assets/image (20) (1).png" alt="" data-size="original">
 
 In this example, the AST that Moderne is operating on was produced from commit b93f7b8, which at that time was the latest head of the main branch. However, between the build of the AST and when we initiate this commit action, there has been more commits on the main branch.
 

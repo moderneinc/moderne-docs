@@ -14,11 +14,11 @@ Follow [this Atlassian guide](https://support.atlassian.com/bitbucket-cloud/docs
 
 Configure the callback URL to point at your tenant:
 
-![](../../.gitbook/assets/image.png)
+![](<../../.gitbook/assets/image (9).png>)
 
 The consumer should have these permissions:
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1) (5).png>)
 
 * Projects - Read
 * Repositories - Write
@@ -26,7 +26,7 @@ The consumer should have these permissions:
 
 Take note of the key and secret on the newly formed consumer:
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Argument configuration
 

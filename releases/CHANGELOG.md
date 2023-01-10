@@ -5,7 +5,7 @@
 #### Admin token management
 
 We have added the ability for admins to view and revoke Moderne personal access tokens of any user.  There is now a new Access tokens page under the admin navigations:\
-![](<../.gitbook/assets/image (23).png>)\
+![](<../.gitbook/assets/image (23) (1).png>)\
 
 
 #### Improved keyboard shortcuts
@@ -32,7 +32,7 @@ These tests currently come in two variants:
 * `singleSource` - The custom recipe will _**only be run on those source files**_ that would have been changed by _**all**_ `singleSource` test recipes.&#x20;
 * `anySource` - The custom recipe will run on _**all**_ _**source files**_ if there would have been a change from all `anySource` tests. Not all `anySource` tests have to change the _**same**_ file; as long as there would be one change from each test then the custom recipe would be run.
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>For more information on applicability test see the <a href="https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-applicability-tests">OpenRewrite documentation</a>.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>For more information on applicability test see the <a href="https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-applicability-tests">OpenRewrite documentation</a>.</p></figcaption></figure>
 
 ### UI v 9.29.0 (2022/12/14)
 
@@ -84,7 +84,7 @@ This has been added to the following pages:&#x20;
 
 You can now hide whitespace changes from diffs via the _Settings_ menu
 
-<figure><img src="../.gitbook/assets/image (6) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.21.0 (2022/11/18)
 
@@ -92,7 +92,7 @@ You can now hide whitespace changes from diffs via the _Settings_ menu
 
 Now it's even easier to filter down the result set to only those diffs that include errors from the result diff menu bar.
 
-<figure><img src="../.gitbook/assets/image (1) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.15.0 (2022/11/03)
 

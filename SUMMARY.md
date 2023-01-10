@@ -20,6 +20,7 @@
   * [Configure an agent with Bitbucket Cloud access](how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md)
   * [Configure an agent with GitHub](how-to/on-premise-agent/configure-an-agent-with-github.md)
   * [Configure an agent with GitLab](how-to/on-premise-agent/configure-an-agent-with-gitlab.md)
+  * [Configure Repository groups](how-to/on-premise-agent/configure-repository-groups.md)
   * [Artifact Repository Integration](how-to/on-premise-agent/maven-repository-integration/README.md)
     * [Maven repository integration overview](how-to/on-premise-agent/maven-repository-integration/maven-repository-integration-overview.md)
     * [Configure an agent with Maven repository access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-maven-repository-access.md)
