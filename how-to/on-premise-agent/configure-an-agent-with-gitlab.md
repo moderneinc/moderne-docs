@@ -17,7 +17,7 @@ This guide will walk you through configuring a new OAuth Application in GitLab
 
 
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.59.50 AM (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.59.50 AM.png" alt=""><figcaption></figcaption></figure>
 3.  Supply the following selections                          &#x20;
 
     <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 7.52.35 AM.png" alt=""><figcaption></figcaption></figure>

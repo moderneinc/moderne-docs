@@ -68,7 +68,7 @@ o **Advisory**: tasks can not block a run from completing. If the task fails, a 
 
 o **Mandatory**: tasks can block a run from completing. If the task fails (including a timeout or unexpected remote error condition), a warning will be displayed on the run and the run will transition to an Errored state.
 
-![](<../.gitbook/assets/image (8).png>)
+![](<../.gitbook/assets/image (8) (1).png>)
 
 Congratulations, your workspace is now set-up with your \<Partner> Integration!\\
 
