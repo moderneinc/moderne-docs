@@ -38,7 +38,6 @@ You can configure multiple bitbuckets by including multiple entries with differe
 
 * `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_CLIENT_ID` - "Key" from the Bitbucket OAuth consumer.
 * `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_CLIENT_SECRET` - "Secret" from the Bitbucket OAuth consumer.
-* `MODERNE_AGENT_BITBUCKET_CLOUD_URL` - fully-qualified URL of running bitbucket instance. example: `https://bitbucket.org`
 
 Example using Docker (note that host and private-key are fake):
 

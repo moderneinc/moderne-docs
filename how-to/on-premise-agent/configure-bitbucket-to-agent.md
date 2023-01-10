@@ -1,4 +1,4 @@
-# Configure an agent with Bitbucket access
+# Configure an agent with Bitbucket Data Center access
 
 Configuring your Moderne Agent instance with Bitbucket is a prerequisite for both viewing recipe results within the Moderne application and committing changes from a recipe.
 
@@ -74,7 +74,7 @@ Please note that the commands and options below omit standard options documented
 You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
 * `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY` - Private key configured in previous step
-* `MODERNE_AGENT_BITBUCKET_{index}_URL` - fully-qualified URL of running bitbucket instance. example: `https://bitbucket.org`
+* `MODERNE_AGENT_BITBUCKET_{index}_URL` - fully-qualified URL of running bitbucket instance. example: `https://bitbucket.myorg.com`
 * `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL` - skip SSL validation for HTTP connections to this Bitbucket instance (defaults to false)
 
 Example using Docker (note that host and private-key are fake):
