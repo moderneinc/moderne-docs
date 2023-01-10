@@ -36,16 +36,16 @@ Please note that the commands and options below omit standard options documented
 {% tab title="OCI Container" %}
 You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
-* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_CLIENT_ID` - "Key" from the Bitbucket OAuth consumer.
-* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_CLIENT_SECRET` - "Secret" from the Bitbucket OAuth consumer.
+* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY` - From the Bitbucket OAuth consumer.
+* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET` - From the Bitbucket OAuth consumer.
 
 Example using Docker (note that host and private-key are fake):
 
 ```
 docker run \
 ...
--e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_CLIENT_ID=ABCDE \
--e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_CLIENT_SECRET=SECRET \
+-e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY=ABCDE \
+-e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET=SECRET \
 ...
 ```
 {% endtab %}
