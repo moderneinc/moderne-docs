@@ -1,4 +1,4 @@
-# Managing Repository Groups
+# Managing repository groups
 
 When running recipes in Moderne, it's a good idea to filter them to run on a select group of repositories you care about so that you get relevant results more quickly. In filtering these recipes, many people have found that they wanted to create multiple groups of repositories that they can easily switch between. Both of these issues can be solved by using repository groups.
 

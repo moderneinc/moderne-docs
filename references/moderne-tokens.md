@@ -1,4 +1,4 @@
-# Moderne Tokens
+# Moderne tokens
 
 There are three types of tokens used throughout the Moderne platform:
 
@@ -8,7 +8,7 @@ There are three types of tokens used throughout the Moderne platform:
 
 In this doc, you can find detailed information about each of these.
 
-## Login Token
+## Login token
 
 When a user logs in to the Moderne platform, a JWT is created for them by Keycloak. This token is then used by the UI to authenticate against various Moderne APIs for things like displaying recipe categories.
 
@@ -52,7 +52,7 @@ Personal access tokens do not expire. If you want to revoke them, please follow 
 
 For instructions on how to create, view, or revoke personal access tokens, please read the [Personal Access Token doc](create-api-access-tokens.md).
 
-## Source Code Management (SCM) OAuth Token
+## Source Code Management (SCM) OAuth token
 
 In order for users to see or interact with source code, an SCM token needs to be created. These tokens are created when a user clicks on one of the SCM logos in the top right corner of the screen OR when an action is performed that requires this token such as viewing a diff or committing code.
 

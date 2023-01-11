@@ -9,7 +9,7 @@ This guide will walk you through configuring a new OAuth Application in GitLab
 
 * Administrator access to your organization's GitLab account.
 
-#### Step 1 - Create an OAuth application with application id and secret.
+#### Step 1: Create an OAuth application with application id and secret
 
 1. Navigate to the Applications page for your organization: `https://gitlab.com/groups/<yourorg>/-/settings/applications`
 2.  Provide an application name and redirect URI.\
@@ -27,7 +27,7 @@ This guide will walk you through configuring a new OAuth Application in GitLab
 
     <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.03.35 AM.png" alt=""><figcaption></figcaption></figure>
 
-#### Step 2 - Configure the Moderne Agent arguments
+#### Step 2: Configure the Moderne Agent arguments
 
 Please note that the commands and options below omit standard options documented at [standard-configuration.md](standard-configuration.md "mention"). You will need to merge the standard options into the commands documented below, which are indicated via ellipses.
 

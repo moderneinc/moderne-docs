@@ -1,4 +1,4 @@
-# Recipe Execution and Commits with GraphQL
+# Recipe execution and commits with GraphQL
 
 Imagine you found a recipe you would like to run as part of your organization's automation process (such as updating the Gradle plugin version when a new release is published). Rather than manually running this recipe each time, you can use Moderne's GraphQL API to speed this process up with automation.
 
@@ -29,7 +29,7 @@ To authorize click the SCM icon of your choice in the header:
 
 ****
 
-### Recipe Execution
+### Recipe execution
 
 1.  Click the [Repository Group](../references/managing-repository-groups.md) selector on the right-hand side of the header and create a new group of your selected repositories.\
 

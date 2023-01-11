@@ -1,4 +1,4 @@
-# Quick Start: Running your first recipe
+# Quickstart: Running your first recipe
 
 To help orient you to Moderne, let's walk through how to run a [recipe ](https://docs.openrewrite.org/v1beta/recipes)on some open-source projects that we have imported into Moderne.
 
@@ -29,7 +29,7 @@ For a better understanding of the permissions requested, please see [GitHub Perm
 
 <figure><img src="../.gitbook/assets/authentication-github-signin.png" alt="GitHub login permissions"><figcaption><p>GitHub permission request</p></figcaption></figure>
 
-## Step 3: (Optionally) Create a repository group
+## Step 3: (Optionally) create a repository group
 
 After you've logged in and granted the appropriate permissions, you'll arrive at the [Moderne home page](https://public.moderne.io/).
 

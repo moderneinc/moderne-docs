@@ -13,7 +13,7 @@ In this doc, you can find out:
 * [How to revoke access tokens you no longer want](create-api-access-tokens.md#how-to-revoke-an-access-token)
 * [Some limitations around these access tokens](create-api-access-tokens.md#limitations)
 
-## How to Make an Access Token
+## How to make an access token
 
 1.  In the top right-hand corner of the app, click on your profile avatar and select _Account Settings_.
 
@@ -30,15 +30,15 @@ In this doc, you can find out:
     ![Hint: Click the clipboard icon to copy your access token](../.gitbook/assets/obfuscated-token.png)
 6. Copy your token to a safe place such as a password manager. You won't be able to see the token again if you close the window.
 
-## How to View Your Access Tokens
+## How to view your access tokens
 
-From the [Access Token](https://public.moderne.io/settings/access-token) page (where you previously created the token), you can see a list of all the tokens:
+From the [access token](https://public.moderne.io/settings/access-token) page (where you previously created the token), you can see a list of all the tokens:
 
 ![Access Token List](../.gitbook/assets/access-token-list.png)
 
-## How to Revoke an Access Token
+## How to revoke an access token
 
-From the [Access Token](https://public.moderne.io/settings/access-token) page, click _Delete_ next to the token you wish to revoke:
+From the [access Token](https://public.moderne.io/settings/access-token) page, click _Delete_ next to the token you wish to revoke:
 
 ![Delete Access Token](../.gitbook/assets/delete-access-token.png)
 
