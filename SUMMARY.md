@@ -1,7 +1,6 @@
 # Table of contents
 
-* [introduction](introduction.md)
-* [Welcome to Moderne](README.md)
+* [Welcome to Moderne](introduction.md)
 
 ## User Documentation
 
