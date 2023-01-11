@@ -2,7 +2,7 @@
 
 Moderne uses a GitHub OAuth application to perform various actions on your behalf. Below is an explanation of those permissions and how they're used by Moderne.
 
-## OAuth Permission
+## OAuth permission
 
 Moderne requires a select number of OAuth scopes necessary to help you transform your code.
 

@@ -4,11 +4,11 @@ description: >-
   available to all users.
 ---
 
-# Configure Repository groups
+# Configure repository groups
 
 This guide will walk you through configuring global repository groups with the on-premise agent
 
-#### Step 1 - Create repository\_groups.json file
+#### Step 1: Create a repository_groups.json file
 
 1. [Create](../../references/managing-repository-groups.md#how-to-create-a-repository-group) and [export](../../references/managing-repository-groups.md#how-to-export-repository-groups-json) repository groups from the Moderne application.&#x20;
 2.  Gather configuration from your team members and construct a `repository_groups.json` file:
@@ -45,7 +45,7 @@ This guide will walk you through configuring global repository groups with the o
     }
     ```
 
-#### Step 2 - Configure the Moderne Agent arguments
+#### Step 2: Configure the Moderne Agent arguments
 
 {% tabs %}
 {% tab title="OCI Container" %}

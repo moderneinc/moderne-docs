@@ -4,11 +4,11 @@ External recipes can be imported into Moderne.io for use by your organization.
 
 This requires an Administrator-level account in order to upload new recipe artifacts.
 
-## Step 1: Go to Load Recipes
+## Step 1: Go to load recipes
 
 Click on _Deploy_ in the left-hand menu.
 
-## Step 2: Upload Recipe Artifact
+## Step 2: Upload recipe artifact
 
 ![](../.gitbook/assets/deployer-upload-artifact.png)
 

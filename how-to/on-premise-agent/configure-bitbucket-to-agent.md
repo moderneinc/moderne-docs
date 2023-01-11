@@ -8,7 +8,7 @@ This guide will walk you through configuring a new Application Link within your 
 
 * Administrator access to your BitBucket on-premise instance.
 
-### Step 1 - Generate a public and private key for Bitbucket
+### Step 1: Generate a public and private key for Bitbucket
 
 ```shell
 openssl genrsa -out bitbucket_privatekey.pem 1024
@@ -17,7 +17,7 @@ openssl pkcs8 -topk8 -nocrypt -in bitbucket_privatekey.pem -out bitbucket_privat
 openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.pem
 ```
 
-### Step 2 - Create an Application Link in Bitbucket
+### Step 2: Create an Application Link in Bitbucket
 
 1. Go to the Administration page of Bitbucket
 2. Select _Application Links_ from the _System_ section
@@ -47,7 +47,7 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
     | Public Key    | Paste the public key (`bitbucket_publickey.pem`) from step 1 |
 10. Click _Continue_ to complete the Application Link creation
 
-### Step 3 - Configure the Moderne Agent with a Bitbucket private key
+### Step 3: Configure the Moderne Agent with a Bitbucket private key
 
 To complete the set-up of Bitbucket with the agent we will need to define the private key, `bitbucket_privatekey.pcks8`, we generated in Step 1 as a run-time parameter for the agent.
 

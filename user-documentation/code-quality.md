@@ -1,4 +1,4 @@
-# Achieve and Maintain High Code Quality
+# Achieve and maintain high code quality
 
 Every programming language has a vast number of conventions and rules that make up "ideal" code. While some of these conventions are stylistic, others can help prevent significant bugs like a `NullPointerException`. Unfortunately, even for the most experienced developers, it's extremely difficult to keep track of these rules and follow them diligently in code. And, even if they do, trying to ensure that other developers follow those same conventions can be like parents trying to tell their kids to clean up their rooms.
 
@@ -11,7 +11,7 @@ To help you get a better understanding of how Moderne can help improve your code
 * [Walk you through running a recipe that fixes common static analysis issues](code-quality.md#fixing-common-static-analysis-issues)
 * [Show you how to learn what is wrong with the code](code-quality.md#learning-whats-wrong-with-the-code)
 
-## Fixing Common Static Analysis Issues
+## Fixing common static analysis issues
 
 Moderne's [Common static analysis recipe](https://public.moderne.io/recipes/org.openrewrite.java.cleanup.CommonStaticAnalysis) looks for and fixes over 50 different types of issues in your code, all of which you can easily enable or disable to meet your needs.
 

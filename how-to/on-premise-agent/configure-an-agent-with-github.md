@@ -11,7 +11,7 @@ This guide will walk you through configuring a new OAuth Application in GitHub
 
 * Administrator access to your organization's GitHub account.
 
-#### Step 1 - Create an OAuth application with client id and secret.
+#### Step 1: Create an OAuth application with client id and secret
 
 1. Navigate to the settings page for your organization: `https://github.com/organizations/<yourorg>/settings/applications`
 2. Expand Developer settings on the bottom left of the page.![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 12.56.51 PM.png>)
@@ -29,7 +29,7 @@ This guide will walk you through configuring a new OAuth Application in GitHub
 | Homepage URL               | `https://myorg.moderne.io` |
 | Authorization callback URL | `https://myorg.moderne.io` |
 
-#### Step 2 - Configure the Moderne Agent arguments
+#### Step 2: Configure the Moderne Agent arguments
 
 Please note that the commands and options below omit standard options documented at [standard-configuration.md](standard-configuration.md "mention"). You will need to merge the standard options into the commands documented below, which is indicated via ellipses.
 

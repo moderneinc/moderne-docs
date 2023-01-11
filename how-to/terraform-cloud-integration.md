@@ -14,7 +14,7 @@ A run task works by sending run-related information to an external third-party s
 Partners participating in the beta can add their feedback [here](https://hashi.co/run-tasks-feedback).
 {% endhint %}
 
-## Getting started with Run Task
+## Getting started with run task
 
 ### Prerequisites:
 

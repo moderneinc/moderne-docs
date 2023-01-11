@@ -72,7 +72,7 @@ If you're a Maven user used to command line invocations such as `mvn rewrite:dry
 Gradle users can continue invoking `gradlew rewriteDryRun` and `gradlew rewriteRun` as the names of those tasks remain the same in the moderne-gradle-plugin.
 {% endhint %}
 
-## Step 2: Configure Publishing
+## Step 2: Configure publishing
 
 The Moderne SaaS requires that the AST artifacts produced by the build plugin be published to your artifact repository. This may require you to publish AST artifacts from projects that do not currently publish anything.
 
@@ -112,7 +112,7 @@ publishing {
 
 Now whenever your project is published there will be a file with a "jar" extension and an "ast" classifier published alongside any other publications. So for a project named "example" publishing version "1.0", you can expect to see a file named `example-1.0-ast.jar` alongside the normal `example-1.0.jar`.
 
-## See Also
+## See also
 
-* [OpenRewrite Maven Plugin Configuration](https://docs.openrewrite.org/reference/maven-plugin-configuration)
-* [OpenRewrite Gradle Plugin Configuration](https://docs.openrewrite.org/reference/gradle-plugin-configuration)
+* [OpenRewrite Maven plugin configuration](https://docs.openrewrite.org/reference/maven-plugin-configuration)
+* [OpenRewrite Gradle plugin configuration](https://docs.openrewrite.org/reference/gradle-plugin-configuration)

@@ -8,7 +8,7 @@ This guide will walk you through configuring a new Application Link within your 
 
 * Ability to create a Bitbucket OAuth Consumer.
 
-### Step 1 - Create a Bitbucket OAuth Consumer
+### Step 1: Create a Bitbucket OAuth Consumer
 
 Follow [this Atlassian guide](https://support.atlassian.com/bitbucket-cloud/docs/use-oauth-on-bitbucket-cloud/) to create an OAuth Consumer.
 

@@ -1,6 +1,4 @@
-# User Roles
-
-
+# User roles
 
 | Action                   |       Everyone       |    Administrators    |
 | ------------------------ | :------------------: | :------------------: |
