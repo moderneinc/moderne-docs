@@ -5,9 +5,9 @@
 ## User Documentation
 
 * [Quick Start: Running your first recipe](user-documentation/running-your-first-recipe.md)
-* [Introduction to Type-Aware Code Search](user-documentation/introduction-to-type-aware-code-search.md)
-* [Achieve and Maintain High Code Quality](user-documentation/code-quality.md)
-* [Create Custom Recipes With the Recipe Builder](user-documentation/recipe-builder.md)
+* [Introduction to type-aware code search](user-documentation/introduction-to-type-aware-code-search.md)
+* [Achieve and maintain high code quality](user-documentation/code-quality.md)
+* [Create custom recipes with the recipe builder](user-documentation/recipe-builder.md)
 
 ## How-to Guides <a href="#how-to" id="how-to"></a>
 
@@ -20,13 +20,13 @@
   * [Configure an agent with Bitbucket Cloud access](how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md)
   * [Configure an agent with GitHub](how-to/on-premise-agent/configure-an-agent-with-github.md)
   * [Configure an agent with GitLab](how-to/on-premise-agent/configure-an-agent-with-gitlab.md)
-  * [Configure Repository groups](how-to/on-premise-agent/configure-repository-groups.md)
-  * [Artifact Repository Integration](how-to/on-premise-agent/maven-repository-integration/README.md)
+  * [Configure repository groups](how-to/on-premise-agent/configure-repository-groups.md)
+  * [Artifact repository integration](how-to/on-premise-agent/maven-repository-integration/README.md)
     * [Maven repository integration overview](how-to/on-premise-agent/maven-repository-integration/maven-repository-integration-overview.md)
     * [Configure an agent with Maven repository access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-maven-repository-access.md)
     * [Configure an agent with Artifactory access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-artifactory-access.md)
 * [🚀 Accessing the Moderne API](how-to/accessing-the-moderne-api.md)
-* [Recipe Execution and Commits with GraphQL](how-to/recipe-execution-and-commits-with-graphql.md)
+* [Recipe execution and commits with GraphQL](how-to/recipe-execution-and-commits-with-graphql.md)
 
 ## Releases
 
@@ -36,9 +36,9 @@
 ## References
 
 * [GitHub permissions](references/github-permissions.md)
-* [Moderne Tokens](references/moderne-tokens.md)
-* [Creating a Personal Access Token](references/create-api-access-tokens.md)
-* [Managing Repository Groups](references/managing-repository-groups.md)
+* [Moderne tokens](references/moderne-tokens.md)
+* [Creating a personal access token](references/create-api-access-tokens.md)
+* [Managing repository groups](references/managing-repository-groups.md)
 * [User roles](references/user-roles.md)
 * [Interactions with git when applying changes](references/how-moderne-applies-changes.md)
 * [Routing requests to agents](references/routing-requests-to-agents.md)
@@ -47,7 +47,7 @@
 
 ## Concepts
 
-* [Lossless Semantic Trees](concepts/lossless-semantic-trees.md)
+* [Lossless semantic trees](concepts/lossless-semantic-trees.md)
 
 ## Legal
 
