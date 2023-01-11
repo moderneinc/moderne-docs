@@ -3,5 +3,5 @@
 | Component                   | Current version |
 | --------------------------- |-----------------|
 | Moderne Maven build plugin  | 0.32.3          |
-| Moderne Gradle build plugin | 0.31.3          |
+| Moderne Gradle build plugin | 0.31.4          |
 | Agent                       | 0.102.0         |
