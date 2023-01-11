@@ -5,7 +5,7 @@
 
 ## User Documentation
 
-* [Quick Start: Running your first recipe](user-documentation/running-your-first-recipe.md)
+* [Quickstart: Running your first recipe](user-documentation/running-your-first-recipe.md)
 * [Introduction to type-aware code search](user-documentation/introduction-to-type-aware-code-search.md)
 * [Achieve and maintain high code quality](user-documentation/code-quality.md)
 * [Create custom recipes with the recipe builder](user-documentation/recipe-builder.md)
