@@ -1,7 +1,7 @@
 # Versions of plugins and agent
 
-| Component                   | Current version |
-| --------------------------- | --------------- |
-| Moderne Maven build plugin  | 0.32.3          |
-| Moderne Gradle build plugin | 0.31.5          |
-| Agent                       | 0.109.0         |
+| Component                             | Current version |
+| ------------------------------------- | --------------- |
+| Moderne Maven build plugin            | 0.32.3          |
+| Moderne Gradle build plugin           | 0.31.5          |
+| Agent (recommended to use **latest**) | 0.109.0         |
