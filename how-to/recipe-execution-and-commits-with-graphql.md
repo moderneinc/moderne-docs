@@ -14,29 +14,25 @@ To help you understand how to automate recipe execution and commits, we'll walk 
 
 This guide assumes that you:
 
-1. Know how to use and interact with GraphQL APIs.&#x20;
+1. Know how to use and interact with GraphQL APIs.
 2. [Have created a Moderne personal access token](../references/create-api-access-tokens.md).
 3. Have authorized your SCM provider in the Moderne UI.
 
 {% hint style="info" %}
-**Note:** SCM authentication through the Moderne SaaS are only valid for up to 8 hours. \
+**Note:** SCM authentication through the Moderne SaaS are only valid for up to 8 hours.\
 To authorize click the SCM icon of your choice in the header:
 
 <img src="../.gitbook/assets/Screenshot 2022-12-02 at 9.43.37 AM.png" alt="" data-size="original">
-
-
 {% endhint %}
 
-****
+***
 
 ### Recipe execution
 
-1.  Click the [Repository Group](../references/managing-repository-groups.md) selector on the right-hand side of the header and create a new group of your selected repositories.\
+1.  Click the [Repository Group](../references/managing-repository-groups.md) selector on the right-hand side of the header and create a new group of your selected repositories.\\
 
-
-    <figure><img src="../.gitbook/assets/Screenshot 2022-12-02 at 9.28.28 AM.png" alt=""><figcaption></figcaption></figure>
-2.  Navigate to the recipe you wish to run and fill out the recipe options.\
-
+    <figure><img src="../.gitbook/assets/Screenshot 2022-12-02 at 9.28.28 AM (1).png" alt=""><figcaption></figcaption></figure>
+2.  Navigate to the recipe you wish to run and fill out the recipe options.\\
 
     <figure><img src="../.gitbook/assets/Screenshot 2022-12-01 at 2.05.59 PM.png" alt=""><figcaption></figcaption></figure>
 3. Click the `See how to run against the API` link. This will provide you with the query that will be run when executing a recipe run and additionally the variables provided from your repository group in the query variables pane.
@@ -162,7 +158,7 @@ curl --request POST
 
 ### Retrieve repositories with results
 
-1. Using the `id` from the [recipe execution](recipe-execution-and-commits-with-graphql.md#recipe-execution) response, you can now retrieve the repositories where changes were made using the query below.&#x20;
+1. Using the `id` from the [recipe execution](recipe-execution-and-commits-with-graphql.md#recipe-execution) response, you can now retrieve the repositories where changes were made using the query below.
 
 {% tabs %}
 {% tab title="Retrieve Repositories Query" %}
@@ -218,7 +214,7 @@ curl --request POST
 {% endtab %}
 {% endtabs %}
 
-2\. You can then use the `edges` array in the response, to build up the repository list used in the next step of creating a pull request. Example response: &#x20;
+2\. You can then use the `edges` array in the response, to build up the repository list used in the next step of creating a pull request. Example response:
 
 ```json
 {
@@ -251,12 +247,12 @@ curl --request POST
 
 ### Creating a pull request
 
-1. Next, we will perform the `pullRequest` mutation to create a pull request with our changes. We will be using the`id` from [recipe execution ](recipe-execution-and-commits-with-graphql.md#recipe-execution)and the response from the previous step to construct the mutation variables for committing a pull request. See the mutation variables tab below.&#x20;
+1. Next, we will perform the `pullRequest` mutation to create a pull request with our changes. We will be using the`id` from [recipe execution ](recipe-execution-and-commits-with-graphql.md#recipe-execution)and the response from the previous step to construct the mutation variables for committing a pull request. See the mutation variables tab below.
 
 {% hint style="info" %}
 **Optional: Bring your own Personal Access Token**
 
-Commit tasks like `pullRequest` now support optionally defining a Personal Access Token that you create through your SCM and provide as a GraphQL Mutation input.&#x20;
+Commit tasks like `pullRequest` now support optionally defining a Personal Access Token that you create through your SCM and provide as a GraphQL Mutation input.
 
 You must grant sufficient permission when creating these Personal Access Tokens. These permissions will vary from provider to provider but generally include read/write access to Repositories and Pull Requests.
 
@@ -367,7 +363,7 @@ curl --request POST
 
 ### Verify commit job
 
-1. Using the `id` returned from the [pull request mutation](recipe-execution-and-commits-with-graphql.md#creating-a-pull-request) we can then poll for the completion of the commit job.  When the response is returned with the `completed` property set to `1` the job has been completed. The `summaryResults` property will contain the count of success, failure, no changes commit jobs. Detailed statuses are found on the `commits` property. This is a paginated query so you may need to loop through multiple pages if you wish to see detailed results for each commit.
+1. Using the `id` returned from the [pull request mutation](recipe-execution-and-commits-with-graphql.md#creating-a-pull-request) we can then poll for the completion of the commit job. When the response is returned with the `completed` property equal to the `commits.count` property the job has been completed. The `summaryResults` property will contain the count of success, failure, and no changes commit jobs. Detailed statuses are found on the `commits` property. This is a paginated query so you may need to loop through multiple pages if you wish to see detailed results for each commit.
 
 {% tabs %}
 {% tab title="Commit Job Query" %}
@@ -459,7 +455,7 @@ curl --request POST \
 {% endtab %}
 {% endtabs %}
 
-2\. Example response:&#x20;
+2\. Example response:
 
 ```json
 {
