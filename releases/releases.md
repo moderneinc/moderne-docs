@@ -4,4 +4,4 @@
 | --------------------------- | --------------- |
 | Moderne Maven build plugin  | 0.32.3          |
 | Moderne Gradle build plugin | 0.31.5          |
-| Agent                       | 0.107.0         |
+| Agent                       | 0.109.0         |
