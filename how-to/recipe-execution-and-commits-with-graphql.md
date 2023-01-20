@@ -256,7 +256,7 @@ Commit tasks like `pullRequest` now support optionally defining a Personal Acces
 
 You must grant sufficient permission when creating these Personal Access Tokens. These permissions will vary from provider to provider but generally include read/write access to Repositories and Pull Requests.
 
-**Note:** _Bitbucket Data Center requires version 5.8.x or later_
+**Note:** _Bitbucket Data Center and Server requires version 5.5.x or later_
 
 For more information on creating Personal Access Tokens, please see:
 
