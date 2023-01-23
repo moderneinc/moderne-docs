@@ -1,7 +1,6 @@
 # Configure an agent with GitLab
 
-Configuring your Moderne Agent instance with GitLab is a prerequisite for both viewing recipe results within the Moderne application and committing changes from a recipe.\
-
+Configuring your Moderne Agent instance with GitLab is a prerequisite for both viewing recipe results within the Moderne application and committing changes from a recipe.\\
 
 This guide will walk you through configuring a new OAuth Application in GitLab
 
@@ -15,15 +14,12 @@ This guide will walk you through configuring a new OAuth Application in GitLab
 2.  Provide an application name and redirect URI.\
     The redirect URI will be in this format: `https://<tenantname>.moderne.io`
 
-
-
-    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.59.50 AM.png" alt=""><figcaption></figcaption></figure>
-3.  Supply the following selections                          &#x20;
+    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.59.50 AM (1).png" alt=""><figcaption></figcaption></figure>
+3.  Supply the following selections
 
     <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 7.52.35 AM.png" alt=""><figcaption></figcaption></figure>
 4. Click the Save application button
-5.  Copy the application ID and secret from this page; they will be used as arguments for the Moderne Agent.  \
-
+5.  Copy the application ID and secret from this page; they will be used as arguments for the Moderne Agent. \\
 
     <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.03.35 AM.png" alt=""><figcaption></figcaption></figure>
 
@@ -40,9 +36,7 @@ You can configure multiple GitLab OAuth Apps by including multiple entries with 
 * `MODERNE_AGENT_GITLAB_{index}_URL` - fully-qualified hostname of running GitLab instance
 * `MODERNE_AGENT_GITLAB_{index}_SKIPSSL` - skip SSL validation for HTTP connections to this GitLab instance (defaults to false)
 
-
-
-Example (note that host, client id,  and client secret are fake):
+Example (note that host, client id, and client secret are fake):
 
 ```
 docker run \
@@ -64,7 +58,7 @@ You can configure multiple GitHub OAuth Apps by including multiple entries with 
 
 Note: system properties can be used in place of arguments. As an example, use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}` as an argument.
 
-Example (note that host, client id,  and client secret are fake):
+Example (note that host, client id, and client secret are fake):
 
 ```
 java -jar moderne-agent-{version}.jar \
@@ -76,4 +70,3 @@ java -jar moderne-agent-{version}.jar \
 ```
 {% endtab %}
 {% endtabs %}
-

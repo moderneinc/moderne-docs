@@ -1,6 +1,34 @@
 # Changelog
 
-### UI v 9.35.0 (2022/12/30)
+### UI v9.46.0 (2023/01/21)
+
+Data tables
+
+### UI v9.44.0 (2023/01/21)
+
+#### Repository quick view
+
+Hover over the info icon to quickly view more information including the commit that the artifact was generated from as well as when it was ingested into the platform.
+
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+### UI v9.39.0 (2023/01/11)
+
+#### Actions moved to left
+
+Actions for grids are now presented on the left-hand side of the table.&#x20;
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+### UI v9.37.0 (2023/01/10)
+
+#### Bitbucket Cloud support
+
+Repositories hosted on Bitbucket cloud are now supported. This [requires additional configuration through your agent](../how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md#prerequisites).
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+### UI v9.35.0 (2022/12/30)
 
 #### Admin token management
 
@@ -19,9 +47,9 @@ While addressing some keyboard shortcuts that were reported to conflict with cer
 We want to improve users and recipe authors' experience finding source code for a particular recipe.  We have added on the recipe details pages a link on OpenRewrite recipes that will use a specialized GitHub search query to find the source.  We have plans to expand this functionality in the future.\
 
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
-### UI v 9.31.0 (2022/12/16)
+### UI v9.31.0 (2022/12/16)
 
 #### Support for adding applicability tests to builder recipes
 
@@ -34,25 +62,25 @@ These tests currently come in two variants:
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>For more information on applicability test see the <a href="https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-applicability-tests">OpenRewrite documentation</a>.</p></figcaption></figure>
 
-### UI v 9.29.0 (2022/12/14)
+### UI v9.29.0 (2022/12/14)
 
 #### Show error when recipe no longer exists
 
 <figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.48.21 AM.png" alt=""><figcaption></figcaption></figure>
 
-### UI v 9.28.0 (2022/12/10)
+### UI v9.28.0 (2022/12/10)
 
 #### Origin and base branch added to commit results table
 
 <figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.46.44 AM.png" alt=""><figcaption></figcaption></figure>
 
-### UI v 9.26.0 (2022/12/09)
+### UI v9.26.0 (2022/12/09)
 
 #### Patch and commit are now disabled if there are no results to commit
 
 <figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.44.05 AM.png" alt=""><figcaption></figcaption></figure>
 
-### UI v 9.25.0 (2022/12/08)
+### UI v9.25.0 (2022/12/08)
 
 #### Add error details to errors in diffs
 
@@ -60,7 +88,7 @@ An Error card shows the code where the error was discovered, the error message, 
 
 <figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.41.10 AM.png" alt=""><figcaption></figcaption></figure>
 
-### UI v 9.24.0 (2022/12/02)
+### UI v9.24.0 (2022/12/02)
 
 #### Create a new repository group from existing
 
@@ -78,7 +106,7 @@ This has been added to the following pages:&#x20;
 
 <figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM.png" alt=""><figcaption></figcaption></figure>
 
-### UI v 9.23.0 (2022/11/30)
+### UI v9.23.0 (2022/11/30)
 
 #### Ignore whitespace changes
 
@@ -106,7 +134,7 @@ We have added a status page \`/status\` that displays a general summary of the s
 
 Recipe run results summary view now has the option to view the number of markers returned for each repository.
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (4).png" alt=""><figcaption></figcaption></figure>
 
 This can also be viewed in the extended summary.
 

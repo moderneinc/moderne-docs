@@ -1,7 +1,6 @@
 # Configure an agent with GitHub
 
-Configuring your Moderne Agent instance with GitHub is a prerequisite for both viewing recipe results within the Moderne application and committing changes from a recipe.\
-
+Configuring your Moderne Agent instance with GitHub is a prerequisite for both viewing recipe results within the Moderne application and committing changes from a recipe.\\
 
 This guide will walk you through configuring a new OAuth Application in GitHub
 
@@ -16,10 +15,10 @@ This guide will walk you through configuring a new OAuth Application in GitHub
 1. Navigate to the settings page for your organization: `https://github.com/organizations/<yourorg>/settings/applications`
 2. Expand Developer settings on the bottom left of the page.![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 12.56.51 PM.png>)
 3. Click the `New OAuth App` button in the upper right of your screen.
-4. Supply the required fields and Register the application.  (See examples below)                                  ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.01.11 PM.png>)
+4. Supply the required fields and Register the application. (See examples below) ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.01.11 PM.png>)
 5. On your newly created application click the `Generate a new client secret` button\
-   ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.17.35 PM.png>)
-6. Copy the Client ID and Client secret from this page; they will be used as arguments for the Moderne Agent. &#x20;
+   ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.17.35 PM (1).png>)
+6. Copy the Client ID and Client secret from this page; they will be used as arguments for the Moderne Agent.
 
 #### **Example values**
 
@@ -44,9 +43,7 @@ You can configure multiple GitHub OAuth Apps by including multiple entries with 
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_INCLUDEPRIVATEREPOS` - By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can include the following optional configuration
 * `MODERNE_AGENT_GITHUB_{index}_ALLOWABLE_ORGANIZATIONS_{index}` - By default, there are no restrictions on which organizations can be committed to
 
-
-
-Example (note that host, client id,  and client secret are fake):
+Example (note that host, client id, and client secret are fake):
 
 ```
 docker run \
@@ -67,19 +64,15 @@ You can configure multiple GitHub OAuth Apps by including multiple entries with 
 * `moderne.agent.github[{index}].oauth.clientSecret` - Client secret configured in the previous step
 * `moderne.agent.github[{index}].url` - fully-qualified hostname of running GitHub instance
 * `moderne.agent.github[{index}].skipSsl` - skip SSL validation for HTTP connections to this GitHub instance (defaults to false)
-* `moderne.agent.github[{index}].allowableOrganizations[{index}]` - By default, there are no restrictions on which organizations can be committed to.&#x20;
-
-
+* `moderne.agent.github[{index}].allowableOrganizations[{index}]` - By default, there are no restrictions on which organizations can be committed to.
 
 By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can include the following optional configuration:
 
 * `moderne_agent_github[{index}]`.`oauth.includePrivateRepos=true`
 
-
-
 Note: system properties can be used in place of arguments. As an example, use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}` as an argument.
 
-Example (note that host, client id,  and client secret are fake):
+Example (note that host, client id, and client secret are fake):
 
 ```
 java -jar moderne-agent-{version}.jar \
@@ -92,4 +85,3 @@ java -jar moderne-agent-{version}.jar \
 ```
 {% endtab %}
 {% endtabs %}
-

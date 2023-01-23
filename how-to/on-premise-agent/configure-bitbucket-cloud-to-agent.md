@@ -14,7 +14,7 @@ Follow [this Atlassian guide](https://support.atlassian.com/bitbucket-cloud/docs
 
 Configure the callback URL to point at your tenant:
 
-![](<../../.gitbook/assets/image (9).png>)
+![](<../../.gitbook/assets/image (9) (3).png>)
 
 The consumer should have these permissions:
 

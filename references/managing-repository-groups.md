@@ -52,24 +52,18 @@ To help you get started with repository groups, in this guide you will learn:
 ## How to export repository groups JSON
 
 1.  From any page, click on the text to the left of your avatar:\
-    \
-
+    \\
 
     <figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
-
-
 2. This will make the repository group menu appear:
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
-3\. Click on `Manage Repository Groups`. You will be redirected to the repository group page:\
+3\. Click on `Manage Repository Groups`. You will be redirected to the repository group page:\\
 
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
-
-4\. You can then export them individually or you can export all of the repository groups defined.&#x20;
-
-
+4\. You can then export them individually or you can export all of the repository groups defined.
 
 * To export an individual group, click the triple dots on the group you wish to export and then click on `Export repository group` from the menu. A `.json` file will be downloaded containing this single group.
 * To export all of the repository groups, click the `Export ALL` link. A `.json` file of all your groups will be downloaded.

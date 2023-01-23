@@ -50,7 +50,7 @@ Think of this like a static analyzer but with auto-remediation!
 
 The `requestedRecipe` query parameter allows you to control which recipe will run. The recipe id for this query parameter can be copied from the recipe detail of any Terraform recipe on the Moderne platform.
 
-![](<../.gitbook/assets/image (5) (1).png>)
+![](<../.gitbook/assets/image (5) (1) (1).png>)
 
 4\. To connect this Task Event Hook to your workspace in Terraform Cloud, navigate to the
 
