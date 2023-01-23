@@ -8,9 +8,28 @@ Data tables
 
 #### Repository quick view
 
-Hover over the info icon to quickly view more information including the commit that the artifact was generated from as well as when it was ingested into the platform.
+Hover over the info icon to quickly view more information including the commit that the artifact was generated from and when it was ingested into the platform.
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+### UI v9.41.0 (2023/01/17)
+
+#### Removal of the default repository group `All`
+
+Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../how-to/on-premise-agent/configure-repository-groups.md) through Agent to provide this functionality. See the example below.
+
+```json
+{
+  "All": {
+    "name": "All",
+    "repositories": null
+  },
+  "Default": {
+    "name": "Default",
+    "repositories": [...]
+  }
+}
+```
 
 ### UI v9.39.0 (2023/01/11)
 
