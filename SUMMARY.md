@@ -26,7 +26,7 @@
     * [Configure an agent with Maven repository access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-maven-repository-access.md)
     * [Configure an agent with Artifactory access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-artifactory-access.md)
 * [🚀 Accessing the Moderne API](how-to/accessing-the-moderne-api.md)
-* [Recipe execution and commits with GraphQL](how-to/recipe-execution-and-commits-with-graphql.md)
+* [Recipe execution and commits with the Moderne API](how-to/recipe-execution-and-commits-with-graphql.md)
 
 ## Releases
 
@@ -38,6 +38,7 @@
 * [GitHub permissions](references/github-permissions.md)
 * [Moderne tokens](references/moderne-tokens.md)
 * [Creating a personal access token](references/create-api-access-tokens.md)
+* [Creating SCM access tokens](references/create-scm-access-tokens.md)
 * [Managing repository groups](references/managing-repository-groups.md)
 * [User roles](references/user-roles.md)
 * [Interactions with git when applying changes](references/how-moderne-applies-changes.md)
