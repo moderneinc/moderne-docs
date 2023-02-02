@@ -1,8 +1,22 @@
 # Changelog
 
+### UI v9.51.0 (2023/02/01)
+
+A new option has been added to the Pull Request form to allow or disallow the reopening of closed pull requests.&#x20;
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM.png" alt=""><figcaption></figcaption></figure>
+
+`See how to run against the API` link has been added to the commit form as well. This will show the GraphQL for the action.
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.47.03 PM.png" alt=""><figcaption></figcaption></figure>
+
 ### UI v9.46.0 (2023/01/21)
 
-Data tables
+Data tables: Recipes can now emit tabular data according to a schema that they define.
+
+<figure><img src="../.gitbook/assets/image (13) (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.44.0 (2023/01/21)
 
@@ -123,7 +137,7 @@ This has been added to the following pages:&#x20;
 * workers
 * quarantine
 
-<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.23.0 (2022/11/30)
 
@@ -229,7 +243,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 ![](<../.gitbook/assets/image (10).png>)
 
-![](<../.gitbook/assets/image (1) (3).png>)
+![](<../.gitbook/assets/image (4) (3).png>)
 
 ![](<../.gitbook/assets/image (16).png>)
 

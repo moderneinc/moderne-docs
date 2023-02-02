@@ -61,7 +61,7 @@ To help you get started with repository groups, in this guide you will learn:
 
 3\. Click on `Manage Repository Groups`. You will be redirected to the repository group page:\\
 
-<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 4\. You can then export them individually or you can export all of the repository groups defined.
 
