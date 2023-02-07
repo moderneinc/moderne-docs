@@ -26,6 +26,12 @@ docker login -u moderne-tenant -p <ACR password, provided by Moderne> moderne.az
 
 
 
+Pull:
+
+```
+docker pull moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
+```
+
 The agent container requires several environment variables:
 
 * `MODERNE_AGENT_APIGATEWAYRSOCKETURI` - URI used to connect to the Moderne API, provided by Moderne
