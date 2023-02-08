@@ -1,78 +1,36 @@
----
-description: >-
-  Tenant-defined repository groups. Configure repository groups that will be
-  available to all users.
----
+# Configure Organizations service
 
-# Configure repository groups
-
-This guide will walk you through configuring global repository groups with the on-premise agent
-
-#### Step 1: Create a repository_groups.json file
-
-1. [Create](../../references/managing-repository-groups.md#how-to-create-a-repository-group) and [export](../../references/managing-repository-groups.md#how-to-export-repository-groups-json) repository groups from the Moderne application.&#x20;
-2.  Gather configuration from your team members and construct a `repository_groups.json` file:
-
-    ```json
-    {  
-      "Default": {
-        "name": "Default",
-        "description": null,
-        "repositories": [
-          {
-            "origin": "github.com",
-            "path": "Netflix/astyanax",
-            "branch": "master",
-          },
-          {
-            "origin": "github.com",
-            "path": "Netflix/curator",
-            "branch": "master",
-          }
-        ]
-      },
-      "Servo": {
-        "name": "Servo",
-        "description": "servo clone",
-        "repositories": [
-          {
-            "origin": "bitbucket.moderne.ninja:7999",
-            "path": "mod/servo",
-            "branch": "master",
-          }
-        ]
-      }
-    }
-    ```
-
-#### Step 2: Configure the Moderne Agent arguments
+Configure the[ ](../../references/organizations-service.md)[Organizations service ](../../references/organizations-service.md)to provide organizational insight to the Moderne platform.
 
 {% tabs %}
 {% tab title="OCI Container" %}
-Provide the path to the repository group for your container.&#x20;
+Provide the path to the repository group for your container.
 
-* `MODERNE_AGENT_REPOSITORY_GROUP_FILE_PATH` - Application id configured in the previous step
-* Note: You must have the file containing the repository groups config mounted.
+* `MODERNE_AGENT_ORGANIZATION_URL` - URL of the GraphQL service. e.g.&#x20;
+* `MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS` - (optional) Defaults to 600 (10 minutes)
 
-Example&#x20;
+Example
 
 ```
 docker run \
 ...
--e MODERNE_AGENT_REPOSITORY_GROUP_FILE_PATH=/app/repository_groups.json \
+-e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
+-e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 ...
 ```
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-* `moderne.agent.repositoryGroupFilePath` - Application id configured in the previous step
+* `moderne.agent.organization.url` - URL of the GraphQL service.
+* `moderne.agent.organization.updateIntervalSeconds` -  (optional) Defaults to 600 (10 minutes)
 
 Example
 
 ```
 java -jar moderne-agent-{version}.jar \
 ...
---moderne.agent.repositoryGroupFilePath=/app/repository_groups.json \
+--moderne.agent.organization.url=http://localhost:8091 \
+--moderne.agent.organization.updateIntervalSeconds=600 \
 ...
 ```
 {% endtab %}

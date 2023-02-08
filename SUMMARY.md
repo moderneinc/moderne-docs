@@ -20,7 +20,7 @@
   * [Configure an agent with Bitbucket Cloud access](how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md)
   * [Configure an agent with GitHub](how-to/on-premise-agent/configure-an-agent-with-github.md)
   * [Configure an agent with GitLab](how-to/on-premise-agent/configure-an-agent-with-gitlab.md)
-  * [Configure repository groups](how-to/on-premise-agent/configure-repository-groups.md)
+  * [Configure Organizations service](how-to/on-premise-agent/configure-repository-groups.md)
   * [Artifact repository integration](how-to/on-premise-agent/maven-repository-integration/README.md)
     * [Maven repository integration overview](how-to/on-premise-agent/maven-repository-integration/maven-repository-integration-overview.md)
     * [Configure an agent with Maven repository access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-maven-repository-access.md)
@@ -35,6 +35,7 @@
 
 ## References
 
+* [Organizations service](references/organizations-service.md)
 * [GitHub permissions](references/github-permissions.md)
 * [Moderne tokens](references/moderne-tokens.md)
 * [Creating a personal access token](references/create-api-access-tokens.md)
