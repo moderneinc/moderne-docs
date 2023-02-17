@@ -44,7 +44,7 @@
 * [User roles](references/user-roles.md)
 * [Interactions with git when applying changes](references/how-moderne-applies-changes.md)
 * [Routing requests to agents](references/routing-requests-to-agents.md)
-* [How AST artifacts are produced](references/how-ast-artifacts-are-produced.md)
+* [How LST artifacts are produced](references/how-ast-artifacts-are-produced.md)
 * [Docker configuration for agent](references/docker-configuration-for-agent.md)
 
 ## Concepts
