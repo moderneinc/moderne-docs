@@ -5,11 +5,13 @@
 ## User Documentation
 
 * [Quickstart: Running your first recipe](user-documentation/running-your-first-recipe.md)
+* [🚀 Accessing the Moderne API](user-documentation/accessing-the-moderne-api.md)
+* [Recipe execution and commits with the Moderne API](user-documentation/recipe-execution-and-commits-with-graphql.md)
 * [Introduction to type-aware code search](user-documentation/introduction-to-type-aware-code-search.md)
 * [Achieve and maintain high code quality](user-documentation/code-quality.md)
 * [Create custom recipes with the recipe builder](user-documentation/recipe-builder.md)
 
-## How-to Guides <a href="#how-to" id="how-to"></a>
+## Administrator documentation <a href="#how-to" id="how-to"></a>
 
 * [Integrating private code with Moderne SaaS](how-to/integrating-private-code.md)
 * [Importing external recipes](how-to/importing-external-recipes.md)
@@ -25,8 +27,6 @@
     * [Maven repository integration overview](how-to/on-premise-agent/maven-repository-integration/maven-repository-integration-overview.md)
     * [Configure an agent with Maven repository access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-maven-repository-access.md)
     * [Configure an agent with Artifactory access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-artifactory-access.md)
-* [🚀 Accessing the Moderne API](how-to/accessing-the-moderne-api.md)
-* [Recipe execution and commits with the Moderne API](how-to/recipe-execution-and-commits-with-graphql.md)
 
 ## Releases
 
