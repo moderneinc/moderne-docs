@@ -16,15 +16,26 @@ To integrate, you will need to deploy an Organizations service that fulfills the
 
     ```graphql
     type Query {
-       """
+        """
         The list of organizations that a repository belongs to.
         """
         organizations(repository: RepositoryInput): [Organization!]
+
+        """
+        This is the default organization that will be selected for a user
+        that first logs in to Moderne.
+        """
+        defaultOrganization(email: String!): Organization!
     }
 
     type Organization {
         id: ID!
         name: String!
+
+        """
+        Ordered list of commit options as they should appear in the UI.
+        """
+        commitOptions: [CommitOption!]!
     }
 
     input RepositoryInput {
@@ -32,14 +43,22 @@ To integrate, you will need to deploy an Organizations service that fulfills the
         origin: String
         branch: String
     }
+
+    enum CommitOption {
+        Direct
+        Branch
+        Fork
+        PullRequest
+        ForkAndPullRequest
+    }
     ```
 * Example query&#x20;
 
 ```
-curl --request POST
---url http://<your-orgs-service>/graphql
---header 'Content-Type: application/json'
---data '{"query":"query orgs($repository: RepositoryInput) {\n\torganizations(repository: $repository) {\n\t\tid\n\t\tname\n\t}\n}","operationName":"orgs","variables":{"repository":{"origin":"github.com","path":"Netflix/curator","branch":"master"}}}'
+curl --request POST \
+  --url https://organizations.moderne.ninja/graphql \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"query orgs($repository: RepositoryInput) {\n\torganizations(repository: $repository) {\n\t\tid\n\t\tname\n\t\tcommitOptions\n\t}\n}","operationName":"orgs","variables":{"repository":{"origin":"github.com","path":"Netflix/curator","branch":"master"}}}'
 ```
 
 The platform communicates with the Organizations service through the Moderne agent when configured and updates the global repository groupings through this service on an interval (10 mins or configured value). See the architecture diagram below.
