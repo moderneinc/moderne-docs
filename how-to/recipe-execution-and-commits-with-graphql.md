@@ -243,32 +243,38 @@ curl --request POST
 {% tabs %}
 {% tab title="Pull Request Mutation" %}
 ```graphql
-mutation pullRequest(
-  $commitInput: CommitInput!
-  $pullRequestTitle: String
-  $pullRequestBody: Base64
-  $isDraft: Boolean! = false
-  $scmPersonalAccessToken = String
-) {
-  pullRequest(
-    commit: $commitInput
-    pullRequestTitle: $pullRequestTitle
-    pullRequestBody: $pullRequestBody
-    draft: $isDraft
-    scmAccessToken: $scmPersonalAccessToken
-  ) {
-    id
-    started
-    email
-    completed
-    summaryResults {
-      count
-      successfulCount
-      failedCount
-      noChangeCount
-    }
-  }
+mutation pullRequest {
+	pullRequest(
+		commit: {
+			recipeRunId: "Dxvsv"
+			branchName: "refactor/update-a-gradle-plugin-by-id"
+			message: "refactor: Update a Gradle plugin by id"
+			repositories: [
+				{
+					branch: "master"
+					origin: "github.com"
+					path: "gradle/gradle-checksum"
+				}
+			]
+			scmAccessToken: "MY_SCM_ACCESS_TOKEN"
+		}
+		pullRequestTitle: "Example PR title"
+		pullRequestBody: "Example PR body"
+		draft: false
+	) {
+		id
+		started
+		email
+		completed
+		summaryResults {
+			count
+			successfulCount
+			failedCount
+			noChangeCount
+		}
+	}
 }
+
 ```
 {% endtab %}
 
