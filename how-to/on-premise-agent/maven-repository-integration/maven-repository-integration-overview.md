@@ -2,7 +2,7 @@
 
 Maven repositories are potential sources of both Abstract Syntax Tree (AST) artifacts and recipe artifacts. Recipes artifacts contain custom recipes that perform transformations on the ASTs.
 
-A particular Maven repository may contain either ASTs or recipe artifacts, or a mixture of both. Several open source and commercial products exist to serve artifacts using the Maven repository format. A single instance of one of these products may contain multiple Maven repositories.
+A particular Maven repository may contain either ASTs or recipe artifacts, or a mixture of both. Several open-source and commercial products exist to serve artifacts using the Maven repository format. A single instance of one of these products may contain multiple Maven repositories.
 
 ![](<../../../.gitbook/assets/image (12) (1).png>)![](<../../../.gitbook/assets/image (21).png>)
 

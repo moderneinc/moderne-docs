@@ -58,7 +58,7 @@ The agent application requires several arguments:
 
 * `--moderne.agent.apiGatewayRsocketUri` - URI used to connect to the Moderne API, provided by Moderne
 * `--moderne.agent.token` - Moderne SaaS agent connection token, provided by Moderne
-* `--moderne.agent.crypto.symmetricKey` - 256 bit AES encryption key, hex encoded
+* `--moderne.agent.crypto.symmetricKey` - 256-bit AES encryption key, hex-encoded
 
 
 
