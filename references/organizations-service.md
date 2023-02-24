@@ -12,46 +12,7 @@ To facilitate this need, Moderne provides an optional integration with an Organi
 To integrate, you will need to deploy an Organizations service that fulfills the below GraphQL contract and [configure the service in your agent](../how-to/on-premise-agent/configure-repository-groups.md). Moderne provides a reference implementation that can be used as a starting point for deploying this service.
 
 * [Reference implementation](https://github.com/moderneinc/moderne-organizations)
-*   GraphQL Schema
-
-    ```graphql
-    type Query {
-        """
-        The list of organizations that a repository belongs to.
-        """
-        organizations(repository: RepositoryInput): [Organization!]
-
-        """
-        This is the default organization that will be selected for a user
-        that first logs in to Moderne.
-        """
-        defaultOrganization(email: String!): Organization!
-    }
-
-    type Organization {
-        id: ID!
-        name: String!
-
-        """
-        Ordered list of commit options as they should appear in the UI.
-        """
-        commitOptions: [CommitOption!]!
-    }
-
-    input RepositoryInput {
-        path: String!
-        origin: String
-        branch: String
-    }
-
-    enum CommitOption {
-        Direct
-        Branch
-        Fork
-        PullRequest
-        ForkAndPullRequest
-    }
-    ```
+* [GraphQL Schema](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/moderne-organizations.graphqls)
 * Example query&#x20;
 
 ```
