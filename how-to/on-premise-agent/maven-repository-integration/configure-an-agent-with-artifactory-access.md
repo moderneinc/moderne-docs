@@ -1,6 +1,6 @@
 # Configure an agent with Artifactory access
 
-Artifactory serves a source of AST artifacts for Moderne. This integration uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to identify AST artifacts that have not yet been encrypted and transmitted to Moderne in near real-time.
+Artifactory serves as a source of AST artifacts for Moderne. This integration uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to identify AST artifacts that have not yet been encrypted and transmitted to Moderne in near real-time.
 
 This guide will walk you through configuring the Moderne on-premise agent connection to Artifactory.
 
@@ -8,11 +8,11 @@ This guide will walk you through configuring the Moderne on-premise agent connec
 
 * Username and password for an Artifactory user that is allowed to issue the relevant AQL queries that will be configured
 
-Please note that the commands and options below omit standard options documented at [standard-configuration.md](../standard-configuration.md "mention"). You will need to merge the standard options into the commands documented below, which is indicated via ellipses.
+Please note that the commands and options below omit standard options documented at [standard-configuration.md](../standard-configuration.md "mention"). You will need to merge the standard options into the commands documented below, which are indicated via ellipses.
 
 {% tabs %}
 {% tab title="OCI Container" %}
-You can configure multiple Artifactory servers by including multiple entries with different indices. Within a given Artifactory server configuration, you can configure mulitple AST query filters by including multiple entries with difference indices.
+You can configure multiple Artifactory servers by including multiple entries with different indices. Within a given Artifactory server configuration, you can configure multiple AST query filters by including multiple entries with different indices.
 
 * `MODERNE_AGENT_ARTIFACTORY_0_URL` - Artifactory URL
 * `MODERNE_AGENT_ARTIFACTORY_0_USERNAME` - username used to connect to Artifactory, requires permission to run AQL queries
@@ -37,12 +37,12 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-You can configure multiple Artifactory servers by including multiple entries with different indices. Within a given Artifactory server configuration, you can configure mulitple AST query filters by including multiple entries with difference indices.
+You can configure multiple Artifactory servers by including multiple entries with different indices. Within a given Artifactory server configuration, you can configure multiple AST query filters by including multiple entries with different indices.
 
 
 
 * `--moderne.agent.artifactory[0].url` - Artifactory URL
-* `--moderne.agent.artifactory[0].username` - username used to connect to Artifactory, requires permission to run AQL queries
+* `--moderne.agent.artifactory[0].username` - username used to connect to Artifactory – requires permission to run AQL queries
 * `--moderne.agent.artifactory[0].password` - password used to connect to Artifactory
 * `--moderne.agent.artifactory[0].astQueryFilters[0]` - AQL query fragment used to select AST artifacts to send to Moderne
 * `--moderne.agent.artifactory[0].skipSsl` - skip SSL verification for HTTP connections from Agent to this Artifactory instance. Required if you use a self-signed SSL certificate. (optional; default false)

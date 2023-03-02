@@ -1,8 +1,30 @@
 # Changelog
 
+### UI v9.56.0 (2023/02/14)
+
+Repository Groups has been refreshed. The global menu will now separate Organizations that are defined by either the Moderne Agent or your implementation of the Moderne Organization service and _Repository groups_ that are locally curated collections of repositories.&#x20;
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+We've also added some visual touches to better group icons in the top navigation as well as providing you with a quick visual cue of the current selection.
+
+### UI v9.51.0 (2023/02/01)
+
+A new option has been added to the Pull Request form to allow or disallow the reopening of closed pull requests.&#x20;
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM.png" alt=""><figcaption></figcaption></figure>
+
+`See how to run against the API` link has been added to the commit form as well. This will show the GraphQL for the action.
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.47.03 PM.png" alt=""><figcaption></figcaption></figure>
+
 ### UI v9.46.0 (2023/01/21)
 
-Data tables
+Data tables: Recipes can now emit tabular data according to a schema that they define.
+
+<figure><img src="../.gitbook/assets/image (13) (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.44.0 (2023/01/21)
 
@@ -79,7 +101,7 @@ These tests currently come in two variants:
 * `singleSource` - The custom recipe will _**only be run on those source files**_ that would have been changed by _**all**_ `singleSource` test recipes.&#x20;
 * `anySource` - The custom recipe will run on _**all**_ _**source files**_ if there would have been a change from all `anySource` tests. Not all `anySource` tests have to change the _**same**_ file; as long as there would be one change from each test then the custom recipe would be run.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>For more information on applicability test see the <a href="https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-applicability-tests">OpenRewrite documentation</a>.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption><p>For more information on applicability test see the <a href="https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-applicability-tests">OpenRewrite documentation</a>.</p></figcaption></figure>
 
 ### UI v9.29.0 (2022/12/14)
 
@@ -123,7 +145,7 @@ This has been added to the following pages:&#x20;
 * workers
 * quarantine
 
-<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.23.0 (2022/11/30)
 
@@ -229,7 +251,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 ![](<../.gitbook/assets/image (10).png>)
 
-![](<../.gitbook/assets/image (1) (3).png>)
+![](<../.gitbook/assets/image (4) (3).png>)
 
 ![](<../.gitbook/assets/image (16).png>)
 

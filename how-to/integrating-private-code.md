@@ -8,7 +8,7 @@ Connecting your private code to the Moderne SaaS is the only reason to use these
 
 ## Step 1: Apply moderne-maven-plugin or moderne-gradle-plugin
 
-In the pom.xml or build.gradle, add this entry to the `plugins` section to apply the moderne plugin to the project.
+In the `pom.xml` or `build.gradle`, add this entry to the `plugins` section to apply the Moderne plugin to the project.
 
 {% tabs %}
 {% tab title="Maven" %}
