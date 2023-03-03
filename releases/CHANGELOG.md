@@ -2,7 +2,7 @@
 
 ### UI v9.64.0 (2023/03/02)
 
-Up until now repository groups have been stored in the users localStorage on their browser.  If users had large amounts of groups with large lists of repositories they would approach the limits from their localStorage (typically 5-10 Mb). \
+Up until now repository groups have been stored in the users' localStorage on their browser.  If users had large amounts of groups with large lists of repositories they would approach the limits of their localStorage (typically 5-10 Mb). \
 \
 We have now switch to using IndexedDB for this purpose which will not run into these same thresholds and provides faster reads and writes for large objects.
 
