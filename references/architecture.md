@@ -28,7 +28,7 @@ Below is a high-level architecture diagram that shows the flow of data between M
 
 In order for Moderne to know the current state of your code, artifacts will need to be generated that contain a serialized representation of your code's [LSTs](/concepts/lossless-semantic-trees.md). These artifacts must be put inside an artifact repository that the [Moderne agent](#moderne-agent) has access to. 
 
-There are two ways to generate artifacts. You can:
+There are currently two ways to generate artifacts. You can:
 
 1. Set up a [Jenkins ingest pipeline](https://github.com/moderneinc/enterprise-jenkins-ingest#readme) that runs at scheduled intervals to build and publish artifacts for the repositories you specify in a CSV (**recommended**)
     * Easier to scale and does not require you to modify the build process
@@ -156,7 +156,7 @@ As configuring identity providers between services can be quite complex, the set
 
 The Moderne artifact storage service is responsible for receiving pre-encrypted LST artifacts and recipe JARs and storing them in a private object store depending on the cloud provider you use ([Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/), [Google Cloud Storage](https://cloud.google.com/storage), or [AWS S3](https://aws.amazon.com/pm/serv-s3/)).
 
-The artifact storage service will also write high-level information about where to find these artifacts and when they were last updated to Postgres so that the [Moderne workers](#moderne-worker) know where to go to obtain the artifacts they need.
+The artifact storage service will also write high-level information about where to find these artifacts and when they were last updated to our relationship database (RDS) so that the [Moderne workers](#moderne-worker) know where to go to obtain the artifacts they need.
 
 **Setup requirements**
 * None
@@ -174,16 +174,16 @@ GraphQL federation uses [Netflix Eureka](https://github.com/Netflix/eureka) to l
 
 You can think of the Moderne recipe execution service as a manager that helps assign work, direct people on where to go, and provide high-level information. It knows all of the recipes that can be run and it chooses which [workers](#moderne-worker) are responsible for which repositories. 
 
-When a new recipe command comes in (such as run `X` recipe on `Y` repositories with `Z` options), the recipe execution service takes that command and stores all of the details in a Postgres table that acts as a queue. Whenever a [worker](#moderne-worker) is free, it will query the Postgres table and look for commands that haven't been started (for the repositories the worker is responsible for).
+When a new recipe command comes in (such as run `X` recipe on `Y` repositories with `Z` options), the recipe execution service takes that command and stores all of the details in a database table that acts as a queue. Whenever a [worker](#moderne-worker) is free, it will query the database table and look for commands that haven't been started (for the repositories the worker is responsible for).
 
-The recipe execution service is also responsible for providing the results of a recipe run by either calling Postgres to see what high-level information it has or by calling the worker directly to get the full results (diffs and data tables).
+The recipe execution service is also responsible for providing the results of a recipe run by either calling the database to see what high-level information it has or by calling the worker directly to get the full results (diffs and data tables).
 
 **Setup requirements**
 * None
 
 ### Moderne worker
 
-Moderne workers are responsible for running recipes and keeping their results. They interact with the [Moderne recipe execution service](#moderne-recipe-execution-re) to coordinate which repositories they should run recipes for before querying Postgres for a recipe to run. When a worker is stopped, all of the data and results from the recipes it has run are destroyed. If you need that data, you'll need to re-run the recipe again.
+Moderne workers are responsible for running recipes and keeping their results. They interact with the [Moderne recipe execution service](#moderne-recipe-execution-re) to coordinate which repositories they should run recipes for before querying the database for a recipe to run. When a worker is stopped, all of the data and results from the recipes it has run are destroyed. If you need that data, you'll need to re-run the recipe again.
 
 Worker instances are scaled horizontally in direct response to more code being ingested into the platform.
 
@@ -212,7 +212,7 @@ Authentication and authorization decisions are made in real-time to ensure that 
 
 ### Moderne audit log
 
-The Moderne audit log retrieves audit logs from a Postgres database for presentation to privileged users via the [API gateway](#moderne-api-gateway).
+The Moderne audit log retrieves audit logs from our relational database for presentation to privileged users via the [API gateway](#moderne-api-gateway).
 
 Audit logs can be retrieved via a paginated GraphQL API or via a REST call that responds in the CEF format.
 
