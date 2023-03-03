@@ -31,7 +31,7 @@ GitHub links on recipe details for OpenRewrite recipes ([v9.35.0](CHANGELOG.md#r
 
 ### UI v9.60.0 (2023/02/23)
 
-All file downloads have been standardized to using our async download manager for a more consistent experience.\
+All file downloads have been standardized to use our async download manager for a more consistent experience.\
 
 
 ### UI v9.59.0 (2023/02/23)
