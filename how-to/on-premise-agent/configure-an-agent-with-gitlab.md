@@ -14,7 +14,7 @@ This guide will walk you through configuring a new OAuth Application in GitLab
 2.  Provide an application name and redirect URI.\
     The redirect URI will be in this format: `https://<tenantname>.moderne.io`
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.59.50 AM.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.59.50 AM (1).png" alt=""><figcaption></figcaption></figure>
 3.  Supply the following selections
 
     <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 7.52.35 AM.png" alt=""><figcaption></figcaption></figure>

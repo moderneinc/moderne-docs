@@ -1,10 +1,76 @@
 # Changelog
 
+### UI v9.64.0 (2023/03/02)
+
+Up until now repository groups have been stored in the users localStorage on their browser.  If users had large amounts of groups with large lists of repositories they would approach the limits from their localStorage (typically 5-10 Mb). \
+\
+We have now switch to using IndexedDB for this purpose which will not run into these same thresholds and provides faster reads and writes for large objects.
+
+### UI v9.63.0 (2023/02/27)
+
+The interactive origin icon now includes links:\
+
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+We added some quality of life changes on various forms to have focus be automatically brought to the first field, for example when adding or editing a repository group.
+
+### UI v9.62.0 (2023/02/24)
+
+Improve support for organizations defined in thee organization service.
+
+### UI v9.61.0 (2023/02/24)
+
+We have added the ability to see repository origin details from the diff page via the interactive origin icon:\
+![](<../.gitbook/assets/image (3).png>)
+
+GitHub links on recipe details for OpenRewrite recipes ([v9.35.0](CHANGELOG.md#recipe-source-links)) previously linked to a search interface to find the origin on GitHub.  These have now been updated with direct links to the source.
+
+\
+
+
+### UI v9.60.0 (2023/02/23)
+
+All file downloads have been standardized to using our async download manager for a more consistent experience.\
+
+
+### UI v9.59.0 (2023/02/23)
+
+Add more support for organization as we shift focus on the new organization service:
+
+* UI will now use commit options defined by the organization service&#x20;
+* Recipe runs in the UI and GraphQL can now use organization ID
+
+We have also added recipe IDs to the list of recipes in the catalog to save time for those seeking them by preventing the need to drill down into each individual recipe details page.
+
+
+
+### UI v9.58.0 (2023/02/16)
+
+Optimize the UI's use of GraphQL queries.
+
+### UI v9.57.0 (2023/02/15)
+
+Added more data table driven Jupyter lite notebooks. Currently supported:
+
+* org.openrewrite.maven.table.DependenciesInUse:
+  * dependency-usage-violin.ipynb
+  * dependency-usage.ipynb
+* org.openrewrite.table.ParseFailures:
+  * parse-failures.ipynb
+* org.openrewrite.table.RecipeRunStats:
+  * recipe-visit-all-performance.ipynb
+  * recipe-visitor-performance.ipynb
+* org.openrewrite.table.SourcesFileResults:
+  * composite-recipe-results.ipynb
+
+
+
 ### UI v9.56.0 (2023/02/14)
 
 Repository Groups has been refreshed. The global menu will now separate Organizations that are defined by either the Moderne Agent or your implementation of the Moderne Organization service and _Repository groups_ that are locally curated collections of repositories.&#x20;
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 We've also added some visual touches to better group icons in the top navigation as well as providing you with a quick visual cue of the current selection.
 
@@ -12,7 +78,7 @@ We've also added some visual touches to better group icons in the top navigation
 
 A new option has been added to the Pull Request form to allow or disallow the reopening of closed pull requests.&#x20;
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM (1).png" alt=""><figcaption></figcaption></figure>
 
 `See how to run against the API` link has been added to the commit form as well. This will show the GraphQL for the action.
 
@@ -22,7 +88,7 @@ A new option has been added to the Pull Request form to allow or disallow the re
 
 Data tables: Recipes can now emit tabular data according to a schema that they define.
 
-<figure><img src="../.gitbook/assets/image (13) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
@@ -88,7 +154,7 @@ While addressing some keyboard shortcuts that were reported to conflict with cer
 We want to improve users and recipe authors' experience finding source code for a particular recipe.  We have added on the recipe details pages a link on OpenRewrite recipes that will use a specialized GitHub search query to find the source.  We have plans to expand this functionality in the future.\
 
 
-<figure><img src="../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.31.0 (2022/12/16)
 
@@ -145,7 +211,7 @@ This has been added to the following pages:&#x20;
 * workers
 * quarantine
 
-<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.23.0 (2022/11/30)
 
@@ -161,7 +227,7 @@ You can now hide whitespace changes from diffs via the _Settings_ menu
 
 Now it's even easier to filter down the result set to only those diffs that include errors from the result diff menu bar.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.15.0 (2022/11/03)
 
@@ -251,7 +317,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 ![](<../.gitbook/assets/image (10).png>)
 
-![](<../.gitbook/assets/image (4) (3).png>)
+![](<../.gitbook/assets/image (1) (3).png>)
 
 ![](<../.gitbook/assets/image (16).png>)
 
@@ -271,4 +337,4 @@ Deploying recipe artifacts now has an improved asynchronous experience. We've ad
 
 
 
-<figure><img src="../.gitbook/assets/image (2) (4).png" alt=""><figcaption><p>If there is a Moderne update in the middle of your browser session, you should now see a prompt to refresh your page to ensure you have the latest version available.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (4) (1).png" alt=""><figcaption><p>If there is a Moderne update in the middle of your browser session, you should now see a prompt to refresh your page to ensure you have the latest version available.</p></figcaption></figure>
