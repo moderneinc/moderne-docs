@@ -128,7 +128,7 @@ The Moderne UI provides a browser-based interface for:
 * Issuing mass commits/PRs based on recipe runs
 * Building new recipes based on other recipes
 * Viewing audit logs
-* Generating access tokens
+* Generating access tokens for interacting with the Moderne API
 
 The Moderne UI is implemented with client-side Javascript. The Moderne UI is one of three components with a public IP address (the other two being the [Moderne API gateway](#moderne-api-gateway) and [Keycloak](#keycloak)).
 
