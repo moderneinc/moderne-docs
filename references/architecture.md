@@ -46,7 +46,7 @@ There are a variety of tools and services that you can configure the agent to be
 
 At a minimum, the agent will need to connect to:
 
-* One or more of your artifact repositories so that changes to the Moderne artifacts kept in them can be sent to Moderne
+* One or more of your artifact repositories so that changes to the Moderne LST artifacts kept in them can be sent to Moderne
     * This is configured via the [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language). Only artifacts that match what you've specified with that language will be sent to Moderne.
 * Your SCM(s) so that PRs or commits can be created by approved users in Moderne
 
