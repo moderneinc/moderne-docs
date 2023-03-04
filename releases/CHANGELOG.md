@@ -1,5 +1,14 @@
 # Changelog
 
+### UI v9.65.0 (2023/03/03)
+
+In our continual efforts to integrate the new organizations service we have redesigned the top navigation bar.  You will now find plenty of space for displaying longer organization and repository group names as well as improvements to all drop downs menus.  \
+
+
+<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+
+Notably, source management control connections have been moved into a new profile section in the avatar dropdown.  Additionally, the redesigned top navigation bar is more accommodating of smaller device screens.
+
 ### UI v9.64.0 (2023/03/02)
 
 Up until now repository groups have been stored in the users' localStorage on their browser.  If users had large amounts of groups with large lists of repositories they would approach the limits of their localStorage (typically 5-10 Mb). \
