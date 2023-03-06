@@ -1,6 +1,6 @@
 # Moderne Docs
 
-The docs behind [https://docs.moderne.io/](https://https://docs.moderne.io/). For OpenRewrite docs, please see the [rewrite-docs repository](https://github.com/openrewrite/rewrite-docs).
+The docs behind [https://docs.moderne.io/](https://docs.moderne.io/). For OpenRewrite docs, please see the [rewrite-docs repository](https://github.com/openrewrite/rewrite-docs).
 
 ## Contributing
 
