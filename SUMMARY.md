@@ -35,6 +35,7 @@
 
 ## References
 
+* [Moderne architecture](references/architecture.md)
 * [Organizations service](references/organizations-service.md)
 * [GitHub permissions](references/github-permissions.md)
 * [Moderne tokens](references/moderne-tokens.md)
