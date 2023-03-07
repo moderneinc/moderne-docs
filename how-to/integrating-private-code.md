@@ -45,7 +45,7 @@ In the `pom.xml` or `build.gradle`, add this entry to the `plugins` section to a
 {% code title="build.gradle" %}
 ```groovy
 plugins {
-    id("io.moderne.rewrite") version("0.35.0")
+    id("io.moderne.rewrite") version("0.35.4")
 }
 
 // OpenRewrite and recipe modules are published to Maven Central
