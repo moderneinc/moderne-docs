@@ -14,11 +14,13 @@ We've rearranged a few of the buttons to make some actions clearer to the custom
 
 Spring is right around the corner and we've been doing a little bit of cleaning to make the recipe page cleaner and more consistent with the rest of the site.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Download the Moderne CLI
 
 Go to the _Help_ menu → _Try Moderne CLI_&#x20;
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
@@ -42,7 +44,7 @@ We have now switch to using IndexedDB for this purpose which will not run into t
 The interactive origin icon now includes links:\
 
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 We added some quality of life changes on various forms to have focus be automatically brought to the first field, for example when adding or editing a repository group.
 
@@ -342,7 +344,7 @@ ou may have noticed search markers displaying like this:\
 
 
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In addition to search markers, we will render info/debug, warnings, and errors in a similar way:
 
