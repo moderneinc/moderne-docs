@@ -64,19 +64,19 @@ Moderne microservices are deployed via a Moderne Spinnaker installation. Moderne
 
 ## Moderne single sign-on
 
-When a user tries to sign into the Moderne SaaS, Moderne uses OIDC or SAML to authenticate with your identity provider. Groups are used to separate users into regular users and administrators. Users not in these groups cannot access the service.
+When a user tries to sign into the Moderne SaaS, Moderne uses OIDC or SAML to authenticate with your identity provider. Roles are used to separate users into regular users and administrators. Users not assigned either of these roles cannot access the service.
 
 ## Integrating with SCMs
 
-Moderne users can authenticate with SCMs (GitHub, BitBucket, GitLab) via a standard [OAuth web application flow](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow). The redirect to the SCM goes from a developer's workstation to the SCM directly. It does not go outside of your environment.
+Moderne users can authorize the creation of an OAuth token for Moderne to use via a standard [OAuth web application flow](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow). As part of this process, a user may be required to authenticate with the SCM first if they don't have an active session. Please note that the redirect part of the OAuth process goes from a developer's workstation to the SCM directly. That request does not go outside of your environment.
 
-If your SCM is self-hosted, an OAuth client for Moderne needs to be created. The homepage URL and callback URL should both be [https://TENANT.moderne.io](https://tenant.moderne.io). Furthermore, the client id and client secret need to be provided to the Moderne SaaS. For instructions on how to configure this, please see our [on-premise agent docs](/how-to/on-premise-agent/README.md).
+In order to set up this OAuth process, an OAuth client for Moderne needs to be created. The homepage URL and callback URL should both be [https://TENANT.moderne.io](https://tenant.moderne.io). Furthermore, the client id and client secret need to be provided to the Moderne SaaS. For instructions on how to configure this, please see our [on-premise agent docs](/how-to/on-premise-agent/README.md).
 
 All of the user interactions that result in authorization decisions within GitHub, BitBucket, and GitLab (such as viewing diffs, committing, and making PRs) come to these SCMs through the agent on behalf of the user. From GitHub, BitBucket, or GitLab’s perspective, all interactions appear to come from the user at the agent's location. Therefore, the Moderne SaaS doesn’t require any changes to how GitHub, BitBucket, or GitLab is used internally. 
 
 Moderne does not need a separate configuration of who can access what code. Instead, it aligns access to the SCM that stores the code in question. When a user authenticates with the SCM, that OAuth access token is stored in a token database. 
 
-When a user attempts to access recipe details, the worker uses that token to make an authorization request to the SCM by tunneling the request through the API gateway and agent. Tokens expire every 8 hours.
+When a user attempts to access recipe details, the worker uses that token to make an authorization request to the SCM by tunneling the request through the API gateway and agent. Tokens are good for _up to_ 8 hours depending on the SCM used.
 
 User authorization on a particular repo is also retrieved and cached for some configurable amount of time.
 
