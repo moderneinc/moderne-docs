@@ -1,5 +1,27 @@
 # Changelog
 
+### UI v9.66.0 (2023/03/08)
+
+Now you can download the Moderne CLI from your SaaS Instance.
+
+#### Recipe builder
+
+We've rearranged a few of the buttons to make some actions clearer to the customer. _New Recipe_ took the place of the _Import YAML_ button, which was moved to the YAML preview. _New Recipe_ will reset the state for the Recipe builder so you can start on your new endevaours.&#x20;
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+#### Recipe refresh
+
+Spring is right around the corner and we've been doing a little bit of cleaning to make the recipe page cleaner and more consistent with the rest of the site.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+#### Download the Moderne CLI
+
+Go to the _Help_ menu → _Try Moderne CLI_&#x20;
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
 ### UI v9.65.0 (2023/03/03)
 
 In our continual efforts to integrate the new organizations service we have redesigned the top navigation bar.  You will now find plenty of space for displaying longer organization and repository group names as well as improvements to all drop downs menus.  \
@@ -20,7 +42,7 @@ We have now switch to using IndexedDB for this purpose which will not run into t
 The interactive origin icon now includes links:\
 
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 We added some quality of life changes on various forms to have focus be automatically brought to the first field, for example when adding or editing a repository group.
 
@@ -31,7 +53,7 @@ Improve support for organizations defined in thee organization service.
 ### UI v9.61.0 (2023/02/24)
 
 We have added the ability to see repository origin details from the diff page via the interactive origin icon:\
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (3) (4).png>)
 
 GitHub links on recipe details for OpenRewrite recipes ([v9.35.0](CHANGELOG.md#recipe-source-links)) previously linked to a search interface to find the origin on GitHub.  These have now been updated with direct links to the source.
 
@@ -79,7 +101,7 @@ Added more data table driven Jupyter lite notebooks. Currently supported:
 
 Repository Groups has been refreshed. The global menu will now separate Organizations that are defined by either the Moderne Agent or your implementation of the Moderne Organization service and _Repository groups_ that are locally curated collections of repositories.&#x20;
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
 
 We've also added some visual touches to better group icons in the top navigation as well as providing you with a quick visual cue of the current selection.
 
@@ -87,7 +109,7 @@ We've also added some visual touches to better group icons in the top navigation
 
 A new option has been added to the Pull Request form to allow or disallow the reopening of closed pull requests.&#x20;
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM.png" alt=""><figcaption></figcaption></figure>
 
 `See how to run against the API` link has been added to the commit form as well. This will show the GraphQL for the action.
 
@@ -97,7 +119,7 @@ A new option has been added to the Pull Request form to allow or disallow the re
 
 Data tables: Recipes can now emit tabular data according to a schema that they define.
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (2).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
@@ -220,7 +242,7 @@ This has been added to the following pages:&#x20;
 * workers
 * quarantine
 
-<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.23.0 (2022/11/30)
 
@@ -326,7 +348,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 ![](<../.gitbook/assets/image (10).png>)
 
-![](<../.gitbook/assets/image (1) (3).png>)
+![](<../.gitbook/assets/image (4) (3).png>)
 
 ![](<../.gitbook/assets/image (16).png>)
 
