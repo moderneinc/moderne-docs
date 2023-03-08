@@ -5,9 +5,9 @@ Moderne.io offers a GraphQL API at [https://api.public.moderne.io](https://api.p
 Note: Personal access tokens do not retain roles that are granted to your user account. Actions that require roles (deploying recipes and uploading LSTs) will fail as forbidden if attempted with an access token.
 
 {% hint style="info" %}
-If you want to write and test GraphQL queries, you can use the GraphQL icon at the top right of the UI or go directly to [https://public.moderne.io/graphql](https://public.moderne.io/graphql).
+If you want to write and test GraphQL queries, you can click on the GraphQL icon in the top middle of the UI or you go directly to [https://public.moderne.io/graphql](https://public.moderne.io/graphql).
 
-<img src="../.gitbook/assets/image (3) (2).png" alt="" data-size="original">
+![](../.gitbook/assets/graphql-link.png)
 {% endhint %}
 
 ## Prerequisites

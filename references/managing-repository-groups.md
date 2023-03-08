@@ -13,10 +13,10 @@ To help you get started with repository groups, in this guide you will learn:
 1.  In the top right corner of the Moderne home page, you will see some text to the left of your avatar that says `Default`:
 
     ![](../.gitbook/assets/repo-group-1.png)
-2.  If you click on that, the repository group menu will appear:
+2.  If you click on that, the organization and repository group menu will appear:
 
     ![](../.gitbook/assets/repo-group-2.png)
-3.  Press `Create a repository group`. You will be taken to the repository group creation page:
+3.  Press the `Create` link listed below the organizations. You will be taken to the repository group creation page:
 
     ![](../.gitbook/assets/repo-group-3.png)
 4. At the top, you should enter a descriptive name for the group. This will be the identifier you'll see when you go to select which group you want to run a recipe on.
@@ -40,35 +40,35 @@ To help you get started with repository groups, in this guide you will learn:
 1.  From any page, click on the text to the left of your avatar:
 
     ![](../.gitbook/assets/repo-group-1.png)
-2.  This will make the repository group menu appear:
+2.  This will make the organization and repository group menu appear:
 
     ![](../.gitbook/assets/repo-group-8.png)
-3.  Click on `Manage Repository Groups`. You will be redirected to the repository group page:
+3.  Click on the `Manage` link below the organizations. You will be redirected to the repository group page:
 
     ![](../.gitbook/assets/repo-group-7.png)
 4. To modify a repository group, press the wrench icon under actions.
-5. To remove a repository group, press the trash can icon under actions.
+5. To remove a repository group, press the `...` icon and select `Delete repository group`.
 
 ## How to export repository groups JSON
 
-1.  From any page, click on the text to the left of your avatar:\
-    \\
+1.  From any page, click on the text to the left of your avatar:
 
-    <figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
-2. This will make the repository group menu appear:
+    ![](../.gitbook/assets/repo-group-1.png)
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+2. This will make the organization and repository group menu appear:
 
-3\. Click on `Manage Repository Groups`. You will be redirected to the repository group page:\\
+    ![](../.gitbook/assets/repo-group-2.png)
 
-<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+3. Click on the `Manage` link below the organizations. You will be redirected to the repository group page:
+    
+    ![](../.gitbook/assets/repo-group-7.png)
 
-4\. You can then export them individually or you can export all of the repository groups defined.
+4. You can then export them individually or you can export all of the repository groups defined.
 
 * To export an individual group, click the triple dots on the group you wish to export and then click on `Export repository group` from the menu. A `.json` file will be downloaded containing this single group.
 * To export all of the repository groups, click the `Export ALL` link. A `.json` file of all your groups will be downloaded.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-01-10 at 3.02.42 PM.png" alt=""><figcaption></figcaption></figure>
+    ![](../.gitbook/assets/export-all.png)
 
 ## Additional information
 

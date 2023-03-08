@@ -20,13 +20,16 @@ This guide assumes that you:
 
 ### Recipe execution
 
-1.  Click the [Repository Group](../references/managing-repository-groups.md) selector on the right-hand side of the header and create a new group of your selected repositories.
+1. To begin, you'll want to decide what repositories you want your recipe to run on. You have three options for selecting repositories: choosing an existing organization, creating a new repository group, or selecting an existing repository group. Once you've selected or created one, you can proceed to step 2.
 
-    <figure><img src="../.gitbook/assets/Screenshot 2022-12-02 at 9.28.28 AM (1).png" alt=""><figcaption></figcaption></figure>
-2.  Navigate to the recipe you wish to run and fill out the recipe options.\\
+  ![](../.gitbook/assets/repository-selection-options.png)
 
-    <figure><img src="../.gitbook/assets/Screenshot 2022-12-01 at 2.05.59 PM.png" alt=""><figcaption></figcaption></figure>
-3. Click the `See how to run against the API` link. This will provide you with the query that will be run when executing a recipe run and additionally the variables provided from your repository group in the query variables pane.
+2.  Navigate to the recipe you wish to run and fill out the recipe options.
+
+  ![](../.gitbook/assets/update-gradle-plugin.png)
+
+3. Click the `See how to run against the API` link. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your repository selection from step 1.
+
 4. You can then execute a recipe with the following mutation:
 
 {% tabs %}
@@ -41,6 +44,8 @@ mutation executeRecipe($input: RecipeRunInput!) {
 {% endtab %}
 
 {% tab title="Mutation Variables" %}
+Please note that the `repositoryFilter` section will be null if you've selected an organization. Instead, an `organizationId` will be added with the Id of the organization you selected.
+
 ```json
 {
   "input": {
@@ -51,7 +56,7 @@ mutation executeRecipe($input: RecipeRunInput!) {
         { "name": "newVersion", "value": "1.1.0" }
       ]
     },
-    "repositoryFilter": [
+    "repositoryFilter": [ 
       {
         "branch": "master",
         "origin": "github.com",
@@ -81,7 +86,7 @@ curl --request POST
 {% endtab %}
 {% endtabs %}
 
-5\. The mutation will return a response that contains the `id` of the recipe run which will be used in the next step to poll for the completion of the recipe. Example response:
+5. The mutation will return a response that contains the `id` of the recipe run which will be used in the next step to poll for the completion of the recipe. Example response:
 
 ```graphql
 {
@@ -205,7 +210,7 @@ curl --request POST
 {% endtab %}
 {% endtabs %}
 
-2\. You can then use the `edges` array in the response, to build up the repository list used in the next step of creating a pull request. Example response:
+2. You can then use the `edges` array in the response, to build up the repository list used in the next step of creating a pull request. Example response:
 
 ```json
 {
@@ -320,7 +325,7 @@ curl --request POST
 {% endtab %}
 {% endtabs %}
 
-2\. Once the mutation is executed we will receive a response with the commit `id` that we can then poll for the completion of the commit. Example response:
+2. Once the mutation is executed we will receive a response with the commit `id` that we can then poll for the completion of the commit. Example response:
 
 ```json
 {
@@ -435,7 +440,7 @@ curl --request POST \
 {% endtab %}
 {% endtabs %}
 
-2\. Example response:
+2. Example response:
 
 ```json
 {

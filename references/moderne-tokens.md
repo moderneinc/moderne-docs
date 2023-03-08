@@ -16,9 +16,9 @@ When a user logs in to the Moderne platform, a JWT is created for them by Keyclo
 This token _is not_ used for accessing or viewing source code. That is done via the [SCM Token](moderne-tokens.md#source-code-manager-scm-token)
 {% endhint %}
 
-Users can find this token by clicking on the GraphQL icon in the top right corner of the Moderne platform once they are logged in:
+Users can find this token by clicking on the GraphQL icon in the top middle of the Moderne platform once they are logged in:
 
-![](../.gitbook/assets/graphql-icon-link.png)
+![](../.gitbook/assets/graphql-link.png)
 
 From there, at the bottom of the GraphQL Explorer, there is a `request headers` tag that includes this token:
 
