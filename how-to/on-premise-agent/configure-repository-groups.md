@@ -1,6 +1,6 @@
 # Configure Organizations service
 
-Configure the[ ](../../references/organizations-service.md)[Organizations service ](../../references/organizations-service.md)to provide organizational insight to the Moderne platform.
+Configure the [Organizations service](/architecture/organizations-service.md) to provide organizational insight to the Moderne platform.
 
 {% tabs %}
 {% tab title="OCI Container" %}

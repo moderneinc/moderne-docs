@@ -53,7 +53,7 @@ At a minimum, the agent will need to connect to:
 Your team may also wish to configure the agent to:
 
 * Look in your artifact repositories for custom recipe JARs your team creates so that those recipes can be run in the Moderne SaaS
-* Connect to your team's [Organizations service](https://docs.moderne.io/references/organizations-service) so that the UI can provide a customize experience for some users or repositories
+* Connect to your team's [Organizations service](/architecture/organizations-service.md) so that the UI can provide a customized experience for some users or repositories
 
 {% hint style="info" %}
 You can find all of the documentation for configuring agents in your environment [here](https://docs.moderne.io/how-to/on-premise-agent).
@@ -86,14 +86,14 @@ These measures act in concert with techniques to limit IP addressability of the 
 
 ### Organizations service
 
-The Organizations service is an _optional_ service that you can configure in your environment. It defines the organizational structure that a user or a repository belongs to. The Moderne SaaS will use this information to present different UIs or options for different users and repositories. Please see our [Organizations service doc](/references/organizations-service.md) for more information.
+The Organizations service is an _optional_ service that you can configure in your environment. It defines the organizational structure that a user or a repository belongs to. The Moderne SaaS will use this information to present different UIs or options for different users and repositories. Please see our [Organizations service doc](/architecture/organizations-service.md) for more information.
 
 **Setup requirements**
 
 You must:
 
 * Ensure that the Organizations service is capable of receiving requests from the [Moderne agent](#moderne-agent)
-* Ensure your service fulfills the GraphQL contract outlined in our [Organizations service documentation](https://docs.moderne.io/references/organizations-service)
+* Ensure your service fulfills the GraphQL contract outlined in our [Organizations service documentation](/architecture/organizations-service.md)
 
 ### Moderne API gateway
 
