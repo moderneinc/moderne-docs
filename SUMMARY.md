@@ -33,10 +33,14 @@
 * [Versions of plugins and agent](releases/releases.md)
 * [Changelog](releases/CHANGELOG.md)
 
+## Architecture
+
+* [Moderne architecture](architecture/architecture.md)
+* [How data flows throughout Moderne](architecture/flow.md)
+* [Organizations service](architecture/organizations-service.md)
+
 ## References
 
-* [Moderne architecture](references/architecture.md)
-* [Organizations service](references/organizations-service.md)
 * [GitHub permissions](references/github-permissions.md)
 * [Moderne tokens](references/moderne-tokens.md)
 * [Creating a personal access token](references/create-api-access-tokens.md)
