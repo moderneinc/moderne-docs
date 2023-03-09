@@ -68,7 +68,7 @@ When a user tries to sign into the Moderne SaaS, Moderne uses OIDC or SAML to au
 
 ## Integrating with SCMs
 
-Moderne users can authorize the creation of an OAuth token for Moderne to use via a standard [OAuth web application flow](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow). As part of this process, a user may be required to authenticate with the SCM first if they don't have an active session. Please note that the redirect part of the OAuth process goes from a developer's workstation to the SCM directly. That request does not go outside of your environment.
+Moderne users can authorize the creation of an OAuth token for Moderne to use via a standard OAuth web application flow (such as in this [GitHub example](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow)). As part of this process, a user may be required to authenticate with the SCM first if they don't have an active session. Please note that the redirect part of the OAuth process goes from a developer's workstation to the SCM directly. If your SCM is self-hosted, that request does not go outside of your environment.
 
 In order to set up this OAuth process, an OAuth client for Moderne needs to be created. The homepage URL and callback URL should both be [https://TENANT.moderne.io](https://tenant.moderne.io). Furthermore, the client id and client secret need to be provided to the Moderne SaaS. For instructions on how to configure this, please see our [on-premise agent docs](/how-to/on-premise-agent/README.md).
 
