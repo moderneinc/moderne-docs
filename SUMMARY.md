@@ -36,7 +36,7 @@
 ## Architecture
 
 * [Moderne architecture](architecture/architecture.md)
-* [How data flows throughout Moderne](architecture/flow.md)
+* [Sensitive data flow](architecture/flow.md)
 * [Organizations service](architecture/organizations-service.md)
 
 ## References
