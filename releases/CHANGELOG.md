@@ -1,5 +1,16 @@
 # Changelog
 
+### UI v9.68.0 (2023/03/09)
+
+* Try CLI `curl` example now uses URL from  API Gateway
+* Various bug fixes
+
+### UI v9.67.0 (2023/03/09)
+
+* Recipe results table now supports sorting by the four different marker count columns: info, debug, warn, and error.
+* Recipe artifacts can now only be updated by those with the administrative rights within the UI.
+* Various bug fixes.
+
 ### UI v9.66.0 (2023/03/08)
 
 Now you can download the Moderne CLI from your SaaS Instance.
