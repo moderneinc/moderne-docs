@@ -1,6 +1,10 @@
 # Changelog
 
 <!-- INSERT_NEW_VERSION -->
+## UI 2.9.0 (2023/03/15)
+
+- Bug fixes and other improvements.
+
 
 ### UI v9.70.0 (2023/03/15)
 
