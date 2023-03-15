@@ -1,5 +1,31 @@
 # Changelog
 
+### UI v9.70.0 (2023/03/15)
+
+Automatically detect operating system when downloading the Moderne CLI
+
+### UI v9.69.3 (2023/03/14)
+
+Bug fixes and other improvements.
+
+### UI v9.69.2 (2023/03/14)
+
+Bug fixes and other improvements.
+
+### UI v9.69.1 (2023/03/14)
+
+Bug fixes and other improvements.
+
+### UI v9.69.0 (2023/03/13)
+
+### API Examples
+
+We improved how we surface GraphQL API examples to make it easier to include multiple types of calls on a single page in one location where it's consistent to find
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+
+
 ### UI v9.68.0 (2023/03/09)
 
 * Try CLI `curl` example now uses URL from  API Gateway
@@ -19,7 +45,7 @@ Now you can download the Moderne CLI from your SaaS Instance.
 
 We've rearranged a few of the buttons to make some actions clearer to the customer. _New Recipe_ took the place of the _Import YAML_ button, which was moved to the YAML preview. _New Recipe_ will reset the state for the Recipe builder so you can start on your new endevaours.&#x20;
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (6).png" alt=""><figcaption></figcaption></figure>
 
 #### Recipe refresh
 
@@ -31,7 +57,7 @@ Spring is right around the corner and we've been doing a little bit of cleaning 
 
 Go to the _Help_ menu → _Try Moderne CLI_&#x20;
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
@@ -122,7 +148,7 @@ We've also added some visual touches to better group icons in the top navigation
 
 A new option has been added to the Pull Request form to allow or disallow the reopening of closed pull requests.&#x20;
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM (1).png" alt=""><figcaption></figcaption></figure>
 
 `See how to run against the API` link has been added to the commit form as well. This will show the GraphQL for the action.
 
@@ -132,7 +158,7 @@ A new option has been added to the Pull Request form to allow or disallow the re
 
 Data tables: Recipes can now emit tabular data according to a schema that they define.
 
-<figure><img src="../.gitbook/assets/image (13) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
@@ -255,7 +281,7 @@ This has been added to the following pages:&#x20;
 * workers
 * quarantine
 
-<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.23.0 (2022/11/30)
 
@@ -361,7 +387,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 ![](<../.gitbook/assets/image (10).png>)
 
-![](<../.gitbook/assets/image (4) (3).png>)
+![](<../.gitbook/assets/image (1) (3).png>)
 
 ![](<../.gitbook/assets/image (16).png>)
 
