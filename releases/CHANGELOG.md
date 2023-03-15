@@ -1,5 +1,7 @@
 # Changelog
 
+<!-- INSERT_NEW_VERSION -->
+
 ### UI v9.70.0 (2023/03/15)
 
 Automatically detect operating system when downloading the Moderne CLI
