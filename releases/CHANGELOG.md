@@ -2,7 +2,8 @@
 
 ### UI v9.71.0 (2023/03/15)
 
-* We have changed the name "Catalog" to "Marketplace" and given it a new icon.&#x20;
+* We have changed the name "Catalog" to "Marketplace" and given it a new icon.  We hope the use of the word "Marketplace" reflects the community aspect of "Recipe" development.\
+  ![](../.gitbook/assets/image.png)
 * Recipes can now have `maintainers` associated with them.  This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:\
   \
   ![](<../.gitbook/assets/image (28).png>)
@@ -87,8 +88,6 @@ We have added the ability to see repository origin details from the diff page vi
 ![](<../.gitbook/assets/image (3).png>)
 
 GitHub links on recipe details for OpenRewrite recipes ([v9.35.0](CHANGELOG.md#recipe-source-links)) previously linked to a search interface to find the origin on GitHub. These have now been updated with direct links to the source.
-
-\\
 
 ### UI v9.60.0 (2023/02/23)
 
@@ -189,7 +188,7 @@ Actions for grids are now presented on the left-hand side of the table.
 
 Repositories hosted on Bitbucket cloud are now supported. This [requires additional configuration through your agent](../how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md#prerequisites).
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.35.0 (2022/12/30)
 
