@@ -1,20 +1,16 @@
 # Changelog
 
+### UI v9.71.0 (2023/03/15)
+
+* We have changed the name "Catalog" to "Marketplace" and given it a new icon.&#x20;
+* Recipes can now have `maintainers` associated with them.  This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:\
+  \
+  ![](<../.gitbook/assets/image (28).png>)
+
 ### UI v9.70.0 (2023/03/15)
 
-Automatically detect operating system when downloading the Moderne CLI
-
-### UI v9.69.3 (2023/03/14)
-
-Bug fixes and other improvements.
-
-### UI v9.69.2 (2023/03/14)
-
-Bug fixes and other improvements.
-
-### UI v9.69.1 (2023/03/14)
-
-Bug fixes and other improvements.
+* We have added operating system detection to custom tailor the user experience.  The first place to use this is the CLI download dialogue which now will default the instruction set selected based on your operating system.  This should reduce the confusion on what instruction to use.
+* Various bug fixes and improvements
 
 ### UI v9.69.0 (2023/03/13)
 
@@ -22,7 +18,7 @@ Bug fixes and other improvements.
 
 We improved how we surface GraphQL API examples to make it easier to include multiple types of calls on a single page in one location where it's consistent to find
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.68.0 (2023/03/09)
 
@@ -49,15 +45,15 @@ We've rearranged a few of the buttons to make some actions clearer to the custom
 
 Spring is right around the corner and we've been doing a little bit of cleaning to make the recipe page cleaner and more consistent with the rest of the site.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (7).png" alt=""><figcaption></figcaption></figure>
 
 #### Download the Moderne CLI
 
 Go to the _Help_ menu → _Try Moderne CLI_
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (7).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (4).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.65.0 (2023/03/03)
 
@@ -77,7 +73,7 @@ We have now switch to using IndexedDB for this purpose which will not run into t
 
 The interactive origin icon now includes links:\\
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 
 We added some quality of life changes on various forms to have focus be automatically brought to the first field, for example when adding or editing a repository group.
 
@@ -88,7 +84,7 @@ Improve support for organizations defined in thee organization service.
 ### UI v9.61.0 (2023/02/24)
 
 We have added the ability to see repository origin details from the diff page via the interactive origin icon:\
-![](<../.gitbook/assets/image (3) (4).png>)
+![](<../.gitbook/assets/image (3).png>)
 
 GitHub links on recipe details for OpenRewrite recipes ([v9.35.0](CHANGELOG.md#recipe-source-links)) previously linked to a search interface to find the origin on GitHub. These have now been updated with direct links to the source.
 
@@ -366,7 +362,7 @@ ou may have noticed search markers displaying like this:\\
 
 <figure><img src="../.gitbook/assets/image (2) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In addition to search markers, we will render info/debug, warnings, and errors in a similar way:
 

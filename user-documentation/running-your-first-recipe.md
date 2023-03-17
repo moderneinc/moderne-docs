@@ -33,7 +33,7 @@ For a better understanding of the permissions requested, please see [GitHub Perm
 
 After you've logged in and granted the appropriate permissions, you'll arrive at the [Moderne home page](https://public.moderne.io/).
 
-If you went to run a recipe right now, your recipes would run on a default grouping of repositories. In public Moderne, the default group is a diverse selection of open-source repositories. In an enterprise instance of Moderne, the default group is every repository in your instance unless your company has configured an [Organizations service](/architecture/organizations-service.md). In that case, it will be all repositories in your organization.
+If you went to run a recipe right now, your recipes would run on a default grouping of repositories. In public Moderne, the default group is a diverse selection of open-source repositories. In an enterprise instance of Moderne, the default group is every repository in your instance unless your company has configured an [Organizations service](../references/organizations-service.md). In that case, it will be all repositories in your organization.
 
 If you'd prefer to run the recipes against a different group of repositories so that you can get relevant results more quickly, please follow [these instructions](../references/managing-repository-groups.md#how-to-create-a-repository-group) on how to make a repository group.
 

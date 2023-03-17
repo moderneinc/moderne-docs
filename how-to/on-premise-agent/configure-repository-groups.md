@@ -1,12 +1,12 @@
 # Configure Organizations service
 
-Configure the [Organizations service](/architecture/organizations-service.md) to provide organizational insight to the Moderne platform.
+Configure the [Organizations service](../../references/organizations-service.md) to provide organizational insight to the Moderne platform.
 
 {% tabs %}
 {% tab title="OCI Container" %}
 Provide the path to the repository group for your container.
 
-* `MODERNE_AGENT_ORGANIZATION_URL` - URL of the GraphQL service. e.g.&#x20;
+* `MODERNE_AGENT_ORGANIZATION_URL` - URL of the GraphQL service. e.g.
 * `MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS` - (optional) Defaults to 600 (10 minutes)
 
 Example
@@ -22,7 +22,7 @@ docker run \
 
 {% tab title="Executable JAR" %}
 * `moderne.agent.organization.url` - URL of the GraphQL service.
-* `moderne.agent.organization.updateIntervalSeconds` -  (optional) Defaults to 600 (10 minutes)
+* `moderne.agent.organization.updateIntervalSeconds` - (optional) Defaults to 600 (10 minutes)
 
 Example
 
@@ -35,4 +35,3 @@ java -jar moderne-agent-{version}.jar \
 ```
 {% endtab %}
 {% endtabs %}
-

@@ -25,7 +25,7 @@ To publish Abstract Syntax Tree (AST) artifacts, the artifact registry must be r
 {% tab title="Artifactory" %}
 In Artifactory, select the "Artifactory" link on the left nav and select "Maven Indexer" under Services.
 
-![](<../../../.gitbook/assets/image (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (1) (1) (1).png>)
 
 For a repository to be a source of ASTs it must be included in the list of repositories that are indexed.
 
