@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.73.0 (2023/03/20)
+
+- use totalRepositoriesInProgress from graphql
+
 
 ### UI v9.71.0 (2023/03/15)
 
