@@ -14,8 +14,6 @@
 ## Administrator documentation <a href="#how-to" id="how-to"></a>
 
 * [Integrating private code with Moderne SaaS](how-to/integrating-private-code.md)
-* [Importing external recipes](how-to/importing-external-recipes.md)
-* [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
 * [On-premise agent](how-to/on-premise-agent/README.md)
   * [Standard configuration](how-to/on-premise-agent/standard-configuration.md)
   * [Configure an agent with Bitbucket Data Center access](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
@@ -27,6 +25,8 @@
     * [Maven repository integration overview](how-to/on-premise-agent/maven-repository-integration/maven-repository-integration-overview.md)
     * [Configure an agent with Maven repository access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-maven-repository-access.md)
     * [Configure an agent with Artifactory access](how-to/on-premise-agent/maven-repository-integration/configure-an-agent-with-artifactory-access.md)
+* [Importing external recipes](how-to/importing-external-recipes.md)
+* [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
 
 ## Releases
 
