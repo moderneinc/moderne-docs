@@ -1,26 +1,58 @@
 # Changelog
+
 ### UI v9.74.0 (2023/03/23)
 
-- randomize colors after the main theme colors
-- add option to download `zip` archive of CLI tools
-- prompt for confirmation before removing repository
+#### Recipe results
+
+The _Data Tables_ button is now ever present on the page along side the familiar _Commit_ option. As a note the button will be disabled until a _Recipe run_ has completed.
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+_API examples_ button has been pulled up from a collapsable portion of the summary and into a more familiar and consistant place on the page.
+
+<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+
+The _Replay_ _recipe_ and _Cancel run_ buttons have been consolidated into one location on the screen in part to make room for the _Api example_ button.
+
+<figure><img src="../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+
+#### Repository details
+
+We've cleaned up the _Repository details_ screen to align with page titles on other pages as well as making the _API examples_ consistently located.
+
+<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+
+_Language composition_ chart now contains more colors to help distinguish various languages.
+
+<figure><img src="../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+
+#### Moderne CLI
+
+Now you can download a Zip archive of Moderne CLI tools.&#x20;
+
+<img src="../.gitbook/assets/image (1).png" alt="" data-size="original">
+
+#### Organizations
+
+Users will not be prompted for confirmation before removing repository.
+
+<figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.73.0 (2023/03/20)
 
-- use totalRepositoriesInProgress from graphql
-
+* use totalRepositoriesInProgress from graphql
 
 ### UI v9.71.0 (2023/03/15)
 
-* We have changed the name "Catalog" to "Marketplace" and given it a new icon.  We hope the use of the word "Marketplace" reflects the community aspect of "Recipe" development.\
+* We have changed the name "Catalog" to "Marketplace" and given it a new icon. We hope the use of the word "Marketplace" reflects the community aspect of "Recipe" development.\
   ![](../.gitbook/assets/image.png)
-* Recipes can now have `maintainers` associated with them.  This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:\
+* Recipes can now have `maintainers` associated with them. This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:\
   \
   ![](<../.gitbook/assets/image (28).png>)
 
 ### UI v9.70.0 (2023/03/15)
 
-* We have added operating system detection to custom tailor the user experience.  The first place to use this is the CLI download dialogue which now will default the instruction set selected based on your operating system.  This should reduce the confusion on what instruction to use.
+* We have added operating system detection to custom tailor the user experience. The first place to use this is the CLI download dialogue which now will default the instruction set selected based on your operating system. This should reduce the confusion on what instruction to use.
 * Various bug fixes and improvements
 
 ### UI v9.69.0 (2023/03/13)
@@ -95,7 +127,7 @@ Improve support for organizations defined in thee organization service.
 ### UI v9.61.0 (2023/02/24)
 
 We have added the ability to see repository origin details from the diff page via the interactive origin icon:\
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (3) (5).png>)
 
 GitHub links on recipe details for OpenRewrite recipes ([v9.35.0](CHANGELOG.md#recipe-source-links)) previously linked to a search interface to find the origin on GitHub. These have now been updated with direct links to the source.
 
