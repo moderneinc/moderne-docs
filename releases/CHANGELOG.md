@@ -1,4 +1,10 @@
 # Changelog
+### UI v9.74.0 (2023/03/23)
+
+- randomize colors after the main theme colors
+- add option to download `zip` archive of CLI tools
+- prompt for confirmation before removing repository
+
 ### UI v9.73.0 (2023/03/20)
 
 - use totalRepositoriesInProgress from graphql
