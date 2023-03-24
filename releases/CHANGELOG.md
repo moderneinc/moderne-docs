@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.75.0 (2023/03/24)
+
+- add administrative reports page to download usage reports
+
 ### UI v9.74.1 (2023/03/23)
 
 - Bug fixes and other improvements.
