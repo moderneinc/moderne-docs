@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.76.1 (2023/03/24)
+
+- Bug fixes and other improvements.
+
 ### UI v9.76.0 (2023/03/24)
 
 - add option for running recipes with low priority
