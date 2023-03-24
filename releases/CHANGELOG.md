@@ -1,4 +1,9 @@
 # Changelog
+### UI v9.76.0 (2023/03/24)
+
+- add option for running recipes with low priority
+- add filter to organzation and repository group selector menu
+
 ### UI v9.75.0 (2023/03/24)
 
 - add administrative reports page to download usage reports
