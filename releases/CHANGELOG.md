@@ -1,4 +1,9 @@
 # Changelog
+### UI v9.77.0 (2023/03/27)
+
+- add more confirmation dialogues
+- add ability to disable keyboard shortcuts
+
 ### UI v9.76.1 (2023/03/24)
 
 - Bug fixes and other improvements.
