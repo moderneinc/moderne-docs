@@ -1,30 +1,31 @@
 # Changelog
+
 ### UI v9.78.0 (2023/03/28)
 
-- add copy resulting lines to hunks
+* add copy resulting lines to hunks
+* Resolved bug that was setting all recipe runs from the UI to _Low_ priority. Recipe runs now use _Normal_ priority.
 
 ### UI v9.77.0 (2023/03/27)
 
-- add more confirmation dialogues
-- add ability to disable keyboard shortcuts
+* add more confirmation dialogues
+* add ability to disable keyboard shortcuts
 
 ### UI v9.76.1 (2023/03/24)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.76.0 (2023/03/24)
 
-- add option for running recipes with low priority
-- add filter to organzation and repository group selector menu
+* add option for running recipes with low priority
+* add filter to organzation and repository group selector menu
 
 ### UI v9.75.0 (2023/03/24)
 
-- add administrative reports page to download usage reports
+* add administrative reports page to download usage reports
 
 ### UI v9.74.1 (2023/03/23)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v9.74.0 (2023/03/23)
 
@@ -54,7 +55,7 @@ _Language composition_ chart now contains more colors to help distinguish variou
 
 #### Moderne CLI
 
-Now you can download a Zip archive of Moderne CLI tools.&#x20;
+Now you can download a Zip archive of Moderne CLI tools.
 
 <img src="../.gitbook/assets/image (1).png" alt="" data-size="original">
 
