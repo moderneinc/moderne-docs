@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.78.0 (2023/03/28)
+
+- add copy resulting lines to hunks
+
 ### UI v9.77.0 (2023/03/27)
 
 - add more confirmation dialogues
