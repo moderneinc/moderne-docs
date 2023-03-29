@@ -1,8 +1,8 @@
 # Changelog
-### UI v9.78.1 (2023/03/29)
 
-- Bug fixes and other improvements.
+### UI v9.78.1 (2023/03/28)
 
+* Fix issue where associated Agents were not showing on the Artifactory integration details table in the administrative _Agents_ screen.
 
 ### UI v9.78.0 (2023/03/28)
 
