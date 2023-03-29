@@ -1,21 +1,21 @@
-# Configure an agent with BitBucket data center access
+# Configure an agent with Bitbucket data center access
 
-In order to view recipe results and commit changes from a recipe back to BitBucket, you'll need to create an application link in BitBucket and configure the Moderne agent with the appropriate variables.
+In order to view recipe results and commit changes from a recipe back to Bitbucket, you'll need to create an application link in Bitbucket and configure the Moderne agent with the appropriate variables.
 
 To assist with that, this guide will:
 
-* [Walk you through how to configure your BitBucket server or BitBucket data center instance to support the agent](#step-1-generate-a-public-and-private-key-for-bitbucket)
-* [Provide you with a list of necessary variables the agent needs to communicate with your BitBucket instance](#step-4-configure-the-moderne-agent)
+* [Walk you through how to configure your Bitbucket server or Bitbucket data center instance to support the agent](#step-1-generate-a-public-and-private-key-for-bitbucket)
+* [Provide you with a list of necessary variables the agent needs to communicate with your Bitbucket instance](#step-4-configure-the-moderne-agent)
 
 #### Prerequisites
 
-* You will need administrator access to your BitBucket on-premise instance
+* You will need administrator access to your Bitbucket on-premise instance
 
-## BitBucket configuration
+## Bitbucket configuration
 
-### Step 1: Generate a public and private key for BitBucket
+### Step 1: Generate a public and private key for Bitbucket
 
-This key will be used by the Moderne agent to talk to BitBucket.
+This key will be used by the Moderne agent to talk to Bitbucket.
 
 ```shell
 openssl genrsa -out bitbucket_privatekey.pem 1024
@@ -24,9 +24,9 @@ openssl pkcs8 -topk8 -nocrypt -in bitbucket_privatekey.pem -out bitbucket_privat
 openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.pem
 ```
 
-### Step 2: Create an Application Link in BitBucket
+### Step 2: Create an Application Link in Bitbucket
 
-1. Go to the Administration page in your BitBucket instance
+1. Go to the Administration page in your Bitbucket instance
 2. Select _Application Links_ from the _System_ section
 3. Click on "Create link"
 4. Ensure that the _Application Type_ is set to _Atlassian product_ (this looks weird, but this is the [documented path](https://confluence.atlassian.com/bitbucketserver/link-to-other-applications-1018764620.html) for external applications to integrate)
@@ -57,9 +57,9 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
 
 ## Agent configuration
 
-### Step 3: Configure the BitBucket private key for the Moderne agent
+### Step 3: Configure the Bitbucket private key for the Moderne agent
 
-In order for the Moderne agent to work with your BitBucket instance, it will need to be provided with the private key you generated in [Step 1](#step-1-generate-a-public-and-private-key-for-bitbucket). Before Moderne can use this key, though, you will need to convert it to a single-line string.
+In order for the Moderne agent to work with your Bitbucket instance, it will need to be provided with the private key you generated in [Step 1](#step-1-generate-a-public-and-private-key-for-bitbucket). Before Moderne can use this key, though, you will need to convert it to a single-line string.
 
 If you're using Bash or another shell, you can obtain the single-line string by copying the results of the following command (for use in [Step 4](#step-4-configure-the-moderne-agent)):
 
@@ -78,10 +78,10 @@ If you're not using a shell, please follow these instructions instead:
 
 ### Step 4: Configure the Moderne Agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your BitBucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](/how-to/agent-configuration.md).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](/how-to/agent-configuration.md).
 
 {% hint style="info" %}
-You can configure multiple BitBucket instances by including multiple entries, each with a different `{index}`.
+You can configure multiple Bitbucket instances by including multiple entries, each with a different `{index}`.
 {% endhint %}
 
 {% tabs %}
@@ -89,9 +89,9 @@ You can configure multiple BitBucket instances by including multiple entries, ea
 
 **Variables:**
 
-* `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY` – _The private key you configured for this BitBucket instance._
-* `MODERNE_AGENT_BITBUCKET_{index}_URL` – _The fully-qualified URL of the running BitBucket instance. For example: `https://bitbucket.myorg.com`_
-* `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this BitBucket instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY` – _The private key you configured for this Bitbucket instance._
+* `MODERNE_AGENT_BITBUCKET_{index}_URL` – _The fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`_
+* `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
 
@@ -108,9 +108,9 @@ docker run \
 
 **Arguments:**
 
-* `--moderne.agent.bitbucket[{index}].privateKey` – _The private key you configured for this BitBucket instance._
-* `--moderne.agent.bitbucket[{index}].url` – _The fully-qualified URL of the running BitBucket instance. For example: `https://bitbucket.myorg.com`_
-* `--moderne.agent.bitbucket[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this BitBucket instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `--moderne.agent.bitbucket[{index}].privateKey` – _The private key you configured for this Bitbucket instance._
+* `--moderne.agent.bitbucket[{index}].url` – _The fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`_
+* `--moderne.agent.bitbucket[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
 

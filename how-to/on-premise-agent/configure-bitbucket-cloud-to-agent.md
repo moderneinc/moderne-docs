@@ -1,17 +1,17 @@
 # Configure an agent with Bitbucket cloud access
 
-In order to view recipe results and commit changes from a recipe back to BitBucket, you'll need to create an application link in BitBucket and configure the Moderne agent with the appropriate variables.
+In order to view recipe results and commit changes from a recipe back to Bitbucket, you'll need to create an application link in Bitbucket and configure the Moderne agent with the appropriate variables.
 
 To assist with that, this guide will:
 
-* [Walk you through how to configure your BitBucket cloud instance to support the agent](#step-1-create-a-bitbucket-oauth-consumer)
-* [Provide you with a list of necessary variables the agent needs to communicate with your BitBucket instance](#step-2-configure-the-moderne-agent)
+* [Walk you through how to configure your Bitbucket cloud instance to support the agent](#step-1-create-a-bitbucket-oauth-consumer)
+* [Provide you with a list of necessary variables the agent needs to communicate with your Bitbucket instance](#step-2-configure-the-moderne-agent)
 
 #### Prerequisites
 
 * You will need access to create a Bitbucket OAuth Consumer
 
-## BitBucket configuration
+## Bitbucket configuration
 
 ### Step 1: Create a Bitbucket OAuth Consumer
 
@@ -39,15 +39,15 @@ Please save those for use in [Step 2](#step-2-configure-the-moderne-agent).
 
 ### Step 2: Configure the Moderne agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your BitBucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](/how-to/agent-configuration.md).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](/how-to/agent-configuration.md).
 
 {% tabs %}
 {% tab title="OCI Container" %}
 
 **Variables:**
 
-* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY` – _The key specified in your BitBucket OAuth consumer._
-* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET` – _The secret specified in your BitBucket OAuth consumer._
+* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY` – _The key specified in your Bitbucket OAuth consumer._
+* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET` – _The secret specified in your Bitbucket OAuth consumer._
 
 **Example:**
 
@@ -64,8 +64,8 @@ docker run \
 
 **Arguments:**
 
-* `--moderne.agent.bitbucket.cloud.oauthKey` – _The key specified in your BitBucket OAuth consumer._
-* `--moderne.agent.bitbucket.cloud.oauthSecret` – _The secret specified in your BitBucket OAuth consumer._
+* `--moderne.agent.bitbucket.cloud.oauthKey` – _The key specified in your Bitbucket OAuth consumer._
+* `--moderne.agent.bitbucket.cloud.oauthSecret` – _The secret specified in your Bitbucket OAuth consumer._
 
 **Example:**
 

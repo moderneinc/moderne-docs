@@ -48,15 +48,15 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-## BitBucket cloud variables
+## Bitbucket cloud variables
 
 {% tabs %}
 {% tab title="OCI Container" %}
 
 **Variables:**
 
-* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY` – _The key specified in your BitBucket OAuth consumer._
-* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET` – _The secret specified in your BitBucket OAuth consumer._
+* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY` – _The key specified in your Bitbucket OAuth consumer._
+* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET` – _The secret specified in your Bitbucket OAuth consumer._
 
 **Example:**
 
@@ -73,8 +73,8 @@ docker run \
 
 **Arguments:**
 
-* `--moderne.agent.bitbucket.cloud.oauthKey` – _The key specified in your BitBucket OAuth consumer._
-* `--moderne.agent.bitbucket.cloud.oauthSecret` – _The secret specified in your BitBucket OAuth consumer._
+* `--moderne.agent.bitbucket.cloud.oauthKey` – _The key specified in your Bitbucket OAuth consumer._
+* `--moderne.agent.bitbucket.cloud.oauthSecret` – _The secret specified in your Bitbucket OAuth consumer._
 
 **Example:**
 
@@ -88,10 +88,10 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-## BitBucket data center variables
+## Bitbucket data center variables
 
 {% hint style="info" %}
-You can configure multiple BitBucket instances by including multiple entries, each with a different `{index}`.
+You can configure multiple Bitbucket instances by including multiple entries, each with a different `{index}`.
 {% endhint %}
 
 {% tabs %}
@@ -99,9 +99,9 @@ You can configure multiple BitBucket instances by including multiple entries, ea
 
 **Variables:**
 
-* `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY` – _The private key you configured for this BitBucket instance._
-* `MODERNE_AGENT_BITBUCKET_{index}_URL` – _The fully-qualified URL of the running BitBucket instance. For example: `https://bitbucket.myorg.com`_
-* `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this BitBucket instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY` – _The private key you configured for this Bitbucket instance._
+* `MODERNE_AGENT_BITBUCKET_{index}_URL` – _The fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`_
+* `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
 
@@ -118,9 +118,9 @@ docker run \
 
 **Arguments:**
 
-* `--moderne.agent.bitbucket[{index}].privateKey` – _The private key you configured for this BitBucket instance._
-* `--moderne.agent.bitbucket[{index}].url` – _The fully-qualified URL of the running BitBucket instance. For example: `https://bitbucket.myorg.com`_
-* `--moderne.agent.bitbucket[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this BitBucket instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `--moderne.agent.bitbucket[{index}].privateKey` – _The private key you configured for this Bitbucket instance._
+* `--moderne.agent.bitbucket[{index}].url` – _The fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`_
+* `--moderne.agent.bitbucket[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
 

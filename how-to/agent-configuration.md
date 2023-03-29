@@ -156,8 +156,8 @@ For every SCM that you want to connect to Moderne, please follow the instruction
 
 **SCM configuration:**
 
-* [BitBucket cloud configuration](/how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md)
-* [BitBucket data center configuration](/how-to/on-premise-agent/configure-bitbucket-to-agent.md)
+* [Bitbucket cloud configuration](/how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md)
+* [Bitbucket data center configuration](/how-to/on-premise-agent/configure-bitbucket-to-agent.md)
 * [GitHub configuration](/how-to/on-premise-agent/configure-an-agent-with-github.md)
 * [GitLab configuration](/how-to/on-premise-agent/configure-an-agent-with-gitlab.md)
 
