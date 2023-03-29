@@ -48,7 +48,7 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-## Bitbucket cloud variables
+## Bitbucket Cloud variables
 
 {% tabs %}
 {% tab title="OCI Container" %}
@@ -88,7 +88,7 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-## Bitbucket data center variables
+## Bitbucket Data Center variables
 
 {% hint style="info" %}
 You can configure multiple Bitbucket instances by including multiple entries, each with a different `{index}`.

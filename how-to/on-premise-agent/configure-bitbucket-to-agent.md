@@ -1,10 +1,10 @@
-# Configure an agent with Bitbucket data center access
+# Configure an agent with Bitbucket Data Center access
 
 In order to view recipe results and commit changes from a recipe back to Bitbucket, you'll need to create an application link in Bitbucket and configure the Moderne agent with the appropriate variables.
 
 To assist with that, this guide will:
 
-* [Walk you through how to configure your Bitbucket server or Bitbucket data center instance to support the agent](#step-1-generate-a-public-and-private-key-for-bitbucket)
+* [Walk you through how to configure your Bitbucket server or Bitbucket Data Center instance to support the agent](#step-1-generate-a-public-and-private-key-for-bitbucket)
 * [Provide you with a list of necessary variables the agent needs to communicate with your Bitbucket instance](#step-4-configure-the-moderne-agent)
 
 #### Prerequisites

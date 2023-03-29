@@ -16,7 +16,7 @@
 * [Integrating private code with Moderne SaaS](how-to/integrating-private-code.md)
 * [Configuring the Moderne agent](how-to/agent-configuration.md)
 * [On-premise agent reference docs](how-to/on-premise-agent/README.md)
-  * [Configure an agent with Bitbucket data center access](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
+  * [Configure an agent with Bitbucket Data Center access](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
   * [Configure an agent with Bitbucket Cloud access](how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md)
   * [Configure an agent with GitHub](how-to/on-premise-agent/configure-an-agent-with-github.md)
   * [Configure an agent with GitLab](how-to/on-premise-agent/configure-an-agent-with-gitlab.md)

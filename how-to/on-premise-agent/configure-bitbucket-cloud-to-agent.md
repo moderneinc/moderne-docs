@@ -1,10 +1,10 @@
-# Configure an agent with Bitbucket cloud access
+# Configure an agent with Bitbucket Cloud access
 
 In order to view recipe results and commit changes from a recipe back to Bitbucket, you'll need to create an application link in Bitbucket and configure the Moderne agent with the appropriate variables.
 
 To assist with that, this guide will:
 
-* [Walk you through how to configure your Bitbucket cloud instance to support the agent](#step-1-create-a-bitbucket-oauth-consumer)
+* [Walk you through how to configure your Bitbucket Cloud instance to support the agent](#step-1-create-a-bitbucket-oauth-consumer)
 * [Provide you with a list of necessary variables the agent needs to communicate with your Bitbucket instance](#step-2-configure-the-moderne-agent)
 
 #### Prerequisites

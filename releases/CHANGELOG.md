@@ -236,7 +236,7 @@ Actions for grids are now presented on the left-hand side of the table.
 
 #### Bitbucket Cloud support
 
-Repositories hosted on Bitbucket cloud are now supported. This [requires additional configuration through your agent](../how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md#prerequisites).
+Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your agent](../how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md#prerequisites).
 
 <figure><img src="../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
 
