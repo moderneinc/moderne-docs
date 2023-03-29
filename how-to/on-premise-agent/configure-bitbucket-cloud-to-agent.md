@@ -1,18 +1,23 @@
 # Configure an agent with Bitbucket Cloud access
 
-Configuring your Moderne Agent instance with Bitbucket Cloud is a prerequisite for both viewing recipe results within the Moderne application and committing changes from a recipe.
+In order to view recipe results and commit changes from a recipe back to Bitbucket, you'll need to create an application link in Bitbucket and configure the Moderne agent with the appropriate variables.
 
-This guide will walk you through configuring a new Application Link within your Bitbucket Server or Bitbucket Data Center instance.
+To assist with that, this guide will:
+
+* [Walk you through how to configure your Bitbucket Cloud instance to support the agent](#step-1-create-a-bitbucket-oauth-consumer)
+* [Provide you with a list of necessary variables the agent needs to communicate with your Bitbucket instance](#step-2-configure-the-moderne-agent)
 
 #### Prerequisites
 
-* Ability to create a Bitbucket OAuth Consumer.
+* You will need access to create a Bitbucket OAuth Consumer
+
+## Bitbucket configuration
 
 ### Step 1: Create a Bitbucket OAuth Consumer
 
 Follow [this Atlassian guide](https://support.atlassian.com/bitbucket-cloud/docs/use-oauth-on-bitbucket-cloud/) to create an OAuth Consumer.
 
-Configure the callback URL to point at your tenant:
+Once that's done, configure the callback URL to point at your Moderne tenant:
 
 ![](<../../.gitbook/assets/image (9) (3).png>)
 
@@ -22,53 +27,54 @@ The consumer should have these permissions:
 
 * Projects - Read
 * Repositories - Write
-* Pull requests - Write.
+* Pull requests - Write
 
-Take note of the key and secret on the newly formed consumer:
+Once your consumer has been created, you should see a `key` and a `secret`:
 
 <figure><img src="../../.gitbook/assets/image (6) (3).png" alt=""><figcaption></figcaption></figure>
 
-## Argument configuration
+Please save those for use in [Step 2](#step-2-configure-the-moderne-agent).
 
-Please note that the commands and options below omit standard options documented at [standard-configuration.md](standard-configuration.md "mention"). You will need to merge the standard options into the commands documented below, which is indicated via ellipses.
+## Agent configuration
+
+### Step 2: Configure the Moderne agent
+
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](/how-to/agent-configuration.md).
 
 {% tabs %}
 {% tab title="OCI Container" %}
-You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
-* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY` - From the Bitbucket OAuth consumer.
-* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET` - From the Bitbucket OAuth consumer.
+**Variables:**
 
-Example using Docker (note that host and private-key are fake):
+* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY` – _The key specified in your Bitbucket OAuth consumer._
+* `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET` – _The secret specified in your Bitbucket OAuth consumer._
 
-```
+**Example:**
+
+```shell
 docker run \
-...
--e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY=ABCDE \
--e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET=SECRET \
-...
+# ... Existing variables
+-e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY=yourOAuthKey \
+-e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET=yourSecretKey \
+# ... Additional variables
 ```
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-You can configure multiple bitbuckets by including multiple entries with different indices. The private key of each index must match up with the host for that index.
 
-* `moderne.agent.bitbucket[{index}].private-key` - Private key configured in previous step
-* `moderne.agent.bitbucket[{index}].url` - fully-qualified URL of running bucketbucket instance. example: `https://bitbucket.org`
-* `moderne.agent.bitbucket[{index}].skipSsl` - skip SSL validation for HTTP connections to this Bitbucket instance (defaults to false)
+**Arguments:**
 
-Note: system properties can be used in place of arguments. As an example, use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}` as an argument.
+* `--moderne.agent.bitbucket.cloud.oauthKey` – _The key specified in your Bitbucket OAuth consumer._
+* `--moderne.agent.bitbucket.cloud.oauthSecret` – _The secret specified in your Bitbucket OAuth consumer._
 
-Example (note that host and private-key are fake):
+**Example:**
 
-```
+```shell
 java -jar moderne-agent-{version}.jar \
-...
---moderne.agent.bitbucket[0].private-key=ABCDE \
---moderne.agent.bitbucket[0].url=https://bitbucket.myorg.com \
---moderne.agent.bitbucket[1].private-key=FGHIJ \
---moderne.agent.bitbucket[1].url=http://bitbucket2.myorg.com \
-...
+# ... Existing arguments
+--moderne.agent.bitbucket.cloud.oauthKey=yourOAuthKey \
+--moderne.agent.bitbucket.cloud.oauthSecret=yourSecretKey \
+# ... Additional arguments
 ```
 {% endtab %}
 {% endtabs %}

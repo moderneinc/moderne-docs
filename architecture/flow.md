@@ -72,7 +72,7 @@ Moderne users can authorize the creation of an OAuth token for Moderne to use vi
 
 In order to set up this OAuth process, an OAuth client for Moderne needs to be created. The homepage URL and callback URL should both be [https://TENANT.moderne.io](https://tenant.moderne.io). Furthermore, the client id and client secret need to be provided to the Moderne SaaS. For instructions on how to configure this, please see our [on-premise agent docs](/how-to/on-premise-agent/README.md).
 
-All of the user interactions that result in authorization decisions within GitHub, BitBucket, and GitLab (such as viewing diffs, committing, and making PRs) come to these SCMs through the agent on behalf of the user. From GitHub, BitBucket, or GitLab’s perspective, all interactions appear to come from the user at the agent's location. Therefore, the Moderne SaaS doesn’t require any changes to how GitHub, BitBucket, or GitLab is used internally. 
+All of the user interactions that result in authorization decisions within GitHub, Bitbucket, and GitLab (such as viewing diffs, committing, and making PRs) come to these SCMs through the agent on behalf of the user. From GitHub, Bitbucket, or GitLab’s perspective, all interactions appear to come from the user at the agent's location. Therefore, the Moderne SaaS doesn’t require any changes to how GitHub, Bitbucket, or GitLab is used internally. 
 
 Moderne does not need a separate configuration of who can access what code. Instead, it aligns access to the SCM that stores the code in question. When a user authenticates with the SCM, that OAuth access token is stored in a token database. 
 
