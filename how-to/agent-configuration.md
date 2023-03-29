@@ -3,7 +3,7 @@
 In order to securely communicate with the Moderne SaaS, you will need to set up an on-premise agent in your environment. To assist you with that process and provide you with information about the agent, this guide will:
 
 * [Give you some high-level information about the agent](#high-level-agent-information)
-* [Provide step-by-step instructions for configuring the Moderne agent](#agent-setup-instructions)
+* [Provide step-by-step instructions for configuring the agent](#agent-setup-instructions)
 * [Teach you how to update the agent later on](#updating-your-agent)
 
 ## High-level agent information
