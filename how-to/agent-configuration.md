@@ -15,6 +15,7 @@ The Moderne on-premise agent:
 * Encrypts and ships [LST](/concepts/lossless-semantic-trees.md) and recipe artifacts from your artifact repository (e.g., Artifactory) to the Moderne SaaS
 * Provides the symmetric key that Moderne needs to decrypt your artifacts
 * Forwards requests from the Moderne SaaS to your SCM(s) (e.g., GitHub)
+* Forwards requests from the Moderne SaaS to the organization service (if configured)
 
 ## Agent setup instructions
 
