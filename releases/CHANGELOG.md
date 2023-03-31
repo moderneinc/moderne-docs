@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.79.0 (2023/03/31)
+
+- add support for downloading `.tar.gz` and `.zip` version of the cli
+
 
 ### UI v9.78.1 (2023/03/28)
 
