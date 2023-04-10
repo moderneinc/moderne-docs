@@ -5,7 +5,7 @@ To help orient you to Moderne, let's walk through how to run a [recipe ](https:/
 In this guide, we will:
 
 * [**Sign in to Moderne**](running-your-first-recipe.md#step-1-sign-in)
-* [**Create a repository group**](running-your-first-recipe.md#step-3-optionally-create-a-repository-group)
+* [**Select an organization**](running-your-first-recipe.md#step-3-optionally-select-an-organization)
 * [**Find a recipe to run**](running-your-first-recipe.md#step-5-select-a-recipe)
 * [**Run a recipe**](running-your-first-recipe.md#step-6-run-the-recipe)
 * [**Examine the results**](running-your-first-recipe.md#step-7-view-the-results)
@@ -13,7 +13,7 @@ In this guide, we will:
 
 ## Step 1: Sign in
 
-If you're an enterprise user, you'll need to navigate to and sign in with the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-optionally-create-a-repository-group).
+If you're an enterprise user, you'll need to navigate to and sign in with the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-optionally-select-an-organization).
 
 If you're not an enterprise user, go to [https://public.moderne.io](https://public.moderne.io) and press "Sign-in with GitHub" as seen below:
 
