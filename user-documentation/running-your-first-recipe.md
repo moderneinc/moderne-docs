@@ -29,13 +29,13 @@ For a better understanding of the permissions requested, please see [GitHub Perm
 
 <figure><img src="../.gitbook/assets/authentication-github-signin.png" alt="GitHub login permissions"><figcaption><p>GitHub permission request</p></figcaption></figure>
 
-## Step 3: (Optionally) create a repository group
+## Step 3: (Optionally) select an organization
 
 After you've logged in and granted the appropriate permissions, you'll arrive at the [Moderne home page](https://public.moderne.io/).
 
-If you went to run a recipe right now, your recipes would run on a default grouping of repositories. In public Moderne, the default group is a diverse selection of open-source repositories. In an enterprise instance of Moderne, the default group is every repository in your instance unless your company has configured an [Organizations service](../references/organizations-service.md). In that case, it will be all repositories in your organization.
+If you went to run a recipe right now, you would find that some repositories are already selected to run against. In public Moderne, the `Default` organization is selected (a diverse selection of open-source repositories). In an enterprise instance of Moderne, the `All` organization is selected instead (meaning a recipe would run against every repository in your organization).
 
-If you'd prefer to run the recipes against a different group of repositories so that you can get relevant results more quickly, please follow [these instructions](../references/managing-repository-groups.md#how-to-create-a-repository-group) on how to make a repository group.
+If you'd prefer to run against a different group of repositories so that you can get relevant results more quickly, you can either select the organization that matches your needs or follow [these instructions](../references/managing-repository-groups.md#how-to-create-a-repository-group) on how to make a repository group.
 
 ## Step 4: Navigate to the recipe marketplace
 
