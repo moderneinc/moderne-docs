@@ -37,22 +37,22 @@ If you went to run a recipe right now, your recipes would run on a default group
 
 If you'd prefer to run the recipes against a different group of repositories so that you can get relevant results more quickly, please follow [these instructions](../references/managing-repository-groups.md#how-to-create-a-repository-group) on how to make a repository group.
 
-## Step 4: Navigate to the recipe catalog
+## Step 4: Navigate to the recipe marketplace
 
-Once you've decided what repositories you want to run recipes against, click on `Catalog` on the left side of the screen:
+Once you've decided what repositories you want to run recipes against, click on `Marketplace` on the left side of the screen:
 
 <figure><img src="../.gitbook/assets/ModerneCatalog.png" alt="Moderne Home Page"><figcaption><p>Moderne home page</p></figcaption></figure>
 
 This will take you to a page that lists all of the recipe categories:
 
-<figure><img src="../.gitbook/assets/ModerneCatalog2.png" alt="Moderne Recipe Catalog"><figcaption><p>Moderne recipe catalog</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/ModerneCatalog2.png" alt="Moderne Recipe Marketplace"><figcaption><p>Moderne recipe marketplace</p></figcaption></figure>
 
 ## Step 5: Select a recipe
 
 Let's find a good recipe to start from to help illustrate how to search across multiple repositories.
 
-1. From the [Catalog ](https://public.moderne.io/catalog)page, click on [Java ](https://public.moderne.io/catalog/org.openrewrite.java)from the list of categories.
-2. Select the [Cleanup ](https://public.moderne.io/catalog/org.openrewrite.java.cleanup)sub-category.
+1. From the [Marketplace](https://public.moderne.io/marketplace), click on [Java](https://public.moderne.io/marketplace/org.openrewrite.java) from the list of categories.
+2. Select the [Cleanup](https://public.moderne.io/marketplace/org.openrewrite.java.cleanup) sub-category.
 3. Click on the `Common static analysis issues` recipe.
 
 ## Step 6: Run the recipe
