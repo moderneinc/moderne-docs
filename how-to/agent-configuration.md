@@ -354,7 +354,73 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 8: Run the agent
+### Step 8: (Optionally) Use strict recipe sources.
+
+Some organizations desire that recipe artifacts are only sourced from what they have configured in the agent. If this is desired follow the [strict recipe sources instructions](on-premise-agent/configure-an-agent-with-strict-recipe-sources.md).
+
+Below is an example of what an agent run command might look like at the end of this step if you configured the agent to use only configured recipe sources.&#x20;
+
+{% tabs %}
+{% tab title="OCI Container" %}
+```shell
+docker run \
+-e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
+-e MODERNE_AGENT_NICKNAME=prod-1 \
+-e MODERNE_AGENT_TOKEN=yourToken \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=yourClientId \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
+-e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
+-e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
+-e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
+-e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_AGENT_ARTIFACTORY_0_USERNAME=admin \
+-e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
+-e MODERNE_AGENT_MAVEN_0_USERNAME=admin \
+-e MODERNE_AGENT_MAVEN_0_PASSWORD=password \
+-e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
+-e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
+-p 8080:8080
+moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
+```
+{% endtab %}
+
+{% tab title="Executable JAR" %}
+```bash
+java -jar moderne-agent-{version}.jar \
+--moderne.agent.apiGatewayRsocketUri==https://api.tenant.moderne.io/rsocket \
+--moderne.agent.crypto.symmetricKey=yourSymmetricKey
+--moderne.agent.nickname=prod-1 \
+--moderne.agent.token=yourToken \
+--moderne.agent.github[0].oauth.clientId=yourClientId \
+--moderne.agent.github[0].oauth.clientSecret=yourClientSecret \
+--moderne.agent.github[0].url=https://myorg.github.com \
+--moderne.agent.github[0].allowableOrganizations[0]=moderne \
+--moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
+--moderne.agent.github[0].oauth.includePrivateRepos=true \
+--moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
+--moderne.agent.artifactory[0].username=admin \
+--moderne.agent.artifactory[0].password=password \
+--moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
+--moderne-agent.maven[0].localRepository=~/.moderne-maven \
+--moderne.agent.maven[0].username=admin \
+--moderne.agent.maven[0].password=password \
+--moderne.agent.organization.url=http://localhost:8091 \
+--moderne.agent.organization.updateIntervalSeconds=600 \
+--moderne.agent.recipe.useOnlyConfigured=true
+```
+{% endtab %}
+{% endtabs %}
+
+### Step 9: Run the agent
 
 At this point, you should have configured everything needed to run the Moderne agent. If you run into issues running the command, please don't hesitate to reach out.
 

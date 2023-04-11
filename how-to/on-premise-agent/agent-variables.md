@@ -1,4 +1,4 @@
-# Agent configuration variables
+# All agent configuration variables
 
 This document includes all of the variables you can configure the Moderne agent to run with. Your configuration will only use some of these.
 
@@ -6,7 +6,6 @@ This document includes all of the variables you can configure the Moderne agent 
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 **Variables:**
 
 * `MODERNE_AGENT_APIGATEWAYRSOCKETURI` – _The URI used to connect to the Moderne API, provided by Moderne._
@@ -27,7 +26,6 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 **Arguments:**
 
 * `--moderne.agent.apiGatewayRsocketUri` – _The URI used to connect to the Moderne API, provided by Moderne._
@@ -52,7 +50,6 @@ java -jar moderne-agent-{version}.jar \
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 **Variables:**
 
 * `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY` – _The key specified in your Bitbucket OAuth consumer._
@@ -70,7 +67,6 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 **Arguments:**
 
 * `--moderne.agent.bitbucket.cloud.oauthKey` – _The key specified in your Bitbucket OAuth consumer._
@@ -96,7 +92,6 @@ You can configure multiple Bitbucket instances by including multiple entries, ea
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 **Variables:**
 
 * `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY` – _The private key you configured for this Bitbucket instance._
@@ -115,7 +110,6 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 **Arguments:**
 
 * `--moderne.agent.bitbucket[{index}].privateKey` – _The private key you configured for this Bitbucket instance._
@@ -142,7 +136,6 @@ You can configure multiple GitHub OAuth apps by including multiple entries, each
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 **Variables:**
 
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_CLIENTID` – _The client id configured in GitHub._
@@ -168,7 +161,6 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 **Arguments:**
 
 * `--moderne.agent.github[{index}].oauth.clientId` – _The client id configured in GitHub._
@@ -200,12 +192,11 @@ You can configure multiple GitLab OAuth apps by including multiple entries, each
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 **Variables:**
 
 * `MODERNE_AGENT_GITLAB_{index}_OAUTH_CLIENTID` – _The application id configured in GitLab._
-* `MODERNE_AGENT_GITLAB_{index}_OAUTH_CLIENTSECRET` – _The secret configured in GitLab.`_
-* `MODERNE_AGENT_GITLAB_{index}_URL` – _The fully-qualified hostname of your GitLab instance.`_
+* `MODERNE_AGENT_GITLAB_{index}_OAUTH_CLIENTSECRET` – _The secret configured in GitLab.\`_
+* `MODERNE_AGENT_GITLAB_{index}_URL` – _The fully-qualified hostname of your GitLab instance.\`_
 * `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
@@ -221,12 +212,11 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 **Arguments:**
 
 * `--moderne.agent.gitlab[{index}].oauth.clientId` – _The application id configured in GitLab._
-* `--moderne.agent.gitlab[{index}].oauth.clientSecret` – _The secret configured in GitLab.`_
-* `--moderne.agent.gitlab[{index}].url` – _The fully-qualified hostname of your GitLab instance.`_
+* `--moderne.agent.gitlab[{index}].oauth.clientSecret` – _The secret configured in GitLab.\`_
+* `--moderne.agent.gitlab[{index}].url` – _The fully-qualified hostname of your GitLab instance.\`_
 * `--moderne.agent.gitlab[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
@@ -246,7 +236,6 @@ java -jar moderne-agent-{version}.jar \
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 **Variables:**
 
 * `MODERNE_AGENT_ORGANIZATION_URL` – _The URL of your GraphQL service that provides organization information._
@@ -264,7 +253,6 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 **Arguments:**
 
 * `--moderne.agent.organization.url` – _The URL of your GraphQL service that provides organization information._
@@ -288,13 +276,12 @@ You can configure multiple Maven repositories by including multiple entries, eac
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 **Variables:**
 
 * `MODERNE_AGENT_MAVEN_{index}_URL` – _The URL of your Maven repository._
 * `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` – _The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the agent is being run and **not** on the Maven instance. Defaults to `~/.moderne-maven`_
-    * LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. If changes are discovered, only the incremental diffs will be downloaded (to limit the amount of data being transferred).
-    * If multiple Maven repositories are configured on the agent, they **must** have different `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` configured.
+  * LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. If changes are discovered, only the incremental diffs will be downloaded (to limit the amount of data being transferred).
+  * If multiple Maven repositories are configured on the agent, they **must** have different `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` configured.
 * `MODERNE_AGENT_MAVEN_{index}_USERNAME` – _(Optional) The username used to resolve artifacts. Defaults to `null`._
 * `MODERNE_AGENT_MAVEN_{index}_PASSWORD` – _(Optional) The password used to resolve artifacts. Defaults to `null`._
 * `MODERNE_AGENT_MAVEN_{index}_RELEASES` – _(Optional) Specifies whether or not this repository should be searched for releases. Defaults to `true`._
@@ -317,13 +304,12 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 **Arguments:**
 
 * `--moderne.agent.maven[{index}].url` – _The URL of your Maven repository._
 * `--moderne.agent.maven[{index}].localRepository` – _The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the agent is being run and **not** on the Maven instance. Defaults to `~/.moderne-maven`_
-    * LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. If changes are discovered, only the incremental diffs will be downloaded (to limit the amount of data being transferred).
-    * If multiple Maven repositories are configured on the agent, they **must** have different `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` configured.
+  * LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. If changes are discovered, only the incremental diffs will be downloaded (to limit the amount of data being transferred).
+  * If multiple Maven repositories are configured on the agent, they **must** have different `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` configured.
 * `--moderne.agent.maven[{index}].username` – _(Optional) The username used to resolve artifacts. Defaults to `null`._
 * `--moderne.agent.maven[{index}].password` – _(Optional) The password used to resolve artifacts. Defaults to `null`._
 * `--moderne.agent.maven[{index}].releases` – _(Optional) Specifies whether or not this repository should be searched for releases. Defaults to `true`._
@@ -352,11 +338,10 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 **Variables:**
 
 * `MODERNE_AGENT_ARTIFACTORY_{index}_URL` – _The URL of your Artifactory instance._
-* `MODERNE_AGENT_ARTIFACTORY_{index}_USERNAME` – _The username used to connect to your Artifactory instance. This user _must_ have permission to run AQL queries._
+* `MODERNE_AGENT_ARTIFACTORY_{index}_USERNAME` – _The username used to connect to your Artifactory instance. This user must have permission to run AQL queries._
 * `MODERNE_AGENT_ARTIFACTORY_{index}_PASSWORD` – _The password used to connect to your Artifactory instance._
 * `MODERNE_AGENT_ARTIFACTORY_{index}_ASTQUERYFILTERS_{index}` – _The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`._
 * `MODERNE_AGENT_ARTIFACTORY_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
@@ -376,11 +361,10 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 **Arguments:**
 
 * `--moderne.agent.artifactory[{index}].url` – _The URL of your Artifactory instance._
-* `--moderne.agent.artifactory[{index}].username` – _The username used to connect to your Artifactory instance. This user _must_ have permission to run AQL queries._
+* `--moderne.agent.artifactory[{index}].username` – _The username used to connect to your Artifactory instance. This user must have permission to run AQL queries._
 * `--moderne.agent.artifactory[{index}].password` – _The password used to connect to your Artifactory instance._
 * `--moderne.agent.artifactory[{index}].astQueryFilters[{index}]` – _The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`._
 * `--moderne.agent.artifactory[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
@@ -395,6 +379,42 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].password=password \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+# ... Additional arguments
+```
+{% endtab %}
+{% endtabs %}
+
+## Recipe variables
+
+The platform provides several fallback repositories for recipe loading when an agent has not been configured with any recipe sources. This fallback behavior can be disabled using recipe configuration.
+
+{% tabs %}
+{% tab title="OCI Container" %}
+**Variables:**
+
+* `MODERNE_AGENT_RECIPE_USEONLYCONFIGURED` – Only use the recipe sources configured in the agent.
+
+**Example:**
+
+```shell
+docker run \
+# ... Existing variables
+-e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
+# ... Additional variables
+```
+{% endtab %}
+
+{% tab title="Executable JAR" %}
+**Arguments:**
+
+* `--moderne.agent.recipe.useOnlyConfigured` – Only use the recipe sources configured in the agent.
+
+**Example:**
+
+```shell
+java -jar moderne-agent-{version}.jar \
+# ... Existing arguments
+--moderne.agent.recipe.useOnlyConfigured=true \
 # ... Additional arguments
 ```
 {% endtab %}
