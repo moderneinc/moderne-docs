@@ -33,7 +33,7 @@ For a better understanding of the permissions requested, please see [GitHub Perm
 
 After you've logged in and granted the appropriate permissions, you'll arrive at the [Moderne home page](https://public.moderne.io/).
 
-If you went to run a recipe right now, you would find that some repositories are already selected to run against. In public Moderne, the `Default` organization is selected (a diverse selection of open-source repositories). In an enterprise instance of Moderne, the `All` organization is selected instead (meaning a recipe would run against every repository in your organization).
+If you went to run a recipe right now, you would find that some repositories are already selected to run against. In public Moderne, the `Default` organization is selected (a diverse selection of open-source repositories). In an enterprise instance of Moderne, the `All` organization is _typically_ selected instead (meaning a recipe would run against every repository in your organization).
 
 If you'd prefer to run against a different group of repositories so that you can get relevant results more quickly, you can: select the organization that matches your needs, set up the [Organization service](../references/organizations-service.md) (for enterprise users), or follow [these instructions](../references/managing-repository-groups.md#how-to-create-a-repository-group) on how to make a repository group.
 
