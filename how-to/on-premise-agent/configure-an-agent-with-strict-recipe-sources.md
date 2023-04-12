@@ -1,6 +1,6 @@
 # Configure an agent with strict recipe sources
 
-The application is configured to use the following maven repositories to load recipe artifacts from in the event the agent has not been configured with any recipe sources or if a recipe artifact cannot be sourced from what is configured. (Requires agent version 0.118.0 or greater)&#x20;
+The application is configured to use the following Maven repositories to load recipe artifacts from in the event the agent has not been configured with any recipe sources or if a recipe artifact cannot be sourced from what is configured. (Requires agent version `0.118.0` or greater)&#x20;
 
 ```xml
 <repository>
