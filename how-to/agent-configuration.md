@@ -356,7 +356,7 @@ java -jar moderne-agent-{version}.jar \
 
 ### Step 8: (Optionally) Use strict recipe sources.
 
-Some organizations desire that recipe artifacts are only sourced from what they have configured in the agent. If this is desired follow the [strict recipe sources instructions](on-premise-agent/configure-an-agent-with-strict-recipe-sources.md).
+Some organizations want recipe artifacts to only come from locations configured in the Moderne agent. If you want to configure that, please follow the [strict recipe sources instructions](on-premise-agent/configure-an-agent-with-strict-recipe-sources.md).
 
 Below is an example of what an agent run command might look like at the end of this step if you configured the agent to use only configured recipe sources.&#x20;
 
