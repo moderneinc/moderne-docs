@@ -1,36 +1,38 @@
 # Changelog
+
 ### UI v9.82.0 (2023/04/17)
 
-- convert organizations and repository queries to paginated model
+We've complete a change to move over queries for _Organizations_ and _Repositories_ to use a new paginated query to improve the performance of filtering and selecting repositories. As apart of this change we've changed how _Repository groups_ are managed. Previously we had a transfer list that customers could use to handle selection. With this recent version, we've moved to a filterable data grid of repositories.&#x20;
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.81.1 (2023/04/14)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.81.0 (2023/04/14)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.80.3 (2023/04/12)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.80.2 (2023/04/10)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.80.1 (2023/04/01)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.80.0 (2023/03/31)
 
-- add API examples for generating and downloading admin reports
+* add API examples for generating and downloading admin reports
 
 ### UI v9.79.0 (2023/03/31)
 
-- add support for downloading `.tar.gz` and `.zip` version of the cli
-
+* add support for downloading `.tar.gz` and `.zip` version of the cli
 
 ### UI v9.78.1 (2023/03/28)
 
@@ -93,7 +95,7 @@ _Language composition_ chart now contains more colors to help distinguish variou
 
 Now you can download a Zip archive of Moderne CLI tools.
 
-<img src="../.gitbook/assets/image (1).png" alt="" data-size="original">
+<img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="original">
 
 #### Organizations
 
@@ -108,7 +110,7 @@ Users will not be prompted for confirmation before removing repository.
 ### UI v9.71.0 (2023/03/15)
 
 * We have changed the name "Catalog" to "Marketplace" and given it a new icon. We hope the use of the word "Marketplace" reflects the community aspect of "Recipe" development.\
-  ![](../.gitbook/assets/image.png)
+  ![](<../.gitbook/assets/image (1).png>)
 * Recipes can now have `maintainers` associated with them. This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:\
   \
   ![](<../.gitbook/assets/image (28).png>)
@@ -466,7 +468,7 @@ ou may have noticed search markers displaying like this:\\
 
 <figure><img src="../.gitbook/assets/image (2) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In addition to search markers, we will render info/debug, warnings, and errors in a similar way:
 
