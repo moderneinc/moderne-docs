@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.82.0 (2023/04/17)
+
+- convert organizations and repository queries to paginated model
+
 ### UI v9.81.1 (2023/04/14)
 
 - Bug fixes and other improvements.
