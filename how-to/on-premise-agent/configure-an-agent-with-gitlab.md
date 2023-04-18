@@ -43,8 +43,8 @@ You can configure multiple GitLab OAuth apps by including multiple entries, each
 **Variables:**
 
 * `MODERNE_AGENT_GITLAB_{index}_OAUTH_CLIENTID` – _The application id configured in GitLab._
-* `MODERNE_AGENT_GITLAB_{index}_OAUTH_CLIENTSECRET` – _The secret configured in GitLab.\`_
-* `MODERNE_AGENT_GITLAB_{index}_URL` – _The fully-qualified hostname of your GitLab instance.\`_
+* `MODERNE_AGENT_GITLAB_{index}_OAUTH_CLIENTSECRET` – _The secret configured in GitLab._
+* `MODERNE_AGENT_GITLAB_{index}_URL` – _The fully-qualified hostname of your GitLab instance._
 * `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
@@ -63,8 +63,8 @@ docker run \
 **Arguments:**
 
 * `--moderne.agent.gitlab[{index}].oauth.clientId` – _The application id configured in GitLab._
-* `--moderne.agent.gitlab[{index}].oauth.clientSecret` – _The secret configured in GitLab.\`_
-* `--moderne.agent.gitlab[{index}].url` – _The fully-qualified hostname of your GitLab instance.\`_
+* `--moderne.agent.gitlab[{index}].oauth.clientSecret` – _The secret configured in GitLab._
+* `--moderne.agent.gitlab[{index}].url` – _The fully-qualified hostname of your GitLab instance._
 * `--moderne.agent.gitlab[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
