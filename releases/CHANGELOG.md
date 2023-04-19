@@ -1,15 +1,29 @@
 # Changelog
+
 ### UI v9.83.0 (2023/04/19)
 
-- add confirmation before creating new yaml recipe
-- add support for mass quarantining and unquarantining of repos
-- enable multiple filters on the audit log table
-- shareable recipe run.
+#### Replaying recipes with organizations
+
+If a recipe was run using an _Organization_ instead of a _Repository group_, you can now quickly click to replay the recipe using either the _Organization_ that was originally used or your currently selected _Organization / Repository group._
+
+![](<../.gitbook/assets/image (3).png>)
+
+These items will take you back to the recipe details page where you can copy the URL and share.
+
+#### Filtering audit logs
+
+Audit logs can now be filtered across multiple columns and/or values.&#x20;
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+* Add confirmation before creating creating a new recipe builder
+* Add support for quarantining and un-quarantining multiple repositories at a time
+
 
 
 ### UI v9.82.0 (2023/04/17)
 
-We've complete a change to move over queries for _Organizations_ and _Repositories_ to use a new paginated query to improve the performance of filtering and selecting repositories. As apart of this change we've changed how _Repository groups_ are managed. Previously we had a transfer list that customers could use to handle selection. With this recent version, we've moved to a filterable data grid of repositories.&#x20;
+We've complete a change to move over queries for _Organizations_ and _Repositories_ to use a new paginated query to improve the performance of filtering and selecting repositories. As apart of this change we've changed how _Repository groups_ are managed. Previously we had a transfer list that customers could use to handle selection. With this recent version, we've moved to a filterable data grid of repositories.
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
@@ -78,7 +92,7 @@ We've complete a change to move over queries for _Organizations_ and _Repositori
 
 The _Data Tables_ button is now ever present on the page along side the familiar _Commit_ option. As a note the button will be disabled until a _Recipe run_ has completed.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 _API examples_ button has been pulled up from a collapsable portion of the summary and into a more familiar and consistant place on the page.
 
@@ -294,7 +308,7 @@ Moderne SaaS no longer provides a default named repository group called `All` th
 
 Actions for grids are now presented on the left-hand side of the table.
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.37.0 (2023/01/10)
 
@@ -386,7 +400,7 @@ This has been added to the following pages:
 
 You can now hide whitespace changes from diffs via the _Settings_ menu
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.21.0 (2022/11/18)
 
@@ -464,7 +478,7 @@ We have changed this behavior so that `Only show errors` will now cause only the
 
 Previously the _Recent Commit Job_ page only reported the overall status of job completion. We now surface the number of successful, failed, or jobs with no changes.
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.7.0
 

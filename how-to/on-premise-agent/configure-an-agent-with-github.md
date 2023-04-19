@@ -4,8 +4,8 @@ In order to view recipe results and commit changes from a recipe back to GitHub,
 
 To assist with that, this guide will:
 
-* [Walk you through how to create a GitHub OAuth application](#step-1-create-an-oauth-application)
-* [Provide you with a list of necessary variables the agent needs to communicate with your GitHub instance](#step-2-configure-the-moderne-agent)
+* [Walk you through how to create a GitHub OAuth application](configure-an-agent-with-github.md#step-1-create-an-oauth-application)
+* [Provide you with a list of necessary variables the agent needs to communicate with your GitHub instance](configure-an-agent-with-github.md#step-2-configure-the-moderne-agent)
 
 {% hint style="info" %}
 [Why an OAuth app and not a GitHub app?](../../references/github-permissions.md#github-oauth-applications-vs-github-applications)
@@ -23,11 +23,11 @@ To assist with that, this guide will:
 2. Expand `Developer settings` on the bottom left of the page:
    * ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 12.56.51 PM.png>)
 3. Click the `New OAuth App` button in the upper right of your screen.
-4. Supply the required fields and register the application (See [examples](#example-values) below):
+4. Supply the required fields and register the application (See [examples](configure-an-agent-with-github.md#example-values) below):
    * ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.01.11 PM.png>)
 5. On your newly created application click the `Generate a new client secret` button:
-   * ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.17.35 PM.png>)
-6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#step-2-configure-the-moderne-agent).
+   * ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.17.35 PM (1).png>)
+6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](configure-an-agent-with-github.md#step-2-configure-the-moderne-agent).
 
 #### Example values
 
@@ -37,11 +37,11 @@ To assist with that, this guide will:
 | Homepage URL               | `https://myorg.moderne.io` |
 | Authorization callback URL | `https://myorg.moderne.io` |
 
-## Agent configuration 
+## Agent configuration
 
 ### Step 2: Configure the Moderne Agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your GitHub instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](/how-to/agent-configuration.md).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your GitHub instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](../agent-configuration.md).
 
 {% hint style="info" %}
 You can configure multiple GitHub OAuth apps by including multiple entries, each with a different `{index}`.
@@ -49,7 +49,6 @@ You can configure multiple GitHub OAuth apps by including multiple entries, each
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 **Variables:**
 
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_CLIENTID` – _The client id configured in GitHub._
@@ -75,7 +74,6 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 **Arguments:**
 
 * `--moderne.agent.github[{index}].oauth.clientId` – _The client id configured in GitHub._

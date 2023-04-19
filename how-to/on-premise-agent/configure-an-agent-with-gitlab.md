@@ -19,7 +19,7 @@ To assist with that, this guide will:
 2. Provide an application name and redirect URI. The redirect URI will be in this format: `https://<tenantname>.moderne.io`:
    *
 
-       <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.59.50 AM.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.59.50 AM (1).png" alt=""><figcaption></figcaption></figure>
 3. Pick the following scopes:
    *
 
