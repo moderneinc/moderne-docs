@@ -29,6 +29,10 @@
 * [Importing external recipes](how-to/importing-external-recipes.md)
 * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
 
+## Moderne CLI
+
+* [Getting started with the Moderne CLI](/cli/cli-intro.md)
+
 ## Releases
 
 * [Versions of plugins and agent](releases/releases.md)
