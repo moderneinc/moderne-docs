@@ -1,4 +1,11 @@
 # Changelog
+### UI v9.83.0 (2023/04/19)
+
+- add confirmation before creating new yaml recipe
+- add support for mass quarantining and unquarantining of repos
+- enable multiple filters on the audit log table
+- shareable recipe run.
+
 
 ### UI v9.82.0 (2023/04/17)
 
