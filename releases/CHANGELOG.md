@@ -1,4 +1,16 @@
 # Changelog
+### UI v9.84.0 (2023/04/21)
+
+- add date time format as user preference
+- replay yaml recipe
+- add admin popup notice when there's a newer agent version available
+- add link to replay recipe to commit message and PR body
+- display finished time for recipe runs and run history
+- add import repository group support
+- add axonframework logo
+- add python logo
+- adds api recipe run examples to yaml recipe builder
+
 
 ### UI v9.83.0 (2023/04/19)
 
