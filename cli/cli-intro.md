@@ -172,7 +172,32 @@ mod connect jenkins --controllerUrl=https://jenkins.company-name.ninja \
     --publishUrl=https://artifact-place.com/artifactory/moderne-ingest \
 ```
 
-#### Parameters
+#### CSV Format
+
+Please ensure your CSV follows this format: `scmHost,repoName,repoBranch,mavenTool,gradleTool,jdkTool,desiredStyle,additionalBuildArgs,skip,skipReason`
+
+| Column Name           | Description                                                                                                                     |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `scmHost `            | <em>Optional</em><p>&nbsp;</p><p>The URL of the source code management tool where the repository is hosted (e.g., `github.com` or `gitlab.com`).</p> |
+| `repoName`            | <strong>Required</strong><p>&nbsp;</p><p>The repository that should be ingested. Follows the format of `organization/repository` (e.g., `openrewrite/rewrite`).</p> |
+| `repoBranch`          | <em>Optional</em><p>&nbsp;</p><p>The branch of the above repository that should be ingested. Defaults to `main`.</p>                                       |
+| `mavenTool`         | <em>Optional</em><p>&nbsp;</p><p>The name of the Maven tool that should be used to run Maven jobs. Specified in the Jenkins Global Tool Configuration page (e.g., `${controllerUrl}/manage/configureTools/`)</p> |
+| `gradleTool`         | <em>Optional</em><p>&nbsp;</p><p>The name of the Gradle tool that should be used to run Gradle jobs. Specified in the Jenkins Global Tool Configuration page (e.g., `${controllerUrl}/manage/configureTools/`)</p> |
+| `jdkTool`         | <em>Optional</em><p>&nbsp;</p><p>The name of the JDK tool that should be used to run JDK jobs. Specified in the Jenkins Global Tool Configuration page (e.g., `${controllerUrl}/manage/configureTools/`)</p> |
+| `desiredStyle`    | <em>Optional</em><p>&nbsp;</p><p>The OpenRewrite style name to apply during ingest (e.g., `org.openrewrite.java.SpringFormat`).</p>                        |
+| `additionalBuildArgs` | <em>Optional</em><p>&nbsp;</p><p>Additional arguments that are added to the Maven or Gradle build command (e.g., `-Dmaven.antrun.skip=true`).</p>          |
+| `skip`                | <em>Optional</em><p>&nbsp;</p><p>If set to true, this repo will not be ingested. Defaults to `false`.</p>                                                  |
+| `skipReason`          | <em>Optional</em><p>&nbsp;</p><p>Context for why the repo is being skipped.                                                                            |
+
+**CSV Example**:
+
+```csv
+,openrewrite/rewrite-spring,main,,gradle,java17,,,false,
+,openrewrite/rewrite-java-migration,main,,gradle,java17,,,false,
+// More Rows
+```
+
+#### Jenkins Parameters
 
 | **Parameter Name**            | **Description**                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -186,12 +211,12 @@ mod connect jenkins --controllerUrl=https://jenkins.company-name.ninja \
 | `--apiToken`                  | <p><em>Optional</em></p><p>&nbsp;</p><p>The Jenkins apiToken that will be used when authentication is needed in Jenkins (e.g., the creation of Jenkins Jobs).</p><ul><li><strong>Example</strong>: <code>some-api-token</code></li></ul>                                                                                                                                                                                        |
 | `--cliVersion`                | <p><em>Optional</em></p><p>&nbsp;</p><p>The version of the Moderne CLI that should be used when running Jenkins Jobs.</p><ul><li><strong>Example</strong>: <code>v0.0.43</code></li></ul>                                                                                                                                                                                                                                       |
 | `--defaultBranch`             | <p><em>Optional</em></p><p>&nbsp;</p><p>If no Git branch is specified for a repository in the CSV file, the Jenkins Job will attempt to checkout this branch when pulling down the code.</p><ul><li><strong>Default</strong>: <code>main</code></li></ul>                                                                                                                                                                       |
-| `--defaultGradle`             | <p><em>Optional</em></p><p>&nbsp;</p><p>The name of the Gradle tool that should be used to run Gradle jobs. Specified in the Jenkins Global Tool Configuration page.</p><ul><li><strong>Example</strong>: <code>gradle 7.4.2</code></li></ul>                                                                                                                                                                                   |
-| `--defaultJdk`                | <p><em>Optional</em></p><p>&nbsp;</p><p>The name of the JDK tool that should be used to run Java jobs. Specified in the Jenkins Global Tool Configuration page.</p><ul><li><strong>Example</strong>: <code>java11</code></li></ul>                                                                                                                                                                                              |
-| `--defaultMaven`              | <p><em>Optional</em></p><p>&nbsp;</p><p>The name of the Maven tool that should be used to run Maven jobs. Specified in the Jenkins Global Tool Configuration page.</p><ul><li><strong>Example</strong>: <code>maven3.3.9</code></li></ul>                                                                                                                                                                                       |
+| `--defaultGradle`             | <p><em>Optional</em></p><p>&nbsp;</p><p>The name of the Gradle tool that should be used to run Gradle jobs if one isn't provided in the CSV. Specified in the Jenkins Global Tool Configuration page (e.g., `${controllerUrl}/manage/configureTools/`).</p><ul><li><strong>Example</strong>: <code>gradle 7.4.2</code></li></ul>                                                                                                                                                                                   |
+| `--defaultJdk`                | <p><em>Optional</em></p><p>&nbsp;</p><p>The name of the JDK tool that should be used to run Java jobs if one isn't provided in the CSV. Specified in the Jenkins Global Tool Configuration page (e.g., `${controllerUrl}/manage/configureTools/`).</p><ul><li><strong>Example</strong>: <code>java11</code></li></ul>                                                                                                                                                                                              |
+| `--defaultMaven`              | <p><em>Optional</em></p><p>&nbsp;</p><p>The name of the Maven tool that should be used to run Maven jobs if one isn't provided in the CSV. Specified in the Jenkins Global Tool Configuration page (e.g., `${controllerUrl}/manage/configureTools/`).</p><ul><li><strong>Example</strong>: <code>maven3.3.9</code></li></ul>                                                                                                                                                                                       |
 | `--deleteSkipped`             | <p><em>Optional</em></p><p>&nbsp;</p><p>If set to true, whenever a repository in the CSV file has <code>skip</code> set to true, the corresponding Jenkins Job will be deleted.</p><p><br>This is useful if you want to remove specific jobs that are failing, but you also want to preserve the list of repositories that are ingested.</p><ul><li><strong>Default</strong>: <code>false</code></li></ul>                      |
 | `--downloadCLI`               | <p><em>Optional</em></p><p>&nbsp;</p><p>Specifies whether or not the Moderne CLI should be downloaded at the beginning of each Jenkins Job run.</p><ul><li><strong>Default</strong>: <code>true</code></li></ul>                                                                                                                                                                                                                |
-| `--mavenSettingsConfigFileId` | <p><em>Optional</em></p><p>&nbsp;</p><p>The ID of the Jenkins Maven settings config file that will be used to configure Maven builds. Specified in the Jenkins Global Tool Configuration page.</p><ul><li><strong>Example</strong>: <code>maven-ingest-settings-credentials</code></li></ul>                                                                                                                                    |
+| `--mavenSettingsConfigFileId` | <p><em>Optional</em></p><p>&nbsp;</p><p>The ID of the Jenkins Maven settings config file that will be used to configure Maven builds. Specified in the Jenkins Global Tool Configuration page (e.g., `${controllerUrl}/manage/configureTools/`).</p><ul><li><strong>Example</strong>: <code>maven-ingest-settings-credentials</code></li></ul>                                                                                                                                    |
 | `--folder`                    | <p><em>Optional</em></p><p>&nbsp;</p><p>The Jenkins folder that will store the created jobs. This folder will be created if it does not exist.</p><ul><li><strong>Default</strong>: <code>moderne-ingest</code></li></ul>                                                                                                                                                                                                       |
 | `--jenkinsPassword`                  | <p><em>Optional</em></p><p>&nbsp;</p><p>The Jenkins password that will be used when authentication is needed in Jenkins (e.g., the creation of Jenkins Jobs).<br><br><em>Jenkins best practices recommend using an apiToken instead of a password.</em></p><ul><li><strong>Example</strong>: <code>somePassword</code></li></ul>                                                                                                |
 | `--mirrorUrl`                 | <p><em>Optional</em></p><p>&nbsp;</p><p>For Gradle projects, this can be specified as a Maven repository cache/mirror to check for artifacts before any other repositories are looked at.</p><ul><li><strong>Default</strong>: Will default to the environment variable <code>MODERNE_MIRROR_URL</code> if one exists.</li><li><strong>Example</strong>: <code>http://1.2.3.4:8080/artifactory/moderne-cache-1</code></li></ul> |
@@ -201,21 +226,30 @@ mod connect jenkins --controllerUrl=https://jenkins.company-name.ninja \
 
 ### Connect GitHub
 
-The `connect github` command will create a GitHub workflow that builds and publishes LST artifacts to your artifact repository on a regular basis. A workflow can be created for ingesting a single repository (by specifying the `path` parameter) or a workflow can be created for ingesting a mass number of repositories (by specifying the `fromCsv` parameter).
+The `connect github` command will create GitHub workflows that build and publish LST artifacts to your artifact repository on a regular basis. A workflow can be created for ingesting a single repository (by specifying the `path` parameter) or workflows can be created for ingesting a mass number of repositories (by specifying the `fromCsv` parameter).
 
-**If you specify the `path` parameter**:
-
+{% tabs %}
+{% tab title="Using the path parameter" %}
 This command will create a `moderne-workflow.yml` file in the `.github/workflows` directory at the `path` you specified. This workflow file can then be modified and published to a GitHub repository to set up the workflow for building and publishing LST artifacts for that repository.
 
 When running this command you will need to ensure that you provide the `publishPwdSecretName`, `publishUrl`, and `publishUserSecretName` parameters.
 
 For the `publishPwdSecretName` and `publishUserSecretName` parameters, the expectation is that you will create a GitHub secret for each inside of the repository you're wanting to ingest. When running this command, you'd then provide the names of these secrets rather than the secrets themselves (e.g., `--publishPwdSecretName <name of GitHub secret>`).
 
-**If you specify the `fromCsv` parameter**:
+**Example**:
 
-This command will directly commit an ingestion workflow and the necessary files to run it to the GitHub repository you specify. This workflow will iterate over every repository in the CSV and build/publish LST artifacts for each.
+```sh
+mod connect github --artifactRepoPasswordSecretName=foo \
+    --artifactRepoUrl=https://some-repo.com \
+    --artifactRepoUserSecretName=someSecret \
+    --path=/path/to/project \
+```
+{% endtab %}
+{% tab title="Using the fromCsv parameter" %}
 
-Before running this command, you will need to ensure that you've created a dedicated GitHub repository where all of these files can be uploaded to.
+This command will directly commit two workflows and the necessary files to run them to the GitHub repository you specify. The first workflow will read the CSV file and then call the second workflow for each repository in the CSV in parallel. The second workflow builds and publishes the LST artifacts for repository it was called with.
+
+Before running the `connect github` command with the `fromCsv` parameter, you will need to ensure that you've created a dedicated GitHub repository where all of these files can be uploaded to.
 
 When running this command, you will need to ensure that you provide the `accessToken`, `publishUrl`, `publishPwdSecretName`, `publishUserSecretName`, `dispatchSecretName`, `repoReadSecretName`, and `repo` parameters.
 
@@ -235,13 +269,38 @@ mod connect github --accessToken=moderne-github-access-token \
     --repo=company-name/repo-name \
 ```
 
-#### Parameters
+**CSV Format**:
+
+Please ensure your CSV follows this format: `repoName,repoBranch,javaVersion,desiredStyle,additionalBuildArgs,skip,skipReason`
+
+| Column Name           | Description                                                                                                                     |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `repoName`            | <strong>Required</strong><p>&nbsp;</p><p>The repository that should be ingested. Follows the format of `organization/repository` (e.g., `openrewrite/rewrite`).</p> |
+| `repoBranch`          | <em>Optional</em><p>&nbsp;</p><p>The branch of the above repository that should be ingested. Defaults to `main`.</p>                                       |
+| `javaVersion`         | <em>Optional</em><p>&nbsp;</p><p>The Java version used to compile this repository. Defaults to `11`.</p>                                                   |
+| `desiredStyle`    | <em>Optional</em><p>&nbsp;</p><p>The OpenRewrite style name to apply during ingest (e.g., `org.openrewrite.java.SpringFormat`).</p>                        |
+| `additionalBuildArgs` | <em>Optional</em><p>&nbsp;</p><p>Additional arguments that are added to the Maven or Gradle build command (e.g., `-Dmaven.antrun.skip=true`).</p>          |
+| `skip`                | <em>Optional</em><p>&nbsp;</p><p>If set to true, this repo will not be ingested. Defaults to `false`.</p>                                                  |
+| `skipReason`          | <em>Optional</em><p>&nbsp;</p><p>Context for why the repo is being skipped.                                                                            |
+
+**CSV Example**:
+
+```csv
+openrewrite/rewrite-spring,main,11,org.openrewrite.java.SpringFormat,,false,,
+openrewrite/rewrite,master,17,,-Phadoop_2,,
+foo/bar,main,11,,,true,some skip reason
+// More Rows
+```
+{% endtab %}
+{% endtabs %}
+
+#### GitHub Parameters
 
 | **Parameter Name**   | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--accessToken`      | <p><strong>Required</strong> (if <code>fromCsv</code> is specified). <em>Optional</em> otherwise.</p><p>&nbsp;</p><p>The GitHub access token that will be used to commit files and create workflows.</p><p>&nbsp;</p><p>The token requires these permissions: <code>workflow</code>, <code>write:org</code>, and <code>read:org</code><br></p><ul><li><strong>Example</strong>: <code>ghp_someAccessToken</code></li></ul>                                                                                                                      |
-| `--dispatchSecretName` | <p><strong>Required</strong> (if <code>fromCsv</code> is specified). <em>Optional</em> otherwise.</p><p>&nbsp;</p><p>The name of the GitHub secret that contains the access token with write access to the repository specified in the <code>repo</code> parameter. This access token can be used to dispatch GitHub workflows.</p><p>&nbsp;</p><p>GitHub secrets can be created inside of of the Security –> Secrets –> Actions section in a GitHub repository.</p><ul><li><strong>Example</strong>: <code>dispatchSecretName</code></li></ul> |
-| `--fromCsv`          | <p><strong>Either <code>path</code> or <code>fromCsv</code> is required</strong></p><p>&nbsp;</p><p>The location of the CSV file containing the list of repositories that should be ingested into Moderne. A GitHub action will build and publish LST artifacts for every repository in this file.</p><p>&nbsp;</p><p>Follows the schema of: <code>[repoName,branch,javaVersion,style,buildAction,skip,skipReason]</code>.</p><ul><li><strong>Example</strong>: <code>/path/to/repos.csv</code></li></ul>                                       |
+| `--accessToken`      | <p><strong>Required</strong> (if <code>fromCsv</code> is specified). <em>Optional</em> otherwise.</p><p>&nbsp;</p><p>A <strong>classic</strong> GitHub access token that will be used to commit files and create workflows (a fine-grained token won't work). This token <em>will not</em> be used to run the workflows.</p><p>&nbsp;</p><p>This token requires <code>workflow</code> permissions. <br></p><ul><li><strong>Example</strong>: <code>ghp_someAccessToken</code></li></ul>                                                                                                                      |
+| `--dispatchSecretName` | <p><strong>Required</strong> (if <code>fromCsv</code> is specified). <em>Optional</em> otherwise.</p><p>&nbsp;</p><p>The name of the GitHub secret that contains the access token that will be used to run the GitHub workflows in the repo specified in the <code>repo</code> parameter. This token requires <code>workflow</code> permissions.</p><p>&nbsp;</p><p>GitHub secrets can be created inside of of the Security –> Secrets –> Actions section in a GitHub repository.</p><ul><li><strong>Example</strong>: <code>dispatchSecretName</code></li></ul> |
+| `--fromCsv`          | <p><strong>Either <code>path</code> or <code>fromCsv</code> is required</strong></p><p>&nbsp;</p><p>The location of the CSV file containing the list of repositories that should be ingested into Moderne. A GitHub action will build and publish LST artifacts for every repository in this file.</p><p>&nbsp;</p><p>Follows the schema of: <code>[repoName,branch,javaVersion,desiredStyle,additionalBuildArgs,skip,skipReason]</code>.</p><ul><li><strong>Example</strong>: <code>/path/to/repos.csv</code></li></ul>                                       |
 | `--path`             | <p><strong>Either <code>path</code> or <code>fromCsv</code> is required</strong></p><p>&nbsp;</p><p>The local path to the Git repository where a GitHub workflow should be created.</p><ul><li><strong>Example</strong>: <code>/path/to/local/repo</code></li></ul>                                                                                                                                                                                                                                                                        |
 | `--publishPwdSecretName` | <p><strong>Required</strong></p><p>&nbsp;</p><p>The name of the GitHub secret that contains the password needed to upload LST artifacts to your artifact repository.</p><p>&nbsp;</p><p>GitHub secrets can be created inside of of the Security –> Secrets –> Actions section in a GitHub repository.</p><ul><li><strong>Example:</strong> <code>passwordSecretName</code></li></ul>                                                                                                                                                            |
 | `--publishUrl`              | <p><strong>Required</strong></p><p>&nbsp;</p><p>The URL of the Maven formatted artifact repository where LST artifacts should be uploaded to.</p><ul><li><strong>Default</strong>: Will default to the environment variable <code>MODERNE_PUBLISH_URL</code> if one exists.</li><li><strong>Example</strong>: <code>https://some-artifact-repo.com</code></li></ul>                                                                                                                                                                        |
