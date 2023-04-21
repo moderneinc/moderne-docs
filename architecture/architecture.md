@@ -30,9 +30,8 @@ In order for Moderne to know the current state of your code, artifacts will need
 
 There are currently two ways to generate artifacts. You can:
 
-1. Set up a [Jenkins ingest pipeline](https://github.com/moderneinc/enterprise-jenkins-ingest#readme) that runs at scheduled intervals to build and publish artifacts for the repositories you specify in a CSV (**recommended**)
+1. Use the [Moderne CLI](/cli/cli-intro.md) to set up a [Jenkins](/cli/cli-intro.md#connect-jenkins) or [GitHub](/cli/cli-intro.md#connect-github) pipeline for building and publishing artifacts for the repositories you specify in a CSV (**recommended**)
    * Easier to scale and does not require you to modify the build process
-   * This is what the [public Moderne tenant](https://public.moderne.io/) uses
 2. [Apply a Gradle or Maven plugin](https://docs.moderne.io/how-to/integrating-private-code) directly to each repository that you want artifacts published for
    * Faster to set up originally, but does not scale well for large numbers of repositories and requires the build process to be modified for each
 
