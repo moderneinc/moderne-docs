@@ -35,6 +35,7 @@ Admin users will now see a notice that can be dismissed whenever there is a new 
 * add axonframework logo
 * add python logo
 * adds api recipe run examples to yaml recipe builder
+* various visual improvements
 
 ### UI v9.83.0 (2023/04/19)
 
