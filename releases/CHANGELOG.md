@@ -1,16 +1,40 @@
 # Changelog
+
 ### UI v9.84.0 (2023/04/21)
 
-- add date time format as user preference
-- replay yaml recipe
-- add admin popup notice when there's a newer agent version available
-- add link to replay recipe to commit message and PR body
-- display finished time for recipe runs and run history
-- add import repository group support
-- add axonframework logo
-- add python logo
-- adds api recipe run examples to yaml recipe builder
+#### Date time format preference added
 
+In Account menu > Accessibility there is now and option for Date time format that will allow you to choose between `Relative time`, `Local time`, and `UTC time`. &#x20;
+
+<figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+
+Date time stamps can also be changed by simply clicking on them to cycle through the formats:\
+&#x20;
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+#### Replay YAML recipes
+
+Custom yaml recipe runs can now be replayed.  Now hitting replay on a custom recipe run summary will link to a new `/recipes/builder/[runId]` page.  This page is similar to the `/recipes/builder` page however it will reflect the yaml recipe that was run making it possible to replay custom yaml recipe runs. This will also not disrupt your personal custom recipe.\
+
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+#### Admin agent version notice
+
+Admin users will now see a notice that can be dismissed whenever there is a new agent version available:\
+&#x20;
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+#### Additional changes
+
+* add link to replay recipe to commit message and PR body
+* display finished time for recipe runs and run history
+* add import repository group support
+* add axonframework logo
+* add python logo
+* adds api recipe run examples to yaml recipe builder
 
 ### UI v9.83.0 (2023/04/19)
 
@@ -24,14 +48,12 @@ These items will take you back to the recipe details page where you can copy the
 
 #### Filtering audit logs
 
-Audit logs can now be filtered across multiple columns and/or values.&#x20;
+Audit logs can now be filtered across multiple columns and/or values.
 
 <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 * Add confirmation before creating creating a new recipe builder
 * Add support for quarantining and un-quarantining multiple repositories at a time
-
-
 
 ### UI v9.82.0 (2023/04/17)
 
@@ -143,7 +165,7 @@ Users will not be prompted for confirmation before removing repository.
 ### UI v9.71.0 (2023/03/15)
 
 * We have changed the name "Catalog" to "Marketplace" and given it a new icon. We hope the use of the word "Marketplace" reflects the community aspect of "Recipe" development.\
-  ![](<../.gitbook/assets/image (1).png>)
+  ![](<../.gitbook/assets/image (1) (8).png>)
 * Recipes can now have `maintainers` associated with them. This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:\
   \
   ![](<../.gitbook/assets/image (28).png>)
