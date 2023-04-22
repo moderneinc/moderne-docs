@@ -4,9 +4,9 @@
 
 #### Date time format preference added
 
-In Account menu > Accessibility there is now and option for Date time format that will allow you to choose between `Relative time`, `Local time`, and `UTC time`. &#x20;
+In Account menu > Accessibility there is now an option for Date time format that will allow you to choose between `Relative time`, `Local time`, and `UTC time`. &#x20;
 
-<figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 Date time stamps can also be changed by simply clicking on them to cycle through the formats:\
 &#x20;
@@ -165,7 +165,7 @@ Users will not be prompted for confirmation before removing repository.
 ### UI v9.71.0 (2023/03/15)
 
 * We have changed the name "Catalog" to "Marketplace" and given it a new icon. We hope the use of the word "Marketplace" reflects the community aspect of "Recipe" development.\
-  ![](<../.gitbook/assets/image (1) (8).png>)
+  ![](<../.gitbook/assets/image (1) (4).png>)
 * Recipes can now have `maintainers` associated with them. This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:\
   \
   ![](<../.gitbook/assets/image (28).png>)
@@ -315,7 +315,7 @@ Data tables: Recipes can now emit tabular data according to a schema that they d
 
 Hover over the info icon to quickly view more information including the commit that the artifact was generated from and when it was ingested into the platform.
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.41.0 (2023/01/17)
 
@@ -342,7 +342,7 @@ Moderne SaaS no longer provides a default named repository group called `All` th
 
 Actions for grids are now presented on the left-hand side of the table.
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.37.0 (2023/01/10)
 
@@ -450,7 +450,7 @@ Now it's even easier to filter down the result set to only those diffs that incl
 
 We have added a status page \`/status\` that displays a general summary of the site's health.
 
-<figure><img src="../.gitbook/assets/image (1) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Enhanced marker info
 

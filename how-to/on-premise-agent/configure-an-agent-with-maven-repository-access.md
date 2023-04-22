@@ -1,18 +1,18 @@
 # Configure an agent with Maven repository access
 
-In order for Moderne to retrieve your [Lossless Semantic Tree](/concepts/lossless-semantic-trees.md) (LST) and recipe artifacts, the agent needs to be configured to talk to your Maven-formatted artifact repositories. There are a variety of services that support repositories in this format. Some examples include [JFrog Artifactory](https://jfrog.com/artifactory/), [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository), [Azure Artifacts](https://azure.microsoft.com/en-us/services/devops/artifacts/), and [Google Artifact Registry](https://cloud.google.com/artifact-registry).
+In order for Moderne to retrieve your [Lossless Semantic Tree](../../concepts/lossless-semantic-trees.md) (LST) and recipe artifacts, the agent needs to be configured to talk to your Maven-formatted artifact repositories. There are a variety of services that support repositories in this format. Some examples include [JFrog Artifactory](https://jfrog.com/artifactory/), [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository), [Azure Artifacts](https://azure.microsoft.com/en-us/services/devops/artifacts/), and [Google Artifact Registry](https://cloud.google.com/artifact-registry).
 
 This guide will explain how to:
 
-* [Configure your artifact service to support LST and recipes artifacts](#publishing-lst-artifacts)
-* [Configure the Moderne agent to connect to any service that supports Maven-formatted repositories](#configuring-the-moderne-agent)
+* [Configure your artifact service to support LST and recipes artifacts](configure-an-agent-with-maven-repository-access.md#publishing-lst-artifacts)
+* [Configure the Moderne agent to connect to any service that supports Maven-formatted repositories](configure-an-agent-with-maven-repository-access.md#configuring-the-moderne-agent)
 
 #### Prerequisites
 
 * You might need a username and password for a user that is allowed to resolve artifacts.
 
 {% hint style="info" %}
-In many organizations, artifact resolution is unauthenticated while artifact publishing is authenticated. If artifact resolution is unauthenticated, you may omit the username/password configuration in the [Configuration step](#configuring-the-moderne-agent).
+In many organizations, artifact resolution is unauthenticated while artifact publishing is authenticated. If artifact resolution is unauthenticated, you may omit the username/password configuration in the [Configuration step](configure-an-agent-with-maven-repository-access.md#configuring-the-moderne-agent).
 {% endhint %}
 
 ## Publishing LST artifacts
@@ -25,54 +25,52 @@ Please follow the below instructions to configure the indexer for your Maven for
 
 {% tabs %}
 {% tab title="Artifactory" %}
-
 {% hint style="warning" %}
-If you are using Artifactory to publish LST artifacts, it is _highly_ recommended that you follow the instructions in the [configuring an agent with Artifactory doc](/how-to/on-premise-agent/configure-an-agent-with-artifactory-access.md) instead as that will result in faster artifact consumption while also avoiding substantial load on your Artifactory instance. The following instructions should only be followed if you can not use [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) for some reason.
+If you are using Artifactory to publish LST artifacts, it is _highly_ recommended that you follow the instructions in the [configuring an agent with Artifactory doc](configure-an-agent-with-artifactory-access.md) instead as that will result in faster artifact consumption while also avoiding substantial load on your Artifactory instance. The following instructions should only be followed if you can not use [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) for some reason.
 {% endhint %}
 
 In Artifactory, select the `Artifactory` link on the left nav and then select `Maven Indexer` under Services:
 
-![](</.gitbook/assets/image (1) (1) (1) (1).png>)
+![](../../.gitbook/assets/image%20\(1\)%20\(1\)%20\(1\)%20\(1\).png)
 
 For a repository to be a source of LSTs, it must be included in the list of repositories that are indexed:
 
-![](</.gitbook/assets/image (9) (1).png>)
+![](<../../.gitbook/assets/image (9) (1) (1).png>)
 {% endtab %}
 
 {% tab title="Nexus Repository" %}
 Under the administration view, select `Tasks` on the left nav:
 
-![](</.gitbook/assets/image (7) (1).png>)
+![](<../../.gitbook/assets/image (7) (1).png>)
 
 Select `Create task` and create a `Maven - Publish Maven Indexer files` task:
 
-![](</.gitbook/assets/image (2) (2).png>)
+![](<../../.gitbook/assets/image (2) (2).png>)
 
 Select the repository that will serve LST artifacts and specify a frequency with which this index should be updated:
 
-![](</.gitbook/assets/image (22).png>)
+![](<../../.gitbook/assets/image (22).png>)
 {% endtab %}
 {% endtabs %}
 
 ## Publishing recipe artifacts
 
-Recipe artifacts will automatically be picked up by Moderne so long as you set the recipe source flag to true in the below [configuration step](#configuring-the-moderne-agent). These artifacts will be immediately available for [deployment to Moderne](/how-to/importing-external-recipes.md) upon being published.
+Recipe artifacts will automatically be picked up by Moderne so long as you set the recipe source flag to true in the below [configuration step](configure-an-agent-with-maven-repository-access.md#configuring-the-moderne-agent). These artifacts will be immediately available for [deployment to Moderne](../importing-external-recipes.md) upon being published.
 
 ## Configuring the Moderne agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get LST and recipe artifacts from your Maven formatted repository. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](/how-to/agent-configuration.md).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get LST and recipe artifacts from your Maven formatted repository. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](../agent-configuration.md).
 
-You can configure multiple Maven formatted repositories by including multiple entries, each with a different `{index}`. 
+You can configure multiple Maven formatted repositories by including multiple entries, each with a different `{index}`.
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 **Variables:**
 
 * `MODERNE_AGENT_MAVEN_{index}_URL` – _The URL of your Maven repository._
 * `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` – _The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the agent is being run and **not** on the Maven instance. Defaults to `~/.moderne-maven`_
-    * LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. If changes are discovered, only the incremental diffs will be downloaded (to limit the amount of data being transferred).
-    * If multiple Maven repositories are configured on the agent, they **must** have different `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` configured.
+  * LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. If changes are discovered, only the incremental diffs will be downloaded (to limit the amount of data being transferred).
+  * If multiple Maven repositories are configured on the agent, they **must** have different `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` configured.
 * `MODERNE_AGENT_MAVEN_{index}_USERNAME` – _(Optional) The username used to resolve artifacts. Defaults to `null`._
 * `MODERNE_AGENT_MAVEN_{index}_PASSWORD` – _(Optional) The password used to resolve artifacts. Defaults to `null`._
 * `MODERNE_AGENT_MAVEN_{index}_RELEASES` – _(Optional) Specifies whether or not this repository should be searched for releases. Defaults to `true`._
@@ -95,13 +93,12 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 **Arguments:**
 
 * `--moderne.agent.maven[{index}].url` – _The URL of your Maven repository._
 * `--moderne.agent.maven[{index}].localRepository` – _The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the agent is being run and **not** on the Maven instance. Defaults to `~/.moderne-maven`_
-    * LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. If changes are discovered, only the incremental diffs will be downloaded (to limit the amount of data being transferred).
-    * If multiple Maven repositories are configured on the agent, they **must** have different `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` configured.
+  * LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. If changes are discovered, only the incremental diffs will be downloaded (to limit the amount of data being transferred).
+  * If multiple Maven repositories are configured on the agent, they **must** have different `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` configured.
 * `--moderne.agent.maven[{index}].username` – _(Optional) The username used to resolve artifacts. Defaults to `null`._
 * `--moderne.agent.maven[{index}].password` – _(Optional) The password used to resolve artifacts. Defaults to `null`._
 * `--moderne.agent.maven[{index}].releases` – _(Optional) Specifies whether or not this repository should be searched for releases. Defaults to `true`._

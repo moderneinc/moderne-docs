@@ -36,7 +36,7 @@ Think of this like a static analyzer but with auto-remediation!
 
 1\. Sign up for the Moderne platform using the request form at [Moderne.io](https://moderne.io). To test the integration without connecting any of your own code to the Moderne platform, you can create a copy of the [terraform-random](https://github.com/moderneinc/terraform-random) project using the "Use this template" button in Github:
 
-![](<../.gitbook/assets/image (2) (1).png>)
+![](<../.gitbook/assets/image (2) (1) (1).png>)
 
 2\. Login to Terraform Cloud and go into the organization global settings.
 
@@ -50,7 +50,7 @@ Think of this like a static analyzer but with auto-remediation!
 
 The `requestedRecipe` query parameter allows you to control which recipe will run. The recipe id for this query parameter can be copied from the recipe detail of any Terraform recipe on the Moderne platform.
 
-![](<../.gitbook/assets/image (5) (1) (1).png>)
+![](<../.gitbook/assets/image (5) (1) (1) (1).png>)
 
 4\. To connect this Task Event Hook to your workspace in Terraform Cloud, navigate to the
 
