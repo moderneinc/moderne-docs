@@ -1,6 +1,6 @@
 # Configure Organizations service
 
-In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne agent to point to your [Organizations service](/architecture/organizations-service.md). This guide will explain how to do that.
+In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne agent to point to your [Organizations service](/architecture/organizations-service). This guide will explain how to do that.
 
 {% tabs %}
 {% tab title="OCI Container" %}
