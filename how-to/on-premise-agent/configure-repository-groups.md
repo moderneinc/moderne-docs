@@ -1,10 +1,9 @@
-# Configure Organizations service
+# Configure the Organizations service
 
-In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne agent to point to your [Organizations service](/architecture/organizations-service). This guide will explain how to do that.
+In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne agent to point to your [Organizations service](../../architecture/organizations-service.md). This guide will explain how to do that.
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 **Variables:**
 
 * `MODERNE_AGENT_ORGANIZATION_URL` – _The URL of your GraphQL service that provides organization information._
@@ -22,7 +21,6 @@ docker run \
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 **Arguments:**
 
 * `--moderne.agent.organization.url` – _The URL of your GraphQL service that provides organization information._
