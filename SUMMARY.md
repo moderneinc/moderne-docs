@@ -42,7 +42,7 @@
 
 * [Moderne architecture](architecture/architecture.md)
 * [Sensitive data flow](architecture/flow.md)
-* [Organizations service](references/organizations-service.md)
+* [Organizations service](architecture/organizations-service.md)
 
 ## References
 
