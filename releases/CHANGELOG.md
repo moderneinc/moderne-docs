@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.85.0 (2023/04/24)
+
+- add progress bar to commit job summary
+
 
 ### UI v9.84.0 (2023/04/21)
 
