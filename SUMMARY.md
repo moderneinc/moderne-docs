@@ -24,39 +24,27 @@
     * [All agent configuration variables](how-to/on-premise-agent/agent-variables.md)
   * [Importing external recipes](how-to/importing-external-recipes.md)
   * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
-
-## Moderne CLI
-
-* [Getting started with the Moderne CLI](/cli/cli-intro.md)
-
-## Releases
-
-* [Versions of plugins and agent](releases/releases.md)
-* [Changelog](releases/CHANGELOG.md)
-
-## Architecture
-
-* [Moderne architecture](architecture/architecture.md)
-* [Sensitive data flow](architecture/flow.md)
-* [Organizations service](architecture/organizations-service.md)
-
-## References
-
-* [GitHub permissions](references/github-permissions.md)
-* [Moderne tokens](references/moderne-tokens.md)
-* [Creating a personal access token](references/create-api-access-tokens.md)
-* [Creating SCM access tokens](references/create-scm-access-tokens.md)
-* [Managing repository groups](references/managing-repository-groups.md)
-* [User roles](references/user-roles.md)
-* [Interactions with git when applying changes](references/how-moderne-applies-changes.md)
-* [Routing requests to agents](references/routing-requests-to-agents.md)
-* [How LST artifacts are produced](references/how-ast-artifacts-are-produced.md)
-* [Docker configuration for agent](references/docker-configuration-for-agent.md)
-
-## Concepts
-
-* [Lossless semantic trees](concepts/lossless-semantic-trees.md)
-
-## Legal
-
-* [Terms of service](legal/terms-of-service.md)
+* [Moderne CLI](cli/moderne-cli.md)
+  * [Getting started with the Moderne CLI](/cli/cli-intro.md)
+* [Releases](releases/release.md)
+  * [Versions of plugins and agent](releases/releases.md)
+  * [Changelog](releases/CHANGELOG.md)
+* [Architecture](architecture/architecture-readme.md)
+  * [Moderne architecture](architecture/architecture.md)
+  * [Sensitive data flow](architecture/flow.md)
+  * [Organizations service](architecture/organizations-service.md)
+* [References](references/references.md)
+  * [GitHub permissions](references/github-permissions.md)
+  * [Moderne tokens](references/moderne-tokens.md)
+  * [Creating a personal access token](references/create-api-access-tokens.md)
+  * [Creating SCM access tokens](references/create-scm-access-tokens.md)
+  * [Managing repository groups](references/managing-repository-groups.md)
+  * [User roles](references/user-roles.md)
+  * [Interactions with git when applying changes](references/how-moderne-applies-changes.md)
+  * [Routing requests to agents](references/routing-requests-to-agents.md)
+  * [How LST artifacts are produced](references/how-ast-artifacts-are-produced.md)
+  * [Docker configuration for agent](references/docker-configuration-for-agent.md)
+* [Concepts](concepts/concepts.md)
+  * [Lossless semantic trees](concepts/lossless-semantic-trees.md)
+* [Legal](legal/legal.md)
+  * [Terms of service](legal/terms-of-service.md)
