@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Welcome to Moderne](introduction.md)
-* [User Documentation](user-documentation/user-documentation.md)
+* [User documentation](user-documentation/user-documentation.md)
   * [Quickstart: Running your first recipe](user-documentation/running-your-first-recipe.md)
   * [Introduction to type-aware code search](user-documentation/introduction-to-type-aware-code-search.md)
   * [Achieve and maintain high code quality](user-documentation/code-quality.md)
@@ -25,7 +25,7 @@
   * [Importing external recipes](how-to/importing-external-recipes.md)
   * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
 * [Moderne CLI](cli/moderne-cli.md)
-  * [Getting started with the Moderne CLI](/cli/cli-intro.md)
+  * [Getting started with the Moderne CLI](cli/cli-intro.md)
 * [Releases](releases/release.md)
   * [Versions of plugins and agent](releases/releases.md)
   * [Changelog](releases/CHANGELOG.md)
