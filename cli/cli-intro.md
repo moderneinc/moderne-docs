@@ -94,6 +94,6 @@ The `connect github` command will create GitHub workflows that build and publish
 
 ### Run
 
-The `run` command will allow you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally.
+The `run` command allows you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally.
 
 [Run man page](https://moderneinc.github.io/moderne-cli/mod-run.html)
