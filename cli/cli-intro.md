@@ -2,11 +2,6 @@
 
 The Moderne CLI is a command line tool that simplifies the process of building and publishing [Lossless Semantic Tree](https://docs.moderne.io/concepts/lossless-semantic-trees) (LST) artifacts to your artifact repository. Instead of having to manually set up each repository individually, you can use the CLI to configure thousands of repositories at once.
 
-To help you get started with the Moderne CLI, this tutorial will:
-
-* [Provide you with detailed installation instructions](cli-intro.md#installation)
-* [Walk you through each of the commands and their parameters](cli-intro.md#commands)
-
 ## Installation
 
 There are two ways to obtain the Moderne CLI: via the SaaS (**recommended**) or via a `curl` command.
