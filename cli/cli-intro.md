@@ -60,6 +60,7 @@ unzip moderne-cli.zip
 * [Publish](cli-intro.md#publish)
 * [Connect Jenkins](cli-intro.md#connect-jenkins)
 * [Connect GitHub](cli-intro.md#connect-github)
+* [Run](cli-intro.md#run)
 
 ### Build
 
@@ -90,3 +91,9 @@ The `connect jenkins` job allows you to create Jenkins Jobs in bulk. For each co
 The `connect github` command will create GitHub workflows that build and publish LST artifacts to your artifact repository on a regular basis. A workflow can be created for ingesting a single repository (by specifying the `path` parameter) or workflows can be created for ingesting a mass number of repositories (by specifying the `fromCsv` parameter).
 
 [Connect GitHub man page](https://moderneinc.github.io/moderne-cli/mod-connect-github.html)
+
+### Run
+
+The `run` command will allow you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally.
+
+[Run man page](https://moderneinc.github.io/moderne-cli/mod-run.html)
