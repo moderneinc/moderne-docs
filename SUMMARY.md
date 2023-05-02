@@ -1,33 +1,29 @@
 # Table of contents
 
 * [Welcome to Moderne](introduction.md)
-
-## User Documentation
-
-* [Quickstart: Running your first recipe](user-documentation/running-your-first-recipe.md)
-* [Introduction to type-aware code search](user-documentation/introduction-to-type-aware-code-search.md)
-* [Achieve and maintain high code quality](user-documentation/code-quality.md)
-* [Create custom recipes with the recipe builder](user-documentation/recipe-builder.md)
-* [Accessing the Moderne API](user-documentation/accessing-the-moderne-api.md)
-* [Recipe execution and commits with the Moderne API](user-documentation/recipe-execution-and-commits-with-graphql.md)
-
-## Administrator documentation <a href="#how-to" id="how-to"></a>
-
-* [Integrating private code with Moderne SaaS](how-to/integrating-private-code.md)
-* [Configuring the Moderne agent](how-to/agent-configuration.md)
-* [On-premise agent reference docs](how-to/on-premise-agent/README.md)
-  * [Configure an agent with Bitbucket Data Center access](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
-  * [Configure an agent with Bitbucket Cloud access](how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md)
-  * [Configure an agent with GitHub](how-to/on-premise-agent/configure-an-agent-with-github.md)
-  * [Configure an agent with GitLab](how-to/on-premise-agent/configure-an-agent-with-gitlab.md)
-  * [Configure an agent with Maven repository access](how-to/on-premise-agent/configure-an-agent-with-maven-repository-access.md)
-  * [Configure an agent with Artifactory access: LSTs](how-to/on-premise-agent/configure-an-agent-with-artifactory-access.md)
-  * [Configure an agent with Artifactory access: recipes](how-to/on-premise-agent/configuring-artifactory-with-recipes.md)
-  * [Configure the Organizations service](how-to/on-premise-agent/configure-repository-groups.md)
-  * [Configure an agent with strict recipe sources](how-to/on-premise-agent/configure-an-agent-with-strict-recipe-sources.md)
-  * [All agent configuration variables](how-to/on-premise-agent/agent-variables.md)
-* [Importing external recipes](how-to/importing-external-recipes.md)
-* [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
+* [User Documentation](user-documentation/user-documentation.md)
+  * [Quickstart: Running your first recipe](user-documentation/running-your-first-recipe.md)
+  * [Introduction to type-aware code search](user-documentation/introduction-to-type-aware-code-search.md)
+  * [Achieve and maintain high code quality](user-documentation/code-quality.md)
+  * [Create custom recipes with the recipe builder](user-documentation/recipe-builder.md)
+  * [Accessing the Moderne API](user-documentation/accessing-the-moderne-api.md)
+  * [Recipe execution and commits with the Moderne API](user-documentation/recipe-execution-and-commits-with-graphql.md)
+* [Administrator documentation](how-to/administrator-documentation.md)
+  * [Integrating private code with Moderne SaaS](how-to/integrating-private-code.md)
+  * [Configuring the Moderne agent](how-to/agent-configuration.md)
+  * [On-premise agent reference docs](how-to/on-premise-agent/README.md)
+    * [Configure an agent with Bitbucket Data Center access](how-to/on-premise-agent/configure-bitbucket-to-agent.md)
+    * [Configure an agent with Bitbucket Cloud access](how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md)
+    * [Configure an agent with GitHub](how-to/on-premise-agent/configure-an-agent-with-github.md)
+    * [Configure an agent with GitLab](how-to/on-premise-agent/configure-an-agent-with-gitlab.md)
+    * [Configure an agent with Maven repository access](how-to/on-premise-agent/configure-an-agent-with-maven-repository-access.md)
+    * [Configure an agent with Artifactory access: LSTs](how-to/on-premise-agent/configure-an-agent-with-artifactory-access.md)
+    * [Configure an agent with Artifactory access: recipes](how-to/on-premise-agent/configuring-artifactory-with-recipes.md)
+    * [Configure the Organizations service](how-to/on-premise-agent/configure-repository-groups.md)
+    * [Configure an agent with strict recipe sources](how-to/on-premise-agent/configure-an-agent-with-strict-recipe-sources.md)
+    * [All agent configuration variables](how-to/on-premise-agent/agent-variables.md)
+  * [Importing external recipes](how-to/importing-external-recipes.md)
+  * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
 
 ## Moderne CLI
 
