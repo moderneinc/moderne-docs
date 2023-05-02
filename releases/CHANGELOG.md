@@ -1,65 +1,64 @@
 # Changelog
+
 ### UI v9.89.0 (2023/05/01)
 
-- Bug fixes and other improvements.
+* Changes to how _Repository Groups_ are stored in your browser to resolve an issue where having multiple tabs open at the same time was causing newly created _Repository Groups_ to vanish as a result of a mismatch in state that was not synced between tabs.
 
 ### UI v9.88.2 (2023/05/01)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.88.1 (2023/04/30)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.88.0 (2023/04/28)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.87.1 (2023/04/28)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.87.0 (2023/04/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.86.1 (2023/04/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.86.0 (2023/04/25)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.85.0 (2023/04/24)
 
-- add progress bar to commit job summary
-
+* add progress bar to commit job summary
 
 ### UI v9.84.0 (2023/04/21)
 
 #### Date time format preference added
 
-In Account menu > Accessibility there is now an option for Date time format that will allow you to choose between `Relative time`, `Local time`, and `UTC time`. &#x20;
+In Account menu > Accessibility there is now an option for Date time format that will allow you to choose between `Relative time`, `Local time`, and `UTC time`.
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 Date time stamps can also be changed by simply clicking on them to cycle through the formats:\
-&#x20;
+
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Replay YAML recipes
 
-Custom yaml recipe runs can now be replayed.  Now hitting replay on a custom recipe run summary will link to a new `/recipes/builder/[runId]` page.  This page is similar to the `/recipes/builder` page however it will reflect the yaml recipe that was run making it possible to replay custom yaml recipe runs. This will also not disrupt your personal custom recipe.\
-
+Custom yaml recipe runs can now be replayed. Now hitting replay on a custom recipe run summary will link to a new `/recipes/builder/[runId]` page. This page is similar to the `/recipes/builder` page however it will reflect the yaml recipe that was run making it possible to replay custom yaml recipe runs. This will also not disrupt your personal custom recipe.\\
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 #### Admin agent version notice
 
 Admin users will now see a notice that can be dismissed whenever there is a new agent version available:\
-&#x20;
+
 
 <figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
