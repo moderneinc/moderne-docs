@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.89.2 (2023/05/03)
+
+- Bug fixes and other improvements.
+
 ### UI v9.89.1 (2023/05/02)
 
 - Bug fixes and other improvements.
