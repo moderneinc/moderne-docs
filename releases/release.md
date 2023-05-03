@@ -1,4 +1,4 @@
 # Releases
 
-* [Versions of plugins and agent](releases/releases.md)
-* [Changelog](releases/CHANGELOG.md)
+* [Versions of plugins and agent](releases.md)
+* [Changelog](CHANGELOG.md)

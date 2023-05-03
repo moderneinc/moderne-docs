@@ -1,5 +1,5 @@
 # Architecture
 
-* [Moderne architecture](architecture/architecture.md)
-* [Sensitive data flow](architecture/flow.md)
-* [Organizations service](architecture/organizations-service.md)
+* [Moderne architecture](architecture.md)
+* [Sensitive data flow](flow.md)
+* [Organizations service](organizations-service.md)
