@@ -1,3 +1,3 @@
 # Concepts
 
-* [Lossless semantic trees](concepts/lossless-semantic-trees.md)
+* [Lossless semantic trees](/concepts/lossless-semantic-trees.md)

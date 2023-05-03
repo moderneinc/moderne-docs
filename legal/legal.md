@@ -1,3 +1,3 @@
 # Legal
 
-* [Terms of service](legal/terms-of-service.md)
+* [Terms of service](/legal/terms-of-service.md)
