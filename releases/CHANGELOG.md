@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.90.0 (2023/05/05)
+
+- add support for `startAuth=true` QSP to initiate flow
+
 ### UI v9.89.2 (2023/05/03)
 
 - Bug fixes and other improvements.
