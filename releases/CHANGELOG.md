@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.91.0 (2023/05/08)
+
+- add jupyter output cell renderer
+
 ### UI v9.90.0 (2023/05/05)
 
 - add support for `startAuth=true` QSP to initiate flow
