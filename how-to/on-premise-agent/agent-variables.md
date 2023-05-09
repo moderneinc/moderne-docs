@@ -334,7 +334,7 @@ java -jar moderne-agent-{version}.jar \
 
 ## Artifactory repository variables
 
-You can configure multiple Artifactory servers by including multiple entries, each with a different `{index}`. Within a given Artifactory server configuration, you can configure multiple AST query filters by including multiple entries, each with a different `{index}`.
+You can configure multiple Artifactory servers by including multiple entries, each with a different `{index}`. Within a given Artifactory server configuration, you can configure multiple LST query filters by including multiple entries, each with a different `{index}`.
 
 {% tabs %}
 {% tab title="OCI Container" %}
