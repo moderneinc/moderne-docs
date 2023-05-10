@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.92.0 (2023/05/10)
+
+- Bug fixes and other improvements.
+
 ### UI v9.91.0 (2023/05/08)
 
 - add jupyter output cell renderer
