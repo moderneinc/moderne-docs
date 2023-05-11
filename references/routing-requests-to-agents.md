@@ -19,6 +19,6 @@ Depending on the action, requests to these agents are routed differently. Modern
 | Broadcast | Partition                            | Responses | Examples                                                                                                                   |
 | --------- | ------------------------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------- |
 | yes       | <mark style="color:red;">N/A?</mark> | many      | Scraping metrics from every agent                                                                                          |
-| no        | yes                                  | many      | Syncing AST artifacts from a representative agent for each distinct artifact repository (partition by artifact repository) |
+| no        | yes                                  | many      | Syncing LST artifacts from a representative agent for each distinct artifact repository (partition by artifact repository) |
 | yes       | no                                   | many      | No current use case                                                                                                        |
 | no        | no                                   | one       | Git commit                                                                                                                 |

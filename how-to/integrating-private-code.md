@@ -1,118 +1,172 @@
-# Integrating private code with Moderne SaaS
+# Integrating private code with Moderne
 
-Having your build publish AST files to an artifact repository under your control is part of setting up the Moderne SaaS in your company's environment. This guide will show you how to set up your Maven and Gradle builds accordingly.
+One of the first steps of integrating your code with Moderne is setting up a pipeline that builds and publishes LST artifacts to an artifact repository that you control.
+
+There are two primary ways to do this:
+
+1. (**Recommended**) Use the [mod connect](#mod-connect) command to build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
+2. Update all of your existing pipelines to run the [mod publish](#mod-publish) command whenever the code is updated.
+
+In this guide, we'll walk through both of these options.
+
+## Prerequisite
+
+Please ensure that you've [installed the Moderne CLI](/cli/cli-intro.md). All of the steps in this guide depend on this.
+
+## Commands
+
+### Mod Connect
+
+The [mod connect](https://moderneinc.github.io/moderne-cli/mod-connect.html) command allows you to set up an ingestion pipeline using either GitHub or Jenkins. It's generally more convenient to use GitHub as you don't need to self-manage it and there are fewer permissions to worry about. With that being said, either of these options is preferable to updating your existing pipelines to use the [mod publish](#mod-publish) command.
+
+{% tabs %}
+{% tab title="GitHub" %}
+The [connect github](/cli/cli-intro.md#connect-github) command in the Moderne CLI will directly commit an ingestion workflow and the necessary files to run it to the GitHub repository you specify. This workflow will iterate over every repository in a CSV file you create and build/publish LST artifacts for each on a regular basis.
+
+Below, we'll walk through the steps you'll need to take to run this command successfully.
+
+#### Step 1: Create the GitHub repository
+
+Before running the `connect github` command, you will need to [create a GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo) that will store the workflow files and the CSV file that contains the repositories that should be ingested. This repo will be what you enter for the `repo` parameter in the `connect github` command.
+
+#### Step 2: Create GitHub secrets
+
+Once you've made the repository, you'll need to create a few [GitHub secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets?tool=webui#creating-encrypted-secrets-for-a-repository). These secrets will be used by the workflow to communicate with other services such as your artifact repository.
 
 {% hint style="info" %}
-Connecting your private code to the Moderne SaaS is the only reason to use these plugins instead of the [OpenRewrite plugins](https://docs.openrewrite.org/getting-started/getting-started). If you are not connecting private code to the Moderne SaaS you should use the OpenRewrite plugins instead.
+The `connect github` command requires the _name_ of the secret. When creating the below secrets, make sure you save the name of them to use in the CLI command rather than copying the actual secrets themselves.
 {% endhint %}
 
-## Step 1: Apply moderne-maven-plugin or moderne-gradle-plugin
+You'll need to create secrets that contain:
 
-In the `pom.xml` or `build.gradle`, add this entry to the `plugins` section to apply the Moderne plugin to the project.
+* The access token that will be used to run the GitHub workflows in the repository specified in the `repo` parameter (CLI parameter: `dispatchSecretName`).
+* The access token with `read` access to each repository in the provided CSV (CLI parameter: `repoReadSecretName`).
+* The password needed to upload LST artifacts to your artifact repository (CLI parameter: `publishPwdSecretName`).
+* The username needed to upload LST artifacts to your artifact repository (CLI parameter: `publishUserSecretName`).
 
-{% tabs %}
-{% tab title="Maven" %}
-{% code title="pom.xml" %}
-```markup
-<project>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>io.moderne</groupId>
-        <artifactId>moderne-maven-plugin</artifactId>
-        <version>0.39.1</version>
-        <configuration>
-          <!-- Supports all of the same functionality as the OpenRewrite plugin -->
-          <activeRecipes>
-            <recipe>org.openrewrite.java.cleanup.CommonStaticAnalysis</recipe>
-          </activeRecipes>
-        </configuration>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals><goal>ast</goal></goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-</project>
+#### Step 3: Create the CSV of repositories
+
+Once the repository and secrets have been created, you will then need to make a CSV file that contains the list of repositories you want ingested as well as any necessary information for ingesting them. You can find the schema and detailed examples on our [connect github man page](https://moderneinc.github.io/moderne-cli/mod-connect-github.html).
+
+Here's an example of what the CSV file might look like:
+
+```csv
+openrewrite/rewrite-spring,main,11,org.openrewrite.java.SpringFormat,,false,,
+openrewrite/rewrite,master,17,,-Phadoop_2,,
+foo/bar,main,11,,,true,some skip reason
 ```
-{% endcode %}
-{% endtab %}
 
-{% tab title="Gradle" %}
-{% code title="build.gradle" %}
-```groovy
-plugins {
-    id("io.moderne.rewrite") version("0.38.1")
-}
+#### Step 4: Create a GitHub access token
 
-// OpenRewrite and recipe modules are published to Maven Central
-// This repository, or a mirror, must be available
-repositories {
-    mavenCentral()
-}
+The last thing you'll need to do before you can run the command is to create a GitHub access token that will be used to commit files and create workflows to the repository you specified. This access token must be a **classic** token and it must have the `workflow` permission. This token will be specified in the `accessToken` parameter of the `connect github` command.
 
-rewrite {
-    // Supports all of the same functionality as the OpenRewrite plugin
-}
+#### Step 5: Run the command
+
+You should now have everything you need to run the command. You can find an example of what this might look like below:
+
+```shell
+mod connect github --accessToken moderne-github-access-token \
+    --dispatchSecretName dispatchSecretName \
+    --fromCsv /path/to/repos.csv \
+    --publishPwdSecretName publishPwdSecretName \
+    --publishUrl https://artifact-place.com/artifactory/moderne-ingest \
+    --publishUserSecretName publishUserSecretName
+    --repo company-name/repo-name \
+    --repoReadSecretName readSecretName
 ```
-{% endcode %}
-{% endtab %}
-{% endtabs %}
 
-{% hint style="success" %}
-The Moderne build plugins offer all the functionality and configuration options of their OpenRewrite counterparts. If you were previously applying the OpenRewrite plugins, you can remove those declarations from your build files.
+{% hint style="info" %}
+There are a variety of optional parameters that you can find on the [connect github man page](https://moderneinc.github.io/moderne-cli/mod-connect-github.html) to refine the command further if you so desire. 
 {% endhint %}
+
+Once you've run the command, you should start to see artifacts being created and sent to your artifact repository.
+
+You're now ready to begin [configuring the Moderne agent](/how-to/agent-configuration.md).
+{% endtab %}
+{% tab title="Jenkins" %}
+The [connect Jenkins](/cli/cli-intro.md#connect-jenkins) command in the Moderne CLI will create a Jenkins Job for each repository you specify in a CSV file. Each job will build and publish LST artifacts to your artifact repository on a regular basis.
+
+Below, we'll walk through the steps you'll need to take to run this command successfully. We'll assume you already have a Jenkins instance to use.
+
+#### Step 1: Create a Jenkins user
+
+In order for Moderne to connect to your Jenkins instance and create Jenkins Jobs, you'll need to create a Jenkins user and an API token (**recommended**) or a password. This user needs to have access to read plugin information and to create jobs. If you are using the [role strategy](https://plugins.jenkins.io/role-strategy/) plugin in your Jenkins instance, you will need `Job/read`, `Job/create`, `Job/build`, and optionally `Job/delete` and `Overall/read` permissions. 
 
 {% hint style="warning" %}
-If you're a Maven user used to command line invocations such as `mvn rewrite:dryRun` or `mvn rewrite:run`, note that these invocations become `mvn moderne:dryRun` and `mvn moderne:run`. If you wish to continue invoking these commands with the "rewrite" prefix, such as to avoid having to alter CI workflows invoking `mvn rewrite:dryRun`, you can apply both plugins without conflict.
-
-Gradle users can continue invoking `gradlew rewriteDryRun` and `gradlew rewriteRun` as the names of those tasks remain the same in the moderne-gradle-plugin.
+If you are a CloudBees CI user, you will need some additional permissions. Please see the notes at the bottom of the [connect jenkins man page](https://moderneinc.github.io/moderne-cli/mod-connect-jenkins.html) for more information.
 {% endhint %}
 
-## Step 2: Configure publishing
+#### Step 2: Create Jenkins credentials
 
-The Moderne SaaS requires that the AST artifacts produced by the build plugin be published to your artifact repository. This may require you to publish AST artifacts from projects that do not currently publish anything.
+In order for a Jenkins Job to communicate with GitHub or your artifact repository, you'll need to create some [Jenkins Credentials](https://www.jenkins.io/doc/book/using/using-credentials/).
 
-{% tabs %}
-{% tab title="Maven" %}
-Typically, no additional publishing configuration is required for Maven builds.
-{% endtab %}
+Specifically, you'll need to create credentials for:
 
-{% tab title="Gradle" %}
-Each project the plugin is applied to will have a `Jar` task named `moderneJar` which produces the AST jar in the project's build folder. This is the file that needs to be published to your artifact repository to enable Moderne SaaS integration.
+* Cloning the provided list of repositories to Jenkins (CLI parameter: `gitCredsId`)
+* Uploading LST artifacts to your artifact repository (CLI parameter: `publishCredsId`)
 
-{% code title="single project build" %}
-```groovy
-plugins {
-    id("io.moderne.rewrite") version("0.26.0")
-    id("maven-publish")
-}
+{% hint style="info" %}
+The `connect jenkins` command requires the _ID_ of the credential. When creating these credentials, make sure you save the ID to use in the CLI command rather than copying the actual credentials themselves.
+{% endhint %}
 
-publishing {
-    repositories {
-        // your repository configuration
-    }
-    publishing {
-        publications {
-            create("moderne", MavenPublication.class) {
-                artifact(tasks.named("moderneJar"))
-            }
-        }
-    }
-}
+#### Step 3: Create the CSV file
+
+Once you have your Jenkins instance set up with the appropriate permissions, you'll want to make a CSV file that contains the list of the repositories you want to ingest as well as any necessary information for ingesting them. You can find the schema and detailed examples on our [connect jenkins man page](https://moderneinc.github.io/moderne-cli/mod-connect-jenkins.html).
+
+Here's an example of what the CSV file might look like:
+
+```csv
+,openrewrite/rewrite-spring,main,,gradle,java17,,,,
+,openrewrite/rewrite-java-migration,main,,gradle,java17,,,,
 ```
-{% endcode %}
+
+#### Step 4: Run the command
+
+You should now have everything you need to run the command. You can find an example of what this might look like below:
+
+```shell
+mod connect jenkins --apiToken jenkinsApiToken \
+   --controllerUrl https://jenkins.company-name.ninja \
+   --fromCsv /path/to/repos.csv \
+   --gitCredsId username-pat \
+   --jenkinsUser some-username \
+   --publishCredsId artifactory \
+   --publishUrl https://artifact-place.com/artifactory/moderne-ingest
+```
+
+{% hint style="info" %}
+There are a variety of optional parameters that you can find on the [connect jenkins man page](https://moderneinc.github.io/moderne-cli/mod-connect-jenkins.html) to refine the command further if you so desire. 
+{% endhint %}
+
+Once you've run the command, you should see that a Jenkins Job was created for every repository you specified in the CSV file. You should also see artifacts start to flow into your artifact repository from these jobs being run over time.
+
+You're now ready to begin [configuring the Moderne agent](/how-to/agent-configuration.md).
 {% endtab %}
 {% endtabs %}
 
-## Step 3: Build and publish the next version of your project
+### Mod Publish
 
-Now whenever your project is published there will be a file with a "jar" extension and an "ast" classifier published alongside any other publications. So for a project named "example" publishing version "1.0", you can expect to see a file named `example-1.0-ast.jar` alongside the normal `example-1.0.jar`.
+If you are unable to set up a GitHub or Jenkins pipeline for building/publishing LST artifacts, you can update your existing pipelines to run the [mod publish](https://moderneinc.github.io/moderne-cli/mod-publish.html) command when code is checked in. This command will build the LST artifacts and then publish them to an artifact repository you specify.
 
-## See also
+This command expects:
 
-* [OpenRewrite Maven plugin configuration](https://docs.openrewrite.org/reference/maven-plugin-configuration)
-* [OpenRewrite Gradle plugin configuration](https://docs.openrewrite.org/reference/gradle-plugin-configuration)
+* A `path` on disk to where the code lies for the project you want to build and publish artifacts for
+* A username and password for connecting to your artifact repository (`publishUser` and `publishPwd`)
+* A URL for your artifact repository (`publishUrl`)
+
+#### Example
+
+```shell
+mod publish --path /path/to/project \
+    --publishUser some-username \
+    --publishPwd myPassword \
+    --publishUrl https://some-artifact-repo.com
+```
+
+{% hint style="info" %}
+There are a variety of optional parameters that you can find on the [publish man page](https://moderneinc.github.io/moderne-cli/mod-publish.html) to refine the command further if you so desire. 
+{% endhint %}
+
+## Next Steps
+
+* [Configure the Moderne agent](/how-to/agent-configuration.md)

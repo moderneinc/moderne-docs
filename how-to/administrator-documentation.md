@@ -1,6 +1,6 @@
 # Administrator Documentation
 
-* [Integrating private code with Moderne SaaS](/how-to/integrating-private-code.md)
+* [Integrating private code with Moderne](/how-to/integrating-private-code.md)
 * [Configuring the Moderne agent](/how-to/agent-configuration.md)
 * [On-premise agent reference docs](/how-to/on-premise-agent/README.md)
   * [Configure an agent with Bitbucket Data Center access](/how-to/on-premise-agent/configure-bitbucket-to-agent.md)
@@ -15,3 +15,4 @@
   * [All agent configuration variables](/how-to/on-premise-agent/agent-variables.md)
 * [Importing external recipes](/how-to/importing-external-recipes.md)
 * [Terraform Cloud integration](/how-to/terraform-cloud-integration.md)
+* [Proof of value](/how-to/proof-of-value.md)
