@@ -19,11 +19,11 @@ Follow [this Atlassian guide](https://support.atlassian.com/bitbucket-cloud/docs
 
 Once that's done, configure the callback URL to point at your Moderne tenant:
 
-![](<../../.gitbook/assets/image (9) (3).png>)
+![](<../../.gitbook/assets/callback.png>)
 
 The consumer should have these permissions:
 
-![](<../../.gitbook/assets/image (1) (5).png>)
+![](<../../.gitbook/assets/bitbucket-permissions.png>)
 
 * Projects - Read
 * Repositories - Write
@@ -31,7 +31,7 @@ The consumer should have these permissions:
 
 Once your consumer has been created, you should see a `key` and a `secret`:
 
-<figure><img src="../../.gitbook/assets/image (6) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/key-secret.png" alt=""><figcaption></figcaption></figure>
 
 Please save those for use in [Step 2](#step-2-configure-the-moderne-agent).
 

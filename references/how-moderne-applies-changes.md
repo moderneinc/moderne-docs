@@ -12,7 +12,7 @@ Regardless of whether you choose to initiate an action to directly commit the ch
 
 To illustrate the reconciliation process, suppose you are attempting to make a direct commit to the main branch of the remote.
 
-<img src="../.gitbook/assets/image (20) (1).png" alt="" data-size="original">
+<img src="../.gitbook/assets/commit-recon.png" alt="" data-size="original">
 
 In this example, the LST that Moderne is operating on was produced from commit b93f7b8, which at that time was the latest head of the main branch. However, between the build of the LST and when we initiate this commit action, there have been more commits on the main branch.
 

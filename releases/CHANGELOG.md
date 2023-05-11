@@ -70,25 +70,25 @@
 
 In Account menu > Accessibility there is now an option for Date time format that will allow you to choose between `Relative time`, `Local time`, and `UTC time`.
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/date-time.png" alt=""><figcaption></figcaption></figure>
 
 Date time stamps can also be changed by simply clicking on them to cycle through the formats:\
 
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/date-time-2.png" alt=""><figcaption></figcaption></figure>
 
 #### Replay YAML recipes
 
 Custom yaml recipe runs can now be replayed. Now hitting replay on a custom recipe run summary will link to a new `/recipes/builder/[runId]` page. This page is similar to the `/recipes/builder` page however it will reflect the yaml recipe that was run making it possible to replay custom yaml recipe runs. This will also not disrupt your personal custom recipe.\\
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/replay.png" alt=""><figcaption></figcaption></figure>
 
 #### Admin agent version notice
 
 Admin users will now see a notice that can be dismissed whenever there is a new agent version available:\
 
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/agent-update.png" alt=""><figcaption></figcaption></figure>
 
 #### Additional changes
 
@@ -106,7 +106,7 @@ Admin users will now see a notice that can be dismissed whenever there is a new 
 
 If a recipe was run using an _Organization_ instead of a _Repository group_, you can now quickly click to replay the recipe using either the _Organization_ that was originally used or your currently selected _Organization / Repository group._
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/replay-recipe.png>)
 
 These items will take you back to the recipe details page where you can copy the URL and share.
 
@@ -114,16 +114,16 @@ These items will take you back to the recipe details page where you can copy the
 
 Audit logs can now be filtered across multiple columns and/or values.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/multi-column.png" alt=""><figcaption></figcaption></figure>
 
-* Add confirmation before creating creating a new recipe builder
+* Add confirmation before creating a new recipe builder
 * Add support for quarantining and un-quarantining multiple repositories at a time
 
 ### UI v9.82.0 (2023/04/17)
 
-We've complete a change to move over queries for _Organizations_ and _Repositories_ to use a new paginated query to improve the performance of filtering and selecting repositories. As apart of this change we've changed how _Repository groups_ are managed. Previously we had a transfer list that customers could use to handle selection. With this recent version, we've moved to a filterable data grid of repositories.
+We've completed a change to move over queries for _Organizations_ and _Repositories_ to use a new paginated query to improve the performance of filtering and selecting repositories. As apart of this change we've changed how _Repository groups_ are managed. Previously we had a transfer list that customers could use to handle selection. With this recent version, we've moved to a filterable data grid of repositories.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/orgs.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.81.1 (2023/04/14)
 
@@ -190,37 +190,37 @@ We've complete a change to move over queries for _Organizations_ and _Repositori
 
 The _Data Tables_ button is now ever present on the page along side the familiar _Commit_ option. As a note the button will be disabled until a _Recipe run_ has completed.
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/data-tables.png" alt=""><figcaption></figcaption></figure>
 
 _API examples_ button has been pulled up from a collapsable portion of the summary and into a more familiar and consistant place on the page.
 
-<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/api-example.png" alt=""><figcaption></figcaption></figure>
 
 The _Replay_ _recipe_ and _Cancel run_ buttons have been consolidated into one location on the screen in part to make room for the _Api example_ button.
 
-<figure><img src="../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/replay-recipes.png" alt=""><figcaption></figcaption></figure>
 
 #### Repository details
 
 We've cleaned up the _Repository details_ screen to align with page titles on other pages as well as making the _API examples_ consistently located.
 
-<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/repository-detail.png" alt=""><figcaption></figcaption></figure>
 
 _Language composition_ chart now contains more colors to help distinguish various languages.
 
-<figure><img src="../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/language-composition.png" alt=""><figcaption></figcaption></figure>
 
 #### Moderne CLI
 
 Now you can download a Zip archive of Moderne CLI tools.
 
-<img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="original">
+<img src="../.gitbook/assets/zip-archive.png" alt="" data-size="original">
 
 #### Organizations
 
 Users will not be prompted for confirmation before removing repository.
 
-<figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/confirmation-prompt.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.73.0 (2023/03/20)
 
@@ -229,10 +229,10 @@ Users will not be prompted for confirmation before removing repository.
 ### UI v9.71.0 (2023/03/15)
 
 * We have changed the name "Catalog" to "Marketplace" and given it a new icon. We hope the use of the word "Marketplace" reflects the community aspect of "Recipe" development.\
-  ![](<../.gitbook/assets/image (1) (4).png>)
+  ![](<../.gitbook/assets/marketplace.png>)
 * Recipes can now have `maintainers` associated with them. This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:\
   \
-  ![](<../.gitbook/assets/image (28).png>)
+  ![](<../.gitbook/assets/contributors.png>)
 
 ### UI v9.70.0 (2023/03/15)
 
@@ -245,7 +245,7 @@ Users will not be prompted for confirmation before removing repository.
 
 We improved how we surface GraphQL API examples to make it easier to include multiple types of calls on a single page in one location where it's consistent to find
 
-<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/graphql-example.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.68.0 (2023/03/09)
 
@@ -266,27 +266,27 @@ Now you can download the Moderne CLI from your SaaS Instance.
 
 We've rearranged a few of the buttons to make some actions clearer to the customer. _New Recipe_ took the place of the _Import YAML_ button, which was moved to the YAML preview. _New Recipe_ will reset the state for the Recipe builder so you can start on your new endevaours.
 
-<figure><img src="../.gitbook/assets/image (2) (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/recipe-builder.png" alt=""><figcaption></figcaption></figure>
 
 #### Recipe refresh
 
 Spring is right around the corner and we've been doing a little bit of cleaning to make the recipe page cleaner and more consistent with the rest of the site.
 
-<figure><img src="../.gitbook/assets/image (1) (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/recipe-refresh.png" alt=""><figcaption></figcaption></figure>
 
 #### Download the Moderne CLI
 
 Go to the _Help_ menu → _Try Moderne CLI_
 
-<figure><img src="../.gitbook/assets/image (2) (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/cli-download-2.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (3) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/cli-download-3.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.65.0 (2023/03/03)
 
 In our continual efforts to integrate the new organizations service we have redesigned the top navigation bar. You will now find plenty of space for displaying longer organization and repository group names as well as improvements to all drop downs menus. \\
 
-<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/org-serv.png" alt=""><figcaption></figcaption></figure>
 
 Notably, source management control connections have been moved into a new profile section in the avatar dropdown. Additionally, the redesigned top navigation bar is more accommodating of smaller device screens.
 
@@ -300,7 +300,7 @@ We have now switch to using IndexedDB for this purpose which will not run into t
 
 The interactive origin icon now includes links:\\
 
-<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/interactive-link.png" alt=""><figcaption></figcaption></figure>
 
 We added some quality of life changes on various forms to have focus be automatically brought to the first field, for example when adding or editing a repository group.
 
@@ -311,7 +311,7 @@ Improve support for organizations defined in thee organization service.
 ### UI v9.61.0 (2023/02/24)
 
 We have added the ability to see repository origin details from the diff page via the interactive origin icon:\
-![](<../.gitbook/assets/image (3) (5).png>)
+![](<../.gitbook/assets/icon.png>)
 
 GitHub links on recipe details for OpenRewrite recipes ([v9.35.0](CHANGELOG.md#recipe-source-links)) previously linked to a search interface to find the origin on GitHub. These have now been updated with direct links to the source.
 
@@ -351,7 +351,7 @@ Added more data table driven Jupyter lite notebooks. Currently supported:
 
 Repository Groups has been refreshed. The global menu will now separate Organizations that are defined by either the Moderne Agent or your implementation of the Moderne Organization service and _Repository groups_ that are locally curated collections of repositories.
 
-<figure><img src="../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/repo-group.png" alt=""><figcaption></figcaption></figure>
 
 We've also added some visual touches to better group icons in the top navigation as well as providing you with a quick visual cue of the current selection.
 
@@ -359,7 +359,7 @@ We've also added some visual touches to better group icons in the top navigation
 
 A new option has been added to the Pull Request form to allow or disallow the reopening of closed pull requests.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM.png" alt=""><figcaption></figcaption></figure>
 
 `See how to run against the API` link has been added to the commit form as well. This will show the GraphQL for the action.
 
@@ -369,9 +369,9 @@ A new option has been added to the Pull Request form to allow or disallow the re
 
 Data tables: Recipes can now emit tabular data according to a schema that they define.
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/data-table.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/data-table-2.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.44.0 (2023/01/21)
 
@@ -379,7 +379,7 @@ Data tables: Recipes can now emit tabular data according to a schema that they d
 
 Hover over the info icon to quickly view more information including the commit that the artifact was generated from and when it was ingested into the platform.
 
-<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/repo-quick-view.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.41.0 (2023/01/17)
 
@@ -406,7 +406,7 @@ Moderne SaaS no longer provides a default named repository group called `All` th
 
 Actions for grids are now presented on the left-hand side of the table.
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/action-grid.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.37.0 (2023/01/10)
 
@@ -414,26 +414,26 @@ Actions for grids are now presented on the left-hand side of the table.
 
 Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your agent](../how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md#prerequisites).
 
-<figure><img src="../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/bit-cloud.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.35.0 (2022/12/30)
 
 #### Admin token management
 
 We have added the ability for admins to view and revoke Moderne personal access tokens of any user. There is now a new Access tokens page under the admin navigations:\
-![](<../.gitbook/assets/image (23) (1).png>)\\
+![](<../.gitbook/assets/admin-token.png>)\\
 
 #### Improved keyboard shortcuts
 
 While addressing some keyboard shortcuts that were reported to conflict with certain browsers we overhauled the keyboard shortcuts to primarily use single key commands and added more. These commands will not fire if the focus of the browser is in a text input or any control like field. Additionally, we have provided a new short cut cheat sheet that is activated with `shift`+`?`
 
-![](<../.gitbook/assets/image (24).png>)
+![](<../.gitbook/assets/keyboard-shortcut.png>)
 
 #### Recipe source links
 
 We want to improve users and recipe authors' experience finding source code for a particular recipe. We have added on the recipe details pages a link on OpenRewrite recipes that will use a specialized GitHub search query to find the source. We have plans to expand this functionality in the future.\\
 
-<figure><img src="../.gitbook/assets/image (3) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/recipe-source.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.31.0 (2022/12/16)
 
@@ -446,7 +446,7 @@ These tests currently come in two variants:
 * `singleSource` - The custom recipe will _**only be run on those source files**_ that would have been changed by _**all**_ `singleSource` test recipes.
 * `anySource` - The custom recipe will run on _**all**_ _**source files**_ if there would have been a change from all `anySource` tests. Not all `anySource` tests have to change the _**same**_ file; as long as there would be one change from each test then the custom recipe would be run.
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption><p>For more information on applicability test see the <a href="https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-applicability-tests">OpenRewrite documentation</a>.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/recipe-builder-2.png" alt=""><figcaption><p>For more information on applicability test see the <a href="https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-applicability-tests">OpenRewrite documentation</a>.</p></figcaption></figure>
 
 ### UI v9.29.0 (2022/12/14)
 
@@ -498,7 +498,7 @@ This has been added to the following pages:
 
 You can now hide whitespace changes from diffs via the _Settings_ menu
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ignore-whitespace.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.21.0 (2022/11/18)
 
@@ -506,7 +506,7 @@ You can now hide whitespace changes from diffs via the _Settings_ menu
 
 Now it's even easier to filter down the result set to only those diffs that include errors from the result diff menu bar.
 
-<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/result-diff.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.15.0 (2022/11/03)
 
@@ -514,17 +514,17 @@ Now it's even easier to filter down the result set to only those diffs that incl
 
 We have added a status page \`/status\` that displays a general summary of the site's health.
 
-<figure><img src="../.gitbook/assets/image (1) (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/status-page.png" alt=""><figcaption></figcaption></figure>
 
 #### Enhanced marker info
 
 Recipe run results summary view now has the option to view the number of markers returned for each repository.
 
-<figure><img src="../.gitbook/assets/image (4) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/enhanced-marker.png" alt=""><figcaption></figcaption></figure>
 
 This can also be viewed in the extended summary.
 
-<figure><img src="../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/extend-summary.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.14.0 (2022/11/02)
 
@@ -564,7 +564,7 @@ New groups can be created from the selected rows of a recipe run.
 
 In addition to using Moderne for running recipes, it is also common to use the built-in debugging tools for recipe development.
 
-<figure><img src="../.gitbook/assets/image (6) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/error-chunk.png" alt=""><figcaption></figcaption></figure>
 
 Previously, the `Only show errors` a toggle would limit diffs to only those containing errors. For large files with multiple hunks of changes, this behavior still required recipe authors to manually search for the errors that surfaced.\
 \
@@ -576,7 +576,7 @@ We have changed this behavior so that `Only show errors` will now cause only the
 
 Previously the _Recent Commit Job_ page only reported the overall status of job completion. We now surface the number of successful, failed, or jobs with no changes.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/commit-status.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.7.0
 
@@ -585,17 +585,17 @@ Previously the _Recent Commit Job_ page only reported the overall status of job 
 We have increased the types of markers we annotate and surface in the diff view of the UI. Previously the new markers will now render as squiggly lines with an icon. If there are additional details, it will allow you to click in to see those details:\
 ou may have noticed search markers displaying like this:\\
 
-<figure><img src="../.gitbook/assets/image (2) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/marker-1.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/marker-2.png" alt=""><figcaption></figcaption></figure>
 
 In addition to search markers, we will render info/debug, warnings, and errors in a similar way:
 
-![](<../.gitbook/assets/image (10).png>)
+![](<../.gitbook/assets/marker-3.png>)
 
-![](<../.gitbook/assets/image (1) (3).png>)
+![](<../.gitbook/assets/marker-warn.png>)
 
-![](<../.gitbook/assets/image (16).png>)
+![](<../.gitbook/assets/marker-error.png>)
 
 ### UI v9.5.0
 
@@ -603,10 +603,10 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 Deploying recipe artifacts now has an improved asynchronous experience. We've added the recipe artifact state and last deployment time to increase the visibility around the freshness of a recipe artifact.Notable changes to the Moderne platform
 
-<figure><img src="../.gitbook/assets/image (7) (3).png" alt=""><figcaption><p>View recipe artifact state and last deployment time.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/recipe-deploy.png" alt=""><figcaption><p>View recipe artifact state and last deployment time.</p></figcaption></figure>
 
 ### UI v9.4.0
 
 #### Moderne update notice
 
-<figure><img src="../.gitbook/assets/image (2) (4) (1).png" alt=""><figcaption><p>If there is a Moderne update in the middle of your browser session, you should now see a prompt to refresh your page to ensure you have the latest version available.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/update-notice.png" alt=""><figcaption><p>If there is a Moderne update in the middle of your browser session, you should now see a prompt to refresh your page to ensure you have the latest version available.</p></figcaption></figure>

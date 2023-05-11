@@ -31,25 +31,25 @@ If you are using Artifactory to publish LST artifacts, it is _highly_ recommende
 
 In Artifactory, select the `Artifactory` link on the left nav and then select `Maven Indexer` under Services:
 
-![](../../.gitbook/assets/image%20\(1\)%20\(1\)%20\(1\)%20\(1\).png)
+![](../../.gitbook/assets/artifactory.png)
 
 For a repository to be a source of LSTs, it must be included in the list of repositories that are indexed:
 
-![](<../../.gitbook/assets/image (9) (1) (1).png>)
+![](<../../.gitbook/assets/maven-indexer.png>)
 {% endtab %}
 
 {% tab title="Nexus Repository" %}
 Under the administration view, select `Tasks` on the left nav:
 
-![](<../../.gitbook/assets/image (7) (1).png>)
+![](<../../.gitbook/assets/sona-tasks.png>)
 
 Select `Create task` and create a `Maven - Publish Maven Indexer files` task:
 
-![](<../../.gitbook/assets/image (2) (2).png>)
+![](<../../.gitbook/assets/maven-publish.png>)
 
 Select the repository that will serve LST artifacts and specify a frequency with which this index should be updated:
 
-![](<../../.gitbook/assets/image (22).png>)
+![](<../../.gitbook/assets/maven-publish-index.png>)
 {% endtab %}
 {% endtabs %}
 

@@ -24,5 +24,5 @@ curl --request POST \
 
 The platform communicates with the Organizations service through the Moderne agent when configured and updates the global repository groupings through this service on an interval (10 mins or configured value). See the architecture diagram below.
 
-<figure><img src="../.gitbook/assets/image (15) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/org-view-arch.png" alt=""><figcaption></figcaption></figure>
 
