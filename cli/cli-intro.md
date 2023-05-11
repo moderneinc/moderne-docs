@@ -11,10 +11,10 @@ There are two ways to obtain the Moderne CLI: via the SaaS (**recommended**) or 
 1. Go to the [Moderne SaaS](https://public.moderne.io/) and sign in.
 2.  Click on the `?` in the top right corner and then select `Moderne CLI` from the `Tools` menu:
 
-    ![](.gitbook/assets/cli-download.png)
+    ![](../.gitbook/assets/cli-download.png)
 3.  You can then either press the `Download Latest` button or you can install it directly through the command line by copying the `curl` command at the bottom of the modal:
 
-    ![](.gitbook/assets/cli-download2.png)
+    ![](../.gitbook/assets/cli-download2.png)
 {% endtab %}
 
 {% tab title="curl command" %}
