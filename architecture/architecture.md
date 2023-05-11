@@ -30,7 +30,7 @@ In order for Moderne to know the current state of your code, artifacts will need
 
 There are two main ways to generate artifacts. You can:
 
-1. (**Recommended**) Set up a GitHub or Jenkins pipeline to build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
+1. (**Recommended**) Set up a [GitHub or Jenkins pipeline](/how-to/integrating-private-code.md#mod-connect) to build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
 2. Update all of your existing pipelines to run the [mod publish](/how-to/integrating-private-code.md#mod-publish) command whenever the code is updated.
 
 Both of these are described in detail in our [integrating private code with Moderne doc](/how-to/integrating-private-code.md).
