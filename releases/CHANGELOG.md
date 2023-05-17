@@ -1,5 +1,9 @@
 # Changelog
 
+### UI v9.95.0 (2023/05/17)
+
+- Bug fixes and other improvements.
+
 ### UI v9.94.0 (2023/05/16)
 
 * Bug fixes and other improvements.
@@ -80,7 +84,7 @@ In Account menu > Accessibility there is now an option for Date time format that
 
 <figure><img src="../.gitbook/assets/date-time.png" alt=""><figcaption></figcaption></figure>
 
-Date time stamps can also be changed by simply clicking on them to cycle through the formats:\\
+Date time stamps can also be changed by simply clicking on them to cycle through the formats:
 
 <figure><img src="../.gitbook/assets/date-time-2.png" alt=""><figcaption></figcaption></figure>
 
@@ -365,7 +369,7 @@ We've also added some visual touches to better group icons in the top navigation
 
 A new option has been added to the Pull Request form to allow or disallow the reopening of closed pull requests.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM.png" alt=""><figcaption></figcaption></figure>
 
 `See how to run against the API` link has been added to the commit form as well. This will show the GraphQL for the action.
 
@@ -375,7 +379,7 @@ A new option has been added to the Pull Request form to allow or disallow the re
 
 Data tables: Recipes can now emit tabular data according to a schema that they define.
 
-<figure><img src="../.gitbook/assets/data-table (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/data-table.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/data-table-2.png" alt=""><figcaption></figcaption></figure>
 
@@ -496,7 +500,7 @@ This has been added to the following pages:
 * workers
 * quarantine
 
-<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.23.0 (2022/11/30)
 
@@ -599,7 +603,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 ![](../.gitbook/assets/marker-3.png)
 
-![](<../.gitbook/assets/marker-warn (1).png>)
+![](<../.gitbook/assets/marker-warn.png>)
 
 ![](../.gitbook/assets/marker-error.png)
 
