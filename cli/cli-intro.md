@@ -25,7 +25,7 @@ _If you want to download a different version of the CLI, replace the **two** ver
 **Mac OS**
 
 ```shell
-curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos-tar/v0.1.22/moderne-cli-macos-tar-v0.1.22 > mod.tar.gz
+curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos-tar/v0.1.27/moderne-cli-macos-tar-v0.1.27 > mod.tar.gz
 
 tar -zxvf mod.tar.gz
 ```
@@ -33,7 +33,7 @@ tar -zxvf mod.tar.gz
 **Linux**
 
 ```shell
-curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux-tar/v0.1.2/moderne-cli-linux-tar-v0.1.22 > mod.tar.gz
+curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux-tar/v0.1.27/moderne-cli-linux-tar-v0.1.27 > mod.tar.gz
 
 tar -zxvf mod.tar.gz
 ```
@@ -41,13 +41,13 @@ tar -zxvf mod.tar.gz
 **Windows**
 
 ```shell
-curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v0.1.22/moderne-cli-windows-v0.1.2 > mod
+curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v0.1.27/moderne-cli-windows-v0.1.27 > mod
 ```
 
 **JDK (8+)**
 
 ```shell
-curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-zip/v0.1.22/moderne-cli-zip-v0.1.22 > moderne-cli.zip
+curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-zip/v0.1.27/moderne-cli-zip-v0.1.27 > moderne-cli.zip
 
 unzip moderne-cli.zip
 ```

@@ -1,44 +1,40 @@
 # Changelog
-### UI v9.95.0 (2023/05/17)
-
-- Bug fixes and other improvements.
 
 ### UI v9.94.0 (2023/05/16)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.93.0 (2023/05/16)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.92.2 (2023/05/11)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.92.1 (2023/05/10)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.92.0 (2023/05/10)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.91.0 (2023/05/08)
 
-- add jupyter output cell renderer
+* add jupyter output cell renderer
 
 ### UI v9.90.0 (2023/05/05)
 
-- add support for `startAuth=true` QSP to initiate flow
+* add support for `startAuth=true` QSP to initiate flow
 
 ### UI v9.89.2 (2023/05/03)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.89.1 (2023/05/02)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v9.89.0 (2023/05/01)
 
@@ -84,8 +80,7 @@ In Account menu > Accessibility there is now an option for Date time format that
 
 <figure><img src="../.gitbook/assets/date-time.png" alt=""><figcaption></figcaption></figure>
 
-Date time stamps can also be changed by simply clicking on them to cycle through the formats:\
-
+Date time stamps can also be changed by simply clicking on them to cycle through the formats:\\
 
 <figure><img src="../.gitbook/assets/date-time-2.png" alt=""><figcaption></figcaption></figure>
 
@@ -97,8 +92,7 @@ Custom yaml recipe runs can now be replayed. Now hitting replay on a custom reci
 
 #### Admin agent version notice
 
-Admin users will now see a notice that can be dismissed whenever there is a new agent version available:\
-
+Admin users will now see a notice that can be dismissed whenever there is a new agent version available:\\
 
 <figure><img src="../.gitbook/assets/agent-update.png" alt=""><figcaption></figcaption></figure>
 
@@ -118,7 +112,7 @@ Admin users will now see a notice that can be dismissed whenever there is a new 
 
 If a recipe was run using an _Organization_ instead of a _Repository group_, you can now quickly click to replay the recipe using either the _Organization_ that was originally used or your currently selected _Organization / Repository group._
 
-![](<../.gitbook/assets/replay-recipe.png>)
+![](../.gitbook/assets/replay-recipe.png)
 
 These items will take you back to the recipe details page where you can copy the URL and share.
 
@@ -241,10 +235,10 @@ Users will not be prompted for confirmation before removing repository.
 ### UI v9.71.0 (2023/03/15)
 
 * We have changed the name "Catalog" to "Marketplace" and given it a new icon. We hope the use of the word "Marketplace" reflects the community aspect of "Recipe" development.\
-  ![](<../.gitbook/assets/marketplace.png>)
+  ![](../.gitbook/assets/marketplace.png)
 * Recipes can now have `maintainers` associated with them. This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:\
   \
-  ![](<../.gitbook/assets/contributors.png>)
+  ![](../.gitbook/assets/contributors.png)
 
 ### UI v9.70.0 (2023/03/15)
 
@@ -323,7 +317,7 @@ Improve support for organizations defined in thee organization service.
 ### UI v9.61.0 (2023/02/24)
 
 We have added the ability to see repository origin details from the diff page via the interactive origin icon:\
-![](<../.gitbook/assets/icon.png>)
+![](../.gitbook/assets/icon.png)
 
 GitHub links on recipe details for OpenRewrite recipes ([v9.35.0](CHANGELOG.md#recipe-source-links)) previously linked to a search interface to find the origin on GitHub. These have now been updated with direct links to the source.
 
@@ -371,7 +365,7 @@ We've also added some visual touches to better group icons in the top navigation
 
 A new option has been added to the Pull Request form to allow or disallow the reopening of closed pull requests.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM (1).png" alt=""><figcaption></figcaption></figure>
 
 `See how to run against the API` link has been added to the commit form as well. This will show the GraphQL for the action.
 
@@ -381,7 +375,7 @@ A new option has been added to the Pull Request form to allow or disallow the re
 
 Data tables: Recipes can now emit tabular data according to a schema that they define.
 
-<figure><img src="../.gitbook/assets/data-table.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/data-table (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/data-table-2.png" alt=""><figcaption></figcaption></figure>
 
@@ -433,13 +427,13 @@ Repositories hosted on Bitbucket Cloud are now supported. This [requires additio
 #### Admin token management
 
 We have added the ability for admins to view and revoke Moderne personal access tokens of any user. There is now a new Access tokens page under the admin navigations:\
-![](<../.gitbook/assets/admin-token.png>)\\
+![](../.gitbook/assets/admin-token.png)\\
 
 #### Improved keyboard shortcuts
 
 While addressing some keyboard shortcuts that were reported to conflict with certain browsers we overhauled the keyboard shortcuts to primarily use single key commands and added more. These commands will not fire if the focus of the browser is in a text input or any control like field. Additionally, we have provided a new short cut cheat sheet that is activated with `shift`+`?`
 
-![](<../.gitbook/assets/keyboard-shortcut.png>)
+![](../.gitbook/assets/keyboard-shortcut.png)
 
 #### Recipe source links
 
@@ -502,7 +496,7 @@ This has been added to the following pages:
 * workers
 * quarantine
 
-<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.23.0 (2022/11/30)
 
@@ -603,11 +597,11 @@ ou may have noticed search markers displaying like this:\\
 
 In addition to search markers, we will render info/debug, warnings, and errors in a similar way:
 
-![](<../.gitbook/assets/marker-3.png>)
+![](../.gitbook/assets/marker-3.png)
 
-![](<../.gitbook/assets/marker-warn.png>)
+![](<../.gitbook/assets/marker-warn (1).png>)
 
-![](<../.gitbook/assets/marker-error.png>)
+![](../.gitbook/assets/marker-error.png)
 
 ### UI v9.5.0
 
