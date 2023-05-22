@@ -4,55 +4,15 @@ The Moderne CLI is a command line tool that simplifies the process of building a
 
 ## Installation
 
-There are two ways to obtain the Moderne CLI: via the SaaS (**recommended**) or via a `curl` command.
+To install the Moderne CLI please:
 
-{% tabs %}
-{% tab title="SaaS" %}
 1. Go to the [Moderne SaaS](https://public.moderne.io/) and sign in.
-2.  Click on the `?` in the top right corner and then select `Moderne CLI` from the `Tools` menu:
+2. Click on the `?` in the top right corner and then select `Moderne CLI` from the `Tools` menu:
 
     ![](../.gitbook/assets/cli-download.png)
-3.  You can then either press the `Download Latest` button or you can install it directly through the command line by copying the `curl` command at the bottom of the modal:
+3. You can then either press the `Download Latest` button or you can install it directly through the command line by copying the `curl` command at the bottom of the modal:
 
     ![](../.gitbook/assets/cli-download2.png)
-{% endtab %}
-
-{% tab title="curl command" %}
-From your command line, please run the command that corresponds to the OS you're using.
-
-_If you want to download a different version of the CLI, replace the **two** versions (`v#.#.#`) in the curl request with the_ [_CLI version_](https://github.com/moderneinc/moderne-cli/releases) _you want._
-
-**Mac OS**
-
-```shell
-curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos-tar/v0.1.27/moderne-cli-macos-tar-v0.1.27 > mod.tar.gz
-
-tar -zxvf mod.tar.gz
-```
-
-**Linux**
-
-```shell
-curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux-tar/v0.1.27/moderne-cli-linux-tar-v0.1.27 > mod.tar.gz
-
-tar -zxvf mod.tar.gz
-```
-
-**Windows**
-
-```shell
-curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v0.1.27/moderne-cli-windows-v0.1.27 > mod
-```
-
-**JDK (8+)**
-
-```shell
-curl --request GET https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/moderne/maven/v1/io/moderne/moderne-cli-zip/v0.1.27/moderne-cli-zip-v0.1.27 > moderne-cli.zip
-
-unzip moderne-cli.zip
-```
-{% endtab %}
-{% endtabs %}
 
 ## Commands
 
