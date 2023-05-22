@@ -24,7 +24,7 @@
     * [All agent configuration variables](how-to/on-premise-agent/agent-variables.md)
   * [Importing external recipes](how-to/importing-external-recipes.md)
   * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
-  * [Proof of value](how-to/proof-of-value.md)
+  * [Proof of value process](how-to/proof-of-value.md)
 * [Moderne CLI](cli/moderne-cli.md)
   * [Getting started with the Moderne CLI](cli/cli-intro.md)
 * [Releases](releases/release.md)

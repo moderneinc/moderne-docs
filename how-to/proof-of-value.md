@@ -1,4 +1,4 @@
-# Proof of value (POV)
+# Proof of value process
 
 With Moderne, you can automate maintenance processes such as framework migrations, security vulnerability fixes, and code quality standardization. Code refactoring work that used to take months and teams of developers can be done in minutes, closing vulnerabilities and saving millions of dollars in software maintenance costs while giving developers substantially more time to focus on delivering business value.
 
@@ -8,7 +8,7 @@ The idea is for all of these types of updates to become a continuous process for
 
 ![](/.gitbook/assets/pov-example.png)
 
-## POV Steps
+## Proof of value (POV) Steps
 
 1. To begin the process, please fill out [this questionnaire](https://lq7oxv9ggnm.typeform.com/to/r1ib8ecu?typeform-source=www.google.com) so that we can provision the appropriate services for your organization and provide you with a PDF that contains the relevant information you'll need for step 3. 
 2. Once you've filled out the form, we will provision an isolated Moderne platform in the cloud provider and region of your choice. Deployment is fully automated and takes approximately one hour. Please let us know which cloud provider and region you prefer.
