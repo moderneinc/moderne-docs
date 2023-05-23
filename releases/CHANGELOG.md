@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.96.1 (2023/05/23)
+
+- Bug fixes and other improvements.
+
 ### UI v9.96.0 (2023/05/19)
 
 - add in support for downloading data-tables from visualizations where available
