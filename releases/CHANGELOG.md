@@ -1,28 +1,28 @@
 # Changelog
+
 ### UI v9.97.1 (2023/05/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.97.0 (2023/05/25)
 
-- prompt for confirmation when canceling recipe runs
+* prompt for confirmation when canceling recipe runs
 
 ### UI v9.96.2 (2023/05/25)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.96.1 (2023/05/23)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.96.0 (2023/05/19)
 
-- add in support for downloading data-tables from visualizations where available
-
+* add in support for downloading data-tables from visualizations where available
 
 ### UI v9.95.0 (2023/05/17)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.94.0 (2023/05/16)
 
@@ -102,7 +102,7 @@
 
 In Account menu > Accessibility there is now an option for Date time format that will allow you to choose between `Relative time`, `Local time`, and `UTC time`.
 
-<figure><img src="../.gitbook/assets/date-time.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/date-time (1).png" alt=""><figcaption></figcaption></figure>
 
 Date time stamps can also be changed by simply clicking on them to cycle through the formats:
 
@@ -259,7 +259,7 @@ Users will not be prompted for confirmation before removing repository.
 ### UI v9.71.0 (2023/03/15)
 
 * We have changed the name "Catalog" to "Marketplace" and given it a new icon. We hope the use of the word "Marketplace" reflects the community aspect of "Recipe" development.\
-  ![](../.gitbook/assets/marketplace.png)
+  ![](<../.gitbook/assets/marketplace (1).png>)
 * Recipes can now have `maintainers` associated with them. This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:\
   \
   ![](../.gitbook/assets/contributors.png)
@@ -389,7 +389,7 @@ We've also added some visual touches to better group icons in the top navigation
 
 A new option has been added to the Pull Request form to allow or disallow the reopening of closed pull requests.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-02-01 at 4.46.48 PM (1).png" alt=""><figcaption></figcaption></figure>
 
 `See how to run against the API` link has been added to the commit form as well. This will show the GraphQL for the action.
 
@@ -399,7 +399,7 @@ A new option has been added to the Pull Request form to allow or disallow the re
 
 Data tables: Recipes can now emit tabular data according to a schema that they define.
 
-<figure><img src="../.gitbook/assets/data-table.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/data-table (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/data-table-2.png" alt=""><figcaption></figcaption></figure>
 
@@ -520,7 +520,7 @@ This has been added to the following pages:
 * workers
 * quarantine
 
-<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2022-12-14 at 7.38.08 AM (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.23.0 (2022/11/30)
 
@@ -623,7 +623,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 ![](../.gitbook/assets/marker-3.png)
 
-![](<../.gitbook/assets/marker-warn.png>)
+![](<../.gitbook/assets/marker-warn (1).png>)
 
 ![](../.gitbook/assets/marker-error.png)
 

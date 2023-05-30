@@ -26,7 +26,7 @@ To assist with that, this guide will:
 4. Supply the required fields and register the application (See [examples](configure-an-agent-with-github.md#example-values) below):
    * ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.01.11 PM.png>)
 5. On your newly created application click the `Generate a new client secret` button:
-   * ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.17.35 PM.png>)
+   * ![](<../../.gitbook/assets/Screen Shot 2022-05-19 at 1.17.35 PM (1).png>)
 6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](configure-an-agent-with-github.md#step-2-configure-the-moderne-agent).
 
 #### Example values
