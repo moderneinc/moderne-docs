@@ -8,6 +8,7 @@
   * [Create custom recipes with the recipe builder](user-documentation/recipe-builder.md)
   * [Accessing the Moderne API](user-documentation/accessing-the-moderne-api.md)
   * [Recipe execution and commits with the Moderne API](user-documentation/recipe-execution-and-commits-with-graphql.md)
+  * [Getting started with data tables](user-documentation/data-tables.md)
 * [Administrator documentation](how-to/administrator-documentation.md)
   * [Integrating private code with Moderne](how-to/integrating-private-code.md)
   * [Configuring the Moderne agent](how-to/agent-configuration.md)
