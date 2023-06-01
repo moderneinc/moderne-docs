@@ -126,7 +126,7 @@ You should now have everything you need to run the command. You can find an exam
 
 ```shell
 mod connect jenkins --apiToken jenkinsApiToken \
-   --controllerUrl https://jenkins.company-name.ninja \
+   --controllerUrl https://jenkins.company-name.com \
    --fromCsv /path/to/repos.csv \
    --gitCredsId username-pat \
    --jenkinsUser some-username \
