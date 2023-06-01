@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.99.0 (2023/06/01)
+
+- Bug fixes and other improvements.
+
 ### UI v9.98.0 (2023/05/30)
 
 - add support for multiple auth providers through keycloak on multitenant
