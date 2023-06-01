@@ -41,7 +41,7 @@ You can change this in the `commitOptions` array in your JSON resource. ([Exampl
 
 Violating the GraphQL contract will cause errors and make it so the Moderne platform will not function as expected. Since the GraphQL contract expects `commitOptions` to be populated, the query will error if no options are returned. In turn, users won't be able to run recipes.
 
-To elaborate on how commit permissions work: your SCM (GitHub, BitBucket, or GitLab) is the source of truth for whether developers can commit or not. The `commitOptions` array is strictly for improving the UI experience. These options do not prevent a developer from making an API call to Moderne to perform a commit. However, that commit will only happen if the developer making the API call has commit permissions to that repository in your SCM.
+**Important**: your SCM (GitHub, BitBucket, or GitLab) is the source of truth for whether developers can commit or not. The `commitOptions` array is strictly for improving the UI experience. These options do not prevent a developer from making an API call to Moderne to perform a commit. However, that commit will only happen if the developer making the API call has commit permissions to that repository in your SCM.
 
 ### If no Organizations service is active/configured, would it be possible to change the default commit options and repositories in the Moderne UI?
 
