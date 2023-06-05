@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.100.0 (2023/06/05)
+
+- add javascript logo
+
 ### UI v9.99.1 (2023/06/02)
 
 - Bug fixes and other improvements.
