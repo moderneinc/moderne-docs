@@ -9,7 +9,7 @@ Let's walk through everything you need to know to build and integrate such a ser
 In order to dynamically control the organizational structure in Moderne, you will need to:
 
 1. Create and deploy an Organizations service that fulfills [this GraphQL contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/moderne-organizations.graphqls) _in your environment_
-2. [Configure your Moderne agent to point to this service](/how-to/on-premise-agent/configure-repository-groups.md)
+2. [Configure your Moderne agent to point to this service](../administrator-documentation/on-premise-agent/configure-organizations-service.md)
 
 ## Coding the Organizations service
 
@@ -24,8 +24,8 @@ We generally recommend forking the template and modifying it as, in most cases, 
 
 How you deploy the service is largely up to your company. With that being said, there are a few important things to be aware of:
 
-* Communication with the Organizations service is done through the [Moderne agent](/how-to/agent-configuration.md). Therefore, this service **must** be accessible from the agent.
-* The number of repositories your company has should be factored in when deciding how to size your service compute-wise. Moderne will make a request per repository to the Organizations service once every 10 minutes by default (you can change this interval in your [agent configuration](/how-to/on-premise-agent/configure-repository-groups.md)). Please ensure that you have metrics to track how this service is performing so you can adjust it over time.
+* Communication with the Organizations service is done through the [Moderne agent](../how-to/agent-configuration.md). Therefore, this service **must** be accessible from the agent.
+* The number of repositories your company has should be factored in when deciding how to size your service compute-wise. Moderne will make a request per repository to the Organizations service once every 10 minutes by default (you can change this interval in your [agent configuration](../administrator-documentation/on-premise-agent/configure-organizations-service.md)). Please ensure that you have metrics to track how this service is performing so you can adjust it over time.
 
 ## FAQ
 
@@ -49,7 +49,7 @@ No – it is not possible to change the defaults. If no Organizations service is
 
 ### How often are organizations synced to Moderne?
 
-By default, organizational data is synced every 10 minutes. You can increase or decrease this by modifying your [agent configuration](/how-to/on-premise-agent/configure-repository-groups.md).
+By default, organizational data is synced every 10 minutes. You can increase or decrease this by modifying your [agent configuration](../administrator-documentation/on-premise-agent/configure-organizations-service.md).
 
 ### Is it possible to manually force a sync of the organizations?
 
@@ -66,4 +66,4 @@ curl --request POST \
 
 ### Do you have an architecture diagram that shows where this service fits in?
 
-Yes - see our [architecture documentation](/architecture/architecture.md).
+Yes - see our [architecture documentation](architecture.md).

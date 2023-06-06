@@ -1,20 +1,20 @@
 # Changelog
+
 ### UI v9.100.0 (2023/06/05)
 
-- add javascript logo
+* add javascript logo
 
 ### UI v9.99.1 (2023/06/02)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.99.0 (2023/06/01)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.98.0 (2023/05/30)
 
-- add support for multiple auth providers through keycloak on multitenant
-
+* add support for multiple auth providers through keycloak on multitenant
 
 ### UI v9.97.1 (2023/05/26)
 
@@ -431,7 +431,7 @@ Hover over the info icon to quickly view more information including the commit t
 
 #### Removal of the default repository group `All`
 
-Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../how-to/on-premise-agent/configure-repository-groups.md) through Agent to provide this functionality. See the example below.
+Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../administrator-documentation/on-premise-agent/configure-organizations-service.md) through Agent to provide this functionality. See the example below.
 
 ```json
 {

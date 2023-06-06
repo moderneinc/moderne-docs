@@ -292,7 +292,7 @@ java -jar moderne-agent-{version}.jar \
 
 Many organizations desire the ability to control the organizational structure of their repositories within the Moderne platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
 
-If you want to set up this service, please follow [these instructions](../architecture/organizations-service). Then, once it has been set up, please configure the agent by following [these instructions](on-premise-agent/configure-repository-groups.md).
+If you want to set up this service, please follow [these instructions](../architecture/organizations-service/). Then, once it has been set up, please configure the agent by following [these instructions](../administrator-documentation/on-premise-agent/configure-organizations-service.md).
 
 Below is an example of what an agent run command might look like at the end of this step if you set up the Organizations service.
 
@@ -358,7 +358,7 @@ java -jar moderne-agent-{version}.jar \
 
 Some organizations want recipe artifacts to only come from locations configured in the Moderne agent. If you want to configure that, please follow the [strict recipe sources instructions](on-premise-agent/configure-an-agent-with-strict-recipe-sources.md).
 
-Below is an example of what an agent run command might look like at the end of this step if you configured the agent to use only configured recipe sources.&#x20;
+Below is an example of what an agent run command might look like at the end of this step if you configured the agent to use only configured recipe sources.
 
 {% tabs %}
 {% tab title="OCI Container" %}
