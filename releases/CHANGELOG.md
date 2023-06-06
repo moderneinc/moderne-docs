@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.101.0 (2023/06/06)
+
+- leverage notebook description provided by service
+
 
 ### UI v9.100.0 (2023/06/05)
 
