@@ -1,19 +1,20 @@
 # Integrating private code with Moderne
 
-One of the first steps of integrating your code with Moderne is setting up a pipeline that builds and publishes LST artifacts to an artifact repository that you control.
+One of the first steps of integrating your code with Moderne is setting up a pipeline that builds and publishes [LST](/concepts/lossless-semantic-trees.md) artifacts to an artifact repository that you control.
 
-There are two primary ways to do this:
+There are three ways to do this:
 
 1. (**Recommended**) Use the [mod connect](#mod-connect) command to build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
 2. Update all of your existing pipelines to run the [mod publish](#mod-publish) command whenever the code is updated.
+3. Apply a Maven or Gradle plugin to your project and configure them to build/publish LST artifacts.
 
 In this guide, we'll walk through both of these options.
 
 ## Prerequisite
 
-Please ensure that you've [installed the Moderne CLI](/cli/cli-intro.md). All of the steps in this guide depend on this.
+If you're using any of the `mod` commands (`connect` or `publish`), please ensure that you have the [Moderne CLI installed](/cli/cli-intro.md).
 
-## Commands
+## CLI Commands
 
 ### Mod Connect
 
@@ -166,6 +167,114 @@ mod publish --path /path/to/project \
 {% hint style="info" %}
 There are a variety of optional parameters that you can find on the [publish man page](https://moderneinc.github.io/moderne-cli/mod-publish.html) to refine the command further if you so desire. 
 {% endhint %}
+
+## Maven/Gradle plugins
+
+### Step 1: Apply moderne-maven-plugin or moderne-gradle-plugin
+
+In the `pom.xml` or `build.gradle` file, add this entry to the `plugins` section to apply the Moderne plugin to the project:
+
+{% tabs %}
+{% tab title="Maven" %}
+{% code title="pom.xml" %}
+```xml
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.moderne</groupId>
+        <artifactId>moderne-maven-plugin</artifactId>
+        <version>0.41.0</version>
+        <configuration>
+          <!-- Supports all of the same functionality as the OpenRewrite plugin -->
+          <activeRecipes>
+            <recipe>org.openrewrite.java.cleanup.CommonStaticAnalysis</recipe>
+          </activeRecipes>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals><goal>ast</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Gradle" %}
+{% code title="build.gradle" %}
+```groovy
+plugins {
+    id("io.moderne.rewrite") version("0.38.6")
+}
+
+// OpenRewrite and recipe modules are published to Maven Central
+// This repository, or a mirror, must be available
+repositories {
+    mavenCentral()
+}
+
+rewrite {
+    // Supports all of the same functionality as the OpenRewrite plugin
+}
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+{% hint style="success" %} 
+The Moderne build plugins offer all the functionality and configuration options of their [OpenRewrite counterparts](https://docs.openrewrite.org/running-recipes/getting-started#step-2-add-rewrite-maven-plugin-or-rewrite-gradle-plugin-to-your-project). If you were previously applying the OpenRewrite plugins, you can remove those declarations from your build files.
+{% endhint %}
+
+{% hint style="warning" %} 
+If you're a Maven user who used command line invocations such as `mvn rewrite:dryRun` or `mvn rewrite:run`, please note that these invocations have become `mvn moderne:dryRun` and `mvn moderne:run`. You can, however, apply both plugins to your project if you want to ensure the old commands continue working.
+
+Gradle users can continue invoking `gradlew rewriteDryRun` and `gradlew rewriteRun` as the names of those tasks remain the same in the `moderne-gradle-plugin`. 
+{% endhint %}
+
+### Step 2: Configure publishing
+
+The Moderne platform expects that the LST artifacts produced by these build plugins are published to your artifact repository. This means that you may need to publish LST artifacts from projects that do not currently publish anything.
+
+{% tabs %}
+{% tab title="Maven" %}
+Typically, no additional publishing configuration is required for Maven builds.
+{% endtab %}
+
+{% tab title="Gradle" %}
+Each project the plugin is applied to will have a `Jar` task named `moderneJar` which produces the LST jar in the project's build folder. This is the file that needs to be published to your artifact repository to enable Moderne SaaS integration.
+
+{% code title="single project build" %}
+```groovy
+plugins {
+    id("io.moderne.rewrite") version("0.38.6")
+    id("maven-publish")
+}
+
+publishing {
+    repositories {
+        // your repository configuration
+    }
+    publishing {
+        publications {
+            create("moderne", MavenPublication.class) {
+                artifact(tasks.named("moderneJar"))
+            }
+        }
+    }
+}
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+### Step 3: Build and publish the next version of your project
+
+Now, whenever your project is published, there will be a file with a "jar" extension and an "ast" (LST used to be called AST) classifier published alongside any other artifacts. For example, a project named "foo" with a publishing version of "1.0" would have a file named `foo-1.0-ast.jar` created alongside the normal `foo-1.0.jar`.
 
 ## Next Steps
 
