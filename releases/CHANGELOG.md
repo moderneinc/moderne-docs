@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.102.0 (2023/06/07)
+
+- add bitbucket cloud authentication option for `public.*`
+
 ### UI v9.101.0 (2023/06/06)
 
 - leverage notebook description provided by service
