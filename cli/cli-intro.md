@@ -7,10 +7,10 @@ The Moderne CLI is a command line tool that simplifies the process of building a
 To install the Moderne CLI please:
 
 1. Go to the [Moderne SaaS](https://public.moderne.io/) and sign in.
-2. Click on the `?` in the top right corner and then select `Moderne CLI` from the `Tools` menu:
+2.  Click on the `?` in the top right corner and then select `Moderne CLI` from the `Tools` menu:
 
     ![](../.gitbook/assets/cli-download.png)
-3. You can then either press the `Download Latest` button or you can install it directly through the command line by copying the `curl` command at the bottom of the modal:
+3.  You can then either press the `Download Latest` button or you can install it directly through the command line by copying the `curl` command at the bottom of the modal:
 
     ![](../.gitbook/assets/cli-download2.png)
 
@@ -52,8 +52,8 @@ The `connect github` command will create GitHub workflows that build and publish
 
 [Connect GitHub man page](https://moderneinc.github.io/moderne-cli/mod-connect-github.html)
 
-### Run
+### Run (temporarily disabled)
 
 The `run` command allows you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally.
 
-[Run man page](https://moderneinc.github.io/moderne-cli/mod-run.html)
+[~~Run man page~~](https://moderneinc.github.io/moderne-cli/mod-run.html)
