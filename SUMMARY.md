@@ -22,6 +22,7 @@
     * [Configure an agent with Artifactory access: recipes](how-to/on-premise-agent/configuring-artifactory-with-recipes.md)
     * [Configure the Organizations service](administrator-documentation/on-premise-agent/configure-organizations-service.md)
     * [Configure an agent with strict recipe sources](how-to/on-premise-agent/configure-an-agent-with-strict-recipe-sources.md)
+    * [Configure an agent with client SSL certificates](administrator-documentation/on-premise-agent/configure-an-agent-with-client-ssl-certificates.md)
     * [All agent configuration variables](how-to/on-premise-agent/agent-variables.md)
   * [Importing external recipes](how-to/importing-external-recipes.md)
   * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)

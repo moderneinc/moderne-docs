@@ -2,9 +2,9 @@
 
 In order to securely communicate with the Moderne SaaS, you will need to set up an on-premise agent in your environment. To assist you with that process and provide you with information about the agent, this guide will:
 
-- [Give you some high-level information about the agent](agent-configuration.md#high-level-agent-information)
-- [Provide step-by-step instructions for configuring the agent](agent-configuration.md#agent-setup-instructions)
-- [Teach you how to update the agent later on](agent-configuration.md#updating-your-agent)
+* [Give you some high-level information about the agent](agent-configuration.md#high-level-agent-information)
+* [Provide step-by-step instructions for configuring the agent](agent-configuration.md#agent-setup-instructions)
+* [Teach you how to update the agent later on](agent-configuration.md#updating-your-agent)
 
 ## High-level agent information
 
@@ -12,10 +12,10 @@ In order to securely communicate with the Moderne SaaS, you will need to set up 
 
 The Moderne on-premise agent:
 
-- Encrypts and ships [LST](../concepts/lossless-semantic-trees.md) and recipe artifacts from your artifact repository (e.g., Artifactory) to the Moderne SaaS
-- Provides the symmetric key that Moderne needs to decrypt your artifacts
-- Forwards requests from the Moderne SaaS to your SCM(s) (e.g., GitHub)
-- Forwards requests from the Moderne SaaS to the organization service (if configured)
+* Encrypts and ships [LST](../concepts/lossless-semantic-trees.md) and recipe artifacts from your artifact repository (e.g., Artifactory) to the Moderne SaaS
+* Provides the symmetric key that Moderne needs to decrypt your artifacts
+* Forwards requests from the Moderne SaaS to your SCM(s) (e.g., GitHub)
+* Forwards requests from the Moderne SaaS to the organization service (if configured)
 
 ## Agent setup instructions
 
@@ -42,7 +42,7 @@ Moderne offers two ways of running the agent:
 
 If you deploy to Kubernetes or any other containerized environment like AWS ECS, you'll want to use the OCI image to run the agent.
 
-If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) environment such Cloud Foundry, you'll want to use the JAR to run the agent.
+If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform\_as\_a\_service) environment such Cloud Foundry, you'll want to use the JAR to run the agent.
 
 The table below provides the core command for running the agent. However, in order for the agent to function correctly, additional variables will need to be added based on your environment (such as what SCM(s) your company uses, what artifact repositories you have configured, and whether or not you've configured an [Organizations service](../architecture/organizations-service.md)). We'll walk through each of those in the following steps.
 
@@ -75,7 +75,6 @@ docker run \
 -p 8080:8080
 moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 ```
-
 {% endtab %}
 
 {% tab title="Executable JAR" %}
@@ -93,9 +92,9 @@ java -jar moderne-agent-{version}.jar \
 # ... Additional arguments
 ```
 
-- **Note:** System properties can be used in place of arguments. For example, you can use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}`.
-  {% endtab %}
-  {% endtabs %}
+* **Note:** System properties can be used in place of arguments. For example, you can use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}`.
+{% endtab %}
+{% endtabs %}
 
 ### Step 4: Configure the agent with the core variables/arguments
 
@@ -105,10 +104,10 @@ There are four variables/arguments that must be configured for all agents:
 {% tab title="OCI Container" %}
 **Variables:**
 
-- `MODERNE_AGENT_APIGATEWAYRSOCKETURI` – _The URI used to connect to the Moderne API, provided by Moderne._
-- `MODERNE_AGENT_CRYPTO_SYMMETRICKEY` – _A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts._
-- `MODERNE_AGENT_NICKNAME` – _A name used to identify your agent in the SaaS agent dashboard UI._
-- `MODERNE_AGENT_TOKEN` – _The Moderne SaaS agent connection token, provided by Moderne._
+* `MODERNE_AGENT_APIGATEWAYRSOCKETURI` – _The URI used to connect to the Moderne API, provided by Moderne._
+* `MODERNE_AGENT_CRYPTO_SYMMETRICKEY` – _A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts._
+* `MODERNE_AGENT_NICKNAME` – _A name used to identify your agent in the SaaS agent dashboard UI._
+* `MODERNE_AGENT_TOKEN` – _The Moderne SaaS agent connection token, provided by Moderne._
 
 **Example:**
 
@@ -122,16 +121,15 @@ docker run \
 -p 8080:8080
 moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 ```
-
 {% endtab %}
 
 {% tab title="Executable JAR" %}
 **Arguments:**
 
-- `--moderne.agent.apiGatewayRsocketUri` – _The URI used to connect to the Moderne API, provided by Moderne._
-- `--moderne.agent.crypto.symmetricKey` – _A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts._
-- `--moderne.agent.nickname` – _A name used to identify your agent in the SaaS agent dashboard UI._
-- `--moderne.agent.token` – _The Moderne SaaS agent connection token, provided by Moderne._
+* `--moderne.agent.apiGatewayRsocketUri` – _The URI used to connect to the Moderne API, provided by Moderne._
+* `--moderne.agent.crypto.symmetricKey` – _A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts._
+* `--moderne.agent.nickname` – _A name used to identify your agent in the SaaS agent dashboard UI._
+* `--moderne.agent.token` – _The Moderne SaaS agent connection token, provided by Moderne._
 
 **Example:**
 
@@ -143,7 +141,6 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.token=yourToken \
 # ... Additional arguments
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -155,16 +152,15 @@ For every SCM that you want to connect to Moderne, please follow the instruction
 
 **SCM configuration:**
 
-- [Bitbucket Cloud configuration](on-premise-agent/configure-bitbucket-cloud-to-agent.md)
-- [Bitbucket Data Center configuration](on-premise-agent/configure-bitbucket-to-agent.md)
-- [GitHub configuration](on-premise-agent/configure-an-agent-with-github.md)
-- [GitLab configuration](on-premise-agent/configure-an-agent-with-gitlab.md)
+* [Bitbucket Cloud configuration](on-premise-agent/configure-bitbucket-cloud-to-agent.md)
+* [Bitbucket Data Center configuration](on-premise-agent/configure-bitbucket-to-agent.md)
+* [GitHub configuration](on-premise-agent/configure-an-agent-with-github.md)
+* [GitLab configuration](on-premise-agent/configure-an-agent-with-gitlab.md)
 
 Below is an example of what an agent run command might look like at the end of this step.
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 ```shell
 docker run \
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
@@ -181,11 +177,9 @@ docker run \
 -p 8080:8080
 moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 ```
-
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 ```shell
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
@@ -200,7 +194,6 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.github[0].oauth.includePrivateRepos=true \
 # ... Additional arguments to come
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -241,7 +234,6 @@ Below is an example of what an agent run command might look like at the end of t
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 ```shell
 docker run \
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
@@ -267,11 +259,9 @@ docker run \
 -p 8080:8080
 moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 ```
-
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 ```shell
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
@@ -295,7 +285,6 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.maven[0].password=password \
 # ... Additional arguments to come
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -309,7 +298,6 @@ Below is an example of what an agent run command might look like at the end of t
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 ```shell
 docker run \
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
@@ -336,11 +324,9 @@ docker run \
 -p 8080:8080
 moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 ```
-
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 ```shell
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
@@ -365,7 +351,6 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.organization.url=http://localhost:8091 \
 --moderne.agent.organization.updateIntervalSeconds=600 \
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -377,7 +362,6 @@ Below is an example of what an agent run command might look like at the end of t
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 ```shell
 docker run \
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
@@ -405,11 +389,9 @@ docker run \
 -p 8080:8080
 moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 ```
-
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-
 ```bash
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
@@ -435,11 +417,14 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.organization.updateIntervalSeconds=600 \
 --moderne.agent.recipe.useOnlyConfigured=true
 ```
-
 {% endtab %}
 {% endtabs %}
 
-### Step 9: Run the agent
+### Step 9: (Optionally) Provide SSL client keystore&#x20;
+
+If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](../administrator-documentation/on-premise-agent/configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
+
+### Step 10: Run the agent
 
 At this point, you should have configured everything needed to run the Moderne agent. If you run into issues running the command, please don't hesitate to reach out.
 
@@ -447,7 +432,6 @@ Below is a table that has instructions for how to run the agent in combination w
 
 {% tabs %}
 {% tab title="OCI Container" %}
-
 1. Log in to the Moderne registry:
 
 ```shell
@@ -488,7 +472,6 @@ docker run \
 -p 8080:8080
 moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 ```
-
 {% endtab %}
 
 {% tab title="Executable JAR" %}
@@ -519,9 +502,9 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.organization.updateIntervalSeconds=600 \
 ```
 
-- Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}`.
-  {% endtab %}
-  {% endtabs %}
+* Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}`.
+{% endtab %}
+{% endtabs %}
 
 ## Updating your agent
 
