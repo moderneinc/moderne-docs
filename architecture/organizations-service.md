@@ -15,7 +15,7 @@ In order to dynamically control the organizational structure in Moderne, you wil
 
 You have two main options for building this service. You can:
 
-1. (**Recommended**) Fork our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. If you've made a [repository group](/references/managing-repository-groups.md) in the Moderne platform, you can export it and overwrite the [ownership.json](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/ownership.json) file with it to create an organization that contains those specific repositories.
+1. (**Recommended**) Fork our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. Please see the [README](https://github.com/moderneinc/moderne-organizations/blob/main/README.md) for how to spin this up quickly. It can be as simple as updating a JSON file that you get from the Moderne platform.
 2. Build your own service that fulfills the [GraphQL contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/moderne-organizations.graphqls) using any GraphQL stack (e.g., NodeJS, Rust, C#, etc.)
 
 We generally recommend forking the template and modifying it as, in most cases, that will be faster and easier than building it yourself. Regardless of which one you choose, however, some developer time will be required on your end.
