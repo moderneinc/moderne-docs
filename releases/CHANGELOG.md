@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.102.1 (2023/06/09)
+
+- Bug fixes and other improvements.
+
 ### UI v9.102.0 (2023/06/07)
 
 - add bitbucket cloud authentication option for `public.*`
