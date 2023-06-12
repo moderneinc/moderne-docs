@@ -1,4 +1,9 @@
 # Changelog
+### UI v9.103.0 (2023/06/12)
+
+- render skeleton when loading more results.
+- set sort model with default sorting so it is clear what sorting is being applied by default.
+
 ### UI v9.102.1 (2023/06/09)
 
 - Bug fixes and other improvements.
