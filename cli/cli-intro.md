@@ -6,7 +6,7 @@ The Moderne CLI is a command line tool that simplifies the process of building a
 
 To install the Moderne CLI please:
 
-1. Go to the [Moderne SaaS](https://public.moderne.io/) and sign in.
+1. Go to the [Moderne SaaS](https://app.moderne.io/) and sign in.
 2.  Click on the `?` in the top right corner and then select `Moderne CLI` from the `Tools` menu:
 
     ![](../.gitbook/assets/cli-download.png)

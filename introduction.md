@@ -12,7 +12,7 @@ Moderne is SOC 2 Type 2 compliant, so you can be confident that your code is sec
 
 ## Want to try it for yourself?
 
-Moderne offers a free [public instance](https://public.moderne.io/) where you can run hundreds of recipes across thousands of open-source repositories.
+Moderne offers a free [public instance](https://app.moderne.io/) where you can run hundreds of recipes across thousands of open-source repositories.
 
 Or if you want to test this out in a custom private instance made just for your team, please fill out [this form](https://lq7oxv9ggnm.typeform.com/ContactUs?typeform-source=https://docs.moderne.io/) and we will get back to you to set up a proof of value meeting.
 

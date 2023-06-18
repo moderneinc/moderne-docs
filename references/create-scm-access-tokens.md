@@ -1,6 +1,6 @@
 # Creating SCM access tokens
 
-In order to perform [commits](../user-documentation/recipe-execution-and-commits-with-graphql.md#creating-a-pull-request) using the [Moderne GraphQL API](https://api.public.moderne.io/), you will need to create an SCM Access Token.
+In order to perform [commits](../user-documentation/recipe-execution-and-commits-with-graphql.md#creating-a-pull-request) using the [Moderne GraphQL API](https://api.app.moderne.io/), you will need to create an SCM Access Token.
 
 Commit tasks like `pullRequest` now support optionally defining a Personal Access Token that you create through your SCM and provide as a GraphQL Mutation input.
 

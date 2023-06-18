@@ -17,39 +17,39 @@ The idea is for all of these types of updates to become a continuous process for
 5. Next, you'll need to [set up the ingestion pipeline](/how-to/integrating-private-code.md). This pipeline will build and publish LST artifacts for the repositories you specify to your artifact repository. From there, the Moderne agent will find these LST artifacts, encrypt them, and ship them to the Moderne cloud. 
    * The more repositories you add and the more diverse they are, the easier it is to demonstrate value. Customers typically start with 50-100 repositories. 
    * No changes are required to the repositories themselves (such as installing build plugins).
-6. With all of that done, you're now ready to run some recipes. Below, we'll provide some suggestions for recipes to run. The links will take you to the [Moderne SaaS](https://public.moderne.io) where you can run the recipes on a variety of open-source repositories. You will need to sign in to view and run recipes.
+6. With all of that done, you're now ready to run some recipes. Below, we'll provide some suggestions for recipes to run. The links will take you to the [Moderne SaaS](https://app.moderne.io) where you can run the recipes on a variety of open-source repositories. You will need to sign in to view and run recipes.
 
 ### Recipes to run 
 
 _Ordered from least complex to most complex_
 
-* [Common static analysis fixes](https://public.moderne.io/recipes/org.openrewrite.java.cleanup.CommonStaticAnalysis)
+* [Common static analysis fixes](https://app.moderne.io/recipes/org.openrewrite.java.cleanup.CommonStaticAnalysis)
   * Improve code quality and readability
   * Fix common mistakes
   * Eliminate legacy patterns and minor performance issues
 * SLF4J Logging best practices
-  * [Improve performance](https://public.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging) by preferring parameterized logging to string concatenation
-  * [Improve error reporting](https://public.moderne.io/recipes/org.openrewrite.java.logging.slf4j.CompleteExceptionLogging) by using exception-specialized logging invocations where applicable
+  * [Improve performance](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging) by preferring parameterized logging to string concatenation
+  * [Improve error reporting](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.CompleteExceptionLogging) by using exception-specialized logging invocations where applicable
 * Maven dependency management
-  * [Upgrade Maven dependencies](https://public.moderne.io/recipes/org.openrewrite.maven.UpgradeDependencyVersion) to keep dependencies patched and up-to-date
-  * [Exclude test dependencies](https://public.moderne.io/recipes/org.openrewrite.maven.ExcludeDependency) like JUnit from the compile scope
-  * [Remove redundant explicit dependency versions](https://public.moderne.io/recipes/org.openrewrite.maven.RemoveRedundantDependencyVersions) to clean up Maven POMs
+  * [Upgrade Maven dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.UpgradeDependencyVersion) to keep dependencies patched and up-to-date
+  * [Exclude test dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.ExcludeDependency) like JUnit from the compile scope
+  * [Remove redundant explicit dependency versions](https://app.moderne.io/recipes/org.openrewrite.maven.RemoveRedundantDependencyVersions) to clean up Maven POMs
 * Gradle wrapper and plugin upgrades
-  * [Update Gradle Wrapper](https://public.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper) to keep Gradle itself up to date
-  * [Update Gradle Plugin](https://public.moderne.io/recipes/org.openrewrite.gradle.plugins.UpgradePluginVersion) to keep build plugins up to date 
+  * [Update Gradle Wrapper](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper) to keep Gradle itself up to date
+  * [Update Gradle Plugin](https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.UpgradePluginVersion) to keep build plugins up to date 
 * Security enhancements and discovery
-  * [Find secrets](https://public.moderne.io/marketplace/org.openrewrite.java.security.secrets) like passwords, encryption keys, access tokens
-  * [Use secure random number generation](https://public.moderne.io/recipes/org.openrewrite.java.security.SecureRandom)
-  * [Java security best practices](https://public.moderne.io/recipes/org.openrewrite.java.security.JavaSecurityBestPractices)
+  * [Find secrets](https://app.moderne.io/marketplace/org.openrewrite.java.security.secrets) like passwords, encryption keys, access tokens
+  * [Use secure random number generation](https://app.moderne.io/recipes/org.openrewrite.java.security.SecureRandom)
+  * [Java security best practices](https://app.moderne.io/recipes/org.openrewrite.java.security.JavaSecurityBestPractices)
 * Modernize test frameworks
-  * [Junit 4 to 5 migration](https://public.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit4to5Migration)
-  * [Mockito 1 to 4 migration](https://public.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to4Migration)
-  * [Migrate JUnit assertions to AssertJ](https://public.moderne.io/recipes/org.openrewrite.java.testing.assertj.JUnitToAssertj) improved readability and consistency over stock JUnit assertions
+  * [Junit 4 to 5 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit4to5Migration)
+  * [Mockito 1 to 4 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to4Migration)
+  * [Migrate JUnit assertions to AssertJ](https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.JUnitToAssertj) improved readability and consistency over stock JUnit assertions
 * Major migrations
-  * [Java 8 to 11](https://public.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11)
-  * [Java 11 to 17](https://public.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava17)
-  * [Spring Boot 1 to 2](https://public.moderne.io/recipes/org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7)
-  * [Spring Boot 2 to 3](https://public.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0)
+  * [Java 8 to 11](https://app.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11)
+  * [Java 11 to 17](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava17)
+  * [Spring Boot 1 to 2](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7)
+  * [Spring Boot 2 to 3](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0)
 * Custom migrations. Custom recipes can be developed to help with internal platform API management, EJB to Spring migrations, etc. 
 
 Major migrations are complex transformations consisting of multiple individual recipes. At some point, these transformations represent one-off use cases and there are diminishing returns from trying to automate them fully. Mostly, they will lift your applications 80-90% of the way to completion with the remainder requiring some manual actions expected to be taken by developers.

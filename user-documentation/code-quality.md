@@ -13,13 +13,13 @@ To help you get a better understanding of how Moderne can help improve your code
 
 ## Fixing common static analysis issues
 
-Moderne's [Common static analysis recipe](https://public.moderne.io/recipes/org.openrewrite.java.cleanup.CommonStaticAnalysis) looks for and fixes over 50 different types of issues in your code, all of which you can easily enable or disable to meet your needs.
+Moderne's [Common static analysis recipe](https://app.moderne.io/recipes/org.openrewrite.java.cleanup.CommonStaticAnalysis) looks for and fixes over 50 different types of issues in your code, all of which you can easily enable or disable to meet your needs.
 
 To get to this recipe:
 
 * From the home page, click on `Catalog` in the top left corner. This will take you to the recipe catalog.
 * From there, click on `Java` and then `Cleanup`.
-*   At the top, you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly. Click on `More details` to be taken to [this](https://public.moderne.io/recipes/org.openrewrite.java.cleanup.CommonStaticAnalysis) page:
+*   At the top, you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly. Click on `More details` to be taken to [this](https://app.moderne.io/recipes/org.openrewrite.java.cleanup.CommonStaticAnalysis) page:
 
     ![](../.gitbook/assets/common-static-analysis-recipe.png)
 
