@@ -61,7 +61,7 @@ This will create and download a YAML file that contains all of the information n
 
 If you or someone on your team has previously created a recipe via the Recipe Builder, you can import it by following these instructions: 
 
-* Navigate to the [Recipe Builder page](https://public.moderne.io/recipes/builder).
+* Navigate to the [Recipe Builder page](https://app.moderne.io/recipes/builder).
 
 * Press the `Import YAML` button in the top right corner:
 

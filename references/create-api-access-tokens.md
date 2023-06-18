@@ -1,6 +1,6 @@
 # Creating a personal access token
 
-In order to use the [Moderne GraphQL API](https://api.public.moderne.io/), you will need to create a Personal Access Token.
+In order to use the [Moderne GraphQL API](https://api.app.moderne.io/), you will need to create a Personal Access Token.
 
 {% hint style="info" %}
 If you want to learn how to use an access token, please go to [Accessing the Moderne API](../user-documentation/accessing-the-moderne-api.md)
@@ -32,13 +32,13 @@ In this doc, you can find out:
 
 ## How to view your access tokens
 
-From the [access token](https://public.moderne.io/settings/access-token) page (where you previously created the token), you can see a list of all the tokens:
+From the [access token](https://app.moderne.io/settings/access-token) page (where you previously created the token), you can see a list of all the tokens:
 
 ![Access Token List](../.gitbook/assets/access-token-list.png)
 
 ## How to revoke an access token
 
-From the [access token](https://public.moderne.io/settings/access-token) page, click _Delete_ next to the token you wish to revoke:
+From the [access token](https://app.moderne.io/settings/access-token) page, click _Delete_ next to the token you wish to revoke:
 
 ![Delete Access Token](../.gitbook/assets/delete-access-token.png)
 

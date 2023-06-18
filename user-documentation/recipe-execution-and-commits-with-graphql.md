@@ -77,10 +77,10 @@ Please note that the `repositoryFilter` section will be null if you've selected 
 {% code overflow="wrap" %}
 ```shell
 curl --request POST
---url https://api.public.moderne.io/graphql
+--url https://api.app.moderne.io/graphql
 --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>'
 --header 'Content-Type: application/json'
---data '{"query":"# Moderne API: https://api.public.moderne.io/graphql\nmutation executeRecipe($input: RecipeRunInput!) {\nrunRecipe(run: $input) {\n id\n}\n}","variables":{"input":{"recipe":{"id":"org.openrewrite.gradle.plugins.UpgradePluginVersion","options":[{"name":"pluginIdPattern","value":"nebula.maven-nebula-publish"},{"name":"newVersion","value":"19"}]},"repositoryFilter":[{"branch":"main","origin":"github.com","path":"moderneinc/eureka-server"},{"branch":"main","origin":"github.com","path":"moderneinc/moderne-agent-model"},{"branch":"main","origin":"github.com","path":"moderneinc/moderne-agent"}]}},"operationName":"executeRecipe"}'
+--data '{"query":"# Moderne API: https://api.app.moderne.io/graphql\nmutation executeRecipe($input: RecipeRunInput!) {\nrunRecipe(run: $input) {\n id\n}\n}","variables":{"input":{"recipe":{"id":"org.openrewrite.gradle.plugins.UpgradePluginVersion","options":[{"name":"pluginIdPattern","value":"nebula.maven-nebula-publish"},{"name":"newVersion","value":"19"}]},"repositoryFilter":[{"branch":"main","origin":"github.com","path":"moderneinc/eureka-server"},{"branch":"main","origin":"github.com","path":"moderneinc/moderne-agent-model"},{"branch":"main","origin":"github.com","path":"moderneinc/moderne-agent"}]}},"operationName":"executeRecipe"}'
 ```
 {% endcode %}
 {% endtab %}
@@ -127,10 +127,10 @@ query runRecipeName($id: ID!) {
 {% code overflow="wrap" %}
 ```shell
 curl --request POST
---url https://api.public.moderne.io/graphql
+--url https://api.app.moderne.io/graphql
 --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>'
 --header 'Content-Type: application/json'
---data '{"query":"# Moderne API: https://api.public.moderne.io/graphql\nquery runRecipeName($id: ID!) {\n recipeRun(id: $id) {\n recipe {\n id\n name\n **typename\n }\n state\n **typename\n }\n}","variables":{"id":"sI1M0"},"operationName":"runRecipeName"}'
+--data '{"query":"# Moderne API: https://api.app.moderne.io/graphql\nquery runRecipeName($id: ID!) {\n recipeRun(id: $id) {\n recipe {\n id\n name\n **typename\n }\n state\n **typename\n }\n}","variables":{"id":"sI1M0"},"operationName":"runRecipeName"}'
 ```
 {% endcode %}
 {% endtab %}
@@ -201,7 +201,7 @@ query selectAllRepositoriesWithResults($id: ID!, $first: Int, $after: String) {
 {% code overflow="wrap" %}
 ```shell
 curl --request POST
---url https://api.public.moderne.io/graphql
+--url https://api.app.moderne.io/graphql
 --header 'Authorization: Bearer YOUR MODERNE TOKEN HERE'
 --header 'Content-Type: application/json'
 --data '{"query":"query selectAllRepositoriesWithResults($id: ID!, $first: Int, $after: String) {\n recipeRun(id: $id) {\n summaryResultsPages(\n first: $first\n after: $after\n filterBy: { onlyWithResults: true }\n ) {\n count\n pageInfo {\n hasNextPage\n endCursor\n }\n edges {\n node {\n repository {\n __typename\n origin\n path\n branch\n }\n state\n }\n }\n }\n\t}\n}","variables":{"id":"XHxCx"},"operationName":"selectAllRepositoriesWithResults"}'
@@ -316,7 +316,7 @@ mutation pullRequest {
 {% code overflow="wrap" %}
 ```shell
 curl --request POST
---url https://api.public.moderne.io/graphql
+--url https://api.app.moderne.io/graphql
 --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>'
 --header 'Content-Type: application/json'
 --data '{"query":"mutation pullRequest(\n $commitInput: CommitInput!\n $pullRequestTitle: String\n $pullRequestBody: Base64\n $isDraft: Boolean! = false\n) {\n commit: pullRequest(\n commit: $commitInput\n pullRequestTitle: $pullRequestTitle\n pullRequestBody: $pullRequestBody\n draft: $isDraft\n scmAccessToken: $scmPersonalAccessToken) {\n id\n started\n email\n completed\n summaryResults {\n count\n successfulCount\n failedCount\n noChangeCount\n **typename\n }\n **typename\n }\n}","variables":{"isDraft":false,"commitInput":{"recipeRunId":"Dxvsv","branchName":"refactor/update-a-gradle-plugin-by-id","message":"refactor: Update a Gradle plugin by id","repositories":[{"branch":"master","origin":"github.com","path":"gradle/gradle-checksum"},{"branch":"master","origin":"github.com","path":"gradle-nexus/publish-plugin"}]},"pullRequestTitle":"refactor: Update a Gradle plugin by id","pullRequestBody":"refactor: Update a Gradle plugin by id", "scmPersonalAccessToken": "MY_SCM_PERSONAL_ACCESS_TOKEN"},"operationName":"pullRequest"}'
@@ -431,7 +431,7 @@ query commitJob(
 {% code overflow="wrap" %}
 ```shell
 curl --request POST \
-  --url https://api.public.moderne.io/graphql \
+  --url https://api.app.moderne.io/graphql \
   --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \
   --header 'Content-Type: application/json' \
   --data '{"query":"query commitJob(\n  $id: ID!\n  $first: Int = 50\n  $after: String\n  $filterBy: CommitJobFilterInput\n  $orderBy: CommitJobOrderInput\n) {\n  commitJob(id: $id) {\n    id\n    started\n    email\n    completed\n    summaryResults {\n      count\n      successfulCount\n      failedCount\n      noChangeCount\n      __typename\n    }\n    __typename\n    recipeRunId\n    message\n    extendedMessage\n    options {\n      ... on PullRequestOptions {\n        branchName\n        draft\n        pullRequestBody\n        pullRequestTitle\n        __typename\n      }\n      __typename\n    }\n    started\n    commits(\n      first: $first\n      after: $after\n      filterBy: $filterBy\n      orderBy: $orderBy\n    ) {\n      pageInfo {\n        hasNextPage\n        endCursor\n        __typename\n      }\n      count\n      edges {\n        node {\n          state\n          stateMessage\n          modified\n          repository {\n            origin\n            path\n            branch\n            ... on GitHubRepository {\n              organization\n              name\n              ingested\n              __typename\n            }\n            __typename\n          }\n          resultLink\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n","variables":{"first":50,"id":"c83315a1-397f-44cb-9ef2-9a2ca195dda6"},"operationName":"commitJob"}'

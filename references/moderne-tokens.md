@@ -38,7 +38,7 @@ Login tokens expire after one hour.
 
 ## Personal Access Tokens
 
-Personal access tokens are used to make queries against the [Moderne GraphQL API](https://api.public.moderne.io/).
+Personal access tokens are used to make queries against the [Moderne GraphQL API](https://api.app.moderne.io/).
 
 ### Permissions
 

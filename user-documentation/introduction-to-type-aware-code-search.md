@@ -13,7 +13,7 @@ To help you get accustomed to Moderne's search capabilities, in this guide, we w
 
 As an example, let's say that you are wanting to find all of the places where your team is using the `createFile` method from `java.nio.file.Files`. If you searched for `createFile` in GitHub, you might end up with a ton of irrelevant results as this is a fairly common method name. To find results that match the method name _and_ are from the correct library, please follow these steps:
 
-*   From the [Java Search](https://public.moderne.io/marketplace/org.openrewrite.java.search) page, scroll down and click on `Find method usages`:
+*   From the [Java Search](https://app.moderne.io/marketplace/org.openrewrite.java.search) page, scroll down and click on `Find method usages`:
 
     ![](../.gitbook/assets/find-method-usage-empty.png)
 * (Optionally) [Filter down to a specific group of repositories](../references/managing-repository-groups.md#how-to-create-a-repository-group).
@@ -42,7 +42,7 @@ From there, you can make intelligent decisions about the code. For instance, may
 
 To discover all of the type-aware search recipes, please follow these steps:
 
-*   From the [Moderne Marketplace](https://public.moderne.io/marketplace), click on a category that relates to your needs such as `Java`:
+*   From the [Moderne Marketplace](https://app.moderne.io/marketplace), click on a category that relates to your needs such as `Java`:
 
     ![](../.gitbook/assets/moderne-catalog.png)
 *   Click on `Search`:

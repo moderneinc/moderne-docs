@@ -15,7 +15,7 @@ In this guide, we will:
 
 If you're an enterprise user, you'll need to navigate to and sign in with the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-optionally-select-an-organization).
 
-If you're not an enterprise user, go to [https://public.moderne.io](https://public.moderne.io) and press "Sign-in with GitHub" as seen below:
+If you're not an enterprise user, go to [https://app.moderne.io](https://app.moderne.io) and press "Sign-in with GitHub" as seen below:
 
 <figure><img src="../.gitbook/assets/GitHubLogin.png" alt="Moderne Login Button"><figcaption></figcaption></figure>
 
@@ -31,7 +31,7 @@ For a better understanding of the permissions requested, please see [GitHub Perm
 
 ## Step 3: (Optionally) select an organization
 
-After you've logged in and granted the appropriate permissions, you'll arrive at the [Moderne home page](https://public.moderne.io/).
+After you've logged in and granted the appropriate permissions, you'll arrive at the [Moderne home page](https://app.moderne.io/).
 
 If you went to run a recipe right now, you would find that some repositories are already selected to run against. In public Moderne, the `Default` organization is selected (a diverse selection of open-source repositories). In an enterprise instance of Moderne, the `All` organization is _typically_ selected instead (meaning a recipe would run against every repository in your organization).
 
@@ -51,8 +51,8 @@ This will take you to a page that lists all of the recipe categories:
 
 Let's find a good recipe to start from to help illustrate how to search across multiple repositories.
 
-1. From the [Marketplace](https://public.moderne.io/marketplace), click on [Java](https://public.moderne.io/marketplace/org.openrewrite.java) from the list of categories.
-2. Select the [Cleanup](https://public.moderne.io/marketplace/org.openrewrite.java.cleanup) sub-category.
+1. From the [Marketplace](https://app.moderne.io/marketplace), click on [Java](https://app.moderne.io/marketplace/org.openrewrite.java) from the list of categories.
+2. Select the [Cleanup](https://app.moderne.io/marketplace/org.openrewrite.java.cleanup) sub-category.
 3. Click on the `Common static analysis issues` recipe.
 
 ## Step 6: Run the recipe
@@ -77,7 +77,7 @@ The resulting diff allows you to preview the changes from the recipe before you 
 
 If you're unsure why something changed, you can click on the three dots (`...`) at the top right of any file and select `Why did this change?`
 
-For instance, in the above example, `= null` was removed due to the [Explicit initialization rule](https://public.moderne.io/recipes/org.openrewrite.java.cleanup.ExplicitInitialization).
+For instance, in the above example, `= null` was removed due to the [Explicit initialization rule](https://app.moderne.io/recipes/org.openrewrite.java.cleanup.ExplicitInitialization).
 
 ## Step 8: Commit your changes
 
