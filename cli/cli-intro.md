@@ -32,7 +32,7 @@ To install the Moderne CLI please:
 
    ![](../.gitbook/assets/mod-cli.png)
 
-6. Before you can run the `run` command, you'll need to create a Moderne Access
+6. Before you can run the `run` or `download` command, you'll need to create a Moderne Access
    Token. Go to
    [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token),
    enter a name for the token, and press `generate`.
@@ -137,6 +137,10 @@ git diff
 You've now successfully used the Moderne CLI to migrate a project from Spring Boot 2 to 3!
 
 ## Commands
+
+For more details about the Moderne CLI and each of the commands, check out the [Moderne man pages](https://moderneinc.github.io/moderne-cli/).
+
+Below, we'll provide some context for the core commands.
 
 * [Build](cli-intro.md#build)
 * [Publish](cli-intro.md#publish)
