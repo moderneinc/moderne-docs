@@ -1,8 +1,12 @@
 # Getting started with the Moderne CLI
 
-The Moderne CLI is a command line tool that simplifies the process of building and publishing [Lossless Semantic Tree](https://docs.moderne.io/concepts/lossless-semantic-trees) (LST) artifacts to your artifact repository. Instead of having to manually set up each repository individually, you can use the CLI to configure thousands of repositories at once.
+The Moderne CLI is a command line tool that simplifies the process of building and publishing [Lossless Semantic Tree](https://docs.moderne.io/concepts/lossless-semantic-trees) (LST) artifacts to your artifact repository. Instead of having to manually set up each repository individually, you can use the Moderne CLI to configure thousands of repositories at once.
 
-In this guide, we'll explain [how to install the CLI](#installation) and then help you get familiar with it by walking through [how to migrate a sample repository from Spring Boot 2 to 3](#using-the-cli). At the end, we'll [provide more details](#commands) for each command in case you want to learn more.
+To ensure you can use the Moderne CLI successfully, in this guide, we will:
+
+* [Explain how to install the Moderne CLI](#installation) 
+* [Help you get familiar with the Moderne CLI by walking through how to migrate a sample repository from Spring Boot 2 to 3](#using-the-moderne-cli)
+* [Provide more details for each command in case you want to learn more](#commands) 
 
 ## Installation
 
@@ -18,12 +22,12 @@ To install the Moderne CLI please:
 
     ![](../.gitbook/assets/cli-download2.png)
 
-4. Regardless of how you downloaded the CLI, you'll need to save it somewhere
+4. Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere
    that your terminal can access. This could involve updating your `PATH` to
    point to a specific location or this could involve putting it in a directory
    that's already on your `PATH` such as a `/usr/bin` directory.
 
-5. Ensure you can run the CLI by typing `mod help`. If everything is set up
+5. Ensure you can run the Moderne CLI by typing `mod help`. If everything is set up
    correctly, you should see a list of commands:
 
    ![](../.gitbook/assets/mod-cli.png)
@@ -41,7 +45,7 @@ To install the Moderne CLI please:
 export MODERNE_ACCESS_TOKEN="mat-YOUR_TOKEN_HERE"
 ```
 
-## Using the CLI
+## Using the Moderne CLI
 
 Imagine that you want to migrate a repository from Spring Boot 2 to Spring Boot 3, but you don't want to configure any build plugins or have to deal with modifying your repository. Let's walk through how you can use the Moderne CLI to do that by running the CLI on a sample repository.
 
@@ -66,10 +70,10 @@ git checkout b527de52f5fd19f9fe550372c017d145a3b2a809
    download Java 8 and update your `JAVA_HOME` environment variable. If you are
    on a Unix-based system, we recommend using [SDKMan](https://sdkman.io/):
 
-   ```shell
-   sdk install java 8.0.372-tem
-   sdk use java 8.0.372-tem
-   ```
+```shell
+sdk install java 8.0.372-tem
+sdk use java 8.0.372-tem
+```
 
   * If you want to use `sdk` and the `java 8.0.372-tem` distribution 
     is not available for you, select any distribution that represents a Java 8 version.
@@ -77,9 +81,9 @@ git checkout b527de52f5fd19f9fe550372c017d145a3b2a809
   * If you aren't on a Unix-based system or you don't want to install SDKMan,
     you'll need to install Java 8 and run something like:
 
-   ```shell
-   export JAVA_HOME=REPLACE_FOR_LOCATION_OF_JAVA_8
-   ```
+```shell
+export JAVA_HOME=REPLACE_FOR_LOCATION_OF_JAVA_8
+```
 
 4. With Java 8 configured, make sure that the Spring PetClinic repository builds
    on your machine:
@@ -130,7 +134,7 @@ mod run --path . --recipeName org.openrewrite.java.spring.boot3.UpgradeSpringBoo
 git diff
 ```
 
-You've now successfully used the CLI to migrate a project from Spring Boot 2 to 3!
+You've now successfully used the Moderne CLI to migrate a project from Spring Boot 2 to 3!
 
 ## Commands
 
