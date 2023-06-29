@@ -184,9 +184,9 @@ In the `pom.xml` or `build.gradle` file, add this entry to the `plugins` section
       <plugin>
         <groupId>io.moderne</groupId>
         <artifactId>moderne-maven-plugin</artifactId>
-        <version>0.41.0</version>
+        <version>1.3.1</version>
         <configuration>
-          <!-- Supports all of the same functionality as the OpenRewrite plugin -->
+          <!-- Supports the same functionality as the OpenRewrite plugin -->
           <activeRecipes>
             <recipe>org.openrewrite.java.cleanup.CommonStaticAnalysis</recipe>
           </activeRecipes>
@@ -209,7 +209,7 @@ In the `pom.xml` or `build.gradle` file, add this entry to the `plugins` section
 {% code title="build.gradle" %}
 ```groovy
 plugins {
-    id("io.moderne.rewrite") version("0.38.6")
+    id("io.moderne.rewrite") version("1.0.14")
 }
 
 // OpenRewrite and recipe modules are published to Maven Central
@@ -251,7 +251,7 @@ Each project the plugin is applied to will have a `Jar` task named `moderneJar` 
 {% code title="single project build" %}
 ```groovy
 plugins {
-    id("io.moderne.rewrite") version("0.38.6")
+    id("io.moderne.rewrite") version("1.0.14")
     id("maven-publish")
 }
 
@@ -259,11 +259,9 @@ publishing {
     repositories {
         // your repository configuration
     }
-    publishing {
-        publications {
-            create("moderne", MavenPublication.class) {
-                artifact(tasks.named("moderneJar"))
-            }
+    publications {
+        create("moderne", MavenPublication.class) {
+            artifact(tasks.named("moderneJar"))
         }
     }
 }
