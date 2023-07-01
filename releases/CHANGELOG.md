@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.112.1 (2023/07/01)
+
+- add dependency resolution time and worker name to recipe run summary
+
 ### UI v9.112.0 (2023/06/29)
 
 - Bug fixes and other improvements.
