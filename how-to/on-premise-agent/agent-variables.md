@@ -456,8 +456,8 @@ The platform provides several fallback repositories for recipe loading when an a
 - `MODERNE_AGENT_RECIPE_USEONLYCONFIGURED` – Only use the recipe sources configured in the agent.
 - `MODERNE_AGENT_RECIPE_POMCACHE_TYPE` – _(Optional) Specify what type of cache to use for POM. Acceptable values: IN_MEMORY, REDIS._
 - `MODERNE_AGENT_RECIPE_POMCACHE_ENTRYTTLMINUTES` – _(Optional) TTL for entries in POM cache._
-- `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_HOST` – _(Required if pom cache type is set to `REDOS` otherwise Optional) URL for Redis instance for POM cache._
-- `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_PORT` – _(Required if pom cache type is set to `REDOS` otherwise Optional) Port number for Redis instance for POM cache._
+- `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_HOST` – _(Required if pom cache type is set to `REDIS` otherwise Optional) URL for Redis instance for POM cache._
+- `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_PORT` – _(Required if pom cache type is set to `REDIS` otherwise Optional) Port number for Redis instance for POM cache._
 - `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_USERNAME` – _(Optional) User name to authenticate connection to Redis instance for POM cache._
 - `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_PASSWORD` – _(Optional) User password to authenticate connection to Redis instance for POM cache._
 - `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_SSL` – _(Optional) Specify whether use SSL connection to Redis instance for POM cache._
@@ -480,8 +480,8 @@ docker run \
 - `--moderne.agent.recipe.useOnlyConfigured` – Only use the recipe sources configured in the agent.
 - `--moderne.agent.recipe.pomCache.type` – _(Optional) Specify what type of cache to use for POM. Acceptable values: IN_MEMORY, REDIS._
 - `--moderne.agent.recipe.pomCache.entryTtlMinutes` – _(Optional) TTL for entries in POM cache._
-- `--moderne.agent.recipe.pomCache.redis.host` – _(Required if pom cache type is set to `REDOS` otherwise Optional) URL for Redis instance for POM cache._
-- `--moderne.agent.recipe.pomCache.redis.port` – _(Required if pom cache type is set to `REDOS` otherwise Optional) Port number for Redis instance for POM cache._
+- `--moderne.agent.recipe.pomCache.redis.host` – _(Required if pom cache type is set to `REDIS` otherwise Optional) URL for Redis instance for POM cache._
+- `--moderne.agent.recipe.pomCache.redis.port` – _(Required if pom cache type is set to `REDIS` otherwise Optional) Port number for Redis instance for POM cache._
 - `--moderne.agent.recipe.pomCache.redis.username` – _(Optional) User name to authenticate connection to Redis instance for POM cache._
 - `--moderne.agent.recipe.pomCache.redis.password` – _(Optional) User password to authenticate connection to Redis instance for POM cache._
 - `--moderne.agent.recipe.pomCache.redis.ssl` – _(Optional) Specify whether use SSL connection to Redis instance for POM cache._
