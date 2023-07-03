@@ -51,7 +51,7 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.nickname=prod-1 \
 --moderne.agent.token=yourToken \
 --moderne.agent.defaultCommitOptions[0]=PullRequest \
---moderne.agent.defaultCommitOptions[0]=ForkAndPullRequest \
+--moderne.agent.defaultCommitOptions[1]=ForkAndPullRequest \
 # ... Additional arguments
 ```
 
