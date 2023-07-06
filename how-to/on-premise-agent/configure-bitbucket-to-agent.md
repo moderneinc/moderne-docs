@@ -91,7 +91,13 @@ You can configure multiple Bitbucket instances by including multiple entries, ea
 
 * `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY` – _The private key you configured for this Bitbucket instance._
 * `MODERNE_AGENT_BITBUCKET_{index}_URL` – _The fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`_
-* `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `MODERNE_AGENT_BITBUCKET_{index}_ALTERNATEURLS_{index}` – _(Optional) The list of alternative fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`_
+* `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `MODERNE_AGENT_BITBUCKET_{index}_SSH_PRIVATEKEY` – _(Optional) The SSH private key used to establish a SSH connection with Bitbucket._
+* `MODERNE_AGENT_BITBUCKET_{index}_SSH_PASSPHRASE` – _(Required if the SSH private key is specified and encrypted with a passphrase) The passphrase used to encrypt the SSH private key._
+* `MODERNE_AGENT_BITBUCKET_{index}_SSH_SSHFILENAME` – _(Required if the SSH private key is specified) The file name of the private key, which the agent will store locally._
+* `MODERNE_AGENT_BITBUCKET_{index}_SSH_USER` – _(Required if the SSH private key is specified) The username used for SSH communication with Bitbucket._
+* `MODERNE_AGENT_BITBUCKET_{index}_SSH_PORT` – _(Optional) The port used to communicate via SSH with Bitbucket. Defaults to `7999`._
 
 **Example:**
 
@@ -110,7 +116,13 @@ docker run \
 
 * `--moderne.agent.bitbucket[{index}].privateKey` – _The private key you configured for this Bitbucket instance._
 * `--moderne.agent.bitbucket[{index}].url` – _The fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`_
-* `--moderne.agent.bitbucket[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `--moderne.agent.bitbucket[{index}].alternateUrls[{index}]` – _(Optional) The list of alternative fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`_
+* `--moderne.agent.bitbucket[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `--moderne.agent.bitbucket[{index}].ssh.privateKey` – _(Optional) The SSH private key used to establish a SSH connection with Bitbucket._
+* `--moderne.agent.bitbucket[{index}].ssh.passphrase` – _(Required if the SSH private key is specified and encrypted with a passphrase) The passphrase used to encrypt the SSH private key._
+* `--moderne.agent.bitbucket[{index}].ssh.sshFileName` – _(Required if the SSH private key is specified) The file name of the private key, which the agent will store locally._
+* `--moderne.agent.bitbucket[{index}].ssh.user` – _(Required if the SSH private key is specified) The username used for SSH communication with Bitbucket._
+* `--moderne.agent.bitbucket[{index}].ssh.port` – _(Optional) The port used to communicate via SSH with Bitbucket. Defaults to `7999`._
 
 **Example:**
 

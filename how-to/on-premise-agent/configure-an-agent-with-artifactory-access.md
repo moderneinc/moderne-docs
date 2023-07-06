@@ -27,7 +27,7 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 * `MODERNE_AGENT_ARTIFACTORY_{index}_USERNAME` – _The username used to connect to your Artifactory instance. This user _must_ have permission to run AQL queries._
 * `MODERNE_AGENT_ARTIFACTORY_{index}_PASSWORD` – _The password used to connect to your Artifactory instance._
 * `MODERNE_AGENT_ARTIFACTORY_{index}_ASTQUERYFILTERS_{index}` – _The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`._
-* `MODERNE_AGENT_ARTIFACTORY_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `MODERNE_AGENT_ARTIFACTORY_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
 
@@ -51,7 +51,7 @@ docker run \
 * `--moderne.agent.artifactory[{index}].username` – _The username used to connect to your Artifactory instance. This user _must_ have permission to run AQL queries._
 * `--moderne.agent.artifactory[{index}].password` – _The password used to connect to your Artifactory instance._
 * `--moderne.agent.artifactory[{index}].astQueryFilters[{index}]` – _The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`._
-* `--moderne.agent.artifactory[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `--moderne.agent.artifactory[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
 

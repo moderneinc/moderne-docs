@@ -54,9 +54,14 @@ You can configure multiple GitHub OAuth apps by including multiple entries, each
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_CLIENTID` – _The client id configured in GitHub._
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_CLIENTSECRET` – _The client secret configured in GitHub._
 * `MODERNE_AGENT_GITHUB_{index}_URL` – _The fully-qualified hostname of the running GitHub instance._
-* `MODERNE_AGENT_GITHUB_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to false._
+* `MODERNE_AGENT_GITHUB_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to false._
 * `MODERNE_AGENT_GITHUB_{index}_ALLOWABLE_ORGANIZATIONS_{index}` – _(Optional) Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line._
 * `MODERNE_AGENT_GITHUB_{index}_OAUTH_INCLUDEPRIVATEREPOS` – _(Optional) By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`._
+* `MODERNE_AGENT_GITHUB_{index}_SSH_PRIVATEKEY` – _(Optional) The SSH private key used to establish a SSH connection with GitHub._
+* `MODERNE_AGENT_GITHUB_{index}_SSH_PASSPHRASE` – **(Required if the SSH private key is specified and encrypted with a passphrase)** _The passphrase used to encrypt the SSH private key._
+* `MODERNE_AGENT_GITHUB_{index}_SSH_SSHFILENAME` – **(Required if the SSH private key is specified)** _The file name of the private key, which the agent will store locally._
+* `MODERNE_AGENT_GITHUB_{index}_SSH_USER` – **(Required if the SSH private key is specified)** _The username used for SSH communication with GitHub._
+* `MODERNE_AGENT_GITHUB_{index}_SSH_PORT` – _(Optional) The port used to communicate via SSH with GitHub. Defaults to `7999`._
 
 **Example:**
 
@@ -79,9 +84,14 @@ docker run \
 * `--moderne.agent.github[{index}].oauth.clientId` – _The client id configured in GitHub._
 * `--moderne.agent.github[{index}].oauth.clientSecret` – _The client secret configured in GitHub._
 * `--moderne.agent.github[{index}].url` – _The fully-qualified hostname of the running GitHub instance._
-* `--moderne.agent.github[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to false._
+* `--moderne.agent.github[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to false._
 * `--moderne.agent.github[{index}].allowableOrganizations[{index}]` – _(Optional) Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line._
 * `--moderne_agent_github[{index}].oauth.includePrivateRepos` – _(Optional) By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`._
+* `--moderne.agent.github[{index}].ssh.privateKey` – _(Optional) The SSH private key used to establish a SSH connection with GitHub._
+* `--moderne.agent.github[{index}].ssh.passphrase` – **(Required if the SSH private key is specified and encrypted with a passphrase)** _The passphrase used to encrypt the SSH private key._
+* `--moderne.agent.github[{index}].ssh.sshFileName` – **(Required if the SSH private key is specified)** _The file name of the private key, which the agent will store locally._
+* `--moderne.agent.github[{index}].ssh.user` – **(Required if the SSH private key is specified)** _The username used for SSH communication with GitHub._
+* `--moderne.agent.github[{index}].ssh.port` – _(Optional) The port used to communicate via SSH with GitHub. Defaults to `7999`._
 
 **Example:**
 

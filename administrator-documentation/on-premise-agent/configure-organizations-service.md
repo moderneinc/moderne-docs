@@ -8,6 +8,7 @@ In order for Moderne to obtain information about your organizational structure, 
 
 * `MODERNE_AGENT_ORGANIZATION_URL` – _The URL of your GraphQL service that provides organization information._
 * `MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS` – _(Optional) Specifies how often to request your organization information. Defaults to `600` (10 minutes)._
+* `MODERNE_AGENT_ORGANIZATION_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
 
@@ -25,6 +26,7 @@ docker run \
 
 * `--moderne.agent.organization.url` – _The URL of your GraphQL service that provides organization information._
 * `--moderne.agent.organization.updateIntervalSeconds` – _(Optional) Specifies how often to request your organization information. Defaults to `600` (10 minutes)._
+* `--moderne.agent.organization.skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
 
