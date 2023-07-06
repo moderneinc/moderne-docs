@@ -98,16 +98,19 @@ java -jar moderne-agent-{version}.jar \
 
 ### Step 4: Configure the agent with the core variables/arguments
 
-There are four variables/arguments that must be configured for all agents:
+All agents must be configured with the variables listed as required below:
 
 {% tabs %}
 {% tab title="OCI Container" %}
 **Variables:**
 
-* `MODERNE_AGENT_APIGATEWAYRSOCKETURI` – _The URI used to connect to the Moderne API, provided by Moderne._
-* `MODERNE_AGENT_CRYPTO_SYMMETRICKEY` – _A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts._
-* `MODERNE_AGENT_NICKNAME` – _A name used to identify your agent in the SaaS agent dashboard UI._
-* `MODERNE_AGENT_TOKEN` – _The Moderne SaaS agent connection token, provided by Moderne._
+* `MODERNE_AGENT_APIGATEWAYRSOCKETURI` – **(Required)** _The URI used to connect to the Moderne API, provided by Moderne._
+* `MODERNE_AGENT_CRYPTO_SYMMETRICKEY` – **(Required)** _A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts._
+* `MODERNE_AGENT_NICKNAME` – **(Required)** _A name used to identify your agent in the SaaS agent dashboard UI._
+* `MODERNE_AGENT_TOKEN` – **(Required)** _The Moderne SaaS agent connection token, provided by Moderne._
+* `MODERNE_AGENT_DOWNLOADPARALLELISM` – _(Optional) How many threads are used to download LSTs. Defaults to `2` threads._
+* `MODERNE_AGENT_ARTIFACTINDEXINTERVALSECONDS` – _(Optional) How frequently LSTs will be indexed. Defaults to `120` seconds._
+* `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` – _(Optional) Use to restrict which commit options are available on a tenant level (if the organizations service doesn't return any). Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. By default all options are available._
 
 **Example:**
 
@@ -117,6 +120,8 @@ docker run \
 -e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
 -e MODERNE_AGENT_NICKNAME=prod-1 \
 -e MODERNE_AGENT_TOKEN=yourToken \
+-e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_0=PullRequest \
+-e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_1=ForkAndPullRequest \
 # ... Additional variables
 -p 8080:8080
 moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
@@ -126,10 +131,13 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 {% tab title="Executable JAR" %}
 **Arguments:**
 
-* `--moderne.agent.apiGatewayRsocketUri` – _The URI used to connect to the Moderne API, provided by Moderne._
-* `--moderne.agent.crypto.symmetricKey` – _A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts._
-* `--moderne.agent.nickname` – _A name used to identify your agent in the SaaS agent dashboard UI._
-* `--moderne.agent.token` – _The Moderne SaaS agent connection token, provided by Moderne._
+* `--moderne.agent.apiGatewayRsocketUri` – **(Required)** _The URI used to connect to the Moderne API, provided by Moderne._
+* `--moderne.agent.crypto.symmetricKey` – **(Required)** _A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts._
+* `--moderne.agent.nickname` – **(Required)** _A name used to identify your agent in the SaaS agent dashboard UI._
+* `--moderne.agent.token` – **(Required)** _The Moderne SaaS agent connection token, provided by Moderne._
+* `--moderne.agent.downloadParallelism` – _(Optional) How many threads are used to download LSTs. Defaults to `2` threads._
+* `--moderne.agent.artifactIndexIntervalSeconds` – _(Optional) How frequently LSTs will be indexed. Defaults to `120` seconds._
+* `--moderne.agent.defaultCommitOptions[{index}]` – _(Optional) Use to restrict which commit options are available on a tenant level (if the organizations service doesn't return any). Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. By default all options are available._
 
 **Example:**
 
@@ -139,6 +147,8 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.crypto.symmetricKey=yourSymmetricKey
 --moderne.agent.nickname=prod-1 \
 --moderne.agent.token=yourToken \
+--moderne.agent.defaultCommitOptions[0]=PullRequest \
+--moderne.agent.defaultCommitOptions[1]=ForkAndPullRequest \
 # ... Additional arguments
 ```
 {% endtab %}
