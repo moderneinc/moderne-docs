@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.115.0 (2023/07/07)
+
+- remove home page and strengths tab
+
 ### UI v9.114.3 (2023/07/06)
 
 - Bug fixes and other improvements.
