@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.116.0 (2023/07/07)
+
+- add welcome banner to marketplace
+
 ### UI v9.115.0 (2023/07/07)
 
 - remove home page and strengths tab
