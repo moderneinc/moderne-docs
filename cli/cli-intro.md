@@ -136,7 +136,7 @@ git diff
 
 You've now successfully used the Moderne CLI to migrate a project from Spring Boot 2 to 3!
 
-## Run a recipe on a remote LST
+### Run a recipe on a remote LST
 
 In the previous example, we used the Moderne CLI to run a recipe against a repository on your local machine. This is fine when you only have one repository you're working with. However, what if you wanted to run a recipe against many repositories at once? Checking them out locally, building each of them, and then running a separate run command for each would take a considerable amount of time.
 
