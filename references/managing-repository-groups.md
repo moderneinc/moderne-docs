@@ -26,12 +26,12 @@ To help you get started with repository groups, in this guide you will learn:
 
 5.  Once you've entered a name for the group, it's time to select the repositories you want to be included in this group. You can use the search box to look for repositories that contain your search term anywhere in their origin, organization, name or branch. If you want a more specific filter, you can press the `Filter` button and enter a specific filter for one of the columns. At this time, it's not currently possible to filter on multiple columns.
 
-6.  When you've finished adding the filter, press the `>>` arrows in the middle of the screen to confirm your selection:
+6.  When you've finished adding the filter, you can select all of the repositories to add by clicking on the checkbox at the top or you can select individual repositories by clicking on the checkbox next to the repositories you want.
 
-    ![](../.gitbook/assets/repo-group-6.png)
-7.  Next, click on the `Save` button in the bottom right to create the group. You will be redirected to a page that displays all of your repository groups:
+7.  Once you've selected all the repositories you want to be in the group, click on the `Save` button in the bottom right to create the group. You will be redirected to a page that displays all of your repository groups:
 
     ![](../.gitbook/assets/repo-group-7.png)
+
 8.  Now, when you go to run any recipe, you can click on the group name in the top right corner of the screen to select which repository group you want to run the recipe on:
 
     ![](../.gitbook/assets/repo-group-8.png)
