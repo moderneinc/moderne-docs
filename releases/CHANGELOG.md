@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.117.0 (2023/07/10)
+
+- Bug fixes and other improvements.
+
 ### UI v9.116.0 (2023/07/07)
 
 - add welcome banner to marketplace
