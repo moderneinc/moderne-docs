@@ -13,19 +13,20 @@ To help you get started with repository groups, in this guide you will learn:
 1.  In the top right corner of the Moderne home page, you will see some text to the left of your avatar that says `Default`:
 
     ![](../.gitbook/assets/repo-group-1.png)
+
 2.  If you click on that, the organization and repository group menu will appear:
 
     ![](../.gitbook/assets/repo-group-2.png)
+
 3.  Press the `Create` link listed below the organizations. You will be taken to the repository group creation page:
 
     ![](../.gitbook/assets/repo-group-3.png)
+
 4. At the top, you should enter a descriptive name for the group. This will be the identifier you'll see when you go to select which group you want to run a recipe on.
-5.  Once you've entered a name, it's time to select the repositories you want to be included in this group. You can filter which repositories to add to your group by pressing the `Add Filter` button.
 
-    * Please note that you can add more than one filter. If you do, the filters are additive — meaning that if you select both `openrewrite` and `moderne`, you will get all repositories that belong to either one of those organizations:
+5.  Once you've entered a name for the group, it's time to select the repositories you want to be included in this group. You can use the search box to look for repositories that contain your search term anywhere in their origin, organization, name or branch. If you want a more specific filter, you can press the `Filter` button and enter a specific filter for one of the columns. At this time, it's not currently possible to filter on multiple columns.
 
-    ![](../.gitbook/assets/repo-group-5.png)
-6.  When you've finished adding filters, press the `>>` arrows in the middle of the screen to confirm your selection:
+6.  When you've finished adding the filter, press the `>>` arrows in the middle of the screen to confirm your selection:
 
     ![](../.gitbook/assets/repo-group-6.png)
 7.  Next, click on the `Save` button in the bottom right to create the group. You will be redirected to a page that displays all of your repository groups:
