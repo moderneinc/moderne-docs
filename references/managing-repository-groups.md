@@ -24,9 +24,9 @@ To help you get started with repository groups, in this guide you will learn:
 
 4. At the top, you should enter a descriptive name for the group. This will be the identifier you'll see when you go to select which group you want to run a recipe on.
 
-5.  Once you've entered a name for the group, it's time to select the repositories you want to be included in this group. You can use the search box to look for repositories that contain your search term anywhere in their origin, organization, name or branch. If you want a more specific filter, you can press the `Filter` button and enter a specific filter for one of the columns. At this time, it's not currently possible to filter on multiple columns.
+5.  Once you've entered a name for the group, it's time to select the repositories you want to be included in this group. You can use the search box to look for repositories that contain your search term anywhere in their origin, organization, name or branch.
 
-6.  When you've finished adding the filter, you can select all of the repositories to add by clicking on the checkbox at the top or you can select individual repositories by clicking on the checkbox next to the repositories you want.
+6.  When you've finished searching for the repositories you want in the group, you can select all of the repositories to add by clicking on the checkbox at the top or you can select individual repositories by clicking on the checkbox next to each repository.
 
 7.  Once you've selected all the repositories you want to be in the group, click on the `Save` button in the bottom right to create the group. You will be redirected to a page that displays all of your repository groups:
 
