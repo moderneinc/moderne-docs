@@ -47,6 +47,7 @@
   * [Routing requests to agents](references/routing-requests-to-agents.md)
   * [How LST artifacts are produced](references/how-ast-artifacts-are-produced.md)
   * [Docker configuration for agent](references/docker-configuration-for-agent.md)
+  * [Supported languages](references/supported-languages.md)
 * [Concepts](concepts/concepts.md)
   * [Lossless semantic trees](concepts/lossless-semantic-trees.md)
 * [Legal](legal/legal.md)
