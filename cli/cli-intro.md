@@ -43,7 +43,7 @@ To install the Moderne CLI please:
    * In the `MODERNE_ACCESS_TOKEN` environment variable
    * In the `~/.moderne/token.txt` location of your system
 
-   When you generated the token, the Moderne UI will provide you with a command that you can copy and run in the command line to save the token to the `token.txt` file. 
+   When you generated the token, the Moderne UI will provide you with a command that you can copy and run in the command line to save the token to the `token.txt` file. Feel free to use that or one of the above options.
 
 ## Using the Moderne CLI
 
