@@ -37,13 +37,13 @@ To install the Moderne CLI please:
    [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token),
    enter a name for the token, and press `generate`.
 
-7. Once created, you should see a command that you can run to install the token
-   on your system. Either run that command or export your token directly as an
-   environment variable:
+7. The Moderne CLI will look for the access token in this order:
 
-```shell
-export MODERNE_ACCESS_TOKEN="mat-YOUR_TOKEN_HERE"
-```
+   * In the `-accessToken` param specified in the command
+   * In the `MODERNE_ACCESS_TOKEN` environment variable
+   * In the `~/.moderne/token.txt` location of your system
+
+   When you generated the token, the Moderne UI will provide you with a command that you can copy and run in the command line to save the token to the `token.txt` file. 
 
 ## Using the Moderne CLI
 
