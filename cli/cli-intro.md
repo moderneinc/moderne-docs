@@ -39,7 +39,7 @@ To install the Moderne CLI please:
 
 7. The Moderne CLI will look for the access token in this order:
 
-   * In the `-accessToken` param specified in the command
+   * In the `--accessToken` param specified in the command
    * In the `MODERNE_ACCESS_TOKEN` environment variable
    * In the `~/.moderne/token.txt` location of your system
 
