@@ -29,6 +29,7 @@
   * [Proof of value process](how-to/proof-of-value.md)
 * [Moderne CLI](cli/moderne-cli.md)
   * [Getting started with the Moderne CLI](cli/cli-intro.md)
+  * [Moderne CLI man pages](cli/cli-reference.md)
 * [Releases](releases/release.md)
   * [Versions of plugins and agent](releases/releases.md)
   * [Changelog](releases/CHANGELOG.md)
