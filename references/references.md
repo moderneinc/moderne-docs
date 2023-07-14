@@ -9,5 +9,4 @@
 * [Interactions with git when applying changes](/references/how-moderne-applies-changes.md)
 * [Routing requests to agents](/references/routing-requests-to-agents.md)
 * [How LST artifacts are produced](/references/how-ast-artifacts-are-produced.md)
-* [Docker configuration for agent](/references/docker-configuration-for-agent.md)
 * [Supported languages](/references/supported-languages.md)

@@ -16,3 +16,4 @@
 * [Importing external recipes](importing-external-recipes.md)
 * [Terraform Cloud integration](terraform-cloud-integration.md)
 * [Proof of value](proof-of-value.md)
+* [Docker configuration for agent](/administrator-documentation/docker-configuration-for-agent.md)
