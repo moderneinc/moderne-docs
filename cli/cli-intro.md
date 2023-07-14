@@ -178,7 +178,7 @@ If the command executes successfully, the LST artifact for each project will be 
 * For Gradle projects, the `build` directory will be used
 * For Maven projects, the `target` directory will be used
 
-[Build man page](https://moderneinc.github.io/moderne-cli/mod-build.html)
+[Find all of the parameters for the build command here](https://moderneinc.github.io/moderne-cli/mod-build.html)
 
 ### Publish
 
@@ -188,22 +188,22 @@ This command is typically used for _debugging purposes_. In general, you should 
 
 This command will begin by executing the [build](cli-intro.md#build-command) command and, if that's successful, it will then attempt to upload the artifacts to the artifact repository you specified.
 
-[Publish man page](https://moderneinc.github.io/moderne-cli/mod-publish.html)
+[Find all of the parameters for the publish command here](https://moderneinc.github.io/moderne-cli/mod-publish.html)
 
 ### Connect Jenkins
 
 The `connect jenkins` job allows you to create Jenkins Jobs in bulk. For each configured repository, a Jenkins Job will be made that builds and publishes LST artifacts to your artifact repository on a regular basis.
 
-[Connect Jenkins man page](https://moderneinc.github.io/moderne-cli/mod-connect-jenkins.html)
+[Find all of the parameters for the connect jenkins command here](https://moderneinc.github.io/moderne-cli/mod-connect-jenkins.html)
 
 ### Connect GitHub
 
 The `connect github` command will create GitHub workflows that build and publish LST artifacts to your artifact repository on a regular basis. A workflow can be created for ingesting a single repository (by specifying the `path` parameter) or workflows can be created for ingesting a mass number of repositories (by specifying the `fromCsv` parameter).
 
-[Connect GitHub man page](https://moderneinc.github.io/moderne-cli/mod-connect-github.html)
+[Find all of the parameters for the connect github command here](https://moderneinc.github.io/moderne-cli/mod-connect-github.html)
 
 ### Run
 
 The `run` command allows you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally. You will need to have a `MODERNE_ACCESS_TOKEN` in order for this command to work.
 
-[Run man page](https://moderneinc.github.io/moderne-cli/mod-run.html)
+[Find all of the parameters for the run command here](https://moderneinc.github.io/moderne-cli/mod-run.html)
