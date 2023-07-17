@@ -27,7 +27,6 @@
   * [Importing external recipes](how-to/importing-external-recipes.md)
   * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
   * [Proof of value process](how-to/proof-of-value.md)
-  * [Docker configuration for agent](/administrator-documentation/docker-configuration-for-agent.md)
 * [Moderne CLI](cli/moderne-cli.md)
   * [Getting started with the Moderne CLI](cli/cli-intro.md)
   * [Moderne CLI man pages](cli/cli-reference.md)
