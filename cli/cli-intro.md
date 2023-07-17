@@ -184,7 +184,9 @@ If the command executes successfully, the LST artifact for each project will be 
 
 The publish command allows you to manually build and publish LST artifacts for one or more projects. Once published to your artifact management tool, Moderne will be able to ingest them and they will, in turn, be usable inside of the SaaS.
 
-This command is typically used for _debugging purposes_. In general, you should favor setting up a [Jenkins](cli-intro.md#connect-jenkins) or [Github](connect-github/) connection for building, publishing, and ingesting LST artifacts in bulk.
+This command is typically used for publishing LST artifacts from CI systems that we don't have a `connect` command for. If you do use [Jenkins](cli-intro.md#connect-jenkins) or [Github](connect-github/), you should favor setting up a connection for building, publishing, and ingesting LST artifacts in bulk rather than using this.
+
+You can also use this command for _debugging purposes_ if you want to do a one-off test of uploading an artifact somewhere.
 
 This command will begin by executing the [build](cli-intro.md#build-command) command and, if that's successful, it will then attempt to upload the artifacts to the artifact repository you specified.
 
