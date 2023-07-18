@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.120.0 (2023/07/18)
+
+- sort recipe results by worker
+
 ### UI v9.119.1 (2023/07/14)
 
 - Bug fixes and other improvements.
