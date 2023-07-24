@@ -45,6 +45,10 @@ To install the Moderne CLI please:
 
    When you generated the token, the Moderne UI will provide you with a command that you can copy and run in the command line to save the token to the `token.txt` file. Feel free to use that or one of the above options.
 
+{% hint style="warn" %}
+If your access token was created in a private tenant, you will need to specify your tenant name when you run the `mod run` command by providing the `--tenant` parameter. The value for `tenant` is the subdomain of your Moderne tenant URL (e.g., if you log in to Moderne at `foobar.moderne.io`, then your tenant name is `foobar`).
+{% endhint %}
+
 ## Using the Moderne CLI
 
 Imagine that you want to migrate a repository from Spring Boot 2 to Spring Boot 3, but you don't want to configure any build plugins or have to deal with modifying your repository. Let's walk through how you can use the Moderne CLI to do that by running the CLI on a sample repository.
@@ -207,5 +211,9 @@ The `connect github` command will create GitHub workflows that build and publish
 ### Run
 
 The `run` command allows you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally. You will need to have a `MODERNE_ACCESS_TOKEN` in order for this command to work. See [how to create a Moderne access token](/references/create-api-access-tokens.md).
+
+{% hint style="success" %}
+If your access token was created in a private tenant, you will need to specify your tenant name in the run command by providing the `--tenant` parameter. The value for `tenant` is the subdomain of your Moderne tenant URL (e.g., if you log in to Moderne at `foobar.moderne.io`, then your tenant name is `foobar`).
+{% endhint %}
 
 [Find all of the parameters for the run command here](https://moderneinc.github.io/moderne-cli/mod-run.html)
