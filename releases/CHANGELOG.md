@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.123.0 (2023/07/26)
+
+- Bug fixes and other improvements.
+
 ### UI v9.122.0 (2023/07/26)
 
 - add loading indicator for yaml from run id
