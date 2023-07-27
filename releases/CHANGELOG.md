@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.124.1 (2023/07/27)
+
+- Bug fixes and other improvements.
+
 ### UI v9.124.0 (2023/07/27)
 
 - add share option to rerun recipe items
