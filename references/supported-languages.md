@@ -51,7 +51,7 @@ Below you can find a table of languages, which stages are currently done, and wh
 |------------------------------|-------------------------------------------------------------|------------------------------------------------------|------------------------------------------------------|
 | Java                         | Available                                                   | Available                                            | Available                                            |
 | Kotlin                       | Available                                                   | Available                                            | Available                                            |
-| Groovy                       | Avilable                                                    | Available                                            | Available                                            |
+| Groovy                       | Available                                                   | Available                                            | Available                                            |
 | Python                       | Aiming to finish by Q4 2023 (partially available right now) | Work begins early 2024. Aiming to finish by Q4 2024. | Work begins early 2024. Aiming to finish by Q4 2024. |
 | TypeScript                   | Available                                                   | Work begins early 2024. Aiming to finish by Q4 2024. | Work begins early 2024. Aiming to finish by Q4 2024. |
 | COBOL                        | Available                                                   | Aiming to finish by Nov 2023.                        | No plans to support                                  |
