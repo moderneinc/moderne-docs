@@ -1,4 +1,10 @@
 # Changelog
+### UI v9.124.0 (2023/07/27)
+
+- add share option to rerun recipe items
+- add support for multiple select recipe options
+- add export paginated data grid
+
 ### UI v9.123.0 (2023/07/26)
 
 - Bug fixes and other improvements.
