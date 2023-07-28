@@ -9,7 +9,7 @@ There are three types of tokens used throughout the Moderne platform:
 In this doc, you can find detailed information about each of these.
 
 {% hint style="info" %}
-If you want to know what a user or an administrator can do in your system, please see the [user roles doc](/references/user-roles.md).
+The tokens described in this doc have the same permissions as `everyone` in the [user roles doc](/references/user-roles.md). They _do not_ have `administrator` permissions.
 {% endhint %}
 
 ## Login token
