@@ -1,4 +1,11 @@
 # Changelog
+### UI v9.125.0 (2023/07/28)
+
+- add recipe run link in footer.
+- recipe run visualization
+- add available visualization for recipe runs
+- operationalize visualizations
+
 ### UI v9.124.1 (2023/07/27)
 
 - Bug fixes and other improvements.
