@@ -8,6 +8,10 @@ There are three types of tokens used throughout the Moderne platform:
 
 In this doc, you can find detailed information about each of these.
 
+{% hint style="info" %}
+If you want to know what a user or an administrator can do in your system, please see the [user roles doc](/references/user-roles.md).
+{% endhint %}
+
 ## Login token
 
 When a user logs in to the Moderne platform, a JWT is created for them by Keycloak. This token is then used by the UI to authenticate against various Moderne APIs for things like displaying recipe categories.
