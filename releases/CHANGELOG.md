@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.126.0 (2023/07/29)
+
+- Bug fixes and other improvements.
+
 ### UI v9.125.0 (2023/07/28)
 
 - add recipe run link in footer.
