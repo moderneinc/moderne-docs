@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.129.0 (2023/08/01)
+
+- cancel visualization run
+
 ### UI v9.128.0 (2023/08/01)
 
 - data grid for visualization repositories.
