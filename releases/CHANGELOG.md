@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.128.0 (2023/08/01)
+
+- data grid for visualization repositories.
+
 ### UI v9.127.0 (2023/07/31)
 
 - Bug fixes and other improvements.
