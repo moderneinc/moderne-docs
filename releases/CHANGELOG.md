@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.130.0 (2023/08/02)
+
+- Bug fixes and other improvements.
+
 ### UI v9.129.0 (2023/08/01)
 
 - cancel visualization run
