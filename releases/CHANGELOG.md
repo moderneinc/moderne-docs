@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.131.0 (2023/08/02)
+
+- indicate when data is missing on visualization
+
 ### UI v9.130.2 (2023/08/02)
 
 - Bug fixes and other improvements.
