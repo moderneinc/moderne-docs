@@ -216,4 +216,16 @@ The `run` command allows you to run [OpenRewrite](https://docs.openrewrite.org/)
 If your access token was created in a private tenant, you will need to specify your tenant name in the run command by providing the `--tenant` parameter. The value for `tenant` is the subdomain of your Moderne tenant URL (e.g., if you log in to Moderne at `foobar.moderne.io`, then your tenant name is `foobar`).
 {% endhint %}
 
+The `run` command will default to building the LST as part of executing the recipe. However, if you've built the LST previously, you can tell the run command to skip the build step by passing in the `--skipBuild` parameter. Doing so will result in the `run` command executing much more quickly.
+
 [Find all of the parameters for the run command here](https://moderneinc.github.io/moderne-cli/mod-run.html)
+
+## Differences between the Moderne CLI and the OpenRewrite build plugins
+
+The OpenRewrite build plugins are designed to run a _single recipe_ on a _single repository_ at a time. When you run a recipe using these plugins, a new LST is produced regardless of whether or not the code for that repository has changed. This LST is temporarily stored in memory and used by the recipe before being discarded at the end of the recipe run. For large projects, this can be problematic as the entire LST _must_ fit in memory for the recipe to work.
+
+In contrast, the Moderne CLI is designed for scale. You can run recipes against multiple repositories at once and the LST does not need to fit into memory. This is because the Moderne CLI uses proprietary code to build the LST up in parts and then serializes/writes it to the disk (as part of the `mod build` command). Likewise, the `mod run` command can read this LST from the disk in pieces as it runs recipes rather than building the LST every time (if you pass it the `--skipBuild` flag to denote that the LST has already been built).
+
+When running the Moderne CLI commands for the first time, you might notice that running a single recipe on a single repository is slower than the OpenRewrite build plugins. This is due to the fact that the OpenRewrite build plugins do not serialize the LST and write it to disk.
+
+However, if you wanted to run more recipes against the same LST, you would see that the Moderne CLI drastically increases in speed compared to the OpenRewrite build plugins as the Moderne CLI can read the pre-built LST and execute recipes against it rather than having to build it again each time. Furthermore, if you wanted to, you could use the Moderne CLI to run a recipe against many repositories at once – which the OpenRewrite build plugins can't do.
