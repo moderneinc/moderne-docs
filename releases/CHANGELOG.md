@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.132.0 (2023/08/03)
+
+- add recent visualization screen
+
 ### UI v9.131.0 (2023/08/02)
 
 - indicate when data is missing on visualization
