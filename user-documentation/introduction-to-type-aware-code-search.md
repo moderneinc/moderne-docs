@@ -11,15 +11,17 @@ To help you get accustomed to Moderne's search capabilities, in this guide, we w
 
 ## Using a search recipe
 
-As an example, let's say that you are wanting to find all of the places where your team is using the `createFile` method from `java.nio.file.Files`. If you searched for `createFile` in GitHub, you might end up with a ton of irrelevant results as this is a fairly common method name. To find results that match the method name _and_ are from the correct library, please follow these steps:
+As an example, let's say that you are wanting to find all of the places where your team is using the `createFile` method from `java.nio.file.Files`. Maybe there is a security issue with it and you want to find out where it's being used to determine how hard it is to replace it. Or maybe you just want to learn how to use it for yourself in another area.
+
+If you searched for `createFile` in GitHub, you might end up with a ton of irrelevant results as this is a fairly common method name. To find results that match the method name _and_ are from the correct library, please follow these steps:
 
 *   From the [Java Search](https://app.moderne.io/marketplace/org.openrewrite.java.search) page, scroll down and click on `Find method usages`:
 
     ![](../.gitbook/assets/find-method-usage-empty.png)
 * (Optionally) [Filter down to a specific group of repositories](../references/managing-repository-groups.md#how-to-create-a-repository-group).
-* Enter the fully qualified class name of `java.nio.file.Files` in the receiver type field.
+* Enter the fully qualified class name of `java.nio.file.Files` in the fully qualified receiver type field.
 * Enter the method name of `createFile` in the method name field.
-* Enter `..` in the argument type field to denote that we want to search for any amount of arguments.
+* Enter `..` in the argument type field to denote that we want to search for any amount of arguments (zero or more).
 * Select `none` for the flow.
 *   Your window should look like:
 
@@ -37,6 +39,10 @@ As the code in the SaaS is constantly changing, your results will more than like
     ![](../.gitbook/assets/find-method-usage-result.png)
 
 From there, you can make intelligent decisions about the code. For instance, maybe you'll see that there aren't too many instances of this and conclude that you can safely replace it with a new `createFile` method. Or maybe you just wanted to learn how other people use it to safely use it in your new class. Regardless of what you end up doing, you can be confident that you correctly and quickly found all of the places that use this method.
+
+{% hint style="success" %}
+The combination of the fully qualified receiver type, the method name, and the argument types make up a "method pattern". For extensive documentation on each of these components and more examples of method patterns, please check out the [OpenRewrite docs](https://docs.openrewrite.org/reference/method-patterns).
+{% endhint %}
 
 ## Finding type-aware search recipes
 
