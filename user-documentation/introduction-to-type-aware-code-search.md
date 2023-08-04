@@ -22,6 +22,13 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
 * Enter the fully qualified class name of `java.nio.file.Files` in the fully qualified receiver type field.
 * Enter the method name of `createFile` in the method name field.
 * Enter `..` in the argument type field to denote that we want to search for any amount of arguments (zero or more).
+
+{% hint style="success" %}
+The combination of the fully qualified receiver type, the method name, and the argument types make up a "method pattern".
+
+For extensive documentation on each of these components and more examples of different ways you can use method patterns to search for methods, please check out the [OpenRewrite docs](https://docs.openrewrite.org/reference/method-patterns).
+{% endhint %}
+
 * Select `none` for the flow.
 *   Your window should look like:
 
@@ -39,10 +46,6 @@ As the code in the SaaS is constantly changing, your results will more than like
     ![](../.gitbook/assets/find-method-usage-result.png)
 
 From there, you can make intelligent decisions about the code. For instance, maybe you'll see that there aren't too many instances of this and conclude that you can safely replace it with a new `createFile` method. Or maybe you just wanted to learn how other people use it to safely use it in your new class. Regardless of what you end up doing, you can be confident that you correctly and quickly found all of the places that use this method.
-
-{% hint style="success" %}
-The combination of the fully qualified receiver type, the method name, and the argument types make up a "method pattern". For extensive documentation on each of these components and more examples of method patterns, please check out the [OpenRewrite docs](https://docs.openrewrite.org/reference/method-patterns).
-{% endhint %}
 
 ## Finding type-aware search recipes
 
