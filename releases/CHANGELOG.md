@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.134.0 (2023/08/04)
+
+- add back to top action
+
 ### UI v9.133.2 (2023/08/04)
 
 - Bug fixes and other improvements.
