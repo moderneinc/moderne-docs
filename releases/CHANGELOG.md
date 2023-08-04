@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.133.0 (2023/08/04)
+
+- Bug fixes and other improvements.
+
 ### UI v9.132.0 (2023/08/03)
 
 - add recent visualization screen
