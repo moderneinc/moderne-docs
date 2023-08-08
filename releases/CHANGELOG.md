@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.137.0 (2023/08/08)
+
+- recent visualizations
+
 ### UI v9.136.1 (2023/08/08)
 
 - Bug fixes and other improvements.
