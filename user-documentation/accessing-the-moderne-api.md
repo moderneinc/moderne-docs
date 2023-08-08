@@ -1,33 +1,29 @@
 # Accessing the Moderne API
 
-Moderne.io offers a GraphQL API at [https://api.app.moderne.io](https://api.app.moderne.io/) for customers to interact with through the usage of a personal access token.
-
-Note: Personal access tokens do not retain roles that are granted to your user account. Actions that require roles (deploying recipes and uploading LSTs) will fail as forbidden if attempted with an access token.
-
-{% hint style="info" %}
-If you want to write and test GraphQL queries, you can click on the GraphQL icon in the top middle of the UI or you go directly to [https://app.moderne.io/graphql](https://app.moderne.io/graphql).
-
-![](../.gitbook/assets/graphql-link.png)
-{% endhint %}
+Moderne offers a GraphQL API ([https://api.app.moderne.io/](https://api.app.moderne.io/)) for customers to interact with through the usage of a personal access token. In this doc, we'll walk through everything you need to know to access and use this API.
 
 ## Prerequisites
 
-* Create a [Moderne Personal Access Token](../references/create-api-access-tokens.md)
+In order to access the GraphQL API, you will need to [create a Moderne personal access token](/references/create-api-access-tokens.md).
 
-## Go to the Moderne API
+{% hint style="warning" %}
+Personal access tokens **do not** have the same permissions as your user account. Actions that require roles (such as deploying recipes or uploading LSTs) will fail as forbidden if attempted with an access token.
+{% endhint %}
 
-* [https://api.app.moderne.io](https://api.app.moderne.io)
+## GraphQL API Explorer
 
-## Configure your access token
+To assist with the development of tools that access the Moderne APIs, Moderne offers an API explorer where you can manually create and run queries.
 
-In the `HTTP Headers` pane of GraphQL Playground, enter your token for the `Authorization` header.
+To access this explorer, either click on the GraphQL link in the top middle of the UI or go directly to [https://app.moderne.io/graphql](https://app.moderne.io/graphql). Please note that when you make actual API requests, you'll want to make them against `https://api.app.moderne.io/` instead of `https://app.moderne.io/graphql`.
 
-![](../.gitbook/assets/graphql-playground.png)
+![](../.gitbook/assets/graphql-link.png)
 
-## (Optional) View the documentation
+{% hint style="info" %}
+A temporary access token is created when you log in to the platform. This lasts for 1 hour and is auto-populated into the `Authorization` header (located in the `Request Headers` tab in the bottom left) when you navigate to the GraphQL explorer.
+{% endhint %}
 
-After you have configured your personal access token, you can click the _Docs_ tab on the right-hand side of the screen to explore the various Queries and Mutations offered by the API.
+## View the documentation
 
-![](../.gitbook/assets/graphql-playground-docs.png)
+After you've navigated to the API explorer, you should see a `Documentation Explorer` on the right side of the page. You can click on `Query` or `Mutation` to navigate through their respective docs.
 
-## 🚀 Start querying!
+![](../.gitbook/assets/graphql-documentation.png)
