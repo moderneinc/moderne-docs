@@ -1,3 +1,7 @@
+---
+description: Moderne platform documentation. Learn about the Moderne platform along with user and administrator documentation.
+---
+
 # Welcome to Moderne
 
 With [Moderne](https://moderne.io), you can fix security vulnerabilities, standardize code quality, and automate maintenance processes such as framework migrations. Code refactoring work and security vulnerability remediations that used to take months and teams of developers can be done in minutes. This can not only save your company millions of dollars in software maintenance costs, but it can also give developers substantially more time to focus on delivering business value.

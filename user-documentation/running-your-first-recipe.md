@@ -1,3 +1,7 @@
+---
+description: Moderne Quickstart. Learn how to run your first recipe on the Moderne platform. We walk you through the steps for running recipes on Moderne.
+---
+
 # Quickstart: Running your first recipe
 
 To help orient you to Moderne, let's walk through how to run a [recipe](https://docs.openrewrite.org/v1beta/recipes) on some open-source projects that we have imported into Moderne.
