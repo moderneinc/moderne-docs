@@ -1,4 +1,9 @@
 # Changelog
+### UI v9.138.0 (2023/08/10)
+
+- add pagination support to visualization run repositories
+- tooltip on results toolbar and disable commit option on Find only results.
+
 ### UI v9.137.0 (2023/08/08)
 
 - recent visualizations
