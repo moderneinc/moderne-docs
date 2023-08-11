@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.139.0 (2023/08/11)
+
+- add pan zoom viewer
+
 ### UI v9.138.0 (2023/08/10)
 
 - add pagination support to visualization run repositories
