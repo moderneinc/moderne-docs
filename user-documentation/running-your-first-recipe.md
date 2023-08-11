@@ -1,5 +1,18 @@
 ---
-description: Moderne Quickstart. Learn how to run your first recipe on the Moderne platform. We walk you through the steps for running recipes on Moderne.
+description: >-
+  Moderne Quickstart. Learn how to run your first recipe on the Moderne
+  platform. We walk you through the steps for running recipes on Moderne.
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Quickstart: Running your first recipe

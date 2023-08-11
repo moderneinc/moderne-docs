@@ -1,5 +1,18 @@
 ---
-description: Moderne platform documentation. Learn about the Moderne platform along with user and administrator documentation.
+description: >-
+  Moderne platform documentation. Learn about the Moderne platform along with
+  user and administrator documentation.
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Welcome to Moderne
@@ -8,7 +21,7 @@ With [Moderne](https://moderne.io), you can fix security vulnerabilities, standa
 
 ## The Moderne platform
 
-The Moderne platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale. The platform asynchronously ingests detailed artifacts of your codebase ([Lossless Semantic Trees](/concepts/lossless-semantic-trees.md)) that can be quickly and precisely searched. Then, your organization's source code can be transformed by running "[recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes)" across repositories of your choosing. These recipes can be created by your team, or you can take advantage of the hundreds of recipes already defined in [OpenRewrite](https://docs.openrewrite.org/) – an open-source project managed by Moderne. 
+The Moderne platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale. The platform asynchronously ingests detailed artifacts of your codebase ([Lossless Semantic Trees](concepts/lossless-semantic-trees.md)) that can be quickly and precisely searched. Then, your organization's source code can be transformed by running "[recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes)" across repositories of your choosing. These recipes can be created by your team, or you can take advantage of the hundreds of recipes already defined in [OpenRewrite](https://docs.openrewrite.org/) – an open-source project managed by Moderne.
 
 The platform offers a clean UI that enables anyone in your organization to run recipes, create PRs, or generate detailed reports about your codebase – all without writing a line of code. It also provides a recommendation engine to help you discover new recipes based on an analysis of your code.
 
@@ -28,4 +41,4 @@ For a high-level overview of Moderne and the capabilities we provide, please wat
 
 {% embed url="https://www.youtube.com/watch?v=Mq6bKAeGCz0" %}
 
-If you want to jump right in and begin running large-scale refactoring recipes on thousands of open-source repositories, please check out our [quickstart guide](/user-documentation/running-your-first-recipe.md).
+If you want to jump right in and begin running large-scale refactoring recipes on thousands of open-source repositories, please check out our [quickstart guide](user-documentation/running-your-first-recipe.md).
