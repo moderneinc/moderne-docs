@@ -1,11 +1,11 @@
 # Getting started with the Moderne CLI
 
-The Moderne CLI is a command line tool that simplifies the process of building and publishing [Lossless Semantic Tree](https://docs.moderne.io/concepts/lossless-semantic-trees) (LST) artifacts to your artifact repository. Instead of having to manually set up each repository individually, you can use the Moderne CLI to configure thousands of repositories at once.
+The Moderne CLI is a command line tool that allows you to build [Lossless Semantic Tree](https://docs.moderne.io/concepts/lossless-semantic-trees) (LST) artifacts, publish them to an artifact repository of your choosing, and run recipes from your local machine.
 
 To ensure you can use the Moderne CLI successfully, in this guide, we will:
 
 * [Explain how to install the Moderne CLI](#installation) 
-* [Help you get familiar with the Moderne CLI by walking through how to migrate a sample repository from Spring Boot 2 to 3](#using-the-moderne-cli)
+* [Help you get familiar with the Moderne CLI by walking through how to migrate a sample repository from Spring Boot 2 to 3 using the CLI](#using-the-moderne-cli)
 * [Provide more details for each command in case you want to learn more](#commands) 
 
 ## Installation
@@ -166,15 +166,17 @@ Below, we'll provide some context for the core commands.
 
 * [Build](cli-intro.md#build)
 * [Publish](cli-intro.md#publish)
-* [Connect Jenkins](cli-intro.md#connect-jenkins)
-* [Connect GitHub](cli-intro.md#connect-github)
 * [Run](cli-intro.md#run)
+
+{% hint style="info" %}
+To set up a pipeline that automatically builds and publishes LST artifacts for all of your repositories, please use the [mod-connect](https://github.com/moderneinc/mod-connect) tool.
+{% endhint %}
 
 ### Build
 
 The `build` command generates the LST artifacts with Group Artifact Version coordinates for one or more projects. Once generated, the artifacts can be uploaded to your artifact management tool so that Moderne can ingest them - or - they can be used to run recipes locally.
 
-While it is possible to manually build and publish your artifacts, we strongly recommend setting up a [Jenkins](cli-intro.md#connect-jenkins) or [GitHub action](cli-intro.md#connect-github) for ingesting LST artifacts in bulk.
+While it is possible to manually build and publish your artifacts, we strongly recommend setting up a [Jenkins](https://github.com/moderneinc/mod-connect#mod-connect-jenkins) or [GitHub action](https://github.com/moderneinc/mod-connect#mod-connect-github) for ingesting LST artifacts in bulk.
 
 If the command executes successfully, the LST artifact for each project will be stored in one of three places:
 
@@ -188,25 +190,13 @@ If the command executes successfully, the LST artifact for each project will be 
 
 The publish command allows you to manually build and publish LST artifacts for one or more projects. Once published to your artifact management tool, Moderne will be able to ingest them and they will, in turn, be usable inside of the SaaS.
 
-This command is typically used for publishing LST artifacts from CI systems that we don't have a `connect` command for. If you use [Jenkins](cli-intro.md#connect-jenkins) or [Github](connect-github/), you should favor setting up a connection for building, publishing, and ingesting LST artifacts in bulk rather than using this.
+This command is typically used for publishing LST artifacts from CI systems that we don't have a [mod-connect](https://github.com/moderneinc/mod-connect) command for. If you use Jenkins or GitHub, we strongly recommend using the [mod-connect tool](https://github.com/moderneinc/mod-connect) for building, publishing, and ingesting LST artifacts in bulk.
 
 You can also use this command for _debugging purposes_ if you want to do a one-off test of uploading an artifact somewhere.
 
 This command will begin by executing the [build](cli-intro.md#build-command) command and, if that's successful, it will then attempt to upload the artifacts to the artifact repository you specified.
 
 [Find all of the parameters for the publish command here](https://moderneinc.github.io/moderne-cli/mod-publish.html)
-
-### Connect Jenkins
-
-The `connect jenkins` job allows you to create Jenkins Jobs in bulk. For each configured repository, a Jenkins Job will be made that builds and publishes LST artifacts to your artifact repository on a regular basis.
-
-[Find all of the parameters for the connect jenkins command here](https://moderneinc.github.io/moderne-cli/mod-connect-jenkins.html)
-
-### Connect GitHub
-
-The `connect github` command will create GitHub workflows that build and publish LST artifacts to your artifact repository on a regular basis. A workflow can be created for ingesting a single repository (by specifying the `path` parameter) or workflows can be created for ingesting a mass number of repositories (by specifying the `fromCsv` parameter).
-
-[Find all of the parameters for the connect github command here](https://moderneinc.github.io/moderne-cli/mod-connect-github.html)
 
 ### Run
 
