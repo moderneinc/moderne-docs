@@ -17,7 +17,7 @@ layout:
 
 # Quickstart: Running your first recipe
 
-To help orient you to Moderne, let's walk through how to run a [recipe](https://docs.openrewrite.org/v1beta/recipes) on some open-source projects that we have imported into Moderne.
+To help orient you to Moderne, let's walk through how to run a [recipe](https://docs.openrewrite.org/concepts-explanations/recipes) on some open-source projects that we have imported into Moderne.
 
 In this guide, we will:
 
@@ -68,9 +68,8 @@ This will take you to a page that lists all of the recipe categories:
 
 Let's find a good recipe to start from to help illustrate how to search across multiple repositories.
 
-1. From the [Marketplace](https://app.moderne.io/marketplace), click on [Java](https://app.moderne.io/marketplace/org.openrewrite.java) from the list of categories.
-2. Select the [Cleanup](https://app.moderne.io/marketplace/org.openrewrite.java.cleanup) sub-category.
-3. Click on the `Common static analysis issues` recipe.
+1. From the [Marketplace](https://app.moderne.io/marketplace), click on [Static analysis and remediation](https://app.moderne.io/marketplace/org.openrewrite.staticanalysis) from the list of categories.
+2. Click on the `Common static analysis issues` recipe.
 
 ## Step 6: Run the recipe
 
@@ -94,7 +93,7 @@ The resulting diff allows you to preview the changes from the recipe before you 
 
 If you're unsure why something changed, you can click on the three dots (`...`) at the top right of any file and select `Why did this change?`
 
-For instance, in the above example, `= null` was removed due to the [Explicit initialization rule](https://app.moderne.io/recipes/org.openrewrite.java.cleanup.ExplicitInitialization).
+For instance, in the above example, `= null` was removed due to the [Explicit initialization rule](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ExplicitInitialization).
 
 ## Step 8: Commit your changes
 
