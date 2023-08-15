@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.139.1 (2023/08/15)
+
+- Bug fixes and other improvements.
+
 ### UI v9.139.0 (2023/08/11)
 
 - add pan zoom viewer
