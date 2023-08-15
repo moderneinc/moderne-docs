@@ -46,7 +46,6 @@ The combination of the fully qualified receiver type, the method name, and the a
 For extensive documentation on each of these components and more examples of different ways you can use method patterns to search for methods, please check out the [OpenRewrite docs](https://docs.openrewrite.org/reference/method-patterns).
 {% endhint %}
 
-* Select `none` for the flow.
 *   Your window should look like:
 
     ![](../.gitbook/assets/find-method-usage-eclipse.png)
@@ -58,7 +57,7 @@ For extensive documentation on each of these components and more examples of dif
 As the code in the SaaS is constantly changing, your results will more than likely be different.
 {% endhint %}
 
-*   If you click on one of the repository names such as `eclipse/rjkube`, you'll be taken into the code for that repository. Lines that match the search will be underlined and marked with a magnifying glass icon. These lines match the type that was specified in the search. This means that if any other `createFile` method was invoked, you wouldn't see those results here. Instead, you will see:
+*   If you click on one of the repository names such as `eclipse/winery`, you'll be taken into the code for that repository. Lines that match the search will be underlined and marked with a magnifying glass icon. These lines match the type that was specified in the search. This means that if any other `createFile` method was invoked, you wouldn't see those results here. Instead, you will see:
 
     ![](../.gitbook/assets/find-method-usage-result.png)
 
