@@ -10,3 +10,4 @@
 * [Routing requests to agents](/references/routing-requests-to-agents.md)
 * [How LST artifacts are produced](/references/how-ast-artifacts-are-produced.md)
 * [Supported languages](/references/supported-languages.md)
+* [Language roadmap](/references/language-roadmap.md)
