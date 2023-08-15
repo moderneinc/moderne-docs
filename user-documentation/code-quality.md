@@ -17,8 +17,8 @@ Moderne's [Common static analysis recipe](https://app.moderne.io/recipes/org.ope
 
 To get to this recipe:
 
-* From the home page, click on `Catalog` in the top left corner. This will take you to the recipe catalog.
-* From there, click on `Java` and then `Cleanup`.
+* From the home page, click on `Marketplace` in the top left corner. This will take you to the recipe marketplace.
+* From there, click on `Static analysis and remediation`.
 *   At the top, you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly. Click on `More details` to be taken to [this](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis) page:
 
     ![](../.gitbook/assets/common-static-analysis-recipe.png)
@@ -28,6 +28,10 @@ To get to this recipe:
 The bottom half of the page lists all of the recipes that will be run as part of this analysis. You can click on the checkbox next to any of them to enable or disable that particular recipe from being run. You can also click on the recipes themselves to get more information about that specific recipe or to run just that one.
 
 When you're ready to run the recipe, select the repositories you wish to run on and then press `Dry Run`. You will then be redirected to a page that looks like this:
+
+{% hint style="info" %}
+As the code in the SaaS is constantly changing, your results will more than likely be different.
+{% endhint %}
 
 ![](../.gitbook/assets/common-static-analysis-run.png)
 
