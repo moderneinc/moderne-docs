@@ -1,6 +1,6 @@
 # Supported languages
 
-Moderne is continuously adding support for new languages and formats. As of July 2023, Moderne supports:
+Moderne is [continuously adding support for new languages and formats](./language-roadmap.md). As of July 2023, Moderne supports:
 
 ## Programming languages
 
