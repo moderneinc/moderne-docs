@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.140.0 (2023/08/15)
+
+- support visualization parameters
+
 ### UI v9.139.1 (2023/08/15)
 
 - Bug fixes and other improvements.
