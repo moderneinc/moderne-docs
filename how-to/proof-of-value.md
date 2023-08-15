@@ -23,7 +23,7 @@ The idea is for all of these types of updates to become a continuous process for
 
 _Ordered from least complex to most complex_
 
-* [Common static analysis fixes](https://app.moderne.io/recipes/org.openrewrite.java.cleanup.CommonStaticAnalysis)
+* [Common static analysis fixes](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis)
   * Improve code quality and readability
   * Fix common mistakes
   * Eliminate legacy patterns and minor performance issues

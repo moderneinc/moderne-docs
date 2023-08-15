@@ -188,7 +188,7 @@ In the `pom.xml` or `build.gradle` file, add this entry to the `plugins` section
         <configuration>
           <!-- Supports the same functionality as the OpenRewrite plugin -->
           <activeRecipes>
-            <recipe>org.openrewrite.java.cleanup.CommonStaticAnalysis</recipe>
+            <recipe>org.openrewrite.staticanalysis.CommonStaticAnalysis</recipe>
           </activeRecipes>
         </configuration>
         <executions>
