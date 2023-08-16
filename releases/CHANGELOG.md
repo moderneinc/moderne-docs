@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.143.0 (2023/08/16)
+
+- support dynamic form fields for list/string array options
+
 ### UI v9.142.0 (2023/08/15)
 
 - Bug fixes and other improvements.
