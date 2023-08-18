@@ -1,284 +1,304 @@
 # Changelog
+
 ### UI v9.144.0 (2023/08/18)
 
-- expose cli version
-- optimize organization and group selector
+#### View the CLI version.
+
+<div align="left" data-full-width="false">
+
+<figure><img src="../.gitbook/assets/image (2).png" alt="" width="176"><figcaption><p>Now you can see the latest verison number of the CLI.</p></figcaption></figure>
+
+</div>
+
+#### Organization and group selector improvements
+
+![](<../.gitbook/assets/image (3).png>)
+
+* Highlighted search terms
+* More flexible width and word wrapping when organization names are long.
 
 ### UI v9.143.0 (2023/08/16)
 
-- support dynamic form fields for list/string array options
+#### Dynamic forms for recipe options
+
+We now support dynamic form fields for `List` or `string[]` options. Recipes that take a list of strings now have a new editor interface to improve the usability.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+
 
 ### UI v9.142.0 (2023/08/15)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.141.0 (2023/08/15)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.140.0 (2023/08/15)
 
-- support visualization parameters
+* support visualization parameters
 
 ### UI v9.139.1 (2023/08/15)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.139.0 (2023/08/11)
 
-- add pan zoom viewer
+Pan/zoom controls and download options are now available for Visualizations.
+
+* ![](<../.gitbook/assets/image (4).png>)
 
 ### UI v9.138.0 (2023/08/10)
 
-- add pagination support to visualization run repositories
-- tooltip on results toolbar and disable commit option on Find only results.
+* add pagination support to visualization run repositories
+* tooltip on results toolbar and disable commit option on Find only results.
 
 ### UI v9.137.0 (2023/08/08)
 
-- recent visualizations
+* recent visualizations
 
 ### UI v9.136.1 (2023/08/08)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.136.0 (2023/08/08)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.135.0 (2023/08/04)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.134.0 (2023/08/04)
 
-- add back to top action
+* add back to top action
 
 ### UI v9.133.2 (2023/08/04)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.133.1 (2023/08/04)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.133.0 (2023/08/04)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.132.0 (2023/08/03)
 
-- add recent visualization screen
+* add recent visualization screen
 
 ### UI v9.131.0 (2023/08/02)
 
-- indicate when data is missing on visualization
+* indicate when data is missing on visualization
 
 ### UI v9.130.2 (2023/08/02)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.130.1 (2023/08/02)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.130.0 (2023/08/02)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.129.0 (2023/08/01)
 
-- cancel visualization run
+* cancel visualization run
 
 ### UI v9.128.0 (2023/08/01)
 
-- data grid for visualization repositories.
+* data grid for visualization repositories.
 
 ### UI v9.127.0 (2023/07/31)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.126.0 (2023/07/29)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.125.0 (2023/07/28)
 
-- add recipe run link in footer.
-- recipe run visualization
-- add available visualization for recipe runs
-- operationalize visualizations
+* add recipe run link in footer.
+* recipe run visualization
+* add available visualization for recipe runs
+* operationalize visualizations
 
 ### UI v9.124.1 (2023/07/27)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.124.0 (2023/07/27)
 
-- add share option to rerun recipe items
-- add support for multiple select recipe options
-- add export paginated data grid
+* add share option to rerun recipe items
+* add support for multiple select recipe options
+* add export paginated data grid
 
 ### UI v9.123.0 (2023/07/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.122.0 (2023/07/26)
 
-- add loading indicator for yaml from run id
+* add loading indicator for yaml from run id
 
 ### UI v9.121.0 (2023/07/24)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.120.0 (2023/07/18)
 
-- sort recipe results by worker
+* sort recipe results by worker
 
 ### UI v9.119.1 (2023/07/14)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.119.0 (2023/07/14)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.118.1 (2023/07/14)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.118.0 (2023/07/12)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.117.0 (2023/07/10)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.116.0 (2023/07/07)
 
-- add welcome banner to marketplace
+* add welcome banner to marketplace
 
 ### UI v9.115.0 (2023/07/07)
 
-- remove home page and strengths tab
+* remove home page and strengths tab
 
 ### UI v9.114.3 (2023/07/06)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.114.2 (2023/07/05)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.114.1 (2023/07/04)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.114.0 (2023/07/04)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.113.0 (2023/07/03)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.112.1 (2023/07/01)
 
-- add dependency resolution time and worker name to recipe run summary
+* add dependency resolution time and worker name to recipe run summary
 
 ### UI v9.112.0 (2023/06/29)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.111.1 (2023/06/29)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.111.0 (2023/06/28)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.110.0 (2023/06/28)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.109.0 (2023/06/27)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.108.0 (2023/06/22)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.107.1 (2023/06/21)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.107.0 (2023/06/20)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.106.5 (2023/06/20)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.106.4 (2023/06/19)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.106.3 (2023/06/19)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.106.2 (2023/06/19)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.106.1 (2023/06/19)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.106.0 (2023/06/18)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.105.2 (2023/06/17)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.105.1 (2023/06/17)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.105.0 (2023/06/16)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.104.1 (2023/06/15)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.104.0 (2023/06/15)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.103.0 (2023/06/12)
 
-- render skeleton when loading more results.
-- set sort model with default sorting so it is clear what sorting is being applied by default.
+* render skeleton when loading more results.
+* set sort model with default sorting so it is clear what sorting is being applied by default.
 
 ### UI v9.102.1 (2023/06/09)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.102.0 (2023/06/07)
 
-- add bitbucket cloud authentication option for `public.*`
+* add bitbucket cloud authentication option for `public.*`
 
 ### UI v9.101.0 (2023/06/06)
 
-- leverage notebook description provided by service
-
+* leverage notebook description provided by service
 
 ### UI v9.100.0 (2023/06/05)
 
