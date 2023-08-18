@@ -1,4 +1,9 @@
 # Changelog
+### UI v9.144.0 (2023/08/18)
+
+- expose cli version
+- optimize organization and group selector
+
 ### UI v9.143.0 (2023/08/16)
 
 - support dynamic form fields for list/string array options
