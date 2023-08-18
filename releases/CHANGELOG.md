@@ -4,9 +4,11 @@
 
 #### View the CLI version.
 
+Now you can see the latest version number of the CLI before downloading.
+
 <div align="left" data-full-width="false">
 
-<figure><img src="../.gitbook/assets/image (2).png" alt="" width="176"><figcaption><p>Now you can see the latest verison number of the CLI.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt="" width="176"><figcaption></figcaption></figure>
 
 </div>
 
