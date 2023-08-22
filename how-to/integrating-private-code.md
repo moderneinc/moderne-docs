@@ -22,14 +22,14 @@ Below, we'll walk through the steps you'll need to take to run this command succ
 
 #### Step 1: Create the GitHub repository
 
-Before running the `connect github` command, you will need to [create a GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo) that will store the workflow files and the CSV file that contains the repositories that should be ingested. This repo will be what you enter for the `repo` parameter in the `connect github` command.
+Before running the `mod-connect github` command, you will need to [create a GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo) that will store the workflow files and the CSV file that contains the repositories that should be ingested. This repo will be what you enter for the `repo` parameter in the `mod-connect github` command.
 
 #### Step 2: Create GitHub secrets
 
 Once you've made the repository, you'll need to create a few [GitHub secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets?tool=webui#creating-encrypted-secrets-for-a-repository). These secrets will be used by the workflow to communicate with other services such as your artifact repository.
 
 {% hint style="info" %}
-The `connect github` command requires the _name_ of the secret. When creating the below secrets, make sure you save the name of them to use in the CLI command rather than copying the actual secrets themselves.
+The `mod-connect github` command requires the _name_ of the secret. When creating the below secrets, make sure you save the name of them to use in the CLI command rather than copying the actual secrets themselves.
 {% endhint %}
 
 You'll need to create secrets that contain:
@@ -53,7 +53,7 @@ foo/bar,main,11,,,true,some skip reason
 
 #### Step 4: Create a GitHub access token
 
-The last thing you'll need to do before you can run the command is to create a GitHub access token that will be used to commit files and create workflows to the repository you specified. This access token must be a **classic** token and it must have the `workflow` permission. This token will be specified in the `accessToken` parameter of the `connect github` command.
+The last thing you'll need to do before you can run the command is to create a GitHub access token that will be used to commit files and create workflows to the repository you specified. This access token must be a **classic** token and it must have the `workflow` permission. This token will be specified in the `accessToken` parameter of the `mod-connect github` command.
 
 #### Step 5: Run the command
 
