@@ -7,3 +7,4 @@
 * [Accessing the Moderne API](/user-documentation/accessing-the-moderne-api.md)
 * [Recipe execution and commits with the Moderne API](/user-documentation/recipe-execution-and-commits-with-graphql.md)
 * [Getting started with data tables](/user-documentation/data-tables.md)
+* [Getting started with visualizations](user-documentation/visualizations.md)
