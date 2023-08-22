@@ -1,4 +1,9 @@
 # Changelog
+### UI v9.146.0 (2023/08/22)
+
+- add sharing option to visualizations that produce data tables
+- add organization id to the recent runs table
+
 ### UI v9.145.0 (2023/08/22)
 
 - show options used
