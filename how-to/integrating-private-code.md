@@ -4,25 +4,19 @@ One of the first steps of integrating your code with Moderne is setting up a pip
 
 There are three ways to do this:
 
-1. (**Recommended**) Use the [mod connect](#mod-connect) command to build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
+1. (**Recommended**) Use the [mod-connect tool](#mod-connect) to build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
 2. Update all of your existing pipelines to run the [mod publish](#mod-publish) command whenever the code is updated.
 3. Apply a Maven or Gradle plugin to your project and configure them to build/publish LST artifacts.
 
 In this guide, we'll walk through both of these options.
 
-## Prerequisite
+## `mod-connect` tool
 
-If you're using any of the `mod` commands (`connect` or `publish`), please ensure that you have the [Moderne CLI installed](/cli/cli-intro.md).
-
-## CLI Commands
-
-### Mod Connect
-
-The [mod connect](https://moderneinc.github.io/moderne-cli/mod-connect.html) command allows you to set up an ingestion pipeline using either GitHub or Jenkins. It's generally more convenient to use GitHub as you don't need to self-manage it and there are fewer permissions to worry about. With that being said, either of these options is preferable to updating your existing pipelines to use the [mod publish](#mod-publish) command.
+The [mod-connect tool](https://github.com/moderneinc/mod-connect) allows you to set up an ingestion pipeline using either GitHub or Jenkins. It's generally more convenient to use GitHub as you don't need to self-manage it and there are fewer permissions to worry about. With that being said, regardless of which one you pick, it is preferable to use this tool than to update your existing pipelines to use the [mod publish](#mod-publish) command.
 
 {% tabs %}
 {% tab title="GitHub" %}
-The [connect github](/cli/cli-intro.md#connect-github) command in the Moderne CLI will directly commit an ingestion workflow and the necessary files to run it to the GitHub repository you specify. This workflow will iterate over every repository in a CSV file you create and build/publish LST artifacts for each on a regular basis.
+The [mod-connect github](https://github.com/moderneinc/mod-connect#mod-connect-github) command will directly commit an ingestion workflow and the necessary files to run it to the GitHub repository you specify. This workflow will iterate over every repository in a CSV file you create and build/publish LST artifacts for each on a regular basis.
 
 Below, we'll walk through the steps you'll need to take to run this command successfully.
 
@@ -47,7 +41,7 @@ You'll need to create secrets that contain:
 
 #### Step 3: Create the CSV of repositories
 
-Once the repository and secrets have been created, you will then need to make a CSV file that contains the list of repositories you want ingested as well as any necessary information for ingesting them. You can find the schema and detailed examples on our [connect github man page](https://moderneinc.github.io/moderne-cli/mod-connect-github.html).
+Once the repository and secrets have been created, you will then need to make a CSV file that contains the list of repositories you want ingested as well as any necessary information for ingesting them. You can find the schema and detailed examples in the [mod-connect github README](https://github.com/moderneinc/mod-connect#mod-connect-github).
 
 Here's an example of what the CSV file might look like:
 
@@ -66,7 +60,7 @@ The last thing you'll need to do before you can run the command is to create a G
 You should now have everything you need to run the command. You can find an example of what this might look like below:
 
 ```shell
-mod connect github --accessToken moderne-github-access-token \
+mod-connect github --accessToken moderne-github-access-token \
     --dispatchSecretName dispatchSecretName \
     --fromCsv /path/to/repos.csv \
     --publishPwdSecretName publishPwdSecretName \
@@ -77,7 +71,7 @@ mod connect github --accessToken moderne-github-access-token \
 ```
 
 {% hint style="info" %}
-There are a variety of optional parameters that you can find on the [connect github man page](https://moderneinc.github.io/moderne-cli/mod-connect-github.html) to refine the command further if you so desire. 
+There are a variety of optional parameters that you can find in the [mod-connect github README](https://github.com/moderneinc/mod-connect#mod-connect-github) to refine the command further if you so desire. 
 {% endhint %}
 
 Once you've run the command, you should start to see artifacts being created and sent to your artifact repository.
@@ -85,7 +79,7 @@ Once you've run the command, you should start to see artifacts being created and
 You're now ready to begin [configuring the Moderne agent](/how-to/agent-configuration.md).
 {% endtab %}
 {% tab title="Jenkins" %}
-The [connect Jenkins](/cli/cli-intro.md#connect-jenkins) command in the Moderne CLI will create a Jenkins Job for each repository you specify in a CSV file. Each job will build and publish LST artifacts to your artifact repository on a regular basis.
+The [mod-connect Jenkins](https://github.com/moderneinc/mod-connect#mod-connect-jenkins) command will create a Jenkins Job for each repository you specify in a CSV file. Each job will build and publish LST artifacts to your artifact repository on a regular basis.
 
 Below, we'll walk through the steps you'll need to take to run this command successfully. We'll assume you already have a Jenkins instance to use.
 
@@ -94,7 +88,7 @@ Below, we'll walk through the steps you'll need to take to run this command succ
 In order for Moderne to connect to your Jenkins instance and create Jenkins Jobs, you'll need to create a Jenkins user and an API token (**recommended**) or a password. This user needs to have access to read plugin information and to create jobs. If you are using the [role strategy](https://plugins.jenkins.io/role-strategy/) plugin in your Jenkins instance, you will need `Job/read`, `Job/create`, `Job/build`, and optionally `Job/delete` and `Overall/read` permissions. 
 
 {% hint style="warning" %}
-If you are a CloudBees CI user, you will need some additional permissions. Please see the notes at the bottom of the [connect jenkins man page](https://moderneinc.github.io/moderne-cli/mod-connect-jenkins.html) for more information.
+If you are a CloudBees CI user, you will need some additional permissions. Please see the notes at the bottom of the [mod-connect jenkins README](https://github.com/moderneinc/mod-connect#mod-connect-jenkins) for more information.
 {% endhint %}
 
 #### Step 2: Create Jenkins credentials
@@ -107,12 +101,12 @@ Specifically, you'll need to create credentials for:
 * Uploading LST artifacts to your artifact repository (CLI parameter: `publishCredsId`)
 
 {% hint style="info" %}
-The `connect jenkins` command requires the _ID_ of the credential. When creating these credentials, make sure you save the ID to use in the CLI command rather than copying the actual credentials themselves.
+The `mod-connect jenkins` command requires the _ID_ of the credential. When creating these credentials, make sure you save the ID to use in the CLI command rather than copying the actual credentials themselves.
 {% endhint %}
 
 #### Step 3: Create the CSV file
 
-Once you have your Jenkins instance set up with the appropriate permissions, you'll want to make a CSV file that contains the list of the repositories you want to ingest as well as any necessary information for ingesting them. You can find the schema and detailed examples on our [connect jenkins man page](https://moderneinc.github.io/moderne-cli/mod-connect-jenkins.html).
+Once you have your Jenkins instance set up with the appropriate permissions, you'll want to make a CSV file that contains the list of the repositories you want to ingest as well as any necessary information for ingesting them. You can find the schema and detailed examples on our [mod-connect jenkins README](https://github.com/moderneinc/mod-connect#mod-connect-jenkins).
 
 Here's an example of what the CSV file might look like:
 
@@ -126,7 +120,7 @@ Here's an example of what the CSV file might look like:
 You should now have everything you need to run the command. You can find an example of what this might look like below:
 
 ```shell
-mod connect jenkins --apiToken jenkinsApiToken \
+mod-connect jenkins --apiToken jenkinsApiToken \
    --controllerUrl https://jenkins.company-name.com \
    --fromCsv /path/to/repos.csv \
    --gitCredsId username-pat \
@@ -136,7 +130,7 @@ mod connect jenkins --apiToken jenkinsApiToken \
 ```
 
 {% hint style="info" %}
-There are a variety of optional parameters that you can find on the [connect jenkins man page](https://moderneinc.github.io/moderne-cli/mod-connect-jenkins.html) to refine the command further if you so desire. 
+There are a variety of optional parameters that you can find in the [mod-connect jenkins README](https://github.com/moderneinc/mod-connect#mod-connect-jenkins) to refine the command further if you so desire. 
 {% endhint %}
 
 Once you've run the command, you should see that a Jenkins Job was created for every repository you specified in the CSV file. You should also see artifacts start to flow into your artifact repository from these jobs being run over time.
@@ -145,9 +139,9 @@ You're now ready to begin [configuring the Moderne agent](/how-to/agent-configur
 {% endtab %}
 {% endtabs %}
 
-### Mod Publish
+## Mod Publish
 
-If you are unable to set up a GitHub or Jenkins pipeline for building/publishing LST artifacts, you can update your existing pipelines to run the [mod publish](https://moderneinc.github.io/moderne-cli/mod-publish.html) command when code is checked in. This command will build the LST artifacts and then publish them to an artifact repository you specify.
+If you are unable to set up a GitHub or Jenkins pipeline for building/publishing LST artifacts, you can update your existing pipelines to run the [mod publish](https://moderneinc.github.io/moderne-cli/mod-publish.html) command when code is checked in. This command will build the LST artifacts and then publish them to an artifact repository you specify. This command requires that you have the [Moderne CLI installed](/cli/cli-intro.md).
 
 This command expects:
 
