@@ -4,7 +4,7 @@ One of the first steps of integrating your code with Moderne is setting up a pip
 
 There are three ways to do this:
 
-1. (**Recommended**) Use the [mod-connect tool](#mod-connect) to build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
+1. (**Recommended**) Use the [mod-connect tool](https://github.com/moderneinc/mod-connect) to build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
 2. Update all of your existing pipelines to run the [mod publish](#mod-publish) command whenever the code is updated.
 3. Apply a Maven or Gradle plugin to your project and configure them to build/publish LST artifacts.
 
