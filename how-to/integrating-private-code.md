@@ -4,7 +4,7 @@ One of the first steps of integrating your code with Moderne is setting up a pip
 
 There are three ways to do this:
 
-1. (**Recommended**) Use the [mod-connect tool](https://github.com/moderneinc/mod-connect) to build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
+1. (**Recommended**) Use the [mod-connect tool](https://github.com/moderneinc/mod-connect) to create a GitHub or Jenkins pipeline that will build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
 2. Update all of your existing pipelines to run the [mod publish](#mod-publish) command whenever the code is updated.
 3. Apply a Maven or Gradle plugin to your project and configure them to build/publish LST artifacts.
 
@@ -16,7 +16,7 @@ The [mod-connect tool](https://github.com/moderneinc/mod-connect) allows you to 
 
 {% tabs %}
 {% tab title="GitHub" %}
-The [mod-connect github](https://github.com/moderneinc/mod-connect#mod-connect-github) command will directly commit an ingestion workflow and the necessary files to run it to the GitHub repository you specify. This workflow will iterate over every repository in a CSV file you create and build/publish LST artifacts for each on a regular basis.
+The [mod-connect github](https://github.com/moderneinc/mod-connect#mod-connect-github) command will directly commit an ingestion workflow and the necessary files to run it to the GitHub repository you specify. This workflow will iterate over every repository in a CSV file you create and build/publish LST artifacts for each on a regular basis. Behind the scenes, it will use the [Moderne CLI](/cli/cli-intro.md) to build and publish the LST artifacts.
 
 Below, we'll walk through the steps you'll need to take to run this command successfully.
 
@@ -79,7 +79,7 @@ Once you've run the command, you should start to see artifacts being created and
 You're now ready to begin [configuring the Moderne agent](/how-to/agent-configuration.md).
 {% endtab %}
 {% tab title="Jenkins" %}
-The [mod-connect Jenkins](https://github.com/moderneinc/mod-connect#mod-connect-jenkins) command will create a Jenkins Job for each repository you specify in a CSV file. Each job will build and publish LST artifacts to your artifact repository on a regular basis.
+The [mod-connect Jenkins](https://github.com/moderneinc/mod-connect#mod-connect-jenkins) command will create a Jenkins Job for each repository you specify in a CSV file. Each job will build and publish LST artifacts to your artifact repository on a regular basis. Behind the scenes, it will use the [Moderne CLI](/cli/cli-intro.md) to build and publish the LST artifacts.
 
 Below, we'll walk through the steps you'll need to take to run this command successfully. We'll assume you already have a Jenkins instance to use.
 

@@ -2,13 +2,24 @@
 description: >-
   Describing the relationship between source code and the artifacts that Moderne
   consumes.
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # How LST artifacts are produced
 
 Moderne operates on a format-preserving and type-attributed Lossless Semantic Tree (LST) which is an intermediate, compiler-produced representation of the code. This LST can be projected losslessly back to the original source code (including all of its original formatting) but contains far more information than the text of the original code.
 
-This LST artifact is either produced by the [Moderne CLI](/cli/cli-intro.md) (**recommended**) or by the [Moderne build plugins](/how-to/integrating-private-code.md#mavengradle-plugins). These artifacts are typically produced in CI jobs that run on GitHub or Jenkins and they are designed to be published to an artifact repository alongside other artifacts such as binary JARs, JavaDocs, sources, etc.
+This LST artifact is either produced by the [Moderne CLI](/cli/cli-intro.md) (**recommended**) or by the [Moderne build plugins](/how-to/integrating-private-code.md#mavengradle-plugins). These artifacts are typically produced in CI jobs (usually created by the [mod-connect tool](https://github.com/moderneinc/mod-connect)) that run on GitHub or Jenkins and they are designed to be published to an artifact repository alongside other artifacts such as binary JARs, JavaDocs, sources, etc.
 
 In this doc, we'll illustrate the relationship between the various components: source control, commits, CI builds, the Moderne CLI / Moderne build plugins, and the artifact repository.
 
@@ -53,5 +64,5 @@ The `buildId` correlation identifier is necessary to identify artifacts emanatin
 
 We still preserve the changeset, as this is the starting point of any later commit workflow after a recipe run in Moderne, but `buildId` is how we group artifacts from the same build process together to form an overall understanding of the code at the time this build occurred.
 
-Build ids increase over time; so newer LSTs will have a higher `buildId`.
+Build IDs increase over time; so newer LSTs will have a higher `buildId`.
 {% endhint %}
