@@ -29,7 +29,7 @@ query {
 }
 ```
 
-Below you can find a list of all of the recipes that currently produce visualizations:
+Below you can find some of the recipes that currently produce visualizations:
 
 ```
 org.openrewrite.sql.FindSql
@@ -40,7 +40,6 @@ org.openrewrite.cobol.search.FindCopybook
 org.openrewrite.cobol.search.FindRelationships
 org.openrewrite.FindSourceFiles
 org.openrewrite.LanguageComposition
-org.openrewrite.FindParseFailures
 org.openrewrite.FindLstProvenance
 org.openrewrite.LanguageComposition
 org.openrewrite.java.search.FindMethods
