@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.147.0 (2023/08/23)
+
+- add dropdown options to share button
+
 ### UI v9.146.0 (2023/08/22)
 
 - add sharing option to visualizations that produce data tables
