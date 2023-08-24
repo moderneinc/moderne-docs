@@ -1,4 +1,9 @@
 # Changelog
+### UI v9.148.0 (2023/08/24)
+
+- add auto merge strategy option for github & gitlab
+- add Share query option for graphql operations
+
 
 ### UI v9.147.0 (2023/08/23)
 
