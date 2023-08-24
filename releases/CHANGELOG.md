@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.149.0 (2023/08/24)
+
+- Bug fixes and other improvements.
+
 ### UI v9.148.0 (2023/08/24)
 
 - add auto merge strategy option for github & gitlab
