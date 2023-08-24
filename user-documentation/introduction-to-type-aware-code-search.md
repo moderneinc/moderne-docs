@@ -36,9 +36,11 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
 
     ![](../.gitbook/assets/find-method-usage-empty.png)
 * (Optionally) [Filter down to a specific group of repositories](../references/managing-repository-groups.md#how-to-create-a-repository-group).
+* Click on the wand icon next to the method pattern textbox to open the method pattern wizard.
 * Enter the fully qualified class name of `java.nio.file.Files` in the fully qualified receiver type field.
 * Enter the method name of `createFile` in the method name field.
 * Enter `..` in the argument type field to denote that we want to search for any amount of arguments (zero or more).
+* Press `Apply` to add the method pattern to the text box.
 
 {% hint style="success" %}
 The combination of the fully qualified receiver type, the method name, and the argument types make up a "method pattern".
@@ -48,7 +50,7 @@ For extensive documentation on each of these components and more examples of dif
 
 *   Your window should look like:
 
-    ![](../.gitbook/assets/find-method-usage-eclipse.png)
+    ![](../.gitbook/assets/find-method-usage-full.png)
 *   Press `Dry Run` to begin the search. You will be redirected to a page that looks like:
 
     ![](../.gitbook/assets/find-method-usage-results.png)
