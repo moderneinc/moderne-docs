@@ -47,9 +47,9 @@ org.openrewrite.java.search.FindMethods
 
 ## How to view visualizations
 
-If a recipe produces a visualization, the `Visualizations` button will be blue and clickable after the recipe finishes running:
+If a recipe produces a visualization, after it finishes running, the `Visualizations` tab will shift from having gray text and being unclickable to having black text and being clickable:
 
-![Visualizations button](/.gitbook/assets/visualizations-button.png)
+![Visualizations button](/.gitbook/assets/visualizations-tab.png)
 
 When you click on it, you'll be taken to a page that contains all of the visualizations available for that recipe. Some recipes may only have one visualization whereas others might have many:
 
