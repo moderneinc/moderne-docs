@@ -79,7 +79,7 @@ Click _Dry Run_ to start the recipe. You might be asked for additional GitHub pe
 
 On the results page, you will see a summary of your recipe criteria and an indication of progress.
 
-<figure><img src="../.gitbook/assets/RecipeResults.png" alt="Example results"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/recipe-results.png" alt="Example results"><figcaption></figcaption></figure>
 
 Each result shows the number of files searched and how many changes were detected.
 
