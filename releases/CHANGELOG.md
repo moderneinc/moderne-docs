@@ -1,17 +1,32 @@
 # Changelog
+
 ### UI v9.147.0 (2023/08/23)
 
-- add dropdown options to share button
+#### Tabs, tabs, tabs, tabs, yeah!
+
+We've done a little tidying up on the recipe run result page. _**Visualizations**_ and _**Data tables**_ can now be accessed from the tabs at the top of the page. You'll find these tabs are also accessible from the respective pages for _Visualizations_ and _Data tables._
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+#### &#x20;Add dropdown options to share button
+
+![](<../.gitbook/assets/image (1).png>)
+
+When sharing a recipe from the recipes details, you can now select whether or not to include your current organizations.
 
 ### UI v9.146.0 (2023/08/22)
 
-- add sharing option to visualizations that produce data tables
-- add organization id to the recent runs table
+* add sharing option to visualizations that produce data tables
+
+#### &#x20;Organization ID to the recent runs table
+
+Now you can see which Organization a visualization was run on from the _Recent visualizations_ table.
+
+![](<../.gitbook/assets/image (3).png>)
 
 ### UI v9.145.0 (2023/08/22)
 
-- show options used
-
+* show options used
 
 ### UI v9.144.0 (2023/08/18)
 
@@ -21,13 +36,13 @@ Now you can see the latest version number of the CLI before downloading.
 
 <div align="left" data-full-width="false">
 
-<figure><img src="../.gitbook/assets/image (2).png" alt="" width="176"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt="" width="176"><figcaption></figcaption></figure>
 
 </div>
 
 #### Organization and group selector improvements
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (3) (1).png>)
 
 * Highlighted search terms
 * More flexible width and word wrapping when organization names are long.
@@ -38,9 +53,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 We now support dynamic form fields for `List` or `string[]` options. Recipes that take a list of strings now have a new editor interface to improve the usability.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.142.0 (2023/08/15)
 
@@ -62,7 +75,7 @@ We now support dynamic form fields for `List` or `string[]` options. Recipes tha
 
 Pan/zoom controls and download options are now available for Visualizations.
 
-* ![](<../.gitbook/assets/image (4).png>)
+* ![](<../.gitbook/assets/image (4) (1).png>)
 
 ### UI v9.138.0 (2023/08/10)
 
