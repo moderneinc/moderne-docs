@@ -178,7 +178,7 @@ In the `pom.xml` or `build.gradle` file, add this entry to the `plugins` section
       <plugin>
         <groupId>io.moderne</groupId>
         <artifactId>moderne-maven-plugin</artifactId>
-        <version>1.3.1</version>
+        <version>1.7.2</version>
         <configuration>
           <!-- Supports the same functionality as the OpenRewrite plugin -->
           <activeRecipes>
@@ -203,7 +203,7 @@ In the `pom.xml` or `build.gradle` file, add this entry to the `plugins` section
 {% code title="build.gradle" %}
 ```groovy
 plugins {
-    id("io.moderne.rewrite") version("1.0.14")
+    id("io.moderne.rewrite") version("1.3.0")
 }
 
 // OpenRewrite and recipe modules are published to Maven Central
