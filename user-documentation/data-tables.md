@@ -38,7 +38,7 @@ You will then be taken to the recipe results page:
 
 If the recipe can fix a security vulnerability, it will do so. You can view the diffs and commit the results as you would in any other recipe. In most situations, however, this recipe will identify that there is a security vulnerability rather than fix it. If there are security vulnerabilities identified, the recipe will produce a detailed data table.
 
-To see the data table, wait until the recipe has finished running and then click on the `Data Tables` button:
+To see the data table, wait until the recipe has finished running and then click on the `Data Tables` tab:
 
 ![](/.gitbook/assets/check-dep-2.png)
 
