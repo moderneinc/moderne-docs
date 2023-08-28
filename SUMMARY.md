@@ -10,6 +10,7 @@
   * [Recipe execution and commits with the Moderne API](user-documentation/recipe-execution-and-commits-with-graphql.md)
   * [Getting started with data tables](user-documentation/data-tables.md)
   * [Getting started with visualizations](user-documentation/visualizations.md)
+  * [How to find personally identifiable information (PII) and secrets exposed by your APIs](/user-documentation/find-pii.md)
 * [Administrator documentation](how-to/administrator-documentation.md)
   * [Integrating private code with Moderne](how-to/integrating-private-code.md)
   * [Configuring the Moderne agent](how-to/agent-configuration.md)
