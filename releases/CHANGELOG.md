@@ -1,4 +1,9 @@
 # Changelog
+### UI v9.151.0 (2023/08/28)
+
+- increase diff page size to `20` and selectively render large diffs
+- include api url in graph sharing
+
 ### UI v9.150.0 (2023/08/25)
 
 - Bug fixes and other improvements.
