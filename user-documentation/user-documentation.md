@@ -8,3 +8,4 @@
 * [Recipe execution and commits with the Moderne API](/user-documentation/recipe-execution-and-commits-with-graphql.md)
 * [Getting started with data tables](/user-documentation/data-tables.md)
 * [Getting started with visualizations](user-documentation/visualizations.md)
+* [How to find personally identifiable information (PII) and secrets exposed by your APIs](/user-documentation/find-pii.md)
