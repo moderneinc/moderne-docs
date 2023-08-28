@@ -34,3 +34,6 @@ Let's walk through how to find and use this recipe so you can be more confident 
 
 ![Transitive example](/.gitbook/assets/owner-transitive-example.png)
 
+{% hint style="info" %}
+If you want to find all outbound API calls that your application is making, you can do so with the [find API calls recipe](https://app.moderne.io/recipes/org.openrewrite.java.spring.search.FindApiCalls).
+{% endhint %}
