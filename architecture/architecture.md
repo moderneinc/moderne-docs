@@ -75,7 +75,7 @@ Multiple agents can be configured for high availability or to connect to only so
 
 #### Agent security
 
-Agents initiate connections to the [Moderne API gateway](architecture.md#moderne-api-gateway) via the [RSocket](https://rsocket.io/) protocol. Moderne will never initiate an API call to the agent. Because of that, only egress from your environment needs to be open.
+Agents initiate connections to the [Moderne API gateway](architecture.md#moderne-api-gateway) via the [RSocket](https://rsocket.io/) protocol. **Moderne will never initiate an API call to the agent**. Because of that, only egress from your environment needs to be open.
 
 When you set up an agent, Moderne will share a token with you that you must configure in the Moderne agents you create. Moderne will reject any connection attempts from unauthorized agent instances. In this way, Moderne requires a minimum level of client (agent) verification as an extra security precaution.
 
