@@ -1,4 +1,9 @@
 # Changelog
+### UI v9.152.0 (2023/08/31)
+
+- replay visualizations with predefined prior options
+- add date selector support for recipe input options
+
 ### UI v9.151.2 (2023/08/29)
 
 - Bug fixes and other improvements.
