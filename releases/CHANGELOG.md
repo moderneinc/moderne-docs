@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.152.1 (2023/09/01)
+
+- Bug fixes and other improvements.
+
 ### UI v9.152.0 (2023/08/31)
 
 - replay visualizations with predefined prior options
