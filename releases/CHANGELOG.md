@@ -1,4 +1,9 @@
 # Changelog
+### UI v9.154.0 (2023/09/06)
+
+- add recipe run priority to recent recipe run grid
+- approve pull requests
+
 ### UI v9.153.0 (2023/09/02)
 
 - Bug fixes and other improvements.
