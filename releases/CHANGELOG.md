@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.155.0 (2023/09/07)
+
+- toggling datetime elements now changes default user setting
+
 ### UI v9.154.0 (2023/09/06)
 
 - add recipe run priority to recent recipe run grid
