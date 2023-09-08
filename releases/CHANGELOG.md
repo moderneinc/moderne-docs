@@ -1,52 +1,52 @@
 # Changelog
+
 ### UI v9.155.0 (2023/09/07)
 
-- toggling datetime elements now changes default user setting
+* toggling datetime elements now changes default user setting
 
 ### UI v9.154.0 (2023/09/06)
 
-- add recipe run priority to recent recipe run grid
-- approve pull requests
+* add recipe run priority to recent recipe run grid
+* approve pull requests
 
 ### UI v9.153.0 (2023/09/02)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.152.1 (2023/09/01)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.152.0 (2023/08/31)
 
-- replay visualizations with predefined prior options
-- add date selector support for recipe input options
+* replay visualizations with predefined prior options
+* add date selector support for recipe input options
 
 ### UI v9.151.2 (2023/08/29)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.151.1 (2023/08/29)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.151.0 (2023/08/28)
 
-- increase diff page size to `20` and selectively render large diffs
-- include api url in graph sharing
+* increase diff page size to `20` and selectively render large diffs
+* include api url in graph sharing
 
 ### UI v9.150.0 (2023/08/25)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.149.0 (2023/08/24)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.148.0 (2023/08/24)
 
-- add auto merge strategy option for github & gitlab
-- add Share query option for graphql operations
-
+* add auto merge strategy option for github & gitlab
+* add Share query option for graphql operations
 
 ### UI v9.147.0 (2023/08/23)
 
@@ -54,11 +54,11 @@
 
 We've done a little tidying up on the recipe run result page. _**Visualizations**_ and _**Data tables**_ can now be accessed from the tabs at the top of the page. You'll find these tabs are also accessible from the respective pages for _Visualizations_ and _Data tables._
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
-#### &#x20;Add dropdown options to share button
+#### Add dropdown options to share button
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/image (1) (1).png>)
 
 When sharing a recipe from the recipes details, you can now select whether or not to include your current organizations.
 
@@ -66,11 +66,11 @@ When sharing a recipe from the recipes details, you can now select whether or no
 
 * add sharing option to visualizations that produce data tables
 
-#### &#x20;Organization ID to the recent runs table
+#### Organization ID to the recent runs table
 
 Now you can see which Organization a visualization was run on from the _Recent visualizations_ table.
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (3) (1).png>)
 
 ### UI v9.145.0 (2023/08/22)
 
@@ -84,13 +84,13 @@ Now you can see the latest version number of the CLI before downloading.
 
 <div align="left" data-full-width="false">
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt="" width="176"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt="" width="176"><figcaption></figcaption></figure>
 
 </div>
 
 #### Organization and group selector improvements
 
-![](<../.gitbook/assets/image (3) (1).png>)
+![](<../.gitbook/assets/image (3) (1) (1).png>)
 
 * Highlighted search terms
 * More flexible width and word wrapping when organization names are long.
@@ -101,7 +101,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 We now support dynamic form fields for `List` or `string[]` options. Recipes that take a list of strings now have a new editor interface to improve the usability.
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.142.0 (2023/08/15)
 
@@ -123,7 +123,7 @@ We now support dynamic form fields for `List` or `string[]` options. Recipes tha
 
 Pan/zoom controls and download options are now available for Visualizations.
 
-* ![](<../.gitbook/assets/image (4) (1).png>)
+* ![](<../.gitbook/assets/image (4) (1) (1).png>)
 
 ### UI v9.138.0 (2023/08/10)
 
