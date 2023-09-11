@@ -1,4 +1,11 @@
 # Changelog
+### UI v9.156.0 (2023/09/11)
+
+- add approve to the row-level actions on commit jobs
+- add download notifications
+- pull request status on commit jobs
+- add notifications for artifact deploys
+
 
 ### UI v9.155.0 (2023/09/07)
 
