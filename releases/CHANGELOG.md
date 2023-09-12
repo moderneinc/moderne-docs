@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.157.0 (2023/09/12)
+
+- add more notifications
+
 ### UI v9.156.0 (2023/09/11)
 
 - add approve to the row-level actions on commit jobs
