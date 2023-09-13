@@ -1,4 +1,10 @@
 # Changelog
+### UI v9.158.0 (2023/09/13)
+
+- add tree data grid visualiztion support
+feat/merge commit
+- add categories api example
+
 ### UI v9.157.0 (2023/09/12)
 
 - add more notifications
