@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.158.1 (2023/09/14)
+
+- Bug fixes and other improvements.
+
 ### UI v9.158.0 (2023/09/13)
 
 - add tree data grid visualiztion support
