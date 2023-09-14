@@ -1,6 +1,6 @@
 # Getting started with the Moderne CLI
 
-{% hint style="warn" %}
+{% hint style="warning" %}
 This page is currently out of date (as of September 14th, 2023). We are working on updating the documentation for this to reflect the current state of the CLI. In the mean time, you can check out the [automatically generated man pages](https://moderneinc.github.io/moderne-cli/) which are up-to-date with the latest version of the CLI.
 {% endhint %}
 
@@ -49,7 +49,7 @@ To install the Moderne CLI please:
 
    When you generated the token, the Moderne UI will provide you with a command that you can copy and run in the command line to save the token to the `token.txt` file. Feel free to use that or one of the above options.
 
-{% hint style="warn" %}
+{% hint style="warning" %}
 If your access token was created in a private tenant, you will need to specify your tenant name when you run the `mod run` command by providing the `--tenant` parameter. The value for `tenant` is the subdomain of your Moderne tenant URL (e.g., if you log in to Moderne at `foobar.moderne.io`, then your tenant name is `foobar`).
 {% endhint %}
 
