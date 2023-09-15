@@ -34,7 +34,7 @@
   * [Getting started with the Moderne CLI](cli/cli-intro.md)
   * [Moderne CLI man pages](cli/cli-reference.md)
 * [Releases](releases/release.md)
-  * [Versions of plugins and agent](releases/releases.md)
+  * [Agent + CLI information](releases/releases.md)
   * [Changelog](releases/CHANGELOG.md)
 * [Architecture](architecture/architecture-readme.md)
   * [Moderne architecture](architecture/architecture.md)
