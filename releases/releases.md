@@ -4,5 +4,5 @@
 | ------------------------------------- |-----------------|
 | Agent (recommended to use **latest**) | 0.143.0         |
 
-* [Mod connect tool](https://github.com/moderneinc/mod-connect)
-* [Moderne CLI man pages](https://moderneinc.github.io/moderne-cli/)
+* mod-connect [docs](https://moderneinc.github.io/mod-connect/) / [source](https://github.com/moderneinc/mod-connect)
+* Moderne CLI [docs](https://moderneinc.github.io/moderne-cli/)
