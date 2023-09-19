@@ -1,15 +1,12 @@
 # Getting started with the Moderne CLI
 
-{% hint style="warning" %}
-This page is currently out of date (as of September 14th, 2023). We are working on updating the documentation for this to reflect the current state of the CLI. In the mean time, you can check out the [automatically generated man pages](https://moderneinc.github.io/moderne-cli/) which are up-to-date with the latest version of the CLI.
-{% endhint %}
-
 The Moderne CLI is a command line tool that allows you to build [Lossless Semantic Tree](https://docs.moderne.io/concepts/lossless-semantic-trees) (LST) artifacts, publish them to an artifact repository of your choosing, and run recipes from your local machine.
 
 To ensure you can use the Moderne CLI successfully, in this guide, we will:
 
-* [Explain how to install the Moderne CLI](#installation) 
-* [Help you get familiar with the Moderne CLI by walking through how to migrate a sample repository from Spring Boot 2 to 3 using the CLI](#using-the-moderne-cli)
+* [Explain how to install the Moderne CLI](#installation)
+* [Walk you through configuring the CLI](#configuring-the-cli)
+* [Help you get familiar with the Moderne CLI by demonstrating how to migrate a sample repository from Spring Boot 2 to 3 using the CLI](#using-the-moderne-cli)
 * [Provide more details for each command in case you want to learn more](#commands) 
 
 ## Installation
@@ -31,27 +28,44 @@ To install the Moderne CLI please:
    point to a specific location or this could involve putting it in a directory
    that's already on your `PATH` such as a `/usr/bin` directory.
 
-5. Ensure you can run the Moderne CLI by typing `mod help`. If everything is set up
+5. Ensure you can run the Moderne CLI by typing `mod`. If everything is set up
    correctly, you should see a list of commands:
 
    ![](../.gitbook/assets/mod-cli.png)
 
-6. Before you can run the `run` or `download` command, you'll need to create a Moderne Access
-   Token. Go to
-   [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token),
-   enter a name for the token, and press `generate`.
+## Configuring the CLI
 
-7. The Moderne CLI will look for the access token in this order:
+Before you can run most commands, you'll need to configure the CLI:
 
-   * In the `--accessToken` param specified in the command
-   * In the `MODERNE_ACCESS_TOKEN` environment variable
-   * In the `~/.moderne/token.txt` location of your system
+### Create an access token and give it to the CLI
 
-   When you generated the token, the Moderne UI will provide you with a command that you can copy and run in the command line to save the token to the `token.txt` file. Feel free to use that or one of the above options.
+Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token), enter a human-readable name for the token (e.g., cli-token), and then press `generate`.
 
-{% hint style="warning" %}
-If your access token was created in a private tenant, you will need to specify your tenant name when you run the `mod run` command by providing the `--tenant` parameter. The value for `tenant` is the subdomain of your Moderne tenant URL (e.g., if you log in to Moderne at `foobar.moderne.io`, then your tenant name is `foobar`).
-{% endhint %}
+Once created, copy the token and use it in the following command:
+
+```shell
+mod config moderne https://app.moderne.io --token mat-YOUR_TOKEN_HERE
+```
+
+This command will set up the connection to Moderne so that you can install and run recipes. If you have a private tenant, you'll want to replace `https://app.moderne.io` with the link to your Moderne UI. 
+
+### Install recipes
+
+With the Moderne connection established, you can install recipes so you can run them locally by running the following command:
+
+```shell
+mod config recipes install --from-moderne
+```
+
+This will grab all of the recipes from the tenant you specified in `mod config` and download them to your machine so you can use the CLI to run them on your repositories.
+
+### (Optionally) Configure artifact publishing
+
+If you want to publish artifacts from the CLI, you'll need to run the following command:
+
+```shell
+mod config artifacts <your-artifact-repository-url> --user <user> --password <password>
+```
 
 ## Using the Moderne CLI
 
@@ -103,7 +117,7 @@ export JAVA_HOME=REPLACE_FOR_LOCATION_OF_JAVA_8
 5. If everything has been set up correctly, you should see a `BUILD SUCCESS`
    message after the project is built and the tests passed.
 
-### Migrate to Spring Boot 3
+### Migrate to Spring Boot 3 using the Moderne CLI
 
 Now that the repository is configured, it's time to migrate it to Spring Boot 3
 using the Moderne CLI.
@@ -111,60 +125,49 @@ using the Moderne CLI.
 1. Run the build command to generate the LST for the PetClinic repo:
 
 ```shell
-mod build --path . --mvnPluginVersion=1.2.1
+mod build .
 ```
 
-2. Next, switch to Java 17 to run recipes (as the CLI requires at least Java 17 to work):
+![mod build example](/.gitbook/assets/mod-build-example.png)
 
-```shell
-sdk install java 17.0.7-tem
-sdk use java 17.0.7-tem
-```
-
-OR
-
-```shell
-export JAVA_HOME=REPLACE_FOR_LOCATION_OF_JAVA_17
-```
- 
-3. Kick off the recipe by running the following command from the
+2. Kick off the migration recipe by running the following command from the
    `spring-petclinic` repository:
 
 ```shell
-mod run --path . --recipeName org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0 --recipeGAVs org.openrewrite.recipe:rewrite-spring:5.0.2 --skipBuild
+mod run . --recipe org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
 ```
 
-4. The previous command should have updated your source files. Whenever you run
-   a recipe, you should always double-check that the changes made match your
-   expectations by running:
+![mod run example](/.gitbook/assets/mod-run-example.png)
+
+3. The previous command will generate a patch file (`fix.patch`) that contains the changes the recipe would make to your repository. You can examine the file with your favorite editor, or you can apply the changes to the code and use `git diff` to check out the changes:
 
 ```shell
+mod apply . --last-recipe-run
 git diff
 ```
 
-You've now successfully used the Moderne CLI to migrate a project from Spring Boot 2 to 3!
+If you've run many recipes and want to apply a specific one, you can do so by specifying the recipe run ID which is the date time + some random letters that appears in the path before the patch files in the `mod run` output:
 
-### Run a recipe on a remote LST
-
-In the previous example, we used the Moderne CLI to run a recipe against a repository on your local machine. This is fine when you only have one repository you're working with. However, what if you wanted to run a recipe against many repositories at once? Checking them out locally, building each of them, and then running a separate run command for each would take a considerable amount of time.
-
-Fortunately, the run command can be extended so that you can run recipes against multiple repositories that have already published their [Lossless Semantic Tree](/concepts/lossless-semantic-trees.md) (LST) artifacts.
-
-This can be especially helpful when you're working on debugging a new recipe and want to test it against many repositories at once.
-
-For example, if you executed the following command, the [Code Cleanup](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CodeCleanup) recipe would be run against all of the Netflix repositories that have LST artifacts built in the Moderne platform:
+![recipe run id](/.gitbook/assets/recipe-run-id.png)
 
 ```shell
-mod run --repositories "github.com/Netflix/.+@main" --recipeName org.openrewrite.staticanalysis.CodeCleanup --recipeGAVs rewrite-static-analysis
+mod apply . --recipe-run <recipe-run-id>
+git diff
 ```
 
-None of these repositories will be checked out locally and you won't have to wait for these repositories to build as the pre-built artifacts will simply be downloaded to your machine instead.
+If you look at the results, you should see that:
 
-Feel free to experiment with the run command by executing [any of our recipes](https://app.moderne.io/marketplace) against any of the open-source Netflix repositories that exist in the Moderne platform.
+* The `@Autowired` annotation was removed
+* JUnit 4 has been replaced with JUnit 5
+* `javax` has been replaced with `jakarta`
+* The code has been migrated to Java 17 and text blocks are used
+* Some best practices were applied (such as adding the `public` test method modifier)
+
+You've now successfully used the Moderne CLI to migrate a project from Spring Boot 2 to 3! 
 
 ## Commands
 
-For more details about the Moderne CLI and each of the commands, check out the [Moderne man pages](https://moderneinc.github.io/moderne-cli/).
+For more details about the Moderne CLI and each of the commands, check out the [Moderne CLI man pages](https://moderneinc.github.io/moderne-cli/).
 
 Below, we'll provide some context for the core commands.
 
@@ -182,11 +185,9 @@ The `build` command generates the LST artifacts with Group Artifact Version coor
 
 While it is possible to manually build and publish your artifacts, we strongly recommend using the [mod-connect tool](https://github.com/moderneinc/mod-connect) to set up [Jenkins](https://github.com/moderneinc/mod-connect#mod-connect-jenkins) or [GitHub actions](https://github.com/moderneinc/mod-connect#mod-connect-github) for ingesting LST artifacts in bulk.
 
-If the command executes successfully, the LST artifact for each project will be stored in one of three places:
+If the command executes successfully, the LST artifact for each project will be stored in a `.moderne/build` directory inside of each repository that is built. The generated artifact will look similar to: `spring-petclinic-20230919115358-ast.jar`.
 
-* For non-Java projects, a `.moderne/` directory will be created and used
-* For Gradle projects, the `build` directory will be used
-* For Maven projects, the `target` directory will be used
+You must have run `mod config moderne` before you can run this command.
 
 [Find all of the parameters for the build command here](https://moderneinc.github.io/moderne-cli/mod-build.html)
 
@@ -198,7 +199,7 @@ This command is typically used for publishing LST artifacts from CI systems that
 
 You can also use this command for _debugging purposes_ if you want to do a one-off test of uploading an artifact somewhere.
 
-This command will begin by executing the [build](cli-intro.md#build-command) command and, if that's successful, it will then attempt to upload the artifacts to the artifact repository you specified.
+You must have run `mod build` before you can run this command.
 
 [Find all of the parameters for the publish command here](https://moderneinc.github.io/moderne-cli/mod-publish.html)
 
@@ -206,11 +207,7 @@ This command will begin by executing the [build](cli-intro.md#build-command) com
 
 The `run` command allows you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally. You will need to have a `MODERNE_ACCESS_TOKEN` in order for this command to work. See [how to create a Moderne access token](/references/create-api-access-tokens.md).
 
-{% hint style="success" %}
-If your access token was created in a private tenant, you will need to specify your tenant name in the run command by providing the `--tenant` parameter. The value for `tenant` is the subdomain of your Moderne tenant URL (e.g., if you log in to Moderne at `foobar.moderne.io`, then your tenant name is `foobar`).
-{% endhint %}
-
-The `run` command will default to building the LST as part of executing the recipe. However, if you've built the LST previously, you can tell the run command to skip the build step by passing in the `--skipBuild` parameter. Doing so will result in the `run` command executing much more quickly.
+You must have run `mod build` before you can run this command.
 
 [Find all of the parameters for the run command here](https://moderneinc.github.io/moderne-cli/mod-run.html)
 
@@ -218,7 +215,7 @@ The `run` command will default to building the LST as part of executing the reci
 
 The OpenRewrite build plugins are designed to run a _single recipe_ on a _single repository_ at a time. When you run a recipe using these plugins, a new LST is produced regardless of whether or not the code for that repository has changed. This LST is temporarily stored in memory and used by the recipe before being discarded at the end of the recipe run. For large projects, this can be problematic as the entire LST _must_ fit in memory for the recipe to work.
 
-In contrast, the Moderne CLI is designed for scale. You can run recipes against multiple repositories at once and the LST does not need to fit into memory. This is because the Moderne CLI uses proprietary code to build the LST up in parts and then serializes/writes it to the disk (as part of the `mod build` command). Likewise, the `mod run` command can read this LST from the disk in pieces as it runs recipes rather than building the LST every time (if you pass it the `--skipBuild` flag to denote that the LST has already been built).
+In contrast, the Moderne CLI is designed for scale. You can run recipes against multiple repositories at once and the LST does not need to fit into memory. This is because the Moderne CLI uses proprietary code to build the LST up in parts and then serializes/writes it to the disk (as part of the `mod build` command). Likewise, the `mod run` command will read this LST from the disk in pieces as it runs recipes rather than building the LST every time.
 
 When running the Moderne CLI commands for the first time, you might notice that running a single recipe on a single repository is slower than the OpenRewrite build plugins. This is due to the fact that the OpenRewrite build plugins do not serialize the LST and write it to disk.
 
