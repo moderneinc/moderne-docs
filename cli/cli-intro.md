@@ -7,6 +7,7 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will:
 * [Explain how to install the Moderne CLI](#installation)
 * [Walk you through configuring the CLI](#configuring-the-cli)
 * [Help you get familiar with the Moderne CLI by demonstrating how to migrate a sample repository from Spring Boot 2 to 3 using the CLI](#using-the-moderne-cli)
+* [Show you how you can use the CLI to make changes to many repositories at once](#running-recipes-against-multiple-local-repositories)
 * [Provide more details for each command in case you want to learn more](#commands) 
 
 ## Installation
