@@ -163,7 +163,79 @@ If you look at the results, you should see that:
 * The code has been migrated to Java 17 and text blocks are used
 * Some best practices were applied (such as adding the `public` test method modifier)
 
-You've now successfully used the Moderne CLI to migrate a project from Spring Boot 2 to 3! 
+You've now successfully used the Moderne CLI to migrate a project from Spring Boot 2 to 3!
+
+## Running recipes against multiple local repositories
+
+In the previous example, we used the Moderne CLI to run a recipe against a single repository. This is fine when you only have one repository you're working with. However, what if you wanted to run a recipe against many repositories at once? Checking them out locally, building each of them, and then running a separate run command for each would take a considerable amount of time.
+
+Fortunately, the Moderne CLI offers the ability to work on groups of repositories. Let's walk through an example of how you might do so.
+
+For this exercise, we have prepared a list of real Spring 2.x open-source repositories from the `spring-projects` GitHub organization that can be migrated. These repositories have been added to the Moderne platform and put inside of the `Spring Projects 2.x` organization.
+
+### Clone the repositories
+
+To clone all of these repositories at once:
+
+```shell
+mkdir workshop
+cd workshop
+mod clone . --moderne-organization "Spring Projects 2.x"
+```
+
+![mod clone example](/.gitbook/assets/mod-clone.png)
+
+### Build the repositories
+
+With the repositories cloned, you can then build them all at once by running this command:
+
+```shell
+mod build .
+```
+
+![mod build example](/.gitbook/assets/mod-build-download.png)
+
+Since these repositories exist inside of Moderne, the CLI will attempt to download the pre-built artifacts from Moderne rather than taking the time to build each of them. This can save you a considerable amount of time when running recipes.
+
+If you'd prefer to build each of the repositories locally, you can specify the `--no-download` flag:
+
+```shell
+mod build workshop --no-download
+```
+
+### Run recipes
+
+With the LST artifacts built for each of the repositories, you can now run recipes against all of them. For instance, let's say we wanted to run a recipe to migrate them all to Spring Boot 3. We could run this command:
+
+```shell
+mod run workshop --recipe org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
+```
+
+![mod run example](/.gitbook/assets/mod-run-group.png)
+
+This will generate a series of `patch` files that contain the changes the recipe will make. Feel free to examine them with your favorite text editor. Once you're ready, you can apply the changes to all of the repositories by running the following command:
+
+### Apply the changes
+
+```shell
+mod apply . --latest-recipe-run
+```
+
+![mod apply example](/.gitbook/assets/mod-apply-example.png)
+
+From there, you can preview the changes with Git by going into each repository and running the `git diff` command.
+
+### Commit
+
+Lastly, if everything looks good, you can commit the changes to all of the repositories at once by running the following command:
+
+```shell
+mod commit . -m "Migrate to spring boot 3" --last-recipe-run
+```
+
+{% hint style="info" %}
+If you'd rather make a branch for each of the repositories to work in instead, you can use the `mod checkout` command.
+{% endhint %}
 
 ## Commands
 
@@ -187,7 +259,7 @@ While it is possible to manually build and publish your artifacts, we strongly r
 
 If the command executes successfully, the LST artifact for each project will be stored in a `.moderne/build` directory inside of each repository that is built. The generated artifact will look similar to: `spring-petclinic-20230919115358-ast.jar`.
 
-You must have run `mod config moderne` before you can run this command.
+If you've set up a connection with Moderne (by running the `mod config moderne` command), the `build` command will attempt to download LST artifacts from Moderne instead of building them locally. This will allow you to quickly run recipes and make changes. If you do not want the `build` command to look for LST artifacts in Moderne, you can add the `--no-download` flag to the command. 
 
 [Find all of the parameters for the build command here](https://moderneinc.github.io/moderne-cli/mod-build.html)
 
