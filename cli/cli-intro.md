@@ -266,21 +266,19 @@ If you've set up a connection with Moderne (by running the `mod config moderne` 
 
 ### Publish
 
-The publish command allows you to manually build and publish LST artifacts for one or more projects. Once published to your artifact management tool, Moderne will be able to ingest them and they will, in turn, be usable inside of the SaaS.
+The publish command allows you to manually publish LST artifacts for one or more projects. Once published to your artifact management tool, Moderne will be able to ingest them and they will, in turn, be usable inside of the SaaS.
 
 This command is typically used for publishing LST artifacts from CI systems that we don't have a [mod-connect](https://github.com/moderneinc/mod-connect) command for. If you use Jenkins or GitHub, we strongly recommend using the [mod-connect tool](https://github.com/moderneinc/mod-connect) for building, publishing, and ingesting LST artifacts in bulk.
 
 You can also use this command for _debugging purposes_ if you want to do a one-off test of uploading an artifact somewhere.
 
-You must have run `mod build` before you can run this command.
+You must have run `mod build` before you can run this command. You also must have set up an artifact repository connection via the `mod config artifacts` command.
 
 [Find all of the parameters for the publish command here](https://moderneinc.github.io/moderne-cli/mod-publish.html)
 
 ### Run
 
-The `run` command allows you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally. You will need to have a `MODERNE_ACCESS_TOKEN` in order for this command to work. See [how to create a Moderne access token](/references/create-api-access-tokens.md).
-
-You must have run `mod build` before you can run this command.
+The `run` command allows you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally. Before you can run recipes, you'll need to [create a Moderne access token](/references/create-api-access-tokens.md) and configure it via the `mod config moderne` command. You'll also need to install recipes via the `mod config recipes` command. Lastly, you'll need to run `mod build` in the repository/repositories where you want to run recipes.
 
 [Find all of the parameters for the run command here](https://moderneinc.github.io/moderne-cli/mod-run.html)
 
