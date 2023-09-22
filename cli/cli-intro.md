@@ -16,20 +16,26 @@ To install the Moderne CLI please:
 
 1. Go to the [Moderne platform](https://app.moderne.io/) and sign in.
 
-2.  Click on the `?` in the top right corner and then select `Moderne CLI` from the `Tools` menu:
+2. Download the CLI for your operating system:
 
-    ![](../.gitbook/assets/cli-download.png)
+{% tabs %}
+{% tab title="Mac" %}
+[Moderne CLI v0.5.7](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v0.5.7/moderne-cli-macos-v0.5.7)
+{% endtab %}
+{% tab title="Linux" %}
+[Moderne CLI v0.5.7](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v0.5.7/moderne-cli-linux-v0.5.7)
+{% endtab %}
+{% tab title="Windows" %}
+[Moderne CLI v0.5.7](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v0.5.7/moderne-cli-windows-v0.5.7)
+{% endtab %}
+{% endtabs %}
 
-3.  You can then either press the `Download Latest` button or you can install it directly through the command line by copying the `curl` command at the bottom of the modal:
-
-    ![](../.gitbook/assets/cli-download2.png)
-
-4. Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere
+3. Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere
    that your terminal can access. This could involve updating your `PATH` to
    point to a specific location or this could involve putting it in a directory
    that's already on your `PATH` such as a `/usr/bin` directory.
 
-5. Ensure you can run the Moderne CLI by typing `mod`. If everything is set up
+4. Ensure you can run the Moderne CLI by typing `mod`. If everything is set up
    correctly, you should see a list of commands:
 
    ![](../.gitbook/assets/mod-cli.png)
