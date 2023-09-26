@@ -1,4 +1,9 @@
 # Changelog
+### UI v9.163.0 (2023/09/26)
+
+- download cli from staging
+- add recipe hover card to recent runs grid
+
 ### UI v9.162.0 (2023/09/23)
 
 - Bug fixes and other improvements.
