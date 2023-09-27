@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.166.0 (2023/09/27)
+
+- download patch with patch download task.
+
 ### UI v9.165.2 (2023/09/26)
 
 - Bug fixes and other improvements.
