@@ -20,13 +20,13 @@ To install the Moderne CLI please:
 
 {% tabs %}
 {% tab title="Mac" %}
-[Moderne CLI 1.0.9](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.0.9/moderne-cli-macos-v1.0.9)
+[Moderne CLI 1.0.12](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.0.12/moderne-cli-macos-v1.0.12)
 {% endtab %}
 {% tab title="Linux" %}
-[Moderne CLI 1.0.9](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.0.9/moderne-cli-linux-v1.0.9)
+[Moderne CLI 1.0.12](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.0.12/moderne-cli-linux-v1.0.12)
 {% endtab %}
 {% tab title="Windows" %}
-[Moderne CLI 1.0.9](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.0.9/moderne-cli-windows-v1.0.9)
+[Moderne CLI 1.0.12](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.0.12/moderne-cli-windows-v1.0.12)
 {% endtab %}
 {% endtabs %}
 
