@@ -10,6 +10,10 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will:
 * [Show you how you can use the CLI to make changes to many repositories at once](#running-recipes-against-multiple-local-repositories)
 * [Provide more details for each command in case you want to learn more](#commands) 
 
+{% hint style="info" %}
+Moderne offers a [Spring Boot Migration Workshop](https://moderneinc.github.io/springboot-migration-workshop/docs/moderne-cli) that may be useful for learning about the CLI. It largely covers similar topics as this doc but in a slightly different manner.
+{% endhint %}
+
 ## Installation
 
 To install the Moderne CLI please:
