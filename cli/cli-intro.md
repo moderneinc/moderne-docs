@@ -24,13 +24,13 @@ To install the Moderne CLI please:
 
 {% tabs %}
 {% tab title="Mac" %}
-[Moderne CLI 1.0.13](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.0.13/moderne-cli-macos-v1.0.13)
+[Moderne CLI 1.0.17](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.0.17/moderne-cli-macos-v1.0.17)
 {% endtab %}
 {% tab title="Linux" %}
-[Moderne CLI 1.0.13](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.0.13/moderne-cli-linux-v1.0.13)
+[Moderne CLI 1.0.17](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.0.17/moderne-cli-linux-v1.0.17)
 {% endtab %}
 {% tab title="Windows" %}
-[Moderne CLI 1.0.13](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.0.13/moderne-cli-windows-v1.0.13)
+[Moderne CLI 1.0.17](https://pkgs.dev.azure.com/moderneinc/moderne_public/_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.0.17/moderne-cli-windows-v1.0.17)
 {% endtab %}
 {% endtabs %}
 
@@ -65,7 +65,7 @@ This command will set up the connection to Moderne so that you can install and r
 With the Moderne connection established, you can install recipes so you can run them locally by running the following command:
 
 ```shell
-mod config recipes install --from-moderne
+mod config recipes install moderne
 ```
 
 This will grab all of the recipes from the tenant you specified in `mod config` and download them to your machine so you can use the CLI to run them on your repositories.
