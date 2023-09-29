@@ -3,7 +3,8 @@
 | Component                              | Current version |
 | ---------------------------------------|-----------------|
 | Agent (recommended to use **latest**)  | 0.143.0         |
-| CLI version                            | 1.0.17           |
+| CLI version (Stable)                   | 0.2.52          |
+| CLI version (Staging)                  | 1.0.18          |
 
 * mod-connect [docs](https://moderneinc.github.io/mod-connect/) / [source](https://github.com/moderneinc/mod-connect)
 * Moderne CLI [docs](https://moderneinc.github.io/moderne-cli/)
