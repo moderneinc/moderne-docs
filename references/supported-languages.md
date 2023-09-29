@@ -37,4 +37,6 @@ Many different frameworks are supported such as (but not limited to):
 
 {% hint style="info" %}
 If you want to find out more about what languages will be supported, please see our [language roadmap](./language-roadmap.md).
+
+If you want to see what SCMs we support, please see our [supported SCMs doc](./supported-scms.md).
 {% endhint %}
