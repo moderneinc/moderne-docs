@@ -29,3 +29,21 @@ Once we have a serialized LST for a particular source file, and since it also co
 {% hint style="info" %}
 If you want to see specific examples of Java LSTs, please read our [Java LST Examples doc](https://docs.openrewrite.org/concepts-and-explanations/lst-examples).
 {% endhint %}
+
+## LST lifecycle
+
+### With the Moderne CLI
+
+0. Before you can run a recipe against a repository with the [Moderne CLI](/cli/cli-intro.md), you must build the LST for said repository. This LST does not need to fit into memory entirely at once -- it can be built in pieces. The LST could be built locally or it could be pulled down from your artifact repository (if said LST is up-to-date). Regardless, at the end of the build process, you will have an LST artifact saved to disk.
+1. When you go to run a recipe, this LST will be read from disk. If the entire LST doesn't fit into memory, it will be read in pieces. As part of reading this LST from disk, the current state of the code will be checked against the code on disk. If Git shows that the two do not match, you will receive a warning that you should rebuild the project.
+2. As the recipe runs, it will make transformations on the LST. This could be as simple as adding a search marker (`~~>`) if the recipe is a search recipe -- or it could be as complex as adding classes and methods throughout the repository.
+3. Once the recipe has finished running, the **modified LST will be discarded** and the code itself **will not** be changed. Instead, different patch files will be created depending on whether the recipe found or changed anything. For example, a search recipe will produce a `search.patch` file, whereas a recipe that changes the code will produce a `fix.patch` file. These patch files are saved to disk and the locations are output by the CLI.
+4. You can review the patch files with your favorite editor or you can apply them directly to the code (via the `mod apply` command). Regardless of what you do, it's important to note that the LST itself **will not** have been updated. If you go to run another recipe at this point, it will be run against the original LST and will not have any of the changes the previous recipe made. If you want future recipe runs to have the updates from previous ones, you must re-build the LST (via the `mod build` command).
+
+### With the Moderne Platform
+
+0. Before you can run a recipe against a repository in the Moderne Platform, you must build the LST for said repository. This is typically done via a CI job (usually configured by the [mod connect tool](https://github.com/moderneinc/mod-connect)). The CI job could be triggered after every commit so that Moderne is almost always up-to-date or it could be triggered at a set time every day as part of a mass ingest (which could result in recipes being run against out-of-date artifacts). Regardless of which option you pick, an LST artifact must be published to your artifact repository for recipes to function.
+1. When you go to run a recipe, behind the scenes, the LST artifact will be downloaded from your artifact repository.
+2. As the recipe runs, it will make transformations on the downloaded LST. This could be as simple as adding a search marker (`~~>`) if the recipe is a search recipe -- or it could be as complex as adding classes and methods throughout the repository.
+3. Once the recipe has finished running, the **modified LST will be discarded** and the code **will not** be changed. Instead, you will be [provided with a list of the changes it would make](/user-documentation/running-your-first-recipe.md#step-6-run-the-recipe). You can [review them](/user-documentation/running-your-first-recipe.md#step-7-view-the-results) and [choose what to do with them](/user-documentation/running-your-first-recipe.md#step-8-commit-your-changes).
+4. Regardless of what you choose to do with the results, future recipe runs **will not** have those changes unless you commit them and have the CI job re-build/publish the LST to your artifact repository.
