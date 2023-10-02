@@ -61,5 +61,5 @@ You might be wondering, "Hey - if LSTs are ingested only once a day, wouldn't th
 
 Some users may be tempted to combine a bunch of recipes into one giant recipe so that it guarantees that there are no conflicts. However, this can be problematic as it makes the recipe results much more difficult to review and it can lead to performance issues or timeouts.
 
-In general, you should favor running recipes consistently over time. Moderne, for instance, runs a vulnerability check recipe once per week. This will not only help ensure your code is compliant over time, but it will also make it less of an issue if LSTs are slightly out-of-date one time you run the recipe.
+In general, you should favor running recipes consistently over time. Moderne, for instance, runs a vulnerability check recipe once per week. This will not only help ensure your code is compliant over time, but it will also make it less of an issue if LSTs are slightly out-of-date.
 {% endhint %}
