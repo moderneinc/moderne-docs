@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.167.0 (2023/10/02)
+
+- add mass close pull requests
+
 ### UI v9.166.0 (2023/09/27)
 
 - download patch with patch download task.
