@@ -78,7 +78,7 @@ Once you've run the command, you should start to see artifacts being created and
 You're now ready to begin [configuring the Moderne agent](/how-to/agent-configuration.md).
 {% endtab %}
 {% tab title="GitLab" %}
-The [mod-connect gitlab](https://moderneinc.github.io/mod-connect/mod-connect-gitlab.html) command will directly commit an ingestion workflow and the necessary files to run it to the GitHub repository you specify. This workflow will iterate over every repository in a CSV file you create and build/publish LST artifacts for each on a regular basis. Behind the scenes, it will use the [Moderne CLI](/cli/cli-intro.md) to build and publish the LST artifacts.
+The [mod-connect gitlab](https://moderneinc.github.io/mod-connect/mod-connect-gitlab.html) command will directly commit an ingestion workflow and the necessary files to run it to the GitLab repository you specify. This workflow will iterate over every repository in a CSV file you create and build/publish LST artifacts for each on a regular basis. Behind the scenes, it will use the [Moderne CLI](/cli/cli-intro.md) to build and publish the LST artifacts.
 
 To set this up, please follow the instructions in the [Moderne GitLab Ingest repository](https://gitlab.com/moderneinc/moderne-gitlab-ingest). This is also the repository you should fork and configure to set up the entire ingestion pipeline.
 {% endtab %}
