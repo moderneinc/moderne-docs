@@ -4,7 +4,7 @@
 | ---------------------------------------|-----------------|
 | Agent (recommended to use **latest**)  | 0.143.0         |
 | CLI version (Stable)                   | 0.2.52          |
-| CLI version (Staging)                  | 1.1.0          |
+| CLI version (Staging)                  | 1.1.1          |
 
 * mod-connect [docs](https://moderneinc.github.io/mod-connect/) / [source](https://github.com/moderneinc/mod-connect)
 * Moderne CLI [docs](https://moderneinc.github.io/moderne-cli/)
