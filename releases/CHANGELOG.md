@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.167.1 (2023/10/03)
+
+- Bug fixes and other improvements.
+
 ### UI v9.167.0 (2023/10/02)
 
 - add mass close pull requests
