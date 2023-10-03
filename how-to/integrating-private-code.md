@@ -4,18 +4,18 @@ One of the first steps of integrating your code with Moderne is setting up a pip
 
 There are two ways to do this:
 
-1. (**Recommended**) Use the [mod-connect tool](https://github.com/moderneinc/mod-connect) to create a GitHub or Jenkins pipeline that will build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
-2. Update all of your existing pipelines to run the [mod publish](#mod-publish) command whenever the code is updated.
+1. (**Recommended**) Use the [mod-connect tool](https://github.com/moderneinc/mod-connect) to create a GitHub, GitLab, or Jenkins pipeline that will build and publish LST artifacts on a regular basis without requiring code changes to your existing repositories/pipelines.
+2. Update all of your existing pipelines to run various [Moderne CLI commands](/cli/cli-intro.md) whenever the code is updated.
 
-In this guide, we'll walk through all of these options.
+In this guide, we'll walk through both of these options.
 
 ## `mod-connect` tool
 
-The [mod-connect tool](https://github.com/moderneinc/mod-connect) allows you to set up an ingestion pipeline using either GitHub or Jenkins. It's generally more convenient to use GitHub as you don't need to self-manage it and there are fewer permissions to worry about. With that being said, regardless of which one you pick, it is preferable to use this tool than to update your existing pipelines to use the [mod publish](#mod-publish) command.
+The [mod-connect tool](https://github.com/moderneinc/mod-connect) allows you to set up an ingestion pipeline using GitHub, GitLab, or Jenkins. It's generally more convenient to use GitHub or GitLab as you don't need to self-manage it and there are fewer permissions to worry about. With that being said, regardless of which one you pick, it is preferable to use this tool than to update your existing pipelines to use various [manual Moderne CLI commands](#moderne-cli).
 
 {% tabs %}
 {% tab title="GitHub" %}
-The [mod-connect github](https://github.com/moderneinc/mod-connect#mod-connect-github) command will directly commit an ingestion workflow and the necessary files to run it to the GitHub repository you specify. This workflow will iterate over every repository in a CSV file you create and build/publish LST artifacts for each on a regular basis. Behind the scenes, it will use the [Moderne CLI](/cli/cli-intro.md) to build and publish the LST artifacts.
+The [mod-connect github](https://moderneinc.github.io/mod-connect/mod-connect-github.html) command will directly commit an ingestion workflow and the necessary files to run it to the GitHub repository you specify. This workflow will iterate over every repository in a CSV file you create and build/publish LST artifacts for each on a regular basis. Behind the scenes, it will use the [Moderne CLI](/cli/cli-intro.md) to build and publish the LST artifacts.
 
 Below, we'll walk through the steps you'll need to take to run this command successfully.
 
@@ -76,6 +76,11 @@ There are a variety of optional parameters that you can find in the [mod-connect
 Once you've run the command, you should start to see artifacts being created and sent to your artifact repository.
 
 You're now ready to begin [configuring the Moderne agent](/how-to/agent-configuration.md).
+{% endtab %}
+{% tab title="GitLab" %}
+The [mod-connect gitlab](https://moderneinc.github.io/mod-connect/mod-connect-gitlab.html) command will directly commit an ingestion workflow and the necessary files to run it to the GitHub repository you specify. This workflow will iterate over every repository in a CSV file you create and build/publish LST artifacts for each on a regular basis. Behind the scenes, it will use the [Moderne CLI](/cli/cli-intro.md) to build and publish the LST artifacts.
+
+To set this up, please follow the instructions in the [Moderne GitLab Ingest repository](https://gitlab.com/moderneinc/moderne-gitlab-ingest). This is also the repository you should fork and configure to set up the entire ingestion pipeline.
 {% endtab %}
 {% tab title="Jenkins" %}
 The [mod-connect Jenkins](https://github.com/moderneinc/mod-connect#mod-connect-jenkins) command will create a Jenkins Job for each repository you specify in a CSV file. Each job will build and publish LST artifacts to your artifact repository on a regular basis. Behind the scenes, it will use the [Moderne CLI](/cli/cli-intro.md) to build and publish the LST artifacts.
@@ -138,28 +143,18 @@ You're now ready to begin [configuring the Moderne agent](/how-to/agent-configur
 {% endtab %}
 {% endtabs %}
 
-## Mod Publish
+## Moderne CLI
 
-If you are unable to set up a GitHub or Jenkins pipeline for building/publishing LST artifacts, you can update your existing pipelines to run the [mod publish](https://moderneinc.github.io/moderne-cli/mod-publish.html) command when code is checked in. This command will build the LST artifacts and then publish them to an artifact repository you specify. This command requires that you have the [Moderne CLI installed](/cli/cli-intro.md).
+If you are unable to set up a GitHub, GitLab, or Jenkins pipeline for building/publishing LST artifacts, you can update your existing pipelines to run a couple of [Moderne CLI commands](/cli/cli-intro.md). 
 
-This command expects:
+Specifically, you will need to:
 
-* A `path` on disk to where the code lies for the project you want to build and publish artifacts for
-* A username and password for connecting to your artifact repository (`publishUser` and `publishPwd`)
-* A URL for your artifact repository (`publishUrl`)
+1. (**Optionally**) run the [mod config moderne command](https://moderneinc.github.io/moderne-cli/mod-config-moderne.html) to configure the connection to Moderne so that you can receive ingestion metrics and see ingestion information in your dashboard.
+2. Run the [mod config artifacts command](https://moderneinc.github.io/moderne-cli/mod-config-artifacts.html) to configure the connection to your artifact repository.
+3. Run the [mod build command](https://moderneinc.github.io/moderne-cli/mod-build.html) to generate the LST artifact for the repositories you care about.
+4. Run the [mod publish command](https://moderneinc.github.io/moderne-cli/mod-publish.html) to publish the artifacts to your artifact repository.
 
-#### Example
-
-```shell
-mod publish --path /path/to/project \
-    --publishUser some-username \
-    --publishPwd myPassword \
-    --publishUrl https://some-artifact-repo.com
-```
-
-{% hint style="info" %}
-There are a variety of optional parameters that you can find on the [publish man page](https://moderneinc.github.io/moderne-cli/mod-publish.html) to refine the command further if you so desire. 
-{% endhint %}
+These commands accept a variety of options. You can find details for each of these options in the [Moderne CLI man pages](https://moderneinc.github.io/moderne-cli/).
 
 ## Next Steps
 
