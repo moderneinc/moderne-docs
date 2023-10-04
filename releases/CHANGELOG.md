@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.169.0 (2023/10/04)
+
+- add homebrew installation option for mod-cli
+
 
 ### UI v9.168.0 (2023/10/04)
 
