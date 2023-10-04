@@ -1,8 +1,8 @@
 # Changelog
+
 ### UI v9.169.0 (2023/10/04)
 
-- add homebrew installation option for mod-cli
-
+* add homebrew installation option for mod-cli
 
 ### UI v9.168.0 (2023/10/04)
 
@@ -12,9 +12,9 @@
 
 To improve the number of recipe results and commit jobs that can be viewed on the screen at a glance, we've re-organized the display of summary information about recipe runs and commit jobs into their own tab.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>Recipe results <em>Summary</em> tab</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>Recipe results <em>Summary</em> tab example</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>New <em>Summary</em> tab on Commit job details page</p></figcaption></figure>
 
