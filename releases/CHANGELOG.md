@@ -1,82 +1,93 @@
 # Changelog
+
 ### UI v9.168.0 (2023/10/04)
 
-- change marketplace banner
+* change marketplace banner
+
+#### Optimizing recipe results and commit jobs
+
+To improve the number of recipe results and commit jobs that can be viewed on the screen at a glance, we've re-organized the display of summary information about recipe runs and commit jobs into their own tab.
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>Recipe results <em>Summary</em> tab</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>Recipe results <em>Summary</em> tab example</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>New <em>Summary</em> tab on Commit job details page</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>Commit job <em>Summary</em> tab example</p></figcaption></figure>
 
 ### UI v9.167.1 (2023/10/03)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.167.0 (2023/10/02)
 
-- add mass close pull requests
+* add mass close pull requests
 
 ### UI v9.166.0 (2023/09/27)
 
-- download patch with patch download task.
+* download patch with patch download task.
 
 ### UI v9.165.2 (2023/09/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.165.1 (2023/09/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.165.0 (2023/09/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.164.0 (2023/09/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.163.1 (2023/09/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.163.0 (2023/09/26)
 
-- download cli from staging
-- add recipe hover card to recent runs grid
+* download cli from staging
+* add recipe hover card to recent runs grid
 
 ### UI v9.162.0 (2023/09/23)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.159.0 (2023/09/15)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.158.3 (2023/09/14)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.158.2 (2023/09/14)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.158.1 (2023/09/14)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.158.0 (2023/09/13)
 
-- add tree data grid visualiztion support
-feat/merge commit
-- add categories api example
+* add tree data grid visualiztion support feat/merge commit
+* add categories api example
 
 ### UI v9.157.0 (2023/09/12)
 
-- add more notifications
+* add more notifications
 
 ### UI v9.156.0 (2023/09/11)
 
-- add approve to the row-level actions on commit jobs
-- add download notifications
-- pull request status on commit jobs
-- add notifications for artifact deploys
-
+* add approve to the row-level actions on commit jobs
+* add download notifications
+* pull request status on commit jobs
+* add notifications for artifact deploys
 
 ### UI v9.155.0 (2023/09/07)
 
