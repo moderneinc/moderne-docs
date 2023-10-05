@@ -19,7 +19,7 @@ To get to this recipe:
 
 * From the home page, click on `Marketplace` in the top left corner. This will take you to the recipe marketplace.
 * From there, click on `Static analysis and remediation`.
-*   At the top, you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly. Click on `More details` to be taken to [this](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis) page:
+*   At the top, you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly. Click on `More details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
 
     ![](../.gitbook/assets/common-static-analysis-recipe.png)
 
