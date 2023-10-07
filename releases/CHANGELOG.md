@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.170.2 (2023/10/07)
+
+- Bug fixes and other improvements.
+
 ### UI v9.170.1 (2023/10/06)
 
 - Bug fixes and other improvements.
