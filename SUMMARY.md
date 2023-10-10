@@ -27,7 +27,6 @@
     * [Configure an agent with client SSL certificates](administrator-documentation/on-premise-agent/configure-an-agent-with-client-ssl-certificates.md)
     * [All agent configuration variables](how-to/on-premise-agent/agent-variables.md)
   * [Importing external recipes](how-to/importing-external-recipes.md)
-  * [Terraform Cloud integration](how-to/terraform-cloud-integration.md)
   * [Proof of value process](how-to/proof-of-value.md)
   * [Reporting](administrator-documentation/reporting.md)
 * [Moderne CLI](cli/moderne-cli.md)

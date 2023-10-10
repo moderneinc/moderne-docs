@@ -14,5 +14,4 @@
   * [Configure an agent with strict recipe sources](on-premise-agent/configure-an-agent-with-strict-recipe-sources.md)
   * [All agent configuration variables](on-premise-agent/agent-variables.md)
 * [Importing external recipes](importing-external-recipes.md)
-* [Terraform Cloud integration](terraform-cloud-integration.md)
 * [Proof of value](proof-of-value.md)
