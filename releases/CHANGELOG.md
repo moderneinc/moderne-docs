@@ -1,28 +1,49 @@
 # Changelog
+
 ### UI v9.171.1 (2023/10/11)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
+
+### Agent v0.150.0 (2023/10/11)
+
+*   Tool connectivity validation on startup. Now when Agent starts it tests the connectivity of each tool configured (maven, artifactory, SCM provider). If connectivity fails for any configured tool, the Agent will fail to start and the logs will display which configuration failed to connect. \
+
+
+    ```log
+    ***************************
+    APPLICATION FAILED TO START
+    ***************************
+
+    Description:
+
+    Binding to target org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'moderne.agent' to io.moderne.agent.config.AgentConfiguration failed:
+
+        Property: moderne.agent.bitbucket[0]
+        Value: "BitbucketConfiguration(url=https://bitbucket.test/stash, alternateUrls=[ssh://bitbucket.moderne.nin:7999], ssh=null, skipSsl=false, valid=false)", 
+        Reason: Connection verification errored with connection timed out: bitbucket.test/143.244.220.150:443; 
+        nested exception is io.netty.channel.ConnectTimeoutException: connection timed out: bitbucket.test/143.244.220.150:443
+            Verify configuration url and credentials.
+    ```
 
 ### UI v9.171.0 (2023/10/10)
 
-- show connection status of each tool in agents view
+* show connection status of each tool in agents view
 
 ### UI v9.170.3 (2023/10/07)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.170.2 (2023/10/07)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.170.1 (2023/10/06)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.170.0 (2023/10/05)
 
-- add `organizationId` to commit job tables
-
+* add `organizationId` to commit job tables
 
 ### UI v9.169.0 (2023/10/04)
 
