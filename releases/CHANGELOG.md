@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.171.1 (2023/10/11)
+
+- Bug fixes and other improvements.
+
 ### UI v9.171.0 (2023/10/10)
 
 - show connection status of each tool in agents view
