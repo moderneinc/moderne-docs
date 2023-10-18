@@ -24,6 +24,7 @@
     * [Configure an agent with Artifactory access: recipes](how-to/on-premise-agent/configuring-artifactory-with-recipes.md)
     * [Configure an agent with PyPI access: visualizations](administrator-documentation/on-premise-agent/configure-an-agent-with-pypi-access-visualizations.md)
     * [Configure the Organizations service](administrator-documentation/on-premise-agent/configure-organizations-service.md)
+    * [Configure an agent with generic HTTP tools for use in recipes](administrator-documentation/on-premise-agent/configure-an-agent-with-generic-http-tools-for-use-in-recipes.md)
     * [Configure an agent with strict recipe sources](how-to/on-premise-agent/configure-an-agent-with-strict-recipe-sources.md)
     * [Configure an agent with client SSL certificates](administrator-documentation/on-premise-agent/configure-an-agent-with-client-ssl-certificates.md)
     * [All agent configuration variables](how-to/on-premise-agent/agent-variables.md)
