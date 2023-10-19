@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.174.0 (2023/10/19)
+
+- replace left-navigation icons with new moderne-icons
+
 ### UI v9.173.0 (2023/10/17)
 
 - Bug fixes and other improvements.
