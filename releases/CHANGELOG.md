@@ -4,7 +4,9 @@
 
 **New left navigation icons**
 
-We have plans to overhaul the iconography to create better visual consistency and clarity.   This journey begins this version with a rework of the left navigation icons:\
+We have plans to overhaul the iconography to create better visual consistency and clarity.
+
+This journey begins this version with a rework of the left navigation icons:\
 ![](../.gitbook/assets/image.png)
 
 ### UI v9.173.0 (2023/10/17)
