@@ -1,20 +1,23 @@
 # Changelog
+
 ### UI v9.174.0 (2023/10/19)
 
-- replace left-navigation icons with new moderne-icons
+**New left navigation icons**
+
+We have plans to overhaul the iconography to create better visual consistency and clarity associated actions.   This journey begins this version with a rework of the left navigation icons:\
+![](../.gitbook/assets/image.png)
 
 ### UI v9.173.0 (2023/10/17)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.172.0 (2023/10/12)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.171.2 (2023/10/12)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v9.171.1 (2023/10/11)
 
@@ -22,8 +25,7 @@
 
 ### Agent v0.150.0 (2023/10/11)
 
-*   Tool connectivity validation on startup. Now when Agent starts it tests the connectivity of each tool configured (maven, artifactory, SCM provider). If connectivity fails for any configured tool, the Agent will fail to start and the logs will display which configuration failed to connect. \
-
+*   Tool connectivity validation on startup. Now when Agent starts it tests the connectivity of each tool configured (maven, artifactory, SCM provider). If connectivity fails for any configured tool, the Agent will fail to start and the logs will display which configuration failed to connect. \\
 
     ```log
     ***************************
@@ -212,7 +214,7 @@ We've done a little tidying up on the recipe run result page. _**Visualizations*
 
 #### Add dropdown options to share button
 
-![](<../.gitbook/assets/image (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1).png>)
 
 When sharing a recipe from the recipes details, you can now select whether or not to include your current organizations.
 
