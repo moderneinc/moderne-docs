@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.175.0 (2023/10/20)
+
+- add support for showing skipped connectivity
+
 
 ### UI v9.174.0 (2023/10/19)
 
