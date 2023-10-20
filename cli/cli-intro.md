@@ -108,11 +108,11 @@ git checkout b527de52f5fd19f9fe550372c017d145a3b2a809
    on a Unix-based system, we recommend using [SDKMan](https://sdkman.io/):
 
 ```shell
-sdk install java 8.0.372-tem
-sdk use java 8.0.372-tem
+sdk install java 8.0.392-amzn
+sdk use java 8.0.392-amzn
 ```
 
-  * If you want to use `sdk` and the `java 8.0.372-tem` distribution 
+  * If you want to use `sdk` and the `8.0.392-amzn` distribution 
     is not available for you, select any distribution that represents a Java 8 version.
 
   * If you aren't on a Unix-based system or you don't want to install SDKMan,
