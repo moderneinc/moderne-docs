@@ -48,6 +48,25 @@ To install the Moderne CLI please:
 
    ![](../.gitbook/assets/mod-cli.png)
 
+### (Optionally) Set up auto-completion in your terminal
+
+The Moderne CLI offers a command which generates a completion script that can be used to set up auto-completion in your terminal. After initializing this script, you can type `mod config` and press tab and then your terminal will offer suggestions for the sub-commands or parameters:
+
+![](../.gitbook/assets/cli-auto-complete.png)
+
+To configure this for the terminal you're using please enter the following command in your terminal:
+
+```shell
+source <(mod generate-completion)
+```
+
+Or, if you want to configure auto-completion so that it works for _every_ terminal instance you make, please update your `~/.zshrc` or `~/.bashrc` file and add this command to the bottom of it:
+
+```shell
+# The next line enables shell command completion for mod
+source <(mod generate-completion)
+```
+
 ## Configuring the CLI
 
 Before you can run most commands, you'll need to configure the CLI:
