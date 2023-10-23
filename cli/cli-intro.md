@@ -59,7 +59,7 @@ Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/sett
 Once created, copy the token and use it in the following command:
 
 ```shell
-mod config moderne https://app.moderne.io --token mat-YOUR_TOKEN_HERE
+mod config moderne edit https://app.moderne.io --token mat-YOUR_TOKEN_HERE
 ```
 
 This command will set up the connection to Moderne so that you can install and run recipes. If you have a private tenant, you'll want to replace `https://app.moderne.io` with the link to your Moderne UI. 
@@ -69,7 +69,7 @@ This command will set up the connection to Moderne so that you can install and r
 With the Moderne connection established, you can install recipes so you can run them locally by running the following command:
 
 ```shell
-mod config recipes install moderne
+mod config recipes moderne install
 ```
 
 This will grab all of the recipes from the tenant you specified in `mod config` and download them to your machine so you can use the CLI to run them on your repositories.
@@ -79,7 +79,7 @@ This will grab all of the recipes from the tenant you specified in `mod config` 
 If you want to publish artifacts from the CLI, you'll need to run the following command:
 
 ```shell
-mod config artifacts <your-artifact-repository-url> --user <user> --password <password>
+mod config artifacts edit <your-artifact-repository-url> --user <user> --password <password>
 ```
 
 ## Using the Moderne CLI
