@@ -88,10 +88,16 @@ This command will set up the connection to Moderne so that you can install and r
 With the Moderne connection established, you can install recipes so you can run them locally by running the following command:
 
 ```shell
-mod config recipes moderne install
+mod config recipes sync moderne
 ```
 
 This will grab all of the recipes from the tenant you specified in `mod config` and download them to your machine so you can use the CLI to run them on your repositories.
+
+If you want to install a specific recipe rather than all of the recipes, you can also do so by using the following command:
+
+```shell
+mod config recipes moderne install <recipe_search_term> 
+```
 
 ### (Optionally) Configure artifact publishing
 
