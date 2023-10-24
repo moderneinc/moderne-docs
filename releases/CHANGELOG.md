@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.176.1 (2023/10/24)
+
+- Bug fixes and other improvements.
+
 ### UI v9.176.0 (2023/10/24)
 
 feat/add-yielded-state
