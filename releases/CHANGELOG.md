@@ -1,4 +1,8 @@
 # Changelog
+### UI v9.176.0 (2023/10/24)
+
+feat/add-yielded-state
+
 ### UI v9.175.0 (2023/10/20)
 
 - add support for showing skipped connectivity
