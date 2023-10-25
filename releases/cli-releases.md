@@ -1,4 +1,4 @@
-# Agent version
+# CLI versions
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
