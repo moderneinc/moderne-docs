@@ -37,7 +37,7 @@
 * [Releases](releases/release.md)
   * [Agent releases](/releases/agent-releases.md)
   * [CLI releases](/releases/cli-releases.md)
-  * [Platform Changelog](/releases/CHANGELOG.md)
+  * [Platform changelog](/releases/CHANGELOG.md)
 * [Architecture](architecture/architecture-readme.md)
   * [Moderne architecture](architecture/architecture.md)
   * [Sensitive data flow](architecture/flow.md)
