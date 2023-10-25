@@ -1,8 +1,7 @@
-# Agent + CLI information
+# Agent version
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.163.0         |
 | CLI version (Stable)                  | 0.2.52          |
 | CLI version (Staging)                 | 1.4.4           |
 
