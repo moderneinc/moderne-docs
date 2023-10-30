@@ -1,4 +1,4 @@
-# Moderne developer experience
+# Moderne Developer Experience
 
 {% content-ref url="getting-started/" %}
 [getting-started](getting-started/)

@@ -1,4 +1,4 @@
-# Moderne platform
+# Moderne Platform
 
 {% content-ref url="getting-started/" %}
 [getting-started](getting-started/)
