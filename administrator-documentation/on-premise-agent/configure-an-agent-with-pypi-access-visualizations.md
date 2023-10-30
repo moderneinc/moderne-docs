@@ -18,6 +18,7 @@ You can configure multiple PyPI indexes by including multiple entries, each with
 {% tab title="OCI Container" %}
 **Variables:**
 
+* `MODERNE_AGENT_VISUALIZATIONS_USEONLYCONFIGURED` – _(Optional) Only use the visualization sources configured in the agent. Default is false._
 * `MODERNE_AGENT_PYPI_{index}_URL` – _The URL of your PyPI package index._
 * `MODERNE_AGENT_PYPI_{index}_USERNAME` – _(Optional) The username used to access the index. Defaults to `null`._
 * `MODERNE_AGENT_PYPI_{index}_PASSWORD` – _(Optional) The password used to access the index. Defaults to `null`._
@@ -28,6 +29,7 @@ You can configure multiple PyPI indexes by including multiple entries, each with
 ```shell
 docker run \
 # ... Existing variables
+-e MODERNE_AGENT_VISUALIZATIONS_USEONLYCONFIGURED=true \
 -e MODERNE_AGENT_PYPI_0_URL=https://pypi.example.com/simple \
 -e MODERNE_AGENT_PYPI_0_USERNAME=admin \
 -e MODERNE_AGENT_PYPI_0_PASSWORD=password \
@@ -38,8 +40,9 @@ docker run \
 {% tab title="Executable JAR" %}
 **Arguments:**
 
+* `--moderne.agent.visualizations.useOnlyConfigured` _- (Optional)  Only use the visualization sources configured in the agent. Default is false._
 * `--moderne.agent.pypi[{index}].url` – _The URL of your PyPI package index._
-* `--moderne.agent.`pypi`[{index}].username` –_(Optional) The username used to access the index. Defaults to `null`._
+* `--moderne.agent.`pypi`[{index}].username` – _(Optional) The username used to access the index. Defaults to `null`._
 * `--moderne.agent.`pypi`[{index}].password` – _(Optional) The password used to access the index. Defaults to `null`._
 * `--moderne.agent.`pypi`[{index}].skipSsl` – _(Optional) Whether or not to skip SSL/TLS verification for calls from the agent to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
@@ -48,6 +51,7 @@ docker run \
 ```shell
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
+--moderne.agent.visualizations.useOnlyConfigured=true \
 --moderne.agent.pypi[0].url=https://pypi.example.com/simple \
 --moderne.agent.pypi[0].username=admin \
 --moderne.agent.pypi[0].password=password \
