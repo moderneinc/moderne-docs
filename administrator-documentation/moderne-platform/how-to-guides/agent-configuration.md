@@ -524,10 +524,10 @@ If you want to update the Moderne agent over time, please follow the instruction
 {% tab title="OCI Container" %}
 If you're running the commands provided in this guide, you should see that the last line of every agent run command is `moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest`.
 
-If that's true, then you can simply restart the agent and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](broken-reference) for the versions.
+If that's true, then you can simply restart the agent and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](/releases/agent-releases.md) for the versions.
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-To update your version of the Executable JAR, change the `{version}` in `java -jar moderne-agent-{version}.jar` to be the latest one on [the releases page](broken-reference).
+To update your version of the Executable JAR, change the `{version}` in `java -jar moderne-agent-{version}.jar` to be the latest one on [the releases page](/releases/agent-releases.md).
 {% endtab %}
 {% endtabs %}
