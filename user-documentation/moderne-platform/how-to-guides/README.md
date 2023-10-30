@@ -6,3 +6,5 @@
 * [Accessing the Moderne API](accessing-the-moderne-api.md)
 * [How to find personally identifiable information (PII) and secrets exposed by your APIs](find-pii.md)
 * [Managing repository groups](managing-repository-groups.md)
+* [Creating a personal access token](create-api-access-tokens.md)
+

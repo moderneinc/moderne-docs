@@ -1,13 +1,9 @@
 # Moderne Platform
 
-{% content-ref url="getting-started/" %}
-[getting-started](getting-started/)
-{% endcontent-ref %}
+The Moderne platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale.
 
-{% content-ref url="how-to-guides/" %}
-[how-to-guides](how-to-guides/)
-{% endcontent-ref %}
+If you want to jump right in and begin using the Moderne Platform, check out the [getting started guides](getting-started/README.md).
 
-{% content-ref url="references/" %}
-[references](references/)
-{% endcontent-ref %}
+If you're looking for specific information on how to do something (e.g., how to access the Moderne API or create custom recipes), check out the [how to guides](how-to-guides/README.md).
+
+If you're looking for reference information (e.g., information on Moderne tokens), check out the [references section](references/README.md).
