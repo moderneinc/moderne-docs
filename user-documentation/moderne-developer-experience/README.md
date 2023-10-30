@@ -1,6 +1,6 @@
 # Moderne DX
 
-The Moderne DX is an on-premises environment than enables developers to work locally to examine and auto-remediate code across numerous repositories. It includes a variety of tools to assist with this need, such as a CLI, an IDE plugin, and an optional Moderne DX service that can be deployed on-prem so people can install recipes from it rather than from [app.moderne.io](https://app.moderne.io/getting-started). Using these recipes, you can create/consolidate reports and perform impact analysis across all of your repositories.
+The Moderne DX is an on-premises environment than enables developers to work locally to examine and auto-remediate code across numerous repositories. It includes a variety of tools to assist with this need, such as a CLI, an IDE plugin, and an optional Moderne DX service that can be deployed on-prem so teams can share and manage recipes. Using these recipes, you can create/consolidate reports and perform impact analysis across all of your repositories.
 
 If you want to take it a step further, you can integrate with the [Moderne Platform](../moderne-platform/) to achieve broader organization-wide benefits of code visibility and reports across your entire code base. Furthermore, if you publish LST artifacts to an artifact repository, you can integrate with that so that developers do not need to build LSTs for all of the repositories locally – which will save a significant amount of time.
 
