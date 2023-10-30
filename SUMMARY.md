@@ -19,7 +19,7 @@
     * [References](user-documentation/moderne-platform/references/README.md)
       * [Moderne tokens](user-documentation/moderne-platform/references/moderne-tokens.md)
       * [Creating SCM access tokens](user-documentation/moderne-platform/references/create-scm-access-tokens.md)
-  * [Moderne Developer Experience (DX)](user-documentation/moderne-developer-experience/README.md)
+  * [Moderne DX](user-documentation/moderne-developer-experience/README.md)
     * [Getting started](user-documentation/moderne-developer-experience/getting-started/README.md)
       * [Getting started with the Moderne CLI](user-documentation/moderne-developer-experience/getting-started/cli-intro.md)
     * [References](user-documentation/moderne-developer-experience/references/README.md)
