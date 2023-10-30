@@ -2,8 +2,4 @@
 
 The Moderne platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale.
 
-* If you want to jump right in and begin using the Moderne Platform, check out the [getting started guides](getting-started/README.md).
-
-* If you're looking for specific information on how to do something (e.g., how to access the Moderne API or create custom recipes), check out the [how to guides](how-to-guides/README.md).
-
-* If you're looking for reference information (e.g., information on Moderne tokens), check out the [references section](references/README.md).
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Getting started</strong></td><td></td><td>If you want to jump right in and begin using the Moderne platform.</td><td><a href="getting-started/">getting-started</a></td></tr><tr><td><strong>How to guides</strong></td><td></td><td>If you're looking for specific information on how to do something.</td><td><a href="how-to-guides/">how-to-guides</a></td></tr><tr><td><strong>References</strong></td><td></td><td>If you're looking for reference information (e.g., Moderne tokens).</td><td><a href="../moderne-developer-experience/references/">references</a></td></tr></tbody></table>
