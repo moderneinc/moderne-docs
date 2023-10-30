@@ -24,7 +24,7 @@
       * [Getting started with the Moderne CLI](user-documentation/moderne-developer-experience/getting-started/cli-intro.md)
     * [References](user-documentation/moderne-developer-experience/references/README.md)
       * [Moderne CLI man pages](user-documentation/moderne-developer-experience/references/cli-reference.md)
-* [Administrator documentation](how-to/administrator-documentation.md)
+* [Administrator documentation](administrator-documentation/administrator-documentation.md)
   * [Moderne platform](administrator-documentation/moderne-platform/README.md)
     * [Getting started](administrator-documentation/moderne-platform/getting-started/README.md)
       * [Proof of value process](administrator-documentation/moderne-platform/getting-started/proof-of-value.md)
