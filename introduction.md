@@ -21,13 +21,13 @@ With [Moderne](https://moderne.io), you can fix security vulnerabilities, standa
 
 ## The Moderne platform
 
-The Moderne platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale. The platform asynchronously ingests detailed artifacts of your codebase ([Lossless Semantic Trees](concepts/lossless-semantic-trees.md)) that can be quickly and precisely searched. Then, your organization's source code can be transformed by running "[recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes)" across repositories of your choosing. These recipes can be created by your team, or you can take advantage of the hundreds of recipes already defined in [OpenRewrite](https://docs.openrewrite.org/) – an open-source project managed by Moderne.
+The Moderne platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale. The platform asynchronously ingests detailed artifacts of your codebase ([Lossless Semantic Trees](administrator-documentation/moderne-platform/references/concepts/lossless-semantic-trees.md)) that can be quickly and precisely searched. Then, your organization's source code can be transformed by running "[recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes)" across repositories of your choosing. These recipes can be created by your team, or you can take advantage of the hundreds of recipes already defined in [OpenRewrite](https://docs.openrewrite.org/) – an open-source project managed by Moderne.
 
 The platform offers a clean UI that enables anyone in your organization to run recipes, create PRs, or generate detailed reports about your codebase – all without writing a line of code. It also provides a recommendation engine to help you discover new recipes based on an analysis of your code.
 
 Moderne is SOC 2 Type 2 compliant, so you can be confident that your code is secure. Furthermore, a private SaaS can be created for your team in any major cloud provider or region of your choice.
 
-Moderne currently supports [numerous languages, data formats, build tools, and frameworks](/references/supported-languages.md) with [even more coming soon](/references/language-roadmap.md). Moderne also currently supports [most Git-based source code management tools](/references/supported-scms.md).
+Moderne currently supports [numerous languages, data formats, build tools, and frameworks](administrator-documentation/moderne-platform/references/supported-languages.md) with [even more coming soon](administrator-documentation/moderne-platform/references/language-roadmap.md). Moderne also currently supports [most Git-based source code management tools](administrator-documentation/moderne-platform/references/supported-scms.md).
 
 ## Want to try it for yourself?
 
@@ -43,4 +43,4 @@ For a high-level overview of Moderne and the capabilities we provide, please wat
 
 {% embed url="https://www.youtube.com/watch?v=Mq6bKAeGCz0" %}
 
-If you want to jump right in and begin running large-scale refactoring recipes on thousands of open-source repositories, please check out our [quickstart guide](user-documentation/running-your-first-recipe.md).
+If you want to jump right in and begin running large-scale refactoring recipes on thousands of open-source repositories, please check out our [quickstart guide](user-documentation/moderne-platform/getting-started/running-your-first-recipe.md).

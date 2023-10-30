@@ -1,7 +1,8 @@
-# Changelog
+# Platform changelog
+
 ### UI v9.176.1 (2023/10/24)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v9.176.0 (2023/10/24)
 
@@ -9,8 +10,7 @@ feat/add-yielded-state
 
 ### UI v9.175.0 (2023/10/20)
 
-- add support for showing skipped connectivity
-
+* add support for showing skipped connectivity
 
 ### UI v9.174.0 (2023/10/19)
 
@@ -977,7 +977,7 @@ Hover over the info icon to quickly view more information including the commit t
 
 #### Removal of the default repository group `All`
 
-Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../administrator-documentation/on-premise-agent/configure-organizations-service.md) through Agent to provide this functionality. See the example below.
+Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/configure-organizations-service.md) through Agent to provide this functionality. See the example below.
 
 ```json
 {
@@ -1004,7 +1004,7 @@ Actions for grids are now presented on the left-hand side of the table.
 
 #### Bitbucket Cloud support
 
-Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your agent](../how-to/on-premise-agent/configure-bitbucket-cloud-to-agent.md#prerequisites).
+Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your agent](../administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/configure-bitbucket-cloud-to-agent.md#prerequisites).
 
 <figure><img src="../.gitbook/assets/bit-cloud.png" alt=""><figcaption></figcaption></figure>
 

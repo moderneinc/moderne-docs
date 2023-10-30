@@ -1,11 +1,9 @@
-# User Documentation
+# User documentation
 
-* [Quickstart: Running your first recipe](/user-documentation/running-your-first-recipe.md)
-* [Introduction to type-aware code search](/user-documentation/introduction-to-type-aware-code-search.md)
-* [Enhancing code quality through static analysis remediations](/user-documentation/code-quality.md)
-* [Create custom recipes with the recipe builder](/user-documentation/recipe-builder.md)
-* [Accessing the Moderne API](/user-documentation/accessing-the-moderne-api.md)
-* [Recipe execution and commits with the Moderne API](/user-documentation/recipe-execution-and-commits-with-graphql.md)
-* [Getting started with data tables](/user-documentation/data-tables.md)
-* [Getting started with visualizations](user-documentation/visualizations.md)
-* [How to find personally identifiable information (PII) and secrets exposed by your APIs](/user-documentation/find-pii.md)
+* [Moderne platform](moderne-platform/)
+  * [Getting started](moderne-platform/getting-started/)
+  * [How to guides](moderne-platform/how-to-guides/)
+  * [References](moderne-platform/references/)
+* [Moderne developer experience](moderne-developer-experience/)
+  * [Getting started](moderne-developer-experience/getting-started/)
+  * [References](moderne-developer-experience/references/)
