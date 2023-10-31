@@ -230,7 +230,7 @@ Individual Moderne microservices are responsible for contributing to the audit l
 
 The Moderne tokens service generates and retrieves access tokens tied to a particular user. Access tokens can be used to access the service via IDEs and custom tooling. Users can manage their access tokens via the [Moderne UI](architecture.md#moderne-user-interface). Tokens are only visible once at creation time and are hidden from that point forward, even from the user that created them.
 
-Please see our [token documentation](../../../../user-documentation/moderne-platform/references/create-api-access-tokens.md) for more information on how to create, work with, and revoke tokens.
+Please see our [token documentation](../../../../user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md) for more information on how to create, work with, and revoke tokens.
 
 **Setup requirements**
 

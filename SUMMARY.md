@@ -66,5 +66,3 @@
   * [Agent releases](releases/agent-releases.md)
   * [CLI releases](releases/cli-releases.md)
   * [Platform changelog](releases/CHANGELOG.md)
-* [Legal](legal/legal.md)
-  * [Terms of service](legal/terms-of-service.md)

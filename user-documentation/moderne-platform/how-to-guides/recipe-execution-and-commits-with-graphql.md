@@ -15,7 +15,7 @@ To help you understand how to automate recipe execution and commits, we'll walk 
 This guide assumes that you:
 
 1. Know how to use and interact with GraphQL APIs.
-2. [Have created a Moderne personal access token](../references/create-api-access-tokens.md).
+2. [Have created a Moderne personal access token](create-api-access-tokens.md).
 3. [Have created an SCM access token.](../references/create-scm-access-tokens.md)
 
 ### Recipe execution
