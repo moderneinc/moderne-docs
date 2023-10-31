@@ -31,7 +31,7 @@
     * [How to guides](administrator-documentation/moderne-platform/how-to-guides/README.md)
       * [Integrating private code with Moderne](administrator-documentation/moderne-platform/how-to-guides/integrating-private-code.md)
       * [Configuring the Moderne agent](administrator-documentation/moderne-platform/how-to-guides/agent-configuration.md)
-      * [On-premise agent reference docs](administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/README.md)
+      * [On-premise agent config docs](administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/README.md)
         * [Configure an agent with Bitbucket Data Center access](administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/configure-bitbucket-to-agent.md)
         * [Configure an agent with Bitbucket Cloud access](administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/configure-bitbucket-cloud-to-agent.md)
         * [Configure an agent with GitHub](administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/configure-an-agent-with-github.md)
