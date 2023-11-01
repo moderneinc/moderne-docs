@@ -50,6 +50,10 @@ All recipes that should be private to your company **must** start with the rever
 You can use `LATEST` as the version so that the recipe will pick up the latest snapshot or release version.&#x20;
 {% endhint %}
 
+### Using private recipes
+
+Anyone logged in with the correct email domain will automatically see their company's private recipes in the marketplace. They can use them just like any other (public) recipe.
+
 ### Troubleshooting
 
 > _You cannot upload a tenant private recipe with a groupId that does not start with the reverse domain name_.
