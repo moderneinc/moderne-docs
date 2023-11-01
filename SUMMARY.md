@@ -45,6 +45,7 @@
         * [Configure an agent with strict recipe sources](administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/configure-an-agent-with-strict-recipe-sources.md)
         * [Configure an agent with client SSL certificates](administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/configure-an-agent-with-client-ssl-certificates.md)
         * [All agent configuration variables](administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/agent-variables.md)
+        * [Multi-tenant private recipes](administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/multi-tenant-private-recipes.md)
       * [Importing external recipes](administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes.md)
     * [References](administrator-documentation/moderne-platform/references/README.md)
       * [Reporting](administrator-documentation/moderne-platform/references/reporting.md)
