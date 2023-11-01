@@ -2,7 +2,7 @@
 
 ### UI v9.177.0 (2023/10/30)
 
-- determine ability to deploy artifacts based on new ACL
+* determine ability to deploy artifacts based on new ACL
 
 ### UI v9.176.1 (2023/10/24)
 
@@ -23,7 +23,7 @@ feat/add-yielded-state
 We have plans to overhaul the iconography to create better visual consistency and clarity.
 
 This journey begins this version with a rework of the left navigation icons:\
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (1).png>)
 
 ### UI v9.173.0 (2023/10/17)
 
@@ -232,7 +232,7 @@ We've done a little tidying up on the recipe run result page. _**Visualizations*
 
 #### Add dropdown options to share button
 
-![](<../.gitbook/assets/image (1) (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1) (1).png>)
 
 When sharing a recipe from the recipes details, you can now select whether or not to include your current organizations.
 
@@ -909,7 +909,7 @@ Improve support for organizations defined in thee organization service.
 We have added the ability to see repository origin details from the diff page via the interactive origin icon:\
 ![](../.gitbook/assets/icon.png)
 
-GitHub links on recipe details for OpenRewrite recipes ([v9.35.0](CHANGELOG.md#recipe-source-links)) previously linked to a search interface to find the origin on GitHub. These have now been updated with direct links to the source.
+GitHub links on recipe details for OpenRewrite recipes ([v9.35.0](changelog.md#recipe-source-links)) previously linked to a search interface to find the origin on GitHub. These have now been updated with direct links to the source.
 
 ### UI v9.60.0 (2023/02/23)
 
@@ -981,7 +981,7 @@ Hover over the info icon to quickly view more information including the commit t
 
 #### Removal of the default repository group `All`
 
-Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/configure-organizations-service.md) through Agent to provide this functionality. See the example below.
+Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../administrator-documentation/how-to-guides/on-premise-agent/configure-organizations-service.md) through Agent to provide this functionality. See the example below.
 
 ```json
 {
@@ -1008,7 +1008,7 @@ Actions for grids are now presented on the left-hand side of the table.
 
 #### Bitbucket Cloud support
 
-Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your agent](../administrator-documentation/moderne-platform/how-to-guides/on-premise-agent/configure-bitbucket-cloud-to-agent.md#prerequisites).
+Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your agent](../administrator-documentation/how-to-guides/on-premise-agent/configure-bitbucket-cloud-to-agent.md#prerequisites).
 
 <figure><img src="../.gitbook/assets/bit-cloud.png" alt=""><figcaption></figcaption></figure>
 

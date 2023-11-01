@@ -4,7 +4,7 @@ Every programming language has a vast number of conventions and rules that make 
 
 Over the years, a variety of static analysis tools have been created to try and help, but these tools do not actually _fix_ your code. Rather, they rely on developers to manually change every line that they warn about. If a new convention is standardized, this can easily result in thousands of lines that need to be changed across a vast number of repositories.
 
-Fortunately, Moderne can help with this tricky problem. Thanks to a [comprehensive Lossless Semantic Tree](../../../administrator-documentation/moderne-platform/references/concepts/lossless-semantic-trees.md), Moderne can find _and_ fix static analysis and stylistic issues. Furthermore, for each change made, you can learn _why_ it was changed so that you and your team can write better code in the future. Instead of having to constantly remind your team to clean up the code, you can automate it!
+Fortunately, Moderne can help with this tricky problem. Thanks to a [comprehensive Lossless Semantic Tree](../../administrator-documentation/references/concepts/lossless-semantic-trees.md), Moderne can find _and_ fix static analysis and stylistic issues. Furthermore, for each change made, you can learn _why_ it was changed so that you and your team can write better code in the future. Instead of having to constantly remind your team to clean up the code, you can automate it!
 
 To help you get a better understanding of how Moderne can help improve your code quality, this guide will:
 
@@ -21,7 +21,7 @@ To get to this recipe:
 * From there, click on `Static analysis and remediation`.
 *   At the top, you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly. Click on `More details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
 
-    ![](../../../.gitbook/assets/common-static-analysis-recipe.png)
+    ![](../../.gitbook/assets/common-static-analysis-recipe.png)
 
 ### Running the recipe
 
@@ -33,20 +33,20 @@ When you're ready to run the recipe, select the repositories you wish to run on 
 As the code in the SaaS is constantly changing, your results will more than likely be different.
 {% endhint %}
 
-![](../../../.gitbook/assets/common-static-analysis-run.png)
+![](../../.gitbook/assets/common-static-analysis-run.png)
 
 You can click on any of the repositories to look at the suggested changes and learn more about why the code is being changed. Some of these changes are rather complex, such as changing anonymous inner classes that contain only one method into lambdas:
 
-![](../../../.gitbook/assets/lambda-example.png)
+![](../../.gitbook/assets/lambda-example.png)
 
 ### Learning what's wrong with the code
 
 If you want to learn more about _why_ the code is changing, you can press the three dots (`...`) in the top right-hand corner of any file and select `Why did this change?`:
 
-![](../../../.gitbook/assets/why-did-this-change.png)
+![](../../.gitbook/assets/why-did-this-change.png)
 
 This will display a list of all of the recipes that affected the selected file along with a sentence or two describing the rule in more detail:
 
-![](../../../.gitbook/assets/example-change-recipes.png)
+![](../../.gitbook/assets/example-change-recipes.png)
 
 You can then click on the rule itself to be taken to a page where you can get more information about it or run just that recipe.

@@ -42,13 +42,13 @@ To install the Moderne CLI please:
 3. Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location or this could involve putting it in a directory that's already on your `PATH` such as a `/usr/bin` directory.
 4.  Ensure you can run the Moderne CLI by typing `mod`. If everything is set up correctly, you should see a list of commands:
 
-    ![](../../../.gitbook/assets/mod-cli.png)
+    ![](../../.gitbook/assets/mod-cli.png)
 
 ### (Optionally) Set up auto-completion in your terminal
 
 The Moderne CLI offers a command which generates a completion script that can be used to set up auto-completion in your terminal. After initializing this script, you can type `mod config` and press tab and then your terminal will offer suggestions for the sub-commands or parameters:
 
-![](../../../.gitbook/assets/cli-auto-complete.png)
+![](../../.gitbook/assets/cli-auto-complete.png)
 
 To configure this for the terminal you're using please enter the following command in your terminal:
 
@@ -154,7 +154,7 @@ Now that the repository is configured, it's time to migrate it to Spring Boot 3 
 mod build .
 ```
 
-![mod build example](../../../.gitbook/assets/mod-build-example.png)
+![mod build example](../../.gitbook/assets/mod-build-example.png)
 
 2. Kick off the migration recipe by running the following command from the `spring-petclinic` repository:
 
@@ -162,7 +162,7 @@ mod build .
 mod run . --recipe org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
 ```
 
-![mod run example](../../../.gitbook/assets/mod-run-example.png)
+![mod run example](../../.gitbook/assets/mod-run-example.png)
 
 3. The previous command will generate a patch file (`fix.patch`) that contains the changes the recipe would make to your repository. You can examine the file with your favorite editor, or you can apply the changes to the code and use `git diff` to check out the changes:
 
@@ -173,7 +173,7 @@ git diff
 
 If you've run many recipes and want to apply a specific one, you can do so by specifying the recipe run ID which is the date time + some random letters that appears in the path before the patch files in the `mod run` output:
 
-![recipe run id](../../../.gitbook/assets/recipe-run-id.png)
+![recipe run id](../../.gitbook/assets/recipe-run-id.png)
 
 ```shell
 mod apply . --recipe-run <recipe-run-id>
@@ -208,7 +208,7 @@ cd workshop
 mod clone . --moderne-organization "Spring Projects 2.x"
 ```
 
-![mod clone example](../../../.gitbook/assets/mod-clone.png)
+![mod clone example](../../.gitbook/assets/mod-clone.png)
 
 ### Build the repositories
 
@@ -218,7 +218,7 @@ With the repositories cloned, you can then build them all at once by running thi
 mod build .
 ```
 
-![mod build example](../../../.gitbook/assets/mod-build-download.png)
+![mod build example](../../.gitbook/assets/mod-build-download.png)
 
 Since these repositories exist inside of Moderne, the CLI will attempt to download the pre-built artifacts from Moderne rather than taking the time to build each of them. This can save you a considerable amount of time when running recipes.
 
@@ -236,7 +236,7 @@ With the LST artifacts built for each of the repositories, you can now run recip
 mod run workshop --recipe org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
 ```
 
-![mod run example](../../../.gitbook/assets/mod-run-group.png)
+![mod run example](../../.gitbook/assets/mod-run-group.png)
 
 This will generate a series of `patch` files that contain the changes the recipe will make. Feel free to examine them with your favorite text editor. Once you're ready, you can apply the changes to all of the repositories by running the following command:
 
@@ -246,7 +246,7 @@ This will generate a series of `patch` files that contain the changes the recipe
 mod apply . --latest-recipe-run
 ```
 
-![mod apply example](../../../.gitbook/assets/mod-apply-example.png)
+![mod apply example](../../.gitbook/assets/mod-apply-example.png)
 
 From there, you can preview the changes with Git by going into each repository and running the `git diff` command.
 
@@ -304,7 +304,7 @@ You must have run `mod build` before you can run this command. You also must hav
 
 ### Run
 
-The `run` command allows you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally. Before you can run recipes, you'll need to [create a Moderne access token](../../moderne-platform/references/create-api-access-tokens.md) and configure it via the `mod config moderne` command. You'll also need to install recipes via the `mod config recipes` command. Lastly, you'll need to run `mod build` in the repository/repositories where you want to run recipes.
+The `run` command allows you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally. Before you can run recipes, you'll need to [create a Moderne access token](../moderne-platform/references/create-api-access-tokens.md) and configure it via the `mod config moderne` command. You'll also need to install recipes via the `mod config recipes` command. Lastly, you'll need to run `mod build` in the repository/repositories where you want to run recipes.
 
 [Find all of the parameters for the run command here](https://moderneinc.github.io/moderne-cli/mod-run.html)
 

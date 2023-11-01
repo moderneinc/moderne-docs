@@ -1,6 +1,6 @@
 # Lossless semantic trees
 
-![LST comparison](../../../../.gitbook/assets/LST-comparison.png)
+![LST comparison](../../../.gitbook/assets/LST-comparison.png)
 
 A Lossless Semantic Tree (LST) is a tree representation of code. Unlike the traditional [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract\_syntax\_tree) (AST), OpenRewrite's LST offers a unique set of characteristics that make it possible to perform accurate transformations and searches across a repository:
 
@@ -35,7 +35,7 @@ If you want to see specific examples of Java LSTs, please read our [Java LST Exa
 
 ### With the Moderne CLI
 
-1. Before you can run a recipe against a repository with the [Moderne CLI](../../../../user-documentation/moderne-developer-experience/getting-started/cli-intro.md), you must build the LST for said repository. This LST does not need to fit into memory entirely at once -- it can be built in pieces. The LST could be built locally or it could be pulled down from your artifact repository (if said LST is up-to-date). Regardless, at the end of the build process, you will have an LST artifact saved to disk.
+1. Before you can run a recipe against a repository with the [Moderne CLI](../../../user-documentation/getting-started/cli-intro.md), you must build the LST for said repository. This LST does not need to fit into memory entirely at once -- it can be built in pieces. The LST could be built locally or it could be pulled down from your artifact repository (if said LST is up-to-date). Regardless, at the end of the build process, you will have an LST artifact saved to disk.
 2. When you go to run a recipe, this LST will be read from disk. If the entire LST doesn't fit into memory, it will be read in pieces. As part of reading this LST from disk, the current state of the code will be checked against the code on disk. If Git shows that the two do not match, you will receive a warning that you should rebuild the project.
 3. As the recipe runs, it will make transformations on the LST. This could be as simple as adding a search marker (`~~>`) if the recipe is a search recipe -- or it could be as complex as adding classes and methods throughout the repository.
 4. Once the recipe has finished running, the **modified LST will be discarded** and the code itself **will not** be changed. Instead, different patch files will be created depending on whether the recipe found or changed anything. For example, a search recipe will produce a `search.patch` file, whereas a recipe that changes the code will produce a `fix.patch` file. These patch files are saved to disk and the locations are output by the CLI.
@@ -46,7 +46,7 @@ If you want to see specific examples of Java LSTs, please read our [Java LST Exa
 1. Before you can run a recipe against a repository in the Moderne Platform, you must build the LST for said repository. This is typically done via a CI job (usually configured by the [mod connect tool](https://github.com/moderneinc/mod-connect)). This CI job builds LST artifacts for each repository you want ingested and then publishes the LST artifacts to your artifact repository. You can configure how often this runs, but most people run these jobs once per day as it can be prohibitively expensive to continuously build large projects over and over.
 2. When you go to run a recipe, the LST artifact will be downloaded from your artifact repository. These LSTs are continuously uploaded/updated over time as long as you've set up ingestion for your repositories.
 3. As the recipe runs, it will make transformations on the downloaded LST. This could be as simple as adding a search marker (`~~>`) if the recipe is a search recipe -- or it could be as complex as adding classes and methods throughout the repository.
-4. Once the recipe has finished running, the **modified LST will be discarded** and the code **will not** be changed. Instead, you will be [provided with a list of the changes it would make](../../../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md#step-6-run-the-recipe). You can [review them](../../../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md#step-7-view-the-results) and [choose what to do with them](../../../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md#step-8-commit-your-changes).
+4. Once the recipe has finished running, the **modified LST will be discarded** and the code **will not** be changed. Instead, you will be [provided with a list of the changes it would make](../../../user-documentation/getting-started/running-your-first-recipe.md#step-6-run-the-recipe). You can [review them](../../../user-documentation/getting-started/running-your-first-recipe.md#step-7-view-the-results) and [choose what to do with them](../../../user-documentation/getting-started/running-your-first-recipe.md#step-8-commit-your-changes).
 5. Regardless of what you choose to do with the results, future recipe runs **will not** have those changes unless you commit them and have the CI job re-build/publish the LST to your artifact repository.
 
 {% hint style="info" %}

@@ -14,13 +14,13 @@ As the code changes (either due to recipe results being merged in or due to acti
 
 Once the artifact is published, the Moderne agent will send the changes to Moderne so that the internal state can be updated. After that happens, new recipes can be run against the new artifacts and the process will repeat.
 
-![Moderne + SDL](../../../../.gitbook/assets/moderne-sdl.png)
+![Moderne + SDL](../../../.gitbook/assets/moderne-sdl.png)
 
 ## Architecture diagram
 
 Below is a high-level architecture diagram that shows the flow of data between Moderne and a typical customer environment. Arrows indicate communication between components. The details of each component can be found in the following sections.
 
-![Moderne architecture](../../../../.gitbook/assets/moderne-architecture.png)
+![Moderne architecture](../../../.gitbook/assets/moderne-architecture.png)
 
 ## Key components
 
@@ -52,7 +52,7 @@ At a minimum, the agent will need to connect to:
 Your team may also wish to configure the agent to:
 
 * Look in your artifact repositories for custom recipe JARs your team creates so that those recipes can be run in the Moderne SaaS
-* Connect to your team's [Organizations service](../../../../references/organizations-service.md) so that the UI can provide a customized experience for some users or repositories
+* Connect to your team's [Organizations service](../../../references/organizations-service.md) so that the UI can provide a customized experience for some users or repositories
 
 {% hint style="info" %}
 You can find all of the documentation for configuring agents in your environment [here](https://docs.moderne.io/how-to/on-premise-agent).
@@ -85,14 +85,14 @@ These measures act in concert with techniques to limit IP addressability of the 
 
 ### Organizations service
 
-The Organizations service is an _optional_ service that you can configure in your environment. It defines the organizational structure that a user or a repository belongs to. The Moderne SaaS will use this information to present different UIs or options for different users and repositories. Please see our [Organizations service doc](../../../../references/organizations-service.md) for more information.
+The Organizations service is an _optional_ service that you can configure in your environment. It defines the organizational structure that a user or a repository belongs to. The Moderne SaaS will use this information to present different UIs or options for different users and repositories. Please see our [Organizations service doc](../../../references/organizations-service.md) for more information.
 
 **Setup requirements**
 
 You must:
 
 * Ensure that the Organizations service is capable of receiving requests from the [Moderne agent](architecture.md#moderne-agent)
-* Ensure your service fulfills the GraphQL contract outlined in our [Organizations service documentation](../../../../references/organizations-service.md)
+* Ensure your service fulfills the GraphQL contract outlined in our [Organizations service documentation](../../../references/organizations-service.md)
 
 ### Moderne API gateway
 
@@ -230,7 +230,7 @@ Individual Moderne microservices are responsible for contributing to the audit l
 
 The Moderne tokens service generates and retrieves access tokens tied to a particular user. Access tokens can be used to access the service via IDEs and custom tooling. Users can manage their access tokens via the [Moderne UI](architecture.md#moderne-user-interface). Tokens are only visible once at creation time and are hidden from that point forward, even from the user that created them.
 
-Please see our [token documentation](../../../../user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md) for more information on how to create, work with, and revoke tokens.
+Please see our [token documentation](../../../user-documentation/how-to-guides/create-api-access-tokens.md) for more information on how to create, work with, and revoke tokens.
 
 **Setup requirements**
 

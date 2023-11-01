@@ -9,7 +9,7 @@ There are three types of tokens used throughout the Moderne platform:
 In this doc, you can find detailed information about each of these.
 
 {% hint style="info" %}
-The tokens described in this doc have the same permissions as `everyone` in the [user roles doc](../../../administrator-documentation/moderne-platform/references/user-roles.md). They _do not_ have `administrator` permissions.
+The tokens described in this doc have the same permissions as `everyone` in the [user roles doc](../../administrator-documentation/references/user-roles.md). They _do not_ have `administrator` permissions.
 {% endhint %}
 
 ## Login token
@@ -22,11 +22,11 @@ This token _is not_ used for accessing or viewing source code. That is done via 
 
 Users can find this token by clicking on the GraphQL icon in the top middle of the Moderne platform once they are logged in:
 
-![](../../../.gitbook/assets/graphql-link.png)
+![](../../.gitbook/assets/graphql-link.png)
 
 From there, at the bottom of the GraphQL Explorer, there is a `request headers` tag that includes this token:
 
-![](../../../.gitbook/assets/request-headers-token.png)
+![](../../.gitbook/assets/request-headers-token.png)
 
 This token can be used to make general GraphQL API calls. Please note, though, that it is preferable to create a [Personal Access Token](moderne-tokens.md#personal-access-tokens) for interacting with the APIs as Personal Access Tokens do not expire.
 
