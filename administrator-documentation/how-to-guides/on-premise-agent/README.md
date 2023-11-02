@@ -1,4 +1,4 @@
-# On-premise agent reference docs
+# On-premise agent config docs
 
 * [Configure an agent with Bitbucket Data Center access](configure-bitbucket-to-agent.md)
 * [Configure an agent with Bitbucket Cloud access](configure-bitbucket-cloud-to-agent.md)
@@ -10,3 +10,4 @@
 * [Configure the Organizations service](configure-organizations-service.md)
 * [Configure an agent with strict recipe sources](configure-an-agent-with-strict-recipe-sources.md)
 * [All agent configuration variables](agent-variables.md)
+* [Multi-tenant private recipes](multi-tenant-private-recipes.md)
