@@ -1,5 +1,22 @@
 # Platform changelog
 
+### UI v10.0.0 (2023/11/02)
+
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption><p>so fresh and so clean</p></figcaption></figure>
+
+**We have a new look!**&#x20;
+
+We started to encounter pain points with our  previous design:
+
+* Navigation was split across the top bar and side bar
+* Long organization / repository group titles could be truncated
+
+Unified Sidebar Navigation: All navigation elements are now consolidated into a single, intuitive side bar, simplifying the user experience and reducing the cognitive load.
+
+Elimination of Top Bar: Removing the top navigation bar frees up valuable screen real estate, allowing for more content to be displayed and making it easier for users to focus on their work.
+
+
+
 ### UI v9.177.0 (2023/10/30)
 
 * determine ability to deploy artifacts based on new ACL
