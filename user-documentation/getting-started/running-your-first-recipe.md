@@ -93,7 +93,7 @@ The resulting diff allows you to preview the changes from the recipe before you 
 
 If you're unsure why something changed, you can click on the three dots (`...`) at the top right of any file and select `Why did this change?`
 
-For instance, in the above example, `= null` was removed due to the [Explicit initialization rule](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ExplicitInitialization).
+For instance, in the above example, the identifiers were reordered due to the [modifier order rule](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ModifierOrder).
 
 ## Step 8: Commit your changes
 
