@@ -51,9 +51,9 @@ git checkout 4df621b41ed3013e527d4037d83a6cf756efd784
 ```
 
 {% hint style="warning" %}
-This commit already has some of the potential migration recipes applied, but it's the first one with Gradle support.&#x20;
+This commit already has some of the potential migration recipes applied, but it's the first one with Gradle support.
 
-Because of that, if you compare it to the [Maven plugin exercise](maven-plugin-exercise.md), you will see less changes being made.
+Because of that, if you compare it to the [Maven plugin exercise](maven-plugin-exercise.md), you will see fewer changes being made.
 
 For example, JUnit has already been migrated to version 5, and we already have Java 11 instead of Java 8.
 {% endhint %}

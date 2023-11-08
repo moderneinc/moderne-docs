@@ -90,7 +90,7 @@ Modify the `pom.xml` file and add the following information:
 </project>
 ```
 
-Once you've done that, you can run the Migrate to [Spring Boot 3.1 recipe](https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot\_3\_1) by running the following command:
+Once you've done that, you can run the [Migrate to Spring Boot 3.1 recipe](https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot\_3\_1) by running the following command:
 
 ```bash
 ./mvnw -U org.openrewrite.maven:rewrite-maven-plugin:run

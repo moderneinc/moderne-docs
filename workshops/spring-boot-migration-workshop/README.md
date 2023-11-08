@@ -4,7 +4,7 @@ In this workshop, you'll find a variety of exercises that demonstrate the differ
 
 You do not need to complete all of these exercises. Instead, please pick the ones that are more interesting or relevant to your needs.
 
-Regardless of which exercise you pick, you will migrate an old version of the [Spring PetClinic repository ](https://github.com/spring-projects/spring-petclinic/)to Spring Boot 3.
+Regardless of which exercise you pick, you will migrate an old version of the [Spring PetClinic repository](https://github.com/spring-projects/spring-petclinic/) to Spring Boot 3.
 
 ### Introduction
 

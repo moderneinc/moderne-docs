@@ -8,7 +8,7 @@
 
 ### Leap to Spring Boot 3.1
 
-This guide will help you migrate your own project to Spring Boot 3.1. You've already seen various ways of running OpenRewrite recipes by now; pick the one that best suits your project for this migration. For a recap and detailed instructions see each of the indivual exercises:
+This guide will help you migrate your own project to Spring Boot 3.1. You've already seen various ways of running OpenRewrite recipes by now; pick the one that best suits your project for this migration. For a recap and detailed instructions see each of the individual exercises:
 
 * [Maven plugin](maven-plugin-exercise.md)
 * [Gradle plugin](gradle-plugin-exercise.md)

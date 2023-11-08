@@ -15,7 +15,7 @@ Go to [https://app.moderne.io/](https://app.moderne.io/) and register with your 
 
 <figure><img src="../../.gitbook/assets/mod-org (2).png" alt=""><figcaption></figcaption></figure>
 
-2. With the organization selected, you can go to the[ repositories page](https://app.moderne.io/organizations) and see what repositories are included. There are a few repositories selected from the Netflix, spring-cloud, and spring-projects GitHub organizations.
+2. With the organization selected, you can go to the [repositories page](https://app.moderne.io/organizations) and see what repositories are included. There are a few repositories selected from the Netflix, spring-cloud, and spring-projects GitHub organizations.
 
 <figure><img src="../../.gitbook/assets/organizations-and-repos.png" alt=""><figcaption></figcaption></figure>
 
