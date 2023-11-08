@@ -43,7 +43,7 @@ You can click on any of the repositories to look at the suggested changes and le
 
 If you want to learn more about _why_ the code is changing, you can press the three dots (`...`) in the top right-hand corner of any file and select `Why did this change?`:
 
-![](../../.gitbook/assets/why-did-this-change.png)
+![](<../../.gitbook/assets/why-did-this-change (1).png>)
 
 This will display a list of all of the recipes that affected the selected file along with a sentence or two describing the rule in more detail:
 

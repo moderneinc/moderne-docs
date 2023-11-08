@@ -40,7 +40,7 @@ feat/add-yielded-state
 We have plans to overhaul the iconography to create better visual consistency and clarity.
 
 This journey begins this version with a rework of the left navigation icons:\
-![](<../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/image (1) (1).png>)
 
 ### UI v9.173.0 (2023/10/17)
 
@@ -249,7 +249,7 @@ We've done a little tidying up on the recipe run result page. _**Visualizations*
 
 #### Add dropdown options to share button
 
-![](<../.gitbook/assets/image (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1) (1) (1).png>)
 
 When sharing a recipe from the recipes details, you can now select whether or not to include your current organizations.
 

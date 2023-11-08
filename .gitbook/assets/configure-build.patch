@@ -1,0 +1,91 @@
+diff --git a/build.gradle b/build.gradle
+index c517cfc..c040d7d 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -1,17 +1,18 @@
+-buildscript {
+-    dependencies {
+-        classpath 'ro.isdc.wro4j.gradle:wro4j-gradle-plugin:1.8.0.Beta4'
+-    }
+-}
++//buildscript {
++//    dependencies {
++//        classpath 'ro.isdc.wro4j.gradle:wro4j-gradle-plugin:1.8.0.Beta4'
++//    }
++//}
+
+ plugins {
+   id 'org.springframework.boot' version '2.4.5'
+   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+   id 'java'
++  id 'org.openrewrite.rewrite' version '6.4.3'
+ }
+
+ apply plugin: 'java'
+-apply plugin: 'wro4j'
++//apply plugin: 'wro4j'
+
+ group = 'org.springframework.samples'
+ version = '2.4.5'
+@@ -32,29 +33,35 @@ dependencies {
+   implementation 'org.springframework.boot:spring-boot-starter-web'
+   implementation 'org.springframework.boot:spring-boot-starter-validation'
+   implementation 'javax.cache:cache-api'
+-  webjarsRuntime 'org.webjars:webjars-locator-core'
+-  webjarsRuntime "org.webjars:jquery:${webjarsJqueryVersion}"
+-  webjarsRuntime "org.webjars:jquery-ui:${webjarsJqueryUiVersion}"
+-  webjarsRuntime "org.webjars:bootstrap:${webjarsBootstrapVersion}"
+-  webjarsRuntime "org.webjars:bootstrap:${webjarsBootstrapVersion}"
++//  webjarsRuntime 'org.webjars:webjars-locator-core'
++//  webjarsRuntime "org.webjars:jquery:${webjarsJqueryVersion}"
++//  webjarsRuntime "org.webjars:jquery-ui:${webjarsJqueryUiVersion}"
++//  webjarsRuntime "org.webjars:bootstrap:${webjarsBootstrapVersion}"
++//  webjarsRuntime "org.webjars:bootstrap:${webjarsBootstrapVersion}"
+   runtimeOnly 'org.ehcache:ehcache'
+   runtimeOnly 'com.h2database:h2'
+   runtimeOnly 'mysql:mysql-connector-java'
+   developmentOnly 'org.springframework.boot:spring-boot-devtools'
+   testImplementation 'org.springframework.boot:spring-boot-starter-test'
++
++  rewrite 'org.openrewrite.recipe:rewrite-static-analysis:latest.release'
++}
++
++rewrite {
++    activeRecipe 'org.openrewrite.staticanalysis.CommonStaticAnalysis'
+ }
+
+ test {
+   useJUnitPlatform()
+ }
+
+-webResources {
+-    srcMainDir = layout.projectDirectory.dir('src/main').asFile
+-    dstStaticFolder = 'static/resources/css'
+-    bundle ('petclinic') {
+-        css 'webjars/bootstrap/3.3.6/less/bootstrap.less'
+-        css 'less/petclinic.less'
+-        preProcessor 'lessCssImport'
+-        postProcessor 'less4j'
+-    }
+-}
++//webResources {
++//    srcMainDir = layout.projectDirectory.dir('src/main').asFile
++//    dstStaticFolder = 'static/resources/css'
++//    bundle ('petclinic') {
++//        css 'webjars/bootstrap/3.3.6/less/bootstrap.less'
++//        css 'less/petclinic.less'
++//        preProcessor 'lessCssImport'
++//        postProcessor 'less4j'
++//    }
++//}
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+index 442d913..98debb8 100644
+--- a/gradle/wrapper/gradle-wrapper.properties
++++ b/gradle/wrapper/gradle-wrapper.properties
+@@ -1,5 +1,5 @@
+ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-6.8.3-bin.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-7.6.2-bin.zip
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
