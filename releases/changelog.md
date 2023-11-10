@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.9.0 (2023/11/10)
+
+- use radio control for organization selection
+
 ### UI v10.8.0 (2023/11/10)
 
 - link to recipe from recipe run results summary
