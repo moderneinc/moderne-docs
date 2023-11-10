@@ -97,7 +97,7 @@ Once you've done that, you can run the [Migrate to Spring Boot 3.1 recipe](https
 ```
 
 {% hint style="info" %}
-Running OpenRewrite [can take a while](../../introduction.md) as we analyze the project and run recipes to make code changes. You should see results within a couple of minutes, depending on the size of your project and your project.
+Running OpenRewrite [can take a while](../../../introduction.md) as we analyze the project and run recipes to make code changes. You should see results within a couple of minutes, depending on the size of your project and your project.
 {% endhint %}
 
 ### Option 2: Use the command line

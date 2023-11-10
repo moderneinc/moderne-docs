@@ -70,7 +70,7 @@ OpenRewrite can be configured in your `build.gradle` file or as an additional `i
 
 1. For simplicity, we will provide you with an `init.gradle` file that contains the Spring Boot migration recipe as well as the OpenRewrite dependencies. Please copy this file to the Spring PetClinic repository you have checked out locally.
 
-{% file src="../../.gitbook/assets/init.gradle" %}
+{% file src="../../../.gitbook/assets/init.gradle" %}
 
 <details>
 
@@ -124,7 +124,7 @@ Don't worry; we will upgrade Gradle automatically as part of the recipe run so t
 ```
 
 {% hint style="info" %}
-Running OpenRewrite [can take a while](../../introduction.md) as we analyze the project and run recipes to make code changes. You should see results within a couple of minutes, depending on the size of your project and your project.
+Running OpenRewrite [can take a while](../../../introduction.md) as we analyze the project and run recipes to make code changes. You should see results within a couple of minutes, depending on the size of your project and your project.
 {% endhint %}
 
 <details>
@@ -1727,7 +1727,7 @@ git checkout 4df621b41ed3013e527d4037d83a6cf756efd784
 
 2. We'll change things up a bit by modifying the build file rather than using an `init.gradle` file. Download the `configure-build.patch` file to the root of the Spring PetClinic repository.
 
-{% file src="../../.gitbook/assets/configure-build.patch" %}
+{% file src="../../../.gitbook/assets/configure-build.patch" %}
 
 <details>
 

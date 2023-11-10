@@ -1,6 +1,6 @@
 # Moderne CLI exercise
 
-In this exercise, you will use the [Moderne CLI](../../user-documentation/getting-started/cli-intro.md), a free tool that allows developer to run OpenRewrite recipes without configuring any build plugin, to migrate a repository from Spring Boot 2 to Spring Boot 3.
+In this exercise, you will use the [Moderne CLI](../../getting-started/cli-intro.md), a free tool that allows developer to run OpenRewrite recipes without configuring any build plugin, to migrate a repository from Spring Boot 2 to Spring Boot 3.
 
 ### Prepare your environment
 
@@ -1549,7 +1549,7 @@ If you look at the results, you should see that:
 * The code has been migrated to Java 17, and text blocks are used
 * Some best practices are applied (such as adding the `public` test method modifier)
 
-Some of you might be tempted to run `./mvnw verify` to confirm that the build works. Unfortunately, this isn't the case as the commit we started from is using `Wro4j` -- which has some [slight dependency conflicts](../../introduction.md). We've decided not to cover `Wro4j` with recipes for now, as [Spring PetClinic has dropped Wro4J](../../introduction.md) as well.
+Some of you might be tempted to run `./mvnw verify` to confirm that the build works. Unfortunately, this isn't the case as the commit we started from is using `Wro4j` -- which has some [slight dependency conflicts](../../../introduction.md). We've decided not to cover `Wro4j` with recipes for now, as [Spring PetClinic has dropped Wro4J](../../../introduction.md) as well.
 
 ### Run a recipe on multiple local repositories
 

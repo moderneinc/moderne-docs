@@ -22,6 +22,14 @@
   * [Moderne tokens](user-documentation/references/moderne-tokens.md)
   * [Creating SCM access tokens](user-documentation/references/create-scm-access-tokens.md)
   * [Moderne CLI man pages](user-documentation/references/cli-reference.md)
+* [Workshops](user-documentation/workshops/README.md)
+  * [Spring Boot migration workshop](user-documentation/workshops/spring-boot-migration-workshop/README.md)
+    * [Maven plugin exercise](user-documentation/workshops/spring-boot-migration-workshop/maven-plugin-exercise.md)
+    * [Gradle plugin exercise](user-documentation/workshops/spring-boot-migration-workshop/gradle-plugin-exercise.md)
+    * [Moderne CLI exercise](user-documentation/workshops/spring-boot-migration-workshop/moderne-cli-exercise.md)
+    * [Moderne platform exercise](user-documentation/workshops/spring-boot-migration-workshop/moderne-platform-exercise.md)
+    * [Migrate your own project](user-documentation/workshops/spring-boot-migration-workshop/migrate-your-own-project.md)
+    * [Recipe development](user-documentation/workshops/spring-boot-migration-workshop/recipe-development.md)
 
 ## Administrator documentation
 
@@ -62,16 +70,6 @@
   * [Language roadmap](administrator-documentation/references/language-roadmap.md)
   * [Concepts](administrator-documentation/references/concepts/README.md)
     * [Lossless semantic trees](administrator-documentation/references/concepts/lossless-semantic-trees.md)
-
-## Workshops
-
-* [Spring Boot migration workshop](workshops/spring-boot-migration-workshop/README.md)
-  * [Maven plugin exercise](workshops/spring-boot-migration-workshop/maven-plugin-exercise.md)
-  * [Gradle plugin exercise](workshops/spring-boot-migration-workshop/gradle-plugin-exercise.md)
-  * [Moderne CLI exercise](workshops/spring-boot-migration-workshop/moderne-cli-exercise.md)
-  * [Moderne platform exercise](workshops/spring-boot-migration-workshop/moderne-platform-exercise.md)
-  * [Migrate your own project](workshops/spring-boot-migration-workshop/migrate-your-own-project.md)
-  * [Recipe development](workshops/spring-boot-migration-workshop/recipe-development.md)
 
 ## Releases
 

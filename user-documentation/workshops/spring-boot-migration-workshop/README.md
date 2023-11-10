@@ -17,7 +17,7 @@ To complete our exercises, you will need:
 * Some basic Spring and Git knowledge
 * To have Java 8 and Java 17 installed
 * A GitHub account
-* An IDE of your choice (although we recommend [Visual Studio Code](../../user-documentation/getting-started/) for the Spring Tools 4 exercise).
+* An IDE of your choice (although we recommend [Visual Studio Code](../../getting-started/) for the Spring Tools 4 exercise).
 
 ### Exercises
 

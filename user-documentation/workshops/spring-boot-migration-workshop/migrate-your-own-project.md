@@ -4,7 +4,7 @@
 
 [OSS support for Spring Boot](https://spring.io/projects/spring-boot#support) 2.7 will end on November 18th, 2023, while support for Spring Boot 3.0 will end on November 24th, 2023. So if you haven't already, now's the time to migrate your project to Spring Boot 3.1!
 
-<figure><img src="../../.gitbook/assets/support-timelines.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/support-timelines.png" alt=""><figcaption></figcaption></figure>
 
 ### Leap to Spring Boot 3.1
 
