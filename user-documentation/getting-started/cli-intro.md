@@ -9,10 +9,6 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will:
 * [Give you an exercise to follow along with if you want to jump into a real-world example](cli-intro.md#cli-exercise)
 * [Provide more details for each command in case you want to learn more](cli-intro.md#commands)
 
-{% hint style="info" %}
-Moderne offers a [Spring Boot Migration Workshop](https://moderneinc.github.io/springboot-migration-workshop/docs/moderne-cli) that may be useful for learning about the CLI. It largely covers similar topics as this doc but in a slightly different manner.
-{% endhint %}
-
 ## Installation
 
 To install the Moderne CLI please:
