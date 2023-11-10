@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.8.0 (2023/11/10)
+
+- link to recipe from recipe run results summary
+- async repo details
+
 
 ### UI v10.0.0 (2023/11/02)
 
