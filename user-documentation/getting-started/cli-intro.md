@@ -171,10 +171,6 @@ If you want to publish artifacts from the CLI, you'll need to run the following 
 mod config artifacts edit <your-artifact-repository-url> --user <user> --password <password>
 ```
 
-```shell
-mod build workshop --no-download
-```
-
 ## CLI exercise
 
 If you want to dive into using the CLI in a real-world situation, please check out our [Moderne CLI exercise](../workshops/spring-boot-migration-workshop/moderne-cli-exercise.md) in the [Spring Boot migration workshop](../workshops/spring-boot-migration-workshop/). In there, you will work through using the CLI to migrate some Spring repositories from Spring Boot 2 to Spring Boot 3.
