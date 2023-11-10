@@ -10,56 +10,48 @@ To help you get started with repository groups, in this guide you will learn:
 
 ## How to create a repository group
 
-1.  In the top right corner of the Moderne home page, you will see some text to the left of your avatar that says `Default`:
+1. In the top left corner of the Moderne home page, you will see a box under the search box that says `Default`:
 
-    ![](../../../.gitbook/assets/repo-group-1.png)
-2.  If you click on that, the organization and repository group menu will appear:
+<figure><img src="../../.gitbook/assets/org-selector.png" alt=""><figcaption></figcaption></figure>
 
-    ![](../../../.gitbook/assets/repo-group-2.png)
-3.  Press the `Create` link listed below the organizations. You will be taken to the repository group creation page:
+2. If you click on that, the organization and repository group menu will appear:
 
-    ![](../../../.gitbook/assets/repo-group-3.png)
+<figure><img src="../../.gitbook/assets/org-view.png" alt=""><figcaption></figcaption></figure>
+
+3. Press the `Create Group` button in the top right corner. You will be taken to the repository group creation page:
+
+![](../../.gitbook/assets/repo-group-3.png)
+
 4. At the top, you should enter a descriptive name for the group. This will be the identifier you'll see when you go to select which group you want to run a recipe on.
 5. Once you've entered a name for the group, it's time to select the repositories you want to be included in this group. You can use the search box to look for repositories that contain your search term anywhere in their origin, organization, name or branch.
 6. When you've finished searching for the repositories you want in the group, you can select all of the repositories to add by clicking on the checkbox at the top or you can select individual repositories by clicking on the checkbox next to each repository.
-7.  Once you've selected all the repositories you want to be in the group, click on the `Save` button in the bottom right to create the group. You will be redirected to a page that displays all of your repository groups:
+7. Once you've selected all the repositories you want to be in the group, click on the `Save` button in the bottom right to create the group. You will be redirected back to the Organizations page. At the bottom of that page, you will find your repository groups:&#x20;
 
-    ![](../../../.gitbook/assets/repo-group-7.png)
-8.  Now, when you go to run any recipe, you can click on the group name in the top right corner of the screen to select which repository group you want to run the recipe on:
+<figure><img src="../../.gitbook/assets/repo-groups.png" alt=""><figcaption></figcaption></figure>
 
-    ![](../../../.gitbook/assets/repo-group-8.png)
+8. Now, when you go to run any recipe, you can navigate to the Organizations page and click on the group name to select which repository group you want to run the recipe on. Once selected, you should see the name of the group appear in the box back on the home page:
+
+<figure><img src="../../.gitbook/assets/test-repo-group.png" alt=""><figcaption></figcaption></figure>
 
 ## How to modify or delete existing repository groups
 
-1.  From any page, click on the text to the left of your avatar:
+1. From any page, click on the organization box under the search box:
 
-    ![](../../../.gitbook/assets/repo-group-1.png)
-2.  This will make the organization and repository group menu appear:
+<figure><img src="../../.gitbook/assets/org-selector (1).png" alt=""><figcaption></figcaption></figure>
 
-    ![](../../../.gitbook/assets/repo-group-8.png)
-3.  Click on the `Manage` link below the organizations. You will be redirected to the repository group page:
+2. This will take you to the list of organizations or repository groups to select:
 
-    ![](../../../.gitbook/assets/repo-group-7.png)
-4. To modify a repository group, press the wrench icon under actions.
-5. To remove a repository group, press the `...` icon and select `Delete repository group`.
+<figure><img src="../../.gitbook/assets/org-view (1).png" alt=""><figcaption></figcaption></figure>
+
+3. To modify a repository group, scroll to the bottom of that page and click on the wrench icon next to the repository group you want to modify. You will be redirected to a page that allows you to select repositories:
+
+<figure><img src="../../.gitbook/assets/repo-selectors.png" alt=""><figcaption></figcaption></figure>
+
+4. To remove a repository group, scroll to the bottom of the page and click on the `...` icon. Then select `Delete repository group` and it will be removed.
 
 ## How to export repository groups JSON
 
-1.  From any page, click on the text to the left of your avatar:
-
-    ![](../../../.gitbook/assets/repo-group-1.png)
-2.  This will make the organization and repository group menu appear:
-
-    ![](../../../.gitbook/assets/repo-group-2.png)
-3.  Click on the `Manage` link below the organizations. You will be redirected to the repository group page:
-
-    ![](../../../.gitbook/assets/repo-group-7.png)
-4. You can then export them individually or you can export all of the repository groups defined.
-
-* To export an individual group, click the triple dots on the group you wish to export and then click on `Export repository group` from the menu. A `.json` file will be downloaded containing this single group.
-*   To export all of the repository groups, click the `Export ALL` link. A `.json` file of all your groups will be downloaded.
-
-    ![](../../../.gitbook/assets/export-all.png)
+Follow the same instructions as above, but instead of selecting "delete", select "export".
 
 ## Additional information
 
