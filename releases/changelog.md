@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.9.1 (2023/11/13)
+
+- Bug fixes and other improvements.
+
 ### UI v10.9.0 (2023/11/10)
 
 - use radio control for organization selection
