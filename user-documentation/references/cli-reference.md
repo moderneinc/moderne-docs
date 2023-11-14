@@ -1,4 +1,4 @@
-# Moderne CLI docs
+# Moderne CLI reference
 
 * [**mod**](#mod)
 * [**mod build**](#mod-build)

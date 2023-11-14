@@ -21,7 +21,7 @@
 * [References](user-documentation/references/README.md)
   * [Moderne tokens](user-documentation/references/moderne-tokens.md)
   * [Creating SCM access tokens](user-documentation/references/create-scm-access-tokens.md)
-  * [Moderne CLI man pages](user-documentation/references/cli-reference.md)
+  * [Moderne CLI reference](user-documentation/references/cli-reference.md)
 * [Workshops](user-documentation/workshops/README.md)
   * [Spring Boot migration workshop](user-documentation/workshops/spring-boot-migration-workshop/README.md)
     * [Maven plugin exercise](user-documentation/workshops/spring-boot-migration-workshop/maven-plugin-exercise.md)
