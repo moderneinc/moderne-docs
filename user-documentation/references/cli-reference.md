@@ -1,7 +1,5 @@
 # Moderne CLI reference
 
-# Table of Contents
-
 * [**mod**](#mod)
 * [**mod build**](#mod-build)
 * [**mod clean**](#mod-clean)
@@ -104,8 +102,8 @@ mod [parameters] [subcommands]
 * `clean`: Clean build and run artifacts produced by the CLI.
 * `config`: Global configuration options that are required by some CLI commands.
 * `list`: Lists the repositories that can be built and published.
-* `publish`: Publishes the LST artifacts for a specific project.
-* `run`: Runs an OpenRewrite recipe locally.
+* `publish`: Publishes the LST artifacts for one or more projects.
+* `run`: Runs an OpenRewrite recipe locally on pre-built LSTS.
 * `run-history`: Get information about the most recent recipe runs.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
 * `add`: Performs the equivalent of **git add** on multiple repositories.
@@ -121,8 +119,6 @@ mod [parameters] [subcommands]
 * `stashset`: Performs the equivalent of **git stash** on multiple repositories.
 * `stashset`: Performs the equivalent of **git stash** on multiple repositories.
 * `generate-completion`
-
----
 
 ## mod build
 
@@ -171,8 +167,6 @@ mod build [parameters] [subcommands]
 | --skip-ssl, --skipSSL |  If this parameter is included, SSL verification will be skipped.<br><br>**Default**: false | |
 
 
----
-
 ## mod clean
 
 Clean build and run artifacts produced by the CLI.
@@ -191,8 +185,6 @@ mod clean [parameters] [subcommands]
 
 * `builds`: Clean build artifacts produced by the CLI.
 * `runs`: Clean run artifacts produced by the CLI.
-
----
 
 ## mod clean builds
 
@@ -223,8 +215,6 @@ mod clean builds [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod clean runs
 
 Clean run artifacts produced by the CLI.
@@ -254,8 +244,6 @@ mod clean runs [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod config
 
 Global configuration options that are required by some CLI commands.
@@ -280,8 +268,6 @@ mod config [parameters] [subcommands]
 * `maven`: Configures Maven as it is used to resolve recipe dependencies and when running recipes.
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `moderne`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
-
----
 
 ## mod config artifacts
 
@@ -310,8 +296,6 @@ mod config artifacts [parameters] [subcommands]
 * `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
 * `delete`: Removes the artifact repository configuration. The publish command will no longer function until another artifact repository is configured.
 * `show`: Displays the artifact repository configuration.
-
----
 
 ## mod config artifacts edit
 
@@ -342,8 +326,6 @@ mod config artifacts edit [parameters] [subcommands]
 | --user |  The user to authenticate with. | |
 
 
----
-
 ## mod config artifacts delete
 
 Removes the artifact repository configuration. The publish command will no longer function until another artifact repository is configured.
@@ -359,8 +341,6 @@ mod config artifacts delete [parameters] [subcommands]
 
 
 
----
-
 ## mod config artifacts show
 
 Displays the artifact repository configuration.
@@ -375,8 +355,6 @@ mod config artifacts show [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config environment
 
@@ -396,8 +374,6 @@ mod config environment [parameters] [subcommands]
 
 * `list`: The build environment that the CLI is running in.
 
----
-
 ## mod config environment list
 
 The build environment that the CLI is running in.
@@ -412,8 +388,6 @@ mod config environment list [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config gradle
 
@@ -432,8 +406,6 @@ mod config gradle [parameters] [subcommands]
 ### Subcommands
 
 * `plugin`: Configure the Gradle plugin used to build LSTs.
-
----
 
 ## mod config gradle plugin
 
@@ -455,8 +427,6 @@ mod config gradle plugin [parameters] [subcommands]
 * `edit`: Configure Gradle plugin settings.
 * `show`: Displays the configured Gradle plugin settings.
 
----
-
 ## mod config gradle plugin delete
 
 Removes the configured Gradle plugin settings.
@@ -469,8 +439,6 @@ mod config gradle plugin delete [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config gradle plugin edit
 
@@ -493,8 +461,6 @@ mod config gradle plugin edit [parameters] [subcommands]
 | --version |  The version of the Moderne Gradle plugin that should be used to build the artifacts.<br><br>Defaults to **latest.release**. | |
 
 
----
-
 ## mod config gradle plugin show
 
 Displays the configured Gradle plugin settings.
@@ -507,8 +473,6 @@ mod config gradle plugin show [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config http
 
@@ -528,8 +492,6 @@ mod config http [parameters] [subcommands]
 
 * `proxy`: Configures HTTP proxy settings that will be used for every HTTP request.
 * `trust-store`: Configures truststore options that will be used throughout the CLI.
-
----
 
 ## mod config http proxy
 
@@ -551,8 +513,6 @@ mod config http proxy [parameters] [subcommands]
 * `edit`: Configures HTTP proxy settings that will be used for every HTTP request.
 * `show`: Displays the proxy settings from global configuration.
 
----
-
 ## mod config http proxy delete
 
 Removes HTTP proxy settings from global configuration.
@@ -567,8 +527,6 @@ mod config http proxy delete [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config http proxy edit
 
@@ -591,8 +549,6 @@ mod config http proxy edit [parameters] [subcommands]
 | --proxy-port |  | |
 
 
----
-
 ## mod config http proxy show
 
 Displays the proxy settings from global configuration.
@@ -607,8 +563,6 @@ mod config http proxy show [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config http trust-store
 
@@ -630,8 +584,6 @@ mod config http trust-store [parameters] [subcommands]
 * `edit`: Configures truststore options that will be used throughout the CLI.
 * `show`: Displays the truststore setting from global configuration.
 
----
-
 ## mod config http trust-store delete
 
 Removes truststore settings from global configuration.
@@ -646,8 +598,6 @@ mod config http trust-store delete [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config http trust-store edit
 
@@ -666,8 +616,6 @@ mod config http trust-store edit [parameters] [subcommands]
 
 * `file`: Configures truststore to point to a file.
 * `java-home`: Configures truststore to use the cacerts file in **/Users/mikesol/.sdkman/candidates/java/current/lib/security/cacerts**.
-
----
 
 ## mod config http trust-store edit file
 
@@ -690,8 +638,6 @@ mod config http trust-store edit file [parameters] [subcommands]
 
 
 
----
-
 ## mod config http trust-store edit java-home
 
 Configures truststore to use the cacerts file in **/Users/mikesol/.sdkman/candidates/java/current/lib/security/cacerts**.
@@ -704,8 +650,6 @@ mod config http trust-store edit java-home [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config http trust-store show
 
@@ -721,8 +665,6 @@ mod config http trust-store show [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config java
 
@@ -743,8 +685,6 @@ mod config java [parameters] [subcommands]
 * `edit`: Configures locations of JDKs that can be used by build tools.
 * `delete`: Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
 * `list`: Displays the detected and configured JDK installations.
-
----
 
 ## mod config java edit
 
@@ -767,8 +707,6 @@ mod config java edit [parameters] [subcommands]
 
 
 
----
-
 ## mod config java delete
 
 Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
@@ -782,8 +720,6 @@ mod config java delete [parameters] [subcommands]
 
 
 
----
-
 ## mod config java list
 
 Displays the detected and configured JDK installations.
@@ -796,8 +732,6 @@ mod config java list [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config maven
 
@@ -817,8 +751,6 @@ mod config maven [parameters] [subcommands]
 
 * `plugin`: Configure the Maven plugin used to build LSTs.
 * `settings`: Configure Maven settings.
-
----
 
 ## mod config maven plugin
 
@@ -840,8 +772,6 @@ mod config maven plugin [parameters] [subcommands]
 * `edit`: Configure Maven plugin settings.
 * `show`: Displays the configured Maven plugin version.
 
----
-
 ## mod config maven plugin delete
 
 Removes the configured Maven plugin settings.
@@ -854,8 +784,6 @@ mod config maven plugin delete [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config maven plugin edit
 
@@ -877,8 +805,6 @@ mod config maven plugin edit [parameters] [subcommands]
 | --version |  The version of the Moderne Maven plugin that should be used to build the artifacts.<br><br>Defaults to **RELEASE**. | |
 
 
----
-
 ## mod config maven plugin show
 
 Displays the configured Maven plugin version.
@@ -891,8 +817,6 @@ mod config maven plugin show [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config maven settings
 
@@ -915,8 +839,6 @@ mod config maven settings [parameters] [subcommands]
 * `edit`: Configure Maven settings.
 * `show`: Displays the configured Maven settings.
 
----
-
 ## mod config maven settings delete
 
 Removes the configured Maven settings.
@@ -931,8 +853,6 @@ mod config maven settings delete [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config maven settings edit
 
@@ -955,8 +875,6 @@ mod config maven settings edit [parameters] [subcommands]
 
 
 
----
-
 ## mod config maven settings show
 
 Displays the configured Maven settings.
@@ -971,8 +889,6 @@ mod config maven settings show [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config recipes
 
@@ -998,8 +914,6 @@ mod config recipes [parameters] [subcommands]
 * `search`: Finds recipes based on free form text search.
 * `yaml`: Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
 
----
-
 ## mod config recipes export
 
 Export the recipe catalog for study by different tools.
@@ -1018,8 +932,6 @@ mod config recipes export [parameters] [subcommands]
 
 * `json`: Export recipe details as JSON.
 * `csv`: Export recipe details as CSV.
-
----
 
 ## mod config recipes export json
 
@@ -1042,8 +954,6 @@ mod config recipes export json [parameters] [subcommands]
 
 
 
----
-
 ## mod config recipes export csv
 
 Export recipe details as CSV.
@@ -1065,8 +975,6 @@ mod config recipes export csv [parameters] [subcommands]
 
 
 
----
-
 ## mod config recipes jar
 
 Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -1085,8 +993,6 @@ mod config recipes jar [parameters] [subcommands]
 
 * `install`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
 * `delete`: Removes an artifact supplying recipes to the marketplace.
-
----
 
 ## mod config recipes jar install
 
@@ -1116,8 +1022,6 @@ The dependency will be resolved from the artifact source defined in **mod config
 | --repository-url, --repository |  The repository URL that the artifact will be resolved from. | |
 
 
----
-
 ## mod config recipes jar delete
 
 Removes an artifact supplying recipes to the marketplace.
@@ -1139,8 +1043,6 @@ mod config recipes jar delete [parameters] [subcommands]
 
 
 
----
-
 ## mod config recipes moderne
 
 Configures which Moderne recipes should be installed and used in the local CLI marketplace.
@@ -1159,8 +1061,6 @@ mod config recipes moderne [parameters] [subcommands]
 
 * `install`: Allows you to find and install recipes from Moderne.
 * `sync`: Synchronizes the local CLI recipe marketplace with Moderne.
-
----
 
 ## mod config recipes moderne install
 
@@ -1188,8 +1088,6 @@ mod config recipes moderne install [parameters] [subcommands]
 | --skip-ssl |  If this parameter is included, SSL verification will be skipped.<br><br>**Default**: false | |
 
 
----
-
 ## mod config recipes moderne sync
 
 Synchronizes the local CLI recipe marketplace with Moderne.
@@ -1210,8 +1108,6 @@ mod config recipes moderne sync [parameters] [subcommands]
 | --skip-ssl |  If this parameter is included, SSL verification will be skipped.<br><br>**Default**: false | |
 
 
----
-
 ## mod config recipes delete
 
 Clear the whole recipe marketplace.
@@ -1227,14 +1123,12 @@ mod config recipes delete [parameters] [subcommands]
 
 
 
----
-
 ## mod config recipes list
 
 List the artifacts that are contributing recipes to the marketplace.
 
 
-List the artifacts that are contributing recipes to the marketplace.
+
 
 ### Usage
 
@@ -1243,8 +1137,6 @@ mod config recipes list [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config recipes search
 
@@ -1272,8 +1164,6 @@ mod config recipes search [parameters] [subcommands]
 | --limit |  The maximum total number of results that will be returned. | |
 
 
----
-
 ## mod config recipes yaml
 
 Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -1292,8 +1182,6 @@ mod config recipes yaml [parameters] [subcommands]
 
 * `install`: Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
 * `delete`: Removes an artifact supplying recipes to the marketplace.
-
----
 
 ## mod config recipes yaml install
 
@@ -1316,8 +1204,6 @@ mod config recipes yaml install [parameters] [subcommands]
 
 
 
----
-
 ## mod config recipes yaml delete
 
 Removes an artifact supplying recipes to the marketplace.
@@ -1338,8 +1224,6 @@ mod config recipes yaml delete [parameters] [subcommands]
 | path |  The path to the YAML file to uninstall. | |
 
 
-
----
 
 ## mod config moderne
 
@@ -1362,8 +1246,6 @@ mod config moderne [parameters] [subcommands]
 * `edit`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `show`: Displays the artifact repository configuration.
 
----
-
 ## mod config moderne delete
 
 Removes the configured Moderne tenant.
@@ -1378,8 +1260,6 @@ mod config moderne delete [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod config moderne edit
 
@@ -1409,14 +1289,12 @@ mod config moderne edit [parameters] [subcommands]
 | --token |  The Moderne personal access token to use. | |
 
 
----
-
 ## mod config moderne show
 
 Displays the artifact repository configuration.
 
 
-Displays the artifact repository configuration.
+
 
 ### Usage
 
@@ -1425,8 +1303,6 @@ mod config moderne show [parameters] [subcommands]
 ```
 
 
-
----
 
 ## mod list
 
@@ -1456,14 +1332,12 @@ mod list [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod publish
 
-Publishes the LST artifacts for a specific project.
+Publishes the LST artifacts for one or more projects.
 
 
-Publishes the LST artifacts for one or more projects. Once published to your artifact repository, Moderne will be able to ingest them and they will, in turn, be usable inside of Moderne.
+Once published to your artifact repository, Moderne will be able to ingest them and they will, in turn, be usable inside of Moderne.
 
 This command is typically used for publishing LST artifacts from CI systems.
 
@@ -1490,14 +1364,12 @@ mod publish [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod run
 
-Runs an OpenRewrite recipe locally.
+Runs an OpenRewrite recipe locally on pre-built LSTS.
 
 
-Runs an OpenRewrite recipe locally on pre-built LSTs. You must run the **mod build** command before this command will work. You also must set up a connection to moderne (**mod config moderne**) and install recipes (**mod config recipes**) for this command to work.
+You must run the **mod build** command before this command will work. You also must set up a connection to moderne (**mod config moderne**) and install recipes (**mod config recipes**) for this command to work.
 
 ### Usage
 
@@ -1527,8 +1399,6 @@ mod run [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod run-history
 
 Get information about the most recent recipe runs.
@@ -1557,8 +1427,6 @@ mod run-history [parameters] [subcommands]
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
-
----
 
 ## mod study
 
@@ -1596,8 +1464,6 @@ mod study [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod add
 
 Performs the equivalent of **git add** on multiple repositories.
@@ -1626,8 +1492,6 @@ mod add [parameters] [subcommands]
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
-
----
 
 ## mod apply
 
@@ -1659,8 +1523,6 @@ mod apply [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod checkout
 
 Performs the equivalent of **git checkout** on multiple repositories.
@@ -1691,8 +1553,6 @@ mod checkout [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod clone
 
 Performs the equivalent of **git clone** on multiple repositories.
@@ -1720,8 +1580,6 @@ mod clone [parameters] [subcommands]
 | --moderne-organization |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. | |
 | --skip-ssl, --skipSSL |  If this parameter is included, SSL verification will be skipped.<br><br>**Default**: false | |
 
-
----
 
 ## mod commit
 
@@ -1754,8 +1612,6 @@ mod commit [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod exec
 
 Execute an arbitrary shell command recursively on selected repository roots.
@@ -1786,8 +1642,6 @@ mod exec [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod pull
 
 Performs the equivalent of **git pull** on multiple repositories.
@@ -1816,8 +1670,6 @@ mod pull [parameters] [subcommands]
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
-
----
 
 ## mod push
 
@@ -1852,8 +1704,6 @@ mod push [parameters] [subcommands]
 | --u, --set-upstream |  For every branch that is up to date or successfully pushed, add upstream (tracking) reference. | |
 
 
----
-
 ## mod reset
 
 Performs the equivalent of **git reset** on multiple repositories.
@@ -1882,8 +1732,6 @@ mod reset [parameters] [subcommands]
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
-
----
 
 ## mod rev-parse
 
@@ -1914,8 +1762,6 @@ mod rev-parse [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod stashset
 
 Performs the equivalent of **git stash** on multiple repositories.
@@ -1936,8 +1782,6 @@ mod stashset [parameters] [subcommands]
 
 * `apply`: Performs the equivalent of **git stash apply** on multiple repositories.
 * `push`: Performs the equivalent of **git stash push** on multiple repositories.
-
----
 
 ## mod stashset apply
 
@@ -1969,8 +1813,6 @@ mod stashset apply [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod stashset push
 
 Performs the equivalent of **git stash push** on multiple repositories.
@@ -2000,8 +1842,6 @@ mod stashset push [parameters] [subcommands]
 | -u, --include-untracked |  Include untracked files. | |
 
 
----
-
 ## mod stashset
 
 Performs the equivalent of **git stash** on multiple repositories.
@@ -2022,8 +1862,6 @@ mod stashset [parameters] [subcommands]
 
 * `apply`: Performs the equivalent of **git stash apply** on multiple repositories.
 * `push`: Performs the equivalent of **git stash push** on multiple repositories.
-
----
 
 ## mod stashset apply
 
@@ -2055,8 +1893,6 @@ mod stashset apply [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 
 
----
-
 ## mod stashset push
 
 Performs the equivalent of **git stash push** on multiple repositories.
@@ -2085,8 +1921,6 @@ mod stashset push [parameters] [subcommands]
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 | -u, --include-untracked |  Include untracked files. | |
 
-
----
 
 ## mod generate-completion
 
@@ -2105,6 +1939,4 @@ mod generate-completion [parameters] [subcommands]
 | ---- | ----------- | ------- |
 | -V, --version |  Print version information and exit. | |
 
-
----
 
