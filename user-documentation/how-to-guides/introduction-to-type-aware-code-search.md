@@ -34,7 +34,7 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
 
 *   From the [Java Search](https://app.moderne.io/marketplace/org.openrewrite.java.search) page, scroll down and click on `Find method usages`:
 
-    ![](../../../.gitbook/assets/find-method-usage-empty.png)
+    ![](/.gitbook/assets/find-method-usage-empty.png)
 * (Optionally) [Filter down to a specific group of repositories](managing-repository-groups.md#how-to-create-a-repository-group).
 * Click on the wand icon next to the method pattern textbox to open the method pattern wizard.
 * Enter the fully qualified class name of `java.nio.file.Files` in the fully qualified receiver type field.
@@ -71,11 +71,11 @@ To discover all of the type-aware search recipes, please follow these steps:
 
 *   From the [Moderne Marketplace](https://app.moderne.io/marketplace), click on a category that relates to your needs such as `Java`:
 
-    ![](../../../.gitbook/assets/moderne-catalog.png)
+    ![](/.gitbook/assets/moderne-catalog.png)
 *   Click on `Search`:
 
-    ![](../../../.gitbook/assets/search-recipe-group.png)
+    ![](/.gitbook/assets/search-recipe-group.png)
 *   You will then arrive on a page that includes recipes for all of the different ways you can search for code:
 
-    ![](../../../.gitbook/assets/search-recipe-examples.png)
+    ![](/.gitbook/assets/search-recipe-examples.png)
 * Click on whichever one you are interested in exploring.
