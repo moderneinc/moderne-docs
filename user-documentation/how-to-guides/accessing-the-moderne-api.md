@@ -14,13 +14,13 @@ Personal access tokens **do not** have the same permissions as your user account
 
 To assist with the development of tools that access the Moderne APIs, Moderne offers an API explorer where you can manually create and run queries.
 
-To access this explorer, either click on the GraphQL link in the top middle of the UI or go directly to [https://app.moderne.io/graphql](https://app.moderne.io/graphql).
+To access this explorer, either click on the API Explorer link GraphQL link in the top bottom left corner of the UI or go directly to [https://app.moderne.io/graphql](https://app.moderne.io/graphql).
 
 {% hint style="warning" %}
 Please note that when you make actual API requests, you'll want to make them against `https://api.app.moderne.io/` instead of `https://app.moderne.io/graphql`.
 {% endhint %}
 
-![](../../../.gitbook/assets/graphql-link.png)
+![](/.gitbook/assets/graphql-link.png)
 
 {% hint style="info" %}
 A temporary access token is created when you log in to the platform. This lasts for 1 hour and is auto-populated into the `Authorization` header (located in the `Request Headers` tab in the bottom left) when you navigate to the GraphQL explorer.
