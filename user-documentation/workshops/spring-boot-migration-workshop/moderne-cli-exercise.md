@@ -14,7 +14,7 @@ In this exercise, you will use the [Moderne CLI](../../getting-started/cli-intro
 [moderne-cli-v1.6.13](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.6.13/moderne-cli-macos-v1.6.13)
 
 {% hint style="success" %}
-You can also use homebrew:&#x20;
+You can also use homebrew:
 
 <pre class="language-bash"><code class="lang-bash"><strong>brew install moderneinc/moderne/mod
 </strong></code></pre>
@@ -106,7 +106,7 @@ and skip step 3.
 Run `mod generate-completion --help` and follow the instructions to enable tab completion for the CLI.
 {% endhint %}
 
-5. Before you can run any commands, you'll need to create a Moderne access token. Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token), enter a name for your token, and press `generate`.&#x20;
+5. Before you can run any commands, you'll need to create a Moderne access token. Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token), enter a name for your token, and press `generate`.
 6. Once created, copy the token and use it in the following command so that the CLI can communicate with Moderne:
 
 ```bash
@@ -1644,9 +1644,10 @@ You can apply the changes to all of these repositories at once with the followin
 mod apply $HOME/workshop --last-recipe-run
 ```
 
-You can preview the changes with git by going to each repository and running this command:
+You can preview the changes with git by going to each repository and running `git diff`:
 
 ```bash
+cd $HOME/workshop/spring-projects/spring-data-release
 git diff
 ```
 
