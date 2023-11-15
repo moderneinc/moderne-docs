@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.10.0 (2023/11/15)
+
+- add percentage of completion to actively running recipes
+
 ### UI v10.9.2 (2023/11/15)
 
 - Bug fixes and other improvements.
