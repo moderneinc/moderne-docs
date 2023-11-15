@@ -1,5 +1,7 @@
 # Moderne CLI reference
 
+## Table of contents
+
 * [**mod**](#mod)
 * [**mod build**](#mod-build)
 * [**mod clean**](#mod-clean)
