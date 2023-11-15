@@ -11,7 +11,7 @@ In this exercise, you will use the [Moderne CLI](../../getting-started/cli-intro
 
 {% tabs %}
 {% tab title="Mac" %}
-[moderne-cli-v1.6.10](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.6.10/moderne-cli-macos-v1.6.10)
+[moderne-cli-v1.6.13](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.6.13/moderne-cli-macos-v1.6.13)
 
 {% hint style="success" %}
 You can also use homebrew:&#x20;
@@ -24,11 +24,11 @@ and skip step 3.
 {% endtab %}
 
 {% tab title="Linux" %}
-[moderne-cli-v1.6.10](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.6.10/moderne-cli-linux-v1.6.10)
+[moderne-cli-v1.6.13](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.6.13/moderne-cli-linux-v1.6.13)
 {% endtab %}
 
 {% tab title="Windows" %}
-[moderne-cli-v1.6.10](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.6.10/moderne-cli-windows-v1.6.10)
+[moderne-cli-v1.6.13](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.6.13/moderne-cli-windows-v1.6.13)
 {% endtab %}
 {% endtabs %}
 
@@ -46,7 +46,7 @@ and skip step 3.
   ▛▀▀█▀▛▀▀▀▀▜
   ▌▟▀  ▛▀▀▀▀▜
   ▀▀▀▀▀▀▀▀▀▀▀
-  Moderne CLI v1.6.10
+  Moderne CLI v1.6.13
   Running in a local developer environment
 
   Usage:
@@ -187,7 +187,7 @@ mod build .
     ▛▀▀█▀▛▀▀▀▀▜
     ▌▟▀  ▛▀▀▀▀▜
     ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI v1.6.10
+Moderne CLI v1.6.13
 
 > Selecting repositories
 
@@ -230,7 +230,7 @@ mod run . --recipe UpgradeSpringBoot_3_1
     ▛▀▀█▀▛▀▀▀▀▜
     ▌▟▀  ▛▀▀▀▀▜
     ▀▀▀▀▀▀▀▀▀▀▀
- Moderne CLI v1.6.10
+ Moderne CLI v1.6.13
 
  > Selecting repositories
 
@@ -1601,7 +1601,7 @@ mod build $HOME/workshop
        ▛▀▀█▀▛▀▀▀▀▜
        ▌▟▀  ▛▀▀▀▀▜
        ▀▀▀▀▀▀▀▀▀▀▀
-  Moderne CLI v1.6.10
+  Moderne CLI v1.6.13
   Running in a local developer environment
 
   > Selecting repositories
