@@ -10,31 +10,37 @@
 
 This guide will help you migrate your own project to Spring Boot 3.1. You've already seen how to run OpenRewrite recipes. If you need a recap and want to see detailed instructions, jump back to the [Moderne CLI exercise](moderne-cli-exercise.md).
 
-To get started, you will want to [run the Migrate to Spring Boot 3.1 recipe](https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot\_3\_1), which runs you through all the steps of migrating to Spring Boot 3.1, no matter what version you're coming from.
+To get started, you will want to run the [migrate to Spring Boot 3.1 recipe](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1), which runs you through all the steps of migrating to Spring Boot 3.1, no matter what version you're coming from.
 
 ### Migrate in steps
 
 If you'd rather migrate in steps, you can also run recipes individually. This can be helpful if you'd like to review and build confidence in the changes, or need to troubleshoot a particular aspect.
 
-As you can see in [the Migrate to Spring Boot 3.1 recipe](https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot\_3\_1), that first takes you [to Spring Boot 3.0](https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot\_3\_0), which first takes you [to Spring Boot 2.7](https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot\_2\_7), which first takes you [to Spring Boot 2.6](https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot\_2\_6), ... You can run any of these intermediate recipes, to pick up the changes up to that point.
+Let's use the [migrate to Spring Boot 3.1 recipe](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1) as an example:
 
-You can also pick out specific migrations, for as much as you aren't up-to-date already, such as:
+![](/.gitbook/assets/spring-boot-3-1.png)
 
-* [Migrate Spring Boot 2.x projects to JUnit 5 from JUnit 4](https://docs.openrewrite.org/recipes/java/spring/boot2/springboot2junit4to5migration)
-* [Migrate to Java 17](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava17), which of course includes [Migrate to Java 11](https://docs.openrewrite.org/recipes/java/migrate/java8tojava11)
-* [Migrate to Spring Security 5.8](https://docs.openrewrite.org/recipes/java/spring/security5/upgradespringsecurity\_5\_8)
-* [Spring Boot 2.x best practices](https://docs.openrewrite.org/recipes/java/spring/boot2/springboot2bestpractices)
+This recipe is composed of 7 recipes. You can uncheck the recipes you don't want to run to reduce the scope of the changes. Or, if you want to learn more and reduce the scope further, you can click on one of the recipes.
+
+For instance, if you click on the [migrate to Spring Boot 3.0 recipe](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0), you can see that it's composed of many recipes such as [migrate to Spring Boot 2.7](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7) and [migrate to Java 17](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava17).
+
+You can continue down this chain as much as you want. You can also pick out specific migrations that target specific components you're not up-to-date with, such as:
+
+* [Migrate Spring Boot 2.x projects to JUnit 5 from JUnit 4](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.SpringBoot2JUnit4to5Migration)
+* [Migrate to Java 17](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava17), which of course includes [Migrate to Java 11](https://app.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11)
+* [Migrate to Spring Security 5.8](https://app.moderne.io/recipes/org.openrewrite.java.spring.security5.UpgradeSpringSecurity_5_8)
+* [Spring Boot 2.x best practices](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.SpringBoot2BestPractices)
 
 ### Best practices after you migrate
 
 After you've migrated to Spring Boot 3.1, you might want to consider some of the following best practices:
 
-* [Common static analysis issues](https://docs.openrewrite.org/recipes/staticanalysis/commonstaticanalysis)
-* [JUnit Jupiter best practices](https://docs.openrewrite.org/recipes/java/testing/junit5/junit5bestpractices)
-* [AssertJ best practices](https://docs.openrewrite.org/recipes/java/testing/assertj/assertj)
-* [SLF4J best practices](https://docs.openrewrite.org/recipes/java/logging/slf4j/slf4jbestpractices)
-* [Java security best practices](https://docs.openrewrite.org/recipes/java/security/javasecuritybestpractices)
-* [Find and fix vulnerable dependencies](https://docs.openrewrite.org/recipes/java/dependencies/dependencyvulnerabilitycheck)
+* [Common static analysis issues](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis)
+* [JUnit Jupiter best practices](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit5BestPractices)
+* [AssertJ best practices](https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.Assertj)
+* [SLF4J best practices](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.Slf4jBestPractices)
+* [Java security best practices](https://app.moderne.io/recipes/org.openrewrite.java.security.JavaSecurityBestPractices)
+* [Find and fix vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
 
 You might even want to run some of these recipes periodically, to keep your projects up-to-date continuously.
 

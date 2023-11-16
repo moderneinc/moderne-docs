@@ -1661,7 +1661,7 @@ If you'd rather make a branch for each repository and make changes in that, you 
 
 ### (Optional) Fix static code analysis issues
 
-If you have time, we recommend trying out one of the showcase recipes in OpenRewrite: [common static analysis](https://docs.openrewrite.org/recipes/staticanalysis/commonstaticanalysis). This recipe is composed of 50+ recipes that find and fix common mistakes people make.
+If you have time, we recommend trying out one of the showcase recipes in OpenRewrite: [common static analysis](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis). This recipe is composed of 50+ recipes that find and fix common mistakes people make.
 
 To demonstrate this recipe, we'll use a different Maven repository that has a variety of errors that need to be fixed.
 
