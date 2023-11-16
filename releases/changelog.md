@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.12.0 (2023/11/16)
+
+- Bug fixes and other improvements.
+
 ### UI v10.11.0 (2023/11/16)
 
 - visualization marketplace
