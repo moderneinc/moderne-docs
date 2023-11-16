@@ -23,8 +23,6 @@ To complete our exercises, you will need:
 
 Get started with any of the following exercises:
 
-* [Maven plugin exercise](maven-plugin-exercise.md)
-* [Gradle plugin exercise](gradle-plugin-exercise.md)
 * [Moderne CLI exercise](moderne-cli-exercise.md)
 * [Moderne platform exercise](moderne-platform-exercise.md)
 * [Migrate your own project](migrate-your-own-project.md)

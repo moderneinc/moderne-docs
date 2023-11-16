@@ -1658,3 +1658,56 @@ mod commit $HOME/workshop -m "Migrate to spring boot 3" --last-recipe-run
 ```
 
 If you'd rather make a branch for each repository and make changes in that, you can use the `mod checkout` command before running `mod commit` to commit the changes. This might be useful if you want to create a pull request for each repository.
+
+### (Optional) Fix static code analysis issues
+
+If you have time, we recommend trying out one of the showcase recipes in OpenRewrite: [common static analysis](https://docs.openrewrite.org/recipes/staticanalysis/commonstaticanalysis). This recipe is composed of 50+ recipes that find and fix common mistakes people make.
+
+To demonstrate this recipe, we'll use a different Maven repository that has a variety of errors that need to be fixed.
+
+1. Switch to Java 17:
+
+```bash
+ sdk install java 17.0.9-tem
+ sdk use java 17.0.9-tem
+```
+
+2. Clone the [Spring WS](https://github.com/spring-projects/spring-ws) repository:
+
+```bash
+git clone https://github.com/spring-projects/spring-ws
+```
+
+3. Test that you can build it:
+
+```bash
+cd spring-ws
+mod build .
+./mvnw verify -DskipTests
+```
+
+4. Run the common static analysis recipe:
+
+```bash
+mod run . --recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
+```
+
+5. Apply the changes from the recipe
+
+```bash
+mod apply . --last-recipe-run
+```
+
+6. Check out all of the changes that were made by running:
+
+```bash
+git diff
+```
+
+7. Verify the project after the changes were made:
+
+```bash
+./mvnw verify
+```
+
+You can probably imagine that this recipe resolves a lot of technical debt when run at scale throughout an organization.

@@ -10,8 +10,6 @@
 
 This guide will help you migrate your own project to Spring Boot 3.1. You've already seen various ways of running OpenRewrite recipes by now; pick the one that best suits your project for this migration. For a recap and detailed instructions see each of the individual exercises:
 
-* [Maven plugin](maven-plugin-exercise.md)
-* [Gradle plugin](gradle-plugin-exercise.md)
 * [Moderne CLI](moderne-cli-exercise.md)
 
 You will want to [run the Migrate to Spring Boot 3.1 recipe](https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot\_3\_1), which runs you through all the steps of migrating to Spring Boot 3.1, no matter what version you're coming from.
