@@ -2,7 +2,7 @@
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| CLI version (Stable)                  | 0.2.52          |
+| CLI version (Stable)                  | 1.6.15          |
 | CLI version (Staging)                 | 1.6.15           |
 
 * mod-connect [docs](https://moderneinc.github.io/mod-connect/) / [source](https://github.com/moderneinc/mod-connect)
