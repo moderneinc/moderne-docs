@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.11.0 (2023/11/16)
+
+- visualization marketplace
+
 ### UI v10.10.0 (2023/11/15)
 
 - add percentage of completion to actively running recipes
