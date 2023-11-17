@@ -1,5 +1,5 @@
-# Agent version
+# Agent releases
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.165.0         |
+| Agent (recommended to use **latest**) | 0.166.0         |
