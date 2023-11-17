@@ -1,41 +1,47 @@
 # Platform changelog
+
 ### UI v10.12.0 (2023/11/16)
 
-- Bug fixes and other improvements.
+#### Recipe details fall clean-up
+
+We have improved the organization and layout of recipe details to make better use of space and prioritize the presentation of running recipes.
+
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+* Bug fixes and other improvements.
 
 ### UI v10.11.0 (2023/11/16)
 
-- visualization marketplace
+* visualization marketplace
 
 ### UI v10.10.0 (2023/11/15)
 
-- add percentage of completion to actively running recipes
+* add percentage of completion to actively running recipes
 
 ### UI v10.9.2 (2023/11/15)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.9.1 (2023/11/13)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.9.0 (2023/11/10)
 
-- use radio control for organization selection
+* use radio control for organization selection
 
 ### UI v10.8.0 (2023/11/10)
 
-- link to recipe from recipe run results summary
-- async repo details
-
+* link to recipe from recipe run results summary
+* async repo details
 
 ### UI v10.0.0 (2023/11/02)
 
 <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption><p>so fresh and so clean</p></figcaption></figure>
 
-**We have a new look!**&#x20;
+**We have a new look!**
 
-We started to encounter pain points with our  previous design:
+We started to encounter pain points with our previous design:
 
 * Navigation was split across the top bar and side bar
 * Long organization / repository group titles could be truncated
@@ -43,8 +49,6 @@ We started to encounter pain points with our  previous design:
 Unified Sidebar Navigation: All navigation elements are now consolidated into a single, intuitive side bar, simplifying the user experience and reducing the cognitive load.
 
 Elimination of Top Bar: Removing the top navigation bar frees up valuable screen real estate, allowing for more content to be displayed and making it easier for users to focus on their work.
-
-
 
 ### UI v9.177.0 (2023/10/30)
 
