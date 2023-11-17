@@ -18,8 +18,8 @@ To install the Moderne CLI please:
 
 {% tabs %}
 {% tab title="Mac" %}
-* [Moderne CLI 1.6.15 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos/v1.6.15/moderne-cli-macos-v1.6.15)
-* [Moderne CLI 1.6.15 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.6.15/moderne-cli-macos-v1.6.15)
+* [Moderne CLI 1.6.16 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos/v1.6.16/moderne-cli-macos-v1.6.16)
+* [Moderne CLI 1.6.16 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.6.16/moderne-cli-macos-v1.6.16)
 
 You can also install the latest stable version via [Brew](https://brew.sh/):
 
@@ -29,13 +29,13 @@ brew install moderneinc/moderne/mod
 {% endtab %}
 
 {% tab title="Linux" %}
-* [Moderne CLI 1.6.15 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux/v1.6.15/moderne-cli-linux-v1.6.15)
-* [Moderne CLI 1.6.15 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.6.15/moderne-cli-linux-v1.6.15)
+* [Moderne CLI 1.6.16 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux/v1.6.16/moderne-cli-linux-v1.6.16)
+* [Moderne CLI 1.6.16 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.6.16/moderne-cli-linux-v1.6.16)
 {% endtab %}
 
 {% tab title="Windows" %}
-* [Moderne CLI 1.6.15 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v1.6.15/moderne-cli-windows-v1.6.15)
-* [Moderne CLI 1.6.15 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.6.15/moderne-cli-windows-v1.6.15)
+* [Moderne CLI 1.6.16 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v1.6.16/moderne-cli-windows-v1.6.16)
+* [Moderne CLI 1.6.16 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.6.16/moderne-cli-windows-v1.6.16)
 {% endtab %}
 {% endtabs %}
 
