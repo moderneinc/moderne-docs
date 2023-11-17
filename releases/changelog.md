@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.13.0 (2023/11/17)
+
+- use datatable name for download file
+
 
 ### UI v10.12.0 (2023/11/16)
 
