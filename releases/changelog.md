@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.14.0 (2023/11/18)
+
+- add  for new line support
+
 ### UI v10.13.1 (2023/11/18)
 
 - Bug fixes and other improvements.
