@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.15.1 (2023/11/20)
+
+- Bug fixes and other improvements.
+
 ### UI v10.15.0 (2023/11/20)
 
 - add opt-in for AI search
