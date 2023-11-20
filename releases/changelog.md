@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.15.0 (2023/11/20)
+
+- add opt-in for AI search
+
 ### UI v10.14.0 (2023/11/18)
 
 - add  for new line support
