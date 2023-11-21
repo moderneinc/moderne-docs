@@ -12,7 +12,7 @@ Moderne now offers users the ability to search for recipes using AI. Let's walk 
 
 ## How to use AI search effectively
 
-To get the most value out of AI search, you'll want to approach searching for recipes differently than you normally would. Instead of trying to enter an exact recipe name, you might consider:
+To get the most value out of AI search, you'll want to approach searching for recipes differently than you normally would. Instead of trying to enter an exact recipe name (which you can still do), you might consider:
 
 * **Asking questions** such as, "How can I make my code more secure?"
 * **Entering keywords** such as, "JUnit" or "Jakarta".
