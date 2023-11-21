@@ -13,6 +13,7 @@
 * [How to guides](user-documentation/how-to-guides/README.md)
   * [Create custom recipes with the recipe builder](user-documentation/how-to-guides/recipe-builder.md)
   * [Introduction to type-aware code search](user-documentation/how-to-guides/introduction-to-type-aware-code-search.md)
+  * [How to enable and use AI search in Moderne](user-documentation/how-to-guides/ai-search.md)
   * [Recipe execution and commits with the Moderne API](user-documentation/how-to-guides/recipe-execution-and-commits-with-graphql.md)
   * [Accessing the Moderne API](user-documentation/how-to-guides/accessing-the-moderne-api.md)
   * [How to find personally identifiable information (PII) and secrets exposed by your APIs](user-documentation/how-to-guides/find-pii.md)
