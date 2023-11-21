@@ -4,15 +4,11 @@ Moderne now offers users the ability to search for recipes using AI. Let's walk 
 
 ## Enabling AI search in Moderne
 
-1. Log in to Moderne and click on your profile in the bottom-left corner of the screen:
+1. Log in to Moderne and click on your profile in the bottom-left corner of the screen. Then click on the AI assisted search button in the modal that pops up:
 
-![](/.gitbook/assets//profile-button.png)
+![](/.gitbook/assets/ai-search-enable.gif)
 
-2. Click on AI assisted search in the modal that pops up:
-
-![](/.gitbook/assets/ai-search-button.png)
-
-3. Now, when you go to type something in the search bar, you'll use AI search instead of the traditional search.
+2. Now, when you go to type something in the search bar, you'll use AI search instead of the traditional search.
 
 ## How to use AI search effectively
 
