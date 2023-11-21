@@ -12,6 +12,8 @@ Moderne now offers users the ability to search for recipes using AI. Let's walk 
 
 ![](/.gitbook/assets/ai-search-button.png)
 
+3. Now, when you go to type something in the search bar, you'll use AI search instead of the traditional search.
+
 ## How to use AI search effectively
 
 To get the most value out of AI search, you'll want to approach searching for recipes differently than you normally would. Instead of trying to enter an exact recipe name, you might consider:
