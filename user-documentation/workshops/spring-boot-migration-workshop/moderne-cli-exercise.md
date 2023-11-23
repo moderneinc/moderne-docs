@@ -116,7 +116,7 @@ mod config moderne edit https://app.moderne.io --token mat-YOUR_TOKEN_HERE
 7. With the Moderne connection established, install the Spring Boot recipe on your machine:
 
 ```bash
-mod config recipes moderne install UpgradeSpringBoot_3_1
+mod config recipes moderne install UpgradeSpringBoot_3_2
 ```
 
 {% hint style="success" %}
@@ -217,7 +217,7 @@ MOD SUCCEEDED in (30s)
 2. Kick off the migration recipe by running the following command from the `spring-petclinic` repository:
 
 ```bash
-mod run . --recipe UpgradeSpringBoot_3_1
+mod run . --recipe UpgradeSpringBoot_3_2
 ```
 
 <details>
@@ -237,7 +237,7 @@ mod run . --recipe UpgradeSpringBoot_3_1
  > spring-projects/spring-petclinic@main
  Selected 1 repositories (0.48s)
 
- > Running recipe org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
+ > Running recipe org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2
 
  > spring-projects/spring-petclinic@main
      ✅ Fix results at file:///Users/mikesol/Desktop/code/spring-petclinic/.moderne/run/20230925102039-NVf33/fix.patch
@@ -1654,7 +1654,7 @@ git diff
 Finally, you can commit the changes to all the repositories at once with the following command:
 
 ```bash
-mod commit $HOME/workshop -m "Migrate to spring boot 3" --last-recipe-run
+mod commit $HOME/workshop -m "Migrate to Spring Boot 3.2" --last-recipe-run
 ```
 
 If you'd rather make a branch for each repository and make changes in that, you can use the `mod checkout` command before running `mod commit` to commit the changes. This might be useful if you want to create a pull request for each repository.

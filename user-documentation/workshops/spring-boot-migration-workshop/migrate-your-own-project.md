@@ -2,21 +2,21 @@
 
 ### Support timelines
 
-[OSS support for Spring Boot](https://spring.io/projects/spring-boot#support) 2.7 will end on November 18th, 2023, while support for Spring Boot 3.0 will end on November 24th, 2023. So if you haven't already, now's the time to migrate your project to Spring Boot 3.1!
+[OSS support for Spring Boot](https://spring.io/projects/spring-boot#support) 2.7 ended on November 18th, 2023, while support for Spring Boot 3.0 ended on November 24th, 2023. So if you haven't already, now's the time to migrate your project to Spring Boot 3.2!
 
 <figure><img src="../../../.gitbook/assets/support-timelines.png" alt=""><figcaption></figcaption></figure>
 
-### Leap to Spring Boot 3.1
+### Leap to Spring Boot 3.2
 
-This guide will help you migrate your own project to Spring Boot 3.1. You've already seen how to run OpenRewrite recipes. If you need a recap and want to see detailed instructions, jump back to the [Moderne CLI exercise](moderne-cli-exercise.md).
+This guide will help you migrate your own project to Spring Boot 3.2. You've already seen how to run OpenRewrite recipes. If you need a recap and want to see detailed instructions, jump back to the [Moderne CLI exercise](moderne-cli-exercise.md).
 
-To get started, you will want to run the [migrate to Spring Boot 3.1 recipe](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1), which runs you through all the steps of migrating to Spring Boot 3.1, no matter what version you're coming from.
+To get started, you will want to run the [migrate to Spring Boot 3.2 recipe](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2), which runs you through all the steps of migrating to Spring Boot 3.2, no matter what version you're coming from.
 
 ### Migrate in steps
 
 If you'd rather migrate in steps, you can also run recipes individually. This can be helpful if you'd like to review and build confidence in the changes, or need to troubleshoot a particular aspect.
 
-Let's use the [migrate to Spring Boot 3.1 recipe](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1) as an example:
+Let's use the [migrate to Spring Boot 3.2 recipe](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2) as an example:
 
 ![](/.gitbook/assets/spring-boot-3-1.png)
 
@@ -33,7 +33,7 @@ You can continue down this chain as much as you want. You can also pick out spec
 
 ### Best practices after you migrate
 
-After you've migrated to Spring Boot 3.1, you might want to consider some of the following best practices:
+After you've migrated to Spring Boot 3.2, you might want to consider some of the following best practices:
 
 * [Common static analysis issues](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis)
 * [JUnit Jupiter best practices](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit5BestPractices)
@@ -50,6 +50,7 @@ Here's a number of links that might be helpful in case you encounter edge cases 
 
 * [https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide)
 * [https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.1-Release-Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.1-Release-Notes)
+* [https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes)
 * [https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes)
 * [https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.7-Release-Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.7-Release-Notes)
 * [https://docs.spring.io/spring-security/reference/migration/index.html](https://docs.spring.io/spring-security/reference/migration/index.html)
