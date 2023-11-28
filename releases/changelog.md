@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.17.0 (2023/11/28)
+
+- add key command hints
+
 ### UI v10.16.4 (2023/11/23)
 
 - Bug fixes and other improvements.
