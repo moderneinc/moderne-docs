@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.18.0 (2023/11/30)
+
+- add launchdarkly
+
 ### UI v10.17.0 (2023/11/28)
 
 - add key command hints
