@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.19.0 (2023/11/30)
+
+feat/add viz id
+- add tooltip to queue position column cells
+
 ### UI v10.18.0 (2023/11/30)
 
 - add launchdarkly
