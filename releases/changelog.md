@@ -1,5 +1,10 @@
 # Platform changelog
 
+### UI v10.19.0 (2023/11/30)
+
+* add visualization id for easy reference
+* add tooltip to queue position column cells to help understand the workers' queues
+
 ### UI v10.18.0 (2023/11/30)
 
 We have added category logo support for the new LaunchDarkly recipes ( `rewrite-launchdarkly`)
