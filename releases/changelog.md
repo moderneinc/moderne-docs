@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.20.0 (2023/12/01)
+
+- Bug fixes and other improvements.
+
 
 ### UI v10.19.0 (2023/11/30)
 
