@@ -1,61 +1,61 @@
 # Platform changelog
-### UI v10.19.0 (2023/11/30)
-
-feat/add viz id
-- add tooltip to queue position column cells
 
 ### UI v10.18.0 (2023/11/30)
 
-- add launchdarkly
+We have added category logo support for the new LaunchDarkly recipes ( `rewrite-launchdarkly`)
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.17.0 (2023/11/28)
 
-- add key command hints
+We added a hint to the search results popover with the intention of increasing users awareness of the ability to quickly navigate to recipes (up/down then enter) or to the full page search results (enter) with keyboard navigation alone.\
+
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.16.4 (2023/11/23)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.16.3 (2023/11/22)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.16.2 (2023/11/21)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.16.1 (2023/11/21)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.16.0 (2023/11/21)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.15.2 (2023/11/20)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.15.1 (2023/11/20)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.15.0 (2023/11/20)
 
-- add opt-in for AI search
+* add opt-in for AI search
 
 ### UI v10.14.0 (2023/11/18)
 
-- add  for new line support
+* add for new line support
 
 ### UI v10.13.1 (2023/11/18)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.13.0 (2023/11/17)
 
-- use datatable name for download file
-
+* use datatable name for download file
 
 ### UI v10.12.0 (2023/11/16)
 
@@ -130,7 +130,7 @@ feat/add-yielded-state
 We have plans to overhaul the iconography to create better visual consistency and clarity.
 
 This journey begins this version with a rework of the left navigation icons:\
-![](<../.gitbook/assets/image (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1).png>)
 
 ### UI v9.173.0 (2023/10/17)
 
@@ -339,7 +339,7 @@ We've done a little tidying up on the recipe run result page. _**Visualizations*
 
 #### Add dropdown options to share button
 
-![](<../.gitbook/assets/image (1) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png>)
 
 When sharing a recipe from the recipes details, you can now select whether or not to include your current organizations.
 
@@ -365,7 +365,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 <div align="left" data-full-width="false">
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt="" width="176"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="176"><figcaption></figcaption></figure>
 
 </div>
 
@@ -1313,3 +1313,5 @@ Deploying recipe artifacts now has an improved asynchronous experience. We've ad
 #### Moderne update notice
 
 <figure><img src="../.gitbook/assets/update-notice.png" alt=""><figcaption><p>If there is a Moderne update in the middle of your browser session, you should now see a prompt to refresh your page to ensure you have the latest version available.</p></figcaption></figure>
+
+### UI v10.18.0 (2023/11/30)

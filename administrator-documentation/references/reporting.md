@@ -16,15 +16,15 @@ Moderne offers three types of reports for administrators:
 
 Audit logs are accessible from https://\<TENANT>.moderne.io/admin/audit-logs, and can be viewed in the UI, accessed from the API, or downloaded in [CEF format](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors-8.3/cef-implementation-standard/#CEF/Chapter%201%20What%20is%20CEF.htm?TocPath=\_\_\_\_\_2).
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-To download audit logs, use the "Export to CEF" button: ![](<../../.gitbook/assets/image (1) (1) (1) (1).png>)
+To download audit logs, use the "Export to CEF" button: ![](<../../.gitbook/assets/image (1) (1) (1) (1) (1).png>)
 
 ## Other reports (recipe runs and commits)
 
 To access non-audit-log reports, navigate to https://\<TENANT>.moderne.io/admin/reports.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 These reports can be downloaded using the download button: ![](<../../.gitbook/assets/image (3).png>)
 
