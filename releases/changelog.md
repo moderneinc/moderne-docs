@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.21.0 (2023/12/02)
+
+- preserve the recipe options used when navigating back
+
 ### UI v10.20.0 (2023/12/01)
 
 - Bug fixes and other improvements.
