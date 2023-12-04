@@ -20,11 +20,10 @@ This guide assumes that you:
 
 ### Recipe execution
 
-1. To begin, you'll want to decide what repositories you want your recipe to run on. You have three options for selecting repositories: choosing an existing organization, [creating a new repository group](/user-documentation/how-to-guides/managing-repository-groups.md#how-to-create-a-repository-group), or selecting an existing repository group. Once you've selected or created one, you can proceed to step 2.
-
+1. To begin, you'll want to decide what repositories you want your recipe to run on. You have three options for selecting repositories: choosing an existing organization, [creating a new repository group](managing-repository-groups.md#how-to-create-a-repository-group), or selecting an existing repository group. Once you've selected or created one, you can proceed to step 2.
 2. Navigate to the recipe you wish to run and fill out the recipe options.
 
-![](../../../.gitbook/assets/update-gradle-plugin.png)
+![](../../.gitbook/assets/update-gradle-plugin.png)
 
 3. Click the `See how to run against the API` link. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your repository selection from step 1.
 4. You can then execute a recipe with the following mutation:
@@ -189,7 +188,7 @@ query selectAllRepositoriesWithResults($id: ID!, $first: Int, $after: String) {
 ```json
 {
   "id": "XHxCx",
-  "first": 100 // This is page size. Should your result set exceed this you will need to loop and re-query for the next page(s) until hasNextPage is false in the result.
+  "first": 100
 }
 ```
 {% endtab %}
@@ -303,8 +302,8 @@ mutation pullRequest {
     # Optional
     "scmAccessToken": "MY_SCM_PERSONAL_ACCESS_TOKEN"
   },
-  "pullRequestTitle": "refactor: Update a Gradle plugin by id", // Optional
-  "pullRequestBody": "refactor: Update a Gradle plugin by id" // Optional
+  "pullRequestTitle": "refactor: Update a Gradle plugin by id",
+  "pullRequestBody": "refactor: Update a Gradle plugin by id"
 }
 ```
 {% endtab %}
@@ -418,9 +417,9 @@ query commitJob(
 {% tab title="Query Variables" %}
 ```json
 {
-  "first": 50, // Page size
+  "first": 50,
   "id": "c83315a1-397f-44cb-9ef2-9a2ca195dda6"
-}{
+}
 ```
 {% endtab %}
 
