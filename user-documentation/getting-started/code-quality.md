@@ -13,13 +13,20 @@ To help you get a better understanding of how Moderne can help improve your code
 
 ## Fixing common static analysis issues
 
-Moderne's [Common static analysis recipe](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis) looks for and fixes over 50 different types of issues in your code, all of which you can easily enable or disable to meet your needs.
+Moderne's [common static analysis recipe](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis) looks for and fixes over 50 different types of issues in your code, all of which you can easily enable or disable to meet your needs.
 
 To get to this recipe:
 
-* From the home page, click on `Marketplace` in the top left corner. This will take you to the recipe marketplace.
+* From the [home page](https://app.moderne.io/marketplace), click on `Marketplace` in the top left corner. This will take you to the recipe marketplace.
 * From there, click on `Static analysis and remediation`.
-*   At the top, you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly. Click on `More details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* At the top, you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly.&#x20;
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+*   Click on `See details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
 
     ![](../../.gitbook/assets/common-static-analysis-recipe.png)
 

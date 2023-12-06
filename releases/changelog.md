@@ -1,16 +1,16 @@
 # Platform changelog
+
 ### UI v10.21.1 (2023/12/04)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.21.0 (2023/12/02)
 
-- preserve the recipe options used when navigating back
+* preserve the recipe options used when navigating back
 
 ### UI v10.20.0 (2023/12/01)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v10.19.0 (2023/11/30)
 
@@ -21,14 +21,13 @@
 
 We have added category logo support for the new LaunchDarkly recipes ( `rewrite-launchdarkly`)
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.17.0 (2023/11/28)
 
-We added a hint to the search results popover with the intention of increasing users awareness of the ability to quickly navigate to recipes (up/down then enter) or to the full page search results (enter) with keyboard navigation alone.\
+We added a hint to the search results popover with the intention of increasing users awareness of the ability to quickly navigate to recipes (up/down then enter) or to the full page search results (enter) with keyboard navigation alone.\\
 
-
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.16.4 (2023/11/23)
 
