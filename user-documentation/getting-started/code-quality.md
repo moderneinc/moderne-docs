@@ -20,11 +20,11 @@ To get to this recipe:
 * From the [home page](https://app.moderne.io/marketplace), click on `Marketplace` in the top left corner. This will take you to the recipe marketplace.
 * From there, click on `Static analysis and remediation`.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * At the top, you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 *   Click on `See details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
 
