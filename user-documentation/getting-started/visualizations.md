@@ -29,7 +29,7 @@ query {
 }
 ```
 
-Below you can find some of the recipes that currently produce visualizations:
+Below you can find some of the most popular recipes that currently produce visualizations:
 
 ```
 org.openrewrite.sql.FindSql
@@ -47,7 +47,7 @@ org.openrewrite.java.search.FindMethods
 
 ## How to view visualizations
 
-If a recipe produces a visualization, after it finishes running, the `Visualizations` tab will shift from having gray text and being unclickable to having black text and being clickable:
+If a recipe produces a visualization, you can find them in the `Visualizations` tab:
 
 ![Visualizations button](../../.gitbook/assets/visualizations-tab.png)
 
