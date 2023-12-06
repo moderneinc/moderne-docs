@@ -1,13 +1,21 @@
 # Platform changelog
+
 ### UI v10.22.1 (2023/12/06)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v10.22.0 (2023/12/06)
 
-* add preconditions
-* add ability to add recipes as preconditions to custom recipes
+#### Recipe preconditions
+
+Through the _Recipe Builder_ customers can now define _precondition_ recipes that will run ahead of the recipe lists. The recipe list will only be run on repositories  that included results from the _precondition._
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>To add a precondition recipe to your custom recipe, you can use the <em>Add  as precondition</em></p></figcaption></figure>
+
+Once a precondition has been added, it will appear as a new tab on the _Recipe Builder_ page
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
 * add icon support for processing status
 
 ### UI v10.21.1 (2023/12/04)
