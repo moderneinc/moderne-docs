@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v10.22.0 (2023/12/06)
+
+- add preconditions
+- add ability to add recipes as preconditions to custom recipes
+- add icon support for processing status
+
 
 ### UI v10.21.1 (2023/12/04)
 
