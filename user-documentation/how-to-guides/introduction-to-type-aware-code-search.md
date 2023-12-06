@@ -41,7 +41,7 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
 * Enter the method name of `createFile` in the method name field.
 * Enter `..` in the argument type field to denote that we want to search for any amount of arguments (zero or more).
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 * Press `Apply` to add the method pattern to the text box.
 

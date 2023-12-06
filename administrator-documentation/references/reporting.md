@@ -26,7 +26,7 @@ To access non-audit-log reports, navigate to https://\<TENANT>.moderne.io/admin/
 
 <figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-These reports can be downloaded using the download button: ![](<../../.gitbook/assets/image (3).png>)
+These reports can be downloaded using the download button: ![](<../../.gitbook/assets/image (3) (1).png>)
 
 ## Accessing via the API
 

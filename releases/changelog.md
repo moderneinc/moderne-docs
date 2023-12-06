@@ -1,10 +1,10 @@
 # Platform changelog
+
 ### UI v10.22.0 (2023/12/06)
 
-- add preconditions
-- add ability to add recipes as preconditions to custom recipes
-- add icon support for processing status
-
+* add preconditions
+* add ability to add recipes as preconditions to custom recipes
+* add icon support for processing status
 
 ### UI v10.21.1 (2023/12/04)
 
@@ -373,7 +373,7 @@ When sharing a recipe from the recipes details, you can now select whether or no
 
 Now you can see which Organization a visualization was run on from the _Recent visualizations_ table.
 
-![](<../.gitbook/assets/image (3) (1).png>)
+![](<../.gitbook/assets/image (3) (1) (2).png>)
 
 ### UI v9.145.0 (2023/08/22)
 

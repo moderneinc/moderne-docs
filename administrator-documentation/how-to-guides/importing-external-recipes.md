@@ -8,13 +8,21 @@ External recipes can be imported into Moderne.io for use by your organization.
 
 ## Step 1: Load the recipes
 
-From your Moderne tenant, click on _Deploy_ in the left-hand menu under _Recipes_.
+From your Moderne tenant, click on _Deploy_ in the left-hand menu:
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ## Step 2: Upload the recipe artifacts
 
-1. Click _Upload Recipe Artifact_ to open the form: ![](../../../.gitbook/assets/deployer-upload-artifact.png)
-2. Provide the `Group ID`, `Artifact ID`, and `Version` for the published artifact.
-3. Click _Upload Recipe Artifact_ to submit.
+1. Click `Add` to open the form to import a recipe:
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+2. Provide the `Group ID`, `Artifact ID`, and `Version` for the published artifact:
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+3. Click _deploy recipe artifact_ to deploy it.
 
 The artifact information will appear in the table if Moderne.io successfully locates the requested artifact.
 
@@ -22,4 +30,4 @@ The artifact information will appear in the table if Moderne.io successfully loc
 
 ## Step 3: View recipes in the catalog
 
-Your custom recipes will appear in the Catalog and be discoverable through search once they have been successfully deployed.
+Your custom recipes will appear in the Marketplace and they will be discoverable through search once they have been successfully deployed.
