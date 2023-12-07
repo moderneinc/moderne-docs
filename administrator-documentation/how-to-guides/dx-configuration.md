@@ -98,16 +98,6 @@ Below is an example of what the Moderne DX service run command might look like a
 {% tab title="OCI Container" %}
 ```shell
 docker run \
--e MODERNE_DX_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_DX_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
--e MODERNE_DX_NICKNAME=prod-1 \
--e MODERNE_DX_TOKEN=yourToken \
--e MODERNE_DX_GITHUB_0_OAUTH_CLIENTID=yourClientId \
--e MODERNE_DX_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
--e MODERNE_DX_GITHUB_0_URL=https://myorg.github.com \
--e MODERNE_DX_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_DX_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
--e MODERNE_DX_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
 -e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
@@ -126,16 +116,6 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
 {% tab title="Executable JAR" %}
 ```shell
 java -jar moderne-dx-{version}.jar \
---moderne.dx.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.dx.crypto.symmetricKey=yourSymmetricKey
---moderne.dx.nickname=prod-1 \
---moderne.dx.token=yourToken \
---moderne.dx.github[0].oauth.clientId=yourClientId \
---moderne.dx.github[0].oauth.clientSecret=yourClientSecret \
---moderne.dx.github[0].url=https://myorg.github.com \
---moderne.dx.github[0].allowableOrganizations[0]=moderne \
---moderne.dx.github[0].allowableOrganizations[1]=openrewrite \
---moderne.dx.github[0].oauth.includePrivateRepos=true \
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
@@ -162,16 +142,6 @@ Below is an example of what the Moderne DX service run command might look like a
 {% tab title="OCI Container" %}
 ```shell
 docker run \
--e MODERNE_DX_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_DX_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
--e MODERNE_DX_NICKNAME=prod-1 \
--e MODERNE_DX_TOKEN=yourToken \
--e MODERNE_DX_GITHUB_0_OAUTH_CLIENTID=yourClientId \
--e MODERNE_DX_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
--e MODERNE_DX_GITHUB_0_URL=https://myorg.github.com \
--e MODERNE_DX_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_DX_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
--e MODERNE_DX_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
 -e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
@@ -191,16 +161,6 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
 {% tab title="Executable JAR" %}
 ```shell
 java -jar moderne-dx-{version}.jar \
---moderne.dx.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.dx.crypto.symmetricKey=yourSymmetricKey
---moderne.dx.nickname=prod-1 \
---moderne.dx.token=yourToken \
---moderne.dx.github[0].oauth.clientId=yourClientId \
---moderne.dx.github[0].oauth.clientSecret=yourClientSecret \
---moderne.dx.github[0].url=https://myorg.github.com \
---moderne.dx.github[0].allowableOrganizations[0]=moderne \
---moderne.dx.github[0].allowableOrganizations[1]=openrewrite \
---moderne.dx.github[0].oauth.includePrivateRepos=true \
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
@@ -226,16 +186,6 @@ Below is an example of what the Moderne DX service run command might look like a
 {% tab title="OCI Container" %}
 ```shell
 docker run \
--e MODERNE_DX_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_DX_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
--e MODERNE_DX_NICKNAME=prod-1 \
--e MODERNE_DX_TOKEN=yourToken \
--e MODERNE_DX_GITHUB_0_OAUTH_CLIENTID=yourClientId \
--e MODERNE_DX_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
--e MODERNE_DX_GITHUB_0_URL=https://myorg.github.com \
--e MODERNE_DX_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_DX_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
--e MODERNE_DX_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
 -e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
@@ -256,16 +206,6 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
 {% tab title="Executable JAR" %}
 ```bash
 java -jar moderne-dx-{version}.jar \
---moderne.dx.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.dx.crypto.symmetricKey=yourSymmetricKey
---moderne.dx.nickname=prod-1 \
---moderne.dx.token=yourToken \
---moderne.dx.github[0].oauth.clientId=yourClientId \
---moderne.dx.github[0].oauth.clientSecret=yourClientSecret \
---moderne.dx.github[0].url=https://myorg.github.com \
---moderne.dx.github[0].allowableOrganizations[0]=moderne \
---moderne.dx.github[0].allowableOrganizations[1]=openrewrite \
---moderne.dx.github[0].oauth.includePrivateRepos=true \
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
