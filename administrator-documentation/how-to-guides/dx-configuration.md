@@ -15,6 +15,8 @@ Moderne offers two ways of running the service:
 1. An [OCI image](https://github.com/opencontainers/image-spec) that can be run using any OCI runtime (e.g., Docker, Podman)
 2. A Spring Boot executable JAR that can be run with Java
 
+Regardless of which one you pick, you'll want a minimum system spec of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent storage.
+
 If you deploy to Kubernetes or any other containerized environment like AWS ECS, you'll want to use the OCI image to run the service.
 
 If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform\_as\_a\_service) environment such Cloud Foundry, you'll want to use the JAR to run the service.
