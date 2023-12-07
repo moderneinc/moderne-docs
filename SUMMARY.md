@@ -37,7 +37,7 @@
 * [How to guides](administrator-documentation/how-to-guides/README.md)
   * [Integrating private code with Moderne](administrator-documentation/how-to-guides/integrating-private-code.md)
   * [Configuring the Moderne agent](administrator-documentation/how-to-guides/agent-configuration.md)
-  * [Configuring the Moderne DX](administrator-documentation/how-to-guides/dx-configuration.md)
+  * [Configuring Moderne DX](administrator-documentation/how-to-guides/dx-configuration.md)
     * [Configure Moderne DX with Maven repository access](administrator-documentation/how-to-guides/dx-configuration/configure-dx-with-maven-repository-access.md)
     * [Configure Moderne DX with Artifactory access: LSTs](administrator-documentation/how-to-guides/dx-configuration/configure-dx-with-artifactory-access.md)
     * [Configure Moderne DX with Artifactory access: recipes](administrator-documentation/how-to-guides/dx-configuration/configure-dx-with-artifactory-recipes.md)
