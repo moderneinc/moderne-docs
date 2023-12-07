@@ -40,7 +40,7 @@ Moderne offers two ways of running the agent:
 1. An [OCI image](https://github.com/opencontainers/image-spec) that can be run using any OCI runtime (e.g., Docker, Podman)
 2. A Spring Boot executable JAR that can be run with Java
 
-Regardless of which one you pick, you'll want a minimum system spec of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent storage.
+Regardless of which one you pick, you'll want a minimum system spec of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent or local storage.
 
 If you deploy to Kubernetes or any other containerized environment like AWS ECS, you'll want to use the OCI image to run the agent.
 
@@ -304,7 +304,7 @@ java -jar moderne-agent-{version}.jar \
 
 Many organizations desire the ability to control the organizational structure of their repositories within the Moderne platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
 
-If you want to set up this service, please follow [these instructions](../../../architecture/organizations-service/). Then, once it has been set up, please configure the agent by following [these instructions](on-premise-agent/configure-organizations-service.md).
+If you want to set up this service, please follow [these instructions](../../architecture/organizations-service/). Then, once it has been set up, please configure the agent by following [these instructions](on-premise-agent/configure-organizations-service.md).
 
 Below is an example of what an agent run command might look like at the end of this step if you set up the Organizations service.
 
@@ -526,10 +526,10 @@ If you want to update the Moderne agent over time, please follow the instruction
 {% tab title="OCI Container" %}
 If you're running the commands provided in this guide, you should see that the last line of every agent run command is `moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest`.
 
-If that's true, then you can simply restart the agent and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](/releases/agent-releases.md) for the versions.
+If that's true, then you can simply restart the agent and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](../../releases/agent-releases.md) for the versions.
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-To update your version of the Executable JAR, change the `{version}` in `java -jar moderne-agent-{version}.jar` to be the latest one on [the releases page](/releases/agent-releases.md).
+To update your version of the Executable JAR, change the `{version}` in `java -jar moderne-agent-{version}.jar` to be the latest one on [the releases page](../../releases/agent-releases.md).
 {% endtab %}
 {% endtabs %}
