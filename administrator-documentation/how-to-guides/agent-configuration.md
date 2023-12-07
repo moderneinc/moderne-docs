@@ -290,7 +290,7 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne-agent.maven[0].localRepository=~/.moderne-maven \
+--moderne.agent.maven[0].localRepository=~/.moderne-maven \
 --moderne.agent.maven[0].username=admin \
 --moderne.agent.maven[0].password=password \
 # ... Additional arguments to come
@@ -355,7 +355,7 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne-agent.maven[0].localRepository=~/.moderne-maven \
+--moderne.agent.maven[0].localRepository=~/.moderne-maven \
 --moderne.agent.maven[0].username=admin \
 --moderne.agent.maven[0].password=password \
 --moderne.agent.organization.url=http://localhost:8091 \
@@ -420,7 +420,7 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne-agent.maven[0].localRepository=~/.moderne-maven \
+--moderne.agent.maven[0].localRepository=~/.moderne-maven \
 --moderne.agent.maven[0].username=admin \
 --moderne.agent.maven[0].password=password \
 --moderne.agent.organization.url=http://localhost:8091 \
@@ -505,7 +505,7 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne-agent.maven[0].localRepository=~/.moderne-maven \
+--moderne.agent.maven[0].localRepository=~/.moderne-maven \
 --moderne.agent.maven[0].username=admin \
 --moderne.agent.maven[0].password=password \
 --moderne.agent.organization.url=http://localhost:8091 \

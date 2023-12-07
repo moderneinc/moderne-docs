@@ -1,0 +1,76 @@
+# Configure Moderne DX service with client SSL certificates
+
+If you are configuring the Moderne DX service to connect to a service that requires a self-signed certificate to perform an HTTPS request (e.g., Maven or Artifactory) you will need to:
+
+* Supply a KeyStore for the service to use in the `PKCS12` format at the following location: `${JAVA_HOME}/lib/security/client_keystore.p12`
+* Configure the service to `skipSSL` for this service (See the [Artifactory](/administrator-documentation/how-to-guides/dx-configuration/configure-dx-with-artifactory-recipes.md) or [Maven](/administrator-documentation/how-to-guides/dx-configuration/configure-dx-with-maven-repository-access.md) service documentation)
+
+Below are a few examples of creating the KeyStore in some common scenarios:
+
+{% tabs %}
+{% tab title="Certificate without key" %}
+<pre><code><strong>RUN openssl pkcs12 -export \
+</strong>-in &#x3C;pathtocertfolder>/cert.pem \
+-out ${JAVA_HOME}/lib/security/client_keystore.p12 \
+-name ssl_cert \
+-passout pass:changeit \
+-nokeys
+</code></pre>
+{% endtab %}
+
+{% tab title="Certificate and key files" %}
+```
+openssl pkcs12 -export \
+-in <pathtocertfolder>/cert.pem \
+-inkey <pathtocertfolder>/cert.key \
+-out ${JAVA_HOME}/lib/security/client_keystore.p12 \
+-name ssl_cert \
+-passout pass:changeit
+```
+{% endtab %}
+
+{% tab title="Certificate and key in one file" %}
+```
+RUN openssl pkcs12 -export \
+-in ${JAVA_HOME}/lib/security/s2s-cert.pem \
+-out ${JAVA_HOME}/lib/security/client_keystore.p12 \
+-name ssl_cert \
+-passout pass:changeit
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+{% tabs %}
+{% tab title="OCI Container" %}
+If you are running the service in an OCI container, you will need to create a new Dockerfile based on the Moderne DX service and supply the image with the KeyStore.
+
+**Example:**
+
+```docker
+FROM moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
+USER root
+
+COPY s2s-cert.pem ${JAVA_HOME}/lib/security/s2s-cert.pem
+
+#Certifcate without keys
+RUN openssl pkcs12 -export \
+-in ${JAVA_HOME}/lib/security/s2s-cert.pem \
+-out ${JAVA_HOME}/lib/security/client_keystore.p12 \
+-name ssl_cert \
+-passout pass:changeit \
+-nokeys
+```
+{% endtab %}
+
+{% tab title="Executable JAR" %}
+Nothing else needs to happen for the executable JAR flow other than ensuring the KeyStore has been added to the following location: `${JAVA_HOME}/lib/security/client_keystore.p12`
+
+```
+java -jar moderne-dx-{version}.jar \
+# ... Existing arguments
+```
+{% endtab %}
+{% endtabs %}
+

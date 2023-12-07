@@ -113,7 +113,7 @@ docker run \
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne-agent.maven[0].localRepository=~/.moderne-maven \
+--moderne.agent.maven[0].localRepository=~/.moderne-maven \
 --moderne.agent.maven[0].username=admin \
 --moderne.agent.maven[0].password=password \
 # ... Additional arguments
