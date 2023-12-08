@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.24.0 (2023/12/08)
+
+- update recipe builder layout
+- migrate recipe builder list to data grid
+
 ### UI v10.23.0 (2023/12/08)
 
 - Bug fixes and other improvements.
