@@ -1,17 +1,24 @@
 # Platform changelog
+
 ### UI v10.24.1 (2023/12/09)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.24.0 (2023/12/08)
 
-- update recipe builder layout
-- migrate recipe builder list to data grid
+#### Recipe builder layout changes
+
+On the heels of adding support for preconditions, it was time to give the _Recipe Builder_ a little update to the layout.
+
+<figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption><p>Recipes and Preconditions are now displayed in a grid to optimize content display on screen.</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption><p>Editing your custom recipe metadata has been moved into a dialog to prioritize the recipes and YAML.</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption><p>Updating recipe options are now accessible through expanding the row details panel.</p></figcaption></figure>
 
 ### UI v10.23.0 (2023/12/08)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v10.22.1 (2023/12/06)
 
@@ -21,9 +28,9 @@
 
 #### Recipe preconditions
 
-Through the _Recipe Builder_ customers can now define _precondition_ recipes that will run ahead of the recipe lists. The recipe list will only be run on repositories  that included results from the _precondition._
+Through the _Recipe Builder_ customers can now define _precondition_ recipes that will run ahead of the recipe lists. The recipe list will only be run on repositories that included results from the _precondition._
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>To add a precondition recipe to your custom recipe, you can use the <em>Add  as precondition</em></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>To add a precondition recipe to your custom recipe, you can use the <em>Add as precondition</em></p></figcaption></figure>
 
 Once a precondition has been added, it will appear as a new tab on the _Recipe Builder_ page
 
