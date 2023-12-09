@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.24.1 (2023/12/09)
+
+- Bug fixes and other improvements.
+
 ### UI v10.24.0 (2023/12/08)
 
 - update recipe builder layout
