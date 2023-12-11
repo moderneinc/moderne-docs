@@ -25,6 +25,7 @@ There are two possible ways of adding a recipe to the builder:
 1.  By pressing the `Add to Builder` button in the recipe catalog or in the recipe itself:
 
     ![](../../../.gitbook/assets/recipe-catalog-builder.png)
+
 2.  By pressing the `Add Selected to Builder` button that's available on all composite recipes (recipes that have multiple recipes that run as part of them):
 
     ![](../../../.gitbook/assets/add-selected-recipe.png)
@@ -37,9 +38,9 @@ If you want more configurability for composite recipes, such as the ability to c
 
 ![](../../../.gitbook/assets/multi-recipe.png)
 
-If any of these recipes have options that you can configure, a wrench icon will appear on the right-hand side. You can click on it to change those options:
+If any of these recipes have options that you can configure, an upside down chevron will appear on the left side. You can click on it to expand the list of options for said recipe:
 
-![](../../../.gitbook/assets/expanded-recipe.png)
+![](../../../.gitbook/assets/expand-recipe.gif)
 
 ### Ordering the recipes
 
@@ -65,10 +66,13 @@ If you or someone on your team has previously created a recipe via the Recipe Bu
 *   Press the `Import YAML` button in the top right corner:
 
     ![](../../../.gitbook/assets/import-yaml.png)
+
 *   A modal will appear that you can paste a declarative YAML recipe into:
 
     ![](../../../.gitbook/assets/declarative-yaml.png)
+
 * When you're done entering the YAML, press the `Import` button in the bottom right corner of the modal. If the YAML is properly formatted, you'll see your recipe populated into the recipe builder with everything set up exactly as specified.
+
 *   You can then run the recipe as normal by pressing `Dry Run`:
 
     ![](../../../.gitbook/assets/imported-recipe-run.png)
