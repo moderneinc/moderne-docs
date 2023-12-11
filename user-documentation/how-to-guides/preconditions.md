@@ -1,8 +1,8 @@
-# Preconditions
+# How to use preconditions
 
 When running recipes, there may come a time when you want to restrict which files the recipe runs against. For example, if your company has a large mono-repo, and you only work on part of it, you may want to run a recipe on _just_ that part. Similarly, if you are working on a security or best practice update, you may want to focus only on product code and not on tests.
 
-This is what preconditions were designed for. They are a way of restricting where a recipe is run. 
+This is what preconditions were designed for. They are a way of restricting where a recipe is run.
 
 In this guide, we'll walk through how preconditions work and how you can use them in the Moderne platform.
 
@@ -18,7 +18,7 @@ Changes made by preconditions are not included in the final result of the recipe
 
 ### Example
 
-To help clarify this, let's consider the case where want to run a recipe against non-test files in a specific module in a mono-repo.
+To help clarify this, let's consider the case where you want to run a recipe against non-test files in a specific module in a mono-repo.
 
 To meet this need, you would want two precondition recipes: [find files by source path](https://app.moderne.io/recipes/org.openrewrite.FindSourceFiles) and [find files that are likely not tests](https://app.moderne.io/recipes/org.openrewrite.java.search.IsLikelyNotTest).
 
@@ -28,24 +28,26 @@ With the preconditions being done, the core recipe you're wanting to run will th
 
 ## How to use preconditions in the Moderne platform
 
-From the [recipe marketplace](https://app.moderne.io/marketplace), find the recipe you'd like to use as a precondition. Once you've found it, click on the triangle drop-down next to the text `Add to builder` and select `Add as precondition`. 
+From the [recipe marketplace](https://app.moderne.io/marketplace), find the recipe you'd like to use as a precondition. Once you've found it, click on the triangle drop-down next to the text `Add to builder` and select `Add as precondition`.
 
-![](/.gitbook/assets/precondition1.png)
+![](../../.gitbook/assets/precondition1.png)
 
-![](/.gitbook/assets/precondition2.png)
+![](../../.gitbook/assets/precondition2.png)
 
 You will then be redirected to the [recipe builder page](https://app.moderne.io/recipes/builder).
 
-![](/.gitbook/assets/recipe-precondition.png)
+![](../../.gitbook/assets/recipe-precondition.png)
 
-If you want to add more preconditions, you can follow the same steps as above. After doing so, you'll want to also select the recipe(s) you want to run presuming those preconditions are met. 
+If you want to add more preconditions, you can follow the same steps as above. After doing so, you'll want to select the recipe(s) you want to run (which will only update the files that have met the preconditions).
 
 To do so, find the recipe you want to run and press `Add to builder`:
 
-![](/.gitbook/assets/recipe-build.png)
+![](../../.gitbook/assets/recipe-build.png)
 
 You'll then be redirected to the same [recipe builder page](https://app.moderne.io/recipes/builder). You can add more recipes to be run if you'd like. You can also update or remove the recipes and preconditions from this page.
 
 When you're ready to run the recipe with the specified preconditions, press the `Dry run` button at the top of the page:
 
-![](/.gitbook/assets/build-dry.png)
+![](../../.gitbook/assets/build-dry.png)
+
+You've now successfully created and run a recipe with preconditions!&#x20;
