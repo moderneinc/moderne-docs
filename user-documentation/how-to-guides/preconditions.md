@@ -2,7 +2,7 @@
 
 When running recipes, there may come a time when you want to restrict which files the recipe runs against. For example, if your company has a large mono-repo, and you only work on part of it, you may want to run a recipe on _just_ that part. Similarly, if you are working on a security or best practice update, you may want to focus only on product code and not on tests.
 
-This is what preconditions were designed for. They are a way of restricting where a recipe is run.
+This is what preconditions were designed for. **They are a way of restricting where a recipe is run**.
 
 In this guide, we'll walk through how preconditions work and how you can use them in the Moderne platform.
 
