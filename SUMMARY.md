@@ -19,6 +19,7 @@
   * [How to find personally identifiable information (PII) and secrets exposed by your APIs](user-documentation/how-to-guides/find-pii.md)
   * [Managing repository groups](user-documentation/how-to-guides/managing-repository-groups.md)
   * [Creating a personal access token](user-documentation/how-to-guides/create-api-access-tokens.md)
+  * [How to use preconditions](user-documentation/how-to-guides/preconditions.md)
 * [References](user-documentation/references/README.md)
   * [Moderne tokens](user-documentation/references/moderne-tokens.md)
   * [Creating SCM access tokens](user-documentation/references/create-scm-access-tokens.md)
