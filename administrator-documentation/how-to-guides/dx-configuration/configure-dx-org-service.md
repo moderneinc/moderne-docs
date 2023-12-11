@@ -1,6 +1,6 @@
 # Configure the Organizations service with Moderne DX
 
-In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne DX service to point to your [Organizations service](/administrator-documentation/references/architecture/organizations-service.md). This guide will explain how to do that.
+In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne DX service to point to your [Organizations service](../organizations-service.md). This guide will explain how to do that.
 
 {% tabs %}
 {% tab title="OCI Container" %}
