@@ -21,7 +21,7 @@ If you deploy to Kubernetes or any other containerized environment like AWS ECS,
 
 If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform\_as\_a\_service) environment such Cloud Foundry, you'll want to use the JAR to run the service.
 
-The table below provides the core command for running the service. However, in order for the service to function correctly, additional variables will need to be added based on your environment (such as what artifact repositories you have configured, and whether or not you've configured an [Organizations service](organizations-service.md)). We'll walk through each of those in the following steps.
+The table below provides the core command for running the service. However, in order for the service to function correctly, additional variables will need to be added based on your environment (such as what artifact repositories you have configured, and whether or not you've configured an [Organizations service](../references/architecture/organizations-service.md)). We'll walk through each of those in the following steps.
 
 {% tabs %}
 {% tab title="OCI Container" %}
@@ -136,7 +136,7 @@ java -jar moderne-dx-{version}.jar \
 
 Many organizations desire the ability to control the organizational structure of their repositories within the Moderne platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
 
-If you want to set up this service, please see the [organizations service setup instructions](organizations-service.md). Then, once it has been set up, please [configure the Moderne DX service to connect with the organization service](dx-configuration/configure-dx-org-service.md).
+If you want to set up this service, please see the [organizations service setup instructions](../references/architecture/organizations-service.md). Then, once it has been set up, please [configure the Moderne DX service to connect with the organization service](dx-configuration/configure-dx-org-service.md).
 
 Below is an example of what the Moderne DX service run command might look like at the end of this step if you set up the Organizations service.
 
