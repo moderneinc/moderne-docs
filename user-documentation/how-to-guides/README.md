@@ -9,4 +9,4 @@
 * [Managing repository groups](managing-repository-groups.md)
 * [Creating a personal access token](create-api-access-tokens.md)
 * [How to use preconditions](preconditions.md)
-
+* [Moderne IntelliJ plugin](moderne-intellij-plugin.md)
