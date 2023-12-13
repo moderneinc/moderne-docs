@@ -15,30 +15,31 @@
 * [**mod config environment**](#mod-config-environment)
 * [**mod config environment list**](#mod-config-environment-list)
 * [**mod config gradle**](#mod-config-gradle)
-* [**mod config gradle plugin**](#mod-config-gradle-plugin)
-* [**mod config gradle plugin delete**](#mod-config-gradle-plugin-delete)
-* [**mod config gradle plugin edit**](#mod-config-gradle-plugin-edit)
-* [**mod config gradle plugin show**](#mod-config-gradle-plugin-show)
+* [**mod config gradle build**](#mod-config-gradle-build)
+* [**mod config gradle build arguments**](#mod-config-gradle-build-arguments)
+* [**mod config gradle build arguments delete**](#mod-config-gradle-build-arguments-delete)
+* [**mod config gradle build arguments edit**](#mod-config-gradle-build-arguments-edit)
+* [**mod config gradle build arguments show**](#mod-config-gradle-build-arguments-show)
 * [**mod config http**](#mod-config-http)
 * [**mod config http proxy**](#mod-config-http-proxy)
 * [**mod config http proxy delete**](#mod-config-http-proxy-delete)
 * [**mod config http proxy edit**](#mod-config-http-proxy-edit)
 * [**mod config http proxy show**](#mod-config-http-proxy-show)
-* [**mod config http trust-store**](#mod-config-http-trust-store)
-* [**mod config http trust-store delete**](#mod-config-http-trust-store-delete)
-* [**mod config http trust-store edit**](#mod-config-http-trust-store-edit)
-* [**mod config http trust-store edit file**](#mod-config-http-trust-store-edit-file)
-* [**mod config http trust-store edit java-home**](#mod-config-http-trust-store-edit-java-home)
-* [**mod config http trust-store show**](#mod-config-http-trust-store-show)
 * [**mod config java**](#mod-config-java)
-* [**mod config java edit**](#mod-config-java-edit)
-* [**mod config java delete**](#mod-config-java-delete)
-* [**mod config java list**](#mod-config-java-list)
+* [**mod config java jdk**](#mod-config-java-jdk)
+* [**mod config java jdk edit**](#mod-config-java-jdk-edit)
+* [**mod config java jdk delete**](#mod-config-java-jdk-delete)
+* [**mod config java jdk list**](#mod-config-java-jdk-list)
+* [**mod config java options**](#mod-config-java-options)
+* [**mod config java options edit**](#mod-config-java-options-edit)
+* [**mod config java options delete**](#mod-config-java-options-delete)
+* [**mod config java options list**](#mod-config-java-options-list)
 * [**mod config maven**](#mod-config-maven)
-* [**mod config maven plugin**](#mod-config-maven-plugin)
-* [**mod config maven plugin delete**](#mod-config-maven-plugin-delete)
-* [**mod config maven plugin edit**](#mod-config-maven-plugin-edit)
-* [**mod config maven plugin show**](#mod-config-maven-plugin-show)
+* [**mod config maven build**](#mod-config-maven-build)
+* [**mod config maven build arguments**](#mod-config-maven-build-arguments)
+* [**mod config maven build arguments delete**](#mod-config-maven-build-arguments-delete)
+* [**mod config maven build arguments edit**](#mod-config-maven-build-arguments-edit)
+* [**mod config maven build arguments show**](#mod-config-maven-build-arguments-show)
 * [**mod config maven settings**](#mod-config-maven-settings)
 * [**mod config maven settings delete**](#mod-config-maven-settings-delete)
 * [**mod config maven settings edit**](#mod-config-maven-settings-edit)
@@ -72,6 +73,8 @@
 * [**mod apply**](#mod-apply)
 * [**mod checkout**](#mod-checkout)
 * [**mod clone**](#mod-clone)
+* [**mod clone csv**](#mod-clone-csv)
+* [**mod clone moderne**](#mod-clone-moderne)
 * [**mod commit**](#mod-commit)
 * [**mod exec**](#mod-exec)
 * [**mod pull**](#mod-pull)
@@ -154,19 +157,16 @@ mod build [parameters] [subcommands]
 | Name | Description | Example |
 | ---- | ----------- | ------- |
 | --active-styles |  Comma separated list of the OpenRewrite style names (the name given in the`specs.openrewrite.org/v1beta/style` resource) that should be applied to the code whenever a recipe is run. If a style name isn't specified, OpenRewrite will autodetect the existing style and use that. | |
-| --additional-build-args |  Additional arguments that are added to the Maven or Gradle build command. | |
 | --bazel-rule |  Specifies a bazel rule expression. | |
 | --dry-run |  Do not actually build the LST(s), but list the steps that would be required to do so. | |
-| --java-home |  The path to the Java home directory that should be used to build the artifacts.<br><br>Defaults to **JAVA_HOME**. | |
+| --java-home |  The path to the Java home directory that should be used to build the artifacts. | |
 | --java-version |  The version of the JDK which should be selected if multiple different JDKs are discovered. | |
-| --jvm-debug |  Parser execution in Java-based build tools and recipe running will start a JDWP server on this port and pause for a remote debug connection. | |
-| --jvm-opts |  Specifies the JVM options passed to Java-based build tools, if any. | |
+| --jvm-debug |  Start a JDWP server on this port and pause for a remote debug connection. | |
 | --no-download |  Do not attempt to download LSTs from Moderne. | |
 | --offline |  When an underlying build tool has an offline mode, enable it. | |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| --skip-ssl, --skipSSL |  If this parameter is included, SSL verification will be skipped.<br><br>**Default**: false | |
 
 
 ## mod clean
@@ -266,7 +266,7 @@ mod config [parameters] [subcommands]
 * `environment`: The build environment that the CLI is running in.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `http`: Configures HTTP options that will be used throughout the CLI.
-* `java`: Configures locations of JDKs that can be used by build tools.
+* `java`: Configures Java options used for building LSTs and running recipes.
 * `maven`: Configures Maven as it is used to resolve recipe dependencies and when running recipes.
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `moderne`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
@@ -284,14 +284,6 @@ All subsequent publish and download commands will use this artifact repository.
 mod config artifacts [parameters] [subcommands]
 ```
 
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --authorization |  The authorization header value to use. | |
-| --password |  The password to authenticate with. | |
-| --user |  The user to authenticate with. | |
 
 ### Subcommands
 
@@ -323,8 +315,13 @@ mod config artifacts edit [parameters] [subcommands]
 | Name | Description | Example |
 | ---- | ----------- | ------- |
 | --authorization |  The authorization header value to use. | |
+| --local |  Configuration relevant to a specific group of repositories. | |
 | --password |  The password to authenticate with. | |
-| --skip-ssl, --skipSSL |  If this parameter is included, SSL verification will be skipped.<br><br>**Default**: false | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. | |
 | --user |  The user to authenticate with. | |
 
 
@@ -341,6 +338,15 @@ Removes the artifact repository configuration. The publish command will no longe
 mod config artifacts delete [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config artifacts show
@@ -356,6 +362,15 @@ Displays the artifact repository configuration.
 mod config artifacts show [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config environment
@@ -407,73 +422,118 @@ mod config gradle [parameters] [subcommands]
 
 ### Subcommands
 
-* `plugin`: Configure the Gradle plugin used to build LSTs.
+* `build`: Configure the Gradle build.
 
-## mod config gradle plugin
+## mod config gradle build
 
-Configure the Gradle plugin used to build LSTs.
+Configure the Gradle build.
 
 
-Allows you to control the Moderne LST Gradle plugin used to build LSTs for Gradle projects.
+This alters the way Gradle is invoked when building LSTs.
 
 ### Usage
 
 ```
-mod config gradle plugin [parameters] [subcommands]
+mod config gradle build [parameters] [subcommands]
 ```
 
 
 ### Subcommands
 
-* `delete`: Removes the configured Gradle plugin settings.
-* `edit`: Configure Gradle plugin settings.
-* `show`: Displays the configured Gradle plugin settings.
+* `arguments`: Configure Gradle build arguments.
 
-## mod config gradle plugin delete
+## mod config gradle build arguments
 
-Removes the configured Gradle plugin settings.
+Configure Gradle build arguments.
+
+
+Build arguments are added to the end of the Gradle command line when building LSTs.
+
+### Usage
+
+```
+mod config gradle build arguments [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes additional build arguments for Gradle.
+* `edit`: Configure Gradle build arguments.
+* `show`: Displays the configured Gradle additional build arguments.
+
+## mod config gradle build arguments delete
+
+Removes additional build arguments for Gradle.
 
 
 ### Usage
 
 ```
-mod config gradle plugin delete [parameters] [subcommands]
-```
-
-
-
-## mod config gradle plugin edit
-
-Configure Gradle plugin settings.
-
-
-Configure the Gradle plugin used to build LSTs.
-
-### Usage
-
-```
-mod config gradle plugin edit [parameters] [subcommands]
+mod config gradle build arguments delete [parameters] [subcommands]
 ```
 
 ### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
-| --repository-url |  For Gradle projects, this can be specified as a Maven repository cache/mirror to check before any other repositories. | |
-| --version |  The version of the Moderne Gradle plugin that should be used to build the artifacts.<br><br>Defaults to **latest.release**. | |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config gradle plugin show
+## mod config gradle build arguments edit
 
-Displays the configured Gradle plugin settings.
+Configure Gradle build arguments.
+
+
+Build arguments are added to the end of the Gradle command line when building LSTs.
+
+### Usage
+
+```
+mod config gradle build arguments edit [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| arguments |  Additional build arguments that are added to the end of the Gradle command line. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config gradle build arguments show
+
+Displays the configured Gradle additional build arguments.
 
 
 ### Usage
 
 ```
-mod config gradle plugin show [parameters] [subcommands]
+mod config gradle build arguments show [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config http
@@ -493,7 +553,6 @@ mod config http [parameters] [subcommands]
 ### Subcommands
 
 * `proxy`: Configures HTTP proxy settings that will be used for every HTTP request.
-* `trust-store`: Configures truststore options that will be used throughout the CLI.
 
 ## mod config http proxy
 
@@ -528,6 +587,15 @@ Proxy settings will no longer be used for HTTP requests.
 mod config http proxy delete [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config http proxy edit
@@ -547,8 +615,13 @@ mod config http proxy edit [parameters] [subcommands]
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
-| --proxy-host |  | |
-| --proxy-port |  | |
+| --host, --proxy-host |  | |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --port, --proxy-port |  | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config http proxy show
@@ -564,116 +637,23 @@ Shows the currently configured proxy settings, if any.
 mod config http proxy show [parameters] [subcommands]
 ```
 
-
-
-## mod config http trust-store
-
-Configures truststore options that will be used throughout the CLI.
-
-
-All subsequent commands will use these settings.
-
-### Usage
-
-```
-mod config http trust-store [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `delete`: Removes truststore settings from global configuration.
-* `edit`: Configures truststore options that will be used throughout the CLI.
-* `show`: Displays the truststore setting from global configuration.
-
-## mod config http trust-store delete
-
-Removes truststore settings from global configuration.
-
-
-Truststore settings will no longer be used for HTTP requests.
-
-### Usage
-
-```
-mod config http trust-store delete [parameters] [subcommands]
-```
-
-
-
-## mod config http trust-store edit
-
-Configures truststore options that will be used throughout the CLI.
-
-
-All subsequent commands will use these settings.
-
-### Usage
-
-```
-mod config http trust-store edit [parameters] [subcommands]
-```
-
-### Subcommands
-
-* `file`: Configures truststore to point to a file.
-* `java-home`: Configures truststore to use the cacerts file in **/Users/mikesol/.sdkman/candidates/java/current/lib/security/cacerts**.
-
-## mod config http trust-store edit file
-
-Configures truststore to point to a file.
-
-
-All subsequent commands will use this truststore.
-
-### Usage
-
-```
-mod config http trust-store edit file [parameters] [subcommands]
-```
-
-### Parameters
+### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
-| file |  | |
-
-
-
-## mod config http trust-store edit java-home
-
-Configures truststore to use the cacerts file in **/Users/mikesol/.sdkman/candidates/java/current/lib/security/cacerts**.
-
-
-### Usage
-
-```
-mod config http trust-store edit java-home [parameters] [subcommands]
-```
-
-
-
-## mod config http trust-store show
-
-Displays the truststore setting from global configuration.
-
-
-Shows the currently configured truststore setting, if any.
-
-### Usage
-
-```
-mod config http trust-store show [parameters] [subcommands]
-```
-
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config java
 
-Configures locations of JDKs that can be used by build tools.
+Configures Java options used for building LSTs and running recipes.
 
 
-Must be configured before you can run the build command if JDKs are in non-standard locations.
+Must be configured before you can run the commands that involve non-standard Java configurations.
 
 ### Usage
 
@@ -684,11 +664,10 @@ mod config java [parameters] [subcommands]
 
 ### Subcommands
 
-* `edit`: Configures locations of JDKs that can be used by build tools.
-* `delete`: Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
-* `list`: Displays the detected and configured JDK installations.
+* `jdk`: Configures locations of JDKs that can be used by build tools.
+* `options`: Configures JVM options added to tools building LSTs.
 
-## mod config java edit
+## mod config java jdk
 
 Configures locations of JDKs that can be used by build tools.
 
@@ -698,7 +677,27 @@ Must be configured before you can run the build command if JDKs are in non-stand
 ### Usage
 
 ```
-mod config java edit [parameters] [subcommands]
+mod config java jdk [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures locations of JDKs that can be used by build tools.
+* `delete`: Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
+* `list`: Displays the detected and configured JDK installations.
+
+## mod config java jdk edit
+
+Configures locations of JDKs that can be used by build tools.
+
+
+Must be configured before you can run the build command if JDKs are in non-standard locations.
+
+### Usage
+
+```
+mod config java jdk edit [parameters] [subcommands]
 ```
 
 ### Parameters
@@ -707,9 +706,18 @@ mod config java edit [parameters] [subcommands]
 | ---- | ----------- | ------- |
 | javaHomes |  The paths on disk where JDK installations can be found | |
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config java delete
+## mod config java jdk delete
 
 Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
 
@@ -717,12 +725,21 @@ Removes the configured JDK installations. The CLI will revert to using only dete
 ### Usage
 
 ```
-mod config java delete [parameters] [subcommands]
+mod config java jdk delete [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config java list
+## mod config java jdk list
 
 Displays the detected and configured JDK installations.
 
@@ -730,9 +747,112 @@ Displays the detected and configured JDK installations.
 ### Usage
 
 ```
-mod config java list [parameters] [subcommands]
+mod config java jdk list [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config java options
+
+Configures JVM options added to tools building LSTs.
+
+
+Must be configured before you can run the build command if non-standard VM options are required.
+
+### Usage
+
+```
+mod config java options [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures JVM options added to tools building LSTs.
+* `delete`: Removes configured JVM options. The CLI will no longer use custom JVM options.
+* `list`: Displays the configured JVM options.
+
+## mod config java options edit
+
+Configures JVM options added to tools building LSTs.
+
+
+Must be configured before you can run the build command if non-standard VM options are required.
+
+### Usage
+
+```
+mod config java options edit [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| options |  The JVM options to add to tools building LSTs. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config java options delete
+
+Removes configured JVM options. The CLI will no longer use custom JVM options.
+
+
+### Usage
+
+```
+mod config java options delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config java options list
+
+Displays the configured JVM options.
+
+
+### Usage
+
+```
+mod config java options list [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config maven
@@ -751,73 +871,119 @@ mod config maven [parameters] [subcommands]
 
 ### Subcommands
 
-* `plugin`: Configure the Maven plugin used to build LSTs.
+* `build`: Configure the Maven build.
 * `settings`: Configure Maven settings.
 
-## mod config maven plugin
+## mod config maven build
 
-Configure the Maven plugin used to build LSTs.
+Configure the Maven build.
 
 
-Allows you to control the Moderne LST Maven plugin used to build LSTs for Maven projects.
+This alters the way Maven is invoked when building LSTs.
 
 ### Usage
 
 ```
-mod config maven plugin [parameters] [subcommands]
+mod config maven build [parameters] [subcommands]
 ```
 
 
 ### Subcommands
 
-* `delete`: Removes the configured Maven plugin settings.
-* `edit`: Configure Maven plugin settings.
-* `show`: Displays the configured Maven plugin version.
+* `arguments`: Configure Maven build arguments.
 
-## mod config maven plugin delete
+## mod config maven build arguments
 
-Removes the configured Maven plugin settings.
+Configure Maven build arguments.
+
+
+Build arguments are added to the end of the Maven command line when building LSTs.
+
+### Usage
+
+```
+mod config maven build arguments [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes additional build arguments for Maven.
+* `edit`: Configure Maven build arguments.
+* `show`: Displays the configured Maven additional build arguments.
+
+## mod config maven build arguments delete
+
+Removes additional build arguments for Maven.
 
 
 ### Usage
 
 ```
-mod config maven plugin delete [parameters] [subcommands]
-```
-
-
-
-## mod config maven plugin edit
-
-Configure Maven plugin settings.
-
-
-Configure the Maven plugin used to build LSTs.
-
-### Usage
-
-```
-mod config maven plugin edit [parameters] [subcommands]
+mod config maven build arguments delete [parameters] [subcommands]
 ```
 
 ### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
-| --version |  The version of the Moderne Maven plugin that should be used to build the artifacts.<br><br>Defaults to **RELEASE**. | |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config maven plugin show
+## mod config maven build arguments edit
 
-Displays the configured Maven plugin version.
+Configure Maven build arguments.
+
+
+Build arguments are added to the end of the Maven command line when building LSTs.
+
+### Usage
+
+```
+mod config maven build arguments edit [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| arguments |  Additional build arguments that are added to the end of the Maven command line. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config maven build arguments show
+
+Displays the configured Maven additional build arguments.
 
 
 ### Usage
 
 ```
-mod config maven plugin show [parameters] [subcommands]
+mod config maven build arguments show [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config maven settings
@@ -832,7 +998,6 @@ Allows you to specify the location of a Maven _settings.xml_ file that should be
 ```
 mod config maven settings [parameters] [subcommands]
 ```
-
 
 
 ### Subcommands
@@ -854,6 +1019,15 @@ Removes the configured Maven settings.
 mod config maven settings delete [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config maven settings edit
@@ -875,6 +1049,15 @@ mod config maven settings edit [parameters] [subcommands]
 | ---- | ----------- | ------- |
 | settingsXml |  The location of a Maven _settings.xml_ file to use. | |
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config maven settings show
@@ -890,6 +1073,15 @@ Displays the configured Maven settings.
 mod config maven settings show [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config recipes
@@ -1020,7 +1212,6 @@ The dependency will be resolved from the artifact source defined in **mod config
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
-| --offline |  Resolve JARs from what is available in local caches. | |
 | --repository-url, --repository |  The repository URL that the artifact will be resolved from. | |
 
 
@@ -1083,11 +1274,6 @@ mod config recipes moderne install [parameters] [subcommands]
 | ---- | ----------- | ------- |
 | searchTerm |  The search term to use to find recipes to install. | |
 
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --skip-ssl |  If this parameter is included, SSL verification will be skipped.<br><br>**Default**: false | |
 
 
 ## mod config recipes moderne sync
@@ -1103,11 +1289,6 @@ Destroys all recipes in the local CLI marketplace and replaces them with the lat
 mod config recipes moderne sync [parameters] [subcommands]
 ```
 
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --skip-ssl |  If this parameter is included, SSL verification will be skipped.<br><br>**Default**: false | |
 
 
 ## mod config recipes delete
@@ -1241,7 +1422,6 @@ mod config moderne [parameters] [subcommands]
 ```
 
 
-
 ### Subcommands
 
 * `delete`: Removes the configured Moderne tenant.
@@ -1261,6 +1441,15 @@ Removes the configured Moderne tenant.
 mod config moderne delete [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config moderne edit
@@ -1286,8 +1475,13 @@ mod config moderne edit [parameters] [subcommands]
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
-| --api |  The URL of the tenant API gateway. Defaults to **https://api.<host-base-url>**. | |
-| --skip-ssl |  If this parameter is included, SSL verification will be skipped.<br><br>**Default**: false | |
+| --api |  The URL of the tenant API gateway. | |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. | |
 | --token |  The Moderne personal access token to use. | |
 
 
@@ -1304,6 +1498,15 @@ Displays the artifact repository configuration.
 mod config moderne show [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod list
@@ -1390,10 +1593,9 @@ mod run [parameters] [subcommands]
 | Name | Description | Example |
 | ---- | ----------- | ------- |
 | --active-recipe |  If this flag is included, the recipe specified as the active recipe in your IDE will be run (assuming you have the Moderne plugin installed and configured). | |
-| --java-home |  The path to the Java home directory that should be used to build the artifacts.<br><br>Defaults to **JAVA_HOME**. | |
+| --java-home |  The path to the Java home directory that should be used to build the artifacts. | |
 | --java-version |  The version of the JDK which should be selected if multiple different JDKs are discovered. | |
-| --jvm-debug |  Parser execution in Java-based build tools and recipe running will start a JDWP server on this port and pause for a remote debug connection. | |
-| --jvm-opts |  Specifies the JVM options passed to Java-based build tools, if any. | |
+| --jvm-debug |  Start a JDWP server on this port and pause for a remote debug connection. | |
 | -P, --recipe-option |  Recipe options, if any. If a recipe accepts more than one option, you can include this argument multiple times. | |
 | --recipe |  The recipe ID of the recipe that should be run. | |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
@@ -1454,10 +1656,6 @@ mod study [parameters] [subcommands]
 | Name | Description | Example |
 | ---- | ----------- | ------- |
 | --data-table |  The name of the data table to study. | |
-| --java-home |  The path to the Java home directory that should be used to build the artifacts.<br><br>Defaults to **JAVA_HOME**. | |
-| --java-version |  The version of the JDK which should be selected if multiple different JDKs are discovered. | |
-| --jvm-debug |  Parser execution in Java-based build tools and recipe running will start a JDWP server on this port and pause for a remote debug connection. | |
-| --jvm-opts |  Specifies the JVM options passed to Java-based build tools, if any. | |
 | --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. | |
 | -o, --output-file |  The location to output the data table. | |
 | --recipe-run |  The recipe run that generated patch files to apply. | |
@@ -1560,7 +1758,7 @@ mod checkout [parameters] [subcommands]
 Performs the equivalent of **git clone** on multiple repositories.
 
 
-Rather than cloning one at a time, this operates on multiple repositories.
+Rather than cloning one at a time, this operates on multiple repositories. The list of repositories can be sourced from different places, like Moderne or a CSV.
 
 ### Usage
 
@@ -1568,19 +1766,70 @@ Rather than cloning one at a time, this operates on multiple repositories.
 mod clone [parameters] [subcommands]
 ```
 
+
+### Subcommands
+
+* `csv`: Clones the repositories listed in a CSV file.
+* `moderne`: Clones the repositories in an organization on Moderne.
+
+## mod clone csv
+
+Clones the repositories listed in a CSV file.
+
+
+The CSV file should have a header row with the required columns **cloneUrl, branch** and any number of optional columns.
+
+### Usage
+
+```
+mod clone csv [parameters] [subcommands]
+```
+
 ### Parameters
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
 | cloneInto |  The directory to clone all projects into. This directory will be created if it doesn't exist. | |
+| csv |  The path to a CSV file containing repositories to clone. | |
 
 ### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
+| --depth |  | |
+| --filter |  | |
 | --limit |  The maximum number of repositories to clone. | |
-| --moderne-organization |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. | |
-| --skip-ssl, --skipSSL |  If this parameter is included, SSL verification will be skipped.<br><br>**Default**: false | |
+| --single-branch |  | |
+
+
+## mod clone moderne
+
+Clones the repositories in an organization on Moderne.
+
+
+The repositories are cloned at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne.
+
+### Usage
+
+```
+mod clone moderne [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| cloneInto |  The directory to clone all projects into. This directory will be created if it doesn't exist. | |
+| organization |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --depth |  | |
+| --filter |  | |
+| --limit |  The maximum number of repositories to clone. | |
+| --single-branch |  | |
 
 
 ## mod commit
