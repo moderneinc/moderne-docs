@@ -38,7 +38,7 @@
   * [Proof of value process](administrator-documentation/getting-started/proof-of-value.md)
 * [How to guides](administrator-documentation/how-to-guides/README.md)
   * [Integrating private code with Moderne](administrator-documentation/how-to-guides/integrating-private-code.md)
-  * [Configuring the Moderne agent](administrator-documentation/how-to-guides/agent-configuration/README.md)
+  * [Configuring the Moderne agent](administrator-documentation/how-to-guides/agent-configuration.md)
     * [Configure an agent with Bitbucket Data Center access](administrator-documentation/how-to-guides/agent-configuration/configure-bitbucket-to-agent.md)
     * [Configure an agent with Bitbucket Cloud access](administrator-documentation/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent.md)
     * [Configure an agent with GitHub](administrator-documentation/how-to-guides/agent-configuration/configure-an-agent-with-github.md)
