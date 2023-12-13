@@ -18,8 +18,8 @@ To install the Moderne CLI please:
 
 {% tabs %}
 {% tab title="Mac" %}
-* [Moderne CLI 1.6.17 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos/v1.6.17/moderne-cli-macos-v1.6.17)
-* [Moderne CLI 1.7.0 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.7.0/moderne-cli-macos-v1.7.0)
+* [Moderne CLI 1.6.27 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos/v1.6.27/moderne-cli-macos-v1.6.27)
+* [Moderne CLI 1.7.1 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.7.1/moderne-cli-macos-v1.7.1)
 
 You can also install the latest stable version via [Brew](https://brew.sh/):
 
@@ -29,13 +29,13 @@ brew install moderneinc/moderne/mod
 {% endtab %}
 
 {% tab title="Linux" %}
-* [Moderne CLI 1.6.17 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux/v1.6.17/moderne-cli-linux-v1.6.17)
-* [Moderne CLI 1.7.0 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.7.0/moderne-cli-linux-v1.7.0)
+* [Moderne CLI 1.6.27 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux/v1.6.27/moderne-cli-linux-v1.6.27)
+* [Moderne CLI 1.7.1 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.7.1/moderne-cli-linux-v1.7.1)
 {% endtab %}
 
 {% tab title="Windows" %}
-* [Moderne CLI 1.6.17 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v1.6.17/moderne-cli-windows-v1.6.17)
-* [Moderne CLI 1.7.0 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.7.0/moderne-cli-windows-v1.7.0)
+* [Moderne CLI 1.6.27 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v1.6.27/moderne-cli-windows-v1.6.27)
+* [Moderne CLI 1.7.1 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.7.1/moderne-cli-windows-v1.7.1)
 {% endtab %}
 {% endtabs %}
 
@@ -53,7 +53,7 @@ brew install moderneinc/moderne/mod
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 1.7.0-SNAPSHOT
+Moderne CLI 1.7.1-SNAPSHOT
 
 Usage:
 
