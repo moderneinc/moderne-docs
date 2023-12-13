@@ -1,5 +1,6 @@
 # Moderne DX config docs
 
+* [Configuring the Moderne DX](./dx-configuration.md)
 * [Configure Moderne DX with Maven repository access](./configure-dx-with-maven-repository-access.md)
 * [Configure Moderne DX with Artifactory access: LSTs](./configure-dx-with-artifactory-access.md)
 * [Configure Moderne DX with Artifactory access: recipes](./configure-dx-with-artifactory-recipes.md)
