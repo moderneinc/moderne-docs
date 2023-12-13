@@ -2,9 +2,9 @@
 
 In order to securely communicate with the Moderne SaaS, you will need to set up an on-premise agent in your environment. To assist you with that process and provide you with information about the agent, this guide will:
 
-* [Give you some high-level information about the agent](agent-configuration.md#high-level-agent-information)
-* [Provide step-by-step instructions for configuring the agent](agent-configuration.md#agent-setup-instructions)
-* [Teach you how to update the agent later on](agent-configuration.md#updating-your-agent)
+* [Give you some high-level information about the agent](./#high-level-agent-information)
+* [Provide step-by-step instructions for configuring the agent](./#agent-setup-instructions)
+* [Teach you how to update the agent later on](./#updating-your-agent)
 
 ## High-level agent information
 
@@ -12,7 +12,7 @@ In order to securely communicate with the Moderne SaaS, you will need to set up 
 
 The Moderne on-premise agent:
 
-* Encrypts and ships [LST](../references/concepts/lossless-semantic-trees.md) and recipe artifacts from your artifact repository (e.g., Artifactory) to the Moderne SaaS
+* Encrypts and ships [LST](../../references/concepts/lossless-semantic-trees.md) and recipe artifacts from your artifact repository (e.g., Artifactory) to the Moderne SaaS
 * Provides the symmetric key that Moderne needs to decrypt your artifacts
 * Forwards requests from the Moderne SaaS to your SCM(s) (e.g., GitHub)
 * Forwards requests from the Moderne SaaS to the organization service (if configured)
@@ -31,7 +31,7 @@ The Moderne agent requires customers to create a hex-encoded 256-bit AES encrypt
 openssl enc -aes-256-cbc -k secret -P
 ```
 
-This will return a `salt`, `key`, and `iv`. Please copy the `key` and save it for use in [step 4](agent-configuration.md#step-4-configure-the-agent-with-the-core-variablesarguments) as the `symmetricKey`.
+This will return a `salt`, `key`, and `iv`. Please copy the `key` and save it for use in [step 4](./#step-4-configure-the-agent-with-the-core-variablesarguments) as the `symmetricKey`.
 
 ### Step 3: Determine how you will run the agent
 
@@ -46,7 +46,7 @@ If you deploy to Kubernetes or any other containerized environment like AWS ECS,
 
 If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform\_as\_a\_service) environment such Cloud Foundry, you'll want to use the JAR to run the agent.
 
-The table below provides the core command for running the agent. However, in order for the agent to function correctly, additional variables will need to be added based on your environment (such as what SCM(s) your company uses, what artifact repositories you have configured, and whether or not you've configured an [Organizations service](../references/architecture/organizations-service.md)). We'll walk through each of those in the following steps.
+The table below provides the core command for running the agent. However, in order for the agent to function correctly, additional variables will need to be added based on your environment (such as what SCM(s) your company uses, what artifact repositories you have configured, and whether or not you've configured an [Organizations service](../../references/architecture/organizations-service.md)). We'll walk through each of those in the following steps.
 
 {% tabs %}
 {% tab title="OCI Container" %}
@@ -164,10 +164,10 @@ For every SCM that you want to connect to Moderne, please follow the instruction
 
 **SCM configuration:**
 
-* [Bitbucket Cloud configuration](on-premise-agent/configure-bitbucket-cloud-to-agent.md)
-* [Bitbucket Data Center configuration](on-premise-agent/configure-bitbucket-to-agent.md)
-* [GitHub configuration](on-premise-agent/configure-an-agent-with-github.md)
-* [GitLab configuration](on-premise-agent/configure-an-agent-with-gitlab.md)
+* [Bitbucket Cloud configuration](configure-bitbucket-cloud-to-agent.md)
+* [Bitbucket Data Center configuration](configure-bitbucket-to-agent.md)
+* [GitHub configuration](configure-an-agent-with-github.md)
+* [GitLab configuration](configure-an-agent-with-gitlab.md)
 
 Below is an example of what an agent run command might look like at the end of this step.
 
@@ -213,7 +213,7 @@ java -jar moderne-agent-{version}.jar \
 
 The Moderne agent needs to connect to your artifact repositories for two reasons:
 
-1. To obtain your [LST](../references/concepts/lossless-semantic-trees.md) artifacts so that recipes can be run on your code.
+1. To obtain your [LST](../../references/concepts/lossless-semantic-trees.md) artifacts so that recipes can be run on your code.
 2. To obtain your recipe artifacts (if any exist). These recipe artifacts contain custom recipes, defined by your team, that perform transformations against your LST artifacts.
 
 Your company might have many artifact repositories, potentially in different products, that you wish to connect the Moderne agent to. Each of these artifact repositories could contain LST artifacts, recipe artifacts, or a combination of both. The setup instructions differ based on what product you use to store your artifact repositories and what artifacts you wish to send to Moderne.
@@ -224,12 +224,12 @@ The Moderne agent can only talk to _Maven formatted_ artifact repositories. Ther
 
 Moderne offers two options for connecting to your artifact repository: a generic Maven connection that can connect to any Maven formatted repository regardless of vendor and an Artifactory-specific connection that is optimized to serve LST artifacts more quickly.
 
-If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](on-premise-agent/configure-an-agent-with-maven-repository-access.md) and then jump to [Step 7](agent-configuration.md#step-7-optionally-configure-the-organizations-service).
+If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](configure-an-agent-with-maven-repository-access.md) and then jump to [Step 7](./#step-7-optionally-configure-the-organizations-service).
 
 If you _do_ plan on using Artifactory to store artifacts, you have two options:
 
-1. Use the [Artifactory LST configuration instructions](on-premise-agent/configure-an-agent-with-artifactory-access.md) to set up a connection that serves LST artifacts to Moderne. Then, if you plan on creating custom recipes, you would follow the [Artifactory recipe configuration instructions](on-premise-agent/configuring-artifactory-with-recipes.md) to set up a connection in Artifactory to serve recipe artifacts. **(recommended)**
-2. Use the [Maven repository configuration instructions](on-premise-agent/configure-an-agent-with-maven-repository-access.md) to set up a connection that serves both LST artifacts and recipe artifacts to Moderne. This is not recommended as LST artifacts will have a considerable delay between being published and showing up in Moderne. However, if for some reason you can not use AQL queries, this approach is necessary.
+1. Use the [Artifactory LST configuration instructions](configure-an-agent-with-artifactory-access.md) to set up a connection that serves LST artifacts to Moderne. Then, if you plan on creating custom recipes, you would follow the [Artifactory recipe configuration instructions](configuring-artifactory-with-recipes.md) to set up a connection in Artifactory to serve recipe artifacts. **(recommended)**
+2. Use the [Maven repository configuration instructions](configure-an-agent-with-maven-repository-access.md) to set up a connection that serves both LST artifacts and recipe artifacts to Moderne. This is not recommended as LST artifacts will have a considerable delay between being published and showing up in Moderne. However, if for some reason you can not use AQL queries, this approach is necessary.
 
 The below table shows the key differences between the two types of configuration:
 
@@ -237,10 +237,10 @@ The below table shows the key differences between the two types of configuration
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Is not tied to a particular vendor.                                                                                                                                                                                                                                                                                                                                                                                                                     | Can only be used with Artifactory.                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Serves BOTH recipe artifacts and LST artifacts.                                                                                                                                                                                                                                                                                                                                                                                                         | Serves ONLY LST artifacts. Requires Maven configuration to serve recipe artifacts.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Recipe artifacts are immediately available for [deployment to Moderne](importing-external-recipes.md) upon publishing to the Maven formatted repository.                                                                                                                                                                                                                                                                                                | Can not serve recipe artifacts without Maven configuration.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Recipe artifacts are immediately available for [deployment to Moderne](../importing-external-recipes.md) upon publishing to the Maven formatted repository.                                                                                                                                                                                                                                                                                             | Can not serve recipe artifacts without Maven configuration.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | LST artifacts may be served if an index in the [Maven Indexer](https://maven.apache.org/maven-indexer/) format is regularly published to the repository. There will be a considerable delay between when an LST is published to the Maven repository and when it shows up in Moderne. This delay is approximately the delay between updates to the index – which is controlled by a batch process that your artifact repository executes on a schedule. | LST artifacts will show up in near-real time (within a minute or two) in the Moderne platform when they are published to Artifactory. This is because Artifactory configuration uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to identify recently published artifacts. AQL queries Artifactory's internal relational database for information about artifacts rather than using an index produced in a batch process. |
 
-Please ensure you've followed either the [Maven](on-premise-agent/configure-an-agent-with-maven-repository-access.md) or [Artifactory](on-premise-agent/configure-an-agent-with-artifactory-access.md) instructions before continuing.
+Please ensure you've followed either the [Maven](configure-an-agent-with-maven-repository-access.md) or [Artifactory](configure-an-agent-with-artifactory-access.md) instructions before continuing.
 
 Below is an example of what an agent run command might look like at the end of this step.
 
@@ -304,7 +304,7 @@ java -jar moderne-agent-{version}.jar \
 
 Many organizations desire the ability to control the organizational structure of their repositories within the Moderne platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
 
-If you want to set up this service, please follow [these instructions](../../architecture/organizations-service/). Then, once it has been set up, please configure the agent by following [these instructions](on-premise-agent/configure-organizations-service.md).
+If you want to set up this service, please follow [these instructions](../../../architecture/organizations-service/). Then, once it has been set up, please configure the agent by following [these instructions](configure-organizations-service.md).
 
 Below is an example of what an agent run command might look like at the end of this step if you set up the Organizations service.
 
@@ -368,7 +368,7 @@ java -jar moderne-agent-{version}.jar \
 
 ### Step 8: (Optionally) Use strict recipe sources.
 
-Some organizations want recipe artifacts to only come from locations configured in the Moderne agent. If you want to configure that, please follow the [strict recipe sources instructions](on-premise-agent/configure-an-agent-with-strict-recipe-sources.md).
+Some organizations want recipe artifacts to only come from locations configured in the Moderne agent. If you want to configure that, please follow the [strict recipe sources instructions](configure-an-agent-with-strict-recipe-sources.md).
 
 Below is an example of what an agent run command might look like at the end of this step if you configured the agent to use only configured recipe sources.
 
@@ -434,7 +434,7 @@ java -jar moderne-agent-{version}.jar \
 
 ### Step 9: (Optionally) Provide SSL client keystore
 
-If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](on-premise-agent/configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
+If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
 
 ### Step 10: Run the agent
 
@@ -526,10 +526,10 @@ If you want to update the Moderne agent over time, please follow the instruction
 {% tab title="OCI Container" %}
 If you're running the commands provided in this guide, you should see that the last line of every agent run command is `moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest`.
 
-If that's true, then you can simply restart the agent and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](../../releases/agent-releases.md) for the versions.
+If that's true, then you can simply restart the agent and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](../../../releases/agent-releases.md) for the versions.
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-To update your version of the Executable JAR, change the `{version}` in `java -jar moderne-agent-{version}.jar` to be the latest one on [the releases page](../../releases/agent-releases.md).
+To update your version of the Executable JAR, change the `{version}` in `java -jar moderne-agent-{version}.jar` to be the latest one on [the releases page](../../../releases/agent-releases.md).
 {% endtab %}
 {% endtabs %}

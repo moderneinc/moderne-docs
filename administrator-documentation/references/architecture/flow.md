@@ -26,7 +26,7 @@ Your custom recipe artifacts are similarly encrypted before they are transmitted
 
 Below you can find a component diagram that has been simplified to only show interactions that are related to the encryption and decryption of LST artifacts:
 
-![LST encryption diagram](../../../../.gitbook/assets/LST-encryption-diagram.png)
+![LST encryption diagram](../../../.gitbook/assets/LST-encryption-diagram.png)
 
 Let's walk through each of these components while focusing on how artifacts flow through them.
 
@@ -70,7 +70,7 @@ When a user tries to sign into the Moderne SaaS, Moderne uses OIDC or SAML to au
 
 Moderne users can authorize the creation of an OAuth token for Moderne to use via a standard OAuth web application flow (such as in this [GitHub example](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow)). As part of this process, a user may be required to authenticate with the SCM first if they don't have an active session. Please note that the redirect part of the OAuth process goes from a developer's workstation to the SCM directly. If your SCM is self-hosted, that request does not go outside of your environment.
 
-In order to set up this OAuth process, an OAuth client for Moderne needs to be created. The homepage URL and callback URL should both be [https://TENANT.moderne.io](https://tenant.moderne.io). Furthermore, the client id and client secret need to be provided to the Moderne SaaS. For instructions on how to configure this, please see our [on-premise agent docs](../../how-to-guides/on-premise-agent/).
+In order to set up this OAuth process, an OAuth client for Moderne needs to be created. The homepage URL and callback URL should both be [https://TENANT.moderne.io](https://tenant.moderne.io). Furthermore, the client id and client secret need to be provided to the Moderne SaaS. For instructions on how to configure this, please see our [configuring the Moderne agent docs](../../how-to-guides/agent-configuration/).
 
 All of the user interactions that result in authorization decisions within GitHub, Bitbucket, and GitLab (such as viewing diffs, committing, and making PRs) come to these SCMs through the agent on behalf of the user. From GitHub, Bitbucket, or GitLab’s perspective, all interactions appear to come from the user at the agent's location. Therefore, the Moderne SaaS doesn’t require any changes to how GitHub, Bitbucket, or GitLab is used internally.
 
@@ -82,18 +82,18 @@ User authorization on a particular repo is also retrieved and cached for some co
 
 ### SSO identity brokering
 
-![SSO identity brokering](../../../../.gitbook/assets/sso-identity-brokering.png)
+![SSO identity brokering](../../../.gitbook/assets/sso-identity-brokering.png)
 
 ### SCM authorization
 
-![SCM authorization](../../../../.gitbook/assets/scm-authorization.png)
+![SCM authorization](../../../.gitbook/assets/scm-authorization.png)
 
 ### User flows
 
 #### Get recipe execution details
 
-![Recipe execution details](../../../../.gitbook/assets/recipe-execution-details.png)
+![Recipe execution details](../../../.gitbook/assets/recipe-execution-details.png)
 
 #### Commit or open a pull request
 
-![Commit or PR](../../../../.gitbook/assets/commit-or-pr.png)
+![Commit or PR](../../../.gitbook/assets/commit-or-pr.png)

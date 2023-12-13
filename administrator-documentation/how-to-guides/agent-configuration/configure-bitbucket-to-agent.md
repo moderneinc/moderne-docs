@@ -31,7 +31,7 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
 3. Click on "Create link"
 4. Ensure that the _Application Type_ is set to _Atlassian product_ (this looks weird, but this is the [documented path](https://confluence.atlassian.com/bitbucketserver/link-to-other-applications-1018764620.html) for external applications to integrate)
 5. Enter the URL for your Moderne instances as the _Application URL_:
-   * ![create link](../../../../.gitbook/assets/agent-bitbucket-create-link.png)
+   * ![create link](../../../.gitbook/assets/agent-bitbucket-create-link.png)
 6. Click _Continue_
 7.  Define a new Incoming Application with the following settings:
 
@@ -78,7 +78,7 @@ If you're not using a shell, please follow these instructions instead:
 
 ### Step 4: Configure the Moderne Agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](../agent-configuration.md).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
 
 {% hint style="info" %}
 You can configure multiple Bitbucket instances by including multiple entries, each with a different `{index}`.

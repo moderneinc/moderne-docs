@@ -31,25 +31,25 @@ If you are using Artifactory to publish LST artifacts, it is _highly_ recommende
 
 In Artifactory, select the `Artifactory` link on the left nav and then select `Maven Indexer` under Services:
 
-![](../../../../.gitbook/assets/artifactory.png)
+![](../../../.gitbook/assets/artifactory.png)
 
 For a repository to be a source of LSTs, it must be included in the list of repositories that are indexed:
 
-![](../../../../.gitbook/assets/maven-indexer.png)
+![](../../../.gitbook/assets/maven-indexer.png)
 {% endtab %}
 
 {% tab title="Nexus Repository" %}
 Under the administration view, select `Tasks` on the left nav:
 
-![](../../../../.gitbook/assets/sona-tasks.png)
+![](../../../.gitbook/assets/sona-tasks.png)
 
 Select `Create task` and create a `Maven - Publish Maven Indexer files` task:
 
-![](../../../../.gitbook/assets/maven-publish.png)
+![](../../../.gitbook/assets/maven-publish.png)
 
 Select the repository that will serve LST artifacts and specify a frequency with which this index should be updated:
 
-![](../../../../.gitbook/assets/maven-publish-index.png)
+![](../../../.gitbook/assets/maven-publish-index.png)
 {% endtab %}
 {% endtabs %}
 
@@ -59,7 +59,7 @@ Recipe artifacts will automatically be picked up by Moderne so long as you set t
 
 ## Configuring the Moderne agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get LST and recipe artifacts from your Maven formatted repository. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](../agent-configuration.md).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get LST and recipe artifacts from your Maven formatted repository. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
 
 You can configure multiple Maven formatted repositories by including multiple entries, each with a different `{index}`.
 

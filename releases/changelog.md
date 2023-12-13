@@ -1,8 +1,8 @@
 # Platform changelog
+
 ### UI v10.24.2 (2023/12/12)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v10.24.1 (2023/12/09)
 
@@ -1146,7 +1146,7 @@ Hover over the info icon to quickly view more information including the commit t
 
 #### Removal of the default repository group `All`
 
-Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../administrator-documentation/how-to-guides/on-premise-agent/configure-organizations-service.md) through Agent to provide this functionality. See the example below.
+Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../administrator-documentation/how-to-guides/agent-configuration/configure-organizations-service.md) through Agent to provide this functionality. See the example below.
 
 ```json
 {
@@ -1173,7 +1173,7 @@ Actions for grids are now presented on the left-hand side of the table.
 
 #### Bitbucket Cloud support
 
-Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your agent](../administrator-documentation/how-to-guides/on-premise-agent/configure-bitbucket-cloud-to-agent.md#prerequisites).
+Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your agent](../administrator-documentation/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent.md#prerequisites).
 
 <figure><img src="../.gitbook/assets/bit-cloud.png" alt=""><figcaption></figcaption></figure>
 

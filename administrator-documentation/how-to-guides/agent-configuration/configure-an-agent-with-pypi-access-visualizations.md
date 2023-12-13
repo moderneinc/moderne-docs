@@ -10,7 +10,7 @@ Visualization artifacts published to the configured PyPI index can be deployed t
 
 ## &#x20;Configuring the Moderne agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get visualization artifacts from your PyPI package index. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](../agent-configuration.md).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get visualization artifacts from your PyPI package index. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
 
 You can configure multiple PyPI indexes by including multiple entries, each with a different `{index}`.
 

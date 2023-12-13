@@ -19,11 +19,11 @@ Follow [this Atlassian guide](https://support.atlassian.com/bitbucket-cloud/docs
 
 Once that's done, configure the callback URL to point at your Moderne tenant:
 
-![](../../../../.gitbook/assets/callback.png)
+![](../../../.gitbook/assets/callback.png)
 
 The consumer should have these permissions:
 
-![](../../../../.gitbook/assets/bitbucket-permissions.png)
+![](../../../.gitbook/assets/bitbucket-permissions.png)
 
 * Projects - Read
 * Repositories - Write
@@ -31,7 +31,7 @@ The consumer should have these permissions:
 
 Once your consumer has been created, you should see a `key` and a `secret`:
 
-<figure><img src="../../../../.gitbook/assets/key-secret.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/key-secret.png" alt=""><figcaption></figcaption></figure>
 
 Please save those for use in [Step 2](configure-bitbucket-cloud-to-agent.md#step-2-configure-the-moderne-agent).
 
@@ -39,7 +39,7 @@ Please save those for use in [Step 2](configure-bitbucket-cloud-to-agent.md#step
 
 ### Step 2: Configure the Moderne agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](../agent-configuration.md).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
 
 {% tabs %}
 {% tab title="OCI Container" %}

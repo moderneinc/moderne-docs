@@ -16,25 +16,28 @@ To assist with that, this guide will:
 ### Step 1: Create an OAuth application
 
 1. Navigate to the Applications page for your organization: `https://gitlab.com/groups/<yourorg>/-/settings/applications`
-2. Provide an application name and redirect URI. The redirect URI will be in this format: `https://<tenantname>.moderne.io`:
-   *
+2.  Provide an application name and redirect URI. The redirect URI will be in this format: `https://<tenantname>.moderne.io`: \*
 
-       <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.59.50 AM.png" alt=""><figcaption></figcaption></figure>
-3. Pick the following scopes:
-   *
+    ```
+    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.59.50 AM.png" alt=""><figcaption></figcaption></figure>
+    ```
+3.  Pick the following scopes: \*
 
-       <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 7.52.35 AM.png" alt=""><figcaption></figcaption></figure>
+    ```
+    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 7.52.35 AM.png" alt=""><figcaption></figcaption></figure>
+    ```
 4. Click the Save application button
-5. Copy the `Application ID` and `Secret` from this page; they will be used as arguments for the Moderne Agent:
-   *
+5.  Copy the `Application ID` and `Secret` from this page; they will be used as arguments for the Moderne Agent: \*
 
-       <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.03.35 AM.png" alt=""><figcaption></figcaption></figure>
+    ```
+    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.03.35 AM.png" alt=""><figcaption></figcaption></figure>
+    ```
 
 ## Agent configuration
 
 ### Step 2: Configure the Moderne Agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your GitLab instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](../agent-configuration.md).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your GitLab instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
 
 You can configure multiple GitLab OAuth apps by including multiple entries, each with a different `{index}`.
 

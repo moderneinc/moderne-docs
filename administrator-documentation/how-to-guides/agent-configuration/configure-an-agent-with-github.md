@@ -21,12 +21,12 @@ To assist with that, this guide will:
 
 1. Navigate to the settings page for your organization: `https://github.com/organizations/<YOUR_ORG>/settings/applications`
 2. Expand `Developer settings` on the bottom left of the page:
-   * ![](<../../../../.gitbook/assets/Screen Shot 2022-05-19 at 12.56.51 PM.png>)
+   * ![](<../../../.gitbook/assets/Screen Shot 2022-05-19 at 12.56.51 PM.png>)
 3. Click the `New OAuth App` button in the upper right of your screen.
 4. Supply the required fields and register the application (See [examples](configure-an-agent-with-github.md#example-values) below):
-   * ![](<../../../../.gitbook/assets/Screen Shot 2022-05-19 at 1.01.11 PM.png>)
+   * ![](<../../../.gitbook/assets/Screen Shot 2022-05-19 at 1.01.11 PM.png>)
 5. On your newly created application click the `Generate a new client secret` button:
-   * ![](<../../../../.gitbook/assets/Screen Shot 2022-05-19 at 1.17.35 PM (1).png>)
+   * ![](<../../../.gitbook/assets/Screen Shot 2022-05-19 at 1.17.35 PM (1).png>)
 6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](configure-an-agent-with-github.md#step-2-configure-the-moderne-agent).
 
 #### Example values
@@ -41,7 +41,7 @@ To assist with that, this guide will:
 
 ### Step 2: Configure the Moderne Agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your GitHub instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](../agent-configuration.md).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your GitHub instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
 
 {% hint style="info" %}
 You can configure multiple GitHub OAuth apps by including multiple entries, each with a different `{index}`.
