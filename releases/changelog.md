@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.26.0 (2023/12/14)
+
+- enable AI assisted search by default
+- add mergeability column to the commit job table
+
 ### UI v10.25.0 (2023/12/13)
 
 - Bug fixes and other improvements.
