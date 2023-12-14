@@ -13,13 +13,12 @@
 * [**mod config artifacts delete**](#mod-config-artifacts-delete)
 * [**mod config artifacts show**](#mod-config-artifacts-show)
 * [**mod config environment**](#mod-config-environment)
-* [**mod config environment list**](#mod-config-environment-list)
+* [**mod config environment show**](#mod-config-environment-show)
 * [**mod config gradle**](#mod-config-gradle)
-* [**mod config gradle build**](#mod-config-gradle-build)
-* [**mod config gradle build arguments**](#mod-config-gradle-build-arguments)
-* [**mod config gradle build arguments delete**](#mod-config-gradle-build-arguments-delete)
-* [**mod config gradle build arguments edit**](#mod-config-gradle-build-arguments-edit)
-* [**mod config gradle build arguments show**](#mod-config-gradle-build-arguments-show)
+* [**mod config gradle arguments**](#mod-config-gradle-arguments)
+* [**mod config gradle arguments delete**](#mod-config-gradle-arguments-delete)
+* [**mod config gradle arguments edit**](#mod-config-gradle-arguments-edit)
+* [**mod config gradle arguments show**](#mod-config-gradle-arguments-show)
 * [**mod config http**](#mod-config-http)
 * [**mod config http proxy**](#mod-config-http-proxy)
 * [**mod config http proxy delete**](#mod-config-http-proxy-delete)
@@ -33,17 +32,24 @@
 * [**mod config java options**](#mod-config-java-options)
 * [**mod config java options edit**](#mod-config-java-options-edit)
 * [**mod config java options delete**](#mod-config-java-options-delete)
-* [**mod config java options list**](#mod-config-java-options-list)
+* [**mod config java options show**](#mod-config-java-options-show)
+* [**mod config java version**](#mod-config-java-version)
+* [**mod config java version edit**](#mod-config-java-version-edit)
+* [**mod config java version delete**](#mod-config-java-version-delete)
+* [**mod config java version show**](#mod-config-java-version-show)
 * [**mod config maven**](#mod-config-maven)
-* [**mod config maven build**](#mod-config-maven-build)
-* [**mod config maven build arguments**](#mod-config-maven-build-arguments)
-* [**mod config maven build arguments delete**](#mod-config-maven-build-arguments-delete)
-* [**mod config maven build arguments edit**](#mod-config-maven-build-arguments-edit)
-* [**mod config maven build arguments show**](#mod-config-maven-build-arguments-show)
+* [**mod config maven arguments**](#mod-config-maven-arguments)
+* [**mod config maven arguments delete**](#mod-config-maven-arguments-delete)
+* [**mod config maven arguments edit**](#mod-config-maven-arguments-edit)
+* [**mod config maven arguments show**](#mod-config-maven-arguments-show)
 * [**mod config maven settings**](#mod-config-maven-settings)
 * [**mod config maven settings delete**](#mod-config-maven-settings-delete)
 * [**mod config maven settings edit**](#mod-config-maven-settings-edit)
 * [**mod config maven settings show**](#mod-config-maven-settings-show)
+* [**mod config moderne**](#mod-config-moderne)
+* [**mod config moderne delete**](#mod-config-moderne-delete)
+* [**mod config moderne edit**](#mod-config-moderne-edit)
+* [**mod config moderne show**](#mod-config-moderne-show)
 * [**mod config recipes**](#mod-config-recipes)
 * [**mod config recipes export**](#mod-config-recipes-export)
 * [**mod config recipes export json**](#mod-config-recipes-export-json)
@@ -60,10 +66,10 @@
 * [**mod config recipes yaml**](#mod-config-recipes-yaml)
 * [**mod config recipes yaml install**](#mod-config-recipes-yaml-install)
 * [**mod config recipes yaml delete**](#mod-config-recipes-yaml-delete)
-* [**mod config moderne**](#mod-config-moderne)
-* [**mod config moderne delete**](#mod-config-moderne-delete)
-* [**mod config moderne edit**](#mod-config-moderne-edit)
-* [**mod config moderne show**](#mod-config-moderne-show)
+* [**mod config user**](#mod-config-user)
+* [**mod config user delete**](#mod-config-user-delete)
+* [**mod config user edit**](#mod-config-user-edit)
+* [**mod config user show**](#mod-config-user-show)
 * [**mod list**](#mod-list)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
@@ -156,11 +162,7 @@ mod build [parameters] [subcommands]
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
-| --active-styles |  Comma separated list of the OpenRewrite style names (the name given in the`specs.openrewrite.org/v1beta/style` resource) that should be applied to the code whenever a recipe is run. If a style name isn't specified, OpenRewrite will autodetect the existing style and use that. | |
-| --bazel-rule |  Specifies a bazel rule expression. | |
 | --dry-run |  Do not actually build the LST(s), but list the steps that would be required to do so. | |
-| --java-home |  The path to the Java home directory that should be used to build the artifacts. | |
-| --java-version |  The version of the JDK which should be selected if multiple different JDKs are discovered. | |
 | --jvm-debug |  Start a JDWP server on this port and pause for a remote debug connection. | |
 | --no-download |  Do not attempt to download LSTs from Moderne. | |
 | --offline |  When an underlying build tool has an offline mode, enable it. | |
@@ -267,9 +269,10 @@ mod config [parameters] [subcommands]
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `http`: Configures HTTP options that will be used throughout the CLI.
 * `java`: Configures Java options used for building LSTs and running recipes.
-* `maven`: Configures Maven as it is used to resolve recipe dependencies and when running recipes.
-* `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
+* `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
 * `moderne`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
+* `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
+* `user`: Configure the active user.
 
 ## mod config artifacts
 
@@ -389,9 +392,9 @@ mod config environment [parameters] [subcommands]
 
 ### Subcommands
 
-* `list`: The build environment that the CLI is running in.
+* `show`: The build environment that the CLI is running in.
 
-## mod config environment list
+## mod config environment show
 
 The build environment that the CLI is running in.
 
@@ -401,7 +404,7 @@ Will output information about the environment the CLI is running in (e.g., a loc
 ### Usage
 
 ```
-mod config environment list [parameters] [subcommands]
+mod config environment show [parameters] [subcommands]
 ```
 
 
@@ -422,27 +425,9 @@ mod config gradle [parameters] [subcommands]
 
 ### Subcommands
 
-* `build`: Configure the Gradle build.
-
-## mod config gradle build
-
-Configure the Gradle build.
-
-
-This alters the way Gradle is invoked when building LSTs.
-
-### Usage
-
-```
-mod config gradle build [parameters] [subcommands]
-```
-
-
-### Subcommands
-
 * `arguments`: Configure Gradle build arguments.
 
-## mod config gradle build arguments
+## mod config gradle arguments
 
 Configure Gradle build arguments.
 
@@ -452,7 +437,7 @@ Build arguments are added to the end of the Gradle command line when building LS
 ### Usage
 
 ```
-mod config gradle build arguments [parameters] [subcommands]
+mod config gradle arguments [parameters] [subcommands]
 ```
 
 
@@ -462,7 +447,7 @@ mod config gradle build arguments [parameters] [subcommands]
 * `edit`: Configure Gradle build arguments.
 * `show`: Displays the configured Gradle additional build arguments.
 
-## mod config gradle build arguments delete
+## mod config gradle arguments delete
 
 Removes additional build arguments for Gradle.
 
@@ -470,7 +455,7 @@ Removes additional build arguments for Gradle.
 ### Usage
 
 ```
-mod config gradle build arguments delete [parameters] [subcommands]
+mod config gradle arguments delete [parameters] [subcommands]
 ```
 
 ### Options
@@ -484,7 +469,7 @@ mod config gradle build arguments delete [parameters] [subcommands]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config gradle build arguments edit
+## mod config gradle arguments edit
 
 Configure Gradle build arguments.
 
@@ -494,7 +479,7 @@ Build arguments are added to the end of the Gradle command line when building LS
 ### Usage
 
 ```
-mod config gradle build arguments edit [parameters] [subcommands]
+mod config gradle arguments edit [parameters] [subcommands]
 ```
 
 ### Parameters
@@ -514,7 +499,7 @@ mod config gradle build arguments edit [parameters] [subcommands]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config gradle build arguments show
+## mod config gradle arguments show
 
 Displays the configured Gradle additional build arguments.
 
@@ -522,7 +507,7 @@ Displays the configured Gradle additional build arguments.
 ### Usage
 
 ```
-mod config gradle build arguments show [parameters] [subcommands]
+mod config gradle arguments show [parameters] [subcommands]
 ```
 
 ### Options
@@ -666,6 +651,7 @@ mod config java [parameters] [subcommands]
 
 * `jdk`: Configures locations of JDKs that can be used by build tools.
 * `options`: Configures JVM options added to tools building LSTs.
+* `version`: Configures the JDK to use.
 
 ## mod config java jdk
 
@@ -685,7 +671,7 @@ mod config java jdk [parameters] [subcommands]
 
 * `edit`: Configures locations of JDKs that can be used by build tools.
 * `delete`: Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
-* `list`: Displays the detected and configured JDK installations.
+* `list`: Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
 
 ## mod config java jdk edit
 
@@ -704,7 +690,7 @@ mod config java jdk edit [parameters] [subcommands]
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
-| javaHomes |  The paths on disk where JDK installations can be found | |
+| javaHomes |  The paths on disk where JDK installations can be found. | |
 
 ### Options
 
@@ -741,7 +727,7 @@ mod config java jdk delete [parameters] [subcommands]
 
 ## mod config java jdk list
 
-Displays the detected and configured JDK installations.
+Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
 
 
 ### Usage
@@ -755,6 +741,7 @@ mod config java jdk list [parameters] [subcommands]
 | Name | Description | Example |
 | ---- | ----------- | ------- |
 | --local |  Configuration relevant to a specific group of repositories. | |
+| --named |  Filter the list of JDKs to . | |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
@@ -779,7 +766,7 @@ mod config java options [parameters] [subcommands]
 
 * `edit`: Configures JVM options added to tools building LSTs.
 * `delete`: Removes configured JVM options. The CLI will no longer use custom JVM options.
-* `list`: Displays the configured JVM options.
+* `show`: Displays the configured JVM options.
 
 ## mod config java options edit
 
@@ -833,7 +820,7 @@ mod config java options delete [parameters] [subcommands]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config java options list
+## mod config java options show
 
 Displays the configured JVM options.
 
@@ -841,7 +828,101 @@ Displays the configured JVM options.
 ### Usage
 
 ```
-mod config java options list [parameters] [subcommands]
+mod config java options show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config java version
+
+Configures the JDK to use.
+
+
+Configure a name like "17", "17-tem", or "17.0.6-tem" depending on the degree of control needed.
+
+### Usage
+
+```
+mod config java version [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the JDK to use.
+* `delete`: Reverts to auto-detection of a JDK to use when building a repository.
+* `show`: Displays the configured JDK version.
+
+## mod config java version edit
+
+Configures the JDK to use.
+
+
+Configure a name like "17", "17-tem", or "17.0.6-tem" depending on the degree of control needed.
+
+### Usage
+
+```
+mod config java version edit [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| selectedJdk |  The named JDK to use. If set to "auto", the CLI will revert to detecting the correct JDK to use from signals available in the repository. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config java version delete
+
+Reverts to auto-detection of a JDK to use when building a repository.
+
+
+### Usage
+
+```
+mod config java version delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config java version show
+
+Displays the configured JDK version.
+
+
+### Usage
+
+```
+mod config java version show [parameters] [subcommands]
 ```
 
 ### Options
@@ -857,7 +938,7 @@ mod config java options list [parameters] [subcommands]
 
 ## mod config maven
 
-Configures Maven as it is used to resolve recipe dependencies and when running recipes.
+Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
 
 
 
@@ -871,28 +952,10 @@ mod config maven [parameters] [subcommands]
 
 ### Subcommands
 
-* `build`: Configure the Maven build.
+* `arguments`: Configure Maven build arguments.
 * `settings`: Configure Maven settings.
 
-## mod config maven build
-
-Configure the Maven build.
-
-
-This alters the way Maven is invoked when building LSTs.
-
-### Usage
-
-```
-mod config maven build [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `arguments`: Configure Maven build arguments.
-
-## mod config maven build arguments
+## mod config maven arguments
 
 Configure Maven build arguments.
 
@@ -902,7 +965,7 @@ Build arguments are added to the end of the Maven command line when building LST
 ### Usage
 
 ```
-mod config maven build arguments [parameters] [subcommands]
+mod config maven arguments [parameters] [subcommands]
 ```
 
 
@@ -912,7 +975,7 @@ mod config maven build arguments [parameters] [subcommands]
 * `edit`: Configure Maven build arguments.
 * `show`: Displays the configured Maven additional build arguments.
 
-## mod config maven build arguments delete
+## mod config maven arguments delete
 
 Removes additional build arguments for Maven.
 
@@ -920,7 +983,7 @@ Removes additional build arguments for Maven.
 ### Usage
 
 ```
-mod config maven build arguments delete [parameters] [subcommands]
+mod config maven arguments delete [parameters] [subcommands]
 ```
 
 ### Options
@@ -934,7 +997,7 @@ mod config maven build arguments delete [parameters] [subcommands]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config maven build arguments edit
+## mod config maven arguments edit
 
 Configure Maven build arguments.
 
@@ -944,7 +1007,7 @@ Build arguments are added to the end of the Maven command line when building LST
 ### Usage
 
 ```
-mod config maven build arguments edit [parameters] [subcommands]
+mod config maven arguments edit [parameters] [subcommands]
 ```
 
 ### Parameters
@@ -964,7 +1027,7 @@ mod config maven build arguments edit [parameters] [subcommands]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config maven build arguments show
+## mod config maven arguments show
 
 Displays the configured Maven additional build arguments.
 
@@ -972,7 +1035,7 @@ Displays the configured Maven additional build arguments.
 ### Usage
 
 ```
-mod config maven build arguments show [parameters] [subcommands]
+mod config maven arguments show [parameters] [subcommands]
 ```
 
 ### Options
@@ -1071,6 +1134,107 @@ Displays the configured Maven settings.
 
 ```
 mod config maven settings show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config moderne
+
+Configures the connection to Moderne. Must be configured before you can install and run recipes.
+
+
+All subsequent commands will use this Moderne tenant.
+
+### Usage
+
+```
+mod config moderne [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured Moderne tenant.
+* `edit`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
+* `show`: Displays the artifact repository configuration.
+
+## mod config moderne delete
+
+Removes the configured Moderne tenant.
+
+
+
+
+### Usage
+
+```
+mod config moderne delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config moderne edit
+
+Configures the connection to Moderne. Must be configured before you can install and run recipes.
+
+
+All subsequent commands will use this Moderne tenant.
+
+### Usage
+
+```
+mod config moderne edit [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| host |  The URL of the Moderne UI. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --api |  The URL of the tenant API gateway. | |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. | |
+| --token |  The Moderne personal access token to use. | |
+
+
+## mod config moderne show
+
+Displays the artifact repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config moderne show [parameters] [subcommands]
 ```
 
 ### Options
@@ -1408,37 +1572,35 @@ mod config recipes yaml delete [parameters] [subcommands]
 
 
 
-## mod config moderne
+## mod config user
 
-Configures the connection to Moderne. Must be configured before you can install and run recipes.
+Configure the active user.
 
 
-All subsequent commands will use this Moderne tenant.
+The active user is reported for activity metrics in Moderne DX environments. If not explicitly set in **mod config**, the active user is inferred from global git configuration.
 
 ### Usage
 
 ```
-mod config moderne [parameters] [subcommands]
+mod config user [parameters] [subcommands]
 ```
 
 
 ### Subcommands
 
-* `delete`: Removes the configured Moderne tenant.
-* `edit`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
-* `show`: Displays the artifact repository configuration.
+* `delete`: Removes the configured active user.
+* `edit`: Configure the active user.
+* `show`: Displays the configured active user.
 
-## mod config moderne delete
+## mod config user delete
 
-Removes the configured Moderne tenant.
-
-
+Removes the configured active user.
 
 
 ### Usage
 
 ```
-mod config moderne delete [parameters] [subcommands]
+mod config user delete [parameters] [subcommands]
 ```
 
 ### Options
@@ -1452,50 +1614,41 @@ mod config moderne delete [parameters] [subcommands]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config moderne edit
+## mod config user edit
 
-Configures the connection to Moderne. Must be configured before you can install and run recipes.
+Configure the active user.
 
 
-All subsequent commands will use this Moderne tenant.
+The active user is reported for activity metrics in Moderne DX environments.
 
 ### Usage
 
 ```
-mod config moderne edit [parameters] [subcommands]
+mod config user edit [parameters] [subcommands]
 ```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| host |  The URL of the Moderne UI. | |
 
 ### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
-| --api |  The URL of the tenant API gateway. | |
+| email |  The email of the active user. | |
 | --local |  Configuration relevant to a specific group of repositories. | |
+| name |  The name of the active user. | |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
-| --skip-ssl |  If this parameter is included, SSL verification will be skipped. | |
-| --token |  The Moderne personal access token to use. | |
 
 
-## mod config moderne show
+## mod config user show
 
-Displays the artifact repository configuration.
-
-
+Displays the configured active user.
 
 
 ### Usage
 
 ```
-mod config moderne show [parameters] [subcommands]
+mod config user show [parameters] [subcommands]
 ```
 
 ### Options
@@ -1593,8 +1746,6 @@ mod run [parameters] [subcommands]
 | Name | Description | Example |
 | ---- | ----------- | ------- |
 | --active-recipe |  If this flag is included, the recipe specified as the active recipe in your IDE will be run (assuming you have the Moderne plugin installed and configured). | |
-| --java-home |  The path to the Java home directory that should be used to build the artifacts. | |
-| --java-version |  The version of the JDK which should be selected if multiple different JDKs are discovered. | |
 | --jvm-debug |  Start a JDWP server on this port and pause for a remote debug connection. | |
 | -P, --recipe-option |  Recipe options, if any. If a recipe accepts more than one option, you can include this argument multiple times. | |
 | --recipe |  The recipe ID of the recipe that should be run. | |
@@ -1777,7 +1928,7 @@ mod clone [parameters] [subcommands]
 Clones the repositories listed in a CSV file.
 
 
-The CSV file should have a header row with the required columns **cloneUrl, branch** and any number of optional columns.
+The CSV file should have a header row with the required columns **cloneUrl, branch** and any number of optional columns. The optional columns are **changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**.
 
 ### Usage
 
@@ -1799,6 +1950,7 @@ mod clone csv [parameters] [subcommands]
 | --depth |  | |
 | --filter |  | |
 | --limit |  The maximum number of repositories to clone. | |
+| --save |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. | |
 | --single-branch |  | |
 
 
