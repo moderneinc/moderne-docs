@@ -2,7 +2,7 @@
 
 One big challenge that comes with building many repositories on many different machines is configuration. What arguments do you need to build each repository? Are there Maven specific ones? Gradle specific ones? Do they change depending on the group of projects? How do you share these configurations with new people on the team?
 
-To meet all of these needs, the Moderne CLI offers a few options for how you can configure building LST artifacts for your repositories locally. In this guide, we'll walk through each of them and explain when you should use one over another.
+To meet all of these needs, the Moderne CLI offers a few options for how you can include global or project-specific build arguments. In this guide, we'll walk through each of them and explain when you should use one over another.
 
 * [Global configuration](#global-configuration)
 * [Local configuration (user-specific)](#local-configuration-user-specific)
