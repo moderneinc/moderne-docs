@@ -171,6 +171,10 @@ mod config artifacts edit <your-artifact-repository-url> --user <user> --passwor
 
 If you want to dive into using the CLI in a real-world situation, please check out our [Moderne CLI exercise](../workshops/spring-boot-migration-workshop/moderne-cli-exercise.md) in the [Spring Boot migration workshop](../workshops/spring-boot-migration-workshop/). In there, you will work through using the CLI to migrate some Spring repositories from Spring Boot 2 to Spring Boot 3.
 
+## Additional reading
+
+* [Learn more about how to configure the CLI to meet your needs](/user-documentation/how-to-guides/layer-config-cli.md)
+
 ## Commands
 
 For more details about the Moderne CLI and each of the commands, check out the [Moderne CLI reference page](../references/cli-reference.md).

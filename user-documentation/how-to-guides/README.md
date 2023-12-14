@@ -10,3 +10,4 @@
 * [Creating a personal access token](create-api-access-tokens.md)
 * [How to use preconditions](preconditions.md)
 * [Moderne IntelliJ plugin](moderne-intellij-plugin.md)
+* [Layered configuration in the Moderne CLI](layer-config-cli.md)

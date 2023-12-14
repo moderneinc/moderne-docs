@@ -21,6 +21,7 @@
   * [Creating a personal access token](user-documentation/how-to-guides/create-api-access-tokens.md)
   * [How to use preconditions](user-documentation/how-to-guides/preconditions.md)
   * [Moderne IntelliJ plugin](user-documentation/how-to-guides/moderne-intellij-plugin.md)
+  * [Layered configuration in the Moderne CLI](user-documentation/how-to-guides/layer-config-cli.md)
 * [References](user-documentation/references/README.md)
   * [Moderne tokens](user-documentation/references/moderne-tokens.md)
   * [Creating SCM access tokens](user-documentation/references/create-scm-access-tokens.md)
