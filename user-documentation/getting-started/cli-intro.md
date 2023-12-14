@@ -174,6 +174,7 @@ If you want to dive into using the CLI in a real-world situation, please check o
 ## Additional reading
 
 * [Learn more about how to configure the CLI to meet your needs](/user-documentation/how-to-guides/layer-config-cli.md)
+* [Learn more about how JDK selection works and how you might configure other locations for JDKs](/user-documentation/how-to-guides/jdk-selection-and-config.md)
 
 ## Commands
 
