@@ -75,7 +75,7 @@ There are a variety of optional parameters that you can find in the [mod-connect
 
 Once you've run the command, you should start to see artifacts being created and sent to your artifact repository.
 
-You're now ready to begin [configuring the Moderne agent](agent-configuration/).
+You're now ready to begin [configuring the Moderne agent](agent-configuration/agent-configuration.md).
 {% endtab %}
 
 {% tab title="GitLab" %}
@@ -141,7 +141,7 @@ There are a variety of optional parameters that you can find in the [mod-connect
 
 Once you've run the command, you should see that a Jenkins Job was created for every repository you specified in the CSV file. You should also see artifacts start to flow into your artifact repository from these jobs being run over time.
 
-You're now ready to begin [configuring the Moderne agent](agent-configuration/).
+You're now ready to begin [configuring the Moderne agent](agent-configuration/agent-configuration.md).
 {% endtab %}
 {% endtabs %}
 
@@ -160,4 +160,4 @@ These commands accept a variety of options. You can find details for each of the
 
 ## Next Steps
 
-* [Configure the Moderne agent](agent-configuration/)
+* [Configure the Moderne agent](agent-configuration/agent-configuration.md)

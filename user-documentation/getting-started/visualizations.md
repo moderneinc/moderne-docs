@@ -8,7 +8,7 @@ In this guide, we will explain everything you need to know to find and use visua
 
 While you will see a visualization button on every recipe run, it will be disabled for most recipes. There are two main reasons for this:
 
-1. Visualizations will not work on [repository groups](../how-to-guides/managing-repository-groups.md). If you want to see visualizations, you **must** run the recipe against an organization instead:
+1. Visualizations will not work on [repository groups](../how-to-guides/managing-user-configured-organizations.md). If you want to see visualizations, you **must** run the recipe against an organization instead:
 
 ![Visualization restrictions](../../.gitbook/assets/visualization-restrictions.png)
 

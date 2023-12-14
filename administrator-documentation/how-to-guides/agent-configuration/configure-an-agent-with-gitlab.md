@@ -37,7 +37,7 @@ To assist with that, this guide will:
 
 ### Step 2: Configure the Moderne Agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your GitLab instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your GitLab instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](agent-configuration.md).
 
 You can configure multiple GitLab OAuth apps by including multiple entries, each with a different `{index}`.
 

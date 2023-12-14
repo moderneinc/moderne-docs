@@ -59,7 +59,7 @@ Recipe artifacts will automatically be picked up by Moderne so long as you set t
 
 ## Configuring the Moderne agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get LST and recipe artifacts from your Maven formatted repository. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get LST and recipe artifacts from your Maven formatted repository. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](agent-configuration.md).
 
 You can configure multiple Maven formatted repositories by including multiple entries, each with a different `{index}`.
 

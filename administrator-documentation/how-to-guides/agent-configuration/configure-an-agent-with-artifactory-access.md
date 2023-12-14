@@ -14,7 +14,7 @@ If you're wanting to configure Artifactory to support recipe artifacts, please s
 
 ## Configuring the Moderne agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get LST artifacts from your Artifactory instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get LST artifacts from your Artifactory instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](agent-configuration.md).
 
 You can configure multiple Artifactory servers by including multiple entries, each with a different `{index}`. Within a given Artifactory server configuration, you can configure multiple LST query filters by including multiple entries, each with a different `{index}`.
 

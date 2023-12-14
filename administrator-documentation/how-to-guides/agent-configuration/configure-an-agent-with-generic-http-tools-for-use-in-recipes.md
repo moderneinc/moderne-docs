@@ -11,7 +11,7 @@ Setting up a generic HTTP tool will allow you to use `org.openrewrite.ipc.http.H
 
 ## Agent configuration
 
-The following table contains all the variables/arguments you need to add to your Moderne agent run command to work with your HTTP tool. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
+The following table contains all the variables/arguments you need to add to your Moderne agent run command to work with your HTTP tool. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](agent-configuration.md).
 
 You can configure multiple generic HTTP tools by including multiple entries, each with a different `{index}`.
 

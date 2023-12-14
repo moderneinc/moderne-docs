@@ -17,7 +17,7 @@
   * [Recipe execution and commits with the Moderne API](user-documentation/how-to-guides/recipe-execution-and-commits-with-graphql.md)
   * [Accessing the Moderne API](user-documentation/how-to-guides/accessing-the-moderne-api.md)
   * [How to find personally identifiable information (PII) and secrets exposed by your APIs](user-documentation/how-to-guides/find-pii.md)
-  * [Managing repository groups](user-documentation/how-to-guides/managing-repository-groups.md)
+  * [Managing user-configured organizations](user-documentation/how-to-guides/managing-user-configured-organizations.md)
   * [Creating a personal access token](user-documentation/how-to-guides/create-api-access-tokens.md)
   * [How to use preconditions](user-documentation/how-to-guides/preconditions.md)
   * [Moderne IntelliJ plugin](user-documentation/how-to-guides/moderne-intellij-plugin.md)

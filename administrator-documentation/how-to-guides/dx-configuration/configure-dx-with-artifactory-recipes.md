@@ -4,11 +4,11 @@ In order for Moderne DX to interact with your recipe artifacts from Artifactory,
 
 ## Publishing recipe artifacts
 
-Recipe artifacts will automatically be picked up by Moderne so long as you set the recipe source flag to true in the below [configuration step](#configuring-the-moderne-dx-service). These artifacts will 
+Recipe artifacts will automatically be picked up by Moderne so long as you set the recipe source flag to true in the below [configuration step](configure-dx-with-artifactory-recipes.md#configuring-the-moderne-dx-service). These artifacts will
 
 ## Configuring the Moderne DX service
 
-The following table contains all of the variables/arguments you need to add to your Moderne DX service run command in order for it to get recipe artifacts from your Maven formatted repository inside of Artifactory. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne DX service guide](../dx-configuration.md).
+The following table contains all of the variables/arguments you need to add to your Moderne DX service run command in order for it to get recipe artifacts from your Maven formatted repository inside of Artifactory. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne DX service guide](dx-configuration.md).
 
 You can configure multiple Maven formatted repositories by including multiple entries, each with a different `{index}`.
 

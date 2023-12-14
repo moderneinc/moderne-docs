@@ -2,9 +2,9 @@
 
 In order to securely communicate with the Moderne SaaS, you will need to set up an on-premise agent in your environment. To assist you with that process and provide you with information about the agent, this guide will:
 
-* [Give you some high-level information about the agent](./#high-level-agent-information)
-* [Provide step-by-step instructions for configuring the agent](./#agent-setup-instructions)
-* [Teach you how to update the agent later on](./#updating-your-agent)
+* [Give you some high-level information about the agent](agent-configuration.md#high-level-agent-information)
+* [Provide step-by-step instructions for configuring the agent](agent-configuration.md#agent-setup-instructions)
+* [Teach you how to update the agent later on](agent-configuration.md#updating-your-agent)
 
 ## High-level agent information
 
@@ -31,7 +31,7 @@ The Moderne agent requires customers to create a hex-encoded 256-bit AES encrypt
 openssl enc -aes-256-cbc -k secret -P
 ```
 
-This will return a `salt`, `key`, and `iv`. Please copy the `key` and save it for use in [step 4](./#step-4-configure-the-agent-with-the-core-variablesarguments) as the `symmetricKey`.
+This will return a `salt`, `key`, and `iv`. Please copy the `key` and save it for use in [step 4](agent-configuration.md#step-4-configure-the-agent-with-the-core-variablesarguments) as the `symmetricKey`.
 
 ### Step 3: Determine how you will run the agent
 
@@ -224,7 +224,7 @@ The Moderne agent can only talk to _Maven formatted_ artifact repositories. Ther
 
 Moderne offers two options for connecting to your artifact repository: a generic Maven connection that can connect to any Maven formatted repository regardless of vendor and an Artifactory-specific connection that is optimized to serve LST artifacts more quickly.
 
-If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](configure-an-agent-with-maven-repository-access.md) and then jump to [Step 7](./#step-7-optionally-configure-the-organizations-service).
+If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](configure-an-agent-with-maven-repository-access.md) and then jump to [Step 7](agent-configuration.md#step-7-optionally-configure-the-organizations-service).
 
 If you _do_ plan on using Artifactory to store artifacts, you have two options:
 

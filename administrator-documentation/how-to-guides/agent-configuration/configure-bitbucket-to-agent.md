@@ -78,7 +78,7 @@ If you're not using a shell, please follow these instructions instead:
 
 ### Step 4: Configure the Moderne Agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](agent-configuration.md).
 
 {% hint style="info" %}
 You can configure multiple Bitbucket instances by including multiple entries, each with a different `{index}`.

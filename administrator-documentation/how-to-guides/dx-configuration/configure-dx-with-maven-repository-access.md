@@ -4,15 +4,15 @@ In order for Moderne DX to get the list of your [Lossless Semantic Tree](../../r
 
 This guide will explain how to:
 
-* [Configure your artifact service to support LST and recipes artifacts](#publishing-lst-artifacts)
-* [Configure the Moderne DX service to connect to any service that supports Maven-formatted repositories](#configuring-the-moderne-dx-service)
+* [Configure your artifact service to support LST and recipes artifacts](configure-dx-with-maven-repository-access.md#publishing-lst-artifacts)
+* [Configure the Moderne DX service to connect to any service that supports Maven-formatted repositories](configure-dx-with-maven-repository-access.md#configuring-the-moderne-dx-service)
 
 #### Prerequisites
 
 * You might need a username and password for a user that is allowed to resolve artifacts.
 
 {% hint style="info" %}
-In many organizations, artifact resolution is unauthenticated while artifact publishing is authenticated. If artifact resolution is unauthenticated, you may omit the username/password configuration in the [Configuration step](#configuring-the-moderne-dx-service).
+In many organizations, artifact resolution is unauthenticated while artifact publishing is authenticated. If artifact resolution is unauthenticated, you may omit the username/password configuration in the [Configuration step](configure-dx-with-maven-repository-access.md#configuring-the-moderne-dx-service).
 {% endhint %}
 
 ## Publishing LST artifacts
@@ -31,35 +31,35 @@ If you are using Artifactory to publish LST artifacts, it is _highly_ recommende
 
 In Artifactory, select the `Artifactory` link on the left nav and then select `Maven Indexer` under Services:
 
-![](/.gitbook/assets/artifactory.png)
+![](../../../.gitbook/assets/artifactory.png)
 
 For a repository to be a source of LSTs, it must be included in the list of repositories that are indexed:
 
-![](/.gitbook/assets/maven-indexer.png)
+![](../../../.gitbook/assets/maven-indexer.png)
 {% endtab %}
 
 {% tab title="Nexus Repository" %}
 Under the administration view, select `Tasks` on the left nav:
 
-![](/.gitbook/assets/sona-tasks.png)
+![](../../../.gitbook/assets/sona-tasks.png)
 
 Select `Create task` and create a `Maven - Publish Maven Indexer files` task:
 
-![](/.gitbook/assets/maven-publish.png)
+![](../../../.gitbook/assets/maven-publish.png)
 
 Select the repository that will serve LST artifacts and specify a frequency with which this index should be updated:
 
-![](/.gitbook/assets/maven-publish-index.png)
+![](../../../.gitbook/assets/maven-publish-index.png)
 {% endtab %}
 {% endtabs %}
 
 ## Publishing recipe artifacts
 
-Recipe artifacts will be available for the Moderne CLI to download so long as you set the recipe source flag to true in the below [configuration step](#configuring-the-moderne-dx-service).
+Recipe artifacts will be available for the Moderne CLI to download so long as you set the recipe source flag to true in the below [configuration step](configure-dx-with-maven-repository-access.md#configuring-the-moderne-dx-service).
 
 ## Configuring the Moderne DX service
 
-The following table contains all of the variables/arguments you need to add to the Moderne DX service's run command in order for it to get the list of LST and recipe artifacts from your Maven formatted repository. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne DX service guide](../dx-configuration.md).
+The following table contains all of the variables/arguments you need to add to the Moderne DX service's run command in order for it to get the list of LST and recipe artifacts from your Maven formatted repository. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne DX service guide](dx-configuration.md).
 
 You can configure multiple Maven formatted repositories by including multiple entries, each with a different `{index}`.
 

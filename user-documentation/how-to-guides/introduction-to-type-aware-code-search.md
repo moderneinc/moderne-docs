@@ -35,7 +35,7 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
 *   From the [Java Search](https://app.moderne.io/marketplace/org.openrewrite.java.search) page, scroll down and click on `Find method usages`:
 
     ![](../../.gitbook/assets/find-method-usage-empty.png)
-* (Optionally) [Filter down to a specific group of repositories](managing-repository-groups.md#how-to-create-a-repository-group).
+* (Optionally) [Filter down to a specific group of repositories](managing-user-configured-organizations.md#how-to-create-a-repository-group).
 * Click on the wand icon next to the method pattern textbox to open the method pattern wizard.
 * Enter the fully qualified class name of `java.nio.file.Files` in the fully qualified receiver type field.
 * Enter the method name of `createFile` in the method name field.

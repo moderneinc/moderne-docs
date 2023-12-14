@@ -39,7 +39,7 @@ Please save those for use in [Step 2](configure-bitbucket-cloud-to-agent.md#step
 
 ### Step 2: Configure the Moderne agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./).
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](agent-configuration.md).
 
 {% tabs %}
 {% tab title="OCI Container" %}
