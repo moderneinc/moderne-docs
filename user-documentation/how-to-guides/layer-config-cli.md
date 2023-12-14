@@ -80,7 +80,7 @@ working-set/
         moderne.properties <-- arguments will be saved here
 ```
 
-As the `.moderne` directory is a dot directory, it will be ignored by Git and won't be checked in when you commit any changes to the project. However, when you go to build LSTs, the arguments specified in the `moderne.properties` file will be used.
+The Moderne CLI will add the `.moderne` directory to the `.git/info/exclude` in each repository (which is then added to the repository's `.gitignore` and global `.gitignore` to decide what to ignore). This prevents this file and these arguments from being checked in. However, when you go to build LSTs, the arguments specified here will be used.
 
 If you want to delete the local arguments, please run one of the following commands:
 
