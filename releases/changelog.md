@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.27.0 (2023/12/14)
+
+- user organizations
+
 ### UI v10.26.0 (2023/12/14)
 
 - enable AI assisted search by default
