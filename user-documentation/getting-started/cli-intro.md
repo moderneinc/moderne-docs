@@ -26,6 +26,13 @@ You can also install the latest stable version via [Brew](https://brew.sh/):
 ```sh
 brew install moderneinc/moderne/mod
 ```
+
+Or the latest staging version via:
+
+```sh
+brew install moderneinc/moderne/mod --head
+```
+
 {% endtab %}
 
 {% tab title="Linux" %}
