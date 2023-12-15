@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.28.0 (2023/12/15)
+
+- Add tile to agents page for PyPi configuration
+- add loading indication when paginating audit logs.
+
 ### UI v10.27.0 (2023/12/14)
 
 - user organizations
