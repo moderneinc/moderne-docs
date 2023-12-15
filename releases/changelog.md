@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.28.1 (2023/12/15)
+
+- Bug fixes and other improvements.
+
 ### UI v10.28.0 (2023/12/15)
 
 - Add tile to agents page for PyPi configuration
