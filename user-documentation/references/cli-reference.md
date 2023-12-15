@@ -9,21 +9,51 @@
 * [**mod clean runs**](#mod-clean-runs)
 * [**mod config**](#mod-config)
 * [**mod config artifacts**](#mod-config-artifacts)
-* [**mod config artifacts edit**](#mod-config-artifacts-edit)
-* [**mod config artifacts delete**](#mod-config-artifacts-delete)
-* [**mod config artifacts show**](#mod-config-artifacts-show)
+* [**mod config artifacts artifactory**](#mod-config-artifacts-artifactory)
+* [**mod config artifacts artifactory edit**](#mod-config-artifacts-artifactory-edit)
+* [**mod config artifacts artifactory delete**](#mod-config-artifacts-artifactory-delete)
+* [**mod config artifacts artifactory show**](#mod-config-artifacts-artifactory-show)
+* [**mod config artifacts volume**](#mod-config-artifacts-volume)
+* [**mod config artifacts volume edit**](#mod-config-artifacts-volume-edit)
+* [**mod config artifacts volume delete**](#mod-config-artifacts-volume-delete)
+* [**mod config artifacts volume show**](#mod-config-artifacts-volume-show)
+* [**mod config build**](#mod-config-build)
+* [**mod config build active-styles**](#mod-config-build-active-styles)
+* [**mod config build active-styles delete**](#mod-config-build-active-styles-delete)
+* [**mod config build active-styles edit**](#mod-config-build-active-styles-edit)
+* [**mod config build active-styles show**](#mod-config-build-active-styles-show)
+* [**mod config build bazel**](#mod-config-build-bazel)
+* [**mod config build bazel rule**](#mod-config-build-bazel-rule)
+* [**mod config build bazel rule delete**](#mod-config-build-bazel-rule-delete)
+* [**mod config build bazel rule edit**](#mod-config-build-bazel-rule-edit)
+* [**mod config build bazel rule show**](#mod-config-build-bazel-rule-show)
+* [**mod config build gradle**](#mod-config-build-gradle)
+* [**mod config build gradle arguments**](#mod-config-build-gradle-arguments)
+* [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
+* [**mod config build gradle arguments edit**](#mod-config-build-gradle-arguments-edit)
+* [**mod config build gradle arguments show**](#mod-config-build-gradle-arguments-show)
+* [**mod config build maven**](#mod-config-build-maven)
+* [**mod config build maven arguments**](#mod-config-build-maven-arguments)
+* [**mod config build maven arguments delete**](#mod-config-build-maven-arguments-delete)
+* [**mod config build maven arguments edit**](#mod-config-build-maven-arguments-edit)
+* [**mod config build maven arguments show**](#mod-config-build-maven-arguments-show)
+* [**mod config build maven settings**](#mod-config-build-maven-settings)
+* [**mod config build maven settings delete**](#mod-config-build-maven-settings-delete)
+* [**mod config build maven settings edit**](#mod-config-build-maven-settings-edit)
+* [**mod config build maven settings show**](#mod-config-build-maven-settings-show)
 * [**mod config environment**](#mod-config-environment)
 * [**mod config environment show**](#mod-config-environment-show)
-* [**mod config gradle**](#mod-config-gradle)
-* [**mod config gradle arguments**](#mod-config-gradle-arguments)
-* [**mod config gradle arguments delete**](#mod-config-gradle-arguments-delete)
-* [**mod config gradle arguments edit**](#mod-config-gradle-arguments-edit)
-* [**mod config gradle arguments show**](#mod-config-gradle-arguments-show)
 * [**mod config http**](#mod-config-http)
 * [**mod config http proxy**](#mod-config-http-proxy)
 * [**mod config http proxy delete**](#mod-config-http-proxy-delete)
 * [**mod config http proxy edit**](#mod-config-http-proxy-edit)
 * [**mod config http proxy show**](#mod-config-http-proxy-show)
+* [**mod config http trust-store**](#mod-config-http-trust-store)
+* [**mod config http trust-store delete**](#mod-config-http-trust-store-delete)
+* [**mod config http trust-store edit**](#mod-config-http-trust-store-edit)
+* [**mod config http trust-store edit file**](#mod-config-http-trust-store-edit-file)
+* [**mod config http trust-store edit java-home**](#mod-config-http-trust-store-edit-java-home)
+* [**mod config http trust-store show**](#mod-config-http-trust-store-show)
 * [**mod config java**](#mod-config-java)
 * [**mod config java jdk**](#mod-config-java-jdk)
 * [**mod config java jdk edit**](#mod-config-java-jdk-edit)
@@ -37,18 +67,10 @@
 * [**mod config java version edit**](#mod-config-java-version-edit)
 * [**mod config java version delete**](#mod-config-java-version-delete)
 * [**mod config java version show**](#mod-config-java-version-show)
-* [**mod config maven**](#mod-config-maven)
-* [**mod config maven arguments**](#mod-config-maven-arguments)
-* [**mod config maven arguments delete**](#mod-config-maven-arguments-delete)
-* [**mod config maven arguments edit**](#mod-config-maven-arguments-edit)
-* [**mod config maven arguments show**](#mod-config-maven-arguments-show)
-* [**mod config maven settings**](#mod-config-maven-settings)
-* [**mod config maven settings delete**](#mod-config-maven-settings-delete)
-* [**mod config maven settings edit**](#mod-config-maven-settings-edit)
-* [**mod config maven settings show**](#mod-config-maven-settings-show)
 * [**mod config moderne**](#mod-config-moderne)
 * [**mod config moderne delete**](#mod-config-moderne-delete)
 * [**mod config moderne edit**](#mod-config-moderne-edit)
+* [**mod config moderne local**](#mod-config-moderne-local)
 * [**mod config moderne show**](#mod-config-moderne-show)
 * [**mod config recipes**](#mod-config-recipes)
 * [**mod config recipes export**](#mod-config-recipes-export)
@@ -59,6 +81,7 @@
 * [**mod config recipes jar delete**](#mod-config-recipes-jar-delete)
 * [**mod config recipes moderne**](#mod-config-recipes-moderne)
 * [**mod config recipes moderne install**](#mod-config-recipes-moderne-install)
+* [**mod config recipes moderne push**](#mod-config-recipes-moderne-push)
 * [**mod config recipes moderne sync**](#mod-config-recipes-moderne-sync)
 * [**mod config recipes delete**](#mod-config-recipes-delete)
 * [**mod config recipes list**](#mod-config-recipes-list)
@@ -70,29 +93,30 @@
 * [**mod config user delete**](#mod-config-user-delete)
 * [**mod config user edit**](#mod-config-user-edit)
 * [**mod config user show**](#mod-config-user-show)
+* [**mod exec**](#mod-exec)
+* [**mod git**](#mod-git)
+* [**mod git add**](#mod-git-add)
+* [**mod git apply**](#mod-git-apply)
+* [**mod git checkout**](#mod-git-checkout)
+* [**mod git clone**](#mod-git-clone)
+* [**mod git clone csv**](#mod-git-clone-csv)
+* [**mod git clone moderne**](#mod-git-clone-moderne)
+* [**mod git commit**](#mod-git-commit)
+* [**mod git pull**](#mod-git-pull)
+* [**mod git push**](#mod-git-push)
+* [**mod git reset**](#mod-git-reset)
+* [**mod git rev-parse**](#mod-git-rev-parse)
+* [**mod git stashset**](#mod-git-stashset)
+* [**mod git stashset apply**](#mod-git-stashset-apply)
+* [**mod git stashset push**](#mod-git-stashset-push)
+* [**mod git stashset**](#mod-git-stashset)
+* [**mod git stashset apply**](#mod-git-stashset-apply)
+* [**mod git stashset push**](#mod-git-stashset-push)
 * [**mod list**](#mod-list)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
 * [**mod run-history**](#mod-run-history)
 * [**mod study**](#mod-study)
-* [**mod add**](#mod-add)
-* [**mod apply**](#mod-apply)
-* [**mod checkout**](#mod-checkout)
-* [**mod clone**](#mod-clone)
-* [**mod clone csv**](#mod-clone-csv)
-* [**mod clone moderne**](#mod-clone-moderne)
-* [**mod commit**](#mod-commit)
-* [**mod exec**](#mod-exec)
-* [**mod pull**](#mod-pull)
-* [**mod push**](#mod-push)
-* [**mod reset**](#mod-reset)
-* [**mod rev-parse**](#mod-rev-parse)
-* [**mod stashset**](#mod-stashset)
-* [**mod stashset apply**](#mod-stashset-apply)
-* [**mod stashset push**](#mod-stashset-push)
-* [**mod stashset**](#mod-stashset)
-* [**mod stashset apply**](#mod-stashset-apply)
-* [**mod stashset push**](#mod-stashset-push)
 * [**mod generate-completion**](#mod-generate-completion)
 
 ## mod
@@ -112,23 +136,13 @@ mod [parameters] [subcommands]
 * `build`: Generates LST artifacts for one or more repositories.
 * `clean`: Clean build and run artifacts produced by the CLI.
 * `config`: Global configuration options that are required by some CLI commands.
+* `exec`: Execute an arbitrary shell command recursively on selected repository roots.
+* `git`: Multi-repository git operations.
 * `list`: Lists the repositories that can be built and published.
 * `publish`: Publishes the LST artifacts for one or more projects.
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTS.
 * `run-history`: Get information about the most recent recipe runs.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
-* `add`: Performs the equivalent of **git add** on multiple repositories.
-* `apply`: Performs the equivalent of **git apply** on multiple repositories.
-* `checkout`: Performs the equivalent of **git checkout** on multiple repositories.
-* `clone`: Performs the equivalent of **git clone** on multiple repositories.
-* `commit`: Performs the equivalent of **git commit** on multiple repositories.
-* `exec`: Execute an arbitrary shell command recursively on selected repository roots.
-* `pull`: Performs the equivalent of **git pull** on multiple repositories.
-* `push`: Performs the equivalent of **git push** on multiple repositories.
-* `reset`: Performs the equivalent of **git reset** on multiple repositories.
-* `rev-parse`: Performs the equivalent of **git rev-parse** on multiple repositories.
-* `stashset`: Performs the equivalent of **git stash** on multiple repositories.
-* `stashset`: Performs the equivalent of **git stash** on multiple repositories.
 * `generate-completion`
 
 ## mod build
@@ -264,22 +278,21 @@ mod config [parameters] [subcommands]
 
 ### Subcommands
 
-* `artifacts`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `artifacts`: Configures the storage layer for LSTs to be published to and downloaded from. Must be configured before you can run the publish command.
+* `build`: Configures build tools used to produce LSTs.
 * `environment`: The build environment that the CLI is running in.
-* `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `http`: Configures HTTP options that will be used throughout the CLI.
 * `java`: Configures Java options used for building LSTs and running recipes.
-* `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
 * `moderne`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `user`: Configure the active user.
 
 ## mod config artifacts
 
-Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+Configures the storage layer for LSTs to be published to and downloaded from. Must be configured before you can run the publish command.
 
 
-All subsequent publish and download commands will use this artifact repository.
+
 
 ### Usage
 
@@ -290,11 +303,30 @@ mod config artifacts [parameters] [subcommands]
 
 ### Subcommands
 
-* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
-* `delete`: Removes the artifact repository configuration. The publish command will no longer function until another artifact repository is configured.
-* `show`: Displays the artifact repository configuration.
+* `artifactory`: Configures the Artifactory repository that LSTs will be published to and downloaded from.
+* `volume`: Configures the volume that LSTs will be published to and downloaded from.
 
-## mod config artifacts edit
+## mod config artifacts artifactory
+
+Configures the Artifactory repository that LSTs will be published to and downloaded from.
+
+
+All subsequent publish and download commands will use this Artifactory repository.
+
+### Usage
+
+```
+mod config artifacts artifactory [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `delete`: Removes the Artifactory repository configuration. The publish command will no longer function until another artifact source is configured.
+* `show`: Displays the Artifactory repository configuration.
+
+## mod config artifacts artifactory edit
 
 Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
 
@@ -304,7 +336,7 @@ All subsequent publish and download commands will use this artifact repository.
 ### Usage
 
 ```
-mod config artifacts edit [parameters] [subcommands]
+mod config artifacts artifactory edit [parameters] [subcommands]
 ```
 
 ### Parameters
@@ -328,9 +360,9 @@ mod config artifacts edit [parameters] [subcommands]
 | --user |  The user to authenticate with. | |
 
 
-## mod config artifacts delete
+## mod config artifacts artifactory delete
 
-Removes the artifact repository configuration. The publish command will no longer function until another artifact repository is configured.
+Removes the Artifactory repository configuration. The publish command will no longer function until another artifact source is configured.
 
 
 
@@ -338,7 +370,7 @@ Removes the artifact repository configuration. The publish command will no longe
 ### Usage
 
 ```
-mod config artifacts delete [parameters] [subcommands]
+mod config artifacts artifactory delete [parameters] [subcommands]
 ```
 
 ### Options
@@ -352,9 +384,9 @@ mod config artifacts delete [parameters] [subcommands]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config artifacts show
+## mod config artifacts artifactory show
 
-Displays the artifact repository configuration.
+Displays the Artifactory repository configuration.
 
 
 
@@ -362,7 +394,643 @@ Displays the artifact repository configuration.
 ### Usage
 
 ```
-mod config artifacts show [parameters] [subcommands]
+mod config artifacts artifactory show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config artifacts volume
+
+Configures the volume that LSTs will be published to and downloaded from.
+
+
+All subsequent publish and download commands will use this volume mount.
+
+### Usage
+
+```
+mod config artifacts volume [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `delete`: Removes the volume LST configuration. The publish command will no longer function until another artifact source is configured.
+* `show`: Displays the volume LST configuration.
+
+## mod config artifacts volume edit
+
+Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+
+
+All subsequent publish and download commands will use this artifact repository.
+
+### Usage
+
+```
+mod config artifacts volume edit [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| location |  The location on disk that LSTs will be published to. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config artifacts volume delete
+
+Removes the volume LST configuration. The publish command will no longer function until another artifact source is configured.
+
+
+
+
+### Usage
+
+```
+mod config artifacts volume delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config artifacts volume show
+
+Displays the volume LST configuration.
+
+
+
+
+### Usage
+
+```
+mod config artifacts volume show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build
+
+Configures build tools used to produce LSTs.
+
+
+
+
+### Usage
+
+```
+mod config build [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `active-styles`: Configure the active styles to use when building LSTs.
+* `bazel`: Configures the Bazel build tool.
+* `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
+* `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
+
+## mod config build active-styles
+
+Configure the active styles to use when building LSTs.
+
+
+Overriding active styles circumvents auto-detection of styles in the production of LSTs.
+
+### Usage
+
+```
+mod config build active-styles [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes overriding active styles.
+* `edit`: Configure the active styles to use when building LSTs.
+* `show`: Displays the configured overriding active styles.
+
+## mod config build active-styles delete
+
+Removes overriding active styles.
+
+
+### Usage
+
+```
+mod config build active-styles delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build active-styles edit
+
+Configure the active styles to use when building LSTs.
+
+
+Overriding active styles circumvents auto-detection of styles in the production of LSTs.
+
+### Usage
+
+```
+mod config build active-styles edit [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| activeStyles |  Additional build arguments that are added to the end of the Gradle command line. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build active-styles show
+
+Displays the configured overriding active styles.
+
+
+### Usage
+
+```
+mod config build active-styles show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build bazel
+
+Configures the Bazel build tool.
+
+
+
+
+### Usage
+
+```
+mod config build bazel [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `rule`: Configure the Bazel rule used to build LSTs.
+
+## mod config build bazel rule
+
+Configure the Bazel rule used to build LSTs.
+
+
+The rule affects how the project is built.
+
+### Usage
+
+```
+mod config build bazel rule [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes Bazel build rule customization.
+* `edit`: Configure Bazel build rule.
+* `show`: Displays the configured Bazel build rule.
+
+## mod config build bazel rule delete
+
+Removes Bazel build rule customization.
+
+
+### Usage
+
+```
+mod config build bazel rule delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build bazel rule edit
+
+Configure Bazel build rule.
+
+
+
+
+### Usage
+
+```
+mod config build bazel rule edit [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| rule |  The Bazel build rule to use when building LSTs. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build bazel rule show
+
+Displays the configured Bazel build rule.
+
+
+### Usage
+
+```
+mod config build bazel rule show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build gradle
+
+Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
+
+
+
+
+### Usage
+
+```
+mod config build gradle [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `arguments`: Configure Gradle build arguments.
+
+## mod config build gradle arguments
+
+Configure Gradle build arguments.
+
+
+Build arguments are added to the end of the Gradle command line when building LSTs.
+
+### Usage
+
+```
+mod config build gradle arguments [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes additional build arguments for Gradle.
+* `edit`: Configure Gradle build arguments.
+* `show`: Displays the configured Gradle additional build arguments.
+
+## mod config build gradle arguments delete
+
+Removes additional build arguments for Gradle.
+
+
+### Usage
+
+```
+mod config build gradle arguments delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build gradle arguments edit
+
+Configure Gradle build arguments.
+
+
+Build arguments are added to the end of the Gradle command line when building LSTs.
+
+### Usage
+
+```
+mod config build gradle arguments edit [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build gradle arguments show
+
+Displays the configured Gradle additional build arguments.
+
+
+### Usage
+
+```
+mod config build gradle arguments show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build maven
+
+Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
+
+
+
+
+### Usage
+
+```
+mod config build maven [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `arguments`: Configure Maven build arguments.
+* `settings`: Configure Maven settings.
+
+## mod config build maven arguments
+
+Configure Maven build arguments.
+
+
+Build arguments are added to the end of the Maven command line when building LSTs.
+
+### Usage
+
+```
+mod config build maven arguments [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes additional build arguments for Maven.
+* `edit`: Configure Maven build arguments.
+* `show`: Displays the configured Maven additional build arguments.
+
+## mod config build maven arguments delete
+
+Removes additional build arguments for Maven.
+
+
+### Usage
+
+```
+mod config build maven arguments delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build maven arguments edit
+
+Configure Maven build arguments.
+
+
+Build arguments are added to the end of the Maven command line when building LSTs.
+
+### Usage
+
+```
+mod config build maven arguments edit [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build maven arguments show
+
+Displays the configured Maven additional build arguments.
+
+
+### Usage
+
+```
+mod config build maven arguments show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build maven settings
+
+Configure Maven settings.
+
+
+Allows you to specify the location of a Maven _settings.xml_ file that should be used when Maven is being used to resolve recipe dependencies or run recipes. You can also use an environment variable that points to location of the file with **null** syntax.
+
+### Usage
+
+```
+mod config build maven settings [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured Maven settings.
+* `edit`: Configure Maven settings.
+* `show`: Displays the configured Maven settings.
+
+## mod config build maven settings delete
+
+Removes the configured Maven settings.
+
+
+
+
+### Usage
+
+```
+mod config build maven settings delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build maven settings edit
+
+Configure Maven settings.
+
+
+Allows you to specify the location of a Maven _settings.xml_ file that should be used when Maven is being used to resolve recipe dependencies or run recipes.
+
+### Usage
+
+```
+mod config build maven settings edit [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| settingsXml |  The location of a Maven _settings.xml_ file to use. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config build maven settings show
+
+Displays the configured Maven settings.
+
+
+
+
+### Usage
+
+```
+mod config build maven settings show [parameters] [subcommands]
 ```
 
 ### Options
@@ -409,118 +1077,6 @@ mod config environment show [parameters] [subcommands]
 
 
 
-## mod config gradle
-
-Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
-
-
-
-
-### Usage
-
-```
-mod config gradle [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `arguments`: Configure Gradle build arguments.
-
-## mod config gradle arguments
-
-Configure Gradle build arguments.
-
-
-Build arguments are added to the end of the Gradle command line when building LSTs.
-
-### Usage
-
-```
-mod config gradle arguments [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `delete`: Removes additional build arguments for Gradle.
-* `edit`: Configure Gradle build arguments.
-* `show`: Displays the configured Gradle additional build arguments.
-
-## mod config gradle arguments delete
-
-Removes additional build arguments for Gradle.
-
-
-### Usage
-
-```
-mod config gradle arguments delete [parameters] [subcommands]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --local |  Configuration relevant to a specific group of repositories. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
-
-
-## mod config gradle arguments edit
-
-Configure Gradle build arguments.
-
-
-Build arguments are added to the end of the Gradle command line when building LSTs.
-
-### Usage
-
-```
-mod config gradle arguments edit [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| arguments |  Additional build arguments that are added to the end of the Gradle command line. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --local |  Configuration relevant to a specific group of repositories. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
-
-
-## mod config gradle arguments show
-
-Displays the configured Gradle additional build arguments.
-
-
-### Usage
-
-```
-mod config gradle arguments show [parameters] [subcommands]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --local |  Configuration relevant to a specific group of repositories. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
-
-
 ## mod config http
 
 Configures HTTP options that will be used throughout the CLI.
@@ -538,6 +1094,7 @@ mod config http [parameters] [subcommands]
 ### Subcommands
 
 * `proxy`: Configures HTTP proxy settings that will be used for every HTTP request.
+* `trust-store`: Configures truststore options that will be used throughout the CLI.
 
 ## mod config http proxy
 
@@ -620,6 +1177,144 @@ Shows the currently configured proxy settings, if any.
 
 ```
 mod config http proxy show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config http trust-store
+
+Configures truststore options that will be used throughout the CLI.
+
+
+All subsequent commands will use these settings.
+
+### Usage
+
+```
+mod config http trust-store [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes truststore settings from global configuration.
+* `edit`: Configures truststore options that will be used throughout the CLI.
+* `show`: Displays the truststore setting from global configuration.
+
+## mod config http trust-store delete
+
+Removes truststore settings from global configuration.
+
+
+Truststore settings will no longer be used for HTTP requests.
+
+### Usage
+
+```
+mod config http trust-store delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config http trust-store edit
+
+Configures truststore options that will be used throughout the CLI.
+
+
+All subsequent commands will use these settings.
+
+### Usage
+
+```
+mod config http trust-store edit [parameters] [subcommands]
+```
+
+### Subcommands
+
+* `file`: Configures truststore to point to a file.
+* `java-home`: Configures truststore to use the cacerts file in **/Users/mikesol/.sdkman/candidates/java/current/lib/security/cacerts**.
+
+## mod config http trust-store edit file
+
+Configures truststore to point to a file.
+
+
+All subsequent commands will use this truststore.
+
+### Usage
+
+```
+mod config http trust-store edit file [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| file |  | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config http trust-store edit java-home
+
+Configures truststore to use the cacerts file in **/Users/mikesol/.sdkman/candidates/java/current/lib/security/cacerts**.
+
+
+### Usage
+
+```
+mod config http trust-store edit java-home [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
+
+
+## mod config http trust-store show
+
+Displays the truststore setting from global configuration.
+
+
+Shows the currently configured truststore setting, if any.
+
+### Usage
+
+```
+mod config http trust-store show [parameters] [subcommands]
 ```
 
 ### Options
@@ -781,12 +1476,6 @@ Must be configured before you can run the build command if non-standard VM optio
 mod config java options edit [parameters] [subcommands]
 ```
 
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| options |  The JVM options to add to tools building LSTs. | |
-
 ### Options
 
 | Name | Description | Example |
@@ -936,217 +1625,6 @@ mod config java version show [parameters] [subcommands]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
-## mod config maven
-
-Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
-
-
-
-
-### Usage
-
-```
-mod config maven [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `arguments`: Configure Maven build arguments.
-* `settings`: Configure Maven settings.
-
-## mod config maven arguments
-
-Configure Maven build arguments.
-
-
-Build arguments are added to the end of the Maven command line when building LSTs.
-
-### Usage
-
-```
-mod config maven arguments [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `delete`: Removes additional build arguments for Maven.
-* `edit`: Configure Maven build arguments.
-* `show`: Displays the configured Maven additional build arguments.
-
-## mod config maven arguments delete
-
-Removes additional build arguments for Maven.
-
-
-### Usage
-
-```
-mod config maven arguments delete [parameters] [subcommands]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --local |  Configuration relevant to a specific group of repositories. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
-
-
-## mod config maven arguments edit
-
-Configure Maven build arguments.
-
-
-Build arguments are added to the end of the Maven command line when building LSTs.
-
-### Usage
-
-```
-mod config maven arguments edit [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| arguments |  Additional build arguments that are added to the end of the Maven command line. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --local |  Configuration relevant to a specific group of repositories. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
-
-
-## mod config maven arguments show
-
-Displays the configured Maven additional build arguments.
-
-
-### Usage
-
-```
-mod config maven arguments show [parameters] [subcommands]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --local |  Configuration relevant to a specific group of repositories. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
-
-
-## mod config maven settings
-
-Configure Maven settings.
-
-
-Allows you to specify the location of a Maven _settings.xml_ file that should be used when Maven is being used to resolve recipe dependencies or run recipes. You can also use an environment variable that points to location of the file with **null** syntax.
-
-### Usage
-
-```
-mod config maven settings [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `delete`: Removes the configured Maven settings.
-* `edit`: Configure Maven settings.
-* `show`: Displays the configured Maven settings.
-
-## mod config maven settings delete
-
-Removes the configured Maven settings.
-
-
-
-
-### Usage
-
-```
-mod config maven settings delete [parameters] [subcommands]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --local |  Configuration relevant to a specific group of repositories. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
-
-
-## mod config maven settings edit
-
-Configure Maven settings.
-
-
-Allows you to specify the location of a Maven _settings.xml_ file that should be used when Maven is being used to resolve recipe dependencies or run recipes.
-
-### Usage
-
-```
-mod config maven settings edit [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| settingsXml |  The location of a Maven _settings.xml_ file to use. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --local |  Configuration relevant to a specific group of repositories. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
-
-
-## mod config maven settings show
-
-Displays the configured Maven settings.
-
-
-
-
-### Usage
-
-```
-mod config maven settings show [parameters] [subcommands]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --local |  Configuration relevant to a specific group of repositories. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
-
-
 ## mod config moderne
 
 Configures the connection to Moderne. Must be configured before you can install and run recipes.
@@ -1165,6 +1643,7 @@ mod config moderne [parameters] [subcommands]
 
 * `delete`: Removes the configured Moderne tenant.
 * `edit`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
+* `local`: Configures a connection to a Moderne DX instance running locally on the same machine.
 * `show`: Displays the artifact repository configuration.
 
 ## mod config moderne delete
@@ -1222,6 +1701,30 @@ mod config moderne edit [parameters] [subcommands]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 | --skip-ssl |  If this parameter is included, SSL verification will be skipped. | |
 | --token |  The Moderne personal access token to use. | |
+
+
+## mod config moderne local
+
+Configures a connection to a Moderne DX instance running locally on the same machine.
+
+
+All subsequent commands will use this instance.
+
+### Usage
+
+```
+mod config moderne local [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --local |  Configuration relevant to a specific group of repositories. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
 ## mod config moderne show
@@ -1417,6 +1920,7 @@ mod config recipes moderne [parameters] [subcommands]
 ### Subcommands
 
 * `install`: Allows you to find and install recipes from Moderne.
+* `push`: Pushes the local CLI recipe marketplace to Moderne.
 * `sync`: Synchronizes the local CLI recipe marketplace with Moderne.
 
 ## mod config recipes moderne install
@@ -1437,6 +1941,21 @@ mod config recipes moderne install [parameters] [subcommands]
 | Name | Description | Example |
 | ---- | ----------- | ------- |
 | searchTerm |  The search term to use to find recipes to install. | |
+
+
+
+## mod config recipes moderne push
+
+Pushes the local CLI recipe marketplace to Moderne.
+
+
+Adds or replaces all recipes in the Moderne tenant with the recipes installed in the local marketplace.
+
+### Usage
+
+```
+mod config recipes moderne push [parameters] [subcommands]
+```
 
 
 
@@ -1662,6 +2181,544 @@ mod config user show [parameters] [subcommands]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. | |
 
 
+## mod exec
+
+Execute an arbitrary shell command recursively on selected repository roots.
+
+
+
+
+### Usage
+
+```
+mod exec [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+| cmd |  | |
+| args |  | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+
+
+## mod git
+
+Multi-repository git operations.
+
+
+
+
+### Usage
+
+```
+mod git [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `add`: Performs the equivalent of **git add** on multiple repositories.
+* `apply`: Performs the equivalent of **git apply** on multiple repositories.
+* `checkout`: Performs the equivalent of **git checkout** on multiple repositories.
+* `clone`: Performs the equivalent of **git clone** on multiple repositories.
+* `commit`: Performs the equivalent of **git commit** on multiple repositories.
+* `pull`: Performs the equivalent of **git pull** on multiple repositories.
+* `push`: Performs the equivalent of **git push** on multiple repositories.
+* `reset`: Performs the equivalent of **git reset** on multiple repositories.
+* `rev-parse`: Performs the equivalent of **git rev-parse** on multiple repositories.
+* `stashset`: Performs the equivalent of **git stash** on multiple repositories.
+* `stashset`: Performs the equivalent of **git stash** on multiple repositories.
+
+## mod git add
+
+Performs the equivalent of **git add** on multiple repositories.
+
+
+Rather than applying **git add** one at a time, this operates on multiple repositories.
+
+### Usage
+
+```
+mod git add [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --recipe-run |  The recipe run that generated patch files whose modified files we want to add. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+
+
+## mod git apply
+
+Performs the equivalent of **git apply** on multiple repositories.
+
+
+Rather than applying one patch at a time, this operates on multiple repositories.
+
+### Usage
+
+```
+mod git apply [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. | |
+| --recipe-run |  The recipe run that generated patch files to apply. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+
+
+## mod git checkout
+
+Performs the equivalent of **git checkout** on multiple repositories.
+
+
+Rather than checking out one repository at a time, this operates on multiple repositories.
+
+### Usage
+
+```
+mod git checkout [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+| branch |  The branch to checkout. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| -b, -B |  Causes a new branch to be created as if git-branch were called and then checked out. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+
+
+## mod git clone
+
+Performs the equivalent of **git clone** on multiple repositories.
+
+
+Rather than cloning one at a time, this operates on multiple repositories. The list of repositories can be sourced from different places, like Moderne or a CSV.
+
+### Usage
+
+```
+mod git clone [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `csv`: Clones the repositories listed in a CSV file.
+* `moderne`: Clones the repositories in an organization on Moderne.
+
+## mod git clone csv
+
+Clones the repositories listed in a CSV file.
+
+
+The CSV file should have a header row with the required columns **cloneUrl, branch** and any number of optional columns. The optional columns are **changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**.
+
+### Usage
+
+```
+mod git clone csv [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| cloneInto |  The directory to clone all projects into. This directory will be created if it doesn't exist. | |
+| csv |  The path to a CSV file containing repositories to clone. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --depth |  | |
+| --filter |  | |
+| --limit |  The maximum number of repositories to clone. | |
+| --save |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. | |
+| --single-branch |  | |
+
+
+## mod git clone moderne
+
+Clones the repositories in an organization on Moderne.
+
+
+The repositories are cloned at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne.
+
+### Usage
+
+```
+mod git clone moderne [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| cloneInto |  The directory to clone all projects into. This directory will be created if it doesn't exist. | |
+| organization |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --depth |  | |
+| --filter |  | |
+| --limit |  The maximum number of repositories to clone. | |
+| --single-branch |  | |
+
+
+## mod git commit
+
+Performs the equivalent of **git commit** on multiple repositories.
+
+
+Rather than applying one commit at a time, this operates on multiple repositories.
+
+### Usage
+
+```
+mod git commit [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. | |
+| -m, --message |  The commit message to use. | |
+| --recipe-run |  The recipe run that generated patch files to apply. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+
+
+## mod git pull
+
+Performs the equivalent of **git pull** on multiple repositories.
+
+
+Rather than pulling one repository at a time, this operates on multiple repositories.
+
+### Usage
+
+```
+mod git pull [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --rebase |  Pull with rebase or not. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+
+
+## mod git push
+
+Performs the equivalent of **git push** on multiple repositories.
+
+
+Rather than pushing one repository at a time, this operates on multiple repositories.
+
+### Usage
+
+```
+mod git push [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+| repository |  | |
+| refspec |  Specify what destination ref to update with what source object. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. | |
+| --recipe-run |  The recipe run that generated patch files to apply. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| --u, --set-upstream |  For every branch that is up to date or successfully pushed, add upstream (tracking) reference. | |
+
+
+## mod git reset
+
+Performs the equivalent of **git reset** on multiple repositories.
+
+
+Rather than applying one stash at a time, this operates on multiple repositories.
+
+### Usage
+
+```
+mod git reset [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --hard |  Resets the index and working tree. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+
+
+## mod git rev-parse
+
+Performs the equivalent of **git rev-parse** on multiple repositories.
+
+
+Rather than applying one rev-parse at a time, this operates on multiple repositories.
+
+### Usage
+
+```
+mod git rev-parse [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+| args |  | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+
+
+## mod git stashset
+
+Performs the equivalent of **git stash** on multiple repositories.
+
+
+Rather than applying one stash at a time, this operates on multiple repositories.
+
+This command does not affect the stash log of the repository, but rather stores the otherwise untracked commit in a multi-repository stash file in Moderne configuration, so the whole 'stashset' can be applied at once atomically.
+
+### Usage
+
+```
+mod git stashset [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `apply`: Performs the equivalent of **git stash apply** on multiple repositories.
+* `push`: Performs the equivalent of **git stash push** on multiple repositories.
+
+## mod git stashset apply
+
+Performs the equivalent of **git stash apply** on multiple repositories.
+
+
+
+
+### Usage
+
+```
+mod git stashset apply [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+| ref |  The stash ref to apply. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --force |  Pop the stash after applying it, regardless of whether it made a change. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+
+
+## mod git stashset push
+
+Performs the equivalent of **git stash push** on multiple repositories.
+
+
+
+
+### Usage
+
+```
+mod git stashset push [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| -u, --include-untracked |  Include untracked files. | |
+
+
+## mod git stashset
+
+Performs the equivalent of **git stash** on multiple repositories.
+
+
+Rather than applying one stash at a time, this operates on multiple repositories.
+
+This command does not affect the stash log of the repository, but rather stores the otherwise untracked commit in a multi-repository stash file in Moderne configuration, so the whole 'stashset' can be applied at once atomically.
+
+### Usage
+
+```
+mod git stashset [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `apply`: Performs the equivalent of **git stash apply** on multiple repositories.
+* `push`: Performs the equivalent of **git stash push** on multiple repositories.
+
+## mod git stashset apply
+
+Performs the equivalent of **git stash apply** on multiple repositories.
+
+
+
+
+### Usage
+
+```
+mod git stashset apply [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+| ref |  The stash ref to apply. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --force |  Pop the stash after applying it, regardless of whether it made a change. | |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+
+
+## mod git stashset push
+
+Performs the equivalent of **git stash push** on multiple repositories.
+
+
+
+
+### Usage
+
+```
+mod git stashset push [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ------- |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
+| -u, --include-untracked |  Include untracked files. | |
+
+
 ## mod list
 
 Lists the repositories that can be built and published.
@@ -1813,516 +2870,6 @@ mod study [parameters] [subcommands]
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-
-
-## mod add
-
-Performs the equivalent of **git add** on multiple repositories.
-
-
-Rather than applying **git add** one at a time, this operates on multiple repositories.
-
-### Usage
-
-```
-mod add [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --recipe-run |  The recipe run that generated patch files whose modified files we want to add. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-
-
-## mod apply
-
-Performs the equivalent of **git apply** on multiple repositories.
-
-
-Rather than applying one patch at a time, this operates on multiple repositories.
-
-### Usage
-
-```
-mod apply [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. | |
-| --recipe-run |  The recipe run that generated patch files to apply. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-
-
-## mod checkout
-
-Performs the equivalent of **git checkout** on multiple repositories.
-
-
-Rather than checking out one repository at a time, this operates on multiple repositories.
-
-### Usage
-
-```
-mod checkout [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-| branch |  The branch to checkout. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| -b, -B |  Causes a new branch to be created as if git-branch were called and then checked out. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-
-
-## mod clone
-
-Performs the equivalent of **git clone** on multiple repositories.
-
-
-Rather than cloning one at a time, this operates on multiple repositories. The list of repositories can be sourced from different places, like Moderne or a CSV.
-
-### Usage
-
-```
-mod clone [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `csv`: Clones the repositories listed in a CSV file.
-* `moderne`: Clones the repositories in an organization on Moderne.
-
-## mod clone csv
-
-Clones the repositories listed in a CSV file.
-
-
-The CSV file should have a header row with the required columns **cloneUrl, branch** and any number of optional columns. The optional columns are **changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**.
-
-### Usage
-
-```
-mod clone csv [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| cloneInto |  The directory to clone all projects into. This directory will be created if it doesn't exist. | |
-| csv |  The path to a CSV file containing repositories to clone. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --depth |  | |
-| --filter |  | |
-| --limit |  The maximum number of repositories to clone. | |
-| --save |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. | |
-| --single-branch |  | |
-
-
-## mod clone moderne
-
-Clones the repositories in an organization on Moderne.
-
-
-The repositories are cloned at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne.
-
-### Usage
-
-```
-mod clone moderne [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| cloneInto |  The directory to clone all projects into. This directory will be created if it doesn't exist. | |
-| organization |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --depth |  | |
-| --filter |  | |
-| --limit |  The maximum number of repositories to clone. | |
-| --single-branch |  | |
-
-
-## mod commit
-
-Performs the equivalent of **git commit** on multiple repositories.
-
-
-Rather than applying one commit at a time, this operates on multiple repositories.
-
-### Usage
-
-```
-mod commit [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. | |
-| -m, --message |  The commit message to use. | |
-| --recipe-run |  The recipe run that generated patch files to apply. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-
-
-## mod exec
-
-Execute an arbitrary shell command recursively on selected repository roots.
-
-
-
-
-### Usage
-
-```
-mod exec [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-| cmd |  | |
-| args |  | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-
-
-## mod pull
-
-Performs the equivalent of **git pull** on multiple repositories.
-
-
-Rather than pulling one repository at a time, this operates on multiple repositories.
-
-### Usage
-
-```
-mod pull [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --rebase |  Pull with rebase or not. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-
-
-## mod push
-
-Performs the equivalent of **git push** on multiple repositories.
-
-
-Rather than pushing one repository at a time, this operates on multiple repositories.
-
-### Usage
-
-```
-mod push [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-| repository |  | |
-| refspec |  Specify what destination ref to update with what source object. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. | |
-| --recipe-run |  The recipe run that generated patch files to apply. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| --u, --set-upstream |  For every branch that is up to date or successfully pushed, add upstream (tracking) reference. | |
-
-
-## mod reset
-
-Performs the equivalent of **git reset** on multiple repositories.
-
-
-Rather than applying one stash at a time, this operates on multiple repositories.
-
-### Usage
-
-```
-mod reset [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --hard |  Resets the index and working tree. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-
-
-## mod rev-parse
-
-Performs the equivalent of **git rev-parse** on multiple repositories.
-
-
-Rather than applying one rev-parse at a time, this operates on multiple repositories.
-
-### Usage
-
-```
-mod rev-parse [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-| args |  | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-
-
-## mod stashset
-
-Performs the equivalent of **git stash** on multiple repositories.
-
-
-Rather than applying one stash at a time, this operates on multiple repositories.
-
-This command does not affect the stash log of the repository, but rather stores the otherwise untracked commit in a multi-repository stash file in Moderne configuration, so the whole 'stashset' can be applied at once atomically.
-
-### Usage
-
-```
-mod stashset [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `apply`: Performs the equivalent of **git stash apply** on multiple repositories.
-* `push`: Performs the equivalent of **git stash push** on multiple repositories.
-
-## mod stashset apply
-
-Performs the equivalent of **git stash apply** on multiple repositories.
-
-
-
-
-### Usage
-
-```
-mod stashset apply [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-| ref |  The stash ref to apply. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --force |  Pop the stash after applying it, regardless of whether it made a change. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-
-
-## mod stashset push
-
-Performs the equivalent of **git stash push** on multiple repositories.
-
-
-
-
-### Usage
-
-```
-mod stashset push [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| -u, --include-untracked |  Include untracked files. | |
-
-
-## mod stashset
-
-Performs the equivalent of **git stash** on multiple repositories.
-
-
-Rather than applying one stash at a time, this operates on multiple repositories.
-
-This command does not affect the stash log of the repository, but rather stores the otherwise untracked commit in a multi-repository stash file in Moderne configuration, so the whole 'stashset' can be applied at once atomically.
-
-### Usage
-
-```
-mod stashset [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `apply`: Performs the equivalent of **git stash apply** on multiple repositories.
-* `push`: Performs the equivalent of **git stash push** on multiple repositories.
-
-## mod stashset apply
-
-Performs the equivalent of **git stash apply** on multiple repositories.
-
-
-
-
-### Usage
-
-```
-mod stashset apply [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-| ref |  The stash ref to apply. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --force |  Pop the stash after applying it, regardless of whether it made a change. | |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-
-
-## mod stashset push
-
-Performs the equivalent of **git stash push** on multiple repositories.
-
-
-
-
-### Usage
-
-```
-mod stashset push [parameters] [subcommands]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ------- |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | |
-| -u, --include-untracked |  Include untracked files. | |
 
 
 ## mod generate-completion
