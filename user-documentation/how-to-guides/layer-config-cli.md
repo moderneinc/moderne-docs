@@ -97,7 +97,15 @@ When developing a project, you may find that there are certain arguments needed 
 mod config build maven arguments edit "-Pmdep.skip" --local ./working-set --save
 ```
 
-After running that, a `.modernecfg` file will be created that includes the arguments you specified. Then, when you go to build the LST artifacts for any project in these directory/directories, these arguments will be used.
+After running that, a `.modernecfg` file will be created that includes the arguments you specified. You can check these files in by running:
+
+```shell
+mod add ./working-set
+mod commit ./working-set -m "Add Moderne configuration"
+mod push ./working-set
+```
+
+Then, when you go to build the LST artifacts for any project in these directory/directories, these arguments will be used.
 
 Please note that this will **override** any arguments that you've [provided globally](#global-configuration). If you want those arguments to apply to the local project(s) you're specifying, please make sure that you include them in this command.
 
