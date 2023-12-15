@@ -2291,7 +2291,7 @@ mod git apply [parameters] [subcommands]
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
-| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. | |
+| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole organization, not on an individual repository basis. | |
 | --recipe-run |  The recipe run that generated patch files to apply. | |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | |

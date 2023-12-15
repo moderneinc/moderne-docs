@@ -6,13 +6,9 @@ In this guide, we will explain everything you need to know to find and use visua
 
 ## Where visualizations exist
 
-While you will see a visualization button on every recipe run, it will be disabled for most recipes. There are two main reasons for this:
+While you will see a visualization button on every recipe run, it will be disabled for most recipes. 
 
-1. Visualizations will not work on [repository groups](../how-to-guides/managing-user-configured-organizations.md). If you want to see visualizations, you **must** run the recipe against an organization instead:
-
-![Visualization restrictions](../../.gitbook/assets/visualization-restrictions.png)
-
-2. Only a handful of recipes currently offer visualizations. You can see the list of visualizations in the [moderne-visualizations-misc repository](https://github.com/moderneinc/moderne-visualizations-misc/tree/main/moderne\_visualizations\_misc/specs) or you can use the following GraphQL query to find all visualizations:
+This is because only a handful of recipes currently offer visualizations. You can see the list of visualizations in the [moderne-visualizations-misc repository](https://github.com/moderneinc/moderne-visualizations-misc/tree/main/moderne\_visualizations\_misc/specs) or you can use the following GraphQL query to find all visualizations:
 
 ```
 query {

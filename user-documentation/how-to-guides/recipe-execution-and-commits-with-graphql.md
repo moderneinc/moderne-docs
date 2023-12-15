@@ -20,7 +20,7 @@ This guide assumes that you:
 
 ### Recipe execution
 
-1. To begin, you'll want to decide what repositories you want your recipe to run on. You have three options for selecting repositories: choosing an existing organization, [creating a new repository group](managing-user-configured-organizations.md#how-to-create-a-repository-group), or selecting an existing repository group. Once you've selected or created one, you can proceed to step 2.
+1. To begin, you'll want to decide what repositories you want your recipe to run on. You have three options for selecting repositories: choosing an existing organization, [creating a new user defined organization](managing-user-configured-organizations.md#how-to-create-a-user-configured-organization), or selecting an existing user defined organization. Once you've selected or created one, you can proceed to step 2.
 2. Navigate to the recipe you wish to run and fill out the recipe options.
 
 ![](../../.gitbook/assets/update-gradle-plugin.png)
