@@ -1,10 +1,12 @@
-# Selecting and configuring JDKs
+# Selecting and configuring Java and JDKs
 
-By default, the Moderne CLI will try and detect JDKs installed on your local machine and then pick the most optimal one when it goes to build each project. You can, however, specify additional locations that the CLI should prioritize to look at for JDKs.
+By default, the Moderne CLI will try and detect what version of Java applies to a specific project and where the JDK is for said version. It will then pick the most optimal one when it goes to build each project.
 
-Let's walk through how to see what the defaults are and how you can add additional JDK locations.
+In some situations, however, this may not be desirable. Perhaps you have a special location where the JDKs are saved, or perhaps the CLI detected the wrong version of Java for a project. In those instances, you can run certain `mod config java` commands to tell the CLI what version of Java a project should use and where the JDKs are.
 
-## Defaults
+Let's walk through how to see what the defaults are and how you can add change them if desired.
+
+## JDK Defaults
 
 By default, the Moderne CLI will look for JDKs in these locations (with the first one representing the one given the highest priority):
 
@@ -67,4 +69,35 @@ After running that, when a project is being built, it will prioritize looking fo
 
 Please note, though, that projects will only use this location if that appropriate version of Java exists there. This means, for instance, that if a project uses Java 17, but you specify a location that only has a Java 11 JDK, that the CLI will look elsewhere for the JDK. If it finds a Java 17 JDK anywhere else, it will use that one. If it can't find a JDK for the appropriate version of Java then it will error and the CLI commands won't work.
 
+## Specifying different Java versions
 
+If you want to force the CLI to use a specific version of Java when building anything, you can run a command like:
+
+```shell
+mod config java version edit 17
+```
+
+`17` can be more specific if you want a higher degree of control. For instance, it could be `17-tem` or `17.0.6-tem`.
+
+If you want this version of Java to only apply to a specific group of repositories, you can add the `--local <path>` parameter to the end of the command such as in:
+
+```shell
+mod config java version edit 17 --local ./working-set
+```
+
+If you want to revert to auto-detection for the Java version you can run one of the following commands:
+
+```shell
+mod config java version delete
+mod config java version edit auto
+```
+
+If you want to see what Java version the CLI is currently using, you can run the following command:
+
+```shell
+mod config java version show
+```
+
+## Additional reading
+
+For more information about each of the commands listed here, please see our [CLI reference docs](/user-documentation/references/cli-reference.md).
