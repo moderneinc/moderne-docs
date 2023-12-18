@@ -12,6 +12,10 @@ To meet all of these needs, the Moderne CLI offers a few options for how you can
 
 If your company has some configuration that will apply to most, if not all, projects, you should use global configuration. This will allow you to set arguments for any LST build for any project on the machine (which can be overridden by local configuration).
 
+{% hint style="info" %}
+Please note that these arguments will not be saved in the individual projects. If someone else were to try and build these projects on a different machine, they would need to configure these arguments themselves. If you want to save arguments for a specific project, please see the [local configuration (shared) section](#local-configuration-shared).
+{% endhint %}
+
 Below are two examples that demonstrate global configuration. If you run either of these commands, the arguments will be added to any Maven or Gradle build being run through the Moderne CLI.
 
 ```shell
@@ -37,13 +41,13 @@ mod config build gradle arguments delete
 
 ## Local configuration (user-specific)
 
-During development, there may come a time when you want to edit build arguments for a couple of projects, but you don't want to check those changes in as they could cause harm or just don't apply in general. In these situations, you can use the `--local` flag such as in the following command:
+When building repositories, there may come a time when you want to edit build arguments for some projects, but you don't want to check those changes in as they could cause harm or trigger unnecessary builds. In these situations, you can use the `--local` flag such as in the following command:
 
 ```shell
 mod config build maven arguments edit "-Pmdep.skip" --local ./working-set
 ```
 
-After running that, when you go to build the LST artifacts for any project in the specified directory/directories, these arguments will be used. Please note that this will **override** any arguments that you've [provided globally](#global-configuration). If you want those arguments to apply to the local project(s) you're specifying, please make sure that you include them in this command.
+After running that, when you go to build the LST artifacts for any project in the specified directory/directories, these arguments will be used – but no files that will be checked in with Git will be updated. Please note that this will **override** any arguments that you've [provided globally](#global-configuration). If you want those arguments to apply to the local project(s) you're specifying, please make sure that you include them in this command.
 
 Also note that this applies **recursively**. If the directory you specify contains many Git repositories, this will apply to all of them. For example, if your directory structure looks like:
 
@@ -91,7 +95,7 @@ mod config build gradle arguments delete --local ./path/to/your/project
 
 ## Local configuration (shared)
 
-When developing a project, you may find that there are certain arguments needed to build the project. Rather than having to tell every person to add these specific arguments and running into issues when they don't, you can save the specific build arguments you need by including the `--save` parameter at the end of your commands such as in the following example:
+In order to build some projects, you may find that there are certain arguments that need to be added or included. Rather than having to tell every person to add these specific arguments and running into issues when they don't, you can save the specific build arguments you need by including the `--save` parameter at the end of your commands such as in the following example:
 
 ```shell
 mod config build maven arguments edit "-Pmdep.skip" --local ./working-set --save
