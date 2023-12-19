@@ -76,39 +76,20 @@ Options:
 
 Commands:
 
-  build                  Generates LST artifacts for one or more repositories.
-  clean                  Clean build and run artifacts produced by the CLI.
-  config                 Global configuration options that are required by some
-                           CLI commands.
-  list                   Lists the repositories that can be built and published.
-  publish                Publishes the LST artifacts for a specific project.
-  run                    Runs an OpenRewrite recipe locally.
-  run-history
-  study                  Produces studies from OpenRewrite recipe data tables
-                           locally.
-  add                    Performs the equivalent of git add on multiple
-                           repositories.
-  apply                  Performs the equivalent of git apply on multiple
-                           repositories.
-  checkout               Performs the equivalent of git checkout on multiple
-                           repositories.
-  clone                  Performs the equivalent of git clone on multiple
-                           repositories.
-  commit                 Performs the equivalent of git commit on multiple
-                           repositories.
-  exec                   Execute an arbitrary shell command recursively on
-                           selected repository roots.
-  pull                   Performs the equivalent of git pull on multiple
-                           repositories.
-  push                   Performs the equivalent of git push on multiple
-                           repositories.
-  reset                  Performs the equivalent of git reset on multiple
-                           repositories.
-  rev-parse              Performs the equivalent of git rev-parse on multiple
-                           repositories.
-  stashset, atomicstash  Performs the equivalent of git stash on multiple
-                           repositories.
-  generate-completion    Generate bash/zsh completion script for mod.
+  build                Generates LST artifacts for one or more repositories.
+  clean                Clean build and run artifacts produced by the CLI.
+  config               Global configuration options that are required by some
+                         CLI commands.
+  exec                 Execute an arbitrary shell command recursively on
+                         selected repository roots.
+  git                  Multi-repository git operations.
+  list                 Lists the repositories that can be built and published.
+  publish              Publishes the LST artifacts for one or more projects.
+  run                  Runs an OpenRewrite recipe locally on pre-built LSTS.
+  run-history          Get information about the most recent recipe runs.
+  study                Produces studies from OpenRewrite recipe data tables
+                         locally.
+  generate-completion  Generate bash/zsh completion script for mod.
 
 MOD SUCCEEDED in (0.01s)
 ```
@@ -168,10 +149,16 @@ mod config recipes moderne install <recipe_search_term>
 
 ### (Optionally) Configure artifact publishing
 
-If you want to publish artifacts from the CLI, you'll need to run the following command:
+If you want to publish artifacts from the CLI, you'll need to run one of the following commands depending on if you want the LST artifacts published to Artifactory or to some location on disk:
 
 ```shell
-mod config artifacts edit <your-artifact-repository-url> --user <user> --password <password>
+mod config artifacts artifactory edit <artifactory-url> --user <user> --password <password>
+```
+
+OR
+
+```shell
+mod config artifacts volume edit <location-on-disk>
 ```
 
 ## CLI exercise
