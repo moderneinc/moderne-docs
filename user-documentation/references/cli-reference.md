@@ -1315,7 +1315,7 @@ mod config http trust-store edit [parameters] [subcommands]
 ### Subcommands
 
 * `file`: Configures truststore to point to a file.
-* `java-home`: Configures truststore to use the cacerts file in **/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.9-9/x64/lib/security/cacerts**.
+* `java-home`: Configures truststore to use the cacerts file in **\/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.9-9/x64/lib/security/cacerts**.
 
 ## mod config http trust-store edit file
 
@@ -1349,7 +1349,7 @@ mod config http trust-store edit file [parameters] [subcommands]
 
 ## mod config http trust-store edit java-home
 
-Configures truststore to use the cacerts file in **/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.9-9/x64/lib/security/cacerts**.
+Configures truststore to use the cacerts file in **\/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.9-9/x64/lib/security/cacerts**.
 
 
 ### Usage
