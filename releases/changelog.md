@@ -1,34 +1,35 @@
 # Platform changelog
+
 ### UI v10.30.0 (2023/12/20)
 
-- new login screen
+We updated the login screen: \
+![](<../.gitbook/assets/image (25).png>)
 
 ### UI v10.29.0 (2023/12/18)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.28.1 (2023/12/15)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.28.0 (2023/12/15)
 
-- Add tile to agents page for PyPi configuration
-- add loading indication when paginating audit logs.
+* Add tile to agents page for PyPi configuration
+* add loading indication when paginating audit logs.
 
 ### UI v10.27.0 (2023/12/14)
 
-- user organizations
+* user organizations
 
 ### UI v10.26.0 (2023/12/14)
 
-- enable AI assisted search by default
-- add mergeability column to the commit job table
+* enable AI assisted search by default
+* add mergeability column to the commit job table
 
 ### UI v10.25.0 (2023/12/13)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v10.24.2 (2023/12/12)
 
