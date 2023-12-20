@@ -2,7 +2,13 @@
 
 ### UI v10.30.0 (2023/12/20)
 
-We updated the login screen: \
+We updated the login screen to improve visibility:&#x20;
+
+Previous:
+
+![](../.gitbook/assets/image.png)
+
+New:\
 ![](<../.gitbook/assets/image (25).png>)
 
 ### UI v10.29.0 (2023/12/18)
@@ -65,11 +71,11 @@ On the heels of adding support for preconditions, it was time to give the _Recip
 
 Through the _Recipe Builder_ customers can now define _precondition_ recipes that will run ahead of the recipe lists. The recipe list will only be run on repositories that included results from the _precondition._
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>To add a precondition recipe to your custom recipe, you can use the <em>Add as precondition</em></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>To add a precondition recipe to your custom recipe, you can use the <em>Add as precondition</em></p></figcaption></figure>
 
 Once a precondition has been added, it will appear as a new tab on the _Recipe Builder_ page
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (4).png" alt=""><figcaption></figcaption></figure>
 
 * add icon support for processing status
 
