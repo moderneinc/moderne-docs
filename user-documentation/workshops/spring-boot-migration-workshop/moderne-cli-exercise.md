@@ -91,7 +91,13 @@ MOD SUCCEEDED in (0.01s)
 </details>
 
 {% hint style="success" %}
-If you want to enable tab auto-completion for CLI commands, you can run `source <(mod generate-completion)` or you can update your `~/.zshrc` or `~/.bashrc` file and add this command to the bottom of it:
+If you want to enable tab auto-completion for CLI commands, you can run:
+
+```shell
+source <(mod generate-completion)
+```
+
+or you can update your `~/.zshrc` or `~/.bashrc` file and add this command to the bottom of it:
 
 ```shell
 # The next line enables shell command completion for mod
