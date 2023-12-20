@@ -11,7 +11,7 @@ In this exercise, you will use the [Moderne CLI](../../getting-started/cli-intro
 
 {% tabs %}
 {% tab title="Mac" %}
-[moderne-cli-v1.7.9 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.7.9/moderne-cli-macos-v1.7.9)
+[moderne-cli-v2.0.1 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v2.0.1/moderne-cli-macos-v2.0.1)
 
 {% hint style="success" %}
 
@@ -31,11 +31,11 @@ and skip step 3.
 {% endtab %}
 
 {% tab title="Linux" %}
-[moderne-cli-v1.7.9 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.7.9/moderne-cli-linux-v1.7.9)
+[moderne-cli-v2.0.1 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v2.0.1/moderne-cli-linux-v2.0.1)
 {% endtab %}
 
 {% tab title="Windows" %}
-[moderne-cli-v1.7.9 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.7.9/moderne-cli-windows-v1.7.9)
+[moderne-cli-v2.0.1 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v2.0.1/moderne-cli-windows-v2.0.1)
 {% endtab %}
 {% endtabs %}
 
@@ -54,7 +54,7 @@ and skip step 3.
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 1.7.9-SNAPSHOT
+Moderne CLI 2.0.1-SNAPSHOT
 
 Usage:
 
@@ -124,7 +124,7 @@ mod config recipes moderne install UpgradeSpringBoot_3_2
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 1.7.9-SNAPSHOT
+Moderne CLI 2.0.1-SNAPSHOT
 
 [1] Migrate to Spring Boot 3.2
 [2] Migrate to Spring Boot 3.1
@@ -226,7 +226,7 @@ mod build .
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 1.7.9-SNAPSHOT
+Moderne CLI 2.0.1-SNAPSHOT
 
 > Selecting repositories
 
@@ -268,7 +268,7 @@ mod run . --recipe UpgradeSpringBoot_3_2
     ▛▀▀█▀▛▀▀▀▀▜
     ▌▟▀  ▛▀▀▀▀▜
     ▀▀▀▀▀▀▀▀▀▀▀
- Moderne CLI v1.7.9-SNAPSHOT
+ Moderne CLI v2.0.1-SNAPSHOT
 
 > Selecting repositories
 
@@ -1644,7 +1644,7 @@ mod build $HOME/workshop
        ▛▀▀█▀▛▀▀▀▀▜
        ▌▟▀  ▛▀▀▀▀▜
        ▀▀▀▀▀▀▀▀▀▀▀
-  Moderne CLI 1.7.9-SNAPSHOT
+  Moderne CLI 2.0.1-SNAPSHOT
   Running in a local developer environment
 
   > Selecting repositories

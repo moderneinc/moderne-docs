@@ -19,7 +19,7 @@ To install the Moderne CLI please:
 {% tabs %}
 {% tab title="Mac" %}
 * [Moderne CLI 1.6.27 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos/v1.6.27/moderne-cli-macos-v1.6.27)
-* [Moderne CLI 1.7.9 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v1.7.9/moderne-cli-macos-v1.7.9)
+* [Moderne CLI 2.0.1 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v2.0.1/moderne-cli-macos-v2.0.1)
 
 You can also install the latest stable version via [Brew](https://brew.sh/):
 
@@ -37,12 +37,12 @@ brew install moderneinc/moderne/mod --head
 
 {% tab title="Linux" %}
 * [Moderne CLI 1.6.27 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux/v1.6.27/moderne-cli-linux-v1.6.27)
-* [Moderne CLI 1.7.9 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v1.7.9/moderne-cli-linux-v1.7.9)
+* [Moderne CLI 2.0.1 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v2.0.1/moderne-cli-linux-v2.0.1)
 {% endtab %}
 
 {% tab title="Windows" %}
 * [Moderne CLI 1.6.27 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v1.6.27/moderne-cli-windows-v1.6.27)
-* [Moderne CLI 1.7.9 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v1.7.9/moderne-cli-windows-v1.7.9)
+* [Moderne CLI 2.0.1 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v2.0.1/moderne-cli-windows-v2.0.1)
 {% endtab %}
 {% endtabs %}
 
@@ -60,7 +60,7 @@ brew install moderneinc/moderne/mod --head
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 1.7.9-SNAPSHOT
+Moderne CLI 2.0.1-SNAPSHOT
 
 Usage:
 
