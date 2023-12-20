@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.30.0 (2023/12/20)
+
+- new login screen
+
 ### UI v10.29.0 (2023/12/18)
 
 - Bug fixes and other improvements.
