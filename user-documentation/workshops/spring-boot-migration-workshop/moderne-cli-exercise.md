@@ -124,6 +124,7 @@ mod config recipes moderne install UpgradeSpringBoot_3_2
 
 <summary>This will look something like:</summary>
 
+```shell
 ➜ mod config recipes moderne install UpgradeSpringBoot_3_2
         ▛▀▀▚▖  ▗▄▟▜
         ▌   ▜▄▟▀  ▐
@@ -161,7 +162,7 @@ Migrate applications to the latest Spring Boot 3.2 release. This recipe will mod
 
 
 Install org.openrewrite.recipe:rewrite-spring:5.2.0-20231219.181744-58 which contains this recipe [Yn]? Y
-
+```
 </details>
 
 {% hint style="success" %}
