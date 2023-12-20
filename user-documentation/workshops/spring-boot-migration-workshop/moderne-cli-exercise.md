@@ -275,7 +275,7 @@ mod run . --recipe UpgradeSpringBoot_3_2
     ▛▀▀█▀▛▀▀▀▀▜
     ▌▟▀  ▛▀▀▀▀▜
     ▀▀▀▀▀▀▀▀▀▀▀
- Moderne CLI v2.0.1-SNAPSHOT
+ Moderne CLI 2.0.1-SNAPSHOT
 
 > Selecting repositories
 
