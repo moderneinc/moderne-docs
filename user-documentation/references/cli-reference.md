@@ -1315,7 +1315,7 @@ mod config http trust-store edit [parameters] [subcommands]
 ### Subcommands
 
 * `file`: Configures truststore to point to a file.
-* `java-home`: Configures truststore to use the cacerts file in **\/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.9-9/x64/lib/security/cacerts**.
+* `java-home`: Configures truststore to use the cacerts file in **${JAVA_HOME}/lib/security/cacerts**.
 
 ## mod config http trust-store edit file
 
@@ -1349,7 +1349,7 @@ mod config http trust-store edit file [parameters] [subcommands]
 
 ## mod config http trust-store edit java-home
 
-Configures truststore to use the cacerts file in **\/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.9-9/x64/lib/security/cacerts**.
+Configures truststore to use the cacerts file in **${JAVA_HOME}/lib/security/cacerts**.
 
 
 ### Usage
@@ -2418,7 +2418,7 @@ mod git add [parameters] [subcommands]
 ### Examples
 
 ```
-mod add /path/to/project --recipe-run <recipe-run-id>
+mod git add /path/to/project --recipe-run <recipe-run-id>
 ```
 
 ### Parameters
@@ -2453,7 +2453,7 @@ mod git apply [parameters] [subcommands]
 ### Examples
 
 ```
-mod apply /path/to/project --recipe-run 20230903164310-2qVRM
+mod git apply /path/to/project --recipe-run 20230903164310-2qVRM
 ```
 
 ### Parameters
@@ -2489,7 +2489,7 @@ mod git checkout [parameters] [subcommands]
 ### Examples
 
 ```
-mod checkout /path/to/project
+mod git checkout /path/to/project
 ```
 
 ### Parameters
@@ -2611,7 +2611,7 @@ mod git commit [parameters] [subcommands]
 ### Examples
 
 ```
-mod commit /path/to/project -m "commit message"
+mod git commit /path/to/project -m "commit message"
 ```
 
 ### Parameters
@@ -2648,7 +2648,7 @@ mod git pull [parameters] [subcommands]
 ### Examples
 
 ```
-mod pull /path/to/project
+mod git pull /path/to/project
 ```
 
 ### Parameters
@@ -2683,7 +2683,7 @@ mod git push [parameters] [subcommands]
 ### Examples
 
 ```
-mod push /path/to/project -u origin feature-branch
+mod git push /path/to/project -u origin feature-branch
 ```
 
 ### Parameters
@@ -2722,7 +2722,7 @@ mod git reset [parameters] [subcommands]
 ### Examples
 
 ```
-mod reset /path/to/project
+mod git reset /path/to/project
 ```
 
 ### Parameters
@@ -2757,7 +2757,7 @@ mod git rev-parse [parameters] [subcommands]
 ### Examples
 
 ```
-mod rev-parse /path/to/project
+mod git rev-parse /path/to/project
 ```
 
 ### Parameters
@@ -2794,7 +2794,7 @@ mod git stashset [parameters] [subcommands]
 ### Examples
 
 ```
-mod stashset /path/to/project
+mod git stashset /path/to/project
 ```
 
 
@@ -2880,7 +2880,7 @@ mod git stashset [parameters] [subcommands]
 ### Examples
 
 ```
-mod stashset /path/to/project
+mod git stashset /path/to/project
 ```
 
 
