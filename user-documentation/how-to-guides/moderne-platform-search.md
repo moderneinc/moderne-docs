@@ -37,3 +37,5 @@ When AI search is disabled, you can search for specific fields such as:
   * Example: `description:Resolve common static analysis issues discovered through 3rd party tools.` (Requires no quotes)
 * `category` - the category in the recipe marketplace&#x20;
   * Example:  `category:Static analysis and remediation` (Requires no quotes)
+
+Please note that in all of these cases you **cannot** have a space between the `:` and the start of the string you're looking for.
