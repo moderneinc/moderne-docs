@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.31.0 (2023/12/22)
+
+- remove need for keycloak logout screen
+
 
 ### UI v10.30.0 (2023/12/20)
 
