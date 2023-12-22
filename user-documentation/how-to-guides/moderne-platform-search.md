@@ -21,7 +21,7 @@ To get the most value out of AI search, you'll want to approach searching for re
 
 ### How to enable or disable AI search
 
-To toggle AI search, log in to Moderne, click your profile in the bottom-left, and click on the AI-assisted search button in the modal that appears:
+To toggle AI search, log in to Moderne, click on your profile in the bottom-left, and click on the AI assisted search button in the modal that appears:
 
 ![](../../.gitbook/assets/ai-search-enable.gif)
 
