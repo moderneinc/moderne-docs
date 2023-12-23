@@ -54,7 +54,7 @@ and skip step 3.
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.0.5-SNAPSHOT
+Moderne CLI 2.0.5
 
 Usage:
 
@@ -131,7 +131,7 @@ mod config recipes moderne install UpgradeSpringBoot_3_2
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.0.5-SNAPSHOT
+Moderne CLI 2.0.5
 
 [1] Migrate to Spring Boot 3.2
 [2] Migrate to Spring Boot 3.1
@@ -233,7 +233,7 @@ mod build .
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.0.5-SNAPSHOT
+Moderne CLI 2.0.5
 
 > Selecting repositories
 
@@ -275,7 +275,7 @@ mod run . --recipe UpgradeSpringBoot_3_2
     ▛▀▀█▀▛▀▀▀▀▜
     ▌▟▀  ▛▀▀▀▀▜
     ▀▀▀▀▀▀▀▀▀▀▀
- Moderne CLI 2.0.5-SNAPSHOT
+ Moderne CLI 2.0.5
 
 > Selecting repositories
 
@@ -1651,7 +1651,7 @@ mod build $HOME/workshop
        ▛▀▀█▀▛▀▀▀▀▜
        ▌▟▀  ▛▀▀▀▀▜
        ▀▀▀▀▀▀▀▀▀▀▀
-  Moderne CLI 2.0.5-SNAPSHOT
+  Moderne CLI 2.0.5
   Running in a local developer environment
 
   > Selecting repositories
