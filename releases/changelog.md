@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.32.0 (2023/12/27)
+
+- add search tips for ai search when enabled.
+- add reload current recipes with latest version to examples. Show caret with API examples
+
 ### UI v10.31.0 (2023/12/22)
 
 - remove need for keycloak logout screen
