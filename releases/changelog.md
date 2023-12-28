@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.32.1 (2023/12/28)
+
+- Bug fixes and other improvements.
+
 ### UI v10.32.0 (2023/12/27)
 
 - add search tips for ai search when enabled.
