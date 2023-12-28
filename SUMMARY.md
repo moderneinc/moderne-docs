@@ -10,6 +10,7 @@
   * [Getting started with data tables](user-documentation/getting-started/data-tables.md)
   * [Getting started with visualizations](user-documentation/getting-started/visualizations.md)
   * [Getting started with the Moderne CLI](user-documentation/getting-started/cli-intro.md)
+  * [Using the activity view](user-documentation/getting-started/activity-view.md)
 * [How to guides](user-documentation/how-to-guides/README.md)
   * [Create custom recipes with the recipe builder](user-documentation/how-to-guides/recipe-builder.md)
   * [Introduction to type-aware code search](user-documentation/how-to-guides/introduction-to-type-aware-code-search.md)
