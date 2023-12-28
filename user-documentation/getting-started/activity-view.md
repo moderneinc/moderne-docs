@@ -31,3 +31,9 @@ If you want to get more information about a recipe, commit, or a visualization, 
 If you want to see what recipe was run, get a link to said recipe, or see what options the recipe was run with, you can mouse over the information icon. A modal will pop up with more details and a link will be provided for you to navigate to the recipe:
 
 ![](/.gitbook/assets/activity-info.gif)
+
+### More detailed time tracking
+
+If you want more specific times for when things happened rather than "about 2 hours ago" or "1 day ago", you can click on any of the times in the `Start time` column to cycle through various date time formats:
+
+![](/.gitbook/assets/activity-time.gif)
