@@ -1616,10 +1616,10 @@ mkdir -p $HOME/workshop
 mod git clone moderne $HOME/workshop "Spring Projects 2.x"
 ```
 
-If you look in the `$HOME/workshop/spring-projects` directory, you should see 3 different repositories:
+If you look in the `$HOME/workshop/` directory, you should see 3 different repositories:
 
 ```bash
-ls -ltr $HOME/workshop/spring-projects/
+ls -ltr $HOME/workshop/
 ```
 
 <details>
