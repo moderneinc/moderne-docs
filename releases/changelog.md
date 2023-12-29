@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.34.0 (2023/12/29)
+
+- Bug fixes and other improvements.
+
 ### UI v10.33.0 (2023/12/29)
 
 - expose git provenance and operating system information on repository details
