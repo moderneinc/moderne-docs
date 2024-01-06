@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.36.0 (2024/01/06)
+
+- allow downloads to continue while navigating around the app.
+
 ### UI v10.35.2 (2024/01/05)
 
 - Bug fixes and other improvements.
