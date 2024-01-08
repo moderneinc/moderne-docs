@@ -2,6 +2,8 @@
 
 In this exercise, you will use the [Moderne CLI](../../getting-started/cli-intro.md), a free tool that allows developer to run OpenRewrite recipes without configuring any build plugin, to migrate a repository from Spring Boot 2 to Spring Boot 3.
 
+After that, we'll provide some additional examples that show other capabilities of the CLI (such as creating and viewing data tables).
+
 ### Prepare your environment
 
 #### Download and configure the Moderne CLI
@@ -14,7 +16,6 @@ In this exercise, you will use the [Moderne CLI](../../getting-started/cli-intro
 [moderne-cli-v2.0.5 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v2.0.5/moderne-cli-macos-v2.0.5)
 
 {% hint style="success" %}
-
 You can also install the latest stable version via [Brew](https://brew.sh/):
 
 ```sh
@@ -26,6 +27,7 @@ Or the latest staging version via:
 ```sh
 brew install moderneinc/moderne/mod --head
 ```
+
 and skip step 3.
 {% endhint %}
 {% endtab %}
@@ -40,7 +42,6 @@ and skip step 3.
 {% endtabs %}
 
 3. Once you have it downloaded, save it somewhere that your terminal can access. If you want it available in each of your terminal windows, consider updating your `PATH` to point ot this location or aliasing `mod` to the location of the CLI. You could also save the file to a directory that's already on your `PATH` such as a `/usr/bin` directory.
-
 4. Ensure you can run the CLI by typing `mod`.
 
 <details>
@@ -91,7 +92,7 @@ MOD SUCCEEDED in (0.01s)
 </details>
 
 {% hint style="success" %}
-If you want to enable tab auto-completion for CLI commands, you can run:
+If you want to enable tab auto-completion for CLI commands (Unix systems only), you can run:
 
 ```shell
 source <(mod generate-completion)
@@ -163,6 +164,7 @@ Migrate applications to the latest Spring Boot 3.2 release. This recipe will mod
 
 Install org.openrewrite.recipe:rewrite-spring:5.2.0-20231219.181744-58 which contains this recipe [Yn]? Y
 ```
+
 </details>
 
 {% hint style="success" %}
@@ -1628,9 +1630,9 @@ ls -ltr $HOME/workshop/
 
 ```bash
 total 0
-drwxr-xr-x  13 mikesol  staff  416 Sep 21 10:22 spring-data-release
-drwxr-xr-x  21 mikesol  staff  672 Sep 21 10:22 spring-hateoas-examples
-drwxr-xr-x  14 mikesol  staff  448 Sep 21 10:22 spring-session-data-mongodb-examples
+drwxr-xr-x@ 19 mikesol  staff  608 Jan  5 10:05 spring-data-commons
+drwxr-xr-x@ 13 mikesol  staff  416 Jan  5 10:05 spring-data-release
+drwxr-xr-x@ 14 mikesol  staff  448 Jan  5 10:05 spring-session-data-mongodb-examples
 ```
 
 </details>
@@ -1646,47 +1648,52 @@ mod build $HOME/workshop
 <summary>You should see output similar to the following.</summary>
 
 ```
-       ▛▀▀▚▖  ▗▄▟▜
-       ▌   ▜▄▟▀  ▐
-       ▛▀▀█▀▛▀▀▀▀▜
-       ▌▟▀  ▛▀▀▀▀▜
-       ▀▀▀▀▀▀▀▀▀▀▀
-  Moderne CLI 2.0.5
-  Running in a local developer environment
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 2.0.5
 
-  > Selecting repositories
+> Selecting repositories
 
-  > spring-projects/spring-data-release@main
-  > spring-projects/spring-hateoas-examples@main
-  > spring-projects/spring-session-data-mongodb-examples@main
-  Selected 3 repositories (0.36s)
+> spring-projects/spring-data-commons@main
+> spring-projects/spring-data-release@main
+> spring-projects/spring-session-data-mongodb-examples@main
+Selected 3 repositories (0.28s)
 
-  > Building LST(s)
+> Building LST(s)
 
-  > spring-projects/spring-data-release@main
-      Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-projects/spring-data-release/.moderne/build/20230921102317-1wuaH/build.log
-      📶 Step 1 - download from Moderne
-      ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-projects/spring-data-release/.moderne/build/20230921102317-1wuaH/0-spring-data-release-20230921034129-ast.jar
-      Cleaned 0 older builds.
-  > spring-projects/spring-hateoas-examples@main
-      Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-projects/spring-hateoas-examples/.moderne/build/20230921102319-BBHxN/build.log
-      📶 Step 1 - download from Moderne
-      ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-projects/spring-hateoas-examples/.moderne/build/20230921102319-BBHxN/0-spring-hateoas-examples-20230921093801-ast.jar
-      Cleaned 0 older builds.
-  > spring-projects/spring-session-data-mongodb-examples@main
-      Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-projects/spring-session-data-mongodb-examples/.moderne/build/20230921102320-A1sUV/build.log
-      📶 Step 1 - download from Moderne
-      ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-projects/spring-session-data-mongodb-examples/.moderne/build/20230921102320-A1sUV/0-spring-session-data-mongodb-examples-20230921125257-ast.jar
-      Cleaned 0 older builds.
-  Built 3 repositories (3s)
+> spring-projects/spring-data-commons@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data-commons/.moderne/build/20240105100553-BbBod/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data-commons/.moderne/build/20240105100553-BbBod/0-spring-data-commons-20240104182701-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-release@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data-release/.moderne/build/20240105100556-TFEb4/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data-release/.moderne/build/20240105100556-TFEb4/0-spring-data-release-20240105025554-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-session-data-mongodb-examples@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-session-data-mongodb-examples/.moderne/build/20240105100557-jYfqC/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-session-data-mongodb-examples/.moderne/build/20240105100557-jYfqC/0-spring-session-data-mongodb-examples-20240105114206-ast.jar
+    🧹 Cleaned 0 older builds.
+Built 3 repositories. (4s)
 
-  * What to do next
-      > Run mod run . --recipe <RecipeName>
+4m 34s saved by using previously built LSTs
 
-  MOD SUCCEEDED in (4s)
+* What to do next
+    > Run mod run . --recipe <RecipeName>
+
+MOD SUCCEEDED in (4s)
 ```
 
 </details>
+
+```
+mod run $HOME/workshop --recipe UpgradeSpringBoot_3_2
+```
 
 You can apply the changes to all of these repositories at once with the following command:
 
@@ -1708,6 +1715,412 @@ mod git commit $HOME/workshop -m "Migrate to Spring Boot 3.2" --last-recipe-run
 ```
 
 If you'd rather make a branch for each repository and make changes in that, you can use the `mod checkout` command before running `mod commit` to commit the changes. This might be useful if you want to create a pull request for each repository.
+
+### (Optional)  Data tables example
+
+If you have time, this example will show how you clone repositories from a CSV and how you can create and view data tables with the CLI.
+
+#### Step 0: Make a directory to work in
+
+```bash
+mkdir $HOME/workshop/spring-data
+cd $HOME/workshop/spring-data
+```
+
+#### Step 1: Make a repos.csv file
+
+This file will contain a list of all of the repositories that should be cloned. At the very least, you'll need to specify the `cloneUrl` and the `branch` being used.&#x20;
+
+For this exercise, please copy the provided `repos.csv` file and put it in your `spring-data` directory:
+
+```csv
+cloneUrl,branch
+git@github.com:spring-projects/spring-data-couchbase.git,main
+git@github.com:spring-projects/spring-data-relational.git,main
+git@github.com:spring-projects/spring-data-rest.git,main
+git@github.com:spring-projects/spring-data-mongodb.git,main
+git@github.com:spring-projects/spring-data-cassandra.git,main
+git@github.com:spring-projects/spring-data-ldap.git,main
+git@github.com:spring-projects/spring-data-elasticsearch.git,main
+git@github.com:spring-projects/spring-data-redis.git,main
+git@github.com:spring-projects/spring-data-keyvalue.git,main
+git@github.com:spring-projects/spring-data-neo4j.git,main
+git@github.com:spring-projects/spring-data-jpa.git,main
+git@github.com:spring-projects/spring-data-commons.git,main
+```
+
+#### Step 2: Clone the repositories using said CSV file
+
+Run the command:
+
+```bash
+mod git clone csv . repos.csv --filter=tree:0
+```
+
+{% hint style="info" %}
+The `--filter=tree:0` argument is optional, but it helps it clone faster.
+{% endhint %}
+
+<details>
+
+<summary>You should see output similar to the following.</summary>
+
+```bash
+➜  spring-data mod git clone csv . repos.csv --filter=tree:0
+
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 2.0.5
+
+> Reading CSV file
+
+CSV file contains 12 repositories
+
+> Cloning repositories
+
+Clone output will be written to file:///Users/mikesol/.moderne/cli/clone.log
+
+> spring-data-couchbase@main
+> spring-data-relational@main
+> spring-data-rest@main
+> spring-data-mongodb@main
+> spring-data-cassandra@main
+> spring-data-ldap@main
+> spring-data-elasticsearch@main
+> spring-data-redis@main
+> spring-data-keyvalue@main
+> spring-data-neo4j@main
+> spring-data-jpa@main
+> spring-data-commons@main
+Cloned 12 repositories (1m 16s)
+
+MOD SUCCEEDED in (1m 16s)
+```
+
+</details>
+
+#### Step 3: Build the LSTs
+
+Run the command:
+
+```bash
+mod build .
+```
+
+<details>
+
+<summary>You should see output similar to the following.</summary>
+
+```bash
+➜  spring-data mod build .
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 2.0.5
+
+> Selecting repositories
+
+> spring-projects/spring-data-cassandra@main
+> spring-projects/spring-data-commons@main
+> spring-projects/spring-data-couchbase@main
+> spring-projects/spring-data-elasticsearch@main
+> spring-projects/spring-data-jpa@main
+> spring-projects/spring-data-keyvalue@main
+> spring-projects/spring-data-ldap@main
+> spring-projects/spring-data-mongodb@main
+> spring-projects/spring-data-neo4j@main
+> spring-projects/spring-data-redis@main
+> spring-projects/spring-data-relational@main
+> spring-projects/spring-data-rest@main
+Selected 12 repositories (0.31s)
+
+> Building LST(s)
+
+> spring-projects/spring-data-cassandra@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-cassandra/.moderne/build/20240105092910-JRmT1/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-cassandra/.moderne/build/20240105092910-JRmT1/0-spring-data-cassandra-20240105060254-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-commons@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-commons/.moderne/build/20240105092913-Pl0fg/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-commons/.moderne/build/20240105092913-Pl0fg/0-spring-data-commons-20240104182701-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-couchbase@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-couchbase/.moderne/build/20240105092915-k8Hdh/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-couchbase/.moderne/build/20240105092915-k8Hdh/0-spring-data-couchbase-20240105104028-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-elasticsearch@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-elasticsearch/.moderne/build/20240105092917-hBKbG/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-elasticsearch/.moderne/build/20240105092917-hBKbG/0-spring-data-elasticsearch-20240105080612-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-jpa@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-jpa/.moderne/build/20240105092919-HQYOU/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-jpa/.moderne/build/20240105092919-HQYOU/0-spring-data-jpa-20240104181705-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-keyvalue@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-keyvalue/.moderne/build/20240105092921-aQZLw/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-keyvalue/.moderne/build/20240105092921-aQZLw/0-spring-data-keyvalue-20240105144419-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-ldap@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-ldap/.moderne/build/20240105092922-bGbqc/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-ldap/.moderne/build/20240105092922-bGbqc/0-spring-data-ldap-20240105091754-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-mongodb@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-mongodb/.moderne/build/20240105092922-vDSHH/build.log
+    📶 Step 1 - build with Maven
+        Selected the 21.0.1-oracle JDK
+    📶 Step 2 - build with mod-java
+        Selected the 21.0.1-oracle JDK
+    📶 Step 3 - build resources using the native CLI
+    ✅ Built LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-mongodb/.moderne/build/20240105092922-vDSHH/spring-data-mongodb-20240105093140-ast.jar
+    📈 Reported build metrics to Moderne
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-neo4j@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-neo4j/.moderne/build/20240105093141-dGCrA/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-neo4j/.moderne/build/20240105093141-dGCrA/0-spring-data-neo4j-20240104194758-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-redis@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-redis/.moderne/build/20240105093143-O0HAC/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-redis/.moderne/build/20240105093143-O0HAC/0-spring-data-redis-20240105035743-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-relational@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-relational/.moderne/build/20240105093146-LJKD5/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-relational/.moderne/build/20240105093146-LJKD5/0-spring-data-relational-20240105035255-ast.jar
+    🧹 Cleaned 0 older builds.
+> spring-projects/spring-data-rest@main
+    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-rest/.moderne/build/20240105093148-cL1ge/build.log
+    📶 Step 1 - download from Moderne
+    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-rest/.moderne/build/20240105093148-cL1ge/0-spring-data-rest-20240104180550-ast.jar
+    🧹 Cleaned 0 older builds.
+Built 12 repositories. (2m 39s)
+
+38m 28s saved by using previously built LSTs
+
+* What to do next
+    > Run mod run . --recipe <RecipeName>
+
+MOD SUCCEEDED in (2m 39s)
+```
+
+</details>
+
+#### Step 4: Install recipes
+
+If you want to install all the recipes in Moderne:
+
+```bash
+mod config recipes moderne sync
+```
+
+If you want to install just the recipe we'll use below:
+
+```bash
+mod config recipes moderne install UpgradeToJava17
+```
+
+Then select the `Migrate to Java 17` recipe from the list
+
+#### Step 5: Run the refactoring recipe against all of the repos
+
+```bash
+mod run . --recipe UpgradeToJava17
+```
+
+<details>
+
+<summary>You should see results similar to the following</summary>
+
+```bash
+➜  spring-data mod run . --recipe UpgradeToJava17
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 2.0.5
+
+> Selecting repositories
+
+> spring-projects/spring-data-cassandra@main
+> spring-projects/spring-data-commons@main
+> spring-projects/spring-data-couchbase@main
+> spring-projects/spring-data-elasticsearch@main
+> spring-projects/spring-data-jpa@main
+> spring-projects/spring-data-keyvalue@main
+> spring-projects/spring-data-ldap@main
+> spring-projects/spring-data-mongodb@main
+> spring-projects/spring-data-neo4j@main
+> spring-projects/spring-data-redis@main
+> spring-projects/spring-data-relational@main
+> spring-projects/spring-data-rest@main
+Selected 12 repositories (0.29s)
+
+> Running recipe org.openrewrite.java.migrate.UpgradeToJava17
+
+> spring-projects/spring-data-cassandra@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-cassandra/.moderne/run/20240105093912-uQVr7/fix.patch
+> spring-projects/spring-data-commons@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-commons/.moderne/run/20240105093912-uQVr7/fix.patch
+> spring-projects/spring-data-couchbase@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-couchbase/.moderne/run/20240105093912-uQVr7/fix.patch
+> spring-projects/spring-data-elasticsearch@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-elasticsearch/.moderne/run/20240105093912-uQVr7/fix.patch
+> spring-projects/spring-data-jpa@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-jpa/.moderne/run/20240105093912-uQVr7/fix.patch
+> spring-projects/spring-data-keyvalue@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-keyvalue/.moderne/run/20240105093912-uQVr7/fix.patch
+> spring-projects/spring-data-ldap@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-ldap/.moderne/run/20240105093912-uQVr7/fix.patch
+> spring-projects/spring-data-mongodb@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-mongodb/.moderne/run/20240105093912-uQVr7/fix.patch
+> spring-projects/spring-data-neo4j@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-neo4j/.moderne/run/20240105093912-uQVr7/fix.patch
+> spring-projects/spring-data-redis@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-redis/.moderne/run/20240105093912-uQVr7/fix.patch
+> spring-projects/spring-data-relational@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-relational/.moderne/run/20240105093912-uQVr7/fix.patch
+> spring-projects/spring-data-rest@main
+    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-rest/.moderne/run/20240105093912-uQVr7/fix.patch
+Found results on 12 repositories (3m 3s)
+
+40m 46s saved by using previously built LSTs
+
+* What to do next
+    > Click on one of the patch links above to view the changes on a particular repository
+    > Run mod study . --last-recipe-run --data-table <DATA-TABLE> to examine the following data tables produced by this recipe:
+          org.openrewrite.table.RecipeRunStats
+          org.openrewrite.table.SourcesFileResults
+          org.openrewrite.table.SourcesFiles
+    > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
+    > Run mod git apply . --last-recipe-run to apply the changes
+    > Run mod git apply . --recipe-run 20240105093912-uQVr7 to apply the changes
+
+MOD SUCCEEDED in (3m 3s)
+```
+
+</details>
+
+{% hint style="info" %}
+You can command/control + click the result file to view the diff.
+{% endhint %}
+
+#### Step 6: Run mod study to view a data table
+
+Recipes can produce data tables as a recipe run proceeds. Data tables are, effectively, tabular data in a schema that is defined by the recipe.
+
+Let's take a look at the data table for which source files had results:
+
+```bash
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+<details>
+
+<summary>You should see results similar to the following.</summary>
+
+```bash
+➜  spring-data mod study . --last-recipe-run --data-table SourcesFileResults
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 2.0.5
+
+Found recipe run 20240105093912-uQVr7
+
+> Selecting repositories
+
+> spring-projects/spring-data-cassandra@main
+> spring-projects/spring-data-commons@main
+> spring-projects/spring-data-couchbase@main
+> spring-projects/spring-data-elasticsearch@main
+> spring-projects/spring-data-jpa@main
+> spring-projects/spring-data-keyvalue@main
+> spring-projects/spring-data-ldap@main
+> spring-projects/spring-data-mongodb@main
+> spring-projects/spring-data-neo4j@main
+> spring-projects/spring-data-redis@main
+> spring-projects/spring-data-relational@main
+> spring-projects/spring-data-rest@main
+Selected 12 repositories (0.02s)
+
+> Building a combined data table from results on every repository
+
+> spring-projects/spring-data-cassandra@main
+    ✅ Added 159 rows
+> spring-projects/spring-data-commons@main
+    ✅ Added 214 rows
+> spring-projects/spring-data-couchbase@main
+    ✅ Added 80 rows
+> spring-projects/spring-data-elasticsearch@main
+    ✅ Added 44 rows
+> spring-projects/spring-data-jpa@main
+    ✅ Added 52 rows
+> spring-projects/spring-data-keyvalue@main
+    ✅ Added 11 rows
+> spring-projects/spring-data-ldap@main
+    ✅ Added 4 rows
+> spring-projects/spring-data-mongodb@main
+    ✅ Added 162 rows
+> spring-projects/spring-data-neo4j@main
+    ✅ Added 95 rows
+> spring-projects/spring-data-redis@main
+    ✅ Added 153 rows
+> spring-projects/spring-data-relational@main
+    ✅ Added 115 rows
+> spring-projects/spring-data-rest@main
+    ✅ Added 63 rows
+Studied 12 repositories (18s)
+
+* What to do next
+    > Open file:///Users/mikesol/Desktop/code/workshop/spring-data/SourcesFileResults.xlsx
+
+MOD SUCCEEDED in (18s)
+```
+
+</details>
+
+You can open up the Excel output that was produced to see that on these 12 repositories, 1100+ different changes were made.&#x20;
+
+#### Step 7: Using templates with mod study&#x20;
+
+You can modify the `mod study` command to add a `--template` argument that lets you change the structure of the produced table.&#x20;
+
+Let's install and run the `FindMethods` recipe to demonstrate this:
+
+```bash
+mod config recipes moderne install FindMethods
+# Select the first one (org.openrewrite.java.search.FindMethods)
+
+mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
+```
+
+You can then filter the data table down to only a couple columns we're interested in and use a GoTemplate to produce a markdown file containing code samples for all of the matching methods found across all of the repositories:
+
+{% code overflow="wrap" %}
+````bash
+mod study ./spring-data --last-recipe-run --data-table MethodCalls --json sourceFile,method --template '{{"# Search results\n\n"}}{{range .}}{{"* "}}{{.sourceFile}}{{"\n```\n"}}{{.method}}{{"\n```\n"}}{{end}}' > methods.md 
+````
+{% endcode %}
+
+The resulting markdown file should look similar to this:
+
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### (Optional) Fix static code analysis issues
 

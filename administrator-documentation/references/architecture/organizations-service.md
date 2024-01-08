@@ -25,7 +25,7 @@ We generally recommend forking the template and modifying it as, in most cases, 
 How you deploy the service is largely up to your company. With that being said, there are a few important things to be aware of:
 
 * Communication with the Organizations service is done through the [Moderne agent](../../how-to-guides/agent-configuration/agent-configuration.md). Therefore, this service **must** be accessible from the agent.
-* The number of repositories your company has should be factored in when deciding how to size your service compute-wise. Moderne will make a request per repository to the Organizations service once every 10 minutes by default (you can change this interval in your [agent configuration](../../how-to-guides/agent-configuration/configure-organizations-service.md)). Please ensure that you have metrics to track how this service is performing so you can adjust it over time.
+* Moderne will make a request per repository to the Organizations service once every 10 minutes by default (you can change this interval in your [agent configuration](../../how-to-guides/agent-configuration/configure-organizations-service.md)). Please ensure that you have metrics to track how this service is performing so you can adjust it over time.
 * You'll want a minimum system spec of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent storage.
 
 ## FAQ

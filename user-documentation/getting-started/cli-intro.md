@@ -32,7 +32,6 @@ Or the latest staging version via:
 ```sh
 brew install moderneinc/moderne/mod --head
 ```
-
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -96,7 +95,7 @@ MOD SUCCEEDED in (0.01s)
 
 </details>
 
-### (Optionally) Set up auto-completion in your terminal
+### (Optionally) Set up auto-completion in your terminal (Unix terminals only)
 
 The Moderne CLI offers a command which generates a completion script that can be used to set up auto-completion in your terminal. After initializing this script, you can type `mod config` and press tab and then your terminal will offer suggestions for the sub-commands or parameters:
 
@@ -161,14 +160,11 @@ OR
 mod config artifacts volume edit <location-on-disk>
 ```
 
-## CLI exercise
-
-If you want to dive into using the CLI in a real-world situation, please check out our [Moderne CLI exercise](../workshops/spring-boot-migration-workshop/moderne-cli-exercise.md) in the [Spring Boot migration workshop](../workshops/spring-boot-migration-workshop/). In there, you will work through using the CLI to migrate some Spring repositories from Spring Boot 2 to Spring Boot 3.
-
 ## Additional reading
 
-* [Learn more about how to configure the CLI to meet your needs](/user-documentation/how-to-guides/layer-config-cli.md)
-* [Learn more about how JDK selection works and how you might configure other locations for JDKs](/user-documentation/how-to-guides/jdk-selection-and-config.md)
+* [Try using the CLI in the Moderne CLI workshop](../workshops/spring-boot-migration-workshop/moderne-cli-exercise.md)
+* [Learn more about how to configure the CLI to meet your needs](../how-to-guides/layer-config-cli.md)
+* [Learn more about how JDK selection works and how you might configure other locations for JDKs](../how-to-guides/jdk-selection-and-config.md)
 
 ## Commands
 
@@ -180,15 +176,11 @@ Below, we'll provide some context for the core commands.
 * [Publish](cli-intro.md#publish)
 * [Run](cli-intro.md#run)
 
-{% hint style="info" %}
-To set up a pipeline that automatically builds and publishes LST artifacts for all of your repositories, please use the [mod-connect](https://github.com/moderneinc/mod-connect) tool.
-{% endhint %}
-
 ### Build
 
 The `build` command generates the LST artifacts for one or more projects. Once generated, the artifacts can be uploaded to your artifact management tool so that Moderne can ingest them - or - they can be used to run recipes locally.
 
-While it is possible to manually build and publish your artifacts, we strongly recommend using the [mod-connect tool](https://github.com/moderneinc/mod-connect) to set up [Jenkins](https://github.com/moderneinc/mod-connect#mod-connect-jenkins) or [GitHub actions](https://github.com/moderneinc/mod-connect#mod-connect-github) for ingesting LST artifacts in bulk.
+While it is possible to manually build and publish your artifacts, we strongly recommend setting up a CI system to run these commands.
 
 If the path provided to this command is not a Git repository, then this command will recursively look through all the directories on the path for Git repositories. You can specify `repository-*` options to filter this to your needs.
 
@@ -202,7 +194,7 @@ If you've set up a connection with Moderne (by running the `mod config moderne` 
 
 The publish command allows you to manually publish LST artifacts for one or more projects. Once published to your artifact management tool, Moderne will be able to ingest them and they will, in turn, be usable inside of the SaaS.
 
-This command is typically used for publishing LST artifacts from CI systems that we don't have a [mod-connect](https://github.com/moderneinc/mod-connect) command for. If you use Jenkins or GitHub, we strongly recommend using the [mod-connect tool](https://github.com/moderneinc/mod-connect) for building, publishing, and ingesting LST artifacts in bulk.
+This command is typically used for publishing LST artifacts from CI systems.
 
 You can also use this command for _debugging purposes_ if you want to do a one-off test of uploading an artifact somewhere.
 

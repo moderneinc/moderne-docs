@@ -1,53 +1,65 @@
 # Platform changelog
+
 ### UI v10.37.0 (2024/01/08)
 
-- add recent activity grid
+We have made changes to how recently viewed activity is discovered.  Previously we had 3 different pages for view previous recipes runs, commit jobs, and visualization runs:
+
+<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption><p>Previous recent pages </p></figcaption></figure>
+
+Each of these pages would show only the individual user's activity.\
+\
+We are now providing a comprehensive view of these activities in one single Activity page: &#x20;
+
+<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption><p>The new activity view shows activity across an organization</p></figcaption></figure>
+
+We are now providing a comprehensive view of these activities in one single Activity page.  \
+\
+Here you can see **the most recent activities performed on the selected Organization**. This view will improve how users and teams collaborate.  For more information see our [activity view docs](https://docs.moderne.io/user-documentation/getting-started/activity-view).
 
 ### UI v10.36.0 (2024/01/06)
 
-- allow downloads to continue while navigating around the app.
+* allow downloads to continue while navigating around the app.
 
 ### UI v10.35.2 (2024/01/05)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.35.1 (2024/01/04)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.35.0 (2024/01/03)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.34.1 (2024/01/02)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.34.0 (2023/12/29)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.33.0 (2023/12/29)
 
-- expose git provenance and operating system information on repository details
+* expose git provenance and operating system information on repository details
 
 ### UI v10.32.1 (2023/12/28)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.32.0 (2023/12/27)
 
-- add search tips for ai search when enabled.
-- add reload current recipes with latest version to examples. Show caret with API examples
+* add search tips for ai search when enabled.
+* add reload current recipes with latest version to examples. Show caret with API examples
 
 ### UI v10.31.0 (2023/12/22)
 
-- remove need for keycloak logout screen
-
+* remove need for keycloak logout screen
 
 ### UI v10.30.0 (2023/12/20)
 
-We updated the login screen to improve visibility:&#x20;
+We updated the login screen to improve visibility:
 
 Previous:
 
