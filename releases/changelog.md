@@ -12,7 +12,6 @@ We are now providing a comprehensive view of these activities in one single Acti
 
 <figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption><p>The new activity view shows activity across an organization</p></figcaption></figure>
 
-We are now providing a comprehensive view of these activities in one single Activity page.  \
 \
 Here you can see **the most recent activities performed on the selected Organization**. This view will improve how users and teams collaborate.  For more information see our [activity view docs](https://docs.moderne.io/user-documentation/getting-started/activity-view).
 
