@@ -12,6 +12,10 @@ From the left-hand navigation bar, click on `Activity`:
 
 That will take you to the [activity view](https://app.moderne.io/recent-activity) for the **organization you have selected**.
 
+{% hint style="info" %}
+If your organizations are hierarchical (meaning that one organization contains 1 or more sub-organizations), you will see all of the repositories in both the selected organization and its sub-organizations.
+{% endhint %}
+
 ## Parts of the activity view
 
 ### Highlight recipes, commits, or visualizations
