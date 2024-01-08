@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.37.0 (2024/01/08)
+
+- add recent activity grid
+
 ### UI v10.36.0 (2024/01/06)
 
 - allow downloads to continue while navigating around the app.
