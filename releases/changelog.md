@@ -1,23 +1,23 @@
 # Platform changelog
-### UI v10.38.0 (2024/01/09)
 
-- Bug fixes and other improvements.
+### The new activity view shows activity across an organizationUI v10.38.0 (2024/01/09)
 
+* Bug fixes and other improvements.
 
 ### UI v10.37.0 (2024/01/08)
 
-We have made changes to how recently viewed activity is discovered.  Previously we had 3 different pages for view previous recipes runs, commit jobs, and visualization runs:
+We have made changes to how recently viewed activity is discovered. Previously we had 3 different pages for view previous recipes runs, commit jobs, and visualization runs:
 
-<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption><p>Previous recent pages </p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption><p>Previous recent pages</p></figcaption></figure>
 
 Each of these pages would show only the individual user's activity.\
 \
-We are now providing a comprehensive view of these activities in one single Activity page: &#x20;
+We are now providing a comprehensive view of these activities in one single Activity page:
 
-<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption><p>The new activity view shows activity across an organization</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>The new activity view shows activity across an organization</p></figcaption></figure>
 
 \
-Here you can see **the most recent activities performed on the selected Organization**. This view will improve how users and teams collaborate.  For more information see our [activity view docs](https://docs.moderne.io/user-documentation/getting-started/activity-view).
+Here you can see **the most recent activities performed on the selected Organization**. This view will improve how users and teams collaborate. For more information see our [activity view docs](https://docs.moderne.io/user-documentation/getting-started/activity-view).
 
 ### UI v10.36.0 (2024/01/06)
 
@@ -66,7 +66,7 @@ We updated the login screen to improve visibility:
 
 Previous:
 
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (1).png>)
 
 New:\
 ![](<../.gitbook/assets/image (25).png>)
@@ -131,11 +131,11 @@ On the heels of adding support for preconditions, it was time to give the _Recip
 
 Through the _Recipe Builder_ customers can now define _precondition_ recipes that will run ahead of the recipe lists. The recipe list will only be run on repositories that included results from the _precondition._
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>To add a precondition recipe to your custom recipe, you can use the <em>Add as precondition</em></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (4).png" alt=""><figcaption><p>To add a precondition recipe to your custom recipe, you can use the <em>Add as precondition</em></p></figcaption></figure>
 
 Once a precondition has been added, it will appear as a new tab on the _Recipe Builder_ page
 
-<figure><img src="../.gitbook/assets/image (1) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 * add icon support for processing status
 
