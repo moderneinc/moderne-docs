@@ -51,7 +51,7 @@ brew install moderneinc/moderne/mod --head
 
 <details>
 
-<summary>Options for Windows users using a JAR file:</summary>
+<summary>Configuring the CLI mod command for Windows users using a JAR file:</summary>
 
 If you use Git Bash and have a `.bashrc` file, you can add a function to it along the lines of:
 
