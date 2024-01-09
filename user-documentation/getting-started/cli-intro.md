@@ -41,11 +41,30 @@ brew install moderneinc/moderne/mod --head
 
 {% tab title="Windows" %}
 * [Moderne CLI 1.6.27 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v1.6.27/moderne-cli-windows-v1.6.27)
+  * Can also be installed with Chocolatey: `choco install mod`
 * [Moderne CLI 2.0.5 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v2.0.5/moderne-cli-windows-v2.0.5)
+* If you want to use a JAR instead of an exe: [https://repo1.maven.org/maven2/io/moderne/moderne-cli/](https://repo1.maven.org/maven2/io/moderne/moderne-cli/)
 {% endtab %}
 {% endtabs %}
 
 3. Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location or this could involve putting it in a directory that's already on your `PATH` such as a `/usr/bin` directory.
+
+<details>
+
+<summary>Options for Windows users using a JAR file:</summary>
+
+If you use Git Bash and have a `.bashrc` file, you can add a function to it along the lines of:
+
+```bash
+mod() {
+  "java -jar /path/to/mod.jar" $@
+}
+```
+
+If you use PowerShell, you can use the Set Alias command within a [profile script](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about\_profiles?view=powershell-7.4\&viewFallbackFrom=powershell-7).
+
+</details>
+
 4. Ensure you can run the Moderne CLI by typing `mod`. If everything is set up correctly, you should see a list of commands:
 
 <details>
