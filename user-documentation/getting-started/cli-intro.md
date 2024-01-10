@@ -43,7 +43,7 @@ brew install moderneinc/moderne/mod --head
 * [Moderne CLI 1.6.27 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v1.6.27/moderne-cli-windows-v1.6.27)
   * Can also be installed with Chocolatey: `choco install mod`
 * [Moderne CLI 2.0.5 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v2.0.5/moderne-cli-windows-v2.0.5)
-* If you want to use a JAR instead of an exe: [https://repo1.maven.org/maven2/io/moderne/moderne-cli/](https://repo1.maven.org/maven2/io/moderne/moderne-cli/)
+* If you want to use a JAR instead of an exe: [https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions)
 {% endtab %}
 {% endtabs %}
 
