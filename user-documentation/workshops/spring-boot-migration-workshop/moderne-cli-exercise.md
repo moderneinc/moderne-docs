@@ -2118,10 +2118,6 @@ mod study ./spring-data --last-recipe-run --data-table MethodCalls --json source
 ````
 {% endcode %}
 
-The resulting markdown file should look similar to this:
-
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
-
 ### (Optional) Fix static code analysis issues
 
 If you have time, we recommend trying out one of the showcase recipes in OpenRewrite: [common static analysis](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis). This recipe is composed of 50+ recipes that find and fix common mistakes people make.
