@@ -66,10 +66,16 @@ We updated the login screen to improve visibility:
 
 Previous:
 
-![](<../.gitbook/assets/image (1).png>)
+<div data-full-width="true">
+
+<img src="../.gitbook/assets/image (1).png" alt="">
+
+</div>
 
 New:\
-![](<../.gitbook/assets/image (25).png>)
+
+
+<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.29.0 (2023/12/18)
 
