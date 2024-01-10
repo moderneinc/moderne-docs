@@ -1,6 +1,6 @@
 # Platform changelog
 
-### The new activity view shows activity across an organizationUI v10.38.0 (2024/01/09)
+### UI v10.38.0 (2024/01/09)
 
 * Bug fixes and other improvements.
 
