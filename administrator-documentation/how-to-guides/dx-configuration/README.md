@@ -1,8 +1,8 @@
-# Moderne DX config docs
+# Moderne DX
 
-* [Configuring the Moderne DX](./dx-configuration.md)
-* [Configure Moderne DX with Maven repository access](./configure-dx-with-maven-repository-access.md)
-* [Configure Moderne DX with Artifactory access: LSTs](./configure-dx-with-artifactory-access.md)
-* [Configure Moderne DX with Artifactory access: recipes](./configure-dx-with-artifactory-recipes.md)
-* [Configure the Organizations service with Moderne DX](./configure-dx-org-service.md)
-* [Configure Moderne DX with strict recipe sources](./configure-dx-with-strict-recipe-sources.md)
+* [Configuring the Moderne DX](dx-configuration.md)
+* [Configure Moderne DX with Maven repository access](broken-reference)
+* [Configure Moderne DX with Artifactory access: LSTs](broken-reference)
+* [Configure Moderne DX with Artifactory access: recipes](broken-reference)
+* [Configure the Organizations service with Moderne DX](broken-reference)
+* [Configure Moderne DX with strict recipe sources](broken-reference)
