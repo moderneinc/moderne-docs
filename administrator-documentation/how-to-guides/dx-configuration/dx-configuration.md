@@ -100,6 +100,7 @@ Below is an example of what the Moderne DX service run command might look like a
 {% tab title="OCI Container" %}
 ```shell
 docker run \
+-e MODERNE_DX_TOKEN_0=<token> \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
 -e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
@@ -118,6 +119,7 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
 {% tab title="Executable JAR" %}
 ```shell
 java -jar moderne-dx-{version}.jar \
+--moderne.dx.token[0]=<token>
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
@@ -144,6 +146,7 @@ Below is an example of what the Moderne DX service run command might look like a
 {% tab title="OCI Container" %}
 ```shell
 docker run \
+-e MODERNE_DX_TOKEN_0=<token> \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
 -e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
@@ -163,6 +166,7 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
 {% tab title="Executable JAR" %}
 ```shell
 java -jar moderne-dx-{version}.jar \
+--moderne.dx.token[0]=<token>
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
@@ -188,6 +192,7 @@ Below is an example of what the Moderne DX service run command might look like a
 {% tab title="OCI Container" %}
 ```shell
 docker run \
+-e MODERNE_DX_TOKEN_0=<token> \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
 -e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
@@ -208,6 +213,7 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
 {% tab title="Executable JAR" %}
 ```bash
 java -jar moderne-dx-{version}.jar \
+--moderne.dx.token[0]=<token>
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
@@ -252,6 +258,7 @@ docker pull moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
 
 ```shell
 docker run \
+-e MODERNE_DX_TOKEN_0=<token> \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
 -e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
@@ -273,6 +280,7 @@ Use `java` to run a jar in combination with arguments that you've added in the p
 
 ```shell
 java -jar moderne-dx-{version}.jar \
+--moderne.dx.token[0]=<token>
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
