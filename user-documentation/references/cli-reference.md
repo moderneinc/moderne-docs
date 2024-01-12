@@ -672,7 +672,7 @@ mod config build bazel [parameters] [subcommands]
 ### Examples
 
 ```
-mod config bazel rule edit "//:java-maven-lib"
+mod config build bazel rule edit "//:java-maven-lib"
 ```
 
 
@@ -2570,7 +2570,7 @@ mod git clone csv [parameters] [subcommands]
 Clones the repositories in an organization on Moderne.
 
 
-The repositories are cloned at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne.
+The repositories are cloned at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne. By default a maximum of 20 repositories will be cloned. Use --limit to change this.
 
 ### Usage
 
