@@ -23,10 +23,6 @@ If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform\_as\_a\_service
 
 The table below provides the core command for running the service. However, in order for the service to function correctly, additional variables will need to be added based on your environment (such as what artifact repositories you have configured, and whether or not you've configured an [Organizations service](../../references/architecture/organizations-service.md)). We'll walk through each of those in the following steps.
 
-{% hint style="success" %}
-`token[N]` / `TOKEN_N` is used to specify one or more tokens that can be used by admins.
-{% endhint %}
-
 {% tabs %}
 {% tab title="OCI Container" %}
 **How to run the service:**
@@ -99,6 +95,10 @@ The below table shows the key differences between the two types of configuration
 Please ensure you've followed either the [Maven](./configure-dx-with-maven-repository-access.md) or [Artifactory](./configure-dx-with-artifactory-access.md) instructions before continuing.
 
 Below is an example of what the Moderne DX service run command might look like at the end of this step.
+
+{% hint style="success" %}
+`token[N]` / `TOKEN_N` is used to specify one or more tokens that can be used by admins.
+{% endhint %}
 
 {% tabs %}
 {% tab title="OCI Container" %}
