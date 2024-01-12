@@ -18,7 +18,7 @@ To install the Moderne CLI please:
 
 {% tabs %}
 {% tab title="Mac" %}
-* [Moderne CLI 1.6.27 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos/v1.6.27/moderne-cli-macos-v1.6.27)
+* [Moderne CLI 2.1.3 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos/v2.1.3/moderne-cli-macos-v2.1.3)
 * [Moderne CLI 2.1.0 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v2.1.0/moderne-cli-macos-v2.1.0)
 
 You can also install the latest stable version via [Brew](https://brew.sh/):
@@ -35,12 +35,12 @@ brew install moderneinc/moderne/mod --head
 {% endtab %}
 
 {% tab title="Linux" %}
-* [Moderne CLI 1.6.27 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux/v1.6.27/moderne-cli-linux-v1.6.27)
+* [Moderne CLI 2.1.3 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux/v2.1.3/moderne-cli-linux-v2.1.3)
 * [Moderne CLI 2.1.0 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v2.1.0/moderne-cli-linux-v2.1.0)
 {% endtab %}
 
 {% tab title="Windows" %}
-* [Moderne CLI 1.6.27 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v1.6.27/moderne-cli-windows-v1.6.27)
+* [Moderne CLI 2.1.3 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v2.1.3/moderne-cli-windows-v2.1.3)
   * Can also be installed with Chocolatey: `choco install mod`
 * [Moderne CLI 2.1.0 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v2.1.0/moderne-cli-windows-v2.1.0)
 * If you want to use a JAR instead of an exe: [https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions)
