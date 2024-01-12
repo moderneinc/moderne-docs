@@ -80,12 +80,12 @@ The Moderne DX service can only talk to _Maven formatted_ artifact repositories.
 
 Moderne offers two options for connecting to your artifact repository: a generic Maven connection that can connect to any Maven formatted repository regardless of vendor and an Artifactory-specific connection that is optimized to serve LST artifacts more quickly.
 
-If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](broken-reference) and then jump to [Step 4](dx-configuration.md#step-4-optionally-configure-the-organizations-service).
+If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](./configure-dx-with-maven-repository-access.md) and then jump to [Step 4](dx-configuration.md#step-4-optionally-configure-the-organizations-service).
 
 If you _do_ plan on using Artifactory to store artifacts, you have two options:
 
-1. Use the [Artifactory LST configuration instructions](broken-reference) to set up a connection that gets the list of LST artifacts. Then, if you plan on creating custom recipes, you would follow the [Artifactory recipe configuration instructions](broken-reference) to set up a connection in Artifactory to serve recipe artifacts. **(recommended)**
-2. Use the [Maven repository configuration instructions](broken-reference) to set up a connection that serves both LST artifacts and recipe artifacts to Moderne. This is not recommended as LST artifacts will have a considerable delay between being published and being available in the CLI. However, if for some reason you can not use AQL queries, this approach is necessary.
+1. Use the [Artifactory LST configuration instructions](./configure-dx-with-artifactory-access.md) to set up a connection that gets the list of LST artifacts. Then, if you plan on creating custom recipes, you would follow the [Artifactory recipe configuration instructions](./configure-dx-with-artifactory-recipes.md) to set up a connection in Artifactory to serve recipe artifacts. **(recommended)**
+2. Use the [Maven repository configuration instructions](./configure-dx-with-maven-repository-access.md) to set up a connection that serves both LST artifacts and recipe artifacts to Moderne. This is not recommended as LST artifacts will have a considerable delay between being published and being available in the CLI. However, if for some reason you can not use AQL queries, this approach is necessary.
 
 The below table shows the key differences between the two types of configuration:
 
@@ -96,7 +96,7 @@ The below table shows the key differences between the two types of configuration
 | Recipe artifacts are immediately available for [deployment to Moderne](../importing-external-recipes.md) upon publishing to the Maven formatted repository.                                                                                                                                                                                                                                                                                                         | Can not serve recipe artifacts without Maven configuration.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | LST artifacts may be served if an index in the [Maven Indexer](https://maven.apache.org/maven-indexer/) format is regularly published to the repository. There will be a considerable delay between when an LST is published to the Maven repository and when it is available in the Moderne CLI. This delay is approximately the delay between updates to the index – which is controlled by a batch process that your artifact repository executes on a schedule. | LST artifacts will be available in near-real time (within a minute or two) in the Moderne CLI when they are published to Artifactory. This is because Artifactory configuration uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to identify recently published artifacts. AQL queries Artifactory's internal relational database for information about artifacts rather than using an index produced in a batch process. |
 
-Please ensure you've followed either the [Maven](broken-reference) or [Artifactory](broken-reference) instructions before continuing.
+Please ensure you've followed either the [Maven](./configure-dx-with-maven-repository-access.md) or [Artifactory](./configure-dx-with-artifactory-access.md) instructions before continuing.
 
 Below is an example of what the Moderne DX service run command might look like at the end of this step.
 
@@ -142,7 +142,7 @@ java -jar moderne-dx-{version}.jar \
 
 Many organizations desire the ability to control the organizational structure of their repositories within the Moderne platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
 
-If you want to set up this service, please see the [organizations service setup instructions](../../references/architecture/organizations-service.md). Then, once it has been set up, please [configure the Moderne DX service to connect with the organization service](broken-reference).
+If you want to set up this service, please see the [organizations service setup instructions](../../references/architecture/organizations-service.md). Then, once it has been set up, please [configure the Moderne DX service to connect with the organization service](./configure-dx-org-service.md).
 
 Below is an example of what the Moderne DX service run command might look like at the end of this step if you set up the Organizations service.
 
@@ -188,7 +188,7 @@ java -jar moderne-dx-{version}.jar \
 
 ### Step 5: (Optionally) Use strict recipe sources.
 
-Some organizations want recipe artifacts to only come from locations configured in the Moderne DX service. If you want to configure that, please follow the [strict recipe sources instructions](broken-reference).
+Some organizations want recipe artifacts to only come from locations configured in the Moderne DX service. If you want to configure that, please follow the [strict recipe sources instructions](./configure-dx-with-strict-recipe-sources.md).
 
 Below is an example of what the Moderne DX service run command might look like at the end of this step if you configured the service to use only configured recipe sources.
 
