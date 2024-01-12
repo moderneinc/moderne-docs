@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.40.0 (2024/01/12)
+
+- Bug fixes and other improvements.
+
 ### UI v10.39.0 (2024/01/10)
 
 - add index url column to deploy table
