@@ -43,6 +43,6 @@ Moderne DX includes a centralized, internal service you install to manage Modern
 | SSO integration for login                            | :white\_check\_mark: |     :white\_check\_mark:    |
 | VCS (GitHub, GitLab, Bitbucket) integration          | :white\_check\_mark: |     :white\_check\_mark:    |
 | Artifact repository (Artifactory, Nexus) integration | :white\_check\_mark: |     :white\_check\_mark:    |
-| IdP integration                                      |                      |     :white\_check\_mark:    |
+| IdP integration                                      | :white\_check\_mark: |     :white\_check\_mark:    |
 | Single, private tenant SaaS                          |                      |     :white\_check\_mark:    |
 | Fully on premises                                    | :white\_check\_mark: |                             |
