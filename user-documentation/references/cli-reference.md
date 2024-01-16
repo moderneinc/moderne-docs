@@ -2525,7 +2525,7 @@ mod git clone [parameters] [subcommands]
 ### Examples
 
 ```
-mod clone moderne /path/to/folder/to/clone/into Apache
+mod git clone moderne /path/to/folder/to/clone/into Apache
 ```
 
 
