@@ -130,6 +130,11 @@ Automated code remediation.
 mod [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --version |  Display version info. |
 
 ### Subcommands
 
