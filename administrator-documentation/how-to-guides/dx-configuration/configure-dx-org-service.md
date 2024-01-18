@@ -8,7 +8,7 @@ This guide assumes that:
 
 * You are an admin of Moderne DX
 * You have deployed Moderne DX in your environment
-* You have already [created and deployed an Organizations service in your environment](/administrator-documentation/how-to-guides/org)
+* You have already [created and deployed an Organizations service in your environment](/administrator-documentation/how-to-guides/organizations-service.md)
 * You have already [configured Moderne DX to connect to your Artifactory instance](/administrator-documentation/how-to-guides/dx-configuration/configure-dx-with-artifactory-access.md)
 
 ## Organizations service configuration
