@@ -80,9 +80,11 @@ query orgs {
 
 Here's an example of what this call might look like:
 
+{% code overflow="wrap" %}
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"query":"query orgs { organizations { id repositoriesPages { count edges { node { origin path branch } } } parent { id } } }"}' https://<moderne-dx-url>/graphql
 ```
+{% endcode %}
 
 If you run this immediately after startup, you may get no results. Once your index operation is completed, you will get results similar to the following:
 
