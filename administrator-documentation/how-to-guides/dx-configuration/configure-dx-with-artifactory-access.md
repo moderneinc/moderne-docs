@@ -27,6 +27,7 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 * `MODERNE_DX_ARTIFACTORY_{index}_PASSWORD` – _The password used to connect to your Artifactory instance._
 * `MODERNE_DX_ARTIFACTORY_{index}_ASTQUERYFILTERS_{index}` – _The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`._
 * `MODERNE_DX_ARTIFACTORY_{index}_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL verification for HTTP connections from the service to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `MODERNE_DX_ARTIFACTSYNC_SINCE` – _(Optional) Specifies how long in the past to sync your artifacts. Defaults to syncing all time. It is recommended to set a start date of the sync or it will try to search your entire artifactory._
 
 **Example:**
 
@@ -38,6 +39,7 @@ docker run \
 -e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_DX_ARTIFACTSYNC_SINCE=2024-01-01T00:00:00Z
 # ... Additional variables
 ```
 {% endtab %}
@@ -50,6 +52,7 @@ docker run \
 * `--moderne.dx.artifactory[{index}].password` – _The password used to connect to your Artifactory instance._
 * `--moderne.dx.artifactory[{index}].astQueryFilters[{index}]` – _The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`._
 * `--moderne.dx.artifactory[{index}].skipSsl` – _(Optional) Specifies whether or not to skip SSL verification for HTTP connections from the service to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `--moderne.dx.artifactSync.since` – _(Optional) Specifies how long in the past to sync your artifacts. Defaults to syncing all time. It is recommended to set a start date of the sync or it will try to search your entire artifactory._
 
 **Example:**
 
@@ -61,12 +64,13 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.artifactory[0].password=password \
 --moderne.dx.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.dx.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.dx.artifactSync.since=2024-01-01T00:00:00Z \
 # ... Additional arguments
 ```
 {% endtab %}
 {% endtabs %}
 
-## Confirming it workings
+## Confirming it works
 
 After starting up Moderne DX, it will then ask your artifact repository for LST artifacts. This process can take several minutes. You can test it worked by making a curl command to `https://<moderne-dx-url>/graphql` with the following query:
 
@@ -134,5 +138,5 @@ If you run this immediately after startup, you may get no results. Once your ind
 ```
 
 {% hint style="info" %}
-Note that if you set up an [organizations service](./configure-dx-org-service.md), the returned results from this query will be organized into **organizations** rather than **repositories**.
+Note that if you set up an [organizations service](configure-dx-org-service.md), the returned results from this query will be organized into **organizations** rather than **repositories**.
 {% endhint %}
