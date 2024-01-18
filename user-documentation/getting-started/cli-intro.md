@@ -19,7 +19,7 @@ To install the Moderne CLI please:
 {% tabs %}
 {% tab title="Mac" %}
 * [Moderne CLI 2.1.3 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos/v2.1.3/moderne-cli-macos-v2.1.3)
-* [Moderne CLI 2.1.7 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v2.1.7/moderne-cli-macos-v2.1.7)
+* [Moderne CLI 2.2.2 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v2.2.2/moderne-cli-macos-v2.2.2)
 
 You can also install the latest stable version via [Brew](https://brew.sh/):
 
@@ -36,13 +36,13 @@ brew install moderneinc/moderne/mod --head
 
 {% tab title="Linux" %}
 * [Moderne CLI 2.1.3 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux/v2.1.3/moderne-cli-linux-v2.1.3)
-* [Moderne CLI 2.1.7 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v2.1.7/moderne-cli-linux-v2.1.7)
+* [Moderne CLI 2.2.2 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v2.2.2/moderne-cli-linux-v2.2.2)
 {% endtab %}
 
 {% tab title="Windows" %}
 * [Moderne CLI 2.1.3 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v2.1.3/moderne-cli-windows-v2.1.3)
   * Can also be installed with Chocolatey: `choco install mod`
-* [Moderne CLI 2.1.7 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v2.1.7/moderne-cli-windows-v2.1.7)
+* [Moderne CLI 2.2.2 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v2.2.2/moderne-cli-windows-v2.2.2)
 * If you want to use a JAR instead of an exe: [https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions)
 {% endtab %}
 {% endtabs %}
@@ -78,7 +78,7 @@ If you use PowerShell, you can use the [Set-Alias command](https://learn.microso
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.1.7
+Moderne CLI 2.2.2
 
 Usage:
 
