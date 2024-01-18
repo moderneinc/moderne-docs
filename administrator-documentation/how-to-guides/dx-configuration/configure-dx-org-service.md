@@ -1,6 +1,19 @@
-# Configure the Organizations service with Moderne DX
+# Connecting Moderne DX to the Organizations service
 
-In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne DX service to point to your [Organizations service](../../references/architecture/organizations-service.md). This guide will explain how to do that.
+In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne DX service to point to your [Organizations service](/administrator-documentation/how-to-guides/organizations-service.md). This guide will explain how to do that.
+
+#### Prerequisites
+
+This guide assumes that:
+
+* You are an admin of Moderne DX
+* You have deployed Moderne DX in your environment
+* You have already [created and deployed an Organizations service in your environment](/administrator-documentation/how-to-guides/org)
+* You have already [configured Moderne DX to connect to your Artifactory instance](/administrator-documentation/how-to-guides/dx-configuration/configure-dx-with-artifactory-access.md)
+
+## Organizations service configuration
+
+The following table contains all of the variables/arguments you need to add to your Moderne DX service run command in order for it to interact with your organizations service. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne DX service guide](dx-configuration.md).
 
 {% tabs %}
 {% tab title="OCI Container" %}
@@ -39,3 +52,99 @@ java -jar moderne-dx-{version}.jar \
 ```
 {% endtab %}
 {% endtabs %}
+
+## Confirming it works
+
+After starting up Moderne DX again, you can now make a curl call to `https://<moderne-dx-url>/graphiql` with the following query:
+
+```graphql
+query orgs {
+  organizations {
+    id
+    repositoriesPages {
+      count
+      edges {
+        node {
+          origin
+          path
+          branch
+        }
+      }
+    }
+    parent {
+      id
+    }
+  }
+}
+```
+
+Here's an example of what this call might look like:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"query":"query orgs { organizations { id repositoriesPages { count edges { node { origin path branch } } } parent { id } } }"}' https://<moderne-dx-url>/graphql
+```
+
+If you run this immediately after startup, you may get no results. Once your index operation is completed, you will get results similar to the following:
+
+```graphql
+{
+  "data": {
+    "organizations": [
+      {
+        "id": "Organization 1",
+        "repositoriesPages": {
+          "count": 2,
+          "edges": [
+            {
+              "node": {
+                "origin": "github.com",
+                "path": "organization/repository1",
+                "branch": "main"
+              }
+            },
+            {
+              "node": {
+                "origin": "github.com",
+                "path": "organization/repository2",
+                "branch": "main"
+              }
+            }
+          ]
+      },
+      {
+        "id": "Organization 2",
+        "repositoriesPages": {
+          "count": 7,
+          "edges": [...]
+        }
+      },
+      {
+        "id": "Organization 3",
+        "repositoriesPages": {
+          "count": 25,
+          "edges": [...]
+        }
+      }
+    ]
+  }
+}
+```
+
+## Using Moderne DX with organizations
+
+Once you've configured all of the above things, you can use the Moderne CLI (mod) and run the following commands:
+
+This command will set your Moderne location to your internally-deployed Moderne DX installation:
+
+```bash
+mod config moderne edit --token=<token> --api=https://<moderne-dx> http://<moderne-dx>
+```
+
+This command will ask Moderne DX for all repositories inside the organization you selected and clone them to `<path>`:
+
+
+```bash
+mod git clone moderne <path> <organization-id>
+```
+
+Once these are both done, your developers can now start running recipes and committing the results!
