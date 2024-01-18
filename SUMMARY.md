@@ -58,7 +58,7 @@
     * [Configure an agent with client SSL certificates](administrator-documentation/how-to-guides/agent-configuration/configure-an-agent-with-client-ssl-certificates.md)
     * [All agent configuration variables](administrator-documentation/how-to-guides/agent-configuration/agent-variables.md)
     * [Multi-tenant private recipes](administrator-documentation/how-to-guides/agent-configuration/multi-tenant-private-recipes.md)
-  * [Configuring the Organizations service](administrator-documentation/references/architecture/organizations-service.md)
+  * [Configuring the Organizations service](administrator-documentation/how-to-guides/organizations-service.md)
   * [Moderne DX](administrator-documentation/how-to-guides/dx-configuration/README.md)
     * [Configuring the Moderne DX](administrator-documentation/how-to-guides/dx-configuration/dx-configuration.md)
     * [Configure Moderne DX with Maven repository access](administrator-documentation/how-to-guides/dx-configuration/configure-dx-with-maven-repository-access.md)

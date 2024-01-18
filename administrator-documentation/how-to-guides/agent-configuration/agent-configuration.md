@@ -46,7 +46,7 @@ If you deploy to Kubernetes or any other containerized environment like AWS ECS,
 
 If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform\_as\_a\_service) environment such Cloud Foundry, you'll want to use the JAR to run the agent.
 
-The table below provides the core command for running the agent. However, in order for the agent to function correctly, additional variables will need to be added based on your environment (such as what SCM(s) your company uses, what artifact repositories you have configured, and whether or not you've configured an [Organizations service](../../references/architecture/organizations-service.md)). We'll walk through each of those in the following steps.
+The table below provides the core command for running the agent. However, in order for the agent to function correctly, additional variables will need to be added based on your environment (such as what SCM(s) your company uses, what artifact repositories you have configured, and whether or not you've configured an [Organizations service](/administrator-documentation/how-to-guides/organizations-service.md)). We'll walk through each of those in the following steps.
 
 {% tabs %}
 {% tab title="OCI Container" %}
