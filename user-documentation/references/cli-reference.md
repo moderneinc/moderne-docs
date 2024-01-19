@@ -1335,21 +1335,19 @@ All subsequent commands will use this truststore.
 mod config http trust-store edit file [parameters] [subcommands]
 ```
 
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| file |  |
-
 ### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| file |  The path to the truststore file. |  |
 | --local |  Configuration relevant to a specific group of repositories. |  |
+| password |  The password used to access the truststore. |  |
+| provider |  The provider of the truststore. |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| type |  The type of the truststore file. |  |
 
 
 ## mod config http trust-store edit java-home
