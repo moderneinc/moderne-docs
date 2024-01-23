@@ -16,18 +16,18 @@ To assist with that, this guide will:
 ### Step 1: Create an OAuth application
 
 1. Navigate to the Applications page for your organization: `https://gitlab.com/groups/<yourorg>/-/settings/applications`
-2.  Provide an application name and redirect URI. The redirect URI will be in this format: `https://<tenantname>.moderne.io`: \*
+2.  Provide an application name and redirect URI. The redirect URI will be in this format: `https://<tenantname>.moderne.io`:
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.59.50 AM.png" alt=""><figcaption></figcaption></figure>
+    ![](/.gitbook/assets/Screenshot%202022-12-27%20at%208.59.50%20AM.png)
 
-3.  Pick the following scopes: \*
+3.  Pick the following scopes:
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 7.52.35 AM.png" alt=""><figcaption></figcaption></figure>
+    ![](/.gitbook/assets/Screenshot%202022-12-27%20at%207.52.35%20AM.png)
 
 4. Click the Save application button
-5.  Copy the `Application ID` and `Secret` from this page; they will be used as arguments for the Moderne Agent: \*
+5.  Copy the `Application ID` and `Secret` from this page; they will be used as arguments for the Moderne Agent:
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2022-12-27 at 8.03.35 AM.png" alt=""><figcaption></figcaption></figure>
+    ![](/.gitbook/assets/Screenshot%202022-12-27%20at%208.03.35%20AM.png)   
 
 ## Agent configuration
 
