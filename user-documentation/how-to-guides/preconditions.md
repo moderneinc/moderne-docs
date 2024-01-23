@@ -6,6 +6,8 @@ This is what preconditions were designed for. **They are a way of restricting wh
 
 In this guide, we'll walk through how preconditions work and how you can use them in the Moderne platform.
 
+{% embed url="https://www.youtube.com/watch?v=7jRuXiX3xuw" %}
+
 ## How preconditions work
 
 Preconditions, at their core, are just recipes that run before the current list of recipes you're wanting to run. When a recipe is used as a precondition, any file that it would make a change to is considered to meet the precondition. When more than one recipe is used as a precondition, all of them must make a change to the file for it to be considered to meet the precondition.

@@ -28,6 +28,8 @@ In this guide, we will:
 * [**Examine the results**](running-your-first-recipe.md#step-7-view-the-results)
 * [**Commit the changes**](running-your-first-recipe.md#step-8-commit-your-changes)
 
+{% embed url="https://www.youtube.com/watch?v=cHRi6jRPMUI" %}
+
 ## Step 1: Sign in
 
 If you're an enterprise user, you'll need to navigate to and sign in with the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-optionally-select-an-organization).
@@ -52,7 +54,7 @@ After you've logged in and granted the appropriate permissions, you'll arrive at
 
 If you went to run a recipe right now, you would find that some repositories are already selected to run against. In public Moderne, the `Default` organization is selected (a diverse selection of open-source repositories). In an enterprise instance of Moderne, the `All` organization is _typically_ selected instead (meaning a recipe would run against every repository in your organization).
 
-If you'd prefer to run against a different group of repositories so that you can get relevant results more quickly, you can: select the organization that matches your needs, set up the [Organization service](/administrator-documentation/how-to-guides/organizations-service.md) (for enterprise users), or follow our [instructions for defining user configured organizations](../how-to-guides/managing-user-configured-organizations.md#how-to-create-a-user-configured-organization).
+If you'd prefer to run against a different group of repositories so that you can get relevant results more quickly, you can: select the organization that matches your needs, set up the [Organization service](../../administrator-documentation/how-to-guides/organizations-service.md) (for enterprise users), or follow our [instructions for defining user configured organizations](../how-to-guides/managing-user-configured-organizations.md#how-to-create-a-user-configured-organization).
 
 ## Step 4: Navigate to the recipe marketplace
 

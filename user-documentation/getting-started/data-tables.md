@@ -6,9 +6,11 @@ This is where data tables come in. In addition to modifying the code directly, r
 
 To help give you a better idea of how data tables work in Moderne, this guide will:
 
-* [Explain the different types of data tables](#types-of-data-tables)
-* [Walk you through running a recipe that produces a data table](#data-table-example)
-* [Help you decide whether or not you should add a data table to your recipe](#when-you-should-create-data-tables)
+* [Explain the different types of data tables](data-tables.md#types-of-data-tables)
+* [Walk you through running a recipe that produces a data table](data-tables.md#data-table-example)
+* [Help you decide whether or not you should add a data table to your recipe](data-tables.md#when-you-should-create-data-tables)
+
+{% embed url="https://www.youtube.com/watch?v=B-yh153_Fng" %}
 
 ## Types of data tables
 
@@ -30,29 +32,29 @@ To get started, run the [check for dependency vulnerabilities](https://app.moder
 
 From the recipe page, specify a `Scope` of `compile` and then press the `Dry Run` button:
 
-![](/.gitbook/assets/check-dep-1.png)
+![](../../.gitbook/assets/check-dep-1.png)
 
-You will then be taken to the recipe results page: 
+You will then be taken to the recipe results page:
 
-![](/.gitbook/assets/check-dep-4.png)
+![](../../.gitbook/assets/check-dep-4.png)
 
 If the recipe can fix a security vulnerability, it will do so. You can view the diffs and commit the results as you would in any other recipe. In most situations, however, this recipe will identify that there is a security vulnerability rather than fix it. If there are security vulnerabilities identified, the recipe will produce a detailed data table.
 
 To see the data table, wait until the recipe has finished running and then click on the `Data Tables` tab:
 
-![](/.gitbook/assets/check-dep-2.png)
+![](../../.gitbook/assets/check-dep-2.png)
 
 You should now be on a page that lists all of the data tables available for this recipe:
 
-![](/.gitbook/assets/check-dep-3.png)
+![](../../.gitbook/assets/check-dep-3.png)
 
 As the `recipe performance` and `source files that had results` tables are primarily for the people who wrote the recipe, let's ignore them and focus on the `vulnerability report` data table instead (feel free to download them and look at them, though). The `vulnerability report` table was specifically coded into the `check for dependency vulnerabilities` recipe and it will have data relevant to our needs.
 
-To view it, click the download button next to the vulnerability report and save it to your computer. Then, open the spreadsheet in the editor of your choice (Excel, Google Sheets, Numbers, etc). 
+To view it, click the download button next to the vulnerability report and save it to your computer. Then, open the spreadsheet in the editor of your choice (Excel, Google Sheets, Numbers, etc).
 
 You should see that the data table contains critical information about the vulnerabilities found in the repository. Your team can then use this information to prioritize which security issues should be addressed first:
 
-![](/.gitbook/assets/check-dep-5.png)
+![](../../.gitbook/assets/check-dep-5.png)
 
 ## When you should create data tables
 

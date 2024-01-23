@@ -219,6 +219,8 @@ export JAVA_HOME=REPLACE_WITH_LOCATION_OF_JAVA_8
 
 Now that the repository is configured, it's time to migrate it to Spring Boot 3 using the Moderne CLI.
 
+{% embed url="https://www.youtube.com/watch?v=zHlVg9H_JRo" %}
+
 1. Run the build command to generate the LST for the PetClinic repo:
 
 ```bash
@@ -1716,7 +1718,7 @@ mod git commit $HOME/workshop -m "Migrate to Spring Boot 3.2" --last-recipe-run
 
 If you'd rather make a branch for each repository and make changes in that, you can use the `mod checkout` command before running `mod commit` to commit the changes. This might be useful if you want to create a pull request for each repository.
 
-### (Optional)  Data tables example
+### (Optional) Data tables example
 
 If you have time, this example will show how you clone repositories from a CSV and how you can create and view data tables with the CLI.
 
@@ -1729,7 +1731,7 @@ cd $HOME/workshop/spring-data
 
 #### Step 1: Make a repos.csv file
 
-This file will contain a list of all of the repositories that should be cloned. At the very least, you'll need to specify the `cloneUrl` and the `branch` being used.&#x20;
+This file will contain a list of all of the repositories that should be cloned. At the very least, you'll need to specify the `cloneUrl` and the `branch` being used.
 
 For this exercise, please copy the provided `repos.csv` file and put it in your `spring-data` directory:
 
@@ -2095,11 +2097,11 @@ MOD SUCCEEDED in (18s)
 
 </details>
 
-You can open up the Excel output that was produced to see that on these 12 repositories, 1100+ different changes were made.&#x20;
+You can open up the Excel output that was produced to see that on these 12 repositories, 1100+ different changes were made.
 
-#### Step 7: Using templates with mod study&#x20;
+#### Step 7: Using templates with mod study
 
-You can modify the `mod study` command to add a `--template` argument that lets you change the structure of the produced table.&#x20;
+You can modify the `mod study` command to add a `--template` argument that lets you change the structure of the produced table.
 
 Let's install and run the `FindMethods` recipe to demonstrate this:
 
