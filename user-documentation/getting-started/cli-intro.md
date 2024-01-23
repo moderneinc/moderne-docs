@@ -170,7 +170,11 @@ mod config recipes moderne install <recipe_search_term>
 If you want to publish artifacts from the CLI, you'll need to run one of the following commands depending on if you want the LST artifacts published to Artifactory or to some location on disk:
 
 ```shell
-mod config artifacts artifactory edit <artifactory-url> --user <user> --password <password>
+# For JFrog Artifactory
+mod config artifacts artifactory edit --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
+
+# For Sonatype Nexus
+mod config artifacts nexus edit --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
 
 OR
