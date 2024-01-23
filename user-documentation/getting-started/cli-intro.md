@@ -171,10 +171,10 @@ If you want to publish artifacts from the CLI, you'll need to run one of the fol
 
 ```shell
 # For JFrog Artifactory
-mod config artifacts artifactory edit --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
+mod config artifacts artifactory edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 
 # For Sonatype Nexus
-mod config artifacts nexus edit --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
+mod config artifacts nexus edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
 
 OR
