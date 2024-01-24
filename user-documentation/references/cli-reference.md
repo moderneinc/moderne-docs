@@ -3179,7 +3179,7 @@ mod run [parameters] [subcommands]
 
 ```
 mod run /path/to/project \
-  --recipe org.openrewrite.java.search.FindMethods \
+  --recipe=org.openrewrite.java.search.FindMethods \
   -P methodPattern='java.util.List add(..)'
 ```
 
