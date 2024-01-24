@@ -13,6 +13,10 @@
 * [**mod config artifacts artifactory edit**](#mod-config-artifacts-artifactory-edit)
 * [**mod config artifacts artifactory delete**](#mod-config-artifacts-artifactory-delete)
 * [**mod config artifacts artifactory show**](#mod-config-artifacts-artifactory-show)
+* [**mod config artifacts maven**](#mod-config-artifacts-maven)
+* [**mod config artifacts maven edit**](#mod-config-artifacts-maven-edit)
+* [**mod config artifacts maven delete**](#mod-config-artifacts-maven-delete)
+* [**mod config artifacts maven show**](#mod-config-artifacts-maven-show)
 * [**mod config artifacts volume**](#mod-config-artifacts-volume)
 * [**mod config artifacts volume edit**](#mod-config-artifacts-volume-edit)
 * [**mod config artifacts volume delete**](#mod-config-artifacts-volume-delete)
@@ -51,6 +55,7 @@
 * [**mod config http trust-store**](#mod-config-http-trust-store)
 * [**mod config http trust-store delete**](#mod-config-http-trust-store-delete)
 * [**mod config http trust-store edit**](#mod-config-http-trust-store-edit)
+* [**mod config http trust-store edit system**](#mod-config-http-trust-store-edit-system)
 * [**mod config http trust-store edit file**](#mod-config-http-trust-store-edit-file)
 * [**mod config http trust-store edit java-home**](#mod-config-http-trust-store-edit-java-home)
 * [**mod config http trust-store show**](#mod-config-http-trust-store-show)
@@ -338,6 +343,7 @@ mod config artifacts [parameters] [subcommands]
 ### Subcommands
 
 * `artifactory`: Configures the Artifactory repository that LSTs will be published to and downloaded from.
+* `maven`: Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
 * `volume`: Configures the volume that LSTs will be published to and downloaded from.
 
 ## mod config artifacts artifactory
@@ -435,6 +441,114 @@ Displays the Artifactory repository configuration.
 
 ```
 mod config artifacts artifactory show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config artifacts maven
+
+Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
+
+
+All subsequent publish and download commands will use this Maven repository.
+
+### Usage
+
+```
+mod config artifacts maven [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `delete`: Removes the Maven artifact repository repository configuration. The publish command will no longer function until another artifact source is configured.
+* `show`: Displays the Maven artifact repository repository configuration.
+
+## mod config artifacts maven edit
+
+Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+
+
+All subsequent publish and download commands will use this artifact repository.
+
+### Usage
+
+```
+mod config artifacts maven edit [parameters] [subcommands]
+```
+
+### Examples
+
+```
+mod config artifacts edit <artifact-repository-url> --user <user> --password <password>
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| url |  The URL of the artifact repository that LSTs will be published to. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --authorization |  The authorization header value to use. | `Bearer XXXXX` |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --password |  The password to authenticate with. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. |  |
+| --user |  The user to authenticate with. |  |
+
+
+## mod config artifacts maven delete
+
+Removes the Maven artifact repository repository configuration. The publish command will no longer function until another artifact source is configured.
+
+
+
+
+### Usage
+
+```
+mod config artifacts maven delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config artifacts maven show
+
+Displays the Maven artifact repository repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config artifacts maven show [parameters] [subcommands]
 ```
 
 ### Options
@@ -1319,8 +1433,32 @@ mod config http trust-store edit [parameters] [subcommands]
 
 ### Subcommands
 
+* `system`: Configures truststore to use the Operating System specific default truststore. On Mac the system trust store is accessed via the Keychain Access app. On Windows the system trust store is accessed via the Microsoft Management Console. On Linux there is no standardized trust store, so the cacerts file under **${JAVA_HOME}/lib/security/cacerts** will be used.
 * `file`: Configures truststore to point to a file.
 * `java-home`: Configures truststore to use the cacerts file in **${JAVA_HOME}/lib/security/cacerts**.
+
+## mod config http trust-store edit system
+
+Configures truststore to use the Operating System specific default truststore. On Mac the system trust store is accessed via the Keychain Access app. On Windows the system trust store is accessed via the Microsoft Management Console. On Linux there is no standardized trust store, so the cacerts file under **${JAVA_HOME}/lib/security/cacerts** will be used.
+
+
+### Usage
+
+```
+mod config http trust-store edit system [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --password |  The password used to access the truststore. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
 
 ## mod config http trust-store edit file
 
@@ -1339,15 +1477,15 @@ mod config http trust-store edit file [parameters] [subcommands]
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| file |  The path to the truststore file. |  |
+| --file |  The path to the truststore file. |  |
 | --local |  Configuration relevant to a specific group of repositories. |  |
-| password |  The password used to access the truststore. |  |
-| provider |  The provider of the truststore. |  |
+| --password |  The password used to access the truststore. |  |
+| --provider |  The provider of the truststore. |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
-| type |  The type of the truststore file. |  |
+| --type |  The type of the truststore file. |  |
 
 
 ## mod config http trust-store edit java-home
