@@ -2128,6 +2128,7 @@ The dependency will be resolved from the artifact source defined in **mod config
 | Name | Description |
 | ---- | ----------- |
 | --repository-url, --repository |  The repository URL that the artifact will be resolved from. |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. |
 
 
 ## mod config recipes jar delete
