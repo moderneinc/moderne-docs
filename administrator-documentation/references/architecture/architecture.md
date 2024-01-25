@@ -10,7 +10,7 @@ To help you understand how the Moderne platform works and how it interacts with 
 
 Moderne’s SaaS allows permitted users to run [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) on code in the repositories you've added to the platform. These recipes can yield pull requests (PRs) or commits that transform the code.
 
-As the code changes (either due to recipe results being merged in or due to active development), an artifact that contains a serialized representation of the code's [Lossless Semantic Tree](../concepts/lossless-semantic-trees.md) (LST) will need to be generated and published (See the [customer CI](architecture.md#customer-ci) section for more information on how to publish artifacts and the [Moderne agent](architecture.md#moderne-agent) section for more information on how these artifacts are encrypted and securely transmitted).
+As the code changes (either due to recipe results being merged in or due to active development), an artifact that contains a serialized representation of the code's [Lossless Semantic Tree](../concepts/lossless-semantic-trees.md) (LST) will need to be generated and published (See the [Moderne CLI on a VM](architecture.md#moderne-cli-on-a-vm) section for more information on how to publish artifacts and the [Moderne agent](architecture.md#moderne-agent) section for more information on how these artifacts are encrypted and securely transmitted).
 
 Once the artifact is published, the Moderne agent will send the changes to Moderne so that the internal state can be updated. After that happens, new recipes can be run against the new artifacts and the process will repeat.
 
@@ -30,7 +30,7 @@ In order for Moderne to know the current state of your code, artifacts will need
 
 For instructions on how to use the Moderne CLI to build and publish artifacts, please read our [integrating private code with Moderne doc](/administrator-documentation/how-to-guides/integrating-private-code.md).
 
-The LST artifacts will be published to your existing artifact repository alongside binary, source, and JavaDoc artifacts that are already created by your team's normal publishing mechanisms. Since the LST artifacts are added to your existing artifact repository, _no additional credentials are needed_.
+The LST artifacts published by the CLI will be added to your existing artifact repository alongside binary, source, and JavaDoc artifacts that are already created by your team's normal publishing mechanisms. Since the LST artifacts are added to your existing artifact repository, _no additional credentials are needed_.
 
 ### Moderne agent
 
