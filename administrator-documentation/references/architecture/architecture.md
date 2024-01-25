@@ -24,18 +24,13 @@ Below is a high-level architecture diagram that shows the flow of data between M
 
 ## Key components
 
-### Customer CI
+### Moderne CLI on a VM
 
 In order for Moderne to know the current state of your code, artifacts will need to be generated that contain a serialized representation of your code's [LSTs](../concepts/lossless-semantic-trees.md). These artifacts must be put inside an artifact repository that the [Moderne agent](architecture.md#moderne-agent) has access to.
 
-There are two main ways to generate artifacts. You can:
+For instructions on how to use the Moderne CLI to build and publish artifacts, please read our [integrating private code with Moderne doc](/administrator-documentation/how-to-guides/integrating-private-code.md).
 
-1. (**Recommended**) Set up a [GitHub or Jenkins pipeline](../../how-to-guides/integrating-private-code.md#mod-connect) to build and publish LST artifacts on a daily basis without requiring code changes to your existing repositories/pipelines.
-2. Update all of your existing pipelines to run the [mod publish](../../how-to-guides/integrating-private-code.md#mod-publish) command whenever the code is updated.
-
-Both of these are described in detail in our [integrating private code with Moderne doc](../../how-to-guides/integrating-private-code.md).
-
-Regardless of which option you choose, the LST artifacts will be published to your existing artifact repository alongside binary, source, and JavaDoc artifacts that are already created by your team's normal publishing mechanisms. Since the LST artifacts are added to your existing artifact repository, _no additional credentials are needed_.
+The LST artifacts will be published to your existing artifact repository alongside binary, source, and JavaDoc artifacts that are already created by your team's normal publishing mechanisms. Since the LST artifacts are added to your existing artifact repository, _no additional credentials are needed_.
 
 ### Moderne agent
 

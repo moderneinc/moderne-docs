@@ -43,14 +43,14 @@ If you want to see specific examples of Java LSTs, please read our [Java LST Exa
 
 ### With the Moderne Platform
 
-1. Before you can run a recipe against a repository in the Moderne Platform, you must build the LST for said repository. This is typically done via a CI job (usually configured by the [mod connect tool](https://github.com/moderneinc/mod-connect)). This CI job builds LST artifacts for each repository you want ingested and then publishes the LST artifacts to your artifact repository. You can configure how often this runs, but most people run these jobs once per day as it can be prohibitively expensive to continuously build large projects over and over.
+1. Before you can run a recipe against a repository in the Moderne Platform, you must build the LST for said repository. This is done by [running Moderne CLI commands in a VM](/administrator-documentation/how-to-guides/integrating-private-code.md).
 2. When you go to run a recipe, the LST artifact will be downloaded from your artifact repository. These LSTs are continuously uploaded/updated over time as long as you've set up ingestion for your repositories.
 3. As the recipe runs, it will make transformations on the downloaded LST. This could be as simple as adding a search marker (`~~>`) if the recipe is a search recipe -- or it could be as complex as adding classes and methods throughout the repository.
 4. Once the recipe has finished running, the **modified LST will be discarded** and the code **will not** be changed. Instead, you will be [provided with a list of the changes it would make](../../../user-documentation/getting-started/running-your-first-recipe.md#step-6-run-the-recipe). You can [review them](../../../user-documentation/getting-started/running-your-first-recipe.md#step-7-view-the-results) and [choose what to do with them](../../../user-documentation/getting-started/running-your-first-recipe.md#step-8-commit-your-changes).
 5. Regardless of what you choose to do with the results, future recipe runs **will not** have those changes unless you commit them and have the CI job re-build/publish the LST to your artifact repository.
 
 {% hint style="info" %}
-You might be wondering, "Hey - if LSTs are ingested only once a day, wouldn't that mean they're out-of-date if we run multiple recipes against them?" While that _can_ be true, in most situations, it's not an issue as Moderne rebases recipe results when committing and recipes rarely conflict in such an extreme way.
+You might be wondering, "Hey - if LSTs are ingested only once I publish them via the CLI, wouldn't that mean they're out-of-date if we run multiple recipes against them?" While that _can_ be true, in most situations, it's not an issue as Moderne rebases recipe results when committing and recipes rarely conflict in such an extreme way.
 
 Some users may be tempted to combine a bunch of recipes into one giant recipe so that it guarantees that there are no conflicts. However, this can be problematic as it makes the recipe results much more difficult to review and it can lead to performance issues or timeouts.
 
