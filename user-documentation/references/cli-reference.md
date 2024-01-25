@@ -1868,7 +1868,7 @@ mod config moderne edit <host> --token <token>
 * `delete`: Removes the configured Moderne tenant.
 * `edit`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `local`: Configures a connection to a Moderne DX instance running locally on the same machine.
-* `show`: Displays the artifact repository configuration.
+* `show`: Displays the Moderne tenant configuration.
 
 ## mod config moderne delete
 
@@ -1959,7 +1959,7 @@ mod config moderne local [parameters] [subcommands]
 
 ## mod config moderne show
 
-Displays the artifact repository configuration.
+Displays the Moderne tenant configuration.
 
 
 
@@ -2247,6 +2247,11 @@ Destroys all recipes in the local CLI marketplace and replaces them with the lat
 mod config recipes moderne sync [parameters] [subcommands]
 ```
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. When omitted the ssl verification is based on the tenant configuration. |
 
 
 ## mod config recipes delete
