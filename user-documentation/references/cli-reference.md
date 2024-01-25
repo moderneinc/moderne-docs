@@ -2212,6 +2212,11 @@ mod config recipes moderne install "Migrate Java"
 | ---- | ----------- |
 | searchTerm |  The search term to use to find recipes to install. |
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. When omitted the ssl verification is based on the tenant configuration. |
 
 
 ## mod config recipes moderne push
@@ -2232,6 +2237,7 @@ mod config recipes moderne push [parameters] [subcommands]
 | Name | Description |
 | ---- | ----------- |
 | -f, --force |  Force the push of the local CLI recipe marketplace to Moderne, replacing all installed recipe artifacts with the contents of the local marketplace. |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. When omitted the ssl verification is based on the tenant configuration. |
 
 
 ## mod config recipes moderne sync
@@ -2740,6 +2746,7 @@ mod git clone moderne [parameters] [subcommands]
 | --filter |  |
 | --limit |  The maximum number of repositories to clone. |
 | --single-branch |  |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. When omitted the ssl verification is based on the tenant configuration. |
 
 
 ## mod git commit
@@ -3200,7 +3207,7 @@ mod run /path/to/project \
 | ---- | ----------- | ---------- |
 | --active-recipe |  If this flag is included, the recipe specified as the active recipe in your IDE will be run (assuming you have the Moderne plugin installed and configured). |  |
 | --jvm-debug |  Start a JDWP server on this port and pause for a remote debug connection. |  |
-| -P, --recipe-option |  Recipe options, if any. If a recipe accepts more than one option, you can include this argument multiple times. | `mod run . --recipe <recipe> -P methodPattern='java.util.List add(..)' -P moreOptions='moreOptions'` |
+| -P, --recipe-option |  Recipe options, if any. If a recipe accepts more than one option, you can include this argument multiple times. | `mod run . --recipe=<recipe> -P methodPattern='java.util.List add(..)' -P moreOptions='moreOptions'` |
 | --recipe |  The recipe ID of the recipe that should be run. | `org.openrewrite.java.search.FindMethods` |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
