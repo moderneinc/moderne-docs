@@ -203,7 +203,7 @@ Below, we'll provide some context for the core commands.
 
 The `build` command generates the LST artifacts for one or more projects. Once generated, the artifacts can be uploaded to your artifact management tool so that Moderne can ingest them - or - they can be used to run recipes locally.
 
-While it is possible to manually build and publish your artifacts, we strongly recommend setting up a CI system to run these commands.
+While it is possible to manually build and publish your artifacts, we strongly recommend [setting up a mass ingest job](/administrator-documentation/how-to-guides/integrating-private-code.md) to do this in a VM.
 
 If the path provided to this command is not a Git repository, then this command will recursively look through all the directories on the path for Git repositories. You can specify `repository-*` options to filter this to your needs.
 
@@ -217,7 +217,7 @@ If you've set up a connection with Moderne (by running the `mod config moderne` 
 
 The publish command allows you to manually publish LST artifacts for one or more projects. Once published to your artifact management tool, Moderne will be able to ingest them and they will, in turn, be usable inside of the SaaS.
 
-This command is typically used for publishing LST artifacts from CI systems.
+This command is typically used for publishing LST artifacts from the [mass ingest job you create in a VM](/administrator-documentation/how-to-guides/integrating-private-code.md).
 
 You can also use this command for _debugging purposes_ if you want to do a one-off test of uploading an artifact somewhere.
 
