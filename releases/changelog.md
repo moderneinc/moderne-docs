@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.48.0 (2024/01/26)
+
+- make infinite scroll
+
 ### UI v10.47.0 (2024/01/26)
 
 - Bug fixes and other improvements.
