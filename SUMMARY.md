@@ -30,11 +30,10 @@
   * [Creating SCM access tokens](user-documentation/references/create-scm-access-tokens.md)
   * [Moderne CLI reference](user-documentation/references/cli-reference.md)
 * [Workshops](user-documentation/workshops/README.md)
-  * [Spring Boot migration workshop](user-documentation/workshops/spring-boot-migration-workshop/README.md)
-    * [Moderne CLI exercise](user-documentation/workshops/spring-boot-migration-workshop/moderne-cli-exercise.md)
-    * [Moderne platform exercise](user-documentation/workshops/spring-boot-migration-workshop/moderne-platform-exercise.md)
-    * [Migrate your own project](user-documentation/workshops/spring-boot-migration-workshop/migrate-your-own-project.md)
-    * [Recipe development](user-documentation/workshops/spring-boot-migration-workshop/recipe-development.md)
+  * [Moderne CLI exercise](user-documentation/workshops/moderne-cli-exercise.md)
+  * [Moderne platform exercise](user-documentation/workshops/moderne-platform-exercise.md)
+  * [Migrate your own project](user-documentation/workshops/migrate-your-own-project.md)
+  * [Recipe development](user-documentation/workshops/recipe-development.md)
 
 ## Administrator documentation
 
