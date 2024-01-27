@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.49.0 (2024/01/27)
+
+- recipe source and lst source information on agents
+feat/org dash mock 2
+
 ### UI v10.48.0 (2024/01/26)
 
 - make infinite scroll
