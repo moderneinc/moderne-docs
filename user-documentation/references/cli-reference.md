@@ -3143,8 +3143,6 @@ Publishes the LST artifacts for one or more projects.
 
 Once published to your artifact repository, Moderne will be able to ingest them and they will, in turn, be usable inside of Moderne.
 
-This command is typically used for publishing LST artifacts from CI systems.
-
 You must run **mod build** before you can run this command. You also must set up an artifact repository connection by running **mod config artifacts** before this command will work.
 
 ### Usage
