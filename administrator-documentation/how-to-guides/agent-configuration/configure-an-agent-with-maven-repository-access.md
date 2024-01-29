@@ -5,7 +5,7 @@ In order for Moderne to retrieve your [Lossless Semantic Tree](../../references/
 There are a variety of services that support Maven-formatted artifact repositories. Some examples include [JFrog Artifactory](https://jfrog.com/artifactory/), [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository), and [Azure Artifacts](https://azure.microsoft.com/en-us/services/devops/artifacts/).
 
 {% hint style="info" %}
-If your company has a rule that any externally-hosted JARs (e.g., Maven Central) be brought into an internal Maven repository (e.g., Artifactory) and scanned before being used, the instructions in this doc **must** be followed. Please ensure that you point the agent to your internal Maven repository and that the OpenRewrite JARs and dependencies are included in said repository.
+If your company has a rule that any externally-hosted JARs (e.g., Maven Central) be brought into an internal Maven repository (e.g., Artifactory) and scanned before being used, the instructions in this doc **must** be followed. Furthermore, [please ensure that you point the agent to your internal Maven repository and that the OpenRewrite JARs and dependencies are included in said repository](./configure-an-agent-with-strict-recipe-sources.md).
 {% endhint %}
 
 This guide will explain how to:
