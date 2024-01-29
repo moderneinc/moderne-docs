@@ -68,6 +68,7 @@
     * [Configure Moderne DX with strict recipe sources](administrator-documentation/how-to-guides/dx-configuration/configure-dx-with-strict-recipe-sources.md)
   * [Importing external recipes](administrator-documentation/how-to-guides/importing-external-recipes.md)
 * [References](administrator-documentation/references/README.md)
+  * [Licensing](administrator-documentation/references/licensing.md)
   * [Reporting](administrator-documentation/references/reporting.md)
   * [Architecture](administrator-documentation/references/architecture/README.md)
     * [Moderne architecture](administrator-documentation/references/architecture/architecture.md)
