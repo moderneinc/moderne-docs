@@ -3,7 +3,7 @@
 In order for Moderne DX to get the list of your [Lossless Semantic Tree](../../references/concepts/lossless-semantic-trees.md) (LST) and recipe artifacts, the service needs to be configured to talk to your Maven-formatted artifact repositories. There are a variety of services that support repositories in this format. Some examples include [JFrog Artifactory](https://jfrog.com/artifactory/), [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository), and [Azure Artifacts](https://azure.microsoft.com/en-us/services/devops/artifacts/).
 
 {% hint style="info" %}
-If your company has a rule that any externally-hosted JARs (e.g., Maven Central) by brought into an internal Maven repository (e.g., Artifactory) and scanned before being used, the instructions in this doc **must** be followed. Please ensure that you point DX to your internal Maven repository and that the OpenRewrite JARs and dependencies are included in said repository.
+If your company has a rule that any externally-hosted JARs (e.g., Maven Central) be brought into an internal Maven repository (e.g., Artifactory) and scanned before being used, the instructions in this doc **must** be followed. Please ensure that you point DX to your internal Maven repository and that the OpenRewrite JARs and dependencies are included in said repository.
 {% endhint %}
 
 This guide will explain how to:
