@@ -24,11 +24,11 @@ Below is a high-level architecture diagram that shows the flow of data between M
 
 ## Key components
 
-### Moderne CLI on a VM
+### Mass ingest with mod CLI
 
 In order for Moderne to know the current state of your code, artifacts will need to be generated that contain a serialized representation of your code's [LSTs](../concepts/lossless-semantic-trees.md). These artifacts must be put inside an artifact repository that the [Moderne agent](architecture.md#moderne-agent) has access to.
 
-To do this, you'll want to run Moderne CLI build and publish commands on your repositories in a VM on a schedule. For instructions on how to do this, please read our [integrating private code with Moderne doc](/administrator-documentation/how-to-guides/integrating-private-code.md).
+To do this, you'll want to use set up mass ingestion with the Moderne CLI. For instructions on how to do that, please read our [integrating private code with Moderne doc](/administrator-documentation/how-to-guides/integrating-private-code.md).
 
 The LST artifacts published by the CLI will be added to your existing artifact repository alongside binary, source, and JavaDoc artifacts that are already created by your team's normal publishing mechanisms. Since the LST artifacts are added to your existing artifact repository, _no additional credentials are needed_.
 
