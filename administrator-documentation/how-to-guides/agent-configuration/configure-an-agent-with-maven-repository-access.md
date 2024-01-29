@@ -1,6 +1,12 @@
 # Configure an agent with Maven repository access
 
-In order for Moderne to retrieve your [Lossless Semantic Tree](../../references/concepts/lossless-semantic-trees.md) (LST) and recipe artifacts, the agent needs to be configured to talk to your Maven-formatted artifact repositories. There are a variety of services that support repositories in this format. Some examples include [JFrog Artifactory](https://jfrog.com/artifactory/), [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository), and [Azure Artifacts](https://azure.microsoft.com/en-us/services/devops/artifacts/).
+In order for Moderne to retrieve your [Lossless Semantic Tree](../../references/concepts/lossless-semantic-trees.md) (LST) or recipe artifacts, the agent needs to be configured to talk to your Maven-formatted artifact repositories. This connection also allows Moderne to lookup dependency versions to determine if a new version is available.
+
+There are a variety of services that support Maven-formatted artifact repositories. Some examples include [JFrog Artifactory](https://jfrog.com/artifactory/), [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository), and [Azure Artifacts](https://azure.microsoft.com/en-us/services/devops/artifacts/).
+
+{% hint style="info" %}
+If your company has a rule that any externally-hosted JARs (e.g., Maven Central) be brought into an internal Maven repository (e.g., Artifactory) and scanned before being used, the instructions in this doc **must** be followed. Furthermore, [please ensure that you point the agent to your internal Maven repository and that the OpenRewrite JARs and dependencies are included in said repository](./configure-an-agent-with-strict-recipe-sources.md).
+{% endhint %}
 
 This guide will explain how to:
 
