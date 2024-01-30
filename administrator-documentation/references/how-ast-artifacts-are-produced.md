@@ -23,7 +23,7 @@ This LST artifact is built and published to a dedicated Maven repository by the 
 
 ## Moderne CLI flow
 
-After setting up mass ingestion in the Moderne CLI, one LST artifact (not in a JAR format) will be produced per subproject. The CLI runs these builds in parallel so more than one LST is being built at a time. Once all of these artifacts have been built, the Moderne CLI will combine them all into a JAR and add a `scm.properties` file to it that provides key information about the build (such as a unique `buildId` that identifies this particular build process). After all of that is done, the Moderne CLI will push this JAR to the artifact repository of your choice.
+After setting up mass ingestion in the Moderne CLI, one LST artifact (not in a JAR format) will be produced per subproject. A single CLI command (e.g., `mod build`) will build LST artifacts for every repository you've specified. Once all of these artifacts have been built, the Moderne CLI will combine them all into a JAR and add a `scm.properties` file to it that provides key information about the build (such as a unique `buildId` that identifies this particular build process). After all of that is done, the Moderne CLI will push this JAR to the artifact repository of your choice.
 
 {% hint style="info" %}
 Some subprojects might not publish artifacts – such as benchmarking, testing, or sample subprojects. The Moderne CLI is designed to publish LST artifacts for these subprojects anyway.
