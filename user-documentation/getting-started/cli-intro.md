@@ -14,38 +14,9 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will:
 To install the Moderne CLI please:
 
 1. Go to the [Moderne platform](https://app.moderne.io/) and sign in.
-2. Download the CLI for your operating system:
+2. Click on help in the bottom left-hand corner and select the version of the CLI you want to download. Then select the way you'd like to install it:
 
-{% tabs %}
-{% tab title="Mac" %}
-* [Moderne CLI 2.1.3 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-macos/v2.1.3/moderne-cli-macos-v2.1.3)
-* [Moderne CLI 2.3.3 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v2.3.3/moderne-cli-macos-v2.3.3)
-
-You can also install the latest stable version via [Brew](https://brew.sh/):
-
-```sh
-brew install moderneinc/moderne/mod
-```
-
-Or the latest staging version via:
-
-```sh
-brew install moderneinc/moderne/mod --head
-```
-{% endtab %}
-
-{% tab title="Linux" %}
-* [Moderne CLI 2.1.3 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-linux/v2.1.3/moderne-cli-linux-v2.1.3)
-* [Moderne CLI 2.3.3 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v2.3.3/moderne-cli-linux-v2.3.3)
-{% endtab %}
-
-{% tab title="Windows" %}
-* [Moderne CLI 2.1.3 (Stable)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/moderne/maven/v1/io/moderne/moderne-cli-windows/v2.1.3/moderne-cli-windows-v2.1.3)
-  * Can also be installed with Chocolatey: `choco install mod`
-* [Moderne CLI 2.3.3 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v2.3.3/moderne-cli-windows-v2.3.3)
-* If you want to use a JAR instead of an exe: [https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions)
-{% endtab %}
-{% endtabs %}
+![](/.gitbook/assets/cli-download.gif)
 
 3. Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location or this could involve putting it in a directory that's already on your `PATH` such as a `/usr/bin` directory.
 

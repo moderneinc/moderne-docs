@@ -9,37 +9,9 @@ After that, we'll provide some additional examples that show other capabilities 
 #### Download and configure the Moderne CLI
 
 1. Go to the [Moderne platform](https://app.moderne.io) and sign in. If you don't have an account, you can sign up for free.
-2. Download the CLI for your operating system:
+2. Click on help in the bottom left-hand corner and select the version of the CLI you want to download. Then select the way you'd like to install it:
 
-{% tabs %}
-{% tab title="Mac" %}
-[moderne-cli-v2.3.3 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-macos/v2.3.3/moderne-cli-macos-v2.3.3)
-
-{% hint style="success" %}
-You can also install the latest stable version via [Brew](https://brew.sh/):
-
-```sh
-brew install moderneinc/moderne/mod
-```
-
-Or the latest staging version via:
-
-```sh
-brew install moderneinc/moderne/mod --head
-```
-
-and skip step 3.
-{% endhint %}
-{% endtab %}
-
-{% tab title="Linux" %}
-[moderne-cli-v2.3.3 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-linux/v2.3.3/moderne-cli-linux-v2.3.3)
-{% endtab %}
-
-{% tab title="Windows" %}
-[moderne-cli-v2.3.3 (Staging)](https://pkgs.dev.azure.com/moderneinc/moderne\_public/\_packaging/staging/maven/v1/io/moderne/moderne-cli-windows/v2.3.3/moderne-cli-windows-v2.3.3)
-{% endtab %}
-{% endtabs %}
+![](/.gitbook/assets/cli-download.gif)
 
 3. Once you have it downloaded, save it somewhere that your terminal can access. If you want it available in each of your terminal windows, consider updating your `PATH` to point ot this location or aliasing `mod` to the location of the CLI. You could also save the file to a directory that's already on your `PATH` such as a `/usr/bin` directory.
 4. Ensure you can run the CLI by typing `mod`.
