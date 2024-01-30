@@ -30,8 +30,6 @@ In order for Moderne to know the current state of your code, artifacts will need
 
 To do this, you'll want to use set up mass ingestion with the Moderne CLI. For instructions on how to do that, please read our [integrating private code with Moderne doc](/administrator-documentation/how-to-guides/integrating-private-code.md).
 
-The LST artifacts published by the CLI will be added to your existing artifact repository alongside binary, source, and JavaDoc artifacts that are already created by your team's normal publishing mechanisms. Since the LST artifacts are added to your existing artifact repository, _no additional credentials are needed_.
-
 ### Moderne agent
 
 At a high level, you can think of the Moderne agent as a bridge between your environment and Moderne. All data that Moderne needs to function will pass over this bridge and flow into the [Moderne API Gateway](architecture.md#moderne-api-gateway). As this data is sent to Moderne, it's encrypted – with the key being kept in your environment. Whenever Moderne needs to access any data, it will request this key and the data will be decrypted for a short time before it's thrown away. If you decide you no longer want Moderne to have access to anything, you can raise the bridge (shut off the agent) and all of your data that Moderne has will no longer be decryptable.
