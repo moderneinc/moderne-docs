@@ -64,7 +64,7 @@ Once you've decided what repositories you want to run recipes against, click on 
 
 <figure><img src="../../.gitbook/assets/ModerneCatalog.png" alt="Moderne Home Page"><figcaption><p>Moderne home page</p></figcaption></figure>
 
-This will take you to a page that lists all of the recipe categories.
+This will take you to a page that lists all of the recipe categories. This is the default page you see when you log in. 
 
 ## Step 5: Select a recipe
 
