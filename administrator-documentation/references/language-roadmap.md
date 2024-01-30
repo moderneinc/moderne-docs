@@ -12,13 +12,4 @@ There are three stages we track as we add support for new languages. These are:
 
 Below you can find a table of languages, which stages are currently done, and which stages are left to do. Please note that this is a **tentative** timeline. Anything below is subject to change.
 
-| **Language** | **Parser**   | **Recipe catalog**  | **Native devex**      |
-| ------------ | ------------ | ------------------- | --------------------- |
-| Java         | Available    | Available           | Available             |
-| Kotlin       | Available    | Available           | Available             |
-| Groovy       | Available    | Available           | Available             |
-| Ruby         | Available    | In progress         | Available             |
-| Python       | In progress  | In progress         | In progress           |
-| TypeScript   | Available    | In progress         | In progress           |
-| COBOL        | Available    | In progress         | No plans to support   |
-| C#           | In progress  | In progress         | No plans to support   |
+<table data-header-hidden><thead><tr><th width="145"></th><th width="141"></th><th width="168"></th><th></th></tr></thead><tbody><tr><td><strong>Language</strong></td><td><strong>Parser</strong></td><td><strong>Recipe catalog</strong></td><td><strong>Native devex</strong></td></tr><tr><td>Java</td><td>Available</td><td>Available</td><td>Available</td></tr><tr><td>Kotlin</td><td>Available</td><td>Available</td><td>Available</td></tr><tr><td>Groovy</td><td>Available</td><td>Available</td><td>Available</td></tr><tr><td>Ruby</td><td>Available</td><td>In progress</td><td>Available</td></tr><tr><td>Python</td><td>In progress</td><td>In progress</td><td>In progress</td></tr><tr><td>TypeScript</td><td>Available</td><td>In progress</td><td>In progress</td></tr><tr><td>COBOL</td><td>Available</td><td>In progress</td><td>No plans to support</td></tr><tr><td>C#</td><td>In progress</td><td>In progress</td><td>No plans to support</td></tr></tbody></table>
