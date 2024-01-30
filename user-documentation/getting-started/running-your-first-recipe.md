@@ -34,7 +34,7 @@ In this guide, we will:
 
 If you're an enterprise user, you'll need to navigate to and sign in with the link your company has provided you. Please do that and skip to [step 3](running-your-first-recipe.md#step-3-optionally-select-an-organization).
 
-If you're not an enterprise user, go to [https://app.moderne.io](https://app.moderne.io) and press "Sign-in with GitHub" as seen below:
+If you're not an enterprise user, go to [https://app.moderne.io](https://app.moderne.io) and sign in:
 
 <figure><img src="../../.gitbook/assets/GitHubLogin.png" alt="Moderne Login Button"><figcaption></figcaption></figure>
 
@@ -52,9 +52,11 @@ For a better understanding of the permissions requested, please see [GitHub Perm
 
 After you've logged in and granted the appropriate permissions, you'll arrive at the [Moderne home page](https://app.moderne.io/).
 
-If you went to run a recipe right now, you would find that some repositories are already selected to run against. In public Moderne, the `Default` organization is selected (a diverse selection of open-source repositories). In an enterprise instance of Moderne, the `All` organization is _typically_ selected instead (meaning a recipe would run against every repository in your organization).
+If you went to run a recipe right now, you would find that some repositories are already selected to run against. In public Moderne, the `Default` organization is selected (a diverse selection of open-source repositories). In an enterprise instance of Moderne, the `All` organization is selected if you haven't set up an organizations service (meaning all recipes will run against every repository in the tenant). If the organizations service has been set up, it will be whatever that service returns for your user.
 
 If you'd prefer to run against a different group of repositories so that you can get relevant results more quickly, you can: select the organization that matches your needs, set up the [Organization service](../../administrator-documentation/how-to-guides/organizations-service.md) (for enterprise users), or follow our [instructions for defining user configured organizations](../how-to-guides/managing-user-configured-organizations.md#how-to-create-a-user-configured-organization).
+
+![](/.gitbook/assets/organization-selector.png)
 
 ## Step 4: Navigate to the recipe marketplace
 
@@ -62,9 +64,7 @@ Once you've decided what repositories you want to run recipes against, click on 
 
 <figure><img src="../../.gitbook/assets/ModerneCatalog.png" alt="Moderne Home Page"><figcaption><p>Moderne home page</p></figcaption></figure>
 
-This will take you to a page that lists all of the recipe categories:
-
-<figure><img src="../../.gitbook/assets/ModerneCatalog2.png" alt="Moderne Recipe Marketplace"><figcaption><p>Moderne recipe marketplace</p></figcaption></figure>
+This will take you to a page that lists all of the recipe categories.
 
 ## Step 5: Select a recipe
 
