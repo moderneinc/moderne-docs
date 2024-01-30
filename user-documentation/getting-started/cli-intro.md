@@ -185,7 +185,7 @@ mod config artifacts volume edit <location-on-disk>
 
 ## Additional reading
 
-* [Try using the CLI in the Moderne CLI workshop](../workshops/spring-boot-migration-workshop/moderne-cli-exercise.md)
+* [Try using the CLI in the Moderne CLI workshop](../workshops/moderne-cli-exercise.md)
 * [Learn more about how to configure the CLI to meet your needs](../how-to-guides/layer-config-cli.md)
 * [Learn more about how JDK selection works and how you might configure other locations for JDKs](../how-to-guides/jdk-selection-and-config.md)
 
