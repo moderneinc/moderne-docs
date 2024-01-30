@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.50.0 (2024/01/30)
+
+- add copy mod cli command
+- add `notContains` operator to Audit Log event columns
+
 ### UI v10.49.0 (2024/01/27)
 
 - recipe source and lst source information on agents
