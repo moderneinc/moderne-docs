@@ -72,12 +72,35 @@
 * [**mod config java version edit**](#mod-config-java-version-edit)
 * [**mod config java version delete**](#mod-config-java-version-delete)
 * [**mod config java version show**](#mod-config-java-version-show)
+* [**mod config lsts**](#mod-config-lsts)
+* [**mod config lsts artifacts**](#mod-config-lsts-artifacts)
+* [**mod config lsts artifacts artifactory**](#mod-config-lsts-artifacts-artifactory)
+* [**mod config lsts artifacts artifactory edit**](#mod-config-lsts-artifacts-artifactory-edit)
+* [**mod config lsts artifacts artifactory delete**](#mod-config-lsts-artifacts-artifactory-delete)
+* [**mod config lsts artifacts artifactory show**](#mod-config-lsts-artifacts-artifactory-show)
+* [**mod config lsts artifacts maven**](#mod-config-lsts-artifacts-maven)
+* [**mod config lsts artifacts maven edit**](#mod-config-lsts-artifacts-maven-edit)
+* [**mod config lsts artifacts maven delete**](#mod-config-lsts-artifacts-maven-delete)
+* [**mod config lsts artifacts maven show**](#mod-config-lsts-artifacts-maven-show)
+* [**mod config lsts artifacts volume**](#mod-config-lsts-artifacts-volume)
+* [**mod config lsts artifacts volume edit**](#mod-config-lsts-artifacts-volume-edit)
+* [**mod config lsts artifacts volume delete**](#mod-config-lsts-artifacts-volume-delete)
+* [**mod config lsts artifacts volume show**](#mod-config-lsts-artifacts-volume-show)
 * [**mod config moderne**](#mod-config-moderne)
 * [**mod config moderne delete**](#mod-config-moderne-delete)
 * [**mod config moderne edit**](#mod-config-moderne-edit)
 * [**mod config moderne local**](#mod-config-moderne-local)
 * [**mod config moderne show**](#mod-config-moderne-show)
 * [**mod config recipes**](#mod-config-recipes)
+* [**mod config recipes artifacts**](#mod-config-recipes-artifacts)
+* [**mod config recipes artifacts artifactory**](#mod-config-recipes-artifacts-artifactory)
+* [**mod config recipes artifacts artifactory edit**](#mod-config-recipes-artifacts-artifactory-edit)
+* [**mod config recipes artifacts artifactory delete**](#mod-config-recipes-artifacts-artifactory-delete)
+* [**mod config recipes artifacts artifactory show**](#mod-config-recipes-artifacts-artifactory-show)
+* [**mod config recipes artifacts maven**](#mod-config-recipes-artifacts-maven)
+* [**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit)
+* [**mod config recipes artifacts maven delete**](#mod-config-recipes-artifacts-maven-delete)
+* [**mod config recipes artifacts maven show**](#mod-config-recipes-artifacts-maven-show)
 * [**mod config recipes export**](#mod-config-recipes-export)
 * [**mod config recipes export json**](#mod-config-recipes-export-json)
 * [**mod config recipes export csv**](#mod-config-recipes-export-csv)
@@ -117,6 +140,9 @@
 * [**mod git stashset**](#mod-git-stashset)
 * [**mod git stashset apply**](#mod-git-stashset-apply)
 * [**mod git stashset push**](#mod-git-stashset-push)
+* [**mod log**](#mod-log)
+* [**mod log builds**](#mod-log-builds)
+* [**mod log builds add**](#mod-log-builds-add)
 * [**mod list**](#mod-list)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
@@ -148,6 +174,7 @@ mod [parameters] [subcommands]
 * `config`: Global configuration options that are required by some CLI commands.
 * `exec`: Execute an arbitrary shell command recursively on selected repository roots.
 * `git`: Multi-repository git operations.
+* `log`: Manages a log aggregate.
 * `list`: Lists the repositories that can be built and published.
 * `publish`: Publishes the LST artifacts for one or more projects.
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTS.
@@ -317,21 +344,22 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 
 ### Subcommands
 
-* `artifacts`: Configures the storage layer for LSTs to be published to and downloaded from. Must be configured before you can run the publish command.
+* `artifacts`: Configures the storage layer for LSTs to be published to and downloaded from. 
 * `build`: Configures build tools used to produce LSTs.
 * `environment`: The build environment that the CLI is running in.
 * `http`: Configures HTTP options that will be used throughout the CLI.
 * `java`: Configures Java options used for building LSTs and running recipes.
+* `lsts`: Configures LSTs production and publishing. 
 * `moderne`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `user`: Configure the active user.
 
 ## mod config artifacts
 
-Configures the storage layer for LSTs to be published to and downloaded from. Must be configured before you can run the publish command.
+Configures the storage layer for LSTs to be published to and downloaded from. 
 
 
-
+Must be configured before you can run the publish command.
 
 ### Usage
 
@@ -382,7 +410,7 @@ mod config artifacts artifactory edit [parameters] [subcommands]
 ### Examples
 
 ```
-mod config artifacts edit <artifact-repository-url> --user <user> --password <password>
+mod config lsts artifacts edit <artifact-repository-url> --user <user> --password <password>
 ```
 
 ### Parameters
@@ -396,6 +424,7 @@ mod config artifacts edit <artifact-repository-url> --user <user> --password <pa
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | --authorization |  The authorization header value to use. | `Bearer XXXXX` |
+| --jfrog-api-token |  The JFrog API token to use. |  |
 | --local |  Configuration relevant to a specific group of repositories. |  |
 | --password |  The password to authenticate with. |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
@@ -490,7 +519,7 @@ mod config artifacts maven edit [parameters] [subcommands]
 ### Examples
 
 ```
-mod config artifacts edit <artifact-repository-url> --user <user> --password <password>
+mod config lsts artifacts edit <artifact-repository-url> --user <user> --password <password>
 ```
 
 ### Parameters
@@ -1843,6 +1872,358 @@ mod config java version show [parameters] [subcommands]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
+## mod config lsts
+
+Configures LSTs production and publishing. 
+
+
+Must be configured before you can run the publish command.
+
+### Usage
+
+```
+mod config lsts [parameters] [subcommands]
+```
+
+### Subcommands
+
+* `artifacts`: Configures the storage layer for LSTs to be published to and downloaded from. 
+
+## mod config lsts artifacts
+
+Configures the storage layer for LSTs to be published to and downloaded from. 
+
+
+Must be configured before you can run the publish command.
+
+### Usage
+
+```
+mod config lsts artifacts [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `artifactory`: Configures the Artifactory repository that LSTs will be published to and downloaded from.
+* `maven`: Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
+* `volume`: Configures the volume that LSTs will be published to and downloaded from.
+
+## mod config lsts artifacts artifactory
+
+Configures the Artifactory repository that LSTs will be published to and downloaded from.
+
+
+All subsequent publish and download commands will use this Artifactory repository.
+
+### Usage
+
+```
+mod config lsts artifacts artifactory [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `delete`: Removes the Artifactory repository configuration. The publish command will no longer function until another artifact source is configured.
+* `show`: Displays the Artifactory repository configuration.
+
+## mod config lsts artifacts artifactory edit
+
+Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+
+
+All subsequent publish and download commands will use this artifact repository.
+
+### Usage
+
+```
+mod config lsts artifacts artifactory edit [parameters] [subcommands]
+```
+
+### Examples
+
+```
+mod config lsts artifacts edit <artifact-repository-url> --user <user> --password <password>
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| url |  The URL of the artifact repository that LSTs will be published to. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --authorization |  The authorization header value to use. | `Bearer XXXXX` |
+| --jfrog-api-token |  The JFrog API token to use. |  |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --password |  The password to authenticate with. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. |  |
+| --user |  The user to authenticate with. |  |
+
+
+## mod config lsts artifacts artifactory delete
+
+Removes the Artifactory repository configuration. The publish command will no longer function until another artifact source is configured.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts artifactory delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config lsts artifacts artifactory show
+
+Displays the Artifactory repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts artifactory show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config lsts artifacts maven
+
+Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
+
+
+All subsequent publish and download commands will use this Maven repository.
+
+### Usage
+
+```
+mod config lsts artifacts maven [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `delete`: Removes the Maven artifact repository repository configuration. The publish command will no longer function until another artifact source is configured.
+* `show`: Displays the Maven artifact repository repository configuration.
+
+## mod config lsts artifacts maven edit
+
+Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+
+
+All subsequent publish and download commands will use this artifact repository.
+
+### Usage
+
+```
+mod config lsts artifacts maven edit [parameters] [subcommands]
+```
+
+### Examples
+
+```
+mod config lsts artifacts edit <artifact-repository-url> --user <user> --password <password>
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| url |  The URL of the artifact repository that LSTs will be published to. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --authorization |  The authorization header value to use. | `Bearer XXXXX` |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --password |  The password to authenticate with. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. |  |
+| --user |  The user to authenticate with. |  |
+
+
+## mod config lsts artifacts maven delete
+
+Removes the Maven artifact repository repository configuration. The publish command will no longer function until another artifact source is configured.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts maven delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config lsts artifacts maven show
+
+Displays the Maven artifact repository repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts maven show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config lsts artifacts volume
+
+Configures the volume that LSTs will be published to and downloaded from.
+
+
+All subsequent publish and download commands will use this volume mount.
+
+### Usage
+
+```
+mod config lsts artifacts volume [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `delete`: Removes the volume LST configuration. The publish command will no longer function until another artifact source is configured.
+* `show`: Displays the volume LST configuration.
+
+## mod config lsts artifacts volume edit
+
+Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+
+
+All subsequent publish and download commands will use this artifact repository.
+
+### Usage
+
+```
+mod config lsts artifacts volume edit [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| location |  The location on disk that LSTs will be published to. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config lsts artifacts volume delete
+
+Removes the volume LST configuration. The publish command will no longer function until another artifact source is configured.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts volume delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config lsts artifacts volume show
+
+Displays the volume LST configuration.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts volume show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
 ## mod config moderne
 
 Configures the connection to Moderne. Must be configured before you can install and run recipes.
@@ -2003,6 +2384,7 @@ mod config recipes sync moderne
 
 ### Subcommands
 
+* `artifacts`: Configures the artifact repository to resolve recipes from.
 * `export`: Export the recipe catalog for study by different tools.
 * `jar`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
 * `moderne`: Configures which Moderne recipes should be installed and used in the local CLI marketplace.
@@ -2010,6 +2392,242 @@ mod config recipes sync moderne
 * `list`: List the artifacts that are contributing recipes to the marketplace.
 * `search`: Finds recipes based on free form text search.
 * `yaml`: Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
+
+## mod config recipes artifacts
+
+Configures the artifact repository to resolve recipes from.
+
+
+Defaults to OSS Sonatype if an artifact repository is not provided.
+
+### Usage
+
+```
+mod config recipes artifacts [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `artifactory`: Configures the artifact repository to resolve recipes from.
+* `maven`: Configures a Maven-formatted artifact repository that recipes will be resolved from.
+
+## mod config recipes artifacts artifactory
+
+Configures the artifact repository to resolve recipes from.
+
+
+All subsequent recipe installation commands will use this Artifactory repository.
+
+### Usage
+
+```
+mod config recipes artifacts artifactory [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the artifact repository to resolve recipes from.
+* `delete`: Removes the Artifactory repository configuration.
+* `show`: Displays the Artifactory repository configuration.
+
+## mod config recipes artifacts artifactory edit
+
+Configures the artifact repository to resolve recipes from.
+
+
+All subsequent recipe installation commands will use this artifact repository.
+
+### Usage
+
+```
+mod config recipes artifacts artifactory edit [parameters] [subcommands]
+```
+
+### Examples
+
+```
+mod config recipes artifacts edit <artifact-repository-url> --user <user> --password <password>
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| url |  The URL of the artifact repository that recipes will be resolved from. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --authorization |  The authorization header value to use. | `Bearer XXXXX` |
+| --jfrog-api-token |  The JFrog API token to use. |  |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --password |  The password to authenticate with. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. |  |
+| --user |  The user to authenticate with. |  |
+
+
+## mod config recipes artifacts artifactory delete
+
+Removes the Artifactory repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config recipes artifacts artifactory delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config recipes artifacts artifactory show
+
+Displays the Artifactory repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config recipes artifacts artifactory show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config recipes artifacts maven
+
+Configures a Maven-formatted artifact repository that recipes will be resolved from.
+
+
+All subsequent recipe installation commands will use this Maven repository.
+
+### Usage
+
+```
+mod config recipes artifacts maven [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the repository that recipes will be resolved from.
+* `delete`: Removes the Maven artifact repository repository configuration.
+* `show`: Displays the Maven artifact repository repository configuration.
+
+## mod config recipes artifacts maven edit
+
+Configures the repository that recipes will be resolved from.
+
+
+All subsequent recipe installation commands will use this artifact repository.
+
+### Usage
+
+```
+mod config recipes artifacts maven edit [parameters] [subcommands]
+```
+
+### Examples
+
+```
+mod config recipes artifacts edit <artifact-repository-url> --user <user> --password <password>
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| url |  The URL of the artifact repository that recipes will be resolved from. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --authorization |  The authorization header value to use. | `Bearer XXXXX` |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --password |  The password to authenticate with. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. |  |
+| --user |  The user to authenticate with. |  |
+
+
+## mod config recipes artifacts maven delete
+
+Removes the Maven artifact repository repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config recipes artifacts maven delete [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config recipes artifacts maven show
+
+Displays the Maven artifact repository repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config recipes artifacts maven show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
 
 ## mod config recipes export
 
@@ -2128,7 +2746,6 @@ The dependency will be resolved from the artifact source defined in **mod config
 | Name | Description |
 | ---- | ----------- |
 | --repository-url, --repository |  The repository URL that the artifact will be resolved from. |
-| --skip-ssl |  If this parameter is included, SSL verification will be skipped. |
 
 
 ## mod config recipes jar delete
@@ -2212,11 +2829,6 @@ mod config recipes moderne install "Migrate Java"
 | ---- | ----------- |
 | searchTerm |  The search term to use to find recipes to install. |
 
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| --skip-ssl |  If this parameter is included, SSL verification will be skipped. When omitted the ssl verification is based on the tenant configuration. |
 
 
 ## mod config recipes moderne push
@@ -2237,7 +2849,6 @@ mod config recipes moderne push [parameters] [subcommands]
 | Name | Description |
 | ---- | ----------- |
 | -f, --force |  Force the push of the local CLI recipe marketplace to Moderne, replacing all installed recipe artifacts with the contents of the local marketplace. |
-| --skip-ssl |  If this parameter is included, SSL verification will be skipped. When omitted the ssl verification is based on the tenant configuration. |
 
 
 ## mod config recipes moderne sync
@@ -2253,11 +2864,6 @@ Destroys all recipes in the local CLI marketplace and replaces them with the lat
 mod config recipes moderne sync [parameters] [subcommands]
 ```
 
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| --skip-ssl |  If this parameter is included, SSL verification will be skipped. When omitted the ssl verification is based on the tenant configuration. |
 
 
 ## mod config recipes delete
@@ -2746,7 +3352,6 @@ mod git clone moderne [parameters] [subcommands]
 | --filter |  |
 | --limit |  The maximum number of repositories to clone. |
 | --single-branch |  |
-| --skip-ssl |  If this parameter is included, SSL verification will be skipped. When omitted the ssl verification is based on the tenant configuration. |
 
 
 ## mod git commit
@@ -3100,6 +3705,73 @@ mod git stashset push [parameters] [subcommands]
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 | -u, --include-untracked |  Include untracked files. |  |
+
+
+## mod log
+
+Manages a log aggregate.
+
+
+Used to understand holistically how a build performed on many repositories. In contrast to a CI build log which is designed to look at one repository at a time, a log aggregate is designed to look at many repositories at once, illuminating the common causes of failure (or success) and the overall health of the ingestion process.
+
+### Usage
+
+```
+mod log [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `builds`: Adds a set of build logs to a log aggregate.
+
+## mod log builds
+
+Adds a set of build logs to a log aggregate.
+
+
+In contrast to a CI build log which is designed to look at one repository at a time, a log aggregate is designed to look at many repositories at once, illuminating the common causes of failure (or success) and the overall health of the ingestion process.
+
+### Usage
+
+```
+mod log builds [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `add`: Adds a set of build logs to a log aggregate.
+
+## mod log builds add
+
+Adds a set of build logs to a log aggregate.
+
+
+For each repository that has a matching build, add its build log to the aggregate.
+
+### Usage
+
+```
+mod log builds add [parameters] [subcommands]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| path |  The absolute or relative path on disk to a log aggregate (a zip file). The file need not exist, though its containing directory is expected to exist. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --build |  A build ID for a build that has completed previously. |  |
+| --last-build |  Select whatever the last build was, whether the build ran fully to completion or terminated early. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 
 
 ## mod list
