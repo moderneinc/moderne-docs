@@ -1,12 +1,13 @@
 # Supported languages
 
-Moderne is [continuously adding support for new languages and formats](language-roadmap.md). As of July 2023, Moderne supports:
+Moderne is [continuously adding support for new languages and formats](language-roadmap.md). As of January 2024, Moderne supports:
 
 ## Programming languages
 
 * Java
 * Kotlin
 * Groovy
+* Ruby
 * COBOL
 * Python ([LST](concepts/lossless-semantic-trees.md) support)
 * TypeScript ([LST](concepts/lossless-semantic-trees.md) support)

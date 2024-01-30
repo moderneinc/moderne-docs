@@ -12,12 +12,13 @@ There are three stages we track as we add support for new languages. These are:
 
 Below you can find a table of languages, which stages are currently done, and which stages are left to do. Please note that this is a **tentative** timeline. Anything below is subject to change.
 
-| **Language** | **Parser**                                                  | **Recipe catalog**                                   | **Native devex**                                     |
-| ------------ | ----------------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| Java         | Available                                                   | Available                                            | Available                                            |
-| Kotlin       | Available                                                   | Available                                            | Available                                            |
-| Groovy       | Available                                                   | Available                                            | Available                                            |
-| Python       | Aiming to finish by Q4 2023 (partially available right now) | Work begins early 2024. Aiming to finish by Q4 2024. | Work begins early 2024. Aiming to finish by Q4 2024. |
-| TypeScript   | Available                                                   | Work begins early 2024. Aiming to finish by Q4 2024. | Work begins early 2024. Aiming to finish by Q4 2024. |
-| COBOL        | Available                                                   | Aiming to finish by Nov 2023.                        | No plans to support                                  |
-| C#           | Aiming to finish by Q4 2023                                 | Work begins early 2024. Aiming to finish by Q4 2024. | No plans to support                                  |
+| **Language** | **Parser**   | **Recipe catalog**  | **Native devex**      |
+| ------------ | ------------ | ------------------- | --------------------- |
+| Java         | Available    | Available           | Available             |
+| Kotlin       | Available    | Available           | Available             |
+| Groovy       | Available    | Available           | Available             |
+| Ruby         | Available    | In progress         | Available             |
+| Python       | In progress  | In progress         | In progress           |
+| TypeScript   | Available    | In progress         | In progress           |
+| COBOL        | Available    | In progress         | No plans to support   |
+| C#           | In progress  | In progress         | No plans to support   |
