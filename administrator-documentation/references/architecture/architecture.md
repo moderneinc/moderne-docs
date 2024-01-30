@@ -56,7 +56,7 @@ You can find all of the documentation for configuring agents in your environment
 You must:
 
 * Deploy a Moderne-provided OCI image adjacent to Artifactory
-* Ensure the agent is able to make an outbound HTTPS request to [https://api.TENANT.moderne.io](https://api.tenant.moderne.io)
+* Ensure the agent is able to make an outbound HTTPS request to `https://api.TENANT.moderne.io`
 * Ensure the agent is configured with an Artifactory user that is authorized to make `find` AQL requests against repositories containing LST artifacts
 * Ensure the agent is configured with an Artifactory user capable of making `GET` requests to obtain the above LST artifacts
 * Ensure that the deployed image is configured with an encryption key (stored in Hashicorp Vault or some other key management service)
@@ -109,8 +109,8 @@ The Moderne API gateway is configured with a Moderne-managed SSL certificate.
 
 You must:
 
-* Ensure that [https://api.TENANT.moderne.io](https://api.tenant.moderne.io) is on the accept list for outbound HTTPS traffic from the Moderne agent
-* Ensure that [https://api.TENANT.moderne.io](https://api.tenant.moderne.io) is on the accept list for outbound HTTPS traffic from the developer's machines
+* Ensure that `https://api.TENANT.moderne.io` is on the accept list for outbound HTTPS traffic from the Moderne agent
+* Ensure that `https://api.TENANT.moderne.io` is on the accept list for outbound HTTPS traffic from the developer's machines
 
 ### Moderne user interface
 
@@ -128,7 +128,7 @@ The Moderne UI is implemented with client-side Javascript. The Moderne UI is one
 
 You must:
 
-* Ensure that [https://TENANT.moderne.io](https://tenant.moderne.io) is on the accept list for outbound HTTPS traffic from the developer's machines
+* Ensure that `https://TENANT.moderne.io` is on the accept list for outbound HTTPS traffic from the developer's machines
 
 ### Keycloak
 
@@ -138,7 +138,7 @@ You must:
 
 You must:
 
-* Ensure that [https://login.TENANT.moderne.io](https://login.tenant.moderne.io) is on the accept list for outbound HTTPS traffic from the developer's machines
+* Ensure that `https://login.TENANT.moderne.io` is on the accept list for outbound HTTPS traffic from the developer's machines
 
 {% hint style="success" %}
 As configuring identity providers between services can be quite complex, the setup for Keycloak is usually done over a Zoom meeting with Moderne and your company.
