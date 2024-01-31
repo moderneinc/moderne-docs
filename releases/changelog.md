@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.51.0 (2024/01/31)
+
+- preserve column size, order, and visibility to URL `state` hash on change
+
 ### UI v10.50.0 (2024/01/30)
 
 - add copy mod cli command
