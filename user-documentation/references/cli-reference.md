@@ -148,6 +148,8 @@
 * [**mod run**](#mod-run)
 * [**mod run-history**](#mod-run-history)
 * [**mod study**](#mod-study)
+* [**mod watch**](#mod-watch)
+* [**mod watch start**](#mod-watch-start)
 * [**mod generate-completion**](#mod-generate-completion)
 
 ## mod
@@ -180,6 +182,7 @@ mod [parameters] [subcommands]
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTS.
 * `run-history`: Get information about the most recent recipe runs.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
+* `watch`: Manages an HTTP service used to monitor CLI operations.
 * `generate-completion`
 
 ## mod build
@@ -3951,6 +3954,44 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 | --template |  |  |
+
+
+## mod watch
+
+Manages an HTTP service used to monitor CLI operations.
+
+
+When using the CLI in either a mass ingestion or mass running scenario, this server can be used to supervise activity.
+
+### Usage
+
+```
+mod watch [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `start`: Starts the supervising HTTP service.
+
+## mod watch start
+
+Starts the supervising HTTP service.
+
+
+Starts the supervising HTTP service on the provided port.
+
+### Usage
+
+```
+mod watch start [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --port |  The port to start the service on. |
 
 
 ## mod generate-completion
