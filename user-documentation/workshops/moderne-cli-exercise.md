@@ -27,7 +27,7 @@ After that, we'll provide some additional examples that show other capabilities 
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.3.3
+Moderne CLI 2.4.5
 
 Usage:
 
@@ -104,7 +104,7 @@ mod config recipes moderne install UpgradeSpringBoot_3_2
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.3.3
+Moderne CLI 2.4.5
 
 [1] Migrate to Spring Boot 3.2
 [2] Migrate to Spring Boot 3.1
@@ -209,7 +209,7 @@ mod build .
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.3.3
+Moderne CLI 2.4.5
 
 > Selecting repositories
 
@@ -251,7 +251,7 @@ mod run . --recipe UpgradeSpringBoot_3_2
     ▛▀▀█▀▛▀▀▀▀▜
     ▌▟▀  ▛▀▀▀▀▜
     ▀▀▀▀▀▀▀▀▀▀▀
- Moderne CLI 2.3.3
+ Moderne CLI 2.4.5
 
 > Selecting repositories
 
@@ -1627,7 +1627,7 @@ mod build $HOME/workshop
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.3.3
+Moderne CLI 2.4.5
 
 > Selecting repositories
 
@@ -1747,7 +1747,7 @@ The `--filter=tree:0` argument is optional, but it helps it clone faster.
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.3.3
+Moderne CLI 2.4.5
 
 > Reading CSV file
 
@@ -1795,7 +1795,7 @@ mod build .
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.3.3
+Moderne CLI 2.4.5
 
 > Selecting repositories
 
@@ -1925,7 +1925,7 @@ mod run . --recipe UpgradeToJava17
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.3.3
+Moderne CLI 2.4.5
 
 > Selecting repositories
 
@@ -2013,7 +2013,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.3.3
+Moderne CLI 2.4.5
 
 Found recipe run 20240105093912-uQVr7
 
