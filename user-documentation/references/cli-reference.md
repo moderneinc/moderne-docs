@@ -13,6 +13,7 @@
 * [**mod config artifacts artifactory edit**](#mod-config-artifacts-artifactory-edit)
 * [**mod config artifacts artifactory delete**](#mod-config-artifacts-artifactory-delete)
 * [**mod config artifacts artifactory show**](#mod-config-artifacts-artifactory-show)
+* [**mod config artifacts show**](#mod-config-artifacts-show)
 * [**mod config artifacts maven**](#mod-config-artifacts-maven)
 * [**mod config artifacts maven edit**](#mod-config-artifacts-maven-edit)
 * [**mod config artifacts maven delete**](#mod-config-artifacts-maven-delete)
@@ -78,6 +79,7 @@
 * [**mod config lsts artifacts artifactory edit**](#mod-config-lsts-artifacts-artifactory-edit)
 * [**mod config lsts artifacts artifactory delete**](#mod-config-lsts-artifacts-artifactory-delete)
 * [**mod config lsts artifacts artifactory show**](#mod-config-lsts-artifacts-artifactory-show)
+* [**mod config lsts artifacts show**](#mod-config-lsts-artifacts-show)
 * [**mod config lsts artifacts maven**](#mod-config-lsts-artifacts-maven)
 * [**mod config lsts artifacts maven edit**](#mod-config-lsts-artifacts-maven-edit)
 * [**mod config lsts artifacts maven delete**](#mod-config-lsts-artifacts-maven-delete)
@@ -97,6 +99,7 @@
 * [**mod config recipes artifacts artifactory edit**](#mod-config-recipes-artifacts-artifactory-edit)
 * [**mod config recipes artifacts artifactory delete**](#mod-config-recipes-artifacts-artifactory-delete)
 * [**mod config recipes artifacts artifactory show**](#mod-config-recipes-artifacts-artifactory-show)
+* [**mod config recipes artifacts show**](#mod-config-recipes-artifacts-show)
 * [**mod config recipes artifacts maven**](#mod-config-recipes-artifacts-maven)
 * [**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit)
 * [**mod config recipes artifacts maven delete**](#mod-config-recipes-artifacts-maven-delete)
@@ -374,6 +377,7 @@ mod config artifacts [parameters] [subcommands]
 ### Subcommands
 
 * `artifactory`: Configures the Artifactory repository that LSTs will be published to and downloaded from.
+* `show`: Displays the LST artifacts repository configuration.
 * `maven`: Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
 * `volume`: Configures the volume that LSTs will be published to and downloaded from.
 
@@ -473,6 +477,30 @@ Displays the Artifactory repository configuration.
 
 ```
 mod config artifacts artifactory show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config artifacts show
+
+Displays the LST artifacts repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config artifacts show [parameters] [subcommands]
 ```
 
 ### Options
@@ -1914,6 +1942,7 @@ mod config lsts artifacts [parameters] [subcommands]
 ### Subcommands
 
 * `artifactory`: Configures the Artifactory repository that LSTs will be published to and downloaded from.
+* `show`: Displays the LST artifacts repository configuration.
 * `maven`: Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
 * `volume`: Configures the volume that LSTs will be published to and downloaded from.
 
@@ -2013,6 +2042,30 @@ Displays the Artifactory repository configuration.
 
 ```
 mod config lsts artifacts artifactory show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config lsts artifacts show
+
+Displays the LST artifacts repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts show [parameters] [subcommands]
 ```
 
 ### Options
@@ -2418,6 +2471,7 @@ mod config recipes artifacts [parameters] [subcommands]
 ### Subcommands
 
 * `artifactory`: Configures the artifact repository to resolve recipes from.
+* `show`: Displays the recipe artifacts repository configuration.
 * `maven`: Configures a Maven-formatted artifact repository that recipes will be resolved from.
 
 ## mod config recipes artifacts artifactory
@@ -2516,6 +2570,30 @@ Displays the Artifactory repository configuration.
 
 ```
 mod config recipes artifacts artifactory show [parameters] [subcommands]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config recipes artifacts show
+
+Displays the recipe artifacts repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config recipes artifacts show [parameters] [subcommands]
 ```
 
 ### Options
