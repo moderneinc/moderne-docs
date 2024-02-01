@@ -10,7 +10,7 @@ External recipes can be imported into Moderne.io for use by your organization.
 
 From your Moderne tenant, click on _Deploy_ in the left-hand menu:
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/deploy-link.png" alt=""><figcaption></figcaption></figure>
 
 ## Step 2: Upload the recipe artifacts
 
