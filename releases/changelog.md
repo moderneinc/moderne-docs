@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.52.0 (2024/02/01)
+
+- add date range filter
+
 ### UI v10.51.0 (2024/01/31)
 
 - preserve column size, order, and visibility to URL `state` hash on change
