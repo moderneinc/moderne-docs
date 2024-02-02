@@ -1,79 +1,87 @@
 # Platform changelog
+
 ### UI v10.52.0 (2024/02/01)
 
-- add date range filter
+* add date range filter
+
+### Organizations GraphQL changes (2024/02/01)
+
+A new query `allOrganizations` has been added to the organizations service schema to allow our customers to define parent organizations that do not contain repositories.\
+This new schema and implementation **will need to be added** to your organizations service to enable this sort of hierarchy. You can find the latest schema implementation [here](https://github.com/moderneinc/moderne-organizations).\
+\
+Example hierarchy from our public tenant.
+
+<figure><img src="../.gitbook/assets/Screenshot 2024-02-01 at 2.13.37 PM.png" alt=""><figcaption><p> Note that <code>Open Source,</code> <code>Netflix + Spring + Apache</code> and <code>Netflix + Spring</code> organizations are parent organizations that are defined without repositories.</p></figcaption></figure>
 
 ### UI v10.51.0 (2024/01/31)
 
-- preserve column size, order, and visibility to URL `state` hash on change
+* preserve column size, order, and visibility to URL `state` hash on change
 
 ### UI v10.50.0 (2024/01/30)
 
-- add copy mod cli command
-- add `notContains` operator to Audit Log event columns
+* add copy mod cli command
+* add `notContains` operator to Audit Log event columns
 
 ### UI v10.49.0 (2024/01/27)
 
-- recipe source and lst source information on agents
-feat/org dash mock 2
+* recipe source and lst source information on agents feat/org dash mock 2
 
 ### UI v10.48.0 (2024/01/26)
 
-- make infinite scroll
+* make infinite scroll
 
 ### UI v10.47.0 (2024/01/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.46.0 (2024/01/25)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.45.0 (2024/01/24)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.44.1 (2024/01/23)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.44.0 (2024/01/22)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.43.2 (2024/01/22)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.43.1 (2024/01/19)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.43.0 (2024/01/19)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.42.0 (2024/01/18)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.41.1 (2024/01/16)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.41.0 (2024/01/15)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.40.0 (2024/01/12)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.39.0 (2024/01/10)
 
-- add index url column to deploy table
-- add system theme aware login
-
+* add index url column to deploy table
+* add system theme aware login
 
 ### UI v10.38.0 (2024/01/09)
 
@@ -147,8 +155,7 @@ Previous:
 
 </div>
 
-New:\
-
+New:\\
 
 <figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
 
