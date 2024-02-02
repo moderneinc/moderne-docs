@@ -18,6 +18,7 @@ The idea is for all of these types of updates to become a continuous process for
    * The more repositories you add and the more diverse they are, the easier it is to demonstrate value. Customers typically start with 50-100 repositories.
    * No changes are required to the repositories themselves (such as installing build plugins).
 6. With all of that done, you're now ready to run some recipes. Below, we'll provide some suggestions for recipes to run. The links will take you to the [Moderne SaaS](https://app.moderne.io) where you can run the recipes on a variety of open-source repositories. You will need to sign in to view and run recipes.
+7. After you run recipes, you'll generate some [data tables](/user-documentation/getting-started/data-tables.md) and some [visualizations](/user-documentation/getting-started/visualizations.md).
 
 ### Recipes to run
 
@@ -41,6 +42,8 @@ _Ordered from least complex to most complex_
   * [Find secrets](https://app.moderne.io/marketplace/org.openrewrite.java.security.secrets) like passwords, encryption keys, access tokens
   * [Use secure random number generation](https://app.moderne.io/recipes/org.openrewrite.java.security.SecureRandom)
   * [Java security best practices](https://app.moderne.io/recipes/org.openrewrite.java.security.JavaSecurityBestPractices)
+  * [OWASP Top 10](https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspTopTen)
+  * [Find and fix vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
 * Modernize test frameworks
   * [Junit 4 to 5 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit4to5Migration)
   * [Mockito 1 to 4 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to4Migration)
