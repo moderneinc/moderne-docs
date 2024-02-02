@@ -1,4 +1,4 @@
-# Moderne CLI exercise
+# Moderne CLI exercises
 
 In this exercise, you will use the [Moderne CLI](../../getting-started/cli-intro.md), a free tool that allows developer to run OpenRewrite recipes without configuring any build plugin, to migrate a repository from Spring Boot 2 to Spring Boot 3.
 
@@ -11,7 +11,7 @@ After that, we'll provide some additional examples that show other capabilities 
 1. Go to the [Moderne platform](https://app.moderne.io) and sign in. If you don't have an account, you can sign up for free.
 2. Click on help in the bottom left-hand corner and select the version of the CLI you want to download. Then select the way you'd like to install it:
 
-![](/.gitbook/assets/cli-download.gif)
+![](../../.gitbook/assets/cli-download.gif)
 
 3. Once you have it downloaded, save it somewhere that your terminal can access. If you want it available in each of your terminal windows, consider updating your `PATH` to point ot this location or aliasing `mod` to the location of the CLI. You could also save the file to a directory that's already on your `PATH` such as a `/usr/bin` directory.
 4. Ensure you can run the CLI by typing `mod`.
@@ -1575,7 +1575,7 @@ If you look at the results, you should see that:
 * The code has been migrated to Java 17, and text blocks are used
 * Some best practices are applied (such as adding the `public` test method modifier)
 
-Some of you might be tempted to run `./mvnw verify` to confirm that the build works. Unfortunately, this isn't the case as the commit we started from is using `Wro4j` -- which has some [slight dependency conflicts](../../../introduction.md). We've decided not to cover `Wro4j` with recipes for now, as [Spring PetClinic has dropped Wro4J](../../../introduction.md) as well.
+Some of you might be tempted to run `./mvnw verify` to confirm that the build works. Unfortunately, this isn't the case as the commit we started from is using `Wro4j` -- which has some [slight dependency conflicts](../../introduction.md). We've decided not to cover `Wro4j` with recipes for now, as [Spring PetClinic has dropped Wro4J](../../introduction.md) as well.
 
 ### Run a recipe on multiple local repositories
 
@@ -1584,6 +1584,8 @@ In the previous example, we used the Moderne CLI to run a recipe against a repos
 Fortunately, the Moderne CLI offers the ability to work on groups of repositories. This can be especially helpful when you're working on debugging a new recipe and want to test it against many repositories at once.
 
 For this exercise, we have prepared a list of Spring 2.x open-source repositories from the `spring-projects` GitHub organization that can be migrated. These repositories have been added to the Moderne platform and put inside the `Spring Projects 2.x` organization.
+
+{% embed url="https://www.youtube.com/watch?v=cs-6FJ_mtro" %}
 
 To clone all of these repositories at once:
 
