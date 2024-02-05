@@ -4,7 +4,7 @@ Moderne DX includes a centralized, internal service you install to manage Modern
 
 ## Architecture diagram
 
-<figure><img src="../../../.gitbook/assets/moderne-dx-arch.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ModerneDX-Arch2.png" alt=""><figcaption></figcaption></figure>
 
 ## Comparison with Moderne Enterprise
 
