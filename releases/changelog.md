@@ -1,16 +1,16 @@
 # Platform changelog
+
 ### UI v10.54.0 (2024/02/04)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.53.0 (2024/02/02)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.52.1 (2024/02/02)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v10.52.0 (2024/02/01)
 
@@ -23,7 +23,7 @@ This new schema and implementation **will need to be added** to your organizatio
 \
 Example hierarchy from our public tenant.
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-02-01 at 2.13.37 PM.png" alt=""><figcaption><p> Note that <code>Open Source,</code> <code>Netflix + Spring + Apache</code> and <code>Netflix + Spring</code> organizations are parent organizations that are defined without repositories.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-02-01 at 2.13.37 PM.png" alt=""><figcaption><p>Note that <code>Open Source,</code> <code>Netflix + Spring + Apache</code> and <code>Netflix + Spring</code> organizations are parent organizations that are defined without repositories.</p></figcaption></figure>
 
 ### UI v10.51.0 (2024/01/31)
 
@@ -1343,7 +1343,7 @@ Hover over the info icon to quickly view more information including the commit t
 
 #### Removal of the default repository group `All`
 
-Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../administrator-documentation/how-to-guides/agent-configuration/configure-organizations-service.md) through Agent to provide this functionality. See the example below.
+Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-organizations-service.md) through Agent to provide this functionality. See the example below.
 
 ```json
 {
@@ -1370,7 +1370,7 @@ Actions for grids are now presented on the left-hand side of the table.
 
 #### Bitbucket Cloud support
 
-Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your agent](../administrator-documentation/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent.md#prerequisites).
+Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your agent](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent.md#prerequisites).
 
 <figure><img src="../.gitbook/assets/bit-cloud.png" alt=""><figcaption></figcaption></figure>
 
