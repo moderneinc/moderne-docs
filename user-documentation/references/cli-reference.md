@@ -206,7 +206,7 @@ If you've set up a connection with Moderne (by running the **mod config moderne*
 ### Usage
 
 ```
-mod build [parameters] [subcommands]
+mod build [parameters]
 ```
 
 ### Examples
@@ -268,7 +268,7 @@ Can be filtered to only clean certain artifacts.
 ### Usage
 
 ```
-mod clean builds [parameters] [subcommands]
+mod clean builds [parameters]
 ```
 
 ### Examples
@@ -303,7 +303,7 @@ Can be filtered to only clean certain artifacts.
 ### Usage
 
 ```
-mod clean runs [parameters] [subcommands]
+mod clean runs [parameters]
 ```
 
 ### Examples
@@ -411,7 +411,7 @@ All subsequent publish and download commands will use this artifact repository.
 ### Usage
 
 ```
-mod config artifacts artifactory edit [parameters] [subcommands]
+mod config artifacts artifactory edit [parameters]
 ```
 
 ### Examples
@@ -452,7 +452,7 @@ Removes the Artifactory repository configuration. The publish command will no lo
 ### Usage
 
 ```
-mod config artifacts artifactory delete [parameters] [subcommands]
+mod config artifacts artifactory delete [parameters]
 ```
 
 ### Options
@@ -476,7 +476,7 @@ Displays the Artifactory repository configuration.
 ### Usage
 
 ```
-mod config artifacts artifactory show [parameters] [subcommands]
+mod config artifacts artifactory show [parameters]
 ```
 
 ### Options
@@ -500,7 +500,7 @@ Displays the LST artifacts repository configuration.
 ### Usage
 
 ```
-mod config artifacts show [parameters] [subcommands]
+mod config artifacts show [parameters]
 ```
 
 ### Options
@@ -544,7 +544,7 @@ All subsequent publish and download commands will use this artifact repository.
 ### Usage
 
 ```
-mod config artifacts maven edit [parameters] [subcommands]
+mod config artifacts maven edit [parameters]
 ```
 
 ### Examples
@@ -584,7 +584,7 @@ Removes the Maven artifact repository repository configuration. The publish comm
 ### Usage
 
 ```
-mod config artifacts maven delete [parameters] [subcommands]
+mod config artifacts maven delete [parameters]
 ```
 
 ### Options
@@ -608,7 +608,7 @@ Displays the Maven artifact repository repository configuration.
 ### Usage
 
 ```
-mod config artifacts maven show [parameters] [subcommands]
+mod config artifacts maven show [parameters]
 ```
 
 ### Options
@@ -652,7 +652,7 @@ All subsequent publish and download commands will use this artifact repository.
 ### Usage
 
 ```
-mod config artifacts volume edit [parameters] [subcommands]
+mod config artifacts volume edit [parameters]
 ```
 
 ### Parameters
@@ -682,7 +682,7 @@ Removes the volume LST configuration. The publish command will no longer functio
 ### Usage
 
 ```
-mod config artifacts volume delete [parameters] [subcommands]
+mod config artifacts volume delete [parameters]
 ```
 
 ### Options
@@ -706,7 +706,7 @@ Displays the volume LST configuration.
 ### Usage
 
 ```
-mod config artifacts volume show [parameters] [subcommands]
+mod config artifacts volume show [parameters]
 ```
 
 ### Options
@@ -769,7 +769,7 @@ Removes overriding active styles.
 ### Usage
 
 ```
-mod config build active-styles delete [parameters] [subcommands]
+mod config build active-styles delete [parameters]
 ```
 
 ### Options
@@ -793,7 +793,7 @@ Overriding active styles circumvents auto-detection of styles in the production 
 ### Usage
 
 ```
-mod config build active-styles edit [parameters] [subcommands]
+mod config build active-styles edit [parameters]
 ```
 
 ### Parameters
@@ -821,7 +821,7 @@ Displays the configured overriding active styles.
 ### Usage
 
 ```
-mod config build active-styles show [parameters] [subcommands]
+mod config build active-styles show [parameters]
 ```
 
 ### Options
@@ -887,7 +887,7 @@ Removes Bazel build rule customization.
 ### Usage
 
 ```
-mod config build bazel rule delete [parameters] [subcommands]
+mod config build bazel rule delete [parameters]
 ```
 
 ### Options
@@ -911,7 +911,7 @@ Configure Bazel build rule.
 ### Usage
 
 ```
-mod config build bazel rule edit [parameters] [subcommands]
+mod config build bazel rule edit [parameters]
 ```
 
 ### Parameters
@@ -939,7 +939,7 @@ Displays the configured Bazel build rule.
 ### Usage
 
 ```
-mod config build bazel rule show [parameters] [subcommands]
+mod config build bazel rule show [parameters]
 ```
 
 ### Options
@@ -1005,7 +1005,7 @@ Removes additional build arguments for Gradle.
 ### Usage
 
 ```
-mod config build gradle arguments delete [parameters] [subcommands]
+mod config build gradle arguments delete [parameters]
 ```
 
 ### Options
@@ -1029,7 +1029,7 @@ Build arguments are added to the end of the Gradle command line when building LS
 ### Usage
 
 ```
-mod config build gradle arguments edit [parameters] [subcommands]
+mod config build gradle arguments edit [parameters]
 ```
 
 ### Options
@@ -1051,7 +1051,7 @@ Displays the configured Gradle additional build arguments.
 ### Usage
 
 ```
-mod config build gradle arguments show [parameters] [subcommands]
+mod config build gradle arguments show [parameters]
 ```
 
 ### Options
@@ -1118,7 +1118,7 @@ Removes additional build arguments for Maven.
 ### Usage
 
 ```
-mod config build maven arguments delete [parameters] [subcommands]
+mod config build maven arguments delete [parameters]
 ```
 
 ### Options
@@ -1142,7 +1142,7 @@ Build arguments are added to the end of the Maven command line when building LST
 ### Usage
 
 ```
-mod config build maven arguments edit [parameters] [subcommands]
+mod config build maven arguments edit [parameters]
 ```
 
 ### Options
@@ -1164,7 +1164,7 @@ Displays the configured Maven additional build arguments.
 ### Usage
 
 ```
-mod config build maven arguments show [parameters] [subcommands]
+mod config build maven arguments show [parameters]
 ```
 
 ### Options
@@ -1214,7 +1214,7 @@ Removes the configured Maven settings.
 ### Usage
 
 ```
-mod config build maven settings delete [parameters] [subcommands]
+mod config build maven settings delete [parameters]
 ```
 
 ### Options
@@ -1238,7 +1238,7 @@ Allows you to specify the location of a Maven _settings.xml_ file that should be
 ### Usage
 
 ```
-mod config build maven settings edit [parameters] [subcommands]
+mod config build maven settings edit [parameters]
 ```
 
 ### Examples
@@ -1274,7 +1274,7 @@ Displays the configured Maven settings.
 ### Usage
 
 ```
-mod config build maven settings show [parameters] [subcommands]
+mod config build maven settings show [parameters]
 ```
 
 ### Options
@@ -1316,7 +1316,7 @@ Will output information about the environment the CLI is running in (e.g., a loc
 ### Usage
 
 ```
-mod config environment show [parameters] [subcommands]
+mod config environment show [parameters]
 ```
 
 
@@ -1370,7 +1370,7 @@ Proxy settings will no longer be used for HTTP requests.
 ### Usage
 
 ```
-mod config http proxy delete [parameters] [subcommands]
+mod config http proxy delete [parameters]
 ```
 
 ### Options
@@ -1394,7 +1394,7 @@ All subsequent commands will use these settings.
 ### Usage
 
 ```
-mod config http proxy edit [parameters] [subcommands]
+mod config http proxy edit [parameters]
 ```
 
 ### Options
@@ -1420,7 +1420,7 @@ Shows the currently configured proxy settings, if any.
 ### Usage
 
 ```
-mod config http proxy show [parameters] [subcommands]
+mod config http proxy show [parameters]
 ```
 
 ### Options
@@ -1464,7 +1464,7 @@ Truststore settings will no longer be used for HTTP requests.
 ### Usage
 
 ```
-mod config http trust-store delete [parameters] [subcommands]
+mod config http trust-store delete [parameters]
 ```
 
 ### Options
@@ -1505,7 +1505,7 @@ Configures truststore to use the Operating System specific default truststore. O
 ### Usage
 
 ```
-mod config http trust-store edit system [parameters] [subcommands]
+mod config http trust-store edit system [parameters]
 ```
 
 ### Options
@@ -1530,7 +1530,7 @@ All subsequent commands will use this truststore.
 ### Usage
 
 ```
-mod config http trust-store edit file [parameters] [subcommands]
+mod config http trust-store edit file [parameters]
 ```
 
 ### Parameters
@@ -1561,7 +1561,7 @@ Configures truststore to use the cacerts file in **${JAVA_HOME}/lib/security/cac
 ### Usage
 
 ```
-mod config http trust-store edit java-home [parameters] [subcommands]
+mod config http trust-store edit java-home [parameters]
 ```
 
 ### Options
@@ -1585,7 +1585,7 @@ Shows the currently configured truststore setting, if any.
 ### Usage
 
 ```
-mod config http trust-store show [parameters] [subcommands]
+mod config http trust-store show [parameters]
 ```
 
 ### Options
@@ -1649,7 +1649,7 @@ Must be configured before you can run the build command if JDKs are in non-stand
 ### Usage
 
 ```
-mod config java jdk edit [parameters] [subcommands]
+mod config java jdk edit [parameters]
 ```
 
 ### Parameters
@@ -1677,7 +1677,7 @@ Removes the configured JDK installations. The CLI will revert to using only dete
 ### Usage
 
 ```
-mod config java jdk delete [parameters] [subcommands]
+mod config java jdk delete [parameters]
 ```
 
 ### Options
@@ -1699,7 +1699,7 @@ Displays the detected and configured JDK installations in the order in which the
 ### Usage
 
 ```
-mod config java jdk list [parameters] [subcommands]
+mod config java jdk list [parameters]
 ```
 
 ### Options
@@ -1744,7 +1744,7 @@ Must be configured before you can run the build command if non-standard VM optio
 ### Usage
 
 ```
-mod config java options edit [parameters] [subcommands]
+mod config java options edit [parameters]
 ```
 
 ### Examples
@@ -1772,7 +1772,7 @@ Removes configured JVM options. The CLI will no longer use custom JVM options.
 ### Usage
 
 ```
-mod config java options delete [parameters] [subcommands]
+mod config java options delete [parameters]
 ```
 
 ### Options
@@ -1794,7 +1794,7 @@ Displays the configured JVM options.
 ### Usage
 
 ```
-mod config java options show [parameters] [subcommands]
+mod config java options show [parameters]
 ```
 
 ### Options
@@ -1838,7 +1838,7 @@ Configure a name like "17", "17-tem", or "17.0.6-tem" depending on the degree of
 ### Usage
 
 ```
-mod config java version edit [parameters] [subcommands]
+mod config java version edit [parameters]
 ```
 
 ### Examples
@@ -1872,7 +1872,7 @@ Reverts to auto-detection of a JDK to use when building a repository.
 ### Usage
 
 ```
-mod config java version delete [parameters] [subcommands]
+mod config java version delete [parameters]
 ```
 
 ### Options
@@ -1894,7 +1894,7 @@ Displays the configured JDK version.
 ### Usage
 
 ```
-mod config java version show [parameters] [subcommands]
+mod config java version show [parameters]
 ```
 
 ### Options
@@ -1976,7 +1976,7 @@ All subsequent publish and download commands will use this artifact repository.
 ### Usage
 
 ```
-mod config lsts artifacts artifactory edit [parameters] [subcommands]
+mod config lsts artifacts artifactory edit [parameters]
 ```
 
 ### Examples
@@ -2017,7 +2017,7 @@ Removes the Artifactory repository configuration. The publish command will no lo
 ### Usage
 
 ```
-mod config lsts artifacts artifactory delete [parameters] [subcommands]
+mod config lsts artifacts artifactory delete [parameters]
 ```
 
 ### Options
@@ -2041,7 +2041,7 @@ Displays the Artifactory repository configuration.
 ### Usage
 
 ```
-mod config lsts artifacts artifactory show [parameters] [subcommands]
+mod config lsts artifacts artifactory show [parameters]
 ```
 
 ### Options
@@ -2065,7 +2065,7 @@ Displays the LST artifacts repository configuration.
 ### Usage
 
 ```
-mod config lsts artifacts show [parameters] [subcommands]
+mod config lsts artifacts show [parameters]
 ```
 
 ### Options
@@ -2109,7 +2109,7 @@ All subsequent publish and download commands will use this artifact repository.
 ### Usage
 
 ```
-mod config lsts artifacts maven edit [parameters] [subcommands]
+mod config lsts artifacts maven edit [parameters]
 ```
 
 ### Examples
@@ -2149,7 +2149,7 @@ Removes the Maven artifact repository repository configuration. The publish comm
 ### Usage
 
 ```
-mod config lsts artifacts maven delete [parameters] [subcommands]
+mod config lsts artifacts maven delete [parameters]
 ```
 
 ### Options
@@ -2173,7 +2173,7 @@ Displays the Maven artifact repository repository configuration.
 ### Usage
 
 ```
-mod config lsts artifacts maven show [parameters] [subcommands]
+mod config lsts artifacts maven show [parameters]
 ```
 
 ### Options
@@ -2217,7 +2217,7 @@ All subsequent publish and download commands will use this artifact repository.
 ### Usage
 
 ```
-mod config lsts artifacts volume edit [parameters] [subcommands]
+mod config lsts artifacts volume edit [parameters]
 ```
 
 ### Parameters
@@ -2247,7 +2247,7 @@ Removes the volume LST configuration. The publish command will no longer functio
 ### Usage
 
 ```
-mod config lsts artifacts volume delete [parameters] [subcommands]
+mod config lsts artifacts volume delete [parameters]
 ```
 
 ### Options
@@ -2271,7 +2271,7 @@ Displays the volume LST configuration.
 ### Usage
 
 ```
-mod config lsts artifacts volume show [parameters] [subcommands]
+mod config lsts artifacts volume show [parameters]
 ```
 
 ### Options
@@ -2322,7 +2322,7 @@ Removes the configured Moderne tenant.
 ### Usage
 
 ```
-mod config moderne delete [parameters] [subcommands]
+mod config moderne delete [parameters]
 ```
 
 ### Options
@@ -2346,7 +2346,7 @@ All subsequent commands will use this Moderne tenant.
 ### Usage
 
 ```
-mod config moderne edit [parameters] [subcommands]
+mod config moderne edit [parameters]
 ```
 
 ### Examples
@@ -2385,7 +2385,7 @@ All subsequent commands will use this instance.
 ### Usage
 
 ```
-mod config moderne local [parameters] [subcommands]
+mod config moderne local [parameters]
 ```
 
 ### Options
@@ -2409,7 +2409,7 @@ Displays the Moderne tenant configuration.
 ### Usage
 
 ```
-mod config moderne show [parameters] [subcommands]
+mod config moderne show [parameters]
 ```
 
 ### Options
@@ -2504,7 +2504,7 @@ All subsequent recipe installation commands will use this artifact repository.
 ### Usage
 
 ```
-mod config recipes artifacts artifactory edit [parameters] [subcommands]
+mod config recipes artifacts artifactory edit [parameters]
 ```
 
 ### Examples
@@ -2545,7 +2545,7 @@ Removes the Artifactory repository configuration.
 ### Usage
 
 ```
-mod config recipes artifacts artifactory delete [parameters] [subcommands]
+mod config recipes artifacts artifactory delete [parameters]
 ```
 
 ### Options
@@ -2569,7 +2569,7 @@ Displays the Artifactory repository configuration.
 ### Usage
 
 ```
-mod config recipes artifacts artifactory show [parameters] [subcommands]
+mod config recipes artifacts artifactory show [parameters]
 ```
 
 ### Options
@@ -2593,7 +2593,7 @@ Displays the recipe artifacts repository configuration.
 ### Usage
 
 ```
-mod config recipes artifacts show [parameters] [subcommands]
+mod config recipes artifacts show [parameters]
 ```
 
 ### Options
@@ -2637,7 +2637,7 @@ All subsequent recipe installation commands will use this artifact repository.
 ### Usage
 
 ```
-mod config recipes artifacts maven edit [parameters] [subcommands]
+mod config recipes artifacts maven edit [parameters]
 ```
 
 ### Examples
@@ -2677,7 +2677,7 @@ Removes the Maven artifact repository repository configuration.
 ### Usage
 
 ```
-mod config recipes artifacts maven delete [parameters] [subcommands]
+mod config recipes artifacts maven delete [parameters]
 ```
 
 ### Options
@@ -2701,7 +2701,7 @@ Displays the Maven artifact repository repository configuration.
 ### Usage
 
 ```
-mod config recipes artifacts maven show [parameters] [subcommands]
+mod config recipes artifacts maven show [parameters]
 ```
 
 ### Options
@@ -2744,7 +2744,7 @@ Export recipe details as JSON.
 ### Usage
 
 ```
-mod config recipes export json [parameters] [subcommands]
+mod config recipes export json [parameters]
 ```
 
 ### Parameters
@@ -2765,7 +2765,7 @@ Export recipe details as CSV.
 ### Usage
 
 ```
-mod config recipes export csv [parameters] [subcommands]
+mod config recipes export csv [parameters]
 ```
 
 ### Parameters
@@ -2811,7 +2811,7 @@ The recipes defined by this artifact will then be available to run.
 ### Usage
 
 ```
-mod config recipes jar install [parameters] [subcommands]
+mod config recipes jar install [parameters]
 ```
 
 ### Examples
@@ -2844,7 +2844,7 @@ The recipes defined by this artifact will then no longer be available to run.
 ### Usage
 
 ```
-mod config recipes jar delete [parameters] [subcommands]
+mod config recipes jar delete [parameters]
 ```
 
 ### Examples
@@ -2898,7 +2898,7 @@ After providing a search term, the Moderne API will be queried to find recipes t
 ### Usage
 
 ```
-mod config recipes moderne install [parameters] [subcommands]
+mod config recipes moderne install [parameters]
 ```
 
 ### Examples
@@ -2927,7 +2927,7 @@ Adds or replaces all recipes in the Moderne tenant with the recipes installed in
 ### Usage
 
 ```
-mod config recipes moderne push [parameters] [subcommands]
+mod config recipes moderne push [parameters]
 ```
 
 ### Options
@@ -2947,7 +2947,7 @@ Destroys all recipes in the local CLI marketplace and replaces them with the lat
 ### Usage
 
 ```
-mod config recipes moderne sync [parameters] [subcommands]
+mod config recipes moderne sync [parameters]
 ```
 
 
@@ -2962,7 +2962,7 @@ No recipes will be available to run until they are installed again.
 ### Usage
 
 ```
-mod config recipes delete [parameters] [subcommands]
+mod config recipes delete [parameters]
 ```
 
 
@@ -2977,7 +2977,7 @@ List the artifacts that are contributing recipes to the marketplace.
 ### Usage
 
 ```
-mod config recipes list [parameters] [subcommands]
+mod config recipes list [parameters]
 ```
 
 
@@ -2992,7 +2992,7 @@ The found recipes may then be set as the active recipe. Multiple word searches m
 ### Usage
 
 ```
-mod config recipes search [parameters] [subcommands]
+mod config recipes search [parameters]
 ```
 
 ### Examples
@@ -3049,7 +3049,7 @@ The recipes defined in this YAML file will then be available to run.
 ### Usage
 
 ```
-mod config recipes yaml install [parameters] [subcommands]
+mod config recipes yaml install [parameters]
 ```
 
 ### Examples
@@ -3076,7 +3076,7 @@ The recipes defined by this artifact will then no longer be available to run.
 ### Usage
 
 ```
-mod config recipes yaml delete [parameters] [subcommands]
+mod config recipes yaml delete [parameters]
 ```
 
 ### Examples
@@ -3121,7 +3121,7 @@ Removes the configured active user.
 ### Usage
 
 ```
-mod config user delete [parameters] [subcommands]
+mod config user delete [parameters]
 ```
 
 ### Options
@@ -3145,7 +3145,7 @@ The active user is reported for activity metrics in Moderne DX environments.
 ### Usage
 
 ```
-mod config user edit [parameters] [subcommands]
+mod config user edit [parameters]
 ```
 
 ### Options
@@ -3169,7 +3169,7 @@ Displays the configured active user.
 ### Usage
 
 ```
-mod config user show [parameters] [subcommands]
+mod config user show [parameters]
 ```
 
 ### Options
@@ -3193,7 +3193,7 @@ Execute an arbitrary shell command recursively on selected repository roots.
 ### Usage
 
 ```
-mod exec [parameters] [subcommands]
+mod exec [parameters]
 ```
 
 ### Examples
@@ -3257,7 +3257,7 @@ Rather than applying **git add** one at a time, this operates on multiple reposi
 ### Usage
 
 ```
-mod git add [parameters] [subcommands]
+mod git add [parameters]
 ```
 
 ### Examples
@@ -3292,7 +3292,7 @@ Rather than applying one patch at a time, this operates on multiple repositories
 ### Usage
 
 ```
-mod git apply [parameters] [subcommands]
+mod git apply [parameters]
 ```
 
 ### Examples
@@ -3328,7 +3328,7 @@ Rather than checking out one repository at a time, this operates on multiple rep
 ### Usage
 
 ```
-mod git checkout [parameters] [subcommands]
+mod git checkout [parameters]
 ```
 
 ### Examples
@@ -3389,7 +3389,7 @@ The CSV file should have a header row with the required columns **cloneUrl, bran
 ### Usage
 
 ```
-mod git clone csv [parameters] [subcommands]
+mod git clone csv [parameters]
 ```
 
 ### Parameters
@@ -3420,7 +3420,7 @@ The repositories are cloned at the same branch and changeset of the LST that rep
 ### Usage
 
 ```
-mod git clone moderne [parameters] [subcommands]
+mod git clone moderne [parameters]
 ```
 
 ### Parameters
@@ -3450,7 +3450,7 @@ Rather than applying one commit at a time, this operates on multiple repositorie
 ### Usage
 
 ```
-mod git commit [parameters] [subcommands]
+mod git commit [parameters]
 ```
 
 ### Examples
@@ -3487,7 +3487,7 @@ Rather than pulling one repository at a time, this operates on multiple reposito
 ### Usage
 
 ```
-mod git pull [parameters] [subcommands]
+mod git pull [parameters]
 ```
 
 ### Examples
@@ -3522,7 +3522,7 @@ Rather than pushing one repository at a time, this operates on multiple reposito
 ### Usage
 
 ```
-mod git push [parameters] [subcommands]
+mod git push [parameters]
 ```
 
 ### Examples
@@ -3561,7 +3561,7 @@ Rather than applying one stash at a time, this operates on multiple repositories
 ### Usage
 
 ```
-mod git reset [parameters] [subcommands]
+mod git reset [parameters]
 ```
 
 ### Examples
@@ -3596,7 +3596,7 @@ Rather than applying one rev-parse at a time, this operates on multiple reposito
 ### Usage
 
 ```
-mod git rev-parse [parameters] [subcommands]
+mod git rev-parse [parameters]
 ```
 
 ### Examples
@@ -3658,7 +3658,7 @@ Performs the equivalent of **git stash apply** on multiple repositories.
 ### Usage
 
 ```
-mod git stashset apply [parameters] [subcommands]
+mod git stashset apply [parameters]
 ```
 
 ### Parameters
@@ -3688,7 +3688,7 @@ Performs the equivalent of **git stash push** on multiple repositories.
 ### Usage
 
 ```
-mod git stashset push [parameters] [subcommands]
+mod git stashset push [parameters]
 ```
 
 ### Parameters
@@ -3744,7 +3744,7 @@ Performs the equivalent of **git stash apply** on multiple repositories.
 ### Usage
 
 ```
-mod git stashset apply [parameters] [subcommands]
+mod git stashset apply [parameters]
 ```
 
 ### Parameters
@@ -3774,7 +3774,7 @@ Performs the equivalent of **git stash push** on multiple repositories.
 ### Usage
 
 ```
-mod git stashset push [parameters] [subcommands]
+mod git stashset push [parameters]
 ```
 
 ### Parameters
@@ -3839,7 +3839,7 @@ For each repository that has a matching build, add its build log to the aggregat
 ### Usage
 
 ```
-mod log builds add [parameters] [subcommands]
+mod log builds add [parameters]
 ```
 
 ### Parameters
@@ -3870,7 +3870,7 @@ Lists the repositories that can be built and published.
 ### Usage
 
 ```
-mod list [parameters] [subcommands]
+mod list [parameters]
 ```
 
 ### Examples
@@ -3906,7 +3906,7 @@ You must run **mod build** before you can run this command. You also must set up
 ### Usage
 
 ```
-mod publish [parameters] [subcommands]
+mod publish [parameters]
 ```
 
 ### Examples
@@ -3940,7 +3940,7 @@ You must run the **mod build** command before this command will work. You also m
 ### Usage
 
 ```
-mod run [parameters] [subcommands]
+mod run [parameters]
 ```
 
 ### Examples
@@ -3980,7 +3980,7 @@ Get information about the most recent recipe runs.
 ### Usage
 
 ```
-mod run-history [parameters] [subcommands]
+mod run-history [parameters]
 ```
 
 ### Parameters
@@ -4009,7 +4009,7 @@ Data tables are an important part of performing large scale impact analyses on s
 ### Usage
 
 ```
-mod study [parameters] [subcommands]
+mod study [parameters]
 ```
 
 ### Examples
@@ -4067,7 +4067,7 @@ Starts the supervising HTTP service on the provided port.
 ### Usage
 
 ```
-mod watch start [parameters] [subcommands]
+mod watch start [parameters]
 ```
 
 ### Options
@@ -4085,7 +4085,7 @@ Generate bash/zsh completion script for mod.
 ### Usage
 
 ```
-mod generate-completion [parameters] [subcommands]
+mod generate-completion [parameters]
 ```
 
 ### Options
