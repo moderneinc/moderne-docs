@@ -20,7 +20,7 @@ Go to [https://app.moderne.io/](https://app.moderne.io/) and register with your 
 <figure><img src="../../../.gitbook/assets/organizations-and-repos.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-The default group has a small set of repositories so recipes will run quickly. If you would rather see more results, you can choose to use the `Netflix + Spring` organization which consists of more than 100 repositories by clicking on `Default` and selecting the new organization.
+The default group has a small set of repositories so recipes will run quickly. If you would rather see more results, please feel free to look through the available organizations and select another by clicking on the `Default` organization in the top-left.
 {% endhint %}
 
 3. With the organization selected, please go to the [Moderne Marketplace](https://app.moderne.io/marketplace). From there, click on `Static analysis and remediation`, and finally select `Common static analysis issues`.
