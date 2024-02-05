@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.55.0 (2024/02/05)
+
+- add infinite scrolling to audit logs
+
 
 ### UI v10.54.0 (2024/02/04)
 
