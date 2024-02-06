@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.56.0 (2024/02/06)
+
+- add download dismiss x
+- support date range filter
+
 ### UI v10.55.0 (2024/02/05)
 
 - add infinite scrolling to audit logs
