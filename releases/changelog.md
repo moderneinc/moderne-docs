@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.57.0 (2024/02/07)
+
+- add common filters
+
 ### UI v10.56.0 (2024/02/06)
 
 - add download dismiss x
