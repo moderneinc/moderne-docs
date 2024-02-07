@@ -21,11 +21,13 @@ This guide assumes that you:
 ### Recipe execution
 
 1. To begin, you'll want to decide what repositories you want your recipe to run on. You have three options for selecting repositories: choosing an existing organization, [creating a new user-defined organization](managing-user-configured-organizations.md#how-to-create-a-user-configured-organization), or selecting an existing user-defined organization. Once you've selected or created one, you can proceed to step 2.
+
 2. Navigate to the recipe you wish to run and fill out the recipe options.
 
-<figure><img src="../../../.gitbook/assets/update-gradle-plugin-recipe-run" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/update-gradle-plugin-recipe-run.png" alt=""><figcaption></figcaption></figure>
 
-3. Click the `See how to run against the API` link. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your repository selection from step 1.
+3. In the top right corner of the page, click on `API examples` and select `Run a recipe`. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your organization selection from step 1.
+
 4. You can then execute a recipe with the following mutation:
 
 {% tabs %}
