@@ -407,14 +407,7 @@ curl --request POST \
   --url https://api.app.moderne.io/graphql \
   --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \
   --header 'Content-Type: application/json' \
-  --data '{
-    "query": "query commitJob($id: ID!, $first: Int = 50, $after: String, $filterBy: CommitJobFilterInput, $orderBy: CommitJobOrderInput) { commitJob(id: $id) { id started email completed summaryResults { count successfulCount failedCount noChangeCount __typename } __typename recipeRunId message extendedMessage options { ... on PullRequestOptions { branchName draft pullRequestBody pullRequestTitle __typename } __typename } started commits(first: $first after: $after filterBy: $filterBy orderBy: $orderBy) { pageInfo { hasNextPage endCursor __typename } count edges { node { state stateMessage repository { origin path branch ... on GitHubRepository { organization name ingested __typename } __typename } resultLink __typename } __typename } __typename } __typename } }",
-    "variables": {
-      "first": 50,
-      "id": "c83315a1-397f-44cb-9ef2-9a2ca195dda6"
-    },
-    "operationName": "commitJob"
-  }'
+  --data '{"query":"query commitJob($id: ID!, $first: Int = 50, $after: String, $filterBy: CommitJobFilterInput, $orderBy: CommitJobOrderInput) { commitJob(id: $id) { id started email completed summaryResults { count successfulCount failedCount noChangeCount __typename } __typename recipeRunId message extendedMessage options { ... on PullRequestOptions { branchName draft pullRequestBody pullRequestTitle __typename } __typename } started commits(first: $first after: $after filterBy: $filterBy orderBy: $orderBy) { pageInfo { hasNextPage endCursor __typename } count edges { node { state stateMessage repository { origin path branch ... on GitHubRepository { organization name ingested __typename } __typename } resultLink __typename } __typename } __typename } __typename } }","variables":{"first":50,"id":"c83315a1-397f-44cb-9ef2-9a2ca195dda6"},"operationName":"commitJob"}'
 
 ```
 {% endcode %}
