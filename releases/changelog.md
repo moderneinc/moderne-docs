@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.58.0 (2024/02/08)
+
+- Bug fixes and other improvements.
+
 ### UI v10.57.0 (2024/02/07)
 
 - add common filters
