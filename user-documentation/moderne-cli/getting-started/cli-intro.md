@@ -142,16 +142,16 @@ If you want to publish artifacts from the CLI, you'll need to run one of the fol
 
 ```shell
 # For JFrog Artifactory
-mod config artifacts artifactory edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
+mod config lsts artifacts artifactory edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 
 # For other artifact repositories, such as Sonatype Nexus
-mod config artifacts maven edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
+mod config lsts artifacts maven edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
 
 OR
 
 ```shell
-mod config artifacts volume edit <location-on-disk>
+mod config lsts artifacts volume edit <location-on-disk>
 ```
 
 ## Additional reading
@@ -192,7 +192,7 @@ This command is typically used for publishing LST artifacts from the [mass inges
 
 You can also use this command for _debugging purposes_ if you want to do a one-off test of uploading an artifact somewhere.
 
-You must have run `mod build` before you can run this command. You also must have set up an artifact repository connection via the `mod config artifacts` command.
+You must have run `mod build` before you can run this command. You also must have set up an artifact repository connection via the `mod config lsts artifacts` command.
 
 [Find all of the parameters for the publish command here](../references/cli-reference.md#mod-publish)
 

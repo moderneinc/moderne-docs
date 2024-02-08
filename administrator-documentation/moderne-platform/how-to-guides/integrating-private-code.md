@@ -61,10 +61,10 @@ In order to upload LST artifacts to your artifact repository, you will need to u
 {% code overflow="wrap" %}
 ```shell
 # For JFrog Artifactory
-mod config artifacts artifactory edit --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
+mod config lsts artifacts artifactory edit --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 
 # For other artifact repositories, such as Sonatype Nexus
-mod config artifacts maven edit --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
+mod config lsts artifacts maven edit --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
 {% endcode %}
 
