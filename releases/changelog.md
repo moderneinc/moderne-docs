@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.60.0 (2024/02/09)
+
+- add user filter for recipe runs
+
 ### UI v10.59.0 (2024/02/09)
 
 - Bug fixes and other improvements.
