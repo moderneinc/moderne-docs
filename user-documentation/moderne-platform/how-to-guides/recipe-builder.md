@@ -54,7 +54,7 @@ You can re-order the recipes in the recipe list by dragging them up and down:
 
 ## How to save and share custom recipes
 
-Once you've defined and configured all of the recipes you want as part of your custom recipe, you can save it by pressing `copy to clipboard` or by selecting `download` in the dropdown menu:
+Once you've defined and configured all of the recipes you want as part of your custom recipe, you can copy the YAML by pressing the `copy` button or you can download it by pressing the `Download` button:
 
 ![](../../../.gitbook/assets/recipe-download.png)
 
