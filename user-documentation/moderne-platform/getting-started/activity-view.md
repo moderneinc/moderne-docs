@@ -5,6 +5,8 @@ As you run recipes, commit code, and examine visualizations, you might find it b
 In this guide, we'll help you navigate to the activity view, and we'll make sure you understand each part of the page.
 
 {% embed url="https://www.youtube.com/watch?v=0v3fMELfa-8" %}
+A walk through of the activity view
+{% endembed %}
 
 ## Accessing the activity view
 

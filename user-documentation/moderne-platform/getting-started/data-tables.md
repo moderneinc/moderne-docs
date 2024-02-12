@@ -11,6 +11,8 @@ To help give you a better idea of how data tables work in Moderne, this guide wi
 * [Help you decide whether or not you should add a data table to your recipe](data-tables.md#when-you-should-create-data-tables)
 
 {% embed url="https://www.youtube.com/watch?v=B-yh153_Fng" %}
+See how to produce and view data tables
+{% endembed %}
 
 ## Types of data tables
 

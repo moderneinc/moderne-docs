@@ -7,6 +7,8 @@ This is what preconditions were designed for. **They are a way of restricting wh
 In this guide, we'll walk through how preconditions work and how you can use them in the Moderne platform.
 
 {% embed url="https://www.youtube.com/watch?v=7jRuXiX3xuw" %}
+A deep dive into preconditions
+{% endembed %}
 
 ## How preconditions work
 

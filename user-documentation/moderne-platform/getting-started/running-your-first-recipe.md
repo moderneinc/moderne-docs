@@ -29,6 +29,8 @@ In this guide, we will:
 * [**Commit the changes**](running-your-first-recipe.md#step-8-commit-your-changes)
 
 {% embed url="https://www.youtube.com/watch?v=cHRi6jRPMUI" %}
+A video walkthrough of this doc
+{% endembed %}
 
 ## Step 1: Sign in
 
