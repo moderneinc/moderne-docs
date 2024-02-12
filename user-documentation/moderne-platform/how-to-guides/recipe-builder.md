@@ -10,11 +10,13 @@ To help you get acquainted with the Recipe Builder, in this guide, you will lear
 * [How to save and share custom recipes](recipe-builder.md#how-to-save-and-share-custom-recipes)
 * [How to import and run custom recipes](recipe-builder.md#how-to-import-and-run-custom-recipes)
 
+{% embed url="https://www.youtube.com/watch?v=RM4Ar0UnvNw" %}
+
 ## How to create a custom recipe
 
 To create a custom recipe you will need to:
 
-1. Find the recipes you want to utilize in your custom recipe
+1. [Find the recipes you want to utilize in your custom recipe](/user-documentation/moderne-platform/how-to-guides/moderne-platform-search.md)
 2. [Add the recipes to the builder](recipe-builder.md#adding-recipes-to-the-builder)
 3. [Order the recipes to match your needs](recipe-builder.md#ordering-the-recipes)
 
