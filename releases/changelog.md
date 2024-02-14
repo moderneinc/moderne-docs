@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.62.0 (2024/02/14)
+
+- add more js catorgy logos
+
 ### UI v10.61.0 (2024/02/14)
 
 - add more logo support
