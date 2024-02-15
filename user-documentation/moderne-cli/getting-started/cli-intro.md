@@ -162,7 +162,7 @@ mod config lsts artifacts volume edit <location-on-disk>
 
 ## Commands
 
-For more details about the Moderne CLI and each of the commands, check out the [Moderne CLI reference page](../references/cli-reference.md).
+For more details about the Moderne CLI and each of the commands, check out the [Moderne CLI reference page](../cli-reference.md).
 
 Below, we'll provide some context for the core commands.
 
@@ -182,7 +182,7 @@ If the command executes successfully, the LST artifact for each project will be 
 
 If you've set up a connection with Moderne (by running the `mod config moderne` command), the `build` command will attempt to download LST artifacts from Moderne instead of building them locally. This will allow you to quickly run recipes and make changes. If you do not want the `build` command to look for LST artifacts in Moderne, you can add the `--no-download` flag to the command.
 
-[Find all of the parameters for the build command here](../references/cli-reference.md#mod-build)
+[Find all of the parameters for the build command here](../cli-reference.md#mod-build)
 
 ### Publish
 
@@ -194,13 +194,13 @@ You can also use this command for _debugging purposes_ if you want to do a one-o
 
 You must have run `mod build` before you can run this command. You also must have set up an artifact repository connection via the `mod config lsts artifacts` command.
 
-[Find all of the parameters for the publish command here](../references/cli-reference.md#mod-publish)
+[Find all of the parameters for the publish command here](../cli-reference.md#mod-publish)
 
 ### Run
 
 The `run` command allows you to run [OpenRewrite](https://docs.openrewrite.org/) recipes locally. Before you can run recipes, you'll need to [create a Moderne access token](../../moderne-platform/references/create-api-access-tokens.md) and configure it via the `mod config moderne` command. You'll also need to install recipes via the `mod config recipes` command. Lastly, you'll need to run `mod build` in the repository/repositories where you want to run recipes.
 
-[Find all of the parameters for the run command here](../references/cli-reference.md#mod-run)
+[Find all of the parameters for the run command here](../cli-reference.md#mod-run)
 
 ## Differences between the Moderne CLI and the OpenRewrite build plugins
 

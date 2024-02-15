@@ -100,4 +100,4 @@ mod config java version show
 
 ## Additional reading
 
-For more information about each of the commands listed here, please see our [CLI reference docs](../references/cli-reference.md).
+For more information about each of the commands listed here, please see our [CLI reference docs](../cli-reference.md).
