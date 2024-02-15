@@ -32,7 +32,7 @@
 * [**mod config build maven settings delete**](#mod-config-build-maven-settings-delete)
 * [**mod config build maven settings edit**](#mod-config-build-maven-settings-edit)
 * [**mod config build maven settings show**](#mod-config-build-maven-settings-show)
-* ~~[**mod config artifacts**](#mod-config-artifacts)~~ (deprecated)
+* ~~[**mod config artifacts**](#mod-config-artifacts-deprecated)~~ (deprecated)
 * [**mod config artifacts artifactory**](#mod-config-artifacts-artifactory)
 * [**mod config artifacts artifactory edit**](#mod-config-artifacts-artifactory-edit)
 * [**mod config artifacts artifactory delete**](#mod-config-artifacts-artifactory-delete)
