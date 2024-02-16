@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.64.0 (2024/02/16)
+
+- add jest logo
+- add ng and lodash logos
+
 ### UI v10.63.0 (2024/02/15)
 
 - Bug fixes and other improvements.
