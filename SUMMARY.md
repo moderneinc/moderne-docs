@@ -80,6 +80,7 @@
     * [Language roadmap](administrator-documentation/moderne-platform/references/language-roadmap.md)
     * [Concepts](administrator-documentation/moderne-platform/references/concepts/README.md)
       * [Lossless semantic trees](administrator-documentation/moderne-platform/references/concepts/lossless-semantic-trees.md)
+    * [GraphQL API reference](https://studio.apollographql.com/public/Moderne-SaaS-API/variant/current)
 * [Moderne DX](administrator-documentation/moderne-dx/README.md)
   * [How to guides](administrator-documentation/moderne-dx/how-to-guides/README.md)
     * [Configuring Moderne DX](administrator-documentation/moderne-dx/how-to-guides/dx-configuration.md)
