@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.65.0 (2024/02/16)
+
+- Bug fixes and other improvements.
+
 ### UI v10.64.0 (2024/02/16)
 
 - add jest logo
