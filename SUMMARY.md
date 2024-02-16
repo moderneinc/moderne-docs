@@ -77,7 +77,6 @@
     * [How LST artifacts are produced](administrator-documentation/moderne-platform/references/how-ast-artifacts-are-produced.md)
     * [Supported languages](administrator-documentation/moderne-platform/references/supported-languages.md)
     * [Supported source code managers (SCMs)](administrator-documentation/moderne-platform/references/supported-scms.md)
-    * [GraphQL API](administrator-documentation/moderne-platform/references/graphql-api.md)
     * [Language roadmap](administrator-documentation/moderne-platform/references/language-roadmap.md)
     * [Concepts](administrator-documentation/moderne-platform/references/concepts/README.md)
       * [Lossless semantic trees](administrator-documentation/moderne-platform/references/concepts/lossless-semantic-trees.md)
