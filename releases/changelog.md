@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.66.0 (2024/02/20)
+
+- add storybook category
+- add support for picnic and refaster
+
 ### UI v10.65.1 (2024/02/17)
 
 - Bug fixes and other improvements.
