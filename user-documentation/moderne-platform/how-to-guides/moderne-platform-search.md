@@ -1,4 +1,4 @@
-# Moderne platform search tips
+# Moderne Recipe catalog search
 
 In order to get the most out of the Moderne platform, it's a good idea to understand how you can effectively search for recipes.
 
