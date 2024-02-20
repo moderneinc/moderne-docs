@@ -21,6 +21,7 @@
     * [Managing user-configured organizations](user-documentation/moderne-platform/how-to-guides/managing-user-configured-organizations.md)
     * [Creating a personal access token](user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md)
     * [How to use preconditions](user-documentation/moderne-platform/how-to-guides/preconditions.md)
+    * [How to track migration status with Moderne](user-documentation/moderne-platform/how-to-guides/track-migrations.md)
   * [References](user-documentation/moderne-platform/references/README.md)
     * [Moderne tokens](user-documentation/moderne-platform/references/moderne-tokens.md)
     * [Creating SCM access tokens](user-documentation/moderne-platform/references/create-scm-access-tokens.md)
