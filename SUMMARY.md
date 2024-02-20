@@ -14,7 +14,7 @@
   * [How to guides](user-documentation/moderne-platform/how-to-guides/README.md)
     * [Create custom recipes with the recipe builder](user-documentation/moderne-platform/how-to-guides/recipe-builder.md)
     * [Introduction to type-aware code search](user-documentation/moderne-platform/how-to-guides/introduction-to-type-aware-code-search.md)
-    * [Moderne platform search tips](user-documentation/moderne-platform/how-to-guides/moderne-platform-search.md)
+    * [Moderne Recipe catalog search](user-documentation/moderne-platform/how-to-guides/moderne-platform-search.md)
     * [Recipe execution and commits with the Moderne API](user-documentation/moderne-platform/how-to-guides/recipe-execution-and-commits-with-graphql.md)
     * [Accessing the Moderne API](user-documentation/moderne-platform/how-to-guides/accessing-the-moderne-api.md)
     * [How to find personally identifiable information (PII) and secrets exposed by your APIs](user-documentation/moderne-platform/how-to-guides/find-pii.md)
