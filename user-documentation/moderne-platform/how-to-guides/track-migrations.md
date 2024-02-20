@@ -44,7 +44,7 @@ You'll be redirected to a violin chart that shows all of the artifacts and their
 
 ![](/.gitbook/assets/violin-vis.png)
 
-In the above example, you can see that `jackson-annotations` is all over the place across our repositories – ranging from `2.2.2` to `2.16.1` for a total of 24 different versions! Comparatively, `jackson-datatype-hibernate` only has 1 version across all of our repositories.
+In the above example, you can see that `jackson-annotations` is all over the place across our repositories – ranging from `2.4.0` to `2.16.1` for a total of 27 different versions! Comparatively, `jackson-datatype-hibernate` only has 1 version across all of our repositories.
 
 ## Downloading the data table
 
