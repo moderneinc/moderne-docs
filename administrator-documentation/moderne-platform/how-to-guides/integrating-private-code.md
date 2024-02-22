@@ -4,7 +4,7 @@ One of the first steps of integrating your code with Moderne is setting up a pip
 
 To do this, we recommend that you set up a Docker image to pull the CLI, configure it, build the LSTs, and publish said artifacts. You would then run this image on a schedule (typically once per day) so that Moderne can have the latest LST artifacts available.
 
-In this guide, we'll walk you through everything you need to know to get started with this..
+In this guide, we'll walk you through everything you need to know to get started with this.
 
 ## Example ingestion repository
 
