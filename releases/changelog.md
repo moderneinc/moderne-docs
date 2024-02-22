@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.67.0 (2024/02/22)
+
+- add more logo support
+- add text editor form input
+
 ### UI v10.66.0 (2024/02/20)
 
 - add storybook category
