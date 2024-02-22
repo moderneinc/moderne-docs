@@ -4,7 +4,7 @@ One of the first steps of integrating your code with Moderne is setting up a pip
 
 To do this, we recommend that you set up a Docker image to pull the CLI, configure it, build the LSTs, and publish said artifacts. You would then run this image on a schedule (typically once per day) so that Moderne can have the latest LST artifacts available.
 
-In this guide, we'll provide an example of how to do ingestion and walk through each of the parts of it.
+In this guide, we'll walk you through everything you need to know to get started with this..
 
 ## Example ingestion repository
 
@@ -12,16 +12,18 @@ Moderne provides a [sample ingestion repositories](https://github.com/moderneinc
 
 ## Step 1: Create your `repos.csv` file
 
-The first step to integrate private code is to come up with a list of repositories that should be ingested (`repos.csv`). This list should be in a CSV format with the first row composed of headers.
+The first step needed to integrate private code is to come up with a list of repositories that should be ingested (`repos.csv`). This list should be in a CSV format with the first row composed of headers for the columns.
 
 At the very least, you must include two columns: `cloneUrl` and `branch`. However, you can also include additional optional columns if additional information is needed to build your repositories. These optional columns are: `changeset`, `java`, `jvmOpts`, `mavenArgs`, `gradleArgs`, and `bazelRule` (see the [mod git clone csv documentation](/user-documentation/moderne-cli/cli-reference.md#mod-git-clone-csv) for more information).
 
 If you use GitHub, you may find it useful to use the GitHub CLI to generate a list of repositories for your organization. For instance, the following command would generate a `repos.csv` file for the `spring-projects` GitHub organization:
 
+{% code overflow="wrap" %}
 ```bash
 echo "cloneUrl,branch" > repos.csv
 gh repo list spring-projects --source --no-archived --limit 1000 --json sshUrl,defaultBranchRef --template "{{range .}}{{.sshUrl}},{{.defaultBranchRef.name}}{{\"\n\"}}{{end}}" >> repos.csv
 ```
+{% endcode %}
 
 <details>
 
@@ -119,15 +121,15 @@ git@github.com:spring-projects/spring-integration-splunk.git,master
 
 Begin by copying the [provided Dockerfile](https://github.com/moderneinc/mass-ingest-example/blob/main/Dockerfile) to your ingestion repository.
 
-From there, we will modify it depending on your organizational needs. Please note that the ingest process requires access to several of your internal systems to function correctly. This includes your source control system, your artifact repository, and your Moderne tenant or DX instance.
+From there, we will modify it depending on your organizational needs. Please note that the ingestion process requires access to several of your internal systems to function correctly. This includes your source control system, your artifact repository, and your Moderne tenant or DX instance.
 
 ### Self-signed certifications
 
-Please select the tab that applies to your organization based on whether or not your internal services uses self-signed certs.
+Please select the tab that applies to your organization based on whether or not your internal services (artifact repository, source control, or the Moderne tenant) use self-signed certs.
 
 {% tabs %}
 {% tab title="Uses self-signed certs" %}
-If any of your internal services (artifact repository, source control, or the Moderne tenant) use HTTPS with self-signed certs, you will need to configure the CLI and JVMS installed within the Docker image to trust your organization's self-signed certificates. 
+You will need to configure the CLI and JVMs installed within the Docker image to trust your organization's self-signed certificates. 
 
 When invoking, Docker, supply the `TRUSTED_CERTIFICATES_PATH` argument pointing to an appropriate [cacerts file](https://www.ibm.com/docs/en/sdk-java-technology/8?topic=certificate-cacerts-certificates-file).
 
@@ -135,7 +137,7 @@ If you are not sure where to get a suitable cacerts file, you can check out your
 {% endtab %}
 
 {% tab title="Does not use self-signed certs" %}
-If your internal services (artifact repository, source control, or the Moderne tenant) are accessed:
+If your internal services are accessed:
 
 * Over HTTPS and they require [SSL/TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security), but have certificates signed by a trusted-by-default root Certificate Authority.
 * Over HTTP (never requiring SSL/TLS)
