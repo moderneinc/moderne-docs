@@ -120,6 +120,12 @@
 * [**mod config recipes yaml**](#mod-config-recipes-yaml)
 * [**mod config recipes yaml install**](#mod-config-recipes-yaml-install)
 * [**mod config recipes yaml delete**](#mod-config-recipes-yaml-delete)
+* [**mod config scm**](#mod-config-scm)
+* [**mod config scm gitlab**](#mod-config-scm-gitlab)
+* [**mod config scm gitlab base-url**](#mod-config-scm-gitlab-base-url)
+* [**mod config scm gitlab base-url delete**](#mod-config-scm-gitlab-base-url-delete)
+* [**mod config scm gitlab base-url edit**](#mod-config-scm-gitlab-base-url-edit)
+* [**mod config scm gitlab base-url show**](#mod-config-scm-gitlab-base-url-show)
 * [**mod config user**](#mod-config-user)
 * [**mod config user delete**](#mod-config-user-delete)
 * [**mod config user edit**](#mod-config-user-edit)
@@ -357,6 +363,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `lsts`: Configures LSTs production and publishing. 
 * `moderne`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
+* `scm`: Configures source code management.
 * `user`: Configure the active user.
 
 ## mod config build
@@ -3093,6 +3100,142 @@ mod config recipes jar delete rewrite-java
 | ---- | ----------- |
 | path |  The path to the YAML file to uninstall. |
 
+
+
+## mod config scm
+
+Configures source code management.
+
+
+
+
+### Usage
+
+```
+mod config scm [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `gitlab`: Configures GitLab.
+
+## mod config scm gitlab
+
+Configures GitLab.
+
+
+
+
+### Usage
+
+```
+mod config scm gitlab [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `base-url`: Configure the base URL.
+
+## mod config scm gitlab base-url
+
+Configure the base URL.
+
+
+The base URL affects how repository paths and URLs to SCM are constructed.
+
+### Usage
+
+```
+mod config scm gitlab base-url [parameters] [subcommands]
+```
+
+### Examples
+
+```
+mod config scm gitlab base-url edit "https://acme.com/gitlab-ee/"
+```
+
+
+### Subcommands
+
+* `delete`: Removes base URL customization.
+* `edit`: Configure the base URL.
+* `show`: Displays the configured base URL.
+
+## mod config scm gitlab base-url delete
+
+Removes base URL customization.
+
+
+### Usage
+
+```
+mod config scm gitlab base-url delete [parameters]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config scm gitlab base-url edit
+
+Configure the base URL.
+
+
+
+
+### Usage
+
+```
+mod config scm gitlab base-url edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| baseUrl |  The base URL to use when determining paths. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config scm gitlab base-url show
+
+Displays the configured base URL.
+
+
+### Usage
+
+```
+mod config scm gitlab base-url show [parameters]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
 ## mod config user
