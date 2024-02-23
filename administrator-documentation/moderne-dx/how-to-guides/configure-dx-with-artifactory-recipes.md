@@ -1,10 +1,10 @@
 # Configure Moderne DX with Artifactory access: recipes
 
-In order for Moderne DX to interact with your recipe artifacts from Artifactory, you will need to create a Maven formatted repository inside of Artifactory and point the Moderne DX service to said repository. This guide will walk you through how to configure the Moderne DX service to get the list of recipe artifacts from your repository.
+In order for Moderne DX to interact with your recipe artifacts from Artifactory, you will need to create a Maven formatted repository inside of Artifactory and point the Moderne DX service to said repository. This guide will walk you through how to configure the Moderne DX service to get the list of recipe artifacts from the repository you created in Artifactory.
 
 ## Publishing recipe artifacts
 
-Recipe artifacts will automatically be picked up by Moderne so long as you set the recipe source flag to true in the below [configuration step](configure-dx-with-artifactory-recipes.md#configuring-the-moderne-dx-service). These artifacts will
+Recipe artifacts will automatically be picked up by Moderne so long as you set the recipe source flag to true in the below [configuration step](configure-dx-with-artifactory-recipes.md#configuring-the-moderne-dx-service).
 
 ## Configuring the Moderne DX service
 
@@ -26,6 +26,7 @@ You can configure multiple Maven formatted repositories by including multiple en
 * `MODERNE_DX_MAVEN_{index}_SNAPSHOTS` – _(Optional) Specifies whether or not this repository should be searched for snapshots. Defaults to `true`._
 * `MODERNE_DX_MAVEN_{index}_RECIPESOURCE` – _(Optional) Specifies whether or not this repository should be searched for recipe jars. Defaults to `true`._
 * `MODERNE_DX_MAVEN_{index}_SKIPSSL` – _(Optional) Whether or not to skip SSL/TLS verification for calls from the service to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `MODERNE_DX_MAVEN_{index}_SKIPVALIDATECONNECTIVITY`– _(Optional) By default, on startup dx we validate that it can connect to the configured resource, and fail to start up the dx if we cannot. Set this to_ `true` _to skip this validation. Defaults to_ `false`_._
 
 **Example:**
 
@@ -47,13 +48,14 @@ docker run \
 * `--moderne.dx.maven[{index}].url` – _The URL of your Maven repository inside of Artifactory._
 * `--moderne.dx.maven[{index}].astSource` – _Specifies whether or not this repository should be searched for LST artifacts. Defaults to `true` – but you should set this to `false` (Note: LSTs used to be called ASTs)._
 * `--moderne.dx.maven[{index}].localRepository` – _The path on disk where Maven index files will be downloaded to. This is on the disk where the service is being run and **not** in Artifactory. Defaults to `~/.moderne-maven`_
-  * If multiple Maven repositories are configured on the service, they **must** have different `MODERNE_DX_MAVEN_{index}_LOCALREPOSITORY` configured.
+  * If multiple Maven repositories are configured on the service, they **must** have different `--moderne.dx.maven[{index}].localRepository` configured.
 * `--moderne.dx.maven[{index}].username` – _(Optional) The username used to resolve artifacts. Defaults to `null`._
 * `--moderne.dx.maven[{index}].password` – _(Optional) The password used to resolve artifacts. Defaults to `null`._
 * `--moderne.dx.maven[{index}].releases` – _(Optional) Specifies whether or not this repository should be searched for releases. Defaults to `true`._
 * `--moderne.dx.maven[{index}].snapshots` – _(Optional) Specifies whether or not this repository should be searched for snapshots. Defaults to `true`._
 * `--moderne.dx.maven[{index}].recipeSource` – _(Optional) Specifies whether or not this repository should be searched for recipe jars. Defaults to `true`._
 * `--moderne.dx.maven[{index}].skipSsl` – _(Optional) Whether or not to skip SSL/TLS verification for calls from the service to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `--moderne.dx.maven[{index}].skipValidateConnectivity`– _(Optional) By default, on startup dx we validate that it can connect to the configured resource, and fail to start up the dx if we cannot. Set this to_ `true` _to skip this validation. Defaults to_ `false`_._
 
 **Example:**
 

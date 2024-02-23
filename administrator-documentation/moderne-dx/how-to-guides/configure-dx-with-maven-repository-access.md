@@ -82,6 +82,7 @@ You can configure multiple Maven formatted repositories by including multiple en
 * `MODERNE_DX_MAVEN_{index}_ASTSOURCE` – _(Optional) Specifies whether or not this repository should be searched for LST artifacts. Defaults to `true` (Note: LSTs used to be called ASTs)._
 * `MODERNE_DX_MAVEN_{index}_RECIPESOURCE` – _(Optional) Specifies whether or not this repository should be searched for recipe jars. Defaults to `true`._
 * `MODERNE_DX_MAVEN_{index}_SKIPSSL` – _(Optional) Whether or not to skip SSL/TLS verification for calls from the service to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `MODERNE_DX_MAVEN_{index}_SKIPVALIDATECONNECTIVITY`– _(Optional) By default, on startup dx we validate that it can connect to the configured resource, and fail to start up the dx if we cannot. Set this to_ `true` _to skip this validation. Defaults to_ `false`_._
 
 **Example:**
 
@@ -110,6 +111,7 @@ docker run \
 * `--moderne.dx.maven[{index}].astSource` – _(Optional) Specifies whether or not this repository should be searched for LST artifacts. Defaults to `true` (Note: LSTs used to be called ASTs)._
 * `--moderne.dx.maven[{index}].recipeSource` – _(Optional) Specifies whether or not this repository should be searched for recipe jars. Defaults to `true`._
 * `--moderne.dx.maven[{index}].skipSsl` – _(Optional) Whether or not to skip SSL/TLS verification for calls from the service to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `--moderne.dx.maven[{index}].skipValidateConnectivity`– _(Optional) By default, on startup dx we validate that it can connect to the configured resource, and fail to start up the dx if we cannot. Set this to_ `true` _to skip this validation. Defaults to_ `false`_._
 
 **Example:**
 
