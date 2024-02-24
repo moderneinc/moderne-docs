@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.70.0 (2024/02/24)
+
+- visualization width not adjusts when window is resized.
+
 ### UI v10.69.0 (2024/02/24)
 
 - Bug fixes and other improvements.
