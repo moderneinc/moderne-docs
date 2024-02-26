@@ -1,4 +1,4 @@
-# Integrating private code with Moderne
+# Mass ingest
 
 One of the first steps of integrating your code with Moderne is setting up a pipeline that builds and publishes [LST](../references/concepts/lossless-semantic-trees.md) artifacts to an artifact repository that you control.
 
