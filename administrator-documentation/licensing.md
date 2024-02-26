@@ -10,7 +10,7 @@ In order to download and deploy the [Moderne Agent](#user-content-fn-1)[^1] or [
 
 Your usage of the [Moderne CLI](#user-content-fn-3)[^3] is governed by the following criteria:
 
-1. To use the Moderne CLI for private repositories, you must have a contract with Moderne for installation and usage of a single-tenant Moderne SaaS, or have a contract with Moderne for usage of a multi-tenant [Moderne SaaS](#user-content-fn-4)[^4]. Your usage of the CLI is bound by the terms of said contract.
+1. To use the Moderne CLI for private repositories, you will have limited free usage. Authentication with [app.moderne.io](app.moderne.io) will be required. In order to have unlimited usage, you must sign a contract with Moderne for the [Moderne SaaS](#user-content-fn-4)[^4] or Moderne DX. Your usage of the CLI is bound by the terms of said contract.
 2. To use the Moderne CLI for public repositories, you must have a token created on Moderne's [app.moderne.io](https://app.moderne.io/) installation.
 
 
