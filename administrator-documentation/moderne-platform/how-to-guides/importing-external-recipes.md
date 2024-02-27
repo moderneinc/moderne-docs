@@ -2,6 +2,10 @@
 
 External recipes can be imported into Moderne.io for use by your organization.
 
+{% hint style="success" %}
+It is the responsibility of the administrator configuring this to ensure that the recipe JARs and versions are up-to-date. It is also their responsibility to select/curate the recipe JARs that should be uploaded.
+{% endhint %}
+
 #### Prerequisites
 
 * You will need an Administrator-level account in your Moderne tenant to upload new recipe artifacts.
