@@ -33,19 +33,19 @@
 * [**mod config build maven settings edit**](#mod-config-build-maven-settings-edit)
 * [**mod config build maven settings show**](#mod-config-build-maven-settings-show)
 * ~~[**mod config artifacts**](#mod-config-artifacts-deprecated)~~ (deprecated)
-* [**mod config artifacts artifactory**](#mod-config-artifacts-artifactory)
-* [**mod config artifacts artifactory edit**](#mod-config-artifacts-artifactory-edit)
-* [**mod config artifacts artifactory delete**](#mod-config-artifacts-artifactory-delete)
-* [**mod config artifacts artifactory show**](#mod-config-artifacts-artifactory-show)
-* [**mod config artifacts show**](#mod-config-artifacts-show)
-* [**mod config artifacts maven**](#mod-config-artifacts-maven)
-* [**mod config artifacts maven edit**](#mod-config-artifacts-maven-edit)
-* [**mod config artifacts maven delete**](#mod-config-artifacts-maven-delete)
-* [**mod config artifacts maven show**](#mod-config-artifacts-maven-show)
-* [**mod config artifacts volume**](#mod-config-artifacts-volume)
-* [**mod config artifacts volume edit**](#mod-config-artifacts-volume-edit)
-* [**mod config artifacts volume delete**](#mod-config-artifacts-volume-delete)
-* [**mod config artifacts volume show**](#mod-config-artifacts-volume-show)
+* ~~[**mod config artifacts artifactory**](#mod-config-artifacts-artifactory-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts artifactory edit**](#mod-config-artifacts-artifactory-edit-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts artifactory delete**](#mod-config-artifacts-artifactory-delete-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts artifactory show**](#mod-config-artifacts-artifactory-show-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts show**](#mod-config-artifacts-show-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts maven**](#mod-config-artifacts-maven-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts maven edit**](#mod-config-artifacts-maven-edit-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts maven delete**](#mod-config-artifacts-maven-delete-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts maven show**](#mod-config-artifacts-maven-show-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts volume**](#mod-config-artifacts-volume-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts volume edit**](#mod-config-artifacts-volume-edit-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts volume delete**](#mod-config-artifacts-volume-delete-deprecated)~~ (deprecated)
+* ~~[**mod config artifacts volume show**](#mod-config-artifacts-volume-show-deprecated)~~ (deprecated)
 * [**mod config environment**](#mod-config-environment)
 * [**mod config environment show**](#mod-config-environment-show)
 * [**mod config http**](#mod-config-http)
@@ -958,7 +958,7 @@ Use 'mod config lsts artifacts' instead.
 * `maven`: Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
 * `volume`: Configures the volume that LSTs will be published to and downloaded from.
 
-## mod config artifacts artifactory
+## mod config artifacts artifactory (deprecated)
 
 Configures the Artifactory repository that LSTs will be published to and downloaded from.
 
@@ -978,7 +978,7 @@ mod config artifacts artifactory [parameters] [subcommands]
 * `delete`: Removes the Artifactory repository configuration. The publish command will no longer function until another artifact source is configured.
 * `show`: Displays the Artifactory repository configuration.
 
-## mod config artifacts artifactory edit
+## mod config artifacts artifactory edit (deprecated)
 
 Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
 
@@ -1019,7 +1019,7 @@ mod config lsts artifacts edit <artifact-repository-url> --user <user> --passwor
 | --user |  The user to authenticate with. |  |
 
 
-## mod config artifacts artifactory delete
+## mod config artifacts artifactory delete (deprecated)
 
 Removes the Artifactory repository configuration. The publish command will no longer function until another artifact source is configured.
 
@@ -1043,7 +1043,7 @@ mod config artifacts artifactory delete [parameters]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
-## mod config artifacts artifactory show
+## mod config artifacts artifactory show (deprecated)
 
 Displays the Artifactory repository configuration.
 
@@ -1067,7 +1067,7 @@ mod config artifacts artifactory show [parameters]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
-## mod config artifacts show
+## mod config artifacts show (deprecated)
 
 Displays the LST artifacts repository configuration.
 
@@ -1091,7 +1091,7 @@ mod config artifacts show [parameters]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
-## mod config artifacts maven
+## mod config artifacts maven (deprecated)
 
 Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
 
@@ -1111,7 +1111,7 @@ mod config artifacts maven [parameters] [subcommands]
 * `delete`: Removes the Maven artifact repository repository configuration. The publish command will no longer function until another artifact source is configured.
 * `show`: Displays the Maven artifact repository repository configuration.
 
-## mod config artifacts maven edit
+## mod config artifacts maven edit (deprecated)
 
 Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
 
@@ -1151,7 +1151,7 @@ mod config lsts artifacts edit <artifact-repository-url> --user <user> --passwor
 | --user |  The user to authenticate with. |  |
 
 
-## mod config artifacts maven delete
+## mod config artifacts maven delete (deprecated)
 
 Removes the Maven artifact repository repository configuration. The publish command will no longer function until another artifact source is configured.
 
@@ -1175,7 +1175,7 @@ mod config artifacts maven delete [parameters]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
-## mod config artifacts maven show
+## mod config artifacts maven show (deprecated)
 
 Displays the Maven artifact repository repository configuration.
 
@@ -1199,7 +1199,7 @@ mod config artifacts maven show [parameters]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
-## mod config artifacts volume
+## mod config artifacts volume (deprecated)
 
 Configures the volume that LSTs will be published to and downloaded from.
 
@@ -1219,7 +1219,7 @@ mod config artifacts volume [parameters] [subcommands]
 * `delete`: Removes the volume LST configuration. The publish command will no longer function until another artifact source is configured.
 * `show`: Displays the volume LST configuration.
 
-## mod config artifacts volume edit
+## mod config artifacts volume edit (deprecated)
 
 Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
 
@@ -1249,7 +1249,7 @@ mod config artifacts volume edit [parameters]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
-## mod config artifacts volume delete
+## mod config artifacts volume delete (deprecated)
 
 Removes the volume LST configuration. The publish command will no longer function until another artifact source is configured.
 
@@ -1273,7 +1273,7 @@ mod config artifacts volume delete [parameters]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
-## mod config artifacts volume show
+## mod config artifacts volume show (deprecated)
 
 Displays the volume LST configuration.
 
