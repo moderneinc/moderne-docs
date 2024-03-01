@@ -148,12 +148,6 @@ mod config lsts artifacts artifactory edit <repository url> --user=${ARTIFACTS_U
 mod config lsts artifacts maven edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
 
-OR
-
-```shell
-mod config lsts artifacts volume edit <location-on-disk>
-```
-
 ## Additional reading
 
 * [Try using the CLI in the Moderne CLI workshop](../../workshops/moderne-cli-exercise.md)
