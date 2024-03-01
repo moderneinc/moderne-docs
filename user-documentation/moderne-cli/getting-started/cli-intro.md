@@ -136,9 +136,9 @@ If you want to install a specific recipe rather than all of the recipes, you can
 mod config recipes moderne install <recipe_search_term> 
 ```
 
-### (Optionally) Configure artifact publishing
+### (Optionally) Configure artifact publishing and downloading
 
-If you want to publish artifacts from the CLI, you'll need to run one of the following commands depending on if you want the LST artifacts published to Artifactory or to some location on disk:
+If you want to publish artifacts from the CLI or download LSTs from your artifact repository when running commands, you'll need to run one of the following commands depending on where your LST artifacts live:
 
 ```shell
 # For JFrog Artifactory
