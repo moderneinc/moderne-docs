@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.77.0 (2024/03/01)
+
+- add ability to download datatables as JSON
+
 ### UI v10.76.0 (2024/03/01)
 
 - Bug fixes and other improvements.
