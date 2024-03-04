@@ -66,6 +66,7 @@
       * [All agent configuration variables](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-variables.md)
       * [Multi-tenant private recipes](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/multi-tenant-private-recipes.md)
     * [Configuring the Organizations service](administrator-documentation/moderne-platform/how-to-guides/organizations-service.md)
+    * [Configuring the DevCenter](administrator-documentation/moderne-platform/how-to-guides/dev-center.md)
     * [Importing external recipes](administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes.md)
   * [References](administrator-documentation/moderne-platform/references/README.md)
     * [Reporting](administrator-documentation/moderne-platform/references/reporting.md)

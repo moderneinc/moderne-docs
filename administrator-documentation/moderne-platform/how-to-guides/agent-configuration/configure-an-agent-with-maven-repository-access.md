@@ -83,6 +83,11 @@ You can configure multiple Maven formatted repositories by including multiple en
 * `MODERNE_AGENT_MAVEN_{index}_SNAPSHOTS` – _(Optional) Specifies whether or not this repository should be searched for snapshots. Defaults to `true`._
 * `MODERNE_AGENT_MAVEN_{index}_ASTSOURCE` – _(Optional) Specifies whether or not this repository should be searched for LST artifacts. Defaults to `true` (Note: LSTs used to be called ASTs)._
 * `MODERNE_AGENT_MAVEN_{index}_RECIPESOURCE` – _(Optional) Specifies whether or not this repository should be searched for recipe jars. Defaults to `true`._
+
+{% hint style="warning" %}
+If you want to configure a [Moderne DevCenter](../dev-center.md), you will need to ensure that only one of your Maven repositories has `RECIPESOURCE` set to `true`.
+{% endhint %}
+
 * `MODERNE_AGENT_MAVEN_{index}_SKIPSSL` – _(Optional) Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
@@ -111,6 +116,11 @@ docker run \
 * `--moderne.agent.maven[{index}].snapshots` – _(Optional) Specifies whether or not this repository should be searched for snapshots. Defaults to `true`._
 * `--moderne.agent.maven[{index}].astSource` – _(Optional) Specifies whether or not this repository should be searched for LST artifacts. Defaults to `true` (Note: LSTs used to be called ASTs)._
 * `--moderne.agent.maven[{index}].recipeSource` – _(Optional) Specifies whether or not this repository should be searched for recipe jars. Defaults to `true`._
+
+{% hint style="warning" %}
+If you want to configure a [Moderne DevCenter](../dev-center.md), you will need to ensure that only one of your Maven repositories has `recipeSource` set to `true`.
+{% endhint %}
+
 * `--moderne.agent.maven[{index}].skipSsl` – _(Optional) Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
