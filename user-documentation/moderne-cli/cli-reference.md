@@ -42,10 +42,6 @@
 * ~~[**mod config artifacts maven edit**](#mod-config-artifacts-maven-edit-deprecated)~~ (deprecated)
 * ~~[**mod config artifacts maven delete**](#mod-config-artifacts-maven-delete-deprecated)~~ (deprecated)
 * ~~[**mod config artifacts maven show**](#mod-config-artifacts-maven-show-deprecated)~~ (deprecated)
-* ~~[**mod config artifacts volume**](#mod-config-artifacts-volume-deprecated)~~ (deprecated)
-* ~~[**mod config artifacts volume edit**](#mod-config-artifacts-volume-edit-deprecated)~~ (deprecated)
-* ~~[**mod config artifacts volume delete**](#mod-config-artifacts-volume-delete-deprecated)~~ (deprecated)
-* ~~[**mod config artifacts volume show**](#mod-config-artifacts-volume-show-deprecated)~~ (deprecated)
 * [**mod config environment**](#mod-config-environment)
 * [**mod config environment show**](#mod-config-environment-show)
 * [**mod config http**](#mod-config-http)
@@ -84,10 +80,6 @@
 * [**mod config lsts artifacts maven edit**](#mod-config-lsts-artifacts-maven-edit)
 * [**mod config lsts artifacts maven delete**](#mod-config-lsts-artifacts-maven-delete)
 * [**mod config lsts artifacts maven show**](#mod-config-lsts-artifacts-maven-show)
-* [**mod config lsts artifacts volume**](#mod-config-lsts-artifacts-volume)
-* [**mod config lsts artifacts volume edit**](#mod-config-lsts-artifacts-volume-edit)
-* [**mod config lsts artifacts volume delete**](#mod-config-lsts-artifacts-volume-delete)
-* [**mod config lsts artifacts volume show**](#mod-config-lsts-artifacts-volume-show)
 * [**mod config moderne**](#mod-config-moderne)
 * [**mod config moderne delete**](#mod-config-moderne-delete)
 * [**mod config moderne edit**](#mod-config-moderne-edit)
@@ -956,7 +948,6 @@ Use 'mod config lsts artifacts' instead.
 * `artifactory`: Configures the Artifactory repository that LSTs will be published to and downloaded from.
 * `show`: Displays the LST artifacts repository configuration.
 * `maven`: Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
-* `volume`: Configures the volume that LSTs will be published to and downloaded from.
 
 ## mod config artifacts artifactory (deprecated)
 
@@ -1186,104 +1177,6 @@ Displays the Maven artifact repository repository configuration.
 
 ```
 mod config artifacts maven show [parameters]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
-
-
-## mod config artifacts volume (deprecated)
-
-Configures the volume that LSTs will be published to and downloaded from.
-
-
-All subsequent publish and download commands will use this volume mount.
-
-### Usage
-
-```
-mod config artifacts volume [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
-* `delete`: Removes the volume LST configuration. The publish command will no longer function until another artifact source is configured.
-* `show`: Displays the volume LST configuration.
-
-## mod config artifacts volume edit (deprecated)
-
-Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
-
-
-All subsequent publish and download commands will use this artifact repository.
-
-### Usage
-
-```
-mod config artifacts volume edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| location |  The location on disk that LSTs will be published to. |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
-
-
-## mod config artifacts volume delete (deprecated)
-
-Removes the volume LST configuration. The publish command will no longer function until another artifact source is configured.
-
-
-
-
-### Usage
-
-```
-mod config artifacts volume delete [parameters]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
-
-
-## mod config artifacts volume show (deprecated)
-
-Displays the volume LST configuration.
-
-
-
-
-### Usage
-
-```
-mod config artifacts volume show [parameters]
 ```
 
 ### Options
@@ -1953,7 +1846,6 @@ mod config lsts artifacts [parameters] [subcommands]
 * `artifactory`: Configures the Artifactory repository that LSTs will be published to and downloaded from.
 * `show`: Displays the LST artifacts repository configuration.
 * `maven`: Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
-* `volume`: Configures the volume that LSTs will be published to and downloaded from.
 
 ## mod config lsts artifacts artifactory
 
@@ -2183,104 +2075,6 @@ Displays the Maven artifact repository repository configuration.
 
 ```
 mod config lsts artifacts maven show [parameters]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
-
-
-## mod config lsts artifacts volume
-
-Configures the volume that LSTs will be published to and downloaded from.
-
-
-All subsequent publish and download commands will use this volume mount.
-
-### Usage
-
-```
-mod config lsts artifacts volume [parameters] [subcommands]
-```
-
-
-### Subcommands
-
-* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
-* `delete`: Removes the volume LST configuration. The publish command will no longer function until another artifact source is configured.
-* `show`: Displays the volume LST configuration.
-
-## mod config lsts artifacts volume edit
-
-Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
-
-
-All subsequent publish and download commands will use this artifact repository.
-
-### Usage
-
-```
-mod config lsts artifacts volume edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| location |  The location on disk that LSTs will be published to. |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
-
-
-## mod config lsts artifacts volume delete
-
-Removes the volume LST configuration. The publish command will no longer function until another artifact source is configured.
-
-
-
-
-### Usage
-
-```
-mod config lsts artifacts volume delete [parameters]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
-
-
-## mod config lsts artifacts volume show
-
-Displays the volume LST configuration.
-
-
-
-
-### Usage
-
-```
-mod config lsts artifacts volume show [parameters]
 ```
 
 ### Options
