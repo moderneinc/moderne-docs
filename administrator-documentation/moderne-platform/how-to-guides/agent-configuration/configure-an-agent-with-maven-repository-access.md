@@ -118,7 +118,7 @@ docker run \
 * `--moderne.agent.maven[{index}].recipeSource` – _(Optional) Specifies whether or not this repository should be searched for recipe jars. Defaults to `true`._
 
 {% hint style="warning" %}
-If you want to configure a [Moderne DevCenter](../dev-center.md), you will need to ensure that only one of your Maven repositories has `recipeSource` set to `true`.
+If you want to configure a [Moderne DevCenter](../dev-center.md), you will need to ensure that you have exactly one Maven repository configured with `recipeSource` set to `true`. (It is fine to have this same Maven repository configured in multiple agents.)
 {% endhint %}
 
 * `--moderne.agent.maven[{index}].skipSsl` – _(Optional) Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
