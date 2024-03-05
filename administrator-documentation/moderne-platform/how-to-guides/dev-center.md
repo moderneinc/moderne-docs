@@ -80,11 +80,9 @@ Upgrade and migration cards allow you to see things like what Java version your 
 
 To create these cards, you will need three things:
 
-TODO: ADD LINKS TO THE BELOW BULLETS
-
-1. A relevant title for the card (e.g., `Spring Boot 3.2`)
-2. A recipe that can be run to fix the core issue the card is highlighting (e.g., `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2`)
-3. Some measures that break up the card into key categories and help your users determine a level of urgency. 
+1. [A relevant title for the card](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json#L6) (e.g., `Spring Boot 3.2`)
+2. [A recipe that can be run to fix the core issue the card is highlighting](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json#L11) (e.g., `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2`)
+3. [Some measures that break up the card into key categories and help your users determine a level of urgency](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json#L12-L26). 
 
 #### Measures
 
