@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.78.0 (2024/03/05)
+
+- add api example with options for individual visualizations
+
 ### UI v10.77.1 (2024/03/04)
 
 - Bug fixes and other improvements.
