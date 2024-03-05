@@ -36,7 +36,7 @@ If you have multiple locations where recipes are stored, you will need to create
 
 _This step only applies if you used the [Moderne Organizations service template](https://github.com/moderneinc/moderne-organizations). If you made your own, please jump to [step 3](#step-3-create-and-configure-the-devcenter)._
 
-If you've created an Organizations service prior to March 2024, you will need to copy the [new DevCenterDataFetcher file](TODO LINK WHEN READY) to your Organizations service repository. It will go in the same location as the other source classes such as [Application.java](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/Application.java).
+If you've created an Organizations service prior to March 2024, you will need to copy the [new DevCenterDataFetcher file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/DevCenterDataFetcher.java) to your Organizations service repository. It will go in the same location as the other source classes such as [Application.java](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/Application.java).
 
 If you've created an Organizations service after March 2024, please ensure that you have a `DevCenterDataFetcher.java` file in your Organizations service repository before moving on to step 2.
 
