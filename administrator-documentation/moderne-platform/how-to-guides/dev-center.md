@@ -9,7 +9,7 @@ In this doc, we'll walk you through everything you need to know to configure you
 In order to configure any DevCenters, there are two things you need to do (which we'll walk through in more detail below):
 
 1. You must have [configured an Organizations service](./organizations-service.md).
-2. You must ensure that the [Moderne agent Maven configuration](/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md) only has **one** entry where the recipe source is set to `true`.
+2. You must ensure that the [Moderne agent Maven configuration](/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md) only has **one** entry where the recipe source is set to `true`. (Note: this does not apply to one Maven repository configured identically in multiple agents. Only that you cannot have two distinct Maven repositories configured where recipe source is set to `true`.)
 
 ### Organizations service
 
