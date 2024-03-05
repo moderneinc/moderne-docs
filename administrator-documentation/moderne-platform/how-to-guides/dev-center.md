@@ -60,7 +60,7 @@ type Organization {
 }
 ```
 
-The [DevCenter object](TODO LINK WHEN READY) is the schema you need to follow in the below step to configure your DevCenter.
+The [DevCenter object](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/moderne-organizations.graphqls#L50-L65) is the schema you need to follow in the below step to configure your DevCenter.
 
 ## Step 3: Create and configure the DevCenter
 
