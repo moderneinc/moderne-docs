@@ -27,7 +27,7 @@ You can configure multiple Maven formatted repositories by including multiple en
 * `MODERNE_AGENT_MAVEN_{index}_RECIPESOURCE` – _(Optional) Specifies whether or not this repository should be searched for recipe jars. Defaults to `true`._
 
 {% hint style="warning" %}
-If you want to configure a [Moderne DevCenter](../dev-center.md), you will need to ensure that only one of your Maven repositories has `RECIPESOURCE` set to `true`.
+If you want to configure a [Moderne DevCenter](../dev-center.md), you will need to ensure that you have exactly one Maven repository configured with `RECIPESOURCE` set to `true`. (It is fine to have this same Maven repository configured in multiple agents.)
 {% endhint %}
 
 * `MODERNE_AGENT_MAVEN_{index}_SKIPSSL` – _(Optional) Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
