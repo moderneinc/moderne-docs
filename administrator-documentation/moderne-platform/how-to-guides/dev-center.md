@@ -270,7 +270,7 @@ The `visualizationId` can be found on any visualization card you run in the Mode
 <details>
 
 <summary>
-Below is an example of an visualizations section you might have in your DevCenter:
+Below is an example of a visualizations section you might have in your DevCenter:
 </summary>
 
 ```json
