@@ -1,6 +1,6 @@
 # How to upgrade transitive dependencies
 
-It's a good practice for developers to routinely check if there are any security vulnerabilities in their repositories and ensure that their dependencies are up-to-date. Unfortunately, many tools cannot see dependencies beyond the first level. If you have a dependency that has a dependency that is insecure, most tools will not warn you or update said dependency.
+It's a good practice for developers to routinely check if there are any security vulnerabilities in their repositories and ensure that their dependencies are up-to-date. Unfortunately, many tools cannot see dependencies that are more than one level deep. If you have a dependency that has a dependency that has a dependency that is insecure, most tools will not warn you about it – let alone let you update it.
 
 Fortunately, Moderne offers the ability to find and fix dependencies that are many levels deep. Let's walk through how you might discover these problems and then how you could go about fixing them.
 
@@ -17,6 +17,8 @@ After the recipe runs, you can download a CSV file that contains all of the secu
 In there, you can find key information such as what CVE a particular repository is affected by, what the current version is, what version is the minimum one needed to fix it, a clear summary of what is wrong, and how many levels deep the dependency is. In the below example, you can see that this recipe found a security issue in a dependency 8 levels deep!
 
 ![](/.gitbook/assets/vuln-1.png)
+
+
 ![](/.gitbook/assets/vuln-2.png)
 
 ## Fixing the security issues by upgrading the transitive dependencies
