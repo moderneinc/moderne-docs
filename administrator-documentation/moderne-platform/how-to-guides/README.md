@@ -3,4 +3,5 @@
 * [Mass ingest](mass-ingest.md)
 * [Moderne Agent](agent-configuration/)
 * [Configuring the Organizations service](organizations-service.md)
+* [Configuring the DevCenter](./dev-center.md)
 * [Importing external recipes](importing-external-recipes.md)
