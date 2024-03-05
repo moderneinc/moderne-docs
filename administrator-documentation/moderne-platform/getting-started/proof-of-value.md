@@ -35,6 +35,10 @@ _Ordered from least complex to most complex_
   * [Upgrade Maven dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.UpgradeDependencyVersion) to keep dependencies patched and up-to-date
   * [Exclude test dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.ExcludeDependency) like JUnit from the compile scope
   * [Remove redundant explicit dependency versions](https://app.moderne.io/recipes/org.openrewrite.maven.RemoveRedundantDependencyVersions) to clean up Maven POMs
+  * [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)
+  
+  ![](/.gitbook/assets/dep-insight.png)
+
 * Gradle wrapper and plugin upgrades
   * [Update Gradle Wrapper](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper) to keep Gradle itself up to date
   * [Update Gradle Plugin](https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.UpgradePluginVersion) to keep build plugins up to date
@@ -44,6 +48,9 @@ _Ordered from least complex to most complex_
   * [Java security best practices](https://app.moderne.io/recipes/org.openrewrite.java.security.JavaSecurityBestPractices)
   * [OWASP Top 10](https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspTopTen)
   * [Find and fix vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
+
+  ![](/.gitbook/assets/vuln-dep.png)
+
 * Modernize test frameworks
   * [Junit 4 to 5 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit4to5Migration)
   * [Mockito 1 to 4 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to4Migration)
