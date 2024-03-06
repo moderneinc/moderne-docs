@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.79.0 (2024/03/06)
+
+- display last updated timestamp on upgrade and migration cards
+- incorporate organization ids into dev center URL path
+
 ### UI v10.78.1 (2024/03/06)
 
 - Bug fixes and other improvements.
