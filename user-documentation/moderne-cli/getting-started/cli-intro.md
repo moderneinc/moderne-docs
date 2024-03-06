@@ -49,7 +49,7 @@ If you use PowerShell, you can use the [Set-Alias command](https://learn.microso
         ▛▀▀█▀▛▀▀▀▀▜
         ▌▟▀  ▛▀▀▀▀▜
         ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 2.8.1
+Moderne CLI 2.8.4
 
 Usage:
 
