@@ -28,7 +28,7 @@ Below is a high-level architecture diagram that shows the flow of data between M
 
 In order for Moderne to know the current state of your code, artifacts will need to be generated that contain a serialized representation of your code's [LSTs](concepts/lossless-semantic-trees.md). These artifacts must be put inside an artifact repository that the [Moderne agent](architecture.md#moderne-agent) has access to.
 
-To do this, you'll want to use set up mass ingestion with the Moderne CLI. For instructions on how to do that, please read our [integrating private code with Moderne doc](../how-to-guides/integrating-private-code.md).
+To do this, you'll want to use set up mass ingestion with the Moderne CLI. For instructions on how to do that, please read our [integrating private code with Moderne doc](broken-reference).
 
 ### Moderne agent
 

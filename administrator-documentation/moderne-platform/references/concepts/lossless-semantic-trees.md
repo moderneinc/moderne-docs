@@ -43,7 +43,7 @@ If you want to see specific examples of Java LSTs, please read our [Java LST Exa
 
 ### With the Moderne Platform
 
-1. Before you can run a recipe against a repository in the Moderne Platform, you must build the LST for said repository. This is typically done by [setting up mass ingestion with the Moderne CLI](../../how-to-guides/integrating-private-code.md).
+1. Before you can run a recipe against a repository in the Moderne Platform, you must build the LST for said repository. This is typically done by [setting up mass ingestion with the Moderne CLI](broken-reference).
 2. When you go to run a recipe, the LST artifact will be downloaded from your artifact repository. These LSTs are continuously uploaded/updated over time as long as you've set up ingestion for your repositories.
 3. As the recipe runs, it will make transformations on the downloaded LST. This could be as simple as adding a search marker (`~~>`) if the recipe is a search recipe -- or it could be as complex as adding classes and methods throughout the repository.
 4. Once the recipe has finished running, the **modified LST will be discarded** and the code **will not** be changed. Instead, you will be [provided with a list of the changes it would make](../../../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md#step-6-run-the-recipe). You can [review them](../../../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md#step-7-view-the-results) and [choose what to do with them](../../../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md#step-8-commit-your-changes).

@@ -42,7 +42,7 @@
   * [Moderne platform exercise](user-documentation/workshops/moderne-platform-exercise.md)
   * [Migrate your own project](user-documentation/workshops/migrate-your-own-project.md)
   * [Recipe development](user-documentation/workshops/recipe-development.md)
-* [Moderne Office Hours](user-documentation/moderne-office-hours.md)
+* [Community Office Hours](user-documentation/community-office-hours.md)
 
 ## Administrator documentation
 
