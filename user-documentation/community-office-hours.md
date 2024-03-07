@@ -16,7 +16,7 @@ You can find each of the office hours sessions below along with a summary of wha
   * We [created a new video showing how to scale JavaScript Codemods with Moderne](https://www.youtube.com/watch?v=lXVPwW30fFk).
     * You can find [the curated list of Codemods in the Moderne platform](https://app.moderne.io/marketplace/org.openrewrite.codemods).
   * We recently [added a bunch of Error Prone recipes to the Moderne platform](https://app.moderne.io/marketplace/tech.picnic.errorprone.refasterrules).
-  * There were some great community additions such [as this new recipe on migrating away from Swagger](https://app.moderne.io/recipes/org.openrewrite.java.springdoc.SwaggerToSpringDoc) to SpringDoc or OpenAPI.
+  * There were some great community additions such [as this new recipe on migrating away from Swagger to SpringDoc or OpenAPI](https://app.moderne.io/recipes/org.openrewrite.java.springdoc.SwaggerToSpringDoc).
   * We added [the ability to bump transitive dependencies in Gradle](https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides/transitive-dependencies).
   * We [updated our Spring 3.2 blog](https://www.moderne.io/blog/speed-your-spring-boot-3-0-migration) to contain the latest Spring changes and also discuss Java 21 changes.
 * We then jumped into the core topic of [Scanning Recipes](https://docs.openrewrite.org/concepts-explanations/recipes#scanning-recipes). We walked through every part of developing a Scanning Recipe along with examples and tests.
