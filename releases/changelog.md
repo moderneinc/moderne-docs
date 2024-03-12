@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.83.0 (2024/03/12)
+
+- Bug fixes and other improvements.
+
 ### UI v10.82.0 (2024/03/11)
 
 - reporting issue to moderne is now an email template
