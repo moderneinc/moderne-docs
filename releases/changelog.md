@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.83.1 (2024/03/12)
+
+- Bug fixes and other improvements.
+
 ### UI v10.83.0 (2024/03/12)
 
 - Bug fixes and other improvements.
