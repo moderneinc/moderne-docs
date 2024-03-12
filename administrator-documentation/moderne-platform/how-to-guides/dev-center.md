@@ -88,7 +88,7 @@ To create these cards, you will need three things:
 
 Each measure consists of a name and a recipe that can be used to determine whether or not a repository falls into said measure. We do not recommend that this recipe be the same recipe as the one used to "fix" the card. For instance, in a `Spring Boot 3.2` card, one measure might have a name of `Major` – which represents all repositories that are one or more major versions behind. The corresponding recipe would be `org.openrewrite.java.dependencies.DependencyInsight` and it would include the options of `1-2`. This would mark all repositories that use Spring Boot version `1.x` or `2.x` as being a major version or more behind.
 
-{% hint style="warning" %}
+{% hint style="danger" %}
 You must ensure that the measure recipes return disjointed results (i.e., the same repository **can not** be returned by multiple recipes).
 
 
@@ -98,7 +98,7 @@ For example, if you were tracking Java versions, you may have a repository that 
 
 Each card can have up to **three measures**. These measures should be returned in a specific order; with the most urgent being returned first and the least urgent being returned last. In the `Spring Boot 3.2` example, you might have: `Major`, `Minor`, and `Patch` returned in that specific order.
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 If you change any part of any measure on a card (such as the name of the measure or what recipe it should run), you will lose all results for the card until the next rebuild of the DevCenter.
 {% endhint %}
 
