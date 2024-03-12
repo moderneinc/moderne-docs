@@ -10,6 +10,10 @@ You can find each of the office hours sessions below along with a summary of wha
 
 {% embed url="https://www.youtube.com/watch?v=tPlGBZTZInI" %}
 
+#### Summary and related links
+
+* Will be added after the office hours
+
 ### Refaster style recipes & Picnic's Error Print Support (March 12th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=DUc53vuJQ7Q" %}
