@@ -6,6 +6,44 @@ Every week we [host a live office hours session](https://www.youtube.com/@modern
 
 You can find each of the office hours sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Running JavaScript codemods at scale (March 20th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=tPlGBZTZInI" %}
+
+
+### Refaster style recipes & Picnic's Error Print Support (March 12th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=DUc53vuJQ7Q" %}
+
+#### Summary and related links
+
+* A quick run through of everything new in OpenRewrite & Moderne this week:
+  * We published our Moderne Monthly newsletter to [LinkedIn](https://www.linkedin.com/pulse/youre-luck-march-moderne-newsletter-here-moderneinc-9gtfc/) as well as [online](https://moderne-19486564.hs-sites.com/moderne-march-newsletter).
+    * Be sure to [subscribe to our monthly newsletter](https://www.linkedin.com/newsletters/moderne-monthly-7150204049416409088/) to stay up-to-date with all the latest Moderne news.
+* We added [86 more Refaster style recipes](https://app.moderne.io/marketplace/tech.picnic.errorprone.refasterrules) from [Error Prone Support](https://error-prone.picnic.tech/).
+  * These recipes are designed to help you write better code and catch common mistakes, and now helpfully link to the docs to show more details of what changes to expect.
+* We split off a separate [Rewrite recipe module for Apache](https://github.com/openrewrite/rewrite-apache/) projects, which you can also [run through Moderne](https://app.moderne.io/marketplace/org.openrewrite.apache).
+  * That way recipes related to Apache projects are easier to find, use and extend.
+* We create a new [Rewrite recipe module for Node.js](https://github.com/openrewrite/rewrite-nodejs) applications.
+  * Providing the building blocks to change Node.js applications in a safe and automated way, starting with dependency management.
+  * We also allow you to [visualize dependency versions across your organization](https://app.moderne.io/recipes/org.openrewrite.nodejs.search.DependencyInsight), to plan your next modernization steps.
+* Also new is a [module for Struts applications](https://github.com/openrewrite/rewrite-struts), bringing folks from version 2.5 to 6.x.
+  * This builds upon our recent addition of [JSP parsing support](https://github.com/openrewrite/rewrite/pull/4075), for more modernization capabilities.
+* Apache Wicket released their long awaited [10.0.0 release](https://wicket.apache.org/news/2024/03/11/wicket-10.0.0-released.html), with an [automated migration using OpenRewrite](https://cwiki.apache.org/confluence/display/WICKET/Migration+to+Wicket+10.0).
+  * We're excited to see the community using OpenRewrite to make their migrations easier and safer, and to have those recipes available on the day of the release.
+  * Also available on the Moderne Platform, for easy use and extension.
+
+* For the main subject we looked at how the Picnic online supermarket uses both Error Prone Refaster rules and OpenRewrite recipes to enforce coding standards and catch common mistakes.
+  * We saw how a team of five is able to support 150 Java developers in their day-to-day needs, through a high level of standardization and automation.
+  * We went over some of their history, and how past a past choice for [TestNG](https://testng.org/) was converted into Junit 5 and AssertJ through a series of Refaster rules.
+  * For large migrations the platform team thoroughly prepares, automates and tests the changes, and then rolls them out in a controlled manner, ensuring no one is left behind.
+  * Whenever there are multiple ways to do one thing, they build consensus and then automate the change, to ensure everyone is on the same page.
+  * And for [their Spring Boot 3 migration](https://docs.openrewrite.org/recipes/java/spring/boot3/springboot3bestpractices), they were able to migrate three million lines of code in just a few weeks through OpenRewrite recipes, with a high level of confidence in the changes.
+  * The team at Moderne have since added support for Error Prone Refaster rules to the Moderne Platform, so you can use them in the same way as OpenRewrite recipes.
+  * And we saw this in practice when Rick ran a Refaster rule to against [the Apache Hive project](https://hive.apache.org/)'s 21K files in just a couple seconds, and opened [a PR with the changes](https://github.com/apache/hive/pull/5126).
+
+* If you're in Cologne during JCON Europe you can [join Tim and Rick at their shared workshop](https://jconeurope2024.sched.com/event/1Z2tI) on Transforming Code with OpenRewrite and Refaster.
+  
 ### Automate your code reviews with recipes (March 6th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=oG5cfPeP7Tc" %}
