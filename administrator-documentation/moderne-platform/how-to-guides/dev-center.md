@@ -93,7 +93,7 @@ You must ensure that the measure recipes return disjointed results (i.e., the sa
 
 
 
-For example, if you were tracking Java versions, you may have a repository that contains some code that uses Java 8, 11, and 17. However, you should ensure that your measure recipes only include this repository once.
+For example, if you were tracking Java versions, you may have a repository that contains some code that uses Java 8, 11, and 17. However, you should ensure that your measure recipes only return this repository once.
 {% endhint %}
 
 Each card can have up to **three measures**. These measures should be returned in a specific order; with the most urgent being returned first and the least urgent being returned last. In the `Spring Boot 3.2` example, you might have: `Major`, `Minor`, and `Patch` returned in that specific order.
