@@ -22,11 +22,7 @@ After that, we'll provide some additional examples that show other capabilities 
 
 ```
 ➜  moderne-docs git:(main) ✗ mod
-        ▛▀▀▚▖  ▗▄▟▜
-        ▌   ▜▄▟▀  ▐
-        ▛▀▀█▀▛▀▀▀▀▜
-        ▌▟▀  ▛▀▀▀▀▜
-        ▀▀▀▀▀▀▀▀▀▀▀
+
 Moderne CLI 2.8.8
 
 Usage:
@@ -99,11 +95,7 @@ mod config recipes moderne install UpgradeSpringBoot_3_2
 
 ```shell
 ➜ mod config recipes moderne install UpgradeSpringBoot_3_2
-        ▛▀▀▚▖  ▗▄▟▜
-        ▌   ▜▄▟▀  ▐
-        ▛▀▀█▀▛▀▀▀▀▜
-        ▌▟▀  ▛▀▀▀▀▜
-        ▀▀▀▀▀▀▀▀▀▀▀
+
 Moderne CLI 2.8.8
 
 [1] Migrate to Spring Boot 3.2
@@ -204,11 +196,7 @@ mod build .
 <summary>You should see output similar to the following.</summary>
 
 ```
-        ▛▀▀▚▖  ▗▄▟▜
-        ▌   ▜▄▟▀  ▐
-        ▛▀▀█▀▛▀▀▀▀▜
-        ▌▟▀  ▛▀▀▀▀▜
-        ▀▀▀▀▀▀▀▀▀▀▀
+
 Moderne CLI 2.8.8
 
 > Selecting repositories
@@ -246,11 +234,7 @@ mod run . --recipe UpgradeSpringBoot_3_2
 <summary>You should see output similar to the following.</summary>
 
 ```
-    ▛▀▀▚▖  ▗▄▟▜
-    ▌   ▜▄▟▀  ▐
-    ▛▀▀█▀▛▀▀▀▀▜
-    ▌▟▀  ▛▀▀▀▀▜
-    ▀▀▀▀▀▀▀▀▀▀▀
+
  Moderne CLI 2.8.8
 
 > Selecting repositories

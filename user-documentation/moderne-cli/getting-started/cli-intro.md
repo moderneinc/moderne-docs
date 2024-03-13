@@ -44,11 +44,7 @@ If you use PowerShell, you can use the [Set-Alias command](https://learn.microso
 
 ```bash
 ➜  moderne-cli git:(main) mod
-        ▛▀▀▚▖  ▗▄▟▜
-        ▌   ▜▄▟▀  ▐
-        ▛▀▀█▀▛▀▀▀▀▜
-        ▌▟▀  ▛▀▀▀▀▜
-        ▀▀▀▀▀▀▀▀▀▀▀
+
 Moderne CLI 2.8.8
 
 Usage:

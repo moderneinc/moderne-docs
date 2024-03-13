@@ -30,12 +30,8 @@ mod config java jdk list
 
 ```shell
 ➜  moderne-cli git:(main) ✗ mod config java jdk list
-        ▛▀▀▚▖  ▗▄▟▜
-        ▌   ▜▄▟▀  ▐
-        ▛▀▀█▀▛▀▀▀▀▜
-        ▌▟▀  ▛▀▀▀▀▜
-        ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 1.8.0-SNAPSHOT
+
+Moderne CLI 2.8.8
 
 > Listing available JDKs
 
