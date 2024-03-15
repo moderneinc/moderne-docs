@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.85.0 (2024/03/15)
+
+- add API example to search page
+
 ### UI v10.84.1 (2024/03/14)
 
 - Bug fixes and other improvements.
