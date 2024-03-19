@@ -56,9 +56,11 @@ In order for the CLI to have access to read and publish LSTs, it will need to be
 mod config build maven settings edit /path/to/maven/settings
 ```
 
+{% code overflow="wrap" %}
 ```bash
 mod config recipes artifacts edit <artifact-repository-url> --user <user> --password <password>
 ```
+{% endcode %}
 
 ### Install recipe JARs
 
