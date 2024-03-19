@@ -440,15 +440,19 @@ If you want to customize what you get out of data tables, you can use templates.
 
 Run the following command:
 
+{% code overflow="wrap" %}
 ```bash
 mod run ./spring-data --recipe FindMethods -PmethodPattern="java.util.List add(..)"
 ```
+{% endcode %}
 
 Then, you can customize the output by providing a `--template` flag:
 
+{% code overflow="wrap" %}
 ```bash
 mod study ./spring-data --last-recipe-run --data-table MethodCalls --json sourceFile,method --template '{{"# Search results\n\n"}}{{range .}}{{"* "}}{{.sourceFile}}{{"\n```\n"}}{{.method}}{{"\n```\n"}}{{end}}' > methods.md 
 ```
+{% endcode %}
 
 In the above example, we are filtering the data table to only a couple columns we are interested in and then using a GoTemplate to produce a markdown file containing code samples for all of the matching methods we found in these 12 repositories.
 
