@@ -8,6 +8,14 @@ To meet all of these needs, the Moderne CLI offers a few options for how you can
 * [Local configuration (user-specific)](layer-config-cli.md#local-configuration-user-specific)
 * [Local configuration (shared)](layer-config-cli.md#local-configuration-shared)
 
+{% hint style="warning" %}
+If your company has a home directory that is not local (such as a network share), you should create a symlink for the `~/.moderne` directory to point to a local directory. This will drastically increase the speed of the Moderne CLI.
+
+```bash
+ln -s ~/.moderne <local_directory_location>
+```
+{% endhint %}
+
 ## Global configuration
 
 If your company has some configuration that will apply to most, if not all, projects, you should use global configuration. This will allow you to set arguments for any LST build for any project on the machine (which can be overridden by local configuration).
