@@ -56,6 +56,10 @@ In order for the CLI to have access to read and publish LSTs, it will need to be
 mod config build maven settings edit /path/to/maven/settings
 ```
 
+```bash
+mod config recipes artifacts edit <artifact-repository-url> --user <user> --password <password>
+```
+
 ### Install recipe JARs
 
 For each of the GAV coordinates below, please ensure that the artifact has been added to your internal Artifactory instance (assuming that your Artifactory instance is not a pure remote proxy to Maven Central already or that there isn't some automatic procurement step at dependency resolution time):
