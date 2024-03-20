@@ -23,6 +23,10 @@
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
 * [**mod config build gradle arguments edit**](#mod-config-build-gradle-arguments-edit)
 * [**mod config build gradle arguments show**](#mod-config-build-gradle-arguments-show)
+* [**mod config build gradle root**](#mod-config-build-gradle-root)
+* [**mod config build gradle root delete**](#mod-config-build-gradle-root-delete)
+* [**mod config build gradle root edit**](#mod-config-build-gradle-root-edit)
+* [**mod config build gradle root show**](#mod-config-build-gradle-root-show)
 * [**mod config build maven**](#mod-config-build-maven)
 * [**mod config build maven arguments**](#mod-config-build-maven-arguments)
 * [**mod config build maven arguments delete**](#mod-config-build-maven-arguments-delete)
@@ -614,6 +618,7 @@ mod config build gradle arguments edit --refresh-dependencies
 ### Subcommands
 
 * `arguments`: Configure Gradle build arguments.
+* `root`: (INCUBATING) Configure the directory containing the Gradle root build. This could be `.` to force the CLI to use the root directory of the repository as the Gradle build and look no deeper.
 
 ## mod config build gradle arguments
 
@@ -690,6 +695,100 @@ Displays the configured Gradle additional build arguments.
 
 ```
 mod config build gradle arguments show [parameters]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config build gradle root
+
+(INCUBATING) Configure the directory containing the Gradle root build. This could be `.` to force the CLI to use the root directory of the repository as the Gradle build and look no deeper.
+
+
+When this is set, the CLI does not attempt to find root Gradle builds in subdirectories or siblings recursively.
+
+### Usage
+
+```
+mod config build gradle root [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured directory containing the Gradle root build.
+* `edit`: Configure the directory containing the Gradle root build.
+* `show`: Displays the configured directory containing the Gradle root build.
+
+## mod config build gradle root delete
+
+Removes the configured directory containing the Gradle root build.
+
+
+### Usage
+
+```
+mod config build gradle root delete [parameters]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config build gradle root edit
+
+Configure the directory containing the Gradle root build.
+
+
+When this is set, the CLI does not attempt to find root Gradle builds in subdirectories or siblings recursively.
+
+### Usage
+
+```
+mod config build gradle root edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| root |  The directory containing the Gradle root build. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config build gradle root show
+
+Displays the configured directory containing the Gradle root build.
+
+
+### Usage
+
+```
+mod config build gradle root show [parameters]
 ```
 
 ### Options
