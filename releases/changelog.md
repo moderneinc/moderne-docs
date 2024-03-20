@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.87.0 (2024/03/20)
+
+- add more logo support
+
 ### UI v10.86.1 (2024/03/18)
 
 - Bug fixes and other improvements.
