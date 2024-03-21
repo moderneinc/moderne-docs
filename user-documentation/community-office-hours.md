@@ -12,7 +12,27 @@ You can find each of the office hours sessions below along with a summary of wha
 
 #### Summary and related links
 
-* Will be added after the office hours
+* As usual, we began by discussing announcements related to OpenRewrite & Moderne:
+  * Jonathan and Olga will both be presenting at [DevNexus 2024](https://devnexus.org/presentations/fundamentals-of-migration-engineering-with-openrewrite) in April.
+  * Jonathan will also be giving a keynote at [Uberconf 2024](https://uberconf.com/schedule) on Tuesday, July 16th. Definitely stop by if you're going to be there.
+  * We released a bunch of new videos on our YouTube channel:
+    * [Upgrading a Maven parent pom version](https://www.youtube.com/watch?v=LyQsQYfUlwI)
+    * [Writing dynamic recipe tests when the result of a recipe is dependent on an external system state](https://www.youtube.com/watch?v=O9o4y_2TO0w)
+    * [Find YAML properties on the Moderne platform](https://www.youtube.com/watch?v=MIEc9IOnfBc)
+    * [Regex support on the Moderne platform](https://www.youtube.com/watch?v=fkcDyLRGOUA)
+  * OpenRewrite v8.21.0 was released which includes bug fixes and some new recipes from some of our awesome community members.
+  * The [find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck) was updated to fix the version of transitive dependencies on top of direct dependencies.
+* We then welcomed Scott and Kyle as guest presenters to talk about JavaScript codemods. They are both senior developers here at Moderne, and they primarily specialize in frontend development. They:
+  * Started off by explaining why we decided to invest into supporting JavaScript codemods in the platform.
+  * Dove into [some examples of codemods](https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.NoUselessSpread) and discussed how we curated a list of important codemods.
+  * Discussed how we created recipes for each of the ESLint stylistic plugin rules. On top of those recipes, we also made [a larger ESLint recipe for styling recommended by ESLint](https://app.moderne.io/recipes/org.openrewrite.codemods.format.RecommendedESLintStyling).
+  * Explained some of the challenges we faced when adding support for upgrading Angular versions.
+  * Highlighted how you can use recipes to [upgrade your JavaScript code to replace lodash objects and functions with native JavaScript](https://app.moderne.io/marketplace/org.openrewrite.codemods.migrate.lodash).
+  * Detailed what changes we'd still like to do and what things are still giving us trouble.
+  * Walked through the [Lint source code with ESLint recipe](https://app.moderne.io/recipes/org.openrewrite.codemods.ESLint) and explained how that recipe returns useful data tables and visualizations for tracking problems with your source code.
+  * Explained how to create your own codemod recipes via a YAML file and provided an example for what this looks like.
+  * Talked about what codemods they use most often in their day-to-day basis (e.g., [improve regexes by making them shorter, consistent, and safer](https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.BetterRegex)).
+
 
 ### Refaster style recipes & Picnic's Error Print Support (March 12th, 2024)
 
