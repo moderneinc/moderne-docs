@@ -71,16 +71,7 @@ This will trigger the process for building the visualization. Once it's done bui
 
 ## How to create visualizations
 
-A visualization is composed of four things:
-
-1. A [Jupyter/IPython Notebook](https://ipython.org/notebook.html) (e.g., [depenedency vulnerability notebook](https://github.com/moderneinc/moderne-visualizations-misc/blob/main/moderne_visualizations_misc/dependency_vulnerabilities.ipynb))
-2. A ["spec"](https://github.com/moderneinc/moderne-visualizations-misc/blob/main/moderne_visualizations_misc/specs/dependency_vulnerabilities.yml) which defines the visualization and states which recipes the visualization applies to
-3. (_Optional, but recommended_) [An image](https://github.com/moderneinc/moderne-visualizations-misc/blob/main/moderne_visualizations_misc/images/dependency_vulnerabilities.300.png) that represents the visualization. If your recipe spec was named `foo_bar` and your image had a height of 300 pixels, your image should be named `foo_bar.300.png`
-4. (_Optional, but recommended_) [Sample data](https://github.com/moderneinc/moderne-visualizations-misc/blob/main/samples/dependency_vulnerabilities.csv) for testing the visualization
-
-When you have those four things, you will need to publish a repository as a PyPI package to an internal PyPI repository. Once you've done that, please [configure your agent with access to said repository](/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-pypi-access-visualizations.md).
-
-For examples of visualizations the Moderne team has created, please check out our public [moderne-visualizations-misc repository](https://github.com/moderneinc/moderne-visualizations-misc).
+Please see our [how to create visualizations guide](/administrator-documentation/moderne-platform/how-to-guides/create-visualization.md).
 
 ## Visualization examples
 
