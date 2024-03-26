@@ -20,7 +20,7 @@ mod config license edit <license-you-were-provided>
 
 ## License check flow
 
-The following diagram shows the flow of what checks will happen when you attempt to run a recipe with the CLI.
+The following diagram shows the flow of what checks will happen when you attempt to run a recipe with the CLI:
 
 <figure><img src="../../../.gitbook/assets/license-flow (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -35,6 +35,6 @@ We use [elliptic-curve cryptography ](https://en.wikipedia.org/wiki/Elliptic-cur
 1. Data (base 64 encoded customer name + expiration date)
 2. A signature
 
-The following diagram demonstrates how this license is created and used. Note that because the public key is bundled with the CLI, no external calls need to be made to verify the integrity of the license key.
+The following diagram demonstrates how this license is created and used. Note that because the public key is bundled with the CLI, _no external calls need to be made to verify the integrity of the license key_:
 
 <figure><img src="../../../.gitbook/assets/cli-license-check.png" alt=""><figcaption></figcaption></figure>
