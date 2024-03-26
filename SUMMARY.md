@@ -29,6 +29,7 @@
 * [Moderne CLI](user-documentation/moderne-cli/README.md)
   * [Getting started](user-documentation/moderne-cli/getting-started/README.md)
     * [Getting started with the Moderne CLI](user-documentation/moderne-cli/getting-started/cli-intro.md)
+    * [Moderne CLI license](user-documentation/moderne-cli/getting-started/moderne-cli-license.md)
   * [How to guides](user-documentation/moderne-cli/how-to-guides/README.md)
     * [Layered configuration in the Moderne CLI](user-documentation/moderne-cli/how-to-guides/layer-config-cli.md)
     * [JDK configuration in the Moderne CLI](user-documentation/moderne-cli/how-to-guides/jdk-selection-and-config.md)
