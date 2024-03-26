@@ -144,6 +144,10 @@ mod config lsts artifacts artifactory edit <repository url> --user=${ARTIFACTS_U
 mod config lsts artifacts maven edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
 
+### (Optionally) Configure a license key
+
+If you are wanting to run the CLI against private repositories you will need to configure a license. Please follow the instructions in the [Moderne CLI license doc](./moderne-cli-license.md)
+
 ## Additional reading
 
 * [Try using the CLI in the Moderne CLI workshop](../../workshops/moderne-cli-exercise.md)
