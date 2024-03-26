@@ -6,7 +6,7 @@ In this doc, we will walk through everything you need to know about the Moderne 
 
 ## How to receive a license key
 
-If you wish to use the CLI to run recipes on your private repositories and you have a contract with Moderne, please reach out and we will provide you with a license key.&#x20;
+If you wish to use the CLI to run recipes on your private repositories and you have a contract with Moderne, please reach out and we will provide you with a license key.
 
 If you don't have a contract with Moderne, but want to get started with a free trial and learn more about our products, please fill out [our try Moderne form](https://www.moderne.io/try-moderne).
 
@@ -25,7 +25,11 @@ The following diagram shows the flow of what checks will happen when you attempt
 <figure><img src="../../../.gitbook/assets/license-flow (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-If you have configured a license key, no network calls will ever be made to GitHub to check to see if the repository is public.
+Some important details about the license check:
+
+* The license **check does NOT make any call home requests to Moderne** (the public key packaged inside of the CLI is enough to verify the integrity of the signature).
+* Verification of the Moderne tenant configuration only makes a call to the Moderne tenant. If you are using DX, this is a call to inside of your private network. If you are using the Moderne Platform, this is a call to your isolated tenant (and not Moderne as a whole).&#x20;
+* If you have configured a license key, no network calls will ever be made to GitHub to check to see if a repository is public.
 {% endhint %}
 
 ## License details
