@@ -236,7 +236,7 @@ java -jar moderne-dx-{version}.jar \
 
 ### Step 5: (Optionally) Provide SSL client keystore
 
-If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please see the [configure DX with SSL certificate instructions](../../how-to-guides/dx-configuration/configure-dx-ssl.md).
+If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please see the [configure DX with SSL certificate instructions](./configure-dx-ssl.md).
 
 ### Step 6: Run the service
 

@@ -98,6 +98,7 @@
     * [Configure the Organizations service with Moderne DX](administrator-documentation/moderne-dx/how-to-guides/configure-dx-org-service.md)
     * [Deploying recipe artifacts in Moderne DX](administrator-documentation/moderne-dx/how-to-guides/deploying-recipe-artifacts-in-moderne-dx.md)
     * [Configure Moderne DX with strict recipe sources](administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-strict-recipe-sources.md)
+    * [Configure DX with SSL certificate](administrator-documentation/moderne-dx/how-to-guides/configure-dx-ssl.md)
   * [References](administrator-documentation/moderne-dx/references/README.md)
     * [Moderne DX architecture](administrator-documentation/moderne-dx/references/moderne-dx-architecture.md)
 * [Licensing](administrator-documentation/licensing.md)
