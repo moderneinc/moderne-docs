@@ -116,7 +116,7 @@ Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/sett
 Once created, copy the token and use it in the following command:
 
 ```shell
-mod config moderne edit https://app.moderne.io --token mat-YOUR_TOKEN_HERE
+mod config moderne edit --token mat-YOUR_TOKEN_HERE
 ```
 
 This command will set up the connection to Moderne so that you can install and run recipes. If you have a private tenant, you'll want to replace `https://app.moderne.io` with the link to your Moderne UI.
