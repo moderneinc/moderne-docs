@@ -28,7 +28,7 @@ Add the following function to your `.bashrc` file:
 
 ```bash
 mod() {
-    "java -jar /path/to/mod.jar" $@
+    "java -jar /path/to/mod.jar" "$@"
 }
 ```
 {% endtab %}
@@ -37,7 +37,7 @@ mod() {
 Add the following to your `.bashrc` or `.zshrc` file:
 
 ```bash
-alias mod=”java -jar /path/to/mod.jar” $@
+alias mod=”java -jar /path/to/mod.jar” "$@"
 ```
 
 {% endtab %}
