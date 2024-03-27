@@ -318,6 +318,6 @@ To update your version of the Executable JAR, change the `{version}` in `java -j
 {% endtab %}
 {% endtabs %}
 
-## Configure the license for the CLI component
+## Configure the Moderne CLI license
 
-Please follow the instructions in the [Moderne CLI license doc](./moderne-cli-license.md).
+Configuring the license is required in order to run recipes using the Moderne CLI. To configure this, please follow the instructions in the [Moderne CLI license doc](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
