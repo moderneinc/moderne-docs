@@ -28,7 +28,7 @@ If you use Git Bash and have a `.bashrc` file, you can add a function to it alon
 
 ```bash
 mod() {
-  "java -jar /path/to/mod.jar" $@
+  "java -jar /path/to/mod.jar" "$@"
 }
 ```
 
