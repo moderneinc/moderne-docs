@@ -317,3 +317,7 @@ If that's true, then you can simply restart the service and it should pick up th
 To update your version of the Executable JAR, change the `{version}` in `java -jar moderne-dx-{version}.jar` to be the latest one on [the releases page](dx-configuration.md) (coming soon).
 {% endtab %}
 {% endtabs %}
+
+## Configure the license for the CLI component
+
+Please follow the instructions in the [Moderne CLI license doc](./moderne-cli-license.md)
