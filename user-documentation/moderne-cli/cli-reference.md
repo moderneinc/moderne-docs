@@ -73,6 +73,10 @@
 * [**mod config java version edit**](#mod-config-java-version-edit)
 * [**mod config java version delete**](#mod-config-java-version-delete)
 * [**mod config java version show**](#mod-config-java-version-show)
+* [**mod config license**](#mod-config-license)
+* [**mod config license delete**](#mod-config-license-delete)
+* [**mod config license edit**](#mod-config-license-edit)
+* [**mod config license show**](#mod-config-license-show)
 * [**mod config lsts**](#mod-config-lsts)
 * [**mod config lsts artifacts**](#mod-config-lsts-artifacts)
 * [**mod config lsts artifacts artifactory**](#mod-config-lsts-artifacts-artifactory)
@@ -133,6 +137,7 @@
 * [**mod git checkout**](#mod-git-checkout)
 * [**mod git clone**](#mod-git-clone)
 * [**mod git clone csv**](#mod-git-clone-csv)
+* [**mod git clone json**](#mod-git-clone-json)
 * [**mod git clone moderne**](#mod-git-clone-moderne)
 * [**mod git commit**](#mod-git-commit)
 * [**mod git pull**](#mod-git-pull)
@@ -356,6 +361,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `environment`: The build environment that the CLI is running in.
 * `http`: Configures HTTP options that will be used throughout the CLI.
 * `java`: Configures Java options used for building LSTs and running recipes.
+* `license`: Configure a license key.
 * `lsts`: Configures LSTs production and publishing. 
 * `moderne`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
@@ -1849,6 +1855,100 @@ mod config java version show [parameters]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
+## mod config license
+
+Configure a license key.
+
+
+A license key allows for running recipes on private repositories without a connection to a Moderne tenant.
+
+### Usage
+
+```
+mod config license [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured license key.
+* `edit`: Configure the active user.
+* `show`: Displays information about the configured license key.
+
+## mod config license delete
+
+Removes the configured license key.
+
+
+### Usage
+
+```
+mod config license delete [parameters]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config license edit
+
+Configure the active user.
+
+
+A license key allows for running recipes on private repositories without a connection to a Moderne tenant.
+
+### Usage
+
+```
+mod config license edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| license |  The license key, provided by Moderne support. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config license show
+
+Displays information about the configured license key.
+
+
+### Usage
+
+```
+mod config license show [parameters]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
 ## mod config lsts
 
 Configures LSTs production and publishing. 
@@ -3276,6 +3376,7 @@ mod git clone moderne /path/to/folder/to/clone/into Apache
 ### Subcommands
 
 * `csv`: Clones the repositories listed in a CSV file.
+* `json`: Clones the repositories listed in a JSON file.
 * `moderne`: Clones the repositories in an organization on Moderne.
 
 ## mod git clone csv
@@ -3305,6 +3406,39 @@ mod git clone csv [parameters]
 | --depth |  |
 | --filter |  |
 | --limit |  The maximum number of repositories to clone. |
+| --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
+| --save |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. |
+| --single-branch |  |
+
+
+## mod git clone json
+
+Clones the repositories listed in a JSON file.
+
+
+The JSON file should consist of an array of repositories with the required keys **cloneUrl| and @|bold branch** and any number of optional keys. The optional keys are **changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**.
+
+### Usage
+
+```
+mod git clone json [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| cloneInto |  The directory to clone all projects into. This directory will be created if it doesn't exist. |
+| json |  The path to a JSON file containing repositories to clone. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --depth |  |
+| --filter |  |
+| --limit |  The maximum number of repositories to clone. |
+| --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
 | --save |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. |
 | --single-branch |  |
 
@@ -3336,6 +3470,7 @@ mod git clone moderne [parameters]
 | --depth |  |
 | --filter |  |
 | --limit |  The maximum number of repositories to clone. |
+| --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
 | --single-branch |  |
 
 
