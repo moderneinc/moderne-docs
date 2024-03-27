@@ -127,8 +127,8 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
---moderne.dx.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.dx.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
+--moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.maven[0].username=admin \
@@ -174,8 +174,8 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
---moderne.dx.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.dx.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
+--moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.maven[0].username=admin \
@@ -221,8 +221,8 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
---moderne.dx.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.dx.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
+--moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.maven[0].username=admin \
@@ -236,7 +236,7 @@ java -jar moderne-dx-{version}.jar \
 
 ### Step 5: (Optionally) Provide SSL client keystore
 
-If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please see the [configure DX with SSL certificate instructions](./configure-dx-ssl.md).
+If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please see the [configure DX with SSL certificate instructions](configure-dx-ssl.md).
 
 ### Step 6: Run the service
 
@@ -288,8 +288,8 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
---moderne.dx.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.dx.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
+--moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.maven[0].username=admin \
@@ -320,4 +320,4 @@ To update your version of the Executable JAR, change the `{version}` in `java -j
 
 ## Configure the Moderne CLI license
 
-Configuring the license is required in order to run recipes using the Moderne CLI. To configure this, please follow the instructions in the [Moderne CLI license doc](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
+Configuring the license is required in order to run recipes using the Moderne CLI. To configure this, please follow the instructions in the [Moderne CLI license doc](../../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
