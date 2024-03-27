@@ -25,6 +25,7 @@ To help you get accustomed to Moderne's search capabilities, in this guide, we w
 
 * [Walk through an example of using a search recipe](introduction-to-type-aware-code-search.md#using-a-search-recipe)
 * [Teach you how to find type-aware search recipes](introduction-to-type-aware-code-search.md#finding-type-aware-search-recipes)
+* [Demonstrate how you can use regex to improve your searches](#using-regex-in-searches)
 
 ## Using a search recipe
 
@@ -82,3 +83,7 @@ To discover all of the type-aware search recipes, please follow these steps:
 
     ![](../../../.gitbook/assets/search-recipe-examples.png)
 * Click on whichever one you are interested in exploring.
+
+## Using regex in searches
+
+{% embed url="https://www.youtube.com/watch?v=fkcDyLRGOUA" %}
