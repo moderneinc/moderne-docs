@@ -223,6 +223,10 @@ MOD SUCCEEDED in (27s)
 
 </details>
 
+{% hint style="info" %}
+If you are wanting to run the CLI against private repositories you will [need to configure a license](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md). This isn't needed for this workshop, though.
+{% endhint %}
+
 2. Kick off the migration recipe by running the following command from the `spring-petclinic` repository:
 
 ```bash
