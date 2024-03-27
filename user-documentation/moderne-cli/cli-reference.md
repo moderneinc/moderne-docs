@@ -2314,7 +2314,7 @@ mod config moderne edit <host> --token <token>
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 | --skip-ssl |  If this parameter is included, SSL verification will be skipped. |  |
-| --token |  The Moderne personal access token to use. |  |
+| --token |  The Moderne personal access token to use. Not required to access Moderne DX as a regular, non-administrator user. |  |
 
 
 ## mod config moderne local
