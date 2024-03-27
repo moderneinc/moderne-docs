@@ -84,7 +84,7 @@ MOD SUCCEEDED in (0.01s)
 
 </details>
 
-### (Optionally) Set up auto-completion in your terminal (Unix terminals only)
+### (Optional) Set up auto-completion in your terminal (Unix terminals only)
 
 The Moderne CLI offers a command which generates a completion script that can be used to set up auto-completion in your terminal. After initializing this script, you can type `mod config` and press tab and then your terminal will offer suggestions for the sub-commands or parameters:
 
@@ -111,6 +111,8 @@ Before you can run most commands, you'll need to configure the CLI:
 
 Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token), enter a human-readable name for the token (e.g., cli-token), and then press `generate`.
 
+![](/.gitbook/assets/token-create.png)
+
 Once created, copy the token and use it in the following command:
 
 ```shell
@@ -135,21 +137,31 @@ If you want to install a specific recipe rather than all of the recipes, you can
 mod config recipes moderne install <recipe_search_term> 
 ```
 
-### (Optionally) Configure artifact publishing and downloading
+### (Optional) Configure artifact publishing and downloading
 
 If you want to publish artifacts from the CLI or download LSTs from your artifact repository when running commands, you'll need to run one of the following commands depending on where your LST artifacts live:
 
+{% tabs %}
+{% tab title="JFrog Artifactory" %}
 ```shell
-# For JFrog Artifactory
 mod config lsts artifacts artifactory edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
+```
+{% endtab %}
 
-# For other artifact repositories, such as Sonatype Nexus
+{% tab title="Other artifact repositories, such as Sonatype Nexus" %}
+```shell
 mod config lsts artifacts maven edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
+{% endtab %}
+{% endtabs %}
 
-### (Optionally) Configure a license key
+### (Optional) Configure a license key
 
-If you are wanting to run the CLI against private repositories you will need to [configure a license](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
+If you are wanting to run the CLI against **private repositories** you will need to [configure a license](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
+
+```shell
+mod config license edit <license_key>
+```
 
 ## Additional reading
 
