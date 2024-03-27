@@ -130,7 +130,7 @@ Here is what this looks like if everything ran correctly:
 ```bash
 ➜ mod git clone csv ./spring-data repos.csv --filter=tree:0
 
-Moderne CLI 2.8.8
+Moderne CLI 2.9.3
 
 > Reading CSV file
 
@@ -168,7 +168,7 @@ Notice that you didn't need to configure Maven or Gradle, select Java versions, 
 ```bash
 ➜ mod build ./spring-data
 
-Moderne CLI 2.8.8
+Moderne CLI 2.9.3
 
 > Selecting repositories
 
@@ -224,7 +224,7 @@ To view the diff, you can command + click on the file (or ctrl + click if on Win
 ```bash
 ➜ mod run ./spring-data --recipe CommonStaticAnalysis
 
-Moderne CLI 2.8.8
+Moderne CLI 2.9.3
 
 > Selecting repositories
 
@@ -298,7 +298,7 @@ MOD SUCCEEDED in (2m 15s)
 ```bash
 ➜ mod run ./spring-data --recipe UpgradeToJava17
 
-Moderne CLI 2.8.8
+Moderne CLI 2.9.3
 
 > Selecting repositories
 
@@ -390,7 +390,7 @@ You should see:
 ```bash
 ➜ mod study ./spring-data --last-recipe-run --data-table SourcesFileResults
 
-Moderne CLI 2.8.8
+Moderne CLI 2.9.3
 
 Found recipe run 20240318101630-1v5cN
 

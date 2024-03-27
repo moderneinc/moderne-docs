@@ -45,11 +45,11 @@ If you use PowerShell, you can use the [Set-Alias command](https://learn.microso
 ```bash
 ➜  moderne-cli git:(main) mod
 
-Moderne CLI 2.8.8
+Moderne CLI 2.9.3
 
 Usage:
 
-mod [-h] [COMMAND]
+mod [-h] [--version] [COMMAND]
 
 Description:
 
@@ -57,18 +57,21 @@ Automated code remediation.
 
 Options:
 
-  -h, --help   Display this help message.
-
+  -h, --help      Display this help message.
+      --version   Display version info.
 Commands:
 
   build                Generates LST artifacts for one or more repositories.
   clean                Clean build and run artifacts produced by the CLI.
-  config               Global configuration options that are required by some
-                         CLI commands.
+  config               Global bacon options that are required by some CLI
+                         commands.
   exec                 Execute an arbitrary shell command recursively on
                          selected repository roots.
   git                  Multi-repository git operations.
+  log                  Manages a log aggregate.
   list                 Lists the repositories that can be built and published.
+  monitor              (INCUBATING) Launches an HTTP server used to monitor the
+                         CLI.
   publish              Publishes the LST artifacts for one or more projects.
   run                  Runs an OpenRewrite recipe locally on pre-built LSTS.
   run-history          Get information about the most recent recipe runs.

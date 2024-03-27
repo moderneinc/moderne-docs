@@ -31,7 +31,7 @@ mod config java jdk list
 ```shell
 ➜  moderne-cli git:(main) ✗ mod config java jdk list
 
-Moderne CLI 2.8.8
+Moderne CLI 2.9.3
 
 > Listing available JDKs
 
@@ -47,6 +47,10 @@ Moderne CLI 2.8.8
 1.8.0_392-other  SDKMAN        /Users/mikesol/.sdkman/candidates/java/8.0.392-amzn/bin/java
 1.8.0_382-other  SDKMAN        /Users/mikesol/.sdkman/candidates/java/8.0.382-amzn/bin/java
 
+* What to do next
+    > Run mod config java jdk edit to change this configuration
+    > Add --local <path-to-local-repos> to see repository-specific values
+    > Run mod config java jdk delete to delete global configuration
 
 MOD SUCCEEDED in (0.62s)
 ```
