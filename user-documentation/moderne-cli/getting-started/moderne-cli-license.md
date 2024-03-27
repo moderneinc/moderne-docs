@@ -2,7 +2,7 @@
 
 In order to **run recipes against private** repositories you will need to receive and configure a license. If you are using the CLI to run recipes against public repositories, you do not need to worry about a license.
 
-In this doc, we will walk through everything you need to know about the Moderne CLI license – from how to get one to how to configure one to what the technical flow is like for using one.
+In this doc, we will walk through everything you need to know about the Moderne CLI license – from how to get one to how to configure one to all the details about how data flows through the systems.
 
 ## How to receive a license key
 
