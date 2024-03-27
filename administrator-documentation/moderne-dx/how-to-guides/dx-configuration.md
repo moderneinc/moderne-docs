@@ -320,4 +320,4 @@ To update your version of the Executable JAR, change the `{version}` in `java -j
 
 ## Configure the license for the CLI component
 
-Please follow the instructions in the [Moderne CLI license doc](./moderne-cli-license.md)
+Please follow the instructions in the [Moderne CLI license doc](./moderne-cli-license.md).

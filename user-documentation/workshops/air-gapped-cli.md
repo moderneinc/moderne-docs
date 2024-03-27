@@ -48,6 +48,10 @@ Use the [Set-Alias command](https://learn.microsoft.com/en-us/powershell/module/
 {% endtab %}
 {% endtabs %}
 
+### Configure the CLI to use your license key
+
+Please follow the instructions in the [Moderne CLI license doc](./moderne-cli-license.md).
+
 ### Configure the CLI to point to your internal Artifactory
 
 In order for the CLI to have access to read and publish LSTs, it will need to be provided with the path to your Maven settings file. This likely already exists on developer machines for the sake of redirecting requests from Maven Central to an internal Artifactory instance. Recipe installation in the next step will use this Maven settings file.
