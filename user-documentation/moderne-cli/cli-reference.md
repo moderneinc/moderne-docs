@@ -93,6 +93,8 @@
 * [**mod config moderne edit**](#mod-config-moderne-edit)
 * [**mod config moderne local**](#mod-config-moderne-local)
 * [**mod config moderne show**](#mod-config-moderne-show)
+* [**mod config moderne organizations**](#mod-config-moderne-organizations)
+* [**mod config moderne organizations show**](#mod-config-moderne-organizations-show)
 * [**mod config recipes**](#mod-config-recipes)
 * [**mod config recipes artifacts**](#mod-config-recipes-artifacts)
 * [**mod config recipes artifacts artifactory**](#mod-config-recipes-artifacts-artifactory)
@@ -100,6 +102,10 @@
 * [**mod config recipes artifacts artifactory delete**](#mod-config-recipes-artifacts-artifactory-delete)
 * [**mod config recipes artifacts artifactory show**](#mod-config-recipes-artifacts-artifactory-show)
 * [**mod config recipes artifacts show**](#mod-config-recipes-artifacts-show)
+* [**mod config recipes artifacts default-repositories**](#mod-config-recipes-artifacts-default-repositories)
+* [**mod config recipes artifacts default-repositories enable**](#mod-config-recipes-artifacts-default-repositories-enable)
+* [**mod config recipes artifacts default-repositories disable**](#mod-config-recipes-artifacts-default-repositories-disable)
+* [**mod config recipes artifacts default-repositories show**](#mod-config-recipes-artifacts-default-repositories-show)
 * [**mod config recipes artifacts maven**](#mod-config-recipes-artifacts-maven)
 * [**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit)
 * [**mod config recipes artifacts maven delete**](#mod-config-recipes-artifacts-maven-delete)
@@ -2253,6 +2259,7 @@ mod config moderne edit <host> --token <token>
 * `edit`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `local`: Configures a connection to a Moderne DX instance running locally on the same machine.
 * `show`: Displays the Moderne tenant configuration.
+* `organizations`: The organizational hierarchy of repository ownership.
 
 ## mod config moderne delete
 
@@ -2365,6 +2372,48 @@ mod config moderne show [parameters]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
+## mod config moderne organizations
+
+The organizational hierarchy of repository ownership.
+
+
+Each of these organizations are cloneable.
+
+### Usage
+
+```
+mod config moderne organizations [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `show`: Displays the Moderne view of organizational hierarchy.
+
+## mod config moderne organizations show
+
+Displays the Moderne view of organizational hierarchy.
+
+
+
+
+### Usage
+
+```
+mod config moderne organizations show [parameters]
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
 ## mod config recipes
 
 Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
@@ -2387,7 +2436,7 @@ mod config recipes sync moderne
 
 ### Subcommands
 
-* `artifacts`: Configures the artifact repository to resolve recipes from.
+* `artifacts`: Configures artifact repositories to resolve recipes from.
 * `export`: Export the recipe catalog for study by different tools.
 * `jar`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
 * `moderne`: Configures which Moderne recipes should be installed and used in the local CLI marketplace.
@@ -2398,10 +2447,10 @@ mod config recipes sync moderne
 
 ## mod config recipes artifacts
 
-Configures the artifact repository to resolve recipes from.
+Configures artifact repositories to resolve recipes from.
 
 
-Defaults to OSS Sonatype if an artifact repository is not provided.
+Defaults to resolving recipes from Maven Central and Nexus Snapshots.
 
 ### Usage
 
@@ -2414,6 +2463,7 @@ mod config recipes artifacts [parameters] [subcommands]
 
 * `artifactory`: Configures the artifact repository to resolve recipes from.
 * `show`: Displays the recipe artifacts repository configuration.
+* `default-repositories`: (INCUBATING) Configure the availability of default repositories.
 * `maven`: Configures a Maven-formatted artifact repository that recipes will be resolved from.
 
 ## mod config recipes artifacts artifactory
@@ -2513,6 +2563,65 @@ Displays the recipe artifacts repository configuration.
 
 ```
 mod config recipes artifacts show [parameters]
+```
+
+
+
+## mod config recipes artifacts default-repositories
+
+(INCUBATING) Configure the availability of default repositories.
+
+
+Maven Central and Nexus Snapshots are considered as valid recipe sources by default.In some environments access to these repositories is not allowed. This can be used to disable any attempt to access them.
+
+### Usage
+
+```
+mod config recipes artifacts default-repositories [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `enable`
+* `disable`
+* `show`
+
+## mod config recipes artifacts default-repositories enable
+
+
+(INCUBATING) Enable default repositories.
+
+### Usage
+
+```
+mod config recipes artifacts default-repositories enable [parameters]
+```
+
+
+
+## mod config recipes artifacts default-repositories disable
+
+
+(INCUBATING) Disable default repositories.
+
+### Usage
+
+```
+mod config recipes artifacts default-repositories disable [parameters]
+```
+
+
+
+## mod config recipes artifacts default-repositories show
+
+
+(INCUBATING) Show the current configuration of default repositories.
+
+### Usage
+
+```
+mod config recipes artifacts default-repositories show [parameters]
 ```
 
 
