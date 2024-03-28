@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.92.0 (2024/03/28)
+
+- organizations tile with refresh organizations button
+
 ### UI v10.91.0 (2024/03/26)
 
 - Bug fixes and other improvements.
