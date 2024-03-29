@@ -48,6 +48,8 @@
 * ~~[**mod config artifacts maven show**](#mod-config-artifacts-maven-show-deprecated)~~ (deprecated)
 * [**mod config environment**](#mod-config-environment)
 * [**mod config environment show**](#mod-config-environment-show)
+* [**mod config features**](#mod-config-features)
+* [**mod config features index-recipes**](#mod-config-features-index-recipes)
 * [**mod config http**](#mod-config-http)
 * [**mod config http proxy**](#mod-config-http-proxy)
 * [**mod config http proxy delete**](#mod-config-http-proxy-delete)
@@ -365,6 +367,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `build`: Configures build tools used to produce LSTs.
 * `artifacts`: Configures the storage layer for LSTs to be published to and downloaded from. 
 * `environment`: The build environment that the CLI is running in.
+* `features`: Configures experimental features.
 * `http`: Configures HTTP options that will be used throughout the CLI.
 * `java`: Configures Java options used for building LSTs and running recipes.
 * `license`: Configure a license key.
@@ -1332,6 +1335,42 @@ Will output information about the environment the CLI is running in (e.g., a loc
 mod config environment show [parameters]
 ```
 
+
+
+## mod config features
+
+Configures experimental features.
+
+
+Experimental features are not guaranteed to be stable and may change in future releases.
+
+### Usage
+
+```
+mod config features [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `index-recipes`
+
+## mod config features index-recipes
+
+
+Index recipes to avoid classloading expense on every repository. This experimental feature does not change the command line for running a recipe, but since recipes are instantiated differently, is considered experimental initially.
+
+### Usage
+
+```
+mod config features index-recipes [parameters]
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --enabled |  |
 
 
 ## mod config http
