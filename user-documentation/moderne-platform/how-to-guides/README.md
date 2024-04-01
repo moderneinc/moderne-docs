@@ -11,4 +11,3 @@
 * [How to use preconditions](preconditions.md)
 * [How to track migration status with Moderne](track-migrations.md)
 * [How to upgrade transitive dependencies](transitive-dependencies.md)
-* [JavaScript codemods scaled with Moderne](code-mods.md)
