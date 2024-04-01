@@ -5,3 +5,4 @@
 * [Getting started with data tables](data-tables.md)
 * [Getting started with visualizations](visualizations.md)
 * [Using the activity view](activity-view.md)
+* [JavaScript codemods scaled with Moderne](code-mods.md)

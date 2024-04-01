@@ -6,7 +6,7 @@ Unfortunately, codemods are designed to run on only a single repository. If you'
 
 Fortunately, Moderne has recently added support for codemods. With Moderne, you can quickly run many codemods across all of your repositories in only a few minutes.
 
-In this short how-to guide, we will walk through where you can find the Moderne codemods, and we will demonstrate a real-world situation where you might use them at scale.
+In this short getting started guide, we will walk through where you can find the Moderne codemods, and we will demonstrate a real-world situation where you might use them at scale.
 
 {% embed url="https://www.youtube.com/watch?v=lXVPwW30fFk" %}
 
