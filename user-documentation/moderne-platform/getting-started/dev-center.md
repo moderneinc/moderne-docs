@@ -44,7 +44,7 @@ The visualizations section allows you to perform real-time impact analysis. For 
 
 Similar to the framework and migration cards, these cards are [configured by the organizational administrator](/administrator-documentation/moderne-platform/how-to-guides/dev-center.md#visualization-cards).
 
-You can press `view` on each visualization card to run a recipe and generate the associated visualization.
+You can press `view` on each visualization card to run a recipe and generate the associated visualization. If a visualization has been generated recently, you will be taken to that directly to save time.
 
 ![Example visualization cards](/.gitbook/assets/vis-cards.png)
 
@@ -55,6 +55,8 @@ You can press `view` on each visualization card to run a recipe and generate the
 The security section lets you quickly see what security issues your company has or hasn't resolved. It also allows you to quickly run security recipes against your repositories to either try and fix the issues or gather more data about them.
 
 As with the other components, the [security issues are configured by the organizational administrator](/administrator-documentation/moderne-platform/how-to-guides/dev-center.md#security-cards).
+
+You can press `fix` to run a particular security recipe. If one of these recipes has been run recently, you will be taken to that directly to save time.
 
 ![Example security card](/.gitbook/assets/security-card.png)
 
