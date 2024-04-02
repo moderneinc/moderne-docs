@@ -72,9 +72,9 @@ The `devcenter.json` file is where all of the configuration lies for DevCenters.
 When creating a DevCenter for the first time, we **strongly recommend** that you only create a DevCenter for a few key organizations. This will allow you to get data into the platform faster and ensure that you've configured everything correctly. Once everything is working as expected, you can then add more DevCenters as desired.
 {% endhint %}
 
-### Upgrade and migration cards
+### Frameworks and migration cards
 
-Upgrade and migration cards allow you to see things like what Java version your repositories use, what version of Spring Boot they're on, or what JUnit version they use:
+Framework and migration cards allow you to see things like what Java version your repositories use, what version of Spring Boot they're on, or what JUnit version they use:
 
 ![](../../../.gitbook/assets/migration-card.png)
 
@@ -90,8 +90,6 @@ Each measure consists of a name and a recipe that can be used to determine wheth
 
 {% hint style="danger" %}
 You must ensure that the measure recipes return disjointed results (i.e., the same repository **can not** be returned by multiple recipes).
-
-
 
 For example, if you were tracking Java versions, you may have a repository that contains some code that uses Java 8, 11, and 17. However, you should ensure that your measure recipes only return this repository once.
 {% endhint %}

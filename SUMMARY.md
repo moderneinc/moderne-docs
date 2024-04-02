@@ -10,6 +10,7 @@
     * [Enhancing code quality through static analysis remediations](user-documentation/moderne-platform/getting-started/code-quality.md)
     * [Getting started with data tables](user-documentation/moderne-platform/getting-started/data-tables.md)
     * [Getting started with visualizations](user-documentation/moderne-platform/getting-started/visualizations.md)
+    * [Getting started with the Moderne DevCenter](user-documentation/moderne-platform/getting-started/dev-center.md)
     * [Using the activity view](user-documentation/moderne-platform/getting-started/activity-view.md)
     * [JavaScript codemods scaled with Moderne](user-documentation/moderne-platform/getting-started/code-mods.md)
   * [How to guides](user-documentation/moderne-platform/how-to-guides/README.md)
