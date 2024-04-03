@@ -50,7 +50,13 @@ Use the [Set-Alias command](https://learn.microsoft.com/en-us/powershell/module/
 
 ### Configure the CLI to use your license key
 
-Please follow the instructions in the [Moderne CLI license doc](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
+Please run the following command to configure your license: 
+
+```bash
+mod config license edit <license-you-were-provided>
+```
+
+If you want more details about the license and its checks, please see our [Moderne CLI license doc](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
 
 ### Configure the CLI to point to your internal Artifactory
 
