@@ -476,4 +476,9 @@ Coming soon! In it, we will:
 
 * Review the concepts necessary for recipe development: the visitor design pattern and data structures in use
 * Discuss and understand the custom migration we want to implement together
-* Write a recipe to conduct an impact analysis of the technology in use, which in turn, guides our implementation of the migration recipes. 
+* Write a recipe to conduct an impact analysis of the technology in use, which in turn, guides our implementation of the migration recipes.
+* 
+
+## XML findings
+
+`mod run . --recipe=org.openrewrite.xml.search.FindTags --recipe-option="xPath=/dependencies/dependency"` 
