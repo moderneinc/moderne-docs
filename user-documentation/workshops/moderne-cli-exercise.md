@@ -1650,7 +1650,7 @@ MOD SUCCEEDED in (4s)
 
 </details>
 
-```
+```bash
 mod run $HOME/workshop --recipe UpgradeSpringBoot_3_2
 ```
 
@@ -1915,6 +1915,10 @@ Moderne CLI 3.1.1
 > spring-projects/spring-data-rest@main
 Selected 12 repositories (0.29s)
 
+[1] Migrate to Java 17 (org.openrewrite.java.migrate.UpgradeToJava17)
+[2] Migrate to Java 17 (io.quarkus.updates.core.quarkus37.UpgradeToJava17)
+Select a recipe [1-2]: 1
+
 > Running recipe org.openrewrite.java.migrate.UpgradeToJava17
 
 > spring-projects/spring-data-cassandra@main
@@ -2043,7 +2047,7 @@ You can open up the Excel output that was produced to see that on these 12 repos
 
 You can modify the `mod study` command to add a `--template` argument that lets you change the structure of the produced table.
 
-Let's install and run the `FindMethods` recipe to demonstrate this:
+Let's install and run the `FindMethods` recipe to demonstrate this (if you didn't already install it earlier):
 
 ```bash
 mod config recipes moderne install FindMethods
@@ -2059,6 +2063,8 @@ You can then filter the data table down to only a couple columns we're intereste
 mod study ./spring-data --last-recipe-run --data-table MethodCalls --json sourceFile,method --template '{{"# Search results\n\n"}}{{range .}}{{"* "}}{{.sourceFile}}{{"\n```\n"}}{{.method}}{{"\n```\n"}}{{end}}' > methods.md 
 ````
 {% endcode %}
+
+Open up `methods.md` in your favorite markdown editor to view the results.
 
 ### (Optional) Fix static code analysis issues
 
