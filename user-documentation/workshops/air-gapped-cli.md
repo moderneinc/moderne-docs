@@ -68,7 +68,7 @@ mod config build maven settings edit /path/to/maven/settings
 
 {% code overflow="wrap" %}
 ```bash
-mod config recipes artifacts edit <artifact-repository-url> --user <user> --password <password>
+mod config lsts artifacts artifactory edit <artifact-repository-url> --user <user> --password <password>
 ```
 {% endcode %}
 
