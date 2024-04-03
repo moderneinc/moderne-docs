@@ -58,19 +58,31 @@ mod config license edit <license-you-were-provided>
 
 If you want more details about the license and its checks, please see our [Moderne CLI license doc](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
 
-### Configure the CLI to point to your internal Artifactory
+### Configure the CLI to point to your internal Artifact repository
 
-In order for the CLI to have access to read and publish LSTs, it will need to be provided with the path to your Maven settings file. This likely already exists on developer machines for the sake of redirecting requests from Maven Central to an internal Artifactory instance. Recipe installation in the next step will use this Maven settings file.
+In order for the CLI to have access to read and publish LSTs, it will need to be provided with the path to your Maven settings file. This likely already exists on developer machines for the sake of redirecting requests from Maven Central to an internal Artifact instance. Recipe installation in the next step will use this Maven settings file.
 
 ```bash
 mod config build maven settings edit /path/to/maven/settings
 ```
 
+{% tabs %}
+{% tab title="Artifactory configuration" %}
 {% code overflow="wrap" %}
 ```bash
 mod config lsts artifacts artifactory edit <artifact-repository-url> --user <user> --password <password>
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title="Maven configuration" %}
+{% code overflow="wrap" %}
+```bash
+mod config lsts artifacts maven edit <artifact-repository-url> --user <user> --password <password>
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ### Install recipe JARs
 
