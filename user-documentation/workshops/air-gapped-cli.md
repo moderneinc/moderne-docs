@@ -479,6 +479,8 @@ Coming soon! In it, we will:
 * Write a recipe to conduct an impact analysis of the technology in use, which in turn, guides our implementation of the migration recipes.
 * 
 
-## XML findings
+## Live CLI workshop
 
-`mod run . --recipe=org.openrewrite.xml.search.FindTags --recipe-option="xPath=/dependencies/dependency"` 
+* mod config recipes jar install org.openrewrite.recipe:rewrite-all:LATEST
+* mod run . --recipe org.openrewrite.LanguageComposition
+* mod run . --recipe=org.openrewrite.xml.search.FindTags --recipe-option="xPath=/dependencies/dependency"
