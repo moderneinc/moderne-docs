@@ -111,11 +111,19 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-terraform:LATEST
 mod config recipes jar install org.openrewrite.recipe:rewrite-testing-frameworks:LATEST
 ```
 
-### Clone repositories from CSV or use locally cloned repositories
+### (Optionally) Create a CSV of the repositories you want to use
 
-If you are going to be performing the workshop on a developer machine that already has a bunch of locally cloned repositories you want to run recipes against, feel free to skip this step.
+If you are going to be performing the workshop on a developer machine that already has a bunch of locally cloned repositories you want to run recipes against, feel free to skip to the [building LSTs step](#build-lsts).
 
-If you want to clone a group of repositories, you'll need to first [create a repos.csv file](https://docs.moderne.io/user-documentation/moderne-cli/cli-reference#mod-git-clone-csv) and then run a command similar to the following (replace `spring-data` with the location where you want the repositories cloned to):
+If you need to clone repositories locally, you'll need to [create a repos.csv file](https://docs.moderne.io/user-documentation/moderne-cli/cli-reference#mod-git-clone-csv). This file will take in a list of repositories, the branch to use, and (optionally) various attributes about them that the CLI will use when building the repository.
+
+To assist you with creating this CSV file, we've [created scripts for pulling repository details from various source code managers](https://github.com/moderneinc/mass-ingest-example/tree/main/repo-fetchers). Please configure and run those as needed to build up your `repos.csv` file. 
+
+### (Optionally) Clone repositories from the CSV
+
+_This only applies if you created a CSV in the previous step_
+
+With the CSV created, please run the `mod git clone` command similar to the following (replace `spring-data` with the location where you want the repositories cloned to):
 
 ```bash
 mod git clone csv ./spring-data repos.csv --filter=true:0
@@ -125,7 +133,7 @@ mod git clone csv ./spring-data repos.csv --filter=true:0
 The –filter=tree:0 argument is optional but helps clone faster, as it fetches all commit history but only trees for the latest commit.
 {% endhint %}
 
-Here is an example of what this `repos.csv` file might look like:
+Here is an example of what a `repos.csv` file might look like:
 
 ```csv
 cloneUrl,branch
@@ -143,7 +151,7 @@ git@github.com:spring-projects/spring-data-jpa.git,main
 git@github.com:spring-projects/spring-data-commons.git,main
 ```
 
-Here is what this looks like if everything ran correctly:
+Here is what the results look like if everything ran correctly:
 
 ```bash
 ➜ mod git clone csv ./spring-data repos.csv --filter=tree:0
@@ -179,7 +187,7 @@ MOD SUCCEEDED in (1m 13s)
 
 Building LSTs is the most time-consuming step, as it is proportional to compilation time. In contrast to open-source OpenRewrite, these LSTs are saved to disk in a proprietary format. 
 
-In customer environments, we set up the build and publish of LSTs to an artifact store on a scheduled basis. `mod build` can take advantage of this and will download an LST from that artifact store if its changeset matches the changset of the cloend repository.
+In customer environments, we set up the build and publish of LSTs to an artifact store on a scheduled basis. `mod build` can take advantage of this and will download an LST from that artifact store if its changeset matches the changeset of the cloned repository.
 
 Notice that you didn't need to configure Maven or Gradle, select Java versions, etc. The Moderne CLI detects all of that, matching up build tools and JDKs on the machine to each repository based on each repository's unique requirements. The detection can be overridden where needed – but it generally isn't. 
 
