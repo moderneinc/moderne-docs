@@ -10,45 +10,24 @@ Please talk to your sales representative or [contact us](mailto:support@moderne.
 
 ### Step 2: Determine how you will run the service
 
-Moderne offers two ways of running the service:
+There are two ways you can run the DX service:
 
-1. A Spring Boot executable JAR that can be run with Java
-2. (Coming soon) An [OCI image](https://github.com/opencontainers/image-spec) that can be run using any OCI runtime (e.g., Docker, Podman)
+1. You can use Java to run a Spring Boot executable JAR
+2. You can create a Docker image that downloads and runs the executable JAR
 
-Regardless of which one you pick, you'll want a minimum system spec of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent storage.
+{% hint style="info" %}
+Regardless of which option you pick, we recommend that you dedicate a minimum of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent storage.
+{% endhint %}
 
-If you deploy to Kubernetes or any other containerized environment like AWS ECS, you'll want to use the OCI image to run the service.
+[Moderne DX can be found on Maven Central](https://central.sonatype.com/artifact/io.moderne/moderne-dx/versions). From there, you can select the latest version and download the appropriate JAR to either run or to configure your image with.
 
-If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform\_as\_a\_service) environment such Cloud Foundry, you'll want to use the JAR to run the service.
+If you deploy to Kubernetes or any other containerized environment like AWS ECS, you'll want to create a Docker image to run the service.
 
-The table below provides the core command for running the service. However, in order for the service to function correctly, additional variables will need to be added based on your environment (such as what artifact repositories you have configured, and whether or not you've configured an [Organizations service](../../moderne-platform/how-to-guides/organizations-service.md)). We'll walk through each of those in the following steps.
+If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) environment such Cloud Foundry, you'll want to use the JAR to run the service.
+
+The table below provides some core information for running the service. However, in order for the service to function correctly, additional variables will need to be added based on your environment (such as what artifact repositories you have configured, and whether or not you've configured an [Organizations service](/administrator-documentation/moderne-platform/how-to-guides/organizations-service)). We'll walk through each of those in the following steps.
 
 {% tabs %}
-{% tab title="OCI Container" %}
-**How to run the service:**
-
-1. Log in to the Moderne registry:
-
-```shell
-docker login -u moderne-tenant -p <password provided by Moderne> moderne.azurecr.io
-```
-
-2. Pull down the latest service:
-
-```shell
-docker pull moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
-```
-
-3. Run the `docker run` command in combination with environment variables that you'll add in the subsequent steps. The final command will look similar to:
-
-```shell
-docker run \
-# ... Environment variables explained in the following steps
--p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
-```
-{% endtab %}
-
 {% tab title="Executable JAR" %}
 **How to run the service:**
 
@@ -57,6 +36,89 @@ Use `java` to run a jar in combination with arguments that you'll add in the sub
 ```shell
 java -jar moderne-dx-{version}.jar \
 # ... Additional arguments explained in the following steps
+```
+{% endtab %}
+
+{% tab title="Docker image" %}
+**How to build the Docker image**
+
+```bash
+docker build -t moderne-dx:latest .
+```
+
+**How to run the image with an environment file**
+
+```bash
+docker run --env-file=moderne-dx.env moderne-dx:latest
+```
+
+**How to run the image with command line arguments**
+
+```bash
+docker run \
+-e MODERNE_DX_TOKEN_0=<token> \
+-e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
+-e MODERNE_DX_MAVEN_0_USERNAME=admin \
+-e MODERNE_DX_MAVEN_0_PASSWORD=password \
+# ... Additional variables to come
+-p 8080:8080
+moderne-dx:latest
+```
+
+**Example Dockerfile**
+
+```docker
+FROM eclipse-temurin:17-jdk
+RUN apt-get update && apt-get install -y libxml2-utils
+
+# Set the environment variable MODERNE_DX_VERSION
+ARG MODERNE_DX_VERSION
+ENV MODERNE_DX_VERSION=${MODERNE_DX_VERSION}
+
+WORKDIR /app
+USER root
+RUN groupadd -r app && useradd --no-log-init -r -m -g app app && chown -R app:app /app
+USER app
+
+# Download the specified version of moderne-dx JAR file if MODERNE_DX_VERSION is provided,
+# otherwise download the latest version
+RUN if [ -n "${MODERNE_DX_VERSION}" ]; then \
+    echo "Downloading version: ${MODERNE_DX_VERSION}"; \
+    curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-dx/${MODERNE_DX_VERSION}/moderne-dx-${MODERNE_DX_VERSION}.jar" --output dx.jar; \
+    else \
+    LATEST_VERSION=$(curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-dx/maven-metadata.xml" | xmllint --xpath 'string(/metadata/versioning/latest)' -); \
+    if [ -z "${LATEST_VERSION}" ]; then \
+    echo "Failed to get latest version"; \
+    exit 1; \
+    fi; \
+    echo "Downloading latest version: ${LATEST_VERSION}"; \
+    curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-dx/${LATEST_VERSION}/moderne-dx-${LATEST_VERSION}.jar" --output dx.jar; \
+    fi
+
+ENTRYPOINT ["java"]
+CMD ["-XX:-OmitStackTraceInFastThrow", "-XX:MaxRAMPercentage=65.0", "-XX:MaxDirectMemorySize=2G", "-XX:+HeapDumpOnOutOfMemoryError", "-XX:+UseStringDeduplication", "-jar", "/app/dx.jar"]
+EXPOSE 8080
+```
+
+**Example environment variables file**
+
+```bash
+MODERNE_DX_TOKEN_0=<token> 
+MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ 
+MODERNE_DX_ARTIFACTORY_0_USERNAME=admin 
+MODERNE_DX_ARTIFACTORY_0_PASSWORD=password 
+MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' 
+MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' 
+MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local 
+MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven 
+MODERNE_DX_MAVEN_0_USERNAME=admin 
+MODERNE_DX_MAVEN_0_PASSWORD=password 
 ```
 {% endtab %}
 {% endtabs %}
@@ -101,7 +163,7 @@ Below is an example of what the Moderne DX service run command might look like a
 {% endhint %}
 
 {% tabs %}
-{% tab title="OCI Container" %}
+{% tab title="Docker image" %}
 ```shell
 docker run \
 -e MODERNE_DX_TOKEN_0=<token> \
@@ -147,7 +209,7 @@ If you want to set up this service, please see the [organizations service setup 
 Below is an example of what the Moderne DX service run command might look like at the end of this step if you set up the Organizations service.
 
 {% tabs %}
-{% tab title="OCI Container" %}
+{% tab title="Docker image" %}
 ```shell
 docker run \
 -e MODERNE_DX_TOKEN_0=<token> \
@@ -193,7 +255,7 @@ Some organizations want recipe artifacts to only come from locations configured 
 Below is an example of what the Moderne DX service run command might look like at the end of this step if you configured the service to use only configured recipe sources.
 
 {% tabs %}
-{% tab title="OCI Container" %}
+{% tab title="Docker image" %}
 ```shell
 docker run \
 -e MODERNE_DX_TOKEN_0=<token> \
@@ -245,7 +307,7 @@ At this point, you should have configured everything needed to run the Moderne D
 Below is a table that has instructions for how to run the service in combination with some examples of the variables/arguments provided in the previous steps:
 
 {% tabs %}
-{% tab title="OCI Container" %}
+{% tab title="Docker image" %}
 1. Log in to the Moderne registry:
 
 ```shell
@@ -307,7 +369,7 @@ java -jar moderne-dx-{version}.jar \
 If you want to update the Moderne DX service over time, please follow the instructions in the table below:
 
 {% tabs %}
-{% tab title="OCI Container" %}
+{% tab title="Docker image" %}
 If you're running the commands provided in this guide, you should see that the last line of every service run command is `moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest`.
 
 If that's true, then you can simply restart the service and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](dx-configuration.md) (coming soon) for the versions.
