@@ -6,6 +6,14 @@ Every week we [host a live office hours session](https://www.youtube.com/@modern
 
 You can find each of the office hours sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### AI integrations at Moderne (April 4th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=ORqsxJpgmhw" %}
+
+#### Summary and related links
+
+* Coming soon
+
 ### Dependency management recipes (March 25th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=a45BJclATjU" %}
