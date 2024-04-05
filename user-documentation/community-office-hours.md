@@ -15,7 +15,7 @@ You can find each of the office hours sessions below along with a summary of wha
 * This week we welcome Justine - our AI/machine learning research engineer!
 * Announcements for the week:
   * [DevNexus](https://devnexus.org/presentations/fundamentals-of-migration-engineering-with-openrewrite) is next week! If you're going to be there come say hi.
-  * We released a [new video detailing the Moderne DevCenter](https://www.youtube.com/watch?v=KRXDMGt7DRE)
+  * We released a [new video detailing the Moderne DevCenter](https://www.youtube.com/watch?v=KRXDMGt7DRE).
   * To go along with that, we also have a [getting started guide](/user-documentation/moderne-platform/getting-started/dev-center.md) for those of you who are Moderne customers and want to jump in.
 * AI topic:
   * We started off by talking through [search in Moderne](/user-documentation/moderne-platform/how-to-guides/moderne-platform-search.md). Prior to AI search being added, it was very hard to discover recipes, typos would result in no recipes being found, and words that were tangentially related did not provide results. Adding AI search helped fix all of these issues.
