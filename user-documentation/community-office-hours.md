@@ -12,7 +12,7 @@ You can find each of the office hours sessions below along with a summary of wha
 
 #### Summary and related links
 
-* This week we welcome Justine - our (AI|machine learning)(research|engineer) :D
+* This week we welcome Justine - our AI/machine learning research engineer!
 * Announcements for the week:
   * [DevNexus](https://devnexus.org/presentations/fundamentals-of-migration-engineering-with-openrewrite) is next week! If you're going to be there come say hi.
   * We released a [new video detailing the Moderne DevCenter](https://www.youtube.com/watch?v=KRXDMGt7DRE)
