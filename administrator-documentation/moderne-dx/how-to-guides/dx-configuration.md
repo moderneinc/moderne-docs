@@ -12,10 +12,14 @@ Please talk to your sales representative or [contact us](mailto:support@moderne.
 
 There are two ways you can run the DX service:
 
-1. You can use Java to run a Spring Boot executable JAR that we will provide you with
+1. You can use Java to run a Spring Boot executable JAR
 2. You can create a Docker image that downloads and runs the executable JAR
 
+{% hint style="info" %}
 Regardless of which option you pick, we recommend that you dedicate a minimum of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent storage.
+{% endhint %}
+
+[Moderne DX can be found on Maven Central](https://central.sonatype.com/artifact/io.moderne/moderne-dx/versions). From there, you can select the latest version and download the appropriate JAR to either run or to configure your image with.
 
 If you deploy to Kubernetes or any other containerized environment like AWS ECS, you'll want to create a Docker image to run the service.
 
