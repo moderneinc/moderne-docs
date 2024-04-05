@@ -2360,7 +2360,7 @@ mod config moderne edit <host> --token <token>
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 | --skip-ssl |  If this parameter is included, SSL verification will be skipped. |  |
-| --token |  The Moderne personal access token to use. Not required to access Moderne DX as a regular, non-administrator user. |  |
+| --token |  The Moderne personal access token to use. |  |
 
 
 ## mod config moderne local
@@ -2446,6 +2446,7 @@ mod config moderne organizations show [parameters]
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| --json |  |  |
 | --local |  Configuration relevant to a specific group of repositories. |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
@@ -4071,6 +4072,7 @@ mod list /path/to/project
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| --json |  (INCUBATING) Output the repository listing in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
