@@ -73,6 +73,10 @@ moderne-dx:latest
 
 **Example Dockerfile**
 
+{% hint style="info" %}
+You are responsible for creating this Dockerfile. The below one is a suggestion for getting started - but yours will differ from this as it should point to and use your own tools and services.
+{% endhint %}
+
 ```docker
 FROM eclipse-temurin:17-jdk
 RUN apt-get update && apt-get install -y libxml2-utils
