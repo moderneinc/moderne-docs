@@ -19,6 +19,8 @@ layout:
 
 With [Moderne](https://moderne.io), you can fix security vulnerabilities, standardize code quality, and automate maintenance processes such as framework migrations. Code refactoring work and security vulnerability remediations that used to take months and teams of developers can be done in minutes. This can not only save your company millions of dollars in software maintenance costs, but it can also give developers substantially more time to focus on delivering business value.
 
+{% embed url="https://www.youtube.com/watch?v=nz29-DWeV44" %}
+
 ## The Moderne platform
 
 The Moderne platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale. The platform asynchronously ingests detailed artifacts of your codebase ([Lossless Semantic Trees](administrator-documentation/moderne-platform/references/concepts/lossless-semantic-trees.md)) that can be quickly and precisely searched. Then, your organization's source code can be transformed by running "[recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes)" across repositories of your choosing. These recipes can be created by your team, or you can take advantage of the hundreds of recipes already defined in [OpenRewrite](https://docs.openrewrite.org/) – an open-source project managed by Moderne.
@@ -37,10 +39,8 @@ Or if you want to test this out in a custom private instance made just for your 
 
 ## Want to learn more?
 
-For a high-level overview of Moderne and the capabilities we provide, please watch our 2-minute or 20-minute briefs:
+{% embed url="https://www.youtube.com/watch?v=Q-ej2lCJHRs" %}
 
-{% embed url="https://www.youtube.com/watch?v=zLcqXXrQo7Q" %}
-
-{% embed url="https://www.youtube.com/watch?v=Mq6bKAeGCz0" %}
+{% embed url="https://www.youtube.com/watch?v=KRXDMGt7DRE" %}
 
 If you want to jump right in and begin running large-scale refactoring recipes on thousands of open-source repositories, please check out our [quickstart guide](user-documentation/moderne-platform/getting-started/running-your-first-recipe.md).
