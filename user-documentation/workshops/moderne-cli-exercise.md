@@ -4239,7 +4239,13 @@ index e3c96988..5d5ed6fd 100644
 
 </details>
 
-6. Verify the project after the changes were made:
+6. If you want to apply the changes you can run:
+
+```bash
+mod git apply . --last-recipe-run
+```
+
+7. You can then verify the project after the changes were made:
 
 ```bash
 ./mvnw verify
