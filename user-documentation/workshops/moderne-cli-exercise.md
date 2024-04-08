@@ -1956,7 +1956,7 @@ MOD SUCCEEDED in (1m 32s)
 </details>
 
 {% hint style="info" %}
-You can command/control + click the result file to view the diff.
+You can command/control + click the patch file produced for each repository to view the diff.
 {% endhint %}
 
 #### Step 5: Run mod study to view a data table
