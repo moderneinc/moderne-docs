@@ -137,6 +137,12 @@ If you want to install a specific recipe rather than all of the recipes, you can
 mod config recipes moderne install <recipe_search_term> 
 ```
 
+If you have private recipe artifacts and want to point the CLI to them, please run the [following command](https://docs.moderne.io/user-documentation/moderne-cli/cli-reference#mod-config-recipes-artifacts):
+
+```shell
+mod config recipes artifacts [artifactory|maven] edit
+```
+
 ### (Optional) Configure artifact publishing and downloading
 
 If you want to publish artifacts from the CLI or download LSTs from your artifact repository when running commands, you'll need to run one of the following commands depending on where your LST artifacts live:
@@ -167,6 +173,14 @@ If you are wanting to run the CLI against **private repositories** you will need
 
 ```shell
 mod config license edit <license_key>
+```
+
+### (Optional) Configure a Maven settings file
+
+If you have a Maven settings file that exists outside of your repositories, you can use the [following command](/user-documentation/moderne-cli/cli-reference.md#mod-config-build-maven-settings) to point the CLI to it: 
+
+```shell
+mod config build maven settings edit <path-to-settings.xml>
 ```
 
 ## Additional reading
