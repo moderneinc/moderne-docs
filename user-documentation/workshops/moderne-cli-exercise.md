@@ -2,7 +2,7 @@
 
 In this workshop, you will use the [Moderne CLI](../../getting-started/cli-intro.md), a free tool that allows developer to run OpenRewrite recipes without configuring any build plugin, to migrate various repositories from Spring Boot 2 to Spring Boot 3.
 
-After that, we'll provide some additional examples that show other capabilities of the CLI (such as creating and viewing data tables and fix static code analysis issues across your repositories).
+After that, we'll provide some additional examples that show other capabilities of the CLI (such as creating and viewing data tables and fixing static code analysis issues across your repositories).
 
 ### Prepare your environment
 
