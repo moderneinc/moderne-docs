@@ -1,8 +1,8 @@
 # Moderne CLI workshop
 
-In this workshop, you will use the [Moderne CLI](../../getting-started/cli-intro.md), a free tool that allows developer to run OpenRewrite recipes without configuring any build plugin, to migrate a repository from Spring Boot 2 to Spring Boot 3.
+In this workshop, you will use the [Moderne CLI](../../getting-started/cli-intro.md), a free tool that allows developer to run OpenRewrite recipes without configuring any build plugin, to migrate various repositories from Spring Boot 2 to Spring Boot 3.
 
-After that, we'll provide some additional examples that show other capabilities of the CLI (such as creating and viewing data tables).
+After that, we'll provide some additional examples that show other capabilities of the CLI (such as creating and viewing data tables and fix static code analysis issues across your repositories).
 
 ### Prepare your environment
 
@@ -1593,10 +1593,11 @@ ls -ltr $HOME/workshop/
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-total 0
-drwxr-xr-x@ 19 mikesol  staff  608 Jan  5 10:05 spring-data-commons
-drwxr-xr-x@ 13 mikesol  staff  416 Jan  5 10:05 spring-data-release
-drwxr-xr-x@ 14 mikesol  staff  448 Jan  5 10:05 spring-session-data-mongodb-examples
+total 8
+drwxr-xr-x@ 19 mikesol  staff   608 Apr  8 14:15 spring-data-commons
+drwxr-xr-x@ 13 mikesol  staff   416 Apr  8 14:15 spring-data-release
+-rw-r--r--@  1 mikesol  staff  1816 Apr  8 14:15 clone.log
+drwxr-xr-x@ 14 mikesol  staff   448 Apr  8 14:15 spring-session-data-mongodb-examples
 ```
 
 </details>
@@ -1611,41 +1612,48 @@ mod build $HOME/workshop
 
 <summary>You should see output similar to the following.</summary>
 
-```
-Moderne CLI 3.1.5
+```bash
+Moderne CLI 3.1.6
 
 > Selecting repositories
 
 > spring-projects/spring-data-commons@main
 > spring-projects/spring-data-release@main
 > spring-projects/spring-session-data-mongodb-examples@main
-Selected 3 repositories (0.28s)
+Selected 3 repositories (0.2s)
 
 > Building LST(s)
 
 > spring-projects/spring-data-commons@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data-commons/.moderne/build/20240105100553-BbBod/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data-commons/.moderne/build/20240105100553-BbBod/0-spring-data-commons-20240104182701-ast.jar
-    🧹 Cleaned 0 older builds.
+    Build output will be written to /Users/mikesol/workshop/spring-data-commons/.moderne/build/20240408141619-vwfxP/build.log
+    > Step 1 - download from Moderne
+    ! Failed to download the LST from Moderne. Proceeding to build the LST locally
+    > Step 1 - build with Maven
+        Selected the 21.0.1-oracle JDK
+    > Step 2 - build with mod-java
+        Selected the 21.0.1-oracle JDK
+    > Step 3 - build resources using the native CLI
+    ✓ Built LST /Users/mikesol/workshop/spring-data-commons/.moderne/build/20240408141619-vwfxP/spring-data-commons-20240408141751-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 0 older builds.
 > spring-projects/spring-data-release@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data-release/.moderne/build/20240105100556-TFEb4/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data-release/.moderne/build/20240105100556-TFEb4/0-spring-data-release-20240105025554-ast.jar
-    🧹 Cleaned 0 older builds.
+    Build output will be written to /Users/mikesol/workshop/spring-data-release/.moderne/build/20240408141619-vwfxP/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/spring-data-release/.moderne/build/20240408141619-vwfxP/spring-data-release-20240408025602-ast.jar
+    + Cleaned 0 older builds.
 > spring-projects/spring-session-data-mongodb-examples@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-session-data-mongodb-examples/.moderne/build/20240105100557-jYfqC/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-session-data-mongodb-examples/.moderne/build/20240105100557-jYfqC/0-spring-session-data-mongodb-examples-20240105114206-ast.jar
-    🧹 Cleaned 0 older builds.
-Built 3 repositories. (4s)
+    Build output will be written to /Users/mikesol/workshop/spring-session-data-mongodb-examples/.moderne/build/20240408141619-vwfxP/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/spring-session-data-mongodb-examples/.moderne/build/20240408141619-vwfxP/spring-session-data-mongodb-examples-20240408114209-ast.jar
+    + Cleaned 0 older builds.
+Built 3 repositories. (1m 32s)
 
-4m 34s saved by using previously built LSTs
+1m 57s saved by using previously built LSTs
 
 * What to do next
-    > Run mod run . --recipe <RecipeName>
+    > Run mod run /Users/mikesol/workshop --recipe=<RecipeName>
 
-MOD SUCCEEDED in (4s)
+MOD SUCCEEDED in (1m 33s)
 ```
 
 </details>
@@ -1654,17 +1662,38 @@ MOD SUCCEEDED in (4s)
 mod run $HOME/workshop --recipe UpgradeSpringBoot_3_2
 ```
 
-You can apply the changes to all of these repositories at once with the following command:
+You can preview the changes by command/ctrl clicking on the patch file generated when running the recipe:
+
+```bash
+➜  ~ mod run $HOME/workshop --recipe UpgradeSpringBoot_3_2
+
+Moderne CLI 3.1.6
+
+> Selecting repositories
+
+> spring-projects/spring-data-commons@main
+> spring-projects/spring-data-release@main
+> spring-projects/spring-session-data-mongodb-examples@main
+Selected 3 repositories (0.18s)
+
+> Running recipe org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2
+
+> spring-projects/spring-data-commons@main
+	# Command/ctrl click on the following file:
+    ✓ Fix results at /Users/mikesol/workshop/spring-data-commons/.moderne/run/20240408141902-kHLCn/fix.patch
+	...
+```
+
+You can then apply the changes to all of these repositories at once with the following command:
 
 ```bash
 mod git apply $HOME/workshop --last-recipe-run
 ```
 
-You can preview the changes with git by going to each repository and running `git diff`:
+Next, you can add the changes so that they're ready to be committed with the following command:
 
 ```bash
-cd $HOME/workshop/spring-projects/spring-data-release
-git diff
+mod git add $HOME/workshop --last-recipe-run
 ```
 
 Finally, you can commit the changes to all the repositories at once with the following command:
