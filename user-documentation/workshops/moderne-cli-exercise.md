@@ -2030,7 +2030,7 @@ MOD SUCCEEDED in (22s)
 
 </details>
 
-You can open up the Excel output that was produced to see that on these 12 repositories, 1100+ different changes were made.
+You can open up the Excel output that was produced to see that on these 12 repositories, thousands of changes were made.
 
 #### Step 6: Using templates with mod study
 
