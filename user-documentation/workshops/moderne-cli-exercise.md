@@ -1706,86 +1706,56 @@ If you'd rather make a branch for each repository and make changes in that, you 
 
 ### (Optional) Data tables example
 
-If you have time, this example will show how you clone repositories from a CSV and how you can create and view data tables with the CLI.
+If you have time, the following example will demonstrate how to create and view the data tables available after a recipe runs. 
 
-#### Step 0: Make a directory to work in
-
-```bash
-mkdir $HOME/workshop/spring-data
-cd $HOME/workshop/spring-data
-```
-
-#### Step 1: Make a repos.csv file
-
-This file will contain a list of all of the repositories that should be cloned. At the very least, you'll need to specify the `cloneUrl` and the `branch` being used.
-
-For this exercise, please copy the provided `repos.csv` file and put it in your `spring-data` directory:
-
-```csv
-cloneUrl,branch
-git@github.com:spring-projects/spring-data-couchbase.git,main
-git@github.com:spring-projects/spring-data-relational.git,main
-git@github.com:spring-projects/spring-data-rest.git,main
-git@github.com:spring-projects/spring-data-mongodb.git,main
-git@github.com:spring-projects/spring-data-cassandra.git,main
-git@github.com:spring-projects/spring-data-ldap.git,main
-git@github.com:spring-projects/spring-data-elasticsearch.git,main
-git@github.com:spring-projects/spring-data-redis.git,main
-git@github.com:spring-projects/spring-data-keyvalue.git,main
-git@github.com:spring-projects/spring-data-neo4j.git,main
-git@github.com:spring-projects/spring-data-jpa.git,main
-git@github.com:spring-projects/spring-data-commons.git,main
-```
-
-#### Step 2: Clone the repositories using said CSV file
-
-Run the command:
+#### Step 0: Create a new directory for the repositories:
 
 ```bash
-mod git clone csv . repos.csv --filter=tree:0
+mkdir $HOME/workshop/default
+cd $HOME/workshop/default
 ```
 
-{% hint style="info" %}
-The `--filter=tree:0` argument is optional, but it helps it clone faster.
-{% endhint %}
+#### Step 1: Clone repositories
+
+Run the command: 
+
+```bash
+mod git clone moderne . "Default"
+```
 
 <details>
 
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-➜  spring-data mod git clone csv . repos.csv --filter=tree:0
-
 Moderne CLI 3.1.6
 
-> Reading CSV file
+> Listing repositories from Moderne
 
-CSV file contains 12 repositories
+Moderne contains 12 repositories in Default. Cloning the first 12.
 
 > Cloning repositories
 
-Clone output will be written to file:///Users/mikesol/.moderne/cli/clone.log
+Clone output will be written to /Users/mikesol/workshop/default/./clone.log
 
-> spring-data-couchbase@main
-> spring-data-relational@main
-> spring-data-rest@main
-> spring-data-mongodb@main
-> spring-data-cassandra@main
-> spring-data-ldap@main
-> spring-data-elasticsearch@main
-> spring-data-redis@main
-> spring-data-keyvalue@main
-> spring-data-neo4j@main
-> spring-data-jpa@main
-> spring-data-commons@main
-Cloned 12 repositories (1m 16s)
-
-MOD SUCCEEDED in (1m 16s)
+> blitz4j@master
+> dynomite-manager@dev
+> Fenzo@master
+> hollow@master
+> ndbench@master
+> Priam@3.x
+> spring-cloud-circuitbreaker@main
+> spring-cloud-common-security-config@main
+> spring-cloud-core-tests@main
+> spring-cloud-netflix@main
+> spring-hateoas-examples@main
+> spring-petclinic@main
+Cloned 12 repositories (32s)
 ```
 
 </details>
 
-#### Step 3: Build the LSTs
+#### Step 2: Build the LSTs
 
 Run the command:
 
@@ -1798,106 +1768,99 @@ mod build .
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-➜  spring-data mod build .
-
 Moderne CLI 3.1.6
 
 > Selecting repositories
 
-> spring-projects/spring-data-cassandra@main
-> spring-projects/spring-data-commons@main
-> spring-projects/spring-data-couchbase@main
-> spring-projects/spring-data-elasticsearch@main
-> spring-projects/spring-data-jpa@main
-> spring-projects/spring-data-keyvalue@main
-> spring-projects/spring-data-ldap@main
-> spring-projects/spring-data-mongodb@main
-> spring-projects/spring-data-neo4j@main
-> spring-projects/spring-data-redis@main
-> spring-projects/spring-data-relational@main
-> spring-projects/spring-data-rest@main
+> Netflix/Fenzo@master
+> Netflix/Priam@3.x
+> Netflix/blitz4j@master
+> Netflix/dynomite-manager@dev
+> Netflix/hollow@master
+> Netflix/ndbench@master
+> spring-cloud/spring-cloud-circuitbreaker@main
+> spring-cloud/spring-cloud-common-security-config@main
+> spring-cloud/spring-cloud-core-tests@main
+> spring-cloud/spring-cloud-netflix@main
+> spring-projects/spring-hateoas-examples@main
+> spring-projects/spring-petclinic@main
 Selected 12 repositories (0.31s)
 
 > Building LST(s)
 
-> spring-projects/spring-data-cassandra@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-cassandra/.moderne/build/20240105092910-JRmT1/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-cassandra/.moderne/build/20240105092910-JRmT1/0-spring-data-cassandra-20240105060254-ast.jar
-    🧹 Cleaned 0 older builds.
-> spring-projects/spring-data-commons@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-commons/.moderne/build/20240105092913-Pl0fg/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-commons/.moderne/build/20240105092913-Pl0fg/0-spring-data-commons-20240104182701-ast.jar
-    🧹 Cleaned 0 older builds.
-> spring-projects/spring-data-couchbase@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-couchbase/.moderne/build/20240105092915-k8Hdh/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-couchbase/.moderne/build/20240105092915-k8Hdh/0-spring-data-couchbase-20240105104028-ast.jar
-    🧹 Cleaned 0 older builds.
-> spring-projects/spring-data-elasticsearch@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-elasticsearch/.moderne/build/20240105092917-hBKbG/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-elasticsearch/.moderne/build/20240105092917-hBKbG/0-spring-data-elasticsearch-20240105080612-ast.jar
-    🧹 Cleaned 0 older builds.
-> spring-projects/spring-data-jpa@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-jpa/.moderne/build/20240105092919-HQYOU/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-jpa/.moderne/build/20240105092919-HQYOU/0-spring-data-jpa-20240104181705-ast.jar
-    🧹 Cleaned 0 older builds.
-> spring-projects/spring-data-keyvalue@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-keyvalue/.moderne/build/20240105092921-aQZLw/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-keyvalue/.moderne/build/20240105092921-aQZLw/0-spring-data-keyvalue-20240105144419-ast.jar
-    🧹 Cleaned 0 older builds.
-> spring-projects/spring-data-ldap@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-ldap/.moderne/build/20240105092922-bGbqc/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-ldap/.moderne/build/20240105092922-bGbqc/0-spring-data-ldap-20240105091754-ast.jar
-    🧹 Cleaned 0 older builds.
-> spring-projects/spring-data-mongodb@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-mongodb/.moderne/build/20240105092922-vDSHH/build.log
-    📶 Step 1 - build with Maven
-        Selected the 21.0.1-oracle JDK
-    📶 Step 2 - build with mod-java
-        Selected the 21.0.1-oracle JDK
-    📶 Step 3 - build resources using the native CLI
-    ✅ Built LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-mongodb/.moderne/build/20240105092922-vDSHH/spring-data-mongodb-20240105093140-ast.jar
-    📈 Reported build metrics to Moderne
-    🧹 Cleaned 0 older builds.
-> spring-projects/spring-data-neo4j@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-neo4j/.moderne/build/20240105093141-dGCrA/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-neo4j/.moderne/build/20240105093141-dGCrA/0-spring-data-neo4j-20240104194758-ast.jar
-    🧹 Cleaned 0 older builds.
-> spring-projects/spring-data-redis@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-redis/.moderne/build/20240105093143-O0HAC/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-redis/.moderne/build/20240105093143-O0HAC/0-spring-data-redis-20240105035743-ast.jar
-    🧹 Cleaned 0 older builds.
-> spring-projects/spring-data-relational@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-relational/.moderne/build/20240105093146-LJKD5/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-relational/.moderne/build/20240105093146-LJKD5/0-spring-data-relational-20240105035255-ast.jar
-    🧹 Cleaned 0 older builds.
-> spring-projects/spring-data-rest@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-rest/.moderne/build/20240105093148-cL1ge/build.log
-    📶 Step 1 - download from Moderne
-    ✅ Downloaded LST file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-rest/.moderne/build/20240105093148-cL1ge/0-spring-data-rest-20240104180550-ast.jar
-    🧹 Cleaned 0 older builds.
-Built 12 repositories. (2m 39s)
+> Netflix/Fenzo@master
+    Build output will be written to /Users/mikesol/workshop/default/Fenzo/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/Fenzo/.moderne/build/20240408152858-1xwiY/Fenzo-20240408054919-ast.jar
+    + Cleaned 0 older builds.
+> Netflix/Priam@3.x
+    Build output will be written to /Users/mikesol/workshop/default/Priam/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/Priam/.moderne/build/20240408152858-1xwiY/Priam-20240408014027-ast.jar
+    + Cleaned 0 older builds.
+> Netflix/blitz4j@master
+    Build output will be written to /Users/mikesol/workshop/default/blitz4j/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/blitz4j/.moderne/build/20240408152858-1xwiY/blitz4j-20240408013726-ast.jar
+    + Cleaned 0 older builds.
+> Netflix/dynomite-manager@dev
+    Build output will be written to /Users/mikesol/workshop/default/dynomite-manager/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/dynomite-manager/.moderne/build/20240408152858-1xwiY/dynomite-manager-20240408020613-ast.jar
+    + Cleaned 0 older builds.
+> Netflix/hollow@master
+    Build output will be written to /Users/mikesol/workshop/default/hollow/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/hollow/.moderne/build/20240408152858-1xwiY/hollow-20240408114552-ast.jar
+    + Cleaned 0 older builds.
+> Netflix/ndbench@master
+    Build output will be written to /Users/mikesol/workshop/default/ndbench/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/ndbench/.moderne/build/20240408152858-1xwiY/ndbench-20240408144401-ast.jar
+    + Cleaned 0 older builds.
+> spring-cloud/spring-cloud-circuitbreaker@main
+    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-circuitbreaker/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-circuitbreaker/.moderne/build/20240408152858-1xwiY/spring-cloud-circuitbreaker-20240408083113-ast.jar
+    + Cleaned 0 older builds.
+> spring-cloud/spring-cloud-common-security-config@main
+    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-common-security-config/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-common-security-config/.moderne/build/20240408152858-1xwiY/spring-cloud-common-security-config-20240408141440-ast.jar
+    + Cleaned 0 older builds.
+> spring-cloud/spring-cloud-core-tests@main
+    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-core-tests/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-core-tests/.moderne/build/20240408152858-1xwiY/spring-cloud-core-tests-20240408070429-ast.jar
+    + Cleaned 0 older builds.
+> spring-cloud/spring-cloud-netflix@main
+    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-netflix/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-netflix/.moderne/build/20240408152858-1xwiY/spring-cloud-netflix-20240407230948-ast.jar
+    + Cleaned 0 older builds.
+> spring-projects/spring-hateoas-examples@main
+    Build output will be written to /Users/mikesol/workshop/default/spring-hateoas-examples/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-hateoas-examples/.moderne/build/20240408152858-1xwiY/spring-hateoas-examples-20240408084132-ast.jar
+    + Cleaned 0 older builds.
+> spring-projects/spring-petclinic@main
+    Build output will be written to /Users/mikesol/workshop/default/spring-petclinic/.moderne/build/20240408152858-1xwiY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-petclinic/.moderne/build/20240408152858-1xwiY/spring-petclinic-20240408215517-ast.jar
+    + Cleaned 0 older builds.
+Built 12 repositories. (6s)
 
-38m 28s saved by using previously built LSTs
+40m 27s saved by using previously built LSTs
 
 * What to do next
-    > Run mod run . --recipe <RecipeName>
+    > Run mod run . --recipe=<RecipeName>
 
-MOD SUCCEEDED in (2m 39s)
+MOD SUCCEEDED in (6s)
 ```
 
 </details>
 
-#### Step 4: Install recipes
+#### Step 3: Install recipes
 
 If you want to install all the recipes in Moderne:
 
@@ -1913,7 +1876,7 @@ mod config recipes moderne install UpgradeToJava17
 
 Then select the `Migrate to Java 17` recipe from the list
 
-#### Step 5: Run the refactoring recipe against all of the repos
+#### Step 4: Run the refactoring recipe against all of the repos
 
 ```bash
 mod run . --recipe UpgradeToJava17
@@ -1924,25 +1887,23 @@ mod run . --recipe UpgradeToJava17
 <summary>You should see results similar to the following</summary>
 
 ```bash
-➜  spring-data mod run . --recipe UpgradeToJava17
-
 Moderne CLI 3.1.6
 
 > Selecting repositories
 
-> spring-projects/spring-data-cassandra@main
-> spring-projects/spring-data-commons@main
-> spring-projects/spring-data-couchbase@main
-> spring-projects/spring-data-elasticsearch@main
-> spring-projects/spring-data-jpa@main
-> spring-projects/spring-data-keyvalue@main
-> spring-projects/spring-data-ldap@main
-> spring-projects/spring-data-mongodb@main
-> spring-projects/spring-data-neo4j@main
-> spring-projects/spring-data-redis@main
-> spring-projects/spring-data-relational@main
-> spring-projects/spring-data-rest@main
-Selected 12 repositories (0.29s)
+> Netflix/Fenzo@master
+> Netflix/Priam@3.x
+> Netflix/blitz4j@master
+> Netflix/dynomite-manager@dev
+> Netflix/hollow@master
+> Netflix/ndbench@master
+> spring-cloud/spring-cloud-circuitbreaker@main
+> spring-cloud/spring-cloud-common-security-config@main
+> spring-cloud/spring-cloud-core-tests@main
+> spring-cloud/spring-cloud-netflix@main
+> spring-projects/spring-hateoas-examples@main
+> spring-projects/spring-petclinic@main
+Selected 12 repositories (0.4s)
 
 [1] Migrate to Java 17 (org.openrewrite.java.migrate.UpgradeToJava17)
 [2] Migrate to Java 17 (io.quarkus.updates.core.quarkus37.UpgradeToJava17)
@@ -1950,33 +1911,33 @@ Select a recipe [1-2]: 1
 
 > Running recipe org.openrewrite.java.migrate.UpgradeToJava17
 
-> spring-projects/spring-data-cassandra@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-cassandra/.moderne/run/20240105093912-uQVr7/fix.patch
-> spring-projects/spring-data-commons@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-commons/.moderne/run/20240105093912-uQVr7/fix.patch
-> spring-projects/spring-data-couchbase@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-couchbase/.moderne/run/20240105093912-uQVr7/fix.patch
-> spring-projects/spring-data-elasticsearch@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-elasticsearch/.moderne/run/20240105093912-uQVr7/fix.patch
-> spring-projects/spring-data-jpa@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-jpa/.moderne/run/20240105093912-uQVr7/fix.patch
-> spring-projects/spring-data-keyvalue@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-keyvalue/.moderne/run/20240105093912-uQVr7/fix.patch
-> spring-projects/spring-data-ldap@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-ldap/.moderne/run/20240105093912-uQVr7/fix.patch
-> spring-projects/spring-data-mongodb@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-mongodb/.moderne/run/20240105093912-uQVr7/fix.patch
-> spring-projects/spring-data-neo4j@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-neo4j/.moderne/run/20240105093912-uQVr7/fix.patch
-> spring-projects/spring-data-redis@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-redis/.moderne/run/20240105093912-uQVr7/fix.patch
-> spring-projects/spring-data-relational@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-relational/.moderne/run/20240105093912-uQVr7/fix.patch
-> spring-projects/spring-data-rest@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/workshop/spring-data/spring-data-rest/.moderne/run/20240105093912-uQVr7/fix.patch
-Found results on 12 repositories (3m 3s)
+> Netflix/Fenzo@master
+    ✓ Fix results at /Users/mikesol/workshop/default/Fenzo/.moderne/run/20240408152941-Xi9Co/fix.patch
+> Netflix/Priam@3.x
+    ✓ Fix results at /Users/mikesol/workshop/default/Priam/.moderne/run/20240408152941-Xi9Co/fix.patch
+> Netflix/blitz4j@master
+    ✓ Fix results at /Users/mikesol/workshop/default/blitz4j/.moderne/run/20240408152941-Xi9Co/fix.patch
+> Netflix/dynomite-manager@dev
+    ✓ Fix results at /Users/mikesol/workshop/default/dynomite-manager/.moderne/run/20240408152941-Xi9Co/fix.patch
+> Netflix/hollow@master
+    ✓ Fix results at /Users/mikesol/workshop/default/hollow/.moderne/run/20240408152941-Xi9Co/fix.patch
+> Netflix/ndbench@master
+    ✓ Fix results at /Users/mikesol/workshop/default/ndbench/.moderne/run/20240408152941-Xi9Co/fix.patch
+> spring-cloud/spring-cloud-circuitbreaker@main
+    No changes
+> spring-cloud/spring-cloud-common-security-config@main
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-cloud-common-security-config/.moderne/run/20240408152941-Xi9Co/fix.patch
+> spring-cloud/spring-cloud-core-tests@main
+    No changes
+> spring-cloud/spring-cloud-netflix@main
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-cloud-netflix/.moderne/run/20240408152941-Xi9Co/fix.patch
+> spring-projects/spring-hateoas-examples@main
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-hateoas-examples/.moderne/run/20240408152941-Xi9Co/fix.patch
+> spring-projects/spring-petclinic@main
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-petclinic/.moderne/run/20240408152941-Xi9Co/fix.patch
+Found results on 10 repositories (1m 30s)
 
-40m 46s saved by using previously built LSTs
+40m 27s saved by using previously built LSTs
 
 * What to do next
     > Click on one of the patch links above to view the changes on a particular repository
@@ -1985,10 +1946,11 @@ Found results on 12 repositories (3m 3s)
           org.openrewrite.table.SourcesFileResults
           org.openrewrite.table.SourcesFiles
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
+    > Run mod git checkout . -b hotfix --last-recipe-run to prepare a hotfix branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20240105093912-uQVr7 to apply the changes
+    > Run mod git apply . --recipe-run 20240408152941-Xi9Co to apply the changes
 
-MOD SUCCEEDED in (3m 3s)
+MOD SUCCEEDED in (1m 32s)
 ```
 
 </details>
@@ -1997,7 +1959,7 @@ MOD SUCCEEDED in (3m 3s)
 You can command/control + click the result file to view the diff.
 {% endhint %}
 
-#### Step 6: Run mod study to view a data table
+#### Step 5: Run mod study to view a data table
 
 Recipes can produce data tables as a recipe run proceeds. Data tables are, effectively, tabular data in a schema that is defined by the recipe.
 
@@ -2012,67 +1974,65 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 <summary>You should see results similar to the following.</summary>
 
 ```bash
-➜  spring-data mod study . --last-recipe-run --data-table SourcesFileResults
-
 Moderne CLI 3.1.6
 
-Found recipe run 20240105093912-uQVr7
+Found recipe run 20240408152941-Xi9Co
 
 > Selecting repositories
 
-> spring-projects/spring-data-cassandra@main
-> spring-projects/spring-data-commons@main
-> spring-projects/spring-data-couchbase@main
-> spring-projects/spring-data-elasticsearch@main
-> spring-projects/spring-data-jpa@main
-> spring-projects/spring-data-keyvalue@main
-> spring-projects/spring-data-ldap@main
-> spring-projects/spring-data-mongodb@main
-> spring-projects/spring-data-neo4j@main
-> spring-projects/spring-data-redis@main
-> spring-projects/spring-data-relational@main
-> spring-projects/spring-data-rest@main
-Selected 12 repositories (0.02s)
+> Netflix/Fenzo@master
+> Netflix/Priam@3.x
+> Netflix/blitz4j@master
+> Netflix/dynomite-manager@dev
+> Netflix/hollow@master
+> Netflix/ndbench@master
+> spring-cloud/spring-cloud-circuitbreaker@main
+> spring-cloud/spring-cloud-common-security-config@main
+> spring-cloud/spring-cloud-core-tests@main
+> spring-cloud/spring-cloud-netflix@main
+> spring-projects/spring-hateoas-examples@main
+> spring-projects/spring-petclinic@main
+Selected 12 repositories (0.12s)
 
 > Building a combined data table from results on every repository
 
-> spring-projects/spring-data-cassandra@main
-    ✅ Added 159 rows
-> spring-projects/spring-data-commons@main
-    ✅ Added 214 rows
-> spring-projects/spring-data-couchbase@main
-    ✅ Added 80 rows
-> spring-projects/spring-data-elasticsearch@main
-    ✅ Added 44 rows
-> spring-projects/spring-data-jpa@main
-    ✅ Added 52 rows
-> spring-projects/spring-data-keyvalue@main
-    ✅ Added 11 rows
-> spring-projects/spring-data-ldap@main
-    ✅ Added 4 rows
-> spring-projects/spring-data-mongodb@main
-    ✅ Added 162 rows
-> spring-projects/spring-data-neo4j@main
-    ✅ Added 95 rows
-> spring-projects/spring-data-redis@main
-    ✅ Added 153 rows
-> spring-projects/spring-data-relational@main
-    ✅ Added 115 rows
-> spring-projects/spring-data-rest@main
-    ✅ Added 63 rows
-Studied 12 repositories (18s)
+> Netflix/Fenzo@master
+    ✓ Added 699 rows
+> Netflix/Priam@3.x
+    ✓ Added 1419 rows
+> Netflix/blitz4j@master
+    ✓ Added 112 rows
+> Netflix/dynomite-manager@dev
+    ✓ Added 485 rows
+> Netflix/hollow@master
+    ✓ Added 4758 rows
+> Netflix/ndbench@master
+    ✓ Added 945 rows
+> spring-cloud/spring-cloud-circuitbreaker@main
+    ✓ Did not produce any rows for this data table
+> spring-cloud/spring-cloud-common-security-config@main
+    ✓ Added 196 rows
+> spring-cloud/spring-cloud-core-tests@main
+    ✓ Did not produce any rows for this data table
+> spring-cloud/spring-cloud-netflix@main
+    ✓ Added 13 rows
+> spring-projects/spring-hateoas-examples@main
+    ✓ Added 332 rows
+> spring-projects/spring-petclinic@main
+    ✓ Added 1 rows
+Studied 12 repositories (22s)
 
 * What to do next
-    > Open file:///Users/mikesol/Desktop/code/workshop/spring-data/SourcesFileResults.xlsx
+    > Open /Users/mikesol/workshop/default/org.openrewrite.table.SourcesFileResults.xlsx
 
-MOD SUCCEEDED in (18s)
+MOD SUCCEEDED in (22s)
 ```
 
 </details>
 
 You can open up the Excel output that was produced to see that on these 12 repositories, 1100+ different changes were made.
 
-#### Step 7: Using templates with mod study
+#### Step 6: Using templates with mod study
 
 You can modify the `mod study` command to add a `--template` argument that lets you change the structure of the produced table.
 
@@ -2099,2156 +2059,319 @@ Open up `methods.md` in your favorite markdown editor to view the results.
 
 If you have time, we recommend trying out one of the showcase recipes in OpenRewrite: [common static analysis](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis). This recipe is composed of 50+ recipes that find and fix common mistakes people make.
 
-To demonstrate this recipe, we'll use a different Maven repository that has a variety of errors that need to be fixed.
-
-1. Switch to Java 17:
+0. Ensure you're still in the `$HOME/workshop/default` directory:
 
 ```bash
-sdk install java 17.0.9-tem
-sdk use java 17.0.9-tem
+cd $HOME/workshop/default
 ```
 
-2. Clone the [Spring WS](https://github.com/spring-projects/spring-ws) repository:
-
-```bash
-git clone https://github.com/spring-projects/spring-ws
-```
-
-3. Test that you can build it:
-
-```bash
-cd spring-ws
-mod build .
-./mvnw verify -DskipTests
-```
-
-4. Run the common static analysis recipe:
+1. Run the common static analysis recipe:
 
 ```bash
 mod run . --recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
 ```
-
-5. You can examine all the changes the recipe would make by command/ctrl clicking on the patch file that is generated by the recipe run.
 
 <details>
 
 <summary>You should see results similar to:</summary>
 
 ```diff
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/client/core/WebServiceTemplate.java b/spring-ws-core/src/main/java/org/springframework/ws/client/core/WebServiceTemplate.java
-index 9eefaec8..cbdfb1d4 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/client/core/WebServiceTemplate.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/client/core/WebServiceTemplate.java
-@@ -793,7 +793,7 @@ public class WebServiceTemplate extends WebServiceAccessor implements WebService
- 	}
- 
- 	/** Adapter to enable use of a WebServiceMessageCallback inside a WebServiceMessageExtractor. */
--	private static class WebServiceMessageCallbackMessageExtractor implements WebServiceMessageExtractor<Boolean> {
-+	private static final class WebServiceMessageCallbackMessageExtractor implements WebServiceMessageExtractor<Boolean> {
- 
- 		private final WebServiceMessageCallback callback;
- 
-@@ -809,7 +809,7 @@ public class WebServiceTemplate extends WebServiceAccessor implements WebService
- 	}
- 
- 	/** Adapter to enable use of a SourceExtractor inside a WebServiceMessageExtractor. */
--	private static class SourceExtractorMessageExtractor<T> implements WebServiceMessageExtractor<T> {
-+	private static final class SourceExtractorMessageExtractor<T> implements WebServiceMessageExtractor<T> {
- 
- 		private final SourceExtractor<T> sourceExtractor;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/client/support/destination/Wsdl11DestinationProvider.java b/spring-ws-core/src/main/java/org/springframework/ws/client/support/destination/Wsdl11DestinationProvider.java
-index 786af275..af9159e7 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/client/support/destination/Wsdl11DestinationProvider.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/client/support/destination/Wsdl11DestinationProvider.java
-@@ -52,9 +52,9 @@ public class Wsdl11DestinationProvider extends AbstractCachingDestinationProvide
- 	/** Default XPath expression used for extracting all {@code location} attributes from the WSDL definition. */
- 	public static final String DEFAULT_WSDL_LOCATION_EXPRESSION = "/wsdl:definitions/wsdl:service/wsdl:port/soap:address/@location";
- 
--	private static TransformerFactory transformerFactory = TransformerFactoryUtils.newInstance();
-+	private static final TransformerFactory transformerFactory = TransformerFactoryUtils.newInstance();
- 
--	private Map<String, String> expressionNamespaces = new HashMap<String, String>();
-+	private final Map<String, String> expressionNamespaces = new HashMap<>();
- 
- 	private XPathExpression locationXPathExpression;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/client/support/interceptor/AbstractValidatingInterceptor.java b/spring-ws-core/src/main/java/org/springframework/ws/client/support/interceptor/AbstractValidatingInterceptor.java
-index a0446f4a..9a09e8ab 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/client/support/interceptor/AbstractValidatingInterceptor.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/client/support/interceptor/AbstractValidatingInterceptor.java
-@@ -58,7 +58,7 @@ public abstract class AbstractValidatingInterceptor extends TransformerObjectSup
- 
- 	private boolean validateRequest = true;
- 
--	private boolean validateResponse = false;
-+	private boolean validateResponse;
- 
- 	private XmlValidator validator;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/config/AnnotationDrivenBeanDefinitionParser.java b/spring-ws-core/src/main/java/org/springframework/ws/config/AnnotationDrivenBeanDefinitionParser.java
-index d3db7cd0..180f11cb 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/config/AnnotationDrivenBeanDefinitionParser.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/config/AnnotationDrivenBeanDefinitionParser.java
-@@ -108,10 +108,10 @@ class AnnotationDrivenBeanDefinitionParser implements BeanDefinitionParser {
- 	private void registerEndpointAdapters(Element element, Object source, ParserContext parserContext) {
- 		RootBeanDefinition adapterDef = createBeanDefinition(DefaultMethodEndpointAdapter.class, source);
- 
--		ManagedList<BeanMetadataElement> argumentResolvers = new ManagedList<BeanMetadataElement>();
-+		ManagedList<BeanMetadataElement> argumentResolvers = new ManagedList<>();
- 		argumentResolvers.setSource(source);
- 
--		ManagedList<BeanMetadataElement> returnValueHandlers = new ManagedList<BeanMetadataElement>();
-+		ManagedList<BeanMetadataElement> returnValueHandlers = new ManagedList<>();
- 		returnValueHandlers.setSource(source);
- 
- 		argumentResolvers.add(createBeanDefinition(MessageContextMethodArgumentResolver.class, source));
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/config/DynamicWsdlBeanDefinitionParser.java b/spring-ws-core/src/main/java/org/springframework/ws/config/DynamicWsdlBeanDefinitionParser.java
-index 82917d7a..d45f9a1c 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/config/DynamicWsdlBeanDefinitionParser.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/config/DynamicWsdlBeanDefinitionParser.java
-@@ -67,7 +67,7 @@ class DynamicWsdlBeanDefinitionParser extends AbstractBeanDefinitionParser {
- 		if (commonsSchemaPresent) {
- 			RootBeanDefinition collectionDef = createBeanDefinition(CommonsXsdSchemaCollection.class, source);
- 			collectionDef.getPropertyValues().addPropertyValue("inline", "true");
--			ManagedList<String> xsds = new ManagedList<String>();
-+			ManagedList<String> xsds = new ManagedList<>();
- 			xsds.setSource(source);
- 			for (Element schema : schemas) {
- 				xsds.add(schema.getAttribute("location"));
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/config/annotation/WsConfigurationSupport.java b/spring-ws-core/src/main/java/org/springframework/ws/config/annotation/WsConfigurationSupport.java
-index 64e5ff88..1d680d1a 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/config/annotation/WsConfigurationSupport.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/config/annotation/WsConfigurationSupport.java
-@@ -118,7 +118,7 @@ public class WsConfigurationSupport {
- 	 */
- 	protected final EndpointInterceptor[] getInterceptors() {
- 		if (interceptors == null) {
--			interceptors = new ArrayList<EndpointInterceptor>();
-+			interceptors = new ArrayList<>();
- 			addInterceptors(interceptors);
- 		}
- 		return interceptors.toArray(new EndpointInterceptor[interceptors.size()]);
-@@ -140,10 +140,10 @@ public class WsConfigurationSupport {
- 	 */
- 	@Bean
- 	public DefaultMethodEndpointAdapter defaultMethodEndpointAdapter() {
--		List<MethodArgumentResolver> argumentResolvers = new ArrayList<MethodArgumentResolver>();
-+		List<MethodArgumentResolver> argumentResolvers = new ArrayList<>();
- 		addArgumentResolvers(argumentResolvers);
- 
--		List<MethodReturnValueHandler> returnValueHandlers = new ArrayList<MethodReturnValueHandler>();
-+		List<MethodReturnValueHandler> returnValueHandlers = new ArrayList<>();
- 		addReturnValueHandlers(returnValueHandlers);
- 
- 		DefaultMethodEndpointAdapter adapter = new DefaultMethodEndpointAdapter();
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/config/annotation/WsConfigurerComposite.java b/spring-ws-core/src/main/java/org/springframework/ws/config/annotation/WsConfigurerComposite.java
-index 04cca7c1..7e74d5de 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/config/annotation/WsConfigurerComposite.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/config/annotation/WsConfigurerComposite.java
-@@ -15,7 +15,7 @@ import org.springframework.ws.server.endpoint.adapter.method.MethodReturnValueHa
-  */
- public class WsConfigurerComposite implements WsConfigurer {
- 
--	private List<WsConfigurer> delegates = new ArrayList<WsConfigurer>();
-+	private final List<WsConfigurer> delegates = new ArrayList<>();
- 
- 	public void addWsConfigurers(List<WsConfigurer> configurers) {
- 		if (configurers != null) {
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/context/AbstractMessageContext.java b/spring-ws-core/src/main/java/org/springframework/ws/context/AbstractMessageContext.java
-index 54d15374..2d31c20a 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/context/AbstractMessageContext.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/context/AbstractMessageContext.java
-@@ -61,7 +61,7 @@ public abstract class AbstractMessageContext implements MessageContext {
- 
- 	private Map<String, Object> getProperties() {
- 		if (properties == null) {
--			properties = new HashMap<String, Object>();
-+			properties = new HashMap<>();
- 		}
- 		return properties;
- 	}
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractDom4jPayloadEndpoint.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractDom4jPayloadEndpoint.java
-index 25989dbf..6adea14d 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractDom4jPayloadEndpoint.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractDom4jPayloadEndpoint.java
-@@ -44,7 +44,7 @@ import org.w3c.dom.Node;
- @Deprecated
- public abstract class AbstractDom4jPayloadEndpoint extends TransformerObjectSupport implements PayloadEndpoint {
- 
--	private boolean alwaysTransform = false;
-+	private boolean alwaysTransform;
- 
- 	/**
- 	 * Set if the request {@link Source} should always be transformed into a new {@link DocumentResult}.
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractDomPayloadEndpoint.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractDomPayloadEndpoint.java
-index 304b0aa1..785c2083 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractDomPayloadEndpoint.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractDomPayloadEndpoint.java
-@@ -50,13 +50,13 @@ public abstract class AbstractDomPayloadEndpoint extends TransformerObjectSuppor
- 
- 	private DocumentBuilderFactory documentBuilderFactory;
- 
--	private boolean validating = false;
-+	private boolean validating;
- 
- 	private boolean namespaceAware = true;
- 
--	private boolean expandEntityReferences = false;
-+	private boolean expandEntityReferences;
- 
--	private boolean alwaysTransform = false;
-+	private boolean alwaysTransform;
- 
- 	/** Set whether or not the XML parser should be XML namespace aware. Default is {@code true}. */
- 	public void setNamespaceAware(boolean namespaceAware) {
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractJDomPayloadEndpoint.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractJDomPayloadEndpoint.java
-index 96842650..b15ac731 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractJDomPayloadEndpoint.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractJDomPayloadEndpoint.java
-@@ -42,7 +42,7 @@ import org.w3c.dom.Node;
- @Deprecated
- public abstract class AbstractJDomPayloadEndpoint extends TransformerObjectSupport implements PayloadEndpoint {
- 
--	private boolean alwaysTransform = false;
-+	private boolean alwaysTransform;
- 
- 	/**
- 	 * Set if the request {@link Source} should always be transformed into a new {@link JDOMResult}.
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractStaxStreamPayloadEndpoint.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractStaxStreamPayloadEndpoint.java
-index 387d4d9a..c5b8b8dc 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractStaxStreamPayloadEndpoint.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractStaxStreamPayloadEndpoint.java
-@@ -121,7 +121,7 @@ public abstract class AbstractStaxStreamPayloadEndpoint extends AbstractStaxPayl
- 	 * Implementation of the {@code XMLStreamWriter} interface that creates a response {@code WebServiceMessage} as soon
- 	 * as any method is called, thus lazily creating the response.
- 	 */
--	private class ResponseCreatingStreamWriter implements XMLStreamWriter {
-+	private final class ResponseCreatingStreamWriter implements XMLStreamWriter {
- 
- 		private MessageContext messageContext;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractValidatingMarshallingPayloadEndpoint.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractValidatingMarshallingPayloadEndpoint.java
-index 346c445d..fa7cecee 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractValidatingMarshallingPayloadEndpoint.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractValidatingMarshallingPayloadEndpoint.java
-@@ -54,7 +54,7 @@ public abstract class AbstractValidatingMarshallingPayloadEndpoint extends Abstr
- 	/** Return the primary Validator for this controller. */
- 	public Validator getValidator() {
- 		Validator[] validators = getValidators();
--		return (validators != null && validators.length > 0 ? validators[0] : null);
-+		return validators != null && validators.length > 0 ? validators[0] : null;
- 	}
- 
- 	/**
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractXomPayloadEndpoint.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractXomPayloadEndpoint.java
-index 740a6336..84fc7725 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractXomPayloadEndpoint.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/AbstractXomPayloadEndpoint.java
-@@ -184,7 +184,7 @@ public abstract class AbstractXomPayloadEndpoint extends TransformerObjectSuppor
- 	}
- 
- 	@SuppressWarnings("serial")
--	private static class XomParsingException extends NestedRuntimeException {
-+	private static final class XomParsingException extends NestedRuntimeException {
- 
- 		private XomParsingException(ParsingException ex) {
- 			super(ex.getMessage(), ex);
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/DefaultMethodEndpointAdapter.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/DefaultMethodEndpointAdapter.java
-index 17e06ccb..42331abc 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/DefaultMethodEndpointAdapter.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/DefaultMethodEndpointAdapter.java
-@@ -156,7 +156,7 @@ public class DefaultMethodEndpointAdapter extends AbstractMethodEndpointAdapter
- 
- 	private void initMethodArgumentResolvers() {
- 		if (CollectionUtils.isEmpty(methodArgumentResolvers)) {
--			List<MethodArgumentResolver> methodArgumentResolvers = new ArrayList<MethodArgumentResolver>();
-+			List<MethodArgumentResolver> methodArgumentResolvers = new ArrayList<>();
- 			methodArgumentResolvers.add(new DomPayloadMethodProcessor());
- 			methodArgumentResolvers.add(new MessageContextMethodArgumentResolver());
- 			methodArgumentResolvers.add(new SourcePayloadMethodProcessor());
-@@ -206,7 +206,7 @@ public class DefaultMethodEndpointAdapter extends AbstractMethodEndpointAdapter
- 
- 	private void initMethodReturnValueHandlers() {
- 		if (CollectionUtils.isEmpty(methodReturnValueHandlers)) {
--			List<MethodReturnValueHandler> methodReturnValueHandlers = new ArrayList<MethodReturnValueHandler>();
-+			List<MethodReturnValueHandler> methodReturnValueHandlers = new ArrayList<>();
- 			methodReturnValueHandlers.add(new DomPayloadMethodProcessor());
- 			methodReturnValueHandlers.add(new SourcePayloadMethodProcessor());
- 			if (isPresent(DOM4J_CLASS_NAME)) {
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/MarshallingMethodEndpointAdapter.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/MarshallingMethodEndpointAdapter.java
-index 569fc1f8..c4f03aa5 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/MarshallingMethodEndpointAdapter.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/MarshallingMethodEndpointAdapter.java
-@@ -173,7 +173,7 @@ public class MarshallingMethodEndpointAdapter extends AbstractMethodEndpointAdap
- 	}
- 
- 	private boolean supportsReturnType(Method method) {
--		return (Void.TYPE.equals(method.getReturnType()) || getMarshaller().supports(method.getReturnType()));
-+		return Void.TYPE.equals(method.getReturnType()) || getMarshaller().supports(method.getReturnType());
- 	}
- 
- 	private boolean supportsParameters(Method method) {
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/SourcePayloadMethodProcessor.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/SourcePayloadMethodProcessor.java
-index a2a981af..1f35a5c4 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/SourcePayloadMethodProcessor.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/SourcePayloadMethodProcessor.java
-@@ -46,7 +46,7 @@ import org.xml.sax.InputSource;
-  */
- public class SourcePayloadMethodProcessor extends AbstractPayloadSourceMethodProcessor {
- 
--	private XMLInputFactory inputFactory = createXmlInputFactory();
-+	private final XMLInputFactory inputFactory = createXmlInputFactory();
- 
- 	// MethodArgumentResolver
- 
-@@ -135,7 +135,7 @@ public class SourcePayloadMethodProcessor extends AbstractPayloadSourceMethodPro
- 
- 	}
- 
--	private static class SystemIdStreamReaderDelegate extends StreamReaderDelegate {
-+	private static final class SystemIdStreamReaderDelegate extends StreamReaderDelegate {
- 
- 		private final String systemId;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/dom/XomPayloadMethodProcessor.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/dom/XomPayloadMethodProcessor.java
-index a830873f..975fa8d7 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/dom/XomPayloadMethodProcessor.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/dom/XomPayloadMethodProcessor.java
-@@ -47,7 +47,7 @@ import org.w3c.dom.DOMImplementation;
-  */
- public class XomPayloadMethodProcessor extends AbstractPayloadSourceMethodProcessor {
- 
--	private DocumentBuilderFactory documentBuilderFactory = createDocumentBuilderFactory();
-+	private final DocumentBuilderFactory documentBuilderFactory = createDocumentBuilderFactory();
- 
- 	@Override
- 	protected boolean supportsRequestPayloadParameter(MethodParameter parameter) {
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/jaxb/AbstractJaxb2PayloadMethodProcessor.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/jaxb/AbstractJaxb2PayloadMethodProcessor.java
-index f9ef9868..a8b20e27 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/jaxb/AbstractJaxb2PayloadMethodProcessor.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/adapter/method/jaxb/AbstractJaxb2PayloadMethodProcessor.java
-@@ -72,7 +72,7 @@ import org.xml.sax.ext.LexicalHandler;
-  */
- public abstract class AbstractJaxb2PayloadMethodProcessor extends AbstractPayloadMethodProcessor {
- 
--	private final ConcurrentMap<Class<?>, JAXBContext> jaxbContexts = new ConcurrentHashMap<Class<?>, JAXBContext>();
-+	private final ConcurrentMap<Class<?>, JAXBContext> jaxbContexts = new ConcurrentHashMap<>();
- 
- 	@Override
- 	public final void handleReturnValue(MessageContext messageContext, MethodParameter returnType, Object returnValue)
-@@ -159,7 +159,7 @@ public abstract class AbstractJaxb2PayloadMethodProcessor extends AbstractPayloa
- 			return null;
- 		}
- 		try {
--			JaxbElementSourceCallback<T> callback = new JaxbElementSourceCallback<T>(clazz);
-+			JaxbElementSourceCallback<T> callback = new JaxbElementSourceCallback<>(clazz);
- 			TraxUtils.doWithSource(requestPayload, callback);
- 			if (logger.isDebugEnabled()) {
- 				logger.debug("Unmarshalled payload request to [" + callback.result + "]");
-@@ -341,7 +341,7 @@ public abstract class AbstractJaxb2PayloadMethodProcessor extends AbstractPayloa
- 		}
- 	}
- 
--	private class Jaxb2ResultCallback implements TraxUtils.ResultCallback {
-+	private final class Jaxb2ResultCallback implements TraxUtils.ResultCallback {
- 
- 		private final Marshaller marshaller;
- 
-@@ -388,7 +388,7 @@ public abstract class AbstractJaxb2PayloadMethodProcessor extends AbstractPayloa
- 		}
- 	}
- 
--	private class JaxbStreamingPayload implements StreamingPayload {
-+	private final class JaxbStreamingPayload implements StreamingPayload {
- 
- 		private final Object jaxbElement;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/interceptor/AbstractValidatingInterceptor.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/interceptor/AbstractValidatingInterceptor.java
-index 4a99882e..6a9c7197 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/interceptor/AbstractValidatingInterceptor.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/interceptor/AbstractValidatingInterceptor.java
-@@ -62,7 +62,7 @@ public abstract class AbstractValidatingInterceptor extends TransformerObjectSup
- 
- 	private boolean validateRequest = true;
- 
--	private boolean validateResponse = false;
-+	private boolean validateResponse;
- 
- 	private XmlValidator validator;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractAnnotationMethodEndpointMapping.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractAnnotationMethodEndpointMapping.java
-index d2fff3a0..7df7d752 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractAnnotationMethodEndpointMapping.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractAnnotationMethodEndpointMapping.java
-@@ -34,7 +34,7 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
-  */
- public abstract class AbstractAnnotationMethodEndpointMapping<T> extends AbstractMethodEndpointMapping<T> {
- 
--	private boolean detectEndpointsInAncestorContexts = false;
-+	private boolean detectEndpointsInAncestorContexts;
- 
- 	/**
- 	 * Set whether to detect endpoint beans in ancestor ApplicationContexts.
-@@ -60,9 +60,9 @@ public abstract class AbstractAnnotationMethodEndpointMapping<T> extends Abstrac
- 		if (logger.isDebugEnabled()) {
- 			logger.debug("Looking for endpoints in application context: " + getApplicationContext());
- 		}
--		String[] beanNames = (this.detectEndpointsInAncestorContexts
-+		String[] beanNames = this.detectEndpointsInAncestorContexts
- 				? BeanFactoryUtils.beanNamesForTypeIncludingAncestors(getApplicationContext(), Object.class)
--				: getApplicationContext().getBeanNamesForType(Object.class));
-+				: getApplicationContext().getBeanNamesForType(Object.class);
- 
- 		for (String beanName : beanNames) {
- 			Class<?> endpointClass = getApplicationContext().getType(beanName);
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractEndpointMapping.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractEndpointMapping.java
-index d0ca2d2f..2b129302 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractEndpointMapping.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractEndpointMapping.java
-@@ -131,7 +131,7 @@ public abstract class AbstractEndpointMapping extends ApplicationObjectSupport i
- 			}
- 		}
- 
--		List<EndpointInterceptor> interceptors = new ArrayList<EndpointInterceptor>();
-+		List<EndpointInterceptor> interceptors = new ArrayList<>();
- 		if (this.interceptors != null) {
- 			interceptors.addAll(Arrays.asList(this.interceptors));
- 		}
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractMapBasedEndpointMapping.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractMapBasedEndpointMapping.java
-index a32e9093..16e91239 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractMapBasedEndpointMapping.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractMapBasedEndpointMapping.java
-@@ -37,14 +37,14 @@ import org.springframework.ws.context.MessageContext;
-  */
- public abstract class AbstractMapBasedEndpointMapping extends AbstractEndpointMapping {
- 
--	private boolean lazyInitEndpoints = false;
-+	private boolean lazyInitEndpoints;
- 
--	private boolean registerBeanNames = false;
-+	private boolean registerBeanNames;
- 
--	private final Map<String, Object> endpointMap = new HashMap<String, Object>();
-+	private final Map<String, Object> endpointMap = new HashMap<>();
- 
- 	// holds mappings set via setEndpointMap and setMappings
--	private Map<String, Object> temporaryEndpointMap = new HashMap<String, Object>();
-+	private Map<String, Object> temporaryEndpointMap = new HashMap<>();
- 
- 	/**
- 	 * Set whether to lazily initialize endpoints. Only applicable to singleton endpoints, as prototypes are always lazily
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractMethodEndpointMapping.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractMethodEndpointMapping.java
-index d60b57f6..cdd7ab0a 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractMethodEndpointMapping.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/AbstractMethodEndpointMapping.java
-@@ -48,7 +48,7 @@ import org.springframework.ws.server.endpoint.MethodEndpoint;
-  */
- public abstract class AbstractMethodEndpointMapping<T> extends AbstractEndpointMapping {
- 
--	private final Map<T, MethodEndpoint> endpointMap = new HashMap<T, MethodEndpoint>();
-+	private final Map<T, MethodEndpoint> endpointMap = new HashMap<>();
- 
- 	/**
- 	 * Lookup an endpoint for the given message. The extraction of the endpoint key is delegated to the concrete subclass.
-@@ -158,8 +158,8 @@ public abstract class AbstractMethodEndpointMapping<T> extends AbstractEndpointM
- 
- 	private Set<Method> findEndpointMethods(Class<?> endpointType,
- 			final ReflectionUtils.MethodFilter endpointMethodFilter) {
--		final Set<Method> endpointMethods = new LinkedHashSet<Method>();
--		Set<Class<?>> endpointTypes = new LinkedHashSet<Class<?>>();
-+		final Set<Method> endpointMethods = new LinkedHashSet<>();
-+		Set<Class<?>> endpointTypes = new LinkedHashSet<>();
- 		Class<?> specificEndpointType = null;
- 		if (!Proxy.isProxyClass(endpointType)) {
- 			endpointTypes.add(endpointType);
-@@ -167,7 +167,7 @@ public abstract class AbstractMethodEndpointMapping<T> extends AbstractEndpointM
- 		}
- 		endpointTypes.addAll(Arrays.asList(endpointType.getInterfaces()));
- 		for (Class<?> currentEndpointType : endpointTypes) {
--			final Class<?> targetClass = (specificEndpointType != null ? specificEndpointType : currentEndpointType);
-+			final Class<?> targetClass = specificEndpointType != null ? specificEndpointType : currentEndpointType;
- 			ReflectionUtils.doWithMethods(currentEndpointType, new ReflectionUtils.MethodCallback() {
- 				public void doWith(Method method) {
- 					Method specificMethod = ClassUtils.getMostSpecificMethod(method, targetClass);
-@@ -204,7 +204,7 @@ public abstract class AbstractMethodEndpointMapping<T> extends AbstractEndpointM
- 	 */
- 	protected List<T> getLookupKeysForMethod(Method method) {
- 		T key = getLookupKeyForMethod(method);
--		return key != null ? Collections.singletonList(key) : Collections.<T> emptyList();
-+		return key != null ? Collections.singletonList(key) : Collections. emptyList();
- 	}
- 
- 	/**
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/PayloadRootAnnotationMethodEndpointMapping.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/PayloadRootAnnotationMethodEndpointMapping.java
-index c9247327..e93c0b8a 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/PayloadRootAnnotationMethodEndpointMapping.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/PayloadRootAnnotationMethodEndpointMapping.java
-@@ -76,7 +76,7 @@ public class PayloadRootAnnotationMethodEndpointMapping extends AbstractAnnotati
- 
- 	@Override
- 	protected List<QName> getLookupKeysForMethod(Method method) {
--		List<QName> result = new ArrayList<QName>();
-+		List<QName> result = new ArrayList<>();
- 
- 		PayloadRoots payloadRoots = AnnotationUtils.findAnnotation(method, PayloadRoots.class);
- 		if (payloadRoots != null) {
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/UriEndpointMapping.java b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/UriEndpointMapping.java
-index 77740486..91abd6ef 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/UriEndpointMapping.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/server/endpoint/mapping/UriEndpointMapping.java
-@@ -61,7 +61,7 @@ import org.springframework.ws.transport.context.TransportContextHolder;
-  */
- public class UriEndpointMapping extends AbstractMapBasedEndpointMapping {
- 
--	private boolean usePath = false;
-+	private boolean usePath;
- 
- 	/**
- 	 * Indicates whether the path should be used instead of the full URI. Default is {@code false}.
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AbstractActionEndpointMapping.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AbstractActionEndpointMapping.java
-index 5d3a44ba..708d88ee 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AbstractActionEndpointMapping.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AbstractActionEndpointMapping.java
-@@ -44,7 +44,7 @@ public abstract class AbstractActionEndpointMapping extends AbstractAddressingEn
- 	public static final String DEFAULT_FAULT_ACTION_SUFFIX = "Fault";
- 
- 	// keys are action URIs, values are endpoints
--	private final Map<URI, Object> endpointMap = new HashMap<URI, Object>();
-+	private final Map<URI, Object> endpointMap = new HashMap<>();
- 
- 	private String outputActionSuffix = DEFAULT_OUTPUT_ACTION_SUFFIX;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AbstractAddressingEndpointMapping.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AbstractAddressingEndpointMapping.java
-index 0dbd74bf..8436bd53 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AbstractAddressingEndpointMapping.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AbstractAddressingEndpointMapping.java
-@@ -283,7 +283,7 @@ public abstract class AbstractAddressingEndpointMapping extends TransformerObjec
- 		WebServiceMessageSender[] messageSenders = getMessageSenders(endpoint);
- 		MessageIdStrategy messageIdStrategy = getMessageIdStrategy(endpoint);
- 
--		List<EndpointInterceptor> interceptors = new ArrayList<EndpointInterceptor>();
-+		List<EndpointInterceptor> interceptors = new ArrayList<>();
- 		interceptors.addAll(Arrays.asList(preInterceptors));
- 
- 		AddressingEndpointInterceptor addressingInterceptor = new AddressingEndpointInterceptor(version, messageIdStrategy,
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AddressingEndpointInterceptor.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AddressingEndpointInterceptor.java
-index b99879d9..0ef799ae 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AddressingEndpointInterceptor.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/AddressingEndpointInterceptor.java
-@@ -50,9 +50,9 @@ class AddressingEndpointInterceptor implements SoapEndpointInterceptor {
- 
- 	private final WebServiceMessageSender[] messageSenders;
- 
--	private URI replyAction;
-+	private final URI replyAction;
- 
--	private URI faultAction;
-+	private final URI faultAction;
- 
- 	AddressingEndpointInterceptor(AddressingVersion version, MessageIdStrategy messageIdStrategy,
- 			WebServiceMessageSender[] messageSenders, URI replyAction, URI faultAction) {
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/SimpleActionEndpointMapping.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/SimpleActionEndpointMapping.java
-index 60f7b12c..9d82787d 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/SimpleActionEndpointMapping.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/server/SimpleActionEndpointMapping.java
-@@ -53,7 +53,7 @@ import org.springframework.beans.BeansException;
- public class SimpleActionEndpointMapping extends AbstractActionEndpointMapping {
- 
- 	// contents will be copied over to endpointMap
--	private final Map<URI, Object> actionMap = new HashMap<URI, Object>();
-+	private final Map<URI, Object> actionMap = new HashMap<>();
- 
- 	private URI address;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/version/AbstractAddressingVersion.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/version/AbstractAddressingVersion.java
-index 76279fc8..90760ea8 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/version/AbstractAddressingVersion.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/addressing/version/AbstractAddressingVersion.java
-@@ -63,7 +63,7 @@ import org.w3c.dom.Node;
-  */
- public abstract class AbstractAddressingVersion extends TransformerObjectSupport implements AddressingVersion {
- 
--	private static DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactoryUtils.newInstance();
-+	private static final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactoryUtils.newInstance();
- 
- 	private final XPathExpression toExpression;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoap11Header.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoap11Header.java
-index 9c61e203..2cb8acb5 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoap11Header.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoap11Header.java
-@@ -44,7 +44,7 @@ class SaajSoap11Header extends SaajSoapHeader implements Soap11Header {
- 	@Override
- 	@SuppressWarnings("unchecked")
- 	public Iterator<SoapHeaderElement> examineHeaderElementsToProcess(String[] actors) {
--		List<SOAPHeaderElement> result = new ArrayList<SOAPHeaderElement>();
-+		List<SOAPHeaderElement> result = new ArrayList<>();
- 		Iterator<SOAPHeaderElement> iterator = getSaajHeader().examineAllHeaderElements();
- 		while (iterator.hasNext()) {
- 			SOAPHeaderElement saajHeaderElement = iterator.next();
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoap12Header.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoap12Header.java
-index 6282a10e..5836b5ae 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoap12Header.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoap12Header.java
-@@ -69,7 +69,7 @@ class SaajSoap12Header extends SaajSoapHeader implements Soap12Header {
- 	@SuppressWarnings("unchecked")
- 	public Iterator<SoapHeaderElement> examineHeaderElementsToProcess(String[] roles, boolean isUltimateDestination)
- 			throws SoapHeaderException {
--		List<SOAPHeaderElement> result = new ArrayList<SOAPHeaderElement>();
-+		List<SOAPHeaderElement> result = new ArrayList<>();
- 		Iterator<SOAPHeaderElement> iterator = getSaajHeader().examineAllHeaderElements();
- 		while (iterator.hasNext()) {
- 			SOAPHeaderElement saajHeaderElement = iterator.next();
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoapFaultDetail.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoapFaultDetail.java
-index e0b5b868..b6d2f120 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoapFaultDetail.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoapFaultDetail.java
-@@ -70,7 +70,7 @@ class SaajSoapFaultDetail extends SaajSoapElement<SOAPFaultElement> implements S
- 		return (Detail) getSaajElement();
- 	}
- 
--	private static class SaajSoapFaultDetailElementIterator implements Iterator<SoapFaultDetailElement> {
-+	private static final class SaajSoapFaultDetailElementIterator implements Iterator<SoapFaultDetailElement> {
- 
- 		private final Iterator<DetailEntry> iterator;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoapMessage.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoapMessage.java
-index 32a10df0..c14806d6 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoapMessage.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/SaajSoapMessage.java
-@@ -339,7 +339,7 @@ public class SaajSoapMessage extends AbstractSoapMessage {
- 		return builder.toString();
- 	}
- 
--	private static class SaajAttachmentIterator implements Iterator<Attachment> {
-+	private static final class SaajAttachmentIterator implements Iterator<Attachment> {
- 
- 		private final Iterator<AttachmentPart> saajIterator;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajContentHandler.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajContentHandler.java
-index e116e690..44d0dd60 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajContentHandler.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajContentHandler.java
-@@ -46,7 +46,7 @@ public class SaajContentHandler implements ContentHandler {
- 
- 	private final SOAPEnvelope envelope;
- 
--	private Map<String, String> namespaces = new LinkedHashMap<String, String>();
-+	private final Map<String, String> namespaces = new LinkedHashMap<>();
- 
- 	/**
- 	 * Constructs a new instance of the {@code SaajContentHandler} that creates children of the given {@code SOAPElement}.
-@@ -64,7 +64,7 @@ public class SaajContentHandler implements ContentHandler {
- 	}
- 
- 	@Override
--	public void characters(char ch[], int start, int length) throws SAXException {
-+	public void characters(char[] ch, int start, int length) throws SAXException {
- 		try {
- 			String text = new String(ch, start, length);
- 			element.addTextNode(text);
-@@ -143,7 +143,7 @@ public class SaajContentHandler implements ContentHandler {
- 	public void endDocument() throws SAXException {}
- 
- 	@Override
--	public void ignorableWhitespace(char ch[], int start, int length) throws SAXException {}
-+	public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {}
- 
- 	@Override
- 	public void processingInstruction(String target, String data) throws SAXException {}
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajUtils.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajUtils.java
-index de0de8d5..e3d2c932 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajUtils.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajUtils.java
-@@ -46,7 +46,7 @@ public abstract class SaajUtils {
- 
- 	public static final int SAAJ_13 = 2;
- 
--	private static int saajVersion = SAAJ_13;
-+	private static final int saajVersion = SAAJ_13;
- 
- 	/**
- 	 * Gets the SAAJ version. Returns {@link #SAAJ_13} as of Spring-WS 2.2.
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajXmlReader.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajXmlReader.java
-index a8e4de68..bb0848bd 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajXmlReader.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/saaj/support/SaajXmlReader.java
-@@ -51,7 +51,7 @@ public class SaajXmlReader extends AbstractXmlReader {
- 
- 	private boolean namespacesFeature = true;
- 
--	private boolean namespacePrefixesFeature = false;
-+	private boolean namespacePrefixesFeature;
- 
- 	/**
- 	 * Constructs a new instance of the {@code SaajXmlReader} that reads from the given {@code Node}.
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/server/SoapMessageDispatcher.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/server/SoapMessageDispatcher.java
-index 147957c1..eb0076f1 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/server/SoapMessageDispatcher.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/server/SoapMessageDispatcher.java
-@@ -107,7 +107,7 @@ public class SoapMessageDispatcher extends MessageDispatcher {
- 		} else {
- 			headerIterator = ((Soap12Header) soapHeader).examineHeaderElementsToProcess(actorsOrRoles, isUltimateReceiver);
- 		}
--		List<QName> notUnderstoodHeaderNames = new ArrayList<QName>();
-+		List<QName> notUnderstoodHeaderNames = new ArrayList<>();
- 		while (headerIterator.hasNext()) {
- 			SoapHeaderElement headerElement = headerIterator.next();
- 			QName headerName = headerElement.getName();
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/SoapFaultMappingExceptionResolver.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/SoapFaultMappingExceptionResolver.java
-index 33410139..f738f433 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/SoapFaultMappingExceptionResolver.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/SoapFaultMappingExceptionResolver.java
-@@ -31,7 +31,7 @@ import org.springframework.util.CollectionUtils;
-  */
- public class SoapFaultMappingExceptionResolver extends AbstractSoapFaultDefinitionExceptionResolver {
- 
--	private Map<String, String> exceptionMappings = new LinkedHashMap<String, String>();
-+	private final Map<String, String> exceptionMappings = new LinkedHashMap<>();
- 
- 	/**
- 	 * Set the mappings between exception class names and SOAP Faults. The exception class name can be a substring, with
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/adapter/method/SoapHeaderElementMethodArgumentResolver.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/adapter/method/SoapHeaderElementMethodArgumentResolver.java
-index 92493a2f..9d7d3389 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/adapter/method/SoapHeaderElementMethodArgumentResolver.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/adapter/method/SoapHeaderElementMethodArgumentResolver.java
-@@ -121,7 +121,7 @@ public class SoapHeaderElementMethodArgumentResolver implements MethodArgumentRe
- 
- 	private List<SoapHeaderElement> extractSoapHeaderList(QName qname,
- 			org.springframework.ws.soap.SoapHeader soapHeader) {
--		List<SoapHeaderElement> result = new ArrayList<SoapHeaderElement>();
-+		List<SoapHeaderElement> result = new ArrayList<>();
- 		Iterator<SoapHeaderElement> elements = soapHeader.examineAllHeaderElements();
- 		while (elements.hasNext()) {
- 			SoapHeaderElement e = elements.next();
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/mapping/SoapActionAnnotationMethodEndpointMapping.java b/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/mapping/SoapActionAnnotationMethodEndpointMapping.java
-index f17e2ea7..a2142293 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/mapping/SoapActionAnnotationMethodEndpointMapping.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/soap/server/endpoint/mapping/SoapActionAnnotationMethodEndpointMapping.java
-@@ -116,7 +116,7 @@ public class SoapActionAnnotationMethodEndpointMapping extends AbstractAnnotatio
- 
- 	@Override
- 	protected List<String> getLookupKeysForMethod(Method method) {
--		List<String> result = new ArrayList<String>();
-+		List<String> result = new ArrayList<>();
- 
- 		SoapActions soapActions = AnnotationUtils.findAnnotation(method, SoapActions.class);
- 		if (soapActions != null) {
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/support/WebUtils.java b/spring-ws-core/src/main/java/org/springframework/ws/support/WebUtils.java
-index 2b27b567..91868de7 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/support/WebUtils.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/support/WebUtils.java
-@@ -60,7 +60,7 @@ public abstract class WebUtils {
- 		}
- 		int begin = urlPath.lastIndexOf('/', end) + 1;
- 		int paramIndex = urlPath.indexOf(';', begin);
--		end = (paramIndex != -1 && paramIndex < end ? paramIndex : end);
-+		end = paramIndex != -1 && paramIndex < end ? paramIndex : end;
- 		return urlPath.substring(begin, end);
- 	}
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/AbstractWebServiceConnection.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/AbstractWebServiceConnection.java
-index f05dfbb6..cf9c35d0 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/AbstractWebServiceConnection.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/AbstractWebServiceConnection.java
-@@ -33,7 +33,7 @@ public abstract class AbstractWebServiceConnection implements WebServiceConnecti
- 
- 	private TransportOutputStream tos;
- 
--	private boolean closed = false;
-+	private boolean closed;
- 
- 	@Override
- 	public final void send(WebServiceMessage message) throws IOException {
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/TransportInputStream.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/TransportInputStream.java
-index f311b469..e153d3e7 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/TransportInputStream.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/TransportInputStream.java
-@@ -76,12 +76,12 @@ public abstract class TransportInputStream extends InputStream {
- 	}
- 
- 	@Override
--	public int read(byte b[]) throws IOException {
-+	public int read(byte[] b) throws IOException {
- 		return getInputStream().read(b);
- 	}
- 
- 	@Override
--	public int read(byte b[], int off, int len) throws IOException {
-+	public int read(byte[] b, int off, int len) throws IOException {
- 		return getInputStream().read(b, off, len);
- 	}
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/TransportOutputStream.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/TransportOutputStream.java
-index 1bb975d1..7fcc9c02 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/TransportOutputStream.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/TransportOutputStream.java
-@@ -58,12 +58,12 @@ public abstract class TransportOutputStream extends OutputStream {
- 	}
- 
- 	@Override
--	public void write(byte b[]) throws IOException {
-+	public void write(byte[] b) throws IOException {
- 		getOutputStream().write(b);
- 	}
- 
- 	@Override
--	public void write(byte b[], int off, int len) throws IOException {
-+	public void write(byte[] b, int off, int len) throws IOException {
- 		getOutputStream().write(b, off, len);
- 	}
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/CommonsHttpMessageSender.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/CommonsHttpMessageSender.java
-index f2850601..562e017c 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/CommonsHttpMessageSender.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/CommonsHttpMessageSender.java
-@@ -56,9 +56,9 @@ import org.springframework.ws.transport.WebServiceConnection;
- public class CommonsHttpMessageSender extends AbstractHttpWebServiceMessageSender
- 		implements InitializingBean, DisposableBean {
- 
--	private static final int DEFAULT_CONNECTION_TIMEOUT_MILLISECONDS = (60 * 1000);
-+	private static final int DEFAULT_CONNECTION_TIMEOUT_MILLISECONDS = 60 * 1000;
- 
--	private static final int DEFAULT_READ_TIMEOUT_MILLISECONDS = (60 * 1000);
-+	private static final int DEFAULT_READ_TIMEOUT_MILLISECONDS = 60 * 1000;
- 
- 	private HttpClient httpClient;
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpComponents5ClientFactory.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpComponents5ClientFactory.java
-index 7d23dc1d..7728d161 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpComponents5ClientFactory.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpComponents5ClientFactory.java
-@@ -67,7 +67,7 @@ public class HttpComponents5ClientFactory implements FactoryBean<CloseableHttpCl
- 
- 	private AuthScope authScope = ANY;
- 
--	private Credentials credentials = null;
-+	private Credentials credentials;
- 
- 	private Map<String, String> maxConnectionsPerHost = Map.of();
- 
-@@ -168,7 +168,7 @@ public class HttpComponents5ClientFactory implements FactoryBean<CloseableHttpCl
- 			HttpHost host = new HttpHost(uri.getScheme(), uri.getHost(), getPort(uri));
- 			final HttpRoute route;
- 
--			if (uri.getScheme().equals("https")) {
-+			if ("https".equals(uri.getScheme())) {
- 				route = new HttpRoute(host, null, true);
- 			} else {
- 				route = new HttpRoute(host);
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpComponentsMessageSender.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpComponentsMessageSender.java
-index 5ebdd815..ff029036 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpComponentsMessageSender.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpComponentsMessageSender.java
-@@ -58,9 +58,9 @@ import org.springframework.ws.transport.WebServiceConnection;
- public class HttpComponentsMessageSender extends AbstractHttpWebServiceMessageSender
- 		implements InitializingBean, DisposableBean {
- 
--	private static final int DEFAULT_CONNECTION_TIMEOUT_MILLISECONDS = (60 * 1000);
-+	private static final int DEFAULT_CONNECTION_TIMEOUT_MILLISECONDS = 60 * 1000;
- 
--	private static final int DEFAULT_READ_TIMEOUT_MILLISECONDS = (60 * 1000);
-+	private static final int DEFAULT_READ_TIMEOUT_MILLISECONDS = 60 * 1000;
- 
- 	private HttpClient httpClient;
- 
-@@ -195,7 +195,7 @@ public class HttpComponentsMessageSender extends AbstractHttpWebServiceMessageSe
- 			HttpHost host = new HttpHost(uri.getHost(), uri.getPort(), uri.getScheme());
- 			final HttpRoute route;
- 
--			if (uri.getScheme().equals("https")) {
-+			if ("https".equals(uri.getScheme())) {
- 				route = new HttpRoute(host, null, true);
- 			} else {
- 				route = new HttpRoute(host);
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpServletConnection.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpServletConnection.java
-index cbe8e4eb..57d22ac2 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpServletConnection.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpServletConnection.java
-@@ -50,7 +50,7 @@ public class HttpServletConnection extends AbstractReceiverConnection
- 
- 	private final HttpServletResponse httpServletResponse;
- 
--	private boolean statusCodeSet = false;
-+	private boolean statusCodeSet;
- 
- 	/**
- 	 * Constructs a new servlet connection with the given {@code HttpServletRequest} and {@code HttpServletResponse}.
-@@ -107,12 +107,12 @@ public class HttpServletConnection extends AbstractReceiverConnection
- 
- 	@Override
- 	public Iterator<String> getRequestHeaderNames() throws IOException {
--		return new EnumerationIterator<String>(getHttpServletRequest().getHeaderNames());
-+		return new EnumerationIterator<>(getHttpServletRequest().getHeaderNames());
- 	}
- 
- 	@Override
- 	public Iterator<String> getRequestHeaders(String name) throws IOException {
--		return new EnumerationIterator<String>(getHttpServletRequest().getHeaders(name));
-+		return new EnumerationIterator<>(getHttpServletRequest().getHeaders(name));
- 	}
- 
- 	@Override
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpUrlConnection.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpUrlConnection.java
-index 47971491..e2a6e991 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpUrlConnection.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/HttpUrlConnection.java
-@@ -105,7 +105,7 @@ public class HttpUrlConnection extends AbstractHttpSenderConnection {
- 
- 	@Override
- 	public Iterator<String> getResponseHeaderNames() throws IOException {
--		Set<String> headerNames = new HashSet<String>();
-+		Set<String> headerNames = new HashSet<>();
- 		// Header field 0 is the status line, so we start at 1
- 		int i = 1;
- 		while (true) {
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/LastModifiedHelper.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/LastModifiedHelper.java
-index 97c2bc0f..27998434 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/LastModifiedHelper.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/LastModifiedHelper.java
-@@ -33,7 +33,7 @@ import org.w3c.dom.Document;
-  * @author Arjen Poutsma
-  * @since 1.5.3
-  */
--class LastModifiedHelper {
-+final class LastModifiedHelper {
- 
- 	private LastModifiedHelper() {}
- 
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/MessageDispatcherServlet.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/MessageDispatcherServlet.java
-index 41c46297..83bf2625 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/MessageDispatcherServlet.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/MessageDispatcherServlet.java
-@@ -118,9 +118,9 @@ public class MessageDispatcherServlet extends FrameworkServlet {
- 
- 	private Map<String, XsdSchema> xsdSchemas;
- 
--	private boolean transformWsdlLocations = false;
-+	private boolean transformWsdlLocations;
- 
--	private boolean transformSchemaLocations = false;
-+	private boolean transformSchemaLocations;
- 
- 	/**
- 	 * Public constructor, necessary for some Web application servers.
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/WsdlDefinitionHandlerAdapter.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/WsdlDefinitionHandlerAdapter.java
-index 7acd4f0c..f3714187 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/WsdlDefinitionHandlerAdapter.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/WsdlDefinitionHandlerAdapter.java
-@@ -79,7 +79,7 @@ public class WsdlDefinitionHandlerAdapter extends LocationTransformerObjectSuppo
- 
- 	private static final String CONTENT_TYPE = "text/xml";
- 
--	private Map<String, String> expressionNamespaces = new HashMap<String, String>();
-+	private final Map<String, String> expressionNamespaces = new HashMap<>();
- 
- 	private String locationExpression = DEFAULT_LOCATION_EXPRESSION;
- 
-@@ -89,9 +89,9 @@ public class WsdlDefinitionHandlerAdapter extends LocationTransformerObjectSuppo
- 
- 	private XPathExpression schemaLocationXPathExpression;
- 
--	private boolean transformLocations = false;
-+	private boolean transformLocations;
- 
--	private boolean transformSchemaLocations = false;
-+	private boolean transformSchemaLocations;
- 
- 	/**
- 	 * Sets the XPath expression used for extracting the {@code location} attributes from the WSDL 1.1 definition.
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/XsdSchemaHandlerAdapter.java b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/XsdSchemaHandlerAdapter.java
-index 07473afa..5501a7fa 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/transport/http/XsdSchemaHandlerAdapter.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/transport/http/XsdSchemaHandlerAdapter.java
-@@ -57,13 +57,13 @@ public class XsdSchemaHandlerAdapter extends LocationTransformerObjectSupport
- 
- 	private static final String CONTENT_TYPE = "text/xml";
- 
--	private Map<String, String> expressionNamespaces = new HashMap<String, String>();
-+	private final Map<String, String> expressionNamespaces = new HashMap<>();
- 
- 	private String schemaLocationExpression = DEFAULT_SCHEMA_LOCATION_EXPRESSION;
- 
- 	private XPathExpression schemaLocationXPathExpression;
- 
--	private boolean transformSchemaLocations = false;
-+	private boolean transformSchemaLocations;
- 
- 	/**
- 	 * Sets the XPath expression used for extracting the {@code schemaLocation} attributes from the WSDL 1.1 definition.
-diff --git a/spring-ws-core/src/main/java/org/springframework/ws/wsdl/wsdl11/provider/SoapProvider.java b/spring-ws-core/src/main/java/org/springframework/ws/wsdl/wsdl11/provider/SoapProvider.java
-index 5ca20bad..e4b04ea6 100644
---- a/spring-ws-core/src/main/java/org/springframework/ws/wsdl/wsdl11/provider/SoapProvider.java
-+++ b/spring-ws-core/src/main/java/org/springframework/ws/wsdl/wsdl11/provider/SoapProvider.java
-@@ -44,7 +44,7 @@ public class SoapProvider implements BindingsProvider, ServicesProvider {
- 
- 	private boolean createSoap11Binding = true;
- 
--	private boolean createSoap12Binding = false;
-+	private boolean createSoap12Binding;
- 
- 	/**
- 	 * Indicates whether a SOAP 1.1 binding should be created.
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/MockWebServiceMessage.java b/spring-ws-core/src/test/java/org/springframework/ws/MockWebServiceMessage.java
-index a811d812..ae0d568f 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/MockWebServiceMessage.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/MockWebServiceMessage.java
-@@ -51,7 +51,7 @@ public class MockWebServiceMessage implements FaultAwareWebServiceMessage {
- 
- 	private StringBuilder content;
- 
--	private boolean fault = false;
-+	private boolean fault;
- 
- 	private QName faultCode;
- 
-@@ -170,7 +170,7 @@ public class MockWebServiceMessage implements FaultAwareWebServiceMessage {
- 		return builder.toString();
- 	}
- 
--	private class StringBufferWriter extends Writer {
-+	private final class StringBufferWriter extends Writer {
- 
- 		private StringBufferWriter() {
- 			super(content);
-@@ -198,7 +198,7 @@ public class MockWebServiceMessage implements FaultAwareWebServiceMessage {
- 		public void flush() {}
- 
- 		@Override
--		public void write(char cbuf[], int off, int len) {
-+		public void write(char[] cbuf, int off, int len) {
- 
- 			if (off < 0 || off > cbuf.length || len < 0 || off + len > cbuf.length || off + len < 0) {
- 				throw new IndexOutOfBoundsException();
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/client/core/AbstractSoap11WebServiceTemplateIntegrationTestCase.java b/spring-ws-core/src/test/java/org/springframework/ws/client/core/AbstractSoap11WebServiceTemplateIntegrationTestCase.java
-index 0b576e63..57b611c6 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/client/core/AbstractSoap11WebServiceTemplateIntegrationTestCase.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/client/core/AbstractSoap11WebServiceTemplateIntegrationTestCase.java
-@@ -78,9 +78,9 @@ public abstract class AbstractSoap11WebServiceTemplateIntegrationTestCase {
- 
- 	private WebServiceTemplate template;
- 
--	private String messagePayload = "<root xmlns='http://springframework.org/spring-ws'><child/></root>";
-+	private final String messagePayload = "<root xmlns='http://springframework.org/spring-ws'><child/></root>";
- 
--	private Logger logger = LogManager.getLogger();
-+	private final Logger logger = LogManager.getLogger();
- 
- 	@BeforeAll
- 	public static void startJetty() throws Exception {
-@@ -278,7 +278,7 @@ public abstract class AbstractSoap11WebServiceTemplateIntegrationTestCase {
- 
- 	/** Servlet that returns and error message for a given status code. */
- 	@SuppressWarnings("serial")
--	private static class ErrorServlet extends HttpServlet {
-+	private static final class ErrorServlet extends HttpServlet {
- 
- 		private int sc;
- 
-@@ -296,7 +296,7 @@ public abstract class AbstractSoap11WebServiceTemplateIntegrationTestCase {
- 	@SuppressWarnings("serial")
- 	private abstract static class AbstractSoapServlet extends HttpServlet {
- 
--		protected MessageFactory messageFactory = null;
-+		protected MessageFactory messageFactory;
- 
- 		private int sc = -1;
- 
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/client/core/AbstractSoap12WebServiceTemplateIntegrationTestCase.java b/spring-ws-core/src/test/java/org/springframework/ws/client/core/AbstractSoap12WebServiceTemplateIntegrationTestCase.java
-index e5d3c006..8b1ca965 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/client/core/AbstractSoap12WebServiceTemplateIntegrationTestCase.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/client/core/AbstractSoap12WebServiceTemplateIntegrationTestCase.java
-@@ -77,7 +77,7 @@ public abstract class AbstractSoap12WebServiceTemplateIntegrationTestCase {
- 
- 	private WebServiceTemplate template;
- 
--	private String messagePayload = "<root xmlns='http://springframework.org/spring-ws'><child/></root>";
-+	private final String messagePayload = "<root xmlns='http://springframework.org/spring-ws'><child/></root>";
- 
- 	@BeforeAll
- 	public static void startJetty() throws Exception {
-@@ -280,7 +280,7 @@ public abstract class AbstractSoap12WebServiceTemplateIntegrationTestCase {
- 
- 	/** Servlet that returns and error message for a given status code. */
- 	@SuppressWarnings("serial")
--	public static class ErrorServlet extends HttpServlet {
-+	public static final class ErrorServlet extends HttpServlet {
- 
- 		private int sc;
- 
-@@ -298,7 +298,7 @@ public abstract class AbstractSoap12WebServiceTemplateIntegrationTestCase {
- 	@SuppressWarnings("serial")
- 	public abstract static class AbstractSoapServlet extends HttpServlet {
- 
--		protected MessageFactory messageFactory = null;
-+		protected MessageFactory messageFactory;
- 
- 		@Override
- 		public void init(ServletConfig servletConfig) throws ServletException {
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/client/core/DomPoxWebServiceTemplateIntegrationTest.java b/spring-ws-core/src/test/java/org/springframework/ws/client/core/DomPoxWebServiceTemplateIntegrationTest.java
-index 3e394640..b0e2b7b0 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/client/core/DomPoxWebServiceTemplateIntegrationTest.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/client/core/DomPoxWebServiceTemplateIntegrationTest.java
-@@ -109,7 +109,7 @@ public class DomPoxWebServiceTemplateIntegrationTest {
- 
- 	/** Servlet that returns and error message for a given status code. */
- 	@SuppressWarnings("serial")
--	public static class ErrorServlet extends HttpServlet {
-+	public static final class ErrorServlet extends HttpServlet {
- 
- 		private int sc;
- 
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/client/core/SimpleSaajServlet.java b/spring-ws-core/src/test/java/org/springframework/ws/client/core/SimpleSaajServlet.java
-index 6d5790a8..c17df2d0 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/client/core/SimpleSaajServlet.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/client/core/SimpleSaajServlet.java
-@@ -42,7 +42,7 @@ import org.springframework.util.StringUtils;
- @SuppressWarnings("serial")
- public class SimpleSaajServlet extends HttpServlet {
- 
--	private MessageFactory msgFactory = null;
-+	private MessageFactory msgFactory;
- 
- 	@Override
- 	public void init(ServletConfig servletConfig) throws ServletException {
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/adapter/XPathParamAnnotationMethodEndpointAdapterTest.java b/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/adapter/XPathParamAnnotationMethodEndpointAdapterTest.java
-index 8ee8bc6f..2c5efe7d 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/adapter/XPathParamAnnotationMethodEndpointAdapterTest.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/adapter/XPathParamAnnotationMethodEndpointAdapterTest.java
-@@ -50,7 +50,7 @@ public class XPathParamAnnotationMethodEndpointAdapterTest {
- 
- 	private XPathParamAnnotationMethodEndpointAdapter adapter;
- 
--	private boolean supportedTypesInvoked = false;
-+	private boolean supportedTypesInvoked;
- 
- 	private boolean supportedSourceInvoked;
- 
-@@ -179,7 +179,7 @@ public class XPathParamAnnotationMethodEndpointAdapterTest {
- 
- 		replay(requestMock, factoryMock);
- 
--		Map<String, String> namespaces = new HashMap<String, String>();
-+		Map<String, String> namespaces = new HashMap<>();
- 		namespaces.put("root", rootNamespace);
- 		namespaces.put("child", childNamespace);
- 		adapter.setNamespaces(namespaces);
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/EndpointMappingTest.java b/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/EndpointMappingTest.java
-index d8a58673..0fdf2ee2 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/EndpointMappingTest.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/EndpointMappingTest.java
-@@ -191,7 +191,7 @@ public class EndpointMappingTest {
- 		assertThat(MyEndpoint.constructorCount).isEqualTo(2);
- 	}
- 
--	private static class MyEndpoint {
-+	private static final class MyEndpoint {
- 
- 		private static int constructorCount;
- 
-@@ -200,7 +200,7 @@ public class EndpointMappingTest {
- 		}
- 	}
- 
--	private static class MySmartEndpointInterceptor extends DelegatingSmartEndpointInterceptor {
-+	private static final class MySmartEndpointInterceptor extends DelegatingSmartEndpointInterceptor {
- 
- 		private MySmartEndpointInterceptor() {
- 			super(new EndpointInterceptorAdapter());
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/LogAspect.java b/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/LogAspect.java
-index 04d22a73..1755ee9d 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/LogAspect.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/LogAspect.java
-@@ -28,7 +28,7 @@ public class LogAspect {
- 
- 	private static final Log logger = LogFactory.getLog(LogAspect.class);
- 
--	private boolean logInvoked = false;
-+	private boolean logInvoked;
- 
- 	public boolean isLogInvoked() {
- 		return logInvoked;
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/PayloadRootAnnotationMethodEndpointMappingTest.java b/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/PayloadRootAnnotationMethodEndpointMappingTest.java
-index 8a9e8277..1696e7ba 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/PayloadRootAnnotationMethodEndpointMappingTest.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/server/endpoint/mapping/PayloadRootAnnotationMethodEndpointMappingTest.java
-@@ -139,7 +139,7 @@ public class PayloadRootAnnotationMethodEndpointMappingTest {
- 
- 		private static final org.apache.commons.logging.Log logger = LogFactory.getLog(MyEndpoint.class);
- 
--		private boolean doItInvoked = false;
-+		private boolean doItInvoked;
- 
- 		public boolean isDoItInvoked() {
- 			return doItInvoked;
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/soap/client/core/SaajSoapActionCallbackTest.java b/spring-ws-core/src/test/java/org/springframework/ws/soap/client/core/SaajSoapActionCallbackTest.java
-index 33eaa7d5..e24058e4 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/soap/client/core/SaajSoapActionCallbackTest.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/soap/client/core/SaajSoapActionCallbackTest.java
-@@ -18,9 +18,9 @@ import org.springframework.ws.transport.TransportConstants;
- 
- public class SaajSoapActionCallbackTest {
- 
--	private SaajSoapMessageFactory saaj11Factory = new SaajSoapMessageFactory();
-+	private final SaajSoapMessageFactory saaj11Factory = new SaajSoapMessageFactory();
- 
--	private SaajSoapMessageFactory saaj12Factory = new SaajSoapMessageFactory();
-+	private final SaajSoapMessageFactory saaj12Factory = new SaajSoapMessageFactory();
- 
- 	@BeforeEach
- 	public void init() throws SOAPException {
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/soap/server/endpoint/FaultCreatingValidatingMarshallingPayloadEndpointTest.java b/spring-ws-core/src/test/java/org/springframework/ws/soap/server/endpoint/FaultCreatingValidatingMarshallingPayloadEndpointTest.java
-index 7aca8fd0..d734d1c2 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/soap/server/endpoint/FaultCreatingValidatingMarshallingPayloadEndpointTest.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/soap/server/endpoint/FaultCreatingValidatingMarshallingPayloadEndpointTest.java
-@@ -162,7 +162,7 @@ public class FaultCreatingValidatingMarshallingPayloadEndpointTest {
- 		}
- 	}
- 
--	private static class Person {
-+	private static final class Person {
- 
- 		private String name;
- 
-@@ -195,7 +195,7 @@ public class FaultCreatingValidatingMarshallingPayloadEndpointTest {
- 		}
- 	}
- 
--	private static class PersonMarshaller implements Unmarshaller, Marshaller {
-+	private static final class PersonMarshaller implements Unmarshaller, Marshaller {
- 
- 		private final Person person;
- 
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/soap/soap11/AbstractSoap11MessageFactoryTestCase.java b/spring-ws-core/src/test/java/org/springframework/ws/soap/soap11/AbstractSoap11MessageFactoryTestCase.java
-index 1ee8aa30..e29abc73 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/soap/soap11/AbstractSoap11MessageFactoryTestCase.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/soap/soap11/AbstractSoap11MessageFactoryTestCase.java
-@@ -51,7 +51,7 @@ public abstract class AbstractSoap11MessageFactoryTestCase extends AbstractSoapM
- 	public void testCreateSoapMessageNoAttachment() throws Exception {
- 
- 		InputStream is = AbstractSoap11MessageFactoryTestCase.class.getResourceAsStream("soap11.xml");
--		Map<String, String> headers = new HashMap<String, String>();
-+		Map<String, String> headers = new HashMap<>();
- 		headers.put("Content-Type", "text/xml");
- 		String soapAction = "\"http://springframework.org/spring-ws/Action\"";
- 		headers.put("SOAPAction", soapAction);
-@@ -72,7 +72,7 @@ public abstract class AbstractSoap11MessageFactoryTestCase extends AbstractSoapM
- 	public void doTestCreateSoapMessageIllFormedXml() throws Exception {
- 
- 		InputStream is = AbstractSoap11MessageFactoryTestCase.class.getResourceAsStream("soap11-ill-formed.xml");
--		Map<String, String> headers = new HashMap<String, String>();
-+		Map<String, String> headers = new HashMap<>();
- 		headers.put("Content-Type", "text/xml");
- 		TransportInputStream tis = new MockTransportInputStream(is, headers);
- 
-@@ -83,7 +83,7 @@ public abstract class AbstractSoap11MessageFactoryTestCase extends AbstractSoapM
- 	public void testCreateSoapMessageSwA() throws Exception {
- 
- 		InputStream is = AbstractSoap11MessageFactoryTestCase.class.getResourceAsStream("soap11-attachment.bin");
--		Map<String, String> headers = new HashMap<String, String>();
-+		Map<String, String> headers = new HashMap<>();
- 		headers.put("Content-Type",
- 				"multipart/related;" + "type=\"text/xml\";" + "boundary=\"----=_Part_0_11416420.1149699787554\"");
- 		TransportInputStream tis = new MockTransportInputStream(is, headers);
-@@ -111,7 +111,7 @@ public abstract class AbstractSoap11MessageFactoryTestCase extends AbstractSoapM
- 	public void testCreateSoapMessageMtom() throws Exception {
- 
- 		InputStream is = AbstractSoap11MessageFactoryTestCase.class.getResourceAsStream("soap11-mtom.bin");
--		Map<String, String> headers = new HashMap<String, String>();
-+		Map<String, String> headers = new HashMap<>();
- 		headers.put("Content-Type",
- 				"multipart/related;" + "start-info=\"text/xml\";" + "type=\"application/xop+xml\";"
- 						+ "start=\"<0.urn:uuid:492264AB42E57108E01176731445508@apache.org>\";"
-@@ -140,7 +140,7 @@ public abstract class AbstractSoap11MessageFactoryTestCase extends AbstractSoapM
- 	public void testCreateSoapMessageMtomWeirdStartInfo() throws Exception {
- 
- 		InputStream is = AbstractSoap11MessageFactoryTestCase.class.getResourceAsStream("soap11-mtom.bin");
--		Map<String, String> headers = new HashMap<String, String>();
-+		Map<String, String> headers = new HashMap<>();
- 		headers.put("Content-Type",
- 				"multipart/related;" + "startinfo=\"text/xml\";" + "type=\"application/xop+xml\";"
- 						+ "start=\"<0.urn:uuid:492264AB42E57108E01176731445508@apache.org>\";"
-@@ -178,7 +178,7 @@ public abstract class AbstractSoap11MessageFactoryTestCase extends AbstractSoapM
- 	public void testCreateSoapMessageUtf16BigEndianByteOrderMark() throws Exception {
- 
- 		InputStream is = AbstractSoap11MessageFactoryTestCase.class.getResourceAsStream("soap11-utf16-be-bom.xml");
--		Map<String, String> headers = new HashMap<String, String>();
-+		Map<String, String> headers = new HashMap<>();
- 		headers.put("Content-Type", "text/xml; charset=UTF-16");
- 		TransportInputStream tis = new MockTransportInputStream(is, headers);
- 
-@@ -191,7 +191,7 @@ public abstract class AbstractSoap11MessageFactoryTestCase extends AbstractSoapM
- 	public void testCreateSoapMessageUtf16LittleEndianByteOrderMark() throws Exception {
- 
- 		InputStream is = AbstractSoap11MessageFactoryTestCase.class.getResourceAsStream("soap11-utf16-le-bom.xml");
--		Map<String, String> headers = new HashMap<String, String>();
-+		Map<String, String> headers = new HashMap<>();
- 		headers.put("Content-Type", "text/xml; charset=UTF-16");
- 		TransportInputStream tis = new MockTransportInputStream(is, headers);
- 
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/soap/soap12/AbstractSoap12MessageFactoryTestCase.java b/spring-ws-core/src/test/java/org/springframework/ws/soap/soap12/AbstractSoap12MessageFactoryTestCase.java
-index 6ad602ca..472809be 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/soap/soap12/AbstractSoap12MessageFactoryTestCase.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/soap/soap12/AbstractSoap12MessageFactoryTestCase.java
-@@ -51,7 +51,7 @@ public abstract class AbstractSoap12MessageFactoryTestCase extends AbstractSoapM
- 	public void testCreateSoapMessageNoAttachment() throws Exception {
- 
- 		InputStream is = AbstractSoap12MessageFactoryTestCase.class.getResourceAsStream("soap12.xml");
--		Map<String, String> headers = new HashMap<String, String>();
-+		Map<String, String> headers = new HashMap<>();
- 		String soapAction = "\"http://springframework.org/spring-ws/Action\"";
- 		headers.put(TransportConstants.HEADER_CONTENT_TYPE, "application/soap+xml; action=" + soapAction);
- 		TransportInputStream tis = new MockTransportInputStream(is, headers);
-@@ -69,7 +69,7 @@ public abstract class AbstractSoap12MessageFactoryTestCase extends AbstractSoapM
- 	public void doTestCreateSoapMessageIllFormedXml() throws Exception {
- 
- 		InputStream is = AbstractSoap12MessageFactoryTestCase.class.getResourceAsStream("soap12-ill-formed.xml");
--		Map<String, String> headers = new HashMap<String, String>();
-+		Map<String, String> headers = new HashMap<>();
- 		headers.put(TransportConstants.HEADER_CONTENT_TYPE, "application/soap+xml");
- 		TransportInputStream tis = new MockTransportInputStream(is, headers);
- 
-@@ -80,7 +80,7 @@ public abstract class AbstractSoap12MessageFactoryTestCase extends AbstractSoapM
- 	public void testCreateSoapMessageSwA() throws Exception {
- 
- 		InputStream is = AbstractSoap12MessageFactoryTestCase.class.getResourceAsStream("soap12-attachment.bin");
--		Map<String, String> headers = new HashMap<String, String>();
-+		Map<String, String> headers = new HashMap<>();
- 		headers.put("Content-Type",
- 				"multipart/related;" + "type=\"application/soap+xml\";" + "boundary=\"----=_Part_0_11416420.1149699787554\"");
- 		TransportInputStream tis = new MockTransportInputStream(is, headers);
-@@ -103,7 +103,7 @@ public abstract class AbstractSoap12MessageFactoryTestCase extends AbstractSoapM
- 	public void testCreateSoapMessageMtom() throws Exception {
- 
- 		InputStream is = AbstractSoap12MessageFactoryTestCase.class.getResourceAsStream("soap12-mtom.bin");
--		Map<String, String> headers = new HashMap<String, String>();
-+		Map<String, String> headers = new HashMap<>();
- 		headers.put("Content-Type",
- 				"multipart/related;" + "start-info=\"application/soap+xml\";" + "type=\"application/xop+xml\";"
- 						+ "start=\"<0.urn:uuid:40864869929B855F971176851454456@apache.org>\";"
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/transport/MockTransportInputStream.java b/spring-ws-core/src/test/java/org/springframework/ws/transport/MockTransportInputStream.java
-index cf9c2687..5646be54 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/transport/MockTransportInputStream.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/transport/MockTransportInputStream.java
-@@ -43,7 +43,7 @@ public class MockTransportInputStream extends TransportInputStream {
- 
- 		Assert.notNull(inputStream, "inputStream must not be null");
- 		this.inputStream = inputStream;
--		headers = new HashMap<String, String>();
-+		headers = new HashMap<>();
- 	}
- 
- 	@Override
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/transport/MockTransportOutputStream.java b/spring-ws-core/src/test/java/org/springframework/ws/transport/MockTransportOutputStream.java
-index 4b7238ec..442b1fa3 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/transport/MockTransportOutputStream.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/transport/MockTransportOutputStream.java
-@@ -24,9 +24,9 @@ import org.springframework.util.Assert;
- 
- public class MockTransportOutputStream extends TransportOutputStream {
- 
--	private Map<String, String> headers = new HashMap<String, String>();
-+	private final Map<String, String> headers = new HashMap<>();
- 
--	private OutputStream outputStream;
-+	private final OutputStream outputStream;
- 
- 	public MockTransportOutputStream(OutputStream outputStream) {
- 
-diff --git a/spring-ws-core/src/test/java/org/springframework/ws/transport/http/CommonsHttpMessageSenderIntegrationTest.java b/spring-ws-core/src/test/java/org/springframework/ws/transport/http/CommonsHttpMessageSenderIntegrationTest.java
-index 16bb673e..c4610f8e 100644
---- a/spring-ws-core/src/test/java/org/springframework/ws/transport/http/CommonsHttpMessageSenderIntegrationTest.java
-+++ b/spring-ws-core/src/test/java/org/springframework/ws/transport/http/CommonsHttpMessageSenderIntegrationTest.java
-@@ -52,7 +52,7 @@ public class CommonsHttpMessageSenderIntegrationTest
- 
- 		CommonsHttpMessageSender messageSender = new CommonsHttpMessageSender();
- 		messageSender.setMaxTotalConnections(2);
--		Map<String, String> maxConnectionsPerHost = new HashMap<String, String>();
-+		Map<String, String> maxConnectionsPerHost = new HashMap<>();
- 		maxConnectionsPerHost.put("https://www.example.com", "1");
- 		maxConnectionsPerHost.put("http://www.example.com:8080", "7");
- 		maxConnectionsPerHost.put("www.springframework.org", "10");
-diff --git a/spring-ws-security/src/main/java/org/springframework/ws/soap/security/AbstractWsSecurityInterceptor.java b/spring-ws-security/src/main/java/org/springframework/ws/soap/security/AbstractWsSecurityInterceptor.java
-index 8fd34556..3812df18 100644
---- a/spring-ws-security/src/main/java/org/springframework/ws/soap/security/AbstractWsSecurityInterceptor.java
-+++ b/spring-ws-security/src/main/java/org/springframework/ws/soap/security/AbstractWsSecurityInterceptor.java
-@@ -65,7 +65,7 @@ public abstract class AbstractWsSecurityInterceptor implements SoapEndpointInter
- 
- 	private boolean validateResponse = true;
- 
--	private boolean skipValidationIfNoHeaderPresent = false;
-+	private boolean skipValidationIfNoHeaderPresent;
- 
- 	private EndpointExceptionResolver exceptionResolver;
- 
-diff --git a/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/Wss4jHandler.java b/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/Wss4jHandler.java
-index 10fcf3d9..2532ab90 100644
---- a/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/Wss4jHandler.java
-+++ b/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/Wss4jHandler.java
-@@ -38,7 +38,7 @@ import org.w3c.dom.Document;
- class Wss4jHandler extends WSHandler {
- 
- 	/** Keys are constants from {@link ConfigurationConstants}; values are strings. */
--	private Properties options = new Properties();
-+	private final Properties options = new Properties();
- 
- 	private String securementPassword;
- 
-diff --git a/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/Wss4jSecurityInterceptor.java b/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/Wss4jSecurityInterceptor.java
-index de89dd05..f89d789c 100644
---- a/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/Wss4jSecurityInterceptor.java
-+++ b/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/Wss4jSecurityInterceptor.java
-@@ -608,7 +608,7 @@ public class Wss4jSecurityInterceptor extends AbstractWsSecurityInterceptor impl
- 	protected void secureMessage(SoapMessage soapMessage, MessageContext messageContext)
- 			throws WsSecuritySecurementException {
- 
--		List<HandlerAction> securementActionsVector = new ArrayList<HandlerAction>();
-+		List<HandlerAction> securementActionsVector = new ArrayList<>();
- 		try {
- 			securementActionsVector = WSSecurityUtil.decodeHandlerAction(securementActions, wssConfig);
- 		} catch (WSSecurityException ex) {
-@@ -790,7 +790,7 @@ public class Wss4jSecurityInterceptor extends AbstractWsSecurityInterceptor impl
- 		List<WSHandlerResult> handlerResults;
- 		if ((handlerResults = (List<WSHandlerResult>) messageContext
- 				.getProperty(WSHandlerConstants.RECV_RESULTS)) == null) {
--			handlerResults = new ArrayList<WSHandlerResult>();
-+			handlerResults = new ArrayList<>();
- 			messageContext.setProperty(WSHandlerConstants.RECV_RESULTS, handlerResults);
- 		}
- 		WSHandlerResult rResult = new WSHandlerResult(validationActor, results,
-diff --git a/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/callback/SimplePasswordValidationCallbackHandler.java b/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/callback/SimplePasswordValidationCallbackHandler.java
-index 7bcd36dd..1748bebf 100644
---- a/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/callback/SimplePasswordValidationCallbackHandler.java
-+++ b/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/callback/SimplePasswordValidationCallbackHandler.java
-@@ -40,7 +40,7 @@ import org.springframework.util.Assert;
- public class SimplePasswordValidationCallbackHandler extends AbstractWsPasswordCallbackHandler
- 		implements InitializingBean {
- 
--	private Map<String, String> users = new HashMap<String, String>();
-+	private Map<String, String> users = new HashMap<>();
- 
- 	/** Sets the users to validate against. Property names are usernames, property values are passwords. */
- 	public void setUsers(Properties users) {
-diff --git a/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/support/CryptoFactoryBean.java b/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/support/CryptoFactoryBean.java
-index c677ecd4..a78a1e52 100644
---- a/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/support/CryptoFactoryBean.java
-+++ b/spring-ws-security/src/main/java/org/springframework/ws/soap/security/wss4j2/support/CryptoFactoryBean.java
-@@ -43,7 +43,7 @@ import org.springframework.util.Assert;
-  */
- public class CryptoFactoryBean implements FactoryBean<Crypto>, InitializingBean {
- 
--	private Properties configuration = new Properties();
-+	private final Properties configuration = new Properties();
- 
- 	private Crypto crypto;
- 
-diff --git a/spring-ws-security/src/test/java/org/springframework/ws/soap/security/callback/CallbackHandlerChainTest.java b/spring-ws-security/src/test/java/org/springframework/ws/soap/security/callback/CallbackHandlerChainTest.java
-index 8a619241..a1e60a8e 100644
---- a/spring-ws-security/src/test/java/org/springframework/ws/soap/security/callback/CallbackHandlerChainTest.java
-+++ b/spring-ws-security/src/test/java/org/springframework/ws/soap/security/callback/CallbackHandlerChainTest.java
-@@ -26,13 +26,15 @@ import org.junit.jupiter.api.Test;
- 
- public class CallbackHandlerChainTest {
- 
--	private CallbackHandler supported = callbacks -> {};
-+	private final CallbackHandler supported = callbacks -> {
-+	};
- 
--	private CallbackHandler unsupported = callbacks -> {
-+	private final CallbackHandler unsupported = callbacks -> {
- 		throw new UnsupportedCallbackException(callbacks[0]);
- 	};
- 
--	private Callback callback = new Callback() {};
-+	private final Callback callback = new Callback() {
-+	};
- 
- 	@Test
- 	public void testSupported() throws Exception {
-diff --git a/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorHeaderTestCase.java b/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorHeaderTestCase.java
-index aeec4931..19404776 100644
---- a/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorHeaderTestCase.java
-+++ b/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorHeaderTestCase.java
-@@ -80,8 +80,8 @@ public abstract class Wss4jMessageInterceptorHeaderTestCase extends Wss4jTestCas
- 
- 			SoapHeaderElement element = i.next();
- 			QName name = element.getName();
--			if (name.getNamespaceURI()
--					.equals("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd")) {
-+			if ("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-+					.equals(name.getNamespaceURI())) {
- 				fail("Security Header not removed");
- 			}
- 		}
-@@ -107,8 +107,8 @@ public abstract class Wss4jMessageInterceptorHeaderTestCase extends Wss4jTestCas
- 
- 			SoapHeaderElement element = i.next();
- 			QName name = element.getName();
--			if (name.getNamespaceURI()
--					.equals("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd")) {
-+			if ("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-+					.equals(name.getNamespaceURI())) {
- 				foundSecurityHeader = true;
- 			}
- 
-diff --git a/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorSpringSecurityCallbackHandlerTestCase.java b/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorSpringSecurityCallbackHandlerTestCase.java
-index c27e573d..ee60175b 100644
---- a/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorSpringSecurityCallbackHandlerTestCase.java
-+++ b/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorSpringSecurityCallbackHandlerTestCase.java
-@@ -35,7 +35,7 @@ import org.springframework.ws.soap.security.wss4j2.callback.SpringSecurityPasswo
- 
- public abstract class Wss4jMessageInterceptorSpringSecurityCallbackHandlerTestCase extends Wss4jTestCase {
- 
--	private Properties users = new Properties();
-+	private final Properties users = new Properties();
- 
- 	private AuthenticationManager authenticationManager;
- 
-diff --git a/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorUsernameTokenTestCase.java b/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorUsernameTokenTestCase.java
-index 6be44400..f809973a 100644
---- a/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorUsernameTokenTestCase.java
-+++ b/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jMessageInterceptorUsernameTokenTestCase.java
-@@ -30,7 +30,7 @@ import org.w3c.dom.Document;
- 
- public abstract class Wss4jMessageInterceptorUsernameTokenTestCase extends Wss4jTestCase {
- 
--	private Properties users = new Properties();
-+	private final Properties users = new Properties();
- 
- 	@Override
- 	protected void onSetup() throws Exception {
-diff --git a/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jTestCase.java b/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jTestCase.java
-index f8bf9afe..4963eda0 100644
---- a/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jTestCase.java
-+++ b/spring-ws-security/src/test/java/org/springframework/ws/soap/security/wss4j2/Wss4jTestCase.java
-@@ -65,7 +65,7 @@ public abstract class Wss4jTestCase {
- 		saajSoap11MessageFactory = MessageFactory.newInstance();
- 		saajSoap12MessageFactory = MessageFactory.newInstance(SOAPConstants.SOAP_1_2_PROTOCOL);
- 
--		Map<String, String> namespaces = new HashMap<String, String>();
-+		Map<String, String> namespaces = new HashMap<>();
- 		namespaces.put("SOAP-ENV", "http://schemas.xmlsoap.org/soap/envelope/");
- 		namespaces.put("wsse", "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd");
- 		namespaces.put("ds", "http://www.w3.org/2000/09/xmldsig#");
-@@ -195,8 +195,9 @@ public abstract class Wss4jTestCase {
- 		SoapMessageFactory messageFactory;
- 		if (saajTest) {
- 			messageFactory = new SaajSoapMessageFactory(saajSoap12MessageFactory);
--		} else
-+		} else {
- 			throw new IllegalArgumentException();
-+		}
- 		messageFactory.setSoapVersion(SoapVersion.SOAP_12);
- 		return messageFactory;
- 	}
-diff --git a/spring-ws-support/src/main/java/org/springframework/ws/transport/http/WebServiceMessageReceiverHttpHandler.java b/spring-ws-support/src/main/java/org/springframework/ws/transport/http/WebServiceMessageReceiverHttpHandler.java
-index 524b58fe..e32725a4 100644
---- a/spring-ws-support/src/main/java/org/springframework/ws/transport/http/WebServiceMessageReceiverHttpHandler.java
-+++ b/spring-ws-support/src/main/java/org/springframework/ws/transport/http/WebServiceMessageReceiverHttpHandler.java
-@@ -39,7 +39,7 @@ import com.sun.net.httpserver.HttpHandler;
- public class WebServiceMessageReceiverHttpHandler extends SimpleWebServiceMessageReceiverObjectSupport
- 		implements HttpHandler {
- 
--	private boolean chunkedEncoding = false;
-+	private boolean chunkedEncoding;
- 
- 	/** Enables chunked encoding on response bodies. Defaults to {@code false}. */
- 	public void setChunkedEncoding(boolean chunkedEncoding) {
-diff --git a/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/BytesMessageInputStream.java b/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/BytesMessageInputStream.java
-index a063b3bf..d3041bec 100644
---- a/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/BytesMessageInputStream.java
-+++ b/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/BytesMessageInputStream.java
-@@ -41,7 +41,7 @@ class BytesMessageInputStream extends InputStream {
- 	}
- 
- 	@Override
--	public int read(byte b[]) throws IOException {
-+	public int read(byte[] b) throws IOException {
- 		try {
- 			return message.readBytes(b);
- 		} catch (JMSException ex) {
-@@ -50,7 +50,7 @@ class BytesMessageInputStream extends InputStream {
- 	}
- 
- 	@Override
--	public int read(byte b[], int off, int len) throws IOException {
-+	public int read(byte[] b, int off, int len) throws IOException {
- 		if (off == 0) {
- 			try {
- 				return message.readBytes(b, len);
-diff --git a/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/BytesMessageOutputStream.java b/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/BytesMessageOutputStream.java
-index b7afd7cd..4d2f76c3 100644
---- a/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/BytesMessageOutputStream.java
-+++ b/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/BytesMessageOutputStream.java
-@@ -40,7 +40,7 @@ class BytesMessageOutputStream extends OutputStream {
- 	}
- 
- 	@Override
--	public void write(byte b[]) throws IOException {
-+	public void write(byte[] b) throws IOException {
- 		try {
- 			message.writeBytes(b);
- 		} catch (JMSException ex) {
-@@ -49,7 +49,7 @@ class BytesMessageOutputStream extends OutputStream {
- 	}
- 
- 	@Override
--	public void write(byte b[], int off, int len) throws IOException {
-+	public void write(byte[] b, int off, int len) throws IOException {
- 		try {
- 			message.writeBytes(b, off, len);
- 		} catch (JMSException ex) {
-diff --git a/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/JmsSenderConnection.java b/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/JmsSenderConnection.java
-index e999d230..886330ea 100644
---- a/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/JmsSenderConnection.java
-+++ b/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/JmsSenderConnection.java
-@@ -71,9 +71,9 @@ public class JmsSenderConnection extends AbstractSenderConnection {
- 
- 	private MessagePostProcessor postProcessor;
- 
--	private boolean sessionTransacted = false;
-+	private boolean sessionTransacted;
- 
--	private boolean temporaryResponseQueueCreated = false;
-+	private boolean temporaryResponseQueueCreated;
- 
- 	/** Constructs a new JMS connection with the given parameters. */
- 	protected JmsSenderConnection(ConnectionFactory connectionFactory, Connection connection, Session session,
-diff --git a/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/support/JmsTransportUtils.java b/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/support/JmsTransportUtils.java
-index 15ce2f0a..61dce6e6 100644
---- a/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/support/JmsTransportUtils.java
-+++ b/spring-ws-support/src/main/java/org/springframework/ws/transport/jms/support/JmsTransportUtils.java
-@@ -133,7 +133,7 @@ public abstract class JmsTransportUtils {
- 	 */
- 	public static Iterator<String> getHeaderNames(Message message) throws JMSException {
- 		Enumeration<?> properties = message.getPropertyNames();
--		List<String> results = new ArrayList<String>();
-+		List<String> results = new ArrayList<>();
- 		while (properties.hasMoreElements()) {
- 			String property = (String) properties.nextElement();
- 			if (property.startsWith(JmsTransportConstants.PROPERTY_PREFIX)) {
-diff --git a/spring-ws-support/src/main/java/org/springframework/ws/transport/mail/MailReceiverConnection.java b/spring-ws-support/src/main/java/org/springframework/ws/transport/mail/MailReceiverConnection.java
-index dc47a49b..3f088ac9 100644
---- a/spring-ws-support/src/main/java/org/springframework/ws/transport/mail/MailReceiverConnection.java
-+++ b/spring-ws-support/src/main/java/org/springframework/ws/transport/mail/MailReceiverConnection.java
-@@ -139,7 +139,7 @@ public class MailReceiverConnection extends AbstractReceiverConnection {
- 	@Override
- 	public Iterator<String> getRequestHeaderNames() throws IOException {
- 		try {
--			List<String> headers = new ArrayList<String>();
-+			List<String> headers = new ArrayList<>();
- 			Enumeration<?> enumeration = requestMessage.getAllHeaders();
- 			while (enumeration.hasMoreElements()) {
- 				Header header = (Header) enumeration.nextElement();
-diff --git a/spring-ws-support/src/main/java/org/springframework/ws/transport/mail/MailSenderConnection.java b/spring-ws-support/src/main/java/org/springframework/ws/transport/mail/MailSenderConnection.java
-index 2ff50457..e653746b 100644
---- a/spring-ws-support/src/main/java/org/springframework/ws/transport/mail/MailSenderConnection.java
-+++ b/spring-ws-support/src/main/java/org/springframework/ws/transport/mail/MailSenderConnection.java
-@@ -76,7 +76,7 @@ public class MailSenderConnection extends AbstractSenderConnection {
- 
- 	private String requestContentType;
- 
--	private boolean deleteAfterReceive = false;
-+	private boolean deleteAfterReceive;
- 
- 	private final URLName storeUri;
- 
-@@ -249,7 +249,7 @@ public class MailSenderConnection extends AbstractSenderConnection {
- 	@Override
- 	public Iterator<String> getResponseHeaderNames() throws IOException {
- 		try {
--			List<String> headers = new ArrayList<String>();
-+			List<String> headers = new ArrayList<>();
- 			Enumeration<?> enumeration = responseMessage.getAllHeaders();
- 			while (enumeration.hasMoreElements()) {
- 				Header header = (Header) enumeration.nextElement();
-diff --git a/spring-ws-support/src/main/java/org/springframework/ws/transport/support/AbstractStandaloneMessageReceiver.java b/spring-ws-support/src/main/java/org/springframework/ws/transport/support/AbstractStandaloneMessageReceiver.java
-index 78f50483..07753105 100644
---- a/spring-ws-support/src/main/java/org/springframework/ws/transport/support/AbstractStandaloneMessageReceiver.java
-+++ b/spring-ws-support/src/main/java/org/springframework/ws/transport/support/AbstractStandaloneMessageReceiver.java
-@@ -29,11 +29,11 @@ import org.springframework.context.Lifecycle;
- public abstract class AbstractStandaloneMessageReceiver extends SimpleWebServiceMessageReceiverObjectSupport
- 		implements Lifecycle, DisposableBean {
- 
--	private volatile boolean active = false;
-+	private volatile boolean active;
- 
- 	private boolean autoStartup = true;
- 
--	private boolean running = false;
-+	private boolean running;
- 
- 	private final Object lifecycleMonitor = new Object();
- 
-diff --git a/spring-ws-support/src/main/java/org/springframework/ws/transport/xmpp/XmppMessageReceiver.java b/spring-ws-support/src/main/java/org/springframework/ws/transport/xmpp/XmppMessageReceiver.java
-index 89f19d5d..df5c40b2 100644
---- a/spring-ws-support/src/main/java/org/springframework/ws/transport/xmpp/XmppMessageReceiver.java
-+++ b/spring-ws-support/src/main/java/org/springframework/ws/transport/xmpp/XmppMessageReceiver.java
-@@ -50,7 +50,7 @@ public class XmppMessageReceiver extends AbstractStandaloneMessageReceiver {
- 
- 	private WebServicePacketListener packetListener;
- 
--	private String messageEncoding = DEFAULT_MESSAGE_ENCODING;
-+	private final String messageEncoding = DEFAULT_MESSAGE_ENCODING;
- 
- 	public XmppMessageReceiver() {}
- 
-diff --git a/spring-ws-support/src/test/java/org/springframework/ws/transport/http/SimpleHttpServerFactoryBean.java b/spring-ws-support/src/test/java/org/springframework/ws/transport/http/SimpleHttpServerFactoryBean.java
-index ef9c934b..bc72468a 100644
---- a/spring-ws-support/src/test/java/org/springframework/ws/transport/http/SimpleHttpServerFactoryBean.java
-+++ b/spring-ws-support/src/test/java/org/springframework/ws/transport/http/SimpleHttpServerFactoryBean.java
-@@ -31,7 +31,7 @@ class SimpleHttpServerFactoryBean implements FactoryBean<HttpServer>, Initializi
- 
- 	private int backlog = -1;
- 
--	private int shutdownDelay = 0;
-+	private int shutdownDelay;
- 
- 	private Executor executor;
- 
-@@ -107,8 +107,8 @@ class SimpleHttpServerFactoryBean implements FactoryBean<HttpServer>, Initializi
- 
- 	@Override
- 	public void afterPropertiesSet() throws IOException {
--		InetSocketAddress address = (this.hostname != null ? new InetSocketAddress(this.hostname, this.port)
--				: new InetSocketAddress(this.port));
-+		InetSocketAddress address = this.hostname != null ? new InetSocketAddress(this.hostname, this.port)
-+				: new InetSocketAddress(this.port);
- 		this.server = HttpServer.create(address, this.backlog);
- 		if (this.executor != null) {
- 			this.server.setExecutor(this.executor);
-@@ -137,7 +137,7 @@ class SimpleHttpServerFactoryBean implements FactoryBean<HttpServer>, Initializi
- 
- 	@Override
- 	public Class<? extends HttpServer> getObjectType() {
--		return (this.server != null ? this.server.getClass() : HttpServer.class);
-+		return this.server != null ? this.server.getClass() : HttpServer.class;
- 	}
- 
- 	@Override
-diff --git a/spring-ws-test/src/main/java/org/springframework/ws/test/client/MockWebServiceMessageSender.java b/spring-ws-test/src/main/java/org/springframework/ws/test/client/MockWebServiceMessageSender.java
-index 5da9b623..038bb88b 100644
---- a/spring-ws-test/src/main/java/org/springframework/ws/test/client/MockWebServiceMessageSender.java
-+++ b/spring-ws-test/src/main/java/org/springframework/ws/test/client/MockWebServiceMessageSender.java
-@@ -36,7 +36,7 @@ import org.springframework.ws.transport.WebServiceMessageSender;
-  */
- public class MockWebServiceMessageSender implements WebServiceMessageSender {
- 
--	private final List<MockSenderConnection> expectedConnections = new LinkedList<MockSenderConnection>();
-+	private final List<MockSenderConnection> expectedConnections = new LinkedList<>();
- 
- 	private Iterator<MockSenderConnection> connectionIterator;
- 
-diff --git a/spring-ws-test/src/main/java/org/springframework/ws/test/client/ResponseCreators.java b/spring-ws-test/src/main/java/org/springframework/ws/test/client/ResponseCreators.java
-index a08dbcd6..20406994 100644
---- a/spring-ws-test/src/main/java/org/springframework/ws/test/client/ResponseCreators.java
-+++ b/spring-ws-test/src/main/java/org/springframework/ws/test/client/ResponseCreators.java
-@@ -201,7 +201,7 @@ public abstract class ResponseCreators {
- 	/**
- 	 * Adapts a {@link WebServiceMessageCreator} to the {@link ResponseCreator} contract.
- 	 */
--	private static class WebServiceMessageCreatorAdapter implements ResponseCreator {
-+	private static final class WebServiceMessageCreatorAdapter implements ResponseCreator {
- 
- 		private final WebServiceMessageCreator adaptee;
- 
-diff --git a/spring-ws-test/src/main/java/org/springframework/ws/test/server/MockWebServiceClient.java b/spring-ws-test/src/main/java/org/springframework/ws/test/server/MockWebServiceClient.java
-index 4715e3ab..0fe2549a 100644
---- a/spring-ws-test/src/main/java/org/springframework/ws/test/server/MockWebServiceClient.java
-+++ b/spring-ws-test/src/main/java/org/springframework/ws/test/server/MockWebServiceClient.java
-@@ -104,7 +104,7 @@ import org.springframework.ws.transport.WebServiceMessageReceiver;
-  * @author Lukas Krecan
-  * @since 2.0
-  */
--public class MockWebServiceClient {
-+public final class MockWebServiceClient {
- 
- 	private static final Log logger = LogFactory.getLog(MockWebServiceClient.class);
- 
-@@ -190,7 +190,7 @@ public class MockWebServiceClient {
- 
- 	// ResponseActions
- 
--	private static class MockWebServiceClientResponseActions implements ResponseActions {
-+	private static final class MockWebServiceClientResponseActions implements ResponseActions {
- 
- 		private final MessageContext messageContext;
- 
-diff --git a/spring-ws-test/src/main/java/org/springframework/ws/test/server/RequestCreators.java b/spring-ws-test/src/main/java/org/springframework/ws/test/server/RequestCreators.java
-index eab52895..007a8b20 100644
---- a/spring-ws-test/src/main/java/org/springframework/ws/test/server/RequestCreators.java
-+++ b/spring-ws-test/src/main/java/org/springframework/ws/test/server/RequestCreators.java
-@@ -93,7 +93,7 @@ public abstract class RequestCreators {
- 	/**
- 	 * Adapts a {@link WebServiceMessageCreator} to the {@link RequestCreator} contract.
- 	 */
--	private static class WebServiceMessageCreatorAdapter implements RequestCreator {
-+	private static final class WebServiceMessageCreatorAdapter implements RequestCreator {
- 
- 		private final WebServiceMessageCreator adaptee;
- 
-diff --git a/spring-ws-test/src/main/java/org/springframework/ws/test/support/creator/PayloadMessageCreator.java b/spring-ws-test/src/main/java/org/springframework/ws/test/support/creator/PayloadMessageCreator.java
-index ce32a39a..c43e255e 100644
---- a/spring-ws-test/src/main/java/org/springframework/ws/test/support/creator/PayloadMessageCreator.java
-+++ b/spring-ws-test/src/main/java/org/springframework/ws/test/support/creator/PayloadMessageCreator.java
-@@ -37,7 +37,7 @@ public class PayloadMessageCreator extends AbstractMessageCreator {
- 
- 	private final Source payload;
- 
--	private TransformerHelper transformerHelper = new TransformerHelper();
-+	private final TransformerHelper transformerHelper = new TransformerHelper();
- 
- 	/**
- 	 * Creates a new instance of the {@code PayloadMessageCreator} with the given payload source.
-diff --git a/spring-xml/src/main/java/org/springframework/xml/dom/DomContentHandler.java b/spring-xml/src/main/java/org/springframework/xml/dom/DomContentHandler.java
-index 6251fc67..420cafcb 100644
---- a/spring-xml/src/main/java/org/springframework/xml/dom/DomContentHandler.java
-+++ b/spring-xml/src/main/java/org/springframework/xml/dom/DomContentHandler.java
-@@ -41,7 +41,7 @@ public class DomContentHandler implements ContentHandler {
- 
- 	private final Document document;
- 
--	private final List<Element> elements = new ArrayList<Element>();
-+	private final List<Element> elements = new ArrayList<>();
- 
- 	private final Node node;
- 
-@@ -91,7 +91,7 @@ public class DomContentHandler implements ContentHandler {
- 	}
- 
- 	@Override
--	public void characters(char ch[], int start, int length) throws SAXException {
-+	public void characters(char[] ch, int start, int length) throws SAXException {
- 		String data = new String(ch, start, length);
- 		Node parent = getParent();
- 		Node lastChild = parent.getLastChild();
-@@ -130,7 +130,7 @@ public class DomContentHandler implements ContentHandler {
- 	public void endPrefixMapping(String prefix) throws SAXException {}
- 
- 	@Override
--	public void ignorableWhitespace(char ch[], int start, int length) throws SAXException {}
-+	public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {}
- 
- 	@Override
- 	public void skippedEntity(String name) throws SAXException {}
-diff --git a/spring-xml/src/main/java/org/springframework/xml/transform/TransformerObjectSupport.java b/spring-xml/src/main/java/org/springframework/xml/transform/TransformerObjectSupport.java
-index 4b6b46f7..6cdcb75e 100644
---- a/spring-xml/src/main/java/org/springframework/xml/transform/TransformerObjectSupport.java
-+++ b/spring-xml/src/main/java/org/springframework/xml/transform/TransformerObjectSupport.java
-@@ -42,7 +42,7 @@ public abstract class TransformerObjectSupport {
- 	 */
- 	protected final Log logger = LogFactory.getLog(getClass());
- 
--	private TransformerHelper transformerHelper = new TransformerHelper();
-+	private final TransformerHelper transformerHelper = new TransformerHelper();
- 
- 	/**
- 	 * Specify the {@code TransformerFactory} class to use.
-diff --git a/spring-xml/src/main/java/org/springframework/xml/validation/Jaxp13ValidatorFactory.java b/spring-xml/src/main/java/org/springframework/xml/validation/Jaxp13ValidatorFactory.java
-index 9e1d5a7e..6d737025 100644
---- a/spring-xml/src/main/java/org/springframework/xml/validation/Jaxp13ValidatorFactory.java
-+++ b/spring-xml/src/main/java/org/springframework/xml/validation/Jaxp13ValidatorFactory.java
-@@ -78,7 +78,7 @@ abstract class Jaxp13ValidatorFactory {
- 	/** {@code ErrorHandler} implementation that stores errors and fatal errors in a list. */
- 	private static class DefaultValidationErrorHandler implements ValidationErrorHandler {
- 
--		private List<SAXParseException> errors = new ArrayList<SAXParseException>();
-+		private List<SAXParseException> errors = new ArrayList<>();
- 
- 		@Override
- 		public SAXParseException[] getErrors() {
-diff --git a/spring-xml/src/main/java/org/springframework/xml/validation/Jaxp15ValidatorFactory.java b/spring-xml/src/main/java/org/springframework/xml/validation/Jaxp15ValidatorFactory.java
-index 4549169a..13218ee2 100644
---- a/spring-xml/src/main/java/org/springframework/xml/validation/Jaxp15ValidatorFactory.java
-+++ b/spring-xml/src/main/java/org/springframework/xml/validation/Jaxp15ValidatorFactory.java
-@@ -105,7 +105,7 @@ abstract class Jaxp15ValidatorFactory {
- 	/** {@code ErrorHandler} implementation that stores errors and fatal errors in a list. */
- 	private static class DefaultValidationErrorHandler implements ValidationErrorHandler {
- 
--		private List<SAXParseException> errors = new ArrayList<SAXParseException>();
-+		private List<SAXParseException> errors = new ArrayList<>();
- 
- 		@Override
- 		public SAXParseException[] getErrors() {
-diff --git a/spring-xml/src/main/java/org/springframework/xml/xpath/JaxenXPathExpressionFactory.java b/spring-xml/src/main/java/org/springframework/xml/xpath/JaxenXPathExpressionFactory.java
-index acd1f820..4818b455 100644
---- a/spring-xml/src/main/java/org/springframework/xml/xpath/JaxenXPathExpressionFactory.java
-+++ b/spring-xml/src/main/java/org/springframework/xml/xpath/JaxenXPathExpressionFactory.java
-@@ -74,7 +74,7 @@ abstract class JaxenXPathExpressionFactory {
- 	}
- 
- 	/** Jaxen implementation of the {@code XPathExpression} interface. */
--	private static class JaxenXpathExpression implements XPathExpression {
-+	private static final class JaxenXpathExpression implements XPathExpression {
- 
- 		private XPath xpath;
- 		private final String expression;
-@@ -157,7 +157,7 @@ abstract class JaxenXPathExpressionFactory {
- 		public <T> List<T> evaluate(Node context, NodeMapper<T> nodeMapper) throws XPathException {
- 			try {
- 				List<?> nodes = xpath.selectNodes(context);
--				List<T> results = new ArrayList<T>(nodes.size());
-+				List<T> results = new ArrayList<>(nodes.size());
- 				for (int i = 0; i < nodes.size(); i++) {
- 					Node node = (Node) nodes.get(i);
- 					try {
-diff --git a/spring-xml/src/main/java/org/springframework/xml/xpath/JaxenXPathTemplate.java b/spring-xml/src/main/java/org/springframework/xml/xpath/JaxenXPathTemplate.java
-index 8f4d45a8..38036017 100644
---- a/spring-xml/src/main/java/org/springframework/xml/xpath/JaxenXPathTemplate.java
-+++ b/spring-xml/src/main/java/org/springframework/xml/xpath/JaxenXPathTemplate.java
-@@ -136,7 +136,7 @@ public class JaxenXPathTemplate extends AbstractXPathTemplate {
- 			XPath xpath = createXPath(expression);
- 			Element element = getRootElement(context);
- 			List<?> nodes = xpath.selectNodes(element);
--			List<T> results = new ArrayList<T>(nodes.size());
-+			List<T> results = new ArrayList<>(nodes.size());
- 			for (int i = 0; i < nodes.size(); i++) {
- 				Node node = (Node) nodes.get(i);
- 				try {
-diff --git a/spring-xml/src/main/java/org/springframework/xml/xpath/Jaxp13XPathExpressionFactory.java b/spring-xml/src/main/java/org/springframework/xml/xpath/Jaxp13XPathExpressionFactory.java
-index e93f41bc..dabff910 100644
---- a/spring-xml/src/main/java/org/springframework/xml/xpath/Jaxp13XPathExpressionFactory.java
-+++ b/spring-xml/src/main/java/org/springframework/xml/xpath/Jaxp13XPathExpressionFactory.java
-@@ -41,7 +41,7 @@ import org.w3c.dom.NodeList;
-  */
- abstract class Jaxp13XPathExpressionFactory {
- 
--	private static XPathFactory xpathFactory = XPathFactory.newInstance();
-+	private static final XPathFactory xpathFactory = XPathFactory.newInstance();
- 
- 	/**
- 	 * Creates a JAXP 1.3 {@code XPathExpression} from the given string expression.
-@@ -88,7 +88,7 @@ abstract class Jaxp13XPathExpressionFactory {
- 	}
- 
- 	/** JAXP 1.3 implementation of the {@code XPathExpression} interface. */
--	private static class Jaxp13XPathExpression implements XPathExpression {
-+	private static final class Jaxp13XPathExpression implements XPathExpression {
- 
- 		private final javax.xml.xpath.XPathExpression xpathExpression;
- 		private final String expression;
-@@ -126,7 +126,7 @@ abstract class Jaxp13XPathExpressionFactory {
- 		}
- 
- 		private List<Node> toNodeList(NodeList nodeList) {
--			List<Node> result = new ArrayList<Node>(nodeList.getLength());
-+			List<Node> result = new ArrayList<>(nodeList.getLength());
- 			for (int i = 0; i < nodeList.getLength(); i++) {
- 				result.add(nodeList.item(i));
- 			}
-@@ -165,7 +165,7 @@ abstract class Jaxp13XPathExpressionFactory {
- 		@Override
- 		public <T> List<T> evaluate(Node node, NodeMapper<T> nodeMapper) throws XPathException {
- 			NodeList nodes = (NodeList) evaluate(node, XPathConstants.NODESET);
--			List<T> results = new ArrayList<T>(nodes.getLength());
-+			List<T> results = new ArrayList<>(nodes.getLength());
- 			for (int i = 0; i < nodes.getLength(); i++) {
- 				try {
- 					results.add(nodeMapper.mapNode(nodes.item(i), i));
-diff --git a/spring-xml/src/main/java/org/springframework/xml/xpath/Jaxp13XPathTemplate.java b/spring-xml/src/main/java/org/springframework/xml/xpath/Jaxp13XPathTemplate.java
-index e253369a..dad66cee 100644
---- a/spring-xml/src/main/java/org/springframework/xml/xpath/Jaxp13XPathTemplate.java
-+++ b/spring-xml/src/main/java/org/springframework/xml/xpath/Jaxp13XPathTemplate.java
-@@ -85,7 +85,7 @@ public class Jaxp13XPathTemplate extends AbstractXPathTemplate {
- 	@Override
- 	public List<Node> evaluateAsNodeList(String expression, Source context) throws XPathException {
- 		NodeList result = (NodeList) evaluate(expression, context, XPathConstants.NODESET);
--		List<Node> nodes = new ArrayList<Node>(result.getLength());
-+		List<Node> nodes = new ArrayList<>(result.getLength());
- 		for (int i = 0; i < result.getLength(); i++) {
- 			nodes.add(result.item(i));
- 		}
-@@ -120,7 +120,7 @@ public class Jaxp13XPathTemplate extends AbstractXPathTemplate {
- 	@Override
- 	public <T> List<T> evaluate(String expression, Source context, NodeMapper<T> nodeMapper) throws XPathException {
- 		NodeList nodes = (NodeList) evaluate(expression, context, XPathConstants.NODESET);
--		List<T> results = new ArrayList<T>(nodes.getLength());
-+		List<T> results = new ArrayList<>(nodes.getLength());
- 		for (int i = 0; i < nodes.getLength(); i++) {
- 			try {
- 				results.add(nodeMapper.mapNode(nodes.item(i), i));
-@@ -155,7 +155,7 @@ public class Jaxp13XPathTemplate extends AbstractXPathTemplate {
- 		return xpathFactory.newXPath();
- 	}
- 
--	private static class EvaluationCallback implements TraxUtils.SourceCallback {
-+	private static final class EvaluationCallback implements TraxUtils.SourceCallback {
- 
- 		private final XPath xpath;
- 
-diff --git a/spring-xml/src/main/java/org/springframework/xml/xpath/XPathExpressionFactory.java b/spring-xml/src/main/java/org/springframework/xml/xpath/XPathExpressionFactory.java
-index ee074e4d..13529c58 100644
---- a/spring-xml/src/main/java/org/springframework/xml/xpath/XPathExpressionFactory.java
-+++ b/spring-xml/src/main/java/org/springframework/xml/xpath/XPathExpressionFactory.java
-@@ -67,12 +67,8 @@ public abstract class XPathExpressionFactory {
- 		if (namespaces == null) {
- 			namespaces = Collections.emptyMap();
- 		}
--		try {
--			logger.trace("Creating [javax.xml.xpath.XPathExpression]");
--			return Jaxp13XPathExpressionFactory.createXPathExpression(expression, namespaces);
--		} catch (XPathException e) {
--			throw e;
--		}
-+		logger.trace("Creating [javax.xml.xpath.XPathExpression]");
-+		return Jaxp13XPathExpressionFactory.createXPathExpression(expression, namespaces);
- 	}
- 
- }
-diff --git a/spring-xml/src/main/java/org/springframework/xml/xsd/commons/CommonsXsdSchema.java b/spring-xml/src/main/java/org/springframework/xml/xsd/commons/CommonsXsdSchema.java
-index c268c38c..68666f1a 100644
---- a/spring-xml/src/main/java/org/springframework/xml/xsd/commons/CommonsXsdSchema.java
-+++ b/spring-xml/src/main/java/org/springframework/xml/xsd/commons/CommonsXsdSchema.java
-@@ -84,7 +84,7 @@ public class CommonsXsdSchema implements XsdSchema {
- 	}
- 
- 	public QName[] getElementNames() {
--		List<QName> result = new ArrayList<QName>(schema.getElements().keySet());
-+		List<QName> result = new ArrayList<>(schema.getElements().keySet());
- 		return result.toArray(new QName[result.size()]);
- 	}
- 
-diff --git a/spring-xml/src/main/java/org/springframework/xml/xsd/commons/CommonsXsdSchemaCollection.java b/spring-xml/src/main/java/org/springframework/xml/xsd/commons/CommonsXsdSchemaCollection.java
-index 6f974917..3c737c98 100644
---- a/spring-xml/src/main/java/org/springframework/xml/xsd/commons/CommonsXsdSchemaCollection.java
-+++ b/spring-xml/src/main/java/org/springframework/xml/xsd/commons/CommonsXsdSchemaCollection.java
-@@ -63,11 +63,11 @@ public class CommonsXsdSchemaCollection implements XsdSchemaCollection, Initiali
- 
- 	private final XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
- 
--	private final List<XmlSchema> xmlSchemas = new ArrayList<XmlSchema>();
-+	private final List<XmlSchema> xmlSchemas = new ArrayList<>();
- 
- 	private Resource[] xsdResources;
- 
--	private boolean inline = false;
-+	private boolean inline;
- 
- 	private URIResolver uriResolver = new ClasspathUriResolver();
- 
-@@ -128,8 +128,8 @@ public class CommonsXsdSchemaCollection implements XsdSchemaCollection, Initiali
- 
- 		schemaCollection.setSchemaResolver(uriResolver);
- 
--		Set<XmlSchema> processedIncludes = new HashSet<XmlSchema>();
--		Set<XmlSchema> processedImports = new HashSet<XmlSchema>();
-+		Set<XmlSchema> processedIncludes = new HashSet<>();
-+		Set<XmlSchema> processedImports = new HashSet<>();
- 
- 		for (Resource xsdResource : xsdResources) {
- 			Assert.isTrue(xsdResource.exists(), xsdResource + " does not exist");
-diff --git a/spring-xml/src/test/java/org/springframework/xml/namespace/SimpleNamespaceContextTest.java b/spring-xml/src/test/java/org/springframework/xml/namespace/SimpleNamespaceContextTest.java
-index 07de11c5..5ce2075e 100644
---- a/spring-xml/src/test/java/org/springframework/xml/namespace/SimpleNamespaceContextTest.java
-+++ b/spring-xml/src/test/java/org/springframework/xml/namespace/SimpleNamespaceContextTest.java
-@@ -101,13 +101,13 @@ class SimpleNamespaceContextTest {
- 		String result = iterator.next();
- 
- 		assertThat(result)
--				.has(new Condition<>(value -> value.equals("prefix1") || value.equals("prefix2"), "verify prefix"));
-+				.has(new Condition<>(value -> "prefix1".equals(value) || "prefix2".equals(value), "verify prefix"));
- 		assertThat(iterator.hasNext()).isTrue();
- 
- 		result = iterator.next();
- 
- 		assertThat(result)
--				.has(new Condition<>(value -> value.equals("prefix1") || value.equals("prefix2"), "verify prefix"));
-+				.has(new Condition<>(value -> "prefix1".equals(value) || "prefix2".equals(value), "verify prefix"));
- 		assertThat(iterator).isEmpty();
- 	}
- 
-@@ -202,14 +202,14 @@ class SimpleNamespaceContextTest {
- 		String result = iterator.next();
- 
- 		assertThat(result).has(new Condition<>(
--				value -> value.equals(XMLConstants.DEFAULT_NS_PREFIX) || value.equals("prefix"), "Verify prefix"));
-+				value -> value.equals(XMLConstants.DEFAULT_NS_PREFIX) || "prefix".equals(value), "Verify prefix"));
- 		assertThat(iterator).isNotNull();
- 		assertThat(iterator.hasNext()).isTrue();
- 
- 		result = iterator.next();
- 
- 		assertThat(result).has(new Condition<>(
--				value -> value.equals(XMLConstants.DEFAULT_NS_PREFIX) || value.equals("prefix"), "Verify prefix"));
-+				value -> value.equals(XMLConstants.DEFAULT_NS_PREFIX) || "prefix".equals(value), "Verify prefix"));
- 		assertThat(iterator).isEmpty();
- 	}
- 
-diff --git a/spring-xml/src/test/java/org/springframework/xml/validation/AbstractValidatorFactoryTestCase.java b/spring-xml/src/test/java/org/springframework/xml/validation/AbstractValidatorFactoryTestCase.java
-index a74c6d71..5dfb7d69 100644
---- a/spring-xml/src/test/java/org/springframework/xml/validation/AbstractValidatorFactoryTestCase.java
-+++ b/spring-xml/src/test/java/org/springframework/xml/validation/AbstractValidatorFactoryTestCase.java
-@@ -114,7 +114,6 @@ public abstract class AbstractValidatorFactoryTestCase {
- 		SAXParseException[] errors = validator.validate(new DOMSource(document));
- 
- 		assertThat(errors).isEmpty();
--		;
- 	}
- 
- 	@Test
-@@ -148,7 +147,6 @@ public abstract class AbstractValidatorFactoryTestCase {
- 		errors = validator.validate(document);
- 
- 		assertThat(errors).isEmpty();
--		;
- 	}
- 
- 	@Test
-diff --git a/spring-xml/src/test/java/org/springframework/xml/xpath/AbstractXPathExpressionFactoryTestCase.java b/spring-xml/src/test/java/org/springframework/xml/xpath/AbstractXPathExpressionFactoryTestCase.java
-index b86b5774..0de03f0c 100644
---- a/spring-xml/src/test/java/org/springframework/xml/xpath/AbstractXPathExpressionFactoryTestCase.java
-+++ b/spring-xml/src/test/java/org/springframework/xml/xpath/AbstractXPathExpressionFactoryTestCase.java
-@@ -41,7 +41,7 @@ public abstract class AbstractXPathExpressionFactoryTestCase {
- 
- 	private Document namespacesDocument;
- 
--	private Map<String, String> namespaces = new HashMap<String, String>();
-+	private final Map<String, String> namespaces = new HashMap<>();
- 
- 	@BeforeEach
- 	public void setUp() throws Exception {
-diff --git a/spring-xml/src/test/java/org/springframework/xml/xpath/JaxenXPathTemplateTest.java b/spring-xml/src/test/java/org/springframework/xml/xpath/JaxenXPathTemplateTest.java
-index 9bd2ab66..992dbb38 100644
---- a/spring-xml/src/test/java/org/springframework/xml/xpath/JaxenXPathTemplateTest.java
-+++ b/spring-xml/src/test/java/org/springframework/xml/xpath/JaxenXPathTemplateTest.java
-@@ -25,7 +25,7 @@ public class JaxenXPathTemplateTest extends AbstractXPathTemplateTestCase {
- 	protected XPathOperations createTemplate() {
- 
- 		JaxenXPathTemplate template = new JaxenXPathTemplate();
--		Map<String, String> namespaces = new HashMap<String, String>();
-+		Map<String, String> namespaces = new HashMap<>();
- 		namespaces.put("prefix1", "namespace1");
- 		namespaces.put("prefix2", "namespace2");
- 		template.setNamespaces(namespaces);
-diff --git a/spring-xml/src/test/java/org/springframework/xml/xsd/commons/CommonsXsdSchemaCollectionTest.java b/spring-xml/src/test/java/org/springframework/xml/xsd/commons/CommonsXsdSchemaCollectionTest.java
-index e3c96988..5d5ed6fd 100644
---- a/spring-xml/src/test/java/org/springframework/xml/xsd/commons/CommonsXsdSchemaCollectionTest.java
-+++ b/spring-xml/src/test/java/org/springframework/xml/xsd/commons/CommonsXsdSchemaCollectionTest.java
-@@ -157,8 +157,8 @@ public class CommonsXsdSchemaCollectionTest {
- 		assertThat(schemas).hasSize(2);
- 		assertThat(schemas[0].getTargetNamespace()).isEqualTo("http://mycompany.com/hr/schemas");
- 
--		Resource hr_employee = new ClassPathResource("hr_employee.xsd", getClass());
--		Document expected = documentBuilder.parse(SaxUtils.createInputSource(hr_employee));
-+		Resource hrEmployee = new ClassPathResource("hr_employee.xsd", getClass());
-+		Document expected = documentBuilder.parse(SaxUtils.createInputSource(hrEmployee));
- 		DOMResult domResult = new DOMResult();
- 		transformer.transform(schemas[0].getSource(), domResult);
+Moderne CLI 3.1.6
+
+> Selecting repositories
+
+> Netflix/Fenzo@master
+> Netflix/Priam@3.x
+> Netflix/blitz4j@master
+> Netflix/dynomite-manager@dev
+> Netflix/hollow@master
+> Netflix/ndbench@master
+> spring-cloud/spring-cloud-circuitbreaker@main
+> spring-cloud/spring-cloud-common-security-config@main
+> spring-cloud/spring-cloud-core-tests@main
+> spring-cloud/spring-cloud-netflix@main
+> spring-projects/spring-hateoas-examples@main
+> spring-projects/spring-petclinic@main
+Selected 12 repositories (0.28s)
+
+> Running recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
+
+> Netflix/Fenzo@master
+    ✓ Fix results at /Users/mikesol/workshop/Fenzo/.moderne/run/20240408155011-T0puX/fix.patch
+> Netflix/Priam@3.x
+    ✓ Fix results at /Users/mikesol/workshop/Priam/.moderne/run/20240408155011-T0puX/fix.patch
+> Netflix/blitz4j@master
+    ✓ Fix results at /Users/mikesol/workshop/blitz4j/.moderne/run/20240408155011-T0puX/fix.patch
+> Netflix/dynomite-manager@dev
+    ✓ Fix results at /Users/mikesol/workshop/dynomite-manager/.moderne/run/20240408155011-T0puX/fix.patch
+> Netflix/hollow@master
+    ✓ Fix results at /Users/mikesol/workshop/hollow/.moderne/run/20240408155011-T0puX/fix.patch
+> Netflix/ndbench@master
+    ✓ Fix results at /Users/mikesol/workshop/ndbench/.moderne/run/20240408155011-T0puX/fix.patch
+> spring-cloud/spring-cloud-circuitbreaker@main
+    ✓ Fix results at /Users/mikesol/workshop/spring-cloud-circuitbreaker/.moderne/run/20240408155011-T0puX/fix.patch
+> spring-cloud/spring-cloud-common-security-config@main
+    ✓ Fix results at /Users/mikesol/workshop/spring-cloud-common-security-config/.moderne/run/20240408155011-T0puX/fix.patch
+> spring-cloud/spring-cloud-core-tests@main
+    ✓ Fix results at /Users/mikesol/workshop/spring-cloud-core-tests/.moderne/run/20240408155011-T0puX/fix.patch
+> spring-cloud/spring-cloud-netflix@main
+    ✓ Fix results at /Users/mikesol/workshop/spring-cloud-netflix/.moderne/run/20240408155011-T0puX/fix.patch
+> spring-projects/spring-hateoas-examples@main
+    ✓ Fix results at /Users/mikesol/workshop/spring-hateoas-examples/.moderne/run/20240408155011-T0puX/fix.patch
+> spring-projects/spring-petclinic@main
+    ✓ Fix results at /Users/mikesol/workshop/spring-petclinic/.moderne/run/20240408155011-T0puX/fix.patch
+Found results on 12 repositories (1m 22s)
+
+40m 27s saved by using previously built LSTs
+
+* What to do next
+    > Click on one of the patch links above to view the changes on a particular repository
+    > Run mod study . --last-recipe-run --data-table <DATA-TABLE> to examine the following data tables produced by this recipe:
+          org.openrewrite.table.RecipeRunStats
+          org.openrewrite.table.SourcesFileResults
+    > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
+    > Run mod git checkout . -b hotfix --last-recipe-run to prepare a hotfix branch for applying the changes
+    > Run mod git apply . --last-recipe-run to apply the changes
+    > Run mod git apply . --recipe-run 20240408155011-T0puX to apply the changes
+
+MOD SUCCEEDED in (1m 23s)
 ```
 
 </details>
 
-6. If you want to apply the changes you can run:
+2. You can examine all the changes the recipe would make by command/ctrl clicking on the patch file that is generated by the recipe run.
+
+<details>
+
+<summary>You should see results similar to:</summary>
+
+```diff
+diff --git a/fenzo-core/src/main/java/com/netflix/fenzo/AssignableVirtualMachine.java b/fenzo-core/src/main/java/com/netflix/fenzo/AssignableVirtualMachine.java
+index 2582b0d..bc3ea45 100644
+--- a/fenzo-core/src/main/java/com/netflix/fenzo/AssignableVirtualMachine.java
++++ b/fenzo-core/src/main/java/com/netflix/fenzo/AssignableVirtualMachine.java
+@@ -34,9 +34,9 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+  */
+ public class AssignableVirtualMachine implements Comparable<AssignableVirtualMachine>{
+ 
+-    /* package */ static final String PseuoHostNamePrefix = "FenzoPsueodHost-";
+-
+-    private static class PortRange {
++    /* package */ static final String PseuoHostNamePrefix = "FenzoPsueodHost-";
++
++    private static final class PortRange {
+         private final VirtualMachineLease.Range range;
+         private PortRange(VirtualMachineLease.Range range) {
+             this.range = range;
+@@ -49,8 +49,8 @@
+     private static class PortRanges {
+         private List<VirtualMachineLease.Range> ranges = new ArrayList<>();
+         private List<PortRange> portRanges = new ArrayList<>();
+-        private int totalPorts=0;
+-        private int currUsedPorts=0;
++        private int totalPorts;
++        private int currUsedPorts;
+ 
+         void addRanges(List<VirtualMachineLease.Range> ranges) {
+             if(ranges!=null) {
+@@ -117,7 +117,7 @@
+     private double currUsedNetworkMbps=0.0;
+     private double currTotalDisk=0.0;
+     private double currUsedDisk=0.0;
+-    private VirtualMachineLease currTotalLease=null;
++    private VirtualMachineLease currTotalLease;
+     private PortRanges currPortRanges = new PortRanges();
+     private volatile Map<String, Protos.Attribute> currAttributesMap = Collections.emptyMap();
+     private final Map<String, PreferentialNamedConsumableResourceSet> resourceSets = new HashMap<>();
+@@ -130,15 +130,15 @@
+     private static final Logger logger = LoggerFactory.getLogger(AssignableVirtualMachine.class);
+     private final ConcurrentMap<String, String> leaseIdToHostnameMap;
+     private final ConcurrentMap<String, String> vmIdToHostnameMap;
+-    private volatile String currVMId =null;
++    private volatile String currVMId;
+     private final TaskTracker taskTracker;
+-    private volatile long disabledUntil=0L;
++    private volatile long disabledUntil;
+     // This may have to be configurable, but, for now weight the job's soft constraints more than system wide fitness calculators
+     private static double softConstraintFitnessWeightPercentage =50.0;
+     private static double rSetsFitnessWeightPercentage=15.0;
+-    private String exclusiveTaskId =null;
++    private String exclusiveTaskId;
+     private final boolean singleLeaseMode;
+-    private boolean firstLeaseAdded=false;
++    private boolean firstLeaseAdded;
+     private final List<TaskRequest> consumedResourcesToAssign = new ArrayList<>();
+ 
+     public AssignableVirtualMachine(PreferentialNamedConsumableResourceEvaluator preferentialNamedConsumableResourceEvaluator,
+@@ -174,9 +174,10 @@
+         return leaseRejectAction==null?
+                 lease -> logger.warn("No lease reject action registered to reject lease id " + lease.getId() +
+                         " on host " + lease.hostname()) :
+-                lease -> {
+-                    if (isRejectable(lease))
+-                        leaseRejectAction.call(lease);
++                lease -> {
++                    if (isRejectable(lease)) {
++                        leaseRejectAction.call(lease);
++                    }
+                 };
+     }
+ 
+@@ -184,75 +185,76 @@
+         return l != null && l.getOffer() != null;
+     }
+ 
+-    private void addToAvailableResources(VirtualMachineLease l) {
+-        if(singleLeaseMode && firstLeaseAdded)
+-            return; // ToDo should this be illegal state exception?
+-        firstLeaseAdded = true;
+-        final Map<String, Double> scalars = l.getScalarValues();
+-        if(scalars != null && !scalars.isEmpty()) {
+-            for(Map.Entry<String, Double> entry: scalars.entrySet()) {
+-                Double currVal = currTotalScalars.get(entry.getKey());
+-                if(currVal == null)
+-                    currVal = 0.0;
+-                currTotalScalars.put(entry.getKey(), currVal + entry.getValue());
+-            }
+-        }
+-        currTotalCpus += l.cpuCores();
+-        currTotalMemory += l.memoryMB();
+-        currTotalNetworkMbps += l.networkMbps();
+-        currTotalDisk += l.diskMB();
+-        if (l.portRanges() != null)
+-            currPortRanges.addRanges(l.portRanges());
+-        if (l.getAttributeMap() != null) {
+-            // always replace attributes map with the latest
+-            currAttributesMap = Collections.unmodifiableMap(new HashMap<>(l.getAttributeMap()));
+-        }
+-        for(Map.Entry<String, Protos.Attribute> entry: currAttributesMap.entrySet()) {
+-            switch (entry.getKey()) {
+-                case "res":
+-                    String val = entry.getValue().getText().getValue();
+-                    if(val!=null) {
+-                        StringTokenizer tokenizer = new StringTokenizer(val, "-");
+-                        String resName = tokenizer.nextToken();
+-                        switch (resName) {
+-                            case PreferentialNamedConsumableResourceSet.attributeName:
+-                                if(tokenizer.countTokens() == 3) {
+-                                    String name = tokenizer.nextToken();
+-                                    String val0Str = tokenizer.nextToken();
+-                                    String val1Str = tokenizer.nextToken();
+-                                    if(!resourceSets.containsKey(name)) {
+-                                        try {
+-                                            int val0 = Integer.parseInt(val0Str);
+-                                            int val1 = Integer.parseInt(val1Str);
+-                                            final PreferentialNamedConsumableResourceSet crs =
+-                                                    new PreferentialNamedConsumableResourceSet(hostname, name, val0, val1);
+-                                            final Iterator<TaskRequest> iterator = consumedResourcesToAssign.iterator();
+-                                            while(iterator.hasNext()) {
+-                                                TaskRequest request = iterator.next();
+-                                                crs.assign(request);
+-                                                iterator.remove();
+-                                            }
+-                                            resourceSets.put(name, crs);
+-                                        }
+-                                        catch (NumberFormatException e) {
+-                                            logger.warn(hostname + ": invalid resource spec (" + val + ") in attributes, ignoring: " + e.getMessage());
+-                                        }
+-                                    }
+-                                }
+-                                else
+-                                    logger.warn("Invalid res spec (expected 4 tokens with delimiter '-', ignoring: " + val);
+-                                break;
+-                            default:
+-                                logger.warn("Unknown resource in attributes, ignoring: " + val);
+-                        }
+-                    }
+-                    break;
+-            }
+-        }
+-        if(!consumedResourcesToAssign.isEmpty()) {
+-            throw new IllegalStateException(hostname + ": Some assigned tasks have no resource sets in offers: " +
+-                    consumedResourcesToAssign);
+-        }
++    private void addToAvailableResources(VirtualMachineLease l) {
++        if (singleLeaseMode && firstLeaseAdded) {
++            return; // ToDo should this be illegal state exception?
++        }
++        firstLeaseAdded = true;
++        final Map<String, Double> scalars = l.getScalarValues();
++        if (scalars != null && !scalars.isEmpty()) {
++            for (Map.Entry<String, Double> entry : scalars.entrySet()) {
++                Double currVal = currTotalScalars.get(entry.getKey());
++                if (currVal == null) {
++                    currVal = 0.0;
++                }
++                currTotalScalars.put(entry.getKey(), currVal + entry.getValue());
++            }
++        }
++        currTotalCpus += l.cpuCores();
++        currTotalMemory += l.memoryMB();
++        currTotalNetworkMbps += l.networkMbps();
++        currTotalDisk += l.diskMB();
++        if (l.portRanges() != null) {
++            currPortRanges.addRanges(l.portRanges());
++        }
++        if (l.getAttributeMap() != null) {
++            // always replace attributes map with the latest
++            currAttributesMap = Collections.unmodifiableMap(new HashMap<>(l.getAttributeMap()));
++        }
++        for (Map.Entry<String, Protos.Attribute> entry : currAttributesMap.entrySet()) {
++            if ("res".equals(entry.getKey())) {
++                String val = entry.getValue().getText().getValue();
++                if (val != null) {
++                    StringTokenizer tokenizer = new StringTokenizer(val, "-");
++                    String resName = tokenizer.nextToken();
++                    switch (resName) {
++                        case PreferentialNamedConsumableResourceSet.attributeName:
++                            if (tokenizer.countTokens() == 3) {
++                                String name = tokenizer.nextToken();
++                                String val0Str = tokenizer.nextToken();
++                                String val1Str = tokenizer.nextToken();
++                                if (!resourceSets.containsKey(name)) {
++                                    try {
++                                        int val0 = Integer.parseInt(val0Str);
++                                        int val1 = Integer.parseInt(val1Str);
++                                        final PreferentialNamedConsumableResourceSet crs =
++                                                           new PreferentialNamedConsumableResourceSet(hostname, name, val0, val1);
++                                        final Iterator<TaskRequest> iterator = consumedResourcesToAssign.iterator();
++                                        while (iterator.hasNext()) {
++                                            TaskRequest request = iterator.next();
++                                            crs.assign(request);
++                                            iterator.remove();
++                                        }
++                                        resourceSets.put(name, crs);
++                                    }
++                                    catch (NumberFormatException e) {
++                                        logger.warn(hostname + ": invalid resource spec (" + val + ") in attributes, ignoring: " + e.getMessage());
++                                    }
++                                }
++                            } else {
++                                logger.warn("Invalid res spec (expected 4 tokens with delimiter '-', ignoring: " + val);
++                            }
++                            break;
++                        default:
++                            logger.warn("Unknown resource in attributes, ignoring: " + val);
++                    }
++                }
++            }
++        }
++        if (!consumedResourcesToAssign.isEmpty()) {
++            throw new IllegalStateException(hostname + ": Some assigned tasks have no resource sets in offers: " +
++                               consumedResourcesToAssign);
++        }
+     }
+...
+```
+
+</details>
+
+3. As before, if you like the changes, you can apply the changes by running:
 
 ```bash
 mod git apply . --last-recipe-run
 ```
 
-7. You can then verify the project after the changes were made:
-
-```bash
-./mvnw verify
-```
+4. You could then run tests on each of the projects to ensure everything still builds successfully before committing the results.
 
 You can probably imagine that this recipe resolves a lot of technical debt when run at scale throughout an organization.
