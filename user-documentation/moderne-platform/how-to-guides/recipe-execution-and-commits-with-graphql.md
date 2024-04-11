@@ -291,7 +291,7 @@ mutation pullRequest($commitInput: CommitInput!, $orgId: ID, $isDraft: Boolean, 
 {% tab title="cURL" %}
 {% code overflow="wrap" %}
 ```shell
-curl -X POST
+curl --request POST
     --url https://api.app.moderne.io/graphql \
     --header 'Authorization: Bearer <session token or Moderne PAT here>' \
     --header 'Content-Type: application/json' \
