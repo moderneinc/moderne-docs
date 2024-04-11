@@ -36,7 +36,7 @@ In the top-left hand corner of the page, there is a filter dropdown that lets yo
 
 ![Audit page common filters](/.gitbook/assets/audit-common.png)
 
-For information about how to add/remove columns or how to add custom filters on individual columns, please see the [filter section](#filtering) at the bottom of this doc.
+For information about how to add/remove columns or how to add custom filters on individual columns, please see the [filtering section](#filtering) at the bottom of this doc.
 
 ## Workers page
 
@@ -48,7 +48,7 @@ As an admin, you can quarantine repositories in the Moderne platform. This preve
 
 Consider the case where you have some old repositories that aren't building. Instead of having error messages appear when you run recipes or having the DevCenter provide warnings about repositories not building, you can quarantine these repositories until they're fixed or removed.
 
-For information about how to add/remove columns or how to add custom filters on individual columns, please see the [filter section](#filtering) at the bottom of this doc.
+For information about how to add/remove columns or how to add custom filters on individual columns, please see the [filtering section](#filtering) at the bottom of this doc.
 
 ## Reports page
 
