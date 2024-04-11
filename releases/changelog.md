@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.98.0 (2024/04/11)
+
+- add Share curl button to graphql explorer to copy graphql request as curl
+- add csharp logo support
+
 ### UI v10.97.0 (2024/04/08)
 
 - Bug fixes and other improvements.
