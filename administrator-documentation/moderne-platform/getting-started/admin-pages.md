@@ -30,7 +30,7 @@ If you configure the same connection in multiple agents, you will only see it on
 
 ## Audit log page
 
-The audit log page provides clear information on everything that has happened on the platform.
+The audit log page lists all actions taken by users on the platform.
 
 In the top-left hand corner of the page, there is a filter dropdown that lets you select common, important, filters such as all logins in the last week or all commits in the last month:
 
@@ -60,7 +60,7 @@ The access tokens page lets you see who has created an access token for your ten
 
 The search box lets you enter partial searches such as `@moderne.io` to find all users with an `@moderne.io` email address.
 
-To remove access tokens for a user, click on the trash can icon under `Actions`` and then press `Delete` in the modal that appears.
+To remove access tokens for a user, click on the trash can icon under `Actions` and then press `Delete` in the modal that appears.
 
 ## Filtering
 
