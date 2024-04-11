@@ -235,7 +235,7 @@ curl --request POST \
 {% tabs %}
 {% tab title="Pull Request Mutation" %}
 ```graphql
-mutation pullRequest($commitInput: CommitInput!, $orgId: ID, $isDraft: Boolean, $pullRequestTitle: String, $pullRequestBody: String) {
+mutation pullRequest($commitInput: CommitInput!, $orgId: ID, $isDraft: Boolean, $pullRequestTitle: String, $pullRequestBody: Base64) {
   pullRequest(
     orgId: $orgId
     draft: $isDraft
@@ -259,10 +259,11 @@ mutation pullRequest($commitInput: CommitInput!, $orgId: ID, $isDraft: Boolean, 
 {% endtab %}
 
 {% tab title="Mutation Variables" %}
+
 ```graphql
 {
   "isDraft": false,
-  "orgId": "Gradle"
+  "orgId": "Gradle",
   "commitInput": {
     "recipeRunId": "h7a0mwyqg",
     "branchName": "refactor/update-a-gradle-plugin-by-id",
@@ -279,10 +280,10 @@ mutation pullRequest($commitInput: CommitInput!, $orgId: ID, $isDraft: Boolean, 
         "path": "gradle-nexus/publish-plugin"
       }
     ],
-    "scmAccessTokens": [{"type": "GITHUB", "value": "MY_SCM_PERSONAL_ACCESS_TOKEN"}]
+    "scmAccessTokens": [{"origin": "github.com", "value": "MY_SCM_PERSONAL_ACCESS_TOKEN"}]
   },
   "pullRequestTitle": "refactor: Update a Gradle plugin by id",
-  "pullRequestBody": "refactor: Update a Gradle plugin by id"
+  "pullRequestBody": "cmVmYWN0b3I6IFVwZGF0ZSBhIEdyYWRsZSBwbHVnaW4gYnkgaWQ"
 }
 ```
 {% endtab %}
@@ -290,12 +291,11 @@ mutation pullRequest($commitInput: CommitInput!, $orgId: ID, $isDraft: Boolean, 
 {% tab title="cURL" %}
 {% code overflow="wrap" %}
 ```shell
-curl --request POST \
-  --url https://api.app.moderne.io/graphql \
-  --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \
-  --header 'Content-Type: application/json' \
-  --header 'User-Agent: insomnia/8.1.0' \
-  --data '{"query":"mutation pullRequest($commitInput: CommitInput!, $orgId: ID, $isDraft: Boolean, $pullRequestTitle: String, $pullRequestBody: Base64) {\n  pullRequest(\n    orgId: $orgId\n    draft: $isDraft\n    commit: $commitInput\n    pullRequestTitle: $pullRequestTitle\n    pullRequestBody: $pullRequestBody\n  ) {\n    id\n    started\n    email\n    completed\n    summaryResults {\n      count\n      successfulCount\n      failedCount\n      noChangeCount\n    }\n  }\n}","operationName":"pullRequest","variables":"{\n  \"isDraft\": false,\n  \"commitInput\": {\n    \"recipeRunId\": \"Dxvsv\",\n    \"branchName\": \"refactor/update-a-gradle-plugin-by-id\",\n    \"message\": \"refactor: Update a Gradle plugin by id\",\n    \"repositories\": [\n      {\n        \"branch\": \"master\",\n        \"origin\": \"github.com\",\n        \"path\": \"gradle/gradle-checksum\"\n      },\n      {\n        \"branch\": \"master\",\n        \"origin\": \"github.com\",\n        \"path\": \"gradle-nexus/publish-plugin\"\n      }\n    ],\n    \"scmAccessTokens\": [{\"type\": \"GITHUB\", \"value\": \"MY_SCM_PERSONAL_ACCESS_TOKEN\"}]\n  },\n  \"pullRequestTitle\": \"refactor: Update a Gradle plugin by id\",\n  \"pullRequestBody\": \"refactor: Update a Gradle plugin by id\"\n}"}'
+curl --request POST
+    --url https://api.app.moderne.io/graphql \
+    --header 'Authorization: Bearer <session token or Moderne PAT here>' \
+    --header 'Content-Type: application/json' \
+    --data '{ "query": "mutation pullRequest($commitInput: CommitInput!, $orgId: ID, $isDraft: Boolean, $pullRequestTitle: String, $pullRequestBody: Base64) {\n  pullRequest(\n    orgId: $orgId\n    draft: $isDraft\n    commit: $commitInput\n    pullRequestTitle: $pullRequestTitle\n    pullRequestBody: $pullRequestBody\n  ) {\n    id\n    started\n    email\n    completed\n    summaryResults {\n      count\n      successfulCount\n      failedCount\n      noChangeCount\n    }\n  }\n}", "variables": "{\n  \"isDraft\": false,\n  \"orgId\": \"Gradle\",\n  \"commitInput\": {\n    \"recipeRunId\": \"MEY8ulZNB\",\n    \"branchName\": \"refactor/update-a-gradle-plugin-by-id\",\n    \"message\": \"refactor: Update a Gradle plugin by id\",\n    \"repositories\": [\n      {\n        \"branch\": \"master\",\n        \"origin\": \"github.com\",\n        \"path\": \"gradle/gradle-checksum\"\n      },\n      {\n        \"branch\": \"master\",\n        \"origin\": \"github.com\",\n        \"path\": \"gradle-nexus/publish-plugin\"\n      }\n    ],\n    \"scmAccessTokens\": [{\"origin\": \"github.com\", \"value\": \"MY_SCM_PERSONAL_ACCESS_TOKEN\"}]\n  },\n  \"pullRequestTitle\": \"refactor: Update a Gradle plugin by id\",\n  \"pullRequestBody\": \"cmVmYWN0b3I6IFVwZGF0ZSBhIEdyYWRsZSBwbHVnaW4gYnkgaWQ=\"\n}" }'
 ```
 {% endcode %}
 {% endtab %}
