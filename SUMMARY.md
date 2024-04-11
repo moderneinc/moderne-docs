@@ -53,6 +53,7 @@
 * [Moderne Platform](administrator-documentation/moderne-platform/README.md)
   * [Getting started](administrator-documentation/moderne-platform/getting-started/README.md)
     * [Proof of value process](administrator-documentation/moderne-platform/getting-started/proof-of-value.md)
+    * [Admin pages](administrator-documentation/moderne-platform/getting-started/admin-pages.md)
   * [How to guides](administrator-documentation/moderne-platform/how-to-guides/README.md)
     * [Mass ingest](administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md)
     * [Moderne Agent](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/README.md)
