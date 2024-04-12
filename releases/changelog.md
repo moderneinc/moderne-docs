@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.99.0 (2024/04/12)
+
+- admin users view
+
 ### UI v10.98.0 (2024/04/11)
 
 - add Share curl button to graphql explorer to copy graphql request as curl
