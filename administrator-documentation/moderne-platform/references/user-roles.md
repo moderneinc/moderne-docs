@@ -2,18 +2,18 @@
 
 | Action                                            |       Everyone                    |    Administrators     |
 | ------------------------------------------------- | :-------------------------------: | :-------------------: |
-| Interact with DevCenter                           | Users with organization access    | :white\_check\_mark:  |
+| Interact with DevCenter                           | [Users with organization access](#organization-access)    | :white\_check\_mark:  |
 | View Marketplace                                  |       :white\_check\_mark:        | :white\_check\_mark:  |
 | Build recipes                                     |       :white\_check\_mark:        | :white\_check\_mark:  |
 | Create and use access tokens                      |       :white\_check\_mark:        | :white\_check\_mark:  |
 | Deploy recipe and visualization artifacts         |              :x:                  | :white\_check\_mark:  |
-| View repositories                                 | Users with organization access    | :white\_check\_mark:  |
-| View repository insights                          | Users with organization access    | :white\_check\_mark:  |
-| View activity log                                 | Users with organization access    | :white\_check\_mark:  |
-| Run recipes and visualizations                    | Users with organization access    | :white\_check\_mark:  |
-| View recipe results                               | Users with SCM access             | Users with SCM access |
-| Commit recipe results                             | Users with SCM access             | Users with SCM access | 
-| [Download data tables](#user-content-fn-1)[^1]   | Users with SCM access             | Users with SCM access |
+| View repositories                                 | [Users with organization access](#organization-access)    | :white\_check\_mark:  |
+| View repository insights                          | [Users with organization access](#organization-access)    | :white\_check\_mark:  |
+| View activity log                                 | [Users with organization access](#organization-access)    | :white\_check\_mark:  |
+| Run recipes and visualizations                    | [Users with organization access](#organization-access)s    | :white\_check\_mark:  |
+| View recipe results                               | [Users with SCM access](#scm-access)             | [Users with SCM access](#scm-access)|
+| Commit recipe results                             | [Users with SCM access](#scm-access)             | [Users with SCM access](#scm-access) | 
+| [Download data tables](#user-content-fn-1)[^1]    | [Users with SCM access](#scm-access)             | [Users with SCM access](#scm-access) |
 | View audit logs                                   |              :x:                  | :white\_check\_mark:  |
 | Download usage reports                            |              :x:                  | :white\_check\_mark:  |
 | View connected agents and associated technologies |              :x:                  | :white\_check\_mark:  |
