@@ -9,7 +9,7 @@ There are two paths that you can take to try and get around this:
 1. Ensure that you're running a more recent JDK (or, at least, the latest patch release of your JDK of choice).
 2. Removing the `~/.m2/repository/io/moderne` directory and re-running the command.
 
-## Could not find artifact `io.moderne:modmaven:jar:2.8.4` in Artifactory
+## Could not find artifact `io.moderne:modmaven:jar` in Artifactory
 
 We suspect this is the same issue as the [invalid entry compressed size exception](#invalid-entry-compressed-size-exception) and suggest performing the same steps to try and resolve.
 
