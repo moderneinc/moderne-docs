@@ -37,6 +37,7 @@
     * [JDK configuration in the Moderne CLI](user-documentation/moderne-cli/how-to-guides/jdk-selection-and-config.md)
     * [Moderne IntelliJ plugin](user-documentation/moderne-cli/how-to-guides/moderne-intellij-plugin.md)
   * [Reference](user-documentation/moderne-cli/cli-reference.md)
+  * [FAQ](user-documentation/moderne-cli/faq.md)
 * [Moderne DX](user-documentation/moderne-dx/README.md)
   * [How to guides](user-documentation/moderne-dx/how-to-guides/README.md)
     * [Syncing recipes with Moderne DX](user-documentation/moderne-dx/how-to-guides/syncing-recipes-with-moderne-dx.md)
