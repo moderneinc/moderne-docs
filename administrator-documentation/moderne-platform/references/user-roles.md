@@ -13,7 +13,7 @@
 | Run recipes and visualizations                    | Users with organization access    | :white\_check\_mark:  |
 | View recipe results                               | Users with SCM access             | Users with SCM access |
 | Commit recipe results                             | Users with SCM access             | Users with SCM access | 
-| [Download data tables](#user-content-fn-1)[^1]s   | Users with SCM access             | Users with SCM access |
+| [Download data tables](#user-content-fn-1)[^1]   | Users with SCM access             | Users with SCM access |
 | View audit logs                                   |              :x:                  | :white\_check\_mark:  |
 | Download usage reports                            |              :x:                  | :white\_check\_mark:  |
 | View connected agents and associated technologies |              :x:                  | :white\_check\_mark:  |
