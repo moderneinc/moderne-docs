@@ -77,6 +77,7 @@
     * [Configuring the DevCenter](administrator-documentation/moderne-platform/how-to-guides/dev-center.md)
     * [How to create visualizations](administrator-documentation/moderne-platform/how-to-guides/create-visualization.md)
     * [Importing external recipes](administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes.md)
+    * [LST cleanup](administrator-documentation/moderne-platform/how-to-guides/lst-cleanup.md)
   * [References](administrator-documentation/moderne-platform/references/README.md)
     * [Reporting](administrator-documentation/moderne-platform/references/reporting.md)
     * [Moderne architecture](administrator-documentation/moderne-platform/references/architecture.md)
