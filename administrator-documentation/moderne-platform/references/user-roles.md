@@ -10,7 +10,7 @@
 | View repositories                                 | [Users with organization access](#organization-access)    | :white\_check\_mark:  |
 | View repository insights                          | [Users with organization access](#organization-access)    | :white\_check\_mark:  |
 | View activity log                                 | [Users with organization access](#organization-access)    | :white\_check\_mark:  |
-| Run recipes and visualizations                    | [Users with organization access](#organization-access)s    | :white\_check\_mark:  |
+| Run recipes and visualizations                    | [Users with organization access](#organization-access)    | :white\_check\_mark:  |
 | View recipe results                               | [Users with SCM access](#scm-access)             | [Users with SCM access](#scm-access)|
 | Commit recipe results                             | [Users with SCM access](#scm-access)             | [Users with SCM access](#scm-access) | 
 | [Download data tables](#user-content-fn-1)[^1]    | [Users with SCM access](#scm-access)             | [Users with SCM access](#scm-access) |
