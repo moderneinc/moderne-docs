@@ -1,6 +1,6 @@
 # Accessing the Moderne API
 
-Moderne offers a GraphQL API (`https://api.app.moderne.io/`) for customers to interact with through the usage of a personal access token. In this doc, we'll walk through everything you need to know to access and use this API.
+Moderne offers a GraphQL API for customers to interact with through the usage of a personal access token. In this doc, we'll walk through everything you need to know to access and use this API.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ To access this explorer, either click on the API Explorer link GraphQL link in t
 Please note that when you make actual API requests, you'll want to make them against `https://api.app.moderne.io/` instead of `https://app.moderne.io/graphql`.
 {% endhint %}
 
-![](/.gitbook/assets/graphql-link.png)
+![](../../../.gitbook/assets/graphql-link.png)
 
 {% hint style="info" %}
 A temporary access token is created when you log in to the platform. This lasts for 1 hour and is auto-populated into the `Authorization` header (located in the `Request Headers` tab in the bottom left) when you navigate to the GraphQL explorer.
