@@ -6,3 +6,4 @@
 * [Configuring the DevCenter](./dev-center.md)
 * [How to create visualizations](./create-visualization.md)
 * [Importing external recipes](importing-external-recipes.md)
+* [LST cleanup](./lst-cleanup.md)
