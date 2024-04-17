@@ -177,10 +177,18 @@ mod config license edit <license_key>
 
 ### (Optional) Configure a Maven settings file
 
-If you have a Maven settings file that exists outside of your repositories, you can use the [following command](/user-documentation/moderne-cli/cli-reference.md#mod-config-build-maven-settings) to point the CLI to it: 
+If you have a Maven settings file that exists outside of your repositories, you can use the [following command](/user-documentation/moderne-cli/cli-reference.md#mod-config-build-maven-settings) to point the CLI to it. This ensures dependencies are resolved the same as builds: 
 
 ```shell
 mod config build maven settings edit <path-to-settings.xml>
+```
+
+### (Optional) Configure recipe sources
+
+If you have custom recipes you want to include in the CLI, you will need to [let the CLI know about them](/user-documentation/moderne-cli/cli-reference.md#mod-config-recipes-artifacts):
+
+```shell
+mod config recipes artifacts <artifactory|maven> edit <artifact-repository-url> --user <user> --password <password>
 ```
 
 ## Additional reading
