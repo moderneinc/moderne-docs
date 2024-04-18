@@ -75,7 +75,7 @@ To fix this issue, we encourage you to write some form of automation that remove
 
 Unlike the scenario where a branch is deleted, you **do not need to make any API calls to Moderne**.
 
-### Example AQL queries for finding old LSTs
+## Example AQL queries for finding old LSTs
 
 ```aql
 items.find({
