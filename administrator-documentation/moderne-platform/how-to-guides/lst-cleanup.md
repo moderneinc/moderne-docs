@@ -1,4 +1,4 @@
-# Cleaning up old LSTs
+# LST cleanup
 
 As your team develops new code, LSTs will be created and added to your artifact repository. Over time, however, many of these LSTs will no longer be useful and should be removed to save space.
 
@@ -13,7 +13,7 @@ While those two scenarios are similar, the behavior in Moderne and the cleanup p
 
 In this scenario, when you go to run a recipe in Moderne, you will be able to run recipes against the repository + branch combination that no longer exists – which is a waste of time as you won't be able to merge in the results.
 
-To fix this, you will **first** need to remove the old LSTs from your artifact repository. We strongly recommend setting up some form of automation for this. You could potentially write a simple script that removes LSTs that haven't been updated in more than one week.
+To fix this, you will **first** need to remove the old LSTs from your artifact repository. We strongly recommend setting up some form of automation for this.[ You could potentially write a simple script that removes LSTs that haven't been updated in more than one week](lst-cleanup.md#example-aql-queries-for-finding-old-lsts).
 
 **After the LSTs have been removed from your artifact repository**, you will need to perform some action to let Moderne know about these changes. This is because Moderne **does not** poll for artifacts being deleted. Once Moderne has downloaded an LST, it will continue to allow you to run recipes on it – even if those artifacts no longer exist in your artifact repository.
 
@@ -71,6 +71,22 @@ You could then run this custom script once a week or so.
 
 In this scenario, you won't notice any issues in Moderne. You will still be able to run recipes against the latest LSTs and commit the results from said recipes. However, your artifact repository will begin to fill up with old LSTs that are no longer needed.
 
-To fix this issue, we encourage you to write some form of automation that removes old LSTs from your artifact repository (perhaps by deleting all LSTs that haven't been updated in over a week).
+To fix this issue, we encourage you to write some form of automation that removes old LSTs from your artifact repository (perhaps by deleting all LSTs that haven't been updated in over a week). See [our example below](lst-cleanup.md#example-aql-queries-for-finding-old-lsts) for what this might look like.
 
 Unlike the scenario where a branch is deleted, you **do not need to make any API calls to Moderne**.
+
+### Example AQL queries for finding old LSTs
+
+```aql
+items.find({
+    "repo":{"$match":"ingest-repo"},
+    "path":{"$match":"some-org/some-repo*"},
+    "created":{"$last" : "1d"}
+}).limit(10000)
+```
+
+{% code overflow="wrap" %}
+```bash
+curl -X POST -H 'Content-Type: text/plain' -u user:password <artifactory url>/api/search/aql -d 'items.find({"repo":{"$match":"ingest-repo"},"modified":{"$gt":"2023-06-16T18:00:00.000000-04:00"}  ,"modified":{"$gt":"2024-04-17T16:48:50.00860443Z"}}).include("name","repo","path","modified").limit(100)'
+```
+{% endcode %}
