@@ -4,11 +4,7 @@ Moderne DX is a secure, fully on-premises, enterprise-level automated code remed
 
 ## Moderne DX setup instructions
 
-### Step 1: Contact Moderne to obtain access
-
-Please talk to your sales representative or [contact us](mailto:support@moderne.io) in order to obtain access to Moderne DX. We will work with you to determine what access details are appropriate for your platform.
-
-### Step 2: Determine how you will run the service
+### Step 1: Determine how you will run the service
 
 There are two ways you can run the DX service:
 
@@ -23,9 +19,9 @@ Regardless of which option you pick, we recommend that you dedicate a minimum of
 
 If you deploy to Kubernetes or any other containerized environment like AWS ECS, you'll want to create a Docker image to run the service.
 
-If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) environment such Cloud Foundry, you'll want to use the JAR to run the service.
+If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform\_as\_a\_service) environment such Cloud Foundry, you'll want to use the JAR to run the service.
 
-The table below provides some core information for running the service. However, in order for the service to function correctly, additional variables will need to be added based on your environment (such as what artifact repositories you have configured, and whether or not you've configured an [Organizations service](/administrator-documentation/moderne-platform/how-to-guides/organizations-service)). We'll walk through each of those in the following steps.
+The table below provides some core information for running the service. However, in order for the service to function correctly, additional variables will need to be added based on your environment (such as what artifact repositories you have configured, and whether or not you've configured an [Organizations service](../../moderne-platform/how-to-guides/organizations-service/)). We'll walk through each of those in the following steps.
 
 {% tabs %}
 {% tab title="Executable JAR" %}
@@ -127,7 +123,7 @@ MODERNE_DX_MAVEN_0_PASSWORD=password
 {% endtab %}
 {% endtabs %}
 
-### Step 3: Configure the service to connect to your artifact repositories
+### Step 2: Configure the service to connect to your artifact repositories
 
 The Moderne DX service needs to connect to your artifact repositories for two reasons:
 
@@ -204,7 +200,7 @@ java -jar moderne-dx-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 4: (Optionally) Configure the Organizations service
+### Step 3: (Optionally) Configure the Organizations service
 
 Many organizations desire the ability to control the organizational structure of their repositories within the Moderne platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
 
@@ -252,7 +248,7 @@ java -jar moderne-dx-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 5: (Optionally) Use strict recipe sources.
+### Step 4: (Optionally) Use strict recipe sources.
 
 Some organizations want recipe artifacts to only come from locations configured in the Moderne DX service. If you want to configure that, please follow the [strict recipe sources instructions](configure-dx-with-strict-recipe-sources.md).
 
