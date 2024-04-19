@@ -935,7 +935,7 @@ mod config build maven arguments show [parameters]
 Configure Maven settings.
 
 
-Allows you to specify the location of a Maven _settings.xml_ file that should be used when Maven is being used to resolve recipe dependencies or run recipes. You can also use an environment variable that points to location of the file with **null** syntax.
+Allows you to specify the location of a Maven _settings.xml_ file that should be used when Maven is being used to resolve recipe dependencies or run recipes. You can also use an environment variable that points to location of the file with **${ENV_VAR}** syntax.
 
 ### Usage
 
