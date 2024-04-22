@@ -6,6 +6,14 @@ Every week we [host a live office hours session](https://www.youtube.com/@modern
 
 You can find each of the office hours sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### OSS contributor conversation with Shannon Pamperl (April 24th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=n2U_8Zgkybs" %}
+
+#### Summary and related links
+
+Coming soon!
+
 ### Recipe authoring tips (April 17th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=qKbUM5lKjPE" %}
