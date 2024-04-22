@@ -8,6 +8,8 @@ Fortunately, Moderne offers a [recipe](https://app.moderne.io/recipes/org.openre
 
 Let's walk through how to find and use this recipe so you can be more confident that your APIs are not unintentionally exposing sensitive data.
 
+{% embed url="https://www.youtube.com/watch?v=z-bl4RTDH94" %}
+
 ## Using the find sensitive API endpoints recipe
 
 * Navigate to [the find sensitive API endpoints recipe](https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindSensitiveApiEndpoints).
