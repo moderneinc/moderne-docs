@@ -28,12 +28,11 @@ With that file created, you can use the `--active-recipe` flag in the Moderne CL
 3. Open up the Moderne CLI and run `mod build <path/to/project>` to build or download the LST for the project you want to test on
 4. Once the LST has been obtained, run the command: `mod run <path/to/project> --jvm-debug --active-recipe`. The CLI will then wait for a debugger to be attached to run the recipe.
     * Note: Depending on the recipe you may need to provide additional parameters in the run command such as `--recipe-option methodPattern="java.util.Collections emptyList()"`.
+
+    ![Debugger attaching](/.gitbook/assets/debugger-wait.png)
+
 5. Open up your IDE and create a new debug run configuration. You can do this by clicking on the vertical triple dots in the top right corner, selecting `Edit...`, and then adding a new `Remote JVM Debug`: 
 
-    ![Vertical triple dots to click on](/.gitbook/assets/debug-dots.png)
-
-    ![Edit button to click on](/.gitbook/assets/debug-edit.png)
-    
     ![Adding Remote JVM Debugger](/.gitbook/assets/add-debug-config.gif)
 
 6. Once you've created the debugger, launch it by clicking on the bug icon in the top right corner of your screen:
