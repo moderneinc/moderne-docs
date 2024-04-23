@@ -20,7 +20,7 @@ Once the artifact is published, the Moderne agent will send the changes to Moder
 
 Below is a high-level architecture diagram that shows the flow of data between Moderne and a typical customer environment. Arrows indicate communication between components. The details of each component can be found in the following sections.
 
-![Moderne architecture](../../../.gitbook/assets/moderne-architecture.png)
+<figure><img src="../../../.gitbook/assets/moderne-arch-updated.png" alt=""><figcaption><p>Moderne architecture</p></figcaption></figure>
 
 ## Key components
 
@@ -28,7 +28,7 @@ Below is a high-level architecture diagram that shows the flow of data between M
 
 In order for Moderne to know the current state of your code, artifacts will need to be generated that contain a serialized representation of your code's [LSTs](concepts/lossless-semantic-trees.md). These artifacts must be put inside an artifact repository that the [Moderne agent](architecture.md#moderne-agent) has access to.
 
-To do this, you'll want to use set up mass ingestion with the Moderne CLI. For instructions on how to do that, please read our [Mass ingestion doc](/administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md).
+To do this, you'll want to use set up mass ingestion with the Moderne CLI. For instructions on how to do that, please read our [Mass ingestion doc](../how-to-guides/mass-ingest.md).
 
 ### Moderne agent
 
