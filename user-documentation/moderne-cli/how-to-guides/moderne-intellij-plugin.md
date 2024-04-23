@@ -31,7 +31,9 @@ With that file created, you can use the `--active-recipe` flag in the Moderne CL
 5. Open up your IDE and create a new debug run configuration. You can do this by clicking on the vertical triple dots in the top right corner, selecting `Edit...`, and then adding a new `Remote JVM Debug`: 
 
     ![Vertical triple dots to click on](/.gitbook/assets/debug-dots.png)
+
     ![Edit button to click on](/.gitbook/assets/debug-edit.png)
+    
     ![Adding Remote JVM Debugger](/.gitbook/assets/add-debug-config.gif)
 
 6. Once you've created the debugger, launch it by clicking on the bug icon in the top right corner of your screen:
