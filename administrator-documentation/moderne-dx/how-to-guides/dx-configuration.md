@@ -70,7 +70,7 @@ moderne-dx:latest
 **Example Dockerfile**
 
 {% hint style="info" %}
-You are responsible for creating this Dockerfile. The below one is a suggestion for getting started - but yours will differ from this as it should point to and use your own tools and services.
+You are responsible for creating this Dockerfile and your own base image. It is your responsibility to keep this up-to-date when vulnerabilities arise. The below one is a suggestion for getting started - but yours will differ from this as it should point to and use your own tools and services.
 {% endhint %}
 
 ```docker
@@ -379,7 +379,3 @@ If that's true, then you can simply restart the service and it should pick up th
 To update your version of the Executable JAR, change the `{version}` in `java -jar moderne-dx-{version}.jar` to be the latest one on [the releases page](dx-configuration.md) (coming soon).
 {% endtab %}
 {% endtabs %}
-
-## Configure the Moderne CLI license
-
-Configuring the license is required in order to run recipes using the Moderne CLI. To configure this, please follow the instructions in the [Moderne CLI license doc](../../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
