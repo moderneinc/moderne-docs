@@ -178,7 +178,7 @@ docker run \
 -e MODERNE_DX_MAVEN_0_PASSWORD=password \
 # ... Additional variables to come
 -p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
+moderne-dx:latest
 ```
 {% endtab %}
 
@@ -225,7 +225,7 @@ docker run \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
+moderne-dx:latest
 ```
 {% endtab %}
 
@@ -272,7 +272,7 @@ docker run \
 -e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
 -p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
+moderne-dx:latest
 ```
 {% endtab %}
 
@@ -308,19 +308,9 @@ Below is a table that has instructions for how to run the service in combination
 
 {% tabs %}
 {% tab title="Docker image" %}
-1. Log in to the Moderne registry:
+1. Rebuild your Docker image with the latest JAR and any other changes you need to make.
 
-```shell
-docker login -u moderne-tenant -p <password provided by Moderne> moderne.azurecr.io
-```
-
-2. Pull down the latest DX service:
-
-```shell
-docker pull moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
-```
-
-3. Run the `docker run` command in combination with all of the environment variables you've added in the previous steps:
+2. Run the `docker run` command in combination with all of the environment variables you've added in the previous steps:
 
 ```shell
 docker run \
@@ -337,7 +327,7 @@ docker run \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest
+moderne-dx:latest
 ```
 {% endtab %}
 
@@ -370,12 +360,10 @@ If you want to update the Moderne DX service over time, please follow the instru
 
 {% tabs %}
 {% tab title="Docker image" %}
-If you're running the commands provided in this guide, you should see that the last line of every service run command is `moderne.azurecr.io/moderne-dev/moderne/moderne-dx:latest`.
-
-If that's true, then you can simply restart the service and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](dx-configuration.md) (coming soon) for the versions.
+Update your Dockerfile to contain the [latest DX JAR](https://central.sonatype.com/artifact/io.moderne/moderne-dx/versions). Then rebuild your Docker image and restart your Docker instance by running the `docker run ...` command again.
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-To update your version of the Executable JAR, change the `{version}` in `java -jar moderne-dx-{version}.jar` to be the latest one on [the releases page](dx-configuration.md) (coming soon).
+To update your version of the Executable JAR, change the `{version}` in `java -jar moderne-dx-{version}.jar` to be the [latest DX JAR](https://central.sonatype.com/artifact/io.moderne/moderne-dx/versions).
 {% endtab %}
 {% endtabs %}
