@@ -51,17 +51,23 @@ docker run --env-file=moderne-dx.env moderne-dx:latest
 **How to run the image with command line arguments**
 
 ```bash
+export MODERNE_TOKEN=...
+export ARTIFACTORY_USERNAME=...
+export ARTIFACTORY_PASSWORD=...
+export MAVEN_USERNAME=...
+export MAVEN_PASSWORD=...
+
 docker run \
--e MODERNE_DX_TOKEN_0=<token> \
+-e MODERNE_DX_TOKEN_0=${MODERNE_TOKEN} \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_DX_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME} \
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD} \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
 -e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_DX_MAVEN_0_USERNAME=admin \
--e MODERNE_DX_MAVEN_0_PASSWORD=password \
+-e MODERNE_DX_MAVEN_0_USERNAME=${MAVEN_USERNAME} \
+-e MODERNE_DX_MAVEN_0_PASSWORD=${MAVEN_PASSWORD} \
 # ... Additional variables to come
 -p 8080:8080
 moderne-dx:latest
@@ -109,16 +115,16 @@ EXPOSE 8080
 **Example environment variables file**
 
 ```bash
-MODERNE_DX_TOKEN_0=<token> 
+MODERNE_DX_TOKEN_0=${MODERNE_TOKEN} 
 MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ 
-MODERNE_DX_ARTIFACTORY_0_USERNAME=admin 
-MODERNE_DX_ARTIFACTORY_0_PASSWORD=password 
+MODERNE_DX_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USER} 
+MODERNE_DX_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD} 
 MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' 
 MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' 
 MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local 
 MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven 
-MODERNE_DX_MAVEN_0_USERNAME=admin 
-MODERNE_DX_MAVEN_0_PASSWORD=password 
+MODERNE_DX_MAVEN_0_USERNAME=${MAVEN_USER} 
+MODERNE_DX_MAVEN_0_PASSWORD=${MAVEN_PASSWORD} 
 ```
 {% endtab %}
 {% endtabs %}
@@ -165,17 +171,23 @@ Below is an example of what the Moderne DX service run command might look like a
 {% tabs %}
 {% tab title="Docker image" %}
 ```shell
+export MODERNE_TOKEN=...
+export ARTIFACTORY_USERNAME=...
+export ARTIFACTORY_PASSWORD=...
+export MAVEN_USERNAME=...
+export MAVEN_PASSWORD=...
+
 docker run \
--e MODERNE_DX_TOKEN_0=<token> \
+-e MODERNE_DX_TOKEN_0=${MODERNE_TOKEN} \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_DX_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME} \
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD} \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
 -e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_DX_MAVEN_0_USERNAME=admin \
--e MODERNE_DX_MAVEN_0_PASSWORD=password \
+-e MODERNE_DX_MAVEN_0_USERNAME=${MAVEN_USERNAME} \
+-e MODERNE_DX_MAVEN_0_PASSWORD=${MAVEN_PASSWORD} \
 # ... Additional variables to come
 -p 8080:8080
 moderne-dx:latest
@@ -184,17 +196,21 @@ moderne-dx:latest
 
 {% tab title="Executable JAR" %}
 ```shell
+// Naming these like this make it so you no longer need to include them
+// in the below java command. This is equivalent to saying:
+// --moderne.dx.token[0]=...
+export MODERNE_DX_TOKEN_0=...
+export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
+export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_DX_MAVEN_0_USERNAME=...
+export MODERNE_DX_MAVEN_0_PASSWORD=...
+
 java -jar moderne-dx-{version}.jar \
---moderne.dx.token[0]=<token>
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.dx.artifactory[0].username=admin \
---moderne.dx.artifactory[0].password=password \
 --moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
 --moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
---moderne.dx.maven[0].username=admin \
---moderne.dx.maven[0].password=password \
 # ... Additional arguments to come
 ```
 {% endtab %}
@@ -211,19 +227,26 @@ Below is an example of what the Moderne DX service run command might look like a
 {% tabs %}
 {% tab title="Docker image" %}
 ```shell
+export MODERNE_TOKEN=...
+export ARTIFACTORY_USERNAME=...
+export ARTIFACTORY_PASSWORD=...
+export MAVEN_USERNAME=...
+export MAVEN_PASSWORD=...
+
 docker run \
--e MODERNE_DX_TOKEN_0=<token> \
+-e MODERNE_DX_TOKEN_0=${MODERNE_TOKEN} \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_DX_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME} \
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD} \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
 -e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_DX_MAVEN_0_USERNAME=admin \
--e MODERNE_DX_MAVEN_0_PASSWORD=password \
+-e MODERNE_DX_MAVEN_0_USERNAME=${MAVEN_USERNAME} \
+-e MODERNE_DX_MAVEN_0_PASSWORD=${MAVEN_PASSWORD} \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+# ... Additional variables to come
 -p 8080:8080
 moderne-dx:latest
 ```
@@ -231,17 +254,18 @@ moderne-dx:latest
 
 {% tab title="Executable JAR" %}
 ```shell
+export MODERNE_DX_TOKEN_0=...
+export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
+export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_DX_MAVEN_0_USERNAME=...
+export MODERNE_DX_MAVEN_0_PASSWORD=...
+
 java -jar moderne-dx-{version}.jar \
---moderne.dx.token[0]=<token>
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.dx.artifactory[0].username=admin \
---moderne.dx.artifactory[0].password=password \
 --moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
 --moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
---moderne.dx.maven[0].username=admin \
---moderne.dx.maven[0].password=password \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.updateIntervalSeconds=600 \
 ```
@@ -257,17 +281,23 @@ Below is an example of what the Moderne DX service run command might look like a
 {% tabs %}
 {% tab title="Docker image" %}
 ```shell
+export MODERNE_TOKEN=...
+export ARTIFACTORY_USERNAME=...
+export ARTIFACTORY_PASSWORD=...
+export MAVEN_USERNAME=...
+export MAVEN_PASSWORD=...
+
 docker run \
--e MODERNE_DX_TOKEN_0=<token> \
+-e MODERNE_DX_TOKEN_0=${MODERNE_TOKEN} \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_DX_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME} \
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD} \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
 -e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_DX_MAVEN_0_USERNAME=admin \
--e MODERNE_DX_MAVEN_0_PASSWORD=password \
+-e MODERNE_DX_MAVEN_0_USERNAME=${MAVEN_USERNAME} \
+-e MODERNE_DX_MAVEN_0_PASSWORD=${MAVEN_PASSWORD} \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
@@ -278,17 +308,18 @@ moderne-dx:latest
 
 {% tab title="Executable JAR" %}
 ```bash
+export MODERNE_DX_TOKEN_0=...
+export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
+export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_DX_MAVEN_0_USERNAME=...
+export MODERNE_DX_MAVEN_0_PASSWORD=...
+
 java -jar moderne-dx-{version}.jar \
---moderne.dx.token[0]=<token>
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.dx.artifactory[0].username=admin \
---moderne.dx.artifactory[0].password=password \
 --moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
 --moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
---moderne.dx.maven[0].username=admin \
---moderne.dx.maven[0].password=password \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.updateIntervalSeconds=600 \
 --moderne.dx.recipe.useOnlyConfigured=true
@@ -313,17 +344,23 @@ Below is a table that has instructions for how to run the service in combination
 2. Run the `docker run` command in combination with all of the environment variables you've added in the previous steps:
 
 ```shell
+export MODERNE_TOKEN=...
+export ARTIFACTORY_USERNAME=...
+export ARTIFACTORY_PASSWORD=...
+export MAVEN_USERNAME=...
+export MAVEN_PASSWORD=...
+
 docker run \
--e MODERNE_DX_TOKEN_0=<token> \
+-e MODERNE_DX_TOKEN_0=${MODERNE_TOKEN} \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_DX_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME} \
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD} \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
 -e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_DX_MAVEN_0_USERNAME=admin \
--e MODERNE_DX_MAVEN_0_PASSWORD=password \
+-e MODERNE_DX_MAVEN_0_USERNAME=${MAVEN_USERNAME} \
+-e MODERNE_DX_MAVEN_0_PASSWORD=${MAVEN_PASSWORD} \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -p 8080:8080
@@ -335,17 +372,18 @@ moderne-dx:latest
 Use `java` to run a jar in combination with arguments that you've added in the previous steps:
 
 ```shell
+export MODERNE_DX_TOKEN_0=...
+export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
+export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_DX_MAVEN_0_USERNAME=...
+export MODERNE_DX_MAVEN_0_PASSWORD=...
+
 java -jar moderne-dx-{version}.jar \
---moderne.dx.token[0]=<token>
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.dx.artifactory[0].username=admin \
---moderne.dx.artifactory[0].password=password \
 --moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
 --moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
---moderne.dx.maven[0].username=admin \
---moderne.dx.maven[0].password=password \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.updateIntervalSeconds=600 \
 ```
