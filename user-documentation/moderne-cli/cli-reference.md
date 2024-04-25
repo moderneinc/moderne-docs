@@ -1467,7 +1467,7 @@ mod config java options edit [parameters]
 ### Examples
 
 ```
-mod config java options edit "-Xmx4G"
+mod config java options edit "\-Xmx4G"
 ```
 
 ### Options
