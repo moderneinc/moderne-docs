@@ -29,38 +29,38 @@ You can find each of the office hours sessions below along with a summary of wha
     * OpenRewrite has joined the [Commonhaus Foundation](https://www.commonhaus.org/). The Commonhaus Foundation is a new model for established open source libraries and frameworks seeing a neutral home. The non-profit's mission is to ensure a place where open source projects can continue to thrive for future generations. This shows our commitment to OpenRewrite remaining safe and open source even if something were to happen to Moderne. For more information, check out the [press release](https://www.commonhaus.org/activity/123.html).
     * Netflix featured us in [their presentation at Devnexus](https://www.slideshare.net/slideshow/keeping-your-build-tool-updated-in-a-multi-repository-world/267196749) where they were talking about modernizing and cleaning up their code.
 * We then introduced Shannon Pamperl. He's one of the oldest and most prolific contributors to OpenRewrite. We then asked had a lengthy conversation with him on his history with OpenRewrite. Some of the questions that Shannon answered include:
-  * How did you get started with OpenRewrite?
+  * **How did you get started with OpenRewrite?**
     * Knew Jonathan from a previous job and always respected his work. Got a message from Jonathan and began looking into the project right away.
-  * What were some of the problems you used OpenRewrite to solve?
+  * **What were some of the problems you used OpenRewrite to solve?**
     * Wanted to use it with Gradle. Helped kick off discussions that led to `rewrite-groovy` and `rewrite-gradle`.
-  * What are some of the challenges you had when learning to use and create recipes for OpenRewrite?
+  * **What are some of the challenges you had when learning to use and create recipes for OpenRewrite?**
     * Biggest challenge was getting a grasp on the data model itself such as "What is an LST?" or "What is a Compilation Unit?" (If you want to learn more about these, check out [our Java LST examples doc where we provide visualizations and break each LST type down](https://docs.openrewrite.org/concepts-explanations/lst-examples)). Another complexity was understanding the visitor pattern and how that worked. 
       * If you want to learn more about LST types, check out [our Java LST examples doc where we provide visualizations and break each LST type down](https://docs.openrewrite.org/concepts-explanations/lst-examples)
       * If you want to learn more about visitors, check out our [documentation on visitors that also includes some videos we've made on the topic](https://docs.openrewrite.org/concepts-explanations/visitors)
-  * Were there any particularly challenging contributions you made?
-  * You've been working on Gradle Kotlin support - how has that been going?
+  * **Were there any particularly challenging contributions you made?**
+  * **You've been working on Gradle Kotlin support - how has that been going?**
     * For both of these, difficulty has been with type attribution.
     * Happy to have help with this project. If you want to, consider contributing to [rewrite-gradle-experimental](https://github.com/shanman190/rewrite-gradle-experimental).
-  * We've found that Shelter engineers are extremely competent and have technical depth in a variety of fields. Is there something that Shelter does right that helps nurture great engineering talent?
+  * **We've found that Shelter engineers are extremely competent and have technical depth in a variety of fields. Is there something that Shelter does right that helps nurture great engineering talent?**
     * Shelter stands by their engineers. They push you to do your best while also understanding that people don't know everything. When they don't know something, they'll work together to figure it out without judgement. Every individual person is taught and levels up over time – which compounds when there's a team of people like that.
-  * If you could make a wish right now on one thing OpenRewrite or Moderne would do that it doesn't right now, what would that be?
+  * **If you could make a wish right now on one thing OpenRewrite or Moderne would do that it doesn't right now, what would that be?**
     * More parsers for more languages. TSX would be super valuable. TypeScript/React/HTML compounded together can be tricky to handle.
-  * Are there any tips/tricks you have that newer recipe authors would benefit from?
+  * **Are there any tips/tricks you have that newer recipe authors would benefit from?**
     * Focus on doing one thing _really well_. When making a recipe, make it simple and focused and ensure that it completely solves the core issue. Then, you can combine multiple of these recipes together to make something more substantial – and you can be confident in the individual pieces.
-  * Are there any libraries or common platforms that you wish there was a recipe for?
+  * **Are there any libraries or common platforms that you wish there was a recipe for?**
     * Most libraries that he uses already have recipes for them, but they lack features in them. When he finds issues that are important, he tries to contribute back recipes for them.
-  * If someone wanted to get started with OpenRewrite, what would you recommend?
+  * **If someone wanted to get started with OpenRewrite, what would you recommend?**
     * Start by coming at OpenRewrite with a problem that you want to solve, so you have some context. Then, join the [OpenRewrite community Slack](https://join.slack.com/t/rewriteoss/shared_invite/zt-nj42n3ea-b~62rIHzb3Vo0E1APKCXEA) and ask questions in there. He'd also recommend looking at [RewriteTest](https://github.com/openrewrite/rewrite/blob/4c9a9709399f722b8bd421fe94633c2b2e9de6e5/rewrite-test/src/main/java/org/openrewrite/test/RewriteTest.java#L52) and [rewriteRun](https://github.com/openrewrite/rewrite/blob/4c9a9709399f722b8bd421fe94633c2b2e9de6e5/rewrite-test/src/main/java/org/openrewrite/test/RewriteTest.java#L139) to get a better idea of the flow of recipes. 
     * (We'd also recommend checking out [our documentation](https://docs.openrewrite.org/) where we've created numerous tutorials and references to help people get started. If you run into any issues or wish for something to exist that doesn't, please [let us know](https://github.com/openrewrite/rewrite-docs/issues)!)
-  * Could you tell us about the challenges with using feature flags that motivated you to make contributions to [LaunchDarkly recipes](https://docs.openrewrite.org/recipes/launchdarkly)?
+  * **Could you tell us about the challenges with using feature flags that motivated you to make contributions to [LaunchDarkly recipes](https://docs.openrewrite.org/recipes/launchdarkly)?**
     * At big enterprise companies, it can be very hard to keep up with the open source community as it moves so fast. Feature flags may get added and then forgotten about. Having recipes to find and remove these has been super helpful.
-  * Are you using LaunchDarkly recipes to get rid of feature flags at Shelter?
+  * **Are you using LaunchDarkly recipes to get rid of feature flags at Shelter?**
     * Yes. It's much nicer to use recipes than manually doing it across systems.
-  * Is there anything cool that we should have asked that we missed?
+  * **Is there anything cool that we should have asked that we missed?**
     * Shannon was curious what's going on with [cycles in relation to recipes](https://docs.openrewrite.org/concepts-explanations/recipes#execution-cycles). Sam dove into some of the issues that we've run into with trying to eliminate cycles.
-  * Is there anything missing from the recipe execution lifecycle?
+  * **Is there anything missing from the recipe execution lifecycle?**
     * Unsure. Biggest problem right now is ScanningRecipes behaviour when there are multiple of them trying to interact with a single top-level LST element. Mentioned that the individual elements just works but that the combination causes problems.
-  * Is there a way to make it easier to compose ScanningRecipes together?
+  * **Is there a way to make it easier to compose ScanningRecipes together?**
     * Probably. Not sure on exact details. If you (the person reading this) have any ideas, definitely let us know!
 
 ### Recipe authoring tips (April 17th, 2024)
