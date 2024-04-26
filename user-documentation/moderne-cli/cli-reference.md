@@ -199,7 +199,7 @@ Generates LST artifacts for one or more repositories.
 
 Once generated, the artifacts can be uploaded to your artifact management tool so that Moderne can ingest them or they can be used to run recipes locally.
 
-While it is possible to manually build and publish your artifacts, we strongly recommend setting up a Jenkins pipeline or GitHub actions for ingesting LST artifacts in bulk.
+While it is possible to manually build and publish your artifacts, we strongly recommend automating this. Please see the **moderneinc/mass-ingest-example** repository on GitHub for an idea of how to do that.
 
 If the path itself is not a Git repository, then this command will recursively look through the directories to find Git repositories that match the **repository-*** options.
 
@@ -2038,15 +2038,6 @@ Removes the configured Moderne tenant.
 mod config moderne delete [parameters]
 ```
 
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
 ## mod config moderne edit
@@ -2079,11 +2070,6 @@ mod config moderne edit <host> --token <token>
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | --api |  The URL of the tenant API gateway. | `https://api.app.moderne.io` |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 | --skip-ssl |  If this parameter is included, SSL verification will be skipped. |  |
 | --token |  The Moderne personal access token to use. |  |
 
@@ -2101,15 +2087,6 @@ All subsequent commands will use this instance.
 mod config moderne local [parameters]
 ```
 
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
 ## mod config moderne show
@@ -2125,15 +2102,6 @@ Displays the Moderne tenant configuration.
 mod config moderne show [parameters]
 ```
 
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
 ## mod config moderne organizations
@@ -2195,7 +2163,7 @@ mod config recipes [parameters] [subcommands]
 ### Examples
 
 ```
-mod config recipes sync moderne
+mod config recipes moderne sync
 ```
 
 
@@ -3277,8 +3245,8 @@ mod git clone csv [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| --depth |  |
-| --filter |  |
+| --depth |  Equivalent to the **git clone --depth** option. |
+| --filter |  Equivalent to the **git clone --filter** option. |
 | --limit |  The maximum number of repositories to clone. |
 | --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
 | --save |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. |
@@ -3309,8 +3277,8 @@ mod git clone json [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| --depth |  |
-| --filter |  |
+| --depth |  Equivalent to the **git clone --depth** option. |
+| --filter |  Equivalent to the **git clone --filter** option. |
 | --limit |  The maximum number of repositories to clone. |
 | --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
 | --save |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. |
@@ -3341,8 +3309,8 @@ mod git clone moderne [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| --depth |  |
-| --filter |  |
+| --depth |  Equivalent to the **git clone --depth** option. |
+| --filter |  Equivalent to the **git clone --filter** option. |
 | --limit |  The maximum number of repositories to clone. |
 | --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
 | --single-branch |  |
@@ -3897,6 +3865,7 @@ mod run /path/to/project \
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --streaming |  (INCUBATING) Stream results from the recipe run to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. |  |
 
 
 ## mod run-history
