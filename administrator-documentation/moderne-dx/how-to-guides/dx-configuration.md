@@ -51,6 +51,8 @@ docker run --env-file=moderne-dx.env moderne-dx:latest
 **How to run the image with command line arguments**
 
 ```bash
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
 export MODERNE_DX_TOKEN_0=...
 export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
 export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
@@ -61,7 +63,7 @@ docker run \
 -e MODERNE_DX_TOKEN_0 \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD\
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -171,6 +173,8 @@ Below is an example of what the Moderne DX service run command might look like a
 {% tabs %}
 {% tab title="Docker image" %}
 ```shell
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
 export MODERNE_DX_TOKEN_0=...
 export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
 export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
@@ -181,7 +185,7 @@ docker run \
 -e MODERNE_DX_TOKEN_0 \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD\
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -196,8 +200,7 @@ moderne-dx:latest
 
 {% tab title="Executable JAR" %}
 ```shell
-# Naming these like this make it so you no longer need to include them
-# in the below java command. This is equivalent to saying:
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
 # --moderne.dx.token[0]=...
 export MODERNE_DX_TOKEN_0=...
 export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
@@ -237,7 +240,7 @@ docker run \
 -e MODERNE_DX_TOKEN_0 \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD\
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -254,6 +257,8 @@ moderne-dx:latest
 
 {% tab title="Executable JAR" %}
 ```shell
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.dx.token[0]=...
 export MODERNE_DX_TOKEN_0=...
 export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
 export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
@@ -281,6 +286,8 @@ Below is an example of what the Moderne DX service run command might look like a
 {% tabs %}
 {% tab title="Docker image" %}
 ```shell
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
 export MODERNE_DX_TOKEN_0=...
 export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
 export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
@@ -291,7 +298,7 @@ docker run \
 -e MODERNE_DX_TOKEN_0 \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD\
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -308,6 +315,8 @@ moderne-dx:latest
 
 {% tab title="Executable JAR" %}
 ```bash
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.dx.token[0]=...
 export MODERNE_DX_TOKEN_0=...
 export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
 export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
@@ -344,6 +353,8 @@ Below is a table that has instructions for how to run the service in combination
 2. Run the `docker run` command in combination with all of the environment variables you've added in the previous steps:
 
 ```shell
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
 export MODERNE_DX_TOKEN_0=...
 export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
 export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
@@ -354,7 +365,7 @@ docker run \
 -e MODERNE_DX_TOKEN_0 \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD\
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -372,6 +383,8 @@ moderne-dx:latest
 Use `java` to run a jar in combination with arguments that you've added in the previous steps:
 
 ```shell
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.dx.token[0]=...
 export MODERNE_DX_TOKEN_0=...
 export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
 export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...

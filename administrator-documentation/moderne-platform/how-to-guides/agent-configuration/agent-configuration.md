@@ -67,12 +67,17 @@ docker pull moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 3. Run the `docker run` command in combination with environment variables that you'll add in the subsequent steps. The final command will look similar to:
 
 ```shell
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+
 docker run \
 # Example environment variables. These will be explained in step 4.
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
+-e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
 -e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN=yourToken \
+-e MODERNE_AGENT_TOKEN \
 # ... Additional environment variables
 -p 8080:8080
 moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
@@ -85,12 +90,15 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 Use `java` to run a jar in combination with arguments that you'll add in the subsequent steps. The final command will look similar to:
 
 ```shell
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.agent.crypto.symmetricKey=...
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+
 java -jar moderne-agent-{version}.jar \
 # Example arguments. These will be explained in step 4.
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.crypto.symmetricKey=yourSymmetricKey
 --moderne.agent.nickname=prod-1 \
---moderne.agent.token=yourToken \
 # ... Additional arguments
 ```
 
@@ -117,11 +125,16 @@ All agents must be configured with the variables listed as required below:
 **Example:**
 
 ```shell
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+
 docker run \
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
+-e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
 -e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN=yourToken \
+-e MODERNE_AGENT_TOKEN \
 -e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_0=PullRequest \
 -e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_1=ForkAndPullRequest \
 # ... Additional variables
@@ -144,11 +157,14 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 **Example:**
 
 ```shell
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.agent.crypto.symmetricKey=...
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.crypto.symmetricKey=yourSymmetricKey
 --moderne.agent.nickname=prod-1 \
---moderne.agent.token=yourToken \
 --moderne.agent.defaultCommitOptions[0]=PullRequest \
 --moderne.agent.defaultCommitOptions[1]=ForkAndPullRequest \
 # ... Additional arguments
@@ -174,13 +190,20 @@ Below is an example of what an agent run command might look like at the end of t
 {% tabs %}
 {% tab title="OCI Container" %}
 ```shell
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+
 docker run \
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
+-e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
 -e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN=yourToken \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=yourClientId \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
+-e MODERNE_AGENT_TOKEN \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET \
 -e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
 -e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 -e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
@@ -193,13 +216,16 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 
 {% tab title="Executable JAR" %}
 ```shell
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.agent.crypto.symmetricKey=...
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.crypto.symmetricKey=yourSymmetricKey
 --moderne.agent.nickname=prod-1 \
---moderne.agent.token=yourToken \
---moderne.agent.github[0].oauth.clientId=yourClientId \
---moderne.agent.github[0].oauth.clientSecret=yourClientSecret \
 --moderne.agent.github[0].url=https://myorg.github.com \
 --moderne.agent.github[0].allowableOrganizations[0]=moderne \
 --moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
@@ -247,26 +273,37 @@ Below is an example of what an agent run command might look like at the end of t
 {% tabs %}
 {% tab title="OCI Container" %}
 ```shell
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
+export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_AGENT_MAVEN_0_USERNAME=...
+export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+
 docker run \
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
+-e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
 -e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN=yourToken \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=yourClientId \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
+-e MODERNE_AGENT_TOKEN \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET \
 -e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
 -e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 -e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
 -e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 -e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_AGENT_ARTIFACTORY_0_USERNAME \
+-e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
 -e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_AGENT_MAVEN_0_USERNAME=admin \
--e MODERNE_AGENT_MAVEN_0_PASSWORD=password \
+-e MODERNE_AGENT_MAVEN_0_USERNAME \
+-e MODERNE_AGENT_MAVEN_0_PASSWORD \
 # ... Additional variables to come
 -p 8080:8080
 moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
@@ -275,26 +312,29 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 
 {% tab title="Executable JAR" %}
 ```shell
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.agent.crypto.symmetricKey=...
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
+export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_AGENT_MAVEN_0_USERNAME=...
+export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.crypto.symmetricKey=yourSymmetricKey
 --moderne.agent.nickname=prod-1 \
---moderne.agent.token=yourToken \
---moderne.agent.github[0].oauth.clientId=yourClientId \
---moderne.agent.github[0].oauth.clientSecret=yourClientSecret \
 --moderne.agent.github[0].url=https://myorg.github.com \
 --moderne.agent.github[0].allowableOrganizations[0]=moderne \
 --moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
 --moderne.agent.github[0].oauth.includePrivateRepos=true \
 --moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.agent.artifactory[0].username=admin \
---moderne.agent.artifactory[0].password=password \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.agent.maven[0].localRepository=~/.moderne-maven \
---moderne.agent.maven[0].username=admin \
---moderne.agent.maven[0].password=password \
 # ... Additional arguments to come
 ```
 {% endtab %}
@@ -311,26 +351,37 @@ Below is an example of what an agent run command might look like at the end of t
 {% tabs %}
 {% tab title="OCI Container" %}
 ```shell
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
+export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_AGENT_MAVEN_0_USERNAME=...
+export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+
 docker run \
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
+-e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
 -e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN=yourToken \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=yourClientId \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
+-e MODERNE_AGENT_TOKEN \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET \
 -e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
 -e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 -e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
 -e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 -e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_AGENT_ARTIFACTORY_0_USERNAME \
+-e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
 -e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_AGENT_MAVEN_0_USERNAME=admin \
--e MODERNE_AGENT_MAVEN_0_PASSWORD=password \
+-e MODERNE_AGENT_MAVEN_0_USERNAME \
+-e MODERNE_AGENT_MAVEN_0_PASSWORD \
 -e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -p 8080:8080
@@ -340,26 +391,29 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 
 {% tab title="Executable JAR" %}
 ```shell
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.agent.crypto.symmetricKey=...
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
+export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_AGENT_MAVEN_0_USERNAME=...
+export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.crypto.symmetricKey=yourSymmetricKey
 --moderne.agent.nickname=prod-1 \
---moderne.agent.token=yourToken \
---moderne.agent.github[0].oauth.clientId=yourClientId \
---moderne.agent.github[0].oauth.clientSecret=yourClientSecret \
 --moderne.agent.github[0].url=https://myorg.github.com \
 --moderne.agent.github[0].allowableOrganizations[0]=moderne \
 --moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
 --moderne.agent.github[0].oauth.includePrivateRepos=true \
 --moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.agent.artifactory[0].username=admin \
---moderne.agent.artifactory[0].password=password \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.agent.maven[0].localRepository=~/.moderne-maven \
---moderne.agent.maven[0].username=admin \
---moderne.agent.maven[0].password=password \
 --moderne.agent.organization.url=http://localhost:8091 \
 --moderne.agent.organization.updateIntervalSeconds=600 \
 ```
@@ -375,26 +429,37 @@ Below is an example of what an agent run command might look like at the end of t
 {% tabs %}
 {% tab title="OCI Container" %}
 ```shell
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
+export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_AGENT_MAVEN_0_USERNAME=...
+export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+
 docker run \
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
+-e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
 -e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN=yourToken \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=yourClientId \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
+-e MODERNE_AGENT_TOKEN \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET \
 -e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
 -e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 -e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
 -e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 -e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_AGENT_ARTIFACTORY_0_USERNAME \
+-e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
 -e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_AGENT_MAVEN_0_USERNAME=admin \
--e MODERNE_AGENT_MAVEN_0_PASSWORD=password \
+-e MODERNE_AGENT_MAVEN_0_USERNAME \
+-e MODERNE_AGENT_MAVEN_0_PASSWORD \
 -e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
@@ -405,26 +470,30 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 
 {% tab title="Executable JAR" %}
 ```bash
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.agent.crypto.symmetricKey=...
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
+export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_AGENT_MAVEN_0_USERNAME=...
+export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.crypto.symmetricKey=yourSymmetricKey
 --moderne.agent.nickname=prod-1 \
 --moderne.agent.token=yourToken \
---moderne.agent.github[0].oauth.clientId=yourClientId \
---moderne.agent.github[0].oauth.clientSecret=yourClientSecret \
 --moderne.agent.github[0].url=https://myorg.github.com \
 --moderne.agent.github[0].allowableOrganizations[0]=moderne \
 --moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
 --moderne.agent.github[0].oauth.includePrivateRepos=true \
 --moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.agent.artifactory[0].username=admin \
---moderne.agent.artifactory[0].password=password \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.agent.maven[0].localRepository=~/.moderne-maven \
---moderne.agent.maven[0].username=admin \
---moderne.agent.maven[0].password=password \
 --moderne.agent.organization.url=http://localhost:8091 \
 --moderne.agent.organization.updateIntervalSeconds=600 \
 --moderne.agent.recipe.useOnlyConfigured=true
@@ -459,26 +528,37 @@ docker pull moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 3. Run the `docker run` command in combination with all of the environment variables you've added in the previous steps:
 
 ```shell
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
+export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_AGENT_MAVEN_0_USERNAME=...
+export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+
 docker run \
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
+-e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
 -e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN=yourToken \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=yourClientId \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
+-e MODERNE_AGENT_TOKEN \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID \
+-e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET \
 -e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
 -e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 -e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
 -e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 -e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_AGENT_ARTIFACTORY_0_USERNAME \
+-e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
 -e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_AGENT_MAVEN_0_USERNAME=admin \
--e MODERNE_AGENT_MAVEN_0_PASSWORD=password \
+-e MODERNE_AGENT_MAVEN_0_USERNAME \
+-e MODERNE_AGENT_MAVEN_0_PASSWORD \
 -e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -p 8080:8080
@@ -490,26 +570,29 @@ moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
 Use `java` to run a jar in combination with arguments that you've added in the previous steps:
 
 ```shell
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.agent.crypto.symmetricKey=...
+export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
+export MODERNE_AGENT_TOKEN=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
+export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_AGENT_MAVEN_0_USERNAME=...
+export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.crypto.symmetricKey=yourSymmetricKey
 --moderne.agent.nickname=prod-1 \
---moderne.agent.token=yourToken \
---moderne.agent.github[0].oauth.clientId=yourClientId \
---moderne.agent.github[0].oauth.clientSecret=yourClientSecret \
 --moderne.agent.github[0].url=https://myorg.github.com \
 --moderne.agent.github[0].allowableOrganizations[0]=moderne \
 --moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
 --moderne.agent.github[0].oauth.includePrivateRepos=true \
 --moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.agent.artifactory[0].username=admin \
---moderne.agent.artifactory[0].password=password \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.agent.maven[0].localRepository=~/.moderne-maven \
---moderne.agent.maven[0].username=admin \
---moderne.agent.maven[0].password=password \
 --moderne.agent.organization.url=http://localhost:8091 \
 --moderne.agent.organization.updateIntervalSeconds=600 \
 ```
