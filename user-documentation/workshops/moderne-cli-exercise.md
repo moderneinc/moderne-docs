@@ -21,13 +21,13 @@ After that, we'll provide some additional examples that show other capabilities 
 <summary>If everything is set up correctly, you should see output similar to the following:</summary>
 
 ```
-➜  moderne-docs git:(main) ✗ mod
+➜ mod
 
 Moderne CLI 3.3.1
 
 Usage:
 
-mod [-h] [COMMAND]
+mod [-h] [--version] [COMMAND]
 
 Description:
 
@@ -35,7 +35,8 @@ Automated code remediation.
 
 Options:
 
-  -h, --help   Display this help message.
+  -h, --help      Display this help message.
+      --version   Display version info.
 
 Commands:
 
@@ -46,7 +47,10 @@ Commands:
   exec                 Execute an arbitrary shell command recursively on
                          selected repository roots.
   git                  Multi-repository git operations.
+  log                  Manages a log aggregate.
   list                 Lists the repositories that can be built and published.
+  monitor              (INCUBATING) Launches an HTTP server used to monitor the
+                         CLI.
   publish              Publishes the LST artifacts for one or more projects.
   run                  Runs an OpenRewrite recipe locally on pre-built LSTS.
   run-history          Get information about the most recent recipe runs.
@@ -75,6 +79,8 @@ source <(mod generate-completion)
 {% endhint %}
 
 5. Before you can run any commands, you'll need to create a Moderne access token. Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token), enter a name for your token, and press `generate`.
+    * For more details on access token creation, please check out our [creating a personal access token doc](/user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md)
+
 6. Once created, copy the token and use it in the following command so that the CLI can communicate with Moderne:
 
 ```bash
@@ -177,7 +183,7 @@ export JAVA_HOME=REPLACE_WITH_LOCATION_OF_JAVA_8
 ./mvnw verify -DskipTests
 ```
 
-5. If everything has been set up correctly, you should see a `BUILD SUCCESS` message after the project is built and the tests passed.
+5. If everything has been set up correctly, you should see a `BUILD SUCCESS` message after the project is built and the tests passed (Do not worry about any warnings that appear as long as you get the success message at the end).
 
 ### Migrate to Spring Boot 3 using the Moderne CLI
 
@@ -195,28 +201,28 @@ mod build .
 
 <summary>You should see output similar to the following.</summary>
 
-```
-
+```bash
 Moderne CLI 3.3.1
 
 > Selecting repositories
 
 > spring-projects/spring-petclinic@main
-Selected 1 repositories (0.39s)
+Selected 1 repositories (0.23s)
 
 > Building LST(s)
 
 > spring-projects/spring-petclinic@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/spring-petclinic/.moderne/build/20231219102753-C5Dxy/build.log
-    📶 Step 1 - build with Maven
-    📶 Step 2 - build resources using the native CLI
-    ✅ Built LST file:///Users/mikesol/Desktop/code/spring-petclinic/.moderne/build/20231219102753-C5Dxy/spring-petclinic-20231219102820-ast.jar
-    📈 Reported build metrics to Moderne
-    🧹 Cleaned 0 older builds.
-Built 1 repositories. (27s)
+    Build output will be written to /Users/mikesol/Desktop/code/spring-petclinic/.moderne/build/20240429090553-7Yqcr/build.log
+    > Step 1 - build with Maven
+        Selected the 1.8.0_392-zulu JDK
+    > Step 2 - build resources using the native CLI
+    ✓ Built LST /Users/mikesol/Desktop/code/spring-petclinic/.moderne/build/20240429090553-7Yqcr/spring-petclinic-20240429090644-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 0 older builds.
+Built 1 repositories. (52s)
 
 * What to do next
-    > Run mod run . --recipe <RecipeName>
+    > Run mod run . --recipe=<RecipeName>
 
 MOD SUCCEEDED in (27s)
 ```
@@ -224,7 +230,7 @@ MOD SUCCEEDED in (27s)
 </details>
 
 {% hint style="info" %}
-If you are wanting to run the CLI against private repositories you will [need to configure a license](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md). This isn't needed for this workshop, though.
+If you want to run the CLI against private repositories you will [need to configure a license](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md). This isn't needed for this workshop, though.
 {% endhint %}
 
 2. Kick off the migration recipe by running the following command from the `spring-petclinic` repository:
@@ -237,40 +243,39 @@ mod run . --recipe UpgradeSpringBoot_3_2
 
 <summary>You should see output similar to the following.</summary>
 
-```
-
- Moderne CLI 3.3.1
+```bash
+Moderne CLI 3.3.1
 
 > Selecting repositories
 
 > spring-projects/spring-petclinic@main
-Selected 1 repositories (0.37s)
+Selected 1 repositories (0.2s)
 
 > Running recipe org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2
 
 > spring-projects/spring-petclinic@main
-    ✅ Fix results at file:///Users/mikesol/Desktop/code/spring-petclinic/.moderne/run/20231220083431-NiO1J/fix.patch
-Found results on 1 repositories (12m 22s)
+    ✓ Fix results at /Users/mikesol/Desktop/code/spring-petclinic/.moderne/run/20240429090727-PhIhX/fix.patch
+Found results on 1 repositories (1m 23s)
 
-25s saved by using previously built LSTs
+51s saved by using previously built LSTs
 
 * What to do next
     > Click on one of the patch links above to view the changes on a particular repository
     > Run mod study . --last-recipe-run --data-table <DATA-TABLE> to examine the following data tables produced by this recipe:
-          org.openrewrite.maven.table.DependenciesInUse
           org.openrewrite.table.RecipeRunStats
           org.openrewrite.table.SourcesFileResults
           org.openrewrite.table.SourcesFiles
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
-    > Run mod apply . --last-recipe-run to apply the changes
-    > Run mod apply . --recipe-run 20231220083431-NiO1J to apply the changes
+    > Run mod git checkout . -b hotfix --last-recipe-run to prepare a hotfix branch for applying the changes
+    > Run mod git apply . --last-recipe-run to apply the changes
+    > Run mod git apply . --recipe-run 20240429090727-PhIhX to apply the changes
 
-MOD SUCCEEDED in (12m 23s)
+MOD SUCCEEDED in (1m 24s)
 ```
 
 </details>
 
-3. The previous command will generate a patch file (`fix.patch`) that contains the changes the recipe would make to your repository. You can examine the file with your favorite editor, or you can apply the changes to the code and use `git diff` to check out the changes. It's important to always double-check that the changes made match your expectations:
+3. The previous command will generate a patch file (`fix.patch`) that contains the changes the recipe would make to your repository. You can examine the file with your favorite editor (ctrl/command + click on the file to open it), or you can apply the changes to the code and use `git diff` to check out the changes. It's important to always double-check that the changes made match your expectations:
 
 ```bash
 mod git apply . --last-recipe-run
@@ -283,19 +288,22 @@ git diff
 
 ```diff
 diff --git a/pom.xml b/pom.xml
-index 0b8f9c2..a454f84 100644
+index 0b8f9c2..5957815 100644
 --- a/pom.xml
 +++ b/pom.xml
-@@ -10,14 +10,14 @@
+@@ -10,14 +10,17 @@
    <parent>
      <groupId>org.springframework.boot</groupId>
      <artifactId>spring-boot-starter-parent</artifactId>
 -    <version>2.0.0.RELEASE</version>
-+    <version>3.3.1</version>
++    <version>3.2.5</version>
    </parent>
    <name>petclinic</name>
  
    <properties>
++    <basedir>/Users/mikesol/Desktop/code/spring-petclinic</basedir>
++    <maven.compiler.source>17</maven.compiler.source>
++    <maven.compiler.target>17</maven.compiler.target>
  
      <!-- Generic properties -->
 -    <java.version>1.8</java.version>
@@ -303,7 +311,7 @@ index 0b8f9c2..a454f84 100644
      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
  
-@@ -25,7 +25,7 @@
+@@ -25,7 +28,7 @@
      <webjars-bootstrap.version>3.3.6</webjars-bootstrap.version>
      <webjars-jquery-ui.version>1.11.4</webjars-jquery-ui.version>
      <webjars-jquery.version>2.2.4</webjars-jquery.version>
@@ -312,18 +320,7 @@ index 0b8f9c2..a454f84 100644
  
      <cobertura.version>2.7</cobertura.version>
  
-@@ -33,6 +33,10 @@
- 
-   <dependencies>
-     <!-- Spring and Spring Boot dependencies -->
-+    <dependency>
-+      <groupId>jakarta.xml.bind</groupId>
-+      <artifactId>jakarta.xml.bind-api</artifactId>
-+    </dependency>
-     <dependency>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-actuator</artifactId>
-@@ -53,6 +57,10 @@
+@@ -53,6 +56,10 @@
        <groupId>org.springframework.boot</groupId>
        <artifactId>spring-boot-starter-thymeleaf</artifactId>
      </dependency>
@@ -334,7 +331,7 @@ index 0b8f9c2..a454f84 100644
      <dependency>
        <groupId>org.springframework.boot</groupId>
        <artifactId>spring-boot-starter-test</artifactId>
-@@ -66,8 +74,13 @@
+@@ -66,8 +73,13 @@
        <scope>runtime</scope>
      </dependency>
      <dependency>
@@ -350,7 +347,14 @@ index 0b8f9c2..a454f84 100644
        <scope>runtime</scope>
      </dependency>
  
-@@ -79,6 +92,7 @@
+@@ -76,9 +88,14 @@
+       <groupId>javax.cache</groupId>
+       <artifactId>cache-api</artifactId>
+     </dependency>
++    <dependency>
++      <groupId>jakarta.validation</groupId>
++      <artifactId>jakarta.validation-api</artifactId>
++    </dependency>
      <dependency>
        <groupId>org.ehcache</groupId>
        <artifactId>ehcache</artifactId>
@@ -358,7 +362,7 @@ index 0b8f9c2..a454f84 100644
      </dependency>
  
      <!-- webjars -->
-@@ -133,22 +147,6 @@
+@@ -133,22 +150,6 @@
            </execution>
          </executions>
        </plugin>
@@ -381,7 +385,7 @@ index 0b8f9c2..a454f84 100644
  
        <!-- Spring Boot Actuator displays build-related information if a git.properties
          file is present at the classpath -->
-@@ -204,17 +202,6 @@
+@@ -204,17 +205,6 @@
    <reporting>
      <plugins>
        <!-- integrate maven-cobertura-plugin to project site -->
@@ -820,7 +824,7 @@ index c8d5a5c..0616806 100644
  # Web
  spring.thymeleaf.mode=HTML
 diff --git a/src/test/java/org/springframework/samples/petclinic/model/ValidatorTests.java b/src/test/java/org/springframework/samples/petclinic/model/ValidatorTests.java
-index 7da0d3d..3f4bfe9 100644
+index 7da0d3d..61bf5ee 100644
 --- a/src/test/java/org/springframework/samples/petclinic/model/ValidatorTests.java
 +++ b/src/test/java/org/springframework/samples/petclinic/model/ValidatorTests.java
 @@ -3,11 +3,10 @@ package org.springframework.samples.petclinic.model;
@@ -838,26 +842,8 @@ index 7da0d3d..3f4bfe9 100644
  import org.springframework.context.i18n.LocaleContextHolder;
  import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
  
-@@ -17,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
-  * @author Michael Isvy Simple test to make sure that Bean Validation is working (useful
-  * when upgrading to a new version of Hibernate Validator/ Bean Validation)
-  */
--public class ValidatorTests {
-+class ValidatorTests {
- 
-     private Validator createValidator() {
-         LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
-@@ -26,7 +25,7 @@ public class ValidatorTests {
-     }
- 
-     @Test
--    public void shouldNotValidateWhenFirstNameEmpty() {
-+    void shouldNotValidateWhenFirstNameEmpty() {
- 
-         LocaleContextHolder.setLocale(Locale.ENGLISH);
-         Person person = new Person();
 diff --git a/src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java b/src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java
-index 7fccb3b..7bfc2d7 100644
+index 7fccb3b..5c3af0d 100644
 --- a/src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java
 +++ b/src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java
 @@ -10,16 +10,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
@@ -879,129 +865,25 @@ index 7fccb3b..7bfc2d7 100644
  import org.springframework.test.web.servlet.MockMvc;
  
  /**
-@@ -27,9 +25,8 @@ import org.springframework.test.web.servlet.MockMvc;
+@@ -27,7 +25,6 @@ import org.springframework.test.web.servlet.MockMvc;
   *
   * @author Colin But
   */
 -@RunWith(SpringRunner.class)
  @WebMvcTest(OwnerController.class)
--public class OwnerControllerTests {
-+class OwnerControllerTests {
+ public class OwnerControllerTests {
  
-     private static final int TEST_OWNER_ID = 1;
- 
-@@ -41,8 +38,8 @@ public class OwnerControllerTests {
+@@ -41,7 +38,7 @@ public class OwnerControllerTests {
  
      private Owner george;
  
 -    @Before
--    public void setup() {
 +    @BeforeEach
-+    void setup() {
+     public void setup() {
          george = new Owner();
          george.setId(TEST_OWNER_ID);
-         george.setFirstName("George");
-@@ -54,7 +51,7 @@ public class OwnerControllerTests {
-     }
- 
-     @Test
--    public void testInitCreationForm() throws Exception {
-+    void initCreationForm() throws Exception {
-         mockMvc.perform(get("/owners/new"))
-             .andExpect(status().isOk())
-             .andExpect(model().attributeExists("owner"))
-@@ -62,7 +59,7 @@ public class OwnerControllerTests {
-     }
- 
-     @Test
--    public void testProcessCreationFormSuccess() throws Exception {
-+    void processCreationFormSuccess() throws Exception {
-         mockMvc.perform(post("/owners/new")
-             .param("firstName", "Joe")
-             .param("lastName", "Bloggs")
-@@ -74,7 +71,7 @@ public class OwnerControllerTests {
-     }
- 
-     @Test
--    public void testProcessCreationFormHasErrors() throws Exception {
-+    void processCreationFormHasErrors() throws Exception {
-         mockMvc.perform(post("/owners/new")
-             .param("firstName", "Joe")
-             .param("lastName", "Bloggs")
-@@ -88,7 +85,7 @@ public class OwnerControllerTests {
-     }
- 
-     @Test
--    public void testInitFindForm() throws Exception {
-+    void initFindForm() throws Exception {
-         mockMvc.perform(get("/owners/find"))
-             .andExpect(status().isOk())
-             .andExpect(model().attributeExists("owner"))
-@@ -96,7 +93,7 @@ public class OwnerControllerTests {
-     }
- 
-     @Test
--    public void testProcessFindFormSuccess() throws Exception {
-+    void processFindFormSuccess() throws Exception {
-         given(this.owners.findByLastName("")).willReturn(Lists.newArrayList(george, new Owner()));
-         mockMvc.perform(get("/owners"))
-             .andExpect(status().isOk())
-@@ -104,7 +101,7 @@ public class OwnerControllerTests {
-     }
- 
-     @Test
--    public void testProcessFindFormByLastName() throws Exception {
-+    void processFindFormByLastName() throws Exception {
-         given(this.owners.findByLastName(george.getLastName())).willReturn(Lists.newArrayList(george));
-         mockMvc.perform(get("/owners")
-             .param("lastName", "Franklin")
-@@ -114,7 +111,7 @@ public class OwnerControllerTests {
-     }
- 
-     @Test
--    public void testProcessFindFormNoOwnersFound() throws Exception {
-+    void processFindFormNoOwnersFound() throws Exception {
-         mockMvc.perform(get("/owners")
-             .param("lastName", "Unknown Surname")
-         )
-@@ -125,7 +122,7 @@ public class OwnerControllerTests {
-     }
- 
-     @Test
--    public void testInitUpdateOwnerForm() throws Exception {
-+    void initUpdateOwnerForm() throws Exception {
-         mockMvc.perform(get("/owners/{ownerId}/edit", TEST_OWNER_ID))
-             .andExpect(status().isOk())
-             .andExpect(model().attributeExists("owner"))
-@@ -138,7 +135,7 @@ public class OwnerControllerTests {
-     }
- 
-     @Test
--    public void testProcessUpdateOwnerFormSuccess() throws Exception {
-+    void processUpdateOwnerFormSuccess() throws Exception {
-         mockMvc.perform(post("/owners/{ownerId}/edit", TEST_OWNER_ID)
-             .param("firstName", "Joe")
-             .param("lastName", "Bloggs")
-@@ -151,7 +148,7 @@ public class OwnerControllerTests {
-     }
- 
-     @Test
--    public void testProcessUpdateOwnerFormHasErrors() throws Exception {
-+    void processUpdateOwnerFormHasErrors() throws Exception {
-         mockMvc.perform(post("/owners/{ownerId}/edit", TEST_OWNER_ID)
-             .param("firstName", "Joe")
-             .param("lastName", "Bloggs")
-@@ -165,7 +162,7 @@ public class OwnerControllerTests {
-     }
- 
-     @Test
--    public void testShowOwner() throws Exception {
-+    void showOwner() throws Exception {
-         mockMvc.perform(get("/owners/{ownerId}", TEST_OWNER_ID))
-             .andExpect(status().isOk())
-             .andExpect(model().attribute("owner", hasProperty("lastName", is("Franklin"))))
 diff --git a/src/test/java/org/springframework/samples/petclinic/owner/PetControllerTests.java b/src/test/java/org/springframework/samples/petclinic/owner/PetControllerTests.java
-index f95d7c8..a2663a9 100755
+index f95d7c8..9944da2 100755
 --- a/src/test/java/org/springframework/samples/petclinic/owner/PetControllerTests.java
 +++ b/src/test/java/org/springframework/samples/petclinic/owner/PetControllerTests.java
 @@ -8,9 +8,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
@@ -1024,92 +906,28 @@ index f95d7c8..a2663a9 100755
  import org.springframework.test.web.servlet.MockMvc;
  
  /**
-@@ -31,12 +29,11 @@ import org.springframework.test.web.servlet.MockMvc;
+@@ -31,7 +29,6 @@ import org.springframework.test.web.servlet.MockMvc;
   *
   * @author Colin But
   */
 -@RunWith(SpringRunner.class)
  @WebMvcTest(value = PetController.class,
      includeFilters = @ComponentScan.Filter(
--                            value = PetTypeFormatter.class,
--                            type = FilterType.ASSIGNABLE_TYPE))
--public class PetControllerTests {
-+        value = PetTypeFormatter.class,
-+        type = FilterType.ASSIGNABLE_TYPE))
-+class PetControllerTests {
- 
-     private static final int TEST_OWNER_ID = 1;
-     private static final int TEST_PET_ID = 1;
-@@ -51,8 +48,8 @@ public class PetControllerTests {
+                             value = PetTypeFormatter.class,
+@@ -51,7 +48,7 @@ public class PetControllerTests {
      @MockBean
      private OwnerRepository owners;
  
 -    @Before
--    public void setup() {
 +    @BeforeEach
-+    void setup() {
+     public void setup() {
          PetType cat = new PetType();
          cat.setId(3);
-         cat.setName("hamster");
-@@ -63,7 +60,7 @@ public class PetControllerTests {
-     }
- 
-     @Test
--    public void testInitCreationForm() throws Exception {
-+    void initCreationForm() throws Exception {
-         mockMvc.perform(get("/owners/{ownerId}/pets/new", TEST_OWNER_ID))
-             .andExpect(status().isOk())
-             .andExpect(view().name("pets/createOrUpdatePetForm"))
-@@ -71,7 +68,7 @@ public class PetControllerTests {
-     }
- 
-     @Test
--    public void testProcessCreationFormSuccess() throws Exception {
-+    void processCreationFormSuccess() throws Exception {
-         mockMvc.perform(post("/owners/{ownerId}/pets/new", TEST_OWNER_ID)
-             .param("name", "Betty")
-             .param("type", "hamster")
-@@ -82,7 +79,7 @@ public class PetControllerTests {
-     }
- 
-     @Test
--    public void testProcessCreationFormHasErrors() throws Exception {
-+    void processCreationFormHasErrors() throws Exception {
-         mockMvc.perform(post("/owners/{ownerId}/pets/new", TEST_OWNER_ID)
-             .param("name", "Betty")
-             .param("birthDate", "2015-02-12")
-@@ -96,7 +93,7 @@ public class PetControllerTests {
-     }
- 
-     @Test
--    public void testInitUpdateForm() throws Exception {
-+    void initUpdateForm() throws Exception {
-         mockMvc.perform(get("/owners/{ownerId}/pets/{petId}/edit", TEST_OWNER_ID, TEST_PET_ID))
-             .andExpect(status().isOk())
-             .andExpect(model().attributeExists("pet"))
-@@ -104,7 +101,7 @@ public class PetControllerTests {
-     }
- 
-     @Test
--    public void testProcessUpdateFormSuccess() throws Exception {
-+    void processUpdateFormSuccess() throws Exception {
-         mockMvc.perform(post("/owners/{ownerId}/pets/{petId}/edit", TEST_OWNER_ID, TEST_PET_ID)
-             .param("name", "Betty")
-             .param("type", "hamster")
-@@ -115,7 +112,7 @@ public class PetControllerTests {
-     }
- 
-     @Test
--    public void testProcessUpdateFormHasErrors() throws Exception {
-+    void processUpdateFormHasErrors() throws Exception {
-         mockMvc.perform(post("/owners/{ownerId}/pets/{petId}/edit", TEST_OWNER_ID, TEST_PET_ID)
-             .param("name", "Betty")
-             .param("birthDate", "2015/02/12")
 diff --git a/src/test/java/org/springframework/samples/petclinic/owner/PetTypeFormatterTests.java b/src/test/java/org/springframework/samples/petclinic/owner/PetTypeFormatterTests.java
-index 4e8e36c..7d716fb 100644
+index 4e8e36c..5a0d831 100644
 --- a/src/test/java/org/springframework/samples/petclinic/owner/PetTypeFormatterTests.java
 +++ b/src/test/java/org/springframework/samples/petclinic/owner/PetTypeFormatterTests.java
-@@ -6,35 +6,36 @@ import java.util.Collection;
+@@ -6,21 +6,22 @@ import java.util.Collection;
  import java.util.List;
  import java.util.Locale;
  
@@ -1135,45 +953,28 @@ index 4e8e36c..7d716fb 100644
   * @author Colin But
   */
 -@RunWith(MockitoJUnitRunner.class)
--public class PetTypeFormatterTests {
 +@ExtendWith(MockitoExtension.class)
-+class PetTypeFormatterTests {
+ public class PetTypeFormatterTests {
  
      @Mock
-     private PetRepository pets;
+@@ -28,7 +29,7 @@ public class PetTypeFormatterTests {
  
      private PetTypeFormatter petTypeFormatter;
  
 -    @Before
--    public void setup() {
 +    @BeforeEach
-+    void setup() {
+     public void setup() {
          this.petTypeFormatter = new PetTypeFormatter(pets);
      }
- 
-     @Test
--    public void testPrint() {
-+    void print() {
-         PetType petType = new PetType();
-         petType.setName("Hamster");
-         String petTypeName = this.petTypeFormatter.print(petType, Locale.ENGLISH);
-@@ -42,16 +43,18 @@ public class PetTypeFormatterTests {
-     }
- 
-     @Test
--    public void shouldParse() throws ParseException {
-+    void shouldParse() throws ParseException {
-         Mockito.when(this.pets.findPetTypes()).thenReturn(makePetTypes());
-         PetType petType = petTypeFormatter.parse("Bird", Locale.ENGLISH);
+@@ -48,10 +49,12 @@ public class PetTypeFormatterTests {
          assertEquals("Bird", petType.getName());
      }
  
 -    @Test(expected = ParseException.class)
--    public void shouldThrowParseException() throws ParseException {
++    @Test
+     public void shouldThrowParseException() throws ParseException {
 -        Mockito.when(this.pets.findPetTypes()).thenReturn(makePetTypes());
 -        petTypeFormatter.parse("Fish", Locale.ENGLISH);
-+    @Test
-+    void shouldThrowParseException() throws ParseException {
 +        assertThrows(ParseException.class, () -> {
 +            Mockito.when(this.pets.findPetTypes()).thenReturn(makePetTypes());
 +            petTypeFormatter.parse("Fish", Locale.ENGLISH);
@@ -1182,7 +983,7 @@ index 4e8e36c..7d716fb 100644
  
      /**
 diff --git a/src/test/java/org/springframework/samples/petclinic/owner/VisitControllerTests.java b/src/test/java/org/springframework/samples/petclinic/owner/VisitControllerTests.java
-index 08d6136..29f13aa 100644
+index 08d6136..7cc65f2 100644
 --- a/src/test/java/org/springframework/samples/petclinic/owner/VisitControllerTests.java
 +++ b/src/test/java/org/springframework/samples/petclinic/owner/VisitControllerTests.java
 @@ -7,9 +7,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
@@ -1205,53 +1006,25 @@ index 08d6136..29f13aa 100644
  import org.springframework.test.web.servlet.MockMvc;
  
  /**
-@@ -25,9 +23,8 @@ import org.springframework.test.web.servlet.MockMvc;
+@@ -25,7 +23,6 @@ import org.springframework.test.web.servlet.MockMvc;
   *
   * @author Colin But
   */
 -@RunWith(SpringRunner.class)
  @WebMvcTest(VisitController.class)
--public class VisitControllerTests {
-+class VisitControllerTests {
+ public class VisitControllerTests {
  
-     private static final int TEST_PET_ID = 1;
- 
-@@ -40,20 +37,20 @@ public class VisitControllerTests {
+@@ -40,7 +37,7 @@ public class VisitControllerTests {
      @MockBean
      private PetRepository pets;
  
 -    @Before
--    public void init() {
 +    @BeforeEach
-+    void init() {
+     public void init() {
          given(this.pets.findById(TEST_PET_ID)).willReturn(new Pet());
      }
- 
-     @Test
--    public void testInitNewVisitForm() throws Exception {
-+    void initNewVisitForm() throws Exception {
-         mockMvc.perform(get("/owners/*/pets/{petId}/visits/new", TEST_PET_ID))
-             .andExpect(status().isOk())
-             .andExpect(view().name("pets/createOrUpdateVisitForm"));
-     }
- 
-     @Test
--    public void testProcessNewVisitFormSuccess() throws Exception {
-+    void processNewVisitFormSuccess() throws Exception {
-         mockMvc.perform(post("/owners/*/pets/{petId}/visits/new", TEST_PET_ID)
-             .param("name", "George")
-             .param("description", "Visit Description")
-@@ -63,7 +60,7 @@ public class VisitControllerTests {
-     }
- 
-     @Test
--    public void testProcessNewVisitFormHasErrors() throws Exception {
-+    void processNewVisitFormHasErrors() throws Exception {
-         mockMvc.perform(post("/owners/*/pets/{petId}/visits/new", TEST_PET_ID)
-             .param("name", "George")
-         )
 diff --git a/src/test/java/org/springframework/samples/petclinic/service/ClinicServiceTests.java b/src/test/java/org/springframework/samples/petclinic/service/ClinicServiceTests.java
-index 7ed5bf8..aaa3c1d 100644
+index 7ed5bf8..37c8c43 100644
 --- a/src/test/java/org/springframework/samples/petclinic/service/ClinicServiceTests.java
 +++ b/src/test/java/org/springframework/samples/petclinic/service/ClinicServiceTests.java
 @@ -5,8 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
@@ -1272,118 +1045,16 @@ index 7ed5bf8..aaa3c1d 100644
  import org.springframework.transaction.annotation.Transactional;
  
  /**
-@@ -44,9 +42,8 @@ import org.springframework.transaction.annotation.Transactional;
+@@ -44,7 +42,6 @@ import org.springframework.transaction.annotation.Transactional;
   * @author Dave Syer
   */
  
 -@RunWith(SpringRunner.class)
  @DataJpaTest(includeFilters = @ComponentScan.Filter(Service.class))
--public class ClinicServiceTests {
-+class ClinicServiceTests {
+ public class ClinicServiceTests {
  
-     @Autowired
-     protected OwnerRepository owners;
-@@ -61,7 +58,7 @@ public class ClinicServiceTests {
-     protected VetRepository vets;
- 
-     @Test
--    public void shouldFindOwnersByLastName() {
-+    void shouldFindOwnersByLastName() {
-         Collection<Owner> owners = this.owners.findByLastName("Davis");
-         assertThat(owners.size()).isEqualTo(2);
- 
-@@ -70,7 +67,7 @@ public class ClinicServiceTests {
-     }
- 
-     @Test
--    public void shouldFindSingleOwnerWithPet() {
-+    void shouldFindSingleOwnerWithPet() {
-         Owner owner = this.owners.findById(1);
-         assertThat(owner.getLastName()).startsWith("Franklin");
-         assertThat(owner.getPets().size()).isEqualTo(1);
-@@ -80,7 +77,7 @@ public class ClinicServiceTests {
- 
-     @Test
-     @Transactional
--    public void shouldInsertOwner() {
-+    void shouldInsertOwner() {
-         Collection<Owner> owners = this.owners.findByLastName("Schultz");
-         int found = owners.size();
- 
-@@ -99,7 +96,7 @@ public class ClinicServiceTests {
- 
-     @Test
-     @Transactional
--    public void shouldUpdateOwner() {
-+    void shouldUpdateOwner() {
-         Owner owner = this.owners.findById(1);
-         String oldLastName = owner.getLastName();
-         String newLastName = oldLastName + "X";
-@@ -113,7 +110,7 @@ public class ClinicServiceTests {
-     }
- 
-     @Test
--    public void shouldFindPetWithCorrectId() {
-+    void shouldFindPetWithCorrectId() {
-         Pet pet7 = this.pets.findById(7);
-         assertThat(pet7.getName()).startsWith("Samantha");
-         assertThat(pet7.getOwner().getFirstName()).isEqualTo("Jean");
-@@ -121,7 +118,7 @@ public class ClinicServiceTests {
-     }
- 
-     @Test
--    public void shouldFindAllPetTypes() {
-+    void shouldFindAllPetTypes() {
-         Collection<PetType> petTypes = this.pets.findPetTypes();
- 
-         PetType petType1 = EntityUtils.getById(petTypes, PetType.class, 1);
-@@ -132,7 +129,7 @@ public class ClinicServiceTests {
- 
-     @Test
-     @Transactional
--    public void shouldInsertPetIntoDatabaseAndGenerateId() {
-+    void shouldInsertPetIntoDatabaseAndGenerateId() {
-         Owner owner6 = this.owners.findById(6);
-         int found = owner6.getPets().size();
- 
-@@ -155,7 +152,7 @@ public class ClinicServiceTests {
- 
-     @Test
-     @Transactional
--    public void shouldUpdatePetName() throws Exception {
-+    void shouldUpdatePetName() throws Exception {
-         Pet pet7 = this.pets.findById(7);
-         String oldName = pet7.getName();
- 
-@@ -168,7 +165,7 @@ public class ClinicServiceTests {
-     }
- 
-     @Test
--    public void shouldFindVets() {
-+    void shouldFindVets() {
-         Collection<Vet> vets = this.vets.findAll();
- 
-         Vet vet = EntityUtils.getById(vets, Vet.class, 3);
-@@ -180,7 +177,7 @@ public class ClinicServiceTests {
- 
-     @Test
-     @Transactional
--    public void shouldAddNewVisitForPet() {
-+    void shouldAddNewVisitForPet() {
-         Pet pet7 = this.pets.findById(7);
-         int found = pet7.getVisits().size();
-         Visit visit = new Visit();
-@@ -195,7 +192,7 @@ public class ClinicServiceTests {
-     }
- 
-     @Test
--    public void shouldFindVisitsByPetId() throws Exception {
-+    void shouldFindVisitsByPetId() throws Exception {
-         Collection<Visit> visits = this.visits.findByPetId(7);
-         assertThat(visits.size()).isEqualTo(2);
-         Visit[] visitArr = visits.toArray(new Visit[visits.size()]);
 diff --git a/src/test/java/org/springframework/samples/petclinic/system/CrashControllerTests.java b/src/test/java/org/springframework/samples/petclinic/system/CrashControllerTests.java
-index 3f108bf..aa44f44 100644
+index 3f108bf..5f2ca2f 100644
 --- a/src/test/java/org/springframework/samples/petclinic/system/CrashControllerTests.java
 +++ b/src/test/java/org/springframework/samples/petclinic/system/CrashControllerTests.java
 @@ -1,12 +1,10 @@
@@ -1401,7 +1072,7 @@ index 3f108bf..aa44f44 100644
  import org.springframework.test.web.servlet.MockMvc;
  
  import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-@@ -20,17 +18,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
+@@ -20,9 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
   *
   * @author Colin But
   */
@@ -1410,23 +1081,13 @@ index 3f108bf..aa44f44 100644
 -@Ignore
 +@Disabled
  @WebMvcTest(controllers = CrashController.class)
--public class CrashControllerTests {
-+class CrashControllerTests {
+ public class CrashControllerTests {
  
-     @Autowired
-     private MockMvc mockMvc;
- 
-     @Test
--    public void testTriggerException() throws Exception {
-+    void triggerException() throws Exception {
-         mockMvc.perform(get("/oups")).andExpect(view().name("exception"))
-                 .andExpect(model().attributeExists("exception"))
-                 .andExpect(forwardedUrl("exception")).andExpect(status().isOk());
 diff --git a/src/test/java/org/springframework/samples/petclinic/system/ProductionConfigurationTests.java b/src/test/java/org/springframework/samples/petclinic/system/ProductionConfigurationTests.java
-index 9636e36..cc58fa6 100644
+index 9636e36..5d436ba 100644
 --- a/src/test/java/org/springframework/samples/petclinic/system/ProductionConfigurationTests.java
 +++ b/src/test/java/org/springframework/samples/petclinic/system/ProductionConfigurationTests.java
-@@ -1,22 +1,19 @@
+@@ -1,14 +1,11 @@
  package org.springframework.samples.petclinic.system;
  
 -import org.junit.Test;
@@ -1440,20 +1101,10 @@ index 9636e36..cc58fa6 100644
  
 -@RunWith(SpringRunner.class)
  @SpringBootTest
--public class ProductionConfigurationTests {
-+class ProductionConfigurationTests {
+ public class ProductionConfigurationTests {
  
-     @Autowired
-     private VetRepository vets;
- 
-     @Test
--    public void testFindAll() throws Exception {
-+    void findAll() throws Exception {
-         vets.findAll();
-         vets.findAll(); // served from cache
-     }
 diff --git a/src/test/java/org/springframework/samples/petclinic/vet/VetControllerTests.java b/src/test/java/org/springframework/samples/petclinic/vet/VetControllerTests.java
-index ce6adf8..dab5f15 100644
+index ce6adf8..60095d8 100644
 --- a/src/test/java/org/springframework/samples/petclinic/vet/VetControllerTests.java
 +++ b/src/test/java/org/springframework/samples/petclinic/vet/VetControllerTests.java
 @@ -10,9 +10,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
@@ -1468,7 +1119,7 @@ index ce6adf8..dab5f15 100644
  import org.springframework.beans.factory.annotation.Autowired;
  import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
  import org.springframework.boot.test.mock.mockito.MockBean;
-@@ -21,16 +20,14 @@ import org.springframework.samples.petclinic.vet.Specialty;
+@@ -21,14 +20,12 @@ import org.springframework.samples.petclinic.vet.Specialty;
  import org.springframework.samples.petclinic.vet.Vet;
  import org.springframework.samples.petclinic.vet.VetController;
  import org.springframework.samples.petclinic.vet.VetRepository;
@@ -1481,51 +1132,19 @@ index ce6adf8..dab5f15 100644
   */
 -@RunWith(SpringRunner.class)
  @WebMvcTest(VetController.class)
--public class VetControllerTests {
-+class VetControllerTests {
+ public class VetControllerTests {
  
-     @Autowired
-     private MockMvc mockMvc;
-@@ -38,8 +35,8 @@ public class VetControllerTests {
+@@ -38,7 +35,7 @@ public class VetControllerTests {
      @MockBean
      private VetRepository vets;
  
 -    @Before
--    public void setup() {
 +    @BeforeEach
-+    void setup() {
+     public void setup() {
          Vet james = new Vet();
          james.setFirstName("James");
-         james.setLastName("Carter");
-@@ -56,7 +53,7 @@ public class VetControllerTests {
-     }
- 
-     @Test
--    public void testShowVetListHtml() throws Exception {
-+    void showVetListHtml() throws Exception {
-         mockMvc.perform(get("/vets.html"))
-             .andExpect(status().isOk())
-             .andExpect(model().attributeExists("vets"))
-@@ -64,7 +61,7 @@ public class VetControllerTests {
-     }
- 
-     @Test
--    public void testShowResourcesVetList() throws Exception {
-+    void showResourcesVetList() throws Exception {
-         ResultActions actions = mockMvc.perform(get("/vets.json").accept(MediaType.APPLICATION_JSON))
-             .andExpect(status().isOk());
-         actions.andExpect(content().contentType("application/json;charset=UTF-8"))
-@@ -72,7 +69,7 @@ public class VetControllerTests {
-     }
- 
-     @Test
--    public void testShowVetListXml() throws Exception {
-+    void showVetListXml() throws Exception {
-         mockMvc.perform(get("/vets.xml").accept(MediaType.APPLICATION_XML))
-             .andExpect(status().isOk())
-             .andExpect(content().contentType(MediaType.APPLICATION_XML_VALUE))
 diff --git a/src/test/java/org/springframework/samples/petclinic/vet/VetTests.java b/src/test/java/org/springframework/samples/petclinic/vet/VetTests.java
-index de3a7b9..874a716 100644
+index de3a7b9..c512e86 100644
 --- a/src/test/java/org/springframework/samples/petclinic/vet/VetTests.java
 +++ b/src/test/java/org/springframework/samples/petclinic/vet/VetTests.java
 @@ -15,8 +15,7 @@
@@ -1538,19 +1157,6 @@ index de3a7b9..874a716 100644
  import org.springframework.util.SerializationUtils;
  
  import static org.assertj.core.api.Assertions.assertThat;
-@@ -25,10 +24,10 @@ import static org.assertj.core.api.Assertions.assertThat;
-  * @author Dave Syer
-  *
-  */
--public class VetTests {
-+class VetTests {
- 
-     @Test
--    public void testSerialization() {
-+    void serialization() {
-         Vet vet = new Vet();
-         vet.setFirstName("Zaphod");
-         vet.setLastName("Beeblebrox");
 ```
 
 </details>
@@ -1563,7 +1169,7 @@ If you look at the results, you should see that:
 * The code has been migrated to Java 17, and text blocks are used
 * Some best practices are applied (such as adding the `public` test method modifier)
 
-Some of you might be tempted to run `./mvnw verify` to confirm that the build works. Unfortunately, this isn't the case as the commit we started from is using `Wro4j` -- which has some [slight dependency conflicts](../../introduction.md). We've decided not to cover `Wro4j` with recipes for now, as [Spring PetClinic has dropped Wro4J](../../introduction.md) as well.
+Some of you might be tempted to run `./mvnw verify` to confirm that the build works. Unfortunately, this isn't the case as the commit we started from is using `Wro4j` -- which has [some slight dependency conflicts](https://github.com/wro4j/wro4j/issues/1129). We've decided not to cover `Wro4j` with recipes for now, as [Spring PetClinic has dropped Wro4J](https://github.com/spring-projects/spring-petclinic/pull/868) as well.
 
 ### Run a recipe on multiple local repositories
 
@@ -1620,40 +1226,40 @@ Moderne CLI 3.3.1
 > spring-projects/spring-data-commons@main
 > spring-projects/spring-data-release@main
 > spring-projects/spring-session-data-mongodb-examples@main
-Selected 3 repositories (0.2s)
+Selected 3 repositories (0.26s)
 
 > Building LST(s)
 
 > spring-projects/spring-data-commons@main
-    Build output will be written to /Users/mikesol/workshop/spring-data-commons/.moderne/build/20240408141619-vwfxP/build.log
+    Build output will be written to /Users/mikesol/workshop/spring-data-commons/.moderne/build/20240429092425-0rhlX/build.log
     > Step 1 - download from Moderne
     ! Failed to download the LST from Moderne. Proceeding to build the LST locally
     > Step 1 - build with Maven
-        Selected the 21.0.1-oracle JDK
+        Selected the 17.0.7-tem JDK
     > Step 2 - build with mod-java
         Selected the 21.0.1-oracle JDK
     > Step 3 - build resources using the native CLI
-    ✓ Built LST /Users/mikesol/workshop/spring-data-commons/.moderne/build/20240408141619-vwfxP/spring-data-commons-20240408141751-ast.jar
+    ✓ Built LST /Users/mikesol/workshop/spring-data-commons/.moderne/build/20240429092425-0rhlX/spring-data-commons-20240429092532-ast.jar
     + Reported build metrics to Moderne
     + Cleaned 0 older builds.
 > spring-projects/spring-data-release@main
-    Build output will be written to /Users/mikesol/workshop/spring-data-release/.moderne/build/20240408141619-vwfxP/build.log
+    Build output will be written to /Users/mikesol/workshop/spring-data-release/.moderne/build/20240429092425-0rhlX/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/spring-data-release/.moderne/build/20240408141619-vwfxP/spring-data-release-20240408025602-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/spring-data-release/.moderne/build/20240429092425-0rhlX/spring-data-release-20240429025646-ast.jar
     + Cleaned 0 older builds.
 > spring-projects/spring-session-data-mongodb-examples@main
-    Build output will be written to /Users/mikesol/workshop/spring-session-data-mongodb-examples/.moderne/build/20240408141619-vwfxP/build.log
+    Build output will be written to /Users/mikesol/workshop/spring-session-data-mongodb-examples/.moderne/build/20240429092425-0rhlX/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/spring-session-data-mongodb-examples/.moderne/build/20240408141619-vwfxP/spring-session-data-mongodb-examples-20240408114209-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/spring-session-data-mongodb-examples/.moderne/build/20240429092425-0rhlX/spring-session-data-mongodb-examples-20240429114145-ast.jar
     + Cleaned 0 older builds.
-Built 3 repositories. (1m 32s)
+Built 3 repositories. (1m 8s)
 
-1m 57s saved by using previously built LSTs
+2m 17s saved by using previously built LSTs
 
 * What to do next
     > Run mod run /Users/mikesol/workshop --recipe=<RecipeName>
 
-MOD SUCCEEDED in (1m 33s)
+MOD SUCCEEDED in (1m 9s)
 ```
 
 </details>
@@ -1697,6 +1303,10 @@ mod git add $HOME/workshop --last-recipe-run
 ```
 
 Finally, you can commit the changes to all the repositories at once with the following command:
+
+{% hint style="info" %}
+If you normally GPG sign your commits, please note that the [Moderne CLI does not currently support that](https://github.com/moderneinc/moderne-cli/issues/1543), and you will need to disable it for the `mod git commit` command to run.
+{% endhint %}
 
 ```bash
 mod git commit $HOME/workshop -m "Migrate to Spring Boot 3.2" --last-recipe-run
@@ -1772,85 +1382,85 @@ Moderne CLI 3.3.1
 
 > Selecting repositories
 
-> Netflix/Fenzo@master
-> Netflix/Priam@3.x
 > Netflix/blitz4j@master
 > Netflix/dynomite-manager@dev
+> Netflix/Fenzo@master
 > Netflix/hollow@master
 > Netflix/ndbench@master
+> Netflix/Priam@3.x
 > spring-cloud/spring-cloud-circuitbreaker@main
 > spring-cloud/spring-cloud-common-security-config@main
 > spring-cloud/spring-cloud-core-tests@main
 > spring-cloud/spring-cloud-netflix@main
 > spring-projects/spring-hateoas-examples@main
 > spring-projects/spring-petclinic@main
-Selected 12 repositories (0.31s)
+Selected 12 repositories (0.34s)
 
 > Building LST(s)
 
-> Netflix/Fenzo@master
-    Build output will be written to /Users/mikesol/workshop/default/Fenzo/.moderne/build/20240408152858-1xwiY/build.log
-    > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/Fenzo/.moderne/build/20240408152858-1xwiY/Fenzo-20240408054919-ast.jar
-    + Cleaned 0 older builds.
-> Netflix/Priam@3.x
-    Build output will be written to /Users/mikesol/workshop/default/Priam/.moderne/build/20240408152858-1xwiY/build.log
-    > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/Priam/.moderne/build/20240408152858-1xwiY/Priam-20240408014027-ast.jar
-    + Cleaned 0 older builds.
 > Netflix/blitz4j@master
-    Build output will be written to /Users/mikesol/workshop/default/blitz4j/.moderne/build/20240408152858-1xwiY/build.log
+    Build output will be written to /Users/mikesol/workshop/default/blitz4j/.moderne/build/20240429093337-JkwaY/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/blitz4j/.moderne/build/20240408152858-1xwiY/blitz4j-20240408013726-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/default/blitz4j/.moderne/build/20240429093337-JkwaY/blitz4j-20240429013713-ast.jar
     + Cleaned 0 older builds.
 > Netflix/dynomite-manager@dev
-    Build output will be written to /Users/mikesol/workshop/default/dynomite-manager/.moderne/build/20240408152858-1xwiY/build.log
+    Build output will be written to /Users/mikesol/workshop/default/dynomite-manager/.moderne/build/20240429093337-JkwaY/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/dynomite-manager/.moderne/build/20240408152858-1xwiY/dynomite-manager-20240408020613-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/default/dynomite-manager/.moderne/build/20240429093337-JkwaY/dynomite-manager-20240429020614-ast.jar
+    + Cleaned 0 older builds.
+> Netflix/Fenzo@master
+    Build output will be written to /Users/mikesol/workshop/default/Fenzo/.moderne/build/20240429093337-JkwaY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/Fenzo/.moderne/build/20240429093337-JkwaY/Fenzo-20240429054936-ast.jar
     + Cleaned 0 older builds.
 > Netflix/hollow@master
-    Build output will be written to /Users/mikesol/workshop/default/hollow/.moderne/build/20240408152858-1xwiY/build.log
+    Build output will be written to /Users/mikesol/workshop/default/hollow/.moderne/build/20240429093337-JkwaY/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/hollow/.moderne/build/20240408152858-1xwiY/hollow-20240408114552-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/default/hollow/.moderne/build/20240429093337-JkwaY/hollow-20240429114403-ast.jar
     + Cleaned 0 older builds.
 > Netflix/ndbench@master
-    Build output will be written to /Users/mikesol/workshop/default/ndbench/.moderne/build/20240408152858-1xwiY/build.log
+    Build output will be written to /Users/mikesol/workshop/default/ndbench/.moderne/build/20240429093337-JkwaY/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/ndbench/.moderne/build/20240408152858-1xwiY/ndbench-20240408144401-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/default/ndbench/.moderne/build/20240429093337-JkwaY/ndbench-20240429144252-ast.jar
+    + Cleaned 0 older builds.
+> Netflix/Priam@3.x
+    Build output will be written to /Users/mikesol/workshop/default/Priam/.moderne/build/20240429093337-JkwaY/build.log
+    > Step 1 - download from Moderne
+    ✓ Downloaded LST /Users/mikesol/workshop/default/Priam/.moderne/build/20240429093337-JkwaY/Priam-20240429013913-ast.jar
     + Cleaned 0 older builds.
 > spring-cloud/spring-cloud-circuitbreaker@main
-    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-circuitbreaker/.moderne/build/20240408152858-1xwiY/build.log
+    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-circuitbreaker/.moderne/build/20240429093337-JkwaY/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-circuitbreaker/.moderne/build/20240408152858-1xwiY/spring-cloud-circuitbreaker-20240408083113-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-circuitbreaker/.moderne/build/20240429093337-JkwaY/spring-cloud-circuitbreaker-20240428083116-ast.jar
     + Cleaned 0 older builds.
 > spring-cloud/spring-cloud-common-security-config@main
-    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-common-security-config/.moderne/build/20240408152858-1xwiY/build.log
+    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-common-security-config/.moderne/build/20240429093337-JkwaY/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-common-security-config/.moderne/build/20240408152858-1xwiY/spring-cloud-common-security-config-20240408141440-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-common-security-config/.moderne/build/20240429093337-JkwaY/spring-cloud-common-security-config-20240429141351-ast.jar
     + Cleaned 0 older builds.
 > spring-cloud/spring-cloud-core-tests@main
-    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-core-tests/.moderne/build/20240408152858-1xwiY/build.log
+    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-core-tests/.moderne/build/20240429093337-JkwaY/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-core-tests/.moderne/build/20240408152858-1xwiY/spring-cloud-core-tests-20240408070429-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-core-tests/.moderne/build/20240429093337-JkwaY/spring-cloud-core-tests-20240429070354-ast.jar
     + Cleaned 0 older builds.
 > spring-cloud/spring-cloud-netflix@main
-    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-netflix/.moderne/build/20240408152858-1xwiY/build.log
+    Build output will be written to /Users/mikesol/workshop/default/spring-cloud-netflix/.moderne/build/20240429093337-JkwaY/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-netflix/.moderne/build/20240408152858-1xwiY/spring-cloud-netflix-20240407230948-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-cloud-netflix/.moderne/build/20240429093337-JkwaY/spring-cloud-netflix-20240428230728-ast.jar
     + Cleaned 0 older builds.
 > spring-projects/spring-hateoas-examples@main
-    Build output will be written to /Users/mikesol/workshop/default/spring-hateoas-examples/.moderne/build/20240408152858-1xwiY/build.log
+    Build output will be written to /Users/mikesol/workshop/default/spring-hateoas-examples/.moderne/build/20240429093337-JkwaY/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-hateoas-examples/.moderne/build/20240408152858-1xwiY/spring-hateoas-examples-20240408084132-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-hateoas-examples/.moderne/build/20240429093337-JkwaY/spring-hateoas-examples-20240429083949-ast.jar
     + Cleaned 0 older builds.
 > spring-projects/spring-petclinic@main
-    Build output will be written to /Users/mikesol/workshop/default/spring-petclinic/.moderne/build/20240408152858-1xwiY/build.log
+    Build output will be written to /Users/mikesol/workshop/default/spring-petclinic/.moderne/build/20240429093337-JkwaY/build.log
     > Step 1 - download from Moderne
-    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-petclinic/.moderne/build/20240408152858-1xwiY/spring-petclinic-20240408215517-ast.jar
+    ✓ Downloaded LST /Users/mikesol/workshop/default/spring-petclinic/.moderne/build/20240429093337-JkwaY/spring-petclinic-20240428215542-ast.jar
     + Cleaned 0 older builds.
 Built 12 repositories. (6s)
 
-40m 27s saved by using previously built LSTs
+31m 13s saved by using previously built LSTs
 
 * What to do next
     > Run mod run . --recipe=<RecipeName>
@@ -1891,19 +1501,19 @@ Moderne CLI 3.3.1
 
 > Selecting repositories
 
-> Netflix/Fenzo@master
-> Netflix/Priam@3.x
 > Netflix/blitz4j@master
 > Netflix/dynomite-manager@dev
+> Netflix/Fenzo@master
 > Netflix/hollow@master
 > Netflix/ndbench@master
+> Netflix/Priam@3.x
 > spring-cloud/spring-cloud-circuitbreaker@main
 > spring-cloud/spring-cloud-common-security-config@main
 > spring-cloud/spring-cloud-core-tests@main
 > spring-cloud/spring-cloud-netflix@main
 > spring-projects/spring-hateoas-examples@main
 > spring-projects/spring-petclinic@main
-Selected 12 repositories (0.4s)
+Selected 12 repositories (0.35s)
 
 [1] Migrate to Java 17 (org.openrewrite.java.migrate.UpgradeToJava17)
 [2] Migrate to Java 17 (io.quarkus.updates.core.quarkus37.UpgradeToJava17)
@@ -1911,33 +1521,33 @@ Select a recipe [1-2]: 1
 
 > Running recipe org.openrewrite.java.migrate.UpgradeToJava17
 
-> Netflix/Fenzo@master
-    ✓ Fix results at /Users/mikesol/workshop/default/Fenzo/.moderne/run/20240408152941-Xi9Co/fix.patch
-> Netflix/Priam@3.x
-    ✓ Fix results at /Users/mikesol/workshop/default/Priam/.moderne/run/20240408152941-Xi9Co/fix.patch
 > Netflix/blitz4j@master
-    ✓ Fix results at /Users/mikesol/workshop/default/blitz4j/.moderne/run/20240408152941-Xi9Co/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/blitz4j/.moderne/run/20240429093354-reHx5/fix.patch
 > Netflix/dynomite-manager@dev
-    ✓ Fix results at /Users/mikesol/workshop/default/dynomite-manager/.moderne/run/20240408152941-Xi9Co/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/dynomite-manager/.moderne/run/20240429093354-reHx5/fix.patch
+> Netflix/Fenzo@master
+    ✓ Fix results at /Users/mikesol/workshop/default/Fenzo/.moderne/run/20240429093354-reHx5/fix.patch
 > Netflix/hollow@master
-    ✓ Fix results at /Users/mikesol/workshop/default/hollow/.moderne/run/20240408152941-Xi9Co/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/hollow/.moderne/run/20240429093354-reHx5/fix.patch
 > Netflix/ndbench@master
-    ✓ Fix results at /Users/mikesol/workshop/default/ndbench/.moderne/run/20240408152941-Xi9Co/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/ndbench/.moderne/run/20240429093354-reHx5/fix.patch
+> Netflix/Priam@3.x
+    ✓ Fix results at /Users/mikesol/workshop/default/Priam/.moderne/run/20240429093354-reHx5/fix.patch
 > spring-cloud/spring-cloud-circuitbreaker@main
     No changes
 > spring-cloud/spring-cloud-common-security-config@main
-    ✓ Fix results at /Users/mikesol/workshop/default/spring-cloud-common-security-config/.moderne/run/20240408152941-Xi9Co/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-cloud-common-security-config/.moderne/run/20240429093354-reHx5/fix.patch
 > spring-cloud/spring-cloud-core-tests@main
     No changes
 > spring-cloud/spring-cloud-netflix@main
-    ✓ Fix results at /Users/mikesol/workshop/default/spring-cloud-netflix/.moderne/run/20240408152941-Xi9Co/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-cloud-netflix/.moderne/run/20240429093354-reHx5/fix.patch
 > spring-projects/spring-hateoas-examples@main
-    ✓ Fix results at /Users/mikesol/workshop/default/spring-hateoas-examples/.moderne/run/20240408152941-Xi9Co/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-hateoas-examples/.moderne/run/20240429093354-reHx5/fix.patch
 > spring-projects/spring-petclinic@main
-    ✓ Fix results at /Users/mikesol/workshop/default/spring-petclinic/.moderne/run/20240408152941-Xi9Co/fix.patch
-Found results on 10 repositories (1m 30s)
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-petclinic/.moderne/run/20240429093354-reHx5/fix.patch
+Found results on 10 repositories (1m 46s)
 
-40m 27s saved by using previously built LSTs
+31m 13s saved by using previously built LSTs
 
 * What to do next
     > Click on one of the patch links above to view the changes on a particular repository
@@ -1948,9 +1558,9 @@ Found results on 10 repositories (1m 30s)
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
     > Run mod git checkout . -b hotfix --last-recipe-run to prepare a hotfix branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20240408152941-Xi9Co to apply the changes
+    > Run mod git apply . --recipe-run 20240429093354-reHx5 to apply the changes
 
-MOD SUCCEEDED in (1m 32s)
+MOD SUCCEEDED in (1m 48s)
 ```
 
 </details>
@@ -1976,38 +1586,38 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 ```bash
 Moderne CLI 3.3.1
 
-Found recipe run 20240408152941-Xi9Co
+Found recipe run 20240429093354-reHx5
 
 > Selecting repositories
 
-> Netflix/Fenzo@master
-> Netflix/Priam@3.x
 > Netflix/blitz4j@master
 > Netflix/dynomite-manager@dev
+> Netflix/Fenzo@master
 > Netflix/hollow@master
 > Netflix/ndbench@master
+> Netflix/Priam@3.x
 > spring-cloud/spring-cloud-circuitbreaker@main
 > spring-cloud/spring-cloud-common-security-config@main
 > spring-cloud/spring-cloud-core-tests@main
 > spring-cloud/spring-cloud-netflix@main
 > spring-projects/spring-hateoas-examples@main
 > spring-projects/spring-petclinic@main
-Selected 12 repositories (0.12s)
+Selected 12 repositories (0.15s)
 
 > Building a combined data table from results on every repository
 
-> Netflix/Fenzo@master
-    ✓ Added 699 rows
-> Netflix/Priam@3.x
-    ✓ Added 1419 rows
 > Netflix/blitz4j@master
     ✓ Added 112 rows
 > Netflix/dynomite-manager@dev
     ✓ Added 485 rows
+> Netflix/Fenzo@master
+    ✓ Added 702 rows
 > Netflix/hollow@master
-    ✓ Added 4758 rows
+    ✓ Added 4763 rows
 > Netflix/ndbench@master
-    ✓ Added 945 rows
+    ✓ Added 951 rows
+> Netflix/Priam@3.x
+    ✓ Added 1419 rows
 > spring-cloud/spring-cloud-circuitbreaker@main
     ✓ Did not produce any rows for this data table
 > spring-cloud/spring-cloud-common-security-config@main
@@ -2020,12 +1630,12 @@ Selected 12 repositories (0.12s)
     ✓ Added 332 rows
 > spring-projects/spring-petclinic@main
     ✓ Added 1 rows
-Studied 12 repositories (22s)
+Studied 12 repositories (24s)
 
 * What to do next
-    > Open /Users/mikesol/workshop/default/org.openrewrite.table.SourcesFileResults.xlsx
+    > Open /Users/mikesol/workshop/default/SourcesFileResults.xlsx
 
-MOD SUCCEEDED in (22s)
+MOD SUCCEEDED in (25s)
 ```
 
 </details>
@@ -2049,7 +1659,7 @@ You can then filter the data table down to only a couple columns we're intereste
 
 {% code overflow="wrap" %}
 ````bash
-mod study ./spring-data --last-recipe-run --data-table MethodCalls --json sourceFile,method --template '{{"# Search results\n\n"}}{{range .}}{{"* "}}{{.sourceFile}}{{"\n```\n"}}{{.method}}{{"\n```\n"}}{{end}}' > methods.md 
+mod study . --last-recipe-run --data-table MethodCalls --json sourceFile,method --template '{{"# Search results\n\n"}}{{range .}}{{"* "}}{{.sourceFile}}{{"\n```\n"}}{{.method}}{{"\n```\n"}}{{end}}' > methods.md 
 ````
 {% endcode %}
 
@@ -2075,54 +1685,54 @@ mod run . --recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
 
 <summary>You should see results similar to:</summary>
 
-```diff
+```bash
 Moderne CLI 3.3.1
 
 > Selecting repositories
 
-> Netflix/Fenzo@master
-> Netflix/Priam@3.x
 > Netflix/blitz4j@master
 > Netflix/dynomite-manager@dev
+> Netflix/Fenzo@master
 > Netflix/hollow@master
 > Netflix/ndbench@master
+> Netflix/Priam@3.x
 > spring-cloud/spring-cloud-circuitbreaker@main
 > spring-cloud/spring-cloud-common-security-config@main
 > spring-cloud/spring-cloud-core-tests@main
 > spring-cloud/spring-cloud-netflix@main
 > spring-projects/spring-hateoas-examples@main
 > spring-projects/spring-petclinic@main
-Selected 12 repositories (0.28s)
+Selected 12 repositories (0.4s)
 
 > Running recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
 
-> Netflix/Fenzo@master
-    ✓ Fix results at /Users/mikesol/workshop/Fenzo/.moderne/run/20240408155011-T0puX/fix.patch
-> Netflix/Priam@3.x
-    ✓ Fix results at /Users/mikesol/workshop/Priam/.moderne/run/20240408155011-T0puX/fix.patch
 > Netflix/blitz4j@master
-    ✓ Fix results at /Users/mikesol/workshop/blitz4j/.moderne/run/20240408155011-T0puX/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/blitz4j/.moderne/run/20240429094336-dm2W2/fix.patch
 > Netflix/dynomite-manager@dev
-    ✓ Fix results at /Users/mikesol/workshop/dynomite-manager/.moderne/run/20240408155011-T0puX/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/dynomite-manager/.moderne/run/20240429094336-dm2W2/fix.patch
+> Netflix/Fenzo@master
+    ✓ Fix results at /Users/mikesol/workshop/default/Fenzo/.moderne/run/20240429094336-dm2W2/fix.patch
 > Netflix/hollow@master
-    ✓ Fix results at /Users/mikesol/workshop/hollow/.moderne/run/20240408155011-T0puX/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/hollow/.moderne/run/20240429094336-dm2W2/fix.patch
 > Netflix/ndbench@master
-    ✓ Fix results at /Users/mikesol/workshop/ndbench/.moderne/run/20240408155011-T0puX/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/ndbench/.moderne/run/20240429094336-dm2W2/fix.patch
+> Netflix/Priam@3.x
+    ✓ Fix results at /Users/mikesol/workshop/default/Priam/.moderne/run/20240429094336-dm2W2/fix.patch
 > spring-cloud/spring-cloud-circuitbreaker@main
-    ✓ Fix results at /Users/mikesol/workshop/spring-cloud-circuitbreaker/.moderne/run/20240408155011-T0puX/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-cloud-circuitbreaker/.moderne/run/20240429094336-dm2W2/fix.patch
 > spring-cloud/spring-cloud-common-security-config@main
-    ✓ Fix results at /Users/mikesol/workshop/spring-cloud-common-security-config/.moderne/run/20240408155011-T0puX/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-cloud-common-security-config/.moderne/run/20240429094336-dm2W2/fix.patch
 > spring-cloud/spring-cloud-core-tests@main
-    ✓ Fix results at /Users/mikesol/workshop/spring-cloud-core-tests/.moderne/run/20240408155011-T0puX/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-cloud-core-tests/.moderne/run/20240429094336-dm2W2/fix.patch
 > spring-cloud/spring-cloud-netflix@main
-    ✓ Fix results at /Users/mikesol/workshop/spring-cloud-netflix/.moderne/run/20240408155011-T0puX/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-cloud-netflix/.moderne/run/20240429094336-dm2W2/fix.patch
 > spring-projects/spring-hateoas-examples@main
-    ✓ Fix results at /Users/mikesol/workshop/spring-hateoas-examples/.moderne/run/20240408155011-T0puX/fix.patch
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-hateoas-examples/.moderne/run/20240429094336-dm2W2/fix.patch
 > spring-projects/spring-petclinic@main
-    ✓ Fix results at /Users/mikesol/workshop/spring-petclinic/.moderne/run/20240408155011-T0puX/fix.patch
-Found results on 12 repositories (1m 22s)
+    ✓ Fix results at /Users/mikesol/workshop/default/spring-petclinic/.moderne/run/20240429094336-dm2W2/fix.patch
+Found results on 12 repositories (1m 38s)
 
-40m 27s saved by using previously built LSTs
+31m 13s saved by using previously built LSTs
 
 * What to do next
     > Click on one of the patch links above to view the changes on a particular repository
@@ -2132,9 +1742,9 @@ Found results on 12 repositories (1m 22s)
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
     > Run mod git checkout . -b hotfix --last-recipe-run to prepare a hotfix branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20240408155011-T0puX to apply the changes
+    > Run mod git apply . --recipe-run 20240429094336-dm2W2 to apply the changes
 
-MOD SUCCEEDED in (1m 23s)
+MOD SUCCEEDED in (1m 39s)
 ```
 
 </details>
@@ -2146,222 +1756,481 @@ MOD SUCCEEDED in (1m 23s)
 <summary>You should see results similar to:</summary>
 
 ```diff
-diff --git a/fenzo-core/src/main/java/com/netflix/fenzo/AssignableVirtualMachine.java b/fenzo-core/src/main/java/com/netflix/fenzo/AssignableVirtualMachine.java
-index 2582b0d..bc3ea45 100644
---- a/fenzo-core/src/main/java/com/netflix/fenzo/AssignableVirtualMachine.java
-+++ b/fenzo-core/src/main/java/com/netflix/fenzo/AssignableVirtualMachine.java
-@@ -34,9 +34,9 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+diff --git a/src/main/java/com/netflix/blitz4j/DefaultBlitz4jConfig.java b/src/main/java/com/netflix/blitz4j/DefaultBlitz4jConfig.java
+index bfe7b2f..527895e 100644
+--- a/src/main/java/com/netflix/blitz4j/DefaultBlitz4jConfig.java
++++ b/src/main/java/com/netflix/blitz4j/DefaultBlitz4jConfig.java
+@@ -46,7 +46,7 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+ 
+     private static final String NETFLIX_BLITZ4J_LOCKFREE = "netflix.blitz4j.lockfree";
+     // Use concurrent hash map to avoid multithreaded contention
+-    private Map<String, Object> propsMap = new ConcurrentHashMap<String, Object>();
++    private final Map<String, Object> propsMap = new ConcurrentHashMap<>();
+ 
+     private static final DynamicPropertyFactory CONFIGURATION = DynamicPropertyFactory
+             .getInstance();
+diff --git a/src/main/java/com/netflix/blitz4j/NFHierarchy.java b/src/main/java/com/netflix/blitz4j/NFHierarchy.java
+index 32392e1..db79074 100644
+--- a/src/main/java/com/netflix/blitz4j/NFHierarchy.java
++++ b/src/main/java/com/netflix/blitz4j/NFHierarchy.java
+@@ -37,12 +37,12 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
   */
- public class AssignableVirtualMachine implements Comparable<AssignableVirtualMachine>{
+ public class NFHierarchy extends Hierarchy {
+     private LoggerFactory myFactory;
+-    private AbstractQueue<HierarchyEventListener> listeners;
++    private final AbstractQueue<HierarchyEventListener> listeners;
  
--    /* package */ static final String PseuoHostNamePrefix = "FenzoPsueodHost-";
--
--    private static class PortRange {
-+    /* package */ static final String PseuoHostNamePrefix = "FenzoPsueodHost-";
+     public NFHierarchy(Logger root) {
+         super(root);
+         myFactory = new NFCategoryFactory();
+-        listeners = new ConcurrentLinkedQueue<HierarchyEventListener>();
++        listeners = new ConcurrentLinkedQueue<>();
+     }
+ 
+     /*
+diff --git a/src/main/java/com/netflix/blitz4j/AsyncAppender.java b/src/main/java/com/netflix/blitz4j/AsyncAppender.java
+index 4993d9b..585b490 100644
+--- a/src/main/java/com/netflix/blitz4j/AsyncAppender.java
++++ b/src/main/java/com/netflix/blitz4j/AsyncAppender.java
+@@ -83,10 +83,10 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+     private MessageBatcher<LoggingEvent> batcher;
+     private String originalAppenderName;
+     private static final String LOGGER_ASYNC_APPENDER = "asyncAppenders";
+-    private AppenderAttachableImpl appenders = new AppenderAttachableImpl();
++    private final AppenderAttachableImpl appenders = new AppenderAttachableImpl();
+ 
+     // The Map to the summary events
+-    private ConcurrentMap<String, LogSummary> logSummaryMap = new ConcurrentHashMap<String, LogSummary>();
++    private ConcurrentMap<String, LogSummary> logSummaryMap = new ConcurrentHashMap<>();
+ 
+     private Timer putBufferTimeTracer;
+     private Timer putDiscardMapTimeTracer;
+@@ -108,25 +108,30 @@
+         int result = 1;
+         result = prime
+                 * result
+-                + ((originalAppenderName == null) ? 0 : originalAppenderName
++                + (originalAppenderName == null ? 0 : originalAppenderName
+                         .hashCode());
+         return result;
+     }
+ 
+     @Override
+     public boolean equals(Object obj) {
+-        if (this == obj)
++        if (this == obj) {
+             return true;
+-        if (obj == null)
++        }
++        if (obj == null) {
+             return false;
+-        if (getClass() != obj.getClass())
++        }
++        if (getClass() != obj.getClass()) {
+             return false;
++        }
+         AsyncAppender other = (AsyncAppender) obj;
+         if (originalAppenderName == null) {
+-            if (other.originalAppenderName != null)
++            if (other.originalAppenderName != null) {
+                 return false;
+-        } else if (!originalAppenderName.equals(other.originalAppenderName))
++            }
++        } else if (!originalAppenderName.equals(other.originalAppenderName)) {
+             return false;
++        }
+         return true;
+     }
+ 
+@@ -220,8 +225,8 @@
+      * @see org.apache.log4j.AppenderSkeleton#append(org.apache.log4j.spi.LoggingEvent)
+      */
+     public void append(final LoggingEvent event) {
+-        boolean isBufferSpaceAvailable = (batcher.isSpaceAvailable() && (logSummaryMap
+-                .size() == 0));
++        boolean isBufferSpaceAvailable = batcher.isSpaceAvailable() && (logSummaryMap
++                .size() == 0);
+         boolean isBufferPutSuccessful = false;
+         LocationInfo locationInfo = null;
+         // Reject it when we have a fast property as these can be expensive
+@@ -405,15 +410,14 @@
+         public LoggingEvent createEvent() {
+             String msg = MessageFormat
+                     .format("{1}[Summarized {0} messages of this type because the internal buffer was full]",
+-                            new Object[] { new Integer(count),
++                            new Object[] { Integer.valueOf(count),
+                                     event.getMessage() });
+-            LoggingEvent loggingEvent = new LoggingEvent(
++            return new LoggingEvent(
+                     event.getFQNOfLoggerClass(), event.getLogger(),
+                     event.getTimeStamp(), event.getLevel(), msg, Thread
+                             .currentThread().getName(),
+                     event.getThrowableInformation(), null, null,
+                     event.getProperties());
+-            return loggingEvent;
+         }
+     }
+ 
+diff --git a/src/main/java/com/netflix/blitz4j/LoggingConfiguration.java b/src/main/java/com/netflix/blitz4j/LoggingConfiguration.java
+index 7283e14..f0e9232 100644
+--- a/src/main/java/com/netflix/blitz4j/LoggingConfiguration.java
++++ b/src/main/java/com/netflix/blitz4j/LoggingConfiguration.java
+@@ -85,18 +85,18 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+     private static final String ASYNC_APPENDERNAME_SUFFIX = "_ASYNC";
+     private static final String ROOT_CATEGORY = "rootCategory";
+     private static final String ROOT_LOGGER = "rootLogger";
+-    
+-    private Map<String, String> originalAsyncAppenderNameMap = new HashMap<String, String>();
 +
-+    private static final class PortRange {
-         private final VirtualMachineLease.Range range;
-         private PortRange(VirtualMachineLease.Range range) {
-             this.range = range;
-@@ -49,8 +49,8 @@
-     private static class PortRanges {
-         private List<VirtualMachineLease.Range> ranges = new ArrayList<>();
-         private List<PortRange> portRanges = new ArrayList<>();
--        private int totalPorts=0;
--        private int currUsedPorts=0;
-+        private int totalPorts;
-+        private int currUsedPorts;
++    private final Map<String, String> originalAsyncAppenderNameMap = new HashMap<>();
+     private BlitzConfig blitz4jConfig;
+-    private Properties initialProps = new Properties();
+-    private Properties overrideProps = new Properties();
++    private final Properties initialProps = new Properties();
++    private final Properties overrideProps = new Properties();
+     private final ExecutorService executorPool;
+     private final AtomicInteger pendingRefreshes = new AtomicInteger();
+     private final AtomicInteger refreshCount = new AtomicInteger();
+     private Logger logger;
+     private static final int MIN_DELAY_BETWEEN_REFRESHES = 200;
+     private static final CharSequence PROP_LOG4J_ASYNC_APPENDERS = "log4j.logger.asyncAppenders";
+-    private static LoggingConfiguration instance = new LoggingConfiguration();
++    private static final LoggingConfiguration instance = new LoggingConfiguration();
  
-         void addRanges(List<VirtualMachineLease.Range> ranges) {
-             if(ranges!=null) {
-@@ -117,7 +117,7 @@
-     private double currUsedNetworkMbps=0.0;
-     private double currTotalDisk=0.0;
-     private double currUsedDisk=0.0;
--    private VirtualMachineLease currTotalLease=null;
-+    private VirtualMachineLease currTotalLease;
-     private PortRanges currPortRanges = new PortRanges();
-     private volatile Map<String, Protos.Attribute> currAttributesMap = Collections.emptyMap();
-     private final Map<String, PreferentialNamedConsumableResourceSet> resourceSets = new HashMap<>();
-@@ -130,15 +130,15 @@
-     private static final Logger logger = LoggerFactory.getLogger(AssignableVirtualMachine.class);
-     private final ConcurrentMap<String, String> leaseIdToHostnameMap;
-     private final ConcurrentMap<String, String> vmIdToHostnameMap;
--    private volatile String currVMId =null;
-+    private volatile String currVMId;
-     private final TaskTracker taskTracker;
--    private volatile long disabledUntil=0L;
-+    private volatile long disabledUntil;
-     // This may have to be configurable, but, for now weight the job's soft constraints more than system wide fitness calculators
-     private static double softConstraintFitnessWeightPercentage =50.0;
-     private static double rSetsFitnessWeightPercentage=15.0;
--    private String exclusiveTaskId =null;
-+    private String exclusiveTaskId;
-     private final boolean singleLeaseMode;
--    private boolean firstLeaseAdded=false;
-+    private boolean firstLeaseAdded;
-     private final List<TaskRequest> consumedResourcesToAssign = new ArrayList<>();
+     protected LoggingConfiguration() {
+         this.executorPool = Executors.newCachedThreadPool(
+@@ -130,7 +130,7 @@
+         NFHierarchy nfHierarchy = null;
+         
+         // Make log4j use blitz4j implementations
+-        if ((!NFHierarchy.class.equals(LogManager.getLoggerRepository().getClass()))) {
++        if (!NFHierarchy.class.equals(LogManager.getLoggerRepository().getClass())) {
+             nfHierarchy = new NFHierarchy(new NFRootLogger(org.apache.log4j.Level.INFO));
+             org.apache.log4j.LogManager.setRepositorySelector(new NFRepositorySelector(nfHierarchy), guard);
+         }
+@@ -287,7 +287,7 @@
+      * java.lang.String, java.lang.Object, boolean)
+      */
+     public synchronized void addProperty(Object source, String name, Object value, boolean beforeUpdate) {
+-        if (beforeUpdate == false && isLog4JProperty(name)) {
++        if (!beforeUpdate && isLog4JProperty(name)) {
+             overrideProps.put(name, value);
+             reConfigureAsynchronously();
+         }
+@@ -308,7 +308,7 @@
+      * java.lang.String, java.lang.Object, boolean)
+      */
+     public synchronized void clearProperty(Object source, String name, Object value, boolean beforeUpdate) {
+-        if (beforeUpdate == false && isLog4JProperty(name)) {
++        if (!beforeUpdate && isLog4JProperty(name)) {
+             overrideProps.remove(name);
+             reConfigureAsynchronously();
+         }
+@@ -345,7 +345,7 @@
+      */
+     public synchronized void setProperty(Object source, String name, Object value,
+             boolean beforeUpdate) {
+-        if (beforeUpdate == false && isLog4JProperty(name)) {
++        if (!beforeUpdate && isLog4JProperty(name)) {
+             overrideProps.put(name, value);
+             reConfigureAsynchronously();
+         }
+diff --git a/src/main/java/com/netflix/blitz4j/LoggingContext.java b/src/main/java/com/netflix/blitz4j/LoggingContext.java
+index 7f523d2..42259f6 100644
+--- a/src/main/java/com/netflix/blitz4j/LoggingContext.java
++++ b/src/main/java/com/netflix/blitz4j/LoggingContext.java
+@@ -43,18 +43,18 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+  * @author Karthik Ranganathan
+  * 
+  */
+-public class LoggingContext {
++public final class LoggingContext {
  
-     public AssignableVirtualMachine(PreferentialNamedConsumableResourceEvaluator preferentialNamedConsumableResourceEvaluator,
-@@ -174,9 +174,10 @@
-         return leaseRejectAction==null?
-                 lease -> logger.warn("No lease reject action registered to reject lease id " + lease.getId() +
-                         " on host " + lease.hostname()) :
--                lease -> {
--                    if (isRejectable(lease))
--                        leaseRejectAction.call(lease);
-+                lease -> {
-+                    if (isRejectable(lease)) {
-+                        leaseRejectAction.call(lease);
-+                    }
-                 };
+     public static final String CONTEXT_LEVEL = "contextlevel";
+     private static final BlitzConfig CONFIGURATION = LoggingConfiguration.getInstance().getConfiguration();
+     private static final String LOCATION_INFO = "locationInfo";
+-    private ThreadLocal<StackTraceElement> stackLocal = new ThreadLocal<StackTraceElement>();
+-    private ThreadLocal<LoggingEvent> loggingEvent = new ThreadLocal<LoggingEvent>();
+-    private ThreadLocal<Level> contextLevel = new ThreadLocal<Level>();
++    private final ThreadLocal<StackTraceElement> stackLocal = new ThreadLocal<>();
++    private final ThreadLocal<LoggingEvent> loggingEvent = new ThreadLocal<>();
++    private final ThreadLocal<Level> contextLevel = new ThreadLocal<>();
+     private final AtomicReference<HashSet<Category>> loggerNeedsLocationRef = new AtomicReference<>(new HashSet<Category>());
+ 
+     private static final LoggingContext instance = new LoggingContext();
+-    private Timer stackTraceTimer = Monitors.newTimer("getStacktraceElement",
++    private final Timer stackTraceTimer = Monitors.newTimer("getStacktraceElement",
+             TimeUnit.NANOSECONDS);
+ 
+     private LoggingContext() {
+diff --git a/src/main/java/com/netflix/blitz4j/NFLockFreeLogger.java b/src/main/java/com/netflix/blitz4j/NFLockFreeLogger.java
+index da5af48..5fe64eb 100644
+--- a/src/main/java/com/netflix/blitz4j/NFLockFreeLogger.java
++++ b/src/main/java/com/netflix/blitz4j/NFLockFreeLogger.java
+@@ -39,7 +39,7 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+ public class NFLockFreeLogger extends Logger {
+ 
+     AppenderAttachableImpl aai;
+-    private LoggingContext loggingContext = LoggingContext.getInstance();;
++    private final LoggingContext loggingContext = LoggingContext.getInstance();;
+ 
+     protected NFLockFreeLogger(String name) {
+         super(name);
+@@ -75,7 +75,7 @@
+         int writes = 0;
+ 
+         for (Category c = this; c != null; c = c.getParent()) {
+-            if (!(NFLockFreeLogger.class.isInstance(c))) {
++            if (!NFLockFreeLogger.class.isInstance(c)) {
+                 continue;
+             }
+             if (((NFLockFreeLogger) c).aai != null) {
+@@ -99,10 +99,11 @@
+      */
+     @Override
+     public Enumeration getAllAppenders() {
+-        if (aai == null)
++        if (aai == null) {
+             return NullEnumeration.getInstance();
+-        else
++        } else {
+             return aai.getAllAppenders();
++        }
      }
  
-@@ -184,75 +185,76 @@
-         return l != null && l.getOffer() != null;
+     /*
+@@ -113,8 +114,9 @@
+     @Override
+     public Appender getAppender(String name) {
+ 
+-        if (aai == null || name == null)
++        if (aai == null || name == null) {
+             return null;
++        }
+ 
+         return aai.getAppender(name);
+     }
+@@ -126,9 +128,9 @@
+      */
+     @Override
+     public boolean isAttached(Appender appender) {
+-        if (appender == null || aai == null)
++        if (appender == null || aai == null) {
+             return false;
+-        else {
++        } else {
+             return aai.isAttached(appender);
+         }
+     }
+diff --git a/src/main/java/com/netflix/blitz4j/LoggerCache.java b/src/main/java/com/netflix/blitz4j/LoggerCache.java
+index be52fa6..48f34dd 100644
+--- a/src/main/java/com/netflix/blitz4j/LoggerCache.java
++++ b/src/main/java/com/netflix/blitz4j/LoggerCache.java
+@@ -32,9 +32,9 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+  * @author Karthik Ranganathan
+  *
+  */
+-public class LoggerCache {
+-    private static LoggerCache instance = new LoggerCache();
+-    private Map<String, Logger> appenderLoggerMap = new ConcurrentHashMap<String, Logger>(5000);
++public final class LoggerCache {
++    private static final LoggerCache instance = new LoggerCache();
++    private final Map<String, Logger> appenderLoggerMap = new ConcurrentHashMap<>(5000);
+     
+   
+   private LoggerCache() {
+diff --git a/src/main/java/com/netflix/blitz4j/NFAppenderAttachableImpl.java b/src/main/java/com/netflix/blitz4j/NFAppenderAttachableImpl.java
+index e240e85..194cd6c 100644
+--- a/src/main/java/com/netflix/blitz4j/NFAppenderAttachableImpl.java
++++ b/src/main/java/com/netflix/blitz4j/NFAppenderAttachableImpl.java
+@@ -37,8 +37,8 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+ public class NFAppenderAttachableImpl extends AppenderAttachableImpl implements
+ AppenderAttachable {
+ 
+-    protected AbstractQueue<Appender> appenderList = new ConcurrentLinkedQueue<Appender>();
+-    private AbstractQueue<String> configuredAppenderList = new ConcurrentLinkedQueue<String>();
++    protected AbstractQueue<Appender> appenderList = new ConcurrentLinkedQueue<>();
++    private final AbstractQueue<String> configuredAppenderList = new ConcurrentLinkedQueue<>();
+ 
+     /*
+      * (non-Javadoc)
+@@ -104,9 +104,9 @@
+      */
+     @Override
+     public Enumeration getAllAppenders() {
+-        if (appenderList == null)
++        if (appenderList == null) {
+             return null;
+-        else {
++        } else {
+             Iterator<Appender> it = appenderList.iterator();
+             return new IteratorEnumeration(it);
+         }
+@@ -121,8 +121,9 @@
+      */
+     @Override
+     public Appender getAppender(String name) {
+-        if (appenderList == null || name == null)
++        if (appenderList == null || name == null) {
+             return null;
++        }
+         Appender appender;
+         Iterator<Appender> it = appenderList.iterator();
+         while (it.hasNext()) {
+@@ -143,8 +144,9 @@
+      */
+     @Override
+     public boolean isAttached(Appender appender) {
+-        if (appenderList == null || appender == null)
++        if (appenderList == null || appender == null) {
+             return false;
++        }
+         Appender a;
+         Iterator<Appender> it = appenderList.iterator();
+         while (it.hasNext()) {
+@@ -175,7 +177,7 @@
+                 // This call is primarily made during dynamic log4 reconfiguration and we will
+                 // retain the ability to queue the messages.
+                 for (String asyncAppender : asyncAppenders) {
+-                    if (!(asyncAppender.equals(a.getClass().getName()))) {
++                    if (!asyncAppender.equals(a.getClass().getName())) {
+                          it.remove();
+                          a.close();
+                     }
+@@ -193,8 +195,9 @@
+      */
+     @Override
+     public void removeAppender(Appender appender) {
+-        if (appender == null || appenderList == null)
++        if (appender == null || appenderList == null) {
+             return;
++        }
+         appenderList.remove(appender);
+         configuredAppenderList.remove(appender.getName());
+     }
+@@ -208,8 +211,9 @@
+      */
+     @Override
+     public void removeAppender(String name) {
+-        if (name == null || appenderList == null)
++        if (name == null || appenderList == null) {
+             return;
++        }
+         Iterator<Appender> it = appenderList.iterator();
+         while (it.hasNext()) {
+             Appender a = (Appender) it.next();
+diff --git a/src/main/java/com/netflix/logging/log4jAdapter/NFPatternParser.java b/src/main/java/com/netflix/logging/log4jAdapter/NFPatternParser.java
+index 2ce0eb8..a999847 100644
+--- a/src/main/java/com/netflix/logging/log4jAdapter/NFPatternParser.java
++++ b/src/main/java/com/netflix/logging/log4jAdapter/NFPatternParser.java
+@@ -35,7 +35,7 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+  * @author Karthik Ranganathan
+  */
+ public class NFPatternParser extends PatternParser {
+-    private static List<Character> contextCharList = Arrays.asList(Character.valueOf('c'),
++    private static final List<Character> contextCharList = Arrays.asList(Character.valueOf('c'),
+             Character.valueOf('l'),
+             Character.valueOf('M'),
+             Character.valueOf('C'),
+@@ -82,10 +82,10 @@
+                 case 'L':
+                     return locationInfo.getLineNumber();
+                 case 'l':
+-                    return (locationInfo.getFileName() + ":"
++                    return locationInfo.getFileName() + ":"
+                             + locationInfo.getClassName() + " "
+                             + locationInfo.getLineNumber() + " " + locationInfo
+-                            .getMethodName());
++                            .getMethodName();
+                 case 'F':
+                     return locationInfo.getFileName();
+             }
+diff --git a/src/main/java/com/netflix/logging/messaging/MessageBatcher.java b/src/main/java/com/netflix/logging/messaging/MessageBatcher.java
+index b2669be..c3aff7f 100644
+--- a/src/main/java/com/netflix/logging/messaging/MessageBatcher.java
++++ b/src/main/java/com/netflix/logging/messaging/MessageBatcher.java
+@@ -89,7 +89,7 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+ 
+     protected ThreadPoolExecutor processor;
+ 
+-    protected MessageProcessor target = null;
++    protected MessageProcessor target;
+ 
+     /**
+      * The number of batches that are currently being processed by the target
+@@ -111,15 +111,15 @@
+ 
+     private volatile boolean isShutDown;
+ 
+-    private AtomicLong numberAdded = new AtomicLong();
++    private final AtomicLong numberAdded = new AtomicLong();
+ 
+-    private AtomicLong numberDropped = new AtomicLong();
++    private final AtomicLong numberDropped = new AtomicLong();
+ 
+-    private boolean blockingProperty;
++    private final boolean blockingProperty;
+ 
+     private boolean isCollectorPaused;
+ 
+-    private Counter processCount;
++    private final Counter processCount;
+     public static final String POOL_MAX_THREADS = "maxThreads";
+     public static final String POOL_MIN_THREADS = "minThreads";
+     public static final String POOL_KEEP_ALIVE_TIME = "keepAliveTime";
+@@ -129,7 +129,7 @@
+         this.target = target;
+         queue = new ArrayBlockingQueue<T>(CONFIGURATION.getBatcherQueueMaxMessages(this.name));
+         setBatchMaxMessages(CONFIGURATION.getBatchSize(this.name));
+-        batch = new ArrayList<Object>(maxMessages);
++        batch = new ArrayList<>(maxMessages);
+         setBatchMaxDelay(CONFIGURATION
+                 .getBatcherMaxDelay(this.name));
+         collector = new Collector(this, this.name + COLLECTOR_SUFFIX);
+@@ -196,7 +196,7 @@
+      * @return - true, if available false otherwise
+      */
+     public boolean isSpaceAvailable() {
+-        return (queue.remainingCapacity() > 0);
++        return queue.remainingCapacity() > 0;
      }
  
--    private void addToAvailableResources(VirtualMachineLease l) {
--        if(singleLeaseMode && firstLeaseAdded)
--            return; // ToDo should this be illegal state exception?
--        firstLeaseAdded = true;
--        final Map<String, Double> scalars = l.getScalarValues();
--        if(scalars != null && !scalars.isEmpty()) {
--            for(Map.Entry<String, Double> entry: scalars.entrySet()) {
--                Double currVal = currTotalScalars.get(entry.getKey());
--                if(currVal == null)
--                    currVal = 0.0;
--                currTotalScalars.put(entry.getKey(), currVal + entry.getValue());
--            }
--        }
--        currTotalCpus += l.cpuCores();
--        currTotalMemory += l.memoryMB();
--        currTotalNetworkMbps += l.networkMbps();
--        currTotalDisk += l.diskMB();
--        if (l.portRanges() != null)
--            currPortRanges.addRanges(l.portRanges());
--        if (l.getAttributeMap() != null) {
--            // always replace attributes map with the latest
--            currAttributesMap = Collections.unmodifiableMap(new HashMap<>(l.getAttributeMap()));
--        }
--        for(Map.Entry<String, Protos.Attribute> entry: currAttributesMap.entrySet()) {
--            switch (entry.getKey()) {
--                case "res":
--                    String val = entry.getValue().getText().getValue();
--                    if(val!=null) {
--                        StringTokenizer tokenizer = new StringTokenizer(val, "-");
--                        String resName = tokenizer.nextToken();
--                        switch (resName) {
--                            case PreferentialNamedConsumableResourceSet.attributeName:
--                                if(tokenizer.countTokens() == 3) {
--                                    String name = tokenizer.nextToken();
--                                    String val0Str = tokenizer.nextToken();
--                                    String val1Str = tokenizer.nextToken();
--                                    if(!resourceSets.containsKey(name)) {
--                                        try {
--                                            int val0 = Integer.parseInt(val0Str);
--                                            int val1 = Integer.parseInt(val1Str);
--                                            final PreferentialNamedConsumableResourceSet crs =
--                                                    new PreferentialNamedConsumableResourceSet(hostname, name, val0, val1);
--                                            final Iterator<TaskRequest> iterator = consumedResourcesToAssign.iterator();
--                                            while(iterator.hasNext()) {
--                                                TaskRequest request = iterator.next();
--                                                crs.assign(request);
--                                                iterator.remove();
--                                            }
--                                            resourceSets.put(name, crs);
--                                        }
--                                        catch (NumberFormatException e) {
--                                            logger.warn(hostname + ": invalid resource spec (" + val + ") in attributes, ignoring: " + e.getMessage());
--                                        }
--                                    }
--                                }
--                                else
--                                    logger.warn("Invalid res spec (expected 4 tokens with delimiter '-', ignoring: " + val);
--                                break;
--                            default:
--                                logger.warn("Unknown resource in attributes, ignoring: " + val);
--                        }
--                    }
--                    break;
--            }
--        }
--        if(!consumedResourcesToAssign.isEmpty()) {
--            throw new IllegalStateException(hostname + ": Some assigned tasks have no resource sets in offers: " +
--                    consumedResourcesToAssign);
--        }
-+    private void addToAvailableResources(VirtualMachineLease l) {
-+        if (singleLeaseMode && firstLeaseAdded) {
-+            return; // ToDo should this be illegal state exception?
-+        }
-+        firstLeaseAdded = true;
-+        final Map<String, Double> scalars = l.getScalarValues();
-+        if (scalars != null && !scalars.isEmpty()) {
-+            for (Map.Entry<String, Double> entry : scalars.entrySet()) {
-+                Double currVal = currTotalScalars.get(entry.getKey());
-+                if (currVal == null) {
-+                    currVal = 0.0;
-+                }
-+                currTotalScalars.put(entry.getKey(), currVal + entry.getValue());
-+            }
-+        }
-+        currTotalCpus += l.cpuCores();
-+        currTotalMemory += l.memoryMB();
-+        currTotalNetworkMbps += l.networkMbps();
-+        currTotalDisk += l.diskMB();
-+        if (l.portRanges() != null) {
-+            currPortRanges.addRanges(l.portRanges());
-+        }
-+        if (l.getAttributeMap() != null) {
-+            // always replace attributes map with the latest
-+            currAttributesMap = Collections.unmodifiableMap(new HashMap<>(l.getAttributeMap()));
-+        }
-+        for (Map.Entry<String, Protos.Attribute> entry : currAttributesMap.entrySet()) {
-+            if ("res".equals(entry.getKey())) {
-+                String val = entry.getValue().getText().getValue();
-+                if (val != null) {
-+                    StringTokenizer tokenizer = new StringTokenizer(val, "-");
-+                    String resName = tokenizer.nextToken();
-+                    switch (resName) {
-+                        case PreferentialNamedConsumableResourceSet.attributeName:
-+                            if (tokenizer.countTokens() == 3) {
-+                                String name = tokenizer.nextToken();
-+                                String val0Str = tokenizer.nextToken();
-+                                String val1Str = tokenizer.nextToken();
-+                                if (!resourceSets.containsKey(name)) {
-+                                    try {
-+                                        int val0 = Integer.parseInt(val0Str);
-+                                        int val1 = Integer.parseInt(val1Str);
-+                                        final PreferentialNamedConsumableResourceSet crs =
-+                                                           new PreferentialNamedConsumableResourceSet(hostname, name, val0, val1);
-+                                        final Iterator<TaskRequest> iterator = consumedResourcesToAssign.iterator();
-+                                        while (iterator.hasNext()) {
-+                                            TaskRequest request = iterator.next();
-+                                            crs.assign(request);
-+                                            iterator.remove();
-+                                        }
-+                                        resourceSets.put(name, crs);
-+                                    }
-+                                    catch (NumberFormatException e) {
-+                                        logger.warn(hostname + ": invalid resource spec (" + val + ") in attributes, ignoring: " + e.getMessage());
-+                                    }
-+                                }
-+                            } else {
-+                                logger.warn("Invalid res spec (expected 4 tokens with delimiter '-', ignoring: " + val);
-+                            }
-+                            break;
-+                        default:
-+                            logger.warn("Unknown resource in attributes, ignoring: " + val);
-+                    }
-+                }
-+            }
-+        }
-+        if (!consumedResourcesToAssign.isEmpty()) {
-+            throw new IllegalStateException(hostname + ": Some assigned tasks have no resource sets in offers: " +
-+                               consumedResourcesToAssign);
-+        }
-     }
-...
+     /**
+@@ -347,7 +347,7 @@
+         
+         int waitTimeinMillis = CONFIGURATION.getBatcherWaitTimeBeforeShutdown(this.name);
+         long timeToWait = waitTimeinMillis + System.currentTimeMillis();
+-        while ((queue.size() > 0 || batch.size() > 0)
++        while ((!queue.isEmpty() || !batch.isEmpty())
+                 && (System.currentTimeMillis() < timeToWait)) {
+             try {
+                 Thread.sleep(1000);
+diff --git a/src/main/java/com/netflix/logging/messaging/BatcherFactory.java b/src/main/java/com/netflix/logging/messaging/BatcherFactory.java
+index cf47699..cb0f28b 100644
+--- a/src/main/java/com/netflix/logging/messaging/BatcherFactory.java
++++ b/src/main/java/com/netflix/logging/messaging/BatcherFactory.java
+@@ -35,10 +35,10 @@ org.openrewrite.staticanalysis.CommonStaticAnalysis
+  *
+  */
+ public class BatcherFactory {
+-	private static BatcherFactory batcherFactory = new BatcherFactory();
++    private static final BatcherFactory batcherFactory = new BatcherFactory();
+ 
+-	// List of all batchers cached
+-	private static Map<String, MessageBatcher> batcherMap = new HashMap<String, MessageBatcher>();;
++    // List of all batchers cached
++    private static final Map<String, MessageBatcher> batcherMap = new HashMap<>();;
+ 
+ 	
+     /**
+@@ -47,8 +47,7 @@
+      * @return - the batcher associated with the name
+      */
+ 	public static MessageBatcher getBatcher(String name) {
+-		MessageBatcher batcher = batcherMap.get(name);
+-		return batcher;
++		return batcherMap.get(name);
+ 	}
 ```
 
 </details>
