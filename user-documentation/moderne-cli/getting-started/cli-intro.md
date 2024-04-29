@@ -45,7 +45,7 @@ If you use PowerShell, you can use the [Set-Alias command](https://learn.microso
 ```bash
 ➜  moderne-cli git:(main) mod
 
-Moderne CLI 3.2.0
+Moderne CLI 3.3.1
 
 Usage:
 
