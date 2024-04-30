@@ -17,14 +17,17 @@ Go to [https://app.moderne.io/](https://app.moderne.io/) and register with your 
 
 2. With the organization selected, you can go to the [repositories page](https://app.moderne.io/organizations) and see what repositories are included. There are a few repositories selected from the Netflix, spring-cloud, and spring-projects GitHub organizations.
 
-<figure><img src="../../../.gitbook/assets/organizations-and-repos.png" alt=""><figcaption></figcaption></figure>
+![](/.gitbook/assets/organizations-and-repos.png)
 
 {% hint style="info" %}
 The default group has a small set of repositories so recipes will run quickly. If you would rather see more results, please feel free to look through the available organizations and select another by clicking on the `Default` organization in the top-left.
 {% endhint %}
 
-3. With the organization selected, please go to the [Moderne Marketplace](https://app.moderne.io/marketplace). From there, click on `Static analysis and remediation`, and finally select `Common static analysis issues`.
-4. Click on the `More Details` link. You should now be on the [common static analysis issues recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis). From there, you can see that there are many different sonarqube rules under the recipe list. This is because common static analysis issues is a composition of other recipes. You can restrict the ones you want to apply to see the results of a particular recipe by using the [recipe builder](https://app.moderne.io/recipes/builder).
+3. With the organization selected, please go to the [Moderne Marketplace](https://app.moderne.io/marketplace). From there, click on [Static analysis and remediation](https://app.moderne.io/marketplace/org.openrewrite.staticanalysis), and finally select `Common static analysis issues`.
+
+![](/.gitbook/assets/common-details.png)
+
+4. Click on the `See Details` link. You should now be on the [common static analysis issues recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis). From there, you can see that there are many recipes under the recipe list. This is because common static analysis issues is a composition of other recipes. You can restrict the ones you want to apply to see the results of a particular recipe by using the [recipe builder](https://app.moderne.io/recipes/builder).
 
 <figure><img src="../../../.gitbook/assets/common-static-analysis-list.png" alt=""><figcaption></figcaption></figure>
 
