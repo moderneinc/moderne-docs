@@ -24,7 +24,7 @@ Download the latest version of the CLI from Maven Central: [https://central.sona
 
 ### (Optionally) Create an alias for the Moderne CLI JAR
 
-While not required, you are strongly encouraged to set up an alias for running the CLI JAR. Below are some ways you might configure this depending on your OS and terminal:
+While not required, you are _strongly encouraged_ to set up an alias for running the CLI JAR. Below are some ways you might configure this depending on your OS and terminal:
 
 {% tabs %}
 {% tab title="Git Bash (Windows)" %}
@@ -168,7 +168,7 @@ CSV file contains 12 repositories
 
 > Cloning repositories
 
-Clone output will be written to file:///Users/mikesol/Desktop/code/tmp/./spring-data/clone.log
+Clone output will be written to /Users/mikesol/spring-data/clone.log
 
 > spring-data-couchbase@main
 > spring-data-relational@main
@@ -214,22 +214,22 @@ Moderne CLI 3.3.1
 > spring-projects/spring-data-redis@main
 > spring-projects/spring-data-relational@main
 > spring-projects/spring-data-rest@main
-Selected 12 repositories (0.63s)
+Selected 12 repositories (0.54s)
 
 > Building LST(s)
 
 > spring-projects/spring-data-cassandra@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-cassandra/.moderne/build/20240313103801-vgPGE/build.log
+    Build output will be written to /Users/mikesol/spring-data/spring-data-cassandra/.moderne/build/20240430091557-LF657/build.log
     > Step 1 - build with Maven
-        Selected the 21.0.1-oracle JDK
+        Selected the 17.0.7-tem JDK
     > Step 2 - build with mod-java
         Selected the 21.0.1-oracle JDK
     > Step 3 - build resources using the native CLI
-    ✓ Built LST file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-cassandra/.moderne/build/20240313103801-vgPGE/spring-data-cassandra-20240313103852-ast.jar
+    ✓ Built LST /Users/mikesol/spring-data/spring-data-cassandra/.moderne/build/20240430091557-LF657/spring-data-cassandra-20240430091656-ast.jar
     + Reported build metrics to Moderne
-    + Cleaned 1 older builds.
+    + Cleaned 0 older builds.
 > spring-projects/spring-data-commons@main
-    Build output will be written to file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-commons/.moderne/build/20240313103801-vgPGE/build.log
+    Build output will be written to /Users/mikesol/spring-data/spring-data-commons/.moderne/build/20240430091557-LF657/build.log
 ...
 ```
 
@@ -270,7 +270,7 @@ Moderne CLI 3.3.1
 > spring-projects/spring-data-redis@main
 > spring-projects/spring-data-relational@main
 > spring-projects/spring-data-rest@main
-Selected 12 repositories (0.74s)
+Selected 12 repositories (0.52s)
 
 [1] Common static analysis issues (org.openrewrite.python.cleanup.CommonStaticAnalysis)
 [2] Common static analysis issues (org.openrewrite.staticanalysis.CommonStaticAnalysis)
@@ -279,32 +279,32 @@ Select a recipe [1-2]: 2
 > Running recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
 
 > spring-projects/spring-data-cassandra@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-cassandra/.moderne/run/20240318101307-SOK8L/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-cassandra/.moderne/run/20240430092431-vpItH/fix.patch
 > spring-projects/spring-data-commons@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-commons/.moderne/run/20240318101307-SOK8L/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-commons/.moderne/run/20240430092431-vpItH/fix.patch
 > spring-projects/spring-data-couchbase@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-couchbase/.moderne/run/20240318101307-SOK8L/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-couchbase/.moderne/run/20240430092431-vpItH/fix.patch
 > spring-projects/spring-data-elasticsearch@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-elasticsearch/.moderne/run/20240318101307-SOK8L/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-elasticsearch/.moderne/run/20240430092431-vpItH/fix.patch
 > spring-projects/spring-data-jpa@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-jpa/.moderne/run/20240318101307-SOK8L/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-jpa/.moderne/run/20240430092431-vpItH/fix.patch
 > spring-projects/spring-data-keyvalue@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-keyvalue/.moderne/run/20240318101307-SOK8L/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-keyvalue/.moderne/run/20240430092431-vpItH/fix.patch
 > spring-projects/spring-data-ldap@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-ldap/.moderne/run/20240318101307-SOK8L/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-ldap/.moderne/run/20240430092431-vpItH/fix.patch
 > spring-projects/spring-data-mongodb@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-mongodb/.moderne/run/20240318101307-SOK8L/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-mongodb/.moderne/run/20240430092431-vpItH/fix.patch
 > spring-projects/spring-data-neo4j@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-neo4j/.moderne/run/20240318101307-SOK8L/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-neo4j/.moderne/run/20240430092431-vpItH/fix.patch
 > spring-projects/spring-data-redis@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-redis/.moderne/run/20240318101307-SOK8L/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-redis/.moderne/run/20240430092431-vpItH/fix.patch
 > spring-projects/spring-data-relational@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-relational/.moderne/run/20240318101307-SOK8L/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-relational/.moderne/run/20240430092431-vpItH/fix.patch
 > spring-projects/spring-data-rest@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-rest/.moderne/run/20240318101307-SOK8L/fix.patch
-Found results on 12 repositories (2m 5s)
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-rest/.moderne/run/20240430092431-vpItH/fix.patch
+Found results on 12 repositories (2m 1s)
 
-6m 24s saved by using previously built LSTs
+7m 41s saved by using previously built LSTs
 
 * What to do next
     > Click on one of the patch links above to view the changes on a particular repository
@@ -312,10 +312,11 @@ Found results on 12 repositories (2m 5s)
           org.openrewrite.table.RecipeRunStats
           org.openrewrite.table.SourcesFileResults
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
+    > Run mod git checkout ./spring-data -b hotfix --last-recipe-run to prepare a hotfix branch for applying the changes
     > Run mod git apply ./spring-data --last-recipe-run to apply the changes
-    > Run mod git apply ./spring-data --recipe-run 20240318101307-SOK8L to apply the changes
+    > Run mod git apply ./spring-data --recipe-run 20240430092431-vpItH to apply the changes
 
-MOD SUCCEEDED in (2m 15s)
+MOD SUCCEEDED in (2m 6s)
 ```
 
 </details>
@@ -344,7 +345,7 @@ Moderne CLI 3.3.1
 > spring-projects/spring-data-redis@main
 > spring-projects/spring-data-relational@main
 > spring-projects/spring-data-rest@main
-Selected 12 repositories (0.64s)
+Selected 12 repositories (0.46s)
 
 [1] Migrate to Java 17 (org.openrewrite.java.migrate.UpgradeToJava17)
 [2] Migrate to Java 17 (io.quarkus.updates.core.quarkus37.UpgradeToJava17)
@@ -353,32 +354,32 @@ Select a recipe [1-2]: 1
 > Running recipe org.openrewrite.java.migrate.UpgradeToJava17
 
 > spring-projects/spring-data-cassandra@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-cassandra/.moderne/run/20240318101630-1v5cN/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-cassandra/.moderne/run/20240430092847-434iK/fix.patch
 > spring-projects/spring-data-commons@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-commons/.moderne/run/20240318101630-1v5cN/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-commons/.moderne/run/20240430092847-434iK/fix.patch
 > spring-projects/spring-data-couchbase@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-couchbase/.moderne/run/20240318101630-1v5cN/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-couchbase/.moderne/run/20240430092847-434iK/fix.patch
 > spring-projects/spring-data-elasticsearch@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-elasticsearch/.moderne/run/20240318101630-1v5cN/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-elasticsearch/.moderne/run/20240430092847-434iK/fix.patch
 > spring-projects/spring-data-jpa@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-jpa/.moderne/run/20240318101630-1v5cN/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-jpa/.moderne/run/20240430092847-434iK/fix.patch
 > spring-projects/spring-data-keyvalue@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-keyvalue/.moderne/run/20240318101630-1v5cN/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-keyvalue/.moderne/run/20240430092847-434iK/fix.patch
 > spring-projects/spring-data-ldap@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-ldap/.moderne/run/20240318101630-1v5cN/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-ldap/.moderne/run/20240430092847-434iK/fix.patch
 > spring-projects/spring-data-mongodb@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-mongodb/.moderne/run/20240318101630-1v5cN/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-mongodb/.moderne/run/20240430092847-434iK/fix.patch
 > spring-projects/spring-data-neo4j@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-neo4j/.moderne/run/20240318101630-1v5cN/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-neo4j/.moderne/run/20240430092847-434iK/fix.patch
 > spring-projects/spring-data-redis@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-redis/.moderne/run/20240318101630-1v5cN/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-redis/.moderne/run/20240430092847-434iK/fix.patch
 > spring-projects/spring-data-relational@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-relational/.moderne/run/20240318101630-1v5cN/fix.patch
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-relational/.moderne/run/20240430092847-434iK/fix.patch
 > spring-projects/spring-data-rest@main
-    ✓ Fix results at file:///Users/mikesol/Desktop/code/tmp/spring-data/spring-data-rest/.moderne/run/20240318101630-1v5cN/fix.patch
-Found results on 12 repositories (2m 30s)
+    ✓ Fix results at /Users/mikesol/spring-data/spring-data-rest/.moderne/run/20240430092847-434iK/fix.patch
+Found results on 12 repositories (2m 44s)
 
-6m 24s saved by using previously built LSTs
+7m 41s saved by using previously built LSTs
 
 * What to do next
     > Click on one of the patch links above to view the changes on a particular repository
@@ -387,10 +388,11 @@ Found results on 12 repositories (2m 30s)
           org.openrewrite.table.SourcesFileResults
           org.openrewrite.table.SourcesFiles
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
+    > Run mod git checkout ./spring-data -b hotfix --last-recipe-run to prepare a hotfix branch for applying the changes
     > Run mod git apply ./spring-data --last-recipe-run to apply the changes
-    > Run mod git apply ./spring-data --recipe-run 20240318101630-1v5cN to apply the changes
+    > Run mod git apply ./spring-data --recipe-run 20240430092847-434iK to apply the changes
 
-MOD SUCCEEDED in (2m 43s)
+MOD SUCCEEDED in (2m 47s)
 ```
 
 </details>
@@ -422,7 +424,7 @@ You should see:
 
 Moderne CLI 3.3.1
 
-Found recipe run 20240318101630-1v5cN
+Found recipe run 20240430092847-434iK
 
 > Selecting repositories
 
@@ -443,33 +445,35 @@ Selected 12 repositories (0.29s)
 > Building a combined data table from results on every repository
 
 > spring-projects/spring-data-cassandra@main
-    ✓ Added 162 rows
+    ✓ Added 165 rows
 > spring-projects/spring-data-commons@main
-    ✓ Added 221 rows
+    ✓ Added 219 rows
 > spring-projects/spring-data-couchbase@main
-    ✓ Added 82 rows
+    ✓ Added 86 rows
 > spring-projects/spring-data-elasticsearch@main
-    ✓ Added 48 rows
+    ✓ Added 49 rows
 > spring-projects/spring-data-jpa@main
     ✓ Added 51 rows
 > spring-projects/spring-data-keyvalue@main
-    ✓ Added 11 rows
+    ✓ Added 14 rows
 > spring-projects/spring-data-ldap@main
     ✓ Added 4 rows
 > spring-projects/spring-data-mongodb@main
-    ✓ Added 167 rows
+    ✓ Added 170 rows
 > spring-projects/spring-data-neo4j@main
-    ✓ Added 96 rows
+    ✓ Added 98 rows
 > spring-projects/spring-data-redis@main
     ✓ Added 157 rows
 > spring-projects/spring-data-relational@main
-    ✓ Added 118 rows
+    ✓ Added 121 rows
 > spring-projects/spring-data-rest@main
-    ✓ Added 63 rows
-Studied 12 repositories (18s)
+    ✓ Added 67 rows
+Studied 12 repositories (20s)
 
 * What to do next
-    > Open file:///Users/mikesol/Desktop/code/tmp/SourcesFileResults.xlsx
+    > Open /Users/mikesol/SourcesFileResults.xlsx
+
+MOD SUCCEEDED in (21s)
 ```
 
 If you open up the Excel output, you will see that 1000+ different changes were made across these 12 repositories.
@@ -498,7 +502,7 @@ In the above example, we are filtering the data table to only a couple columns w
 
 ### Set up your development environment
 
-We strongly recommend using IntelliJ IDEA when developing OpenRewrite recipes. If available, version `2024.1` would be best given the [built-in support for OpenRewrite](https://blog.jetbrains.com/idea/2024/02/intellij-idea-2024-1-eap-7/). Follow the instructions for [setting up your IDE](https://docs.openrewrite.org/authoring-recipes/recipe-development-environment), optionally including the installation of [the Moderne IntelliJ plugin](https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/moderne-intellij-plugin). Note the [additional tips](https://docs.openrewrite.org/reference/building-openrewrite-from-source#developing-tips) as well. If you want to get started with creating your own recipe, we recommend starting from the [rewrite-recipe-starter repository](https://github.com/moderneinc/rewrite-recipe-starter).
+We strongly recommend using IntelliJ IDEA when developing OpenRewrite recipes. If available, version `2024.1` (or newer) would be best given the [built-in support for OpenRewrite](https://blog.jetbrains.com/idea/2024/02/intellij-idea-2024-1-eap-7/). Follow the instructions for [setting up your IDE](https://docs.openrewrite.org/authoring-recipes/recipe-development-environment), optionally including the installation of [the Moderne IntelliJ plugin](https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/moderne-intellij-plugin). Note the [additional tips](https://docs.openrewrite.org/reference/building-openrewrite-from-source#developing-tips) as well. If you want to get started with creating your own recipe, we recommend starting from the [rewrite-recipe-starter repository](https://github.com/moderneinc/rewrite-recipe-starter).
 
 ## Custom recipe development workshop
 
