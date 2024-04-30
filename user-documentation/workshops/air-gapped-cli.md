@@ -1,6 +1,8 @@
 # Air-gapped Moderne CLI workshop
 
-The two day air-gapped Moderne CLI workshop allows participants to learn how to leverage OSS OpenRewrite recipes for OSS framework migrations and vulnerability management, as well as conduct impact analysis studies and build custom migrations via custom OpenRewrite recipes. The workshop is conducted by developers leveraging Moderne CLI and OpenRewrite recipes on their workstations. The Moderne team assists your developers during the workshop, but the code doesn’t leave developer workstations during the workshop. Existing access control policies govern developer access to your SCM and artifact stores.
+The two day air-gapped Moderne CLI workshop allows participants to learn how to leverage OSS OpenRewrite recipes for OSS framework migrations and vulnerability management, as well as conduct impact analysis studies and build custom migrations via custom OpenRewrite recipes. 
+
+The workshop is conducted by developers leveraging the Moderne CLI and OpenRewrite recipes on their workstations. While the Moderne team assists your developers during the workshop, your code **won't leave developer workstations** during the workshop. Existing access control policies govern developer access to your SCM and artifact stores.
 
 After developers familiarize themselves with the CLI, they will run code cleanup, framework migrations, and OWASP Top 10 vulnerability management recipes. All of these recipes produce data tables that can be used to calculate a return on investment (ROI).  This then feeds into the value deck we create after the workshop to describe results to management.
 
