@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.105.0 (2024/04/30)
+
+- Update text for upgrades and migrations
+
 ### UI v10.104.0 (2024/04/24)
 
 - add QUEUED_RATE_LIMITED commit status
