@@ -78,7 +78,7 @@ source <(mod generate-completion)
 ```
 {% endhint %}
 
-5. Before you can run any commands, you'll need to create a Moderne access token. Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token), enter a name for your token, and press `generate`.
+5. Before you run any commands, you'll want to connect the CLI to Moderne. This allows you to easily sync the recipe catalog from Moderne to your local machine, and it will allow you to download LSTs that have already been built to save time and compute power. To do this, you will need to create a Moderne access token. Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token), enter a name for your token, and press `generate`.
     * For more details on access token creation, please check out our [creating a personal access token doc](/user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md)
 
 6. Once created, copy the token and use it in the following command so that the CLI can communicate with Moderne:

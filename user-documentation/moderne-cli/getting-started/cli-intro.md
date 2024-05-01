@@ -105,9 +105,11 @@ source <(mod generate-completion)
 
 ## Configuring the CLI
 
-Before you can run most commands, you'll need to configure the CLI:
+Before you can run most commands, you'll need to configure the CLI. Let's walk through all the steps you may want to do.
 
 ### Create an access token and give it to the CLI
+
+The first step in configuring the CLI is connecting it to Moderne. This allows you to easily sync the recipe catalog from Moderne to your local machine, and it will also allow you to download LSTs that have already been built to save time and compute power. To connect to Moderne, you'll need to create an access token:
 
 Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token), enter a human-readable name for the token (e.g., cli-token), and then press `generate`.
 
@@ -119,7 +121,7 @@ Once created, copy the token and use it in the following command:
 mod config moderne edit --token mat-YOUR_TOKEN_HERE https://app.moderne.io
 ```
 
-This command will set up the connection to Moderne so that you can install and run recipes. If you have a private tenant, you'll want to replace `https://app.moderne.io` with the link to your Moderne UI.
+If you have a private tenant, you'll want to replace `https://app.moderne.io` with the link to your Moderne UI.
 
 ### Install recipes
 
@@ -134,10 +136,10 @@ This will grab all of the recipes from the tenant you specified in `mod config` 
 If you want to install a specific recipe rather than all of the recipes, you can also do so by using the following command:
 
 ```shell
-mod config recipes moderne install <recipe_search_term> 
+mod config recipes moderne install RECIPE_SEARCH_TERM
 ```
 
-If you have private recipe artifacts and want to point the CLI to them, please run the [following command](https://docs.moderne.io/user-documentation/moderne-cli/cli-reference#mod-config-recipes-artifacts):
+If you have private recipe artifacts and want to point the CLI to them, please run the [mod config recipe artifacts command](https://docs.moderne.io/user-documentation/moderne-cli/cli-reference#mod-config-recipes-artifacts):
 
 ```shell
 mod config recipes artifacts [artifactory|maven] edit
@@ -151,7 +153,7 @@ If you want to publish artifacts from the CLI or download LSTs from your artifac
 {% tab title="JFrog Artifactory" %}
 {% code overflow="wrap" %}
 ```shell
-mod config lsts artifacts artifactory edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
+mod config lsts artifacts artifactory edit ${REPOSITORY_URL} --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
 {% endcode %}
 {% endtab %}
@@ -161,7 +163,7 @@ _Such as SonaType Nexus_
 
 {% code overflow="wrap" %}
 ```shell
-mod config lsts artifacts maven edit <repository url> --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
+mod config lsts artifacts maven edit ${REPOSITORY_URL} --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
 {% endcode %}
 {% endtab %}
@@ -193,9 +195,13 @@ mod config recipes artifacts <artifactory|maven> edit <artifact-repository-url> 
 
 ## Additional reading
 
-* [Try using the CLI in the Moderne CLI workshop](../../workshops/moderne-cli-exercise.md)
+With the CLI configured, you may find it useful to test it out. We'd recommend starting with the [Moderne CLI workshop](../../workshops/moderne-cli-exercise.md) or the [Moderne air-gapped CLI workshop](../../workshops/air-gapped-cli.md).
+
+You may also find it useful to:
+
 * [Learn more about how to configure the CLI to meet your needs](../how-to-guides/layer-config-cli.md)
 * [Learn more about how JDK selection works and how you might configure other locations for JDKs](../how-to-guides/jdk-selection-and-config.md)
+* [Learn how to use the Moderne IntelliJ plugin in combination with the CLI to test recipes](../how-to-guides/moderne-intellij-plugin.md)
 
 ## Commands
 
