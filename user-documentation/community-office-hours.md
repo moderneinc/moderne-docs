@@ -10,9 +10,38 @@ You can find each of the office hours sessions below along with a summary of wha
 
 {% embed url="https://www.youtube.com/watch?v=S6408r36Io4" %}
 
-**Summary and related links**
+#### Summary and related links
 
-* TBD
+* Announcements for the week:
+  * **Releases**:
+    * Shout out to Ryan Hudson who [added support for data tables to the rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin/pull/751).
+      * Please feel free to jump in and add similar support to the [rewrite-gradle-plugin](https://github.com/openrewrite/rewrite-gradle-plugin).
+      * If you want to learn more about data tables, check out our [getting started with data tables doc](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/data-tables) that shows how useful they can be at scale with Moderne.
+  * **Events**:
+    * Tim will be at [JCON Europe from May 13th - 16th](https://jconeurope2024.sched.com/). He will be giving a talk on [Transforming Code with OpenRewrite and Refaster](https://jconeurope2024.sched.com/event/1Z2tI/transforming-code-with-openrewrite-and-refaster) and [Weeding your Micro Service Landscape](https://jconeurope2024.sched.com/event/1YwSG/weeding-your-micro-service-landscape). He has a limited amount of free tickets to give away if you'd like to attend and are going to be in Germany at that time. Please reach out to him to learn more.
+    * We'll be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/).
+  * **Content**:
+    * We released a [new video spotlighting Tim](https://www.youtube.com/watch?v=HDoR7sbx98A)!
+    * [Tim's presentation at J-Fall 2023 about modernizing your money-maker is now available to watch](https://www.youtube.com/watch?v=Jgi-n0w8g0U).
+    * We've created a [playlist that includes all of the released videos of presentations we've given over the years at various conferences](https://www.youtube.com/watch?v=o3rMdXR2bIU&list=PLIasdWXKABOmU2ZeVToOMJqdmPUeB-y2T). If you're looking to learn more about Moderne or OpenRewrite, definitely consider checking those out.
+  * **Press/Mentions**:
+    * [Moderne is part of the Sparkcubate program](https://www.linkedin.com/posts/bharish_sparkcubate-is-a-team-within-walmart-that-activity-7188572433501556736-MQQj)! Sparkcubate is a team within Walmart that identifies start-ups and companies that can inject energy into early-stage innovation.
+* Contributing to OSS:
+  * Moderne offers a variety of [best practice recipes](https://app.moderne.io/search?q=best%20practices) that are a simple, but effective way of beginning to contribute to a project.
+    * We'd strongly recommend beginning with a project you're familiar with and actively use. You should then reach out and ask them if they'd be open to best practice contributions and go from there.
+    * That being said, if you are looking to discover projects, consider using a tool like [up-for-grabs](https://up-for-grabs.net/#/).
+  * We then dove into the [AssertJ best practices recipe](https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.Assertj). We explored how you can [dive into the recipes it's composed of to learn more about everything it does with our new builder](https://app.moderne.io/builder/org.openrewrite.java.testing.assertj.Assertj).
+    * ![AssertJ best practices recipe](/.gitbook/assets/assertj-recipes.png)
+    * ![AssertJ best practices sub-recipes](/.gitbook/assets/assertj-sub-recipes.png)
+  * On a related note, [here is an example PR where Tim applied some JUnit5 best practices to an open-source project that got accepted and eventually led to discussions about migrating to AssertJ5](https://github.com/apache/shiro/pull/1338#issuecomment-1974747390).
+  * We then dove into [how to get started with running recipes](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/running-your-first-recipe) and [creating your own user organization in Moderne](https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides/managing-user-configured-organizations).
+  * We then ran the AssertJ best practices recipe against the shrio repository to demonstrate what it does and how effective it is. In ~1 minute, the recipe made nearly 100 changes, and it estimates that saved someone 8 _hours_ of work. You can imagine that this would be even more effective if run across hundreds or thousands of repos at a time.
+  * Once the recipe finished, we created a fork with all of the changes (which is how we'd recommend proceeding if you are contributing to a project you don't own). We demonstrated that the project still compiles with all of the changes and discussed some of the issues you may run into - such as a recipe note automating _everything_ (if it doesn't, please consider contributing to the recipe to improve them - as [we saw someone do this past week](https://github.com/openrewrite/rewrite-apache/pull/16)).
+  * After that, we took a look at the [Apache Maven Dev Center](https://app.moderne.io/devcenter/Apache%20Maven) and talked through how you can create dashboards like this to track key upgrades or migrations your organization needs to make. In the Maven case, you can see that 75% of their projects are still on Java 8. For each of these issues, a recipe is provided for how to fix the issue – such as a [migrate to Java 21 recipe](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21).
+    * These Dev Centers are available for many open-source projects such as Jenkins or Spring.
+  * We then touched upon building a community. If you work with any open-source project that you'd like to collaborate with us on (perhaps to have a space where many people can contribute recipes for), please fill out our [collaboration proposal form](https://github.com/openrewrite/collaboration-proposals/issues/new/choose).
+    * If you have open-source projects and want help setting up your own [Moderne Dev Center](/user-documentation/moderne-platform/getting-started/dev-center.md), please reach out, and we'd be happy to help create one.
+  * We wrapped up by talking about how automation can empower developers to make bigger changes to their libraries that _should_ be done but are perhaps not due to fear of breaking changes.
 
 ### OSS contributor conversation with Shannon Pamperl (April 24th, 2024)
 
