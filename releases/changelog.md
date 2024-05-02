@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v10.106.0 (2024/05/02)
+
+- add create and retrieve organizations examples
+- allow creating user repositories from the repositories page
+- Draft not supported in Bitbucket Cloud helper text
+
 ### UI v10.105.0 (2024/04/30)
 
 - Update text for upgrades and migrations
