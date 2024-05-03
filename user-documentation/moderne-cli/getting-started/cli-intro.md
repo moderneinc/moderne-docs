@@ -145,6 +145,18 @@ If you have private recipe artifacts and want to point the CLI to them, please r
 mod config recipes artifacts [artifactory|maven] edit
 ```
 
+You can install specific recipe artifacts to your local CLI recipe catalog by the groupId, artifactId and version:
+
+```shell
+mod config recipes jar install com.yourorg:rewrite-recipe-starter:latest.integration 
+```
+
+Or make local declarative yaml recipes available to the CLI through:
+
+```shell
+mod config recipes yaml install /path/to/your/recipe.yaml
+```
+
 ### (Optional) Configure artifact publishing and downloading
 
 If you want to publish artifacts from the CLI or download LSTs from your artifact repository when running commands, you'll need to run one of the following commands depending on where your LST artifacts live:
