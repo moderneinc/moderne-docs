@@ -87,9 +87,9 @@
     * [Interactions with git when applying changes](administrator-documentation/moderne-platform/references/how-moderne-applies-changes.md)
     * [Routing requests to agents](administrator-documentation/moderne-platform/references/routing-requests-to-agents.md)
     * [How LST artifacts are produced](administrator-documentation/moderne-platform/references/how-ast-artifacts-are-produced.md)
-    * [Supported languages](administrator-documentation/moderne-platform/references/supported-languages.md)
+    <!-- * [Supported languages](administrator-documentation/moderne-platform/references/supported-languages.md) -->
     * [Supported source code managers (SCMs)](administrator-documentation/moderne-platform/references/supported-scms.md)
-    * [Language roadmap](administrator-documentation/moderne-platform/references/language-roadmap.md)
+    <!-- * [Language roadmap](administrator-documentation/moderne-platform/references/language-roadmap.md) -->
     * [Concepts](administrator-documentation/moderne-platform/references/concepts/README.md)
       * [Lossless semantic trees](administrator-documentation/moderne-platform/references/concepts/lossless-semantic-trees.md)
     * [GraphQL API reference](https://studio.apollographql.com/public/Moderne-SaaS-API/variant/current)
