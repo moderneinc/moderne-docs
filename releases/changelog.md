@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.107.0 (2024/05/03)
+
+- Bug fixes and other improvements.
+
 ### UI v10.106.0 (2024/05/02)
 
 - add create and retrieve organizations examples
