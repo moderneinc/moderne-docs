@@ -145,13 +145,13 @@ If you have private recipe artifacts and want to point the CLI to them, please r
 mod config recipes artifacts [artifactory|maven] edit
 ```
 
-You can install specific recipe artifacts to your local CLI recipe catalog by the groupId, artifactId and version:
+You can also install specific recipe artifacts to your local CLI recipe catalog by utilizing a groupId, artifactId and version:
 
 ```shell
 mod config recipes jar install com.yourorg:rewrite-recipe-starter:latest.integration 
 ```
 
-Or make local declarative yaml recipes available to the CLI through:
+Or you can make local declarative YAML recipes available to the CLI through:
 
 ```shell
 mod config recipes yaml install /path/to/your/recipe.yaml
