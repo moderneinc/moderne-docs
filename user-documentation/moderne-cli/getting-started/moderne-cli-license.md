@@ -1,6 +1,6 @@
 # Moderne CLI license
 
-In order to **run recipes against private** repositories you will need to receive and configure a license. If you are using the CLI to run recipes against public repositories, you do not need to worry about a license.
+In order to **run recipes against private** repositories you will need to receive and configure a license. If you are using the CLI to run recipes against _public_ repositories, you do not need to worry about a license. The only thing you will need to do in that instance is authenticate with [app.moderne.io](https://app.moderne.io) and create a [Moderne token](../../moderne-platform/references/moderne-tokens.md).
 
 In this doc, we will walk through everything you need to know about the Moderne CLI license – from how to get one to how to configure one to all the details about how data flows through the systems.
 
@@ -28,7 +28,7 @@ The following diagram shows the flow of what checks will happen when you attempt
 Some important details about the license check:
 
 * The license **check does NOT make any call home requests to Moderne** (the public key packaged inside of the CLI is enough to verify the integrity of the signature).
-* Verification of the Moderne tenant configuration only makes a call to the Moderne tenant. If you are using DX, this is a call to inside of your private network. If you are using the Moderne Platform, this is a call to your isolated tenant (and not Moderne as a whole).&#x20;
+* Verification of the Moderne tenant configuration only makes a call to the Moderne tenant. If you are using DX, this is a call to inside of your private network. If you are using the Moderne Platform, this is a call to your isolated tenant (and not Moderne as a whole).
 * If you have configured a license key, no network calls will ever be made to GitHub to check to see if a repository is public.
 {% endhint %}
 
