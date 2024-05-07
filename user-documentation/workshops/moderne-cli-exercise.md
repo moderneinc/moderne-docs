@@ -79,8 +79,7 @@ source <(mod generate-completion)
 {% endhint %}
 
 5. Before you run any commands, you'll want to connect the CLI to Moderne. This allows you to easily sync the recipe catalog from Moderne to your local machine, and it will allow you to download LSTs that have already been built to save time and compute power. To do this, you will need to create a Moderne access token. Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token), enter a name for your token, and press `generate`.
-    * For more details on access token creation, please check out our [creating a personal access token doc](/user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md)
-
+   * For more details on access token creation, please check out our [creating a personal access token doc](../moderne-platform/how-to-guides/create-api-access-tokens.md)
 6. Once created, copy the token and use it in the following command so that the CLI can communicate with Moderne:
 
 ```bash
@@ -172,9 +171,10 @@ If you want to use `sdk` and the `java 8.0.392-zulu` distribution is not availab
 {% hint style="info" %}
 If you aren't on a Unix-based system or you don't want to install SDKMan, you'll need to install Java 8 and run something like:
 
-```bash
-export JAVA_HOME=REPLACE_WITH_LOCATION_OF_JAVA_8
-```
+<pre class="language-bash"><code class="lang-bash"><strong>export JAVA_HOME="C:\Program Files\Java\jdk1.8.0_202"
+</strong><strong># OR
+</strong><strong>setx JAVA_HOME "C:\Program Files\Java\jdk1.8.0_202"
+</strong></code></pre>
 {% endhint %}
 
 4. With Java 8 configured, make sure that the Spring PetClinic repository builds on your machine:
@@ -230,7 +230,7 @@ MOD SUCCEEDED in (27s)
 </details>
 
 {% hint style="info" %}
-If you want to run the CLI against private repositories you will [need to configure a license](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md). This isn't needed for this workshop, though.
+If you want to run the CLI against private repositories you will [need to configure a license](../moderne-cli/getting-started/moderne-cli-license.md). This isn't needed for this workshop, though.
 {% endhint %}
 
 2. Kick off the migration recipe by running the following command from the `spring-petclinic` repository:
@@ -1316,7 +1316,7 @@ If you'd rather make a branch for each repository and make changes in that, you 
 
 ### (Optional) Data tables example
 
-If you have time, the following example will demonstrate how to create and view the data tables available after a recipe runs. 
+If you have time, the following example will demonstrate how to create and view the data tables available after a recipe runs.
 
 #### Step 0: Create a new directory for the repositories:
 
@@ -1327,7 +1327,7 @@ cd $HOME/workshop/default
 
 #### Step 1: Clone repositories
 
-Run the command: 
+Run the command:
 
 ```bash
 mod git clone moderne . "Default"
@@ -1669,7 +1669,7 @@ Open up `methods.md` in your favorite markdown editor to view the results.
 
 If you have time, we recommend trying out one of the showcase recipes in OpenRewrite: [common static analysis](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis). This recipe is composed of 50+ recipes that find and fix common mistakes people make.
 
-0. Ensure you're still in the `$HOME/workshop/default` directory:
+1. Ensure you're still in the `$HOME/workshop/default` directory:
 
 ```bash
 cd $HOME/workshop/default
