@@ -171,10 +171,13 @@ If you want to use `sdk` and the `java 8.0.392-zulu` distribution is not availab
 {% hint style="info" %}
 If you aren't on a Unix-based system or you don't want to install SDKMan, you'll need to install Java 8 and run something like:
 
-<pre class="language-bash"><code class="lang-bash"><strong>export JAVA_HOME="C:\Program Files\Java\jdk1.8.0_202"
-</strong><strong># OR
-</strong><strong>setx JAVA_HOME "C:\Program Files\Java\jdk1.8.0_202"
-</strong></code></pre>
+```bash
+export JAVA_HOME="C:\Program Files\Java\jdk1.8.0_202
+
+# OR
+
+setx JAVA_HOME "C:\Program Files\Java\jdk1.8.0_202"
+```
 {% endhint %}
 
 4. With Java 8 configured, make sure that the Spring PetClinic repository builds on your machine:
