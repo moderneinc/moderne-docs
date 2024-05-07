@@ -1672,7 +1672,7 @@ Open up `methods.md` in your favorite markdown editor to view the results.
 
 If you have time, we recommend trying out one of the showcase recipes in OpenRewrite: [common static analysis](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis). This recipe is composed of 50+ recipes that find and fix common mistakes people make.
 
-1. Ensure you're still in the `$HOME/workshop/default` directory:
+0. Ensure you're still in the `$HOME/workshop/default` directory:
 
 ```bash
 cd $HOME/workshop/default
