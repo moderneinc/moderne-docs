@@ -1194,7 +1194,8 @@ mod git clone moderne $HOME/workshop "Spring Projects 2.x"
 If you look in the `$HOME/workshop/` directory, you should see 3 different repositories:
 
 ```bash
-ls -ltr $HOME/workshop/
+ls -ltr $HOME/workshop/ # For Mac/Unix users
+dir $HOME/workshop      # For Windows users
 ```
 
 <details>
@@ -1672,7 +1673,7 @@ Open up `methods.md` in your favorite markdown editor to view the results.
 
 If you have time, we recommend trying out one of the showcase recipes in OpenRewrite: [common static analysis](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis). This recipe is composed of 50+ recipes that find and fix common mistakes people make.
 
-0. Ensure you're still in the `$HOME/workshop/default` directory:
+1. Ensure you're still in the `$HOME/workshop/default` directory:
 
 ```bash
 cd $HOME/workshop/default
