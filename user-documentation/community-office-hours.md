@@ -6,6 +6,48 @@ Every week we [host a live office hours session](https://www.youtube.com/@modern
 
 You can find each of the office hours sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Weeding your micro service landscape (May 8th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=sGBxLC5j1Oc" %}
+
+#### Summary and related links
+
+* Announcements for the week:
+  * **Releases**:
+    * We've done a new full release of `rewrite` and the `rewrite-recipe-bom`. For a full list of changes, check out our [changelog over on the OpenRewrite docs](https://docs.openrewrite.org/changelog/8-25-0-release).
+      * It's really exciting to see so many new contributors to OpenRewrite. For [rewrite-spring](https://github.com/openrewrite/rewrite-spring), every commit in the past few weeks has been from a new contributor! One notable addition is an explicit [Spring Framework 6 migration recipe](https://docs.openrewrite.org/recipes/java/spring/framework/upgradespringframework_6_0) added by [@pativa](https://github.com/pativa).
+      * With the latest versions of the build plugins, you'll now get a report on how much time you've saved from running a recipe.
+      * You'll also find that if you slightly misspell a recipe name that you'll get a hint about what you may have meant instead. This should help improve the debugging experience.
+      * We've created a [doc explaining how to use data tables with the Maven plugin](https://docs.openrewrite.org/running-recipes/data-tables). Keep in mind this is fairly limited, and you'll need to use [Moderne](https://docs.moderne.io/) to get the full benefit of data tables.
+      * We've added a new recipe module this week - [rewrite-jackson](https://github.com/openrewrite/rewrite-jackson). As part of that, we added [a recipe to help you migrate from Jackson Codehaus to Jackson FasterXML](https://github.com/openrewrite/rewrite-jackson/blob/main/src/main/resources/META-INF/rewrite/codehaus-to-fasterxml.yml).
+  * **Events**:
+    * Tim will be at [JCON Europe from May 13th - 16th](https://jconeurope2024.sched.com/). He will be giving a talk on [Transforming Code with OpenRewrite and Refaster](https://jconeurope2024.sched.com/event/1Z2tI/transforming-code-with-openrewrite-and-refaster) and [Weeding your Micro Service Landscape](https://jconeurope2024.sched.com/event/1YwSG/weeding-your-micro-service-landscape).
+    * We'll be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/).
+    * Sam will be giving [a webinar about OpenRewrite fundamentals on May 31st at NFJS 2024](https://nofluffjuststuff.com/webinar/116/migration_engineering_w_openrewrite). There will be a second part the following week about writing custom recipes using OpenRewrite. If you want to learn how to write your own recipes, definitely consider checking that out!
+  * **Content**:
+    * We wrote a blog post about [four ways Moderne hardens your code against security vulnerabilities](https://www.moderne.io/blog/best-practices-for-preventing-cybersecurity-threats). At a high-level, we can help by doing in-depth code analysis, static code analysis, software composition analysis, and third-party code migration.
+    * We wrote a LinkedIn post about [using OpenRewrite and Moderne for mass-scale refactoring](https://www.linkedin.com/pulse/game-changer-developers-mass-scale-refactoring-moderneinc-x2eic/). This is a great introduction to both of the tools and could be helpful if you're looking to help onboard someone.
+  * **Press/Mentions**:
+    * In case you missed it, there was [an interesting podcast about how OpenRewrite came about](https://open.spotify.com/episode/0kR28LMf6P9xB9vwokfnYU) if you were curious to learn more about that. 
+* Weeding your microservices
+  * [Started out by Tim talking about genetics and how those problems relate to OpenRewrite and recipes](https://youtu.be/sGBxLC5j1Oc?t=651). There are a lot of parallels between the two – which can be useful to think about when making recipes.
+  * [We then talked about build tools and the recipes that exist to help you introduce, update, or analyze them](https://youtu.be/sGBxLC5j1Oc?t=1527). It's common for people to add tools and then have them slowly drift apart across your repositories. We can help you track those drifts and standardize them. For example: adding or [updating wrappers](https://app.moderne.io/recipes/org.openrewrite.maven.UpdateMavenWrapper) or switching from `mvn clean install` to `mvn verify`.
+    * [Maven recipes](https://app.moderne.io/marketplace/org.openrewrite.maven)
+    * [Gradle recipes](https://app.moderne.io/marketplace/org.openrewrite.gradle)
+    * [OpenRewrite DevCenter where you can run a Gradle wrapper visualization](https://app.moderne.io/devcenter/OpenRewrite)
+  * [Up next was talking about CI recipes](https://youtu.be/sGBxLC5j1Oc?t=1870). There are a lot of workflow descriptors that many people will often not go back and update. These can be things like changing from `master` to `main` for your builds - which isn't a particularly challenging change - but if you want to do that across all of your projects it really helps to have automation. You may also want to use these recipes to help [automate code reviews](https://www.moderne.io/blog/stop-breaking-ci-annotate-prs-with-openrewrite-recipe-fixes-as-quality-gate) 
+    * [GitHub Actions recipes](https://app.moderne.io/marketplace/org.openrewrite.github)
+    * [Find files](https://app.moderne.io/recipes/org.openrewrite.FindSourceFiles) in combination with [Merge YAML](https://app.moderne.io/recipes/org.openrewrite.yaml.MergeYaml)
+  * We then looked at [Kubernetes deployment descriptors](https://youtu.be/sGBxLC5j1Oc?t=2214). Many people will just copy these between projects without really understanding if everything is needed – which can lead to some dangerous scenarios. We've used Kubernetes recipes to update environment variables, change Dockerfiles, switch from `/health` to `/liveness` and `/readiness`, limit resources, gracefully shut down services, etc.
+    * [Kubernetes recipes](https://app.moderne.io/marketplace/org.openrewrite.kubernetes)
+  * Next, we discussed how you can [update libraries, frameworks, and languages](https://youtu.be/sGBxLC5j1Oc?t=2404). Some examples of this include: 
+    * [Migrating to AssertJ](https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.MigrateHamcrestToAssertJ)
+    * [Migrating from JUnit 4 to 5](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.UpdateTestAnnotation)
+    * [Updating Spring Boot versions](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2).
+  * Lastly, we talked about some [general cleanup recipes](https://youtu.be/sGBxLC5j1Oc?t=2464). For instance: 
+    * People sometimes commit their `.DS_Store` files from their computers to code, and you may want to use the [Delete files recipe](https://app.moderne.io/recipes/org.openrewrite.DeleteSourceFiles) to clean those up. Automating something like this not only helps clean stuff up _now_ - but also helps prevent or clean up problems that will arise in the future.
+    * Tim shared that a [blog post on flowers](https://gigamonkeys.com/flowers/) helped shape what he's decided to pursue as an engineer. After your experiments and learning are done, you want to "weed" the garden and standardize your tools.
+
 ### Contributing to OSS through Moderne (May 1st, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=S6408r36Io4" %}
@@ -14,7 +56,7 @@ You can find each of the office hours sessions below along with a summary of wha
 
 * Announcements for the week:
   * **Releases**:
-    * Shout out to Ryan Hudson who [added support for data tables to the rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin/pull/751).
+    * Shout out to [Ryan Hudson](https://github.com/ryan-hudson) who [added support for data tables to the rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin/pull/751).
       * Please feel free to jump in and add similar support to the [rewrite-gradle-plugin](https://github.com/openrewrite/rewrite-gradle-plugin).
       * If you want to learn more about data tables, check out our [getting started with data tables doc](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/data-tables) that shows how useful they can be at scale with Moderne.
   * **Events**:
