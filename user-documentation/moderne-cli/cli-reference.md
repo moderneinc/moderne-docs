@@ -151,6 +151,8 @@
 * [**mod log**](#mod-log)
 * [**mod log builds**](#mod-log-builds)
 * [**mod log builds add**](#mod-log-builds-add)
+* [**mod log runs**](#mod-log-runs)
+* [**mod log runs add**](#mod-log-runs-add)
 * [**mod list**](#mod-list)
 * [**mod monitor**](#mod-monitor)
 * [**mod publish**](#mod-publish)
@@ -3599,6 +3601,7 @@ mod log [parameters] [subcommands]
 ### Subcommands
 
 * `builds`: Adds a set of build logs to a log aggregate.
+* `runs`: Adds a set of run logs to a log aggregate.
 
 ## mod log builds
 
@@ -3647,6 +3650,56 @@ mod log builds add [parameters]
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+
+
+## mod log runs
+
+Adds a set of run logs to a log aggregate.
+
+
+In contrast to a CI log which is designed to look at one repository at a time, a log aggregate is designed to look at many repositories at once, illuminating the common causes of failure (or success) and the overall health of a recipe run.
+
+### Usage
+
+```
+mod log runs [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `add`: Adds a set of run logs to a log aggregate.
+
+## mod log runs add
+
+Adds a set of run logs to a log aggregate.
+
+
+For each repository that has a matching run, add its run log to the aggregate.
+
+### Usage
+
+```
+mod log runs add [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| logPath |  The absolute or relative path on disk to a log aggregate (a zip file). The file need not exist, though its containing directory is expected to exist. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --last-run |  Select whatever the last run was, whether the run ran fully to completion or terminated early. |  |
+| --organization |  Organization name to override the organization associated with each run. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --run |  A run ID for a run that has completed previously. |  |
 
 
 ## mod list
