@@ -23,7 +23,7 @@ After that, we'll provide some additional examples that show other capabilities 
 ```
 ➜ mod
 
-Moderne CLI 3.3.2
+Moderne CLI 3.5.0
 
 Usage:
 
@@ -101,7 +101,7 @@ mod config recipes moderne install UpgradeSpringBoot_3_2
 ```shell
 ➜ mod config recipes moderne install UpgradeSpringBoot_3_2
 
-Moderne CLI 3.3.2
+Moderne CLI 3.5.0
 
 [1] Migrate to Spring Boot 3.2
 [2] Migrate to Spring Boot 3.1
@@ -205,7 +205,7 @@ mod build .
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.3.2
+Moderne CLI 3.5.0
 
 > Selecting repositories
 
@@ -247,7 +247,7 @@ mod run . --recipe UpgradeSpringBoot_3_2
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.3.2
+Moderne CLI 3.5.0
 
 > Selecting repositories
 
@@ -1223,7 +1223,7 @@ mod build $HOME/workshop
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.3.2
+Moderne CLI 3.5.0
 
 > Selecting repositories
 
@@ -1277,7 +1277,7 @@ You can preview the changes by command/ctrl clicking on the patch file generated
 ```bash
 ➜  ~ mod run $HOME/workshop --recipe UpgradeSpringBoot_3_2
 
-Moderne CLI 3.3.2
+Moderne CLI 3.5.0
 
 > Selecting repositories
 
@@ -1342,7 +1342,7 @@ mod git clone moderne . "Default"
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.3.2
+Moderne CLI 3.5.0
 
 > Listing repositories from Moderne
 
@@ -1382,7 +1382,7 @@ mod build .
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.3.2
+Moderne CLI 3.5.0
 
 > Selecting repositories
 
@@ -1501,7 +1501,7 @@ mod run . --recipe UpgradeToJava17
 <summary>You should see results similar to the following</summary>
 
 ```bash
-Moderne CLI 3.3.2
+Moderne CLI 3.5.0
 
 > Selecting repositories
 
@@ -1588,7 +1588,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 <summary>You should see results similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.3.2
+Moderne CLI 3.5.0
 
 Found recipe run 20240429093354-reHx5
 
@@ -1690,7 +1690,7 @@ mod run . --recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
 <summary>You should see results similar to:</summary>
 
 ```bash
-Moderne CLI 3.3.2
+Moderne CLI 3.5.0
 
 > Selecting repositories
 
