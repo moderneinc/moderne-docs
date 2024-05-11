@@ -47,7 +47,6 @@
   * [Air-gapped Moderne CLI workshop](user-documentation/workshops/air-gapped-cli.md)
   * [Moderne platform exercise](user-documentation/workshops/moderne-platform-exercise.md)
   * [Migrate your own project](user-documentation/workshops/migrate-your-own-project.md)
-  * [Recipe development](user-documentation/workshops/recipe-development.md)
 * [Community office hours](user-documentation/community-office-hours.md)
 
 ## Administrator documentation
