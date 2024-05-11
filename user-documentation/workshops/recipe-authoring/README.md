@@ -343,7 +343,6 @@ TreeVisitingPrinter
 
 ## Publishing recipes
 
-## Recipe conventions and best practices
 
 ## Running at scale
 ### Moderne CLI
@@ -352,6 +351,22 @@ TreeVisitingPrinter
 
 ### DevCenter
 --> 
+
+
+## Recipe conventions and best practices
+We've documented the most important [recipe conventions and best practices](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices) to help you write recipes that are safe, idempotent, and efficient.
+Where possible, we've automated these checks in the unit testing framework, to help you catch issues early.
+
+You can also run recipe against your rewrite recipe module, to see resolve issues automatically where possible.
+These are based on a collection of [best practices for writing OpenRewrite recipes](https://docs.openrewrite.org/recipes/recipes/openrewritebestpractices).
+You can apply these recommendations to your recipes by running the following command:
+```bash
+./gradlew rewriteRun -Drewrite.activeRecipe=org.openrewrite.recipes.OpenRewriteBestPractices
+```
+or
+```bash
+mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-recommendations:RELEASE -Drewrite.activeRecipes=org.openrewrite.recipes.OpenRewriteBestPractices
+```
 
 ## Contributing to OpenRewrite
 Now that you've written your own recipes, you might want to contribute back to the OpenRewrite community.
