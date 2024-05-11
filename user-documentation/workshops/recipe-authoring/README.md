@@ -17,7 +17,7 @@ If you get stuck, or have questions, feel free to ask in the [OpenRewrite Slack]
 
 Before writing your own recipes it can be helpful to know what recipes are already available and how to run them.
 The [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) contains a list of recipes that are available to run.
-You can also browse the rich view at https://app.moderne.io/marketplace to immediately see the recipes in action.
+You can also browse the rich view at [app.moderne.io](https://app.moderne.io/marketplace) to immediately see the recipes in action.
 
 There's various ways to run recipes, depending on your needs.
 
@@ -37,9 +37,10 @@ There's various ways to run recipes, depending on your needs.
    - Supports some 37.000 Open Source projects and organizations for free
    - Requires a company subscription for private projects.
 
-There's a wealth of recipes available to run, so to get comfortable running recipes, try running some of the recipes from the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) against your own projects.
+Learn more about [the differences between OpenRewrite and Moderne](https://docs.openrewrite.org/#refactoring-at-scale-with-moderne).
 
 ### Exercise 1: Run a recipe from the OpenRewrite recipe catalog against your own project.
+There's a wealth of recipes available to run, so to get comfortable running recipes, try running some of the recipes from the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) against your own projects.
 
 #### Goals for this exercise
 - See what recipes are already available in the OpenRewrite recipe catalog.
@@ -78,16 +79,22 @@ There's a wealth of recipes available to run, so to get comfortable running reci
    - The Moderne Platform requires you to [sign in with a GitHub account](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/running-your-first-recipe), before running recipes.
 5. Review the changes made by the recipe, and ensure they are what you expected.
 6. Optionally, commit the changes made by the recipe to a new branch in your project, or discard them.
+7. Go back to the recipe page; click on the link to the source code of the recipe on GitHub.
+   - See if you can correlate the changes made by the recipe with the code in the recipe.
 
 #### Takeaways
 - There's some 2500 recipes already available to run, covering a wide range of use cases.
 - Recipes can make changes to Java source files, properties files, XML files, build files and more.
-- It's not necessary to change your build to run recipes, but it can be helpful to do so when running recipes repeatedly.
+- It's not necessary to change your build to run recipes, but it can be helpful to add the plugins when running recipes repeatedly.
 - Any recipe page in the docs links to the source code of the recipe on GitHub, so you can see how it's implemented.
 - The tests for the recipe are also available, so you can see how the recipe behaves in various scenarios.
 - The Moderne CLI and Platform allow you to run recipes at scale, to see how recipes behave in practice.
+- Notice how most recipes are packaged into separate rewrite recipe modules, that you add as plugin dependency or `recipeArtifactCoordinates`.
+  - There's separate modules for static code analysis, Spring recipes, Java recipes, testing recipes, logging recipes, and [many more under the OpenRewrite GitHub organization](https://github.com/openrewrite/).
 
 ## Recipe development environment
+
+Now that you've seen how to run recipes, let's look at how to write your own recipes.
 
 You'll want to have the following installed:
 
@@ -96,7 +103,36 @@ You'll want to have the following installed:
 - IntelliJ IDEA 2024.1+ Ultimate
     - In particular [the OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes
     - Optionally, [the Moderne plugin](https://plugins.jetbrains.com/plugin/17565-moderne), for faster recipe development
-- A local git clone of https://github.com/moderneinc/rewrite-recipe-starter, as a starting point for your recipe module
+- A local git clone of https://github.com/moderneinc/rewrite-recipe-starter, as a starting point for your own recipe module
 - Optionally, [the Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro), to run recipes at scale locally, and debug against serialized LSTs
 
-Next you'll want to [customize your IntelliJ IDEA settings](https://docs.openrewrite.org/authoring-recipes/recipe-development-environment). Then [follow these tips for faster feedback](https://docs.openrewrite.org/reference/building-openrewrite-from-source#developing-tips) from your unit tests.
+### Exercise 2: Create your own recipe module
+
+#### Goals for this exercise:
+- Set up a new recipe module in your IDE, based on the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project.
+- Run the unit tests for the recipe module, to ensure everything is set up correctly.
+- Install your recipe module to your local Maven repository, to run it against your own projects.
+
+#### Steps
+1. Git clone the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter).
+   - You can either clone the project at is, or use it as a template to create a new GitHub repository.
+2. Open the project in IntelliJ IDEA.
+   - You have the option to import the project as a Maven project, or as a Gradle project. Pick the one you're most comfortable with.
+3. Next you'll want to [customize your IntelliJ IDEA settings](https://docs.openrewrite.org/authoring-recipes/recipe-development-environment).
+   - Then [follow these tips for faster feedback](https://docs.openrewrite.org/reference/building-openrewrite-from-source#developing-tips) from your unit tests.
+4. Run the unit tests in the project, to ensure everything is set up correctly.
+   - All tests should pass, and you should see a message that the project was successfully built.
+5. Customize the project `groupId` and `artifactId` in the `pom.xml` file, or `build.gradle` and `settings.gradle` file.
+   - This helps make the project your own, and allows you to version and share your recipes without conflicts.
+6. Install the project to your local Maven repository.
+   - Run `mvn install` from the root of the project, or `./gradlew publishToMavenLocal` if you're using Gradle.
+   - You should see a message that the project was successfully installed to your local Maven repository.
+7. Run recipe `com.yourorg.AssertEqualsToAssertThat` against your project from Exercise 1.
+   - You'll need to add a dependency on your recipe module to your project, or provide `-Drewrite.recipeArtifactCoordinates=com.yourorg:rewrite-recipe-starter:LATEST` on the commandline.
+   - You should see limited changes to your project if you were using JUnit's `Assertions assertEquals(..)` method.
+8. Briefly look over the various recipes and tests in the starter project; We'll visit these in more details in upcoming exercises.
+
+#### Takeaways
+- The Rewrite recipe starter project is a good starting point for your own recipe module.
+- There's various types of recipes included in the starter project, to give you a feel for how they're implemented.
+- The unit tests in the starter project take in text blocks that assert the state before and after running a recipe.
