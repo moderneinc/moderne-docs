@@ -159,18 +159,101 @@ It's important to note there are different types of recipes, each with their own
 2. [Refaster rules ](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#refaster-templates)bring you the benefit of compiler support, and work best for straightforward replacements. They generate recipes that can also be used as a starting point for more complex recipe implementations.
 3. [Imperative recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#imperative-recipes) are the most powerful, and allow you to write Java code to implement your recipe. By [using the `JavaTemplate` builder](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate), you can keep complexity down, as you define arbitrary code changes.
 
-No matter which method of recipe development you choose, you can always [write unit tests for your recipe](https://docs.openrewrite.org/authoring-recipes/recipe-testing). Beyond that there are [best practices for writing recipes](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices), such as ensuring idempotence, and avoiding harmful changes.
+No matter which method of recipe development you choose, you can always [write unit tests for your recipe](https://docs.openrewrite.org/authoring-recipes/recipe-testing).
+Beyond that there are [best practices for writing recipes](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices), such as ensuring idempotence, and avoiding harmful changes.
 
 ## Declarative YAML recipes
+As a best practice, if your recipe can be declarative (meaning it can be built out of other recipes), then you should make it declarative.
+Generally, the declarative building blocks handle the heavy lifting, and your recipe just ties them together with some configuration.
+The building blocks have also been vetted to handle various cases correctly, such as only adding dependencies as needed, or correctly changing the Lossless Semantic Tree element types.
 
-### Composing recipes
+### Exercise 3: Write a declarative YAML recipe
+Let's have a look at a simple declarative YAML recipe, and expand that to cover an additional use case.
 
-### Configuring options
+#### Goals for this exercise
+- Write a declarative YAML recipe that ties together existing recipes.
+- Configure a recipe with options, to convert and additional use case.
+
+#### Steps
+1. Open the `rewrite-recipe-starter` project in IntelliJ IDEA
+   - If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor support for writing and running recipes.
+   - You can also compose recipes in [the Moderne Platform recipe builder](https://app.moderne.io/recipes/builder), and run them against Open Source projects.
+2. Open the Rewrite yaml file `src/main/resources/META-INF/rewrite/stringutils.yml`.
+   - Notice how the file is structured, with a `type`, `name`, `displayName`, `description`, and `recipeList` fields.
+   - Comment out the `type:` and see how that disables the OpenRewrite support.
+3. Note how the `recipeList` field is a list of fully qualified class names of recipes, with options.
+   - Click through on the `AddDependency` and `ChangeType` recipes to open their definition.
+   - Have your IDE suggest options to existing recipes by triggering auto-completion.
+4. The migration recipe is a great start, but far from complete; 
+   Let's add a recipe to change from [Spring's `trimWhitepace(String)`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/StringUtils.html#trimWhitespace(java.lang.String)) to [Apache Common's `StringUtils.strip(String)`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html#strip-java.lang.String-).
+   - Add a new recipe to the end of the `recipeList` field, [for `org.openrewrite.java.ChangeMethodName`](https://docs.openrewrite.org/recipes/java/changemethodname).
+   - Pass in `methodPattern: org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)` and `newMethodName: strip`.
+   - Notice how [the method pattern](https://docs.openrewrite.org/reference/method-patterns) refers to a method that does not exist: Apache Commons does not have a `trimWhitespace` method, but the Spring does. That's because we first execute the `ChangeType`, which updates the LST type elements which we match against in subsequent recipes. That's important to keep in mind when chaining recipes together.
+5. Open the unit test `src/test/java/com/yourorg/UseApacheStringUtilsTest.java`.
+   - Notice how we implement `RewriteTest`, override `defaults(RecipeSpec)` to run our recipe, configure a classpath for the tests that has both `commons-lang3` and `spring-core` on it.
+   - Run the first test; note how we invoke `rewriteRun(SourceSpecs...)`, pass in a single `java(String, String)` source specification, that takes in a before and after text block.
+   - The `//language=java` [language injection](https://www.jetbrains.com/help/idea/using-language-injections.html) enables syntax highlighting and code completion in the text block.
+   - All together, this asserts that when we run the recipe, that we assert that an input `before` text block, is converted into the `after` text block.
+6. Add a unit test for the `ChangeMethodName` recipe we added for `trimWhitespace` to `strip`.
+   <details>
+   <summary> `@Test void trimWhitespace() { ... }` </summary>
+
+   ```java
+   @Test
+   void trimWhitespace() {
+       rewriteRun(
+         //language=java
+         java(
+           """
+             import org.springframework.util.StringUtils;
+             
+             class A {
+                 boolean test(String s) {
+                     return StringUtils.trimWhitespace(s);
+                 }
+             }
+             """,
+           """
+             import org.apache.commons.lang3.StringUtils;
+             
+             class A {
+                 boolean test(String s) {
+                     return StringUtils.strip(s);
+                 }
+             }
+             """
+         )
+       );
+   }
+   ```
+   </details>
+   - Run the new unit test, and verify that the correct changes are indeed made. 
+
+#### Takeaways
+- Declarative recipes are the simplest to write, and are the most common type of recipe.
+- Common building blocks can be configured and combined to compose more complex migrations.
+- Recipes can be chained together, to make multiple changes to your code in a single run.
+- When changing types, keep in mind the order of recipes, and the types to match partway through a migration in subsequent recipes.
+- Unit tests as always are a great way to ensure your recipe behaves as expected.
 
 ### Preconditions
+[Preconditions](https://docs.openrewrite.org/reference/yaml-format-reference#preconditions) are used to limit which source files a recipe is run on.
+This is commonly used to target specific files or directories, but any recipe which is not a `ScanningRecipe` can be used as a precondition.
+
+When a recipe is used as a precondition, any file it would make a change to is considered to meet the precondition. When more than one recipe are used as preconditions, all of them must make a change to the file for it to be considered to meet the precondition.
+
+Preconditions also mean other recipes don't all individually need to support options to limit themselves to particular paths for instance, as the precondition can do that for them.
+
+### Exercise 4: Adding preconditions to a recipe
+Let's update the `stringutils.yml` recipe to only run on sources that are likely tests, by adding a precondition.
+We'll use [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://docs.openrewrite.org/recipes/java/search/islikelytest).
+
+#### Goals for this exercise
 
 
 <!--
+
+
 ## Testing recipes
 
 ## Writing Refaster recipes
@@ -193,6 +276,8 @@ TreeVisitingPrinter
 ## Debugging recipes
 
 ## Publishing recipes
+
+## Recipe conventions and best practices
 
 ## Running at scale
 ### Moderne CLI
