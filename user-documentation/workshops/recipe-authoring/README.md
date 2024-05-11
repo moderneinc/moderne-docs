@@ -1,12 +1,11 @@
 # OpenRewrite recipe authoring workshop
 
-## Basics
-
 OpenRewrite is a framework for writing and running code transformations.
 Recipes are the unit of work in OpenRewrite, and can be written in YAML, Refaster, or imperative Java.
 
 In this workshop, we'll look at various aspects of writing recipes;
 from simple YAML recipes, to more complex imperative recipes, and how to test, debug and run recipes at scale.
+
 This workshop is designed to be hands-on, so you can follow along with the examples in your own environment.
 The workshop consists of the materials you see here, and a set of exercises to help you practice what you've learned.
 Be sure to also follow links to the [OpenRewrite documentation](https://docs.openrewrite.org/) for more in-depth information.
@@ -136,3 +135,77 @@ You'll want to have the following installed:
 - The Rewrite recipe starter project is a good starting point for your own recipe module.
 - There's various types of recipes included in the starter project, to give you a feel for how they're implemented.
 - The unit tests in the starter project take in text blocks that assert the state before and after running a recipe.
+
+## Fundamental concepts
+Before we dive into writing recipes, let's take a look at some fundamental concepts that underpin OpenRewrite.
+
+Read up on the following concepts in the [OpenRewrite documentation](https://docs.openrewrite.org/), to get a better understanding of how OpenRewrite works:
+
+1. [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-explanations/lossless-semantic-trees)
+   - [Java LST examples](https://docs.openrewrite.org/concepts-explanations/lst-examples)
+   - [Yaml LST examples](https://docs.openrewrite.org/concepts-explanations/yaml-lst-examples)
+   - [TreeVisitingPrinter](https://docs.openrewrite.org/concepts-explanations/tree-visiting-printer)
+2. [Visitors](https://docs.openrewrite.org/concepts-explanations/visitors)
+   - [Cursoring](https://docs.openrewrite.org/concepts-explanations/visitors#cursoring)
+   - [Isomorphic vs. non-isomorphic](https://docs.openrewrite.org/concepts-explanations/visitors#isomorphic-vs.-non-isomorphic-visitors)
+3. [Recipes](https://docs.openrewrite.org/concepts-explanations/recipes)
+
+These concepts should give you some sense as to the importance of exact type attribution, and how visitors are used to traverse and modify the LST.
+Without these, it would be next to impossible to write recipes that make changes to your code reliably.
+
+### Three types of recipes
+It's important to note there are different types of recipes, each with their own tradeoffs.
+1. [Declarative recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#declarative-recipes) are the simplest to write, and are the most common type of recipe. They are written in YAML, and often tie together existing recipe building blocks with some light configuration.
+2. [Refaster rules ](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#refaster-templates)bring you the benefit of compiler support, and work best for straightforward replacements. They generate recipes that can also be used as a starting point for more complex recipe implementations.
+3. [Imperative recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#imperative-recipes) are the most powerful, and allow you to write Java code to implement your recipe. By [using the `JavaTemplate` builder](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate), you can keep complexity down, as you define arbitrary code changes.
+
+No matter which method of recipe development you choose, you can always [write unit tests for your recipe](https://docs.openrewrite.org/authoring-recipes/recipe-testing). Beyond that there are [best practices for writing recipes](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices), such as ensuring idempotence, and avoiding harmful changes.
+
+## Declarative YAML recipes
+
+### Composing recipes
+
+### Configuring options
+
+### Preconditions
+
+
+<!--
+## Testing recipes
+
+## Writing Refaster recipes
+
+## Writing imperative recipes
+
+### Visitor pattern
+
+TreeVisitingPrinter
+
+### JavaTemplate
+
+### Working with dependencies
+
+### Scanning recipes
+
+### Data tables
+
+
+## Debugging recipes
+
+## Publishing recipes
+
+## Running at scale
+### Moderne CLI
+
+### Moderne Platform
+
+### DevCenter
+
+
+## Contributing to OpenRewrite
+Now that you've written your own recipes, you might want to contribute them back to the OpenRewrite community.
+For any new contribution, the first thing to check is whether there is already a corresponding [issue on the backlog](https://github.com/orgs/openrewrite/projects/4/views/10), perhaps with some pointers on an implementation.
+If not, you can [create a new issue](https://github.com/openrewrite/rewrite-spring/issues/new/choose) to discuss the recipe you'd like to develop.
+Note that there are separate modules for Spring recipes, Java recipes, testing recipes, logging recipes, and many more.
+It helps to browse the existing modules for any related work that might be similar and start from there.
+-->
