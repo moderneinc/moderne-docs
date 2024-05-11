@@ -245,11 +245,31 @@ When a recipe is used as a precondition, any file it would make a change to is c
 Preconditions also mean other recipes don't all individually need to support options to limit themselves to particular paths for instance, as the precondition can do that for them.
 
 ### Exercise 4: Adding preconditions to a recipe
-Let's update the `stringutils.yml` recipe to only run on sources that are likely tests, by adding a precondition.
-We'll use [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://docs.openrewrite.org/recipes/java/search/islikelytest).
+Let's update the `stringutils.yml` recipe to only run on sources that are likely tests, by adding a precondition using [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://docs.openrewrite.org/recipes/java/search/islikelytest).
 
 #### Goals for this exercise
+- Discover common preconditions, and how to combine those with recipes.
 
+#### Steps
+1. Open the Rewrite yaml file `src/main/resources/META-INF/rewrite/stringutils.yml` once again.
+2. Add a `preconditions` field to the recipe, in between the `description` and `recipeList` fields.
+   - Add a single `org.openrewrite.java.search.IsLikelyTest` recipe to the list of preconditions, with no options.
+   - Ignore the `Schema validation: Property 'precondition' is not allowed` from IntelliJ; it very much is allowed.
+3. Open the unit test `src/test/java/com/yourorg/UseApacheStringUtilsTest.java`.
+   - Run the tests; verify that neither test makes any changes right now.
+   - Add static import on `org.openrewrite.java.Assertions.srcTestJava`
+   - Wrap the `java(String, String)` methods with `srcTestJava()` to indicate that the sources are tests.
+   - Run the tests again, and verify that they now pass.
+4. Explore other `Find` recipes in the OpenRewrite recipe catalog
+   - [org.openrewrite.FindSourceFiles](https://docs.openrewrite.org/recipes/core/findsourcefiles), to match specific files or directories.
+   - [org.openrewrite.java.migrate.search.FindJavaVersion](https://docs.openrewrite.org/recipes/java/migrate/search/findjavaversion), to match specific Java versions.
+   - [org.openrewrite.java.search.FindTypes](https://docs.openrewrite.org/recipes/java/search/findtypes), to find type references by name.
+
+#### Takeaways
+- Preconditions are used to limit which source files a recipe is run on.
+- Common preconditions can be used to target specific files or directories.
+- When a recipe is used as a precondition, any file it would make a change to is considered to meet the precondition.
+- Preconditions themselves do not make changes to the source code, but are used to limit which files a recipe is run on.
 
 <!--
 
