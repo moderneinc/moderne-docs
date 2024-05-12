@@ -366,6 +366,7 @@ Let's look at an existing Refaster recipe in the starter project, and see how it
 For use cases beyond what declarative recipes and Refaster templates can handle, you'll want to look at [writing a Java refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe).
 You might want to refresh your memory on [visitor pattern](https://docs.openrewrite.org/concepts-explanations/visitors) and [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-explanations/lossless-semantic-trees) before you dive in.
 These [imperative recipes](https://docs.openrewrite.org/concepts-explanations/recipes#imperative-recipes) use the visitor pattern to traverse the LSTs, and make changes to the code.
+The `JavaTemplate` class is used to [create new LST elements](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate), that can replace existing LST elements.
 
 ### Exercise 7: Explore an imperative recipe
 Let's look at an existing imperative recipe in the starter project, and see how it's implemented.
@@ -384,6 +385,7 @@ Let's look at an existing imperative recipe in the starter project, and see how 
    - Click through on `super.visitCompilationUnit` to see how the tree is traversed.
    - Comment out the `super.visitCompilationUnit` and see how the recipe fails to make any changes.
 3. We override `visitMethodInvocation` to replace each of the Guava calls.
+   - See how we apply Preconditions here too, through the Java API, to limit which source files are visited.
    - Notice how we pass in a `Cursor` and `JavaCoordinates` when we apply the `JavaTemplate`. This is necessary to ensure that the changes are made in the correct location. Briefly explore the other coordinates available.
    - Notice the type parameters passed in to the `JavaTemplate`s, and how those match the arguments passing into `apply`.
    - The calls to `maybeAddImport` and `maybeRemoveImport` are necessary to ensure that the imports are correctly updated. These will only be added or removed if the first or last LST element using the import is added/removed. 
@@ -406,20 +408,38 @@ Let's look at an existing imperative recipe in the starter project, and see how 
 - The `maybeAddImport` and `maybeRemoveImport` methods are necessary to ensure that the imports are correctly updated.
 - The `TreeVisitingPrinter` can be used to print the LST elements in more detail, to help you understand the structure of the tree.
 
-<!--
+## Advanced recipe development
+Beyond the basics of writing recipes, there are a number of advanced topics that you might want to explore on your own.
+
 ### Working with dependencies
+When writing recipes, you might want to add dependencies to your project, to use types from those dependencies in your recipes.
+When you need to support recipes across multiple major versions, you'll want to look at [using multiple versions of a library in a project](https://docs.openrewrite.org/authoring-recipes/multiple-versions).
+
 ### Scanning recipes
+When creating new recipes, you may find it desirable to examine multiple source files, potentially of different types, to make key decisions in your visitor.
+For example, you may want to look for a particular condition to be present in a Maven POM file and, if that condition is met, alter an application property in a YAML file.
+This is where [scanning recipes](https://docs.openrewrite.org/authoring-recipes/writing-recipes-over-multiple-source-file-types) come in.
+The rewrite-recipe starter contains an example in the form of `src/main/java/com/yourorg/AppendToReleaseNotes.java` that you might want to explore.
+
 ### Data tables
+Sometimes you're more interested in extracting insights from across your projects, rather than directly making code changes.
+In those cases [data tables](https://docs.openrewrite.org/running-recipes/data-tables) come in handy, as they allow you to extract data from your projects, and analyze it in a tabular format.
+The `src/main/java/com/yourorg/ClassHierarchy.java` recipe in the starter project is a good example of how to use data tables.
 
-## Debugging recipes
-## Publishing recipes
+### Debugging recipes
+When you're developing recipes, you might want to debug them to see how they behave in practice against real projects.
+The Moderne IntelliJ IDEA plugin has support for [running recipes in debug mode](https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/moderne-intellij-plugin), to see how they behave in practice.
+This leverages [the Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) for recipe runs against a serialized LST, skipping the time-consuming parsing step.
 
-## Running at scale
-### Moderne CLI
-### Moderne Platform
-### DevCenter
---> 
+### Running at scale
+Once you have your recipes developed, you'll likely want to run them against not just one project, but many projects.
 
+[The Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) is a great way to run recipes across projects from your local machine. This uses serialized LSTs to allow repeated recipe runs against the same model, and create commits and push up changes across many repositories.
+
+[The Moderne Platform](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/running-your-first-recipe) allows you to [run recipes against Open Source projects](https://app.moderne.io/marketplace), and see how they behave in practice.
+You can preview the changes and choose to create a pull request, or discard the changes.
+You can also generate reports and visualizations, and track progress towards migration goals across time through the DevCenter.
+See [the DevCenter for Apache Maven](https://app.moderne.io/devcenter/Apache%20Maven) as an example of goals being tracked and made actionable through recipes.
 
 ## Recipe conventions and best practices
 We've documented the most important [recipe conventions and best practices](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices) to help you write recipes that are safe, idempotent, and efficient.
@@ -427,11 +447,11 @@ Where possible, we've automated these checks in the unit testing framework, to h
 
 You can also run recipe against your rewrite recipe module, to see resolve issues automatically where possible.
 These are based on a collection of [best practices for writing OpenRewrite recipes](https://docs.openrewrite.org/recipes/recipes/openrewritebestpractices).
-You can apply these recommendations to your recipes by running the following command:
+You can apply these recommendations to your recipes by running the following command for Gradle
 ```bash
 ./gradlew rewriteRun -Drewrite.activeRecipe=org.openrewrite.recipes.OpenRewriteBestPractices
 ```
-or
+or for Maven
 ```bash
 mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-recommendations:RELEASE -Drewrite.activeRecipes=org.openrewrite.recipes.OpenRewriteBestPractices
 ```
@@ -440,6 +460,7 @@ mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCo
 Now that you've written your own recipes, you might want to contribute back to the OpenRewrite community.
 For any new contribution, the first thing to check is whether there is already a corresponding [issue on the backlog](https://github.com/orgs/openrewrite/projects/4/views/10), perhaps with some pointers on an implementation.
 If not, you can [create a new issue](https://github.com/openrewrite/rewrite-spring/issues/new/choose) to discuss the recipe you'd like to develop.
+We have some [good first issues](https://github.com/orgs/openrewrite/projects/4/views/10?filterQuery=-label%3A%22parser*%22+label%3A%22good+first+issue%22) in particular that are great when you're just starting out and want feedback on your work to help improve your skills.
 
 Note that there are separate modules for Spring recipes, Java recipes, testing recipes, logging recipes, and many more.
 It helps to browse the existing modules for any related work that might be similar and start from there.
