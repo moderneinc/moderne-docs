@@ -320,7 +320,7 @@ Let's explore the unit tests in the starter project, to see what elements you ca
 - Each parser has an `Assertions` class to provide test source files of a specific type.
 - The testing framework will tell you when there are issues with the type information, and help you to correct them.
 
-## Writing Refaster recipes
+## Refaster recipes
 OpenRewrite has support for [writing Refaster recipes](https://docs.openrewrite.org/authoring-recipes/refaster-recipes), which are a way to write code transformations in Java, and have them run as recipes.
 
 Refaster recipes are an easy step-up to writing imperative recipes, as they are written in Java, and can be run as recipes.
@@ -353,39 +353,70 @@ Let's look at an existing Refaster recipe in the starter project, and see how it
 6. If you have [the Moderne plugin 4.0+](https://plugins.jetbrains.com/plugin/17565-moderne) for IntelliJ IDEA installed, you can generate Refaster recipes directly from the IDE.
    - Right click on any Java element in your editor, and select "Generate... > Create Recipe (Refaster Style)"
    - A scratch file will be created that you can customize, and add to your recipe module.
+7. See if you can write a Refaster recipe that standardizes various ways to check if a String is empty or not.
+   - You can have multiple `@BeforeTemplate` methods, to match different ways to check for an empty string.
+   - Compare the generated recipe with the template you wrote, and write tests to cover the various cases.
 
 #### Takeaways
 - Refaster templates are converted into regular OpenRewrite recipes, and can be run as such.
 - Common base classes, and embedding options lighten the load in implementing Refaster templates.
 - Some 400+ recipes from [Picnic's ErrorProne Support](https://error-prone.picnic.tech/) have made it into [rewrite-third-party](https://github.com/openrewrite/rewrite-third-party) and [the app.moderne.io marketplace](https://app.moderne.io/marketplace/tech.picnic.errorprone.refasterrules). 
 
+## Imperative recipes
+For use cases beyond what declarative recipes and Refaster templates can handle, you'll want to look at [writing a Java refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe).
+You might want to refresh your memory on [visitor pattern](https://docs.openrewrite.org/concepts-explanations/visitors) and [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-explanations/lossless-semantic-trees) before you dive in.
+These [imperative recipes](https://docs.openrewrite.org/concepts-explanations/recipes#imperative-recipes) use the visitor pattern to traverse the LSTs, and make changes to the code.
+
+### Exercise 7: Explore an imperative recipe
+Let's look at an existing imperative recipe in the starter project, and see how it's implemented.
+
+#### Goals for this exercise
+- Understand LST elements and how to traverse them.
+- See how JavaTemplates are used to create new LST elements.
+- Make small adjustments and see how they affect the recipe.
+
+#### Steps
+1. Open `src/main/java/com/yourorg/NoGuavaListsNewArrayList.java` in IntelliJ IDEA.
+   - Read through the recipe, and see how it matches three variants of Guava's `Lists.newArrayList()`.
+   - Three replacement [`JavaTemplate`s](https://docs.openrewrite.org/concepts-explanations/javatemplate) are provided, to replace each of the Guava calls with `new ArrayList<>(..)`.
+2. We override `visitCompilationUnit` to print the tree.
+   - Notice the call to `super.visitCompilationUnit`, which is necessary to traverse the tree.
+   - Click through on `super.visitCompilationUnit` to see how the tree is traversed.
+   - Comment out the `super.visitCompilationUnit` and see how the recipe fails to make any changes.
+3. We override `visitMethodInvocation` to replace each of the Guava calls.
+   - Notice how we pass in a `Cursor` and `JavaCoordinates` when we apply the `JavaTemplate`. This is necessary to ensure that the changes are made in the correct location. Briefly explore the other coordinates available.
+   - Notice the type parameters passed in to the `JavaTemplate`s, and how those match the arguments passing into `apply`.
+   - The calls to `maybeAddImport` and `maybeRemoveImport` are necessary to ensure that the imports are correctly updated. These will only be added or removed if the first or last LST element using the import is added/removed. 
+4. The returned value of `visitMethodInvocation` is the result of the `JavaTemplate` application, which is used to determine if the recipe made any changes.
+   - When none of the methods are matched, we still call `super.visitMethodInvocation` to ensure that the tree is traversed. Replace this with `return method;` and see which of the test cases fails to make changes.
+   - You can intentionally return the original LST element in cases where you don't want to traverse further down the tree.
+5. Open `src/test/java/com/yourorg/NoGuavaListsNewArrayListTest.java`.
+   - Recall the structure of the test class, how it extends `RewriteTest`, and uses recipe and source specifications.
+   - Notice how `@Test void noChangeNecessary()` asserts that no changes are made if the desired state is already reached. A common mistake we see in recipe development is that folks unconditionally make changes, which a test like this guards against.
+6. Set a breakpoint in the `visitMethodInvocation` method, and run each of the tests.
+   - Explore the LST in the debugger, and see all the elements present on the current element.
+   - Compare the LST printed to the console with the diagrams in [our Java LST examples doc](https://docs.openrewrite.org/concepts-explanations/lst-examples).
+7. Add a `TreeVisitingPrinter.printTreeAll(method)` to the `visitMethodInvocation` method, to see elements in more detail.
+   - Run the tests again, and see the tree printed to the console.
+
+#### Takeaways
+- Imperative recipes use the visitor pattern to traverse the LSTs, and make changes to the code.
+- You are in full control of tree traversal, and can decide whether to traverse further down the tree.
+- JavaTemplates are used to create new LST elements, that can replace existing LST elements.
+- The `maybeAddImport` and `maybeRemoveImport` methods are necessary to ensure that the imports are correctly updated.
+- The `TreeVisitingPrinter` can be used to print the LST elements in more detail, to help you understand the structure of the tree.
+
 <!--
-
-## Writing imperative recipes
-
-### Visitor pattern
-
-TreeVisitingPrinter
-
-### JavaTemplate
-
 ### Working with dependencies
-
 ### Scanning recipes
-
 ### Data tables
 
-
 ## Debugging recipes
-
 ## Publishing recipes
-
 
 ## Running at scale
 ### Moderne CLI
-
 ### Moderne Platform
-
 ### DevCenter
 --> 
 
