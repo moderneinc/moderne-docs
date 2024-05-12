@@ -91,6 +91,8 @@ There's a wealth of recipes available to run, so to get comfortable running reci
 - Notice how most recipes are packaged into separate rewrite recipe modules, that you add as plugin dependency or `recipeArtifactCoordinates`.
   - There's separate modules for static code analysis, Spring recipes, Java recipes, testing recipes, logging recipes, and [many more under the OpenRewrite GitHub organization](https://github.com/openrewrite/).
 
+If you're specifically interested in migrating Spring Boot applications, then we have a dedicated workshop you can follow to [migrate your own project to Spring Boot 3.x](https://docs.moderne.io/user-documentation/workshops/migrate-your-own-project).
+
 ## Recipe development environment
 
 Now that you've seen how to run recipes, let's look at how to write your own recipes.
@@ -435,11 +437,13 @@ This leverages [the Moderne CLI](https://docs.moderne.io/user-documentation/mode
 Once you have your recipes developed, you'll likely want to run them against not just one project, but many projects.
 
 [The Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) is a great way to run recipes across projects from your local machine. This uses serialized LSTs to allow repeated recipe runs against the same model, and create commits and push up changes across many repositories.
+There's also [the Moderne CLI workshop](./moderne-cli-exercise.md) that goes into more depth on how to use the CLI to run recipes at scale.
 
 [The Moderne Platform](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/running-your-first-recipe) allows you to [run recipes against Open Source projects](https://app.moderne.io/marketplace), and see how they behave in practice.
 You can preview the changes and choose to create a pull request, or discard the changes.
 You can also generate reports and visualizations, and track progress towards migration goals across time through the DevCenter.
 See [the DevCenter for Apache Maven](https://app.moderne.io/devcenter/Apache%20Maven) as an example of goals being tracked and made actionable through recipes.
+Follow the [Moderne Platform workshop](./moderne-platform-exercise.md) to learn more about how to use the Platform to run recipes at scale.
 
 ## Recipe conventions and best practices
 We've documented the most important [recipe conventions and best practices](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices) to help you write recipes that are safe, idempotent, and efficient.
