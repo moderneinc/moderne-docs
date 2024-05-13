@@ -20,11 +20,7 @@ We typically begin by showing how to quickly write a search recipe that allows y
 
 ### Download the latest CLI
 
-There are three main options for obtaining the CLI:
-
-1. (**Recommended if you're in a restricted environment**) Downloading the latest version from Maven Central: [https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions).
-2. Downloading [directly from the Moderne](/user-documentation/workshops/moderne-cli-exercise.md#download-and-configure-the-moderne-cli).
-3. Using Homebrew (`brew install moderneinc/moderne/mod --head`) or Chocolatey (`choco install mod --prerelease`).
+Downloading the latest version from Maven Central: [https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions).
 
 ### (Optionally) Create an alias for the Moderne CLI JAR
 
