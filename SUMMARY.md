@@ -42,11 +42,11 @@
   * [How to guides](user-documentation/moderne-dx/how-to-guides/README.md)
     * [Syncing recipes with Moderne DX](user-documentation/moderne-dx/how-to-guides/syncing-recipes-with-moderne-dx.md)
 * [Workshops](user-documentation/workshops/README.md)
+  * [Recipe authoring](user-documentation/workshops/recipe-authoring.md)
   * [Moderne CLI workshop](user-documentation/workshops/moderne-cli-exercise.md)
   * [Air-gapped Moderne CLI workshop](user-documentation/workshops/air-gapped-cli.md)
   * [Moderne platform exercise](user-documentation/workshops/moderne-platform-exercise.md)
   * [Migrate your own project](user-documentation/workshops/migrate-your-own-project.md)
-  * [Recipe development](user-documentation/workshops/recipe-development.md)
 * [Community office hours](user-documentation/community-office-hours.md)
 
 ## Administrator documentation
