@@ -20,7 +20,7 @@ We typically begin by showing how to quickly write a search recipe that allows y
 
 ### Download the latest CLI
 
-Downloading the latest version from Maven Central: [https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions).
+Download the latest version from Maven Central: [https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions).
 
 ### (Optionally) Create an alias for the Moderne CLI JAR
 
