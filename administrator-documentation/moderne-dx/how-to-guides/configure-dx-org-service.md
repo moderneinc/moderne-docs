@@ -55,7 +55,7 @@ java -jar moderne-dx-{version}.jar \
 
 ## Confirming it works
 
-After starting up Moderne DX again, you can now make a curl call to `https://<moderne-dx-url>/graphiql` with the following query:
+After starting up Moderne DX again, you can now make the following GraphQL query using the embedded GraphiQL IDE found at `https://<moderne-dx-host>:8080/graphiql`:
 
 ```graphql
 query orgs {
@@ -78,13 +78,6 @@ query orgs {
 }
 ```
 
-Here's an example of what this call might look like:
-
-{% code overflow="wrap" %}
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{"query":"query orgs { organizations { id repositoriesPages { count edges { node { origin path branch } } } parent { id } } }"}' https://<moderne-dx-url>/graphql
-```
-{% endcode %}
 
 If you run this immediately after startup, you may get no results. Once your index operation is completed, you will get results similar to the following:
 
@@ -139,7 +132,7 @@ Once you've configured all of the above things, you can use the Moderne CLI (mod
 This command will set your Moderne location to your internally-deployed Moderne DX installation:
 
 ```bash
-mod config moderne edit --token=<token> --api=https://<moderne-dx> http://<moderne-dx>
+mod config moderne edit --token=<token> --api=https://<moderne-dx-host>:8080 http://<moderne-dx-host>:8080
 ```
 
 This command will ask Moderne DX for all repositories inside the organization you selected and clone them to `<path>`:

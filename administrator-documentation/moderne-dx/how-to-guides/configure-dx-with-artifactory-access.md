@@ -74,7 +74,7 @@ java -jar moderne-dx-{version}.jar \
 
 ## Confirming it works
 
-After starting up Moderne DX, it will then ask your artifact repository for LST artifacts. This process can take several minutes. You can test it worked by making a curl command to `https://<moderne-dx-url>/graphql` with the following query:
+After starting up Moderne DX, it will then ask your artifact repository for LST artifacts. This process can take several minutes. You can test it worked by making the following GraphQL query using `https://<moderne-dx-host>:8080/graphiql`:
 
 ```graphql
 query orgs {
@@ -97,13 +97,6 @@ query orgs {
 }
 ```
 
-Here's an example of what this call might look like:
-
-{% code overflow="wrap" %}
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{"query":"query orgs { organizations { id repositoriesPages { count edges { node { origin path branch } } } parent { id } } }"}' https://<moderne-dx-url>/graphql
-```
-{% endcode %}
 
 If you run this immediately after startup, you may get no results. Once your index operation is completed, you will get results similar to the following:
 
