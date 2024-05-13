@@ -523,15 +523,19 @@ You can apply these recommendations to your recipes by running the following com
 
 {% tabs %}
 {% tab title="Gradle" %}
+{% code overflow="wrap" %}
 ```bash
 ./gradlew rewriteRun -Drewrite.activeRecipe=org.openrewrite.recipes.OpenRewriteBestPractices
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Maven" %}
+{% code overflow="wrap" %}
 ```bash
 mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-recommendations:RELEASE -Drewrite.activeRecipes=org.openrewrite.recipes.OpenRewriteBestPractices
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
