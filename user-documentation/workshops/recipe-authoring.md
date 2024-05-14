@@ -28,8 +28,8 @@ There are various ways to run recipes, depending on your needs:
     - Requires the Ultimate edition of IntelliJ.
     - Can't be used in combination with any of the above plugins.
 
-3. The [Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro) allows you to run recipes against **multiple projects locally**, and to debug recipes at scale.
-   - Free to use on open-source projects, but [requires a Moderne CLI license](/user-documentation/moderne-cli/getting-started/moderne-cli-license) for private projects.
+3. The [Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro.md) allows you to run recipes against **multiple projects locally**, and to debug recipes at scale.
+   - Free to use on open-source projects, but [requires a Moderne CLI license](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md) for private projects.
    - **Serializes the LST of your project to disk**, and runs recipes against that serialized LST. Larger projects that won't work well with OpenRewrite can use the CLI instead.
 
 4. The [Moderne Platform](https://app.moderne.io/marketplace) offers a UI that allows you to run recipes at scale, create data visualizations, and track progress over time.
@@ -70,9 +70,9 @@ To get comfortable running recipes, let's walk through running a recipe from the
 
 4. If you want to use Maven, Gradle, or the CLI, follow the instructions on the recipe page to run the recipe against your project. If you want to use the OpenRewrite IntelliJ plugin, you'll want to create a `rewrite.yml` file similar to the one below.
    - Note that you can run a recipe without changing your build for both [Maven](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-maven-project-without-modifying-the-build) and [Gradle](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-gradle-project-without-modifying-the-build).
-   - The Moderne CLI [requires a one time](/user-documentation/moderne-cli/getting-started/cli-intro#build) `mod build .` to serialize the LST of your project, before you can `mod run` recipes.
+   - The Moderne CLI [requires a one time](/user-documentation/moderne-cli/getting-started/cli-intro.md#build) `mod build .` to serialize the LST of your project, before you can `mod run` recipes.
    - The OpenRewrite IntelliJ IDEA plugin shows a runnable icon next to recipes in a `rewrite.yml` file.
-   - The Moderne Platform requires you to [sign in with a GitHub account](/user-documentation/moderne-platform/getting-started/running-your-first-recipe), before running recipes.
+   - The Moderne Platform requires you to [sign in with a GitHub account](/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md), before running recipes.
 
 <details>
    <summary>Example rewrite.yml file for use with the IntelliJ plugin:</summary>
@@ -103,7 +103,7 @@ To get comfortable running recipes, let's walk through running a recipe from the
 - Notice how most recipes are packaged into separate rewrite recipe modules, that you add as plugin dependency or `recipeArtifactCoordinates`.
   - There's separate modules for static code analysis, Spring recipes, Java recipes, testing recipes, logging recipes, and [many more under the OpenRewrite GitHub organization](https://github.com/openrewrite/).
 
-If you're specifically interested in migrating Spring Boot applications, then we have a dedicated workshop you can follow to [migrate your own project to Spring Boot 3.x](/user-documentation/workshops/migrate-your-own-project).
+If you're specifically interested in migrating Spring Boot applications, then we have a dedicated workshop you can follow to [migrate your own project to Spring Boot 3.x](/user-documentation/workshops/migrate-your-own-project.md).
 
 ## Recipe development environment
 
@@ -114,10 +114,10 @@ You'll want to have the following installed:
 - Java 17 or higher, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks
   - Recipes use Java 8 source level, such that they can run on Java 8 and higher
 - IntelliJ IDEA 2024.1+ Ultimate
-    - In particular [the OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes
+    - In particular [the OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (This comes pre-installed with IntelliJ versions 2024.1 or later)
     - Optionally, [the Moderne plugin](https://plugins.jetbrains.com/plugin/17565-moderne), for faster recipe development
 - A local git clone of the [rewrite-recipe-starter repository](https://github.com/moderneinc/rewrite-recipe-starter), as a starting point for your own recipe module
-- Optionally, [the Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro), to run recipes at scale locally, and debug against serialized LSTs
+- Optionally, [the Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs
 
 ### Exercise 2: Create your own recipe module
 
@@ -191,7 +191,7 @@ No matter which method of recipe development you choose, you can always [write u
 
 ## Declarative YAML recipes
 
-As a best practice, if your recipe can be declarative (meaning it can be built out of other recipes), then you should make it declarative. Generally, the declarative building blocks handle the heavy lifting, and your recipe just ties them together with some configuration. The building blocks have also been vetted to handle various cases correctly, such as only adding dependencies as needed, or correctly changing the Lossless Semantic Tree element types.
+As a best practice, if your recipe can be declarative (meaning it can be built out of other recipes), then you should make it declarative. You can make some truly powerful migration recipes by combining many tiny recipes together (which have been vetted to handle various cases correctly, such as only adding dependencies as needed).
 
 ### Exercise 3: Write a declarative YAML recipe
 
@@ -503,15 +503,15 @@ The [src/main/java/com/yourorg/ClassHierarchy.java recipe](https://github.com/mo
 
 When you're developing recipes, you might want to debug them to see how they behave in practice against real projects.
 
-The Moderne IntelliJ IDEA plugin has support for [running recipes in debug mode](/user-documentation/moderne-cli/how-to-guides/moderne-intellij-plugin), to see how they behave in practice. This leverages [the Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro) for recipe runs against a serialized LST, skipping the time-consuming parsing step.
+The Moderne IntelliJ IDEA plugin has support for [running recipes in debug mode](/user-documentation/moderne-cli/how-to-guides/moderne-intellij-plugin.md), to see how they behave in practice. This leverages [the Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro.md) for recipe runs against a serialized LST, skipping the time-consuming parsing step.
 
 ### Running at scale
 
 Once you have your recipes developed, you'll likely want to run them against not just one project, but many projects. You have two main options for this:
 
-1. [The Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro) is a great way to run recipes across many projects from your local machine. This uses serialized LSTs to allow repeated recipe runs against the same model, and create commits and push up changes across many repositories. For more information on how to use the CLI, consider checking out [the Moderne CLI workshop](./moderne-cli-exercise.md).
+1. [The Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro.md) is a great way to run recipes across many projects from your local machine. This uses serialized LSTs to allow repeated recipe runs against the same model, and create commits and push up changes across many repositories. For more information on how to use the CLI, consider checking out [the Moderne CLI workshop](./moderne-cli-exercise.md).
 
-2. [The Moderne Platform](/user-documentation/moderne-platform/getting-started/running-your-first-recipe) allows you to [run recipes against open-source projects](https://app.moderne.io/marketplace), and see how they behave in practice. You can preview the changes and choose to create a pull request, or discard the changes. You can also generate reports and visualizations, and track progress towards migration goals across time through the DevCenter.
+2. [The Moderne Platform](/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md) allows you to [run recipes against open-source projects](https://app.moderne.io/marketplace), and see how they behave in practice. You can preview the changes and choose to create a pull request, or discard the changes. You can also generate reports and visualizations, and track progress towards migration goals across time through the DevCenter.
    * Check out the [Apache Maven DevCenter](https://app.moderne.io/devcenter/Apache%20Maven) for an example of goals being tracked and made actionable through recipes.
    * You may also want to work through the [Moderne Platform workshop](./moderne-platform-exercise.md) to learn more about how to use the Platform to run recipes at scale.
 
