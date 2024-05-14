@@ -1,276 +1,282 @@
 # Platform changelog
+
 ### UI v10.111.0 (2024/05/14)
 
-- allow building recipes in Builder V2
+#### Building recipes in Builder V2
+
+The beta of the new builder has added controls to allow for the construction of recipes.  You can now use the new builder to explore and customize the full depth of composed recipes.&#x20;
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Adding marketplace recipes all happens now within the new Builder experience.  This prevents users from having to excessively navigate when composing a custom recipe.  Additionally, the new Builder supports importing recipe(s) from Yaml, running custom recipes,  and exporting a custom recipe to the necessary Yaml docs.  Lastly, you can now save multiple custom recipes.
 
 ### UI v10.110.0 (2024/05/09)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.109.0 (2024/05/08)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.108.0 (2024/05/07)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.107.0 (2024/05/03)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.106.0 (2024/05/02)
 
-- add create and retrieve organizations examples
-- allow creating user repositories from the repositories page
-- Draft not supported in Bitbucket Cloud helper text
+* add create and retrieve organizations examples
+* allow creating user repositories from the repositories page
+* Draft not supported in Bitbucket Cloud helper text
 
 ### UI v10.105.0 (2024/04/30)
 
-- Update text for upgrades and migrations
+* Update text for upgrades and migrations
 
 ### UI v10.104.0 (2024/04/24)
 
-- add QUEUED_RATE_LIMITED commit status
+* add QUEUED\_RATE\_LIMITED commit status
 
 ### UI v10.103.0 (2024/04/23)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.102.0 (2024/04/20)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.101.0 (2024/04/18)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.100.0 (2024/04/16)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.99.0 (2024/04/12)
 
-- admin users view
+* admin users view
 
 ### UI v10.98.0 (2024/04/11)
 
-- add Share curl button to graphql explorer to copy graphql request as curl
-- add csharp logo support
+* add Share curl button to graphql explorer to copy graphql request as curl
+* add csharp logo support
 
 ### UI v10.97.0 (2024/04/08)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.96.0 (2024/04/04)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.95.0 (2024/03/29)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.94.0 (2024/03/29)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.93.0 (2024/03/29)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.92.0 (2024/03/28)
 
-- organizations tile with refresh organizations button
+* organizations tile with refresh organizations button
 
 ### UI v10.91.0 (2024/03/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.90.0 (2024/03/22)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.89.0 (2024/03/21)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.88.0 (2024/03/20)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.87.0 (2024/03/20)
 
-- add more logo support
+* add more logo support
 
 ### UI v10.86.1 (2024/03/18)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.86.0 (2024/03/15)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.85.0 (2024/03/15)
 
-- add API example to search page
+* add API example to search page
 
 ### UI v10.84.1 (2024/03/14)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.84.0 (2024/03/12)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.83.2 (2024/03/12)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.83.1 (2024/03/12)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.83.0 (2024/03/12)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.82.0 (2024/03/11)
 
-- reporting issue to moderne is now an email template
+* reporting issue to moderne is now an email template
 
 ### UI v10.81.0 (2024/03/08)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.80.0 (2024/03/06)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.79.0 (2024/03/06)
 
-- display last updated timestamp on upgrade and migration cards
-- incorporate organization ids into dev center URL path
+* display last updated timestamp on upgrade and migration cards
+* incorporate organization ids into dev center URL path
 
 ### UI v10.78.1 (2024/03/06)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.78.0 (2024/03/05)
 
-- add api example with options for individual visualizations
+* add api example with options for individual visualizations
 
 ### UI v10.77.1 (2024/03/04)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.77.0 (2024/03/01)
 
-- add ability to download datatables as JSON
+* add ability to download datatables as JSON
 
 ### UI v10.76.0 (2024/03/01)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.75.0 (2024/02/28)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.74.0 (2024/02/27)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.73.0 (2024/02/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.72.0 (2024/02/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.71.0 (2024/02/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.70.0 (2024/02/24)
 
-- visualization width not adjusts when window is resized.
+* visualization width not adjusts when window is resized.
 
 ### UI v10.69.0 (2024/02/24)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.68.1 (2024/02/23)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.68.0 (2024/02/22)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.67.0 (2024/02/22)
 
-- add more logo support
-- add text editor form input
+* add more logo support
+* add text editor form input
 
 ### UI v10.66.0 (2024/02/20)
 
-- add storybook category
-- add support for picnic and refaster
+* add storybook category
+* add support for picnic and refaster
 
 ### UI v10.65.1 (2024/02/17)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.65.0 (2024/02/16)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.64.0 (2024/02/16)
 
-- add jest logo
-- add ng and lodash logos
+* add jest logo
+* add ng and lodash logos
 
 ### UI v10.63.0 (2024/02/15)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.62.0 (2024/02/14)
 
-- add more js catorgy logos
+* add more js catorgy logos
 
 ### UI v10.61.0 (2024/02/14)
 
-- add more logo support
+* add more logo support
 
 ### UI v10.60.1 (2024/02/13)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.60.0 (2024/02/09)
 
-- add user filter for recipe runs
+* add user filter for recipe runs
 
 ### UI v10.59.0 (2024/02/09)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.58.0 (2024/02/08)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.57.0 (2024/02/07)
 
-- add common filters
+* add common filters
 
 ### UI v10.56.0 (2024/02/06)
 
-- add download dismiss x
-- support date range filter
+* add download dismiss x
+* support date range filter
 
 ### UI v10.55.0 (2024/02/05)
 
-- add infinite scrolling to audit logs
-
+* add infinite scrolling to audit logs
 
 ### UI v10.54.0 (2024/02/04)
 

@@ -29,7 +29,7 @@ The platform offers a clean UI that enables anyone in your organization to run r
 
 Moderne is SOC 2 Type 2 compliant, so you can be confident that your code is secure. Furthermore, a private SaaS can be created for your team in any major cloud provider or region of your choice.
 
-Moderne currently supports [numerous languages, data formats, build tools, and frameworks](administrator-documentation/moderne-platform/references/supported-languages.md) with [even more coming soon](administrator-documentation/moderne-platform/references/language-roadmap.md). Moderne also currently supports [most Git-based source code management tools](administrator-documentation/moderne-platform/references/supported-scms.md).
+Moderne currently supports [numerous languages, data formats, build tools, and frameworks](broken-reference) with [even more coming soon](broken-reference). Moderne also currently supports [most Git-based source code management tools](administrator-documentation/moderne-platform/references/supported-scms.md).
 
 ## Want to try it for yourself?
 
