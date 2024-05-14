@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.111.0 (2024/05/14)
+
+- allow building recipes in Builder V2
+
 ### UI v10.110.0 (2024/05/09)
 
 - Bug fixes and other improvements.
