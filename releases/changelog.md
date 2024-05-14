@@ -6,7 +6,7 @@
 
 The beta of the new builder has added controls to allow for the construction of recipes.  You can now use the new builder to explore and customize the full depth of composed recipes.&#x20;
 
-<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
 
 Adding marketplace recipes all happens now within the new Builder experience.  This prevents users from having to excessively navigate when composing a custom recipe.  Additionally, the new Builder supports importing recipe(s) from Yaml, running custom recipes,  and exporting a custom recipe to the necessary Yaml docs.  Lastly, you can now save multiple custom recipes.
 
