@@ -232,7 +232,7 @@ Let's have a look at a simple declarative YAML recipe, and expand that to cover 
    - Run the new unit test, and verify that the correct changes are indeed made. 
 
 <details>
-   <summary> `@Test void trimWhitespace() { ... }` </summary>
+   <summary> @Test void trimWhitespace() { ... } </summary>
 
    ```java
    @Test
