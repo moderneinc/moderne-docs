@@ -2,7 +2,7 @@
 
 [OpenRewrite](https://docs.openrewrite.org/) is a framework for writing and running code transformations. [Recipes](https://docs.openrewrite.org/concepts-explanations/recipes) are the unit of work in OpenRewrite, and can be written in [YAML](https://docs.openrewrite.org/concepts-explanations/recipes#declarative-recipes), [Refaster](https://docs.openrewrite.org/authoring-recipes/refaster-recipes), or [imperative Java](https://docs.openrewrite.org/concepts-explanations/recipes#imperative-recipes).
 
-In this workshop, we'll walk through everything you need to know to get started with recipe development – from writing simple YAML recipes, to creating complex imperative recipes, and all of the steps for testing and/or debugging in between. 
+In this workshop, we'll walk through everything you need to know to get started with recipe development – from writing simple YAML recipes, to creating complex imperative recipes, along with all of the steps in between such as testing or debugging recipes. 
 
 This workshop is designed to be hands-on, so you can follow along with the examples in your own environment. The workshop consists of the materials you see here, and a set of exercises to help you practice what you've learned. 
 
@@ -12,9 +12,9 @@ If you get stuck, or have questions, feel free to ask in the [OpenRewrite Slack]
 
 ## Running existing recipes
 
-Before you begin writing your own recipes, you should make sure you are aware of what recipes already exist and how to run them. This way you don't spend the time creating something that someone else has already done, and so you understand how people will use any recipes you write.
+Before you begin writing your own recipes, you should make sure you are aware of what recipes already exist and how to run them. This is beneficial for two reasons: you won't spend time creating a recipe that someone else has already made, and you will gain a better understanding of how people will actually use any recipe you write.
 
-There are two main locations for discovering recipes: the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and [app.moderne.io](https://app.moderne.io/marketplace). The former contains all of the information you'll need to run the recipe with Gradle, Maven, or the command line – whereas the latter is more of a rich viewer that you can run recipes directly from. 
+There are two main locations for discovering recipes: the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and [the Moderne platform](https://app.moderne.io/marketplace). The former contains all of the information you'll need to run the recipe with Gradle, Maven, or the command line – whereas the latter is more of a rich viewer that you can run recipes directly from. 
 
 There are various ways to run recipes, depending on your needs:
 
@@ -26,14 +26,16 @@ There are various ways to run recipes, depending on your needs:
     - Free to use on any project, without any connection to Moderne.
     - Only supports writing and running **YAML recipes**, for now.
     - Requires the Ultimate edition of IntelliJ.
+    - Can't be used in combination with any of the above plugins.
 
 3. The [Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro) allows you to run recipes against **multiple projects locally**, and to debug recipes at scale.
-   - Free to use on open-source projects, and [requires a Moderne CLI license](/user-documentation/moderne-cli/getting-started/moderne-cli-license) for private projects.
-   - **Serializes the LST of your project to disk**, and runs recipes against that serialized LST.
+   - Free to use on open-source projects, but [requires a Moderne CLI license](/user-documentation/moderne-cli/getting-started/moderne-cli-license) for private projects.
+   - **Serializes the LST of your project to disk**, and runs recipes against that serialized LST. Larger projects that won't work well with OpenRewrite can use the CLI instead.
 
-4. The [Moderne Platform](https://app.moderne.io/marketplace) allows you to run recipes at scale through a UI, create data visualizations, and track progress over time.
+4. The [Moderne Platform](https://app.moderne.io/marketplace) offers a UI that allows you to run recipes at scale, create data visualizations, and track progress over time.
    - Supports over 37,000 open-source projects and organizations for free.
    - Requires a company subscription for private projects.
+   - Similar to the CLI, it can handle projects of any size.
 
 {% hint style="info" %}
 Learn more about [the differences between OpenRewrite and Moderne](https://docs.openrewrite.org/#refactoring-at-scale-with-moderne).
@@ -66,14 +68,14 @@ To get comfortable running recipes, let's walk through running a recipe from the
    - Or [optimize your logging statements](https://docs.openrewrite.org/recipes/java/logging/slf4j/slf4jbestpractices).
    - Any of the other [popular recipes guides](https://docs.openrewrite.org/running-recipes/popular-recipe-guides).
 
-4. Follow the instructions on the recipe page to run the recipe against your project.
+4. If you want to use Maven, Gradle, or the CLI, follow the instructions on the recipe page to run the recipe against your project. If you want to use the OpenRewrite IntelliJ plugin, you'll want to create a `rewrite.yml` file similar to the one below.
    - Note that you can run a recipe without changing your build for both [Maven](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-maven-project-without-modifying-the-build) and [Gradle](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-gradle-project-without-modifying-the-build).
    - The Moderne CLI [requires a one time](/user-documentation/moderne-cli/getting-started/cli-intro#build) `mod build .` to serialize the LST of your project, before you can `mod run` recipes.
    - The OpenRewrite IntelliJ IDEA plugin shows a runnable icon next to recipes in a `rewrite.yml` file.
    - The Moderne Platform requires you to [sign in with a GitHub account](/user-documentation/moderne-platform/getting-started/running-your-first-recipe), before running recipes.
 
 <details>
-   <summary>Example `rewrite.yml` file</summary>
+   <summary>Example rewrite.yml file for use with the IntelliJ plugin:</summary>
 
    ```yaml
    type: specs.openrewrite.org/v1beta/recipe
