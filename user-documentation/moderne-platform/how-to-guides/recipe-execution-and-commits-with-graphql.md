@@ -31,7 +31,7 @@ This guide assumes that you:
 4. You can then execute a recipe with the following mutation:
 
 {% tabs %}
-{% tab title="Execute Recipe Mutation" %}
+{% tab title="Run Recipe Mutation" %}
 ```graphql
 mutation runRecipe($input: RecipeRunInput!) {
   runRecipe(run: $input) {
@@ -40,9 +40,8 @@ mutation runRecipe($input: RecipeRunInput!) {
   }
 }
 ```
-{% endtab %}
 
-{% tab title="Mutation Variables" %}
+**Mutation Variables**:
 ```json
 {
   "input": {
@@ -58,7 +57,6 @@ mutation runRecipe($input: RecipeRunInput!) {
 }
 ```
 {% endtab %}
-
 {% tab title="cURL" %}
 {% code overflow="wrap" %}
 ```bash
