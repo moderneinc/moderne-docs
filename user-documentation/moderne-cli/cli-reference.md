@@ -69,6 +69,8 @@
 * [**mod config license delete**](#mod-config-license-delete)
 * [**mod config license edit**](#mod-config-license-edit)
 * [**mod config license show**](#mod-config-license-show)
+* [**mod config license moderne**](#mod-config-license-moderne)
+* [**mod config license moderne sync**](#mod-config-license-moderne-sync)
 * [**mod config lsts**](#mod-config-lsts)
 * [**mod config lsts artifacts**](#mod-config-lsts-artifacts)
 * [**mod config lsts artifacts artifactory**](#mod-config-lsts-artifacts-artifactory)
@@ -1646,6 +1648,7 @@ mod config license [parameters] [subcommands]
 * `delete`: Removes the configured license key.
 * `edit`: Configure the active user.
 * `show`: Displays information about the configured license key.
+* `moderne`: Synchronizes a Moderne license key with the CLI.
 
 ## mod config license delete
 
@@ -1692,6 +1695,61 @@ Displays information about the configured license key.
 mod config license show [parameters]
 ```
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --json |  (INCUBATING) Output license information in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
+
+
+## mod config license moderne
+
+Synchronizes a Moderne license key with the CLI.
+
+
+A license key allows for running recipes on private repositories without a connection to a Moderne tenant.
+
+### Usage
+
+```
+mod config license moderne [parameters] [subcommands]
+```
+
+### Examples
+
+```
+mod config license moderne sync
+```
+
+
+### Subcommands
+
+* `sync`: Synchronizes a Moderne license key with the CLI.
+
+## mod config license moderne sync
+
+Synchronizes a Moderne license key with the CLI.
+
+
+A license key allows for running recipes on private repositories without a connection to a Moderne tenant.
+
+### Usage
+
+```
+mod config license moderne sync [parameters]
+```
+
+### Examples
+
+```
+mod config license moderne sync
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. |
 
 
 ## mod config lsts
