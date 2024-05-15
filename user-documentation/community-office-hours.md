@@ -6,6 +6,14 @@ Every week we [host a live office hours session](https://www.youtube.com/@modern
 
 You can find each of the office hours sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### OpenRewrite parsers (May 15th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=svNf6qHUYXA" %}
+
+#### Summary and related links
+
+* TBD
+
 ### Weeding your micro service landscape (May 8th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=sGBxLC5j1Oc" %}
