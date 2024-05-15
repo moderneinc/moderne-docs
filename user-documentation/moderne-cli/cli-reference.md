@@ -233,6 +233,7 @@ mod build /path/to/project
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| --download-only |  Only download LSTs from Moderne. If no download is available, do not build the LST from source. |  |
 | --dry-run |  Do not actually build the LST(s), but list the steps that would be required to do so. |  |
 | --no-download |  Do not attempt to download LSTs from Moderne. |  |
 | --offline |  When an underlying build tool has an offline mode, enable it. |  |
