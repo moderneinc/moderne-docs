@@ -135,8 +135,7 @@ You'll want to have the following installed:
 2. Open the project in IntelliJ IDEA.
    - You have the option to import the project as a Maven project, or as a Gradle project. Pick the one you're most comfortable with.
 
-3. Next you'll want to [customize your IntelliJ IDEA settings](https://docs.openrewrite.org/authoring-recipes/recipe-development-environment).
-   - Then [follow these tips for faster feedback](https://docs.openrewrite.org/reference/building-openrewrite-from-source#developing-tips) from your unit tests.
+3. (Optional) Consider [updating the way you run tests in IntelliJ](https://docs.openrewrite.org/reference/building-openrewrite-from-source#developing-tips) to speed up test responsiveness.
 
 4. Run the unit tests in the project, to ensure everything is set up correctly.
    - All tests should pass, and you should see a message that the project was successfully built.
@@ -183,7 +182,7 @@ It's important to note there are different types of recipes, each with their own
 
 1. [Declarative recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#declarative-recipes) are the simplest to write, and are the most common type of recipe. They are written in YAML, and often tie together existing recipe building blocks with some light configuration.
 
-2. [Refaster rules](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#refaster-templates) bring you the benefit of compiler support, and work best for straightforward replacements. They generate recipes that can also be used as a starting point for more complex recipe implementations.
+2. [Refaster rules](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#refaster-template-recipes) bring you the benefit of compiler support, and work best for straightforward replacements. They generate recipes that can also be used as a starting point for more complex recipe implementations.
 
 3. [Imperative recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#imperative-recipes) are the most powerful, and allow you to write Java code to implement your recipe. By [using the `JavaTemplate` builder](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate), you can keep complexity down, as you define arbitrary code changes.
 
@@ -206,7 +205,7 @@ Let's have a look at a simple declarative YAML recipe, and expand that to cover 
 #### Steps
 
 1. Open the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project in IntelliJ IDEA
-   - If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor support for writing and running recipes.
+   - If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor support for writing and running recipes. Some of the below steps will not work for you without this.
    - You can also compose recipes in [the Moderne Platform recipe builder](https://app.moderne.io/recipes/builder), and run them against open-source projects.
 
 2. Open the `UseApacheStringUtils` recipe which is a YAML file: [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml).
@@ -215,7 +214,7 @@ Let's have a look at a simple declarative YAML recipe, and expand that to cover 
 
 3. Note how the `recipeList` field is a list of fully qualified class names of recipes along with their options (if any exist).
    - Click through on the `AddDependency` and `ChangeType` recipes to open their definition.
-   - Have your IDE suggest options to existing recipes by triggering auto-completion.
+   - Have your IDE suggest options to existing recipes by triggering auto-completion (ctrl + space by default). You should see that the recipe doesn't have every option by default (e.g., it's missing `estimatedEffortPerOccurrence`).
 
 4. The migration recipe is a great start, but far from complete. Let's add a recipe to change from [Spring's `trimWhitepace(String)`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/StringUtils.html#trimWhitespace(java.lang.String)) to [Apache Common's `StringUtils.strip(String)`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html#strip-java.lang.String-).
    - Begin by adding the [org.openrewrite.java.ChangeMethodName](https://docs.openrewrite.org/recipes/java/changemethodname) recipe to the end of the `recipeList` field.
