@@ -219,7 +219,37 @@ java -jar moderne-dx-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 3: (Optionally) Configure the Organizations service
+### Step 3: Set up Moderne DX License
+
+In order for your developers to run recipes using the CLI, they will need a license. Moderne DX provides a convenient mechanism for distributing license keys. Moderne will send a license key to your admin, and you will provide that license key to DX's startup configuration. When CLI users configure the DX connection with `mod config moderne edit`, the CLI will retrieve the license from Moderne DX.
+
+{% tabs %}
+{% tab title="Docker image" %}
+```shell
+export MODERNE_DX_LICENSEKEY=...
+
+docker run \
+# ... other arguments
+-e MODERNE_DX_LICENSEKEY
+# ... Additional variables to come
+-p 8080:8080
+moderne-dx:latest
+```
+{% endtab %}
+
+{% tab title="Untitled" %}
+```bash
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.dx.licenseKey=...
+export MODERNE_DX_LICENSEKEY=...
+
+java -jar moderne-dx-{version}.jar \
+# ... other arguments
+```
+{% endtab %}
+{% endtabs %}
+
+### Step 4: (Optionally) Configure the Organizations service
 
 Many organizations desire the ability to control the organizational structure of their repositories within the Moderne platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
 
@@ -277,7 +307,7 @@ java -jar moderne-dx-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 4: (Optionally) Use strict recipe sources.
+### Step 5: (Optionally) Use strict recipe sources.
 
 Some organizations want recipe artifacts to only come from locations configured in the Moderne DX service. If you want to configure that, please follow the [strict recipe sources instructions](configure-dx-with-strict-recipe-sources.md).
 
@@ -336,11 +366,11 @@ java -jar moderne-dx-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 5: (Optionally) Provide SSL client keystore
+### Step 6: (Optionally) Provide SSL client keystore
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please see the [configure DX with SSL certificate instructions](configure-dx-ssl.md).
 
-### Step 6: Run the service
+### Step 7: Run the service
 
 At this point, you should have configured everything needed to run the Moderne DX service. If you run into issues running the command, please don't hesitate to reach out.
 
@@ -349,7 +379,6 @@ Below is a table that has instructions for how to run the service in combination
 {% tabs %}
 {% tab title="Docker image" %}
 1. Rebuild your Docker image with the latest JAR and any other changes you need to make.
-
 2. Run the `docker run` command in combination with all of the environment variables you've added in the previous steps:
 
 ```shell
