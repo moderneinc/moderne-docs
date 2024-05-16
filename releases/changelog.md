@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.112.1 (2024/05/16)
+
+- Bug fixes and other improvements.
+
 ### UI v10.112.0 (2024/05/15)
 
 - add auto save
