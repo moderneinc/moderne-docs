@@ -237,7 +237,7 @@ moderne-dx:latest
 ```
 {% endtab %}
 
-{% tab title="Untitled" %}
+{% tab title="Executable JAR" %}
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
 # --moderne.dx.licenseKey=...
