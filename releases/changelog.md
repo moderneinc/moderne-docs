@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.113.0 (2024/05/17)
+
+- update new builder greeter
+
 ### UI v10.112.1 (2024/05/16)
 
 - Bug fixes and other improvements.
