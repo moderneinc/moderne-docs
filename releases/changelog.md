@@ -1,30 +1,30 @@
 # Platform changelog
+
 ### UI v10.113.0 (2024/05/17)
 
-- update new builder greeter
+* update new builder greeter
 
 ### UI v10.112.1 (2024/05/16)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.112.0 (2024/05/15)
 
-- add auto save
+* add auto save
 
 ### UI v10.111.1 (2024/05/15)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v10.111.0 (2024/05/14)
 
 #### Building recipes in Builder V2
 
-The beta of the new builder has added controls to allow for the construction of recipes.  You can now use the new builder to explore and customize the full depth of composed recipes.&#x20;
+The beta of the new builder has added controls to allow for the construction of recipes. You can now use the new builder to explore and customize the full depth of composed recipes.
 
 <figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
 
-Adding marketplace recipes all happens now within the new Builder experience.  This prevents users from having to excessively navigate when composing a custom recipe.  Additionally, the new Builder supports importing recipe(s) from Yaml, running custom recipes,  and exporting a custom recipe to the necessary Yaml docs.  Lastly, you can now save multiple custom recipes.
+Adding marketplace recipes all happens now within the new Builder experience. This prevents users from having to excessively navigate when composing a custom recipe. Additionally, the new Builder supports importing recipe(s) from Yaml, running custom recipes, and exporting a custom recipe to the necessary Yaml docs. Lastly, you can now save multiple custom recipes.
 
 ### UI v10.110.0 (2024/05/09)
 
@@ -403,7 +403,7 @@ Each of these pages would show only the individual user's activity.\
 \
 We are now providing a comprehensive view of these activities in one single Activity page:
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>The new activity view shows activity across an organization</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>The new activity view shows activity across an organization</p></figcaption></figure>
 
 \
 Here you can see **the most recent activities performed on the selected Organization**. This view will improve how users and teams collaborate. For more information see our [activity view docs](https://docs.moderne.io/user-documentation/getting-started/activity-view).
@@ -457,7 +457,7 @@ Previous:
 
 <div data-full-width="true">
 
-<img src="../.gitbook/assets/image (1).png" alt="">
+<img src="../.gitbook/assets/image (1) (1).png" alt="">
 
 </div>
 
@@ -679,7 +679,7 @@ feat/add-yielded-state
 We have plans to overhaul the iconography to create better visual consistency and clarity.
 
 This journey begins this version with a rework of the left navigation icons:\
-![](<../.gitbook/assets/image (1) (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1) (2).png>)
 
 ### UI v9.173.0 (2023/10/17)
 
@@ -884,7 +884,7 @@ To improve the number of recipe results and commit jobs that can be viewed on th
 
 We've done a little tidying up on the recipe run result page. _**Visualizations**_ and _**Data tables**_ can now be accessed from the tabs at the top of the page. You'll find these tabs are also accessible from the respective pages for _Visualizations_ and _Data tables._
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Add dropdown options to share button
 
@@ -931,7 +931,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 We now support dynamic form fields for `List` or `string[]` options. Recipes that take a list of strings now have a new editor interface to improve the usability.
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.142.0 (2023/08/15)
 
@@ -953,7 +953,7 @@ We now support dynamic form fields for `List` or `string[]` options. Recipes tha
 
 Pan/zoom controls and download options are now available for Visualizations.
 
-* ![](<../.gitbook/assets/image (4) (1) (1).png>)
+* ![](<../.gitbook/assets/image (4) (1) (1) (1).png>)
 
 ### UI v9.138.0 (2023/08/10)
 

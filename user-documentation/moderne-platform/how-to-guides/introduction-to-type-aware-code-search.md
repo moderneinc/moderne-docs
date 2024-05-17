@@ -25,7 +25,7 @@ To help you get accustomed to Moderne's search capabilities, in this guide, we w
 
 * [Walk through an example of using a search recipe](introduction-to-type-aware-code-search.md#using-a-search-recipe)
 * [Teach you how to find type-aware search recipes](introduction-to-type-aware-code-search.md#finding-type-aware-search-recipes)
-* [Demonstrate how you can use regex to improve your searches](#using-regex-in-searches)
+* [Demonstrate how you can use regex to improve your searches](introduction-to-type-aware-code-search.md#using-regex-in-searches)
 
 ## Using a search recipe
 
@@ -42,7 +42,7 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
 * Enter the method name of `createFile` in the method name field.
 * Enter `..` in the argument type field to denote that we want to search for any amount of arguments (zero or more).
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Press `Apply` to add the method pattern to the text box.
 
