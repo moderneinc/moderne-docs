@@ -2072,8 +2072,10 @@ mod config moderne edit <host> --token <token>
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | --api |  The URL of the tenant API gateway. | `https://api.app.moderne.io` |
+| --password |  The password to authenticate with. |  |
 | --skip-ssl |  If this parameter is included, SSL verification will be skipped. |  |
 | --token |  The Moderne personal access token to use. |  |
+| --user |  The user to authenticate with. |  |
 
 
 ## mod config moderne local
