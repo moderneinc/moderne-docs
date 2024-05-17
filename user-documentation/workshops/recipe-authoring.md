@@ -25,7 +25,7 @@ There are various ways to run recipes, depending on your needs:
 2. The [OpenRewrite IntelliJ IDEA plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite) allows you to run recipes against a **single project**, and to write and run recipes in the IDE.
     - Free to use on any project, without any connection to Moderne.
     - Only supports writing and running **YAML recipes**, for now.
-    - Requires the Ultimate edition of IntelliJ.
+    - **Requires the Ultimate edition of IntelliJ.**
     - Can't be used in combination with any of the above plugins.
 
 3. The [Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro.md) allows you to run recipes against **multiple projects locally**, and to debug recipes at scale.
@@ -68,11 +68,13 @@ To get comfortable running recipes, let's walk through running a recipe from the
    - Or [optimize your logging statements](https://docs.openrewrite.org/recipes/java/logging/slf4j/slf4jbestpractices).
    - Any of the other [popular recipes guides](https://docs.openrewrite.org/running-recipes/popular-recipe-guides).
 
-4. If you want to use Maven, Gradle, or the CLI, follow the instructions on the recipe page to run the recipe against your project. If you want to use the OpenRewrite IntelliJ plugin, you'll want to create a `rewrite.yml` file similar to the one below.
-   - Note that you can run a recipe without changing your build for both [Maven](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-maven-project-without-modifying-the-build) and [Gradle](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-gradle-project-without-modifying-the-build).
-   - The Moderne CLI [requires a one time](/user-documentation/moderne-cli/getting-started/cli-intro.md#build) `mod build .` to serialize the LST of your project, before you can `mod run` recipes.
-   - The OpenRewrite IntelliJ IDEA plugin shows a runnable icon next to recipes in a `rewrite.yml` file.
-   - The Moderne Platform requires you to [sign in with a GitHub account](/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md), before running recipes.
+4. Run the recipe. 
+   - If you want to use Maven, Gradle, or the CLI, follow the instructions on the recipe page to run the recipe against your project.
+      - Note that you can run a recipe without changing your build for both [Maven](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-maven-project-without-modifying-the-build) and [Gradle](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-gradle-project-without-modifying-the-build). 
+   - If you want to use the Moderne platform, please note that you need to [sign in with a GitHub account](/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md) before you can run a recipe.
+   - If you want to use the Moderne CLI, you will need to run the [mod build command](/user-documentation/moderne-cli/getting-started/cli-intro.md#build) to serialize the LST of your project before you can `mod run` recipes.
+   - If you want to use the OpenRewrite IntelliJ plugin, you'll want to create a `rewrite.yml` file similar to the one below.
+      - The OpenRewrite IntelliJ IDEA plugin shows a runnable icon next to recipes in a `rewrite.yml` file.
 
 <details>
    <summary>Example rewrite.yml file for use with the IntelliJ plugin:</summary>
