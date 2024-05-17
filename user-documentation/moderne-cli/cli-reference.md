@@ -3002,7 +3002,9 @@ mod config user show [parameters]
 Execute an arbitrary shell command recursively on selected repository roots.
 
 
+If you want to execute a command that contains positional parameters, please ensure that you use the end-of-options POSIX delimiter (**--**) before your command, such as in the following example: 
 
+**mod exec /path/to/project -- gh pr create --title "Test PR" --body "Test PR"**.
 
 ### Usage
 
@@ -3021,8 +3023,8 @@ mod exec /path/to/project rm *.hprof
 | Name | Description |
 | ---- | ----------- |
 | path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| cmd |  |
-| args |  |
+| cmd |  The shell command that you wish to run on the selected repository roots. |
+| args |  Arguments for the command, if any exist. |
 
 ### Options
 
