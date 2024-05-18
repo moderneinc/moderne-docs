@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.114.0 (2024/05/18)
+
+- add zoom to fit to builder
+
 
 ### UI v10.113.0 (2024/05/17)
 
