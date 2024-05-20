@@ -150,7 +150,12 @@ You'll want to have the following installed:
    - You should see a message that the project was successfully installed to your local Maven repository.
 
 7. Run recipe `com.yourorg.AssertEqualsToAssertThat` against your project from Exercise 1.
-   - You'll need to add a dependency on your recipe module to your project, or provide `-Drewrite.recipeArtifactCoordinates=com.yourorg:rewrite-recipe-starter:LATEST` on the command line.
+   - You'll need to add a dependency on your recipe module to your project, or pass in `recipeArtifactCoordinates` on the command line:
+     ```shell
+     mvn -U org.openrewrite.maven:rewrite-maven-plugin:run \
+       -Drewrite.activeRecipes=com.yourorg.AssertEqualsToAssertThat \
+       -Drewrite.recipeArtifactCoordinates=com.yourorg:rewrite-recipe-starter:LATEST
+     ```
    - You should see limited changes to your project if you were using JUnit's `Assertions assertEquals(..)` method.
    
 8. Briefly look over the various recipes and tests in the starter project. We will visit these in more details in upcoming exercises.
