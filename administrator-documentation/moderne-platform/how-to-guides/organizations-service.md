@@ -1,6 +1,6 @@
 # Configuring the Organizations service
 
-Many organizations desire the ability to dynamically control the organizational structure (repository groupings) of their repositories within the Moderne platform. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted in your environment.
+Many organizations desire the ability to dynamically control the organizational structure (repository groupings) of their repositories within the Moderne Platform. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted in your environment.
 
 Let's walk through everything you need to know to build and integrate such a service with Moderne.
 
@@ -15,7 +15,7 @@ In order to dynamically control the organizational structure in Moderne, you wil
 
 You have two main options for building this service. You can:
 
-1. (**Recommended**) Fork our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. Please see the [README](https://github.com/moderneinc/moderne-organizations/blob/main/README.md) for how to spin this up quickly. It can be as simple as updating a JSON file that you get from the Moderne platform.
+1. (**Recommended**) Fork our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. Please see the [README](https://github.com/moderneinc/moderne-organizations/blob/main/README.md) for how to spin this up quickly. It can be as simple as updating a JSON file that you get from the Moderne Platform.
 2. Build your own service that fulfills the [GraphQL contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/moderne-organizations.graphqls) using any GraphQL stack (e.g., NodeJS, Rust, C#, etc.)
 
 We generally recommend forking the template and modifying it as, in most cases, that will be faster and easier than building it yourself. Regardless of which one you choose, however, some developer time will be required on your end.
@@ -32,7 +32,7 @@ How you deploy the service is largely up to your company. With that being said, 
 
 ### If the Organizations service stops responding (e.g., the service is down), what is the expected behavior?
 
-The organizations a user can see in the Moderne platform are determined by the `userOrganizations` query. If the service is down, then organizations and repositories will be unavailable and recipes would, therefore, be unable to run.
+The organizations a user can see in the Moderne Platform are determined by the `userOrganizations` query. If the service is down, then organizations and repositories will be unavailable and recipes would, therefore, be unable to run.
 
 ### How do you restrict which commit options are available in the UI?
 
@@ -40,7 +40,7 @@ You can change this in the `commitOptions` array in your JSON resource. ([Exampl
 
 ### What would happen if the service returned an empty `commitOptions` array? Would that disable commit capabilities for these organizations?
 
-Violating the GraphQL contract will cause errors and make it so the Moderne platform will not function as expected. Since the GraphQL contract expects `commitOptions` to be populated, the query will error if no options are returned. In turn, users won't be able to run recipes.
+Violating the GraphQL contract will cause errors and make it so the Moderne Platform will not function as expected. Since the GraphQL contract expects `commitOptions` to be populated, the query will error if no options are returned. In turn, users won't be able to run recipes.
 
 ### If no Organizations service is active/configured, would it be possible to change the default commit options and repositories in the Moderne UI?
 

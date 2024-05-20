@@ -251,7 +251,7 @@ java -jar moderne-dx-{version}.jar \
 
 ### Step 4: (Optionally) Configure the Organizations service
 
-Many organizations desire the ability to control the organizational structure of their repositories within the Moderne platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
+Many organizations desire the ability to control the organizational structure of their repositories within the Moderne Platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
 
 If you want to set up this service, please see the [organizations service setup instructions](../../moderne-platform/how-to-guides/organizations-service.md). Then, once it has been set up, please [configure the Moderne DX service to connect with the organization service](configure-dx-org-service.md).
 

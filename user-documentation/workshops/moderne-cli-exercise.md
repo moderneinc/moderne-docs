@@ -8,7 +8,7 @@ After that, we'll provide some additional examples that show other capabilities 
 
 #### Download and configure the Moderne CLI
 
-1. Go to the [Moderne platform](https://app.moderne.io) and sign in. If you don't have an account, you can sign up for free.
+1. Go to the [Moderne Platform](https://app.moderne.io) and sign in. If you don't have an account, you can sign up for free.
 2. Click on help in the bottom left-hand corner and select the version of the CLI you want to download. Then select the way you'd like to install it:
 
 ![](../../.gitbook/assets/cli-download.gif)
@@ -1180,7 +1180,7 @@ In the previous example, we used the Moderne CLI to run a recipe against a repos
 
 Fortunately, the Moderne CLI offers the ability to work on groups of repositories. This can be especially helpful when you're working on debugging a new recipe and want to test it against many repositories at once.
 
-For this exercise, we have prepared a list of Spring 2.x open-source repositories from the `spring-projects` GitHub organization that can be migrated. These repositories have been added to the Moderne platform and put inside the `Spring Projects 2.x` organization.
+For this exercise, we have prepared a list of Spring 2.x open-source repositories from the `spring-projects` GitHub organization that can be migrated. These repositories have been added to the Moderne Platform and put inside the `Spring Projects 2.x` organization.
 
 {% embed url="https://www.youtube.com/watch?v=cs-6FJ_mtro" %}
 
@@ -1212,7 +1212,7 @@ drwxr-xr-x@ 14 mikesol  staff   448 Apr  8 14:15 spring-session-data-mongodb-exa
 
 </details>
 
-Now that you have the repositories locally, you can run a recipe against all of them at once. Since all of these repositories have their LSTs published onto the Moderne platform, the build operation will download the LSTs without having to build the repositories locally. This will save you a lot of time!
+Now that you have the repositories locally, you can run a recipe against all of them at once. Since all of these repositories have their LSTs published onto the Moderne Platform, the build operation will download the LSTs without having to build the repositories locally. This will save you a lot of time!
 
 ```bash
 mod build $HOME/workshop

@@ -1,6 +1,6 @@
 # Moderne architecture
 
-To help you understand how the Moderne platform works and how it interacts with your environment and services, this document will:
+To help you understand how the Moderne Platform works and how it interacts with your environment and services, this document will:
 
 * [Explain how Moderne fits into the typical software development lifecycle](architecture.md#how-moderne-fits-into-the-software-development-lifecycle)
 * [Provide you with an architecture diagram that shows how data flows through the core components in both Moderne's environment and yours](architecture.md#architecture-diagram)

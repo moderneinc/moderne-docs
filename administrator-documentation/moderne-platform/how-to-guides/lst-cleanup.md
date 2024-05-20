@@ -63,7 +63,7 @@ If you want to ensure Moderne removes old LSTs without incurring any downtime, y
 
 * Get the set of all artifacts for all repositories that exist in Moderne
 * Ask your artifact repository if those still exist over there
-* If they don't, make a request to remove those LSTs from the Moderne platform
+* If they don't, make a request to remove those LSTs from the Moderne Platform
 
 You could then run this custom script once a week or so.
 

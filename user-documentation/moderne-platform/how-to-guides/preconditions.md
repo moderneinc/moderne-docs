@@ -4,7 +4,7 @@ When running recipes, there may come a time when you want to restrict which file
 
 This is what preconditions were designed for. **They are a way of restricting where a recipe is run**.
 
-In this guide, we'll walk through how preconditions work and how you can use them in the Moderne platform.
+In this guide, we'll walk through how preconditions work and how you can use them in the Moderne Platform.
 
 {% embed url="https://www.youtube.com/watch?v=7jRuXiX3xuw" %}
 A deep dive into preconditions
@@ -30,7 +30,7 @@ The first precondition recipe could be provided with a path such as `mono-repo/y
 
 With the preconditions being done, the core recipe you're wanting to run will then step through the files and only make changes to the ones that were marked by _both_ of the preconditions. Please note that these marks _do not_ appear in the final results.
 
-## How to use preconditions in the Moderne platform
+## How to use preconditions in the Moderne Platform
 
 From the [recipe marketplace](https://app.moderne.io/marketplace), find the recipe you'd like to use as a precondition. Once you've found it, click on the triangle drop-down next to the text `Add to builder` and select `Add as precondition`.
 

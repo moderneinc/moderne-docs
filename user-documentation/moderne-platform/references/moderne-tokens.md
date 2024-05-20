@@ -1,6 +1,6 @@
 # Moderne tokens
 
-There are three types of tokens used throughout the Moderne platform:
+There are three types of tokens used throughout the Moderne Platform:
 
 1. [A JSON Web Token (JWT) that is created when a user logs in to Moderne](moderne-tokens.md#login-token)
 2. [A personal access token used for programmatically accessing the Moderne GraphQL API](moderne-tokens.md#personal-access-tokens)
@@ -14,13 +14,13 @@ The tokens described in this doc have the same permissions as `everyone` in the 
 
 ## Login token
 
-When a user logs in to the Moderne platform, a JWT is created for them by Keycloak. This token is then used by the UI to authenticate against various Moderne APIs for things like displaying recipe categories.
+When a user logs in to the Moderne Platform, a JWT is created for them by Keycloak. This token is then used by the UI to authenticate against various Moderne APIs for things like displaying recipe categories.
 
 {% hint style="warning" %}
 This token _is not_ used for accessing or viewing source code. That is done via the [SCM Token](moderne-tokens.md#source-code-manager-scm-token)
 {% endhint %}
 
-Users can find this token by clicking on the GraphQL icon in the top middle of the Moderne platform once they are logged in:
+Users can find this token by clicking on the GraphQL icon in the top middle of the Moderne Platform once they are logged in:
 
 ![](../../../.gitbook/assets/graphql-link.png)
 

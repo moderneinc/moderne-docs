@@ -244,8 +244,8 @@ You can find each of the office hours sessions below along with a summary of wha
   * We released a bunch of new videos on our YouTube channel:
     * [Upgrading a Maven parent pom version](https://www.youtube.com/watch?v=LyQsQYfUlwI)
     * [Writing dynamic recipe tests when the result of a recipe is dependent on an external system state](https://www.youtube.com/watch?v=O9o4y\_2TO0w)
-    * [Find YAML properties on the Moderne platform](https://www.youtube.com/watch?v=MIEc9IOnfBc)
-    * [Regex support on the Moderne platform](https://www.youtube.com/watch?v=fkcDyLRGOUA)
+    * [Find YAML properties on the Moderne Platform](https://www.youtube.com/watch?v=MIEc9IOnfBc)
+    * [Regex support on the Moderne Platform](https://www.youtube.com/watch?v=fkcDyLRGOUA)
   * OpenRewrite v8.21.0 was released which includes bug fixes and some new recipes from some of our awesome community members.
   * The [find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck) was updated to fix the version of transitive dependencies on top of direct dependencies.
 * We then welcomed Scott and Kyle as guest presenters to talk about JavaScript codemods. They are both senior developers here at Moderne, and they primarily specialize in frontend development. They:
@@ -322,7 +322,7 @@ You can find each of the office hours sessions below along with a summary of wha
 #### Summary and related links
 
 * As normal, we started off by going over new things that occurred over the past week:
-  * We added [95 Quarkus 3 & Camel migration recipes](https://app.moderne.io/marketplace/io.quarkus) to the Moderne platform.
+  * We added [95 Quarkus 3 & Camel migration recipes](https://app.moderne.io/marketplace/io.quarkus) to the Moderne Platform.
   * We demonstrated how you can use Refaster recipes to make your code clearer and more readable (e.g., [optimizing your use of the Java time APIs](https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TimeRulesRecipes))
   * In really exciting news, IntelliJ IDEA has added OpenRewrite to their early access branch. What this means is that you get native editor support for [OpenRewrite YAML recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#declarative-recipes) and you can run recipes directly from your IDE. We'll have more information about this when it fully releases.
   * We added a [bunch of reference recipes](https://github.com/moderneinc/rewrite-recipe-starter?tab=readme-ov-file#reference-recipes) to the [rewrite-recipe-starter repository](https://github.com/moderneinc/rewrite-recipe-starter) so that it's easier to find a recipe to get started with. We also added [Maven configuration](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/pom.xml) for those users who prefer to use that over Gradle.
@@ -343,8 +343,8 @@ You can find each of the office hours sessions below along with a summary of wha
 
 * We started off by highlighting some of the big changes/additions since the last office hours:
   * We [created a new video showing how to scale JavaScript Codemods with Moderne](https://www.youtube.com/watch?v=lXVPwW30fFk).
-    * You can find [the curated list of Codemods in the Moderne platform](https://app.moderne.io/marketplace/org.openrewrite.codemods).
-  * We recently [added a bunch of Error Prone recipes to the Moderne platform](https://app.moderne.io/marketplace/tech.picnic.errorprone.refasterrules).
+    * You can find [the curated list of Codemods in the Moderne Platform](https://app.moderne.io/marketplace/org.openrewrite.codemods).
+  * We recently [added a bunch of Error Prone recipes to the Moderne Platform](https://app.moderne.io/marketplace/tech.picnic.errorprone.refasterrules).
   * There were some great community additions such [as this new recipe on migrating away from Swagger to SpringDoc or OpenAPI](https://app.moderne.io/recipes/org.openrewrite.java.springdoc.SwaggerToSpringDoc).
   * We added [the ability to bump transitive dependencies in Gradle](https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides/transitive-dependencies).
   * We [updated our Spring 3.2 blog](https://www.moderne.io/blog/speed-your-spring-boot-3-0-migration) to contain the latest Spring changes and also discuss Java 21 changes.

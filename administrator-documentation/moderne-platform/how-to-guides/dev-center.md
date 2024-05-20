@@ -263,7 +263,7 @@ To create these cards you need two things:
 1. A `visualizationId` that identifies which visualization you want to include (e.g., `io.moderne.DependencyUsageViolin`).
 2. Options for the visualization (if any exist).
 
-The `visualizationId` can be found on any visualization card you run in the Moderne platform:
+The `visualizationId` can be found on any visualization card you run in the Moderne Platform:
 
 ![](../../../.gitbook/assets/visualization-id.png)
 

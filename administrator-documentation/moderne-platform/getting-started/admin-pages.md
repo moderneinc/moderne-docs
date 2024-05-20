@@ -1,6 +1,6 @@
 # Admin pages explained
 
-As an administrator (admin) in the Moderne platform, you have access to a variety of admin pages that let you manage and control various aspects of the platform. To help ensure you can perform your administrative tasks efficiently and effectively, let's walk through each of these pages.
+As an administrator (admin) in the Moderne Platform, you have access to a variety of admin pages that let you manage and control various aspects of the platform. To help ensure you can perform your administrative tasks efficiently and effectively, let's walk through each of these pages.
 
 ## Navigating to the admin pages
 
@@ -44,7 +44,7 @@ Workers are configured by Moderne and are servers that run recipes. As Moderne c
 
 ## Quarantine page
 
-As an admin, you can quarantine repositories in the Moderne platform. This prevents recipes from being run on said repositories.
+As an admin, you can quarantine repositories in the Moderne Platform. This prevents recipes from being run on said repositories.
 
 Consider the case where you have some old repositories that aren't building. Instead of having error messages appear when you run recipes or having the DevCenter provide warnings about repositories not building, you can quarantine these repositories until they're fixed or removed.
 

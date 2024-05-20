@@ -13,7 +13,7 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will:
 
 To install the Moderne CLI please:
 
-1. Go to the [Moderne platform](https://app.moderne.io/) and sign in.
+1. Go to the [Moderne Platform](https://app.moderne.io/) and sign in.
 2. Click on help in the bottom left-hand corner and select the version of the CLI you want to download. Then select the way you'd like to install it:
 
 ![](../../../.gitbook/assets/cli-download.gif)

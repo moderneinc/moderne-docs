@@ -1857,7 +1857,7 @@ In addition to search markers, we will render info/debug, warnings, and errors i
 
 #### Improved recipe deployment
 
-Deploying recipe artifacts now has an improved asynchronous experience. We've added the recipe artifact state and last deployment time to increase the visibility around the freshness of a recipe artifact.Notable changes to the Moderne platform
+Deploying recipe artifacts now has an improved asynchronous experience. We've added the recipe artifact state and last deployment time to increase the visibility around the freshness of a recipe artifact.Notable changes to the Moderne Platform
 
 <figure><img src="../.gitbook/assets/recipe-deploy.png" alt=""><figcaption><p>View recipe artifact state and last deployment time.</p></figcaption></figure>
 

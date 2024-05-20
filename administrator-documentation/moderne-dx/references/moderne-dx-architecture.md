@@ -10,7 +10,7 @@ Moderne DX includes a centralized, internal service you install to manage Modern
 
 ### Capabilities
 
-|                                      |      Moderne DX      | Moderne Platform Enterprise |
+|                                      |      Moderne DX      | Moderne platform Enterprise |
 | ------------------------------------ | :------------------: | :-------------------------: |
 | SCA - auto search and remediation    | :white\_check\_mark: |     :white\_check\_mark:    |
 | SAST - auto search and remediation   | :white\_check\_mark: |     :white\_check\_mark:    |
@@ -21,7 +21,7 @@ Moderne DX includes a centralized, internal service you install to manage Modern
 
 ### Features
 
-|                                |      Moderne DX      | Moderne Platform Enterprise |
+|                                |      Moderne DX      | Moderne platform Enterprise |
 | ------------------------------ | :------------------: | :-------------------------: |
 | Moderne CLI – multi-repo DevEx | :white\_check\_mark: |     :white\_check\_mark:    |
 | IDE plugin                     | :white\_check\_mark: |     :white\_check\_mark:    |
@@ -38,7 +38,7 @@ Moderne DX includes a centralized, internal service you install to manage Modern
 
 ### Implementation
 
-|                                                      |      Moderne DX      | Moderne Platform Enterprise |
+|                                                      |      Moderne DX      | Moderne platform Enterprise |
 | ---------------------------------------------------- | :------------------: | :-------------------------: |
 | SSO integration for login                            | :white\_check\_mark: |     :white\_check\_mark:    |
 | VCS (GitHub, GitLab, Bitbucket) integration          | :white\_check\_mark: |     :white\_check\_mark:    |

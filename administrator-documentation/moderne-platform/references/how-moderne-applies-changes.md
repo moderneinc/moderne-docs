@@ -1,6 +1,6 @@
 # Interactions with git when applying changes
 
-The Moderne platform consists of a set of serialized Lossless Semantic Trees (LSTs). Inside each LST is a record of the repository that the LST was produced from as well as the branch and commit that it was produced from.
+The Moderne Platform consists of a set of serialized Lossless Semantic Trees (LSTs). Inside each LST is a record of the repository that the LST was produced from as well as the branch and commit that it was produced from.
 
 When a recipe is run against that LST, a diff is produced that assumes the starting point for the change is the commit that the LST was produced from. However, there could have been further commits on that branch head since the LST was built.
 

@@ -1,6 +1,6 @@
 ---
 description: >-
-  An introduction to type-aware code search within the Moderne platform. Learn
+  An introduction to type-aware code search within the Moderne Platform. Learn
   about using a search recipe and finding type-aware search recipes.
 layout:
   title:

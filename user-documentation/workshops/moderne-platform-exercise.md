@@ -1,6 +1,6 @@
-# Moderne platform exercise
+# Moderne Platform exercise
 
-In this exercise, you will utilize the [Moderne platform](https://app.moderne.io/) to:
+In this exercise, you will utilize the [Moderne Platform](https://app.moderne.io/) to:
 
 * Run static code analysis recipes across repositories from different GitHub organizations
 * Fix security vulnerabilities across hundreds of open-source projects.
@@ -9,7 +9,7 @@ In this exercise, you will utilize the [Moderne platform](https://app.moderne.io
 
 Go to [https://app.moderne.io/](https://app.moderne.io/) and register with your GitHub account. Once you've signed in, you'll find more than 31,000 open-source repositories that can be used to test OpenRewrite recipes without you having to configure anything.
 
-### Running recipes with the Moderne platform
+### Running recipes with the Moderne Platform
 
 1. Once you're logged in to [Moderne](https://app.moderne.io/), you will see that the `Default` organization (a grouping of repositories) is selected in the sidebar.
 
@@ -38,14 +38,14 @@ The default group has a small set of repositories so recipes will run quickly. I
 <figure><img src="../../../.gitbook/assets/why-did-this-change.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
-Please, do not create pull requests with the results produced by the Moderne platform if you are not an active contributor of those repositories.
+Please, do not create pull requests with the results produced by the Moderne Platform if you are not an active contributor of those repositories.
 {% endhint %}
 
-### Fixing security vulnerabilities with the Moderne platform
+### Fixing security vulnerabilities with the Moderne Platform
 
-Another substantial use case for the Moderne platform is detecting and potentially resolving CVEs in your projects and their dependencies. Since the Moderne platform supports complex refactoring recipes (such as the Spring Boot 3 migration), the community can contribute and provide recipes for other major migrations that do more than bump a dependency version.
+Another substantial use case for the Moderne Platform is detecting and potentially resolving CVEs in your projects and their dependencies. Since the Moderne Platform supports complex refactoring recipes (such as the Spring Boot 3 migration), the community can contribute and provide recipes for other major migrations that do more than bump a dependency version.
 
-In this part of the exercise, let's use the Moderne platform to get a list of vulnerabilities in open-source repositories.
+In this part of the exercise, let's use the Moderne Platform to get a list of vulnerabilities in open-source repositories.
 
 1. Begin by navigating to the [Check for dependency vulnerabilities recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck).
 2. Select `compile` for the first option (`scope`), `true`, for the second option (`override managed version`), and leave the third option as blank (`add markers`).

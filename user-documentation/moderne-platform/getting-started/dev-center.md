@@ -24,7 +24,7 @@ The security issues present in the above example are tests we've created for dem
 
 ### Organizational ownership
 
-The organization ownership section gives you a high-level view of your organization. It tells you how many repositories the organization is composed of, how many developers have contributed any amount of code to those repositories in the last 90 days, and how many lines of code have been ingested into the Moderne platform.
+The organization ownership section gives you a high-level view of your organization. It tells you how many repositories the organization is composed of, how many developers have contributed any amount of code to those repositories in the last 90 days, and how many lines of code have been ingested into the Moderne Platform.
 
 ![Example organizational ownership section](/.gitbook/assets/organizational-ownership.png)
 

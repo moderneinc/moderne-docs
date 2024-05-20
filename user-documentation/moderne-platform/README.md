@@ -1,4 +1,4 @@
-# Moderne Platform
+# Moderne platform
 
 * [Getting started](getting-started/)
 * [How to guides](how-to-guides/)
