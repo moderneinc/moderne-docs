@@ -506,8 +506,4 @@ We strongly recommend using IntelliJ IDEA when developing OpenRewrite recipes. I
 
 ## Custom recipe development workshop
 
-Coming soon! In it, we will:
-
-* Review the concepts necessary for recipe development: the visitor design pattern and data structures in use
-* Discuss and understand the custom migration we want to implement together
-* Write a recipe to conduct an impact analysis of the technology in use, which in turn, guides our implementation of the migration recipes. 
+If you want to learn more about writing your own recipes, please check out our [recipe authoring workshop](./recipe-authoring.md).
