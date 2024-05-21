@@ -21,21 +21,21 @@ We generally recommend forking the template and modifying it as, in most cases, 
 
 ## Generating repos.csv
 
-If you choose to fork our Organizations service template, you will have to generate your repos.csv file. This file takes the following format:
+If you choose to fork our Organizations service template, you will have to generate your `repos.csv` file. This file takes the following format:
 
-<table><thead><tr><th>cloneUrl</th><th width="99">branch</th><th>org1</th><th>org2</th><th>org3</th></tr></thead><tbody><tr><td>https://github.com/openrewrite/rewrite-recipe-bom</td><td>main</td><td>Open Source</td><td>ALL</td><td></td></tr><tr><td>https://github.com/Netflix/spectator-go</td><td>main</td><td>Netflix</td><td>Open Source</td><td>ALL</td></tr></tbody></table>
+<table><thead><tr><th width="171">cloneUrl</th><th width="99">branch</th><th>org1</th><th>org2</th><th>org3</th></tr></thead><tbody><tr><td><code>https://github.com/openrewrite/rewrite-recipe-bom</code></td><td>main</td><td>Open Source</td><td>ALL</td><td></td></tr><tr><td><code>https://github.com/Netflix/spectator-go</code></td><td>main</td><td>Netflix</td><td>Open Source</td><td>ALL</td></tr></tbody></table>
 
-The organizations under org1, org2, org3, etc. represent the hierarchy of organizations. There is no limit to the number of organizations that can be provided via this CSV.&#x20;
+The organizations under `org1`, `org2`, `org3`, etc. represent the hierarchy of organizations. There is no limit to the number of organizations that can be provided via this CSV.&#x20;
 
 The above example would be used in Moderne DX to generate an organizational listing of the following:
 
 * ALL
   * Open Source
-    * https://github.com/openrewrite/rewrite-recipe-bom:main
+    * `https://github.com/openrewrite/rewrite-recipe-bom:main`
   * Netflix
-    * https://github.com/Netflix/spectator-go:main
+    * `https://github.com/Netflix/spectator-go:main`
 
-To generate this repos.csv, we recommend using "[repo fetchers](https://github.com/moderneinc/moderne-organizations-dx/blob/main/repo-fetchers/README.md)" inside our Organizations service template.
+To generate this `repos.csv`, we recommend using "[repo fetchers](https://github.com/moderneinc/moderne-organizations-dx/blob/main/repo-fetchers/README.md)" inside our Organizations service template.
 
 ## Deploying the service
 
