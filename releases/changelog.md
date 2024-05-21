@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.115.0 (2024/05/21)
+
+- update various menu styles
+
 ### UI v10.114.0 (2024/05/18)
 
 - add zoom to fit to builder
