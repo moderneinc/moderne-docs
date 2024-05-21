@@ -65,4 +65,4 @@ curl --request POST \
 
 ### Do you have an architecture diagram that shows where this service fits in?
 
-Yes - see our [architecture documentation](../../how-to-guides/architecture.md).
+Yes - see our [architecture documentation](/administrator-documentation/moderne-platform/references/architecture.md).
