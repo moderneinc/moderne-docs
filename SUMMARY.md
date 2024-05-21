@@ -46,8 +46,6 @@
   * [OpenRewrite recipe authoring workshop](user-documentation/workshops/recipe-authoring.md)
   * [Moderne CLI workshop](user-documentation/workshops/moderne-cli-exercise.md)
   * [Air-gapped Moderne CLI workshop](user-documentation/workshops/air-gapped-cli.md)
-  * [Moderne Platform exercise](user-documentation/workshops/moderne-platform-exercise.md)
-  * [Migrate your own project](user-documentation/workshops/migrate-your-own-project.md)
 * [Community office hours](user-documentation/community-office-hours.md)
 
 ## Administrator documentation
