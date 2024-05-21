@@ -8,8 +8,42 @@ This guide assumes that:
 
 * You are an admin of Moderne DX
 * You have deployed Moderne DX in your environment
-* You have already [created and deployed an Organizations service in your environment](../../moderne-platform/how-to-guides/organizations-service.md)
 * You have already [configured Moderne DX to connect to your Artifactory instance](configure-dx-with-artifactory-access.md)
+
+## Organizations service template and API
+
+You have two main options for building this service. You can:
+
+1. (**Recommended**) Fork our [Organizations service template](https://github.com/moderneinc/moderne-organizations-dx) and modify it to meet your needs. Please see the [README](https://github.com/moderneinc/moderne-organizations-dx/blob/main/README.md) for how to spin this up quickly. It can be as simple as updating a CSV file.
+2. Build your own service that fulfills the [GraphQL contract](https://github.com/moderneinc/moderne-organizations-dx/blob/main/src/main/resources/schema/moderne-organizations.graphqls) using any GraphQL stack (e.g., NodeJS, Rust, C#, etc.)
+
+We generally recommend forking the template and modifying it as, in most cases, that will be faster and easier than building it yourself. Regardless of which one you choose, however, some developer time will be required on your end.
+
+## Generating repos.csv
+
+If you choose to fork our Organizations service template, you will have to generate your repos.csv file. This file takes the following format:
+
+<table><thead><tr><th>cloneUrl</th><th width="99">branch</th><th>org1</th><th>org2</th><th>org3</th></tr></thead><tbody><tr><td>https://github.com/openrewrite/rewrite-recipe-bom</td><td>main</td><td>Open Source</td><td>ALL</td><td></td></tr><tr><td>https://github.com/Netflix/spectator-go</td><td>main</td><td>Netflix</td><td>Open Source</td><td>ALL</td></tr></tbody></table>
+
+The organizations under org1, org2, org3, etc. represent the hierarchy of organizations. There is no limit to the number of organizations that can be provided via this CSV.&#x20;
+
+The above example would be used in Moderne DX to generate an organizational listing of the following:
+
+* ALL
+  * Open Source
+    * https://github.com/openrewrite/rewrite-recipe-bom:main
+  * Netflix
+    * https://github.com/Netflix/spectator-go:main
+
+To generate this repos.csv, we recommend using "[repo fetchers](https://github.com/moderneinc/moderne-organizations-dx/blob/main/repo-fetchers/README.md)" inside our Organizations service template.
+
+## Deploying the service
+
+How you deploy the service is largely up to your company. With that being said, there are a few important things to be aware of:
+
+* Communication with the Organizations service is done through the [Moderne agent](../../moderne-platform/how-to-guides/agent-configuration/agent-configuration.md). Therefore, this service **must** be accessible from the agent.
+* Moderne will make a request per repository to the Organizations service once every 10 minutes by default (you can change this interval in your [agent configuration](../../moderne-platform/how-to-guides/agent-configuration/configure-organizations-service.md)). Please ensure that you have metrics to track how this service is performing so you can adjust it over time.
+* You'll want a minimum system spec of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent storage.
 
 ## Organizations service configuration
 
@@ -77,7 +111,6 @@ query orgs {
   }
 }
 ```
-
 
 If you run this immediately after startup, you may get no results. Once your index operation is completed, you will get results similar to the following:
 
