@@ -79,6 +79,7 @@
     * [LST cleanup](administrator-documentation/moderne-platform/how-to-guides/lst-cleanup.md)
   * [References](administrator-documentation/moderne-platform/references/README.md)
     * [Frequently asked questions (FAQ)](administrator-documentation/moderne-platform/references/faq.md)
+    * [Authentication](administrator-documentation/moderne-platform/references/authentication.md)
     * [Reporting](administrator-documentation/moderne-platform/references/reporting.md)
     * [Moderne architecture](administrator-documentation/moderne-platform/references/architecture.md)
     * [Sensitive data flow](administrator-documentation/moderne-platform/references/flow.md)
