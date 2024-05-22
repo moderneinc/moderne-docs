@@ -6,6 +6,14 @@ Every week we [host a live office hours session](https://www.youtube.com/@modern
 
 You can find each of the office hours sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### OSS contributor conversation with DeShaun Carter (May 22nd, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=UyB12RbUPUI" %}
+
+#### Summary and related links
+
+Coming soon
+
 ### OpenRewrite parsers (May 15th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=svNf6qHUYXA" %}
