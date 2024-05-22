@@ -14,7 +14,7 @@ If you get stuck, or have questions, feel free to ask in the [OpenRewrite Slack]
 
 Before you begin writing your own recipes, you should make sure you are aware of what recipes already exist and how to run them. This is beneficial for two reasons: you won't spend time creating a recipe that someone else has already made, and you will gain a better understanding of how people will actually use any recipe you write.
 
-There are two main locations for discovering recipes: the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and [the Moderne platform](https://app.moderne.io/marketplace). The former contains all of the information you'll need to run the recipe with Gradle, Maven, or the command line – whereas the latter is more of a rich viewer that you can run recipes directly from. 
+There are two main locations for discovering recipes: the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and [the Moderne Platform](https://app.moderne.io/marketplace). The former contains all of the information you'll need to run the recipe with Gradle, Maven, or the command line – whereas the latter is more of a rich viewer that you can run recipes directly from. 
 
 There are various ways to run recipes, depending on your needs:
 
@@ -71,7 +71,7 @@ To get comfortable running recipes, let's walk through running a recipe from the
 4. Run the recipe. 
    - If you want to use Maven, Gradle, or the CLI, follow the instructions on the recipe page to run the recipe against your project.
       - Note that you can run a recipe without changing your build for both [Maven](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-maven-project-without-modifying-the-build) and [Gradle](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-gradle-project-without-modifying-the-build). 
-   - If you want to use the Moderne platform, please note that you need to [sign in with a GitHub account](/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md) before you can run a recipe.
+   - If you want to use the Moderne Platform, please note that you need to [sign in with a GitHub account](/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md) before you can run a recipe.
    - If you want to use the Moderne CLI, you will need to run the [mod build command](/user-documentation/moderne-cli/getting-started/cli-intro.md#build) to serialize the LST of your project before you can `mod run` recipes.
    - If you want to use the OpenRewrite IntelliJ plugin, you'll want to create a `rewrite.yml` file similar to the one below.
       - The OpenRewrite IntelliJ IDEA plugin shows a runnable icon next to recipes in a `rewrite.yml` file.
@@ -85,13 +85,13 @@ To get comfortable running recipes, let's walk through running a recipe from the
    displayName: My custom recipe
    description: Fix all the things.
    recipeList:
-   - org.openrewrite.java.OrderImports
+     - org.openrewrite.java.spring.boot3.SpringBoot3BestPractices
    ```
 </details>
 
 5. Review the changes made by the recipe, and ensure they are what you expected.
-6. Optionally, commit the changes made by the recipe to a new branch in your project, or discard them.
-7. Go back to the recipe page; click on the link to the source code of the recipe on GitHub.
+6. Feel free to commit the changes made by the recipe to a new branch in your project. Or, if you were mainly just testing the recipe, feel free to discard the changes.
+7. Before we wrap up this exercise, let's take a look at the source code for the recipe you ran. Go back to the recipe page that you found in step 3 and click on the `GitHub` link to view the related source code on GitHub.
    - See if you can correlate the changes made by the recipe with the code in the recipe.
 
 #### Takeaways
@@ -102,7 +102,7 @@ To get comfortable running recipes, let's walk through running a recipe from the
 - Any recipe page in the docs links to the source code of the recipe on GitHub, so you can see how it's implemented.
 - The tests for the recipe are also available, so you can see how the recipe behaves in various scenarios.
 - The Moderne CLI and Platform allow you to run recipes at scale, to see how recipes behave in practice.
-- Notice how most recipes are packaged into separate rewrite recipe modules, that you add as plugin dependency or `recipeArtifactCoordinates`.
+- Notice how most recipes are packaged into separate rewrite recipe modules, that you add as plugin dependency or provide to the Maven command line via `-Drewrite.recipeArtifactCoordinates`.
   - There's separate modules for static code analysis, Spring recipes, Java recipes, testing recipes, logging recipes, and [many more under the OpenRewrite GitHub organization](https://github.com/openrewrite/).
 
 If you're specifically interested in migrating Spring Boot applications, then we have a dedicated workshop you can follow to [migrate your own project to Spring Boot 3.x](/user-documentation/workshops/migrate-your-own-project.md).
@@ -115,7 +115,7 @@ You'll want to have the following installed:
 
 - Java 17 or higher, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks
   - Recipes use Java 8 source level, such that they can run on Java 8 and higher
-- IntelliJ IDEA 2024.1+ Ultimate
+- IntelliJ IDEA Ultimate 2024.1+
     - In particular [the OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (This comes pre-installed with IntelliJ versions 2024.1 or later)
     - Optionally, [the Moderne plugin](https://plugins.jetbrains.com/plugin/17565-moderne), for faster recipe development
 - A local git clone of the [rewrite-recipe-starter repository](https://github.com/moderneinc/rewrite-recipe-starter), as a starting point for your own recipe module
@@ -142,15 +142,22 @@ You'll want to have the following installed:
 4. Run the unit tests in the project, to ensure everything is set up correctly.
    - All tests should pass, and you should see a message that the project was successfully built.
 
-5. Customize the project `groupId` and `artifactId` in the `pom.xml` file, or `build.gradle` and `settings.gradle` file.
+5. Customize the project's group ID and artifact ID in the `pom.xml` file, or `build.gradle` and `settings.gradle` file.
    - This helps make the project your own, and allows you to version and share your recipes without conflicts.
 
 6. Install the project to your local Maven repository.
    - Run `mvn install` from the root of the project, or `./gradlew publishToMavenLocal` if you're using Gradle.
    - You should see a message that the project was successfully installed to your local Maven repository.
 
-7. Run recipe `com.yourorg.AssertEqualsToAssertThat` against your project from Exercise 1.
-   - You'll need to add a dependency on your recipe module to your project, or provide `-Drewrite.recipeArtifactCoordinates=com.yourorg:rewrite-recipe-starter:LATEST` on the command line.
+7. Run recipe `com.yourorg.UseApacheStringUtils` against your project from Exercise 1.
+   - You'll need to add a dependency on your recipe module to your project, or provide `-Drewrite.recipeArtifactCoordinates=com.yourorg:rewrite-recipe-starter:LATEST` on the command line:
+
+     ```shell
+     mvn -U org.openrewrite.maven:rewrite-maven-plugin:run \
+       -Drewrite.activeRecipes=com.yourorg.UseApacheStringUtils \
+       -Drewrite.recipeArtifactCoordinates=com.yourorg:rewrite-recipe-starter:LATEST
+     ```
+
    - You should see limited changes to your project if you were using JUnit's `Assertions assertEquals(..)` method.
    
 8. Briefly look over the various recipes and tests in the starter project. We will visit these in more details in upcoming exercises.
@@ -192,7 +199,7 @@ No matter which method of recipe development you choose, you can always [write u
 
 ## Declarative YAML recipes
 
-As a best practice, if your recipe can be declarative (meaning it can be built out of other recipes), then you should make it declarative. You can make some truly powerful migration recipes by combining many tiny recipes together (which have been vetted to handle various cases correctly, such as only adding dependencies as needed).
+As a best practice, if your recipe can be declarative (meaning it can be built out of other recipes), then you should make it declarative. You can make some truly powerful migration recipes by combining many tiny recipes together (which have been vetted to handle specific tasks correctly, such as only adding dependencies as needed).
 
 ### Exercise 3: Write a declarative YAML recipe
 
@@ -206,11 +213,14 @@ Let's have a look at a simple declarative YAML recipe, and expand that to cover 
 
 #### Steps
 
+{% hint style="warning" %}
+If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor support for writing and running recipes. Some of the below steps will not work for you without this.
+{% endhint %}
+
 1. Open the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project in IntelliJ IDEA
-   - If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor support for writing and running recipes. Some of the below steps will not work for you without this.
    - You can also compose recipes in [the Moderne Platform recipe builder](https://app.moderne.io/recipes/builder), and run them against open-source projects.
 
-2. Open the `UseApacheStringUtils` recipe which is a YAML file: [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml).
+2. Open the `UseApacheStringUtils` recipe which is defined in a YAML file: [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml).
    - Notice how the file is structured, with a `type`, `name`, `displayName`, `description`, and `recipeList` fields.
    - Comment out the `type:` and see how that disables the OpenRewrite support.
 
@@ -220,8 +230,8 @@ Let's have a look at a simple declarative YAML recipe, and expand that to cover 
 
 4. The migration recipe is a great start, but far from complete. Let's add a recipe to change from [Spring's `trimWhitepace(String)`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/StringUtils.html#trimWhitespace(java.lang.String)) to [Apache Common's `StringUtils.strip(String)`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html#strip-java.lang.String-).
    - Begin by adding the [org.openrewrite.java.ChangeMethodName](https://docs.openrewrite.org/recipes/java/changemethodname) recipe to the end of the `recipeList` field.
-   - Make sure to pass in `methodPattern: org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)` and `newMethodName: strip`.
-   - Notice how [the method pattern](https://docs.openrewrite.org/reference/method-patterns) refers to a method that does not exist: Apache Commons does not have a `trimWhitespace` method, but Spring does. That's because recipes in the `recipeList` are executed in order. The [ChangeType recipe](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml#L29-L31) comes before our new `ChangeMethodName` recipe. That means that when our `ChangeMethodName` recipe is run, there will no longer be a Spring `trimWhitespace` method. This is important to keep in mind when chaining recipes together.
+   - Make sure to pass in `methodPattern: org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)` and `newMethodName: strip` such as in [this example gist](https://gist.github.com/mike-solomon/4e1271c92c07665725d77beedd3ae1f9).
+   - Please note that [the method pattern](https://docs.openrewrite.org/reference/method-patterns) refers to a method that does not exist. Apache Commons does not have a `trimWhitespace` method, but Spring _does_. That's because recipes in the `recipeList` are executed in order. The [ChangeType recipe](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml#L29-L31) comes before our new `ChangeMethodName` recipe. That means that when our `ChangeMethodName` recipe is run, there will no longer be a Spring `trimWhitespace` method. This is important to keep in mind when chaining recipes together.
 
 5. Open the unit test [src/test/java/com/yourorg/UseApacheStringUtilsTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/UseApacheStringUtilsTest.java).
    - Notice how we implement `RewriteTest`, override `defaults(RecipeSpec)` to run our recipe, and configure a classpath for the tests that has both `commons-lang3` and `spring-core` on it.
@@ -233,7 +243,7 @@ Let's have a look at a simple declarative YAML recipe, and expand that to cover 
    - Run the new unit test, and verify that the correct changes are indeed made. 
 
 <details>
-   <summary> @Test void trimWhitespace() { ... } </summary>
+   <summary>Example trimWhitespace() test</summary>
 
    ```java
    @Test
