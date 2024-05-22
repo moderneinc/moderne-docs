@@ -22,7 +22,7 @@ SAML or OIDC provides customers with the ability to assert claims for each authe
 {% hint style="info" %}
 **Claims** are _assertions_ about a user, _as asserted by the Identity Provider_.
 
-**Example:** _Alice's email is_ _alice@example.com o_r _Bob is an administrator_
+**Example:** _Alice's email is alice@example.com_ or _Bob is an administrator_
 {% endhint %}
 
 Claims are updated each time a principal authenticates through their Identity Provider to the Moderne platform.
