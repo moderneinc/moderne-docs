@@ -12,7 +12,26 @@ You can find each of the office hours sessions below along with a summary of wha
 
 #### Summary and related links
 
-Coming soon
+* [Announcements for the week](https://youtu.be/UyB12RbUPUI?t=27):
+  * **Cool milestone**:
+    * There are now over 2,500 recipes available in the Moderne Platform! 🎉
+  * **Events**:
+    * Tim will be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/). He'll be giving a talk and an interactive workshop there. If you want to check out the workshop for yourself ahead of time, you can find it [in our docs right now](https://docs.moderne.io/user-documentation/workshops/recipe-authoring).
+  * **Content**:
+    * We recently released a video about [how to fix security vulnerabilities across your entire codebase quickly with Moderne](https://www.youtube.com/watch?v=g97-2br6pug)
+  * **Releases**:
+    * Spring Boot is doing a release this week. Fortunately, we have you covered with recipes already available to help with migration.
+    * We also [released OpenRewrite 8.27.1 along with many new recipes](https://docs.openrewrite.org/changelog/8-27-1-release) (many of which help with the new Spring Boot release).
+* [We then welcomed DaShaun Carter to the office hours](https://youtu.be/UyB12RbUPUI?t=263):
+  * DaShaun is a developer advocate who is heavily involved in the community and has given numerous talks about OpenRewrite.
+  * He started off by giving some context into the talks he's given and why he's doing it. It was exciting to see that it's had a recursive effect where people he's taught then go on to teach others and give their own presentations.
+  * [We then asked him to talk about his experience developing recipes](https://youtu.be/UyB12RbUPUI?t=897). He mentioned that he originally started by encouraging people to start with the simplest and easiest recipes first – but now he has seen the benefit of people starting with substantial migrations first as it makes it clear to the team and organization what the benefits of OpenRewrite are.
+  * [The next question was about what type of feedback DaShaun has received](https://youtu.be/UyB12RbUPUI?t=1128). He mentioned that he asks teams to measure what percent of their portfolio they were able to fully automate and upgrade with recipes. At the low end, it was 15% of projects – at the high end, it was 70%!
+  * One cool thing DaShaun called out was that, unlike other tools that require many experts across many teams (e.g., Kubernetes), OpenRewrite really only needs two or three strong engineers to write recipes that work across the whole company.
+  * [The next topic was about people using technology to further their careers](https://youtu.be/UyB12RbUPUI?t=1335). Sam and DaShaun talked about how they've seen engineers have a lot of success at making a bet on key tools (such as OpenRewrite) as a way to propel their career forward by owning substantial changes that nobody else wants to do.
+  * [We then talked about shifting the burden of dealing with breaking changes from consumers to maintainers – and how we can help spur that along](https://youtu.be/UyB12RbUPUI?t=1627). DaShaun mentioned that he thinks momentum is building for this and that people telling their stories about their upgrades will help this along. Sam mentioned that even a few years ago people were skeptical that OpenRewrite was even possible – and now people believe and are wanting it to do more and more.
+  * [This led into a discussion about skepticism and the excuses people try and give without realizing it's a "them" problem rather than a "gotcha"](https://youtu.be/UyB12RbUPUI?t=1977). Yes, there will be some parts that aren't automatically fixed – but that's no excuse to not work towards upgrading. DaShaun mentioned that one question he likes to ask is, "If your shareholders knew what version of Java you were on, would they be happy or not?" This led into discussing why it's so important to get to the latest versions of tools and how much money and time can be saved by doing so.
+  * [The last main discussion point was about the shift we've noticed in upgrading tools](https://youtu.be/UyB12RbUPUI?t=2442). Sam mentioned that at one point in his career he manually updated Checkstyle across thousands of files, and it was incredibly impractical and took such a ridiculous amount of time that he vowed to never do such a migration again. Yet, with the current state of OpenRewrite and his knowledge of recipe authorship, it wouldn't be too bad to do such a migration again.
 
 ### OpenRewrite parsers (May 15th, 2024)
 
