@@ -91,6 +91,7 @@ To get comfortable running recipes, let's walk through running a recipe from the
 
 5. Review the changes made by the recipe, and ensure they are what you expected.
 6. Feel free to commit the changes made by the recipe to a new branch in your project. Or, if you were mainly just testing the recipe, feel free to discard the changes.
+   * As future exercises use this repository, you may find it beneficial to ensure it's in a clean state prior to moving on.
 7. Before we wrap up this exercise, let's take a look at the source code for the recipe you ran. Go back to the recipe page that you found in step 3 and click on the `GitHub` link to view the related source code on GitHub.
    - See if you can correlate the changes made by the recipe with the code in the recipe.
 
@@ -105,7 +106,7 @@ To get comfortable running recipes, let's walk through running a recipe from the
 - Notice how most recipes are packaged into separate rewrite recipe modules, that you add as plugin dependency or provide to the Maven command line via `-Drewrite.recipeArtifactCoordinates`.
   - There's separate modules for static code analysis, Spring recipes, Java recipes, testing recipes, logging recipes, and [many more under the OpenRewrite GitHub organization](https://github.com/openrewrite/).
 
-If you're specifically interested in migrating Spring Boot applications, then we have a [blogpost](https://www.moderne.io/blog/speed-your-spring-boot-3-0-migration) you can read and recipe to [migrate to Spring Boot 3.x](https://docs.openrewrite.org/recipes/java/spring/boot3/springboot3bestpractices).
+If you're specifically interested in migrating Spring Boot applications, check out our [blogpost on migrating to Spring Boot 3.x](https://www.moderne.io/blog/speed-your-spring-boot-3-0-migration). You may also be interested in looking at the [migrate to Spring Boot 3.x recipe](https://docs.openrewrite.org/recipes/java/spring/boot3/springboot3bestpractices).
 
 ## Recipe development environment
 
@@ -142,8 +143,9 @@ You'll want to have the following installed:
 4. Run the unit tests in the project, to ensure everything is set up correctly.
    - All tests should pass, and you should see a message that the project was successfully built.
 
-5. Customize the project's group ID and artifact ID in the `pom.xml` file, or `build.gradle` and `settings.gradle` file.
+5. (Optional) Customize the project's group ID and artifact ID in the `pom.xml` file, or `build.gradle` and `settings.gradle` file. Also consider updating the Java package names to reflect these changes as well.
    - This helps make the project your own, and allows you to version and share your recipes without conflicts.
+   - For the purposes of this workshop, this isn't required, though. Feel free to continue using `com.yourorg` throughout.
 
 6. Install the project to your local Maven repository.
    - Run `mvn install` from the root of the project, or `./gradlew publishToMavenLocal` if you're using Gradle.
