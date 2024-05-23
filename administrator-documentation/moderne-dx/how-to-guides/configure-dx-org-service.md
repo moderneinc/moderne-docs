@@ -1,6 +1,8 @@
 # Configure the Organizations service with Moderne DX
 
-In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne DX service to point to your [Organizations service](../../moderne-platform/how-to-guides/organizations-service.md). This guide will explain how to do that.
+Many organizations desire the ability to dynamically control the organizational structure (repository groupings) of their repositories within Moderne DX. To facilitate this need, Moderne provides an integration with an Organizations service that is hosted in your environment.
+
+In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne DX service to point to your Organizations service. This guide will explain how to do that.
 
 #### Prerequisites
 
