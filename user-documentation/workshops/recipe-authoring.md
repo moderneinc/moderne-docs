@@ -105,7 +105,7 @@ To get comfortable running recipes, let's walk through running a recipe from the
 - Notice how most recipes are packaged into separate rewrite recipe modules, that you add as plugin dependency or provide to the Maven command line via `-Drewrite.recipeArtifactCoordinates`.
   - There's separate modules for static code analysis, Spring recipes, Java recipes, testing recipes, logging recipes, and [many more under the OpenRewrite GitHub organization](https://github.com/openrewrite/).
 
-If you're specifically interested in migrating Spring Boot applications, then we have a dedicated workshop you can follow to [migrate your own project to Spring Boot 3.x](/user-documentation/workshops/migrate-your-own-project.md).
+If you're specifically interested in migrating Spring Boot applications, then we have a [blogpost](https://www.moderne.io/blog/speed-your-spring-boot-3-0-migration) you can read and recipe to [migrate to Spring Boot 3.x](https://docs.openrewrite.org/recipes/java/spring/boot3/springboot3bestpractices).
 
 ## Recipe development environment
 
