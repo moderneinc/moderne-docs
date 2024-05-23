@@ -9,7 +9,7 @@ This doc will help you understand:
 
 ### Architectural overview
 
-The Moderne Platform employs robust authentication mechanisms tailored for each customer. Our system utilizes a dedicated [Keycloak server](https://www.keycloak.org/) that operates as an [identity broker](#user-content-fn-3)[^3] – which interfaces with your IdP to manage access credentials securely.&#x20;
+The Moderne Platform employs robust authentication mechanisms tailored for each customer. Our system utilizes a dedicated [Keycloak server](https://www.keycloak.org/) that operates as an [identity broker](#user-content-fn-3)[^3] – which interfaces with your IdP to manage access credentials securely.
 
 Moderne supports seamless integration by offering various authentication options:
 
@@ -29,32 +29,7 @@ Claims are updated each time a principal authenticates through their Identity Pr
 
 #### Authenticating to Moderne
 
-```mermaid fullWidth="true"
-sequenceDiagram
-    autonumber
-    box transparent Customer environment
-    actor Customer
-    participant customerIdp as Identity Provider
-    end
-	box transparent Moderne SaaS Platform
-    participant web as Moderne web application
-    participant keycloak as Identity Broker (Keycloak)
-    end
-    Customer->>web: goes to Moderne application in browser
-    web->>web: checks for active session
-    alt has active session
-    web->>Customer: Continues to application with active session
-    else no active session
-    web->>keycloak: redirects to Keycloak for new authentication session
-    keycloak->>customerIdp: redirect to IDP for authentication if required
-    customerIdp->>keycloak: asserts claims (customer identity and roles)
-    keycloak->>web: redirects to Moderne web application
-    web->>keycloak: PKCE challenge verification
-    keycloak->>web: JWT access token and basic OIDC profile information provided
-    web->>Customer: Continues to application with active session
-    end
-
-```
+<figure><img src="../../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
 
 ### Configuring authentication
 
@@ -187,7 +162,7 @@ An [example of a SAML payload](authentication.md#example-idp-saml-response) can 
 
 ```
 
-#### Example of claims from an IdP SAML response&#x20;
+#### Example of claims from an IdP SAML response
 
 ```xml
 <saml:AttributeStatement>
@@ -224,6 +199,37 @@ An [example of a SAML payload](authentication.md#example-idp-saml-response) can 
                                 >USER@EXAMPLE.COM</saml:AttributeValue>
     </saml:Attribute>
 </saml:AttributeStatement>
+```
+
+
+
+## Mermaid diagram
+
+```mermaid fullWidth="true"
+sequenceDiagram
+    autonumber
+    box transparent Customer environment
+    actor Customer
+    participant customerIdp as Identity Provider
+    end
+	box transparent Moderne SaaS Platform
+    participant web as Moderne web application
+    participant keycloak as Identity Broker (Keycloak)
+    end
+    Customer->>web: goes to Moderne application in browser
+    web->>web: checks for active session
+    alt has active session
+    web->>Customer: Continues to application with active session
+    else no active session
+    web->>keycloak: redirects to Keycloak for new authentication session
+    keycloak->>customerIdp: redirect to IDP for authentication if required
+    customerIdp->>keycloak: asserts claims (customer identity and roles)
+    keycloak->>web: redirects to Moderne web application
+    web->>keycloak: PKCE challenge verification
+    keycloak->>web: JWT access token and basic OIDC profile information provided
+    web->>Customer: Continues to application with active session
+    end
+
 ```
 
 [^1]: An application that provides authentication services to Service Providers (SPs).
