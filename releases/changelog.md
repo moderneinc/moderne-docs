@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.116.0 (2024/05/23)
+
+- Bug fixes and other improvements.
+
 ### UI v10.115.0 (2024/05/21)
 
 - update various menu styles
