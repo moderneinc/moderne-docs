@@ -22,7 +22,7 @@ There are various ways to run recipes, depending on your needs:
    - Both plugins are free, open source, and can be used on any project – without any connection to Moderne.
    - These plugins build up an **in memory** model of your project for every recipe run (which may be problematic for very large repositories or if you want to run recipes against a considerable number of repositories). 
 
-2. The [OpenRewrite IntelliJ IDEA plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite) allows you to run recipes against a **single project**, and to write and run recipes in the IDE.
+2. The [OpenRewrite IntelliJ IDEA plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite) allows you to run recipes against a **single project**, and to [write and run recipes in the IDE](https://www.jetbrains.com/help/idea/openrewrite.html).
     - Free to use on any project, without any connection to Moderne.
     - Only supports writing and running **YAML recipes**, for now.
     - **Requires the Ultimate edition of IntelliJ.**
@@ -73,7 +73,7 @@ To get comfortable running recipes, let's walk through running a recipe from the
       - Note that you can run a recipe without changing your build for both [Maven](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-maven-project-without-modifying-the-build) and [Gradle](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-gradle-project-without-modifying-the-build). 
    - If you want to use the Moderne Platform, please note that you need to [sign in with a GitHub account](/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md) before you can run a recipe.
    - If you want to use the Moderne CLI, you will need to run the [mod build command](/user-documentation/moderne-cli/getting-started/cli-intro.md#build) to serialize the LST of your project before you can `mod run` recipes.
-   - If you want to use the OpenRewrite IntelliJ plugin, you'll want to create a `rewrite.yml` file similar to the one below.
+   - If you want to use the OpenRewrite IntelliJ plugin, you'll want to [create a `rewrite.yml` file](https://www.jetbrains.com/help/idea/openrewrite.html) similar to the one below.
       - The OpenRewrite IntelliJ IDEA plugin shows a runnable icon next to recipes in a `rewrite.yml` file.
 
 <details>
