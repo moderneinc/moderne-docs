@@ -420,19 +420,50 @@ Let's look at an existing Refaster recipe in the starter project, and see how it
 5. Open the build files `pom.xml` and `build.gradle` to see how the Refaster recipes are generated.
    - Notice the [`rewrite-templating`](https://github.com/openrewrite/rewrite-templating) dependency and annotation processor. This is what enables generating the Refaster template recipes.
 
-6. If you have [the Moderne plugin 4.0+](https://plugins.jetbrains.com/plugin/17565-moderne) for IntelliJ IDEA installed, you can generate Refaster recipes directly from the IDE.
-   - Right click on any Java element in your editor, and select "Generate... > Create Recipe (Refaster Style)"
-   - A scratch file will be created that you can customize, and add to your recipe module.
-
-7. See if you can write a Refaster recipe that standardizes various ways to check if a String is empty or not.
-   - You can have multiple `@BeforeTemplate` methods, to match different ways to check for an empty string.
-   - Compare the generated recipe with the template you wrote, and write tests to cover the various cases.
-
 #### Takeaways
 
 - Refaster templates are converted into regular OpenRewrite recipes, and can be run as such.
 - Common base classes, and embedding options lighten the load in implementing Refaster templates.
 - Some 400+ recipes from [Picnic's ErrorProne Support](https://error-prone.picnic.tech/) have made it into [rewrite-third-party](https://github.com/openrewrite/rewrite-third-party) and [the app.moderne.io marketplace](https://app.moderne.io/marketplace/tech.picnic.errorprone.refasterrules). 
+
+### Exercise 7: Create a Refaster recipe
+
+Let's create a Refaster recipe that standardizes various ways to check if a String is empty or not.
+
+#### Goals for this exercise
+
+- Explore IDE support for generating Refaster recipes.
+- Write a Refaster template that matches various ways to check if a String is empty.
+- Customize the generated recipe, using the tests to cover the various aspects.
+
+#### Steps
+
+1. Open the unit test [src/test/java/com/yourorg/StringIsEmptyTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/StringIsEmptyTest.java)
+   - Read through the test, to get a feel for the cases you should cover.
+   - Remove the `@Disabled` annotation, and run the test to see that it fails.
+   - Uncomment the `spec.recipe(new StringIsEmptyRecipe());` line, and see that the class is missing.
+
+2. If you have [the Moderne plugin 4.0+](https://plugins.jetbrains.com/plugin/17565-moderne) for IntelliJ IDEA installed, you can generate Refaster recipes directly from the IDE.
+   - Right click on any Java element in your editor, and select "Generate... > Create Recipe (Refaster Style)"
+   - A scratch file will be created that you can customize, and add to your recipe module.
+
+3. Open the Refaster template [src/main/java/com/yourorg/StringIsEmpty.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/StringIsEmpty.java)
+   - Using the knowledge gained in Exercise 6, and the requirements from the test, write a Refaster recipe that matches various ways to check if a String is empty.
+   - Think about if your methods should take in any argument, and what the type of that argument should be.
+   - Add your first `@BeforeTemplate` and `@AfterTemplate` annotated methods, to match and replace the first way to check for an empty string.
+
+4. Trigger an explicit build of your project to generate the Recipe class with Ctrl + F9, or equivalent.
+   - Notice how the unit test now compiles; compare the generated recipe with the template you wrote.
+   - Run the test to see where you stand, and add additional `@BeforeTemplate` annotated methods to cover all cases.
+
+5. Follow the instructions in the tests to add a name and description to your recipe.
+   - These will be visible in any generated documentation, when folks run and discover recipes, and in Moderne.
+
+#### Takeaways
+
+- Refaster templates can be generated from the IDE, and used as a starting point for more complex recipe implementations.
+- A Refaster rule can contain more than one before template, to match different ways to check for an empty string.
+- You can customize the Recipe name and description, with the help of the `@RecipeDescriptor` annotation.
 
 ## Imperative recipes
 
@@ -442,7 +473,7 @@ You might want to refresh your memory on [visitor pattern](https://docs.openrewr
 
 These [imperative recipes](https://docs.openrewrite.org/concepts-explanations/recipes#imperative-recipes) use the visitor pattern to traverse the LSTs, and make changes to the code. The `JavaTemplate` class is used to [create new LST elements](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate), that can replace existing LST elements.
 
-### Exercise 7: Explore an imperative recipe
+### Exercise 8: Explore an imperative recipe
 
 Let's look at an existing imperative recipe in the starter project, and see how it's implemented.
 
