@@ -1,16 +1,16 @@
 # Platform changelog
+
 ### UI v10.116.0 (2024/05/23)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.115.0 (2024/05/21)
 
-- update various menu styles
+* update various menu styles
 
 ### UI v10.114.0 (2024/05/18)
 
-- add zoom to fit to builder
-
+* add zoom to fit to builder
 
 ### UI v10.113.0 (2024/05/17)
 
@@ -469,7 +469,7 @@ Previous:
 
 <div data-full-width="true">
 
-<img src="../.gitbook/assets/image (1) (1).png" alt="">
+<img src="../.gitbook/assets/image (1) (1) (1).png" alt="">
 
 </div>
 
@@ -691,7 +691,7 @@ feat/add-yielded-state
 We have plans to overhaul the iconography to create better visual consistency and clarity.
 
 This journey begins this version with a rework of the left navigation icons:\
-![](<../.gitbook/assets/image (1) (1) (1) (2).png>)
+![](<../.gitbook/assets/image (1) (1) (1) (2) (1).png>)
 
 ### UI v9.173.0 (2023/10/17)
 
@@ -932,7 +932,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 #### Organization and group selector improvements
 
-![](<../.gitbook/assets/image (3) (1) (1).png>)
+![](<../.gitbook/assets/image (3) (1) (1) (1).png>)
 
 * Highlighted search terms
 * More flexible width and word wrapping when organization names are long.
@@ -943,7 +943,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 We now support dynamic form fields for `List` or `string[]` options. Recipes that take a list of strings now have a new editor interface to improve the usability.
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.142.0 (2023/08/15)
 
@@ -965,7 +965,7 @@ We now support dynamic form fields for `List` or `string[]` options. Recipes tha
 
 Pan/zoom controls and download options are now available for Visualizations.
 
-* ![](<../.gitbook/assets/image (4) (1) (1) (1).png>)
+* ![](<../.gitbook/assets/image (4) (1) (1) (1) (1).png>)
 
 ### UI v9.138.0 (2023/08/10)
 

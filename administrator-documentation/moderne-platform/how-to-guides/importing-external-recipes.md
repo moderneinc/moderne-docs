@@ -20,11 +20,11 @@ From your Moderne tenant, click on _Deploy_ in the left-hand menu:
 
 1. Click `Add` to open the form to import a recipe:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 2. Provide the `Group ID`, `Artifact ID`, and `Version` for the published artifact:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 3. Click _deploy recipe artifact_ to deploy it.
 

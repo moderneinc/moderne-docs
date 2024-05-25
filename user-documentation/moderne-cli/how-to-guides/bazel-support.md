@@ -55,13 +55,13 @@ The Bazel command that the Moderne CLI is executing is logged at this path relat
 
 Notice that the rule that has been configured with [`mod config build bazel rule edit <RULE>`](../cli-reference.md#mod-config-build-bazel) is being used here.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>The second Command entry in the log shows the Bazel build command that is being executed by the Moderne CLI.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>The second Command entry in the log shows the Bazel build command that is being executed by the Moderne CLI.</p></figcaption></figure>
 
 ### Troubleshooting: Why were Java files not parsed as Java LSTs?
 
 At the end of build, a manifest is created that itemizes each file that is contained in the LST and how it was parsed. A sure sign that the Bazel rule configuration is not correctly identfying Java source sets is a series of Java file entries in the manifest that are listed as "Quarks", as seen in the image below.
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>A manifest showing a LST produced with a misconfigured Bazel rule.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>A manifest showing a LST produced with a misconfigured Bazel rule.</p></figcaption></figure>
 
 A quark is an LST type that simply indicates the presence of a file, but does not keep its contents. Java-specific recipes will not operate on Quarks to make changes.
 
