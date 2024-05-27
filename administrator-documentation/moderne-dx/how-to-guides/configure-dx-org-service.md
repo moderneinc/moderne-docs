@@ -16,8 +16,8 @@ This guide assumes that:
 
 You have two main options for building this service. You can:
 
-1. (**Recommended**) Fork our [Organizations service template](https://github.com/moderneinc/moderne-organizations-dx) and modify it to meet your needs. Please see the [README](https://github.com/moderneinc/moderne-organizations-dx/blob/main/README.md) for how to spin this up quickly. It can be as simple as updating a CSV file.
-2. Build your own service that fulfills the [GraphQL contract](https://github.com/moderneinc/moderne-organizations-dx/blob/main/src/main/resources/schema/moderne-organizations.graphqls) using any GraphQL stack (e.g., NodeJS, Rust, C#, etc.)
+1. (**Recommended**) Fork our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. Please see the [README](https://github.com/moderneinc/moderne-organizations/blob/main/README.md) for how to spin this up quickly. It can be as simple as updating a CSV file.
+2. Build your own service that fulfills the [GraphQL contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/moderne-organizations.graphqls) using any GraphQL stack (e.g., NodeJS, Rust, C#, etc.)
 
 We generally recommend forking the template and modifying it as, in most cases, that will be faster and easier than building it yourself. Regardless of which one you choose, however, some developer time will be required on your end.
 
@@ -37,7 +37,7 @@ The above example would be used in Moderne DX to generate an organizational list
   * Netflix
     * `https://github.com/Netflix/spectator-go:main`
 
-To generate this `repos.csv`, we recommend using "[repo fetchers](https://github.com/moderneinc/moderne-organizations-dx/blob/main/repo-fetchers/README.md)" inside our Organizations service template.
+To generate this `repos.csv`, we recommend using "[repo fetchers](https://github.com/moderneinc/moderne-organizations/blob/main/repo-fetchers/README.md)" inside our Organizations service template.
 
 ## Deploying the service
 
