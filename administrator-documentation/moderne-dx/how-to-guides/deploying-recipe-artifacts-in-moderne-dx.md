@@ -1,6 +1,6 @@
 # Deploying recipe artifacts in Moderne DX
 
-To deploy recipe artifacts into Moderne DX, you can make a GraphQL mutation using `https://<moderne-dx-host>:8080/graphql` similar to the following:
+To deploy recipe artifacts into Moderne DX, you can make a GraphQL mutation using `https://<moderne-dx-host>:8080/graphql` similar to the following (or issue the request through the UI at `https://<moderne-dx-host>:8080/graphiql`).
 
 ```graphql
 mutation loadRecipes {
