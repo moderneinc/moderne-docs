@@ -443,8 +443,8 @@ Let's create a Refaster recipe that standardizes various ways to check if a Stri
    - Remove the `@Disabled` annotation, and run the test to see that it fails.
    - Uncomment the `spec.recipe(new StringIsEmptyRecipe());` line, and see that the class is missing.
 
-2. If you have [the Moderne plugin 4.0+](https://plugins.jetbrains.com/plugin/17565-moderne) for IntelliJ IDEA installed, you can generate Refaster recipes directly from the IDE.
-   - Right click on any Java element in your editor, and select "Generate... > Create Recipe (Refaster Style)"
+2. If you have [the Moderne plugin 4.0+](https://plugins.jetbrains.com/plugin/17565-moderne) for IntelliJ IDEA installed, you can [generate Refaster recipes directly from the IDE](/user-documentation/moderne-ide-integration/moderne-plugin-for-jetbrains-ides/getting-started-with-the-moderne-plugin-for-jetbrains-ides).
+   - [Right click on any Java element in your editor](/user-documentation/moderne-ide-integration/moderne-plugin-for-jetbrains-ides/code-search-with-the-moderne-plugin-for-jetbrains-ides), and select "Generate... > Create Recipe (Refaster Style)"
    - A scratch file will be created that you can customize, and add to your recipe module.
 
 3. Open the Refaster template [src/main/java/com/yourorg/StringIsEmpty.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/StringIsEmpty.java)
