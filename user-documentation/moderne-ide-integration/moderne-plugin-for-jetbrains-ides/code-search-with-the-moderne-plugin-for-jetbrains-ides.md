@@ -6,7 +6,7 @@ description: Performing multi-repository code search and impact analysis.
 
 Regardless of whether you're a new developer or someone with decades of experience writing code, you will often find yourself wanting to look for examples of how particular pieces of code are used. In fact, about [one third of all Google code searches are attempting to find examples of how others have done something](https://www.oreilly.com/library/view/software-engineering-at/9781492082781/ch17.html#whyquestion_mark). Unfortunately, these searches will often lead to examples that aren't quite right – they might match the same _text_, but they often will not match the _types_. If you attempt to restrict searching to only the repositories on your local machine (such as using `grep` for instance), you will often run into a similar issue.
 
-Fortunately, this is where the Moderne plugin really shines. With a simple right-click, you can perform type-aware searches across thousands of repositories – all without leaving your IDE. To go even further, you can use the Moderne plugin to _create_ new search recipes.
+Fortunately, this is where the Moderne plugin really shines. With a simple right-click, you can perform type-aware searches across thousands of repositories – all without leaving your IDE. To go even further, you can use the Moderne plugin to _create_ new search recipes; which are a fundamental step in creating complex migrations.
 
 Let's walk through how to use both of these features.
 
