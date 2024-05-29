@@ -6,6 +6,8 @@ description: Installation and configuration of the plugin.
 
 The Moderne plugin for JetBrains IDEs is available on the [JetBrains marketplace](https://plugins.jetbrains.com/plugin/17565-moderne?noRedirect=true). The plugin interacts with the [Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro.md) to enable multi-repository code search and transformation on a set of repositories that engineers configure in their IDE.
 
+{% embed url="https://www.youtube.com/watch?v=cMIDGM92ays" %}
+
 ## Multi-repos
 
 "Multi-repo" refers to a named set of repositories that you want to operate on as a unit for either code search or transformation. The set of repositories in a multi-repo need only share a common ancestor root directory somewhere on disk. Common examples of what multi-repos represent are:

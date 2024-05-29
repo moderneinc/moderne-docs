@@ -43,6 +43,7 @@
   * [Moderne plugin for JetBrains IDEs](user-documentation/moderne-ide-integration/moderne-plugin-for-jetbrains-ides/README.md)
     * [Getting started with the Moderne  plugin for JetBrains IDEs](user-documentation/moderne-ide-integration/moderne-plugin-for-jetbrains-ides/getting-started-with-the-moderne-plugin-for-jetbrains-ides.md)
     * [Code search with the Moderne plugin for JetBrains IDEs](user-documentation/moderne-ide-integration/moderne-plugin-for-jetbrains-ides/code-search-with-the-moderne-plugin-for-jetbrains-ides.md)
+    * [Creating recipes with the Moderne plugin for JetBrains IDEs](user-documentation/moderne-ide-integration/moderne-plugin-for-jetbrains-ides/creating-recipes.md)
 * [Moderne DX](user-documentation/moderne-dx/README.md)
   * [How to guides](user-documentation/moderne-dx/how-to-guides/README.md)
     * [Syncing recipes with Moderne DX](user-documentation/moderne-dx/how-to-guides/syncing-recipes-with-moderne-dx.md)
