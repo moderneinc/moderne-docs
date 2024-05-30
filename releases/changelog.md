@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v10.117.0 (2024/05/30)
+
+- improve auto scroll in tree view
+- add pagination context to cursor paginated grids.
+- redesign button control
+
 
 UI v10.116.0 (2024/05/23)
 
