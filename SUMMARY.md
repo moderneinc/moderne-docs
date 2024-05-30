@@ -99,7 +99,7 @@
     * [GraphQL API reference](https://studio.apollographql.com/public/Moderne-SaaS-API/variant/current)
 * [Moderne DX](administrator-documentation/moderne-dx/README.md)
   * [How to guides](administrator-documentation/moderne-dx/how-to-guides/README.md)
-    * [Mass ingest](administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md)
+    * [Mass ingest](administrator-documentation/moderne-dx/how-to-guides/mass-ingest-and-run-dx.md)
     * [Configuring Moderne DX](administrator-documentation/moderne-dx/how-to-guides/dx-configuration.md)
     * [Configure Moderne DX with Maven repository access](administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-maven-repository-access.md)
     * [Configure Moderne DX with Artifactory access: LSTs](administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-artifactory-access.md)
