@@ -12,7 +12,42 @@ You can find each of the office hours sessions below along with a summary of wha
 
 #### Summary and related links
 
-Coming soon!
+* [Announcements for the week](https://youtu.be/egf5Q3fb6W0?t=30)
+  * **Events**:
+    * Tim will be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/). He'll be giving a talk and an interactive workshop there. If you want to check out the workshop for yourself ahead of time, you can find it [in our docs right now](https://docs.moderne.io/user-documentation/workshops/recipe-authoring).
+    * Tim also will be at [JNation.pt on June 5th to give a workshop on recipe authorship](https://jnation.pt/workshops/)
+    * Sam will be [hosting a No-fluff-just-stuff webinar on the fundamental of migration engineering on Friday, May 31st](https://nofluffjuststuff.com/webinar/116/migration_engineering_w_openrewrite).
+  * **Content**:
+    * If you prefer reading to watching, [we released a blog post about the Moderne IDE plugin](https://www.moderne.io/blog/introducing-the-moderne-ide-plugin-for-jetbrains-intellij-idea) this week that covers a lot of what we'll discuss in this office hours.
+    * We also created a bunch of developer-focused docs about the [Moderne IDE plugin that are focused on installing, configuring, and using the plugin](/user-documentation/moderne-ide-integration/moderne-plugin-for-jetbrains-ides/README.md).
+    * Or, if you'd prefer a shorter, sharable video – check out our [new video introducing the Moderne IDE plugin](https://www.youtube.com/watch?v=cMIDGM92ays).
+  * [After the announcements, we began our discussion with Jonathan about the Moderne IDE plugin](https://youtu.be/egf5Q3fb6W0?t=163).
+    * Jonathan began by giving some background on what Moderne's goals are and how we've got to where we are.
+      * He mentioned that people start to get excited about the tool when they can begin to execute recipes on _multiple_ repositories. This is especially noticeable if company's set up the [Moderne Platform](/introduction.md#the-moderne-platform) and the [Moderne DevCenter](/user-documentation/moderne-platform/getting-started/dev-center.md). However, as a developer, you aren't coding in a browser, so we wanted to help bring these "wow" moments down to where developers work – in IDEs.
+    * After giving some context, [Jonathan then demonstrated how to install and configure the Moderne IDE plugin](https://youtu.be/egf5Q3fb6W0?t=405).
+      * Behind the scenes the Moderne plugin uses the [Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro.md).
+      * "Multi-repos" will detect what the Moderne CLI is connected to to pull a list of organizations that you can run recipes against.
+    * He then demonstrated how if you specify an organization, it will do a meta-data only clone of all of the repositories to your local machine.
+      * Meta-data only effectively just creates the directory structure – but does not pull down the code. This is much quicker than cloning everything. 
+    * [We then jumped into discussing what you can actually _do_ with the plugin](https://youtu.be/egf5Q3fb6W0?t=675).
+      * The first example began by talking about "Usages" in IntelliJ – which developers will often use to try and find code in their projects. Unfortunately, it's limited to only the repository you have open. The Moderne plugin, however, adds a new menu item that lets you find usages across _all_ of the repositories you configured earlier.
+      * This is particularly cool because the results from that find usages search will not only quickly get you type-accurate results - but they will also let you look at code in files that _don't even exist on your machine_.
+    * To take it a bit further, we then [discussed how you can use the plugin to create your own recipes](https://youtu.be/egf5Q3fb6W0?t=826).
+      * You can then modify the generated recipe to meet your needs and run it against all of your repositories – all without leaving the IDE.
+      * We also discussed the different types of recipes you can create (search vs. refactor) and how we hope to add support for actually committing the refactor recipe results from the plugin.
+    * We then answered a community question of, ["How can you use this plugin if you don't have a Moderne tenant with LSTs set up?"](https://youtu.be/egf5Q3fb6W0?t=1145)
+      * When you select "Multi-repos" – you can also select a local folder to use. You will need to use the Moderne CLI to `mod build` the repositories in said directory before the plugin will work, though. After you build them, it will behave the same way as if you specified a Moderne organization.
+        * You may want to use this feature of the plugin even if you have a tenant set up as it lets you more easily specify a group of repositories to run on (presuming the group you care about is not already in the tenant).
+    * Next up was [talking about where we go from here with the plugin](https://youtu.be/egf5Q3fb6W0?t=1253).
+      * Things we're thinking about include: allowing people to mass commit, add mass debugging capabilities, and detecting business priority recipes (such as upgrading to Java 21) and providing intention actions in IntelliJ that warn when some piece of code needs to be updated (it could even fix the code for you).
+    * We then briefly jumped back into the plugin to [demonstrate that it's not just limited to Java code](https://youtu.be/egf5Q3fb6W0?t=1665).
+      * Jonathan demonstrated how you can use the plugin to find all the `pull_request` YAML tags. This search doesn't just look for the text `pull_request` - it's actually looking for the exact YAML structure of "on" "pull_request". 
+      * To go along with that, you can also make recipes that will modify and intelligently update these YAML files.
+    * After that, [we announced that we're going to be offering a free, time-limited license for the Moderne CLI so that developers can try this out for themselves](https://youtu.be/egf5Q3fb6W0?t=2122).
+      * To get the free license, [please fill out our signup form](https://share.hsforms.com/1cfEbSpZNT8enCckPXmdlmwblnxg).
+      * The Moderne IDE plugin is [available directly from IntelliJ](https://plugins.jetbrains.com/plugin/17565-moderne?noRedirect=true).
+      * We'd love feedback and suggestions from you!
+    * Lastly, we [jumped into smaller discussions about the future](https://youtu.be/egf5Q3fb6W0?t=2216). This included talking about things we could do to improve the developer experience, demonstrating visitor based recipes, discussing how the plugin could be used to create unit tests in the future, highlighting what a data table is and how the plugin could potentially generate those using IntelliJ's data view.
 
 ### OSS contributor conversation with DeShaun Carter (May 22nd, 2024)
 

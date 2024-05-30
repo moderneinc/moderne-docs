@@ -41,7 +41,7 @@ The next thing you'll want to configure is the list of multi-repos that you want
 <figure><img src="../../../.gitbook/assets/image (35).png" alt="" width="563"><figcaption><p>The set of organizations fetched from Moderne SaaS (in this case <a href="https://app.moderne.io">https://app.moderne.io</a>).</p></figcaption></figure>
 
 {% hint style="info" %}
-When you apply these settings, any Moderne Organization that you have selected will be cloned using [--metadata-only](/user-documentation/moderne-cli/cli-reference#mod-git-clone-csv). Its LSTs will also downloaded from your artifact repository. This process resembles dependency resolution of binary dependencies.
+When you apply these settings, any Moderne Organization that you have selected will be cloned using [--metadata-only](/user-documentation/moderne-cli/cli-reference#mod-git-clone-csv). Its LSTs will also be downloaded from your artifact repository. This process resembles dependency resolution of binary dependencies.
 {% endhint %}
 
 After configuring the plugin, you will see the repositories belonging to the multi-repo(s) that you configured listed in the Moderne tool window. Click the refresh <img src="../../../.gitbook/assets/image (1).png" alt="" data-size="line"> button if necessary. Repositories displayed with a blue icon have LSTs successfully built or downloaded on disk. Repositories with a gray icon do not.
