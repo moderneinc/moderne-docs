@@ -1,6 +1,6 @@
 # Platform changelog
 
-### UI v10.116.0 (2024/05/23)
+UI v10.116.0 (2024/05/23)
 
 * Bug fixes and other improvements.
 
@@ -10,11 +10,13 @@
 
 ### UI v10.114.0 (2024/05/18)
 
-* add zoom to fit to builder
+We have added a new move to fit camera control to the new builder.  This will automatically move the camera location and angle to fit the whole custom recipe into the scene.\
+<img src="../.gitbook/assets/image (40).png" alt="" data-size="original">
 
 ### UI v10.113.0 (2024/05/17)
 
-* update new builder greeter
+The new recipe builder now has a new greeting card when no custom recipe is loaded.  We hope this will better help newer users start on their recipe authorship journey.\
+![](<../.gitbook/assets/image (39).png>)
 
 ### UI v10.112.1 (2024/05/16)
 
@@ -22,7 +24,9 @@
 
 ### UI v10.112.0 (2024/05/15)
 
-* add auto save
+The new recipe builder now auto saves progress and there is a new indicator to signal when the current work is being saved to your local IndexedDB.
+
+<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.111.1 (2024/05/15)
 
