@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.118.0 (2024/05/31)
+
+- add more visual improvements to builder
+- add support for quick filter + column filter on organizations repositories grid
+
 
 ### UI v10.117.0 (2024/05/30)
 
