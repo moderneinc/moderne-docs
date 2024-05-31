@@ -2,7 +2,8 @@
 
 ### UI v10.117.0 (2024/05/30)
 
-* Grids will now show more context regarding pagination:![](<../.gitbook/assets/image (1).png>)
+* Grids will now show more context regarding pagination:\
+  <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">
 * In the new builder the tree view has been improved visually to increase clarity and now has a new auto scroll mechanic which should be more consistent than the previous:\
   ![](<../.gitbook/assets/image (41).png>)
 * In the new builder the scene control buttons have been redesigned and located to the lower left of the scene:\
