@@ -1887,4 +1887,3 @@ Deploying recipe artifacts now has an improved asynchronous experience. We've ad
 
 <figure><img src="../.gitbook/assets/update-notice.png" alt=""><figcaption><p>If there is a Moderne update in the middle of your browser session, you should now see a prompt to refresh your page to ensure you have the latest version available.</p></figcaption></figure>
 
-### UI v10.18.0 (2023/11/30)
