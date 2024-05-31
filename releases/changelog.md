@@ -1,10 +1,12 @@
 # Platform changelog
+
 ### UI v10.117.0 (2024/05/30)
 
-- improve auto scroll in tree view
-- add pagination context to cursor paginated grids.
-- redesign button control
-
+* Grids will now show more context regarding pagination:![](<../.gitbook/assets/image (1).png>)
+* In the new builder the tree view has been improved visually to increase clarity and now has a new auto scroll mechanic which should be more consistent than the previous:\
+  ![](<../.gitbook/assets/image (41).png>)
+* In the new builder the scene control buttons have been redesigned and located to the lower left of the scene:\
+  ![](../.gitbook/assets/image.png)
 
 UI v10.116.0 (2024/05/23)
 
@@ -16,12 +18,12 @@ UI v10.116.0 (2024/05/23)
 
 ### UI v10.114.0 (2024/05/18)
 
-We have added a new move to fit camera control to the new builder.  This will automatically move the camera location and angle to fit the whole custom recipe into the scene.\
+We have added a new move to fit camera control to the new builder. This will automatically move the camera location and angle to fit the whole custom recipe into the scene.\
 <img src="../.gitbook/assets/image (40).png" alt="" data-size="original">
 
 ### UI v10.113.0 (2024/05/17)
 
-The new recipe builder now has a new greeting card when no custom recipe is loaded.  We hope this will better help newer users start on their recipe authorship journey.\
+The new recipe builder now has a new greeting card when no custom recipe is loaded. We hope this will better help newer users start on their recipe authorship journey.\
 ![](<../.gitbook/assets/image (39).png>)
 
 ### UI v10.112.1 (2024/05/16)
@@ -479,7 +481,7 @@ Previous:
 
 <div data-full-width="true">
 
-<img src="../.gitbook/assets/image (1) (1) (1).png" alt="">
+<img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="">
 
 </div>
 
@@ -910,7 +912,7 @@ We've done a little tidying up on the recipe run result page. _**Visualizations*
 
 #### Add dropdown options to share button
 
-![](<../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (2).png>)
 
 When sharing a recipe from the recipes details, you can now select whether or not to include your current organizations.
 
@@ -936,7 +938,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 <div align="left" data-full-width="false">
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="176"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="176"><figcaption></figcaption></figure>
 
 </div>
 
