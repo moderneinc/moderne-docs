@@ -6,7 +6,7 @@
   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">
 * In the new builder the tree view has been improved visually to increase clarity and now has a new auto scroll mechanic which should be more consistent than the previous:\
   ![](<../.gitbook/assets/image (41).png>)
-* In the new builder the scene control buttons have been redesigned and located to the lower left of the scene:\
+* In the new builder the scene control buttons have been redesigned and relocated to the lower left of the scene:\
   ![](../.gitbook/assets/image.png)
 
 UI v10.116.0 (2024/05/23)
