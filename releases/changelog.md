@@ -1,22 +1,25 @@
 # Platform changelog
+
 ### UI v10.119.0 (2024/06/03)
 
-- improve visibility of selected subtrees
+*   When selecting subtrees in the new builder other nodes are now deemphasized to improve visual clarity of the selection:\
+
+
+    <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.118.0 (2024/05/31)
 
-- add more visual improvements to builder
-- add support for quick filter + column filter on organizations repositories grid
-
+* add more visual improvements to builder
+* add support for quick filter + column filter on organizations repositories grid
 
 ### UI v10.117.0 (2024/05/30)
 
 * Grids will now show more context regarding pagination:\
-  <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">
+  <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line">
 * In the new builder the tree view has been improved visually to increase clarity and now has a new auto scroll mechanic which should be more consistent than the previous:\
   ![](<../.gitbook/assets/image (41).png>)
 * In the new builder the scene control buttons have been redesigned and relocated to the lower left of the scene:\
-  ![](../.gitbook/assets/image.png)
+  ![](<../.gitbook/assets/image (1).png>)
 
 UI v10.116.0 (2024/05/23)
 
@@ -491,7 +494,7 @@ Previous:
 
 <div data-full-width="true">
 
-<img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="">
+<img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="">
 
 </div>
 
@@ -1896,4 +1899,3 @@ Deploying recipe artifacts now has an improved asynchronous experience. We've ad
 #### Moderne update notice
 
 <figure><img src="../.gitbook/assets/update-notice.png" alt=""><figcaption><p>If there is a Moderne update in the middle of your browser session, you should now see a prompt to refresh your page to ensure you have the latest version available.</p></figcaption></figure>
-

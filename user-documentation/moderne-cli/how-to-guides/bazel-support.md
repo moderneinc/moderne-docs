@@ -55,7 +55,7 @@ The Bazel command that the Moderne CLI is executing is logged at this path relat
 
 Notice that the rule that has been configured with [`mod config build bazel rule edit <RULE>`](../cli-reference.md#mod-config-build-bazel) is being used here.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>The second Command entry in the log shows the Bazel build command that is being executed by the Moderne CLI.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>The second Command entry in the log shows the Bazel build command that is being executed by the Moderne CLI.</p></figcaption></figure>
 
 ### Troubleshooting: Why were Java files not parsed as Java LSTs?
 
