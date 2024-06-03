@@ -137,6 +137,14 @@ The –filter=tree:0 argument is optional but helps clone faster, as it fetches 
 ![](<../../.gitbook/assets/image (42).png>)
 {% endhint %}
 
+{% hint style="warning" %}
+On Windows machines, you may [run into issues cloning repositories with deep file paths](https://gist.github.com/leodutra/a25bc1f51e8779943df0a95d5a4839d1). To fix this, try running the following command:
+
+```bash
+git config --system core.longpaths true
+```
+{% endhint %}
+
 Here is an example of what a `repos.csv` file might look like:
 
 ```csv
