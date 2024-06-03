@@ -6,6 +6,14 @@ Every week we [host a live office hours session](https://www.youtube.com/@modern
 
 You can find each of the office hours sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Debugging recipes on real code (June 5th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=lNLo6i7SVGI" %}
+
+#### Summary and related links
+
+Coming soon!
+
 ### Moderne IDE plugin onboarding (May 29th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=egf5Q3fb6W0" %}
