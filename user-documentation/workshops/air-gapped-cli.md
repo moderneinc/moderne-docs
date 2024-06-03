@@ -1,12 +1,12 @@
 # Air-gapped Moderne CLI workshop
 
-The two day air-gapped Moderne CLI workshop allows participants to learn how to leverage OSS OpenRewrite recipes for OSS framework migrations and vulnerability management, as well as conduct impact analysis studies and build custom migrations via custom OpenRewrite recipes. 
+The two day air-gapped Moderne CLI workshop allows participants to learn how to leverage OSS OpenRewrite recipes for OSS framework migrations and vulnerability management, as well as conduct impact analysis studies and build custom migrations via custom OpenRewrite recipes.
 
 The workshop is conducted by developers leveraging the Moderne CLI and OpenRewrite recipes on their workstations. While the Moderne team assists your developers during the workshop, your code **won't leave developer workstations** during the workshop. Existing access control policies govern developer access to your SCM and artifact stores.
 
-After developers familiarize themselves with the CLI, they will run code cleanup, framework migrations, and OWASP Top 10 vulnerability management recipes. All of these recipes produce data tables that can be used to calculate a return on investment (ROI).  This then feeds into the value deck we create after the workshop to describe results to management.
+After developers familiarize themselves with the CLI, they will run code cleanup, framework migrations, and OWASP Top 10 vulnerability management recipes. All of these recipes produce data tables that can be used to calculate a return on investment (ROI). This then feeds into the value deck we create after the workshop to describe results to management.
 
-The second part of the workshop is focused on teaching developers how to plan and execute custom migrations. Some example migrations we implemented in the past include switching identity providers, moving from one database to another, integrating with an internal third-party vulnerability management tool, and integrating with Launch Darkly to remove unused feature flags. 
+The second part of the workshop is focused on teaching developers how to plan and execute custom migrations. Some example migrations we implemented in the past include switching identity providers, moving from one database to another, integrating with an internal third-party vulnerability management tool, and integrating with Launch Darkly to remove unused feature flags.
 
 We typically begin by showing how to quickly write a search recipe that allows you to output a data table of technology in use across all of your repositories. Then we help you implement custom recipes for said migration. Please note that said migration is not guaranteed to be complete by the end of the workshop. That being said, your developers will come out of this session with the necessary skills to complete the migration.
 
@@ -14,7 +14,7 @@ We typically begin by showing how to quickly write a search recipe that allows y
 
 * The Moderne CLI and open source OpenRewrite recipe JARs need to be available in your internal mirror of Maven Central.
 * You will need to be proficient with Java.
-* Someone at your company needs to perform all of the steps in the [environment preparation section](#environment-preparation-before-workshop) before the workshop begins.
+* Someone at your company needs to perform all of the steps in the [environment preparation section](air-gapped-cli.md#environment-preparation-before-workshop) before the workshop begins.
 
 ## Environment preparation (before workshop)
 
@@ -43,24 +43,22 @@ Add the following to your `.bashrc` or `.zshrc` file:
 ```bash
 alias mod=”java -jar /path/to/mod.jar” "$@"
 ```
-
 {% endtab %}
 
 {% tab title="Powershell" %}
-Use the [Set-Alias command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-7.4) within a [profile script](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4&viewFallbackFrom=powershell-7).
-
+Use the [Set-Alias command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-7.4) within a [profile script](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about\_profiles?view=powershell-7.4\&viewFallbackFrom=powershell-7).
 {% endtab %}
 {% endtabs %}
 
 ### Configure the CLI to use your license key
 
-Please run the following command to configure your license: 
+Please run the following command to configure your license:
 
 ```bash
 mod config license edit <license-you-were-provided>
 ```
 
-If you want more details about the license and its checks, please see our [Moderne CLI license doc](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
+If you want more details about the license and its checks, please see our [Moderne CLI license doc](../moderne-cli/getting-started/moderne-cli-license.md).
 
 ### Configure the CLI to point to your internal Artifact repository
 
@@ -117,11 +115,11 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-testing-frameworks
 
 ### (Optionally) Create a CSV of the repositories you want to use
 
-If you are going to be performing the workshop on a developer machine that already has a bunch of locally cloned repositories you want to run recipes against, feel free to skip to the [building LSTs step](#build-lsts).
+If you are going to be performing the workshop on a developer machine that already has a bunch of locally cloned repositories you want to run recipes against, feel free to skip to the [building LSTs step](air-gapped-cli.md#build-lsts).
 
 If you need to clone repositories locally, you'll need to [create a repos.csv file](https://docs.moderne.io/user-documentation/moderne-cli/cli-reference#mod-git-clone-csv). This file will take in a list of repositories, the branch to use, and (optionally) various attributes about them that the CLI will use when building the repository.
 
-To assist you with creating this CSV file, we've [created scripts for pulling repository details from various source code managers](https://github.com/moderneinc/mass-ingest-example/tree/main/repo-fetchers). Please configure and run those as needed to build up your `repos.csv` file. 
+To assist you with creating this CSV file, we've [created scripts for pulling repository details from various source code managers](https://github.com/moderneinc/mass-ingest-example/tree/main/repo-fetchers). Please configure and run those as needed to build up your `repos.csv` file.
 
 ### (Optionally) Clone repositories from the CSV
 
@@ -130,11 +128,13 @@ _This only applies if you created a CSV in the previous step_
 With the CSV created, please run the `mod git clone` command similar to the following (replace `spring-data` with the location where you want the repositories cloned to):
 
 ```bash
-mod git clone csv ./spring-data repos.csv --filter=true:0
+mod git clone csv ./spring-data repos.csv --filter=tree:0
 ```
 
 {% hint style="info" %}
 The –filter=tree:0 argument is optional but helps clone faster, as it fetches all commit history but only trees for the latest commit.
+
+![](<../../.gitbook/assets/image (42).png>)
 {% endhint %}
 
 Here is an example of what a `repos.csv` file might look like:
@@ -189,11 +189,11 @@ MOD SUCCEEDED in (1m 13s)
 
 ### Build LSTs
 
-Building LSTs is the most time-consuming step, as it is proportional to compilation time. In contrast to open-source OpenRewrite, these LSTs are saved to disk in a proprietary format. 
+Building LSTs is the most time-consuming step, as it is proportional to compilation time. In contrast to open-source OpenRewrite, these LSTs are saved to disk in a proprietary format.
 
 In customer environments, we set up the build and publish of LSTs to an artifact store on a scheduled basis. `mod build` can take advantage of this and will download an LST from that artifact store if its changeset matches the changeset of the cloned repository.
 
-Notice that you didn't need to configure Maven or Gradle, select Java versions, etc. The Moderne CLI detects all of that, matching up build tools and JDKs on the machine to each repository based on each repository's unique requirements. The detection can be overridden where needed – but it generally isn't. 
+Notice that you didn't need to configure Maven or Gradle, select Java versions, etc. The Moderne CLI detects all of that, matching up build tools and JDKs on the machine to each repository based on each repository's unique requirements. The detection can be overridden where needed – but it generally isn't.
 
 ```bash
 ➜ mod build ./spring-data
@@ -249,7 +249,6 @@ To view the diff, you can command + click on the file (or ctrl + click if on Win
 <details>
 
 <summary>Example CommonStaticAnalysis run:</summary>
-
 
 ```bash
 ➜ mod run ./spring-data --recipe CommonStaticAnalysis
@@ -324,7 +323,6 @@ MOD SUCCEEDED in (2m 6s)
 <details>
 
 <summary>Example UpgradeToJava17 run:</summary>
-
 
 ```bash
 ➜ mod run ./spring-data --recipe UpgradeToJava17
@@ -493,9 +491,9 @@ mod run ./spring-data --recipe FindMethods -PmethodPattern="java.util.List add(.
 Then, you can customize the output by providing a `--template` flag:
 
 {% code overflow="wrap" %}
-```bash
+````bash
 mod study ./spring-data --last-recipe-run --data-table MethodCalls --json sourceFile,method --template '{{"# Search results\n\n"}}{{range .}}{{"* "}}{{.sourceFile}}{{"\n```\n"}}{{.method}}{{"\n```\n"}}{{end}}' > methods.md 
-```
+````
 {% endcode %}
 
 In the above example, we are filtering the data table to only a couple columns we are interested in and then using a GoTemplate to produce a markdown file containing code samples for all of the matching methods we found in these 12 repositories.
@@ -506,4 +504,4 @@ We strongly recommend using IntelliJ IDEA when developing OpenRewrite recipes. I
 
 ## Custom recipe development workshop
 
-If you want to learn more about writing your own recipes, please check out our [recipe authoring workshop](./recipe-authoring.md).
+If you want to learn more about writing your own recipes, please check out our [recipe authoring workshop](recipe-authoring.md).
