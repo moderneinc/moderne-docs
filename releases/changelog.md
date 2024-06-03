@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.119.0 (2024/06/03)
+
+- improve visibility of selected subtrees
+
 ### UI v10.118.0 (2024/05/31)
 
 - add more visual improvements to builder
