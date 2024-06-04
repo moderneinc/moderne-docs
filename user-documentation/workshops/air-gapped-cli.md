@@ -50,15 +50,9 @@ Use the [Set-Alias command](https://learn.microsoft.com/en-us/powershell/module/
 {% endtab %}
 {% endtabs %}
 
-### Configure the CLI to use your license key
+### Configure the CLI to use your license
 
-Please run the following command to configure your license:
-
-```bash
-mod config license edit <license-you-were-provided>
-```
-
-If you want more details about the license and its checks, please see our [Moderne CLI license doc](../moderne-cli/getting-started/moderne-cli-license.md).
+Please follow the instructions in the [Moderne CLI license docs](../moderne-cli/getting-started/moderne-cli-license.md) to configure the license for your CLI.
 
 ### Configure the CLI to point to your internal Artifact repository
 

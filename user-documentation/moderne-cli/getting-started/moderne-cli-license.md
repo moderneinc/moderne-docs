@@ -1,16 +1,32 @@
 # Moderne CLI license
 
-In order to **run recipes against private** repositories you will need to receive and configure a license. If you are using the CLI to run recipes against _public_ repositories, you do not need to worry about a license. The only thing you will need to do in that instance is authenticate with [app.moderne.io](https://app.moderne.io) and create a [Moderne token](../../moderne-platform/references/moderne-tokens.md).
+In order to **run recipes against private** repositories you will need to ensure that the Moderne CLI is configured with a license. If you are using the CLI to run recipes against _public_ repositories, you do not need to worry about a license. The only thing you will need to do in that instance is authenticate with [app.moderne.io](https://app.moderne.io) and create a [Moderne token](../../moderne-platform/references/moderne-tokens.md).
 
 In this doc, we will walk through everything you need to know about the Moderne CLI license – from how to get one to how to configure one to all the details about how data flows through the systems.
 
 ## How to receive a license key
 
-If you wish to use the CLI to run recipes on your private repositories and you have a contract with Moderne, please reach out and we will provide you with a license key.
+If you are a single-tenant Moderne customer or you're paying for Moderne DX, please jump to the [configure the CLI with a license key section](#how-to-configure-the-cli-with-a-license-key) as you do not need a special license key.
 
-If you don't have a contract with Moderne, but want to get started with a free trial and learn more about our products, please fill out [our try Moderne form](https://www.moderne.io/try-moderne).
+If you are a multi-tenant Moderne customer or a CLI only customer, please reach out and we will provide you with a license key.
+
+If you want to take advantage of the free trial of the CLI, please fill out [our try Moderne form](https://www.moderne.io/try-moderne) and we will send you a license.
 
 ## How to configure the CLI with a license key
+
+#### Single-tenant Moderne customers
+
+You do not need to configure a license directly in your CLI. The license will be automatically configured when you run the `mod config moderne edit --token ...` command and provide a token created in your tenant. 
+
+#### Moderne DX customers
+
+To configure the license, please run the following command:
+
+```bash
+mod config license moderne sync
+```
+
+#### Everyone else
 
 Please run the following command:
 

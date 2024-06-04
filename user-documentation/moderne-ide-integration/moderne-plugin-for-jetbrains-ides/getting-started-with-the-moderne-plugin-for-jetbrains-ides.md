@@ -20,7 +20,7 @@ As we will see in the [installation section below](getting-started-with-the-mode
 
 ## Installation
 
-To configure the plugin for use, connect it to an existing licensed Moderne CLI installation and select one or more multi-repository sets that serve as your working set.
+To configure the plugin for use, connect it to an existing [licensed Moderne CLI installation](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md) and select one or more multi-repository sets that serve as your working set.
 
 {% hint style="success" %}
 Moderne is offering a free time-bound CLI license available until the end of July 2024. To get this free license, [please fill out our signup form](https://share.hsforms.com/1cfEbSpZNT8enCckPXmdlmwblnxg).

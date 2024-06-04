@@ -181,13 +181,9 @@ mod config lsts artifacts maven edit ${REPOSITORY_URL} --user=${ARTIFACTS_USER} 
 {% endtab %}
 {% endtabs %}
 
-### (Optional) Configure a license key
+### (Optional) Configure a license
 
 If you are wanting to run the CLI against **private repositories** you will need to [configure a license](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
-
-```shell
-mod config license edit <license_key>
-```
 
 ### (Optional) Configure a Maven settings file
 
