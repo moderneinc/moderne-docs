@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.120.0 (2024/06/04)
+
+- include bearer token with share curl from graphiql editor
+
 
 ### UI v10.119.0 (2024/06/03)
 
