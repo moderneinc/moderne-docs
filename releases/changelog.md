@@ -1,13 +1,12 @@
 # Platform changelog
+
 ### UI v10.120.0 (2024/06/04)
 
-- include bearer token with share curl from graphiql editor
-
+* include bearer token with share curl from graphiql editor
 
 ### UI v10.119.0 (2024/06/03)
 
-*   When selecting subtrees in the new builder other nodes are now deemphasized to improve visual clarity of the selection:\
-
+*   When selecting subtrees in the new builder other nodes are now deemphasized to improve visual clarity of the selection:
 
     <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
