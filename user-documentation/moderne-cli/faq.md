@@ -4,10 +4,12 @@
 
 We've seen this a few times and suspect it's the result of [an underlying bug in the JDK](https://bugs.openjdk.org/browse/JDK-8244053).
 
-There are two paths that you can take to try and get around this:
+To fix this, please:
 
 1. Ensure that you're running a more recent JDK (or, at least, the latest patch release of your JDK of choice).
-2. Removing the `~/.m2/repository/io/moderne` directory and re-running the command.
+2. Remove the `~/.m2/repository/io/moderne` directory.
+
+After you've done both, re-run the command you were attempting.
 
 ## Could not find artifact `io.moderne:modmaven:jar` in Artifactory
 
