@@ -10,7 +10,7 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will:
 
 ## Installation
 
-Download the CLI by following the instructions in the below table:
+1. Download the CLI by following the instructions in the below table:
 
 {% tabs %}
 {% tab title="Via the Moderne Platform" %}
@@ -28,7 +28,7 @@ If you don't have access to the Moderne Platform (e.g., you're in an air-gapped 
 {% endtab %}
 {% endtabs %}
 
-Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location or this could involve putting it in a directory that's already on your `PATH` such as a `/usr/bin` directory.
+2. Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location or this could involve putting it in a directory that's already on your `PATH` such as a `/usr/bin` directory.
 
 <details>
 
@@ -46,7 +46,7 @@ If you use PowerShell, you can use the [Set-Alias command](https://learn.microso
 
 </details>
 
-Ensure you can run the Moderne CLI by typing `mod`. If everything is set up correctly, you should see a list of commands:
+3. Ensure you can run the Moderne CLI by typing `mod`. If everything is set up correctly, you should see a list of commands:
 
 <details>
 
