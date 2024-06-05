@@ -15,7 +15,7 @@ To install the Moderne CLI please:
 1. Go to the [Moderne Platform](https://app.moderne.io/) and sign in.
 2. Click on help in the bottom left-hand corner and select the version of the CLI you want to download. Then select the way you'd like to install it:
 
-![](../../../.gitbook/assets/cli-download.gif)
+<figure><img src="../../../.gitbook/assets/cli-download3.gif" alt=""><figcaption></figcaption></figure>
 
 3. Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location or this could involve putting it in a directory that's already on your `PATH` such as a `/usr/bin` directory.
 
@@ -112,7 +112,7 @@ The first step in configuring the CLI is connecting it to Moderne. This allows y
 
 Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token), enter a human-readable name for the token (e.g., cli-token), and then press `generate`.
 
-![](/.gitbook/assets/token-create.png)
+![](../../../.gitbook/assets/token-create.png)
 
 Once created, copy the token and use it in the following command:
 
@@ -182,11 +182,11 @@ mod config lsts artifacts maven edit ${REPOSITORY_URL} --user=${ARTIFACTS_USER} 
 
 ### (Optional) Configure a license
 
-If you are wanting to run the CLI against **private repositories** you _may_ need to [configure a license](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
+If you are wanting to run the CLI against **private repositories** you _may_ need to [configure a license](moderne-cli-license.md).
 
 ### (Optional) Configure a Maven settings file
 
-If you have a Maven settings file that exists outside of your repositories, you can use the [following command](/user-documentation/moderne-cli/cli-reference.md#mod-config-build-maven-settings) to point the CLI to it. This ensures dependencies are resolved the same as builds: 
+If you have a Maven settings file that exists outside of your repositories, you can use the [following command](../cli-reference.md#mod-config-build-maven-settings) to point the CLI to it. This ensures dependencies are resolved the same as builds:
 
 ```shell
 mod config build maven settings edit <path-to-settings.xml>
@@ -194,7 +194,7 @@ mod config build maven settings edit <path-to-settings.xml>
 
 ### (Optional) Configure recipe sources
 
-If you have custom recipes you want to include in the CLI, you will need to [let the CLI know about them](/user-documentation/moderne-cli/cli-reference.md#mod-config-recipes-artifacts):
+If you have custom recipes you want to include in the CLI, you will need to [let the CLI know about them](../cli-reference.md#mod-config-recipes-artifacts):
 
 ```shell
 mod config recipes artifacts <artifactory|maven> edit <artifact-repository-url> --user <user> --password <password>
@@ -224,7 +224,7 @@ Below, we'll provide some context for the core commands.
 
 The `build` command generates the LST artifacts for one or more projects. Once generated, the artifacts can be uploaded to your artifact management tool so that Moderne can ingest them - or - they can be used to run recipes locally.
 
-While it is possible to manually build and publish your artifacts, we strongly recommend [setting up a mass ingest job](/administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) to do this in a VM.
+While it is possible to manually build and publish your artifacts, we strongly recommend [setting up a mass ingest job](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) to do this in a VM.
 
 If the path provided to this command is not a Git repository, then this command will recursively look through all the directories on the path for Git repositories. You can specify `repository-*` options to filter this to your needs.
 
