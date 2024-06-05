@@ -1,12 +1,11 @@
 # Getting started with the Moderne CLI
 
-The Moderne CLI is a command line tool that allows you to build [Lossless Semantic Tree](https://docs.moderne.io/concepts/lossless-semantic-trees) (LST) artifacts, publish them to an artifact repository of your choosing, and run recipes from your local machine.
+The Moderne CLI is a command line tool that allows you to build [Lossless Semantic Tree](https://docs.moderne.io/concepts/lossless-semantic-trees) (LST) artifacts across many repositories, publish them to an artifact repository of your choosing, and run recipes against all of them from your local machine.
 
 To ensure you can use the Moderne CLI successfully, in this guide, we will:
 
 * [Explain how to install the Moderne CLI](cli-intro.md#installation)
 * [Walk you through configuring the CLI](cli-intro.md#configuring-the-cli)
-* [Give you an exercise to follow along with if you want to jump into a real-world example](cli-intro.md#cli-exercise)
 * [Provide more details for each command in case you want to learn more](cli-intro.md#commands)
 
 ## Installation
@@ -183,7 +182,7 @@ mod config lsts artifacts maven edit ${REPOSITORY_URL} --user=${ARTIFACTS_USER} 
 
 ### (Optional) Configure a license
 
-If you are wanting to run the CLI against **private repositories** you will need to [configure a license](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
+If you are wanting to run the CLI against **private repositories** you _may_ need to [configure a license](/user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
 
 ### (Optional) Configure a Maven settings file
 
