@@ -28,25 +28,34 @@ If you don't have access to the Moderne Platform (e.g., you're in an air-gapped 
 {% endtab %}
 {% endtabs %}
 
-2. Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location or this could involve putting it in a directory that's already on your `PATH` such as a `/usr/bin` directory.
+2. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location or this could involve putting it in a directory that's already on your `PATH` such as a `/usr/bin` directory.
+3. **(Optional - but strongly encouraged)** Create an alias for the Moderne CLI JAR. This step only applies if you didn't use a package manager for the installation of the CLI.
 
-<details>
-
-<summary>Configuring the CLI mod command for Windows users using a JAR file:</summary>
-
-If you use Git Bash and have a `.bashrc` file, you can add a function to it along the lines of:
+{% tabs %}
+{% tab title="Git Bash (Windows)" %}
+Add the following function to your `.bashrc` file:
 
 ```bash
 mod() {
-  "java -jar /path/to/mod.jar" "$@"
+    "java -jar /path/to/mod.jar" "$@"
 }
 ```
+{% endtab %}
 
-If you use PowerShell, you can use the [Set-Alias command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-7.4) within a [profile script](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about\_profiles?view=powershell-7.4\&viewFallbackFrom=powershell-7).
+{% tab title="Bash or Zsh (Mac or Linux)" %}
+Add the following to your `.bashrc` or `.zshrc` file:
 
-</details>
+```bash
+alias mod=”java -jar /path/to/mod.jar” "$@"
+```
+{% endtab %}
 
-3. Ensure you can run the Moderne CLI by typing `mod`. If everything is set up correctly, you should see a list of commands:
+{% tab title="Powershell" %}
+Use the [Set-Alias command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-7.4) within a [profile script](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about\_profiles?view=powershell-7.4\&viewFallbackFrom=powershell-7).
+{% endtab %}
+{% endtabs %}
+
+4. Ensure you can run the Moderne CLI by typing `mod`. If everything is set up correctly, you should see a list of commands:
 
 <details>
 
