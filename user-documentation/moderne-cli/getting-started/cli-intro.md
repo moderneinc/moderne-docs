@@ -55,7 +55,7 @@ Ensure you can run the Moderne CLI by typing `mod`. If everything is set up corr
 ```bash
 ➜  moderne-cli git:(main) mod
 
-Moderne CLI 3.5.4
+Moderne CLI 3.7.9
 
 Usage:
 
@@ -73,8 +73,8 @@ Commands:
 
   build                Generates LST artifacts for one or more repositories.
   clean                Clean build and run artifacts produced by the CLI.
-  config               Global bacon options that are required by some CLI
-                         commands.
+  config               Global configuration options that are required by some
+                         CLI commands.
   exec                 Execute an arbitrary shell command recursively on
                          selected repository roots.
   git                  Multi-repository git operations.
@@ -207,9 +207,11 @@ mod config build maven settings edit <path-to-settings.xml>
 
 If you have custom recipes you want to include in the CLI, you will need to [let the CLI know about them](../cli-reference.md#mod-config-recipes-artifacts):
 
+{% code overflow="wrap" %}
 ```shell
 mod config recipes artifacts <artifactory|maven> edit <artifact-repository-url> --user <user> --password <password>
 ```
+{% endcode %}
 
 ## Additional reading
 
