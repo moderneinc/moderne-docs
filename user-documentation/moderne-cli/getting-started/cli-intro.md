@@ -10,14 +10,25 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will:
 
 ## Installation
 
-To install the Moderne CLI please:
+Download the CLI by following the instructions in the below table:
 
-1. Go to the [Moderne Platform](https://app.moderne.io/) and sign in.
-2. Click on help in the bottom left-hand corner and select the version of the CLI you want to download. Then select the way you'd like to install it:
+{% tabs %}
+{% tab title="Via the Moderne Platform" %}
+If you have access to the Moderne Platform (either via a private tenant or via the public [app.moderne.io](https://app.moderne.io/marketplace)), please follow the below instructions to the obtain the CLI:
+
+1. Go to the [Moderne Platform](https://app.moderne.io/) (or your private tenant) and sign in.
+2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging).&#x20;
+3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
 <figure><img src="../../../.gitbook/assets/cli-download3.gif" alt=""><figcaption></figcaption></figure>
+{% endtab %}
 
-3. Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location or this could involve putting it in a directory that's already on your `PATH` such as a `/usr/bin` directory.
+{% tab title="Via Maven Central" %}
+If you don't have access to the Moderne Platform (e.g., you're in an air-gapped environment), you can obtain the CLI from Maven Central: [https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions)
+{% endtab %}
+{% endtabs %}
+
+Regardless of how you downloaded the Moderne CLI, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location or this could involve putting it in a directory that's already on your `PATH` such as a `/usr/bin` directory.
 
 <details>
 
@@ -35,7 +46,7 @@ If you use PowerShell, you can use the [Set-Alias command](https://learn.microso
 
 </details>
 
-4. Ensure you can run the Moderne CLI by typing `mod`. If everything is set up correctly, you should see a list of commands:
+Ensure you can run the Moderne CLI by typing `mod`. If everything is set up correctly, you should see a list of commands:
 
 <details>
 
