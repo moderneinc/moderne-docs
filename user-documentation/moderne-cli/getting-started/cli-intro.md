@@ -126,22 +126,25 @@ source <(mod generate-completion)
 
 Before you can run most commands, you'll need to configure the CLI. Let's walk through all the steps you may want to do.
 
-### Create an access token and give it to the CLI
+### Connect the CLI to your Moderne instance
 
-The first step in configuring the CLI is connecting it to Moderne. This allows you to easily sync the recipe catalog from Moderne to your local machine, and it will also allow you to download LSTs that have already been built to save time and compute power. To connect to Moderne, you'll need to create an access token:
+_Skip this step if you are a Moderne DX customer or you are in an air-gapped environment._
 
-Go to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token), enter a human-readable name for the token (e.g., cli-token), and then press `generate`.
+Connecting the CLI to your Moderne instance is necessary to:
 
-![](../../../.gitbook/assets/token-create.png)
+* Sync the recipe catalog from Moderne to your local machine
+* Receive organizational information, so you can clone groups of repositories more easily 
+* Download LSTs that have already been built
+
+To set up this connection, you'll first need to create an access token for the CLI to use. Navigate to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token) (if you're in a private tenant, replace `app.moderne.io` with your tenant URL), entire a human-readable name for the token (e.g., cli-token), and then press `generate`:  
+
+![](../../../.gitbook/assets/create-access-token.gif)
 
 Once created, copy the token and use it in the following command:
 
 ```shell
 mod config moderne edit --token mat-YOUR_TOKEN_HERE https://app.moderne.io
 ```
-
-If you have a private tenant, you'll want to replace `https://app.moderne.io` with the link to your Moderne UI.
-
 ### Install recipes
 
 With the Moderne connection established, you can install recipes so you can run them locally by running the following command:
