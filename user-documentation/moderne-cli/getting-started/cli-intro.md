@@ -136,15 +136,16 @@ Connecting the CLI to your Moderne instance is necessary to:
 * Receive organizational information, so you can clone groups of repositories more easily 
 * Download LSTs that have already been built
 
-To set up this connection, you'll first need to create an access token for the CLI to use. Navigate to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token) (if you're in a private tenant, replace `app.moderne.io` with your tenant URL), entire a human-readable name for the token (e.g., cli-token), and then press `generate`:  
+To set up this connection, you'll first need to create an access token for the CLI to use. Follow these instructions to obtain the token and provide it to the CLI:
+
+1. Navigate to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token) 
+  * If you're in a private tenant, replace `app.moderne.io` with your tenant URL
+2. Enter a human-readable name for the token (e.g., cli-token)
+3. Press `Generate`
+4. Copy the `install on your workstation` command and paste it into your command line
 
 ![](../../../.gitbook/assets/create-access-token.gif)
 
-Once created, copy the token and use it in the following command:
-
-```shell
-mod config moderne edit --token mat-YOUR_TOKEN_HERE https://app.moderne.io
-```
 ### Install recipes
 
 With the Moderne connection established, you can install recipes so you can run them locally by running the following command:
