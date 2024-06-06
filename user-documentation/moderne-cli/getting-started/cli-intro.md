@@ -17,7 +17,7 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will:
 If you have access to the Moderne Platform (either via a private tenant or via the public [app.moderne.io](https://app.moderne.io/marketplace)), please follow the below instructions to the obtain the CLI:
 
 1. Go to the [Moderne Platform](https://app.moderne.io/) (or your private tenant) and sign in.
-2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging).&#x20;
+2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging).
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
 <figure><img src="../../../.gitbook/assets/cli-download3.gif" alt=""><figcaption></figcaption></figure>
@@ -133,16 +133,17 @@ _Skip this step if you are a Moderne DX customer or you are in an air-gapped env
 Connecting the CLI to your Moderne instance is necessary to:
 
 * Sync the recipe catalog from Moderne to your local machine
-* Receive organizational information, so you can clone groups of repositories more easily 
+* Receive organizational information, so you can clone groups of repositories more easily
 * Download LSTs that have already been built
 
 To set up this connection, you'll first need to create an access token for the CLI to use. Follow these instructions to obtain the token and provide it to the CLI:
 
-1. Navigate to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token) 
-  * If you're in a private tenant, replace `app.moderne.io` with your tenant URL
+1. Navigate to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token)
+   * If you're in a private tenant, replace `app.moderne.io` with your tenant URL
 2. Enter a human-readable name for the token (e.g., cli-token)
 3. Press `Generate`
 4. Copy the `install on your workstation` command and paste it into your command line
+5. If everything worked, you should see a `MOD SUCCEEDED` message
 
 ![](../../../.gitbook/assets/create-access-token.gif)
 
