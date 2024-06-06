@@ -26,7 +26,7 @@ To configure the license, please run the following command:
 mod config license moderne sync
 ```
 
-#### Everyone else
+#### Everyone else (including multi-tenant Moderne customers)
 
 Please run the following command:
 

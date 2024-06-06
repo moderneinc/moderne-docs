@@ -10,11 +10,11 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will:
 
 ## Installation
 
-1. Download the CLI by following the instructions in the below table:
+1. Download the CLI by following the instructions in the below table. If you are a Moderne DX customer, you'll want to follow the instructions in the `Maven Central` tab. For everyone else, please use the `Moderne Platform` tab:
 
 {% tabs %}
 {% tab title="Via the Moderne Platform" %}
-If you have access to the Moderne Platform (either via a private tenant or via the public [app.moderne.io](https://app.moderne.io/marketplace)), please follow the below instructions to the obtain the CLI:
+If you have access to the Moderne Platform (either via a private tenant or via the public [app.moderne.io](https://app.moderne.io/marketplace)), follow the below instructions to obtain the CLI:
 
 1. Go to the [Moderne Platform](https://app.moderne.io/) (or your private tenant) and sign in.
 2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging).
@@ -128,7 +128,7 @@ Before you can run most commands, you'll need to configure the CLI. Let's walk t
 
 ### Connect the CLI to your Moderne instance
 
-_Skip this step if you are a Moderne DX customer or you are in an air-gapped environment._
+_Skip this step if you are a Moderne DX customer._
 
 Connecting the CLI to your Moderne instance is necessary to:
 
