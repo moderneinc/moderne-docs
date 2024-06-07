@@ -12,7 +12,37 @@ You can find each of the office hours sessions below along with a summary of wha
 
 #### Summary and related links
 
-Coming soon!
+* [Announcements for the week](https://youtu.be/lNLo6i7SVGI?t=28)
+  * **Events**:
+    * Sam will be doing [another sessions of his fundamentals of migration engineering webinar](https://nofluffjuststuff.com/webinar/116/migration_engineering_w_openrewrite) as the last one was accidentally not recorded.
+    * On top of that, Sam will also be giving a webinar about [the fundamentals of migration engineering 2](https://nofluffjuststuff.com/webinar/117/migration_engineering_w_openrewrite_ii) on June 7th – a follow-up to the previous webinar.
+  * **Content**:
+    * [We released a blog post about the Moderne IDE plugin](https://www.moderne.io/blog/introducing-the-moderne-ide-plugin-for-jetbrains-intellij-idea). This covers a lot of what we discussed in the last office hours.
+      * If you want a free trial for the Moderne IDE plugin, please fill out [our signup form](https://share.hsforms.com/1cfEbSpZNT8enCckPXmdlmwblnxg).
+* [We then jumped over to the main topic for the week – debugging recipes](https://youtu.be/lNLo6i7SVGI?t=264).
+  * Sam gave some brief background on Moderne and how, as a recipe author, it's incredibly beneficial to use Moderne to find examples of similar recipes.
+  * [He then jumped over to the first debugging example – improperly setting up the classpath of a Java Template](https://youtu.be/lNLo6i7SVGI?t=422). You may see this as "missing or malformed type information" when you try to run tests.
+    * As part of finding examples of this, we used the [Find method usages recipe](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods)
+    * Using that recipe, we came to the [RemoveTryCatchFailBlocks recipe](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/java/org/openrewrite/java/testing/junit5/RemoveTryCatchFailBlocks.java) and demonstrated breaking this by [commenting out the classpath line](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/java/org/openrewrite/java/testing/junit5/RemoveTryCatchFailBlocks.java#L118-L127) – which is a common thing many new recipe authors miss.
+    * By commenting out that classpath and running the tests, we are told that the "LST contains missing or invalid type information". If you executed just this recipe in this state, you would likely end up with text that _is_ totally valid. However, the code that is produced by this recipe wouldn't be typed – so any additional recipes wouldn't actually know how to handle the code. Typing is one of the core foundations of OpenRewrite recipes – without it you wouldn't be able to actually search for or replace code with confidence.
+    * To fix an error like this, 90% of the time, you'll want to go to the [JavaTemplate](https://docs.openrewrite.org/concepts-explanations/javatemplate) and specify the JAR that will provide the types for the code you're building with said template.
+    * Keep in mind that if the class you're providing in the template extends or implements another type, you will _also_ need to include that in your classpath resources.
+  * To help expand on the previous discussion, Sam [explained more about JavaTemplates](https://youtu.be/lNLo6i7SVGI?t=1192).
+    * You provide the template a snippet of code, a [cursor](https://docs.openrewrite.org/concepts-explanations/visitors#cursoring) (the context of where said code should go), and import statements required for the code to work. It takes all of that and parses it into a full LST. It then copies over just the parts necessary for the template and puts that where you've specified.
+    * If you are struggling with JavaTemplates, we provide a `doBeforeParseTemplate` function that will assist in debugging. It takes in a lambda that receives, as an argument, the full Java source file that's built from the template. Sam demonstrated how to use this method and extract out said source file into its own scratch file so that you can see what's really going on.
+    * Once you have this file, you can check if it's a valid Java source file. If it's not, you know something went wrong.
+  * With that context provided, [we jumped back to discussing classpathFromResources](https://youtu.be/lNLo6i7SVGI?t=1505).
+    * You can find these resources in the `src/main/resources/META-INF/rewrite/classpath` directory. This is a place where you can put JARs that will be bundled in with the recipe module. They can then be loaded up for use in your recipes with this `classpathFromResources` mechanism.
+  * [We then wrapped up this topic by providing instructions for how to turn off type checking in tests](https://youtu.be/lNLo6i7SVGI?t=1787). This is not generally recommended, but can be useful if you're confident the recipe is doing what you want and you aren't worried about stringing it together with other recipes. 
+  * The next topic was about [debugging a recipe on real code](https://youtu.be/lNLo6i7SVGI?t=1991).
+    * We started by running the [Replace fail() in try-catch blocks recipe](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.RemoveTryCatchFailBlocks) to look for examples we could use to debug on.
+      * Sam found an example in the [Netflix/mantis repository](https://github.com/Netflix/mantis) so he cloned that and built it locally
+    * To go along with this, [Sam demonstrated how to add the OpenRewrite build plugins to a project](https://youtu.be/lNLo6i7SVGI?t=2215) so that you can use them to debug a recipe.
+    * [He then walked through setting up a debugger in IntelliJ IDEA and adding breakpoints that you can start from](https://youtu.be/lNLo6i7SVGI?t=2545).
+    * While the project was building, Sam mentioned that one of the downsides of using the OpenRewrite plugins instead of the CLI is that the plugins have to parse all the code every time rather than serializing the code to disk so it can be re-used. For more information about this, check out [our summary of the differences between the two](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro#differences-between-the-moderne-cli-and-the-openrewrite-build-plugins).
+    * Next up was [utilizing the debugger to look into what is happening](https://youtu.be/lNLo6i7SVGI?t=2930).
+      * Sam demonstrated how to use the cursor to figure out where you are when you're debugging a recipe. 
+  * We ran out of time towards the end, but [Sam briefly described the steps needed to use the Moderne CLI to debug a recipe](https://youtu.be/lNLo6i7SVGI?t=3328).
 
 ### Moderne IDE plugin onboarding (May 29th, 2024)
 
