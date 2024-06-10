@@ -1,12 +1,12 @@
 # How to install and configure the Moderne plugin in JetBrains IDEs
 
-Moderne offers an IntelliJ plugin that can not only help you create and debug recipes, but can also assist with your general development by allowing you to easily search for code across all of your repositories at once. In this short guide, we'll show you how to install and configure the Moderne plugin.
+Moderne offers an IntelliJ IDEA plugin that can not only help you create and debug recipes, but can also assist with your general development experience by allowing you to easily search for code across all of your repositories at once. In this short guide, we'll show you how to install and configure the Moderne plugin.
 
 {% embed url="https://www.youtube.com/watch?v=cMIDGM92ays" %}
 
 ## Installation
 
-You can install the Moderne IntelliJ plugin by:
+Install the Moderne IntelliJ plugin by either:
 
 * Going to [https://plugins.jetbrains.com/plugin/17565-moderne](https://plugins.jetbrains.com/plugin/17565-moderne) and pressing Get/Install in the top-right corner OR
 * Navigating to `Settings` → `Plugins` inside of IntelliJ and searching for `Moderne`
@@ -24,7 +24,7 @@ Moderne is offering a free time-bound CLI license available until the end of Jul
 
 ## Configuring the Moderne plugin
 
-With the Moderne CLI configured, and the plugin downloaded and installed, you're ready to begin configuring it.
+With the Moderne CLI configured and the plugin downloaded and installed, you're ready to begin configuring it.
 
 The first thing you'll need to do is tell the Moderne plugin where the CLI is located. To do this, go to `Settings` --> `Tools` --> `Moderne`.
 
