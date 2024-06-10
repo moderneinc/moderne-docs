@@ -1,6 +1,6 @@
 # How to debug a recipe using the Moderne plugin
 
-One key benefit of the Moderne IDE plugin is the ability to specify an "active recipe" that the Moderne CLI can attach to. You can then set breakpoints in your IDE that will be hit as the recipe is executed by the CLI.
+One key benefit of the Moderne IDE plugin is the ability to quickly debug recipes against real code. You can set breakpoints in your IDE and have those be hit when you run a recipe in the Moderne CLI – so you can know exactly what is happening in the recipe.
 
 In this short guide, we'll walk you through everything you need to know to do this.
 
