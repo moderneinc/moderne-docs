@@ -30,7 +30,7 @@ mod build .
 
 ## Step 3: Run the active recipe to confirm it was configured correctly
 
-With the LSTs built and the active recipe specified, make sure that the correct recipe is being run by running the command::
+With the LSTs built and the active recipe specified, make sure that the correct recipe is being run by running the following command:
 
 ```bash
 mod run . --active-recipe
@@ -38,7 +38,7 @@ mod run . --active-recipe
 
 You should see that the recipe you specified in your IDE is the one that is run in your terminal.
 
-## Step 4: Debugging
+## Step 4: Debug your recipe
 
 1. In IntelliJ IDEA, set one or more breakpoints
 2. Go to your terminal and run the command `mod run . --jvm-debug --active-recipe`. The CLI will wait for a debugger to be attached to run the recipe.
