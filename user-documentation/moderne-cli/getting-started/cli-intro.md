@@ -64,7 +64,7 @@ Use the [Set-Alias command](https://learn.microsoft.com/en-us/powershell/module/
 ```bash
 ➜  moderne-cli git:(main) mod
 
-Moderne CLI 3.7.9
+Moderne CLI 3.7.10
 
 Usage:
 
