@@ -40,7 +40,7 @@
   * [FAQ](user-documentation/moderne-cli/faq.md)
 * [Moderne Plugin for JetBrains IDEs](user-documentation/moderne-ide-integration/README.md)
   * [How to guides](user-documentation/moderne-ide-integration/how-to-guides/README.md)
-    * [How to install and configure the Moderne plugin in JetBrains IDEs](user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
+    * [How to install and configure the Moderne plugin](user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
     * [Multi-repository code search](user-documentation/moderne-ide-integration/how-to-guides/code-search.md)
     * [How to create recipes](user-documentation/moderne-ide-integration/how-to-guides/creating-recipes.md)
     * [How to debug recipes](user-documentation/moderne-ide-integration/how-to-guides/debugging-recipes.md)
