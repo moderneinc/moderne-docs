@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.121.0 (2024/06/11)
+
+- improve default recipe id
+- add precondition support
+
 
 ### UI v10.120.0 (2024/06/04)
 
