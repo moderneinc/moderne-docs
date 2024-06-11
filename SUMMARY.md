@@ -38,7 +38,7 @@
     * [Bazel support](user-documentation/moderne-cli/how-to-guides/bazel-support.md)
   * [Reference](user-documentation/moderne-cli/cli-reference.md)
   * [FAQ](user-documentation/moderne-cli/faq.md)
-* [Moderne IDE Integration](user-documentation/moderne-ide-integration/README.md)
+* [Moderne Plugin for JetBrains IDEs](user-documentation/moderne-ide-integration/README.md)
   * [How to guides](user-documentation/moderne-ide-integration/how-to-guides/README.md)
     * [How to install and configure the Moderne plugin in JetBrains IDEs](user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
     * [Multi-repository code search](user-documentation/moderne-ide-integration/how-to-guides/code-search.md)
