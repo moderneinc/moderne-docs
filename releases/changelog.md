@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.121.2 (2024/06/12)
+
+- Bug fixes and other improvements.
+
 ### UI v10.121.0 (2024/06/11)
 
 - improve default recipe id
