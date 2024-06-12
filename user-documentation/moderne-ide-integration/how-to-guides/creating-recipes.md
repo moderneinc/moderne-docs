@@ -1,4 +1,4 @@
-# Creating recipes with the Moderne plugin for JetBrains IDEs
+# How to create recipes
 
 When planning large-scale code changes, it's a good idea to begin by creating a recipe that identifies all of the potential edit sites. Doing so gives you a full impact analysis of what you're about to do, before you actually do it. Taking the time to find all of these locations is especially important because real-world code is complex and nuanced. Without a proper accounting of this nuance, writing a _transformation_ recipe will not be as accurate as you'd wish.
 
@@ -12,7 +12,7 @@ To begin, find some API that you're interested in searching for. Then right-clic
 
 * Click on `Find Usages on All Repos` and then click on `Create Recipe` (selecting the [type of recipe that you want to create](creating-recipes.md#types-of-recipes-you-can-create)). This will create a _search_ recipe based on the API you specified. OR
 
-![Find usages example](/.gitbook/assets/FindUsagesCreateRecipe.gif)
+![Find usages example](../../../.gitbook/assets/FindUsagesCreateRecipe.gif)
 
 * Click on `Refactor`, select `Create OpenRewrite Recipe...`, and then click on `Create Recipe` (selecting the [type of recipe you want to create](creating-recipes.md#types-of-recipes-you-can-create)). This will create a _refactor_ recipe based on the API you specified. Please note that IntelliJ IDEA offers a keyboard shortcut for the `Create OpenRewrite Recipe...` menu (it defaults to alt + command + 9 on a Mac).
 
@@ -24,12 +24,11 @@ The Moderne plugin allows you to create two types of recipes: [Refaster recipes]
 
 Refaster recipes are better if you're doing a straightforward replacement (such as converting `StringUtils.equals(..)` to `Objects.equals(..)`). For everything else, you should create an Imperative recipe.
 
-
 <details>
 
-<summary>Refaster recipe example:</summary>
+<summary>Refaster recipe example</summary>
 
-```Java
+```java
 package org.openrewrite.gradle;
 
 import org.openrewrite.TreeVisitor;
@@ -58,12 +57,11 @@ class MyRecipe9 {
 
 </details>
 
-
 <details>
 
-<summary>Visitor recipe example:</summary>
+<summary>Visitor recipe example</summary>
 
-```Java
+```java
 package org.openrewrite.gradle;
 
 import org.openrewrite.ExecutionContext;
