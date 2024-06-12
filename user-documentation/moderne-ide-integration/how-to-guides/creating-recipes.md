@@ -10,7 +10,7 @@ In this short guide, we'll walk through everything you need to know to get start
 
 To begin, find some API that you're interested in searching for. Then right-click on one of its usages and either:
 
-* Click on `Find Usages on All Repos` and then click on `Create Recipe` (selecting the [type of recipe that you want to create](creating-recipes.md#types-of-recipes-you-can-create)). This will create a _search_ recipe based on the API you specified. OR
+* Click on `Find Usages on All Repos` and then click on `Create Recipe` (selecting the [type of recipe that you want to create](creating-recipes.md#types-of-recipes-you-can-create)). This will create a _search_ recipe based on the API you specified.
 
 ![Find usages example](../../../.gitbook/assets/FindUsagesCreateRecipe.gif)
 
