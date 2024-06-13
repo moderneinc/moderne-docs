@@ -2,4 +2,4 @@
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.174.0         |
+| Agent (recommended to use **latest**) | 0.175.0         |
