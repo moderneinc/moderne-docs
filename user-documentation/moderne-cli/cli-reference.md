@@ -3,6 +3,7 @@
 ## Table of contents
 
 * [**mod**](#mod)
+* [**mod afterburner**](#mod-afterburner)
 * [**mod build**](#mod-build)
 * [**mod clean**](#mod-clean)
 * [**mod clean builds**](#mod-clean-builds)
@@ -36,6 +37,11 @@
 * [**mod config build maven settings delete**](#mod-config-build-maven-settings-delete)
 * [**mod config build maven settings edit**](#mod-config-build-maven-settings-edit)
 * [**mod config build maven settings show**](#mod-config-build-maven-settings-show)
+* [**mod config clone**](#mod-config-clone)
+* [**mod config clone protocol**](#mod-config-clone-protocol)
+* [**mod config clone protocol delete**](#mod-config-clone-protocol-delete)
+* [**mod config clone protocol edit**](#mod-config-clone-protocol-edit)
+* [**mod config clone protocol show**](#mod-config-clone-protocol-show)
 * [**mod config environment**](#mod-config-environment)
 * [**mod config environment show**](#mod-config-environment-show)
 * [**mod config features**](#mod-config-features)
@@ -182,6 +188,7 @@ mod [parameters] [subcommands]
 
 ### Subcommands
 
+* `afterburner`: (INCUBATING) Indexes built LSTs to accelerate recipe execution.
 * `build`: Generates LST artifacts for one or more repositories.
 * `clean`: Clean build and run artifacts produced by the CLI.
 * `config`: Global configuration options that are required by some CLI commands.
@@ -195,6 +202,40 @@ mod [parameters] [subcommands]
 * `run-history`: Get information about the most recent recipe runs.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
 * `generate-completion`
+
+## mod afterburner
+
+(INCUBATING) Indexes built LSTs to accelerate recipe execution.
+
+
+The intent of this command is to allow future recipe runs to avoid the cost of interacting with LSTs that could provably never return a result. Not every recipe is possible to optimize in this way, but some common ones are, and especially those recipes that are used as common actions in IDE integrations. The contents of these indexes is not guaranteed to be stable between versions of the CLI, and they are intended to only be used by the CLI itself in subsequent run commands.
+
+### Usage
+
+```
+mod afterburner [parameters]
+```
+
+### Examples
+
+```
+mod afterburner /path/to/project
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+
 
 ## mod build
 
@@ -240,6 +281,7 @@ mod build /path/to/project
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --streaming |  (INCUBATING) Stream results from the build to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like in the IDE. |  |
 
 
 ## mod clean
@@ -360,6 +402,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 ### Subcommands
 
 * `build`: Configures build tools used to produce LSTs.
+* `clone`: Configures cloning behavior.
 * `environment`: The build environment that the CLI is running in.
 * `features`: Configures experimental features.
 * `http`: Configures HTTP options that will be used throughout the CLI.
@@ -1032,6 +1075,95 @@ mod config build maven settings show [parameters]
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config clone
+
+Configures cloning behavior.
+
+
+All subsequent clones will use these settings.
+
+### Usage
+
+```
+mod config clone [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `protocol`: Configures the wire protocol(s) that are used for cloning.
+
+## mod config clone protocol
+
+Configures the wire protocol(s) that are used for cloning.
+
+
+All subsequent clones from Moderne organizations will use these settings. Clones from JSON or CSV use the explicitly provided clone URL without attempting to change the protocol.
+
+### Usage
+
+```
+mod config clone protocol [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Restores the default clone protocols.
+* `edit`: Configures the wire protocols that are used for cloning.
+* `show`: Displays the wire protocols that are used for cloning.
+
+## mod config clone protocol delete
+
+Restores the default clone protocols.
+
+
+The default is to attempt SSH and then HTTPS clones.
+
+### Usage
+
+```
+mod config clone protocol delete [parameters]
+```
+
+
+
+## mod config clone protocol edit
+
+Configures the wire protocols that are used for cloning.
+
+
+All subsequent clones will use these settings. The default is SSH and then HTTPS. 
+
+### Usage
+
+```
+mod config clone protocol edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| protocols |  The protocol(s) to use for cloning. Must be one or both of 'ssh' or 'https' (case insensitive). The order in which they are provided establishes the order of precedence for subsequent clones. |
+
+
+
+## mod config clone protocol show
+
+Displays the wire protocols that are used for cloning.
+
+
+This set governs all subsequent clone attempts.
+
+### Usage
+
+```
+mod config clone protocol show [parameters]
+```
+
 
 
 ## mod config environment
