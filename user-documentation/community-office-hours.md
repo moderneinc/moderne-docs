@@ -41,7 +41,7 @@ You can find each of the office hours sessions below along with a summary of wha
     * Sam then explained more about data flow analysis – how to add it to your project, what are "sources" and "sinks", etc.
     * The recipe tries to ensure that a defensive copy was made when working with said collections.
     * Sam then went on to explain some limitations with data flow analysis, such as the fact that this only does _local_ data flow analysis (so if you depend on something else, it won't be detected by this recipe). 
-
+ 
 ### Debugging recipes on real code (June 5th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=lNLo6i7SVGI" %}
