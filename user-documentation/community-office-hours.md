@@ -6,13 +6,41 @@ Every week we [host a live office hours session](https://www.youtube.com/@modern
 
 You can find each of the office hours sessions below along with a summary of what was discussed and the key links you might find helpful.
 
-### Introducing the new Recipe Builder and Visualizer (June 12th, 2024)
+### Data flow analysis & recipe authoring best practices (June 12th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=6_w6gx7GPII" %}
 
 #### Summary and related links
 
-* Coming soon
+* [Announcements for the week](https://youtu.be/6_w6gx7GPII?t=123)
+  * **Releases**:
+    * [We did a new release of OpenRewrite last week](https://github.com/openrewrite/rewrite-recipe-bom/releases/tag/v2.12.0). There were a variety of bug fixes and additions so don't forget to grab the latest version.
+    * [We also expanded our recipe catalog to include more recipes](https://docs.openrewrite.org/recipes). We now show third-party recipes coming from Picnic, AxonFramework, Apache Wicket, TimeFold and Quarkus.
+  * **Moderne IntelliJ plugin**:
+    * As a reminder, [we are continuing to offer a free CLI license](https://share.hsforms.com/1cfEbSpZNT8enCckPXmdlmwblnxg) to use with the Moderne IntelliJ plugin. This license is good until July 31st. After that date, you won't have access to serialized LSTs – but you can still operate across repositories for the other commands included with the CLI.
+  * **Events**:
+    * [We will be at UberConf in Denver on July 16th-19th](https://uberconf.com/sessions). We'll be giving a keynote presentation, a general session, and a workshop. If you're there, come by and say hi!
+    * [At the same time, Tim will be at the WeAreDevelopers world conference on July 18th](https://www.wearedevelopers.com/world-congress/program).
+  * **Content**:
+    * [We released a new video about recruiting and retaining top tech talent](https://www.youtube.com/watch?v=D_2HT2n_3PM).
+    * [Tim's session from Spring I/O is also available to watch](https://www.youtube.com/watch?v=KlQZH6WHa2c)
+    * [The workshop that Tim gave on creating recipes is also available in our docs](https://docs.moderne.io/user-documentation/workshops/recipe-authoring).
+* [We then began our main discussion for the week – recipe authoring best practices](https://youtu.be/6_w6gx7GPII?t=492)
+  * [We've created a detailed doc about recipe conventions and best practices that covers a lot of the points being discussed in this session](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices).
+  * Sam began by talking about a common mistake people make when first creating recipes – [not making them idempotent and immutable](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#recipes-must-be-idempotent-and-immutable). What this means is that if a recipe is given the same LST and configuration, it should _always_ produce the same result. To go along with that, a recipe's behaviour _should not_ be influenced by LSTs which have been visited previously.
+    * If you do need to make a recipe that gathers data from other LSTs, you need to ensure it's a [ScanningRecipe](https://docs.openrewrite.org/concepts-explanations/recipes#scanning-recipes).
+  * To go along with the above point, [Sam also called out that the LSTs themselves should not be changed directly](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#recipes-must-not-mutate-lsts). People will often accidentally do this when an LST element has a collection as the collection itself is not forced to be immutable at run time.
+  * [As part of ensuring other people follow these best practices, Sam created a new recipe that uses data flow analysis](https://youtu.be/6_w6gx7GPII?t=818).
+    * [NoCollectionMutation recipe](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/NoCollectionMutation.java)
+    * [NoCollectionMutation tests](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/NoCollectionMutationTest.java) 
+    * The recipe depends on the functionality added in [rewrite-analysis](https://github.com/openrewrite/rewrite-analysis).
+  * [During the discussion of said recipe, a community member asked a pertinent question on mutating markers](https://youtu.be/6_w6gx7GPII?t=1056). Markers are optional metadata attached to an LST element - the question was, effectively, what if you use the `Markers.add()` method? Will that not cause problems because you're modifying a collection?
+    * The answer is that this is fine because the [`Markers.add()` method](https://github.com/openrewrite/rewrite/blob/main/rewrite-core/src/main/java/org/openrewrite/marker/Markers.java#L76-L85) is aware of referential equality and performs a defensive copy of the collection. If that method updated the original `markers` collection instead, then there would have been problems.\
+  * [We then jumped back to discussing the best-practice recipe](https://youtu.be/6_w6gx7GPII?t=1152)
+    * As with all recipes, it's good to start off by reducing the scope of the recipe. In this case, we want this recipe to only be concerned with _methods_ in a class (type) that extends from `org.openrewrite.Tree` (the root of the LST type hierarchy). Furthermore, we want to only do something if the method returns a `java.util.List`, as that is the pattern most people mess up.
+    * Sam then explained more about data flow analysis – how to add it to your project, what are "sources" and "sinks", etc.
+    * The recipe tries to ensure that a defensive copy was made when working with said collections.
+    * Sam then went on to explain some limitations with data flow analysis, such as the fact that this only does _local_ data flow analysis (so if you depend on something else, it won't be detected by this recipe). 
 
 ### Debugging recipes on real code (June 5th, 2024)
 
