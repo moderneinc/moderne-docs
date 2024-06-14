@@ -8,28 +8,31 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will:
 * [Walk you through configuring the CLI](cli-intro.md#configuring-the-cli)
 * [Provide more details for each command in case you want to learn more](cli-intro.md#commands)
 
-## Installation
+## Assumptions
 
-1. Download the CLI by following the instructions in the below table. If you are a Moderne DX customer, you'll want to follow the instructions in the `Maven Central` tab. For everyone else, please use the `Moderne Platform` tab:
+* You can access [app.moderne.io](https://app.moderne.io/marketplace) or a private Moderne tenant
+* You can authenticate to Moderne via GitHub
+* You are familiar with running terminal commands
 
-{% tabs %}
-{% tab title="Via the Moderne Platform" %}
-If you have access to the Moderne Platform (either via a private tenant or via the public [app.moderne.io](https://app.moderne.io/marketplace)), follow the below instructions to obtain the CLI:
+## Installation and configuration
+
+_If you are in an air-gapped environment, please follow the [instructions for installing and configuring the CLI in an air-gapped environment](/user-documentation/moderne-cli/how-to-guides/restricted-cli-install.md) instead._
+
+### Step 1: Download the CLI
 
 1. Go to the [Moderne Platform](https://app.moderne.io/) (or your private tenant) and sign in.
+
 2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging).
+
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
-<figure><img src="../../../.gitbook/assets/cli-download3.gif" alt=""><figcaption></figcaption></figure>
-{% endtab %}
+![](/.gitbook/assets/CLI-Download.gif)
 
-{% tab title="Via Maven Central" %}
-If you don't have access to the Moderne Platform (e.g., you're in an air-gapped environment), you can obtain the CLI from Maven Central: [https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions)
-{% endtab %}
-{% endtabs %}
+4. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location – or this could involve putting it in a directory that's already on your `PATH` (such as a `/user/bin` directory).
 
-2. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location or this could involve putting it in a directory that's already on your `PATH` such as a `/usr/bin` directory.
-3. **(Optional - but strongly encouraged)** Create an alias for the Moderne CLI JAR. This step only applies if you didn't use a package manager for the installation of the CLI.
+### Step 2: (Optional - but recommended) Create an alias for the Moderne CLI JAR
+
+While not required, you are **strongly encouraged** to set up an alias for running the CLI JAR. Below are some ways you might configure this depending on your OS and terminal:
 
 {% tabs %}
 {% tab title="Git Bash (Windows)" %}
@@ -55,14 +58,14 @@ Use the [Set-Alias command](https://learn.microsoft.com/en-us/powershell/module/
 {% endtab %}
 {% endtabs %}
 
-4. Ensure you can run the Moderne CLI by typing `mod`. If everything is set up correctly, you should see a list of commands:
+If everything was configured correctly, you should be able to type `mod` into your terminal and see a list of commands:
 
 <details>
 
 <summary>mod command results</summary>
 
 ```bash
-➜  moderne-cli git:(main) mod
+➜ mod
 
 Moderne CLI 3.8.0
 
@@ -103,7 +106,7 @@ MOD SUCCEEDED in (0.01s)
 
 </details>
 
-### (Optional) Set up auto-completion in your terminal (Unix terminals only)
+### Step 3: (Optional) Set up auto-completion in your terminal (Unix terminals only)
 
 The Moderne CLI offers a command which generates a completion script that can be used to set up auto-completion in your terminal. After initializing this script, you can type `mod config` and press tab and then your terminal will offer suggestions for the sub-commands or parameters:
 
@@ -122,21 +125,14 @@ Or, if you want to configure auto-completion so that it works for _every_ termin
 source <(mod generate-completion)
 ```
 
-## Configuring the CLI
+## Step 4: Connect the CLI to Moderne
 
-Before you can run most commands, you'll need to configure the CLI. Let's walk through all the steps you may want to do.
+Connecting the CLI to Moderne is necessary to:
 
-### Connect the CLI to your Moderne instance
+* Quickly sync the recipe catalog from Moderne to your local machine
+* Receive organizational information, so you can clone/build/run groups of repositories more easily
 
-_Skip this step if you are a Moderne DX customer._
-
-Connecting the CLI to your Moderne instance is necessary to:
-
-* Sync the recipe catalog from Moderne to your local machine
-* Receive organizational information, so you can clone groups of repositories more easily
-* Download LSTs that have already been built
-
-To set up this connection, you'll first need to create an access token for the CLI to use. Follow these instructions to obtain the token and provide it to the CLI:
+To set up this connection, you'll first need to create an access token for the CLI to use. Follow the below instructions to obtain a token and provide it to the CLI:
 
 1. Navigate to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token)
    * If you're in a private tenant, replace `app.moderne.io` with your tenant URL
@@ -149,13 +145,13 @@ To set up this connection, you'll first need to create an access token for the C
 
 ### Install recipes
 
-With the Moderne connection established, you can install recipes so you can run them locally by running the following command:
+With the Moderne connection established, you can download recipes to your local machine by running the following command:
 
 ```shell
 mod config recipes moderne sync
 ```
 
-This will grab all of the recipes from the tenant you specified in `mod config` and download them to your machine so you can use the CLI to run them on your repositories.
+This will grab _all_ of the recipes from the tenant you specified in `mod config`.
 
 If you want to install a specific recipe rather than all of the recipes, you can also do so by using the following command:
 
@@ -207,7 +203,7 @@ mod config lsts artifacts maven edit ${REPOSITORY_URL} --user=${ARTIFACTS_USER} 
 
 ### (Optional) Configure a license
 
-If you are wanting to run the CLI against **private repositories** you _may_ need to [configure a license](moderne-cli-license.md).
+If you are wanting to run the CLI against **private repositories** you will need to [configure a license](moderne-cli-license.md). Please follow the instructions in that doc to set up your license in the CLI.
 
 ### (Optional) Configure a Maven settings file
 
