@@ -14,11 +14,11 @@ If you want to take advantage of the free trial of the CLI, please fill out [our
 
 ## How to configure the CLI with a license key
 
-#### Single-tenant Moderne customers
+### Single-tenant Moderne customers
 
 You do not need to configure a license directly in your CLI. The license will be automatically configured when you run the `mod config moderne edit --token ...` command and provide a token created in your tenant. 
 
-#### Moderne DX customers
+### Moderne DX customers
 
 To configure the license, please run the following command:
 
@@ -26,7 +26,7 @@ To configure the license, please run the following command:
 mod config license moderne sync
 ```
 
-#### Everyone else (including multi-tenant Moderne customers)
+### Everyone else (including multi-tenant Moderne customers)
 
 Please run the following command:
 

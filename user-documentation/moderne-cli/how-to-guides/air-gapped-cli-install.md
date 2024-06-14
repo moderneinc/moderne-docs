@@ -1,6 +1,6 @@
 # How to install and configure the Moderne CLI in an air-gapped environment
 
-If your company has restrictions on what you can access via the internet, you'll need to obtain and configure the [Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro.md) in a special way. This doc will walk you through everything you need to know for this. By the end, you will have the CLI downloaded and configured in your air-gapped environment.
+If your company has restrictions on what you can access via the internet, you'll need to download and configure the [Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro.md) in a special way. This doc will walk you through everything you need to know for this. By the end, you will have the CLI downloaded and configured in your air-gapped environment.
 
 ## Assumptions
 
