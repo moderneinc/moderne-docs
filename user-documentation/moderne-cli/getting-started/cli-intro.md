@@ -184,7 +184,8 @@ If you want to publish artifacts from the CLI or download LSTs from your artifac
 {% tabs %}
 {% tab title="JFrog Artifactory" %}
 {% code overflow="wrap" %}
-```shell
+
+```bash
 mod config lsts artifacts artifactory edit ${REPOSITORY_URL} --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
 {% endcode %}
@@ -194,7 +195,8 @@ mod config lsts artifacts artifactory edit ${REPOSITORY_URL} --user=${ARTIFACTS_
 _Such as SonaType Nexus_
 
 {% code overflow="wrap" %}
-```shell
+
+```bash
 mod config lsts artifacts maven edit ${REPOSITORY_URL} --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
 {% endcode %}
