@@ -12,17 +12,15 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will walk 
 
 ## Installation and configuration
 
-_If you are in an air-gapped environment, please follow the [instructions for installing and configuring the CLI in an air-gapped environment](/user-documentation/moderne-cli/how-to-guides/air-gapped-cli-install.md) instead._
+_If you are in an air-gapped environment, please follow the_ [_instructions for installing and configuring the CLI in an air-gapped environment_](../how-to-guides/air-gapped-cli-install.md) _instead._
 
 ### Step 1: Download the CLI
 
 1. Go to the [Moderne Platform](https://app.moderne.io/) (or your private tenant) and sign in.
-
 2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging).
-
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
-![](/.gitbook/assets/cli-download.gif)
+![](../../../.gitbook/assets/cli-download.gif)
 
 4. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location – or this could involve putting it in a directory that's already on your `PATH` (such as a `/user/bin` directory).
 
@@ -134,7 +132,12 @@ To set up this connection, you'll first need to create an access token for the C
    * If you're in a private tenant, replace `app.moderne.io` with your tenant URL
 2. Enter a human-readable name for the token (e.g., cli-token)
 3. Press `Generate`
-4. Copy the `install on your workstation` command and paste it into your command line
+4. Copy the `install on your workstation` command and paste it into your command line. This command should look something like:
+
+```bash
+mod config moderne edit https://app.moderne.io --token mat-YOUR_TOKEN_HERE
+```
+
 5. If everything worked, you should see a `MOD SUCCEEDED` message
 
 ![](../../../.gitbook/assets/create-access-token.gif)
@@ -175,7 +178,7 @@ mod config recipes yaml install /path/to/your/recipe.yaml
 
 ### Step 6: Configure a license
 
-If you are wanting to run the CLI against **private repositories** you will need to [configure a license](moderne-cli-license.md). Please follow [the instructions in the Moderne CLI license doc](./moderne-cli-license.md#how-to-configure-the-cli-with-a-license-key) to set up your license.
+If you are wanting to run the CLI against **private repositories** you will need to [configure a license](moderne-cli-license.md). Please follow [the instructions in the Moderne CLI license doc](moderne-cli-license.md#how-to-configure-the-cli-with-a-license-key) to set up your license.
 
 ### Step 7: (Optional) Configure artifact publishing and downloading
 
@@ -184,7 +187,6 @@ If you want to publish artifacts from the CLI or download LSTs from your artifac
 {% tabs %}
 {% tab title="JFrog Artifactory" %}
 {% code overflow="wrap" %}
-
 ```bash
 mod config lsts artifacts artifactory edit ${REPOSITORY_URL} --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
@@ -195,7 +197,6 @@ mod config lsts artifacts artifactory edit ${REPOSITORY_URL} --user=${ARTIFACTS_
 _Such as SonaType Nexus_
 
 {% code overflow="wrap" %}
-
 ```bash
 mod config lsts artifacts maven edit ${REPOSITORY_URL} --user=${ARTIFACTS_USER} --password=${ARTIFACTS_PWD} ${ARTIFACT_REPOSITORY_URL}
 ```
