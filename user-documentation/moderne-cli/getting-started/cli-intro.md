@@ -125,7 +125,7 @@ Or, if you want to configure auto-completion so that it works for _every_ termin
 source <(mod generate-completion)
 ```
 
-## Step 4: Connect the CLI to Moderne
+### Step 4: Connect the CLI to Moderne
 
 Connecting the CLI to Moderne is necessary to:
 
@@ -143,7 +143,7 @@ To set up this connection, you'll first need to create an access token for the C
 
 ![](../../../.gitbook/assets/create-access-token.gif)
 
-### Install recipes
+### Step 5: Install recipes
 
 With the Moderne connection established, you can download recipes to your local machine by running the following command:
 
@@ -177,7 +177,11 @@ Or you can make local declarative YAML recipes available to the CLI through:
 mod config recipes yaml install /path/to/your/recipe.yaml
 ```
 
-### (Optional) Configure artifact publishing and downloading
+### Step 6: Configure a license
+
+If you are wanting to run the CLI against **private repositories** you will need to [configure a license](moderne-cli-license.md). Please follow the instructions in that doc to set up your license in the CLI.
+
+### Step 7: (Optional) Configure artifact publishing and downloading
 
 If you want to publish artifacts from the CLI or download LSTs from your artifact repository when running commands, you'll need to run one of the following commands depending on where your LST artifacts live:
 
@@ -201,11 +205,7 @@ mod config lsts artifacts maven edit ${REPOSITORY_URL} --user=${ARTIFACTS_USER} 
 {% endtab %}
 {% endtabs %}
 
-### (Optional) Configure a license
-
-If you are wanting to run the CLI against **private repositories** you will need to [configure a license](moderne-cli-license.md). Please follow the instructions in that doc to set up your license in the CLI.
-
-### (Optional) Configure a Maven settings file
+### Step 8: (Optional) Configure a Maven settings file
 
 If you have a Maven settings file that exists outside of your repositories, you can use the [following command](../cli-reference.md#mod-config-build-maven-settings) to point the CLI to it. This ensures dependencies are resolved the same as builds:
 
@@ -213,7 +213,7 @@ If you have a Maven settings file that exists outside of your repositories, you 
 mod config build maven settings edit <path-to-settings.xml>
 ```
 
-### (Optional) Configure recipe sources
+### Step 9: (Optional) Configure recipe sources
 
 If you have custom recipes you want to include in the CLI, you will need to [let the CLI know about them](../cli-reference.md#mod-config-recipes-artifacts):
 
