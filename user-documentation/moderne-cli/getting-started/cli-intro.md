@@ -175,7 +175,7 @@ mod config recipes yaml install /path/to/your/recipe.yaml
 
 ### Step 6: Configure a license
 
-If you are wanting to run the CLI against **private repositories** you will need to [configure a license](moderne-cli-license.md). Please follow the instructions in that doc to set up your license in the CLI.
+If you are wanting to run the CLI against **private repositories** you will need to [configure a license](moderne-cli-license.md). Please follow [the instructions in the Moderne CLI license doc](./moderne-cli-license.md#how-to-configure-the-cli-with-a-license-key) to set up your license.
 
 ### Step 7: (Optional) Configure artifact publishing and downloading
 
