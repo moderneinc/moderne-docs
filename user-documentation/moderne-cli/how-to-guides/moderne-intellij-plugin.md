@@ -6,10 +6,10 @@ Let's walk through how to install and use this plugin.
 
 ## Installation
 
-You can install the Moderne IntelliJ plugin by:
+To install the Moderne IntelliJ plugin you can either:
 
-* Going to [https://plugins.jetbrains.com/plugin/17565-moderne](https://plugins.jetbrains.com/plugin/17565-moderne) and pressing Get/Install in the top-right corner OR
-* Navigating to `Settings` → `Plugins` inside of IntelliJ and searching for `Moderne`&#x20;
+* Go to [https://plugins.jetbrains.com/plugin/17565-moderne](https://plugins.jetbrains.com/plugin/17565-moderne) and press Get/Install in the top-right corner OR
+* Navigate to `Settings` → `Plugins` inside of IntelliJ and search for `Moderne`
 
 ## How to use
 
