@@ -16,7 +16,7 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will:
 
 ## Installation and configuration
 
-_If you are in an air-gapped environment, please follow the [instructions for installing and configuring the CLI in an air-gapped environment](/user-documentation/moderne-cli/how-to-guides/restricted-cli-install.md) instead._
+_If you are in an air-gapped environment, please follow the [instructions for installing and configuring the CLI in an air-gapped environment](/user-documentation/moderne-cli/how-to-guides/air-gapped-cli-install.md) instead._
 
 ### Step 1: Download the CLI
 
