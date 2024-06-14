@@ -1,6 +1,6 @@
 # How to install and configure the Moderne CLI in an air-gapped environment
 
-If your company has restrictions on what you can access via the internet, you'll need to obtain and configure the [Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro.md) differently. This doc will walk you through everything you need to know for this. By the end, you will have the CLI available and configured in your air-gapped environment.
+If your company has restrictions on what you can access via the internet, you'll need to obtain and configure the [Moderne CLI](/user-documentation/moderne-cli/getting-started/cli-intro.md) in a special way. This doc will walk you through everything you need to know for this. By the end, you will have the CLI downloaded and configured in your air-gapped environment.
 
 ## Assumptions
 
@@ -51,7 +51,7 @@ If everything was configured correctly, you should be able to type `mod` into yo
 ```bash
 ➜ mod
 
-Moderne CLI 3.7.10
+Moderne CLI 3.8.0
 
 Usage:
 
@@ -159,4 +159,4 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-testing-frameworks
 
 ## Next steps
 
-TODO
+You're now ready to begin using the CLI! Additional steps demonstrating how to use the CLI will be added soon.
