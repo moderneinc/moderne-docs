@@ -26,7 +26,7 @@ _If you are in an air-gapped environment, please follow the [instructions for in
 
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
-![](/.gitbook/assets/CLI-Download.gif)
+![](/.gitbook/assets/cli-download.gif)
 
 4. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location – or this could involve putting it in a directory that's already on your `PATH` (such as a `/user/bin` directory).
 
