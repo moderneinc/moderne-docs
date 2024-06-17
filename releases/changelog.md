@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.123.0 (2024/06/17)
+
+- add empty state message to builder open dialog
+
 ### UI v10.122.0 (2024/06/13)
 
 - Bug fixes and other improvements.
