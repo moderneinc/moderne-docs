@@ -2942,7 +2942,7 @@ mod config recipes yaml delete [parameters]
 ### Examples
 
 ```
-mod config recipes jar delete rewrite-java
+mod config recipes yaml delete /path/to/yml
 ```
 
 ### Parameters
@@ -4052,6 +4052,7 @@ mod run-history [parameters]
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| --json |  (INCUBATING) Output the repository listing in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |  |
 | --most-recent |  Only show the most recent run of each recipe. |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
