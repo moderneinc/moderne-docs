@@ -15,10 +15,6 @@
 * [**mod config build active-styles edit**](#mod-config-build-active-styles-edit)
 * [**mod config build active-styles show**](#mod-config-build-active-styles-show)
 * [**mod config build bazel**](#mod-config-build-bazel)
-* [**mod config build bazel rule**](#mod-config-build-bazel-rule)
-* [**mod config build bazel rule delete**](#mod-config-build-bazel-rule-delete)
-* [**mod config build bazel rule edit**](#mod-config-build-bazel-rule-edit)
-* [**mod config build bazel rule show**](#mod-config-build-bazel-rule-show)
 * [**mod config build gradle**](#mod-config-build-gradle)
 * [**mod config build gradle arguments**](#mod-config-build-gradle-arguments)
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
@@ -534,117 +530,14 @@ mod config build active-styles show [parameters]
 Configures the Bazel build tool.
 
 
-
-
-### Usage
-
-```
-mod config build bazel [parameters] [subcommands]
-```
-
-### Examples
-
-```
-mod config build bazel rule edit "//:java-maven-lib"
-```
-
-
-### Subcommands
-
-* `rule`: Configure the Bazel rule used to build LSTs.
-
-## mod config build bazel rule
-
-Configure the Bazel rule used to build LSTs.
-
-
-The rule affects how the project is built.
+By default Bazel will build all rules of type `java_library` or `kt_jvm_library`.
 
 ### Usage
 
 ```
-mod config build bazel rule [parameters] [subcommands]
+mod config build bazel [parameters]
 ```
 
-
-### Subcommands
-
-* `delete`: Removes Bazel build rule customization.
-* `edit`: Configure Bazel build rule.
-* `show`: Displays the configured Bazel build rule.
-
-## mod config build bazel rule delete
-
-Removes Bazel build rule customization.
-
-
-### Usage
-
-```
-mod config build bazel rule delete [parameters]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
-
-
-## mod config build bazel rule edit
-
-Configure Bazel build rule.
-
-
-
-
-### Usage
-
-```
-mod config build bazel rule edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| rule |  The Bazel build rule to use when building LSTs. |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
-
-
-## mod config build bazel rule show
-
-Displays the configured Bazel build rule.
-
-
-### Usage
-
-```
-mod config build bazel rule show [parameters]
-```
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| --local |  Configuration relevant to a specific group of repositories. |  |
-| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
 ## mod config build gradle
