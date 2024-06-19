@@ -6,6 +6,69 @@ Every week we [host a live office hours session](https://www.youtube.com/@modern
 
 You can find each of the office hours sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### An in-depth look at the Moderne CLI (June 19th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=ZHXqYhaB71k" %}
+
+#### Summary and related links
+
+* Announcements for the week:
+  * **Releases**:
+    * We did a new release of all recipe modules, the Maven and Gradle plugins and the `rewrite-recipe-bom`.
+      * Get all aligned versions through https://github.com/openrewrite/rewrite-recipe-bom/releases/tag/v2.13.2
+      * `rewrite-logging-frameworks` now allows you to [move from Java util logging (JUL) to SLF4J](https://github.com/openrewrite/rewrite-logging-frameworks/releases/tag/v2.9.1).
+      * `rewrite-testing-frameworks` now [migrates additional Hamcrest matchers to AssertJ](https://github.com/openrewrite/rewrite-testing-frameworks/releases/tag/v2.12.0), along with assorted fixes.
+      * `rewrite-third-party` requires Java 17, due to the inclusion of Java 17 recipes from external sources.
+    * We also did a new release of the Moderne IntelliJ plugin: v0.6.0
+      * https://plugins.jetbrains.com/plugin/17565-moderne
+    * As well as a new release of the Moderne CLI: v3.9.2
+      * https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro
+  * **Content**:
+    * We put out [the June Moderne news letter](https://www.linkedin.com/pulse/summer-heating-up-moderne-moderneinc-1442c/?), showing all that's new over the past month, and suggestion of what recipes to run over the summer.
+    * Our [new video on tech stack liquidity](https://www.youtube.com/watch?v=3xY8ht5GFls) shows how you can consolidate from a variety of tech stacks to a single one, showcased through our AssertJ migration recipes.
+    * A new blog takes you through [our new recipe builder](https://www.moderne.io/blog/moderne-engineering-building-the-openrewrite-recipe-builder), showing both the functionality available to you, and the process we took to get there.
+      * [Use this new builder](https://app.moderne.io/builder) to quickly visualize existing recipes, and customize or extend them to your needs.
+  * **Events**:
+    * [We'll be at UberConf in Denver on July 16th-19th](https://uberconf.com/sessions), giving a keynote presentation, a general session, and a workshop.
+    * Tim will present at [WeAreDevelopers world conference on July 18th](https://www.wearedevelopers.com/world-congress/program).
+  * **Promotion**:
+    * We continue our time limited promotion of the Moderne IntelliJ plugin & CLI. If you want to try it out, [fill out our form](https://bit.ly/ModerneIDEplugin).
+    * You can now also book time with our experts Sam & Tim to get started quickly with the CLI on your projects.
+
+* From there we switched to the main topic for this week: An in-depth look at using the Moderne CLI.
+  * We explained how the CLI is aimed at developers who want to run recipes across multiple repositories, and how it complements the Moderne IntelliJ plugin.
+  * As a first step, you can use the CLI to discover git repositories, and execute a `mod git pull ./` across all of them.
+    * This is great for when you're getting back to a group of repositories after some time, pulling in all the latest changes at once.
+  * From there, you might want to prepare to run recipes across all of those repositories, for which you can use the `mod build ./` command.
+    * This command will build all the repositories in the current directory, and create a `.moderne` directory with the LSTs of all the repositories.
+    * Or alternatively, you can download the LSTs from artifactory, when those are built for you on a schedule.
+  * Once you've acquired the LSTs, you'll want to find a recipe to execute, from your local copy of the recipe catalog.
+    * There's a `mod config recipes search` option to help you find and select recipes to run.
+    * A helpful shorthand is offered in the form of an active recipe, which you can also set from your IDE.
+  * After selecting a recipe, you can run the recipe across all repositories, or a selection, using the `mod run` command.
+    * `--help` and tab-completion are available to see how you can narrow down which repositories to run the recipe on.
+    * When running a recipe, you'll notice changes are produced to a patch file, not directly written out to the repository.
+    * This allows you to review the changes before committing them, and to run additional recipes in parallel.
+  * Once you're satisfied with the changes, you can commit the results to a branch, and push them to the remote repository.
+    * There are familiar git sub commands available to you for git operations across repositories.
+    * The `--last-recipe-run` option allows you to only execute git commands against projects that were affected by the last recipe run.
+  * Next we showed how the CLI can be used to gather insights across repositories, by running a recipe that produces a data table.
+    * We ran a [recipe to find and fix vulnerable dependencies](https://docs.openrewrite.org/recipes/java/dependencies/dependencyvulnerabilitycheck), which analyzes all your direct and transitive dependencies.
+    * The dependency versions you're using are cross-referenced against [the GitHub Advisories database](https://docs.github.com/en/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database), to find the vulnerabilities that might affect you.
+    * We explain how the recipe only confidently makes changes for `.patch` versions, following [the Semantic versioning convention](https://semver.org/).
+      * We're able to not just bump direct dependencies, but also transitive dependencies, with respective solutions for Maven and Gradle.
+      * This is in contrast to other tools, which typically only handle direct dependencies, and lack insight into transitive dependencies.
+      * That means a lot of vulnerabilities might otherwise go unnoticed, and unpatched.
+    * Yet, even when the recipe does not produce code changes, we can still give you insight into additional vulnerabilities.
+      * For that, we ran the suggested `mod study` to produce an Excel file showing exactly which dependencies are vulnerable.
+      * This can be used to inform your team, and to prioritize your next steps based on severity, and mitigation options available to you.
+    * Having these insights across repositories, and the tools to affect changes at scale, means you're in great shape when a new distruptive vulnerability might appear.
+  * Next Sam demoed how you can run a recipe using the CLI, to then attach a debugger in IntelliJ.
+    * This allows you to step through existing recipes, to better understand where they match, and what changes they produce.
+    * We use this frequently to help harden our recipes, as there's always more variability in practice than you had thought of in advance in your unit tests.
+  * Wrapping up we shared [the form to get access to the Moderne CLI and IntelliJ plugin](https://bit.ly/ModerneIDEplugin), such that you can make this part of your every day development.
+ 
+
 ### Data flow analysis & recipe authoring best practices (June 12th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=6_w6gx7GPII" %}
