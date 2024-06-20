@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.124.0 (2024/06/20)
+
+- add controls to tree
+
 ### UI v10.123.0 (2024/06/17)
 
 - add empty state message to builder open dialog
