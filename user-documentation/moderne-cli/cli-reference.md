@@ -14,7 +14,6 @@
 * [**mod config build active-styles delete**](#mod-config-build-active-styles-delete)
 * [**mod config build active-styles edit**](#mod-config-build-active-styles-edit)
 * [**mod config build active-styles show**](#mod-config-build-active-styles-show)
-* [**mod config build bazel**](#mod-config-build-bazel)
 * [**mod config build gradle**](#mod-config-build-gradle)
 * [**mod config build gradle arguments**](#mod-config-build-gradle-arguments)
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
@@ -427,7 +426,6 @@ mod config build [parameters] [subcommands]
 ### Subcommands
 
 * `active-styles`: Configure the active styles to use when building LSTs.
-* `bazel`: Configures the Bazel build tool.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
 
@@ -523,21 +521,6 @@ mod config build active-styles show [parameters]
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
-
-
-## mod config build bazel
-
-Configures the Bazel build tool.
-
-
-By default Bazel will build all rules of type `java_library` or `kt_jvm_library`.
-
-### Usage
-
-```
-mod config build bazel [parameters]
-```
-
 
 
 ## mod config build gradle
