@@ -10,7 +10,7 @@ In the default configuration, the CLI first looks for Maven build files, then Gr
 
 The CLI supports 3 external build step types and a resource build step.
 
-The external build step types are Maven, Gradle, and Bazel. For each of these steps, the CLI will do a file walk from the root directory of a repository looking for top level build files of that type. The execution of that step will execute each top level build file.
+The external build step types are Maven, Gradle, and [Bazel](bazel-support.md). For each of these steps, the CLI will do a file walk from the root directory of a repository looking for top level build files of that type. The execution of that step will execute each top level build file.
 
 ### External build tool steps
 

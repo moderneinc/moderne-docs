@@ -10,17 +10,33 @@ Moderne CLI interacts with the [Bazel](https://bazel.build/) build tool to parse
 
 Moderne CLI will execute Bazel with a [bazelisk](https://github.com/bazelbuild/bazelisk) wrapper if present, otherwise falling back on a PATH installed Bazel executable.
 
-### Configuring the Bazel rule to use
+The CLI executes `bazel query` to find Bazel rules of type `java_library` or `kt_jvm_library`, followed by a `bazel build` for each rule matched by that query. The build step applies an [aspect](https://bazel.build/extending/aspects) that extracts information about the rule's source sets and classpath which is then forwarded on to the OpenRewrite parser to produce LSTs.
 
-By default the CLI executes the Bazel rule `java-maven-lib`, which is likely not the rule that you need.
+## Partitioning Bazel repositories
 
-| Command                                                                                 | Description                                                                                                                                                                                                                                                                                                                                  |
-| --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`mod config build bazel rule edit <RULE>`](../cli-reference.md#mod-config-build-bazel) | Globally sets the rule for all Bazel repositories that don't have a rule configured explicitly.                                                                                                                                                                                                                                              |
-| `mod config build bazel rule edit <RULE> --local=<REPO_DIR>`                            | Sets the rule for the repository (or repositories) rooted at `<REPO_DIR>` . This overrides the global rule configuration for this repo. The configuration is saved in an implicitly gitignored file so isn't seen as a tracked change to git.                                                                                                |
-| `mod config build bazel rule edit <RULE> --local=<REPO_DIR> --save`                     | Sets the rule for the repository (or repositories) rooted at `<REPO_DIR>` . This overrides the global rule configuration for this repo. The configuration is saved in a `.modernecfg` file that is seen as a tracked change to git, and can be committed to source control for others to benefit from the configuration with their own CLIs. |
+To control the scope of the `bazel query` step, you can customize the CLI's [build steps](build-steps.md). For Bazel repositories, generally you will want to go one step further and introduce build partitions to carve up the repository into business functional units, with an LST being produced for each unit.
 
-### Example Bazel repository
+The `bazel` build step type has a configurable `targetExpression` configuration (that defaults to `//:all`). Any Bazel query [expression](https://bazel.build/query/language#expressions) is valid here, allowing a wide range of options for how to partition the repository. For example:
+
+* Rules with a particular [attribute](https://bazel.build/query/language#attr)
+* Fixed [words](https://bazel.build/query/language#target-patterns) which correspond to fixed named targets or wildcard patterns of them
+* Rules with a particular [label](https://bazel.build/query/language#labels)
+
+```yaml
+build:
+  partitions:
+    - name: bookings
+      steps:
+        - type: bazel
+          targetExpression: //:bookings
+    - name: payments
+      steps:
+        - type: bazel
+          targetExpression: //:payments
+
+```
+
+## Example Bazel repository
 
 Moderne maintains a public example Bazel repository.&#x20;
 
@@ -37,27 +53,19 @@ Moderne maintains a public example Bazel repository.&#x20;
 11,"bazel-java-maven/src/test/java/com/example/myproject/TestApp.java",<a data-footnote-ref href="#user-content-fn-2">J.CompilationUnit</a>,mod,3.6.2,b8b7619c3321903bd9549b4f0b8bfd88,0
 </code></pre>
 
-### Troubleshooting: Repositories that have both Bazel build files and another build tool like Gradle configured at the same folder level
+## Troubleshooting: Repositories that have both Bazel build files and another build tool like Gradle configured at the same folder level
 
-The Moderne CLI will choose build tools in the following order of precedence:
+The default build steps used by the CLI give precedence to Maven or Gradle if they are also present. You can customize the default build steps to give precedence to Bazel as described in [build steps](build-steps.md).
 
-1. Maven
-2. Gradle
-3. Bazel
-
-The presence of a build file for one of these tools prevents a subsequent build tool from being considered for that folder.
-
-### Troubleshooting: What Bazel command did the Moderne CLI execute to produce the LST?
+## Troubleshooting: What Bazel command did the Moderne CLI execute to produce the LST?
 
 The Bazel command that the Moderne CLI is executing is logged at this path relative to the root of the repository being parsed.
 
 `.moderne/build/<DATA_TIME_HASH>/build.log`
 
-Notice that the rule that has been configured with [`mod config build bazel rule edit <RULE>`](../cli-reference.md#mod-config-build-bazel) is being used here.
+<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption><p>The <code>bazel query</code> and <code>bazel build</code> phases are both shown in the build log</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>The second Command entry in the log shows the Bazel build command that is being executed by the Moderne CLI.</p></figcaption></figure>
-
-### Troubleshooting: Why were Java files not parsed as Java LSTs?
+## Troubleshooting: Why were Java files not parsed as Java LSTs?
 
 At the end of build, a manifest is created that itemizes each file that is contained in the LST and how it was parsed. A sure sign that the Bazel rule configuration is not correctly identfying Java source sets is a series of Java file entries in the manifest that are listed as "Quarks", as seen in the image below.
 
