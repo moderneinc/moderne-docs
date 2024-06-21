@@ -38,7 +38,7 @@ mod config build maven arguments show
 mod config build gradle arguments show
 ```
 
-Or, you can navigate to the `~/.moderne/cli/moderne.properties` file and see all of your configuration options for all commands there.
+Or, you can navigate to the `~/.moderne/cli/moderne.yml` file and see all of your configuration options for all commands there.
 
 If you want to delete the global arguments, you can run the commands:
 
@@ -77,7 +77,7 @@ mod config build maven arguments show --local ./path/to/your/project
 mod config build gradle arguments show --local ./path/to/your/project
 ```
 
-You can also see the local arguments by looking in the `.moderne/moderne.properties` directory in each repository such as in:
+You can also see the local arguments by looking in the `.moderne/moderne-uncommitted.yml` file in each repository such as in:
 
 ```
 working-set/
@@ -85,14 +85,14 @@ working-set/
     spring-boot/
       .git/
       .moderne/
-        moderne.properties <-- arguments will be saved here
+        moderne-uncommited.yml <-- arguments will be saved here
     spring-framework/
       .git/
       .moderne/
-        moderne.properties <-- arguments will be saved here
+        moderne-uncommited.yml <-- arguments will be saved here
 ```
 
-The Moderne CLI will add the `.moderne` directory to the `.git/info/exclude` in each repository (which is then added to the repository's `.gitignore` and global `.gitignore` to decide what to ignore). This prevents this file and these arguments from being checked in. However, when you go to build LSTs, the arguments specified here will be used.
+The Moderne CLI will add the `.moderne` directory to the `.git/info/exclude` in each repository (which is then added by Git to the repository's `.gitignore` and global `.gitignore` to decide what to ignore). This prevents this file and these arguments from being checked in. However, when you go to build LSTs, the arguments specified here will be used.
 
 If you want to delete the local arguments, please run one of the following commands:
 
@@ -109,7 +109,7 @@ In order to build some projects, you may find that there are certain arguments t
 mod config build maven arguments edit "-Pmdep.skip" --local ./working-set --save
 ```
 
-After running that, a `.modernecfg` file will be created that includes the arguments you specified. You can check these files in by running:
+After running that, a `.moderne/moderne.yml` file will be created that includes the arguments you specified. The CLI will add `!.moderne/moderne.yml` to `.git/info/exclude` so that this single file in the `.moderne` folder is eligible for commiting to the repository. You can check these files in by running:
 
 ```shell
 mod add ./working-set
@@ -141,17 +141,19 @@ mod config build maven arguments show --local ./path/to/your/project
 mod config build gradle arguments show --local ./path/to/your/project 
 ```
 
-You can also see the local arguments by looking in the `.modernecfg` file in each repository such as in:
+You can also see the local arguments by looking in the `.moderne/moderne.yml` file in each repository such as in:
 
 ```
 working-set/
   spring-projects/
     spring-boot/
       .git/
-      .modernecfg <-- arguments will be saved here
+      .moderne/
+        moderne.yml <-- arguments will be saved here
     spring-framework/
       .git/
-      .modernecfg <-- arguments will be saved here
+      .moderne/
+        moderne.yml <-- arguments will be saved here
 ```
 
 If you want to delete the local arguments, please run one of the following commands:

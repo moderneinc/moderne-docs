@@ -36,6 +36,7 @@
     * [How to install and configure the CLI in an air-gapped environment](user-documentation/moderne-cli/how-to-guides/air-gapped-cli-install.md)
     * [Layered configuration in the Moderne CLI](user-documentation/moderne-cli/how-to-guides/layer-config-cli.md)
     * [JDK configuration in the Moderne CLI](user-documentation/moderne-cli/how-to-guides/jdk-selection-and-config.md)
+    * [Configuring build steps](user-documentation/moderne-cli/how-to-guides/configuring-build-steps.md)
     * [Bazel support](user-documentation/moderne-cli/how-to-guides/bazel-support.md)
   * [Reference](user-documentation/moderne-cli/cli-reference.md)
   * [FAQ](user-documentation/moderne-cli/faq.md)
