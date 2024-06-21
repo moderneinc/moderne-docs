@@ -3859,6 +3859,7 @@ mod publish /path/to/project
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| --partition |  (INCUBATING) The name of the partitions to publish. If not specified, the recipe will publish all partitions (or the whole repository if there are no partitions). |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
@@ -3898,6 +3899,7 @@ mod run /path/to/project \
 | --active-recipe |  If this flag is included, the recipe specified as the active recipe in your IDE will be run (assuming you have the Moderne plugin installed and configured). |  |
 | --jvm-debug |  Start a JDWP server on this port and pause for a remote debug connection. |  |
 | -P, --recipe-option |  Recipe options, if any. If a recipe accepts more than one option, you can include this argument multiple times. | `mod run . --recipe=<recipe> -P methodPattern='java.util.List add(..)' -P moreOptions='moreOptions'` |
+| --partition |  (INCUBATING) The name of the partitions to run the recipe on. If not specified, the recipe will run on all partitions (or the whole repository if there are no partitions). |  |
 | --recipe |  The recipe ID of the recipe that should be run. | `org.openrewrite.java.search.FindMethods` |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
@@ -3930,6 +3932,7 @@ mod run-history [parameters]
 | ---- | ----------- | ---------- |
 | --json |  (INCUBATING) Output the repository listing in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |  |
 | --most-recent |  Only show the most recent run of each recipe. |  |
+| --partition |  (INCUBATING) The name of the partitions to retrieve history on. If not specified, the recipe will retrieve history on all partitions (or the whole repository if there are no partitions). |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
