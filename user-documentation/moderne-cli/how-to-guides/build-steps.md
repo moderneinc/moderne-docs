@@ -1,4 +1,4 @@
-# Configuring build steps
+# Build steps
 
 ## Out-of-the-box behavior without explicit configuration
 
