@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.124.1 (2024/06/23)
+
+- Bug fixes and other improvements.
+
 ### UI v10.124.0 (2024/06/20)
 
 - add controls to tree
