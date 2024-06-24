@@ -6,7 +6,7 @@
 
 ### UI v10.124.0 (2024/06/20)
 
-*   We have added dynamic controls to tree items in the tree view of the new builder.  This controls will appear when interacting with the tree items:\
+*   We have added dynamic controls to tree items in the tree view of the new builder.  These controls will appear when interacting with the tree items:\
 
 
     <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
@@ -25,7 +25,7 @@
 
 ### UI v10.121.0 (2024/06/11)
 
-* In the new builder we have improved the default recipe id only in our customer tenants.  The new default ID will be based off the user's email.  Example:
+* In the new builder we have improved the default recipe ID only in private customer tenants.  The new default ID will be based off the user's email.  Example:
   * `jsmith@superco.com` -> `com.superco.jsmith.Untitled`
   * `j.smith@superco.ai` -> `ai.superco.j_smith.Untitled`
 *   The new builder now supports adding preconditions to any recipe node.  \
@@ -42,7 +42,7 @@
     or when adding a recipe by toggling this check box:\
     ![](<../.gitbook/assets/image (47).png>)\
     \
-    Precondtions show up as a different color node in the 3D scene and highlighted in the tree view:\
+    Preconditions show up as a different color node in the 3D scene and highlighted in the tree view:\
 
 
     <figure><img src="../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
