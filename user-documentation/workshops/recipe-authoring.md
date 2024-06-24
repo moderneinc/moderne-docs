@@ -508,7 +508,7 @@ The [src/main/java/com/yourorg/ClassHierarchy.java recipe](https://github.com/mo
 
 When you're developing recipes, you might want to debug them to see how they behave in practice against real projects.
 
-The Moderne IntelliJ IDEA plugin has support for [running recipes in debug mode](broken-reference), to see how they behave in practice. This leverages [the Moderne CLI](../moderne-cli/getting-started/cli-intro.md) for recipe runs against a serialized LST, skipping the time-consuming parsing step.
+The Moderne IntelliJ IDEA plugin has support for [running recipes in debug mode](/user-documentation/moderne-ide-integration/how-to-guides/debugging-recipes.md), to see how they behave in practice. This leverages [the Moderne CLI](../moderne-cli/getting-started/cli-intro.md) for recipe runs against a serialized LST, skipping the time-consuming parsing step.
 
 ### Running at scale
 
@@ -553,4 +553,4 @@ We have some [good first issues](https://github.com/orgs/openrewrite/projects/4/
 
 Note that there are separate modules for Spring recipes, Java recipes, testing recipes, logging recipes, and many more. It helps to browse the existing modules for any related work that might be similar and start from there.
 
-For any further questions, feel free to ask in the [OpenRewrite Slack](https://join.slack.com/t/rewriteoss/shared\_invite/zt-nj42n3ea-b\~62rIHzb3Vo0E1APKCXEA) or [Discord](https://discord.gg/xk3ZKrhWAb). Hope to see you there!
+For any further questions, feel free to ask in the [OpenRewrite Slack](https://join.slack.com/t/rewriteoss/shared_invite/zt-nj42n3ea-b~62rIHzb3Vo0E1APKCXEA) or [Discord](https://discord.gg/xk3ZKrhWAb). Hope to see you there!
