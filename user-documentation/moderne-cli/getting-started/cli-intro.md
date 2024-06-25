@@ -353,7 +353,7 @@ blitz4j                         genie                           netflix-commons
 </details>
 
 {% hint style="info" %}
-The LSTs for these repositories are downloaded to the hidden `.moderne` directory in each repository. If you do an `ls` inside of any of these repositories (e.g., CassJMeter or dyno), you won't see any results. You'll need to add the `-a` flag to see the `.moderne` directory.
+While these folders may appear empty if you `cd` into them, there's actually a hidden `.moderne` directory in each repository. This hidden directory is where LSTs will be downloaded to in the subsequent step.
 {% endhint %}
 
 4. Now that you have the repositories on your local machine, you'll need to build the LSTs for them so that you can run recipes against them. Fortunately, since all of these repositories have their LSTs published to the Moderne Platform, the build operation will download the LSTs without you having to build them locally. This will save you a ton of time!
