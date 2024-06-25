@@ -225,11 +225,11 @@ mod config recipes artifacts <artifactory|maven> edit <artifact-repository-url> 
 
 ## Using the CLI
 
-With installation and configuration done, you're now ready to use the CLI. Let's walk through some things you might do with it.
+With installation and configuration done, you're now ready to use the CLI. Let's walk through some things you might do with it. We'd recommend you follow along on your own machine to get a feel for how this works.
 
-### Find and fix vulnerable dependencies
+### Run recipes
 
-In this example, we will use the Moderne CLI to find and fix vulnerable dependencies in a group of open-source repositories.
+In this example, we will use the Moderne CLI to run the `DependencyVulnerabilityCheck` recipe against a group of open-source repositories.
 
 1. From your terminal, create a directory to work in and `cd` into it:
 
@@ -325,8 +325,8 @@ MOD SUCCEEDED in (1m 21s)
 3. Confirm that your repositories were cloned correctly by running the following command:
 
 ```bash
-ls  . # For Mac/Unix users
-dir .     # For Windows users
+ls  .  # For Mac/Unix users
+dir .  # For Windows users
 ```
 
 <details>
