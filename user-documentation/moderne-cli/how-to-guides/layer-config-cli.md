@@ -9,10 +9,10 @@ To meet all of these needs, the Moderne CLI offers a few options for how you can
 * [Local configuration (shared)](layer-config-cli.md#local-configuration-shared)
 
 {% hint style="warning" %}
-If your company has a home directory that is not local (such as a network share), you should create a symlink for the `~/.moderne` directory to point to a local directory. This will drastically increase the speed of the Moderne CLI.
+By default, the Moderne CLI will write configuration files to `~/.moderne/cli`. If your company has a home directory that is not local (such as a network share), you can set the `MODERNE_CLI_HOME` environment variable to point to a local directory. This can drastically increase the speed of the Moderne CLI.
 
 ```bash
-ln -s ~/.moderne <local_directory_location>
+export MODERNE_CLI_HOME=/space/moderne/cli
 ```
 {% endhint %}
 
