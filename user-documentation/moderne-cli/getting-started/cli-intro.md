@@ -227,7 +227,7 @@ mod config recipes artifacts <artifactory|maven> edit <artifact-repository-url> 
 
 With installation and configuration done, you're now ready to use the CLI. Let's walk through some things you might do with it. We'd recommend you follow along on your own machine to get a feel for how this works.
 
-### Run recipes
+### Run recipes against many repositories at once
 
 In this example, we will use the Moderne CLI to run the `DependencyVulnerabilityCheck` recipe against a group of open-source repositories.
 
@@ -918,7 +918,7 @@ MOD SUCCEEDED in (3m 7s)
 
 </details>
 
-6. To learn more about what changed, you can command/ctrl click on the `fix.patch` files generated in the above command. If you open one of these patch files up, you'll see that various dependencies in the `build.gradle` files have been updated. While these updates to the dependencies are useful, they are only a minor part of what this recipe does, though. In the next section we'll take a look at the real power of this recipe – the data table that is produced.
+6. To learn more about what changed, you can command/ctrl click on the `fix.patch` files generated in the above command. If you open one of these patch files up, you'll see that various dependencies in the `build.gradle` files have been updated. While these updates to the dependencies are useful, they are only a minor part of what this recipe does. In the next section we'll take a look at the real power of this recipe – the data table that is produced.
 
 ### Study the results of a recipe
 
@@ -953,9 +953,11 @@ The `VulnerabilityReport` contains detailed information about the vulnerabilitie
 
 Let's generate this data table by running the following command:
 
+{% code overflow="wrap" %}
 ```bash
 mod study . --last-recipe-run --data-table org.openrewrite.java.dependencies.table.VulnerabilityReport
 ```
+{% endcode %}
 
 <details>
 
@@ -1159,9 +1161,13 @@ Once that's done running, we _could_ run a similar study command as before to ge
 
 We can filter the data table to only a couple columns we are interested in and then use a GoTemplate to produce a markdown file containing code samples for all of the matching methods we found:
 
+{% code overflow="wrap" %}
+
 ```bash
 mod study . --last-recipe-run --data-table MethodCalls --json sourceFile,method --template '{{"# Search results\n\n"}}{{range .}}{{"* "}}{{.sourceFile}}{{"\n```\n"}}{{.method}}{{"\n```\n"}}{{end}}' > methods.md
 ```
+
+{% endcode %}
 
 As you can see, the output is extremely flexible to meet whatever needs you have.
 
