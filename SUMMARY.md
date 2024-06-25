@@ -55,8 +55,6 @@
     * [Syncing recipes with Moderne DX](user-documentation/moderne-dx/how-to-guides/syncing-recipes-with-moderne-dx.md)
 * [Workshops](user-documentation/workshops/README.md)
   * [OpenRewrite recipe authoring workshop](user-documentation/workshops/recipe-authoring.md)
-  * [Moderne CLI workshop](user-documentation/workshops/moderne-cli-exercise.md)
-  * [Air-gapped Moderne CLI workshop](user-documentation/workshops/air-gapped-cli.md)
 * [Community office hours](user-documentation/community-office-hours.md)
 
 ## Administrator documentation
