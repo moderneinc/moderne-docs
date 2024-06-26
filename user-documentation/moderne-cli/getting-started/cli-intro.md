@@ -225,7 +225,7 @@ mod config recipes artifacts <artifactory|maven> edit <artifact-repository-url> 
 
 ## Using the CLI
 
-With installation and configuration done, you're now ready to use the CLI. Let's walk through some things you might do with it. We'd recommend you follow along on your own machine to get a feel for how this works.
+With installation and configuration done, you're now ready to use the CLI. Let's walk through some things you might do with it. We recommend you follow along on your own machine to get a feel for how to use the CLI.
 
 ### Run recipes against many repositories at once
 
@@ -1147,11 +1147,11 @@ MOD SUCCEEDED in (51s)
 
 </details>
 
-Open up the Excel file that is produced. You will see that there were thousands of vulnerabilities find. You can sort them by severity to see what the most important ones to start with are. Or you could find the ones that can be fixed with a version update only to quickly address some of the problems. Having a table like this can help you and your organization track and prioritize security issues.
+Open up the Excel file that is produced. You will see that the recipe found thousands of vulnerabilities. You can sort them by severity to see what the most important ones to start with are – or you could find the ones that can be fixed with a version update only to quickly address some of the problems. Having a table like this can help you and your organization track and prioritize security issues.
 
 ### Adjust the format of data tables
 
-If you want to customize what you get out of data tables, you can use templates. Let's run a new recipe to demonstrate this. This recipe will find all locations where the `java.util.List add(..)` method is used.
+Maybe you don't really want an Excel spreadsheet as the output, though. Fortunately, the Moderne CLI lets you customize what you get out of data tables with templates. Let's run a new recipe to demonstrate this. Let's run a recipe to find all locations where the `java.util.List add(..)` method is used.
 
 ```bash
 mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
@@ -1177,7 +1177,7 @@ If you want to learn more about the Moderne CLI, we'd encourage you to check out
 
 * [Learn more about how to configure the CLI to meet your needs](../how-to-guides/layer-config-cli.md)
 * [Learn more about how JDK selection works and how you might configure other locations for JDKs](../how-to-guides/jdk-selection-and-config.md)
-* [Learn how to use the Moderne IntelliJ plugin in combination with the CLI to test recipes](../how-to-guides/moderne-intellij-plugin.md)
+* [Learn how to use the Moderne IntelliJ plugin in combination with the CLI to test recipes](/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
 
 Or watch the following videos:
 
