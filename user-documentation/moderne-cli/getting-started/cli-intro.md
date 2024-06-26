@@ -1181,6 +1181,8 @@ If you want to learn more about the Moderne CLI, we'd encourage you to check out
 
 Or watch the following videos:
 
+{% embed url="https://www.youtube.com/watch?v=ZHXqYhaB71k" %}
+
 {% embed url="https://www.youtube.com/watch?v=zHlVg9H_JRo" %}
 
 {% embed url="https://www.youtube.com/watch?v=cs-6FJ_mtro" %}
