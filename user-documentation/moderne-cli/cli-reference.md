@@ -4,6 +4,11 @@
 
 * [**mod**](#mod)
 * [**mod afterburner**](#mod-afterburner)
+* [**mod audit**](#mod-audit)
+* [**mod audit builds**](#mod-audit-builds)
+* [**mod audit builds list**](#mod-audit-builds-list)
+* [**mod audit runs**](#mod-audit-runs)
+* [**mod audit runs list**](#mod-audit-runs-list)
 * [**mod build**](#mod-build)
 * [**mod clean**](#mod-clean)
 * [**mod clean builds**](#mod-clean-builds)
@@ -184,6 +189,7 @@ mod [parameters] [subcommands]
 ### Subcommands
 
 * `afterburner`: (INCUBATING) Indexes built LSTs to accelerate recipe execution.
+* `audit`: (INCUBATING) Perform an audit of recent activity.
 * `build`: Generates LST artifacts for one or more repositories.
 * `clean`: Clean build and run artifacts produced by the CLI.
 * `config`: Global configuration options that are required by some CLI commands.
@@ -194,7 +200,7 @@ mod [parameters] [subcommands]
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
 * `publish`: Publishes the LST artifacts for one or more projects.
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTS.
-* `run-history`: Get information about the most recent recipe runs.
+* `run-history`: Get information about the most recent recipe runs. This will be transitioning to **mod audit runs list** eventually. A deprecation notice will be added here when we suggest adopting the alternative.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
 * `generate-completion`
 
@@ -230,6 +236,119 @@ mod afterburner /path/to/project
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+
+
+## mod audit
+
+(INCUBATING) Perform an audit of recent activity.
+
+
+Sources information from the activity log kept locally to provide reports in various forms.
+
+### Usage
+
+```
+mod audit [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `builds`: (INCUBATING) Perform an audit of recent build activity.
+* `runs`: (INCUBATING) Perform an audit of recent recipe running activity.
+
+## mod audit builds
+
+(INCUBATING) Perform an audit of recent build activity.
+
+
+Sources information from the activity log kept locally to provide reports on LST building activity.
+
+### Usage
+
+```
+mod audit builds [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `list`: (INCUBATING) Prints build activity to standard output.
+
+## mod audit builds list
+
+(INCUBATING) Prints build activity to standard output.
+
+
+Provides a form of build activity that can be directly consumed by reading standard output.
+
+### Usage
+
+```
+mod audit builds list [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --streaming |  (INCUBATING) Stream results from the audit to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. |  |
+
+
+## mod audit runs
+
+(INCUBATING) Perform an audit of recent recipe running activity.
+
+
+Sources information from the activity log kept locally to provide reports on recipe running activity.
+
+### Usage
+
+```
+mod audit runs [parameters] [subcommands]
+```
+
+
+### Subcommands
+
+* `list`: (INCUBATING) Prints recipe run activity to standard output.
+
+## mod audit runs list
+
+(INCUBATING) Prints recipe run activity to standard output.
+
+
+Provides a form of recipe run activity that can be directly consumed by reading standard output.
+
+### Usage
+
+```
+mod audit runs list [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --streaming |  (INCUBATING) Stream results from the audit to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. |  |
 
 
 ## mod build
@@ -3909,7 +4028,7 @@ mod run /path/to/project \
 
 ## mod run-history
 
-Get information about the most recent recipe runs.
+Get information about the most recent recipe runs. This will be transitioning to **mod audit runs list** eventually. A deprecation notice will be added here when we suggest adopting the alternative.
 
 
 
@@ -3930,7 +4049,7 @@ mod run-history [parameters]
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| --json |  (INCUBATING) Output the repository listing in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |  |
+| --json |  (INCUBATING) Output the run history in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |  |
 | --most-recent |  Only show the most recent run of each recipe. |  |
 | --partition |  (INCUBATING) The name of the partitions to retrieve history on. If not specified, the recipe will retrieve history on all partitions (or the whole repository if there are no partitions). |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
