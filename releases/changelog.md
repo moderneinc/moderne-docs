@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.125.0 (2024/06/26)
+
+- Add No LST status markup to recipe results
+
 
 ### UI v10.124.1 (2024/06/23)
 
