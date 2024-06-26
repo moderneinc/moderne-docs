@@ -6,6 +6,14 @@ Every week we [host a live office hours session](https://www.youtube.com/@modern
 
 You can find each of the office hours sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Overview of third party recipe libraries (June 26th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=kdqdC6C5UA4" %}
+
+#### Summary and related links
+
+Coming soon!
+
 ### An in-depth look at the Moderne CLI (June 19th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=ZHXqYhaB71k" %}
