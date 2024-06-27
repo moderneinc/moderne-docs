@@ -514,10 +514,9 @@ The Moderne IntelliJ IDEA plugin has support for [running recipes in debug mode]
 
 Once you have your recipes developed, you'll likely want to run them against not just one project, but many projects. You have two main options for this:
 
-1. [The Moderne CLI](../moderne-cli/getting-started/cli-intro.md) is a great way to run recipes across many projects from your local machine. This uses serialized LSTs to allow repeated recipe runs against the same model, and create commits and push up changes across many repositories. For more information on how to use the CLI, consider checking out [the Moderne CLI workshop](broken-reference).
+1. [The Moderne CLI](../moderne-cli/getting-started/cli-intro.md) is a great way to run recipes across many projects from your local machine. This uses serialized LSTs to allow repeated recipe runs against the same model, and create commits and push up changes across many repositories.
 2. [The Moderne Platform](../moderne-platform/getting-started/running-your-first-recipe.md) allows you to [run recipes against open-source projects](https://app.moderne.io/marketplace), and see how they behave in practice. You can preview the changes and choose to create a pull request, or discard the changes. You can also generate reports and visualizations, and track progress towards migration goals across time through the DevCenter.
    * Check out the [Apache Maven DevCenter](https://app.moderne.io/devcenter/Apache%20Maven) for an example of goals being tracked and made actionable through recipes.
-   * You may also want to work through the [Moderne Platform workshop](moderne-platform-exercise.md) to learn more about how to use the Platform to run recipes at scale.
 
 ## Recipe conventions and best practices
 
@@ -553,4 +552,4 @@ We have some [good first issues](https://github.com/orgs/openrewrite/projects/4/
 
 Note that there are separate modules for Spring recipes, Java recipes, testing recipes, logging recipes, and many more. It helps to browse the existing modules for any related work that might be similar and start from there.
 
-For any further questions, feel free to ask in the [OpenRewrite Slack](https://join.slack.com/t/rewriteoss/shared\_invite/zt-nj42n3ea-b\~62rIHzb3Vo0E1APKCXEA) or [Discord](https://discord.gg/xk3ZKrhWAb). Hope to see you there!
+For any further questions, feel free to ask in the [OpenRewrite Slack](https://join.slack.com/t/rewriteoss/shared_invite/zt-nj42n3ea-b\~62rIHzb3Vo0E1APKCXEA) or [Discord](https://discord.gg/xk3ZKrhWAb). Hope to see you there!
