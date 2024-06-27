@@ -12,7 +12,34 @@ You can find each of the office hours sessions below along with a summary of wha
 
 #### Summary and related links
 
-Coming soon!
+* Announcements for the week:
+  * **Development**:
+    * [Alex Boyko squashed a number of issues related to bind-api](https://github.com/openrewrite/rewrite/issues/4283#issuecomment-2186741820), preventing unnecessary dependencies from being added as part of a migration. Thanks so much!
+  * **Promotion**:
+    * We continue our time limited promotion of the Moderne IntelliJ plugin & CLI. If you want to try it out, [fill out our form](https://bit.ly/ModerneIDEplugin).
+    * You can now also book time with our experts Sam & Tim to get started quickly with the CLI on your projects.
+  * **Content**:
+    * [Tim's talk on weeding your Micro Service Landscape is available on YouTube](https://www.youtube.com/watch?v=BZdkiLEDx5Q).
+    * Sam's recent NoFluff Just Stuff Webinars on migration engineering with OpenRewrite are now also available. [(Part 1)](https://www.youtube.com/watch?v=gMVTtCLICVU) [(Part 2)](https://www.youtube.com/watch?v=YVgUoisDKWY)
+    * [We released a new video on streamlining the cloud migration process with Moderne](https://www.youtube.com/watch?v=klGDVPAWzRE).
+    * [We also have a video about improving your tech architecture](https://www.youtube.com/watch?v=jhzJHqYiUiA).
+  * **Events**:
+    * [We'll be at UberConf in Denver on July 16th-19th](https://uberconf.com/sessions), giving a keynote presentation, a general session, and a workshop.
+    * Tim will present at [WeAreDevelopers world conference on July 18th](https://www.wearedevelopers.com/world-congress/program).
+* [We then jumped over to our main topic for the week: an overview of third party recipe libraries](https://youtu.be/kdqdC6C5UA4?t=408).
+  * [We started off talking about external recipes that were then adopted by OpenRewrite](https://youtu.be/kdqdC6C5UA4?t=488). These include [cucumber-jvm](https://github.com/openrewrite/rewrite-cucumber-jvm), [testcontainers](https://github.com/openrewrite/rewrite-testing-frameworks/tree/main/src/main/java/org/openrewrite/java/testing/testcontainers), and [rewrite-jenkins](https://github.com/openrewrite/rewrite-jenkins/).
+    * The process for OpenRewrite adopting recipes is largely informal. Please reach out to us in Slack if you have any questions on this.
+  * [Next up was talking through recipes that we've contributed to external projects that they then maintain](https://youtu.be/kdqdC6C5UA4?t=816).
+    * One example of this is in the [AxonFramework](https://github.com/AxonFramework/AxonFramework/tree/master/migration) where Tim saw they had a bunch of manual steps that he felt he could easily automate. He did so and contributed back to their project – which they were super grateful for. Since then, they've maintained this and worked with Tim to adjust their recipes as they update their project.
+    * Another example of this is [Apache Wicket](https://github.com/apache/wicket/tree/master/wicket-migration). This is also included in the [rewrite-third-party library](https://github.com/openrewrite/rewrite-third-party) for your convenience.
+  * [We then went over a few other third-party recipes that have been integrated into the rewrite-third-party library](https://youtu.be/kdqdC6C5UA4?t=1178).
+    * These include: [TimeFold](https://docs.timefold.ai/timefold-solver/latest/upgrade-and-migration/migrate-from-optaplanner), [Quarkus](https://github.com/quarkusio/quarkus-updates), and [Morphia](https://github.com/MorphiaOrg/morphia/blob/master/upgrading/UpgradeTo30.yml).
+  * [After that, we went through some third-party recipes that _haven't_ been integrated](https://youtu.be/kdqdC6C5UA4?t=1455) - that we discovered via people posting in our community Slack. If you have any recipes you're working on, please let us know there, too!
+    * We talked through: [Azure Spring Rewrite](https://github.com/Azure/azure-spring-rewrite), [AWS SDK for Java v2](https://github.com/aws/aws-sdk-java-v2/tree/feature/master/migration-tool/migration-tool), [Redhat's WindUp migrations to Quarkus](https://github.com/windup/windup-rulesets/blob/f02cd0fe1f2400e906446cc7b20c13b02b598eaf/rules/rules-reviewed/openrewrite/jakarta/javax/imports/rewrite.yml), and [Gradle Enterprise to Develocity](https://github.com/jean-andre-gauthier/gradle-enterprise-to-develocity-recipe).
+  * [Next was talking through a larger migration effort taking place that we want to eventually integrate back into OpenRewrite](https://youtu.be/kdqdC6C5UA4?t=1773)
+    * Specifically, there's work on migrating from [TestNG to JUnit 5](https://github.com/Philzen/rewrite-TestNG-to-JUnit5) and [TestNG to Jupiter](https://github.com/MBoegers/migrate-testngtojupiter-rewrite/).
+  * [Lastly, we highlighted an issue where we're tracking all known third-party recipes]()
+    * [List of third-party recipes](https://github.com/openrewrite/rewrite-docs/issues/131)
 
 ### An in-depth look at the Moderne CLI (June 19th, 2024)
 
