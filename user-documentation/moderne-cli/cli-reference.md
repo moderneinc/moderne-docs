@@ -2885,7 +2885,7 @@ mod config recipes yaml [parameters] [subcommands]
 ### Examples
 
 ```
-mod config recipes jar install org.openrewrite:rewrite-java:LATEST
+mod config recipes yaml install /path/to/yaml
 ```
 
 
