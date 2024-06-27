@@ -1,16 +1,18 @@
 # Platform changelog
-### UI v10.125.2 (2024/06/26)
 
-- Bug fixes and other improvements.
+UI v10.125.2 (2024/06/26)
+
+* Bug fixes and other improvements.
 
 ### UI v10.125.1 (2024/06/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.125.0 (2024/06/26)
 
-- Add No LST status markup to recipe results
+* We have added results for all repositories to the recipe run results, this now includes repositories for which we have no LST ingested into the platform.
 
+<figure><img src="../.gitbook/assets/image (55).png" alt=""><figcaption><p>Recipe result with No LST ingested</p></figcaption></figure>
 
 ### UI v10.124.1 (2024/06/23)
 
@@ -18,8 +20,7 @@
 
 ### UI v10.124.0 (2024/06/20)
 
-*   We have added dynamic controls to tree items in the tree view of the new builder.  These controls will appear when interacting with the tree items:\
-
+*   We have added dynamic controls to tree items in the tree view of the new builder. These controls will appear when interacting with the tree items:\\
 
     <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
@@ -37,10 +38,10 @@
 
 ### UI v10.121.0 (2024/06/11)
 
-* In the new builder we have improved the default recipe ID only in private customer tenants.  The new default ID will be based off the user's email.  Example:
+* In the new builder we have improved the default recipe ID only in private customer tenants. The new default ID will be based off the user's email. Example:
   * `jsmith@superco.com` -> `com.superco.jsmith.Untitled`
   * `j.smith@superco.ai` -> `ai.superco.j_smith.Untitled`
-*   The new builder now supports adding preconditions to any recipe node.  \
+*   The new builder now supports adding preconditions to any recipe node.\
     \
     Preconditions are recipes that run before the current list of recipes. When a recipe is used as a precondition, any file that it would make a change to is considered to meet the precondition. When more than one recipe is used as a precondition, all of them must make a change to the file for it to be considered to meet the precondition.
 
@@ -54,12 +55,9 @@
     or when adding a recipe by toggling this check box:\
     ![](<../.gitbook/assets/image (47).png>)\
     \
-    Preconditions show up as a different color node in the 3D scene and highlighted in the tree view:\
-
+    Preconditions show up as a different color node in the 3D scene and highlighted in the tree view:\\
 
     <figure><img src="../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
-
-
 
 ### UI v10.120.0 (2024/06/04)
 
