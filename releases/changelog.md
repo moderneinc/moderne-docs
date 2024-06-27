@@ -10,7 +10,7 @@ UI v10.125.2 (2024/06/26)
 
 ### UI v10.125.0 (2024/06/26)
 
-* We have added results for all repositories to the recipe run results, this now includes repositories for which we have no LST ingested into the platform.
+* In order to demonstrate how complete an impact analysis or set of changes is, we have added results for all repositories to the recipe run results, this now includes repositories for which we have no LST ingested into the platform.&#x20;
 
 <figure><img src="../.gitbook/assets/image (55).png" alt=""><figcaption><p>Recipe result with No LST ingested</p></figcaption></figure>
 
