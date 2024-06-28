@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.126.1 (2024/06/28)
+
+- Bug fixes and other improvements.
+
 ### UI v10.126.0 (2024/06/27)
 
 - improve nested precondition clarity
