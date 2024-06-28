@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.127.0 (2024/06/28)
+
+- add expand/collapse all buttons
+
 
 ### UI v10.126.1 (2024/06/28)
 
