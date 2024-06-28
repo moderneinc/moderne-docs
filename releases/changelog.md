@@ -1,12 +1,13 @@
 # Platform changelog
+
 ### UI v10.126.1 (2024/06/28)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.126.0 (2024/06/27)
 
-- improve nested precondition clarity
-
+* To improve nested precondition clarity we have changed the color of the expanded dashed line when expanding a precondition:\
+  ![](<../.gitbook/assets/image (56).png>)
 
 UI v10.125.2 (2024/06/26)
 
@@ -18,7 +19,7 @@ UI v10.125.2 (2024/06/26)
 
 ### UI v10.125.0 (2024/06/26)
 
-* In order to demonstrate how complete an impact analysis or set of changes is, we have added results for all repositories to the recipe run results, this now includes repositories for which we have no LST ingested into the platform.&#x20;
+* In order to demonstrate how complete an impact analysis or set of changes is, we have added results for all repositories to the recipe run results, this now includes repositories for which we have no LST ingested into the platform.
 
 <figure><img src="../.gitbook/assets/image (55).png" alt=""><figcaption><p>Recipe result with No LST ingested</p></figcaption></figure>
 
