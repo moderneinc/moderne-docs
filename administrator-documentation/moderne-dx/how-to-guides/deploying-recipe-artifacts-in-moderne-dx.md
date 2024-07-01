@@ -1,26 +1,13 @@
 # Deploying recipe artifacts in Moderne DX
 
-To deploy recipe artifacts into Moderne DX, you can make a GraphQL mutation using `https://<moderne-dx-host>:8080/graphql` similar to the following (or issue the request through the UI at `https://<moderne-dx-host>:8080/graphiql`).
+To deploy recipe artifacts into Moderne DX, you must first install the recipe artifacts into the local CLI recipe marketplace. The following command downloads OpenRewrite's rewrite-spring recipes artifact from a pre-configured list of aritifact repositories such as https://repo.maven.apache.org/maven2.
 
-```graphql
-mutation loadRecipes {
-  loadRecipes(
-    groupId: "org.openrewrite.recipe"
-    artifactId: "rewrite-spring"
-    version: "LATEST"
-  ) {
-    id
-  }
-}
+```
+mod config recipes jar install org.openrewrite.recipe.rewrite-spring.LATEST
 ```
 
-In order to execute GraphQL mutations, it is required that an `Authorization` HTTP header be included in the request. You can set the header value in GraphiQL's _Headers_ tab as a JSON object:
+Next, upload all recipe artifacts from the local CLI marketplace to Moderne DX using the command:
 
-```shell
-{"Authorization": "Bearer <access token used to configure DX>"}
 ```
-
-{% hint style="info" %}
-Postman has a brief primer on how to issue GraphQL requests [here](https://learning.postman.com/docs/sending-requests/graphql/graphql-http/).
-{% endhint %}
-
+mod config recipes moderne push
+```
