@@ -1,8 +1,9 @@
 # Platform changelog
+
 ### UI v10.127.0 (2024/06/28)
 
-- add expand/collapse all buttons
-
+* add expand/collapse all buttons:\
+  ![](../.gitbook/assets/image.png)
 
 ### UI v10.126.1 (2024/06/28)
 
@@ -35,7 +36,7 @@ UI v10.125.2 (2024/06/26)
 
 *   We have added dynamic controls to tree items in the tree view of the new builder. These controls will appear when interacting with the tree items:\\
 
-    <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.123.0 (2024/06/17)
 
@@ -80,7 +81,7 @@ UI v10.125.2 (2024/06/26)
 
 *   When selecting subtrees in the new builder other nodes are now deemphasized to improve visual clarity of the selection:
 
-    <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.118.0 (2024/05/31)
 
@@ -90,11 +91,11 @@ UI v10.125.2 (2024/06/26)
 ### UI v10.117.0 (2024/05/30)
 
 * Grids will now show more context regarding pagination:\
-  <img src="../.gitbook/assets/image (1) (1) (1).png" alt="" data-size="line">
+  <img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" data-size="line">
 * In the new builder the tree view has been improved visually to increase clarity and now has a new auto scroll mechanic which should be more consistent than the previous:\
   ![](<../.gitbook/assets/image (41).png>)
 * In the new builder the scene control buttons have been redesigned and relocated to the lower left of the scene:\
-  ![](<../.gitbook/assets/image (1) (1).png>)
+  ![](<../.gitbook/assets/image (1) (1) (1).png>)
 
 UI v10.116.0 (2024/05/23)
 
@@ -569,7 +570,7 @@ Previous:
 
 <div data-full-width="true">
 
-<img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="">
+<img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="">
 
 </div>
 
