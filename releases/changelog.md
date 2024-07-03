@@ -1,13 +1,14 @@
 # Platform changelog
+
 ### UI v10.128.0 (2024/07/03)
 
-- use animated icon for loading-like statuses
-
+* use animated icon for loading-like statuses
 
 ### UI v10.127.0 (2024/06/28)
 
-* add expand/collapse all buttons:\
-  ![](../.gitbook/assets/image.png)
+* Builder improvements:
+  * add expand/collapse all buttons:\
+    ![](../.gitbook/assets/image.png)
 
 ### UI v10.126.1 (2024/06/28)
 
@@ -15,8 +16,9 @@
 
 ### UI v10.126.0 (2024/06/27)
 
-* To improve nested precondition clarity we have changed the color of the expanded dashed line when expanding a precondition:\
-  ![](<../.gitbook/assets/image (56).png>)
+* Builder improvements:
+  * To improve nested precondition clarity we have changed the color of the expanded dashed line when expanding a precondition:\
+    ![](<../.gitbook/assets/image (56).png>)
 
 UI v10.125.2 (2024/06/26)
 
