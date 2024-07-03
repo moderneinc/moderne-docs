@@ -47,7 +47,7 @@ When you apply these settings, any Moderne Organization that you have selected w
 
 After configuring the plugin, you will see the repositories belonging to the multi-repo(s) that you configured listed in the Moderne tool window (on the right side of the IDE). Click the refresh <img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" data-size="line"> button if necessary. Repositories displayed with a blue icon have LSTs successfully built or downloaded on disk. Repositories with a gray icon do not.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt="" width="563"><figcaption><p>The 47 repositories of the OpenRewrite organization, listed in the Moderne tool window.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plugin-example-repos.png" alt="" width="563"><figcaption><p>The 47 repositories of the OpenRewrite organization, listed in the Moderne tool window.</p></figcaption></figure>
 
 ### Multi-repos
 
