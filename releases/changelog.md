@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.128.0 (2024/07/03)
+
+- use animated icon for loading-like statuses
+
 
 ### UI v10.127.0 (2024/06/28)
 
