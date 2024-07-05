@@ -10,7 +10,7 @@ If you are a single-tenant Moderne customer or you're paying for Moderne DX, ple
 
 If you are a multi-tenant Moderne customer or a CLI only customer, please reach out and we will provide you with a license key.
 
-If you want to take advantage of the free trial of the CLI, please fill out [our try Moderne form](https://www.moderne.io/try-moderne) and we will send you a license.
+If you want to take advantage of the free trial of the CLI, please fill out our [try the Moderne IDE plugin signup form](https://www.moderne.io/moderne-ide-plugin-signup) and we will send you a license.
 
 ## How to configure the CLI with a license key
 
