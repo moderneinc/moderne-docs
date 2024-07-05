@@ -62,7 +62,7 @@ If everything was configured correctly, you should be able to type `mod` into yo
 ```bash
 ➜ mod
 
-Moderne CLI 3.11.0
+Moderne CLI 3.11.1
 
 Usage:
 
@@ -249,7 +249,7 @@ mod git clone moderne . "Netflix" --metadata-only
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.11.0
+Moderne CLI 3.11.1
 
 > Listing repositories from Moderne
 
@@ -367,7 +367,7 @@ mod build .
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.11.0
+Moderne CLI 3.11.1
 
 > Selecting repositories
 
@@ -725,7 +725,7 @@ mod run . --recipe DependencyVulnerabilityCheck
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.11.0
+Moderne CLI 3.11.1
 
 > Selecting repositories
 
@@ -964,7 +964,7 @@ mod study . --last-recipe-run --data-table org.openrewrite.java.dependencies.tab
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.11.0
+Moderne CLI 3.11.1
 
 Found recipe run 20240625090329-CucPn
 
