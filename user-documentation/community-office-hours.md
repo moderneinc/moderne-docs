@@ -13,7 +13,7 @@ You can find each of the office hours sessions below along with a summary of wha
 #### Summary and related links
 
 * Announcements for the week:
- * **Releases**:
+  * **Releases**:
     * We did a new release of all recipe modules, the Maven and Gradle plugins and the `rewrite-recipe-bom`.
     * You can find the 30+ new recipes in the [8.29.0 changelog](https://docs.openrewrite.org/changelog/8-29-0-release).
     * There were over a dozen new contributors in the past two weeks!
