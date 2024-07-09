@@ -6,6 +6,46 @@ Every week we [host a live office hours session](https://www.youtube.com/@modern
 
 You can find each of the office hours sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Interview with Jente Sondervorst (July 3rd, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=LMxnvk1XAwQ" %}
+
+#### Summary and related links
+
+* Announcements for the week:
+ * **Releases**:
+    * We did a new release of all recipe modules, the Maven and Gradle plugins and the `rewrite-recipe-bom`.
+    * You can find the 30+ new recipes in the [8.29.0 changelog](https://docs.openrewrite.org/changelog/8-29-0-release).
+    * There were over a dozen new contributors in the past two weeks!
+    * [Maven had some notable improvements and fixes](https://github.com/openrewrite/rewrite/releases/tag/v8.29.0).
+    * [We also added support for migrating Java Util Logging to SLF4J](https://github.com/openrewrite/rewrite-logging-frameworks/releases/tag/v2.10.0)
+    * Furthermore, [we extended support for JMockit to Mockito, and improved Kotlin support](https://github.com/openrewrite/rewrite-testing-frameworks/releases/tag/v2.13.0)
+    * [There are also multiple new Java migration recipes](https://github.com/openrewrite/rewrite-migrate-java/releases/tag/v2.19.0).
+    * For folks using the Moderne CLI, you can upgrade using the command `mod config recipes moderne sync`.
+  * **Content**:
+    * To help people track data tables, [we've automated a new page which shows all recipes that have unique data tables and what those tables do](https://docs.openrewrite.org/reference/recipes-with-data-tables).
+    * There's a new IDE plugin video on [composing a recipe that adds blank lines around fields with annotations](https://youtu.be/WHnJBRzOIEg?si=nGxjaYi4VF0Zl3JT).
+      * This neatly shows how we use the IntelliJ plugin to iteratively develop a recipe.
+      * [Remember to try out the Moderne IDE plugin](https://www.moderne.io/moderne-ide-plugin-signup)
+  * **Events**:
+    * [We'll be at UberConf in Denver on July 16th-19th](https://uberconf.com/sessions), giving a keynote presentation, a general session, and a workshop.
+    * Tim will present at [WeAreDevelopers world conference on July 18th](https://www.wearedevelopers.com/world-congress/program).
+* [We then introduced Jente Sondervorst](https://youtu.be/LMxnvk1XAwQ?t=633). [Jente](https://github.com/Jenson3210) has been a substantial contributor to OpenRewrite where he has both reported and fixed numerous key issues.
+  * [Question 1: How did you go from an unfamiliar code base to fixed problems in it so quickly?](https://youtu.be/LMxnvk1XAwQ?t=812)
+    * Jente talked about how he attended a workshop from Tim and ran into issues with it and was then inspired to try and fix them. He knows how hard it is running an open-source project and, for things that he particularly cares about, he wants to dive in and try and contribute those back. Although sometimes, he admits, he's a bit over-eager to start off with complex use cases.
+  * [Question 2: Do you remember any OpenRewrite concepts that were particularly difficult to learn?](https://youtu.be/LMxnvk1XAwQ?t=1190)
+    * Jente mentioned that he had no idea what an LST was before starting to write recipes. He's not someone who looks at a video or reads documentation and understands it. Instead, he dives in and begins experimenting.
+    * One of the most important tips Tim gave him was, "Start with the test". This has proven to be incredibly useful with ramping up and learning. 
+  * [Question 3: Was the documentation useful to you? Did you reference the documentation? Or did you mostly do your learning inside the debugger?](https://youtu.be/LMxnvk1XAwQ?t=1704)
+    * Jente found the documentation quite useful. That being said, he often just tries things even if he really should read the docs first. Other people at his company prefer to read the docs first, though.
+  * ["Question 4: Was there anything missing during the learning process? Anything we could have added to improve your experience?](https://youtu.be/LMxnvk1XAwQ?t=1812)
+    * Jente reiterated that he didn't have a clue what an LST was - but that what really saved him was the [TreeVisitingPrinter](https://docs.openrewrite.org/concepts-explanations/tree-visiting-printer). That's a tool that allows you to output the whole LST via a simple `System.out.println` call. It helped him wrap his head around what was going on and why.
+    * On top of the TreeVisitingPrinter, he also found unit testing and debugging with the CLI to be critical to his success at learning.
+  * ["Question 5: If you could wish for one additional thing from OpenRewrite, what would it be?"](https://youtu.be/LMxnvk1XAwQ?t=2618)
+    * Jente mentioned that there are a lot of things coming that he already is looking forward to. That being said, he would love if he could migrate his JEE application to a Spring Boot application. That way he could have a uniform framework.
+  * [Question 6: Any final thoughts/last things you want to talk about or cool things that you're working on that you want to share?](https://youtu.be/LMxnvk1XAwQ?t=2999)
+    * Jente mentioned that he's looking forward to providing even more help to the community. He felt great helping someone with their latest recipe patch and would love to do more of it. It's a difficult game of trying to beat Tim, though. He thinks we should make sure to send Tim on holiday a bit more frequently.
+
 ### Overview of third party recipe libraries (June 26th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=kdqdC6C5UA4" %}
