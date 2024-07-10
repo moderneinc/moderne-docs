@@ -13,7 +13,7 @@ When supplying **mod exec** with a command with arguments, the POSIX _end-of-opt
 
 After running a recipe on a set of repositories you may wish to execute a command on those repositories but only if the recipe run produced results. To restrict the Moderne CLI to only execute the command on repositories with results from the last recipe run, the following command can be used:
 ```bash
-mod exec . --last-recipe-run -- <command>
+mod exec . --last-recipe-run -- /Users/jsmith/scripts/post_recipe.sh
 ``` 
 
 ## Computed variables
@@ -31,7 +31,7 @@ respectively. Additionally, each computed variable is added to the environment
 the command is run in.
 
 Variables computed by the Moderne CLI:
-- `MODERNE_JAVA_HOME` the path to the JDK detected to build the repository
+- `MODERNE_JAVA_HOME` the path to the JDK installation detected to build the repository
 - `MODERNE_JAVA_VERSION` the version of the detected JDK
 - `MODERNE_JAVA_JDK` the path to the **java** binary of the detected JDK
 - `MODERNE_BUILD_TOOL` the build tool detected for the repository
