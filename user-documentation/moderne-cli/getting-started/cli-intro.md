@@ -1175,8 +1175,8 @@ As you can see, the output is extremely flexible to meet whatever needs you have
 
 If you want to learn more about the Moderne CLI, we'd encourage you to check out the follow docs:
 
-* [Learn more about how to configure the CLI to meet your needs](../how-to-guides/layer-config-cli.md)
-* [Learn more about how JDK selection works and how you might configure other locations for JDKs](../how-to-guides/jdk-selection-and-config.md)
+* [Learn more about how to configure the CLI to meet your needs](../references/layer-config-cli.md)
+* [Learn more about how JDK selection works and how you might configure other locations for JDKs](../references/jdk-selection-and-config.md)
 * [Learn how to use the Moderne IntelliJ plugin in combination with the CLI to test recipes](/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
 
 Or watch the following videos:
