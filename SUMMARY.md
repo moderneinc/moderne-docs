@@ -34,6 +34,7 @@
     * [Moderne CLI license](user-documentation/moderne-cli/getting-started/moderne-cli-license.md)
   * [How to guides](user-documentation/moderne-cli/how-to-guides/README.md)
     * [How to install and configure the CLI in an air-gapped environment](user-documentation/moderne-cli/how-to-guides/air-gapped-cli-install.md)
+    * [How to execute user-supplied commands on a list of repositories](user-documentation/moderne-cli/how-to-guides/execute-user-supplied-commands.md)
   * [References](user-documentation/moderne-cli/references/README.md)
     * [Layered configuration in the Moderne CLI](user-documentation/moderne-cli/references/layer-config-cli.md)
     * [JDK configuration in the Moderne CLI](user-documentation/moderne-cli/references/jdk-selection-and-config.md)
