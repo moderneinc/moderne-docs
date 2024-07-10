@@ -40,7 +40,7 @@
     * [Build steps](user-documentation/moderne-cli/references/build-steps.md)
     * [Build partitions](user-documentation/moderne-cli/references/build-partitions.md)
     * [Bazel support](user-documentation/moderne-cli/references/bazel-support.md) 
-  * [CLI reference doc](user-documentation/moderne-cli/cli-reference.md)
+  * [CLI commands](user-documentation/moderne-cli/cli-reference.md)
   * [FAQ](user-documentation/moderne-cli/faq.md)
 * [Moderne Plugin for JetBrains IDEs](user-documentation/moderne-ide-integration/README.md)
   * [How to guides](user-documentation/moderne-ide-integration/how-to-guides/README.md)
