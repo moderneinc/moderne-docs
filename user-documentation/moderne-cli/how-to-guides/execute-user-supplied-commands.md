@@ -25,7 +25,7 @@ mod exec . -- MODERNE_BUILD_TOOL_CHECK
 ```
 
 the Moderne CLI will substitute `MODERNE_BUILD_TOOL_CHECK` with the
-build tool command to run verification tasks specific to the repository. This
+build tool command to execute verification tasks specific to the repository. This
 would expand to **gradle check** and **mvn verify** for Gradle and Maven projects
 respectively. Additionally, each computed variable is added to the environment
 the command is run in.
