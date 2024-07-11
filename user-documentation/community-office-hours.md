@@ -12,7 +12,31 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* Announcements for the week:
+  * **Events**:
+    * [Jonathan was on another episode of Airhacks.fm where he talked about transforming Java code at scale](https://airhacks.fm/#episode_302).
+    * [We'll be at UberConf in Denver on July 16th-19th](https://uberconf.com/sessions), giving a keynote presentation, a general session, and a workshop.
+    * Tim will present at [WeAreDevelopers world conference on July 18th](https://www.wearedevelopers.com/world-congress/program).
+  * **Releases**:
+    * We added incubating trait analysis to OpenRewrite.
+      * [https://github.com/openrewrite/rewrite/pull/4309](https://github.com/openrewrite/rewrite/pull/4309)
+      * [https://github.com/openrewrite/rewrite/pull/4318](https://github.com/openrewrite/rewrite/pull/4318)
+      * [rewrite-spring related update](https://github.com/openrewrite/rewrite-spring/commit/16f82edfb6d8effcefc1c285ab0ca5bc16b1c905)
+    * [We also are now publishing our new releases on X](https://x.com/OpenRewrite/status/1809252624304382446?mx=2) (formerly known as Twitter).
+  * **Content**:
+    * [We recently released a blog post summarizing a previous Code Remix session with Shannon Pamperl](https://www.moderne.io/blog/hear-from-openrewrite-contributor-shannon-pamperl).
+  * **Milestone**:
+    * [We recently passed 2600 recipes in the Moderne catalog](https://app.moderne.io/marketplace)!
+* [We then jumped over to our main topic on automating impact analysis](https://youtu.be/jMxSWB5jJ5M?t=307).
+  * When adding new functionality or fixing a bug, it's often times good to think about what the consequences would be. While you _could_ make a change and see who yells at you, it's generally better if you take the time to do your due diligence and figure out what's going to happen. In this talk, we'll go through some recipes that can help you make some informed decisions about your changes.
+  * The first recipe we talked about was [find method usages](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods) – which will let you know if anyone is using the method. Maybe you'll see it's used in hundreds of places and decide "ehh it's not really worth it". On the other hand, maybe you'll see it's hardly used and you think it's worth it to make the change.
+  * Next up was the [find types recipe](https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes) which is useful if you want to rename a class or make a class-level change. This is particularly useful when you're learning a new API and you want to see how this thing was used in a real way.
+  * We then discussed another very common change – updating dependencies. As part of this, we'd recommend using the [Dependency insight for Gradle and Maven recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight). Using it, you can see whether a particular dependency is in use or not throughout all of your repositories. Going even further, you can [generate a dependency usage visualization](/user-documentation/moderne-platform/how-to-guides/track-migrations.md#viewing-the-visualization) – which is a violin chart that shows what versions exist across everything in one central location.
+    * This can be especially beneficial in security situations where you need to quickly know whether or not your repositories are vulnerable or not to a particular CVE.
+    * If you do want to go ahead with upgrading versions of a particular dependency, you may find the [Upgrade Gradle or Maven dependency versions recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.UpgradeDependencyVersion) to be useful.
+  * After that, we quickly touched on a variety of topics such tracking Maven dependencies, [using data tables](/user-documentation/moderne-platform/getting-started/data-tables.md), [the Moderne DevCenter](/user-documentation/moderne-platform/getting-started/dev-center.md), [seeing what recipes have data tables](https://docs.openrewrite.org/reference/recipes-with-data-tables), etc.
+  * Towards the end of our talk, we brought up that you can run all of these recipes locally using the [Moderne Plugin for JetBrains IDEs](/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md).
+    * [Remember that you can get this for free for a limited time](https://www.moderne.io/moderne-ide-plugin-signup). 
 
 ### Interview with Jente Sondervorst (July 3rd, 2024)
 
