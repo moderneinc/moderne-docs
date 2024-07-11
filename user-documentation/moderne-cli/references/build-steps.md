@@ -4,7 +4,7 @@
 
 The Moderne CLI detects build tools, produces a list of build “steps”, and executes each of those steps to produce LSTs. Any file parsed by a previous build step is skipped by its successors.
 
-In the default configuration, the CLI first looks for Maven build files, then Gradle, and then Bazel. The identification of one of those build tools in a repository causes others to be skipped. These external build tools are followed by a resource parsing step that scoops up any files that weren't parsed by the external build tool steps, because not every file in a repository is part of a source set under management by a build tool. For example, the top level README.md in a repository is generally parsed by the resource parsing step because it isn't located in a place that it would be part of a source set defined by an external build tool.
+In the default configuration, the CLI first looks for Maven build files, then Gradle, and then Bazel. The identification of one of those build tools in a repository causes others to be skipped. These external build tools are followed by a resource parsing step that scoops up any files that weren't parsed by the external build tool steps, because not every file in a repository is part of a source set under management by a build tool. For example, the top level `README.md` in a repository is generally parsed by the resource parsing step because it isn't located in a place that it would be part of a source set defined by an external build tool.
 
 ## Build steps
 
@@ -16,7 +16,7 @@ The external build step types are Maven, Gradle, and [Bazel](bazel-support.md). 
 
 For most projects, an external build tool step will result in one execution of the external build tool. For example, even a multi-module Gradle project with the following directory structure results in one execution of the Moderne Gradle plugin to parse all the source sets of all projects in the multi-module project:
 
-```
+```bash
 payments/
   core/
     src/main/java
@@ -33,7 +33,7 @@ payments/
 
 Sometimes monorepo(ish) repositories are structured in such a way that there are multiple top-level Gradle projects in subdirectories of the root repository directory. While they are stored in the same repository in VCS, they effectively possess disconnected build processes in the sense that no one Gradle command could operate on these disparate parts of the codebase. For example in the following structure the payments, rating, and underwriting functions of this policy administration repository are not related. In this case, the Gradle build step would execute three distinct Gradle tasks to parse LSTs using the Moderne Gradle plugin -- one for each business functional unit.&#x20;
 
-```
+```bash
 insurance-policy-administration/
   payments/
     core/
@@ -55,7 +55,7 @@ In the default build steps, the resource build step runs after all external buil
 
 ## Configuring build steps explicitly
 
-Build steps can be configured explicitly in [Moderne CLI configuration](layer-config-cli.md). The out-of-the-box behavior described above can be explicitly defined as:
+Build steps can be configured explicitly in [Moderne CLI configuration](layer-config-cli.md). The out-of-the-box behavior described above can also be explicitly defined in the `.moderne/moderne.yml` file:
 
 ```yaml
 specs: specs.moderne.ai/v1/cli
@@ -73,9 +73,9 @@ The order of the steps is important, as any file parsed by one step will be skip
 
 ### Add a resource step to cause files/folders to be skipped by external build tools
 
-In some cases, we have found that the CLI's recursive file walking of the repository to discover top level external build tool files will discover build tool files (e.g. `build.gradle`) that we do not desire to parse as a Gradle project.&#x20;
+In some cases, we have found that the CLI's recursive file walking of the repository to discover top level external build tool files will discover build tool files (e.g., `build.gradle`) that we do not desire to parse as a Gradle project.
 
-As an example, one Moderne customer organizes its microservice repositories to have a top level folder called `/deploy` in every repository, which in turn contains a `build.gradle` which they are fine being parsed as plain Groovy but do not wish to be interpreted as a Gradle file at parsing time because it contains references to properties that are only available while in the act of deploying (i.e. the Gradle project fails to configure in its at-rest state in the codebase). The following explicit build step configuration would categorically work for all of this customer's microservice repositories to skip `deploy/build.gradle` as a Gradle project:&#x20;
+As an example, one Moderne customer organizes its microservice repositories to have a top level folder called `/deploy` in every repository, which in turn contains a `build.gradle` which they are fine being parsed as plain Groovy but do not wish to be interpreted as a Gradle file at parsing time because it contains references to properties that are only available while in the act of deploying (i.e. the Gradle project fails to configure in its at-rest state in the codebase). The following explicit build step configuration would categorically work for all of this customer's microservice repositories to skip `deploy/build.gradle` as a Gradle project:
 
 ```yaml
 specs: specs.moderne.ai/v1/cli
