@@ -2,7 +2,7 @@
 
 ### Background
 
-Every week we [host a live Code Remix session](https://www.youtube.com/@moderne-auto-remediation/streams) where we talk about the latest changes that are happening, answer community questions, and teach you more about specific topics.
+Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-and-OpenRewrite/streams) where we talk about the latest changes that are happening, answer community questions, and teach you more about specific topics.
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
