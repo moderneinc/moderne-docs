@@ -1,20 +1,21 @@
 # Platform changelog
+
 ### UI v10.128.4 (2024/07/11)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.128.3 (2024/07/10)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements
+  * In combination with other backend changes we now expose more data tables when running composite recipes. Find more information on the latest visualization package [here](https://github.com/moderneinc/moderne-visualizations-misc/blob/main/CHANGELOG.md).
 
 ### UI v10.128.2 (2024/07/09)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.128.1 (2024/07/07)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v10.128.0 (2024/07/03)
 
