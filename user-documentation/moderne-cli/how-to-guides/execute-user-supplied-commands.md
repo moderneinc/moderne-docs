@@ -24,13 +24,24 @@ User-supplied commands can take advantage of a set of variables computed by the 
 mod exec . -- MODERNE_BUILD_TOOL_CHECK
 ```
 
-the Moderne CLI will substitute `MODERNE_BUILD_TOOL_CHECK` with the
-build tool command to execute verification tasks specific to the repository. This
-would expand to **gradle check** and **mvn verify** for Gradle and Maven projects
-respectively. Additionally, each computed variable is added to the environment
-the command is run in.
+the Moderne CLI will substitute `MODERNE_BUILD_TOOL_CHECK` with the build tool command to execute verification tasks specific to the repository. This would expand to **gradle check** and **mvn verify** for Gradle and Maven projects respectively.
 
-Variables computed by the Moderne CLI:
+Additionally, each computed variable is added to the environment the command is run in, there by allowing access to variables within the script. For example, the following script named `repo_validation.sh` will set the JDK version prior to executing repository validation tasks using the computed Java version supplied by the `MODERNE_JAVA_VERSION` environment variable:
+```bash
+#!/bin/sh
+
+sdk use java $MODERNE_JAVA_VERSION
+$MODERNE_BUILD_TOOL_CHECK
+```
+
+Execute the script using:
+
+```bash
+mod exec . -- /Users/jsmith/scripts/repo_validation.sh
+```
+
+
+### Variables computed by the Moderne CLI
 - `MODERNE_JAVA_HOME` the path to the JDK installation detected to build the repository
 - `MODERNE_JAVA_VERSION` the version of the detected JDK
 - `MODERNE_JAVA_JDK` the path to the **java** binary of the detected JDK
