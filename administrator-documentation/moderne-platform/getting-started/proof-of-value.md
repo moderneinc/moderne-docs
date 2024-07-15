@@ -72,6 +72,8 @@ Below are some recipes that you can use to help you with impact analysis as well
 
 {% embed url="https://youtu.be/jMxSWB5jJ5M?t=306" %}
 
+#### Recipes to run
+
 * [Find method usages](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods)
 * [Find types](https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes)
 * [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)
