@@ -63,3 +63,16 @@ _Ordered from least complex to most complex_
 * Custom migrations. Custom recipes can be developed to help with internal platform API management, EJB to Spring migrations, etc.
 
 Major migrations are complex transformations consisting of multiple individual recipes. At some point, these transformations represent one-off use cases and there are diminishing returns from trying to automate them fully. Mostly, they will lift your applications 80-90% of the way to completion with the remainder requiring some manual actions expected to be taken by developers.
+
+### Impact analysis
+
+Another substantial use case worth testing is impact analysis. When adding new functionality or fixing a bug, it's often times good to think about what the consequences would be. While you _could_ make a change and see who yells at you, it's generally better if you take the time to do your due diligence and figure out what's going to happen.
+
+Below are some recipes that you can use to help you with impact analysis as well as a detailed video that will walk you through using these recipes.
+
+{% embed url="https://youtu.be/jMxSWB5jJ5M?t=306" %}
+
+* [Find method usages](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods)
+* [Find types](https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes)
+* [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)
+* [Update Gradle or Maven dependency versions](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.UpgradeDependencyVersion)
