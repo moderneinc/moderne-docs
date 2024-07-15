@@ -6,6 +6,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Enlightening LSTs with traits (July 17th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=lWy-fRQV9-0" %}
+
+#### Summary and related links
+
+* Coming soon
+
 ### Automating Impact Analysis (July 10th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=jMxSWB5jJ5M" %}
