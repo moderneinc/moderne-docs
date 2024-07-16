@@ -19,15 +19,20 @@
 * [**mod config build active-styles delete**](#mod-config-build-active-styles-delete)
 * [**mod config build active-styles edit**](#mod-config-build-active-styles-edit)
 * [**mod config build active-styles show**](#mod-config-build-active-styles-show)
+* [**mod config build bazel**](#mod-config-build-bazel)
+* [**mod config build bazel executable**](#mod-config-build-bazel-executable)
+* [**mod config build bazel executable delete**](#mod-config-build-bazel-executable-delete)
+* [**mod config build bazel executable edit**](#mod-config-build-bazel-executable-edit)
+* [**mod config build bazel executable show**](#mod-config-build-bazel-executable-show)
 * [**mod config build gradle**](#mod-config-build-gradle)
 * [**mod config build gradle arguments**](#mod-config-build-gradle-arguments)
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
 * [**mod config build gradle arguments edit**](#mod-config-build-gradle-arguments-edit)
 * [**mod config build gradle arguments show**](#mod-config-build-gradle-arguments-show)
-* [**mod config build gradle root**](#mod-config-build-gradle-root)
-* [**mod config build gradle root delete**](#mod-config-build-gradle-root-delete)
-* [**mod config build gradle root edit**](#mod-config-build-gradle-root-edit)
-* [**mod config build gradle root show**](#mod-config-build-gradle-root-show)
+* ~~[**mod config build gradle root**](#mod-config-build-gradle-root-deprecated)~~ (deprecated)
+* ~~[**mod config build gradle root delete**](#mod-config-build-gradle-root-delete-deprecated)~~ (deprecated)
+* ~~[**mod config build gradle root edit**](#mod-config-build-gradle-root-edit-deprecated)~~ (deprecated)
+* ~~[**mod config build gradle root show**](#mod-config-build-gradle-root-show-deprecated)~~ (deprecated)
 * [**mod config build maven**](#mod-config-build-maven)
 * [**mod config build maven arguments**](#mod-config-build-maven-arguments)
 * [**mod config build maven arguments delete**](#mod-config-build-maven-arguments-delete)
@@ -156,6 +161,8 @@
 * [**mod git stashset**](#mod-git-stashset)
 * [**mod git stashset apply**](#mod-git-stashset-apply)
 * [**mod git stashset push**](#mod-git-stashset-push)
+* [**mod git sync**](#mod-git-sync)
+* [**mod git sync moderne**](#mod-git-sync-moderne)
 * [**mod log**](#mod-log)
 * [**mod log builds**](#mod-log-builds)
 * [**mod log builds add**](#mod-log-builds-add)
@@ -545,6 +552,7 @@ mod config build [subcommands]
 ### Subcommands
 
 * `active-styles`: Configure the active styles to use when building LSTs.
+* `bazel`: Configures Bazel as it is used for LST production.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
 
@@ -642,6 +650,121 @@ mod config build active-styles show
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
+## mod config build bazel
+
+Configures Bazel as it is used for LST production.
+
+
+
+
+### Usage
+
+```
+mod config build bazel [subcommands]
+```
+
+
+### Subcommands
+
+* `executable`: Configure Bazel executable.
+
+## mod config build bazel executable
+
+Configure Bazel executable.
+
+
+Allows you to specify the location of a Bazel _settings.xml_ file that should be used when Bazel is being used to resolve recipe dependencies or run recipes. You can also use an environment variable that points to location of the file with **${ENV_VAR}** syntax.
+
+### Usage
+
+```
+mod config build bazel executable [subcommands]
+```
+
+### Subcommands
+
+* `delete`: Removes the configured Bazel executable.
+* `edit`: Configure the Bazel executable.
+* `show`: Displays the configured Bazel executable.
+
+## mod config build bazel executable delete
+
+Removes the configured Bazel executable.
+
+
+The CLI will revert to its default mode of detecting the Bazel executable.
+
+### Usage
+
+```
+mod config build bazel executable delete
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config build bazel executable edit
+
+Configure the Bazel executable.
+
+
+Determines whether _bazelisk_ or _bazel_ will be used.
+
+### Usage
+
+```
+mod config build bazel executable edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| executable |  The bazel executable to use. This can be just _bazelisk_ or _bazel_ if either is on PATH or a fully qualified executable name if not. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config build bazel executable show
+
+Displays the configured Bazel executable.
+
+
+
+
+### Usage
+
+```
+mod config build bazel executable show
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
 ## mod config build gradle
 
 Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
@@ -665,7 +788,7 @@ mod config build gradle arguments edit --refresh-dependencies
 ### Subcommands
 
 * `arguments`: Configure Gradle build arguments.
-* `root`: (INCUBATING) Configure the directory containing the Gradle root build. This could be `.` to force the CLI to use the root directory of the repository as the Gradle build and look no deeper.
+* `root`: (DEPRECATED) Configure the directory containing the Gradle root build. This could be `.` to force the CLI to use the root directory of the repository as the Gradle build and look no deeper.
 
 ## mod config build gradle arguments
 
@@ -755,12 +878,12 @@ mod config build gradle arguments show
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
-## mod config build gradle root
+## mod config build gradle root (deprecated)
 
-(INCUBATING) Configure the directory containing the Gradle root build. This could be `.` to force the CLI to use the root directory of the repository as the Gradle build and look no deeper.
+(DEPRECATED) Configure the directory containing the Gradle root build. This could be `.` to force the CLI to use the root directory of the repository as the Gradle build and look no deeper.
 
 
-When this is set, the CLI does not attempt to find root Gradle builds in subdirectories or siblings recursively.
+Use builds steps configuration instead. When this is set, the CLI does not attempt to find root Gradle builds in subdirectories or siblings recursively.
 
 ### Usage
 
@@ -771,14 +894,16 @@ mod config build gradle root [subcommands]
 
 ### Subcommands
 
-* `delete`: Removes the configured directory containing the Gradle root build.
-* `edit`: Configure the directory containing the Gradle root build.
-* `show`: Displays the configured directory containing the Gradle root build.
+* `delete`: (DEPRECATED) Removes the configured directory containing the Gradle root build.
+* `edit`: (DEPRECATED) Configure the directory containing the Gradle root build.
+* `show`: (DEPRECATED) Displays the configured directory containing the Gradle root build.
 
-## mod config build gradle root delete
+## mod config build gradle root delete (deprecated)
 
-Removes the configured directory containing the Gradle root build.
+(DEPRECATED) Removes the configured directory containing the Gradle root build.
 
+
+(DEPRECATED) Use builds steps configuration instead.
 
 ### Usage
 
@@ -797,12 +922,12 @@ mod config build gradle root delete
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
-## mod config build gradle root edit
+## mod config build gradle root edit (deprecated)
 
-Configure the directory containing the Gradle root build.
+(DEPRECATED) Configure the directory containing the Gradle root build.
 
 
-When this is set, the CLI does not attempt to find root Gradle builds in subdirectories or siblings recursively.
+Use builds steps configuration instead. When this is set, the CLI does not attempt to find root Gradle builds in subdirectories or siblings recursively.
 
 ### Usage
 
@@ -827,10 +952,12 @@ mod config build gradle root edit [parameters]
 | --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 
 
-## mod config build gradle root show
+## mod config build gradle root show (deprecated)
 
-Displays the configured directory containing the Gradle root build.
+(DEPRECATED) Displays the configured directory containing the Gradle root build.
 
+
+Use build steps configuration instead.
 
 ### Usage
 
@@ -3110,9 +3237,9 @@ If you want to execute a command that contains positional parameters, please ens
 
 **mod exec /path/to/project -- gh pr create --title "Test PR" --body "Test PR"**.
 
-Commands can take advantage of a set of variables computed by **mod exec** specific to the repository the command is executed on. For example, **mod exec . MODERNE_BUILD_TOOL_CHECK** will substitute **MODERNE_BUILD_TOOL_CHECK** with the build tool command to execute verification tasks specific to the repository. This would expand to **gradle check** and **mvn verify** for Gradle and Maven projects respectively. Additionally, each computed variable is added to the environment the command is run in.
+Commands can take advantage of a set of variables computed by **mod exec** specific to the repository the command is executed on. For example, **mod exec . MODERNE_BUILD_TOOL_CHECK** will substitute **MODERNE_BUILD_TOOL_CHECK** with the build tool command to execute verification tasks specific to the repository. This would expand to **gradle check** and **mvn verify** for Gradle and Maven projects, respectively. Additionally, each computed variable is added to the environment the command is run in.
 
-The list of computed variables are: **MODERNE_JAVA_HOME**, **MODERNE_JAVA_VERSION**, **MODERNE_JAVA_JDK**, **MODERNE_BUILD_TOOL**, **MODERNE_BUILD_TOOL_COMPILE** and **MODERNE_BUILD_TOOL_CHECK**
+The list of computed variables include **MODERNE_JAVA_HOME**, **MODERNE_JAVA_VERSION**, **MODERNE_JAVA_JDK**, **MODERNE_BUILD_TOOL**, **MODERNE_BUILD_TOOL_COMPILE**, **MODERNE_BUILD_TOOL_CHECK**, and **MODERNE_BUILD_TOOL_DIR**
 
 ### Usage
 
@@ -3138,6 +3265,9 @@ mod exec /path/to/project rm *.hprof
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
+| -o, --output |  The output type for the command. If not specified, the output will be printed to the console. |  |
+| --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
@@ -3170,6 +3300,7 @@ mod git [subcommands]
 * `rev-parse`: Performs the equivalent of **git rev-parse** on multiple repositories.
 * `stashset`: Performs the equivalent of **git stash** on multiple repositories.
 * `stashset`: Performs the equivalent of **git stash** on multiple repositories.
+* `sync`: Synchronizing with Moderne.
 
 ## mod git add
 
@@ -3200,8 +3331,8 @@ mod git add /path/to/project --recipe-run <recipe-run-id>
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| --recipe-run |  The recipe run that generated patch files to apply. |  |
+| --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
+| --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
@@ -3236,8 +3367,8 @@ mod git apply /path/to/project --recipe-run 20230903164310-2qVRM
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| --recipe-run |  The recipe run that generated patch files to apply. |  |
+| --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
+| --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
@@ -3274,8 +3405,8 @@ mod git checkout /path/to/project
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | -b, -B |  Causes a new branch to be created as if git-branch were called and then checked out. |  |
-| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| --recipe-run |  The recipe run that generated patch files to apply. |  |
+| --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
+| --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
@@ -3431,9 +3562,9 @@ mod git commit /path/to/project -m "commit message"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
+| --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
 | -m, --message |  The commit message to use. |  |
-| --recipe-run |  The recipe run that generated patch files to apply. |  |
+| --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
@@ -3505,8 +3636,8 @@ mod git push /path/to/project -u origin feature-branch
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| --recipe-run |  The recipe run that generated patch files to apply. |  |
+| --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
+| --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
@@ -3753,6 +3884,50 @@ mod git stashset push [parameters]
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 | -u, --include-untracked |  Include untracked files. |  |
+
+
+## mod git sync
+
+Synchronizing with Moderne.
+
+
+
+
+### Usage
+
+```
+mod git sync [subcommands]
+```
+
+### Subcommands
+
+* `moderne`: Synchronizes the repositories and metadata of an organization on Moderne.
+
+## mod git sync moderne
+
+Synchronizes the repositories and metadata of an organization on Moderne.
+
+
+The repositories are cloned or pulled at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne. If the repository has local changes or is on a different branch no changes will be made.
+
+### Usage
+
+```
+mod git sync moderne [parameters]
+```
+
+### Examples
+
+```
+mod git moderne sync /path/to/organization
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| organizationPath |  The directory which contains the organization. |
+
 
 
 ## mod log
@@ -4069,9 +4244,9 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 | ---- | ----------- | ---------- |
 | --data-table |  The name of the data table to study. |  |
 | --json |  Output the data table in JSON format with the specified fields. If no value is provided, all columns from the data table will be kept. |  |
-| --last-recipe-run |  Select whatever the last recipe run was that generated patch files to apply. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
+| --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
 | -o, --output-file |  The location to output the data table. |  |
-| --recipe-run |  The recipe run that generated patch files to apply. |  |
+| --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
