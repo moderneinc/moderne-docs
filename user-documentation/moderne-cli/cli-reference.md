@@ -3266,7 +3266,7 @@ mod exec /path/to/project rm *.hprof
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| -o, --output |  The output type for the command. If not specified, the output will be printed to the console. |  |
+| -o, --out, --output |  The output type for the command. If not specified, the output will be printed to the console. |  |
 | --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
