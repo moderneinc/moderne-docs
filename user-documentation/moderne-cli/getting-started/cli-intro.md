@@ -638,7 +638,8 @@ Maybe you don't really want an Excel spreadsheet as the output, though. Fortunat
 ```bash
 mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
 
-# Select the following recipe: Find method usages (org.openrewrite.java.search.FindMethods)
+# Select the following recipe: 
+#   * Find method usages (org.openrewrite.java.search.FindMethods)
 ```
 
 Once that's done running, we _could_ run a similar study command as before to get an Excel file that contains detailed information about all of the places this specific method was found. Let's say, however, that you don't care about all of the columns and that you'd like a markdown file to be produced instead of an Excel spreadsheet.
