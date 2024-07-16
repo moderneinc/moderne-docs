@@ -159,4 +159,4 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-testing-frameworks
 
 ## Next steps
 
-You're now ready to begin using the CLI! Additional steps demonstrating how to use the CLI will be added soon.
+You're now ready to begin using the CLI! Consider checking out the [using the CLI section in the getting started guide](../getting-started/cli-intro.md#using-the-cli) to see some ways you can use the CLI.
