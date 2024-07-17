@@ -12,7 +12,24 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-* Coming soon
+* Announcements for the week:
+  * **Content**:
+    * We launched a new website with bright new colors and fresh content! Check it out: [https://www.moderne.ai](https://www.moderne.ai/)
+    * [We recently related a blog post summarizing the Code Remix session with Jente](https://www.moderne.ai/blog/jente-sondervorst-software-engineer-at-colruyt-moving-code-forward-with-openrewrite-recipes)
+  * **Releases**:
+    * [We did a new full release of OpenRewrite (8.30.0)](https://docs.openrewrite.org/changelog/8-30-0-release).
+      * Notable changes include adding traits to support flexible new use cases with minimal API, 30+ new recipes, and 11 new contributors.
+    * There are new recipes to migrate from Gradle Enterprise to Develocity.
+    * Rewrite-micrometer now supports `1.13.x` migration
+      * Generously contributed by Johannes Jank
+    * Rewrite-Quarkus now contains recipes to migrate away from Java EE 7.
+    * We upgraded our Gradle wrapper across 40 repositories in under five minutes.
+      * Thanks to Shannon for the help with this.
+  * **Events**:
+    * [We'll be at UberConf in Denver on July 16th-19th](https://uberconf.com/sessions), giving a keynote presentation, a general session, and a workshop.
+    * Tim will present at [WeAreDevelopers world conference on July 18th](https://www.wearedevelopers.com/world-congress/program).
+* Traits discussion
+  * Summary coming soon
 
 ### Automating Impact Analysis (July 10th, 2024)
 
