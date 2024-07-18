@@ -141,6 +141,8 @@
 * [**mod config user delete**](#mod-config-user-delete)
 * [**mod config user edit**](#mod-config-user-edit)
 * [**mod config user show**](#mod-config-user-show)
+* [**mod devcenter**](#mod-devcenter)
+* [**mod devcenter run**](#mod-devcenter-run)
 * [**mod exec**](#mod-exec)
 * [**mod git**](#mod-git)
 * [**mod git add**](#mod-git-add)
@@ -200,6 +202,7 @@ mod [subcommands]
 * `build`: Generates LST artifacts for one or more repositories.
 * `clean`: Clean build and run artifacts produced by the CLI.
 * `config`: Global configuration options that are required by some CLI commands.
+* `devcenter`: DevCenter operations.
 * `exec`: Execute an arbitrary shell command recursively on selected repository roots.
 * `git`: Multi-repository git operations.
 * `log`: Manages a log aggregate.
@@ -3226,6 +3229,59 @@ Displays the configured active user.
 mod config user show
 ```
 
+
+
+## mod devcenter
+
+DevCenter operations.
+
+
+
+
+### Usage
+
+```
+mod devcenter [subcommands]
+```
+
+
+### Subcommands
+
+* `run`: (INCUBATING) Runs all configured DevCenter recipes.
+
+## mod devcenter run
+
+(INCUBATING) Runs all configured DevCenter recipes.
+
+
+
+
+### Usage
+
+```
+mod devcenter run [parameters]
+```
+
+### Examples
+
+```
+mod devcenter run /path/to/organization
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --output-dir |  |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 
 
 ## mod exec
