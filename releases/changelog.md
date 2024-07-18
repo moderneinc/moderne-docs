@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.130.0 (2024/07/18)
+
+- add menu item to edit current recipe as yaml
+- allow editting nest recipe details
+
 ### UI v10.129.0 (2024/07/16)
 
 - Bug fixes and other improvements.
