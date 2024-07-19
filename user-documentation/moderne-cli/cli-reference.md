@@ -3975,7 +3975,7 @@ mod git sync moderne [parameters]
 ### Examples
 
 ```
-mod git moderne sync /path/to/organization
+mod git sync moderne /path/to/organization
 ```
 
 ### Parameters
