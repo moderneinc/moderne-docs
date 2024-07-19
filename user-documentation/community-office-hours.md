@@ -44,10 +44,10 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * This recipe helps you find XML tags that have a certain namespace.
     * If you take a look at the code for this recipe, you can see that it's basically just implemented with the trait itself (using the matchers and visitor provided by the trait).
   * This led into a short discussion of how generative AI might be useful for _creating_ recipes that we can then run with rather than changing the code itself.
-  * After that, we took a look at an example where we use Traits on a non-search recipe. Specifically, the [ChangeNamespaceValue recipe](https://github.com/openrewrite/rewrite/blob/main/rewrite-xml/src/main/java/org/openrewrite/xml/ChangeNamespaceValue.java). It's a fairly complex refactoring recipe, but does demonstrate other ways you can use Traits.
+  * After that, we took a look at an example where we use traits on a non-search recipe. Specifically, the [ChangeNamespaceValue recipe](https://github.com/openrewrite/rewrite/blob/main/rewrite-xml/src/main/java/org/openrewrite/xml/ChangeNamespaceValue.java). It's a fairly complex refactoring recipe, but does demonstrate other ways you can use traits.
   * The last bit of code we looked at was the [SpringBean Trait](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/java/org/openrewrite/java/spring/trait/SpringBean.java).
-    * This Trait crosses the boundaries between two highly different LSTs – an XML document or a Java class.
-    * Using Traits like this can really help with impact analysis.
+    * This trait crosses the boundaries between two highly different LSTs – an XML document or a Java class.
+    * Using traits like this can really help with impact analysis.
 
 ### Automating Impact Analysis (July 10th, 2024)
 
