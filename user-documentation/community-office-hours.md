@@ -29,7 +29,25 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * [We'll be at UberConf in Denver on July 16th-19th](https://uberconf.com/sessions), giving a keynote presentation, a general session, and a workshop.
     * Tim will present at [WeAreDevelopers world conference on July 18th](https://www.wearedevelopers.com/world-congress/program).
 * Traits discussion
-  * Summary coming soon
+  * We kicked off this week by giving some background into _why_ we needed to change the OpenRewrite API. 
+    * LSTs are, traditionally, a very low-level representation of code. However, there are many use cases where you may want some higher-level semantic constructs, but not have an idea of where those should go. For example, imagine you had a JSON document that represented the customer list at your business. If you were making recipes that operated on this particular kind of JSON document, you may want to have utility methods that would facilitate that. If you added these methods to a random facilities class, they probably would be particularly discoverable. Because of that, there's a temptation to put the methods directly onto the classes that represent the LSTs themselves. That poses a problem, though, as we don't want to be continuously expanding the API surface area of these elements. To handle this problem, we have implemented [traits](https://en.wikipedia.org/wiki/Trait_(computer_programming)).
+  * We then dove into explaining what is a trait.
+    * A trait, in essence, is an interface that has a [cursor](https://docs.openrewrite.org/concepts-explanations/visitors#cursoring) and, inside of the cursor, there is a [tree element](https://docs.openrewrite.org/concepts-explanations/lst-examples#java-lst-types).
+  * To help with understanding traits, we took a look at the [Literal Trait](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/trait/Literal.java).
+    * The literal trait is either a [J.Literal](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/tree/J.java#L3271) or a [J.NewArray](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/tree/J.java#L3271).
+    * There are many situations where you'd want to treat these interchangeably even though they are, technically, different elements.
+    * Traits typically have a get value method that allow you to get the value of the element regardless of what type is underneath.
+    * Traits also tend to have matcher classes which allow you to filter through the LST and match just the parts that match this trait.
+  * Next up was talking about the [Namespaced Trait](https://github.com/openrewrite/rewrite/blob/main/rewrite-xml/src/main/java/org/openrewrite/xml/trait/Namespaced.java)
+    * We got some PRs from some helpful members of the community who wanted to add recipes around the concept of namespacing to the XML visitor. However, in the XML LST itself, namespaces aren't any different from any other attribute. Yet, in some domains the namespace of XML document _does_ matter. To support this, people wanted to update the XML element itself – but this is a great example of where traits can be used instead.
+  * As part of looking at the above trait, we took a look at some recipes that use it – such as the [HasNamespaceUri recipe](https://github.com/openrewrite/rewrite/blob/main/rewrite-xml/src/main/java/org/openrewrite/xml/search/HasNamespaceUri.java).
+    * This recipe helps you find XML tags that have a certain namespace.
+    * If you take a look at the code for this recipe, you can see that it's basically just implemented with the trait itself (using the matchers and visitor provided by the trait).
+  * This led into a short discussion of how generative AI might be useful for _creating_ recipes that we can then run with rather than changing the code itself.
+  * After that, we took a look at an example where we use Traits on a non-search recipe. Specifically, the [ChangeNamespaceValue recipe](https://github.com/openrewrite/rewrite/blob/main/rewrite-xml/src/main/java/org/openrewrite/xml/ChangeNamespaceValue.java). It's a fairly complex refactoring recipe, but does demonstrate other ways you can use Traits.
+  * The last bit of code we looked at was the [SpringBean Trait](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/java/org/openrewrite/java/spring/trait/SpringBean.java).
+    * This Trait crosses the boundaries between two highly different LSTs – an XML document or a Java class.
+    * Using Traits like this can really help with impact analysis.
 
 ### Automating Impact Analysis (July 10th, 2024)
 
