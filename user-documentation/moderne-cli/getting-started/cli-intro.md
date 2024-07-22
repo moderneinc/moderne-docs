@@ -856,7 +856,7 @@ mod git commit . -m "Test common static analysis changes" --last-recipe-run
 ```
 
 {% hint style="warning" %}
-Right now, GPG signing is not supported by the `mod git commit` command. If you use GPG signing, you'll either need to disable that temporarily or manually commit changes.
+Right now, GPG signing is not supported by the `mod git commit` command. If you use GPG signing, you'll either need to disable that temporarily or manually commit the changes in each repository without using the CLI.
 {% endhint %}
 
 Normally, the next step you would do would be to push the commit to a branch and open a PR for it. However, as we don't own these repositories and as we don't want to clutter them, **please refrain from running the following commands against the repositories above**.
