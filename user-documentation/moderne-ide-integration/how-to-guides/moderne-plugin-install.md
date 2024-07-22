@@ -61,6 +61,6 @@ After configuring the plugin, you will see the repositories belonging to the mul
 
 ## Next steps
 
-* [Use the Moderne plugin to quickly search across all of your repositories](code-search-with-the-moderne-plugin-for-jetbrains-ides.md)
+* [Use the Moderne plugin to quickly search across all of your repositories](./code-search.md)
 * [Use the Moderne plugin to easily create search recipes of your own](creating-recipes.md)
 * [Use the Moderne plugin to debug recipes](debugging-recipes.md)
