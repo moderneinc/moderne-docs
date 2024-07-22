@@ -767,10 +767,6 @@ Right now, if you `cd` to any of the repositories in the `workshop` directory, y
 
 To begin, let's create a branch in each repository that has changes by running the following command:
 
-{% hint style="warning" %}
-For all of the following commands, you need to make sure that you add the `--last-recipe-run` flag. If you don't add that flag, you'll make commits in repositories that don't have any changes and potentially push strange commits to branches that you don't want.
-{% endhint %}
-
 ```bash
 mod git checkout . -b workshop-changes --last-recipe-run
 ```
