@@ -261,37 +261,23 @@ Loaded all 14 repositories (0.61s)
 Clone output will be written to /Users/mikesol/workshop/./clone.log
 
 > maven-doxia@master
-    + Cloned
 > amazon-documentdb-jdbc-driver@develop
-    + Cloned
 > aws-saas-boost@main
-    + Cloned
 > messageml-utils@main
-    + Cloned
 > spring-bot@spring-bot-master
-    + Cloned
 > symphony-bdk-java@main
-    + Cloned
 > symphony-wdk@master
-    + Cloned
 > ndbench@master
-    + Cloned
 > photon@master
-    + Cloned
 > ribbon@master
-    + Cloned
 > rewrite-recipe-bom@main
-    + Cloned
 > rewrite-sql@main
-    + Cloned
 > spring-data-commons@main
-    + Cloned
 > spring-petclinic@main
-    + Cloned
 
-Cloned 14 repositories (44s)
+Cloned 14 repositories (45s)
 
-MOD SUCCEEDED in (45s)
+MOD SUCCEEDED in (46s)
 ```
 
 </details>
@@ -669,199 +655,6 @@ mod study . --last-recipe-run --data-table MethodCalls --json sourceFile,method 
 {% endcode %}
 
 As you can see, the output is extremely flexible to meet whatever needs you have.
-
-### Commit changes and/or create PRs
-
-So far, everything we've done has remained local to your machine. In a real-world situation, though, you'd definitely want to commit the results, test the changes, and open a PR in each repository. Let's walk through how to do this.
-
-To begin, make sure you're still in the `$HOME/workshop` directory with the `Default` organization cloned. Then, run the following recipe to resolve common static analysis issues in all of the repositories:
-
-```bash
-mod run . --recipe CommonStaticAnalysis
-
-# Select the recipe that matches:
-#   * org.openrewrite.staticanalysis.CommonStaticAnalysis
-```
-
-<details>
-
-<summary>You should see output similar to the following.</summary>
-
-```bash
-Moderne CLI 3.12.2
-
-> Selecting repositories
-
-> aws/amazon-documentdb-jdbc-driver@develop
-> awslabs/aws-saas-boost@main
-> apache/maven-doxia@master
-> finos/messageml-utils@main
-> Netflix/ndbench@master
-> Netflix/photon@master
-> openrewrite/rewrite-recipe-bom@main
-> openrewrite/rewrite-sql@main
-> Netflix/ribbon@master
-> finos/spring-bot@spring-bot-master
-> spring-projects/spring-data-commons@main
-> spring-projects/spring-petclinic@main
-> finos/symphony-bdk-java@main
-> finos/symphony-wdk@master
-Selected 14 repositories (0.58s)
-
-[1] Common static analysis issues (org.openrewrite.python.cleanup.CommonStaticAnalysis)
-[2] Common static analysis issues (org.openrewrite.staticanalysis.CommonStaticAnalysis)
-Select a recipe [1-2]: 2
-
-> Running recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
-
-> aws/amazon-documentdb-jdbc-driver@develop
-    + Fix results at /Users/mikesol/workshop/amazon-documentdb-jdbc-driver/.moderne/run/20240717092600-yfuFS/fix.patch
-> awslabs/aws-saas-boost@main
-    + Fix results at /Users/mikesol/workshop/aws-saas-boost/.moderne/run/20240717092600-yfuFS/fix.patch
-> apache/maven-doxia@master
-    + Fix results at /Users/mikesol/workshop/maven-doxia/.moderne/run/20240717092600-yfuFS/fix.patch
-> finos/messageml-utils@main
-    + Fix results at /Users/mikesol/workshop/messageml-utils/.moderne/run/20240717092600-yfuFS/fix.patch
-> Netflix/ndbench@master
-    + Fix results at /Users/mikesol/workshop/ndbench/.moderne/run/20240717092600-yfuFS/fix.patch
-> Netflix/photon@master
-    + Fix results at /Users/mikesol/workshop/photon/.moderne/run/20240717092600-yfuFS/fix.patch
-> openrewrite/rewrite-recipe-bom@main
-    No changes
-> openrewrite/rewrite-sql@main
-    No changes
-> Netflix/ribbon@master
-    + Fix results at /Users/mikesol/workshop/ribbon/.moderne/run/20240717092600-yfuFS/fix.patch
-> finos/spring-bot@spring-bot-master
-    + Fix results at /Users/mikesol/workshop/spring-bot/.moderne/run/20240717092600-yfuFS/fix.patch
-> spring-projects/spring-data-commons@main
-    + Fix results at /Users/mikesol/workshop/spring-data-commons/.moderne/run/20240717092600-yfuFS/fix.patch
-> spring-projects/spring-petclinic@main
-    No changes
-> finos/symphony-bdk-java@main
-    + Fix results at /Users/mikesol/workshop/symphony-bdk-java/.moderne/run/20240717092600-yfuFS/fix.patch
-> finos/symphony-wdk@master
-    + Fix results at /Users/mikesol/workshop/symphony-wdk/.moderne/run/20240717092600-yfuFS/fix.patch
-
-Found change results on 11 repositories; data tables available for 14 repositories (2m 5s)
-
-36m 21s saved by using previously built LSTs
-
-* What to do next
-    > Click on one of the patch links above to view the changes on a particular repository
-    > Run mod study . --last-recipe-run --data-table <DATA-TABLE> to examine the following data tables produced by this recipe:
-          org.openrewrite.table.RecipeRunStats
-          org.openrewrite.table.SourcesFileResults
-    > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
-    > Run mod git checkout . -b hotfix --last-recipe-run to prepare a hotfix branch for applying the changes
-    > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20240717092600-yfuFS to apply the changes
-    > Run mod log runs add . logs.zip --last-run to aggregate run logs
-
-MOD SUCCEEDED in (2m 15s)
-```
-
-</details>
-
-Right now, if you `cd` to any of the repositories in the `workshop` directory, you won't see any of these changes. While you _could_ apply these changes to the branches you have checked out, it's generally preferable to make changes inside of a branch and then submit a PR for said branch.
-
-To begin, let's create a branch in each repository that has changes by running the following command:
-
-{% hint style="warning" %}
-For all of the following commands, you need to make sure that you add the `--last-recipe-run` flag. If you don't add that flag, you'll make commits in repositories that don't have any changes and potentially push strange commits to branches that you don't want.
-{% endhint %}
-
-```bash
-mod git checkout . -b workshop-changes --last-recipe-run
-```
-
-<details>
-
-<summary>You should see output similar to the following.</summary>
-
-```bash
-Moderne CLI 3.12.2
-
-Found recipe run 20240717084152-vY22R
-
-> Selecting repositories
-
-> aws/amazon-documentdb-jdbc-driver@hotfix
-> awslabs/aws-saas-boost@hotfix
-> apache/maven-doxia@hotfix
-> finos/messageml-utils@hotfix
-> Netflix/ndbench@hotfix
-> Netflix/photon@hotfix
-> openrewrite/rewrite-recipe-bom@main
-> openrewrite/rewrite-sql@main
-> Netflix/ribbon@hotfix
-> finos/spring-bot@hotfix
-> spring-projects/spring-data-commons@hotfix
-> spring-projects/spring-petclinic@main
-> finos/symphony-bdk-java@hotfix
-> finos/symphony-wdk@hotfix
-Selected 14 repositories (0.17s)
-
-> Checkout
-
-> aws/amazon-documentdb-jdbc-driver@hotfix
-    Switched to branch workshop-changes
-> awslabs/aws-saas-boost@hotfix
-    Switched to branch workshop-changes
-> apache/maven-doxia@hotfix
-    Switched to branch workshop-changes
-> finos/messageml-utils@hotfix
-    Switched to branch workshop-changes
-> Netflix/ndbench@hotfix
-    Switched to branch workshop-changes
-> Netflix/photon@hotfix
-    Switched to branch workshop-changes
-> openrewrite/rewrite-recipe-bom@main
-    No results to commit.
-> openrewrite/rewrite-sql@main
-    No results to commit.
-> Netflix/ribbon@hotfix
-    Switched to branch workshop-changes
-> finos/spring-bot@hotfix
-    Switched to branch workshop-changes
-> spring-projects/spring-data-commons@hotfix
-    Switched to branch workshop-changes
-> spring-projects/spring-petclinic@main
-    No results to commit.
-> finos/symphony-bdk-java@hotfix
-    Switched to branch workshop-changes
-> finos/symphony-wdk@hotfix
-    Switched to branch workshop-changes
-Done (0.62s)
-
-MOD SUCCEEDED in (1s)
-```
-
-</details>
-
-Next, let's apply the changes from the recipe to these branches:
-
-```bash
-mod git apply . --last-recipe-run
-```
-
-If you `cd` into the project directories and run `git status`, you will see that you have a bunch of uncommitted and unstaged changes. Normally this would be where you would run tests and confirm that everything still works. For the purposes of the workshop, though, let's just pretend everything worked perfectly and move to the next step of staging the files and committing the changes.
-
-To add the files to the list that should be committed, run the following command:
-
-```bash
-mod git add . --last-recipe-run
-```
-
-Then, to commit these changes, run the following command:
-
-```bash
-mod git commit . -m "Test common static analysis changes" --last-recipe-run
-```
-
-{% hint style="warning" %}
-Right now, GPG signing is not supported by the `mod git commit` command. If you use GPG signing, you'll either need to disable that temporarily or manually commit changes.
-{% endhint %}
 
 ## Additional information
 
