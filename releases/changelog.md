@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.131.0 (2024/07/22)
+
+- improve builder tree font on large displays
+
 ### UI v10.130.0 (2024/07/18)
 
 - add menu item to edit current recipe as yaml
