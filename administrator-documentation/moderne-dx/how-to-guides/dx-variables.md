@@ -70,6 +70,8 @@ java -jar moderne-dx-{version}.jar \
 {% tab title="OCI Container" %}
 **Variables:**
 
+* `MODERNE_DX_STORAGE_ENABLED` - _Enables persistent storage for the LST index. Defaults to `false`._
+* `MODERNE_DX_STORAGE_PATH` - _The path of the LST index directory on the container or local disk. Defaults to `<dx configuration directory>/storage` (`<dx configuration directory>` refers to the location where all configuration for DX lives, including the recipe catalog, tokens, etc. It's not configurable_.
 * `MODERNE_DX_ARTIFACTORY_{index}_URL` – _The URL of your Artifactory instance._
 * `MODERNE_DX_ARTIFACTORY_{index}_USERNAME` – _The username used to connect to your Artifactory instance. This user must have permission to run AQL queries._
 * `MODERNE_DX_ARTIFACTORY_{index}_PASSWORD` – _The password used to connect to your Artifactory instance._
@@ -83,6 +85,8 @@ java -jar moderne-dx-{version}.jar \
 ```shell
 docker run \
 # ... Existing variables
+-e MODERNE_DX_STORAGE_ENABLED=true \
+-e MODERNE_DX_STORAGE_PATH=/some/storage/path \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME=admin \
 -e MODERNE_DX_ARTIFACTORY_0_PASSWORD=password \
@@ -96,6 +100,8 @@ docker run \
 {% tab title="Executable JAR" %}
 **Arguments:**
 
+* `--moderne.dx.storage.enabled` - _Enables persistent storage for the LST index. Defaults to `false`._
+* `--moderne.dx.storage.path` - _The path of the LST index directory on the container or local disk. Defaults to `<dx configuration directory>/storage` (`<dx configuration directory>` refers to the location where all configuration for DX lives, including the recipe catalog, tokens, etc. It's not configurable_.
 * `--moderne.dx.artifactory[{index}].url` – _The URL of your Artifactory instance._
 * `--moderne.dx.artifactory[{index}].username` – _The username used to connect to your Artifactory instance. This user must have permission to run AQL queries._
 * `--moderne.dx.artifactory[{index}].password` – _The password used to connect to your Artifactory instance._
@@ -109,6 +115,8 @@ docker run \
 ```shell
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
+--moderne.dx.storage.enabled=true \
+---moderne.dx.storage.path=/some/storage/path \
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
