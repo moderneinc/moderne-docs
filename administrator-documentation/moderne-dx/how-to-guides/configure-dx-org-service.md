@@ -56,6 +56,7 @@ The following table contains all of the variables/arguments you need to add to y
 **Variables:**
 
 * `MODERNE_DX_ORGANIZATION_URL` – _The URL of your GraphQL service that provides organization information._
+* `MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS` - _(Optional) The commit options used if not specified by the organization service.`_
 * `MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS` – _(Optional) Specifies how often to request your organization information. Defaults to `600` (10 minutes)._
 * `MODERNE_DX_ORGANIZATION_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
@@ -66,6 +67,7 @@ docker run \
 # ... Existing variables
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional variables
 ```
 {% endtab %}
@@ -74,6 +76,7 @@ docker run \
 **Arguments:**
 
 * `--moderne.dx.organization.url` – _The URL of your GraphQL service that provides organization information._
+* `--moderne.dx.organization.defaultCommitOptions` - _(Optional) The commit options used if not specified by the organization service.`_
 * `--moderne.dx.organization.updateIntervalSeconds` – _(Optional) Specifies how often to request your organization information. Defaults to `600` (10 minutes)._
 * `--moderne.dx.organization.skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
@@ -84,6 +87,7 @@ java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.updateIntervalSeconds=600 \
+--moderne.dx.organization.defaultCommitOptions=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional arguments
 ```
 {% endtab %}
