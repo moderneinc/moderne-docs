@@ -114,6 +114,7 @@
     * [Deploying recipe artifacts in Moderne DX](administrator-documentation/moderne-dx/how-to-guides/deploying-recipe-artifacts-in-moderne-dx.md)
     * [Configure Moderne DX with strict recipe sources](administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-strict-recipe-sources.md)
     * [Configure Moderne DX with SSL certificate](administrator-documentation/moderne-dx/how-to-guides/configure-dx-ssl.md)
+    * [All DX configuration variables](administrator-documentation/moderne-dx/how-to-guides/dx-variables.md)
   * [References](administrator-documentation/moderne-dx/references/README.md)
     * [Moderne DX architecture](administrator-documentation/moderne-dx/references/moderne-dx-architecture.md)
 * [Licensing](administrator-documentation/licensing.md)

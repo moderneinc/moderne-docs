@@ -9,3 +9,4 @@
 * [Deploying recipes artifacts in Moderne DX](deploying-recipe-artifacts-in-moderne-dx.md)
 * [Configure Moderne DX with strict recipe sources](configure-dx-with-strict-recipe-sources.md)
 * [Configure Moderne DX with SSL certificate](configure-dx-ssl.md)
+* [All DX configuration variables](./dx-variables.md)
