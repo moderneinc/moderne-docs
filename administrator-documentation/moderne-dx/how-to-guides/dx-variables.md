@@ -1,4 +1,4 @@
-# All agent configuration variables
+# All DX configuration variables
 
 This document includes all of the variables you can configure the Moderne agent to run with. Your configuration will only use some of these.
 
@@ -121,20 +121,6 @@ java -jar moderne-dx-{version}.jar \
 {% endtabs %}
 
 ## Artifactory recipe variables
-
-# Configure Moderne DX with Artifactory access: recipes
-
-In order for Moderne DX to interact with your recipe artifacts from Artifactory, you will need to create a Maven formatted repository inside of Artifactory and point the Moderne DX service to said repository. This guide will walk you through how to configure the Moderne DX service to get the list of recipe artifacts from the repository you created in Artifactory.
-
-## Publishing recipe artifacts
-
-Recipe artifacts will automatically be picked up by Moderne so long as you set the recipe source flag to true in the below [configuration step](configure-dx-with-artifactory-recipes.md#configuring-the-moderne-dx-service).
-
-## Configuring the Moderne DX service
-
-The following table contains all of the variables/arguments you need to add to your Moderne DX service run command in order for it to get recipe artifacts from your Maven formatted repository inside of Artifactory. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne DX service guide](dx-configuration.md).
-
-You can configure multiple Maven formatted repositories by including multiple entries, each with a different `{index}`.
 
 {% tabs %}
 {% tab title="OCI Container" %}
