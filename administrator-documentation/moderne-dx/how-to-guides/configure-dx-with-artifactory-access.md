@@ -143,5 +143,5 @@ If you run this immediately after startup, you may get no results. Once your ind
 ```
 
 {% hint style="info" %}
-Note that if you set up an [organizations service](configure-dx-org-service.md), the returned results from this query will be organized into **organizations** rather than **repositories**.
+Note that if you set up an [organization integration](configure-dx-organizations.md), the returned results from this query will be organized into **organizations** rather than **repositories**.
 {% endhint %}
