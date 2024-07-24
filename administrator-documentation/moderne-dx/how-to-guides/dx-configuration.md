@@ -249,11 +249,11 @@ java -jar moderne-dx-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 4: (Optionally) Configure the Organizations service
+### Step 4: (Optionally) Configure an organization structure
 
-Many organizations desire the ability to control the organizational structure of their repositories within the Moderne Platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
+Many organizations desire the ability to control the organizational structure of their repositories within the Moderne Platform in a dynamic way. To facilitate this need, Moderne provides two approaches, either a file based one or by integration with an Organizations service that is hosted inside of your environment.
 
-If you want to set up this service, please see the [organizations service setup instructions](../../moderne-platform/how-to-guides/organizations-service.md). Then, once it has been set up, please [configure the Moderne DX service to connect with the organization service](configure-dx-org-service.md).
+If you want to set up this integration, please see [configure Organizations with Moderne DX](configure-dx-organizations.md).
 
 Below is an example of what the Moderne DX service run command might look like at the end of this step if you set up the Organizations service.
 
@@ -279,6 +279,7 @@ docker run \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 # ... Additional variables to come
 -p 8080:8080
 moderne-dx:latest
@@ -303,6 +304,7 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.updateIntervalSeconds=600 \
+--moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
 ```
 {% endtab %}
 {% endtabs %}
@@ -338,6 +340,7 @@ docker run \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
+-e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 -p 8080:8080
 moderne-dx:latest
 ```
@@ -361,6 +364,7 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.updateIntervalSeconds=600 \
+--moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
 --moderne.dx.recipe.useOnlyConfigured=true
 ```
 {% endtab %}
@@ -403,6 +407,7 @@ docker run \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 -p 8080:8080
 moderne-dx:latest
 ```
@@ -428,6 +433,7 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.updateIntervalSeconds=600 \
+--moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
 ```
 
 * Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.dx.token={token_value}` as an argument instead of `--moderne.dx.token={token_value}`.

@@ -191,8 +191,8 @@ java -jar moderne-dx-{version}.jar \
 * `MODERNE_DX_ORGANIZATION_URL` – _The URL of your GraphQL service that provides organization information. Cannot be combined with `MODERNE_DX_ORGANIZATION_REPOSCSV`_
 * `MODERNE_DX_ORGANIZATION_REPOSCSV` - _The path of your repos.csv file that provides organization information. Cannot be combined with `MODERNE_DX_ORGANIZATION_URL`_
 * `MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS` - _(Optional) The commit options used if not specified by the organization service.`_
-* `MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS` – _(Optional) Specifies how often to request your organization information. Defaults to `600` (10 minutes)._
-* `MODERNE_DX_ORGANIZATION_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS` – _(Optional) Specifies how often to request your organization information. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`. Defaults to `600` (10 minutes)._
+* `MODERNE_DX_ORGANIZATION_SKIPSSL` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
 
@@ -212,8 +212,8 @@ docker run \
 * `--moderne.dx.organization.url` – _The URL of your GraphQL service that provides organization information. Cannot be combined with `--moderne.dx.organization.reposCsv`_
 * `--moderne.dx.organization.reposCsv` - _The path of your repos.csv file that provides organization information. Cannot be combined with `--moderne.dx.organization.url`_
 * `--moderne.dx.organization.defaultCommitOptions` - _(Optional) The commit options used if not specified by the organization service.`_
-* `--moderne.dx.organization.updateIntervalSeconds` – _(Optional) Specifies how often to request your organization information. Defaults to `600` (10 minutes)._
-* `--moderne.dx.organization.skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
+* `--moderne.dx.organization.updateIntervalSeconds` – _(Optional) Specifies how often to request your organization information. Only used when combined with `--moderne.dx.organization.url`. Defaults to `600` (10 minutes)._
+* `--moderne.dx.organization.skipSsl` – _(Optional) Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `--moderne.dx.organization.url`. This must be set to `true` if you use a self-signed SSL/TLS certificate. Defaults to `false`._
 
 **Example:**
 
