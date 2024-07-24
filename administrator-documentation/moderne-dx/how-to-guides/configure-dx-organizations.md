@@ -14,9 +14,9 @@ This guide assumes that:
 
 ## File based organization structure
 
-The simplest way to achieve the organization structure is to supply a repos.csv file directly in DX.
+The simplest way to achieve the organization structure is to supply a `repos.csv` file directly in DX.
 
-Downsides of file based organization structure:
+That being said, there are a few downsides of file based organization structure:
 - You cannot configure any [DevCenter](/administrator-documentation/moderne-platform/how-to-guides/dev-center.md)
 - Organization based access control is not available
 
@@ -40,7 +40,7 @@ To generate this `repos.csv`, we recommend using "[repo fetchers](https://github
 
 ## Service based organization structure
 
-A more feature rich replacement of the file based approach is to run the Organizations service. This allowes you to use additional features like the DevCenter, organization based access control and per organization commit options.
+A more feature rich replacement of the file based approach is to create an [Organizations service](/administrator-documentation/moderne-dx/how-to-guides/configure-dx-org-service.md). This allows you to use additional features like the DevCenter, organization based access control, and per organization commit options.
 
 ### Organizations service template and API
 
@@ -55,7 +55,7 @@ We generally recommend forking the template and modifying it as, in most cases, 
 
 How you deploy the service is largely up to your company. With that being said, there are a few important things to be aware of:
 
-* Moderne will make a request per repository to the Organizations service once every 10 minutes by default (you can change this interval in your configuration. Please ensure that you have metrics to track how this service is performing so you can adjust it over time.
+* Moderne will make a request per repository to the Organizations service once every 10 minutes by default (you can change this interval in your configuration). Please ensure that you have metrics to track how this service is performing so you can adjust it over time.
 * You'll want a minimum system spec of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent storage.
 
 ## DX organization structure configuration
