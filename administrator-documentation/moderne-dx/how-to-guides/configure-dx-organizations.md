@@ -17,7 +17,7 @@ This guide assumes that:
 The simplest way to achieve the organization structure is to supply a repos.csv file directly in DX.
 
 Downsides of file based organization structure:
-- You cannot configure DevCenter
+- You cannot configure any [DevCenter](/administrator-documentation/moderne-platform/how-to-guides/dev-center.md)
 - Organization based access control is not available
 
 ## Generating repos.csv
