@@ -36,7 +36,7 @@ The organizations a user can see in the Moderne Platform are determined by the `
 
 ### How do you restrict which commit options are available in the UI?
 
-You can change this in the `commitOptions` array in your JSON resource. ([Example](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/ownership.json#LL296C1-L301C6))
+You can change this in the `commitOptions` array in your organizations service. ([See the configuration options on our reference implementation](https://github.com/moderneinc/moderne-organizations/tree/main?tab=readme-ov-file#commit-options)).
 
 ### What would happen if the service returned an empty `commitOptions` array? Would that disable commit capabilities for these organizations?
 
