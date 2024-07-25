@@ -183,7 +183,7 @@ If you are wanting to run the CLI against **private repositories** you will need
 
 ### Step 7: (Optional) Configure artifact publishing and downloading
 
-If you want to publish artifacts from the CLI or download LSTs from your artifact repository when running commands, you'll need to run one of the following commands depending on where your LST artifacts live:
+If you want to publish LST artifacts from the CLI or download LSTs from your artifact repository when running commands, you'll need to run one of the following commands depending on where your LST artifacts live:
 
 {% tabs %}
 {% tab title="JFrog Artifactory" %}
@@ -240,9 +240,8 @@ cd $HOME/workshop
 
 2. For this exercise, we've prepared a list of open-source repositories for you to use. These repositories have been added to the Moderne Platform and put inside the `Default` organization. Clone these repositories by running the following command from inside your `workshop` directory.
 
-```bash
-mod git clone moderne . "Default"
-```
+<pre class="language-bash"><code class="lang-bash"><strong>mod git clone moderne . "Default"
+</strong></code></pre>
 
 <details>
 
@@ -571,7 +570,7 @@ Let's generate this data table by running the following command:
 
 {% code overflow="wrap" %}
 ```bash
-mod study . --last-recipe-run --data-table org.openrewrite.java.dependencies.table.VulnerabilityReport
+mod study . --last-recipe-run --data-table VulnerabilityReport
 ```
 {% endcode %}
 
@@ -643,7 +642,11 @@ MOD SUCCEEDED in (21s)
 
 </details>
 
-Open up the Excel file that is produced. You will see that the recipe found almost 1000 vulnerabilities. You can sort them by severity to see what the most important ones to start with are – or you could find the ones that can be fixed with a version update only to quickly address some of the problems. Having a table like this can help you and your organization track and prioritize security issues.
+{% hint style="info" %}
+We used the short name for the data table (`VulnerabilityReport`) rather than the fully-qualified name. As long as the short name is distinct, you can do this to save some typing.
+{% endhint %}
+
+Open up the Excel file that is produced. You will see that the recipe found almost 1,000 vulnerabilities. You can sort them by severity to see what the most important ones to start with are – or you could find the ones that can be fixed with a version update only to quickly address some of the problems. Having a table like this can help you and your organization track and prioritize security issues.
 
 ### Adjust the format of data tables
 
