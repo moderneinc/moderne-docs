@@ -1,4 +1,4 @@
-# Build steps
+# Configuring build steps
 
 ## Out-of-the-box behavior without explicit configuration
 
@@ -31,7 +31,7 @@ payments/
   build.gradle # the top level gradle file
 ```
 
-Sometimes monorepo(ish) repositories are structured in such a way that there are multiple top-level Gradle projects in subdirectories of the root repository directory. While they are stored in the same repository in VCS, they effectively possess disconnected build processes in the sense that no one Gradle command could operate on these disparate parts of the codebase. For example in the following structure the payments, rating, and underwriting functions of this policy administration repository are not related. In this case, the Gradle build step would execute three distinct Gradle tasks to parse LSTs using the Moderne Gradle plugin -- one for each business functional unit.&#x20;
+Sometimes monorepo(ish) repositories are structured in such a way that there are multiple top-level Gradle projects in subdirectories of the root repository directory. While they are stored in the same repository in VCS, they effectively possess disconnected build processes in the sense that no one Gradle command could operate on these disparate parts of the codebase. For example in the following structure the payments, rating, and underwriting functions of this policy administration repository are not related. In this case, the Gradle build step would execute three distinct Gradle tasks to parse LSTs using the Moderne Gradle plugin -- one for each business functional unit.
 
 ```bash
 insurance-policy-administration/
@@ -51,7 +51,7 @@ insurance-policy-administration/
 
 The resource build step parses resource files using OpenRewrite parsers in situations where there is no source set with binary dependency list necessary to [type-attribute](https://docs.openrewrite.org/concepts-explanations/lossless-semantic-trees) the resulting LSTs. These include YAML, XML, Terraform, properties, JSON, some Groovy DSLs, etc.
 
-In the default build steps, the resource build step runs after all external build tool steps, and serves as a vaccuum that picks up the rest of the source files in a repository not explicitly managed by those build tools.
+In the default build steps, the resource build step runs after all external build tool steps, and serves as a vacuum that picks up the rest of the source files in a repository not explicitly managed by those build tools.
 
 ## Configuring build steps explicitly
 

@@ -2,5 +2,5 @@
 
 * [Getting started](getting-started/)
 * [How to guides](how-to-guides/)
-* [Reference](cli-reference.md)
-* [FAQ](references/faq.md)
+* [CLI commands](cli-reference.md)
+* [FAQ](faq.md)

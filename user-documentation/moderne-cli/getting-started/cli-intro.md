@@ -23,7 +23,7 @@ _If you are in an air-gapped environment, please follow the_ [_instructions for 
 ![](../../../.gitbook/assets/cli-download.gif)
 
 4. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location – or this could involve putting it in a directory that's already on your `PATH` (such as a `/user/bin` directory).
-    * Remember to refresh any open terminals if you modify the `PATH`.
+   * Remember to refresh any open terminals if you modify the `PATH`.
 
 ### Step 2: (Optional - but recommended) Create an alias for the Moderne CLI JAR
 
@@ -555,7 +555,7 @@ If you've been following along, you'll know that we just ran the `DependencyVuln
     > Run mod log runs add . logs.zip --last-run to aggregate run logs
 ```
 
-You may notice that one of the suggestions on what to do next is the `mod study` command. This command allows you to examine the [data tables](/user-documentation/moderne-platform/getting-started/data-tables.md) produced by the recipe run. Data tables are columnar data in a schema defined by the recipe.
+You may notice that one of the suggestions on what to do next is the `mod study` command. This command allows you to examine the [data tables](../../moderne-platform/getting-started/data-tables.md) produced by the recipe run. Data tables are columnar data in a schema defined by the recipe.
 
 In the above example, you'll see there are three data tables produced by this recipe:
 
@@ -661,11 +661,9 @@ Once that's done running, we _could_ run a similar study command as before to ge
 We can filter the data table to only a couple columns we are interested in and then use a GoTemplate to produce a markdown file containing code samples for all of the matching methods we found:
 
 {% code overflow="wrap" %}
-
-```bash
+````bash
 mod study . --last-recipe-run --data-table MethodCalls --json sourceFile,method --template '{{"# Search results\n\n"}}{{range .}}{{"* "}}{{.sourceFile}}{{"\n```\n"}}{{.method}}{{"\n```\n"}}{{end}}' > methods.md
-```
-
+````
 {% endcode %}
 
 As you can see, the output is extremely flexible to meet whatever needs you have.
@@ -869,13 +867,13 @@ You could push commits to the repositories via:
 mod git push . --last-recipe-run
 ```
 
-Or you could create a PR directly with the GitHub command line: 
+Or you could create a PR directly with the GitHub command line:
 
 ```bash
 mod exec . --last-recipe-run -- gh pr create --title "refactor: Apply AssertJ best practices"
 ```
 
-[Or you could create PRs while filtering to only certain repositories, branches, origins, recipe runs, etc.](/user-documentation/moderne-cli/cli-reference.md#mod-git-push):
+[Or you could create PRs while filtering to only certain repositories, branches, origins, recipe runs, etc.](../cli-reference.md#mod-git-push):
 
 ```bash
 mod git push . --recipe-run <id> --repository-branch main
@@ -885,9 +883,9 @@ mod git push . --recipe-run <id> --repository-branch main
 
 If you want to learn more about the Moderne CLI, we'd encourage you to check out the follow docs:
 
-* [Learn more about how to configure the CLI to meet your needs](../references/layer-config-cli.md)
-* [Learn more about how JDK selection works and how you might configure other locations for JDKs](../references/jdk-selection-and-config.md)
-* [Learn how to use the Moderne IntelliJ plugin in combination with the CLI to test recipes](/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
+* [Learn more about how to configure the CLI to meet your needs](../how-to-guides/layer-config-cli.md)
+* [Learn more about how JDK selection works and how you might configure other locations for JDKs](../how-to-guides/jdk-selection-and-config.md)
+* [Learn how to use the Moderne IntelliJ plugin in combination with the CLI to test recipes](../../moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
 
 Or watch the following videos:
 
