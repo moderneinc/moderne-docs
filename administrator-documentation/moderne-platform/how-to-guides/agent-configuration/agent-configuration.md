@@ -344,7 +344,7 @@ java -jar moderne-agent-{version}.jar \
 
 Many organizations desire the ability to control the organizational structure of their repositories within the Moderne Platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
 
-If you want to set up this service, please follow [these instructions](../../../../architecture/organizations-service/). Then, once it has been set up, please configure the agent by following [these instructions](configure-organizations-service.md).
+If you want to set up this service, please check out our [configuring the Organizations service guide](/administrator-documentation/moderne-platform/how-to-guides/organizations-service.md). Then, once it has been set up, [please configure the agent accordingly](./configure-organizations-service.md).
 
 Below is an example of what an agent run command might look like at the end of this step if you set up the Organizations service.
 
