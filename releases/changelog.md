@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.132.1 (2024/07/25)
+
+- Bug fixes and other improvements.
+
 ### UI v10.132.0 (2024/07/25)
 
 - improve recipe options visibility
