@@ -54,7 +54,7 @@ _Ordered from least complex to most complex_
 * Modernize test frameworks
   * [Junit 4 to 5 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit4to5Migration)
   * [Mockito 1 to 4 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to4Migration)
-  * [Migrate JUnit assertions to AssertJ](https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.JUnitToAssertj) improved readability and consistency over stock JUnit assertions
+  * [Migrate JUnit assertions to AssertJ](https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.Assertj) improved readability and consistency over stock JUnit assertions
 * Major migrations
   * [Java 8 to 11](https://app.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11)
   * [Java 11 to 17](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava17)
