@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v10.132.0 (2024/07/25)
+
+- improve recipe options visibility
+- add topology layout swapper
+- improve builder menu visibility
+
 ### UI v10.131.0 (2024/07/22)
 
 - improve builder tree font on large displays
