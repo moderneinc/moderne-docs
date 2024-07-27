@@ -45,7 +45,7 @@ Once you've added the multi-repos you'd like the plugin to have access to, press
 When you apply these settings, any Moderne Organization that you have selected will be cloned using [--metadata-only](../../moderne-cli/cli-reference.md#mod-git-clone-csv). Its LSTs will also be downloaded from your artifact repository. This process resembles dependency resolution of binary dependencies.
 {% endhint %}
 
-After configuring the plugin, you will see the repositories belonging to the multi-repo(s) that you configured listed in the Moderne tool window (on the right side of the IDE). Click the refresh <img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" data-size="line"> button if necessary. Repositories displayed with a blue icon have LSTs successfully built or downloaded on disk. Repositories with a gray icon do not.
+After configuring the plugin, you will see the repositories belonging to the multi-repo(s) that you configured listed in the Moderne tool window (on the right side of the IDE). Click the refresh <img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" data-size="line"> button if necessary. Repositories displayed with a blue icon have LSTs successfully built or downloaded on disk. Repositories with a gray icon do not.
 
 <figure><img src="../../../.gitbook/assets/plugin-example-repos.png" alt="" width="563"><figcaption><p>The 47 repositories of the OpenRewrite organization, listed in the Moderne tool window.</p></figcaption></figure>
 

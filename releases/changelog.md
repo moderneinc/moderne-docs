@@ -1,6 +1,6 @@
 # Platform changelog
 
-### UI v10.132.1 (2024/07/25)
+UI v10.132.1 (2024/07/25)
 
 * Bug fixes and other improvements.
 
@@ -15,7 +15,7 @@ In this release we have made various improvements to the new builder to increase
 * We received feedback that the options were hard to discover.  We have begun to address this by making the options panel auto open when the selected recipe has options and also auto expand to fit more options before having to scroll.  Note the options have moved to the lower right now:\
   ![](<../.gitbook/assets/image (2).png>)
 * We found that some users were not aware of the recipe menu and the options available there so we have made the button more visible by adding a label:\
-  <img src="../.gitbook/assets/image (1).png" alt="" data-size="original">
+  <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="original">
 
 ### UI v10.131.0 (2024/07/22)
 
@@ -23,10 +23,11 @@ In this release we have made various improvements to the new builder to increase
 
 ### UI v10.130.0 (2024/07/18)
 
-* In the builder there is now menu item to edit the current recipe as yaml
+*   In the builder there is now a new menu item **Edit as YAML**\
+    This will open a text editor with the current recipe's yaml to edit:\
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="219"><figcaption></figcaption></figure>
 
+    <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 * In the builder you can now edit nest recipe details
 
 ### UI v10.129.0 (2024/07/16)
@@ -92,7 +93,7 @@ UI v10.125.2 (2024/06/26)
 
 *   We have added dynamic controls to tree items in the tree view of the new builder. These controls will appear when interacting with the tree items:\\
 
-    <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.123.0 (2024/06/17)
 
@@ -137,7 +138,7 @@ UI v10.125.2 (2024/06/26)
 
 *   When selecting subtrees in the new builder other nodes are now deemphasized to improve visual clarity of the selection:
 
-    <figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.118.0 (2024/05/31)
 
@@ -147,11 +148,11 @@ UI v10.125.2 (2024/06/26)
 ### UI v10.117.0 (2024/05/30)
 
 * Grids will now show more context regarding pagination:\
-  <img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" data-size="line">
+  <img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" data-size="line">
 * In the new builder the tree view has been improved visually to increase clarity and now has a new auto scroll mechanic which should be more consistent than the previous:\
   ![](<../.gitbook/assets/image (41).png>)
 * In the new builder the scene control buttons have been redesigned and relocated to the lower left of the scene:\
-  ![](<../.gitbook/assets/image (1) (1) (1) (1).png>)
+  ![](<../.gitbook/assets/image (1) (1) (1) (1) (1).png>)
 
 UI v10.116.0 (2024/05/23)
 
@@ -626,7 +627,7 @@ Previous:
 
 <div data-full-width="true">
 
-<img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="">
+<img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="">
 
 </div>
 
