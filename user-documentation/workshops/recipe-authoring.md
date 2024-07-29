@@ -479,7 +479,7 @@ You can also run best practice recipes against your rewrite recipe module, to re
 You can apply these recommendations to your recipes by running the following command:
 
 ```bash
-mod run /path/to/your/recipe --recipe="org.openrewrite.recipes.OpenRewriteBestPractices"
+mod run /path/to/your/recipe --recipe=OpenRewriteBestPractices
 ```
 
 ## Contributing to OpenRewrite
