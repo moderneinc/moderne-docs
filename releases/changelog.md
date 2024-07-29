@@ -1,9 +1,15 @@
 # Platform changelog
+
 ### UI v10.133.0 (2024/07/29)
 
-- add builder keyboard shortcuts
-- improve builder options on larger screens
+We have added more quality of life improvements for the new builder:
 
+* add builder keyboard shortcuts\
+  ![](<../.gitbook/assets/image (57).png>)
+* the speed dial menu previously opened on hover but closed on click which made for a few variations of weird interactions.  We have changed the menu so it must be clicked to open and clicked to close making the experience predictable and consistent.  The speed dial menu also has a new icon:\
+  ![](<../.gitbook/assets/image (58).png>)
+* improve builder options' readability and spacing on larger screens
+* Bug fixes and other improvements.
 
 UI v10.132.1 (2024/07/25)
 
@@ -13,11 +19,11 @@ UI v10.132.1 (2024/07/25)
 
 In this release we have made various improvements to the new builder to increase clarity and productivity.
 
-* Since adding controls such as **add**, **edit**, **delete** to the tree view ([v10.124.0](https://docs.moderne.io/releases/changelog#ui-v10.124.0-2024-06-20)) we found some users enjoy primarily using the tree view to compose recipes so we want to allow users to move this view to the main content window.  There is now a new layout swap icon to swap the 3D topology view and the tree view:
+* Since adding controls such as **add**, **edit**, **delete** to the tree view ([v10.124.0](https://docs.moderne.io/releases/changelog#ui-v10.124.0-2024-06-20)) we found some users enjoy primarily using the tree view to compose recipes so we want to allow users to move this view to the main content window. There is now a new layout swap icon to swap the 3D topology view and the tree view:
 
 <figure><img src="../.gitbook/assets/layout_swap.png" alt=""><figcaption></figcaption></figure>
 
-* We received feedback that the options were hard to discover.  We have begun to address this by making the options panel auto open when the selected recipe has options and also auto expand to fit more options before having to scroll.  Note the options have moved to the lower right now:\
+* We received feedback that the options were hard to discover. We have begun to address this by making the options panel auto open when the selected recipe has options and also auto expand to fit more options before having to scroll. Note the options have moved to the lower right now:\
   ![](<../.gitbook/assets/image (2).png>)
 * We found that some users were not aware of the recipe menu and the options available there so we have made the button more visible by adding a label:\
   <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="original">
@@ -29,8 +35,7 @@ In this release we have made various improvements to the new builder to increase
 ### UI v10.130.0 (2024/07/18)
 
 *   In the builder there is now a new menu item **Edit as YAML**\
-    This will open a text editor with the current recipe's yaml to edit:\
-
+    This will open a text editor with the current recipe's yaml to edit:\\
 
     <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 * In the builder you can now edit nest recipe details
