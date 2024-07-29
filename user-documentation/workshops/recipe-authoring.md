@@ -17,10 +17,12 @@ Before you begin writing your own recipes, you should make sure you are aware of
 There are two main locations for discovering recipes: the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and [the Moderne Platform](https://app.moderne.io/marketplace). The former contains all the information you'll need to run the recipe – whereas the latter has a richer search and view, that allows you to directly run recipes.
 
 {% hint style="warning" %}
-Moderne customers and OSS contributors with access to Moderne **should not** follow the Gradle and Maven instructions listed on [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes). Those instructions are for the wider open-source community and are not designed to run recipes at scale. You should, instead, use the Moderne CLI or the Moderne Platform to run recipes.
+We recommend using Moderne multi-repository tools for authoring and testing recipes at scale. This accelerates the feedback loop on recipe quality, and allows you to validate recipes on real-life scenarios encountered in real codebases.
+
+If you are an OSS contributor writing OSS recipes for your projects, you can use Moderne tools for free. Specifically, both the Moderne CLI and the Moderne IntelliJ plugin are free to test on OSS repositories that you control. If you don't see your project in the Moderne Platform, [please reach out to us](mailto:support@moderne.io), and we'll get it added.
 {% endhint %}
 
-There are many ways to run recipes, depending on your needs:
+There are three main ways to run recipes for Moderne customers:
 
 1. The [Moderne CLI](../moderne-cli/getting-started/cli-intro.md) allows you to run recipes against **multiple projects locally**, and to debug recipes at scale.
    * Free to use on open-source projects, but [requires a Moderne CLI license](../moderne-cli/getting-started/moderne-cli-license.md) for private projects.
@@ -29,9 +31,9 @@ There are many ways to run recipes, depending on your needs:
    * Supports over 37,000 open-source projects and organizations for free.
    * Requires a company subscription for private projects.
    * Similar to the CLI, it can handle projects of any size.
-3. (**Not recommended for Moderne customers**) The open-source [Rewrite Maven plugin](https://docs.openrewrite.org/reference/rewrite-maven-plugin) and [Rewrite Gradle plugin](https://docs.openrewrite.org/reference/gradle-plugin-configuration) allow you to run recipes against a **single local project**.
-   * Both plugins are free, open-source, and can be used on any project – without any connection to Moderne.
-   * These plugins build up an **in memory** model of your project for every recipe run (which may be problematic for very large repositories or if you want to run recipes against a considerable number of repositories).
+3. The [Moderne IntelliJ IDEA plugin](../moderne-ide-integration/how-to-guides/moderne-plugin-install.md) allows you to run recipes that you're developing or have checked out locally from inside of IntelliJ.
+   * Free to use on open-source projects, but [requires a Moderne CLI license](../moderne-cli/getting-started/moderne-cli-license.md) for private projects.
+   * Currently limited to only [imperative and refaster template recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes). 
 
 {% hint style="info" %}
 Learn more about [the differences between OpenRewrite and Moderne](https://docs.openrewrite.org/#refactoring-at-scale-with-moderne).
