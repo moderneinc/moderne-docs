@@ -33,7 +33,7 @@ There are three main ways to run recipes for Moderne customers:
    * Similar to the CLI, it can handle projects of any size.
 3. The [Moderne IntelliJ IDEA plugin](../moderne-ide-integration/how-to-guides/moderne-plugin-install.md) allows you to run recipes that you're developing or have checked out locally from inside of IntelliJ.
    * Free to use on open-source projects, but [requires a Moderne CLI license](../moderne-cli/getting-started/moderne-cli-license.md) for private projects.
-   * Currently limited to only [imperative and refaster template recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes). 
+   * Currently limited to only [imperative and refaster template recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes).
 
 {% hint style="info" %}
 Learn more about [the differences between OpenRewrite and Moderne](https://docs.openrewrite.org/#refactoring-at-scale-with-moderne).
@@ -51,11 +51,14 @@ To get comfortable running recipes, let's walk through using the [Moderne Platfo
 
 #### Steps
 
-1. If you have access to the [Moderne Platform](https://app.moderne.io/marketplace), navigate to it and [follow along with our quickstart guide for running recipes](/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md). If you don't have access, skip to step 2.
+1. If you have access to the [Moderne Platform](https://app.moderne.io/marketplace), navigate to it and [follow along with our quickstart guide for running recipes](../moderne-platform/getting-started/running-your-first-recipe.md). If you don't have access, skip to step 2.
    * Note that, by default, you will be running recipes against a hand-picked group of open-source repositories.
    * Feel free to explore other recipes that match your interests such as [migrating to Java 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21) or [finding and fixing vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck).
-   * Consider checking out the source code for the recipes by clicking on the triple dots in the top-right hand corner of any recipe and then selecting `View recipe source`:
-      * ![Recipe source link](/.gitbook/assets/view-recipe-source.png)
+   *   Consider checking out the source code for the recipes by clicking on the triple dots in the top-right hand corner of any recipe and then selecting `View recipe source`:
+
+
+
+       <figure><img src="../../.gitbook/assets/view-recipe-source.png" alt=""><figcaption></figcaption></figure>
 2. If you don't have the CLI installed, please follow along with [our instructions for installing and configuring the Moderne CLI](../moderne-cli/getting-started/cli-intro.md#installation-and-configuration).
 3. Once the CLI is installed, please work through [our examples of using the CLI to run recipes](../moderne-cli/getting-started/cli-intro.md#using-the-cli). Please refrain from applying any recipe changes, though - as this may cause issues in future steps.
    * This will have you run a recipe against a tailored group of open-source repositories and then have you study the results and data tables produced by the recipes. You will use this group of repositories again in future steps as we write and test recipes.
@@ -94,7 +97,7 @@ You'll want to have the following installed:
 * Set up a new recipe module in your IDE, based on the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project.
 * Run the unit tests for the recipe module, to ensure everything is set up correctly.
 * Install your recipe module to your local Maven repository for debugging later.
-* Use the CLI to run different types of recipes against the `Default` group of repositories [you set up earlier](/user-documentation/moderne-cli/getting-started/cli-intro.md#using-the-cli).
+* Use the CLI to run different types of recipes against the `Default` group of repositories [you set up earlier](../moderne-cli/getting-started/cli-intro.md#using-the-cli).
 
 #### Steps
 
@@ -433,25 +436,29 @@ Moderne offers an IntelliJ IDEA plugin that can not only help you create and deb
 
 #### Steps
 
-1. If you haven't already installed the Moderne IntelliJ IDEA plugin, follow along with our [Moderne plugin installation guide](/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
+1. If you haven't already installed the Moderne IntelliJ IDEA plugin, follow along with our [Moderne plugin installation guide](../moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
    * If you have many repositories checked out locally and want to search across those, please add the root directory as a `Multi-repo`.
    * If you don't have many repositories checked out locally or would prefer to see what it looks like to add a Moderne organization, please select one of the Moderne organizations (such as `Default` or `Netflix`) in the `Multi-repos` section. Note that if you select `Default`, this is the same `Default` group you used earlier in this workshop.
-2. Open up any Java class in IntelliJ and look for an API that you're interested in searching for (e.g., `System.out.println(..)` or `ListUtils.map(..)`). Then, follow the instructions in our [multi-repository code search doc](/user-documentation/moderne-ide-integration/how-to-guides/code-search.md) to look for that API across all of the repositories you added to the Moderne plugin.
+2. Open up any Java class in IntelliJ and look for an API that you're interested in searching for (e.g., `System.out.println(..)` or `ListUtils.map(..)`). Then, follow the instructions in our [multi-repository code search doc](../moderne-ide-integration/how-to-guides/code-search.md) to look for that API across all of the repositories you added to the Moderne plugin.
 3. Next, let's create a simple search recipe that finds that API you searched for. Right-click on the API again and select `Refactor > Create OpenRewrite Recipe...`. Then select that you want to create a `Visitor Style` recipe.
    * For more details on creating recipes with the Moderne plugin, check out our [how to create recipes guide](../moderne-ide-integration/how-to-guides/creating-recipes.md).
 4. You should now have a scratch file that contains a simple recipe. Copy it over to the `rewrite-recipe-starter` repository you were using earlier and add it to the `com.yourorg` package.
    * [Here's an example of what this might look like for finding System.out.println](https://gist.github.com/mike-solomon/3b49a5d19c8824776bcc4ee871b87cdd)
 5. There are two ways to run the recipe: from inside of IntelliJ or with the CLI. Let's start with running the recipe in IntelliJ against all of the repositories that you've specified in the Moderne plugin configuration.
-6. On the line where the class is defined, you should notice an arrow to the left of the text. Click it and then press `Run <class_name>`.
-   * ![](/.gitbook/assets/run-recipe-from-plugin.gif)
+6.  On the line where the class is defined, you should notice an arrow to the left of the text. Click it and then press `Run <class_name>`.
+
+
+
+    <figure><img src="../../.gitbook/assets/run-recipe-from-plugin.gif" alt=""><figcaption></figcaption></figure>
 7. The recipe will then begin running against all of the repositories you've specified. If any changes are made, you can find those in the `Changes` tab. If the recipe is a search recipe, you can find all search results in the `Find` tab.
 8. Next, let's try running the same recipe with the Moderne CLI. Right-click on the class name and select `Set Active Recipe`.
 9. Open up your terminal, navigate to your workshop directory, and run the recipe: `mod run . --active-recipe`.
 10. You should see that this recipe ran and marked all the locations in all of the repositories that matched the API you generated the recipe from.
 11. Running the recipe is a great start, but it's always helpful to be able to debug the recipe. [Follow our instructions for using the Moderne plugin to debug recipes](../moderne-ide-integration/how-to-guides/debugging-recipes.md#step-4-debug-your-recipe).
 12. Another useful thing to do when debugging is to [configure the TreeVisitingPrinter](https://docs.openrewrite.org/concepts-explanations/tree-visiting-printer). This will really help you understand the different [Java LST elements](https://docs.openrewrite.org/concepts-explanations/lst-examples).
-   * Follow along with the instructions in that guide and make sure you can see what the LST looks like when it finds a match.
-   * **Note**: you'll need to add `import org.openrewrite.java.TreeVisitingPrinter;` to your import statements in your recipe.
+
+* Follow along with the instructions in that guide and make sure you can see what the LST looks like when it finds a match.
+* **Note**: you'll need to add `import org.openrewrite.java.TreeVisitingPrinter;` to your import statements in your recipe.
 
 #### Takeaways
 
@@ -478,11 +485,11 @@ The [src/main/java/com/yourorg/ClassHierarchy.java recipe](https://github.com/mo
 
 ### Traits
 
-LSTs are, traditionally, a very low-level representation of code. However, there are many use cases where you may want some higher-level semantic constructs, but you have no idea of where those should go. 
+LSTs are, traditionally, a very low-level representation of code. However, there are many use cases where you may want some higher-level semantic constructs, but you have no idea of where those should go.
 
-For example, imagine you had a JSON document that represented the customer list at your business. If you were making recipes that operated on this particular kind of JSON document, you may want to have utility methods that would facilitate that. If you added these methods to a random facilities class, they wouldn't be particularly discoverable. 
+For example, imagine you had a JSON document that represented the customer list at your business. If you were making recipes that operated on this particular kind of JSON document, you may want to have utility methods that would facilitate that. If you added these methods to a random facilities class, they wouldn't be particularly discoverable.
 
-Because of that, there's a temptation to put the methods directly onto the classes that represent the LSTs themselves. That poses a problem, though, as we don't want to be continuously expanding the API surface area of these elements. To handle this problem, we have implemented [traits](https://en.wikipedia.org/wiki/Trait_(computer_programming)).
+Because of that, there's a temptation to put the methods directly onto the classes that represent the LSTs themselves. That poses a problem, though, as we don't want to be continuously expanding the API surface area of these elements. To handle this problem, we have implemented [traits](https://en.wikipedia.org/wiki/Trait\_\(computer\_programming\)).
 
 For a full understanding of traits, check out our [code remix session where we introduced traits and explained how to use them](https://docs.moderne.io/user-documentation/community-office-hours#enlightening-lsts-with-traits-july-17th-2024).
 
@@ -506,4 +513,4 @@ We have some [good first issues](https://github.com/orgs/openrewrite/projects/4/
 
 Note that there are separate modules for Spring recipes, Java recipes, testing recipes, logging recipes, and many more. It helps to browse the existing modules for any related work that might be similar and start from there.
 
-For any further questions, feel free to ask in the [OpenRewrite Slack](https://join.slack.com/t/rewriteoss/shared_invite/zt-nj42n3ea-b\~62rIHzb3Vo0E1APKCXEA) or [Discord](https://discord.gg/xk3ZKrhWAb). Hope to see you there!
+For any further questions, feel free to ask in the [OpenRewrite Slack](https://join.slack.com/t/rewriteoss/shared\_invite/zt-nj42n3ea-b\~62rIHzb3Vo0E1APKCXEA) or [Discord](https://discord.gg/xk3ZKrhWAb). Hope to see you there!
