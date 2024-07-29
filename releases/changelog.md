@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.133.0 (2024/07/29)
+
+- add builder keyboard shortcuts
+- improve builder options on larger screens
+
 
 UI v10.132.1 (2024/07/25)
 
