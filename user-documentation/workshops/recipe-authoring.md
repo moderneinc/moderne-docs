@@ -428,6 +428,7 @@ Moderne offers an IntelliJ IDEA plugin that can not only help you create and deb
 * Install and configure the Moderne IntelliJ IDEA plugin
 * Perform a type-aware search across all of your local repositories
 * Create a simple search recipe
+* Run the recipe with the Moderne plugin and the CLI
 * Debug your recipe, and use the `TreeVisitingPrinter` to see what the LST looks like
 
 #### Steps
@@ -440,11 +441,15 @@ Moderne offers an IntelliJ IDEA plugin that can not only help you create and deb
    * For more details on creating recipes with the Moderne plugin, check out our [how to create recipes guide](../moderne-ide-integration/how-to-guides/creating-recipes.md).
 4. You should now have a scratch file that contains a simple recipe. Copy it over to the `rewrite-recipe-starter` repository you were using earlier and add it to the `com.yourorg` package.
    * [Here's an example of what this might look like for finding System.out.println](https://gist.github.com/mike-solomon/3b49a5d19c8824776bcc4ee871b87cdd)
-5. Right-click on the recipe class name and select `Set Active Recipe`.
-6. Open up your terminal, navigate to your workshop directory, and run the recipe: `mod run . --active-recipe`.
-7. You should see that this recipe ran and marked all the locations in all of the repositories that matched the API you generated the recipe from.
-8. Running the recipe is a great start, but it's always helpful to be able to debug the recipe. [Follow our instructions for using the Moderne plugin to debug recipes](../moderne-ide-integration/how-to-guides/debugging-recipes.md#step-4-debug-your-recipe).
-9. Another useful thing to do when debugging is to [configure the TreeVisitingPrinter](https://docs.openrewrite.org/concepts-explanations/tree-visiting-printer). This will really help you understand the different [Java LST elements](https://docs.openrewrite.org/concepts-explanations/lst-examples).
+5. There are two ways to run the recipe: from inside of IntelliJ or with the CLI. Let's start with running the recipe in IntelliJ against all of the repositories that you've specified in the Moderne plugin configuration.
+6. On the line where the class is defined, you should notice an arrow to the left of the text. Click it and then press `Run <class_name>`.
+   * ![](/.gitbook/assets/run-recipe-from-plugin.gif)
+7. The recipe will then begin running against all of the repositories you've specified. If any changes are made, you can find those in the `Changes` tab. If the recipe is a search recipe, you can find all search results in the `Find` tab.
+8. Next, let's try running the same recipe with the Moderne CLI. Right-click on the class name and select `Set Active Recipe`.
+9. Open up your terminal, navigate to your workshop directory, and run the recipe: `mod run . --active-recipe`.
+10. You should see that this recipe ran and marked all the locations in all of the repositories that matched the API you generated the recipe from.
+11. Running the recipe is a great start, but it's always helpful to be able to debug the recipe. [Follow our instructions for using the Moderne plugin to debug recipes](../moderne-ide-integration/how-to-guides/debugging-recipes.md#step-4-debug-your-recipe).
+12. Another useful thing to do when debugging is to [configure the TreeVisitingPrinter](https://docs.openrewrite.org/concepts-explanations/tree-visiting-printer). This will really help you understand the different [Java LST elements](https://docs.openrewrite.org/concepts-explanations/lst-examples).
    * Follow along with the instructions in that guide and make sure you can see what the LST looks like when it finds a match.
    * **Note**: you'll need to add `import org.openrewrite.java.TreeVisitingPrinter;` to your import statements in your recipe.
 
