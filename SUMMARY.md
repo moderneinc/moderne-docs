@@ -55,7 +55,7 @@
   * [How to guides](user-documentation/moderne-dx/how-to-guides/README.md)
     * [Syncing recipes with Moderne DX](user-documentation/moderne-dx/how-to-guides/syncing-recipes-with-moderne-dx.md)
 * [Workshops](user-documentation/workshops/README.md)
-  * [OpenRewrite recipe authoring workshop](user-documentation/workshops/recipe-authoring.md)
+  * [Recipe authoring workshop](user-documentation/workshops/recipe-authoring.md)
 * [Code Remix](user-documentation/community-office-hours.md)
 
 ## Administrator documentation

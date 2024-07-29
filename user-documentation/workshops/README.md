@@ -1,3 +1,3 @@
 # Workshops
 
-* [OpenRewrite recipe authoring workshop](recipe-authoring.md)
+* [Recipe authoring workshop](recipe-authoring.md)

@@ -1,4 +1,4 @@
-# OpenRewrite recipe authoring workshop
+# Recipe authoring workshop
 
 [OpenRewrite](https://docs.openrewrite.org/) is a framework for writing and running code transformations. [Recipes](https://docs.openrewrite.org/concepts-explanations/recipes) are the unit of work in OpenRewrite, and can be written in [YAML](https://docs.openrewrite.org/concepts-explanations/recipes#declarative-recipes), [Refaster](https://docs.openrewrite.org/authoring-recipes/refaster-recipes), or [imperative Java](https://docs.openrewrite.org/concepts-explanations/recipes#imperative-recipes).
 
@@ -14,93 +14,60 @@ If you get stuck, or have questions, feel free to ask in the [OpenRewrite Slack]
 
 Before you begin writing your own recipes, you should make sure you are aware of what recipes already exist and how to run them. This is beneficial for two reasons: you won't spend time creating a recipe that someone else has already made, and you will gain a better understanding of how people will actually use any recipe you write.
 
-There are two main locations for discovering recipes: the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and [the Moderne Platform](https://app.moderne.io/marketplace). The former contains all of the information you'll need to run the recipe with Gradle, Maven, or the command line – whereas the latter is more of a rich viewer that you can run recipes directly from.
+There are two main locations for discovering recipes: the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and [the Moderne Platform](https://app.moderne.io/marketplace). The former contains all the information you'll need to run the recipe – whereas the latter has a richer search and view, that allows you to directly run recipes.
 
-There are various ways to run recipes, depending on your needs:
+{% hint style="warning" %}
+Moderne customers and OSS contributors with access to Moderne **should not** follow the Gradle and Maven instructions listed on [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes). Those instructions are for the wider open-source community and are not designed to run recipes at scale. You should, instead, use the Moderne CLI or the Moderne Platform to run recipes.
+{% endhint %}
 
-1. The open-source [Rewrite Maven plugin](https://docs.openrewrite.org/reference/rewrite-maven-plugin) and [Rewrite Gradle plugin](https://docs.openrewrite.org/reference/gradle-plugin-configuration) allow you to run recipes against a **single local project**.
-   * Both plugins are free, open source, and can be used on any project – without any connection to Moderne.
-   * These plugins build up an **in memory** model of your project for every recipe run (which may be problematic for very large repositories or if you want to run recipes against a considerable number of repositories).
-2. The [OpenRewrite IntelliJ IDEA plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite) allows you to run recipes against a **single project**, and to [write and run recipes in the IDE](https://www.jetbrains.com/help/idea/openrewrite.html).
-   * Free to use on any project, without any connection to Moderne.
-   * Only supports writing and running **YAML recipes**, for now.
-   * **Requires the Ultimate edition of IntelliJ.**
-   * Can't be used in combination with any of the above plugins.
-3. The [Moderne CLI](../moderne-cli/getting-started/cli-intro.md) allows you to run recipes against **multiple projects locally**, and to debug recipes at scale.
+There are many ways to run recipes, depending on your needs:
+
+1. The [Moderne CLI](../moderne-cli/getting-started/cli-intro.md) allows you to run recipes against **multiple projects locally**, and to debug recipes at scale.
    * Free to use on open-source projects, but [requires a Moderne CLI license](../moderne-cli/getting-started/moderne-cli-license.md) for private projects.
    * **Serializes the LST of your project to disk**, and runs recipes against that serialized LST. Larger projects that won't work well with OpenRewrite can use the CLI instead.
-4. The [Moderne Platform](https://app.moderne.io/marketplace) offers a UI that allows you to run recipes at scale, create data visualizations, and track progress over time.
+2. The [Moderne Platform](https://app.moderne.io/marketplace) offers a UI that allows you to run recipes at scale, create data visualizations, and track progress over time.
    * Supports over 37,000 open-source projects and organizations for free.
    * Requires a company subscription for private projects.
    * Similar to the CLI, it can handle projects of any size.
+3. (**Not recommended for Moderne customers**) The open-source [Rewrite Maven plugin](https://docs.openrewrite.org/reference/rewrite-maven-plugin) and [Rewrite Gradle plugin](https://docs.openrewrite.org/reference/gradle-plugin-configuration) allow you to run recipes against a **single local project**.
+   * Both plugins are free, open-source, and can be used on any project – without any connection to Moderne.
+   * These plugins build up an **in memory** model of your project for every recipe run (which may be problematic for very large repositories or if you want to run recipes against a considerable number of repositories).
 
 {% hint style="info" %}
 Learn more about [the differences between OpenRewrite and Moderne](https://docs.openrewrite.org/#refactoring-at-scale-with-moderne).
 {% endhint %}
 
-### Exercise 1: Run a recipe from the OpenRewrite recipe catalog against your own project.
+### Exercise 1: Run a recipe against a group of repositories.
 
-To get comfortable running recipes, let's walk through running a recipe from the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) against one of your own projects.
+To get comfortable running recipes, let's walk through using the [Moderne Platform](https://app.moderne.io/marketplace) and/or the [Moderne CLI](../moderne-cli/getting-started/cli-intro.md) to run recipes against a group of repositories.
 
 #### Goals for this exercise
 
-* See what recipes are already available in the OpenRewrite recipe catalog.
+* See what recipes are already available.
 * See the types of changes that can be made to your code.
-* Explore the options available to run recipes against your own project(s).
+* Run a recipe against a group of repositories.
 
 #### Steps
 
-1. Pick a project you'd like to run a recipe against.
-   * Ideally this would be a smallish Java project that uses Maven or Gradle.
-   * If you don't have a project handy, you can use [the Spring PetClinic repository](https://github.com/spring-projects/spring-petclinic).
-2. Ensure you have a fresh checkout of your project, with no uncommitted changes.
-3. Choose a recipe from the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) that you'd like to run.
-   * For example, [upgrade to Java 21](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava21).
-   * Or [order imports](https://docs.openrewrite.org/recipes/java/orderimports).
-   * Or [migrate to AssertJ](https://docs.openrewrite.org/recipes/java/testing/assertj/assertj), from Hamcrest & JUnit.
-   * Resolve [common static analysis issues](https://docs.openrewrite.org/recipes/staticanalysis/commonstaticanalysis), as seen in the [SonarQube rules](https://rules.sonarsource.com/java).
-   * Or apply [Spring Boot 3.x best practices](https://docs.openrewrite.org/recipes/java/spring/boot3/springboot3bestpractices).
-   * Or [optimize your logging statements](https://docs.openrewrite.org/recipes/java/logging/slf4j/slf4jbestpractices).
-   * Any of the other [popular recipes guides](https://docs.openrewrite.org/running-recipes/popular-recipe-guides).
-4. Run the recipe.
-   * If you want to use Maven, Gradle, or the CLI, follow the instructions on the recipe page to run the recipe against your project.
-     * Note that you can run a recipe without changing your build for both [Maven](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-maven-project-without-modifying-the-build) and [Gradle](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-gradle-project-without-modifying-the-build).
-   * If you want to use the Moderne Platform, please note that you need to [sign in with a GitHub account](../moderne-platform/getting-started/running-your-first-recipe.md) before you can run a recipe.
-   * If you want to use the Moderne CLI, you will need to run the [mod build command](../moderne-cli/getting-started/cli-intro.md#build) to serialize the LST of your project before you can `mod run` recipes.
-   * If you want to use the OpenRewrite IntelliJ plugin, you'll want to [create a `rewrite.yml` file](https://www.jetbrains.com/help/idea/openrewrite.html) similar to the one below.
-     * The OpenRewrite IntelliJ IDEA plugin shows a runnable icon next to recipes in a `rewrite.yml` file.
-
-<details>
-
-<summary>Example rewrite.yml file for use with the IntelliJ plugin:</summary>
-
-```yaml
-type: specs.openrewrite.org/v1beta/recipe
-name: org.myUser.MyRecipe
-displayName: My custom recipe
-description: Fix all the things.
-recipeList:
-  - org.openrewrite.java.spring.boot3.SpringBoot3BestPractices
-```
-
-</details>
-
-5. Review the changes made by the recipe, and ensure they are what you expected.
-6. Feel free to commit the changes made by the recipe to a new branch in your project. Or, if you were mainly just testing the recipe, feel free to discard the changes.
-   * As future exercises use this repository, you may find it beneficial to ensure it's in a clean state prior to moving on.
-7. Before we wrap up this exercise, let's take a look at the source code for the recipe you ran. Go back to the recipe page that you found in step 3 and click on the `GitHub` link to view the related source code on GitHub.
-   * See if you can correlate the changes made by the recipe with the code in the recipe.
+1. If you have access to the [Moderne Platform](https://app.moderne.io/marketplace), navigate to it and [follow along with our quickstart guide for running recipes](/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md). If you don't have access, skip to step 2.
+   * Note that, by default, you will be running recipes against a hand-picked group of open-source repositories.
+   * Feel free to explore other recipes that match your interests such as [migrating to Java 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21) or [finding and fixing vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck).
+   * Consider checking out the source code for the recipes by clicking on the triple dots in the top-right hand corner of any recipe and then selecting `View recipe source`:
+      * ![Recipe source link](/.gitbook/assets/view-recipe-source.png)
+2. If you don't have the CLI installed, please follow along with [our instructions for installing and configuring the Moderne CLI](../moderne-cli/getting-started/cli-intro.md#installation-and-configuration).
+3. Once the CLI is installed, please work through [our examples of using the CLI to run recipes](../moderne-cli/getting-started/cli-intro.md#using-the-cli). Please refrain from applying any recipe changes, though - as this may cause issues in future steps.
+   * This will have you run a recipe against a tailored group of open-source repositories and then have you study the results and data tables produced by the recipes. You will use this group of repositories again in future steps as we write and test recipes.
+   * Feel free to explore the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and run other recipes by following the `Moderne CLI` instructions on each recipe page.
+   * Similarly, we'd recommend checking out the source code for the recipes by clicking on the `GitHub` link at the top of each recipe page.
 
 #### Takeaways
 
-* There are over 2500 recipes already available to run that cover a wide range of use cases.
+* There are over 2600 recipes already available to run that cover a wide range of use cases.
 * Recipes can make changes to Java source files, properties files, XML files, build files and more.
-* It's not necessary to change your build to run recipes, but it can be helpful to add the plugins when running recipes repeatedly.
+* It's not necessary to change your build to run recipes.
 * Any recipe page in the docs links to the source code of the recipe on GitHub, so you can see how it's implemented.
 * The tests for the recipe are also available, so you can see how the recipe behaves in various scenarios.
 * The Moderne CLI and Platform allow you to run recipes at scale, to see how recipes behave in practice.
-* Notice how most recipes are packaged into separate rewrite recipe modules, that you add as plugin dependency or provide to the Maven command line via `-Drewrite.recipeArtifactCoordinates`.
-  * There's separate modules for static code analysis, Spring recipes, Java recipes, testing recipes, logging recipes, and [many more under the OpenRewrite GitHub organization](https://github.com/openrewrite/).
 
 If you're specifically interested in migrating Spring Boot applications, check out our [blogpost on migrating to Spring Boot 3.x](https://www.moderne.io/blog/speed-your-spring-boot-3-0-migration). You may also be interested in looking at the [migrate to Spring Boot 3.x recipe](https://docs.openrewrite.org/recipes/java/spring/boot3/springboot3bestpractices).
 
@@ -110,21 +77,22 @@ Now that you've seen how to run recipes, let's look at how to write your own rec
 
 You'll want to have the following installed:
 
-* Java 17 or higher, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks
-  * Recipes use Java 8 source level, such that they can run on Java 8 and higher
-* IntelliJ IDEA Ultimate 2024.1+
-  * In particular [the OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (This comes pre-installed with IntelliJ versions 2024.1 or later)
-  * Optionally, [the Moderne plugin](https://plugins.jetbrains.com/plugin/17565-moderne), for faster recipe development
-* A local git clone of the [rewrite-recipe-starter repository](https://github.com/moderneinc/rewrite-recipe-starter), as a starting point for your own recipe module
-* Optionally, [the Moderne CLI](../moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs
+* Java 17 or higher, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks.
+  * Recipes use Java 8 source level, such that they can run on Java 8 and higher.
+* IntelliJ IDEA Ultimate 2024.1+ (required by the OpenRewrite plugin).
+* The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (This comes pre-installed with IntelliJ versions 2024.1 or later).
+* [The Moderne plugin](../moderne-ide-integration/how-to-guides/moderne-plugin-install.md), for faster recipe development and to help debug recipes.
+* A local git clone of the [rewrite-recipe-starter repository](https://github.com/moderneinc/rewrite-recipe-starter), as a starting point for your own recipe module.
+* [The Moderne CLI](../moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs.
 
-### Exercise 2: Create your own recipe module
+### Exercise 2: Create and test your own recipe module
 
 #### Goals for this exercise:
 
 * Set up a new recipe module in your IDE, based on the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project.
 * Run the unit tests for the recipe module, to ensure everything is set up correctly.
-* Install your recipe module to your local Maven repository, to run it against your own projects.
+* Install your recipe module to your local Maven repository for debugging later.
+* Use the CLI to run different types of recipes against the `Default` group of repositories [you set up earlier](/user-documentation/moderne-cli/getting-started/cli-intro.md#using-the-cli).
 
 #### Steps
 
@@ -138,25 +106,21 @@ You'll want to have the following installed:
 5. (Optional) Customize the project's group ID and artifact ID in the `pom.xml` file, or `build.gradle` and `settings.gradle` file. Also consider updating the Java package names to reflect these changes as well.
    * This helps make the project your own, and allows you to version and share your recipes without conflicts.
    * For the purposes of this workshop, this isn't required, though. Feel free to continue using `com.yourorg` throughout.
-6. Install the project to your local Maven repository.
+6. Install the project to your local Maven repository. This is useful for debugging declarative recipes or for Moderne DX users.
    * Run `mvn install` from the root of the project, or `./gradlew publishToMavenLocal` if you're using Gradle.
    * You should see a message that the project was successfully installed to your local Maven repository.
-7. Run recipe `com.yourorg.UseApacheStringUtils` against your project from Exercise 1.
-   *   You'll need to add a dependency on your recipe module to your project, or provide `-Drewrite.recipeArtifactCoordinates=com.yourorg:rewrite-recipe-starter:LATEST` on the command line:
-
-       ```shell
-       mvn -U org.openrewrite.maven:rewrite-maven-plugin:run \
-         -Drewrite.activeRecipes=com.yourorg.UseApacheStringUtils \
-         -Drewrite.recipeArtifactCoordinates=com.yourorg:rewrite-recipe-starter:LATEST
-       ```
-   * You should see limited changes to your project if you were using JUnit's `Assertions assertEquals(..)` method.
-8. Briefly look over the various recipes and tests in the starter project. We will visit these in more details in upcoming exercises.
+7. Confirm that everything is set up correctly for testing imperative recipes (we'll explain the types of recipes in the next section) by opening up the `AssertEqualsToAssertThat`s class, right-clicking on the class name, and clicking on the `Set Active Recipe` option. Then, hop over to your `workshop` directory (that you set up in the CLI tutorial earlier) in your terminal and run: `mod run . --active-recipe`.
+   * You should see: `Running recipe com.yourorg.AssertEqualsToAssertThat` in the output.
+8. Confirm everything is set up for testing declarative recipes by opening your terminal and navigating to the `/src/main/resources/META-INF/rewrite` directory in the `rewrite-recipe-starter` repo. Then run the command: `mod config recipes yaml install stringutils.yml`. Afterwards, navigate to your `workshop` directory and run: `mod run . --recipe=com.yourorg.UseApacheStringUtils`.
+   * If everything worked correctly, you should see that the recipe was installed from the YAML file and then was recognized by the `mod run` command.
+9. Briefly look over the various recipes and tests in the starter project. We will visit these in more details in upcoming exercises.
 
 #### Takeaways
 
 * The Rewrite recipe starter project is a good starting point for your own recipe module.
 * There are various types of recipes included in the starter project, to give you a feel for how they're implemented.
 * The unit tests in the starter project take in text blocks that assert the state before and after running a recipe.
+* You can quickly test recipes against actual repositories with the CLI.
 
 ## Fundamental concepts
 
@@ -205,7 +169,7 @@ Let's have a look at a simple declarative YAML recipe, and expand that to cover 
 If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor support for writing and running recipes. Some of the below steps will not work for you without this.
 {% endhint %}
 
-1. Open the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project in IntelliJ IDEA
+1. Open the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project in IntelliJ IDEA.
    * You can also compose recipes in [the Moderne Platform recipe builder](https://app.moderne.io/recipes/builder), and run them against open-source projects.
 2. Open the `UseApacheStringUtils` recipe which is defined in a YAML file: [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml).
    * Notice how the file is structured, with a `type`, `name`, `displayName`, `description`, and `recipeList` fields.
@@ -223,42 +187,9 @@ If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor supp
    * The `//language=java` [language injection](https://www.jetbrains.com/help/idea/using-language-injections.html) enables syntax highlighting and code completion in the text block.
    * All together, this asserts that when we run the recipe, code that matches the `before` block will be converted to code that matches the `after` block.
 6. Add a unit test for the `ChangeMethodName` recipe we added that converts `trimWhitespace` to `strip`.
+   * [Here is an example of what this trimWhitespace() test might look like](https://gist.github.com/mike-solomon/b56bcc2d07cb7ada646b0a60dad119e1)
    * Run the new unit test, and verify that the correct changes are indeed made.
-
-<details>
-
-<summary>Example trimWhitespace() test</summary>
-
-```java
-@Test
-void trimWhitespace() {
-    rewriteRun(
-      //language=java
-      java(
-        """
-          import org.springframework.util.StringUtils;
-          
-          class A {
-              boolean test(String s) {
-                  return StringUtils.trimWhitespace(s);
-              }
-          }
-          """,
-        """
-          import org.apache.commons.lang3.StringUtils;
-          
-          class A {
-              boolean test(String s) {
-                  return StringUtils.strip(s);
-              }
-          }
-          """
-      )
-    );
-}
-```
-
-</details>
+7. Feel free to test the recipe against the `Default` repositories. Just remember you'll need to let the CLI know the recipe has been updated by running `mod config recipes yaml install stringutils.yml` again (from the `/rewrite-recipe-starter/src/main/resources/META-INF/rewrite` directory).
 
 #### Takeaways
 
@@ -287,15 +218,16 @@ Let's update the `stringutils.yml` recipe to only run on sources that are likely
 #### Steps
 
 1. Open the `UseApacheStringUtils` YAML file (`src/main/resources/META-INF/rewrite/stringutils.yml`) once again.
-2. Add a `preconditions` field to the recipe, in between the `description` and `recipeList` fields.
+2. Add a `preconditions` field to the recipe, in between the `description` and `recipeList` fields. **Note**: IntelliJ may warn you that this property isn't allowed, but that's [an IntelliJ bug that will hopefully be fixed soon](https://youtrack.jetbrains.com/issue/IDEA-352288/OpenRewrite-file-editor-should-not-give-a-warning-when-using-preconditions).
    * Add a single `org.openrewrite.java.search.IsLikelyTest` recipe to the list of preconditions, with no options.
-   * Ignore the `Schema validation: Property 'precondition' is not allowed` from IntelliJ; it very much is allowed.
+   * [Here's an example of what this recipe looks like with the precondition added](https://gist.github.com/mike-solomon/04287b874e335a5e1b40c529d6f3eab9).
 3. Open the unit test `src/test/java/com/yourorg/UseApacheStringUtilsTest.java`.
-   * Run the tests; verify that neither test makes any changes right now.
+   * Run the tests – they should fail and not make any changes.
    * Add a static import on `org.openrewrite.java.Assertions.srcTestJava`.
    * Wrap the `java(String, String)` methods with `srcTestJava()` to indicate that the sources are tests.
+   * [Here's an example of what this should look like](https://gist.github.com/mike-solomon/84b85e62825e671ff27a5de96c520218).
    * Run the tests again, and verify that they now pass.
-4. Explore other `Find` recipes in the OpenRewrite recipe catalog:
+4. You may be interested in exploring other `Find` recipes in the OpenRewrite recipe catalog. These are often used as preconditions for recipes:
    * [org.openrewrite.FindSourceFiles](https://docs.openrewrite.org/recipes/core/findsourcefiles), to match specific files or directories.
    * [org.openrewrite.java.migrate.search.FindJavaVersion](https://docs.openrewrite.org/recipes/java/migrate/search/findjavaversion), to match specific Java versions.
    * [org.openrewrite.java.search.FindTypes](https://docs.openrewrite.org/recipes/java/search/findtypes), to find type references by name.
@@ -338,7 +270,7 @@ Let's explore the unit tests in the starter project, to see what elements you ca
    * `@Test void editExistingReleaseNotes()` uses an additional `spec -> spec.path(Paths.get("RELEASE.md")` to set the source file, such that the recipe will match.
 2. Open [src/test/java/com/yourorg/AssertEqualsToAssertThatTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/AssertEqualsToAssertThatTest.java).
    * Note how `.parser(JavaParser.fromJavaVersion().classpath("junit-jupiter-api"))` is called on the recipe specification.
-   * Try commenting out the `classpath("junit-jupiter-api")` and run the test.
+   * Comment out `classpath("junit-jupiter-api")` and then run the test.
    * The resulting `java.lang.IllegalStateException: LST contains missing or invalid type information` indicates that the type information is missing, and that the test classpath is likely not correctly set up.
 3. Open [src/test/java/com/yourorg/NoGuavaListsNewArrayListTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/NoGuavaListsNewArrayListTest.java).
    * Read the various comments throughout this test class.
@@ -413,8 +345,7 @@ Let's create a Refaster recipe that standardizes various ways to check if a Stri
    * Read through the test, to get a feel for the cases you should cover.
    * Remove the `@Disabled` annotation, and run the test to see that it fails.
    * Uncomment the `spec.recipe(new StringIsEmptyRecipe());` line, and see that the class is missing.
-2. If you have [the Moderne plugin 4.0+](https://plugins.jetbrains.com/plugin/17565-moderne) for IntelliJ IDEA installed, you can [generate Refaster recipes directly from the IDE](../moderne-ide-integration/moderne-plugin-for-jetbrains-ides/getting-started-with-the-moderne-plugin-for-jetbrains-ides/).
-   * [Right click on any Java element in your editor](../moderne-ide-integration/moderne-plugin-for-jetbrains-ides/code-search-with-the-moderne-plugin-for-jetbrains-ides/), and select "Generate... > Create Recipe (Refaster Style)"
+2. If you have [the Moderne plugin](https://plugins.jetbrains.com/plugin/17565-moderne) for IntelliJ IDEA installed, you can [generate Refaster recipes directly from the IDE](../moderne-ide-integration/how-to-guides/creating-recipes.md).
    * A scratch file will be created that you can customize, and add to your recipe module.
 3. Open the Refaster template [src/main/java/com/yourorg/StringIsEmpty.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/StringIsEmpty.java)
    * Using the knowledge gained in Exercise 6, and the requirements from the test, write a Refaster recipe that matches various ways to check if a String is empty.
@@ -484,13 +415,47 @@ Let's look at an existing imperative recipe in the starter project, and see how 
 * The `maybeAddImport` and `maybeRemoveImport` methods are necessary to ensure that the imports are correctly updated.
 * The `TreeVisitingPrinter` can be used to print the LST elements in more detail, to help you understand the structure of the tree.
 
+## Moderne Plugin for JetBrains IDEs
+
+Moderne offers an IntelliJ IDEA plugin that can not only help you create and debug recipes, but can also assist with your general development experience by allowing you to easily search for code across all of your repositories at once.
+
+### Exercise 9: Using the Moderne plugin
+
+#### Goals for this exercise
+
+* Install and configure the Moderne IntelliJ IDEA plugin
+* Perform a type-aware search across all of your local repositories
+* Create a simple search recipe
+* Debug your recipe, and use the `TreeVisitingPrinter` to see what the LST looks like
+
+#### Steps
+
+1. If you haven't already installed the Moderne IntelliJ IDEA plugin, follow along with our [Moderne plugin installation guide](/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
+   * If you have many repositories checked out locally and want to search across those, please add the root directory as a `Multi-repo`.
+   * If you don't have many repositories checked out locally or would prefer to see what it looks like to add a Moderne organization, please select one of the Moderne organizations (such as `Default` or `Netflix`) in the `Multi-repos` section. Note that if you select `Default`, this is the same `Default` group you used earlier in this workshop.
+2. Open up any Java class in IntelliJ and look for an API that you're interested in searching for (e.g., `System.out.println(..)` or `ListUtils.map(..)`). Then, follow the instructions in our [multi-repository code search doc](/user-documentation/moderne-ide-integration/how-to-guides/code-search.md) to look for that API across all of the repositories you added to the Moderne plugin.
+3. Next, let's create a simple search recipe that finds that API you searched for. Right-click on the API again and select `Refactor > Create OpenRewrite Recipe...`. Then select that you want to create a `Visitor Style` recipe.
+   * For more details on creating recipes with the Moderne plugin, check out our [how to create recipes guide](../moderne-ide-integration/how-to-guides/creating-recipes.md).
+4. You should now have a scratch file that contains a simple recipe. Copy it over to the `rewrite-recipe-starter` repository you were using earlier and add it to the `com.yourorg` package.
+   * [Here's an example of what this might look like for finding System.out.println](https://gist.github.com/mike-solomon/3b49a5d19c8824776bcc4ee871b87cdd)
+5. Right-click on the recipe class name and select `Set Active Recipe`.
+6. Open up your terminal, navigate to your workshop directory, and run the recipe: `mod run . --active-recipe`.
+7. You should see that this recipe ran and marked all the locations in all of the repositories that matched the API you generated the recipe from.
+8. Running the recipe is a great start, but it's always helpful to be able to debug the recipe. [Follow our instructions for using the Moderne plugin to debug recipes](../moderne-ide-integration/how-to-guides/debugging-recipes.md#step-4-debug-your-recipe).
+9. Another useful thing to do when debugging is to [configure the TreeVisitingPrinter](https://docs.openrewrite.org/concepts-explanations/tree-visiting-printer). This will really help you understand the different [Java LST elements](https://docs.openrewrite.org/concepts-explanations/lst-examples).
+   * Follow along with the instructions in that guide and make sure you can see what the LST looks like when it finds a match.
+   * **Note**: you'll need to add `import org.openrewrite.java.TreeVisitingPrinter;` to your import statements in your recipe.
+
+#### Takeaways
+
+* The Moderne plugin allows you to search for APIs quickly and easily across numerous repositories.
+* You can use the Moderne plugin to generate recipes based on an API you see.
+* You can use the CLI in combination with the Moderne plugin to debug recipes.
+* The `TreeVisitingPrinter` is a great way of understanding what the LST looks like.
+
 ## Advanced recipe development
 
 Beyond the basics of writing recipes, there are a number of advanced topics that you might want to explore on your own.
-
-### Working with dependencies
-
-When writing recipes, you might want to add dependencies to your project, to use types from those dependencies in your recipes. When you need to support recipes across multiple major versions, you'll want to look at [using multiple versions of a library in a project](https://docs.openrewrite.org/authoring-recipes/multiple-versions).
 
 ### Scanning recipes
 
@@ -504,20 +469,6 @@ Sometimes you're more interested in extracting insights from across your project
 
 The [src/main/java/com/yourorg/ClassHierarchy.java recipe](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/ClassHierarchy.java) in the starter project is a good example of how to use data tables.
 
-### Debugging recipes
-
-When you're developing recipes, you might want to debug them to see how they behave in practice against real projects.
-
-The Moderne IntelliJ IDEA plugin has support for [running recipes in debug mode](../moderne-ide-integration/how-to-guides/debugging-recipes.md), to see how they behave in practice. This leverages [the Moderne CLI](../moderne-cli/getting-started/cli-intro.md) for recipe runs against a serialized LST, skipping the time-consuming parsing step.
-
-### Running at scale
-
-Once you have your recipes developed, you'll likely want to run them against not just one project, but many projects. You have two main options for this:
-
-1. [The Moderne CLI](../moderne-cli/getting-started/cli-intro.md) is a great way to run recipes across many projects from your local machine. This uses serialized LSTs to allow repeated recipe runs against the same model, and create commits and push up changes across many repositories.
-2. [The Moderne Platform](../moderne-platform/getting-started/running-your-first-recipe.md) allows you to [run recipes against open-source projects](https://app.moderne.io/marketplace), and see how they behave in practice. You can preview the changes and choose to create a pull request, or discard the changes. You can also generate reports and visualizations, and track progress towards migration goals across time through the DevCenter.
-   * Check out the [Apache Maven DevCenter](https://app.moderne.io/devcenter/Apache%20Maven) for an example of goals being tracked and made actionable through recipes.
-
 ## Recipe conventions and best practices
 
 We've documented the most important [recipe conventions and best practices](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices) to help you write recipes that are safe, idempotent, and efficient. Where possible, we've automated these checks in the unit testing framework, to help you catch issues early.
@@ -526,23 +477,9 @@ You can also run best practice recipes against your rewrite recipe module, to re
 
 You can apply these recommendations to your recipes by running the following command:
 
-{% tabs %}
-{% tab title="Gradle" %}
-{% code overflow="wrap" %}
 ```bash
-./gradlew rewriteRun -Drewrite.activeRecipe=org.openrewrite.recipes.OpenRewriteBestPractices
+mod run /path/to/your/recipe --recipe=OpenRewriteBestPractices
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="Maven" %}
-{% code overflow="wrap" %}
-```bash
-mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-recommendations:RELEASE -Drewrite.activeRecipes=org.openrewrite.recipes.OpenRewriteBestPractices
-```
-{% endcode %}
-{% endtab %}
-{% endtabs %}
 
 ## Contributing to OpenRewrite
 
