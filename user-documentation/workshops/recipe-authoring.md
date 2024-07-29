@@ -14,10 +14,10 @@ If you get stuck, or have questions, feel free to ask in the [OpenRewrite Slack]
 
 Before you begin writing your own recipes, you should make sure you are aware of what recipes already exist and how to run them. This is beneficial for two reasons: you won't spend time creating a recipe that someone else has already made, and you will gain a better understanding of how people will actually use any recipe you write.
 
-There are two main locations for discovering recipes: the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and [the Moderne Platform](https://app.moderne.io/marketplace). The former contains all of the information you'll need to run the recipe – whereas the latter is more of a rich viewer that you can run recipes directly from.
+There are two main locations for discovering recipes: the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and [the Moderne Platform](https://app.moderne.io/marketplace). The former contains all the information you'll need to run the recipe – whereas the latter has a richer search and view, that allows you to directly run recipes.
 
 {% hint style="warning" %}
-If you go to the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes), please be aware that, if you are a Moderne customer, you **should not** follow the Gradle and Maven instructions. Those instructions are for the open-source community and are not designed for running recipes at scale. You should, instead, use the Moderne CLI or the Moderne Platform to run recipes. 
+Moderne customers and OSS contributors with access to Moderne **should not** follow the Gradle and Maven instructions listed on [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes). Those instructions are for the wider open-source community and are not designed to run recipes at scale. You should, instead, use the Moderne CLI or the Moderne Platform to run recipes.
 {% endhint %}
 
 There are many ways to run recipes, depending on your needs:
@@ -49,7 +49,7 @@ To get comfortable running recipes, let's walk through using the [Moderne Platfo
 
 #### Steps
 
-1. If you have access to the [Moderne Platform](https://app.moderne.io/marketplace), navigate to it and [follow along with our quickstart guide for running recipes](/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md). If you don't have access, skip this step.
+1. If you have access to the [Moderne Platform](https://app.moderne.io/marketplace), navigate to it and [follow along with our quickstart guide for running recipes](/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md). If you don't have access, skip to step 2.
    * Note that, by default, you will be running recipes against a hand-picked group of open-source repositories.
    * Feel free to explore other recipes that match your interests such as [migrating to Java 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21) or [finding and fixing vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck).
    * Consider checking out the source code for the recipes by clicking on the triple dots in the top-right hand corner of any recipe and then selecting `View recipe source`:
@@ -62,7 +62,7 @@ To get comfortable running recipes, let's walk through using the [Moderne Platfo
 
 #### Takeaways
 
-* There are over 2500 recipes already available to run that cover a wide range of use cases.
+* There are over 2600 recipes already available to run that cover a wide range of use cases.
 * Recipes can make changes to Java source files, properties files, XML files, build files and more.
 * It's not necessary to change your build to run recipes.
 * Any recipe page in the docs links to the source code of the recipe on GitHub, so you can see how it's implemented.
