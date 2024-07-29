@@ -386,7 +386,7 @@ Adding marketplace recipes all happens now within the new Builder experience. Th
 
 ### UI v10.70.0 (2024/02/24)
 
-* visualization width not adjusts when window is resized.
+* visualization width now adjusts when window is resized.
 
 ### UI v10.69.0 (2024/02/24)
 
