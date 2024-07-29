@@ -456,9 +456,8 @@ Moderne offers an IntelliJ IDEA plugin that can not only help you create and deb
 10. You should see that this recipe ran and marked all the locations in all of the repositories that matched the API you generated the recipe from.
 11. Running the recipe is a great start, but it's always helpful to be able to debug the recipe. [Follow our instructions for using the Moderne plugin to debug recipes](../moderne-ide-integration/how-to-guides/debugging-recipes.md#step-4-debug-your-recipe).
 12. Another useful thing to do when debugging is to [configure the TreeVisitingPrinter](https://docs.openrewrite.org/concepts-explanations/tree-visiting-printer). This will really help you understand the different [Java LST elements](https://docs.openrewrite.org/concepts-explanations/lst-examples).
-
-* Follow along with the instructions in that guide and make sure you can see what the LST looks like when it finds a match.
-* **Note**: you'll need to add `import org.openrewrite.java.TreeVisitingPrinter;` to your import statements in your recipe.
+    * Follow along with the instructions in that guide and make sure you can see what the LST looks like when it finds a match.
+    * **Note**: you'll need to add `import org.openrewrite.java.TreeVisitingPrinter;` to your import statements in your recipe.
 
 #### Takeaways
 
