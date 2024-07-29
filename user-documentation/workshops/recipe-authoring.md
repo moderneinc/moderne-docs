@@ -469,6 +469,16 @@ Sometimes you're more interested in extracting insights from across your project
 
 The [src/main/java/com/yourorg/ClassHierarchy.java recipe](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/ClassHierarchy.java) in the starter project is a good example of how to use data tables.
 
+### Traits
+
+LSTs are, traditionally, a very low-level representation of code. However, there are many use cases where you may want some higher-level semantic constructs, but you have no idea of where those should go. 
+
+For example, imagine you had a JSON document that represented the customer list at your business. If you were making recipes that operated on this particular kind of JSON document, you may want to have utility methods that would facilitate that. If you added these methods to a random facilities class, they wouldn't be particularly discoverable. 
+
+Because of that, there's a temptation to put the methods directly onto the classes that represent the LSTs themselves. That poses a problem, though, as we don't want to be continuously expanding the API surface area of these elements. To handle this problem, we have implemented [traits](https://en.wikipedia.org/wiki/Trait_(computer_programming)).
+
+For a full understanding of traits, check out our [code remix session where we introduced traits and explained how to use them](https://docs.moderne.io/user-documentation/community-office-hours#enlightening-lsts-with-traits-july-17th-2024).
+
 ## Recipe conventions and best practices
 
 We've documented the most important [recipe conventions and best practices](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices) to help you write recipes that are safe, idempotent, and efficient. Where possible, we've automated these checks in the unit testing framework, to help you catch issues early.
