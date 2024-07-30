@@ -840,7 +840,7 @@ mod config build bazel timeout edit [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| duration |  |
+| duration |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
 
 ### Options
 
@@ -1146,7 +1146,7 @@ mod config build gradle timeout edit [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| duration |  |
+| duration |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
 
 ### Options
 
@@ -1464,7 +1464,7 @@ mod config build maven timeout edit [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| duration |  |
+| duration |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
 
 ### Options
 
