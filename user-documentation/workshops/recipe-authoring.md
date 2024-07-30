@@ -83,11 +83,10 @@ Now that you've seen how to run recipes, let's look at how to write your own rec
 You'll want to have the following installed:
 
 * Java 17 or higher, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks.
-  * Recipes use Java 8 source level, such that they can run on Java 8 and higher.
+  * Recipes use Java 8 source level, so they can run on Java 8 and higher.
 * IntelliJ IDEA Ultimate 2024.1+ (required by the OpenRewrite plugin).
 * The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (This comes pre-installed with IntelliJ versions 2024.1 or later).
 * [The Moderne plugin](../moderne-ide-integration/how-to-guides/moderne-plugin-install.md), for faster recipe development and to help debug recipes.
-* A local git clone of the [rewrite-recipe-starter repository](https://github.com/moderneinc/rewrite-recipe-starter), as a starting point for your own recipe module.
 * [The Moderne CLI](../moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs.
 
 ### Exercise 2: Create and test your own recipe module
@@ -114,7 +113,7 @@ You'll want to have the following installed:
 6. Install the project to your local Maven repository. This is useful for debugging declarative recipes or for Moderne DX users.
    * Run `mvn install` from the root of the project, or `./gradlew publishToMavenLocal` if you're using Gradle.
    * You should see a message that the project was successfully installed to your local Maven repository.
-7. Confirm that everything is set up correctly for testing imperative recipes (we'll explain the types of recipes in the next section) by opening up the `AssertEqualsToAssertThat`s class, right-clicking on the class name, and clicking on the `Set Active Recipe` option. Then, hop over to your `workshop` directory (that you set up in the CLI tutorial earlier) in your terminal and run: `mod run . --active-recipe`.
+7. Confirm that everything is set up correctly for testing imperative recipes (we'll explain the types of recipes in the next section) by opening up the `AssertEqualsToAssertThat` class, right-clicking on the class name, and clicking on the `Set Active Recipe` option. Then, hop over to your `workshop` directory (that you set up in the CLI tutorial earlier) in your terminal and run: `mod run . --active-recipe`.
    * You should see: `Running recipe com.yourorg.AssertEqualsToAssertThat` in the output.
    * **Note**: You can also test recipes directly from IntelliJ using the Moderne plugin as described in [exercise 9](#exercise-9-using-the-moderne-plugin).
 8. Confirm everything is set up for testing declarative recipes by opening your terminal and navigating to the `/src/main/resources/META-INF/rewrite` directory in the `rewrite-recipe-starter` repo. Then run the command: `mod config recipes yaml install stringutils.yml`. Afterwards, navigate to your `workshop` directory and run: `mod run . --recipe=com.yourorg.UseApacheStringUtils`.
