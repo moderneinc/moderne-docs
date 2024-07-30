@@ -113,7 +113,7 @@ You'll want to have the following installed:
 6. Install the project to your local Maven repository. This is useful for debugging declarative recipes or for Moderne DX users.
    * Run `mvn install` from the root of the project, or `./gradlew publishToMavenLocal` if you're using Gradle.
    * You should see a message that the project was successfully installed to your local Maven repository.
-7. Confirm that everything is set up correctly for testing imperative recipes (we'll explain the types of recipes in the next section) by opening up the `AssertEqualsToAssertThat` class, right-clicking on the class name, and clicking on the `Set Active Recipe` option. Then, hop over to your `workshop` directory (that you set up in the CLI tutorial earlier) in your terminal and run: `mod run . --active-recipe`.
+7. Confirm that everything is set up correctly for testing imperative recipes (we'll explain the types of recipes in the next section) by opening up the `AssertEqualsToAssertThat` class, right-clicking on the class name, and clicking on the `Set Active Recipe` option. Then, open your terminal and navigate to the `workshop` directory (that you set up in the CLI tutorial earlier) and run: `mod run . --active-recipe`.
    * You should see: `Running recipe com.yourorg.AssertEqualsToAssertThat` in the output.
    * **Note**: You can also test recipes directly from IntelliJ using the Moderne plugin as described in [exercise 9](#exercise-9-using-the-moderne-plugin).
 8. Confirm everything is set up for testing declarative recipes by opening your terminal and navigating to the `/src/main/resources/META-INF/rewrite` directory in the `rewrite-recipe-starter` repo. Then run the command: `mod config recipes yaml install stringutils.yml`. Afterwards, navigate to your `workshop` directory and run: `mod run . --recipe=com.yourorg.UseApacheStringUtils`.
@@ -122,7 +122,7 @@ You'll want to have the following installed:
 
 #### Takeaways
 
-* The Rewrite recipe starter project is a good starting point for your own recipe module.
+* The `rewrite-recipe-starter` project is a good starting point for your own recipe module.
 * There are various types of recipes included in the starter project, to give you a feel for how they're implemented.
 * The unit tests in the starter project take in text blocks that assert the state before and after running a recipe.
 * You can quickly test recipes against actual repositories with the CLI.
