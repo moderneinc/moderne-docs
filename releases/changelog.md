@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.134.0 (2024/08/01)
+
+- add authorization support for AzureDevOps
+
 
 ### UI v10.133.0 (2024/07/29)
 
