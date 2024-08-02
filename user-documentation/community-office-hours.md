@@ -34,7 +34,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * You'll notice that the `SetupJavaCaching` recipe is largely implemented through the YAML `FindKey` and `MergeYaml` recipe.
     * One important thing to note is the pattern of "edit-or-add". `MergeYaml` will return a new object rather than updating the existing object. Because of that, you can use referential equality to check if anything has changed after it's run. If nothing changed (i.e., it's referentially the same object as before), then you can add a new key, for instance.
     * Also note that this recipe uses a precondition to limit what source files it runs on.
-  * If you're interested in helping out with recipes like this, please reach out. We definitely could use help creating more recipes for things like GitHub CI.
+  * If you're interested in helping out with recipes like this, please reach out. We definitely could use help creating more recipes for things like GitLab CI.
 
 ### Enlightening LSTs with traits (July 17th, 2024)
 
