@@ -12,7 +12,29 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* Announcements for the week
+  * **Releases**:
+    * [We did a new full release of OpenRewrite (8.32.0)](https://docs.openrewrite.org/changelog/8-32-0-release). Notable changes include:
+      * [Data table exports for Gradle](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v6.17.0)
+      * [The Maven plugin can configure a single recipe from command line arguments](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v5.37.0)
+      * [A ton of fixes in OpenRewrite itself](https://github.com/openrewrite/rewrite/compare/v8.30.0...v8.32.0)
+      * Twelve new contributors across various recipe modules and plugins.
+  * **Shoutout**:
+    * [Quarkus has joined the Commonhaus foundation](https://quarkus.io/blog/quarkus-moving-to-commonhaus/)
+  * **Content**:
+    * [One of our friends in the German open-source community wrote up a nice post about their experiences with OpenRewrite](https://www.linkedin.com/feed/update/urn:li:activity:7222539914280595456/)
+* [We then jumped over to the main topic for the week (which was a last minute change) - looking over JSON and YAML recipes](https://youtu.be/MRHHGxh4rdU?t=570).
+  * We started out by demonstrating [where to find existing YAML recipes](https://app.moderne.io/marketplace/org.openrewrite.yaml).
+  * One of the most common things you'll want to do is find certain YAML entries. To assist with that, we provide a [JsonPathMatcher](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) that helps with matching and identifying keys.
+    * Note that we have our own implementation of JsonPath – and all of the features you may be aware of in other implementations may not be implemented in ours. Feel free to add them, though!
+  * Another powerful recipe worth calling out is the [Merge YAML snippet recipe](https://app.moderne.io/recipes/org.openrewrite.yaml.MergeYaml) – which allows you to merge substantial YAML components together.
+    * We then took a look at some of the [Merge YAML tests](https://github.com/openrewrite/rewrite/blob/main/rewrite-yaml/src/test/java/org/openrewrite/yaml/MergeYamlTest.java) - which demonstrate some of the functionality. For instance, you can use it to [entirely populate a fresh YAML file](https://github.com/openrewrite/rewrite/blob/main/rewrite-yaml/src/test/java/org/openrewrite/yaml/MergeYamlTest.java#L54-L79) or you can [merge a complex block into an existing YAML document while not overriding existing values](https://github.com/openrewrite/rewrite/blob/main/rewrite-yaml/src/test/java/org/openrewrite/yaml/MergeYamlTest.java#L722-L754). In the latter example, you can see that we identified that `name` is the unique key for the YAML list (`objectIdentifyingProperty`) - so the recipe can know when to add something or not.
+  * After that, we took a brief look at the [YAML LST](https://docs.openrewrite.org/concepts-explanations/yaml-lst-examples) – which is much simpler than that Java LST.
+  * To go along with that, we then jumped over to review the code for a YAML recipe. Specifically, the [SetupJavaCaching recipe](https://github.com/openrewrite/rewrite-github-actions/blob/main/src/main/java/org/openrewrite/github/SetupJavaCaching.java) - which is part of a larger collection of [GitHub action recipes](https://docs.openrewrite.org/recipes/github).
+    * You'll notice that the `SetupJavaCaching` recipe is largely implemented through the YAML `FindKey` and `MergeYaml` recipe.
+    * One important thing to note is the pattern of "edit-or-add". `MergeYaml` will return a new object rather than updating the existing object. Because of that, you can use referential equality to check if anything has changed after it's run. If nothing changed (i.e., it's referentially the same object as before), then you can add a new key, for instance.
+    * Also note that this recipe uses a precondition to limit what source files it runs on.
+  * If you're interested in helping out with recipes like this, please reach out. We definitely could use help creating more recipes for things like GitHub CI.
 
 ### Enlightening LSTs with traits (July 17th, 2024)
 
