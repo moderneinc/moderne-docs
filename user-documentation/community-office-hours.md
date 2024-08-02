@@ -297,7 +297,6 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * On top of that, Sam will also be giving a webinar about [the fundamentals of migration engineering 2](https://nofluffjuststuff.com/webinar/117/migration_engineering_w_openrewrite_ii) on June 7th – a follow-up to the previous webinar.
   * **Content**:
     * [We released a blog post about the Moderne IDE plugin](https://www.moderne.io/blog/introducing-the-moderne-ide-plugin-for-jetbrains-intellij-idea). This covers a lot of what we discussed in the last office hours.
-      * If you want a free trial for the Moderne IDE plugin, please fill out [our signup form](https://share.hsforms.com/1cfEbSpZNT8enCckPXmdlmwblnxg).
 * [We then jumped over to the main topic for the week – debugging recipes](https://youtu.be/lNLo6i7SVGI?t=264).
   * Sam gave some brief background on Moderne and how, as a recipe author, it's incredibly beneficial to use Moderne to find examples of similar recipes.
   * [He then jumped over to the first debugging example – improperly setting up the classpath of a Java Template](https://youtu.be/lNLo6i7SVGI?t=422). You may see this as "missing or malformed type information" when you try to run tests.
