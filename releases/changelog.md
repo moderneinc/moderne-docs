@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.136.0 (2024/08/03)
+
+- Bug fixes and other improvements.
+
 ### UI v10.135.0 (2024/08/02)
 
 - Bug fixes and other improvements.
