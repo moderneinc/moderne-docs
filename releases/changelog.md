@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.137.0 (2024/08/05)
+
+- improved tree data grid search
+
 ### UI v10.136.0 (2024/08/03)
 
 - Bug fixes and other improvements.
