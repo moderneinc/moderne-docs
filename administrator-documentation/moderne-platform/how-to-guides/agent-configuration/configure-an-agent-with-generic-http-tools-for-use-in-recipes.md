@@ -4,8 +4,9 @@ You have internal services within your enterprise that you may want to use withi
 
 * Launch Darkly - I want to use a recipe to identify code paths that can no longer be hit due to a Launch Darkly flag that has been turned on for a long time.
 * Security advisory database - I have a security advisory database internally, and I want to use a recipe to identify when my dependencies match a security advisory in my internal database.
+* NPM Registries - I want to run a recipe that performs npm install commands that need to install dependencies from a private registry.&#x20;
 
-Setting up a generic HTTP tool will allow you to use `org.openrewrite.ipc.http.HttpSender` from your internal recipes to call tools inside your environment.[ Example usage of HttpSender](https://github.com/openrewrite/rewrite-generative-ai/blob/357d5f39f22cf47f4d5df417c1ddb6c883dd5c24/src/main/java/org/openrewrite/ai/model/GenerativeCodeEditor.java#L48-L57).
+Setting up a generic HTTP tool will allow you to use `org.openrewrite.ipc.http.HttpSender` from your internal recipes to call tools inside your environment.[ Example usage of HttpSender](https://github.com/openrewrite/rewrite-generative-ai/blob/357d5f39f22cf47f4d5df417c1ddb6c883dd5c24/src/main/java/org/openrewrite/ai/model/GenerativeCodeEditor.java#L48-L57). It also enables the use of `org.openrewrite.nodejs.NpmExecutor` in nodejs recipes allowing the platform to proxy HTTP requests made during npm installs to the registry within your environment. [Example usage of NpmExecutor](https://github.com/moderneinc/rewrite-codemods-ng/blob/main/src/main/java/org/openrewrite/codemods/migrate/angular/NodeBasedRecipe.java#L108-L158).
 
 <figure><img src="../../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
