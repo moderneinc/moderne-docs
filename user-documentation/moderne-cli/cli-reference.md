@@ -145,10 +145,19 @@
 * [**mod config recipes yaml delete**](#mod-config-recipes-yaml-delete)
 * [**mod config scm**](#mod-config-scm)
 * [**mod config scm gitlab**](#mod-config-scm-gitlab)
-* [**mod config scm gitlab base-url**](#mod-config-scm-gitlab-base-url)
-* [**mod config scm gitlab base-url delete**](#mod-config-scm-gitlab-base-url-delete)
-* [**mod config scm gitlab base-url edit**](#mod-config-scm-gitlab-base-url-edit)
-* [**mod config scm gitlab base-url show**](#mod-config-scm-gitlab-base-url-show)
+* ~~[**mod config scm gitlab base-url**](#mod-config-scm-gitlab-base-url-deprecated)~~ (deprecated)
+* ~~[**mod config scm gitlab base-url delete**](#mod-config-scm-gitlab-base-url-delete-deprecated)~~ (deprecated)
+* ~~[**mod config scm gitlab base-url edit**](#mod-config-scm-gitlab-base-url-edit-deprecated)~~ (deprecated)
+* ~~[**mod config scm gitlab base-url show**](#mod-config-scm-gitlab-base-url-show-deprecated)~~ (deprecated)
+* [**mod config scm gitlab base-urls**](#mod-config-scm-gitlab-base-urls)
+* [**mod config scm gitlab base-urls delete**](#mod-config-scm-gitlab-base-urls-delete)
+* [**mod config scm gitlab base-urls edit**](#mod-config-scm-gitlab-base-urls-edit)
+* [**mod config scm gitlab base-urls show**](#mod-config-scm-gitlab-base-urls-show)
+* [**mod config scm bitbucket**](#mod-config-scm-bitbucket)
+* [**mod config scm bitbucket base-urls**](#mod-config-scm-bitbucket-base-urls)
+* [**mod config scm bitbucket base-urls delete**](#mod-config-scm-bitbucket-base-urls-delete)
+* [**mod config scm bitbucket base-urls edit**](#mod-config-scm-bitbucket-base-urls-edit)
+* [**mod config scm bitbucket base-urls show**](#mod-config-scm-bitbucket-base-urls-show)
 * [**mod config user**](#mod-config-user)
 * [**mod config user delete**](#mod-config-user-delete)
 * [**mod config user edit**](#mod-config-user-edit)
@@ -3369,6 +3378,7 @@ mod config scm [subcommands]
 ### Subcommands
 
 * `gitlab`: Configures GitLab.
+* `bitbucket`: Configures Bitbucket.
 
 ## mod config scm gitlab
 
@@ -3386,14 +3396,15 @@ mod config scm gitlab [subcommands]
 
 ### Subcommands
 
-* `base-url`: Configure the base URL.
+* `base-url`: (DEPRECATED) Configure the base URL.
+* `base-urls`: Configure the base URLs.
 
-## mod config scm gitlab base-url
+## mod config scm gitlab base-url (deprecated)
 
-Configure the base URL.
+(DEPRECATED) Configure the base URL.
 
 
-The base URL affects how repository paths and URLs to SCM are constructed.
+(DEPRECATED) use `mod config scm gitlab base-urls` in stead
 
 ### Usage
 
@@ -3411,10 +3422,10 @@ mod config scm gitlab base-url edit "https://acme.com/gitlab-ee/"
 ### Subcommands
 
 * `delete`: Removes base URL customization.
-* `edit`: Configure the base URL.
-* `show`: Displays the configured base URL.
+* `edit`: (DEPRECATED) Configure the base URL.
+* `show`: Displays the configured base URLs.
 
-## mod config scm gitlab base-url delete
+## mod config scm gitlab base-url delete (deprecated)
 
 Removes base URL customization.
 
@@ -3427,12 +3438,12 @@ mod config scm gitlab base-url delete
 
 
 
-## mod config scm gitlab base-url edit
+## mod config scm gitlab base-url edit (deprecated)
 
-Configure the base URL.
+(DEPRECATED) Configure the base URL.
 
 
-
+(DEPRECATED) use `mod config scm gitlab base-urls edit` in stead
 
 ### Usage
 
@@ -3448,15 +3459,179 @@ mod config scm gitlab base-url edit [parameters]
 
 
 
-## mod config scm gitlab base-url show
+## mod config scm gitlab base-url show (deprecated)
 
-Displays the configured base URL.
+Displays the configured base URLs.
 
 
 ### Usage
 
 ```
 mod config scm gitlab base-url show
+```
+
+
+
+## mod config scm gitlab base-urls
+
+Configure the base URLs.
+
+
+The base URLs affects how repository paths and URLs to SCM are constructed.
+
+### Usage
+
+```
+mod config scm gitlab base-urls [subcommands]
+```
+
+### Examples
+
+```
+mod config scm gitlab base-urls edit "https://acme.com/gitlab-ee/"
+```
+
+
+### Subcommands
+
+* `delete`: Removes base URL customization.
+* `edit`: Configure one or more base URLs.
+* `show`: Displays the configured base URLs.
+
+## mod config scm gitlab base-urls delete
+
+Removes base URL customization.
+
+
+### Usage
+
+```
+mod config scm gitlab base-urls delete
+```
+
+
+
+## mod config scm gitlab base-urls edit
+
+Configure one or more base URLs.
+
+
+
+
+### Usage
+
+```
+mod config scm gitlab base-urls edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| baseUrls |  The base URLs to use when determining paths. |
+
+
+
+## mod config scm gitlab base-urls show
+
+Displays the configured base URLs.
+
+
+### Usage
+
+```
+mod config scm gitlab base-urls show
+```
+
+
+
+## mod config scm bitbucket
+
+Configures Bitbucket.
+
+
+
+
+### Usage
+
+```
+mod config scm bitbucket [subcommands]
+```
+
+
+### Subcommands
+
+* `base-urls`: Configure the base URLs.
+
+## mod config scm bitbucket base-urls
+
+Configure the base URLs.
+
+
+The base URLs affects how repository paths and URLs to SCM are constructed.
+
+### Usage
+
+```
+mod config scm bitbucket base-urls [subcommands]
+```
+
+### Examples
+
+```
+mod config scm bitbucket base-urls edit "https://bitbucket.acme.com/stash/"
+```
+
+
+### Subcommands
+
+* `delete`: Removes base URL customization.
+* `edit`: Configure one or more base URLs.
+* `show`: Displays the configured base URLs.
+
+## mod config scm bitbucket base-urls delete
+
+Removes base URL customization.
+
+
+### Usage
+
+```
+mod config scm bitbucket base-urls delete
+```
+
+
+
+## mod config scm bitbucket base-urls edit
+
+Configure one or more base URLs.
+
+
+
+
+### Usage
+
+```
+mod config scm bitbucket base-urls edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| baseUrls |  The base URLs to use when determining paths. |
+
+
+
+## mod config scm bitbucket base-urls show
+
+Displays the configured base URLs.
+
+
+### Usage
+
+```
+mod config scm bitbucket base-urls show
 ```
 
 
