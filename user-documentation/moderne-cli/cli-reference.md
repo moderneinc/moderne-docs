@@ -3321,7 +3321,7 @@ mod config recipes yaml install /path/to/yaml
 
 | Name | Description |
 | ---- | ----------- |
-| path |  The path to the YAML file to install. The YAML file will be copied, so if further modifications to it are made, make sure to reinstall it. |
+| paths |  The path to the YAML file to install. The YAML file will be copied, so if further modifications to it are made, make sure to reinstall it. |
 
 
 
