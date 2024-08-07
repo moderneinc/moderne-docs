@@ -68,6 +68,7 @@
     * [Mass ingest](administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md)
     * [Moderne Agent](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/README.md)
       * [Configuring the Moderne agent](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-configuration.md)
+      * [Configure an agent with Azure DevOps Services](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services.md)
       * [Configure an agent with Bitbucket Data Center access](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-to-agent.md)
       * [Configure an agent with Bitbucket Cloud access](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent.md)
       * [Configure an agent with GitHub](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-github.md)
