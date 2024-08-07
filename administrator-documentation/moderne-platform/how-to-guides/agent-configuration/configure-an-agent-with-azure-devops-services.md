@@ -1,12 +1,10 @@
 # Configure an agent with Azure DevOps Services
 
-In order to view recipe results and commit changes from a recipe back to Azure DevOps Services, you'll need create a Microsoft Entra ID OAuth app and configure the Moderne agent with the appropriate variables.
+In order to view recipe results and commit changes from a recipe back to Azure DevOps Services, you'll need to register a Microsoft Entra ID OAuth app and configure the Moderne agent with the appropriate variables.
 
 {% hint style="info" %}
 Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth and the legacy Azure DevOps OAuth 2.0 models. The Moderne platform only supports the Microsoft Entra ID OAuth model.
 {% endhint %}
-
-#### Prerequisites
 
 ## Azure DevOps Services Configuration
 
@@ -37,7 +35,9 @@ Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth an
 
 ### Step 2: Configure the Moderne Agent
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Azure DevOps Services instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](agent-configuration.md). The client ID, client secret and tenant ID can be found in the Overview page for your OAuth app's registration:
+The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Azure DevOps Services instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](agent-configuration.md).
+
+Values for client ID, client secret and tenant ID can be found in the Overview page for your OAuth app's registration:
 ![](<../../../../.gitbook/assets/azure_oauth_app_registration_overview.png>)
 
 {% hint style="info" %}
@@ -65,7 +65,6 @@ docker run \
 -e MODERNE_AGENT_AZUREDEVOPS_0_OAUTH_CLIENTID=4affd674-286d-423f-b643-7ffe4dec0f53 \
 -e MODERNE_AGENT_AZUREDEVOPS_0_OAUTH_CLIENTSECRET=yourClientSecret \
 -e MODERNE_AGENT_AZUREDEVOPS_0_OAUTH_TENANTID=488bc312-9fdc-43d2-a647-7a7b28066cc4 \
--e MODERNE_AGENT_AZUREDEVOPS_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 # ... Additional variables
 ```
 {% endtab %}
