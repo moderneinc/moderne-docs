@@ -110,12 +110,13 @@ You'll want to have the following installed:
 5. (Optional) Customize the project's group ID and artifact ID in the `pom.xml` file, or `build.gradle` and `settings.gradle` file. Also consider updating the Java package names to reflect these changes as well.
    * This helps make the project your own, and allows you to version and share your recipes without conflicts.
    * For the purposes of this workshop, this isn't required, though. Feel free to continue using `com.yourorg` throughout.
-6. Install the project to your local Maven repository. This is useful for debugging declarative recipes or for Moderne DX users.
+6. Install the project to your local Maven repository & CLI. This is useful for debugging declarative recipes or for Moderne DX users.
    * Run `mvn install` from the root of the project, or `./gradlew publishToMavenLocal` if you're using Gradle.
    * You should see a message that the project was successfully installed to your local Maven repository.
+   * From there make the recipe available to the CLI through `mod config recipes jar install com.yourorg:rewrite-recipe-starter:0.1.0-SNAPSHOT`
+   * **Note**: You can also test recipes directly from IntelliJ using the Moderne plugin as described in [exercise 9](#exercise-9-using-the-moderne-plugin).
 7. Confirm that everything is set up correctly for testing imperative recipes (we'll explain the types of recipes in the next section) by opening up the `AssertEqualsToAssertThat` class, right-clicking on the class name, and clicking on the `Set Active Recipe` option. Then, open your terminal and navigate to the `workshop` directory (that you set up in the CLI tutorial earlier) and run: `mod run . --active-recipe`.
    * You should see: `Running recipe com.yourorg.AssertEqualsToAssertThat` in the output.
-   * **Note**: You can also test recipes directly from IntelliJ using the Moderne plugin as described in [exercise 9](#exercise-9-using-the-moderne-plugin).
 8. Confirm everything is set up for testing declarative recipes by opening your terminal and navigating to the `/src/main/resources/META-INF/rewrite` directory in the `rewrite-recipe-starter` repo. Then run the command: `mod config recipes yaml install stringutils.yml`. Afterwards, navigate to your `workshop` directory and run: `mod run . --recipe=com.yourorg.UseApacheStringUtils`.
    * If everything worked correctly, you should see that the recipe was installed from the YAML file and then was recognized by the `mod run` command.
 9. Briefly look over the various recipes and tests in the starter project. We will visit these in more details in upcoming exercises.
