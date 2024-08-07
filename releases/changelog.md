@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.139.0 (2024/08/07)
+
+- add visualization support for yaml recipes
+
 ### UI v10.138.0 (2024/08/07)
 
 - add new category logos for ff4j, OpenFeature, and Unleash
