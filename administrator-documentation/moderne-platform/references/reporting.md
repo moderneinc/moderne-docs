@@ -26,7 +26,7 @@ To access non-audit-log reports, navigate to `https://<TENANT>.moderne.io/admin/
 
 <figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-These reports can be downloaded using the download button: ![](<../../../.gitbook/assets/image (3) (1) (1) (1).png>)
+These reports can be downloaded using the download button: ![](<../../../.gitbook/assets/image (3) (1) (1) (1) (1).png>)
 
 ## Accessing via the API
 
@@ -54,4 +54,4 @@ The output of `secondDownloadRecipeRunReport` will include a URL which you can t
 
 **Note:** These actions require admin access, and Moderne tokens do not provide admin access (even for platform administrators). You must use your current JWT, accessible by accessing `https://<TENANT>.moderne.io/graphql` and copying the authorization:
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

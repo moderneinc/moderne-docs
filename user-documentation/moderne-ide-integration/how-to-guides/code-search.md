@@ -30,4 +30,4 @@ For more information about creating search recipes using the Moderne plugin, che
 
 If you choose to initiate the search via `Run Find Recipe`, you will immediately see a new Usages window open in the IDE, and a progress bar that shows which repository in the multi-repo the recipe is currently running on. Amazingly, the results of this OpenRewrite recipe have been brought directly back into the IDE and surfaced in the Usages view that engineers are already familiar with.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>No need to learn another user interface. Engineers are already familiar with the Usages view.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>No need to learn another user interface. Engineers are already familiar with the Usages view.</p></figcaption></figure>

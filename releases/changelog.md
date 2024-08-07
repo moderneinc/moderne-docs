@@ -1,36 +1,36 @@
 # Platform changelog
+
 ### UI v10.139.0 (2024/08/07)
 
-- add visualization support for yaml recipes
+* add visualization support for yaml recipes
 
 ### UI v10.138.0 (2024/08/07)
 
-- add new category logos for ff4j, OpenFeature, and Unleash
+* add new category logos for ff4j, OpenFeature, and Unleash
 
 ### UI v10.137.0 (2024/08/05)
 
-- improved tree data grid search
+* improved tree data grid search
 
 ### UI v10.136.0 (2024/08/03)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.135.0 (2024/08/02)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.134.0 (2024/08/01)
 
-- add authorization support for AzureDevOps
-
+* add authorization support for AzureDevOps
 
 ### UI v10.133.0 (2024/07/29)
 
 We have added more quality of life improvements for the new builder:
 
 * add builder keyboard shortcuts\
-  ![](<../.gitbook/assets/image (57).png>)
-* the speed dial menu previously opened on hover but closed on click which made for a few variations of weird interactions.  We have changed the menu so it must be clicked to open and clicked to close making the experience predictable and consistent.  The speed dial menu also has a new icon:\
+  ![](<../.gitbook/assets/image (57) (1).png>)
+* the speed dial menu previously opened on hover but closed on click which made for a few variations of weird interactions. We have changed the menu so it must be clicked to open and clicked to close making the experience predictable and consistent. The speed dial menu also has a new icon:\
   ![](<../.gitbook/assets/image (58).png>)
 * improve builder options' readability and spacing on larger screens
 * Bug fixes and other improvements.
@@ -48,9 +48,9 @@ In this release we have made various improvements to the new builder to increase
 <figure><img src="../.gitbook/assets/layout_swap.png" alt=""><figcaption></figcaption></figure>
 
 * We received feedback that the options were hard to discover. We have begun to address this by making the options panel auto open when the selected recipe has options and also auto expand to fit more options before having to scroll. Note the options have moved to the lower right now:\
-  ![](<../.gitbook/assets/image (2).png>)
+  ![](<../.gitbook/assets/image (2) (4).png>)
 * We found that some users were not aware of the recipe menu and the options available there so we have made the button more visible by adding a label:\
-  <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="original">
+  <img src="../.gitbook/assets/image (1) (1) (3).png" alt="" data-size="original">
 
 ### UI v10.131.0 (2024/07/22)
 
@@ -61,7 +61,7 @@ In this release we have made various improvements to the new builder to increase
 *   In the builder there is now a new menu item **Edit as YAML**\
     This will open a text editor with the current recipe's yaml to edit:\\
 
-    <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 * In the builder you can now edit nest recipe details
 
 ### UI v10.129.0 (2024/07/16)
@@ -93,7 +93,7 @@ In this release we have made various improvements to the new builder to increase
 
 * Builder improvements:
   * add expand/collapse all buttons:\
-    ![](<../.gitbook/assets/image (3).png>)
+    ![](<../.gitbook/assets/image (3) (1).png>)
 
 ### UI v10.126.1 (2024/06/28)
 
@@ -607,7 +607,7 @@ Each of these pages would show only the individual user's activity.\
 \
 We are now providing a comprehensive view of these activities in one single Activity page:
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>The new activity view shows activity across an organization</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>The new activity view shows activity across an organization</p></figcaption></figure>
 
 \
 Here you can see **the most recent activities performed on the selected Organization**. This view will improve how users and teams collaborate. For more information see our [activity view docs](https://docs.moderne.io/user-documentation/getting-started/activity-view).
@@ -957,9 +957,9 @@ To improve the number of recipe results and commit jobs that can be viewed on th
 
 <figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>New <em>Summary</em> tab on Commit job details page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>New <em>Summary</em> tab on Commit job details page</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>Commit job <em>Summary</em> tab example</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>Commit job <em>Summary</em> tab example</p></figcaption></figure>
 
 ### UI v9.167.1 (2023/10/03)
 
@@ -1088,7 +1088,7 @@ To improve the number of recipe results and commit jobs that can be viewed on th
 
 We've done a little tidying up on the recipe run result page. _**Visualizations**_ and _**Data tables**_ can now be accessed from the tabs at the top of the page. You'll find these tabs are also accessible from the respective pages for _Visualizations_ and _Data tables._
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Add dropdown options to share button
 
@@ -1124,7 +1124,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 #### Organization and group selector improvements
 
-![](<../.gitbook/assets/image (3) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png>)
 
 * Highlighted search terms
 * More flexible width and word wrapping when organization names are long.
@@ -1135,7 +1135,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 We now support dynamic form fields for `List` or `string[]` options. Recipes that take a list of strings now have a new editor interface to improve the usability.
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.142.0 (2023/08/15)
 
@@ -1157,7 +1157,7 @@ We now support dynamic form fields for `List` or `string[]` options. Recipes tha
 
 Pan/zoom controls and download options are now available for Visualizations.
 
-* ![](<../.gitbook/assets/image (4) (1) (1) (1) (1).png>)
+* ![](<../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png>)
 
 ### UI v9.138.0 (2023/08/10)
 

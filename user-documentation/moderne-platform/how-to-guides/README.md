@@ -11,3 +11,4 @@
 * [How to use preconditions](preconditions.md)
 * [How to track migration status with Moderne](track-migrations.md)
 * [How to upgrade transitive dependencies](transitive-dependencies.md)
+* [How to find method invocations based on a pattern](how-to-find-method-invocations-based-on-a-pattern.md)

@@ -25,6 +25,7 @@
     * [How to use preconditions](user-documentation/moderne-platform/how-to-guides/preconditions.md)
     * [How to track migration status with Moderne](user-documentation/moderne-platform/how-to-guides/track-migrations.md)
     * [How to upgrade transitive dependencies](user-documentation/moderne-platform/how-to-guides/transitive-dependencies.md)
+    * [How to find method invocations based on a pattern](user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern.md)
   * [References](user-documentation/moderne-platform/references/README.md)
     * [Moderne tokens](user-documentation/moderne-platform/references/moderne-tokens.md)
     * [Creating SCM access tokens](user-documentation/moderne-platform/references/create-scm-access-tokens.md)
