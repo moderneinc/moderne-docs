@@ -92,4 +92,4 @@ java -jar moderne-agent-{version}.jar \
 # ... Additional arguments
 ```
 {% endtab %}
-{% endtabs %}--------
+{% endtabs %}
