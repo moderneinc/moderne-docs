@@ -11,9 +11,9 @@ The Moderne marketplace has two key recipes that can help you find method invoca
 1. [Find method usages](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods)
 2. [Find method invocations that resemble a pattern](https://app.moderne.io/recipes/io.moderne.ai.research.FindCodeThatResembles)
 
-The first recipe, find method usages, uses [method patterns](https://docs.openrewrite.org/reference/method-patterns) to identify the method instead of AI. If you know what method name you're looking for, then this is probably the better recipe to use.
+The first recipe, find method usages, uses [method patterns](https://docs.openrewrite.org/reference/method-patterns) to identify a method. If you know the exact method name you're looking for, then this is recipe you should use.
 
-The second recipe, which is backed by AI, is a better candidate for situations where you are looking for multiple method invocations, without knowing the name or even the library.&#x20;
+The second recipe, which is backed by AI, is a better candidate for situations where you are looking for multiple method invocations, without knowing the name or even the library it comes from.&#x20;
 
 Imagine, for instance, that you wanted to change how you authorize HTTP requests across all over your services. To begin, you'd want to figure out which libraries you use. Do you use Spring's WebClient? OkHttp3? Spring's HttpHeaders? Something else? Rather than needing to know exactly what methods you use and how those methods are defined, you could use this recipe to search for something as simple as `HTTP requests with an authorization header`.&#x20;
 
