@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.138.0 (2024/08/07)
+
+- add new category logos for ff4j, OpenFeature, and Unleash
+
 ### UI v10.137.0 (2024/08/05)
 
 - improved tree data grid search
