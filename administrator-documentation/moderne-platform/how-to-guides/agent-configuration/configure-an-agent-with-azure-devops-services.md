@@ -14,23 +14,23 @@ Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth an
 
 1. Natigate to https://portal.azure.com
 2. Under Azure services, click on **Microsoft Entra ID**
-   ![](<../../../../.gitbook/assets/azure_services_entra_id.png>)
+    * ![](<../../../../.gitbook/assets/azure_services_entra_id.png>)
 3. Click on **App registrations**
-   ![](<../../../../.gitbook/assets/azure_entra_id_app_registrations.png>)
+    * ![](<../../../../.gitbook/assets/azure_entra_id_app_registrations.png>)
 4. Click on **New registration**
 5. In the Register an application form:
     1. Enter "Moderne client OAuth app" or similar in the **Name** field
     2. Select **Single Tenant** under **Supported account types**
     3. In the **Redirect URI** section, enter a Web platform entry with the URL http://localhost:3000
-   ![](<../../../../.gitbook/assets/azure_entra_id_register_an_application.png>)
+        * ![](<../../../../.gitbook/assets/azure_entra_id_register_an_application.png>)
 6. Click **Register**
 7. In the app's Overview page click **Add a certificate or secret**
-   ![](<../../../../.gitbook/assets/azure_oauth_add_client_secret.png>)
+    * ![](<../../../../.gitbook/assets/azure_oauth_add_client_secret.png>)
 8. Click **New client sercret**
 9. In the Add a client secret form:
     1. Enter "Moderne client OAuth app client secret" or similar in the **Description** field
     2. Optionally set a non-default secret expiration in the **Expires** field
-   ![](<../../../../.gitbook/assets/azure_oauth_add_client_secret_form.png>)
+        * ![](<../../../../.gitbook/assets/azure_oauth_add_client_secret_form.png>)
     3. Click **Add**
 
 ## Agent configuration
@@ -80,7 +80,7 @@ docker run \
 * `--moderne.agent.azuredevops[{index}].ssh.privateKey` – _(Optional) The SSH private key used to establish a SSH connection with Azure DevOps._
 * `--moderne.agent.azuredevops[{index}].ssh.passphrase` – **(Required if the SSH private key is specified and encrypted with a passphrase)** _The passphrase used to encrypt the SSH private key._
 * `--moderne.agent.azuredevops[{index}].ssh.sshFileName` – **(Required if the SSH private key is specified)** _The file name of the private key, which the agent will store locally._
-* `--moderne.agent.azuredevops[{index}].ssh.user` – **(Required if the SSH private key is specified)** _The username used for SSH communication with GitHub._
+* `--moderne.agent.azuredevops[{index}].ssh.user` – **(Required if the SSH private key is specified)** _The username used for SSH communication with Azure DevOps._
 
 **Example:**
 
