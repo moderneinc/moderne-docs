@@ -33,7 +33,7 @@
 
 * Use `GitRemote` to determine origin/path and organization parsed from the clone url
 
-### CLI/DX v3.14.3 (2024/08/06)
+### CLI / DX v3.14.3 (2024/08/06)
 
 #### What's Changed CLI
 
