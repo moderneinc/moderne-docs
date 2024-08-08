@@ -6,6 +6,25 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Automate your feature flag life cycle (August 7th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=7KNj5bEZadE" %}
+
+#### Summary and related links
+
+* Announcements for the week
+  * **Upcoming features**:
+    * [New recipe to find and fix vulnerable NPM dependencies](https://github.com/openrewrite/rewrite-nodejs/pull/8)
+    * [New recipe to create software bill of materials](https://github.com/openrewrite/rewrite-java-dependencies/commit/90a31e7ad1a28cb2688023afe2dfb8e3c85058bc)
+    * The next version of the Maven and Gradle plugin will come with optimizations for GitProvenance.
+  * **AI**:
+    * We've recently expanded our AI recipes. One new recipe to call out is the [find method invocations that resemble a pattern recipe](https://app.moderne.io/recipes/io.moderne.ai.research.FindCodeThatResembles). This allows you to describe a method that you want to search for - which we'll then use AI to find matches of. For more information about how to use this, check out our [how to find method invocations based on a pattern guide](/user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern.md).
+* Main topic - feature flags:
+  * You may remember that we [in our Code Remix session with Shannon, we touched upon feature flags and recipes related to them](#oss-contributor-conversation-with-shannon-pamperl-april-24th-2024). The recipes used there were for LaunchDarkly specifically, though. While they _could_ work in some situations for other SDKs, it wasn't ideal. Because of that, [we've added support for additional feature flag SDKs](https://app.moderne.io/marketplace/org.openrewrite.featureflags).
+  * We took a look [at a demo application that uses feature flags](https://github.com/timtebeek/feature-flags). We then walked through an example of replacing one API with another. This entailed doing impact analysis to find where the API was used, writing some code to use the new API behind a feature flag, and creating a recipe to turn on/off it or remove it/add it altogether.
+  * After that we took a look at what feature flag SDKs we support (which you can find in the [rewrite-feature-flags repository](https://github.com/openrewrite/rewrite-feature-flags)). We also briefly looked over the recipes supporting these and talked through how you could add additional functionality.
+
+
 ### Recipes that manipulate JSON and YAML (July 31st, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=MRHHGxh4rdU" %}
