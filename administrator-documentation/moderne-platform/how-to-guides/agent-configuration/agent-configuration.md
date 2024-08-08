@@ -180,6 +180,7 @@ For every SCM that you want to connect to Moderne, please follow the instruction
 
 **SCM configuration:**
 
+* [Azure DevOps Services configuration](configure-an-agent-with-azure-devops-services.md)
 * [Bitbucket Cloud configuration](configure-bitbucket-cloud-to-agent.md)
 * [Bitbucket Data Center configuration](configure-bitbucket-to-agent.md)
 * [GitHub configuration](configure-an-agent-with-github.md)
