@@ -125,3 +125,4 @@
 * [Agent releases](releases/agent-releases.md)
 * [CLI releases](releases/cli-releases.md)
 * [Platform changelog](releases/changelog.md)
+* [CLI / DX changelog](releases/cli-dx.md)
