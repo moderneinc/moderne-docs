@@ -4,7 +4,7 @@ Searching for methods across a code base can not only help you learn more about 
 
 In this guide, we'll give you some background on each of these recipes and then walk through the different ways you might use them.
 
-<figure><img src="../../../.gitbook/assets/ai-code-search.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/AIDoc.gif" alt=""><figcaption></figcaption></figure>
 
 ## Recipes that search for methods
 
