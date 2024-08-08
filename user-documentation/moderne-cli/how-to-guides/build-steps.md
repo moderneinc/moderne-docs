@@ -69,7 +69,11 @@ build:
         **/*
 ```
 
-The order of the steps is important, as any file parsed by one step will be skipped by a subsequent step. In this way, the steps drive the order of precedence of build tools.
+The order of the steps is important, as any file parsed by one step will be skipped by a subsequent step. In this way, the steps drive the order of precedence of build tools.&#x20;
+
+{% hint style="danger" %}
+Be careful if you remove a build step type as that will make it so that build type will never be used. For instance, if you removed the `bazel` build step, Bazel will never be used to build any files -- even if there were Bazel files present. Instead, Bazel files would be parsed with the `resource` parser.
+{% endhint %}
 
 ### Add a resource step to cause files/folders to be skipped by external build tools
 
