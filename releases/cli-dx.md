@@ -1,5 +1,17 @@
 # CLI / DX changelog
 
+### CLI / DX v3.16.2 (2024/08/08)
+
+#### What's Changed CLI
+#### # Bug fixes:
+- use alternate url if the url origin is unknown and alternateUrl has a known origin
+- Use the configured SCM origins when doing metadata only clone
+#### # Features
+* Permit cloning CSV with no branch
+#### What's Changed DX
+Nothing
+
+
 ### CLI / DX v3.16.1 (2024/08/08)
 
 #### What's Changed CLI
