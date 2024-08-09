@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.16.3 (2024/08/09)
+
+#### What's Changed CLI
+#### # Bug fixes
+* Use `DotNet` as LST provenance for C# projects
+#### What's Changed DX
+Nothing
+
+
 ### CLI / DX v3.16.2 (2024/08/08)
 
 #### What's Changed CLI
