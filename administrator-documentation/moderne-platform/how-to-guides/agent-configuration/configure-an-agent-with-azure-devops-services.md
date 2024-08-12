@@ -19,7 +19,7 @@ Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth an
 5. In the Register an application form:
     1. Enter "Moderne client OAuth app" or similar in the **Name** field
     2. Select **Single Tenant** under **Supported account types**
-    3. In the **Redirect URI** section, enter a Web platform entry with the URL http://localhost:3000
+    3. In the **Redirect URI** section, enter a Web platform entry with the URL https://your-domain.moderne.io
         * ![](<../../../../.gitbook/assets/azure_entra_id_register_an_application.png>)
 6. Click **Register**
 7. In the app's Overview page click **Add a certificate or secret**
