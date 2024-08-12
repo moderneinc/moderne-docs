@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.16.4 (2024/08/12)
+
+#### What's Changed
+* Use `to_list()` on `kt_provider.transitive_compile_time_jars`
+
+
 ### CLI / DX v3.16.3 (2024/08/09)
 
 #### What's Changed CLI
