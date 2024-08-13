@@ -20,6 +20,10 @@
 * [**mod config build active-styles edit**](#mod-config-build-active-styles-edit)
 * [**mod config build active-styles show**](#mod-config-build-active-styles-show)
 * [**mod config build bazel**](#mod-config-build-bazel)
+* [**mod config build bazel arguments**](#mod-config-build-bazel-arguments)
+* [**mod config build bazel arguments delete**](#mod-config-build-bazel-arguments-delete)
+* [**mod config build bazel arguments edit**](#mod-config-build-bazel-arguments-edit)
+* [**mod config build bazel arguments show**](#mod-config-build-bazel-arguments-show)
 * [**mod config build bazel executable**](#mod-config-build-bazel-executable)
 * [**mod config build bazel executable delete**](#mod-config-build-bazel-executable-delete)
 * [**mod config build bazel executable edit**](#mod-config-build-bazel-executable-edit)
@@ -196,6 +200,7 @@
 * [**mod git stashset push**](#mod-git-stashset-push)
 * [**mod git sync**](#mod-git-sync)
 * [**mod git sync moderne**](#mod-git-sync-moderne)
+* [**mod git status**](#mod-git-status)
 * [**mod log**](#mod-log)
 * [**mod log builds**](#mod-log-builds)
 * [**mod log builds add**](#mod-log-builds-add)
@@ -702,8 +707,97 @@ mod config build bazel [subcommands]
 
 ### Subcommands
 
+* `arguments`: Configure Bazel build arguments.
 * `executable`: Configure Bazel executable.
 * `timeout`: Configure the build timeout.
+
+## mod config build bazel arguments
+
+Configure Bazel build arguments.
+
+
+Build arguments are added to the end of the Bazel command line when building LSTs.
+
+### Usage
+
+```
+mod config build bazel arguments [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes additional build arguments for Bazel.
+* `edit`: Configure Bazel build arguments.
+* `show`: Displays the configured Bazel additional build arguments.
+
+## mod config build bazel arguments delete
+
+Removes additional build arguments for Bazel.
+
+
+### Usage
+
+```
+mod config build bazel arguments delete
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config build bazel arguments edit
+
+Configure Bazel build arguments.
+
+
+Build arguments are added to the end of the Bazel command line when building LSTs.
+
+### Usage
+
+```
+mod config build bazel arguments edit
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config build bazel arguments show
+
+Displays the configured Bazel additional build arguments.
+
+
+### Usage
+
+```
+mod config build bazel arguments show
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
 
 ## mod config build bazel executable
 
@@ -4043,6 +4137,7 @@ mod git [subcommands]
 * `stashset`: Performs the equivalent of **git stash** on multiple repositories.
 * `stashset`: Performs the equivalent of **git stash** on multiple repositories.
 * `sync`: Synchronizing with Moderne.
+* `status`: Performs the equivalent of **git status** on multiple repositories.
 
 ## mod git add
 
@@ -4670,6 +4765,40 @@ mod git sync moderne /path/to/organization
 | ---- | ----------- |
 | organizationPath |  The directory which contains the organization. |
 
+
+
+## mod git status
+
+Performs the equivalent of **git status** on multiple repositories.
+
+
+Rather than applying **git status** one at a time, this operates on multiple repositories.
+
+### Usage
+
+```
+mod git status [parameters]
+```
+
+### Examples
+
+```
+mod git status /path/to/project
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 
 
 ## mod log
