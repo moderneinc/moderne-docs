@@ -1,7 +1,3 @@
----
-coverY: 0
----
-
 # How to gain a high-level overview of your codebase using clustering
 
 <figure><img src="../../../.gitbook/assets/clustering_methods.gif" alt=""><figcaption></figcaption></figure>
