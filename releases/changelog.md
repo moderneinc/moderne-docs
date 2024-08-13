@@ -1,12 +1,12 @@
 # Platform changelog
+
 ### UI v10.139.2 (2024/08/09)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.139.1 (2024/08/09)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v10.139.0 (2024/08/07)
 
@@ -58,7 +58,7 @@ In this release we have made various improvements to the new builder to increase
 * We received feedback that the options were hard to discover. We have begun to address this by making the options panel auto open when the selected recipe has options and also auto expand to fit more options before having to scroll. Note the options have moved to the lower right now:\
   ![](<../.gitbook/assets/image (2) (4).png>)
 * We found that some users were not aware of the recipe menu and the options available there so we have made the button more visible by adding a label:\
-  <img src="../.gitbook/assets/image (1) (1) (3).png" alt="" data-size="original">
+  <img src="../.gitbook/assets/image (1) (1) (3) (1).png" alt="" data-size="original">
 
 ### UI v10.131.0 (2024/07/22)
 
@@ -1126,7 +1126,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 <div align="left" data-full-width="false">
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt="" width="176"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt="" width="176"><figcaption></figcaption></figure>
 
 </div>
 
