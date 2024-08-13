@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.16.5 (2024/08/13)
+
+#### What's Changed CLI
+* Add DotnetServer.zip to included resources for native build
+* `mod build` improvements for DotNet
+* Remove javax.servlet and jakarta.servlet over license flagging
+
+
 ### CLI / DX v3.16.4 (2024/08/12)
 
 #### What's Changed
