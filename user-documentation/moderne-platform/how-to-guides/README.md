@@ -12,3 +12,4 @@
 * [How to track migration status with Moderne](track-migrations.md)
 * [How to upgrade transitive dependencies](transitive-dependencies.md)
 * [How to find method invocations based on a pattern](how-to-find-method-invocations-based-on-a-pattern.md)
+* [How to gain a high-level overview of your code using clustering](how-to-gain-a-high-level-overview-of-your-codebase-using-clustering.md)
