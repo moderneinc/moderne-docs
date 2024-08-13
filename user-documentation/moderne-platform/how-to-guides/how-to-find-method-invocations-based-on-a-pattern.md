@@ -30,7 +30,7 @@ Please note, though, that this AI recipe is designed to find results even if the
 3. Press `Dry Run` to kick off the recipe.
 4. On the recipe results page, you can click on any repository to see the code that matches the method you specified. For instance, if you searched for `Java.util.List add(..)` – you might see results like:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt="" width="563"><figcaption><p>Find method usages results</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt="" width="563"><figcaption><p>Find method usages results</p></figcaption></figure>
 
 ### Find method invocations that resemble a pattern
 
@@ -51,7 +51,7 @@ The AI search is aware of the arguments inside the method invocation. If you are
 4. With those two options specified, press `Dry Run` to kick off the recipe.
 5. On the recipe results page, you can click on any repository to see the code that matches the method you described. For instance, if you searched for `HTTP Request` - you might see results like:
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt="" width="563"><figcaption><p>Find method invocations that resemble a pattern results</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt="" width="563"><figcaption><p>Find method invocations that resemble a pattern results</p></figcaption></figure>
 
 ## Gain insight from the results
 
