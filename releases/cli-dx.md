@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.17.0 (2024/08/14)
+
+#### What's Changed in CLi
+* Support `--host_jvm_args` for Bazel
+* Add `mod config build bazel arguments` for Bazel
+* Avoid organizations API queries with Azure DevOps types to DX instances that do not support them
+* `mod git status` command
+#### What's Changed in DX
+* Close MvStore DB after each use and retry when opening
+
+
 ### CLI / DX v3.16.5 (2024/08/13)
 
 #### What's Changed CLI
