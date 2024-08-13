@@ -3,6 +3,6 @@
 | Component             | Current version |
 | --------------------- | --------------- |
 | CLI version (Stable)  | 3.11.1          |
-| CLI version (Staging) | 3.16.4          |
+| CLI version (Staging) | 3.16.5          |
 
 * [Moderne CLI reference docs](../user-documentation/moderne-cli/cli-reference.md)

@@ -28,6 +28,11 @@
 * [**mod config build bazel timeout delete**](#mod-config-build-bazel-timeout-delete)
 * [**mod config build bazel timeout edit**](#mod-config-build-bazel-timeout-edit)
 * [**mod config build bazel timeout show**](#mod-config-build-bazel-timeout-show)
+* [**mod config build dotnet**](#mod-config-build-dotnet)
+* [**mod config build dotnet timeout**](#mod-config-build-dotnet-timeout)
+* [**mod config build dotnet timeout delete**](#mod-config-build-dotnet-timeout-delete)
+* [**mod config build dotnet timeout edit**](#mod-config-build-dotnet-timeout-edit)
+* [**mod config build dotnet timeout show**](#mod-config-build-dotnet-timeout-show)
 * [**mod config build gradle**](#mod-config-build-gradle)
 * [**mod config build gradle arguments**](#mod-config-build-gradle-arguments)
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
@@ -59,6 +64,11 @@
 * [**mod config clone protocol delete**](#mod-config-clone-protocol-delete)
 * [**mod config clone protocol edit**](#mod-config-clone-protocol-edit)
 * [**mod config clone protocol show**](#mod-config-clone-protocol-show)
+* [**mod config dotnet**](#mod-config-dotnet)
+* [**mod config dotnet installation**](#mod-config-dotnet-installation)
+* [**mod config dotnet installation edit**](#mod-config-dotnet-installation-edit)
+* [**mod config dotnet installation delete**](#mod-config-dotnet-installation-delete)
+* [**mod config dotnet installation list**](#mod-config-dotnet-installation-list)
 * [**mod config environment**](#mod-config-environment)
 * [**mod config environment show**](#mod-config-environment-show)
 * [**mod config features**](#mod-config-features)
@@ -548,6 +558,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 
 * `build`: Configures build tools used to produce LSTs.
 * `clone`: Configures cloning behavior.
+* `dotnet`: Configures DotNet options used for building LSTs and running recipes.
 * `environment`: The build environment that the CLI is running in.
 * `features`: Configures experimental features.
 * `http`: Configures HTTP options that will be used throughout the CLI.
@@ -577,6 +588,7 @@ mod config build [subcommands]
 
 * `active-styles`: Configure the active styles to use when building LSTs.
 * `bazel`: Configures Bazel as it is used for LST production.
+* `dotnet`: Configures dotnet as it is used for LST production.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
 
@@ -871,6 +883,118 @@ Displays the configured build timeout.
 
 ```
 mod config build bazel timeout show
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config build dotnet
+
+Configures dotnet as it is used for LST production.
+
+
+
+
+### Usage
+
+```
+mod config build dotnet [subcommands]
+```
+
+
+### Subcommands
+
+* `timeout`: Configure the build timeout.
+
+## mod config build dotnet timeout
+
+Configure the build timeout.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool.
+
+### Usage
+
+```
+mod config build dotnet timeout [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured build timeout.
+* `edit`: Configure the timeout for build operations.
+* `show`: Displays the configured build timeout.
+
+## mod config build dotnet timeout delete
+
+Removes the configured build timeout.
+
+
+### Usage
+
+```
+mod config build dotnet timeout delete
+```
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config build dotnet timeout edit
+
+Configure the timeout for build operations.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
+
+### Usage
+
+```
+mod config build dotnet timeout edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| duration |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --local |  Configuration relevant to a specific group of repositories. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| --save |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+
+
+## mod config build dotnet timeout show
+
+Displays the configured build timeout.
+
+
+### Usage
+
+```
+mod config build dotnet timeout show
 ```
 
 ### Options
@@ -1595,6 +1719,96 @@ This set governs all subsequent clone attempts.
 mod config clone protocol show
 ```
 
+
+
+## mod config dotnet
+
+Configures DotNet options used for building LSTs and running recipes.
+
+
+Must be configured before you can run the commands that involve non-standard DotNet configurations.
+
+### Usage
+
+```
+mod config dotnet [subcommands]
+```
+
+
+### Subcommands
+
+* `installation`: Configures locations of DotNet that can be used by build tools.
+
+## mod config dotnet installation
+
+Configures locations of DotNet that can be used by build tools.
+
+
+Must be configured before you can run the build command if DotNet is installed in non-standard locations.
+
+### Usage
+
+```
+mod config dotnet installation [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures locations of DotNet that can be used by build tools.
+* `delete`: Removes the configured DotNet installations. The CLI will revert to using only detectable DotNet installations.
+* `list`: Displays the detected and configured DotNet installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+## mod config dotnet installation edit
+
+Configures locations of DotNet that can be used by build tools.
+
+
+Must be configured before you can run the build command if DotNet is installed in non-standard locations.
+
+### Usage
+
+```
+mod config dotnet installation edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| dotnetInstallations |  The paths on disk where DotNet installations can be found. |
+
+
+
+## mod config dotnet installation delete
+
+Removes the configured DotNet installations. The CLI will revert to using only detectable DotNet installations.
+
+
+### Usage
+
+```
+mod config dotnet installation delete
+```
+
+
+
+## mod config dotnet installation list
+
+Displays the detected and configured DotNet installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+
+### Usage
+
+```
+mod config dotnet installation list
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --named |  Filter the list of DotNet installations to . |
 
 
 ## mod config environment
