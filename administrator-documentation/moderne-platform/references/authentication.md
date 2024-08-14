@@ -29,7 +29,38 @@ Claims are updated each time a principal authenticates through their Identity Pr
 
 #### Authenticating to Moderne
 
-<figure><img src="../../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+```mermaid fullWidth="true"
+sequenceDiagram
+    autonumber
+    box transparent Customer environment
+    actor Customer
+    participant customerIdp as Identity Provider
+    end
+	box transparent Moderne SaaS Platform
+    participant web as Moderne web application
+    participant keycloak as Identity Broker (Keycloak)
+    end
+    Customer->>web: goes to Moderne application in browser
+    web->>web: checks for active session
+    alt has active session
+    web->>Customer: Continues to application with active session
+    else no active session
+    web->>keycloak: redirects to Keycloak for new authentication session
+    keycloak->>customerIdp: redirect to IDP for authentication if required
+    customerIdp->>keycloak: asserts claims (customer identity and roles)
+    keycloak->>web: redirects to Moderne web application
+    web->>keycloak: PKCE challenge verification
+    keycloak->>web: JWT access token and basic OIDC profile information provided
+    web->>Customer: Continues to application with active session
+    end
+
+```
+
+[^1]: An application that provides authentication services to Service Providers (SPs).
+
+[^2]: A process where a user only needs to authenticate once to access multiple applications or systems.
+
+[^3]: An intermediary service that lets you connect with the Identity Providers.
 
 ### Configuring authentication
 
@@ -200,40 +231,3 @@ An [example of a SAML payload](authentication.md#example-idp-saml-response) can 
     </saml:Attribute>
 </saml:AttributeStatement>
 ```
-
-
-
-## Mermaid diagram
-
-```mermaid fullWidth="true"
-sequenceDiagram
-    autonumber
-    box transparent Customer environment
-    actor Customer
-    participant customerIdp as Identity Provider
-    end
-	box transparent Moderne SaaS Platform
-    participant web as Moderne web application
-    participant keycloak as Identity Broker (Keycloak)
-    end
-    Customer->>web: goes to Moderne application in browser
-    web->>web: checks for active session
-    alt has active session
-    web->>Customer: Continues to application with active session
-    else no active session
-    web->>keycloak: redirects to Keycloak for new authentication session
-    keycloak->>customerIdp: redirect to IDP for authentication if required
-    customerIdp->>keycloak: asserts claims (customer identity and roles)
-    keycloak->>web: redirects to Moderne web application
-    web->>keycloak: PKCE challenge verification
-    keycloak->>web: JWT access token and basic OIDC profile information provided
-    web->>Customer: Continues to application with active session
-    end
-
-```
-
-[^1]: An application that provides authentication services to Service Providers (SPs).
-
-[^2]: A process where a user only needs to authenticate once to access multiple applications or systems.
-
-[^3]: An intermediary service that lets you connect with the Identity Providers.
