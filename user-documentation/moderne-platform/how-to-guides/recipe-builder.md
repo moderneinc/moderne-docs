@@ -1,4 +1,4 @@
-# Create custom recipes with the recipe builder
+# (Legacy) Create custom recipes with the old recipe builder
 
 Have you found a recipe in Moderne where you only want to run certain parts of it? Or have you found a few recipes that you want to combine into one larger recipe? Or maybe you want to run a bunch of recipes in a specific order?
 
