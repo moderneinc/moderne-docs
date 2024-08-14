@@ -1,6 +1,6 @@
 # How to guides
 
-* [Create custom recipes with the recipe viewer](./new-recipe-builder.md)
+* [Create custom recipes with the recipe builder](./new-recipe-builder.md)
 * [Introduction to type-aware code search](introduction-to-type-aware-code-search.md)
 * [Moderne Recipe catalog search](moderne-platform-search.md)
 * [Recipe execution and commits with the Moderne API](recipe-execution-and-commits-with-graphql.md)
