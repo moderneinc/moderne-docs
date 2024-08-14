@@ -1,6 +1,6 @@
 # How to guides
 
-* [Create custom recipes with the recipe builder](recipe-builder.md)
+* [Create custom recipes with the recipe viewer](./new-recipe-builder.md)
 * [Introduction to type-aware code search](introduction-to-type-aware-code-search.md)
 * [Moderne Recipe catalog search](moderne-platform-search.md)
 * [Recipe execution and commits with the Moderne API](recipe-execution-and-commits-with-graphql.md)
@@ -13,3 +13,4 @@
 * [How to upgrade transitive dependencies](transitive-dependencies.md)
 * [How to find method invocations based on a pattern](how-to-find-method-invocations-based-on-a-pattern.md)
 * [How to gain a high-level overview of your code using clustering](how-to-gain-a-high-level-overview-of-your-codebase-using-clustering.md)
+* [(Legacy) Create custom recipes with the old recipe builder](recipe-builder.md)
