@@ -30,6 +30,9 @@ Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth an
     2. Optionally set a non-default secret expiration in the **Expires** field
         * ![](<../../../../.gitbook/assets/azure_oauth_add_client_secret_form.png>)
     3. Click **Add**
+10. Under Manage, click on **API permissions**
+    1. Add Azure DevOps permissions for **vso.code_manage** and **vso.graph**
+    * ![](<../../../../.gitbook/assets/azure_oauth_add_api_permissions.png>)
 
 ## Agent configuration
 
