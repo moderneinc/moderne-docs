@@ -6,6 +6,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Using OpenRewrite with IntelliJ IDEA (August 14th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=HnkzHkH5-0c" %}
+
+#### Summary and related links
+
+Coming soon!
+
 ### Automate your feature flag life cycle (August 7th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=7KNj5bEZadE" %}
