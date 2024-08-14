@@ -42,6 +42,22 @@ To create a custom recipe you will need to:
 
 9. Victory!
 
+## How to save and share custom recipes
+
+When you're ready to save or share your custom recipe with others, you can do so by clicking on the `Recipe` button in the top-left corner and selecting either `Download YAML` or `Copy as YAML to clipboard`:
+
+![Saving or sharing a recipe](/.gitbook/assets/save-recipe.png)
+
+Clicking on either of these will convert the recipe into a YAML file that you can then share with others.
+
+## How to import custom recipes
+
+If you want to import a recipe from a YAML file you can do so by clicking on the `Recipe` button in the top-left corner and clicking on `Import from YAML` in the drop-down:
+
+![Import a recipe](/.gitbook/assets/import-from-yaml.png)
+
+This will open a YAML editor that you can then paste a recipe into. Once you've confirmed it's the recipe you want, press the `Import` button in the bottom-right corner to import it.
+
 ## How to use the 3D viewer
 
 ### How to add/edit/remove recipes or preconditions
