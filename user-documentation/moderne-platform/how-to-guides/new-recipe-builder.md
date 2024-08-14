@@ -37,6 +37,7 @@ To create a custom recipe you will need to:
 7. After you select a recipe, the 3D recipe viewer and recipe list side panel will be updated to include that recipe and all of its sub-recipes. Feel free to add more recipes or edit the ones you've included. For more detailed instructions in how to use the 3D recipe viewer or the recipe list panel, [jump down in this doc](#how-to-use-the-3d-viewer). 
 
 8. Once you've got your recipe into the place you want it, you can run it by  pressing the `Dry Run` button at the top of your screen:
+
     ![Dry run button](/.gitbook/assets/recipe-dry-run.png)
 
 9. Victory!
