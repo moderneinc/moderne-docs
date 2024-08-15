@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.17.1 (2024/08/15)
+
+#### What's Changed in CLI
+* Update JacksonXML dependency to 2.17.2
+* Increase recipe run execution timeout
+#### What's Changed in DX
+Nothing
+
+
 ### CLI / DX v3.17.0 (2024/08/14)
 
 #### What's Changed in CLi
