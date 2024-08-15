@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.140.0 (2024/08/15)
+
+- improve recipe selector
+- move builder dialogs
+
 
 ### UI v10.139.2 (2024/08/09)
 
