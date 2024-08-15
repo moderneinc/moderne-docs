@@ -12,7 +12,38 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* Announcements for the week
+  * **Releases**:
+    * [We did a new full release of OpenRewrite (8.33.4)](https://docs.openrewrite.org/changelog/8-33-4-release).
+      * We are now better able to handle larger projects. Also, we've started working towards supporting Azure DevOps and .Net.
+    * [We recommend you use the rewrite-recipe-bom to align all of your versions](https://github.com/openrewrite/rewrite-recipe-bom/releases/tag/v2.17.0)
+    * [There's a new rewrite recipe module: rewrite-reactive-streams](https://github.com/openrewrite/rewrite-reactive-streams).
+      * This is now included with Spring Boot upgrades.
+    * [Rewrite-micrometer is now also included with Spring Boot upgrades](https://github.com/openrewrite/rewrite-spring/releases/tag/v5.17.0)
+    * [There were a ton of fixes and additions to rewrite-testing-frameworks](https://github.com/openrewrite/rewrite-testing-frameworks/releases/tag/v2.16.0)
+      * Notably, there were a lot of new recipes around AssertJ migrations.
+    * [There were usability improvements for rewrite-kubernetes](https://github.com/openrewrite/rewrite-kubernetes/compare/v2.7.2...v2.8.1)
+      * We now show which elements are missing and no longer show false positives on other files.
+    * [Rewrite-gradle-plugin](https://github.com/openrewrite/rewrite-gradle-plugin/compare/v6.17.0...v6.20.0) and [rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin/compare/v5.37.0...v5.39.0) are faster on larger projects and have a variety of other nice changes.
+  * **External recipes**:
+    * Amazon has their own OpenRewrite recipes that they create and managed. [They've released a preview of the migration tool they've created with OpenRewrite](https://aws.amazon.com/blogs/developer/preview-release-of-the-migration-tool-for-the-aws-sdk-for-java-2-x/).
+  * **Events**
+    * [Tim will be presenting at Devoxx Belgium in October](https://devoxx.be/schedule/speaker-details/?id=3951).
+      * He'll be giving a workshop on OpenRewrite and Refaster.
+    * [Mike Solomon will be doing a webinar with GitBook on September 17th about how we use CI/CD to generate many of our docs](https://www.gitbook.com/events/gitbook-moderne-september-24).
+* We then welcomed [Marit van Dijk](https://github.com/mlvandijk) and began our main topic for the week – OpenRewrite + IntelliJ IDEA.
+  * Marit is a developer advocate and Java Champion from JetBrains. She's good friends with Tim and they've been traveling to many of the same conferences together – where they would both talk about IntelliJ IDEA and OpenRewrite.
+  * Marit started off by demonstrating how you can create a [declarative YAML](https://docs.openrewrite.org/reference/yaml-format-reference) OpenRewrite recipe inside of IntelliJ IDEA:
+    * ![Creating an OpenRewrite recipe inside of IntelliJ IDEA](/.gitbook/assets/create-recipe-intellij.png)
+  * The editor has a lot of nice features such as code-completion, the ability to inline recipes (so you can see everything they do), and a built-in recipe runner – so you can run the recipe directly on your code from inside of the IDE.
+  * After creating a recipe, Marit demonstrated using the [JetBrains AI assistant](https://www.jetbrains.com/ai/) to generate a commit message and summarize what happened.
+  * Next up, we took a look at what happens when you open a project with an old version of Spring Boot in IntelliJ IDEA. In the top-right hand corner of your `pom.xml` file, the OpenRewrite logo will pop up and suggest OpenRewrite Spring Boot recipes that you can run to upgrade your project for you.
+    * We briefly touched upon _why_ you should consider upgrading to the latest version: performance improvements, new features, security, etc.
+    * We also talked about the fact that you can break up the OpenRewrite recipes into their smaller components – so you don't _have_ to do the entire migration to the latest Spring Boot version all at once. You can do a few recipes at a time (maybe start with migrating to JUnit 5) and build up confidence in them before going further.
+  * After that, we took a look at how IntelliJ IDEA can automatically detect outdated dependencies. As part of that, it can suggest OpenRewrite recipes to run to fix them or it can link you to the related security issues with your current version.
+    * If you want to learn more about the vulnerabilities, you can open up the vulnerable dependencies tab to get even more details about what's wrong.
+  * We then took a look at the [package search plugin](https://plugins.jetbrains.com/plugin/12507-package-search) – which will show you all of your dependencies and let you know whether you can upgrade them or change their version.
+  * Tim then briefly demonstrated using the [Moderne plugin](https://plugins.jetbrains.com/plugin/17565-moderne) to create and run recipes from inside of IntelliJ IDEA. 
 
 ### Automate your feature flag life cycle (August 7th, 2024)
 
