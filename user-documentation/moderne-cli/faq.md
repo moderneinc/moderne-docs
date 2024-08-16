@@ -24,3 +24,14 @@ On Windows machines, you may [run into issues cloning repositories with deep fil
 ```bash
 git config --system core.longpaths true
 ```
+
+## Parse errors while building
+
+If you run into parse errors while building, please run the [org.openrewrite.FindParseFailures recipe](https://docs.openrewrite.org/recipes/core/findparsefailures). This will produce a data table that contains a row for each parse failure. 
+
+To run this recipe and generate this data table with the CLI, please run the following command:
+
+```bash
+mod run . --recipe FindParseFailures
+mod study . --last-recipe-run --data-table org.openrewrite.table.ParseFailures
+```
