@@ -889,6 +889,17 @@ mod exec . --last-recipe-run -- gh pr create --title "refactor: Apply AssertJ be
 mod git push . --recipe-run <id> --repository-branch main
 ```
 
+### Debugging parse errors
+
+If you run into parse errors while building, please run the [org.openrewrite.FindParseFailures recipe](https://docs.openrewrite.org/recipes/core/findparsefailures). This will produce a data table that contains a row for each parse failure. 
+
+To run this recipe and generate this data table with the CLI, please run the following command:
+
+```bash
+mod run . --recipe FindParseFailures
+mod study . --last-recipe-run --data-table org.openrewrite.table.ParseFailures
+```
+
 ## Additional information
 
 If you want to learn more about the Moderne CLI, we'd encourage you to check out the follow docs:
