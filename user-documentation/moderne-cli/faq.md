@@ -35,3 +35,9 @@ To run this recipe and generate this data table with the CLI, please run the fol
 mod run . --recipe FindParseFailures
 mod study . --last-recipe-run --data-table org.openrewrite.table.ParseFailures
 ```
+
+## Failed to apply patch: Cannot apply: HunkHeader
+
+If you experience this issue when running `mod git apply`, please try committing/stashing/reverting the unsaved changes before running `mod git apply` again.
+
+If that doesn't work, and you keep running into issues with this, please contact [support@moderne.io](mailto:support@moderne.io) and provide us with the `fix.patch` file and the target files (ideally reduced to the minimum need to replicate the issues).
