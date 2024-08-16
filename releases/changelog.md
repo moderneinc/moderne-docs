@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.141.0 (2024/08/16)
+
+- handle 401 errors where accessToken is still unexpired
+
 ### UI v10.140.0 (2024/08/15)
 
 - improve recipe selector
