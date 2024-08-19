@@ -1,5 +1,15 @@
 # CLI / DX changelog
 
+### CLI / DX v3.17.2 (2024/08/19)
+
+#### What's Changed in CLI
+* Add `mod config run timeout` subcommand to configure recipe run timeouts
+* Idempotent publish of LSTs
+* Add `--last-recipe-run` to `mod run` for repeated runs
+#### What's Changed in DX
+Nothing
+
+
 ### CLI / DX v3.17.1 (2024/08/15)
 
 #### What's Changed in CLI
