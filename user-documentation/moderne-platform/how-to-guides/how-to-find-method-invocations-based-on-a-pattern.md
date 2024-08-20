@@ -1,4 +1,4 @@
-# How to find method invocations based on a pattern
+# How to find method invocations based on a pattern using AI
 
 Searching for methods across a code base can not only help you learn more about how a particular method functions or how it's used in code, but it can also enable you to perform impact analysis across all of your repositories to see what depends on what. While this is normally a tricky problem due to the limitations of text-based searching, Moderne offers two recipes that allow you to easily and quickly search for methods – even if you don't know the exact name or parameters they're composed of.
 
@@ -30,7 +30,7 @@ Please note, though, that this AI recipe is designed to find results even if the
 3. Press `Dry Run` to kick off the recipe.
 4. On the recipe results page, you can click on any repository to see the code that matches the method you specified. For instance, if you searched for `Java.util.List add(..)` – you might see results like:
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt="" width="563"><figcaption><p>Find method usages results</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt="" width="563"><figcaption><p>Find method usages results</p></figcaption></figure>
 
 ### Find method invocations that resemble a pattern
 
@@ -51,21 +51,21 @@ The AI search is aware of the arguments inside the method invocation. If you are
 4. With those two options specified, press `Dry Run` to kick off the recipe.
 5. On the recipe results page, you can click on any repository to see the code that matches the method you described. For instance, if you searched for `HTTP Request` - you might see results like:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt="" width="563"><figcaption><p>Find method invocations that resemble a pattern results</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt="" width="563"><figcaption><p>Find method invocations that resemble a pattern results</p></figcaption></figure>
 
 ## Gain insight from the results
 
 After running each of these recipes, you may want to view the results in a different way or learn more about why certain results were or were not included. To assist with this goal, Moderne offers a few data tables and visualizations you can run with the recipe results. Let's take a look at a few of them. You can find these by clicking on the `Visualization` or `Data tables` tab at the top of the recipe results page:
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Find uses of method in code
 
 The find uses of method in code visualization creates a table of all the methods that match the method pattern you specified. It will give you the exact file location where a method was found and a snippet of the source code that matched. You can search for specific files or results – or you can download it as a CSV to run your own analytics against the results.
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Find uses of method in code using AI
 
@@ -73,7 +73,7 @@ This visualization uses AI to return method patterns found in your code that mat
 
 <figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 You could then take this method pattern and plug it in to the [find method usages recipe](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods) to find results that match just that pattern. Or, if you wanted to create a recipe that will find _all_ of the results that match the method patterns returned here, [we provide a visualization to assist with that](how-to-find-method-invocations-based-on-a-pattern.md#generate-a-search-recipe-from-the-ai-results).
 
