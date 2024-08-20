@@ -4881,8 +4881,19 @@ mod git sync moderne /path/to/organization
 
 | Name | Description |
 | ---- | ----------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
 | organizationPath |  The directory which contains the organization. |
 
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
+| --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |  |
+| --recipe-run |  A recipe run ID listed by **mod run-history** |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br><br>Supports partial matches (e.g., if the origin is _git@github.com:foo/bar_ - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br><br>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 
 
 ## mod git status
