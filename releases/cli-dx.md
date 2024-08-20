@@ -4,6 +4,14 @@
 
 #### What's Changed CLI
 * Allow `mod git sync moderne` to convert a metadata clone to a full clone
+
+This requires a slight change to how `mod git sync moderne` is used. 
+Previously we would keep the same type (metadata or full) clone as the original clone command.
+Now, to keep a clone as a metadata only type when using `mod git sync moderne` you have to supply the `--metdata(-only)` option. 
+If the option is not supplied the clone will become a full clone if it is not already.
+Switching from a full clone to a metadata only clone is not supported.
+
+
 * Add milliseconds to LST jar name to avoid collisions
 * Add publish LST partial success handling
 * Replace default compliant with N/A in DevCenter
