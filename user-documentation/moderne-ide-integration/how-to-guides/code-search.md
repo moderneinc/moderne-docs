@@ -26,8 +26,8 @@ This opens a small menu which allows you to do three things:
 For more information about creating search recipes using the Moderne plugin, check out our [recipe creation guide](creating-recipes.md).
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="563"><figcaption><p><code>Run Find Recipe</code> kicks off a recipe run using OpenRewrite's <code>Find method usages</code>.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="563"><figcaption><p><code>Run Find Recipe</code> kicks off a recipe run using OpenRewrite's <code>Find method usages</code>.</p></figcaption></figure>
 
 If you choose to initiate the search via `Run Find Recipe`, you will immediately see a new Usages window open in the IDE, and a progress bar that shows which repository in the multi-repo the recipe is currently running on. Amazingly, the results of this OpenRewrite recipe have been brought directly back into the IDE and surfaced in the Usages view that engineers are already familiar with.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>No need to learn another user interface. Engineers are already familiar with the Usages view.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>No need to learn another user interface. Engineers are already familiar with the Usages view.</p></figcaption></figure>

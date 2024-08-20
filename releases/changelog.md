@@ -1,13 +1,19 @@
 # Platform changelog
+
 ### UI v10.141.0 (2024/08/16)
 
-- handle 401 errors where accessToken is still unexpired
+* handle 401 errors where accessToken is still unexpired
 
 ### UI v10.140.0 (2024/08/15)
 
-- improve recipe selector
-- move builder dialogs
+#### Builder
 
+In efforts to provide more details in dialog we needed more space we have changed the builder dialogs so that they are the width of the main content area and positioned accordingly:\
+![](<../.gitbook/assets/image (5).png>)
+
+We have improved recipe selector so that the recipe description is visible to give the added context to users when constructing recipes:
+
+![](<../.gitbook/assets/image (4).png>)
 
 ### UI v10.139.2 (2024/08/09)
 
@@ -19,15 +25,21 @@
 
 ### UI v10.139.0 (2024/08/07)
 
-* add visualization support for yaml recipes
+We have added a new visualization mime type: &#x20;
+
+`application/vnd.moderne.yamlrecipe+json`
+
+This new mime type allows visualization notebook authors the ability to generate and then provide a base64 encoded yaml recipe as output.  The resulting visualization in Moderne will be the yaml recipe rendered in an editor with a recipe dry run button ready for users to use. An example can be found in the [find\_methods\_ai\_generte\_yaml.ipynb](https://github.com/moderneinc/moderne-visualizations-misc/blob/main/moderne\_visualizations\_misc/find\_methods\_ai\_generate\_yaml.ipynb) notebook.
 
 ### UI v10.138.0 (2024/08/07)
 
-* add new category logos for ff4j, OpenFeature, and Unleash
+* add new category logos for ff4j, OpenFeature, and Unleash to support the new feature flag recipes\
+  ![](<../.gitbook/assets/image (3).png>)
 
 ### UI v10.137.0 (2024/08/05)
 
-* improved tree data grid search
+* visualizations that use the data tree grid output now have search highlighting built in\
+  ![](<../.gitbook/assets/image (2).png>)
 
 ### UI v10.136.0 (2024/08/03)
 
@@ -39,7 +51,13 @@
 
 ### UI v10.134.0 (2024/08/01)
 
-* add authorization support for AzureDevOps
+* add authorization support for Azure DevOps.  See how to [setup your agent to connect to Azure DevOps ](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services)
+
+<div align="left">
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="108"><figcaption></figcaption></figure>
+
+</div>
 
 ### UI v10.133.0 (2024/07/29)
 
@@ -110,7 +128,7 @@ In this release we have made various improvements to the new builder to increase
 
 * Builder improvements:
   * add expand/collapse all buttons:\
-    ![](<../.gitbook/assets/image (3) (1).png>)
+    ![](<../.gitbook/assets/image (3) (1) (1).png>)
 
 ### UI v10.126.1 (2024/06/28)
 
@@ -144,7 +162,7 @@ UI v10.125.2 (2024/06/26)
 
 *   We have added dynamic controls to tree items in the tree view of the new builder. These controls will appear when interacting with the tree items:\\
 
-    <figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.123.0 (2024/06/17)
 
@@ -189,7 +207,7 @@ UI v10.125.2 (2024/06/26)
 
 *   When selecting subtrees in the new builder other nodes are now deemphasized to improve visual clarity of the selection:
 
-    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.118.0 (2024/05/31)
 
@@ -199,11 +217,11 @@ UI v10.125.2 (2024/06/26)
 ### UI v10.117.0 (2024/05/30)
 
 * Grids will now show more context regarding pagination:\
-  <img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" data-size="line">
+  <img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" data-size="line">
 * In the new builder the tree view has been improved visually to increase clarity and now has a new auto scroll mechanic which should be more consistent than the previous:\
   ![](<../.gitbook/assets/image (41).png>)
 * In the new builder the scene control buttons have been redesigned and relocated to the lower left of the scene:\
-  ![](<../.gitbook/assets/image (1) (1) (1) (1) (1).png>)
+  ![](<../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png>)
 
 UI v10.116.0 (2024/05/23)
 
@@ -678,7 +696,7 @@ Previous:
 
 <div data-full-width="true">
 
-<img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="">
+<img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="">
 
 </div>
 
@@ -1105,7 +1123,7 @@ To improve the number of recipe results and commit jobs that can be viewed on th
 
 We've done a little tidying up on the recipe run result page. _**Visualizations**_ and _**Data tables**_ can now be accessed from the tabs at the top of the page. You'll find these tabs are also accessible from the respective pages for _Visualizations_ and _Data tables._
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Add dropdown options to share button
 
@@ -1135,13 +1153,13 @@ Now you can see the latest version number of the CLI before downloading.
 
 <div align="left" data-full-width="false">
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt="" width="176"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="176"><figcaption></figcaption></figure>
 
 </div>
 
 #### Organization and group selector improvements
 
-![](<../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png>)
 
 * Highlighted search terms
 * More flexible width and word wrapping when organization names are long.
@@ -1152,7 +1170,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 We now support dynamic form fields for `List` or `string[]` options. Recipes that take a list of strings now have a new editor interface to improve the usability.
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v9.142.0 (2023/08/15)
 
@@ -1174,7 +1192,7 @@ We now support dynamic form fields for `List` or `string[]` options. Recipes tha
 
 Pan/zoom controls and download options are now available for Visualizations.
 
-* ![](<../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png>)
+* ![](<../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png>)
 
 ### UI v9.138.0 (2023/08/10)
 

@@ -69,17 +69,17 @@ The Bazel command that the Moderne CLI is executing is logged at this path relat
 
 At the end of build, a manifest is created that itemizes each file that is contained in the LST and how it was parsed. A sure sign that the Bazel rule configuration is not correctly identfying Java source sets is a series of Java file entries in the manifest that are listed as "Quarks", as seen in the image below.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>A manifest showing a LST produced with a misconfigured Bazel rule.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption><p>A manifest showing a LST produced with a misconfigured Bazel rule.</p></figcaption></figure>
 
 A quark is an LST type that simply indicates the presence of a file, but does not keep its contents. Java-specific recipes will not operate on Quarks to make changes.
 
 The Moderne CLI augments the build with an Aspect that emits information on matching rules into a file in `bazel-out/<ARCH>/bin/<RULE>.compilation_info.json`.
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>A compilaton_info.json written for the <code>java-maven-lib</code> Bazel rule.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>A compilaton_info.json written for the <code>java-maven-lib</code> Bazel rule.</p></figcaption></figure>
 
 The JSON structure is easily human readable, and gives insight into the Moderne CLI's understanding of the Java source files that the rule is responsible for and the classpath that should be used to parse those source files.
 
-<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>Expect any file in the <code>srcs</code> list to show up in the manifest.csv as a <code>J.CompilationUnit</code>, i.e. a correctly parsed Java source file.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>Expect any file in the <code>srcs</code> list to show up in the manifest.csv as a <code>J.CompilationUnit</code>, i.e. a correctly parsed Java source file.</p></figcaption></figure>
 
 [^1]: Indication that parsing is configured correctly.
 
