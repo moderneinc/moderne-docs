@@ -3,85 +3,98 @@
 ### CLI / DX v3.18.0 (2024/08/20)
 
 #### What's Changed CLI
+
 * Allow `mod git sync moderne` to convert a metadata clone to a full clone
 
-This requires a slight change to how `mod git sync moderne` is used. 
-Previously we would keep the same type (metadata or full) clone as the original clone command.
-Now, to keep a clone as a metadata only type when using `mod git sync moderne` you have to supply the `--metdata(-only)` option. 
-If the option is not supplied the clone will become a full clone if it is not already.
-Switching from a full clone to a metadata only clone is not supported.
+This requires a slight change to how `mod git sync moderne` is used. Previously we would keep the same type (metadata or full) clone as the original clone command. Now, to keep a clone as a metadata only type when using `mod git sync moderne` you have to supply the `--metadata(-only)` option. If the option is not supplied the clone will become a full clone if it is not already. Switching from a full clone to a metadata only clone is not supported.
 
 * Add milliseconds to LST jar name to avoid collisions
 * Add publish LST partial success handling
 * Replace default compliant with N/A in DevCenter
 * Fix `link(path)` not working for relative paths not starting with `./`
+
 #### What's Changed in DX
+
 Nothing
 
 ### CLI / DX v3.17.2 (2024/08/19)
 
 #### What's Changed in CLI
+
 * Add `mod config run timeout` subcommand to configure recipe run timeouts
 * Idempotent publish of LSTs
 * Add `--last-recipe-run` to `mod run` for repeated runs
-#### What's Changed in DX
-Nothing
 
+#### What's Changed in DX
+
+Nothing
 
 ### CLI / DX v3.17.1 (2024/08/15)
 
 #### What's Changed in CLI
+
 * Update JacksonXML dependency to 2.17.2
 * Increase recipe run execution timeout
-#### What's Changed in DX
-Nothing
 
+#### What's Changed in DX
+
+Nothing
 
 ### CLI / DX v3.17.0 (2024/08/14)
 
 #### What's Changed in CLi
+
 * Support `--host_jvm_args` for Bazel
 * Add `mod config build bazel arguments` for Bazel
 * Avoid organizations API queries with Azure DevOps types to DX instances that do not support them
 * `mod git status` command
-#### What's Changed in DX
-* Close MvStore DB after each use and retry when opening
 
+#### What's Changed in DX
+
+* Close MvStore DB after each use and retry when opening
 
 ### CLI / DX v3.16.5 (2024/08/13)
 
 #### What's Changed CLI
+
 * Add DotnetServer.zip to included resources for native build
 * `mod build` improvements for DotNet
 * Remove javax.servlet and jakarta.servlet over license flagging
 
-
 ### CLI / DX v3.16.4 (2024/08/12)
 
 #### What's Changed
-* Use `to_list()` on `kt_provider.transitive_compile_time_jars`
 
+* Use `to_list()` on `kt_provider.transitive_compile_time_jars`
 
 ### CLI / DX v3.16.3 (2024/08/09)
 
 #### What's Changed CLI
-#### # Bug fixes
-* Use `DotNet` as LST provenance for C# projects
-#### What's Changed DX
-Nothing
 
+#### # Bug fixes
+
+* Use `DotNet` as LST provenance for C# projects
+
+#### What's Changed DX
+
+Nothing
 
 ### CLI / DX v3.16.2 (2024/08/08)
 
 #### What's Changed CLI
-#### # Bug fixes:
-- use alternate url if the url origin is unknown and alternateUrl has a known origin
-- Use the configured SCM origins when doing metadata only clone
-#### # Features
-* Permit cloning CSV with no branch
-#### What's Changed DX
-Nothing
 
+#### # Bug fixes:
+
+* use alternate url if the url origin is unknown and alternateUrl has a known origin
+* Use the configured SCM origins when doing metadata only clone
+
+#### # Features
+
+* Permit cloning CSV with no branch
+
+#### What's Changed DX
+
+Nothing
 
 ### CLI / DX v3.16.1 (2024/08/08)
 
