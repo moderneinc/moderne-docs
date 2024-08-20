@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.18.0 (2024/08/20)
+
+#### What's Changed CLI
+* Allow `mod git sync moderne` to convert a metadata clone to a full clone
+* Add milliseconds to LST jar name to avoid collisions
+* Add publish LST partial success handling
+* Replace default compliant with N/A in DevCenter
+* Fix `link(path)` not working for relative paths not starting with `./`
+#### What's Changed in DX
+
+
 ### CLI / DX v3.17.2 (2024/08/19)
 
 #### What's Changed in CLI
