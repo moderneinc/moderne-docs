@@ -11,13 +11,12 @@ Now, to keep a clone as a metadata only type when using `mod git sync moderne` y
 If the option is not supplied the clone will become a full clone if it is not already.
 Switching from a full clone to a metadata only clone is not supported.
 
-
 * Add milliseconds to LST jar name to avoid collisions
 * Add publish LST partial success handling
 * Replace default compliant with N/A in DevCenter
 * Fix `link(path)` not working for relative paths not starting with `./`
 #### What's Changed in DX
-
+Nothing
 
 ### CLI / DX v3.17.2 (2024/08/19)
 
