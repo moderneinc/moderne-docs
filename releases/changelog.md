@@ -1,8 +1,23 @@
 # Platform changelog
+
 ### UI v10.142.0 (2024/08/21)
 
-- add duplicate recipe node
+#### Builder
 
+Often a custom recipe will be composed of a few recipes that are used many times with different options.  We have heard feedback that going through the recipe selection dialog becomes tedious for this work.  In response we have added a duplicate button that will clone the recipe node as a sibling node.  If the recipe duplicated has options then the edit options dialog will open automatically after duplicating:\
+
+
+<div align="left">
+
+<figure><img src="../.gitbook/assets/image (60).png" alt="" width="375"><figcaption></figcaption></figure>
+
+</div>
+
+<div align="left">
+
+<figure><img src="../.gitbook/assets/image (61).png" alt="" width="375"><figcaption></figcaption></figure>
+
+</div>
 
 ### UI v10.141.0 (2024/08/16)
 
@@ -29,11 +44,11 @@ We have improved recipe selector so that the recipe description is visible to gi
 
 ### UI v10.139.0 (2024/08/07)
 
-We have added a new visualization mime type: &#x20;
+We have added a new visualization mime type:
 
 `application/vnd.moderne.yamlrecipe+json`
 
-This new mime type allows visualization notebook authors the ability to generate and then provide a base64 encoded yaml recipe as output.  The resulting visualization in Moderne will be the yaml recipe rendered in an editor with a recipe dry run button ready for users to use. An example can be found in the [find\_methods\_ai\_generte\_yaml.ipynb](https://github.com/moderneinc/moderne-visualizations-misc/blob/main/moderne\_visualizations\_misc/find\_methods\_ai\_generate\_yaml.ipynb) notebook.
+This new mime type allows visualization notebook authors the ability to generate and then provide a base64 encoded yaml recipe as output. The resulting visualization in Moderne will be the yaml recipe rendered in an editor with a recipe dry run button ready for users to use. An example can be found in the [find\_methods\_ai\_generte\_yaml.ipynb](https://github.com/moderneinc/moderne-visualizations-misc/blob/main/moderne\_visualizations\_misc/find\_methods\_ai\_generate\_yaml.ipynb) notebook.
 
 ### UI v10.138.0 (2024/08/07)
 
@@ -42,8 +57,7 @@ This new mime type allows visualization notebook authors the ability to generate
 
 ### UI v10.137.0 (2024/08/05)
 
-*   visualizations that use the data tree grid output now have search highlighting built in\
-
+*   visualizations that use the data tree grid output now have search highlighting built in\\
 
     <figure><img src="../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
 
@@ -57,7 +71,7 @@ This new mime type allows visualization notebook authors the ability to generate
 
 ### UI v10.134.0 (2024/08/01)
 
-* add authorization support for Azure DevOps.  See how to [setup your agent to connect to Azure DevOps ](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services)
+* add authorization support for Azure DevOps. See how to [setup your agent to connect to Azure DevOps](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services)
 
 <div align="left">
 
