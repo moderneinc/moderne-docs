@@ -7,3 +7,4 @@
 * [Configuring build steps](build-steps.md)
 * [Configuring build partitions](build-partitions.md)
 * [Bazel support](bazel-support.md)
+* [Clone and synchronize organizations with Moderne](clone-and-sync.md)
