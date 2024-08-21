@@ -4,8 +4,6 @@
 
 #### What's Changed
 * Add support for recipes that have list type options
-* Remove integration tests
-
 
 ### CLI / DX v3.18.0 (2024/08/20)
 
