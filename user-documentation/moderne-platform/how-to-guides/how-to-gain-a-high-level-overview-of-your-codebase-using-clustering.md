@@ -24,7 +24,7 @@ Clustering is the process of grouping similar objects together based on their fe
 
 ## How to produce the visualization
 
-Before starting the visualization, you must first run a recipe which collects the embeddings for each method or class (depending on your preference). Select `methods` or `classes` depending on which one you want to analyze.
+Before starting the visualization, you must first [run a recipe which collects the embeddings for each method or class](https://app.moderne.io/recipes/io.moderne.ai.research.GetCodeEmbedding) (depending on your preference). Select `methods` or `classes` depending on which one you want to analyze.
 
 <figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
