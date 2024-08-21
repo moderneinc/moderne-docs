@@ -38,8 +38,10 @@ This new mime type allows visualization notebook authors the ability to generate
 
 ### UI v10.137.0 (2024/08/05)
 
-* visualizations that use the data tree grid output now have search highlighting built in\
-  ![](<../.gitbook/assets/image (2).png>)
+*   visualizations that use the data tree grid output now have search highlighting built in\
+
+
+    <figure><img src="../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.136.0 (2024/08/03)
 
