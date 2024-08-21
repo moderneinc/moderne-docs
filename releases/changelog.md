@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.142.0 (2024/08/21)
+
+- add duplicate recipe node
+
 
 ### UI v10.141.0 (2024/08/16)
 
