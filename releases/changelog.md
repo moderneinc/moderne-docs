@@ -1,15 +1,20 @@
 # Platform changelog
+
 ### UI v10.143.0 (2024/08/22)
 
-- make search and filter aware of options
+#### Builder
 
+Previously using the search and filter would allow you to find recipes by name but unfortunately in cases where a recipe is used many times you will get results like this:\
+![](<../.gitbook/assets/image (62).png>)
+
+In efforts to address this the search and filter feature is now aware of option input values and will take these into consideration:\
+![](<../.gitbook/assets/image (63).png>)
 
 ### UI v10.142.0 (2024/08/21)
 
 #### Builder
 
-Often a custom recipe will be composed of a few recipes that are used many times with different options.  We have heard feedback that going through the recipe selection dialog becomes tedious for this work.  In response we have added a duplicate button that will clone the recipe node as a sibling node.  If the recipe duplicated has options then the edit options dialog will open automatically after duplicating:\
-
+Often a custom recipe will be composed of a few recipes that are used many times with different options. We have heard feedback that going through the recipe selection dialog becomes tedious for this work. In response we have added a duplicate button that will clone the recipe node as a sibling node. If the recipe duplicated has options then the edit options dialog will open automatically after duplicating:\\
 
 <div align="left">
 
