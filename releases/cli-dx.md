@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.18.2 (2024/08/21)
+
+#### What's Changed CLI
+* Fix mod git clone moderne description
+#### What's Changed DX
+* Do not close in memory store for each read/write operation.
+This fixes an issue where repositories would not show up as having LSTs when using `moderne.dx.storage.enabled=false`
+
+
 ### CLI / DX v3.18.1 (2024/08/21)
 
 #### What's Changed
