@@ -4462,7 +4462,7 @@ mod git clone json [parameters]
 Clones the repositories in an organization on Moderne.
 
 
-The repositories are cloned at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne. By default a maximum of 20 repositories will be cloned. Use --limit to change this.
+The repositories are cloned at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne. 
 
 ### Usage
 
