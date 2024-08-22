@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.143.0 (2024/08/22)
+
+- make search and filter aware of options
+
 
 ### UI v10.142.0 (2024/08/21)
 
