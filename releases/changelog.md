@@ -5,7 +5,7 @@
 #### Builder
 
 Previously using the search and filter would allow you to find recipes by name but unfortunately in cases where a recipe is used many times you will get results like this:\
-![](<../.gitbook/assets/image (62).png>)
+![](<../.gitbook/assets/image (64).png>)
 
 In efforts to address this the search and filter feature is now aware of option input values and will take these into consideration:\
 ![](<../.gitbook/assets/image (63).png>)
