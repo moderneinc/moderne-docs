@@ -135,3 +135,9 @@ Hover your mouse over a recipe or a precondition you want to remove and then hit
 If you want to learn more about a particular recipe, you can do so by hovering over the recipe you are interested in and clicking on the go to recipe details button:
 
 ![Go to recipe details button](/.gitbook/assets/go-to-recipe-button.png)
+
+### How to duplicate a recipe
+
+In some instances, you may want to duplicate an existing recipe and then modify it. To do so, click on the duplicate recipe button. If the recipe you're duplicating has options, the modal for modifying those options will immediately pop up.
+
+![Duplicate recipe button](/.gitbook/assets/duplicate-recipe.png)
