@@ -28,7 +28,7 @@ Regardless of what options you provide, the base clone command requires two para
 Below is an example of how this looks:
 
 ```bash
-mod git clone moderne clone/into/path moderneOrganizationName
+mod git clone moderne clone/into/path "Some Moderne Organization Name"
 ```
 
 {% hint style="info" %}
@@ -40,7 +40,7 @@ The `mod git clone moderne` command **does not** build or download the LSTs for 
 If you are only interested in running recipes on LSTs (i.e., you don't care about the code or applying recipe changes to said code), you should do a metadata only clone:
 
 ```bash
-mod git clone moderne clone/into/path moderneOrganizationName --metadata-only
+mod git clone moderne clone/into/path "Some Moderne Organization Name" --metadata-only
 ```
 
 This will significantly increase the speed of the clone command as it only pulls down metadata for each repository. When you go to run `mod build` after this command, this metadata will be used to download the pre-built LST for reach repository.
@@ -95,7 +95,7 @@ Below you can see what this structure would look like if you cloned the `Default
 
 Behind the scenes, `mod git clone moderne` creates a file that stores organizational metadata that will be used by other commands. This file contains things like a list of repositories that don't have LSTs or what the DevCenter configuration looks like.
 
-If you cloned an organization into the `clone_into` directory, this file would be found at: `clone_into/.moderne/organization.yml`.
+If you cloned an organization into the `default-org` directory, this file would be found at: `default-org/.moderne/organization.yml`.
 
 Currently, `mod git sync moderne` and `mod devcenter run` require this organizational context.
 
@@ -137,19 +137,19 @@ If you've performed a [metadata only clone](#metadata-only-clone) and then decid
 #### If you want to convert all of your metadata clones into full clones
 
 ```bash
-mod git sync moderne path/to/cloned/repos moderneOrganizationName
+mod git sync moderne path/to/cloned/organization
 ```
 
 #### If you want to convert only the metadata clones that have recipe results
 
 ```bash
-mod git sync moderne path/to/cloned/repos moderneOrganizationName --last-recipe-run
+mod git sync path/to/cloned/organization --last-recipe-run
 ```
 
 OR
 
 ```bash
-mod git sync moderne path/to/cloned/repos moderneOrganizationName --recipe-run <id>
+mod git sync path/to/cloned/organization --recipe-run <id>
 ```
 
 ## Full example
