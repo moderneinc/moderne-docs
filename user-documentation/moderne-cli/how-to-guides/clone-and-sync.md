@@ -32,7 +32,7 @@ mod git clone moderne clone/into/path moderneOrganizationName
 ```
 
 {% hint style="info" %}
-The `mod git clone moderne` command **does not** build the LSTs for each of the repositories. If you want to run recipes against them, you will need to run the [mod build](/user-documentation/moderne-cli/cli-reference.md#mod-build) command.
+The `mod git clone moderne` command **does not** build or download the LSTs for each of the repositories. If you want to run recipes against them, you will need to run the [mod build](/user-documentation/moderne-cli/cli-reference.md#mod-build) command.
 {% endhint %}
 
 ### Metadata only clone
