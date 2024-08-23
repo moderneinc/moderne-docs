@@ -6,10 +6,10 @@ Moderne offers an IntelliJ IDEA plugin that can not only help you create and deb
 
 ## Installation
 
-Install the Moderne IntelliJ plugin by either:
+Install the Moderne IntelliJ IDEA plugin by either:
 
 * Going to [https://plugins.jetbrains.com/plugin/17565-moderne](https://plugins.jetbrains.com/plugin/17565-moderne) and downloading the plugin OR
-* Navigating to `Settings` → `Plugins` inside of IntelliJ, searching for `Moderne`, and installing it
+* Navigating to `Settings` → `Plugins` inside of IntelliJ IDEA, searching for `Moderne`, and installing it
 
 ## Prerequisites
 
