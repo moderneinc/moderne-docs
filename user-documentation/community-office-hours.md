@@ -6,6 +6,39 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Searching for method invocations using AI (August 21st, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=Jp9CM07Xjw8" %}
+
+#### Summary and related links
+
+* Announcements for the week
+  * **Content**:
+    * [We wrote a blog post on migrating to JSpecify nullability annotations](https://www.moderne.ai/blog/mass-migration-of-nullability-annotations-to-jspecify).
+    * [There's a new employee spotlight video about Justine](https://www.youtube.com/watch?v=7_RKRrCHKGs).
+    * [We released a video about how to find method invocations that resemble a pattern](https://www.youtube.com/watch?v=wbNifXHpDNU).
+      * This is a shorter version of what we'll talk about in the code remix session today!
+    * [We've release some new docs on using AI through the Moderne platform](https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern).
+  * **Releases**:
+    * [We did a patch release of OpenRewrite and the OSS plugins](https://github.com/openrewrite/rewrite/compare/v8.33.4...v8.33.7).
+      * This contains JSpecify recipes and better missing type and unused import detection.
+    * [We did a patch release of the Gradle plugin](https://github.com/openrewrite/rewrite-gradle-plugin/compare/v6.20.0...v6.21.0).
+      * This now lazy loads tasks - which is very helpful for large projects
+    * [We made an update to rewrite-spring](https://github.com/openrewrite/rewrite-spring/pull/578).
+      * This makes Spring Security lambda DSL rewrites a lot better.
+  * **Podcast**:
+    * [There's a new Podcast with Jonathan and Adam Bien where the discussed how Micrometer happened](https://airhacks.fm/#episode_308).
+* Main topic - searching for method invocations using AI
+  * We started off by explaining how this feature came about. A company that uses our product wanted to switch access providers and they wanted to find everywhere that they were making a call with a particular header. They saw we had a [Find method usages recipe](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods) - which does a great job at finding methods if you know _exactly_ where they come from and how they're defined. Unfortunately, they didn't know all of the libraries or methods that needed to be changed to plug in to this recipe. They wanted to be able to ask, "Where in my code base am I dealing with HTTP headers?" or "Where in my code base am I doing user authentication?"
+  * This led in to the next recipe - [Finding method invocations that resemble a pattern](https://app.moderne.io/recipes/io.moderne.ai.research.FindCodeThatResembles). This uses AI to process a natural language query to find methods. We then walked through all of the details you need to know about this recipe. For more information on this, check out our [docs discussing how to use this recipe](/user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern.md).
+  * To help explain how the AI stuff works, Justine created a diagram of what's actually happening when the recipe runs.
+    * To understand the diagram and what Justine is talking about, you may want to check out our [documentation on Scanning Recipes](https://docs.openrewrite.org/concepts-explanations/recipes#scanning-recipes) or our [documentation on embeddings](https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering#embeddings).
+    * You can also find the diagram and a detailed explanation of it in our [blog post about AI code search at scale](https://www.moderne.ai/blog/ai-code-search-at-scale-finding-method-invocations-with-natural-language)
+  * After a detailed explanation, we then jumped over to looking at what the results of the recipe run looked like.
+  * We then dove into how you might [use those results to create or run recipes that are more focused and accurate](/user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern.md#gain-insight-from-the-results).
+  * Next up was a discussion on [how you should phrase your queries](/user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern.md#find-method-invocations-that-resemble-a-pattern).
+  * The last main topic for the week was looking at other AI recipes. In particular, the [get embeddings for code snippets in code recipe](https://app.moderne.io/recipes/io.moderne.ai.research.GetCodeEmbedding) which lets you [gain a high-level overview of your codebase through clustering](/user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering.md).
+
 ### Using OpenRewrite with IntelliJ IDEA (August 14th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=HnkzHkH5-0c" %}
