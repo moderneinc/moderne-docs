@@ -40,6 +40,7 @@
     * [JDK configuration in the Moderne CLI](user-documentation/moderne-cli/how-to-guides/jdk-selection-and-config.md)
     * [How to install and configure the CLI in an air-gapped environment](user-documentation/moderne-cli/how-to-guides/air-gapped-cli-install.md)
     * [How to execute user-supplied commands on a list of repositories](user-documentation/moderne-cli/how-to-guides/execute-user-supplied-commands.md)
+    * [How to clone and synchronize organizations](user-documentation/moderne-cli/how-to-guides/clone-and-sync.md)
     * [Configuring build steps](user-documentation/moderne-cli/how-to-guides/build-steps.md)
     * [Configuring build partitions](user-documentation/moderne-cli/how-to-guides/build-partitions.md)
     * [Bazel support](user-documentation/moderne-cli/how-to-guides/bazel-support.md)
