@@ -107,7 +107,7 @@ The [mod git sync moderne](/user-documentation/moderne-cli/cli-reference.md#mod-
 2. To convert a metadata-only clone into a full clone for the purposes of applying recipe run results
 
 {% hint style="warning" %}
-It's possible for repositories to be removed from an organization between when you first ran the [clone command](#clone-command) and when you go to sync the organization. If that happens, the `mod git sync moderne` command will **delete** any of these repositories from disk. 
+It's possible for repositories to be removed from an organization between when you first ran the [clone command](#clone-command) and when you go to sync the organization. If that happens, the `mod git sync moderne` command will **delete** your local copy of these repositories. 
 
 Please ensure that you are okay with that prior to running this command.
 {% endhint %}
