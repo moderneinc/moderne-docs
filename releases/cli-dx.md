@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.18.3 (2024/08/23)
+
+#### What's Changed CLI
+* Remove duplicate parameter for sync command `path` and `organizationPath`
+#### What's Changed DX
+* Fix GraphQl schema inspection issue where `RecipeSearchConnection` does not match `Recipe` node type
+* Fix `Invalid destruction signature` in `MVStoreConfig` @pstreef in https://github.com/moderneinc/moderne-cli/pull/2045
+
+
 ### CLI / DX v3.18.2 (2024/08/21)
 
 #### What's Changed CLI
