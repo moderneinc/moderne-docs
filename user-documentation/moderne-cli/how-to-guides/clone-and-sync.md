@@ -54,7 +54,7 @@ If you've performed a metadata only clone and then decided you actually needed t
 If you want to change what the `mod git clone moderne` command does, you can do so by passing in one or more of the following options:
 
 * `--filter` : This is equivalent to the `git clone --filter` option. [Read more](https://git-scm.com/docs/git-clone/en#Documentation/git-clone.txt-code--filtercodeemltfilter-specgtem).
-*  `--depth` : This is the equivalent to the `git clone --depth` option. [Read more](https://git-scm.com/docs/git-clone/en#Documentation/git-clone.txt-code--depthcodeemltdepthgtem).
+* `--depth` : This is the equivalent to the `git clone --depth` option. [Read more](https://git-scm.com/docs/git-clone/en#Documentation/git-clone.txt-code--depthcodeemltdepthgtem).
 * `--single-branch` : Only clone the branch Moderne knows for this repository.
 * `--limit` : Only clone the first "n" repositories. We'd recommend _not_ using this unless you're debugging something.
 * `--metadata` or `--metadata-only` : Make a [metadata only clone of the repositories](#metadata-only-clone).
