@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.18.4 (2024/08/24)
+
+#### What's Changed CLI
+* report unidentified build steps as `Unknown` to ensure reporting
+* Disable the `dotnet build` until it can be operationalized step.
+* Use dotnet build timeout during the parse & lst write steps
+#### What's Changed DX
+* Update ingested repos periodically when using CSV source
+This fixes an issue where when using `repos.csv` as an organization source new LSTs were not exposed on GraphQL
+
+
 ### CLI / DX v3.18.3 (2024/08/23)
 
 #### What's Changed CLI
