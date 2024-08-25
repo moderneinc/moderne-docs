@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.18.5 (2024/08/25)
+
+#### What's Changed CLI
+* Properly shutdown dotnet remote server when build times out
+This solves an issue where a build would not recover after a timeout.
+
+
 ### CLI / DX v3.18.4 (2024/08/24)
 
 #### What's Changed CLI
