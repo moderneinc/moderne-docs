@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.18.6 (2024/08/26)
+
+#### What's Changed CLI
+* Enable autodetection of styles for C#
+* Migrate to new TCP Socket usage in a Dotnet remoting mechanism
+* Fix compilation errors related to remoting API changes
+
+
 ### CLI / DX v3.18.5 (2024/08/25)
 
 #### What's Changed CLI
