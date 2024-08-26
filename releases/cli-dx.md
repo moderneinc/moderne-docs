@@ -5,7 +5,7 @@
 #### What's Changed CLI
 
 * Add csharp dependency for recipe running
-* Add missing org.openrewrite:org.openrewrite:rewrite-csharp breaking `mod build`
+* Add missing org.openrewrite:rewrite-csharp breaking `mod build`
 
 ### CLI / DX v3.18.6 (2024/08/26)
 
