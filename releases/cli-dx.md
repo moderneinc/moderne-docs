@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.18.7 (2024/08/26)
+
+#### What's Changed CLI
+* Add csharp dependency for recipe running
+* add missing org.openrewrite:org.openrewrite:rewrite-csharp breaking builds
+
+
 ### CLI / DX v3.18.6 (2024/08/26)
 
 #### What's Changed CLI
