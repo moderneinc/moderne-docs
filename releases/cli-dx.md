@@ -3,57 +3,61 @@
 ### CLI / DX v3.18.7 (2024/08/26)
 
 #### What's Changed CLI
-* Add csharp dependency for recipe running
-* add missing org.openrewrite:org.openrewrite:rewrite-csharp breaking builds
 
+* Add csharp dependency for recipe running
+* Add missing org.openrewrite:org.openrewrite:rewrite-csharp breaking `mod build`
 
 ### CLI / DX v3.18.6 (2024/08/26)
 
 #### What's Changed CLI
+
 * Enable autodetection of styles for C#
 * Migrate to new TCP Socket usage in a Dotnet remoting mechanism
 * Fix compilation errors related to remoting API changes
 
-
 ### CLI / DX v3.18.5 (2024/08/25)
 
 #### What's Changed CLI
-* Properly shutdown dotnet remote server when build times out
-This solves an issue where a build would not recover after a timeout.
 
+* Properly shutdown dotnet remote server when build times out This solves an issue where a build would not recover after a timeout.
 
 ### CLI / DX v3.18.4 (2024/08/24)
 
 #### What's Changed CLI
+
 * report unidentified build steps as `Unknown` to ensure reporting
 * Disable the `dotnet build` until it can be operationalized step.
 * Use dotnet build timeout during the parse & lst write steps
-#### What's Changed DX
-* Update ingested repos periodically when using CSV source
-This fixes an issue where when using `repos.csv` as an organization source new LSTs were not exposed on GraphQL
 
+#### What's Changed DX
+
+* Update ingested repos periodically when using CSV source This fixes an issue where when using `repos.csv` as an organization source new LSTs were not exposed on GraphQL
 
 ### CLI / DX v3.18.3 (2024/08/23)
 
 #### What's Changed CLI
+
 * Remove duplicate parameter for sync command `path` and `organizationPath`
+
 #### What's Changed DX
+
 * Fix GraphQl schema inspection issue where `RecipeSearchConnection` does not match `Recipe` node type
 * Fix `Invalid destruction signature` in `MVStoreConfig` @pstreef in https://github.com/moderneinc/moderne-cli/pull/2045
-
 
 ### CLI / DX v3.18.2 (2024/08/21)
 
 #### What's Changed CLI
-* Fix mod git clone moderne description
-#### What's Changed DX
-* Do not close in memory store for each read/write operation.
-This fixes an issue where repositories would not show up as having LSTs when using `moderne.dx.storage.enabled=false`
 
+* Fix mod git clone moderne description
+
+#### What's Changed DX
+
+* Do not close in memory store for each read/write operation. This fixes an issue where repositories would not show up as having LSTs when using `moderne.dx.storage.enabled=false`
 
 ### CLI / DX v3.18.1 (2024/08/21)
 
 #### What's Changed
+
 * Add support for recipes that have list type options
 
 ### CLI / DX v3.18.0 (2024/08/20)
