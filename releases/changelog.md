@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.144.0 (2024/08/27)
+
+- add legend and builder controls
+
 
 ### UI v10.143.0 (2024/08/22)
 
