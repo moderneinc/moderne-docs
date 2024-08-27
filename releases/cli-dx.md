@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.18.8 (2024/08/27)
+
+#### What's Changed CLI
+* Add dotnet recipes installation and running
+
+
 ### CLI / DX v3.18.7 (2024/08/26)
 
 #### What's Changed CLI
