@@ -141,12 +141,19 @@
 * [**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit)
 * [**mod config recipes artifacts maven delete**](#mod-config-recipes-artifacts-maven-delete)
 * [**mod config recipes artifacts maven show**](#mod-config-recipes-artifacts-maven-show)
+* [**mod config recipes artifacts nuget**](#mod-config-recipes-artifacts-nuget)
+* [**mod config recipes artifacts nuget edit**](#mod-config-recipes-artifacts-nuget-edit)
+* [**mod config recipes artifacts nuget delete**](#mod-config-recipes-artifacts-nuget-delete)
+* [**mod config recipes artifacts nuget show**](#mod-config-recipes-artifacts-nuget-show)
 * [**mod config recipes export**](#mod-config-recipes-export)
 * [**mod config recipes export json**](#mod-config-recipes-export-json)
 * [**mod config recipes export csv**](#mod-config-recipes-export-csv)
 * [**mod config recipes jar**](#mod-config-recipes-jar)
 * [**mod config recipes jar install**](#mod-config-recipes-jar-install)
 * [**mod config recipes jar delete**](#mod-config-recipes-jar-delete)
+* [**mod config recipes nupkg**](#mod-config-recipes-nupkg)
+* [**mod config recipes nupkg install**](#mod-config-recipes-nupkg-install)
+* [**mod config recipes nupkg delete**](#mod-config-recipes-nupkg-delete)
 * [**mod config recipes moderne**](#mod-config-recipes-moderne)
 * [**mod config recipes moderne install**](#mod-config-recipes-moderne-install)
 * [**mod config recipes moderne push**](#mod-config-recipes-moderne-push)
@@ -3025,6 +3032,7 @@ mod config recipes moderne sync
 * `artifacts`: Configures artifact repositories to resolve recipes from.
 * `export`: Export the recipe catalog for study by different tools.
 * `jar`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
+* `nupkg`: Adds or updates a package that contains recipes that should be added to the recipe marketplace in the CLI.
 * `moderne`: Configures which Moderne recipes should be installed and used in the local CLI marketplace.
 * `delete`: Clear the whole recipe marketplace.
 * `list`: List the artifacts that are contributing recipes to the marketplace.
@@ -3051,6 +3059,7 @@ mod config recipes artifacts [subcommands]
 * `show`: Displays the recipe artifacts repository configuration.
 * `default-repositories`: (INCUBATING) Configure the availability of default repositories.
 * `maven`: Configures a Maven-formatted artifact repository that recipes will be resolved from.
+* `nuget`: Configures a Nuget-formatted artifact repository that recipes will be resolved from.
 
 ## mod config recipes artifacts artifactory
 
@@ -3297,6 +3306,91 @@ mod config recipes artifacts maven show
 
 
 
+## mod config recipes artifacts nuget
+
+Configures a Nuget-formatted artifact repository that recipes will be resolved from.
+
+
+All subsequent recipe installation commands will use this Nuget repository.
+
+### Usage
+
+```
+mod config recipes artifacts nuget [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the repository that recipes will be resolved from.
+* `delete`: Removes the Nuget artifact repository repository configuration.
+* `show`: Displays the Nuget artifact repository repository configuration.
+
+## mod config recipes artifacts nuget edit
+
+Configures the repository that recipes will be resolved from.
+
+
+All subsequent recipe installation commands will use this artifact repository.
+
+### Usage
+
+```
+mod config recipes artifacts nuget edit [parameters]
+```
+
+### Examples
+
+```
+mod config recipes nuget edit <artifact-repository-url> --user <user> --password <password>
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| url |  The URL of the artifact repository that recipes will be resolved from. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --authorization |  The authorization header value to use. | `Bearer XXXXX` |
+| --password |  The password to authenticate with. |  |
+| --skip-ssl |  If this parameter is included, SSL verification will be skipped. |  |
+| --user |  The user to authenticate with. |  |
+
+
+## mod config recipes artifacts nuget delete
+
+Removes the Nuget artifact repository repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config recipes artifacts nuget delete
+```
+
+
+
+## mod config recipes artifacts nuget show
+
+Displays the Nuget artifact repository repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config recipes artifacts nuget show
+```
+
+
+
 ## mod config recipes export
 
 Export the recipe catalog for study by different tools.
@@ -3440,6 +3534,91 @@ mod config recipes jar delete rewrite-java
 | Name | Description |
 | ---- | ----------- |
 | artifact |  An artifact name or group and artifact name. |
+
+
+
+## mod config recipes nupkg
+
+Adds or updates a package that contains recipes that should be added to the recipe marketplace in the CLI.
+
+
+The recipes defined by this package will then be available to run.
+
+### Usage
+
+```
+mod config recipes nupkg [subcommands]
+```
+
+### Examples
+
+```
+mod config recipes nupkg install rewrite.java:LATEST
+```
+
+
+### Subcommands
+
+* `install`: Adds or updates a package that contains recipes that should be added to the recipe marketplace in the CLI.
+* `delete`: Removes a package supplying recipes to the marketplace.
+
+## mod config recipes nupkg install
+
+Adds or updates a package that contains recipes that should be added to the recipe marketplace in the CLI.
+
+
+The recipes defined by this package will then be available to run.
+
+### Usage
+
+```
+mod config recipes nupkg install [parameters]
+```
+
+### Examples
+
+```
+mod config recipes nupkg install rewrite.java:LATEST
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| PIV |  The package id, and version of the package to install in the format packageId:version. The version may be a fixed version, LATEST, or RELEASE.
+The dependency will be resolved from the package source defined in **mod config lsts artifacts** |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --repository-url, --repository |  The repository URL that the package will be resolved from. |
+
+
+## mod config recipes nupkg delete
+
+Removes a package supplying recipes to the marketplace.
+
+
+The recipes defined by this package will then no longer be available to run.
+
+### Usage
+
+```
+mod config recipes nupkg delete [parameters]
+```
+
+### Examples
+
+```
+mod config recipes nupkg delete rewrite.java
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| artifact |  An package id. |
 
 
 
