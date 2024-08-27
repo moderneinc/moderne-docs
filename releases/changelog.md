@@ -1,8 +1,12 @@
 # Platform changelog
+
 ### UI v10.144.0 (2024/08/27)
 
-- add legend and builder controls
+#### Builder
 
+We have added a toggle-able help panel with a color legend and topology control scheme:
+
+![](<../.gitbook/assets/image (65).png>)
 
 ### UI v10.143.0 (2024/08/22)
 
