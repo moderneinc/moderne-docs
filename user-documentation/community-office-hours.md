@@ -6,6 +6,46 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### C# Language engineering updates (August 28th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=pr5kVxHkP3w" %}
+
+#### Summary and related links
+
+* Announcements for the week:
+  * **Content**:
+    * We have a new O'Reilly book coming out in early September that will talk about using AI for mass-scale automated code refactoring and analysis. Justine Gehring, Moderne's AI researcher who was a guest last week, is one of the authors. In the book, you'll get details of that:
+      * AI technologies and techniques at work
+      * Various use cases for AI when working with large codebases
+      * Considerations for large enterprises
+      * You can use [this QR code](https://www.canva.com/design/DAGKXgbdAMo/ryZU_qS3tIvVeWt_q_V_-Q/edit) to pre-order this free ebook.
+    * [We have three new videos about using the Moderne CLI that address configuring the CLI, building LSTs, and running recipes](https://www.youtube.com/@Moderne-and-OpenRewrite/videos).
+  * **Releases**:
+    * [We did a full release of OpenRewrite this week](https://docs.openrewrite.org/changelog/8-34-0-release).
+    * There were improvements for Spring Batch, Spring Security, and Spring Fox to SpringDoc.
+      * Swagger dependencies are now also migrated to Jakarta.
+    * There were also continued improvements for testing frameworks
+      * You can now collapse consecutive AssertJ assertions
+      * There are no excess or missing dependencies for Hamcrest
+      * You can inline `assertThrows` lambdas with only a single line
+      * Mockito 2 to 3+ migrations now retain strictness
+    * [Rewrite-third-party](https://github.com/openrewrite/rewrite-third-party) now includes apache camel recipes
+    * There are also new recipes to analyze C# dependencies (which we'll talk about later). 
+* Main topic for the week:
+  * We started off by welcoming Oleh – one of our colleagues who has been working on C# support.
+  * We started off by talking briefly about the [rewrite-csharp repository](https://github.com/openrewrite/rewrite-csharp) - which is where all the code for C# support lies. If you are interested in helping support this new language, we'd definitely appreciate any community involvement!
+  * After that, we took a step back to talk at a high-level about languages and the approach we took to C#. Over the years, the Java LST has received continuous updates to the point that pretty much everything in the language is covered by the LST. There also have been thousands of recipes made in Java and all sorts of tools and connections set up. We wanted to ensure that we could make use of some of that for C#, too.
+    * We ultimately decided that we would use as much of the Java LST model as we could and then add on specific C# elements around that.
+  * We then touched upon the fact that this idea of extending the Java LST model with language specific elements is what we did for Groovy and Kotlin. On the other hand, those languages' parsers are _in_ the JVM – where C# doesn't run on the JVM at all. So C# was much more difficult to support.
+  * Next up was some more high-level theoretical discussions on how the C# and Java processes interact and work with one another.
+  * We then switched over to demonstrating more real-world examples of how C# is currently being used in the Moderne platform.
+    * [Check out the C# DevCenter](https://app.moderne.io/devcenter/C%23)
+  * You can actually run Java recipes against C# code and have them work. For instance, we ran the [common static analysis recipe](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis) against a bunch of C# projects, and it correctly identified and fixed static analysis issues in those projects. Note that we **did not** change the existing Java static analysis recipe to handle C# - it literally just works due to the way we've coded C# support.
+  * We also demonstrated some new C# specific recipes such as [Find and fix vulnerable Nuget dependencies](https://app.moderne.io/recipes/org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck) or [Dependency insight for C#](https://app.moderne.io/recipes/org.openrewrite.csharp.dependencies.DependencyInsight).
+    * Like our other vulnerability detecting recipes, this recipe can also export a data table that lists out all of the detected CVEs and what version fixes them.
+  * After that, we took a look at C# recipe development and how similar it is to Java recipe development. We also touched upon how the C# process is minimal in nature, and that it calls out to the Java process for many parts of the recipe lifecycle.
+  * We then briefly looked at using the Moderne CLI with C# before concluding with a discussion on the future of language support. The work we've done to get C# going will go a long way to making it easier to add a ton of new languages.
+
 ### Searching for method invocations using AI (August 21st, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=Jp9CM07Xjw8" %}
