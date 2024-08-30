@@ -33,7 +33,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * There are also new recipes to analyze C# dependencies (which we'll talk about later). 
 * Main topic for the week:
   * We started off by welcoming Oleh – one of our colleagues who has been working on C# support.
-  * We started off by talking briefly about the [rewrite-csharp repository](https://github.com/openrewrite/rewrite-csharp) - which is where all the code for C# support lies. If you are interested in helping support this new language, we'd definitely appreciate any community involvement!
+  * We then took a brief look at the [rewrite-csharp repository](https://github.com/openrewrite/rewrite-csharp) - which is where all the code for C# support lies. If you are interested in helping support this new language, we'd definitely appreciate any community involvement!
   * After that, we took a step back to talk at a high-level about languages and the approach we took to C#. Over the years, the Java LST has received continuous updates to the point that pretty much everything in the language is covered by the LST. There also have been thousands of recipes made in Java and all sorts of tools and connections set up. We wanted to ensure that we could make use of some of that for C#, too.
     * We ultimately decided that we would use as much of the Java LST model as we could and then add on specific C# elements around that.
   * We then touched upon the fact that this idea of extending the Java LST model with language specific elements is what we did for Groovy and Kotlin. On the other hand, those languages' parsers are _in_ the JVM – where C# doesn't run on the JVM at all. So C# was much more difficult to support.
