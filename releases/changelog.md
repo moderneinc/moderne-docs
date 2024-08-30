@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.145.0 (2024/08/30)
+
+- allow custom recipes to be added to node
+
 
 ### UI v10.144.0 (2024/08/27)
 
