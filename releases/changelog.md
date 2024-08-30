@@ -4,7 +4,7 @@
 
 #### Builder
 
-We have added a new tabs to the recipe finder dialog that is presented when adding a recipe to the currently selected node.  The default tab is _Marketplace recipes_ and provides the same experience users have already become familiar with.  There is also a tab for _Builder recipes_ to allow users to select one of their custom recipes_:_\
+We have added new tabs to the recipe finder dialog that is presented when adding a recipe to the currently selected node.  The default tab is _Marketplace recipes_ and provides the same experience users have already become familiar with.  There is also a tab for _Builder recipes_ to allow users to select one of their custom recipes_:_\
 ![](<../.gitbook/assets/image (66).png>)
 
 Selecting one will make a copy of the recipe in its current form and add it to the currently selected node similar to selecting one of the marketplace recipes.  This including toggling it to be added as a precondition.
