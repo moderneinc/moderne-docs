@@ -1,6 +1,6 @@
 # On prem source code management (SCM) server configuration
 
-In order for Moderne DX to correctly map repository clone URLs to the right origin and path we need to know the base URL(s) for your SCM server. With SaaS SCM services like GitHub, GitLab, Bitbucket (cloud) and AzureDevOps these are well known URLs, to use these no extra configuration is required. However, for any on-prem SCM servers we do need to configure the type, base URL and any alternate URLs that are used to access the server.
+In order for Moderne DX to correctly map repository clone URLs to the right origin and path you will need to provide the base URL(s) for your SCM server. For SaaS SCM services like GitHub, GitLab, Bitbucket (cloud) and AzureDevOps – no extra configuration is required. For on prem SCM servers, though, you will need to provide Moderne with additional information. Specifically the type, base URL, and any alternate URLs that are used to access the server.
 
 ## Configure your on prem SCM servers
 
