@@ -1,6 +1,6 @@
 # Getting started with the Moderne CLI
 
-The Moderne CLI is a command line tool that allows you to build [Lossless Semantic Tree](https://docs.moderne.io/concepts/lossless-semantic-trees) (LST) artifacts across many repositories, publish them to an artifact repository of your choosing, and run recipes against all of them from your local machine.
+The Moderne CLI is a command line tool that compliments the Moderne Platform and Moderne DX, enabling you to build [Lossless Semantic Tree](https://docs.moderne.io/concepts/lossless-semantic-trees) (LST) artifacts across many repositories, publish them to an artifact repository of your choosing, and run recipes against all of them from your local machine. It also provides substantial benefits for creating and testing your own recipes.
 
 To ensure you can use the Moderne CLI successfully, in this guide, we will walk you through everything you need to get started – from installation, to configuration, to examples demonstrating how to use it.
 
