@@ -184,6 +184,9 @@
 * [**mod config scm bitbucket base-urls delete**](#mod-config-scm-bitbucket-base-urls-delete)
 * [**mod config scm bitbucket base-urls edit**](#mod-config-scm-bitbucket-base-urls-edit)
 * [**mod config scm bitbucket base-urls show**](#mod-config-scm-bitbucket-base-urls-show)
+* [**mod config scm add**](#mod-config-scm-add)
+* [**mod config scm remove**](#mod-config-scm-remove)
+* [**mod config scm show**](#mod-config-scm-show)
 * [**mod config user**](#mod-config-user)
 * [**mod config user delete**](#mod-config-user-delete)
 * [**mod config user edit**](#mod-config-user-edit)
@@ -3982,15 +3985,18 @@ mod config scm [subcommands]
 
 ### Subcommands
 
-* `gitlab`: Configures GitLab.
-* `bitbucket`: Configures Bitbucket.
+* `gitlab`: (DEPRECATED) Configures GitLab.
+* `bitbucket`: (DEPRECATED) Configures Bitbucket.
+* `add`
+* `remove`
+* `show`: Displays the configured SCMs
 
 ## mod config scm gitlab
 
-Configures GitLab.
+(DEPRECATED) Configures GitLab.
 
 
-
+Use **mod config scm show|add|remove** in stead
 
 ### Usage
 
@@ -4002,14 +4008,14 @@ mod config scm gitlab [subcommands]
 ### Subcommands
 
 * `base-url`: (DEPRECATED) Configure the base URL.
-* `base-urls`: Configure the base URLs.
+* `base-urls`: (DEPRECATED) Configure the base URLs.
 
 ## mod config scm gitlab base-url (deprecated)
 
 (DEPRECATED) Configure the base URL.
 
 
-(DEPRECATED) use `mod config scm gitlab base-urls` in stead
+(DEPRECATED) use **mod config scm show|add|remove** in stead
 
 ### Usage
 
@@ -4026,13 +4032,13 @@ mod config scm gitlab base-url edit "https://acme.com/gitlab-ee/"
 
 ### Subcommands
 
-* `delete`: Removes base URL customization.
+* `delete`: (DEPRECATED) Removes base URL customization.
 * `edit`: (DEPRECATED) Configure the base URL.
-* `show`: Displays the configured base URLs.
+* `show`: (DEPRECATED) Displays the configured base URLs.
 
 ## mod config scm gitlab base-url delete (deprecated)
 
-Removes base URL customization.
+(DEPRECATED) Removes base URL customization.
 
 
 ### Usage
@@ -4048,7 +4054,7 @@ mod config scm gitlab base-url delete
 (DEPRECATED) Configure the base URL.
 
 
-(DEPRECATED) use `mod config scm gitlab base-urls edit` in stead
+(DEPRECATED) use **mod config scm show|add|remove** in stead
 
 ### Usage
 
@@ -4066,7 +4072,7 @@ mod config scm gitlab base-url edit [parameters]
 
 ## mod config scm gitlab base-url show (deprecated)
 
-Displays the configured base URLs.
+(DEPRECATED) Displays the configured base URLs.
 
 
 ### Usage
@@ -4079,10 +4085,10 @@ mod config scm gitlab base-url show
 
 ## mod config scm gitlab base-urls
 
-Configure the base URLs.
+(DEPRECATED) Configure the base URLs.
 
 
-The base URLs affects how repository paths and URLs to SCM are constructed.
+(DEPRECATED) use **mod config scm show|add|remove** in stead
 
 ### Usage
 
@@ -4099,13 +4105,13 @@ mod config scm gitlab base-urls edit "https://acme.com/gitlab-ee/"
 
 ### Subcommands
 
-* `delete`: Removes base URL customization.
-* `edit`: Configure one or more base URLs.
-* `show`: Displays the configured base URLs.
+* `delete`: (DEPRECATED) Removes base URL customization.
+* `edit`: (DEPRECATED) Configure one or more base URLs.
+* `show`: (DEPRECATED) Displays the configured base URLs.
 
 ## mod config scm gitlab base-urls delete
 
-Removes base URL customization.
+(DEPRECATED) Removes base URL customization.
 
 
 ### Usage
@@ -4118,7 +4124,7 @@ mod config scm gitlab base-urls delete
 
 ## mod config scm gitlab base-urls edit
 
-Configure one or more base URLs.
+(DEPRECATED) Configure one or more base URLs.
 
 
 
@@ -4139,7 +4145,7 @@ mod config scm gitlab base-urls edit [parameters]
 
 ## mod config scm gitlab base-urls show
 
-Displays the configured base URLs.
+(DEPRECATED) Displays the configured base URLs.
 
 
 ### Usage
@@ -4152,10 +4158,10 @@ mod config scm gitlab base-urls show
 
 ## mod config scm bitbucket
 
-Configures Bitbucket.
+(DEPRECATED) Configures Bitbucket.
 
 
-
+(DEPRECATED) use **mod config scm show|add|remove** in stead
 
 ### Usage
 
@@ -4166,14 +4172,14 @@ mod config scm bitbucket [subcommands]
 
 ### Subcommands
 
-* `base-urls`: Configure the base URLs.
+* `base-urls`: (DEPRECATED) Configure the base URLs.
 
 ## mod config scm bitbucket base-urls
 
-Configure the base URLs.
+(DEPRECATED) Configure the base URLs.
 
 
-The base URLs affects how repository paths and URLs to SCM are constructed.
+(DEPRECATED) use **mod config scm show|add|remove** in stead
 
 ### Usage
 
@@ -4190,13 +4196,13 @@ mod config scm bitbucket base-urls edit "https://bitbucket.acme.com/stash/"
 
 ### Subcommands
 
-* `delete`: Removes base URL customization.
-* `edit`: Configure one or more base URLs.
-* `show`: Displays the configured base URLs.
+* `delete`: (DEPRECATED) Removes base URL customization.
+* `edit`: (DEPRECATED) Configure one or more base URLs.
+* `show`: (DEPRECATED) Displays the configured base URLs.
 
 ## mod config scm bitbucket base-urls delete
 
-Removes base URL customization.
+(DEPRECATED) Removes base URL customization.
 
 
 ### Usage
@@ -4209,7 +4215,7 @@ mod config scm bitbucket base-urls delete
 
 ## mod config scm bitbucket base-urls edit
 
-Configure one or more base URLs.
+(DEPRECATED) Configure one or more base URLs.
 
 
 
@@ -4230,13 +4236,71 @@ mod config scm bitbucket base-urls edit [parameters]
 
 ## mod config scm bitbucket base-urls show
 
-Displays the configured base URLs.
+(DEPRECATED) Displays the configured base URLs.
 
 
 ### Usage
 
 ```
 mod config scm bitbucket base-urls show
+```
+
+
+
+## mod config scm add
+
+
+(INCUBATING) Add an SCM configuration
+
+### Usage
+
+```
+mod config scm add [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| type |  The SCM type |
+| baseUrl |  The primary SCM URL |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --alternate-url |  Alternate SCM URLs |
+
+
+## mod config scm remove
+
+
+(INCUBATING) Remove an SCM configuration by type and URL
+
+### Usage
+
+```
+mod config scm remove [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| type |  |
+| baseUrl |  |
+
+
+
+## mod config scm show
+
+Displays the configured SCMs
+
+
+### Usage
+
+```
+mod config scm show
 ```
 
 
@@ -5422,6 +5486,7 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| --csv |  Output in CSV format |  |
 | --data-table |  The name of the data table to study. |  |
 | --json |  Output the data table in JSON format with the specified fields. If no value is provided, all columns from the data table will be kept. |  |
 | --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
