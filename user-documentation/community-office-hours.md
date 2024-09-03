@@ -6,6 +6,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Using OpenRewrite for Jenkins plugin modernization (September 4th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=-n3zaD3xliY" %}
+
+#### Summary and related links
+
+Coming soon.
+
 ### C# Language engineering updates (August 28th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=pr5kVxHkP3w" %}
