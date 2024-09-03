@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.19.0 (2024/09/02)
+
+#### What's Changed CLI
+* mod study now has --csv option to output datatable in csv format
+* Parse Python using `PythonParser` in native build step
+* Add `mod config scm *` commands to add/remove SCM configurations
+`mod config scm gitlab` and `mod config scm bitbucket` have been deprecated and existing configurations are automatically migrated.
+#### What's Changed DX
+* Add support for alternate URLs for private SCMs to allow for better origin matching for different protocols/port combinations
+
+
 ### CLI / DX v3.18.8 (2024/08/27)
 
 #### What's Changed CLI
