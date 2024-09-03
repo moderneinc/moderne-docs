@@ -1,7 +1,6 @@
 # Configure on-prem source code management (SCM) with Moderne DX
 
-In order for Moderne DX to correctly map repository clone URLs to the right origin and path we need to know the base URL(s) for your SCM server. With SaaS SCM services like GitHub, GitLab, Bitbucket (cloud) and AzureDevOps these are well known URLs, to use these no extra configuration is required.
-However, for any on-prem SCM servers we do need to configure the type, base URL and any alternate URLs that are used to access the server. 
+In order for Moderne DX to correctly map repository clone URLs to the right origin and path you will need to provide the base URL(s) for your SCM server. For SaaS SCM services like GitHub, GitLab, Bitbucket (cloud) and AzureDevOps – no extra configuration is required. For on-prem SCM servers, though, you will need to provide Moderne with additional information. Specifically the type, base URL, and any alternate URLs that are used to access the server.
 
 ## Configuring the Moderne DX service
 
@@ -15,7 +14,7 @@ You can configure multiple SCM servers by including multiple entries, each with 
 
 * `MODERNE_DX_SCM_{index}_BASEURL` – _The primary URL of your SCM server. This URL will be used as the origin._
 * `MODERNE_DX_SCM_{index}_TYPE` – _Specifies the type of the SCM server (case insensitive). Choose between: `GitHub, GitLab, Bitbucket, BitbucketCloud, AzureDevOps`._
-* `MODERNE_DX_SCM_{index}_ALTERNATEURLS_{alternate_url_index}` – _One or more alternate URLs (each with a different `{alternate_url_index}`) which point to the same server. Use this to specify all the protocol and port combinations that can be used to reach the same server. _
+* `MODERNE_DX_SCM_{index}_ALTERNATEURLS_{alternate_url_index}` – _One or more alternate URLs (each with a different `{alternate_url_index}`) which point to the same server. Use this to specify all the protocol and port combinations that can be used to reach the same server._
 
 **Example:**
 
@@ -35,8 +34,9 @@ docker run \
 
 * `--moderne.dx.scm[{index}].baseUrl` – _The primary URL of your SCM server. This URL will be used as the origin._
 * `--moderne.dx.scm[{index}].type` – _Specifies the type of the SCM server (case insensitive). Choose between: `GitHub, GitLab, Bitbucket, BitbucketCloud, AzureDevOps`._
-* `--moderne.dx.scm[{index}].alternateUrls[{alternate_url_index}]` – _One or more alternate URLs (each with a different `{alternate_url_index}`) which point to the same server. Use this to specify all the protocol and port combinations that can be used to reach the same server. _
-* 
+* `--moderne.dx.scm[{index}].alternateUrls[{alternate_url_index}]` – _One or more alternate URLs (each with a different `{alternate_url_index}`) which point to the same server. Use this to specify all the protocol and port combinations that can be used to reach the same server._&#x20;
+*
+
 **Example:**
 
 ```shell

@@ -41,7 +41,7 @@
     * [How to install and configure the CLI in an air-gapped environment](user-documentation/moderne-cli/how-to-guides/air-gapped-cli-install.md)
     * [How to execute user-supplied commands on a list of repositories](user-documentation/moderne-cli/how-to-guides/execute-user-supplied-commands.md)
     * [How to clone and synchronize organizations](user-documentation/moderne-cli/how-to-guides/clone-and-sync.md)
-    * [On prem source code management (SCM) server configuration](user-documentation/moderne-cli/how-to-guides/on-prem-scm-config.md)
+    * [On-prem source code management (SCM) server configuration](user-documentation/moderne-cli/how-to-guides/on-prem-scm-config.md)
     * [Configuring build steps](user-documentation/moderne-cli/how-to-guides/build-steps.md)
     * [Configuring build partitions](user-documentation/moderne-cli/how-to-guides/build-partitions.md)
     * [Bazel support](user-documentation/moderne-cli/how-to-guides/bazel-support.md)
