@@ -6,17 +6,15 @@ In this doc, we will walk through everything you need to know about the Moderne 
 
 ## How to receive a license key
 
-If you are a single-tenant Moderne customer or you're paying for Moderne DX, please jump to the [configure the CLI with a license key section](#how-to-configure-the-cli-with-a-license-key) as you do not need a special license key.
+If you are a single-tenant Moderne customer, you don't need to configure a license as it will be automatically configured when you connect the CLI to Moderne.
+
+If you're a Moderne DX customer, please jump to the [configure the CLI with a license key section](#how-to-configure-the-cli-with-a-license-key) as you do not need a special license key.
 
 If you are a multi-tenant Moderne customer or a CLI only customer, please reach out and we will provide you with a license key.
 
 If you aren't a Moderne customer, but still want to use the Moderne IDE plugin, please fill out our [try the Moderne IDE plugin signup form](https://www.moderne.io/moderne-ide-plugin-signup) and we will coordinate with you.
 
 ## How to configure the CLI with a license key
-
-### Single-tenant Moderne customers
-
-You do not need to configure a license directly in your CLI. The license will be automatically configured when you run the `mod config moderne edit --token ...` command and provide a token created in your tenant. 
 
 ### Moderne DX customers
 
