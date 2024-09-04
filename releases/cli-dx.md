@@ -1,5 +1,17 @@
 # CLI / DX changelog
 
+### CLI / DX v3.19.1 (2024/09/04)
+
+#### What's Changed CLI
+* Separate python into its own build step
+* Use `pip` to install Python packages required by `python` build step
+* Auto adjust row height in Excel exports
+- Extract JDK version constraints from android plugin versions
+#### What's Changed DX
+* Case insensitive repository handling in DX
+* Case insensitive SCM type configuration in DX
+
+
 ### CLI / DX v3.19.0 (2024/09/02)
 
 #### What's Changed CLI
