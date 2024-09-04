@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.19.2 (2024/09/04)
+
+#### What's Changed CLI
+* --json option of mod study is parsed properly again
+
+
 ### CLI / DX v3.19.1 (2024/09/04)
 
 #### What's Changed CLI
