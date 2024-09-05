@@ -12,7 +12,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-* Announcements for the week:
+* **Announcements for the week**:
   * **Releases**:
     * [The Gradle plugin now supports Android projects](https://github.com/openrewrite/rewrite-gradle-plugin/pull/327)
     * [Apache POI 3.17 migration recipes are now available](https://github.com/openrewrite/rewrite-apache/pull/30) - Thanks Ken Little for the assist!
@@ -20,14 +20,14 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * [Mike will be presenting about our docs and how we automate them in a GitBook webinar on September 17th](https://www.gitbook.com/events/gitbook-moderne-september)
     * [Jonathan and Olga will be at JConf in Dallas on September 24th](https://2024.jconf.dev/)
     * [Sam will be at Gradle's Developer Productivity Engineering Summit on September 24th and 25th](https://dpe.org/)
-    * [Justine will present at the Montreal Java User Group September 26th](https://www.meetup.com/montreal-jug/events/303194650/?_xtd=gqFyqTI0OTQ1ODM3NqFwo2FwaQ%253D%253D&from=ref)
-* **Content**:
+    * [Justine will present at the Montreal Java User Group on September 26th](https://www.meetup.com/montreal-jug/events/303194650/?_xtd=gqFyqTI0OTQ1ODM3NqFwo2FwaQ%253D%253D&from=ref)
+  * **Content**:
     * We have a new O'Reilly book coming out in early September that will talk about using AI for mass-scale automated code refactoring and analysis. Justine Gehring, Moderne's AI researcher who was a guest last week, is one of the authors. In the book, you'll get details of that:
       * AI technologies and techniques at work
       * Various use cases for AI when working with large codebases
       * Considerations for large enterprises
       * You can use [this QR code](https://www.canva.com/design/DAGKXgbdAMo/ryZU_qS3tIvVeWt_q_V_-Q/edit) to pre-order this free ebook.
-* Main topic for the week:
+* **Main topic for the week**:
   * We welcomed Valentin and Sridhar who are both Jenkins contributors and active OpenRewrite users. They started off by sharing some background on themselves and Jenkins in general. Jenkins, having been around for such a long time, has thousands of plugins and configurations that people have extended and need support with. Updating each plugin is a laborious and manual process – which results in many plugins falling behind.
   * Valentin then explained [how they came to find and use OpenRewrite](https://summerofcode.withgoogle.com/programs/2024/projects/anaMmWRR) to address their problems. This culminated in the [Jenkins plugin modernizer tool](https://github.com/jenkinsci/plugin-modernizer-tool/) that both of them built during the Google Summer of Code.
   * [He then presented on the architecture of the tool and where OpenRewrite fits into it](https://github.com/jenkinsci/plugin-modernizer-tool/blob/main/docs/ARCHITECTURE.md).
