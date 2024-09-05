@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.19.3 (2024/09/05)
+
+#### What's Changed CLI
+* Add support for parsing source sets defined using the Android Gradle plugin
+* Right align the number of recipes in `mod config recipes list` and show total
+#### What's Changed DX
+Nothing
+
+
 ### CLI / DX v3.19.2 (2024/09/04)
 
 #### What's Changed CLI
