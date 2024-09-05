@@ -12,7 +12,33 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon.
+* Announcements for the week:
+  * **Releases**:
+    * [The Gradle plugin now supports Android projects](https://github.com/openrewrite/rewrite-gradle-plugin/pull/327)
+    * [Apache POI 3.17 migration recipes are now available](https://github.com/openrewrite/rewrite-apache/pull/30) - Thanks Ken Little for the assist!
+  * **Events**:
+    * [Mike will be presenting about our docs and how we automate them in a GitBook webinar on September 17th](https://www.gitbook.com/events/gitbook-moderne-september)
+    * [Jonathan and Olga will be at JConf in Dallas on September 24th](https://2024.jconf.dev/)
+    * [Sam will be at Gradle's Developer Productivity Engineering Summit on September 24th and 25th](https://dpe.org/)
+    * [Justine will present at the Montreal Java User Group September 26th](https://www.meetup.com/montreal-jug/events/303194650/?_xtd=gqFyqTI0OTQ1ODM3NqFwo2FwaQ%253D%253D&from=ref)
+* **Content**:
+    * We have a new O'Reilly book coming out in early September that will talk about using AI for mass-scale automated code refactoring and analysis. Justine Gehring, Moderne's AI researcher who was a guest last week, is one of the authors. In the book, you'll get details of that:
+      * AI technologies and techniques at work
+      * Various use cases for AI when working with large codebases
+      * Considerations for large enterprises
+      * You can use [this QR code](https://www.canva.com/design/DAGKXgbdAMo/ryZU_qS3tIvVeWt_q_V_-Q/edit) to pre-order this free ebook.
+* Main topic for the week:
+  * We welcomed Valentin and Sridhar who are both Jenkins contributors and active OpenRewrite users. They started off by sharing some background on themselves and Jenkins in general. Jenkins, having been around for such a long time, has thousands of plugins and configurations that people have extended and need support with. Updating each plugin is a laborious and manual process – which results in many plugins falling behind.
+  * Valentin then explained [how they came to find and use OpenRewrite](https://summerofcode.withgoogle.com/programs/2024/projects/anaMmWRR) to address their problems. This culminated in the [Jenkins plugin modernizer tool](https://github.com/jenkinsci/plugin-modernizer-tool/) that both of them built during the Google Summer of Code.
+  * [He then presented on the architecture of the tool and where OpenRewrite fits into it](https://github.com/jenkinsci/plugin-modernizer-tool/blob/main/docs/ARCHITECTURE.md).
+  * [Next up Sridhar showed off the OpenRewrite recipes they've developed](https://github.com/jenkinsci/plugin-modernizer-tool/blob/main/plugin-modernizer-core/src/main/java/io/jenkins/tools/pluginmodernizer/core/extractor/MetadataCollector.java).
+  * We then discussed the impact of this tool and what their approach has been. They explained that they aren't using this at mass scale right now. Instead, they are wanting to run it against the top 200 plugins to focus on making sure it works for them.
+  * After that we took a look at the "health" of Jenkins plugins and what that means with the idea being that it would be interesting to target plugins that are popular but don't have high health scores.
+  * There was then a brief discussion about parsing files and what might be beneficial to support going forward.
+  * Sam then inquired about what will happen to this project going forward? They hope that they'll have time to continue working on it and that people in the community might come in and help, too. It might also be another summer of code project next year. 
+  * We then asked about what how people will use this tool. They mentioned that there are two different use cases: giving it to maintainers to help them in their refactoring tasks – and also for the Jenkins organization to get visibility into plugins. They don't want to open pull requests in every repository, but they want to warn people and offer this tool as a way for them to fix it.
+    * Sam suggested some ways that they might consider automating this.
+  * We then concluded by taking a look at some Jenkins visualizations that were developed with the modernizer tool.
 
 ### C# Language engineering updates (August 28th, 2024)
 
