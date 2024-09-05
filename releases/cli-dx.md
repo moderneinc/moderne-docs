@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.19.4 (2024/09/05)
+
+#### What's Changed CLI
+- Migrate to JSpecify
+* Save active socket and close before terminating the server
+
+
 ### CLI / DX v3.19.3 (2024/09/05)
 
 #### What's Changed CLI
