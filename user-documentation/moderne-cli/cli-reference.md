@@ -184,6 +184,8 @@
 * [**mod config scm bitbucket base-urls delete**](#mod-config-scm-bitbucket-base-urls-delete)
 * [**mod config scm bitbucket base-urls edit**](#mod-config-scm-bitbucket-base-urls-edit)
 * [**mod config scm bitbucket base-urls show**](#mod-config-scm-bitbucket-base-urls-show)
+* [**mod config scm moderne**](#mod-config-scm-moderne)
+* [**mod config scm moderne sync**](#mod-config-scm-moderne-sync)
 * [**mod config scm add**](#mod-config-scm-add)
 * [**mod config scm remove**](#mod-config-scm-remove)
 * [**mod config scm show**](#mod-config-scm-show)
@@ -3987,6 +3989,7 @@ mod config scm [subcommands]
 
 * `gitlab`: (DEPRECATED) Configures GitLab.
 * `bitbucket`: (DEPRECATED) Configures Bitbucket.
+* `moderne`: (INCUBATING) Configures the SCM configuration with Moderne
 * `add`
 * `remove`
 * `show`: Displays the configured SCMs
@@ -4243,6 +4246,45 @@ mod config scm bitbucket base-urls edit [parameters]
 
 ```
 mod config scm bitbucket base-urls show
+```
+
+
+
+## mod config scm moderne
+
+(INCUBATING) Configures the SCM configuration with Moderne
+
+
+
+
+### Usage
+
+```
+mod config scm moderne [subcommands]
+```
+
+### Examples
+
+```
+mod config scm moderne sync
+```
+
+
+### Subcommands
+
+* `sync`: Synchronizes the SCM configuration with your Moderne instance
+
+## mod config scm moderne sync
+
+Synchronizes the SCM configuration with your Moderne instance
+
+
+
+
+### Usage
+
+```
+mod config scm moderne sync
 ```
 
 
