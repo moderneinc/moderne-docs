@@ -13,5 +13,6 @@
 * [Configure an agent with generic HTTP tools for use in recipes](configure-an-agent-with-generic-http-tools-for-use-in-recipes.md)
 * [Configure an agent with strict recipe sources](configure-an-agent-with-strict-recipe-sources.md)
 * [Configure an agent with client SSL certificates](configure-an-agent-with-client-ssl-certificates.md)
+* [Configure an agent to connect to Moderne via an HTTP proxy](configure-an-agent-to-connect-to-moderne-via-an-http-proxy.md)
 * [All agent configuration variables](agent-variables.md)
 * [Multi-tenant private recipes](multi-tenant-private-recipes.md)
