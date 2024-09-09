@@ -86,6 +86,7 @@
       * [Configure an agent with generic HTTP tools for use in recipes](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-generic-http-tools-for-use-in-recipes.md)
       * [Configure an agent with strict recipe sources](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-strict-recipe-sources.md)
       * [Configure an agent with client SSL certificates](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-client-ssl-certificates.md)
+      * [Configure an agent to connect to Moderne via an HTTP proxy](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-to-connect-to-moderne-via-an-http-proxy.md)
       * [All agent configuration variables](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-variables.md)
       * [Multi-tenant private recipes](administrator-documentation/moderne-platform/how-to-guides/agent-configuration/multi-tenant-private-recipes.md)
     * [Configuring the Organizations service](administrator-documentation/moderne-platform/how-to-guides/organizations-service.md)

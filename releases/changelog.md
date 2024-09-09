@@ -1,21 +1,21 @@
 # Platform changelog
+
 ### UI v10.146.0 (2024/09/05)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.145.1 (2024/08/30)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v10.145.0 (2024/08/30)
 
 #### Builder
 
-We have added new tabs to the recipe finder dialog that is presented when adding a recipe to the currently selected node.  The default tab is _Marketplace recipes_ and provides the same experience users have already become familiar with.  There is also a tab for _Builder recipes_ to allow users to select one of their custom recipes_:_\
+We have added new tabs to the recipe finder dialog that is presented when adding a recipe to the currently selected node. The default tab is _Marketplace recipes_ and provides the same experience users have already become familiar with. There is also a tab for _Builder recipes_ to allow users to select one of their custom recipes\_:\_\
 ![](<../.gitbook/assets/image (66).png>)
 
-Selecting one will make a copy of the recipe in its current form and add it to the currently selected node similar to selecting one of the marketplace recipes.  This including toggling it to be added as a precondition.
+Selecting one will make a copy of the recipe in its current form and add it to the currently selected node similar to selecting one of the marketplace recipes. This including toggling it to be added as a precondition.
 
 ### UI v10.144.0 (2024/08/27)
 
@@ -109,7 +109,7 @@ This new mime type allows visualization notebook authors the ability to generate
 
 <div align="left">
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="108"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="108"><figcaption></figcaption></figure>
 
 </div>
 
@@ -216,7 +216,7 @@ UI v10.125.2 (2024/06/26)
 
 *   We have added dynamic controls to tree items in the tree view of the new builder. These controls will appear when interacting with the tree items:\\
 
-    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.123.0 (2024/06/17)
 
@@ -261,7 +261,7 @@ UI v10.125.2 (2024/06/26)
 
 *   When selecting subtrees in the new builder other nodes are now deemphasized to improve visual clarity of the selection:
 
-    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.118.0 (2024/05/31)
 
@@ -271,11 +271,11 @@ UI v10.125.2 (2024/06/26)
 ### UI v10.117.0 (2024/05/30)
 
 * Grids will now show more context regarding pagination:\
-  <img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" data-size="line">
+  <img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" data-size="line">
 * In the new builder the tree view has been improved visually to increase clarity and now has a new auto scroll mechanic which should be more consistent than the previous:\
   ![](<../.gitbook/assets/image (41).png>)
 * In the new builder the scene control buttons have been redesigned and relocated to the lower left of the scene:\
-  ![](<../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png>)
+  ![](<../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png>)
 
 UI v10.116.0 (2024/05/23)
 
@@ -750,7 +750,7 @@ Previous:
 
 <div data-full-width="true">
 
-<img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="">
+<img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="">
 
 </div>
 
