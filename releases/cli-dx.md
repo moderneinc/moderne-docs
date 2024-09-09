@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.19.5 (2024/09/09)
+
+#### What's Changed CLI
+* Do not print `@null` for default branch
+* Add integration of dotnet remoting server with execution log
+* Downgrade netty-bom to avoid using 4.2.0.Alpha*
+* Add `mod config scm moderne sync` command
+
+
 ### CLI / DX v3.19.4 (2024/09/05)
 
 #### What's Changed CLI
