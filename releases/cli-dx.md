@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.20.1 (2024/09/10)
+
+#### What's Changed CLI
+* Update Gradle wrapper to 8.10.1
+* Register `Moderne$ScmToolConfiguration` in the native image to allow deserialization
+This fixes a deserialization issue in the native version when using `mod config scm moderne sync`
+
+
 ### CLI / DX v3.20.0 (2024/09/09)
 
 #### What's Changed CLI
