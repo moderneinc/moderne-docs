@@ -7,6 +7,13 @@
 * Group properties in one block when executing `mod config moderne show`
 
 
+### CLI / DX v3.20.2 (2024/09/10)
+
+#### What's Changed CLI
+* Prevent mod exec hang when --output flag is not supplied
+* Group properties in one block when executing `mod config moderne show`
+
+
 ### CLI / DX v3.20.1 (2024/09/10)
 
 #### What's Changed CLI
