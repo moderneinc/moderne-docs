@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.20.0 (2024/09/09)
+
+#### What's Changed CLI
+* Update with rewrite-gradle-plugin 6.23.1, which allows Gradle dependency upgrade recipes to operate successfully on Gradle script plugins
+- Extract AGP versions from libs.versions.toml [libraries] definitions
+- Disable CLI progress output when detecting JDK for `scm.properties`
+
+
 ### CLI / DX v3.19.5 (2024/09/09)
 
 #### What's Changed CLI
