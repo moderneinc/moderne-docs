@@ -1,12 +1,15 @@
 # Platform changelog
+
 ### UI v10.148.0 (2024/09/10)
 
-- improve drag and drop
+Builder
+
+We improved the performance of the recipe tree and dramatically improved the drag and drop behavior to reorder nodes.\
+
 
 ### UI v10.147.0 (2024/09/09)
 
-- add category icons to quick search
-
+* add category icons to quick search
 
 ### UI v10.146.0 (2024/09/05)
 
