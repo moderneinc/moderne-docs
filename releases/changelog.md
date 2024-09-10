@@ -4,8 +4,9 @@
 
 Builder
 
-We improved the performance of the recipe tree and dramatically improved the drag and drop behavior to reorder nodes.\
+We improved the performance of the recipe tree and dramatically improved the drag and drop behavior to reorder nodes:
 
+<figure><img src="../.gitbook/assets/drag and drop.png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.147.0 (2024/09/09)
 
