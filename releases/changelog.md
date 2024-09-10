@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.148.0 (2024/09/10)
+
+- improve drag and drop
+
 ### UI v10.147.0 (2024/09/09)
 
 - add category icons to quick search
