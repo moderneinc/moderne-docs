@@ -3,100 +3,105 @@
 ### CLI / DX v3.20.4 (2024/09/11)
 
 #### What's Changed CLI
+
 * Correct pluralization in mod config scm moderne sync output
 * Remove lucene sneaking in via modcsharp
 * Add timout propagation to dotnet server
 
+### CLI / DX v3.20.3 (2024/09/10)
+
+#### What's Changed CLI
+
+* Update with moderne-recipe-loading-commons 1.0.5 which resolves the classloading issue when running recipes that reference MavenExecutionContextView, such as the DependencyResolutionDiagnostic recipe
+* Prevent mod exec hang when --output flag is not supplied
+* Group properties in one block when executing `mod config moderne show`
 
 ### CLI / DX v3.20.2 (2024/09/10)
 
 #### What's Changed CLI
+
 * Prevent mod exec hang when --output flag is not supplied
 * Group properties in one block when executing `mod config moderne show`
-
-
-### CLI / DX v3.20.2 (2024/09/10)
-
-#### What's Changed CLI
-* Prevent mod exec hang when --output flag is not supplied
-* Group properties in one block when executing `mod config moderne show`
-
 
 ### CLI / DX v3.20.1 (2024/09/10)
 
 #### What's Changed CLI
-* Update Gradle wrapper to 8.10.1
-* Register `Moderne$ScmToolConfiguration` in the native image to allow deserialization
-This fixes a deserialization issue in the native version when using `mod config scm moderne sync`
 
+* Update Gradle wrapper to 8.10.1
+* Register `Moderne$ScmToolConfiguration` in the native image to allow deserialization This fixes a deserialization issue in the native version when using `mod config scm moderne sync`
 
 ### CLI / DX v3.20.0 (2024/09/09)
 
 #### What's Changed CLI
-* Update with rewrite-gradle-plugin 6.23.1, which allows Gradle dependency upgrade recipes to operate successfully on Gradle script plugins
-- Extract AGP versions from libs.versions.toml [libraries] definitions
-- Disable CLI progress output when detecting JDK for `scm.properties`
 
+* Update with rewrite-gradle-plugin 6.23.1, which allows Gradle dependency upgrade recipes to operate successfully on Gradle script plugins
+* Extract AGP versions from libs.versions.toml \[libraries] definitions
+* Disable CLI progress output when detecting JDK for `scm.properties`
 
 ### CLI / DX v3.19.5 (2024/09/09)
 
 #### What's Changed CLI
+
 * Do not print `@null` for default branch
 * Add integration of dotnet remoting server with execution log
-* Downgrade netty-bom to avoid using 4.2.0.Alpha*
+* Downgrade netty-bom to avoid using 4.2.0.Alpha\*
 * Add `mod config scm moderne sync` command
-
 
 ### CLI / DX v3.19.4 (2024/09/05)
 
 #### What's Changed CLI
-- Migrate to JSpecify
-* Save active socket and close before terminating the server
 
+* Migrate to JSpecify
+* Save active socket and close before terminating the server
 
 ### CLI / DX v3.19.3 (2024/09/05)
 
 #### What's Changed CLI
+
 * Add support for parsing source sets defined using the Android Gradle plugin
 * Right align the number of recipes in `mod config recipes list` and show total
-#### What's Changed DX
-Nothing
 
+#### What's Changed DX
+
+Nothing
 
 ### CLI / DX v3.19.2 (2024/09/04)
 
 #### What's Changed CLI
-* --json option of mod study is parsed properly again
 
+* \--json option of mod study is parsed properly again
 
 ### CLI / DX v3.19.1 (2024/09/04)
 
 #### What's Changed CLI
+
 * Separate python into its own build step
 * Use `pip` to install Python packages required by `python` build step
 * Auto adjust row height in Excel exports
-- Extract JDK version constraints from android plugin versions
+* Extract JDK version constraints from android plugin versions
+
 #### What's Changed DX
+
 * Case insensitive repository handling in DX
 * Case insensitive SCM type configuration in DX
-
 
 ### CLI / DX v3.19.0 (2024/09/02)
 
 #### What's Changed CLI
+
 * mod study now has --csv option to output datatable in csv format
 * Parse Python using `PythonParser` in native build step
-* Add `mod config scm *` commands to add/remove SCM configurations
-`mod config scm gitlab` and `mod config scm bitbucket` have been deprecated and existing configurations are automatically migrated.
-#### What's Changed DX
-* Add support for alternate URLs for private SCMs to allow for better origin matching for different protocols/port combinations
+* Add `mod config scm *` commands to add/remove SCM configurations `mod config scm gitlab` and `mod config scm bitbucket` have been deprecated and existing configurations are automatically migrated.
 
+#### What's Changed DX
+
+* Add support for alternate URLs for private SCMs to allow for better origin matching for different protocols/port combinations
 
 ### CLI / DX v3.18.8 (2024/08/27)
 
 #### What's Changed CLI
-* Add dotnet recipes installation and running
 
+* Add dotnet recipes installation and running
 
 ### CLI / DX v3.18.7 (2024/08/26)
 
