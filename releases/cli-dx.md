@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.20.4 (2024/09/11)
+
+#### What's Changed CLI
+* Correct pluralization in mod config scm moderne sync output
+* Remove lucene sneaking in via modcsharp
+* Add timout propagation to dotnet server
+
+
 ### CLI / DX v3.20.2 (2024/09/10)
 
 #### What's Changed CLI
