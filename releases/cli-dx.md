@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.20.7 (2024/09/12)
+
+#### What's Changed CLI
+* Adapt to changes in [rewrite-maven-plugin v5.40.2](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v5.40.2)
+* Continue downloading artifacts when encountering individual errors during `mod config recipes moderne sync`
+
+
 ### CLI / DX v3.20.6 (2024/09/12)
 
 #### What's Changed CLI
