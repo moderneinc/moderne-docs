@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.20.6 (2024/09/12)
+
+#### What's Changed CLI
+* Shutdown dotnet process on any exception
+
+
 ### CLI / DX v3.20.5 (2024/09/11)
 
 #### What's Changed CLI
