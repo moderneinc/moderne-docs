@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.20.5 (2024/09/11)
+
+#### What's Changed CLI
+* Exclude Checkstyle's transitive dependencies. We don't use them but they were getting flagged by security scanners and bloating the size of the CLI binary
+
+
 ### CLI / DX v3.20.4 (2024/09/11)
 
 #### What's Changed CLI
