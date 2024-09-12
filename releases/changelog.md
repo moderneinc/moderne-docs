@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.149.0 (2024/09/12)
+
+- reduce number of speed dial actions
+
 
 ### UI v10.148.0 (2024/09/10)
 
