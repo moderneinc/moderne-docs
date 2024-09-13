@@ -30,7 +30,7 @@ Before starting the visualization, you must first [run a recipe which collects t
 
 Once the recipe has finished running, click on the visualization tab and run the "clustering code snippets" visualization.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 As a result you will get a 2D scatter plot, where each dot represents either a method or a class depending on what you selected. You can hover over any dot to reveal the name of the method or class. The closer two dots are, the more likely their contents are similar. For instance, you can expect to find methods that read, write, or delete files near each other.&#x20;
 
