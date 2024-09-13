@@ -1,16 +1,26 @@
 # Platform changelog
+
 ### UI v10.150.0 (2024/09/12)
 
-- add recent recipes tab
+#### Builder
+
+We have added a recent recipes tab to the recipe finder dialog.  Starting now whenever you add a recipe node in the builder or go to a recipe's details page in the marketplace that recipe will be added to your recent recipes list.  This list currently will retain the last 25 recipes for quick access:
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.149.0 (2024/09/12)
 
-- reduce number of speed dial actions
+#### Builder
 
+The speed dial actions on the 3D topology view can get pretty busy espectially when the layout and the view is in the sidebar.  We have consolidated Add precondition and Add recipe into a single option similar to the tree item controls:
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+This action will still take you to the recipe finder dialog which will allow you to add the recipe as a precondition by manually checking the precondition checkbox.
 
 ### UI v10.148.0 (2024/09/10)
 
-Builder
+#### Builder
 
 We improved the performance of the recipe tree and dramatically improved the drag and drop behavior to reorder nodes:
 
@@ -129,7 +139,7 @@ This new mime type allows visualization notebook authors the ability to generate
 
 <div align="left">
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="108"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="108"><figcaption></figcaption></figure>
 
 </div>
 
@@ -236,7 +246,7 @@ UI v10.125.2 (2024/06/26)
 
 *   We have added dynamic controls to tree items in the tree view of the new builder. These controls will appear when interacting with the tree items:\\
 
-    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.123.0 (2024/06/17)
 
@@ -281,7 +291,7 @@ UI v10.125.2 (2024/06/26)
 
 *   When selecting subtrees in the new builder other nodes are now deemphasized to improve visual clarity of the selection:
 
-    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.118.0 (2024/05/31)
 
@@ -291,11 +301,11 @@ UI v10.125.2 (2024/06/26)
 ### UI v10.117.0 (2024/05/30)
 
 * Grids will now show more context regarding pagination:\
-  <img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" data-size="line">
+  <img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" data-size="line">
 * In the new builder the tree view has been improved visually to increase clarity and now has a new auto scroll mechanic which should be more consistent than the previous:\
   ![](<../.gitbook/assets/image (41).png>)
 * In the new builder the scene control buttons have been redesigned and relocated to the lower left of the scene:\
-  ![](<../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png>)
+  ![](<../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 UI v10.116.0 (2024/05/23)
 
@@ -770,7 +780,7 @@ Previous:
 
 <div data-full-width="true">
 
-<img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="">
+<img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="">
 
 </div>
 
@@ -1227,7 +1237,7 @@ Now you can see the latest version number of the CLI before downloading.
 
 <div align="left" data-full-width="false">
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="176"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="176"><figcaption></figcaption></figure>
 
 </div>
 

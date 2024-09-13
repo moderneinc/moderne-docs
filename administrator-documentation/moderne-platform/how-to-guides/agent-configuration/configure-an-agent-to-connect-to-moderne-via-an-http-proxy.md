@@ -4,7 +4,7 @@ If your organization requires an HTTP proxy in order to be able to access the pu
 
 This proxy will be used for egress, and then the API gateway will establish the Layer 7 connection with the Moderne Agent through which all further communication will pass.
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Agent configuration
 
