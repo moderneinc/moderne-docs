@@ -12,7 +12,7 @@ We have added a recent recipes tab to the recipe finder dialog.  Starting now wh
 
 #### Builder
 
-The speed dial actions on the 3D topology view can get pretty busy espectially when the layout and the view is in the sidebar.  We have consolidated Add precondition and Add recipe into a single option similar to the tree item controls:
+The speed dial actions on the 3D topology view can get pretty busy especially when the layout and the view is in the sidebar.  We have consolidated Add precondition and Add recipe into a single option similar to the tree item controls:
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
@@ -69,7 +69,7 @@ In efforts to address this the search and filter feature is now aware of option 
 
 #### Builder
 
-Often a custom recipe will be composed of a few recipes that are used many times with different options. We have heard feedback that going through the recipe selection dialog becomes tedious for this work. In response we have added a duplicate button that will clone the recipe node as a sibling node. If the recipe duplicated has options then the edit options dialog will open automatically after duplicating:\\
+Often a custom recipe will be composed of a few recipes that are used many times with different options. We have heard feedback that going through the recipe selection dialog becomes tedious for this work. In response we have added a duplicate button that will clone the recipe node as a sibling node. If the recipe duplicated has options then the edit options dialog will open automatically after duplicating:
 
 <div align="left">
 
@@ -178,7 +178,7 @@ In this release we have made various improvements to the new builder to increase
 ### UI v10.130.0 (2024/07/18)
 
 *   In the builder there is now a new menu item **Edit as YAML**\
-    This will open a text editor with the current recipe's yaml to edit:\\
+    This will open a text editor with the current recipe's yaml to edit:
 
     <figure><img src="../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 * In the builder you can now edit nest recipe details
@@ -244,7 +244,7 @@ UI v10.125.2 (2024/06/26)
 
 ### UI v10.124.0 (2024/06/20)
 
-*   We have added dynamic controls to tree items in the tree view of the new builder. These controls will appear when interacting with the tree items:\\
+*   We have added dynamic controls to tree items in the tree view of the new builder. These controls will appear when interacting with the tree items:
 
     <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -279,7 +279,7 @@ UI v10.125.2 (2024/06/26)
     or when adding a recipe by toggling this check box:\
     ![](<../.gitbook/assets/image (47).png>)\
     \
-    Preconditions show up as a different color node in the 3D scene and highlighted in the tree view:\\
+    Preconditions show up as a different color node in the 3D scene and highlighted in the tree view:
 
     <figure><img src="../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
 
@@ -784,7 +784,7 @@ Previous:
 
 </div>
 
-New:\\
+New:
 
 <figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
 
@@ -881,7 +881,7 @@ We have added category logo support for the new LaunchDarkly recipes ( `rewrite-
 
 ### UI v10.17.0 (2023/11/28)
 
-We added a hint to the search results popover with the intention of increasing users awareness of the ability to quickly navigate to recipes (up/down then enter) or to the full page search results (enter) with keyboard navigation alone.\\
+We added a hint to the search results popover with the intention of increasing users awareness of the ability to quickly navigate to recipes (up/down then enter) or to the full page search results (enter) with keyboard navigation alone.
 
 <figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -1655,13 +1655,13 @@ Date time stamps can also be changed by simply clicking on them to cycle through
 
 #### Replay YAML recipes
 
-Custom yaml recipe runs can now be replayed. Now hitting replay on a custom recipe run summary will link to a new `/recipes/builder/[runId]` page. This page is similar to the `/recipes/builder` page however it will reflect the yaml recipe that was run making it possible to replay custom yaml recipe runs. This will also not disrupt your personal custom recipe.\\
+Custom yaml recipe runs can now be replayed. Now hitting replay on a custom recipe run summary will link to a new `/recipes/builder/[runId]` page. This page is similar to the `/recipes/builder` page however it will reflect the yaml recipe that was run making it possible to replay custom yaml recipe runs. This will also not disrupt your personal custom recipe.
 
 <figure><img src="../.gitbook/assets/replay.png" alt=""><figcaption></figcaption></figure>
 
 #### Admin agent version notice
 
-Admin users will now see a notice that can be dismissed whenever there is a new agent version available:\\
+Admin users will now see a notice that can be dismissed whenever there is a new agent version available:
 
 <figure><img src="../.gitbook/assets/agent-update.png" alt=""><figcaption></figcaption></figure>
 
@@ -1859,7 +1859,7 @@ Go to the _Help_ menu → _Try Moderne CLI_
 
 ### UI v9.65.0 (2023/03/03)
 
-In our continual efforts to integrate the new organizations service we have redesigned the top navigation bar. You will now find plenty of space for displaying longer organization and repository group names as well as improvements to all drop downs menus. \\
+In our continual efforts to integrate the new organizations service we have redesigned the top navigation bar. You will now find plenty of space for displaying longer organization and repository group names as well as improvements to all drop downs menus.
 
 <figure><img src="../.gitbook/assets/org-serv.png" alt=""><figcaption></figcaption></figure>
 
@@ -1873,7 +1873,7 @@ We have now switch to using IndexedDB for this purpose which will not run into t
 
 ### UI v9.63.0 (2023/02/27)
 
-The interactive origin icon now includes links:\\
+The interactive origin icon now includes links:
 
 <figure><img src="../.gitbook/assets/interactive-link.png" alt=""><figcaption></figcaption></figure>
 
@@ -1892,7 +1892,7 @@ GitHub links on recipe details for OpenRewrite recipes ([v9.35.0](changelog.md#r
 
 ### UI v9.60.0 (2023/02/23)
 
-All file downloads have been standardized to use our async download manager for a more consistent experience.\\
+All file downloads have been standardized to use our async download manager for a more consistent experience.
 
 ### UI v9.59.0 (2023/02/23)
 
@@ -2006,7 +2006,7 @@ While addressing some keyboard shortcuts that were reported to conflict with cer
 
 #### Recipe source links
 
-We want to improve users and recipe authors' experience finding source code for a particular recipe. We have added on the recipe details pages a link on OpenRewrite recipes that will use a specialized GitHub search query to find the source. We have plans to expand this functionality in the future.\\
+We want to improve users and recipe authors' experience finding source code for a particular recipe. We have added on the recipe details pages a link on OpenRewrite recipes that will use a specialized GitHub search query to find the source. We have plans to expand this functionality in the future.
 
 <figure><img src="../.gitbook/assets/recipe-source.png" alt=""><figcaption></figcaption></figure>
 
@@ -2158,7 +2158,7 @@ Previously the _Recent Commit Job_ page only reported the overall status of job 
 #### More markers!
 
 We have increased the types of markers we annotate and surface in the diff view of the UI. Previously the new markers will now render as squiggly lines with an icon. If there are additional details, it will allow you to click in to see those details:\
-ou may have noticed search markers displaying like this:\\
+ou may have noticed search markers displaying like this:
 
 <figure><img src="../.gitbook/assets/marker-1.png" alt=""><figcaption></figcaption></figure>
 
