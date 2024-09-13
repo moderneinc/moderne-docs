@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.20.8 (2024/09/13)
+
+#### What's Changed
+* Correctly set executable after `MODERNE_BUILD_TOOL_COMPILE` substitution
+* Report failure when `mod exec` commands exit with error codes
+* Suggest trust-store configuration on `mod config moderne edit` SSL failures
+
+
 ### CLI / DX v3.20.7 (2024/09/12)
 
 #### What's Changed CLI
