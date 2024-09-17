@@ -35,7 +35,7 @@ Moderne currently supports numerous languages, data formats, build tools, and fr
 
 Moderne offers a free [public instance](https://app.moderne.io/) where you can run hundreds of recipes across thousands of open-source repositories.
 
-Or if you want to test this out in a custom private instance made just for your team, please fill out [this form](https://lq7oxv9ggnm.typeform.com/ContactUs?typeform-source=https://docs.moderne.io/) and we will get back to you to set up a proof of value meeting.
+Or if you want to test this out in a custom private instance made just for your team, please fill out [this form](https://www.moderne.ai/contact-us) and we will get back to you to set up a proof of value meeting.
 
 ## Want to learn more?
 
