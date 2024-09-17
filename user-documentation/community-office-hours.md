@@ -6,6 +6,32 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### OpenRewrite support for Android (September 11th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=SidlZoyXSw0" %}
+
+#### Summary and related links
+
+* **Announcements for the week**:
+  * **Content**:
+    * [We've released our September newsletter - which lets you get caught up on everything new in the past month](https://www.linkedin.com/pulse/new-season-code-java-23-ai-mass-scale-c-september-2024-newsletter-ona2c/)
+    * [The AI for mass-scale code refactoring and analysis e-book is now out](https://www.moderne.ai/content-library/ai-for-mass-scale-code-refactoring-and-analysis-oreilly)
+  * **Releases**:
+    * [We did a new release of OpenRewrite this week](https://github.com/openrewrite/rewrite/releases/tag/v8.35.0)
+      * This includes better support for Gradle build scripts.
+      * It also includes support for [Spring Kafka 2 to 3](https://github.com/openrewrite/rewrite-spring/pull/587).
+      * There are a lot more changes discussed in the webinar.
+  * **Events**:
+    * [Mike will be presenting about our docs and how we automate them in a GitBook webinar on September 17th](https://www.gitbook.com/events/gitbook-moderne-september)
+    * [Jonathan and Olga will be at JConf in Dallas on September 24th](https://2024.jconf.dev/)
+    * [Sam will be at Gradle's Developer Productivity Engineering Summit on September 24th and 25th](https://dpe.org/)
+    * [Justine will present at the Montreal Java User Group on September 26th](https://www.meetup.com/montreal-jug/events/303194650/?_xtd=gqFyqTI0OTQ1ODM3NqFwo2FwaQ%253D%253D&from=ref)
+    * [Tim will give a workshop at Devoxx BE at the beginning of October](https://devoxx.be/talk/?id=3569)
+* **Main topic for the week**:
+  * [We recently added support for parsing Android in the OpenRewrite Gradle plugin](https://github.com/openrewrite/rewrite-gradle-plugin/pull/327). You'll need to use at least version 6.22.0 to get this functionality.
+  * We're planning on starting up a dedicated Android recipe repository. If you're interested in contributing some Android recipes, please reach out to us in [our community Slack channel](  https://join.slack.com/t/rewriteoss/shared_invite/zt-nj42n3ea-b~62rIHzb3Vo0E1APKCXEA) and let us know!
+  * [Sam then briefly took us through some of the implementation details](https://github.com/openrewrite/rewrite-gradle-plugin/blob/main/plugin/src/main/java/org/openrewrite/gradle/isolated/AndroidProjectParser.java).
+
 ### Using OpenRewrite for Jenkins plugin modernization (September 4th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=-n3zaD3xliY" %}
