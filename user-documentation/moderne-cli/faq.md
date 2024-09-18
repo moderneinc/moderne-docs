@@ -41,3 +41,18 @@ mod study . --last-recipe-run --data-table org.openrewrite.table.ParseFailures
 If you experience this issue when running `mod git apply`, please try committing/stashing/reverting the unsaved changes before running `mod git apply` again.
 
 If that doesn't work, and you keep running into issues with this, please contact [support@moderne.io](mailto:support@moderne.io) and provide us with the `fix.patch` file and the target files (ideally reduced to the minimum need to replicate the issues).
+
+## My project only builds resources, not my Maven or other build
+
+If you see `Step 1 - build resources`, then we did not detect any other build tools. Your output would look something like:
+```
+> some-org/some-repository@develop
+Build output will be written to file:///Users/you/Documents/some-repository/.moderne/build/20240917092838-mt6Ew/build.log
+> Step 1 - build resources
++ Built LST file:///Users/you/Documents/some-repository/.moderne/build/20240917092838-mt6Ew/some-repository-20240917092845-ast.jar
++ Reported build metrics to Moderne
++ Cleaned 1 older builds.
+```
+
+If your project _does_ contain a `pom.xml` file (or similar), then you might want to double-check that your `.gitignore` file does not exclude it.
+The CLI skips any resources marked as Git ignored during project discovery, and remove the matching entry from `.gitignore` if present.
