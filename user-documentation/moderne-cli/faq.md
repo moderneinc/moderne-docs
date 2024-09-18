@@ -45,7 +45,8 @@ If that doesn't work, and you keep running into issues with this, please contact
 ## My project only builds resources, not my Maven or other build
 
 If you see `Step 1 - build resources`, then we did not detect any other build tools. Your output would look something like:
-```
+
+```bash
 > some-org/some-repository@develop
 Build output will be written to file:///Users/you/Documents/some-repository/.moderne/build/20240917092838-mt6Ew/build.log
 > Step 1 - build resources
@@ -55,4 +56,5 @@ Build output will be written to file:///Users/you/Documents/some-repository/.mod
 ```
 
 If your project _does_ contain a `pom.xml` file (or similar), then you might want to double-check that your `.gitignore` file does not exclude it.
+
 The CLI skips any resources marked as Git ignored during project discovery, and remove the matching entry from `.gitignore` if present.
