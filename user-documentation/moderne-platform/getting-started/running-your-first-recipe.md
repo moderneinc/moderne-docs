@@ -72,7 +72,7 @@ This will take you to a page that lists all of the recipe categories. This is th
 
 Let's find a good recipe to start from to help illustrate how to search across multiple repositories.
 
-1. From the [Marketplace](https://app.moderne.io/marketplace), click on [Static analysis and remediation](https://app.moderne.io/marketplace/org.openrewrite.staticanalysis) from the list of categories.
+1. From the [Marketplace](https://app.moderne.io/marketplace), click on [Static analysis and remediation](https://app.moderne.io/marketplace/org.openrewrite.staticanalysis) and then [Core](https://app.moderne.io/marketplace/org.openrewrite.staticanalysis.core).
 2. Click on the `Common static analysis issues` recipe.
 
 ## Step 6: Run the recipe
