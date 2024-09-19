@@ -30,9 +30,7 @@ The third type of data table, the recipe-specific one, is the one you'll get the
 
 Let's take a look at a recipe that attempts to fix security vulnerabilities and then produces a data table with detailed information about the repositories and their vulnerabilities.
 
-To get started, run the [check for dependency vulnerabilities](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck?) recipe:
-
-From the recipe page, specify a `Scope` of `compile` and then press the `Dry Run` button:
+To get started, make sure you've selected the `Default` organization and then run the [check for dependency vulnerabilities](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck?) recipe:
 
 ![](../../../.gitbook/assets/check-dep-1.png)
 
