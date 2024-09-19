@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.20.9 (2024/09/17)
+
+#### What's Changed CLI
+* Simplify RemoteRecipe execution. Rework NuGet Recipes loading. Adopt new API
+
+
 ### CLI / DX v3.20.8 (2024/09/13)
 
 #### What's Changed
