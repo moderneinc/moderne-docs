@@ -12,7 +12,27 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**:
+  * **Releases**:
+    * [We put out a patch release of the rewrite-maven-plugin to pull forward failures when resolving pom files – so you can fix the issues before they affect recipe runs](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v5.40.2).
+    * [We released a new version of the Moderne IntelliJ plugin](https://plugins.jetbrains.com/plugin/17565-moderne/versions/stable)
+      * With the new version, you'll be able to debug Scanning recipes and generated Refaster recipes. We also support the latest IntelliJ release and allow you to generate recipes from XML tags.
+    * [We overhauled the find and fix vulnerable dependencies recipe](https://github.com/openrewrite/rewrite-java-dependencies/compare/v1.18.1...main)
+    * There were a variety of subtle fixes in the latest snapshots – such as adjustements to the OrderImports and RemoveUnusedImports recipes.
+  * **Events**
+    * [Mike's webinar on CI/CD for your docs was yesterday. You can watch a recording here](https://www.youtube.com/watch?v=A8jEzp8d3qU)
+    * [Jonathan and Olga will be at JConf in Dallas on September 24th](https://2024.jconf.dev/)
+    * [Sam will be at Gradle's Developer Productivity Engineering Summit on September 24th and 25th](https://dpe.org/)
+    * [Justine will present at the Montreal Java User Group on September 26th](https://www.meetup.com/montreal-jug/events/303194650/?_xtd=gqFyqTI0OTQ1ODM3NqFwo2FwaQ%253D%253D&from=ref)
+    * [Tim will give a workshop at Devoxx BE at the beginning of October](https://devoxx.be/talk/?id=3569)
+* **Main topic for the week - dependency management**
+  * We started off by giving some background on dependency management. When creating software nowadays, a significant amount of code will be dependent on external libraries that you don't manage. These dependencies, while necessary, also cause a lot of issues. For instance, you'll have to deal with vulnerabilities or breaking changes in these dependencies. Those pain points were part of the motivation for creating OpenRewrite to begin with.
+  * Sam then walked us through a variety of dependency management recipes – starting with the [Upgrade Gradle dependency versions recipe](https://app.moderne.io/recipes/org.openrewrite.gradle.UpgradeDependencyVersion) – then the [Find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck) – and then the [Update Gradle wrapper recipe](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper).
+  * During the session, we had a community question that asked if people can use OpenRewrite recipes for private GitHub repositories or if that requires payment. To answer that – all OpenRewrite recipes are free and open-source to use on any project. If you need to run recipes against multiple repositories, though - you should check out [Moderne](/introduction.md) and the [Moderne CLI](/user-documentation/moderne-cli/getting-started/).
+  * We then took a look at the [recipe code](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/UpgradeDependencyVersion.java) and Sam called out a few key pieces – such as the fact that Gradle dependency recipes will often have a [Groovy Visitor](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/UpgradeDependencyVersion.java#L148) (since `.gradle` files are written in Groovy script). Another important thing to note is that you can use [GradleDependencyConfiguration](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/UpgradeDependencyVersion.java#L678) to access the Gradle dependency configuration by name.
+  * After that, [we took a look at the tests](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/test/java/org/openrewrite/gradle/UpgradeDependencyVersionTest.java) and explained what happens when you run a Gradle test. 
+  * Another important thing to know about creating Gradle recipes is that most things in a Groovy script are method invocations (e.g., `repositories {}`, `mavenCentral()`, `compileOnly ...` are all method invocations). Also, since Groovy scripts are dynamically typed – you won't always have static type information available (which you would in Java). This means things like method matchers may not be as reliable as you'd like.
+  * We also called out [DependencyVersionSelector](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/UpgradeDependencyVersion.java#L226) - which will help you look up what versions of dependencies are available based on a provided selector.
 
 ### OpenRewrite support for Android (September 11th, 2024)
 
