@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.20.10 (2024/09/19)
+
+#### What's Changed CLI
+* Keep track of which directories a given build step has claimed, and prevent subsequent build steps from also trying to build those directories
+
+
 ### CLI / DX v3.20.9 (2024/09/17)
 
 #### What's Changed CLI
