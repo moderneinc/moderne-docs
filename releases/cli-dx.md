@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.20.11 (2024/09/20)
+
+#### What's Changed CLI
+* Update rewrite-gradle-plugin version to 6.23.3 to get [a fix](https://github.com/openrewrite/rewrite-gradle-plugin/commit/98c7cd75bfaae0efddb9ac9e69f6e10937b39660) for freestanding gradle scripts missing `GradleProject` markers
+* Configure reflection for classes required for native CLI binaries running `mod study`
+
+
 ### CLI / DX v3.20.10 (2024/09/19)
 
 #### What's Changed CLI
