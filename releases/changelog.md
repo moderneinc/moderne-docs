@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.152.0 (2024/09/23)
+
+- update activity view url
+
 ### DevCenter v0.253.0 (2024/09/23)
 The method for calculating lines of code has changed slightly. We now count raw file lines. This is much quicker (as we can use this information from the LST) and this results better DevCenter performance.
 
