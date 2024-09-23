@@ -1,7 +1,23 @@
 # Platform changelog
+### DevCenter v0.253.0 (2024/09/23)
+The method for calculating lines of code has changed slightly. We now count raw file lines. This is much quicker (as we can use this information from the LST) and this results better DevCenter performance.
+
 ### UI v10.151.0 (2024/09/17)
 
 - Bug fixes and other improvements.
+
+### DevCenter v0.250.0 (2024/09/13)
+DevCenter API versioning is introduced to allow admins to configure a new version of DevCenter.
+Using version `1` allows the use of the DevCenter’s upgrades and migrations section to treat repositories with no results as “N/A” instead of Completed/Compliant.
+
+#### Why are these changes being made?
+
+These changes to the DevCenter provide more visibility to users, specifically for which repos they should care about completing the upgrade/migration, and which ones aren’t important for this upgrade/migration. Imagine an organization cares about the Spring Boot 3 upgrade and has 75 Java repositories (50 on the latest Spring Boot and 25 on older versions) and 25 non-Java repositories. In the current implementation of DevCenter, users would see 50% completed, even though 25 of those repositories don’t even use Java. After this set of changes, users will now see “N/A” for repositories that are not important to the migration.
+
+<img width="949" alt="image" src="https://github.com/user-attachments/assets/88308ce4-ca3d-4d36-a68c-af55fde287bd">
+
+#### Changes required to use this feature
+If you want to use this feature you will have to set the version to `1` and add a new “measure” to your DevCenter configuration. Take a look at [this commit](https://github.com/moderneinc/moderne-organizations/commit/7515890c9f2b7730423db56e26dc7577b1b095f9) in moderne-organizations for an example. If your upgrades and migrations do not include the ones mentioned here and you need help identifying the recipe for the “completed” measure, please feel free to email us at support@moderne.io.
 
 
 ### UI v10.150.0 (2024/09/12)
