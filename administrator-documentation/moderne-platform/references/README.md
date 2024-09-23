@@ -1,6 +1,5 @@
 # References
 
-* [Frequently asked questions (FAQ)](faq.md)
 * [Reporting](reporting.md)
 * [Moderne architecture](architecture.md)
 * [Sensitive data flow](flow.md)
