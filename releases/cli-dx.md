@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.20.12 (2024/09/24)
+
+#### What's Changed
+* Disable maven central during recipe run if `mod config recipes artifacts default-repositories` is disabled
+* When mod monitor fails to start, provide additional information to understand why it could not start
+* Parse .NET .props and .sln files as PlainText to ensure recipes can be run on them
+
+
 ### CLI / DX v3.20.11 (2024/09/20)
 
 #### What's Changed CLI
