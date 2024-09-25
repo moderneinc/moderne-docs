@@ -477,6 +477,9 @@ When creating new recipes, you may find it desirable to examine multiple source 
 
 The rewrite-recipe starter contains an example in the form of [src/main/java/com/yourorg/AppendToReleaseNotes.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/AppendToReleaseNotes.java) that you might want to explore.
 
+Other examples of scanning recipes can be found across the various OpenRewrite recipe modules, such as for instance this recipe in rewrite-testing-frameworks to [add Hamcrest dependency if a particular JUnit 4 method was used](https://github.com/openrewrite/rewrite-testing-frameworks/blob/b885d120f522eba1edbc74947da962d4696fc37a/src/main/java/org/openrewrite/java/testing/junit5/AddHamcrestJUnitDependency.java#L29-L89) previously, or this recipe where we [retain Mockito's `Strictness.WARN` when migrating from older Mockito versions](https://github.com/openrewrite/rewrite-testing-frameworks/blob/f58e66581c3ee98005b27b2b660321d14f0bd29d/src/main/java/org/openrewrite/java/testing/mockito/RetainStrictnessWarn.java#L33-L100).
+Each of these requires evaluating multiple source files, before making targeted changes in particular source files.
+
 ### Data tables
 
 Sometimes you're more interested in extracting insights from across your projects, rather than directly making code changes. In those cases [data tables](https://docs.openrewrite.org/running-recipes/data-tables) come in handy, as they allow you to extract data from your projects, and analyze it in a tabular format.
