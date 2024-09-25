@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.21.0 (2024/09/25)
+
+#### What's Changed CLI
+* Add `no-maven-central` and `no-nuget-org` to `mod config features`
+* Deprecate `mod config recipes artifacts default-repositories` - replaced by the new commands.
+
+
 ### CLI / DX v3.20.12 (2024/09/24)
 
 #### What's Changed
