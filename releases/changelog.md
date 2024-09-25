@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.153.0 (2024/09/25)
+
+- add ability to download devcenter datatable
+- add missing lst message to devcenter
+
 ### UI v10.152.0 (2024/09/23)
 
 - update activity view url
