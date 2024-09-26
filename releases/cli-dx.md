@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.21.1 (2024/09/26)
+
+#### What's Changed
+* Display error in the dev center data table when any recipe errors out
+* Add user provided dotnets to list of installed
+
+
 ### CLI / DX v3.21.0 (2024/09/25)
 
 #### What's Changed CLI
