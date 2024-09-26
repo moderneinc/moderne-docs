@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.153.1 (2024/09/26)
+
+- Bug fixes and other improvements.
+
 ### UI v10.153.0 (2024/09/25)
 
 - add ability to download devcenter datatable
