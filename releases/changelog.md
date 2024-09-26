@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.154.0 (2024/09/26)
+
+- add logo support for android, dotnet, gitlab, reactor, scala
+
 ### UI v10.153.3 (2024/09/26)
 
 - Bug fixes and other improvements.
