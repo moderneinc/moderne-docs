@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.21.2 (2024/09/27)
+
+#### What's Changed
+* Adding partition name to study output
+* When building Bazel LSTs, include the full classpath in the build log.
+
+
 ### CLI / DX v3.21.1 (2024/09/26)
 
 #### What's Changed
