@@ -20,15 +20,27 @@ During the beta we received lots of feedback from all different types of users t
 
 In this update we have removed the old builder and its navigation links. If you were working on a recipe in the old builder you will be able to find it in the new builder by either the greeter dialog or recipe menu:
 
+<figure><img src="../.gitbook/assets/import_recipe_menu.png" alt="" width="161"><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/get_started.png" alt="" width="453"><figcaption></figcaption></figure>
+
 From here you can save your YAML locally or import it into the new builder:
+
+<figure><img src="../.gitbook/assets/save_yaml_dialog.png" alt="" width="242"><figcaption></figcaption></figure>
 
 After you import the recipe you will no longer see these messages about an old builder recipe and you will find your recipe in the manage recipes dialog. If for some reason you don't, a backup of it is stored in your browsers local storage under the key `moderne:recipe-builder:backup`
 
-You may be curious about what happens to all the "Add to builder" buttons in the marketplace. They are still there! Though they behave differently now:
+You may be curious about what happens to all the "Add to builder" buttons in the marketplace. They are still there! Though they behave differently now.
 
 Clicking Add to builder button now opens a dialog allowing you to select which recipe you would like to add the recipe to:
 
+<figure><img src="../.gitbook/assets/select_recipe_dialog.png" alt="" width="439"><figcaption></figcaption></figure>
+
 You can also select whether you want to add it as a precondition or not. Also note you can start a new recipe right from this dialog:
+
+<figure><img src="../.gitbook/assets/add_new_custom_recipe.png" alt="" width="447"><figcaption></figcaption></figure>
+
+
 
 Regardless if you pick an existing recipe or create a new one, the marketplace recipe will be attached with its options to the root node of your selection where you can then drag and drop it to the desired location:
 
