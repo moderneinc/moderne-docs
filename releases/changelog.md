@@ -1,63 +1,89 @@
 # Platform changelog
+
 ### UI v10.156.0 (2024/09/30)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.155.0 (2024/09/27)
 
-- remove old builder
+#### Builder
+
+The builder is dead! Long live the new builder! - As many have known, we have built a new builder that has many advantages over the previous, some big examples include:
+
+* The ability to work on multiple recipes
+* The ability to work on recipes without having to navigate multiple pages.
+* 3D representation
+* An improved 2D tree representation
+* Search and filter abilities
+
+During the beta we received lots of feedback from all different types of users that helped us get to this point so first off -- Thank you! As always we continue to welcome feedback as we refine and make improvements to ensure we are creating tools that are impactful for our users.
+
+In this update we have removed the old builder and its navigation links. If you were working on a recipe in the old builder you will be able to find it in the new builder by either the greeter dialog or recipe menu:
+
+From here you can save your YAML locally or import it into the new builder:
+
+After you import the recipe you will no longer see these messages about an old builder recipe and you will find your recipe in the manage recipes dialog. If for some reason you don't, a backup of it is stored in your browsers local storage under the key `moderne:recipe-builder:backup`
+
+You may be curious about what happens to all the "Add to builder" buttons in the marketplace. They are still there! Though they behave differently now:
+
+Clicking Add to builder button now opens a dialog allowing you to select which recipe you would like to add the recipe to:
+
+You can also select whether you want to add it as a precondition or not. Also note you can start a new recipe right from this dialog:
+
+Regardless if you pick an existing recipe or create a new one, the marketplace recipe will be attached with its options to the root node of your selection where you can then drag and drop it to the desired location:
 
 ### UI v10.154.0 (2024/09/26)
 
-- add logo support for android, dotnet, gitlab, reactor, scala
+* add logo support for android, dotnet, gitlab, reactor, scala
 
 ### UI v10.153.3 (2024/09/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.153.2 (2024/09/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.153.1 (2024/09/26)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.153.0 (2024/09/25)
 
-- add ability to download devcenter datatable
-- add missing lst message to devcenter
+* add ability to download devcenter datatable
+* add missing lst message to devcenter
 
 ### UI v10.152.0 (2024/09/23)
 
-- update activity view url
+* update activity view url
 
 ### DevCenter v0.253.0 (2024/09/23)
+
 The method for calculating lines of code has changed slightly. We now count raw file lines. This is much quicker (as we can use this information from the LST) and this results better DevCenter performance.
 
 ### UI v10.151.0 (2024/09/17)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### DevCenter v0.250.0 (2024/09/13)
-DevCenter API versioning is introduced to allow admins to configure a new version of DevCenter.
-Using version `1` allows the use of the DevCenter’s upgrades and migrations section to treat repositories with no results as “N/A” instead of Completed/Compliant.
+
+DevCenter API versioning is introduced to allow admins to configure a new version of DevCenter. Using version `1` allows the use of the DevCenter’s upgrades and migrations section to treat repositories with no results as “N/A” instead of Completed/Compliant.
 
 #### Why are these changes being made?
 
 These changes to the DevCenter provide more visibility to users, specifically for which repos they should care about completing the upgrade/migration, and which ones aren’t important for this upgrade/migration. Imagine an organization cares about the Spring Boot 3 upgrade and has 75 Java repositories (50 on the latest Spring Boot and 25 on older versions) and 25 non-Java repositories. In the current implementation of DevCenter, users would see 50% completed, even though 25 of those repositories don’t even use Java. After this set of changes, users will now see “N/A” for repositories that are not important to the migration.
 
-<img width="949" alt="image" src="https://github.com/user-attachments/assets/88308ce4-ca3d-4d36-a68c-af55fde287bd">
+![image](https://github.com/user-attachments/assets/88308ce4-ca3d-4d36-a68c-af55fde287bd)
 
 #### Changes required to use this feature
-If you want to use this feature you will have to set the version to `1` and add a new “measure” to your DevCenter configuration. Take a look at [this commit](https://github.com/moderneinc/moderne-organizations/commit/7515890c9f2b7730423db56e26dc7577b1b095f9) in moderne-organizations for an example. If your upgrades and migrations do not include the ones mentioned here and you need help identifying the recipe for the “completed” measure, please feel free to email us at support@moderne.io.
 
+If you want to use this feature you will have to set the version to `1` and add a new “measure” to your DevCenter configuration. Take a look at [this commit](https://github.com/moderneinc/moderne-organizations/commit/7515890c9f2b7730423db56e26dc7577b1b095f9) in moderne-organizations for an example. If your upgrades and migrations do not include the ones mentioned here and you need help identifying the recipe for the “completed” measure, please feel free to email us at support@moderne.io.
 
 ### UI v10.150.0 (2024/09/12)
 
 #### Builder
 
-We have added a recent recipes tab to the recipe finder dialog.  Starting now whenever you add a recipe node in the builder or go to a recipe's details page in the marketplace that recipe will be added to your recent recipes list.  This list currently will retain the last 25 recipes for quick access:
+We have added a recent recipes tab to the recipe finder dialog. Starting now whenever you add a recipe node in the builder or go to a recipe's details page in the marketplace that recipe will be added to your recent recipes list. This list currently will retain the last 25 recipes for quick access:
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -65,7 +91,7 @@ We have added a recent recipes tab to the recipe finder dialog.  Starting now wh
 
 #### Builder
 
-The speed dial actions on the 3D topology view can get pretty busy especially when the layout and the view is in the sidebar.  We have consolidated Add precondition and Add recipe into a single option similar to the tree item controls:
+The speed dial actions on the 3D topology view can get pretty busy especially when the layout and the view is in the sidebar. We have consolidated Add precondition and Add recipe into a single option similar to the tree item controls:
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
