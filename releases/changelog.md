@@ -44,6 +44,8 @@ You can also select whether you want to add it as a precondition or not. Also no
 
 Regardless if you pick an existing recipe or create a new one, the marketplace recipe will be attached with its options to the root node of your selection where you can then drag and drop it to the desired location:
 
+<figure><img src="../.gitbook/assets/drag_n_drop.png" alt="" width="466"><figcaption></figcaption></figure>
+
 ### UI v10.154.0 (2024/09/26)
 
 * add logo support for android, dotnet, gitlab, reactor, scala
