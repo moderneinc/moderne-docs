@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.156.0 (2024/09/30)
+
+- Bug fixes and other improvements.
+
 ### UI v10.155.0 (2024/09/27)
 
 - remove old builder
