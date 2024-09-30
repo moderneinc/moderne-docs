@@ -6,6 +6,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### The Moderne Recipe Builder in action (September 25th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=VHkpp7queWs" %}
+
+#### Summary and related links
+
+Coming soon!
+
 ### Automating Gradle upgrades with recipes (September 18th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=C8ZxyQGD4A0" %}
