@@ -77,8 +77,6 @@
 * [**mod config environment show**](#mod-config-environment-show)
 * [**mod config features**](#mod-config-features)
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
-* [**mod config features no-maven-central**](#mod-config-features-no-maven-central)
-* [**mod config features no-nuget-org**](#mod-config-features-no-nuget-org)
 * [**mod config http**](#mod-config-http)
 * [**mod config http proxy**](#mod-config-http-proxy)
 * [**mod config http proxy delete**](#mod-config-http-proxy-delete)
@@ -1975,8 +1973,6 @@ mod config features [subcommands]
 ### Subcommands
 
 * `index-recipes`
-* `no-maven-central`: (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
-* `no-nuget-org`: (INCUBATING) Configure the availability of NuGet.org.
 
 ## mod config features index-recipes
 
@@ -1987,46 +1983,6 @@ Index recipes to avoid classloading expense on every repository. This experiment
 
 ```
 mod config features index-recipes
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| --enabled |  |
-
-
-## mod config features no-maven-central
-
-(INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
-
-
-Maven Central and OSS Sonatype Snapshots are considered as valid recipe and dependency sources by default. They are implicitly used as a fallback for the resolution of recipes. In some environments access to these repositories is not allowed. This command be used to disable adding them implicitly to the list of repositories used for installing running recipes.
-
-### Usage
-
-```
-mod config features no-maven-central
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| --enabled |  |
-
-
-## mod config features no-nuget-org
-
-(INCUBATING) Configure the availability of NuGet.org.
-
-
-NuGet.org is considered as a valid recipe and dependency source by default.It is implicitly used as a fallback for the resolution of recipes. In some environments access to these repositories is not allowed. This command be used to disable adding them implicitly to the list of repositories used for installing running recipes.
-
-### Usage
-
-```
-mod config features no-nuget-org
 ```
 
 ### Options
@@ -3106,7 +3062,7 @@ mod config recipes artifacts [subcommands]
 
 * `artifactory`: Configures the artifact repository to resolve recipes from.
 * `show`: Displays the recipe artifacts repository configuration.
-* `default-repositories`: (DEPRECATED) Configure the availability of maven central repositories.
+* `default-repositories`: (INCUBATING) Configure the availability of default repositories.
 * `maven`: Configures a Maven-formatted artifact repository that recipes will be resolved from.
 * `nuget`: Configures a Nuget-formatted artifact repository that recipes will be resolved from.
 
@@ -3213,10 +3169,10 @@ mod config recipes artifacts show
 
 ## mod config recipes artifacts default-repositories
 
-(DEPRECATED) Configure the availability of maven central repositories.
+(INCUBATING) Configure the availability of default repositories.
 
 
-Use `mod config features no-maven-central` to disable/enable Maven Central and OSS Sonatype Snapshots.
+Maven Central and Nexus Snapshots are considered as valid recipe sources by default.In some environments access to these repositories is not allowed. This can be used to disable any attempt to access them.
 
 ### Usage
 
