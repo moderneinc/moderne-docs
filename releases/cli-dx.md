@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.22.1 (2024/10/01)
+
+#### What's Changed CLI
+* Allow empty option displayname
+* Feat adding paging get all orgs in cli
+
+
 ### CLI / DX v3.20.14 (2024/10/01)
 
 #### What's Changed CLI
