@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.22.0 (2024/09/30)
+
+#### What's Changed CLI
+* Enhance`mod config recipes moderne sync` to install C# recipes
+* Update to rewrite-polyglot [1.14.0](https://github.com/openrewrite/rewrite-polyglot/releases/tag/v1.14.0) which fixes missing type attribution in code parsed from Bazel builds
+* Only save on at least partial success
+* When recipes use the classpathFromResources mechanism use default location ~/.moderne/cli/rewrite-classpath instead of  ~/rewrite/classpath
+
+
 ### CLI / DX v3.21.2 (2024/09/27)
 
 #### What's Changed
