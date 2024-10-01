@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.22.2 (2024/10/01)
+
+#### What's Changed CLI
+* Upgrade rewrite-polyglot to [1.14.1](https://github.com/openrewrite/rewrite-polyglot/releases/tag/v1.14.1) which fixes `OmniParser` throwing an exception when presented with a source file type it doesn't have a parser for
+* Hide stacktrace on failing recipe install
+
+
 ### CLI / DX v3.22.1 (2024/10/01)
 
 #### What's Changed CLI
