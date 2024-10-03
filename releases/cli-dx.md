@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.22.3 (2024/10/03)
+
+#### What's Changed CLI
+* Migrate onto latest rewrite-remoting api
+* Continue java runtime detection even if java executable cannot be found on PATH
+* Supporting building moderne-cli on Windows ARM
+* Removing the newly set CLI classpath
+
+
 ### CLI / DX v3.22.2 (2024/10/01)
 
 #### What's Changed CLI
