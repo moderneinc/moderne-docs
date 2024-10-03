@@ -6,6 +6,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Fixing security vulnerabilities with Moderne (October 2nd, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=X4ibcuGX2wE" %}
+
+#### Summary and related links
+
+Coming soon!
+
 ### The Moderne Recipe Builder in action (September 25th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=VHkpp7queWs" %}
