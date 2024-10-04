@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.22.4 (2024/10/04)
+
+#### What's Changed CLI
+* Add JavaScript build step
+* Register `H2MvStorePomCache` class for GraalVM in order to serialize maven metadata cache keys
+* Improve performance of metric aggregation
+
+
 ### CLI / DX v3.22.3 (2024/10/03)
 
 #### What's Changed CLI
