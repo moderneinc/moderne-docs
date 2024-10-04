@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.157.0 (2024/10/04)
+
+- allow repository removal from organization from the repositories table
+
 
 ### UI v10.156.0 (2024/09/30)
 
