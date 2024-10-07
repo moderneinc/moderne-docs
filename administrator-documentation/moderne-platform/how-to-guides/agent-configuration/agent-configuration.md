@@ -19,17 +19,7 @@ The Moderne on-premise agent:
 
 ## Agent setup instructions
 
-### Step 1: Contact Moderne to obtain access OR download from Maven central
-
-Please talk to your sales representative or [contact us](mailto:support@moderne.io) in order to obtain access to the agent. We will work with you to determine what access details are appropriate for your platform.
-
-You can also download the JAR directly from Maven Central:
-
-{% embed url="https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.190.0/moderne-agent-0.190.0.jar" %}
-Agent download link
-{% endembed %}
-
-### Step 2: Generate your symmetric key
+### Step 1: Generate your symmetric key
 
 The Moderne agent requires customers to create a hex-encoded 256-bit AES encryption key. This key will be used to encrypt LST and recipe artifacts before they are sent to your SaaS tenant. To generate a key, please run the following `openssl` command:
 
@@ -39,7 +29,7 @@ openssl enc -aes-256-cbc -k secret -P
 
 This will return a `salt`, `key`, and `iv`. Please copy the `key` and save it for use in [step 4](agent-configuration.md#step-4-configure-the-agent-with-the-core-variablesarguments) as the `symmetricKey`.
 
-### Step 3: Determine how you will run the agent
+### Step 2: Determine how you will run the agent
 
 Moderne offers two ways of running the agent:
 
@@ -56,23 +46,21 @@ The table below provides the core command for running the agent. However, in ord
 
 {% tabs %}
 {% tab title="OCI Container" %}
-**How to run the agent:**
-
-1. Log in to the Moderne registry:
+**How to build the Docker image**
 
 ```shell
-docker login -u moderne-tenant -p <password provided by Moderne> moderne.azurecr.io
+docker build -t moderne-agent:latest .
 ```
 
-2. Pull down the latest agent:
+**How to run the Docker image with an environment file**
 
 ```shell
-docker pull moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
+docker run --env-file=moderne-agent.env moderne-agent:latest
 ```
 
-3. Run the `docker run` command in combination with environment variables that you'll add in the subsequent steps. The final command will look similar to:
+**How to run the image with command line arguments**
 
-```shell
+```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -86,11 +74,73 @@ docker run \
 -e MODERNE_AGENT_TOKEN \
 # ... Additional environment variables
 -p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
+moderne-agent:latest
+```
+
+**Example Dockerfile**
+
+{% hint style="info" %}
+You are responsible for creating this Dockerfile and your own base image. It is your responsibility to keep this up-to-date when vulnerabilities arise. The below one is a suggestion for getting started - but yours will differ from this as it should point to and use your own tools and services.
+{% endhint %}
+
+```docker
+FROM eclipse-temurin:17-jdk
+RUN apt-get update && apt-get install -y libxml2-utils
+
+# Set the environment variable MODERNE_AGENT_VERSION
+ARG MODERNE_AGENT_VERSION
+ENV MODERNE_AGENT_VERSION=${MODERNE_AGENT_VERSION}
+
+WORKDIR /app
+USER root
+RUN groupadd -r app && useradd --no-log-init -r -m -g app app && chown -R app:app /app
+USER app
+
+# Download the specified version of moderne-agent JAR file if MODERNE_AGENT_VERSION is provided,
+# otherwise download the latest version
+RUN if [ -n "${MODERNE_AGENT_VERSION}" ]; then \
+    echo "Downloading version: ${MODERNE_AGENT_VERSION}"; \
+    curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/${MODERNE_AGENT_VERSION}/moderne-agent-${MODERNE_AGENT_VERSION}.jar" --output agent.jar; \
+    else \
+    LATEST_VERSION=$(curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/maven-metadata.xml" | xmllint --xpath 'string(/metadata/versioning/latest)' -); \
+    if [ -z "${LATEST_VERSION}" ]; then \
+    echo "Failed to get latest version"; \
+    exit 1; \
+    fi; \
+    echo "Downloading latest version: ${LATEST_VERSION}"; \
+    curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/${LATEST_VERSION}/moderne-agent-${LATEST_VERSION}.jar" --output agent.jar; \
+    fi
+
+ENTRYPOINT ["java"]
+CMD ["-XX:-OmitStackTraceInFastThrow", "-XX:MaxRAMPercentage=65.0", "-XX:MaxDirectMemorySize=2G", "-XX:+HeapDumpOnOutOfMemoryError", "-XX:+UseStringDeduplication", "-jar", "/app/agent.jar"]
+EXPOSE 8080
+```
+
+**Example environment variables file**
+
+```bash
+MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+MODERNE_AGENT_CRYPTO_SYMMETRICKEY=${SYMMETRIC_KEY}
+MODERNE_AGENT_TOKEN=${MODERNE_AGENT_TOKEN}
+MODERNE_AGENT_NICKNAME=prod-1
+MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=${GITHUB_CLIENT_ID}
+MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=${GITHUB_CLIENT_SECRET}
+MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com
+MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne
+MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite
+MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true
+MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/
+MODERNE_AGENT_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME}
+MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD}
+MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}'
+MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}'
 ```
 {% endtab %}
 
 {% tab title="Executable JAR" %}
+**Download the JAR:**\
+The download URL can be found on the [**Agent releases page**](https://docs.moderne.io/releases/agent-releases#maven-download)**.**\
+\
 **How to run the agent:**
 
 Use `java` to run a jar in combination with arguments that you'll add in the subsequent steps. The final command will look similar to:
@@ -112,7 +162,7 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 4: Configure the agent with the core variables/arguments
+### Step 3: Configure the agent with the core variables/arguments
 
 All agents must be configured with the variables listed as required below:
 
@@ -145,7 +195,7 @@ docker run \
 -e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_1=ForkAndPullRequest \
 # ... Additional variables
 -p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
+moderne-agent:latest
 ```
 {% endtab %}
 
@@ -178,7 +228,7 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 5: Configure the agent to work with your SCM(s)
+### Step 4: Configure the agent to work with your SCM(s)
 
 Connecting the agent to your SCM enables Moderne to display recipe results in the UI and commit changes from recipes back to your SCM (in the form of PRs, forks, commits, etc).
 
@@ -217,7 +267,7 @@ docker run \
 -e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 # ... Additional variables to come
 -p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
+moderne-agent:latest
 ```
 {% endtab %}
 
@@ -242,7 +292,7 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 6: Configure the agent to connect to your artifact repositories
+### Step 5: Configure the agent to connect to your artifact repositories
 
 The Moderne agent needs to connect to your artifact repositories for two reasons:
 
@@ -313,7 +363,7 @@ docker run \
 -e MODERNE_AGENT_MAVEN_0_PASSWORD \
 # ... Additional variables to come
 -p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
+mmoderne-agent:latest
 ```
 {% endtab %}
 
@@ -347,11 +397,11 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 7: (Optionally) Configure the Organizations service
+### Step 6: (Optionally) Configure the Organizations service
 
 Many organizations desire the ability to control the organizational structure of their repositories within the Moderne Platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
 
-If you want to set up this service, please check out our [configuring the Organizations service guide](/administrator-documentation/moderne-platform/how-to-guides/organizations-service.md). Then, once it has been set up, [please configure the agent accordingly](./configure-organizations-service.md).
+If you want to set up this service, please check out our [configuring the Organizations service guide](../organizations-service.md). Then, once it has been set up, [please configure the agent accordingly](configure-organizations-service.md).
 
 Below is an example of what an agent run command might look like at the end of this step if you set up the Organizations service.
 
@@ -392,7 +442,7 @@ docker run \
 -e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
+moderne-agent:latest
 ```
 {% endtab %}
 
@@ -427,7 +477,7 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 8: (Optionally) Use strict recipe sources.
+### Step 7: (Optionally) Use strict recipe sources.
 
 Some organizations want recipe artifacts to only come from locations configured in the Moderne agent. If you want to configure that, please follow the [strict recipe sources instructions](configure-an-agent-with-strict-recipe-sources.md).
 
@@ -471,7 +521,7 @@ docker run \
 -e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
 -p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
+moderne-agent:latest
 ```
 {% endtab %}
 
@@ -508,11 +558,11 @@ java -jar moderne-agent-{version}.jar \
 {% endtab %}
 {% endtabs %}
 
-### Step 9: (Optionally) Provide SSL client keystore
+### Step 8: (Optionally) Provide SSL client keystore
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
 
-### Step 10: Run the agent
+### Step 9: Run the agent
 
 At this point, you should have configured everything needed to run the Moderne agent. If you run into issues running the command, please don't hesitate to reach out.
 
@@ -520,19 +570,19 @@ Below is a table that has instructions for how to run the agent in combination w
 
 {% tabs %}
 {% tab title="OCI Container" %}
-1. Log in to the Moderne registry:
+**How to build the Docker image**
 
 ```shell
-docker login -u moderne-tenant -p <password provided by Moderne> moderne.azurecr.io
+docker build -t moderne-agent:latest .
 ```
 
-2. Pull down the latest agent:
+**How to run the Docker image with an environment file**
 
 ```shell
-docker pull moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
+docker run --env-file=moderne-agent.env moderne-agent:latest
 ```
 
-3. Run the `docker run` command in combination with all of the environment variables you've added in the previous steps:
+**Run the `docker run` command in combination with all of the environment variables you've added in the previous steps:**
 
 ```shell
 # Please note that if you create environment variables for secrets, you still need to let Docker
@@ -569,7 +619,7 @@ docker run \
 -e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
 -p 8080:8080
-moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest
+moderne-agent:latest
 ```
 {% endtab %}
 
@@ -614,9 +664,9 @@ If you want to update the Moderne agent over time, please follow the instruction
 
 {% tabs %}
 {% tab title="OCI Container" %}
-If you're running the commands provided in this guide, you should see that the last line of every agent run command is `moderne.azurecr.io/moderne-dev/moderne/moderne-agent:latest`.
+If you're running the commands provided in this guide, you should see that the last line of every agent run command is `moderne-agent:latest`.
 
-If that's true, then you can simply restart the agent and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](../../../../releases/agent-releases.md) for the versions.
+If that's true, then you can rebuild the agent image and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](../../../../releases/agent-releases.md) for the versions.
 {% endtab %}
 
 {% tab title="Executable JAR" %}
