@@ -6,6 +6,6 @@
 
 ### Maven download
 
-{% embed url="https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.186.0/moderne-agent-0.186.0.jar" %}
+{% embed url="https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.190.0/moderne-agent-0.190.0.jar" %}
 Agent download link
 {% endembed %}

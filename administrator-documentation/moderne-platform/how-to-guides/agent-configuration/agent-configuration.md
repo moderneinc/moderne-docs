@@ -19,9 +19,15 @@ The Moderne on-premise agent:
 
 ## Agent setup instructions
 
-### Step 1: Contact Moderne to obtain access
+### Step 1: Contact Moderne to obtain access OR download from Maven central
 
 Please talk to your sales representative or [contact us](mailto:support@moderne.io) in order to obtain access to the agent. We will work with you to determine what access details are appropriate for your platform.
+
+You can also download the JAR directly from Maven Central:
+
+{% embed url="https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.190.0/moderne-agent-0.190.0.jar" %}
+Agent download link
+{% endembed %}
 
 ### Step 2: Generate your symmetric key
 
