@@ -67,7 +67,7 @@ export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
 export MODERNE_AGENT_TOKEN=...
 
 docker run \
-# Example environment variables. These will be explained in step 4.
+# Example environment variables. These will be explained in step 3.
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
 -e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
 -e MODERNE_AGENT_NICKNAME=prod-1 \
@@ -152,7 +152,7 @@ export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
 export MODERNE_AGENT_TOKEN=...
 
 java -jar moderne-agent-{version}.jar \
-# Example arguments. These will be explained in step 4.
+# Example arguments. These will be explained in step 3.
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
 --moderne.agent.nickname=prod-1 \
 # ... Additional arguments
@@ -307,7 +307,7 @@ The Moderne agent can only talk to _Maven formatted_ artifact repositories. Ther
 
 Moderne offers two options for connecting to your artifact repository: a generic Maven connection that can connect to any Maven formatted repository regardless of vendor and an Artifactory-specific connection that is optimized to serve LST artifacts more quickly.
 
-If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](configure-an-agent-with-maven-repository-access.md) and then jump to [Step 7](agent-configuration.md#step-7-optionally-configure-the-organizations-service).
+If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](configure-an-agent-with-maven-repository-access.md) and then jump to [Step 6](agent-configuration.md#step-6-optionally-configure-the-organizations-service).
 
 If you _do_ plan on using Artifactory to store artifacts, you have two options:
 
