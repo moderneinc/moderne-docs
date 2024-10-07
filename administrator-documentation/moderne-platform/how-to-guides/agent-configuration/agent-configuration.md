@@ -27,7 +27,7 @@ The Moderne agent requires customers to create a hex-encoded 256-bit AES encrypt
 openssl enc -aes-256-cbc -k secret -P
 ```
 
-This will return a `salt`, `key`, and `iv`. Please copy the `key` and save it for use in [step 4](agent-configuration.md#step-4-configure-the-agent-with-the-core-variablesarguments) as the `symmetricKey`.
+This will return a `salt`, `key`, and `iv`. Please copy the `key` and save it for use in [step 3](agent-configuration.md#step-3-configure-the-agent-with-the-core-variables-arguments) as the `symmetricKey`.
 
 ### Step 2: Determine how you will run the agent
 
