@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.22.6 (2024/10/06)
+
+#### What's Changed CLI
+* Fix CLI IDE debug code path on Windows.
+
+
 ### CLI / DX v3.22.5 (2024/10/04)
 
 #### What's Changed DX
