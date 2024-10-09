@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.24.0 (2024/10/09)
+
+#### What's Changed
+* Support building C# repos in native CLI
+* Adding auto detection for gradle and groovy
+
+
 ### CLI / DX v3.23.0 (2024/10/07)
 
 #### What's Changed CLI
