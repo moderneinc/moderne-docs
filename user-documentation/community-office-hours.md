@@ -12,7 +12,19 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Anouncements for the week**:
+  * **Content**:
+    * [We have a new blog post about how MEDHOST uses Moderne to transform their healthcare software](https://www.moderne.ai/blog/transforming-healthcare-software-delivery-medhost-journey-with-moderne)
+  * **Releases**:
+    * [We have a new recipe module for GitLab](https://github.com/openrewrite/rewrite-gitlab)
+  * **Events**:
+    * [Tim will give a workshop at Devoxx Belgium on October 7th](https://devoxx.be/talk/transforming-code-with-openrewrite-and-refaster/)
+    * [Tim will also present at JUG Noord on October 15th](https://www.linkedin.com/feed/update/urn:li:activity:7244344655461462016/)
+    * [Tim will also also present at JavaBin in Oslo on October 17th](https://www.meetup.com/javabin/events/)
+    * [Tim will also also also present at Belgium JUG on October 24th](https://www.meetup.com/belgian-java-user-group/events/)
+* **Main topic for the week**:
+  * Sam started off by showing off the [Find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck). While the results may look similar to what you're used to - the tech behind it has totally changed.
+  * He then took us through the significant rewrite of [this recipe](https://github.com/openrewrite/rewrite-java-dependencies/blob/main/src/main/java/org/openrewrite/java/dependencies/DependencyVulnerabilityCheck.java).
 
 ### The Moderne Recipe Builder in action (September 25th, 2024)
 
