@@ -6,6 +6,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Insights into crafting clear documentation (October 9th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=OesF1pXAj5k" %}
+
+#### Summary and related links
+
+Coming soon!
+
 ### Fixing security vulnerabilities with Moderne (October 2nd, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=X4ibcuGX2wE" %}
