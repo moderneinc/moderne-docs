@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.23.0 (2024/10/07)
+
+#### What's Changed CLI
+* Update with rewrite 8.37.0
+* Don't fail if `dotnet` not found on Windows
+
+
 ### CLI / DX v3.22.6 (2024/10/06)
 
 #### What's Changed CLI
