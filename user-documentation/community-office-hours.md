@@ -20,7 +20,29 @@ Coming soon!
 
 #### Summary and related links
 
-Coming soon!
+* **Anouncements for the week**:
+  * **Releases**:
+    * [We released a new version of OpenRewrite this week](https://x.com/OpenRewrite/status/1838703757330387052). Highlights include:
+      * [Support for Java 23](https://github.com/openrewrite/rewrite/compare/v8.35.0...v8.36.0)
+      * [The first rewrite-android release](https://github.com/openrewrite/rewrite-android/releases/tag/v0.1.0)
+      * [An overhaul of vulnerability checks in Java](https://github.com/openrewrite/rewrite-java-dependencies/releases/tag/v1.19.0)
+      * [Multiple fixes to Mockito handling](https://github.com/openrewrite/rewrite-testing-frameworks/releases/tag/v2.19.0)
+      * [The migration of HttpStatus to HttpStatusCode](https://github.com/openrewrite/rewrite-spring/releases/tag/v5.20.0)
+      * [Fail fast on a failure to resolve pom.xml files](https://github.com/openrewrite/rewrite-maven-plugin/compare/v5.40.0...v5.41.0)
+    * [Check out the rewrite-recipe-bom for a full reference of aligned versions](https://github.com/openrewrite/rewrite-recipe-bom/releases/tag/v2.20.0)
+  * **Events**:
+    * [Justine will present at the Montreal Java User Group on September 26th](www.meetup.com/montreal-jug/events/303194650/)
+    * [Tim will give a workshop at Devoxx Belgium on October 7th](https://devoxx.be/talk/transforming-code-with-openrewrite-and-refaster/)
+    * [Tim will also present at JUG Noord on October 15th](https://www.linkedin.com/feed/update/urn:li:activity:7244344655461462016/)
+  * **Other announcements**
+    * [Moderne is excited to be named as an IDC innovator leading the charge on auto-remediation](https://www.idc.com/getdoc.jsp?containerId=US50138223&pageType=PRINTFRIENDLY)
+    * [We have a new customer use case study with Interacts](https://www.moderne.ai/blog/interactions-replaces-veracode-with-moderne-for-vulnerability-remediation-and-more)
+* **Main topic for the week**:
+  * Our main topic this week was about the [new Moderne recipe builder](/user-documentation/moderne-platform/how-to-guides/new-recipe-builder.md)
+  * We showed off what we started with, what the problems were with that, and how we solved it in the new builder.
+  * We then walked through how to create a recipe and all of the different options there are for editing and sharing said recipes.
+  * Lindsay then talked through how she approached this incredibly complex design.
+  * Kevin then talked through some of the tech behind the 3D recipe viewer.
 
 ### Automating Gradle upgrades with recipes (September 18th, 2024)
 
