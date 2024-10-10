@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.24.1 (2024/10/10)
+
+#### What's Changed
+* Improve print idempotence report in native CLI
+* Handle double slash in publish URL
+
+
 ### CLI / DX v3.24.0 (2024/10/09)
 
 #### What's Changed
