@@ -33,7 +33,7 @@ If everything was configured correctly, you should be able to type `mod` into yo
 ```bash
 ➜ mod
 
-Moderne CLI 3.24.0
+Moderne CLI 3.24.1
 
 Usage:
 
@@ -157,7 +157,7 @@ cd $HOME/workshop
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.24.0
+Moderne CLI 3.24.1
 
 > Cloning organization from Moderne
 
@@ -238,7 +238,7 @@ mod build . --download-only
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.24.0
+Moderne CLI 3.24.1
 
 > Selecting repositories
 
@@ -375,7 +375,7 @@ mod run . --recipe DependencyVulnerabilityCheck
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.24.0
+Moderne CLI 3.24.1
 
 > Selecting repositories
 
@@ -499,7 +499,7 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.24.0
+Moderne CLI 3.24.1
 
 Found recipe run 20240904083238-wRnHo
 
@@ -606,7 +606,7 @@ mod run . --recipe CommonStaticAnalysis
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.24.0
+Moderne CLI 3.24.1
 
 > Selecting repositories
 
@@ -691,7 +691,7 @@ mod git checkout . -b workshop-changes --last-recipe-run
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.24.0
+Moderne CLI 3.24.1
 
 Found recipe run 20240904084031-xdbaB
 
