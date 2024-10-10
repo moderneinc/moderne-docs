@@ -12,7 +12,19 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**:
+  * **Content**:
+    * [The new Moderne Monthly is out](https://www.linkedin.com/pulse/have-less-spooky-cybersecurity-awareness-month-october-2024-f9xlc)
+    * We're going to be having a Code Remix Summit in May in Miami. Check out the Moderne Monthly for a link to get more information about that.
+    * [We have a new backend for the OpenRewrite docs - the site should be much faster now and less buggy](https://docs.openrewrite.org/)
+  * **Releases**:
+    * We released new recipes for Joda time and did a first release of [rewrite-gitlab](https://github.com/openrewrite/rewrite-gitlab)
+  * **Events**:
+    * [Tim will present at JUG Noord on October 15th](https://www.linkedin.com/feed/update/urn:li:activity:7244344655461462016/)
+    * [Tim will also present at JavaBin in Oslo on October 17th](https://www.meetup.com/javabin/events/)
+    * [Tim will also also present at Belgium JUG on October 24th](https://www.meetup.com/belgian-java-user-group/events/)
+* **Main topic for the week**:
+  * This week was an interview with Mike Solomon where we discussed technical writing and how to create clean and concise docs.
 
 ### Fixing security vulnerabilities with Moderne (October 2nd, 2024)
 
@@ -20,7 +32,7 @@ Coming soon!
 
 #### Summary and related links
 
-* **Anouncements for the week**:
+* **Announcements for the week**:
   * **Content**:
     * [We have a new blog post about how MEDHOST uses Moderne to transform their healthcare software](https://www.moderne.ai/blog/transforming-healthcare-software-delivery-medhost-journey-with-moderne)
   * **Releases**:
