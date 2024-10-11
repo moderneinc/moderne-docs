@@ -1,25 +1,15 @@
 ---
-description: >-
-  Moderne Platform documentation. Learn about the Moderne Platform along with
-  user and administrator documentation.
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
+description: Large-scale automated source code refactoring
+slug: /
 ---
+
+import ReactPlayer from 'react-player'
 
 # Welcome to Moderne
 
 With [Moderne](https://moderne.io), you can fix security vulnerabilities, standardize code quality, and automate maintenance processes such as framework migrations. Code refactoring work and security vulnerability remediations that used to take months and teams of developers can be done in minutes. This can not only save your company millions of dollars in software maintenance costs, but it can also give developers substantially more time to focus on delivering business value.
 
-{% embed url="https://www.youtube.com/watch?v=nz29-DWeV44" %}
+<ReactPlayer url='https://www.youtube.com/watch?v=nz29-DWeV44' controls="true" />
 
 ## The Moderne Platform
 
@@ -39,8 +29,8 @@ Or if you want to test this out in a custom private instance made just for your 
 
 ## Want to learn more?
 
-{% embed url="https://www.youtube.com/watch?v=Q-ej2lCJHRs" %}
+<ReactPlayer url='https://www.youtube.com/watch?v=Q-ej2lCJHRs' controls="true" />
 
-{% embed url="https://www.youtube.com/watch?v=KRXDMGt7DRE" %}
+<ReactPlayer url='https://www.youtube.com/watch?v=KRXDMGt7DRE' controls="true" />
 
 If you want to jump right in and begin running large-scale refactoring recipes on thousands of open-source repositories, please check out our [quickstart guide](user-documentation/moderne-platform/getting-started/running-your-first-recipe.md).
