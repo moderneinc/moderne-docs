@@ -27,7 +27,6 @@
     * [How to upgrade transitive dependencies](user-documentation/moderne-platform/how-to-guides/transitive-dependencies.md)
     * [How to find method invocations based on a pattern using AI](user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern.md)
     * [How to gain a high-level overview of your codebase using AI clustering](user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering.md)
-    * [(Legacy) Create custom recipes with the old recipe builder](user-documentation/moderne-platform/how-to-guides/recipe-builder.md)
   * [References](user-documentation/moderne-platform/references/README.md)
     * [Moderne tokens](user-documentation/moderne-platform/references/moderne-tokens.md)
     * [Creating SCM access tokens](user-documentation/moderne-platform/references/create-scm-access-tokens.md)
