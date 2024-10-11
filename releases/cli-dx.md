@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.24.2 (2024/10/10)
+
+#### What's Changed
+* Remove checkstyle dependency as it now shaded and package-relocated within rewrite-java.
+
+
 ### CLI / DX v3.24.1 (2024/10/10)
 
 #### What's Changed
