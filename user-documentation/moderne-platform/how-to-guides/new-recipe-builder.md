@@ -4,13 +4,13 @@ Have you found a recipe in Moderne where you only want to run certain parts of i
 
 All of these problems can be solved by utilizing the new Recipe Builder, which provides a way for you to create custom recipes from our existing recipe catalog.
 
-## How to create a custom recipe
+## How to create a custom recipe in the builder
 
 To create a custom recipe you will need to:
 
-1. Click on the `Builder v2` link:
+1. Click on the `Builder` link to be taken to the recipe builder.
 
-    ![Builder v2 link](/.gitbook/assets/builder-v2-link.png)
+    ![Builder link](/.gitbook/assets/builder-link.png)
 
 2. Create a recipe by either clicking on the `New recipe...` link in the welcome modal or by clicking on the `Recipe` button in the top-left corner and then pressing `New`:
 
@@ -36,11 +36,23 @@ To create a custom recipe you will need to:
 
 7. After you select a recipe, the 3D recipe viewer and recipe list side panel will be updated to include that recipe and all of its sub-recipes. Feel free to add more recipes or edit the ones you've included. For more detailed instructions in how to use the 3D recipe viewer or the recipe list panel, [jump down in this doc](#how-to-use-the-3d-viewer). 
 
-8. Once you've got your recipe into the place you want it, you can run it by  pressing the `Dry Run` button at the top of your screen:
+8. Once you've got your recipe into the place you want it, you can run it by pressing the `Dry Run` button at the top of your screen:
 
     ![Dry run button](/.gitbook/assets/recipe-dry-run.png)
 
 9. Victory!
+
+## How to create or add recipes from the marketplace
+
+From any recipe in the marketplace, you can click on the `Add to builder` button:
+
+  ![Add to builder button](/.gitbook/assets/add-to-builder-button.png)
+
+A modal will then pop up that either allows you to create a new recipe or add this recipe to one you've already created.
+
+  ![Add to builder modal](/.gitbook/assets/add-to-builder-modal.png)
+
+Click on the `Add to new recipe` or `Add to selected recipe` button to continue. 
 
 ## How to save and share custom recipes
 
