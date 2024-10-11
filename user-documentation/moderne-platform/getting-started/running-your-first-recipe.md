@@ -17,7 +17,7 @@ layout:
 
 # Quickstart: Running your first recipe
 
-To help orient you to Moderne, let's walk through how to run a [recipe](https://docs.openrewrite.org/concepts-explanations/recipes) on some open-source projects that we have imported into Moderne.
+To help orient you to Moderne, let's walk through how to run a [recipe](https://docs.openrewrite.org/concepts-and-explanations/recipes) on some open-source projects that we have imported into Moderne.
 
 In this guide, we will:
 
