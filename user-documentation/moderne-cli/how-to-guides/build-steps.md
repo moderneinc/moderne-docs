@@ -49,7 +49,7 @@ insurance-policy-administration/
 
 ### Resource build step
 
-The resource build step parses resource files using OpenRewrite parsers in situations where there is no source set with binary dependency list necessary to [type-attribute](https://docs.openrewrite.org/concepts-explanations/lossless-semantic-trees) the resulting LSTs. These include YAML, XML, Terraform, properties, JSON, some Groovy DSLs, etc.
+The resource build step parses resource files using OpenRewrite parsers in situations where there is no source set with binary dependency list necessary to [type-attribute](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees) the resulting LSTs. These include YAML, XML, Terraform, properties, JSON, some Groovy DSLs, etc.
 
 In the default build steps, the resource build step runs after all external build tool steps, and serves as a vacuum that picks up the rest of the source files in a repository not explicitly managed by those build tools.
 
