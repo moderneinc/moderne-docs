@@ -31,7 +31,7 @@ mod config java jdk list
 ```shell
 ➜  moderne-cli git:(main) ✗ mod config java jdk list
 
-Moderne CLI 3.24.1
+Moderne CLI 3.24.2
 
 > Listing available JDKs
 
