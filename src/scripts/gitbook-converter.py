@@ -1,6 +1,6 @@
 import re
 
-file_to_replace = '/Users/mikesol/Desktop/code/moderne-docs/docs/user-documentation/moderne-platform/getting-started/code-mods.md'
+file_to_replace = '/Users/mikesol/Desktop/code/moderne-docs/docs/user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering.md'
 
 with open(file_to_replace, 'r') as file:
     content = file.read()
