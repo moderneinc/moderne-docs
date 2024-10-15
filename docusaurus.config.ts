@@ -48,6 +48,7 @@ const config: Config = {
       logo: {
         alt: 'Moderne Logo Logo',
         src: 'img/logo.svg',
+        srcDark: 'img/darkLogo.svg',
       },
       items: [
         {

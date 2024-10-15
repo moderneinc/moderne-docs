@@ -1,6 +1,6 @@
 # Recipe authoring workshop
 
-[OpenRewrite](https://docs.openrewrite.org/) is a framework for writing and running code transformations. [Recipes](https://docs.openrewrite.org/concepts-explanations/recipes) are the unit of work in OpenRewrite, and can be written in [YAML](https://docs.openrewrite.org/concepts-explanations/recipes#declarative-recipes), [Refaster](https://docs.openrewrite.org/authoring-recipes/refaster-recipes), or [imperative Java](https://docs.openrewrite.org/concepts-explanations/recipes#imperative-recipes).
+[OpenRewrite](https://docs.openrewrite.org/) is a framework for writing and running code transformations. [Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) are the unit of work in OpenRewrite, and can be written in [YAML](https://docs.openrewrite.org/concepts-and-explanations/recipes#declarative-recipes), [Refaster](https://docs.openrewrite.org/authoring-recipes/refaster-recipes), or [imperative Java](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes).
 
 In this workshop, we'll walk through everything you need to know to get started with recipe development – from writing simple YAML recipes, to creating complex imperative recipes, along with all of the steps in between such as testing or debugging recipes.
 
@@ -134,14 +134,14 @@ Before we dive into writing recipes, let's take a look at some fundamental conce
 
 Read up on the following concepts in the [OpenRewrite documentation](https://docs.openrewrite.org/), to get a better understanding of how OpenRewrite works:
 
-1. [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-explanations/lossless-semantic-trees)
-   * [Java LST examples](https://docs.openrewrite.org/concepts-explanations/lst-examples)
-   * [YAML LST examples](https://docs.openrewrite.org/concepts-explanations/yaml-lst-examples)
-   * [TreeVisitingPrinter](https://docs.openrewrite.org/concepts-explanations/tree-visiting-printer)
-2. [Visitors](https://docs.openrewrite.org/concepts-explanations/visitors)
-   * [Cursoring](https://docs.openrewrite.org/concepts-explanations/visitors#cursoring)
-   * [Isomorphic vs. non-isomorphic](https://docs.openrewrite.org/concepts-explanations/visitors#isomorphic-vs.-non-isomorphic-visitors)
-3. [Recipes](https://docs.openrewrite.org/concepts-explanations/recipes)
+1. [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees)
+   * [Java LST examples](https://docs.openrewrite.org/concepts-and-explanations/lst-examples)
+   * [YAML LST examples](https://docs.openrewrite.org/concepts-and-explanations/yaml-lst-examples)
+   * [TreeVisitingPrinter](https://docs.openrewrite.org/concepts-and-explanations/tree-visiting-printer)
+2. [Visitors](https://docs.openrewrite.org/concepts-and-explanations/visitors)
+   * [Cursoring](https://docs.openrewrite.org/concepts-and-explanations/visitors#cursoring)
+   * [Isomorphic vs. non-isomorphic](https://docs.openrewrite.org/concepts-and-explanations/visitors#isomorphic-vs.-non-isomorphic-visitors)
+3. [Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes)
 
 These concepts should give you some sense as to the importance of exact type attribution, and how visitors are used to traverse and modify the LST. Without these, it would be next to impossible to write recipes that make changes to your code reliably.
 
@@ -373,9 +373,9 @@ Let's create a Refaster recipe that standardizes various ways to check if a Stri
 
 For use cases beyond what declarative recipes and Refaster templates can handle, you'll want to look at [writing a Java refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe).
 
-You might want to refresh your memory on [visitor pattern](https://docs.openrewrite.org/concepts-explanations/visitors) and [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-explanations/lossless-semantic-trees) before you dive in.
+You might want to refresh your memory on [visitor pattern](https://docs.openrewrite.org/concepts-and-explanations/visitors) and [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees) before you dive in.
 
-These [imperative recipes](https://docs.openrewrite.org/concepts-explanations/recipes#imperative-recipes) use the visitor pattern to traverse the LSTs, and make changes to the code. The `JavaTemplate` class is used to [create new LST elements](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate), that can replace existing LST elements.
+These [imperative recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes) use the visitor pattern to traverse the LSTs, and make changes to the code. The `JavaTemplate` class is used to [create new LST elements](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate), that can replace existing LST elements.
 
 ### Exercise 8: Explore an imperative recipe
 
@@ -391,7 +391,7 @@ Let's look at an existing imperative recipe in the starter project, and see how 
 
 1. Open `src/main/java/com/yourorg/NoGuavaListsNewArrayList.java` in IntelliJ IDEA.
    * Read through the recipe, and see how it matches three variants of Guava's `Lists.newArrayList()`.
-   * Three replacement [`JavaTemplate`s](https://docs.openrewrite.org/concepts-explanations/javatemplate) are provided, to replace each of the Guava calls with `new ArrayList<>(..)`.
+   * Three replacement [`JavaTemplate`s](https://docs.openrewrite.org/concepts-and-explanations/javatemplate) are provided, to replace each of the Guava calls with `new ArrayList<>(..)`.
 2. We override `visitCompilationUnit` to print the tree.
    * Notice the call to `super.visitCompilationUnit`, which is necessary to traverse the tree.
    * Click through on `super.visitCompilationUnit` to see how the tree is traversed.
@@ -409,7 +409,7 @@ Let's look at an existing imperative recipe in the starter project, and see how 
    * Notice how `@Test void noChangeNecessary()` asserts that no changes are made if the desired state is already reached. A common mistake we see in recipe development is that folks unconditionally make changes, which a test like this guards against.
 6. Set a breakpoint in the `visitMethodInvocation` method, and run each of the tests.
    * Explore the LST in the debugger, and see all the elements present on the current element.
-   * Compare the LST printed to the console with the diagrams in [our Java LST examples doc](https://docs.openrewrite.org/concepts-explanations/lst-examples).
+   * Compare the LST printed to the console with the diagrams in [our Java LST examples doc](https://docs.openrewrite.org/concepts-and-explanations/lst-examples).
 7. Add a `TreeVisitingPrinter.printTreeAll(method)` to the `visitMethodInvocation` method, to see elements in more detail.
    * Run the tests again, and see the tree printed to the console.
 
@@ -456,7 +456,7 @@ Moderne offers an IntelliJ IDEA plugin that can not only help you create and deb
 9. Open up your terminal, navigate to your workshop directory, and run the recipe: `mod run . --active-recipe`.
 10. You should see that this recipe ran and marked all the locations in all of the repositories that matched the API you generated the recipe from.
 11. Running the recipe is a great start, but it's always helpful to be able to debug the recipe. [Follow our instructions for using the Moderne plugin to debug recipes](../moderne-ide-integration/how-to-guides/debugging-recipes.md#step-4-debug-your-recipe).
-12. Another useful thing to do when debugging is to [configure the TreeVisitingPrinter](https://docs.openrewrite.org/concepts-explanations/tree-visiting-printer). This will really help you understand the different [Java LST elements](https://docs.openrewrite.org/concepts-explanations/lst-examples).
+12. Another useful thing to do when debugging is to [configure the TreeVisitingPrinter](https://docs.openrewrite.org/concepts-and-explanations/tree-visiting-printer). This will really help you understand the different [Java LST elements](https://docs.openrewrite.org/concepts-and-explanations/lst-examples).
     * Follow along with the instructions in that guide and make sure you can see what the LST looks like when it finds a match.
     * **Note**: you'll need to add `import org.openrewrite.java.TreeVisitingPrinter;` to your import statements in your recipe.
 

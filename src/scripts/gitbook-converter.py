@@ -1,6 +1,6 @@
 import re
 
-file_to_replace = '/Users/mikesol/Desktop/code/moderne-docs/docs/user-documentation/moderne-platform/getting-started/running-your-first-recipe.md'
+file_to_replace = '/Users/mikesol/Desktop/code/moderne-docs/docs/user-documentation/moderne-platform/getting-started/code-mods.md'
 
 with open(file_to_replace, 'r') as file:
     content = file.read()
@@ -121,7 +121,7 @@ def replace_video_embed(match):
     global video_replaced
 
     embedded_url = match.group(1)
-    video_block = f"<ReactPlayer url='{embedded_url}' controls=\"true\" />\n"
+    video_block = f"<ReactPlayer className=\"reactPlayer\" url='{embedded_url}' controls=\"true\" />\n"
 
     video_replaced = True
 

@@ -13,7 +13,7 @@ In this guide, we will:
 * [**Examine the results**](#step-7-view-the-results)
 * [**Commit the changes**](#step-8-commit-your-changes)
 
-<ReactPlayer url='https://www.youtube.com/watch?v=cHRi6jRPMUI' controls="true" />
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=cHRi6jRPMUI' controls="true" />
 
 ## Step 1: Sign in
 

@@ -5,7 +5,7 @@ const sidebars: SidebarsConfig = {
     'introduction',
     {
       type: 'html',
-      value: '<strong>User Documentation</strong>',
+      value: '<br/><strong>User Documentation</strong>',
       defaultStyle: true,
     },
     {
@@ -31,9 +31,28 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'user-documentation/moderne-platform/getting-started/running-your-first-recipe',
+            'user-documentation/moderne-platform/getting-started/code-quality',
+            'user-documentation/moderne-platform/getting-started/data-tables',
+            'user-documentation/moderne-platform/getting-started/visualizations',
+            'user-documentation/moderne-platform/getting-started/dev-center',
+            'user-documentation/moderne-platform/getting-started/activity-view',
+            'user-documentation/moderne-platform/getting-started/code-mods',
           ],
         },
-        // 'user-documentation/moderne-platform/getting-started/running-your-first-recipe',
+        {
+          type: 'category',
+          label: 'How to guides',
+          link: {
+            type: 'generated-index',
+            title: 'How to guides',
+            description: 'How to guides.',
+            slug: '/user-documentation/moderne-platform/how-to-guides',
+            keywords: ['guides'],
+          },
+          items: [
+            'user-documentation/moderne-platform/how-to-guides/new-recipe-builder',
+          ],
+        },
       ],
     },
   ]
