@@ -1,6 +1,6 @@
 import re
 
-file_to_replace = '/Users/mikesol/Desktop/code/moderne-docs/docs/user-documentation/moderne-platform/references/create-scm-access-tokens.md'
+file_to_replace = '/Users/mikesol/Desktop/code/moderne-docs/docs/user-documentation/moderne-cli/getting-started/moderne-cli-license.md'
 
 with open(file_to_replace, 'r') as file:
     content = file.read()

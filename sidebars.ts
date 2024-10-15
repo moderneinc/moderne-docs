@@ -82,6 +82,36 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+    {
+      type: 'category',
+      label: 'Moderne CLI',
+      link: {
+        type: 'generated-index',
+        title: 'Moderne CLI',
+        description: 'Learn how to use the Moderne CLI.',
+        slug: '/user-documentation/moderne-cli',
+        keywords: ['guides'],
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Getting started',
+          link: {
+            type: 'generated-index',
+            title: 'Getting started',
+            description: 'Getting started guides.',
+            slug: '/user-documentation/moderne-cli/getting-started',
+            keywords: ['guides'],
+          },
+          items: [
+            'user-documentation/moderne-cli/getting-started/cli-intro',
+            'user-documentation/moderne-cli/getting-started/moderne-cli-license',
+          ],
+        },
+        'user-documentation/moderne-cli/cli-reference',
+        'user-documentation/moderne-cli/faq',
+      ],
+    }
   ]
 };
 
