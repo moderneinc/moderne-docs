@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.160.0 (2024/10/15)
+
+- add openai integration
+
 ### UI v10.159.0 (2024/10/10)
 
 - Bug fixes and other improvements.
