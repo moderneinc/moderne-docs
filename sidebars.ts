@@ -65,6 +65,21 @@ const sidebars: SidebarsConfig = {
             'user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering',
           ],
         },
+        {
+          type: 'category',
+          label: 'References',
+          link: {
+            type: 'generated-index',
+            title: 'References',
+            description: 'Reference docs.',
+            slug: '/user-documentation/moderne-platform/references',
+            keywords: ['references'],
+          },
+          items: [
+            'user-documentation/moderne-platform/references/moderne-tokens',
+            'user-documentation/moderne-platform/references/create-scm-access-tokens',
+          ],
+        },
       ],
     },
   ]
