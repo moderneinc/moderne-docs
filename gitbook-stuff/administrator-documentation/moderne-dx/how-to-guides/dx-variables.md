@@ -23,7 +23,7 @@ This document includes all of the variables you can configure the Moderne agent 
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -52,7 +52,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -82,7 +82,7 @@ java -jar moderne-dx-{version}.jar \
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_DX_STORAGE_ENABLED=true \
@@ -112,7 +112,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.storage.enabled=true \
@@ -148,7 +148,7 @@ java -jar moderne-dx-{version}.jar \
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -177,7 +177,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -204,7 +204,7 @@ java -jar moderne-dx-{version}.jar \
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
@@ -225,7 +225,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.organization.url=http://localhost:8091 \
@@ -254,7 +254,7 @@ java -jar moderne-dx-{version}.jar \
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
@@ -277,7 +277,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.recipe.useOnlyConfigured=true \

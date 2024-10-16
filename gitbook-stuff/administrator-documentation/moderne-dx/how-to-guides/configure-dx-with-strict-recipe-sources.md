@@ -60,7 +60,7 @@ This fallback behavior can be disabled using recipe configuration. If the Modern
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
@@ -83,7 +83,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.recipe.useOnlyConfigured=true \

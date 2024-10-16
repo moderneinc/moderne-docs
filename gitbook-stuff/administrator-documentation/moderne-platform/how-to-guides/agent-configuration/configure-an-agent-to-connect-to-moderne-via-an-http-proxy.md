@@ -23,7 +23,7 @@ If you include either a host or port, you must include both.
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_APIGATEWAY_PROXY_HOST=proxy.mycompany.com \
@@ -44,7 +44,7 @@ If you include either a host or port, you must include both.
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.apiGateway.proxy.host=proxy.mycompany.com \

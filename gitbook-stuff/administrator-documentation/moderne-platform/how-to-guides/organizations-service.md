@@ -57,7 +57,7 @@ Yes. There is a GraphQL admin-only mutation to force a refresh on demand (`refre
 
 ### What does a query to this service look like?
 
-```shell
+```bash
 curl --request POST \
   --url https://organizations.company-name.com/graphql \
   --header 'Content-Type: application/json' \

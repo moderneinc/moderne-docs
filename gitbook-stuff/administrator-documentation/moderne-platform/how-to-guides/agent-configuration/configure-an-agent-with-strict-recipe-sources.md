@@ -60,7 +60,7 @@ This fallback behavior can be disabled using recipe configuration. If any agent 
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
@@ -83,7 +83,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.recipe.useOnlyConfigured=true \

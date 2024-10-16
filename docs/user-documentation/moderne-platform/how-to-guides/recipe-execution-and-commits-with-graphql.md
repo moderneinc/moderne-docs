@@ -122,7 +122,7 @@ query runRecipeName($id: ID!) {
 <TabItem value="curl" label="cURL">
 
 
-```shell
+```bash
 curl --request POST \
 --url https://api.app.moderne.io/graphql \
 --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \
@@ -199,7 +199,7 @@ query selectAllRepositoriesWithResults($id: ID!, $first: Int, $after: String) {
 <TabItem value="curl" label="cURL">
 
 
-```shell
+```bash
 curl --request POST \
 --url https://api.app.moderne.io/graphql \
 --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \
@@ -306,7 +306,7 @@ mutation pullRequest($commitInput: CommitInput!, $orgId: ID, $isDraft: Boolean, 
 <TabItem value="curl" label="cURL">
 
 
-```shell
+```bash
 curl --request POST
     --url https://api.app.moderne.io/graphql \
     --header 'Authorization: Bearer <session token or Moderne PAT here>' \
@@ -423,7 +423,7 @@ query commitJob(
 <TabItem value="curl" label="cURL">
 
 
-```shell
+```bash
 curl --request POST \
   --url https://api.app.moderne.io/graphql \
   --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \

@@ -30,7 +30,7 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
@@ -53,7 +53,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \

@@ -50,7 +50,7 @@ The following table contains all of the variables/arguments you need to add to y
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY=yourOAuthKey \
@@ -67,7 +67,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.bitbucket.cloud.oauthKey=yourOAuthKey \

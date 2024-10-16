@@ -66,13 +66,13 @@ MOD SUCCEEDED in (0.01s)
 {% hint style="success" %}
 If you want to enable tab auto-completion for CLI commands (Unix systems only), you can run:
 
-```shell
+```bash
 source <(mod generate-completion)
 ```
 
 or you can update your `~/.zshrc` or `~/.bashrc` file and add this command to the bottom of it:
 
-```shell
+```bash
 # The next line enables shell command completion for mod
 source <(mod generate-completion)
 ```
@@ -98,7 +98,7 @@ mod config recipes moderne install UpgradeSpringBoot_3_2
 
 <summary>This will look something like:</summary>
 
-```shell
+```bash
 ➜ mod config recipes moderne install UpgradeSpringBoot_3_2
 
 Moderne CLI 3.24.2

@@ -18,7 +18,7 @@ This document includes all of the variables you can configure the Moderne agent 
 
 **Example:**
 
-```shell
+```bash
 docker run \
 -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
 -e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
@@ -43,7 +43,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
 --moderne.agent.crypto.symmetricKey=yourSymmetricKey
@@ -67,7 +67,7 @@ java -jar moderne-agent-{version}.jar \
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY=yourOAuthKey \
@@ -84,7 +84,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.bitbucket.cloud.oauthKey=yourOAuthKey \
@@ -116,7 +116,7 @@ You can configure multiple Bitbucket instances by including multiple entries, ea
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_BITBUCKET_0_PRIVATEKEY=yourPrivateKey \
@@ -140,7 +140,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.bitbucket[0].privateKey=yourPrivateKey \
@@ -174,7 +174,7 @@ You can configure multiple GitHub OAuth apps by including multiple entries, each
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=yourClientId \
@@ -204,7 +204,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.github[0].oauth.clientId=yourClientId \
@@ -238,7 +238,7 @@ You can configure multiple GitLab OAuth apps by including multiple entries, each
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_GITLAB_0_OAUTH_CLIENTID=yourClientId \
@@ -264,7 +264,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.gitlab[0].oauth.clientId=yourClientId \
@@ -287,7 +287,7 @@ java -jar moderne-agent-{version}.jar \
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
@@ -305,7 +305,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.organization.url=http://localhost:8091 \
@@ -337,7 +337,7 @@ You can configure multiple Maven repositories by including multiple entries, eac
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -365,7 +365,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -393,7 +393,7 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
@@ -416,7 +416,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
@@ -449,7 +449,7 @@ The platform provides several fallback repositories for recipe loading when an a
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
@@ -472,7 +472,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.recipe.useOnlyConfigured=true \
@@ -499,7 +499,7 @@ You can configure multiple PyPI package indexes by including multiple entries, e
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_VISUALIZATIONS_USEONLYCONFIGURED=true \
@@ -521,7 +521,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.visualizations.useOnlyConfigured=true \

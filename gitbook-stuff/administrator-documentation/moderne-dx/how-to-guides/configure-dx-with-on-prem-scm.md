@@ -18,7 +18,7 @@ You can configure multiple SCM servers by including multiple entries, each with 
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_DX_SCM_0_BASEURL=https://bitbucket.example.com/stash \
@@ -39,7 +39,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.scm[0].baseUrl=https://bitbucket.example.com/stash \

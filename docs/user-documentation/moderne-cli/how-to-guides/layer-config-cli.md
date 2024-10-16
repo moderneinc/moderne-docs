@@ -1,28 +1,28 @@
 # Layered configuration in the Moderne CLI
 
-One big challenge that comes with building [LSTs](../../../administrator-documentation/moderne-platform/references/concepts/lossless-semantic-trees.md) for many repositories on many different machines is configuration. What arguments do you need to build each repository? Are there Maven specific ones? Gradle specific ones? Do they change depending on the group of projects? How do you share these configurations with new people on the team?
+One big challenge that comes with building [LSTs](../../../administrator-documentation/moderne-platform/references/concepts/lossless-semantic-trees.md) for many repositories on many machines is configuration. What arguments do you need to build each repository? Are there Maven specific ones? Gradle specific ones? Do they change depending on the group of projects? How do you share these configurations with new people on the team?
 
 To meet all of these needs, the Moderne CLI offers a few options for how you can include global or project-specific build arguments. In this guide, we'll walk through each of them and explain when you should use one over another.
 
-* [Global configuration](layer-config-cli.md#global-configuration)
-* [Local configuration (user-specific)](layer-config-cli.md#local-configuration-user-specific)
-* [Local configuration (shared)](layer-config-cli.md#local-configuration-shared)
+* [Global configuration](#global-configuration)
+* [Local configuration (user-specific)](#local-configuration-user-specific)
+* [Local configuration (shared)](#local-configuration-shared)
 
-{% hint style="warning" %}
+:::warning
 By default, the Moderne CLI will write configuration files to `~/.moderne/cli`. If your company has a home directory that is not local (such as a network share), you can set the `MODERNE_CLI_HOME` environment variable to point to a local directory. This can drastically increase the speed of the Moderne CLI.
 
 ```bash
 export MODERNE_CLI_HOME=/space/moderne/cli
 ```
-{% endhint %}
+:::
 
 ## Global configuration
 
 If your company has some configuration that will apply to most, if not all, projects, you should use global configuration. This will allow you to set arguments for any LST build for any project on the machine (which can be overridden by local configuration).
 
-{% hint style="info" %}
-Please note that these arguments will not be saved in the individual projects. If someone else were to try and build these projects on a different machine, they would need to configure these arguments themselves. If you want to save arguments for a specific project, please see the [local configuration (shared) section](layer-config-cli.md#local-configuration-shared).
-{% endhint %}
+:::info
+Please note that these arguments will not be saved in the individual projects. If someone else were to try and build these projects on a different machine, they would need to configure these arguments themselves. If you want to save arguments for a specific project, please see the [local configuration (shared) section](#local-configuration-shared).
+:::
 
 Below are two examples that demonstrate global configuration. If you run either of these commands, the arguments will be added to any Maven or Gradle build being run through the Moderne CLI.
 
@@ -55,11 +55,11 @@ When building repositories, there may come a time when you want to edit build ar
 mod config build maven arguments edit "-Pmdep.skip" --local ./working-set
 ```
 
-After running that, when you go to build the LST artifacts for any project in the specified directory/directories, these arguments will be used – but no files that will be checked in with Git will be updated. Please note that this will **override** any arguments that you've [provided globally](layer-config-cli.md#global-configuration). If you want those arguments to apply to the local project(s) you're specifying, please make sure that you include them in this command.
+After running that, when you go to build the LST artifacts for any project in the specified directory/directories, these arguments will be used – but no files that will be checked in with Git will be updated. Please note that this will **override** any arguments that you've [provided globally](#global-configuration). If you want those arguments to apply to the local project(s) you're specifying, please make sure that you include them in this command.
 
 Also note that this applies **recursively**. If the directory you specify contains many Git repositories, this will apply to all of them. For example, if your directory structure looks like:
 
-```
+```bash
 working-set/
   spring-projects/
     spring-boot/
@@ -79,7 +79,7 @@ mod config build gradle arguments show --local ./path/to/your/project
 
 You can also see the local arguments by looking in the `.moderne/moderne-uncommitted.yml` file in each repository such as in:
 
-```
+```bash
 working-set/
   spring-projects/
     spring-boot/
@@ -119,11 +119,11 @@ mod push ./working-set
 
 Then, when you go to build the LST artifacts for any project in these directory/directories, these arguments will be used.
 
-Please note that this will **override** any arguments that you've [provided globally](layer-config-cli.md#global-configuration). If you want those arguments to apply to the local project(s) you're specifying, please make sure that you include them in this command.
+Please note that this will **override** any arguments that you've [provided globally](#global-configuration). If you want those arguments to apply to the local project(s) you're specifying, please make sure that you include them in this command.
 
 Also note that this applies **recursively**. If the directory you specify contains many Git repositories, this will apply to all of them. For example, if your directory structure looks like:
 
-```
+```bash
 working-set/
   spring-projects/
     spring-boot/
@@ -143,7 +143,7 @@ mod config build gradle arguments show --local ./path/to/your/project
 
 You can also see the local arguments by looking in the `.moderne/moderne.yml` file in each repository such as in:
 
-```
+```bash
 working-set/
   spring-projects/
     spring-boot/

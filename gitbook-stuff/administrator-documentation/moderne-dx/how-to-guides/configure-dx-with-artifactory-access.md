@@ -36,7 +36,7 @@ Also, by default, LST indexing has to happen on every new installation before `m
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_DX_STORAGE_ENABLED=true \
@@ -66,7 +66,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.storage.enabled=true \

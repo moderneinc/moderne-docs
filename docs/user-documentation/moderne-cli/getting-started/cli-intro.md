@@ -89,13 +89,13 @@ The Moderne CLI offers a command which generates a completion script that can be
 
 To configure this for the terminal you're using please enter the following command in your terminal:
 
-```shell
+```bash
 source <(mod generate-completion)
 ```
 
 Or, if you want to configure auto-completion so that it works for _every_ terminal instance you make, please update your `~/.zshrc` or `~/.bashrc` file and add this command to the bottom of it:
 
-```shell
+```bash
 # The next line enables shell command completion for mod
 source <(mod generate-completion)
 ```
@@ -128,7 +128,7 @@ mod config moderne edit https://app.moderne.io --token mat-YOUR_TOKEN_HERE
 
 With the Moderne connection established, you can download recipes to your local machine by running the following command:
 
-```shell
+```bash
 mod config recipes moderne sync
 ```
 

@@ -34,7 +34,7 @@ If you want to configure a [Moderne DevCenter](../dev-center.md), you will need 
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -67,7 +67,7 @@ If you want to configure a [Moderne DevCenter](../dev-center.md), you will need 
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \

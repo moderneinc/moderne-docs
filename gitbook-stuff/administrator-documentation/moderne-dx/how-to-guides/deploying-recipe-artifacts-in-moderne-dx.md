@@ -18,7 +18,7 @@ mutation loadRecipes {
 
 In order to execute GraphQL mutations, it is required that an `Authorization` HTTP header be included in the request. You can set the header value in GraphiQL's _Headers_ tab as a JSON object:
 
-```shell
+```bash
 {"Authorization": "Bearer <access token used to configure DX>"}
 ```
 

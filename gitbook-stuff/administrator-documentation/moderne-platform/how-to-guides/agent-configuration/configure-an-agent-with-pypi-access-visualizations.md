@@ -26,7 +26,7 @@ You can configure multiple PyPI indexes by including multiple entries, each with
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_VISUALIZATIONS_USEONLYCONFIGURED=true \
@@ -48,7 +48,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.visualizations.useOnlyConfigured=true \

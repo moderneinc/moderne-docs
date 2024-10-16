@@ -23,7 +23,7 @@ The Moderne on-premise agent:
 
 The Moderne agent requires customers to create a hex-encoded 256-bit AES encryption key. This key will be used to encrypt LST and recipe artifacts before they are sent to your SaaS tenant. To generate a key, please run the following `openssl` command:
 
-```shell
+```bash
 openssl enc -aes-256-cbc -k secret -P
 ```
 
@@ -48,13 +48,13 @@ The table below provides the core command for running the agent. However, in ord
 {% tab title="OCI Container" %}
 **How to build the Docker image**
 
-```shell
+```bash
 docker build -t moderne-agent:latest .
 ```
 
 **How to run the Docker image with an environment file**
 
-```shell
+```bash
 docker run --env-file=moderne-agent.env moderne-agent:latest
 ```
 
@@ -145,7 +145,7 @@ The download URL can be found on the [**Agent releases page**](https://docs.mode
 
 Use `java` to run a jar in combination with arguments that you'll add in the subsequent steps. The final command will look similar to:
 
-```shell
+```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
 # --moderne.agent.crypto.symmetricKey=...
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -180,7 +180,7 @@ All agents must be configured with the variables listed as required below:
 
 **Example:**
 
-```shell
+```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -212,7 +212,7 @@ moderne-agent:latest
 
 **Example:**
 
-```shell
+```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
 # --moderne.agent.crypto.symmetricKey=...
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -246,7 +246,7 @@ Below is an example of what an agent run command might look like at the end of t
 
 {% tabs %}
 {% tab title="OCI Container" %}
-```shell
+```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -272,7 +272,7 @@ moderne-agent:latest
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-```shell
+```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
 # --moderne.agent.crypto.symmetricKey=...
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -329,7 +329,7 @@ Below is an example of what an agent run command might look like at the end of t
 
 {% tabs %}
 {% tab title="OCI Container" %}
-```shell
+```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -368,7 +368,7 @@ mmoderne-agent:latest
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-```shell
+```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
 # --moderne.agent.crypto.symmetricKey=...
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -407,7 +407,7 @@ Below is an example of what an agent run command might look like at the end of t
 
 {% tabs %}
 {% tab title="OCI Container" %}
-```shell
+```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -447,7 +447,7 @@ moderne-agent:latest
 {% endtab %}
 
 {% tab title="Executable JAR" %}
-```shell
+```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
 # --moderne.agent.crypto.symmetricKey=...
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -485,7 +485,7 @@ Below is an example of what an agent run command might look like at the end of t
 
 {% tabs %}
 {% tab title="OCI Container" %}
-```shell
+```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -572,19 +572,19 @@ Below is a table that has instructions for how to run the agent in combination w
 {% tab title="OCI Container" %}
 **How to build the Docker image**
 
-```shell
+```bash
 docker build -t moderne-agent:latest .
 ```
 
 **How to run the Docker image with an environment file**
 
-```shell
+```bash
 docker run --env-file=moderne-agent.env moderne-agent:latest
 ```
 
 **Run the `docker run` command in combination with all of the environment variables you've added in the previous steps:**
 
-```shell
+```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
@@ -626,7 +626,7 @@ moderne-agent:latest
 {% tab title="Executable JAR" %}
 Use `java` to run a jar in combination with arguments that you've added in the previous steps:
 
-```shell
+```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
 # --moderne.agent.crypto.symmetricKey=...
 export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...

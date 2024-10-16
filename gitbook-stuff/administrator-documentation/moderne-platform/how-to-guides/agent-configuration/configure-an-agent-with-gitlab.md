@@ -53,7 +53,7 @@ You can configure multiple GitLab OAuth apps by including multiple entries, each
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_GITLAB_0_OAUTH_CLIENTID=yourClientId \
@@ -79,7 +79,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.gitlab[0].oauth.clientId=yourClientId \

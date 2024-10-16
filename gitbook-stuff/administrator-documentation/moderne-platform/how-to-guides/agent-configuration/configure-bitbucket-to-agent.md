@@ -17,7 +17,7 @@ To assist with that, this guide will:
 
 This key will be used by the Moderne agent to talk to Bitbucket.
 
-```shell
+```bash
 openssl genrsa -out bitbucket_privatekey.pem 1024
 openssl req -newkey rsa:1024 -x509 -key bitbucket_privatekey.pem -out bitbucket_publickey.cer -days 365
 openssl pkcs8 -topk8 -nocrypt -in bitbucket_privatekey.pem -out bitbucket_privatekey.pcks8
@@ -63,7 +63,7 @@ In order for the Moderne agent to work with your Bitbucket instance, it will nee
 
 If you're using Bash or another shell, you can obtain the single-line string by copying the results of the following command (for use in [Step 4](configure-bitbucket-to-agent.md#step-4-configure-the-moderne-agent)):
 
-```shell
+```bash
 cat bitbucket_privatekey.pcks8 | sed '1d;$d' | tr -d '\n'
 ```
 
@@ -100,7 +100,7 @@ You can configure multiple Bitbucket instances by including multiple entries, ea
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_BITBUCKET_0_PRIVATEKEY=yourPrivateKey \
@@ -124,7 +124,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.bitbucket[0].privateKey=yourPrivateKey \

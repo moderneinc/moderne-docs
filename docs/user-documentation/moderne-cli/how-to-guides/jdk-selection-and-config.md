@@ -10,8 +10,8 @@ Let's walk through how to see what the defaults are and how you can add change t
 
 By default, the Moderne CLI will look for JDKs in these locations (with the first one representing the one given the highest priority):
 
-* $PATH
-* $JAVA\_HOME
+* `$PATH`
+* `$JAVA_HOME`
 * Predictable OS installation paths
 * SDKMAN directories
 * Brew directories

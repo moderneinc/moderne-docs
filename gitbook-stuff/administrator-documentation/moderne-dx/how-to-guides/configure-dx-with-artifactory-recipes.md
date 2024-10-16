@@ -30,7 +30,7 @@ You can configure multiple Maven formatted repositories by including multiple en
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
@@ -59,7 +59,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \

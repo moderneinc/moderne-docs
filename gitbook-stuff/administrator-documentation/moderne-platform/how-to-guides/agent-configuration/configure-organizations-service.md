@@ -12,7 +12,7 @@ In order for Moderne to obtain information about your organizational structure, 
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
@@ -30,7 +30,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.organization.url=http://localhost:8091 \

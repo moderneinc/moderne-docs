@@ -74,7 +74,7 @@ The following table contains all of the variables/arguments you need to add to y
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
@@ -95,7 +95,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.organization.url=http://localhost:8091 \

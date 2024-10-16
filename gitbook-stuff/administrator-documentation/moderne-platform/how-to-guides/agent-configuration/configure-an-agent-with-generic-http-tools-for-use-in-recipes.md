@@ -29,7 +29,7 @@ You can configure multiple generic HTTP tools by including multiple entries, eac
 
 **Example:**
 
-```shell
+```bash
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_HTTPTOOL_0_URL=https://launchdarkly.mycompany.com \
@@ -51,7 +51,7 @@ docker run \
 
 **Example:**
 
-```shell
+```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.httpTool[0].url=https://launchdarkly.mycompany.com \
