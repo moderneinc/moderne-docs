@@ -1,28 +1,47 @@
 # Platform changelog
+
 ### UI v10.160.0 (2024/10/15)
 
-- add openai integration
+For the public Moderne app we have added a new user integrations settings page:\
+![](../.gitbook/assets/integrations.png)
+
+This page will provide individual users the ability to augment their Moderne experience with integration specific features.  Any keys used for integrations are only stored on your machine, specific to your browser, and only used on demand when you utilize a feature.&#x20;
+
+Our first integration allows a user to integrate Moderne with their own OpenAI API account.  By setting up an OpenAI API key that has access to `/v1/chat/completions` the following features will be enabled:\
+\
+**Builder recipe description suggestion**
+
+Descriptions on custom recipes can often be overlooked, briefly filled in, or even skipped.  With the push of a button a suggested description based the custom recipe yaml will be generated:\
+
+
+<figure><img src="../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
+
+**Recipe run summary**
+
+Often times you may come across marketplace recipes or more often custom recipes that are being run by someone else in your organization that you may not be as familiar with or just want to know more details about.  Looking at the summary page after enabling the OpenAI integration will now give you a brief bullet point summary of the intent of the run:\
+
+
+<figure><img src="../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 
 ### UI v10.159.0 (2024/10/10)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.158.0 (2024/10/09)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.157.2 (2024/10/07)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.157.1 (2024/10/07)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.157.0 (2024/10/04)
 
-- allow repository removal from organization from the repositories table
-
+* allow repository removal from organization from the repositories table
 
 ### UI v10.156.0 (2024/09/30)
 
@@ -63,8 +82,6 @@ Clicking Add to builder button now opens a dialog allowing you to select which r
 You can also select whether you want to add it as a precondition or not. Also note you can start a new recipe right from this dialog:
 
 <figure><img src="../.gitbook/assets/add_new_custom_recipe.png" alt="" width="447"><figcaption></figcaption></figure>
-
-
 
 Regardless if you pick an existing recipe or create a new one, the marketplace recipe will be attached with its options to the root node of your selection where you can then drag and drop it to the desired location:
 
