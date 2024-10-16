@@ -1,6 +1,6 @@
 import re
 
-file_to_replace = '/Users/mikesol/Desktop/code/moderne-docs/docs/user-documentation/moderne-cli/how-to-guides/bazel-support.md'
+file_to_replace = '/Users/mikesol/Desktop/code/moderne-docs/docs/user-documentation/moderne-ide-integration/how-to-guides/debugging-recipes.md'
 
 with open(file_to_replace, 'r') as file:
     content = file.read()

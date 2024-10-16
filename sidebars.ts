@@ -133,7 +133,53 @@ const sidebars: SidebarsConfig = {
         'user-documentation/moderne-cli/cli-reference',
         'user-documentation/moderne-cli/faq',
       ],
-    }
+    },
+    {
+      type: 'category',
+      label: 'Moderne Plugin for JetBrains IDEs',
+      link: {
+        type: 'generated-index',
+        title: 'Moderne Plugin for JetBrains IDEs',
+        description: 'Learn how to use the Moderne Plugin for JetBrains IDES.',
+        slug: '/user-documentation/moderne-ide-integration',
+        keywords: ['guides'],
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'How to guides',
+          link: {
+            type: 'generated-index',
+            title: 'How to guides',
+            description: 'How to guides.',
+            slug: '/user-documentation/moderne-ide-integration/how-to-guides',
+            keywords: ['guides'],
+          },
+          items: [
+            'user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install',
+            'user-documentation/moderne-ide-integration/how-to-guides/code-search',
+            'user-documentation/moderne-ide-integration/how-to-guides/creating-recipes',
+            'user-documentation/moderne-ide-integration/how-to-guides/debugging-recipes',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Reference',
+          link: {
+            type: 'generated-index',
+            title: 'Reference',
+            description: 'Reference docs for Moderne IDE integrations.',
+            slug: '/user-documentation/moderne-ide-integration/reference',
+            keywords: ['reference'],
+          },
+          items: [
+            'user-documentation/moderne-ide-integration/reference/code-search-actions',
+            'user-documentation/moderne-ide-integration/reference/refactor-actions',
+          ],
+        },
+      ],
+    },
+    'user-documentation/community-office-hours'
   ]
 };
 
