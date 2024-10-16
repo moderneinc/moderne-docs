@@ -11,7 +11,7 @@ Our first integration allows a user to integrate Moderne with their own OpenAI A
 \
 **Builder recipe description suggestion**
 
-Descriptions on custom recipes can often be overlooked, briefly filled in, or even skipped.  With the push of a button a suggested description based the custom recipe yaml will be generated:\
+Descriptions on custom recipes can often be overlooked, briefly filled in, or even skipped.  With the push of a button a suggested description based on the custom recipe's yaml will be generated:\
 
 
 <figure><img src="../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
