@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v1.0.3225 (tag v1.0.3225
+Tagger: Nate <nate@moderne.io>
+
+Release of 1.0.3225
+2024/10/17)
+
+
+
 ### CLI / DX v3.24.3 (2024/10/17)
 
 #### What's Changed
