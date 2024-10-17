@@ -6,6 +6,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Automating breaking change detection (October 16th, 2024)
+
+{% embed url="https://www.youtube.com/watch?v=dvRFiwo5qo8" %}
+
+#### Summary and related links
+
+Coming soon!
+
 ### Insights into crafting clear documentation (October 9th, 2024)
 
 {% embed url="https://www.youtube.com/watch?v=OesF1pXAj5k" %}
