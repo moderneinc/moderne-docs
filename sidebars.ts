@@ -179,6 +179,47 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+    {
+      type: 'category',
+      label: 'Moderne DX',
+      link: {
+        type: 'generated-index',
+        title: 'Moderne DX',
+        description: 'Learn how to use the Moderne DX.',
+        slug: '/user-documentation/moderne-dx',
+        keywords: ['guides'],
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'How to guides',
+          link: {
+            type: 'generated-index',
+            title: 'How to guides',
+            description: 'How to guides.',
+            slug: '/user-documentation/moderne-dx/how-to-guides',
+            keywords: ['guides'],
+          },
+          items: [
+            'user-documentation/moderne-dx/how-to-guides/syncing-recipes-with-moderne-dx',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Workshops',
+      link: {
+        type: 'generated-index',
+        title: 'Workshops',
+        description: 'Moderne workshops.',
+        slug: '/user-documentation/workshops',
+        keywords: ['workshops'],
+      },
+      items: [
+        'user-documentation/workshops/recipe-authoring'
+      ],
+    },
     'user-documentation/community-office-hours',
     {
       type: 'html',
