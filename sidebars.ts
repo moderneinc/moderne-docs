@@ -179,7 +179,21 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-    'user-documentation/community-office-hours'
+    'user-documentation/community-office-hours',
+    {
+      type: 'html',
+      value: '<br/><strong>Administrator Documentation</strong>',
+      defaultStyle: true,
+    },
+    {
+      type: 'html',
+      value: '<br/><strong>Releases</strong>',
+      defaultStyle: true,
+    },
+    'releases/agent-releases',
+    'releases/cli-releases',
+    'releases/changelog',
+    'releases/cli-dx',
   ]
 };
 
