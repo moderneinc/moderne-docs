@@ -1,5 +1,17 @@
 # CLI / DX changelog
 
+### CLI / DX v3.24.3 (2024/10/17)
+
+#### What's Changed
+* Suppress lucene vulnerability
+* pin lucene to v9
+* use jspecify
+* change groovy namespace from codehaus to apache to fix project compiliation error
+* Allow for DX application to start
+* Clean up doc generation for Docusaurus
+* add required remoting codecs dependencies for python/js buildsteps
+
+
 ### CLI / DX v3.24.2 (2024/10/10)
 
 #### What's Changed
