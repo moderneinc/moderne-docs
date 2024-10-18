@@ -36,23 +36,30 @@ sequenceDiagram
     actor Customer
     participant customerIdp as Identity Provider
     end
-	box transparent Moderne SaaS Platform
+    box transparent Moderne SaaS Platform
     participant web as Moderne web application
     participant keycloak as Identity Broker (Keycloak)
+    participant api as Moderne API
     end
     Customer->>web: goes to Moderne application in browser
     web->>web: checks for active session
     alt has active session
-    web->>Customer: Continues to application with active session
+        web->>Customer: Continues to application with active session
     else no active session
-    web->>keycloak: redirects to Keycloak for new authentication session
-    keycloak->>customerIdp: redirect to IDP for authentication if required
-    customerIdp->>keycloak: asserts claims (customer identity and roles)
-    keycloak->>web: redirects to Moderne web application
-    web->>keycloak: PKCE challenge verification
-    keycloak->>web: JWT access token and basic OIDC profile information provided
-    web->>Customer: Continues to application with active session
+        web->>keycloak: redirects to Keycloak for new authentication session
+        keycloak->>customerIdp: redirect to IDP for authentication if required
+        customerIdp->>keycloak: asserts claims (customer identity and roles)
+        keycloak->>web: redirects to Moderne web application
+        web->>keycloak: PKCE challenge verification
+        keycloak->>web: Opaque JWT and basic OIDC profile information provided
+        web->>Customer: Continues to application with active session
     end
+    Customer->>web: Performs action that requires API request
+    web->>api: API request with opaque JWT
+    api->>keycloak: Validate opaque JWT
+    keycloak->>api: JWT validation result
+    api->>web: API response with requested data
+    web->>Customer: Displays data or updates UI based on API response
 
 ```
 
