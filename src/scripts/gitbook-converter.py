@@ -1,6 +1,6 @@
 import re
 
-file_to_replace = '/Users/mikesol/Desktop/code/moderne-docs/docs/administrator-documentation/moderne-platform/getting-started/proof-of-value.md'
+file_to_replace = '/Users/mikesol/Desktop/code/moderne-docs/docs/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/multi-tenant-private-recipes.md'
 
 with open(file_to_replace, 'r') as file:
     content = file.read()
