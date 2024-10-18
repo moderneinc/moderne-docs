@@ -227,6 +227,36 @@ const sidebars: SidebarsConfig = {
       defaultStyle: true,
     },
     {
+      type: 'category',
+      label: 'Moderne Platform',
+      link: {
+        type: 'generated-index',
+        title: 'Moderne Platform',
+        description: 'Learn how to use the Moderne Platform.',
+        slug: '/administrator-documentation/moderne-platform',
+        keywords: ['guides'],
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Getting started',
+          link: {
+            type: 'generated-index',
+            title: 'Getting started',
+            description: 'Getting started guides.',
+            slug: '/administrator-documentation/moderne-platform/getting-started',
+            keywords: ['guides'],
+          },
+          items: [
+            'administrator-documentation/moderne-platform/getting-started/proof-of-value',
+            'administrator-documentation/moderne-platform/getting-started/admin-pages',
+          ],
+        },
+        'administrator-documentation/moderne-platform/faq',
+      ],
+    },
+    'administrator-documentation/licensing',
+    {
       type: 'html',
       value: '<br/><strong>Releases</strong>',
       defaultStyle: true,
