@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.24.5 (2024/10/20)
+
+#### What's Changed
+* Detect gradle script execution errors due to Windows line endings and provide a fix suggestion
+* Merge `/META-INF/services` files for fat-jar distribution
+
+
 ### CLI / DX v1.0.3225 (tag v1.0.3225
 Tagger: Nate <nate@moderne.io>
 
