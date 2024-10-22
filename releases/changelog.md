@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.161.0 (2024/10/22)
+
+- add undo button
+
 ### UI v10.160.1 (2024/10/16)
 
 - Bug fixes and other improvements.
