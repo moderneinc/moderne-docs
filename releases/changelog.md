@@ -1,33 +1,37 @@
 # Platform changelog
+
 ### UI v10.161.0 (2024/10/22)
 
-- add undo button
+#### Updated navigation
+
+We've updated our global navigation to help maximize the important content on your screen. We were able to save over 150 pixels of horizontal space through the redesign of the navigation bar.
+
+<figure><img src="../.gitbook/assets/image (71).png" alt=""><figcaption><p>Tooltip hints provide access to your selected organization</p></figcaption></figure>
+
+* add undo button
 
 ### UI v10.160.1 (2024/10/16)
 
-- Bug fixes and other improvements.
-
+* Bug fixes and other improvements.
 
 ### UI v10.160.0 (2024/10/15)
 
 For the public Moderne app we have added a new user integrations settings page:\
 ![](../.gitbook/assets/integrations.png)
 
-This page will provide individual users the ability to augment their Moderne experience with integration specific features.  Any keys used for integrations are only stored on your machine, specific to your browser, and only used on demand when you utilize a feature.&#x20;
+This page will provide individual users the ability to augment their Moderne experience with integration specific features. Any keys used for integrations are only stored on your machine, specific to your browser, and only used on demand when you utilize a feature.
 
-Our first integration allows a user to integrate Moderne with their own OpenAI API account.  By setting up an OpenAI API key that has access to `/v1/chat/completions` the following features will be enabled:\
+Our first integration allows a user to integrate Moderne with their own OpenAI API account. By setting up an OpenAI API key that has access to `/v1/chat/completions` the following features will be enabled:\
 \
 **Builder recipe description suggestion**
 
-Descriptions on custom recipes can often be overlooked, briefly filled in, or even skipped.  With the push of a button a suggested description based on the custom recipe's yaml will be generated:\
-
+Descriptions on custom recipes can often be overlooked, briefly filled in, or even skipped. With the push of a button a suggested description based on the custom recipe's yaml will be generated:\\
 
 <figure><img src="../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
 
 **Recipe run summary**
 
-Often times you may come across marketplace recipes or more often custom recipes that are being run by someone else in your organization that you may not be as familiar with or just want to know more details about.  Looking at the summary page after enabling the OpenAI integration will now give you a brief bullet point summary of the intent of the run:\
-
+Often times you may come across marketplace recipes or more often custom recipes that are being run by someone else in your organization that you may not be as familiar with or just want to know more details about. Looking at the summary page after enabling the OpenAI integration will now give you a brief bullet point summary of the intent of the run:\\
 
 <figure><img src="../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 
