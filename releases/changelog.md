@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.162.0 (2024/10/23)
+
+- update keyboard shortcuts
+
 
 ### UI v10.161.0 (2024/10/22)
 
