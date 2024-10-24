@@ -30,7 +30,7 @@ const config: Config = {
           sidebarCollapsible: true,
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/moderneinc/moderne-docs/edit/master',
+            'https://github.com/moderneinc/moderne-docs/edit/main',
         },
         gtag: {
           trackingID: "G-Q1CMC219Y5",
