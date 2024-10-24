@@ -52,6 +52,13 @@ const config: Config = {
 
   themeConfig: {
     image: 'img/moderne-poster-logo.svg',
+    announcementBar: {
+      id: "doc_release",
+      content:
+        "We are currently migrating where we host our docs. Because of this, search is temporarily unavailable.",
+      backgroundColor: "#555555",
+      textColor: "#E3F2FD",
+    },
     navbar: {
       logo: {
         alt: 'Moderne Logo Logo',
