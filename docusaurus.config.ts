@@ -7,8 +7,8 @@ const config: Config = {
   tagline: 'Large-scale automated source code refactoring',
   favicon: 'img/favicon.svg',
 
-  url: 'https://moderneinc.github.io',
-  baseUrl: '/moderne-docs/',
+  url: 'https://docs.moderne.io',
+  baseUrl: '/',
 
   organizationName: 'moderneinc',
   projectName: 'moderne-docs',
