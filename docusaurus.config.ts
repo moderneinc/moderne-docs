@@ -59,6 +59,9 @@ const config: Config = {
       backgroundColor: "#555555",
       textColor: "#E3F2FD",
     },
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
     navbar: {
       logo: {
         alt: 'Moderne Logo Logo',
