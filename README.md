@@ -6,7 +6,7 @@ The docs behind [https://docs.moderne.io/](https://docs.moderne.io/). For OpenRe
 
 We encourage you to contribute to our docs! Please feel free to create an issue or open a PR if you find any issues.
 
-We use [GitBook](https://www.gitbook.com/) to manage our documentation. When any changes are merged into this directory, a build is kicked off to update the GitBook docs.
+We use [Docusaurus](https://docusaurus.io/) to manage our documentation. When any changes are merged into this repository, a build is kicked off to update the docs.
 
 ## Standards
 
