@@ -3,38 +3,23 @@
 ### CLI / DX v3.24.6 (2024/10/23)
 
 #### What's Changed
+
 * Ensure Python remote parser logs errors to build log
 * fix reporting telemetry of javascript build steps
 * Support bearer tokens for DX artifactory authentication
 * Release a parallel stable major.minor version
 
-
 ### CLI / DX v3.24.5 (2024/10/20)
 
 #### What's Changed
+
 * Detect gradle script execution errors due to Windows line endings and provide a fix suggestion
 * Merge `/META-INF/services` files for fat-jar distribution
-
-
-### CLI / DX v1.0.3225 (tag v1.0.3225
-Tagger: Nate <nate@moderne.io>
-
-Release of 1.0.3225
-2024/10/17)
-
-
-
-### CLI / DX v1.0.3225 (tag v1.0.3225
-Tagger: Nate <nate@moderne.io>
-
-Release of 1.0.3225
-2024/10/17)
-
-
 
 ### CLI / DX v3.24.3 (2024/10/17)
 
 #### What's Changed
+
 * Suppress lucene vulnerability
 * pin lucene to v9
 * use jspecify
@@ -43,174 +28,173 @@ Release of 1.0.3225
 * Clean up doc generation for Docusaurus
 * add required remoting codecs dependencies for python/js buildsteps
 
-
 ### CLI / DX v3.24.2 (2024/10/10)
 
 #### What's Changed
-* Remove checkstyle dependency as it now shaded and package-relocated within rewrite-java.
 
+* Remove checkstyle dependency as it now shaded and package-relocated within rewrite-java.
 
 ### CLI / DX v3.24.1 (2024/10/10)
 
 #### What's Changed
+
 * Improve print idempotence report in native CLI
 * Handle double slash in publish URL
-
 
 ### CLI / DX v3.24.0 (2024/10/09)
 
 #### What's Changed
+
 * Support building C# repos in native CLI
 * Adding auto detection for gradle and groovy
-
 
 ### CLI / DX v3.23.0 (2024/10/07)
 
 #### What's Changed CLI
+
 * Update with rewrite 8.37.0
 * Don't fail if `dotnet` not found on Windows
-
 
 ### CLI / DX v3.22.6 (2024/10/06)
 
 #### What's Changed CLI
-* Fix CLI IDE debug code path on Windows.
 
+* Fix CLI IDE debug code path on Windows.
 
 ### CLI / DX v3.22.5 (2024/10/04)
 
 #### What's Changed DX
-* Add the missing rewrite-remote dependency that prevented startup.
 
+* Add the missing rewrite-remote dependency that prevented startup.
 
 ### CLI / DX v3.22.4 (2024/10/04)
 
 #### What's Changed CLI
+
 * Add JavaScript build step
 * Register `H2MvStorePomCache` class for GraalVM in order to serialize maven metadata cache keys
 * Improve performance of metric aggregation
 
-
 ### CLI / DX v3.22.3 (2024/10/03)
 
 #### What's Changed CLI
+
 * Migrate onto latest rewrite-remoting api
 * Continue java runtime detection even if java executable cannot be found on PATH
 * Supporting building moderne-cli on Windows ARM
 * Removing the newly set CLI classpath
 
-
 ### CLI / DX v3.22.2 (2024/10/01)
 
 #### What's Changed CLI
+
 * Upgrade rewrite-polyglot to [1.14.1](https://github.com/openrewrite/rewrite-polyglot/releases/tag/v1.14.1) which fixes `OmniParser` throwing an exception when presented with a source file type it doesn't have a parser for
 * Hide stacktrace on failing recipe install
-
 
 ### CLI / DX v3.22.1 (2024/10/01)
 
 #### What's Changed CLI
+
 * Allow empty option displayname
 * Feat adding paging get all orgs in cli
-
 
 ### CLI / DX v3.20.14 (2024/10/01)
 
 #### What's Changed CLI
-* backport orphaned repositories
 
+* backport orphaned repositories
 
 ### CLI / DX v3.22.0 (2024/09/30)
 
 #### What's Changed CLI
+
 * Enhance`mod config recipes moderne sync` to install C# recipes
 * Update to rewrite-polyglot [1.14.0](https://github.com/openrewrite/rewrite-polyglot/releases/tag/v1.14.0) which fixes missing type attribution in code parsed from Bazel builds
 * Only save on at least partial success
-* When recipes use the classpathFromResources mechanism use default location ~/.moderne/cli/rewrite-classpath instead of  ~/rewrite/classpath
-
+* When recipes use the classpathFromResources mechanism use default location \~/.moderne/cli/rewrite-classpath instead of \~/rewrite/classpath
 
 ### CLI / DX v3.21.2 (2024/09/27)
 
 #### What's Changed
+
 * Adding partition name to study output
 * When building Bazel LSTs, include the full classpath in the build log.
-
 
 ### CLI / DX v3.21.1 (2024/09/26)
 
 #### What's Changed
+
 * Display error in the dev center data table when any recipe errors out
 * Add user provided dotnets to list of installed
-
 
 ### CLI / DX v3.21.0 (2024/09/25)
 
 #### What's Changed CLI
+
 * Add `no-maven-central` and `no-nuget-org` to `mod config features`
 * Deprecate `mod config recipes artifacts default-repositories` - replaced by the new commands.
 
-
 ### CLI / DX v3.20.12 (2024/09/24)
 
 #### What's Changed
+
 * Disable maven central during recipe run if `mod config recipes artifacts default-repositories` is disabled
 * When mod monitor fails to start, provide additional information to understand why it could not start
 * Parse .NET .props and .sln files as PlainText to ensure recipes can be run on them
 
-
 ### CLI / DX v3.20.12 (2024/09/24)
 
 #### What's Changed
+
 * Disable maven central during recipe run if `mod config recipes artifacts default-repositories` is disabled
 * When mod monitor fails to start, provide additional information to understand why it could not start
 * Parse .NET .props and .sln files as PlainText to ensure recipes can be run on them
-
 
 ### CLI / DX v3.20.11 (2024/09/20)
 
 #### What's Changed CLI
+
 * Update rewrite-gradle-plugin version to 6.23.3 to get [a fix](https://github.com/openrewrite/rewrite-gradle-plugin/commit/98c7cd75bfaae0efddb9ac9e69f6e10937b39660) for freestanding gradle scripts missing `GradleProject` markers
 * Configure reflection for classes required for native CLI binaries running `mod study`
-
 
 ### CLI / DX v3.20.10 (2024/09/19)
 
 #### What's Changed CLI
-* Keep track of which directories a given build step has claimed, and prevent subsequent build steps from also trying to build those directories
 
+* Keep track of which directories a given build step has claimed, and prevent subsequent build steps from also trying to build those directories
 
 ### CLI / DX v3.20.9 (2024/09/17)
 
 #### What's Changed CLI
-* Simplify RemoteRecipe execution. Rework NuGet Recipes loading. Adopt new API
 
+* Simplify RemoteRecipe execution. Rework NuGet Recipes loading. Adopt new API
 
 ### CLI / DX v3.20.8 (2024/09/13)
 
 #### What's Changed
+
 * Correctly set executable after `MODERNE_BUILD_TOOL_COMPILE` substitution
 * Report failure when `mod exec` commands exit with error codes
 * Suggest trust-store configuration on `mod config moderne edit` SSL failures
 
-
 ### CLI / DX v3.20.7 (2024/09/12)
 
 #### What's Changed CLI
+
 * Adapt to changes in [rewrite-maven-plugin v5.40.2](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v5.40.2)
 * Continue downloading artifacts when encountering individual errors during `mod config recipes moderne sync`
-
 
 ### CLI / DX v3.20.6 (2024/09/12)
 
 #### What's Changed CLI
-* Shutdown dotnet process on any exception
 
+* Shutdown dotnet process on any exception
 
 ### CLI / DX v3.20.5 (2024/09/11)
 
 #### What's Changed CLI
-* Exclude Checkstyle's transitive dependencies. We don't use them but they were getting flagged by security scanners and bloating the size of the CLI binary
 
+* Exclude Checkstyle's transitive dependencies. We don't use them but they were getting flagged by security scanners and bloating the size of the CLI binary
 
 ### CLI / DX v3.20.4 (2024/09/11)
 
