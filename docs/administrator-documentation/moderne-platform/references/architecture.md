@@ -21,8 +21,8 @@ Once the artifact is published, the Moderne agent will send the changes to Moder
 Below is a high-level architecture diagram that shows the flow of data between Moderne and a typical customer environment. Arrows indicate communication between components. The details of each component can be found in the following sections.
 
 <figure>
-  ![image](https://github.com/user-attachments/assets/32fe73b5-9d1c-40c0-b2bf-45ed326d7d34)
-  <figcaption>_Moderne architecture_</figcaption>
+  ![image](./assets/moderne-architecture.png)
+  <figcaption>_Moderne architecture_ ([editable version](./assets/moderne-architecture.excalidraw))</figcaption>
 </figure>
 
 ## Key components
