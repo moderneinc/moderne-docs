@@ -8,6 +8,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Kill your Zombie code (October 23rd, 2024)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=0CMYk3Gg9SQ' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### Automating breaking change detection (October 16th, 2024)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=dvRFiwo5qo8' controls="true" />
