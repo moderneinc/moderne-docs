@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.24.6 (2024/10/23)
+
+#### What's Changed
+* Ensure Python remote parser logs errors to build log
+* fix reporting telemetry of javascript build steps
+* Support bearer tokens for DX artifactory authentication
+* Release a parallel stable major.minor version
+
+
 ### CLI / DX v3.24.5 (2024/10/20)
 
 #### What's Changed
