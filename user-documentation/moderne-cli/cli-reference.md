@@ -4727,7 +4727,7 @@ mod git clone moderne /path/to/folder/to/clone/into Apache
 Clones the repositories listed in a CSV file.
 
 
-The CSV file should have a header row with the required columns **cloneUrl, branch** and any number of optional columns. The optional columns are **changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**.
+The CSV file should have a header row with the required column **cloneUrl** and any number of optional columns. The optional columns are **branch, changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**.
 
 ### Usage
 
