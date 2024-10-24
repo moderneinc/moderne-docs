@@ -1,5 +1,9 @@
 # Platform changelog
 
+### UI v10.162.0 (2024/10/23)
+
+- update keyboard shortcuts
+
 ### UI v10.161.0 (2024/10/22)
 
 #### Updated navigation
@@ -49,24 +53,23 @@ Often times you may come across marketplace recipes or more often custom recipes
 
 ### UI v10.159.0 (2024/10/10)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.158.0 (2024/10/09)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.157.2 (2024/10/07)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.157.1 (2024/10/07)
 
-- Bug fixes and other improvements.
+* Bug fixes and other improvements.
 
 ### UI v10.157.0 (2024/10/04)
 
-- allow repository removal from organization from the repositories table
-
+* allow repository removal from organization from the repositories table
 
 ### UI v10.156.0 (2024/09/30)
 
