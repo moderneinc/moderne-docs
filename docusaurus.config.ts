@@ -51,17 +51,22 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/moderne-poster-logo.svg',
-    announcementBar: {
-      id: "doc_release",
-      content:
-        "We are currently migrating where we host our docs. Because of this, search is temporarily unavailable.",
-      backgroundColor: "#555555",
-      textColor: "#E3F2FD",
+    algolia: {
+      appId: "MEFFK0HGO6",
+      apiKey: "15eb9c9f6f3147b1cf82b1b7f93cace8",
+      indexName: "moderne",
     },
+    // announcementBar: {
+    //   id: "doc_release",
+    //   content:
+    //     "We are currently migrating where we host our docs. Because of this, search is temporarily unavailable.",
+    //   backgroundColor: "#555555",
+    //   textColor: "#E3F2FD",
+    // },
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    image: 'img/moderne-poster-logo.svg',
     navbar: {
       logo: {
         alt: 'Moderne Logo Logo',
