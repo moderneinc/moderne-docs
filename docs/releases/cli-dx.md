@@ -1,13 +1,26 @@
 # CLI / DX changelog
 
+### CLI / DX v3.24.7 (2024/10/24)
+
+#### What's Changed CLI
+
+* Update aspects.bzl to not build LSTs for transitive dependencies of Bazel targets 
+
+#### What's Changed DX
+
+* Reduce the time it take to perform an organization sync when connected to organization service
+
 ### CLI / DX v3.24.6 (2024/10/23)
 
-#### What's Changed
+#### What's Changed CLI
 
 * Ensure Python remote parser logs errors to build log
 * fix reporting telemetry of javascript build steps
-* Support bearer tokens for DX artifactory authentication
 * Release a parallel stable major.minor version
+
+#### What's Changed DX
+
+* Support bearer tokens for DX artifactory authentication
 
 ### CLI / DX v3.24.5 (2024/10/20)
 
