@@ -2,6 +2,7 @@
 ### UI v10.163.2 (2024/10/26)
 
 - Bug fixes and other improvements.
+  - Includes fixes for builder side panel resizing issues
 
 ### UI v10.163.1 (2024/10/25)
 
@@ -14,7 +15,10 @@
 
 ### UI v10.162.0 (2024/10/23)
 
-- update keyboard shortcuts
+- updated keyboard shortcuts for less collisions.  
+  Reminder: `Shift` + `?` should get you a list of them:
+  <img width="608" alt="image" src="https://github.com/user-attachments/assets/6c97a785-654c-4591-9e66-5652ee94c77f">
+
 
 ### UI v10.161.0 (2024/10/22)
 
