@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.24.8 (2024/10/25)
+
+#### What's Changed CLI
+- Upgrade to rewrite-maven-plugin 5.34.1, which removes a limit on file traversal depth when parsing code in deeply-nested maven projects
+#### What's Changed DX
+* Update doc path for cli-dx changelog markdown
+* Add admin artifact diagnostics to DX
+
+
 ### CLI / DX v3.24.7 (2024/10/24)
 
 #### What's Changed CLI
