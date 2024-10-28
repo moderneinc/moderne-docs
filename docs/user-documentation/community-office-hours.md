@@ -14,7 +14,46 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Releases**:
+    * [We did a new release this week](https://docs.openrewrite.org/changelog/8-38-0-Release). This includes some cursor improvements that Sam walked through. 
+  * **Events**:
+    * [Tim will present at the Belgian JUG on October 24th](https://www.meetup.com/belgian-java-user-group/events/)
+    * [Tim will present at JFall on November 7th](https://jfall.nl/)
+    * [Justine will present at a Montreal event on October 30th about resurrecting legacy systems with OpenRewrite](https://guild.host/events/code-graveyards-resurrecting-032feq)
+  * **Content**
+    * [We published a new video on dependency insights for Gradle and Maven recipes](https://www.youtube.com/watch?v=m503PR04A5c)
+    * [We also published a new video on how to find breaking changes](https://www.youtube.com/watch?v=U9F0ky7wX0w)
+  * **Upcoming changes**:
+    * [We have been working on supporting the Lombok annotation processor](https://github.com/openrewrite/rewrite/pull/4602)
+* **Main topic for the week**
+  * This week we talked about spooky monsters and zombie code.
+  * Tim shared his kill your zombie code recipe:
+    ```yaml
+    type: specs.openrewrite.org/v1beta/recipe
+    name: org.openrewrite.Unused
+    displayName: Kill your Zombie code
+    description: "Braainnnss"
+    recipeList:
+      - org.openrewrite.staticanalysis.RemoveUnusedPrivateFields
+      - org.openrewrite.staticanalysis.RemoveUnusedLocalVariables
+      - org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods
+      - org.openrewrite.java.RemoveUnusedImports
+      - org.openrewrite.java.testing.cleanup.RemoveEmptyTests
+      - org.openrewrite.staticanalysis.EmptyBlock
+      - org.openrewrite.staticanalysis.RemoveUnneededBlock
+      - org.openrewrite.staticanalysis.RemoveUnneededAssertion
+      - org.openrewrite.staticanalysis.UnnecessaryCloseInTryWithResources
+      - org.openrewrite.staticanalysis.UnnecessaryThrows
+      - org.openrewrite.staticanalysis.NoValueOfOnStringType
+      - org.openrewrite.staticanalysis.RemoveCallsToObjectFinalize
+      - org.openrewrite.staticanalysis.NoFinalizer
+      - org.openrewrite.java.format.RemoveTrailingWhitespace
+      - org.openrewrite.staticanalysis.RemoveExtraSemicolons
+      - org.openrewrite.staticanalysis.InlineVariable
+    ```
+  * [Sam shared his kill your zombie dependencies recipe he's been working on](https://github.com/openrewrite/rewrite-java-dependencies/compare/main...remove-unused).
+  * [Tim then talked about how to clear how feature flags](https://github.com/openrewrite/rewrite-feature-flags/issues/14).
 
 ### Automating breaking change detection (October 16th, 2024)
 
