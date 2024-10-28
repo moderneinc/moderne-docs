@@ -21,8 +21,11 @@
 
 - updated keyboard shortcuts for less collisions.  
   Reminder: `Shift` + `?` should get you a list of them:
-  <img width="608" alt="image" src="https://github.com/user-attachments/assets/6c97a785-654c-4591-9e66-5652ee94c77f">
 
+<figure>
+  ![](./assets/keyboard-shortcuts.png)
+  <figcaption></figcaption>
+</figure>
 
 ### UI v10.161.0 (2024/10/22)
 
