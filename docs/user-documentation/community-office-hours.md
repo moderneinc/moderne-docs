@@ -22,7 +22,19 @@ Coming soon!
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**:
+  * **Content**:
+    * [We have a new blog post on detecting breaking changes](https://www.moderne.ai/blog/confident-coding-making-backwards-incompatible-changes-less-painful-for-all)
+  * **Moderne updates**:
+    * [We added an OpenAI integration throughout the Moderne platform to help with things like recipe or recipe run summaries](https://docs.moderne.io/releases/changelog/#ui-v101600-20241015). This isn't enabled by default and requires you to add your own OpenAI key to function.
+  * **Community**:
+    * [LangChaing4j is now using OpenRewrite to automatically review PRs](https://github.com/langchain4j/langchain4j/pull/1904)
+    * [Apache releases their first version of the Apache camel upgrade recipes](https://camel.apache.org/blog/2024/10/camel-upgrade-recipes-release-4.8.0/)
+  * **Events**:
+    * [Tim will present at JavaBin in Oslo on October 17th](https://www.meetup.com/javabin/events/)
+    * [Tim will also present at the Belgian JUG on October 24th](https://www.meetup.com/belgian-java-user-group/events/)
+* **Main topic for the week - automating breaking changes**
+  * Leanne talked through how to automate breaking changes, some of the surrounding considerations, and how to do perform said automation in a timely manner.
 
 ### Insights into crafting clear documentation (October 9th, 2024)
 
@@ -47,7 +59,6 @@ Coming soon!
 ### Fixing security vulnerabilities with Moderne (October 2nd, 2024)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=X4ibcuGX2wE' controls="true" />
-
 
 #### Summary and related links
 
