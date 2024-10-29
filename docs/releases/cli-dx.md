@@ -158,15 +158,9 @@ Please ensure your organization service is updated to support this new `organiza
 ```graphql
     @deprecated(reason: "use `organizationsPages` in stead")
     organizations(
-        """
-        Filter organizations by id
-        """
         id: ID!
     ): Organization!
 
-    """
-    The paginated list of all possible organizations
-    """
     organizationsPages(
         after: String
         first: Int = 100
