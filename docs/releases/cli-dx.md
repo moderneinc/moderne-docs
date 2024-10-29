@@ -123,6 +123,8 @@
 ### CLI / DX v3.22.1 (2024/10/01)
 
 #### What's Changed CLI
+* Allow empty option displayname
+* Use paginated query for organizations if available when fetching organizations
 
 ```mermaid
 sequenceDiagram
