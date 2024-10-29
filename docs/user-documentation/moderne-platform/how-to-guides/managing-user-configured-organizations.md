@@ -10,14 +10,14 @@ To help you get started with user-configured organizations, in this guide you wi
 
 ## How to create a user-configured organization
 
-1. In the top left corner of the Moderne home page, you will see a box under the search box that says `Default`:
+1. In the top left corner of the Moderne home page, you will see an `Organization` icon:
 
 <figure>
   ![](./assets/org-selector.png)
   <figcaption></figcaption>
 </figure>
 
-2. If you click on that, the organizations menu will appear:
+2. If you click on that, the Organizations modal will appear:
 
 <figure>
   ![](./assets/organizations.png)
@@ -34,44 +34,46 @@ To help you get started with user-configured organizations, in this guide you wi
 4. At the top, you should enter a descriptive name for the user organization. This will be the identifier you'll see when you go to select which organization you want to run a recipe on.
 5. Once you've entered a name for your organization, it's time to select the repositories you want to be included in this organization. You can use the search box to look for repositories that contain your search term anywhere in their origin, organization, name, or branch.
 6. When you've finished searching for the repositories you want in the organization, you can select all of the repositories to add by clicking on the checkbox at the top or you can select individual repositories by clicking on the checkbox next to each repository.
-7. Once you've selected all the repositories you want to be in the organization, click on the `Save` button in the bottom right to create the user-configured organization. You will be redirected back to the Organizations page. At the bottom of that page, you will find your organizations under the `My Organizations` heading.
+7. Once you've selected all the repositories you want to be in the organization, click on the `Save` button in the bottom right to create the user-configured organization. You will be redirected back to the Organizations page. At the bottom of that page, you will find your organizations under the `My organizations` heading.
 
 <figure>
   ![](./assets/user-org.png)
   <figcaption></figcaption>
 </figure>
 
-8. Now, when you go to run any recipe, you can navigate to the Organizations page and click on the organization name to select which organization you want to run the recipe on. Once selected, you should see the name of the organization appear in the box back on the home page:
-
-<figure>
-  ![](./assets/test-repo-group.png)
-  <figcaption></figcaption>
-</figure>
+8. Now, when you go to run any recipe, you can click on the `Organizations` icon and select the organization you want to run the recipe on.
 
 ## How to modify or delete existing user-configured organizations
 
 1. From any page, click on the organization box under the search box:
 
 <figure>
-  ![](./assets/org-search-box.png)
+  ![](./assets/org-selector.png)
   <figcaption></figcaption>
 </figure>
 
 2. This will take you to the list of organizations or user-configured organizations to select:
 
 <figure>
-  ![](./assets/org-list.png)
+  ![](./assets/organizations.png)
   <figcaption></figcaption>
 </figure>
 
-3. To modify a user-configured organization, scroll to the bottom of that page and click on the wrench icon next to the organization you want to modify. You will be redirected to a page that allows you to select repositories:
+3. To modify a user-configured organization, click on the triple dots next to the organization you want to modify and then select `Update organization`:
+
+<figure>
+  ![](./assets/update-org.png)
+  <figcaption></figcaption>
+</figure>
+
+4. You will be redirected to a page that allows you to select repositories:
 
 <figure>
   ![](./assets/org-modal.png)
   <figcaption></figcaption>
 </figure>
 
-4. To remove a user-configured organization, scroll to the bottom of the page and click on the `...` icon. Then select `Delete user organization` and it will be removed.
+5. To remove a user-configured organization, select `Delete user organization` instead of `Update organization`.
 
 ## How to export user-configured organization JSON
 
