@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.24.9 (2024/10/29)
+
+#### What's Changed
+* Recognize NO_COLOR environment variable to disable colored text output
+* adopt new remoting components
+
+
 ### CLI / DX v3.24.8 (2024/10/25)
 
 #### What's Changed CLI
