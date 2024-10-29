@@ -17,24 +17,18 @@ Moderne's [common static analysis recipe](https://app.moderne.io/recipes/org.ope
 
 To get to this recipe:
 
-* From the [home page](https://app.moderne.io/marketplace), click on `Marketplace` in the top left corner. This will take you to the recipe marketplace.
-* From there, click on `Static analysis and remediation` and then `Core`.
+* Ensure that you are at the [recipe marketplace](https://app.moderne.io/marketplace).
+* From there, click on `Static analysis and remediation` and then `Core`. Click on the `Common static analysis issues` recipe and then click on `See details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
 
-  ![](./assets/static-analysis.png)
-
-* At the top, you should see a recipe called `Common static analysis issues`. If you click on it, it will expand slightly.&#x20;
-
-  ![](./assets/StaticAnalysisRecipe.png)
-
-*   Click on `See details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
-
-    ![](./assets/StaticAnalysisDetails.png)
+  ![](./assets/CommonStaticAnalysis.gif)
 
 ### Running the recipe
 
-The bottom half of the page lists all of the recipes that will be run as part of this analysis. You can click on the checkbox next to any of them to enable or disable that particular recipe from being run. You can also click on the recipes themselves to get more information about that specific recipe or to run just that one.
+The bottom half of the page lists all of the recipes that will be run as part of this analysis. You can click on any of the recipes to get more information about that specific recipe or to just run that one.
 
-When you're ready to run the recipe, select the repositories you wish to run on and then press `Dry Run`. You will then be redirected to a page that looks like this:
+![](./assets/static-recipe-list.png)
+
+When you're ready to run the recipe, press the `Dry Run` button at the top of your screen. You will then be redirected to a page that looks like this:
 
 :::info
 As the code in the SaaS is constantly changing, your results will more than likely be different.

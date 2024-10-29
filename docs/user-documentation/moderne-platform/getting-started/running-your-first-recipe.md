@@ -1,3 +1,7 @@
+---
+description: Running your first recipe
+---
+
 import ReactPlayer from 'react-player';
 
 # Quickstart: Running your first recipe
@@ -47,14 +51,17 @@ If you went to run a recipe right now, you would find that some repositories are
 
 If you'd prefer to run against a different group of repositories so that you can get relevant results more quickly, you can: select the organization that matches your needs, set up the [Organization service](../../../administrator-documentation/moderne-platform/how-to-guides/organizations-service.md) (for enterprise users), or follow our [instructions for defining user configured organizations](../how-to-guides/managing-user-configured-organizations.md#how-to-create-a-user-configured-organization).
 
-![](./assets/organization-selector.png)
+<figure>
+  ![](./assets/organization-selector.png)
+  <figcaption>_Selecting an organization_</figcaption>
+</figure>
 
 ## Step 4: Navigate to the recipe marketplace
 
-Once you've decided what repositories you want to run recipes against, click on `Marketplace` on the left side of the screen:
+Once you've decided what repositories you want to run recipes against, click on `Marketplace` on the left side of the screen (If you aren't already there):
 
 <figure>
-  ![Moderne Home Page](./assets/moderne-catalog.png)
+  ![Moderne Home Page](./assets/marketplace.png)
   <figcaption>_Moderne home page_</figcaption>
 </figure>
 
