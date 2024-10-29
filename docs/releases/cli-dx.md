@@ -160,7 +160,6 @@ Please ensure your organization service is updated to support this new `organiza
     organizations(
         """
         Filter organizations by id
-	@@ -31,6 +32,15 @@ type Query {
         """
         id: ID!
     ): Organization!
