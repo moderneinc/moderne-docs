@@ -125,7 +125,66 @@
 #### What's Changed CLI
 
 * Allow empty option displayname
-* Feat adding paging get all orgs in cli
+* Use paginated query for organizations if available when fetching organizations.
+
+```mermaid
+graph LR
+    subgraph CLI 
+        A[CLI]-.Introspect DX.-> B{Paginated Query Exists?}
+    end
+    subgraph DX/SaaS
+        B -- Yes --> C[Execute Paginated Query]
+        B -- No --> D[Execute Fallback Query]
+        C-.Introspect Org.-> E{Paginated Query Exists?}
+    end
+    subgraph OrgService
+        E -- Yes --> F[Execute Paginated Query]
+        E -- No --> G[Execute Fallback Query]
+    end
+
+    F-. response .-> DX/SaaS
+    D-.request.-> G
+    G-. response .-> DX/SaaS
+
+    DX/SaaS-. response .-> A
+```
+
+Action Required:
+
+When the CLI is configured with DX or the SaaS the `organizationPages` query will now be used to retrieve organization if available. The implementation of `organizationPages` query will check if the organization service also has an `organizationsPages` query and retrieve its data from the organization service through this query.  
+
+Please ensure your organization service is updated to support this new `organizationPages` query. This query is designed to efficiently handle larger lists of organizations and repositories. We recommend planning for migration to this new query in your organization service, as the existing organizations query is deprecated and will be removed in the future. Sync your organization implementation with the latest [reference implementation](https://github.com/moderneinc/moderne-organizations). The pagination support was added in this [commit](https://github.com/moderneinc/moderne-organizations/commit/127600abe6cec60b51d06a63f9801b6c116b650d).
+
+#### What's Changed DX
+* We’ve introduced a new query `organizationsPages` for paginated organization data and deprecated the organizations query.
+```graphql
+    @deprecated(reason: "use `organizationsPages` in stead")
+    organizations(
+        """
+        Filter organizations by id
+	@@ -31,6 +32,15 @@ type Query {
+        """
+        id: ID!
+    ): Organization!
+
+    """
+    The paginated list of all possible organizations
+    """
+    organizationsPages(
+        after: String
+        first: Int = 100
+    ): OrganizationConnection!
+```
+
+Key Changes:
+- `organizations` query deprecated: This query is deprecated in favor of the new paginated query.
+- New `organizationsPages` query: Provides a paginated list of organizations with parameters:
+    - `after`: A cursor to fetch subsequent pages.
+    - `first`: The maximum number of organizations to return (default: 100).
+
+Action Required:
+
+When DX is integrated with the organization service, it will now utilize the new `organizationsPages` paginated query to request organization data. Please ensure your organization service is updated to support this new `organizationPages` query. This query is designed to efficiently handle larger lists of organizations and repositories. We recommend planning for migration to this new query in your organization service, as the existing organizations query is deprecated and will be removed in the future. Sync your organization implementation with the latest [reference implementation](https://github.com/moderneinc/moderne-organizations). The pagination support was added in this [commit](https://github.com/moderneinc/moderne-organizations/commit/127600abe6cec60b51d06a63f9801b6c116b650d).
 
 ### CLI / DX v3.20.14 (2024/10/01)
 
