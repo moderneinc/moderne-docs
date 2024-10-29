@@ -63,7 +63,7 @@ To discover all of the type-aware search recipes, please follow these steps:
 
 *   From the [Moderne Marketplace](https://app.moderne.io/marketplace), click on a category that relates to your needs such as `Java`:
 
-    ![](./assets/moderne-catalog.png)
+    ![](./assets/java-category.png)
 *   Click on `Search`:
 
     ![](./assets/search-recipe-group.png)
