@@ -124,29 +124,27 @@
 
 #### What's Changed CLI
 
-* Allow empty option displayname
-* Use paginated query for organizations if available when fetching organizations.
-
 ```mermaid
-graph LR
-    subgraph CLI 
-        A[CLI]-.Introspect DX.-> B{Paginated Query Exists?}
-    end
-    subgraph DX/SaaS
-        B -- Yes --> C[Execute Paginated Query]
-        B -- No --> D[Execute Fallback Query]
-        C-.Introspect Org.-> E{Paginated Query Exists?}
-    end
-    subgraph OrgService
-        E -- Yes --> F[Execute Paginated Query]
-        E -- No --> G[Execute Fallback Query]
-    end
+sequenceDiagram
+    participant CLI
+    participant DX/SaaS
+    participant OrgService
 
-    F-. response .-> DX/SaaS
-    D-.request.-> G
-    G-. response .-> DX/SaaS
-
-    DX/SaaS-. response .-> A
+    CLI->>DX/SaaS: Introspect DX
+    DX/SaaS->>DX/SaaS: Paginated Query Exists?
+    alt Yes
+        DX/SaaS->>OrgService: Execute Paginated Query
+        OrgService->>OrgService: Paginated Query Exists?
+        alt Yes
+            DX/SaaS->>OrgService: Execute Paginated Query
+        else No
+            DX/SaaS->>OrgService: Execute Fallback Query
+        end
+    else No
+        DX/SaaS->>OrgService: Execute Fallback Query
+    end
+    OrgService->>DX/SaaS: Response
+    DX/SaaS->>CLI: Response
 ```
 
 Action Required:
