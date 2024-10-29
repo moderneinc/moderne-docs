@@ -16,7 +16,9 @@ In this short getting started guide, we will walk through where you can find the
 
 You can find all of the Moderne codemods in the [Moderne marketplace](https://app.moderne.io/marketplace) under the [JavaScript Codemods section](https://app.moderne.io/marketplace/org.openrewrite.codemods):
 
-![](./assets/codemods-section.png)
+<figure>
+  ![](./assets/codemods-section.png)
+</figure>
 
 ## Real-world example
 
