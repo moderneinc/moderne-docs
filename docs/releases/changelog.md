@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.165.0 (2024/10/30)
+
+- sort recipe run results by `status` and then `totalResults`
+- add preconditions to top
+
 ### UI v10.164.0 (2024/10/29)
 
 - Bug fixes and other improvements.
