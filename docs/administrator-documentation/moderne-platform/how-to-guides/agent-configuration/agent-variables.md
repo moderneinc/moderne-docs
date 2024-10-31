@@ -675,7 +675,7 @@ You can configure multiple PyPI package indexes by including multiple entries, e
 
 | Variable Name                                    | Required | Default | Description                                                                                                                                                               |
 |--------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_VISUALIZATIONS_USEONLYCONFIGURED` | `true`   | `false` | Only use the visualization sources configured in the agent.                                                                                                               |
+| `MODERNE_AGENT_VISUALIZATION_USEONLYCONFIGURED` | `true`   | `false` | Only use the visualization sources configured in the agent.                                                                                                               |
 | `MODERNE_AGENT_PYPI_{index}_URL`                 | `true`   |         | The URL of your PyPI package index.                                                                                                                                       |
 | `MODERNE_AGENT_PYPI_{index}_USERNAME`            | `false`  | `null`  | The username used to access the index.                                                                                                                                    |
 | `MODERNE_AGENT_PYPI_{index}_PASSWORD`            | `false`  | `null`  | The password used to access the index.                                                                                                                                    |
@@ -686,7 +686,7 @@ You can configure multiple PyPI package indexes by including multiple entries, e
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_VISUALIZATIONS_USEONLYCONFIGURED=true \
+-e MODERNE_AGENT_VISUALIZATION_USEONLYCONFIGURED=true \
 -e MODERNE_AGENT_PYPI_0_URL=https://pypi.example.com/simple \
 -e MODERNE_AGENT_PYPI_0_USERNAME=admin \
 -e MODERNE_AGENT_PYPI_0_PASSWORD=password \
@@ -700,7 +700,7 @@ docker run \
 
 | Argument Name                                       | Required | Default | Description                                                                                                                                                               |
 |-----------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.visualizations.useOnlyConfigured`  | `true`   | `false` | Only use the visualization sources configured in the agent.                                                                                                               |
+| `--moderne.agent.visualization.useOnlyConfigured`  | `true`   | `false` | Only use the visualization sources configured in the agent.                                                                                                               |
 | `--moderne.agent.pypi[{index}].url`                 | `true`   |         | The URL of your PyPI package index.                                                                                                                                       |
 | `--moderne.agent.pypi[{index}].username`            | `false`  | `null`  | The username used to access the index.                                                                                                                                    |
 | `--moderne.agent.pypi[{index}].password`            | `false`  | `null`  | The password used to access the index.                                                                                                                                    |
@@ -711,7 +711,7 @@ docker run \
 ```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
---moderne.agent.visualizations.useOnlyConfigured=true \
+--moderne.agent.visualization.useOnlyConfigured=true \
 --moderne.agent.pypi[0].url=https://pypi.example.com/simple \
 --moderne.agent.pypi[0].username=admin \
 --moderne.agent.pypi[0].password=password \
