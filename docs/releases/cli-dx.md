@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.25.0 (2024/10/31)
+
+#### What's Changed
+* Store a persistent copy of the organizations locally to avoid doing a full sync on restart
+* Align ~/.rewrite/classpath to ~/.moderne/cli/rewrite-classpath in the CLI
+
+
 ### CLI / DX v3.24.9 (2024/10/29)
 
 #### What's Changed
