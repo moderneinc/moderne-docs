@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.165.1 (2024/10/31)
+
+- Bug fixes and other improvements.
+
 ### UI v10.165.0 (2024/10/30)
 
 - sort recipe run results by `status` and then `totalResults`
