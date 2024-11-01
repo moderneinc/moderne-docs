@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.25.1 (2024/11/01)
+
+#### What's Changed CLI
+* Consistently set a timeout per job, not step
+* Revert "Align ~/.rewrite/classpath to ~/.moderne/cli/rewrite-classpath in the CLI"
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.25.0 (2024/10/31)
 
 #### What's Changed
