@@ -84,7 +84,7 @@ Now that you've seen how to run recipes, let's look at how to write your own rec
 
 You'll want to have the following installed:
 
-* Java 17 or higher, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks.
+* Java 17 or 21, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks.
   * Recipes use Java 8 source level, so they can run on Java 8 and higher.
 * IntelliJ IDEA Ultimate 2024.1+ (required by the OpenRewrite plugin).
 * The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (This comes pre-installed with IntelliJ versions 2024.1 or later).
