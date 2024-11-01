@@ -8,6 +8,25 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Debugging horror stories (October 30th, 2024)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=I0wE6EQG_10' controls="true" />
+
+#### Summary and related links
+
+* **Announcements for the week**
+  * **Events**:
+    * [Justine will present at a Montreal event on October 30th about resurrecting legacy systems with OpenRewrite](https://guild.host/events/code-graveyards-resurrecting-032feq).
+    * [Tim will present at JFall on November 7th](https://jfall.nl/)
+    * [Jonathan will present at JavaMUG group in Texas on November 13th about the state of AI in large scale automated refactoring](https://www.meetup.com/javamug/events/304076816/).
+    * [Moderne announced the Code Remix summit on May 12th-14th in Florida. It will feature speakers from Walmart, Morgan Stanley, IBM, Cigna, Azul, and more](https://coderemix.ai/).
+      * Use code **MODERNE3VIP** for $300 off super-early bird price.
+  * **Content**:
+    * [We released a new video about finding types to learn about code you don't understand](https://www.youtube.com/watch?v=k8Y3AIImLsg).
+    * [We also recently released a video on dependency insights for Gradle and Maven recipes](https://www.youtube.com/watch?v=m503PR04A5c)
+* **Main topic for the week**
+  * We then had a casual conversation with Peter, Kevin, and Jonathan about debugging horror stories over their careers.
+
 ### Kill your Zombie code (October 23rd, 2024)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=0CMYk3Gg9SQ' controls="true" />
