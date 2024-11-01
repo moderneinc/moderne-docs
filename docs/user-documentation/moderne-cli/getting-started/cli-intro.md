@@ -152,7 +152,7 @@ cd $HOME/workshop
 2. For this exercise, we've prepared a list of open-source repositories for you to use. These repositories have been added to the Moderne Platform and put inside the `Default` organization. Clone these repositories by running the following command from inside your `workshop` directory:
 
 ```bash
-mod git clone . "Default"
+mod git clone moderne . "Default"
 ```
 
 <details>
