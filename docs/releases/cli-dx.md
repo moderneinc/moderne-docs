@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.25.2 (2024/11/01)
+
+#### What's Changed
+* Include gradle build tools that fail validation in order to record tool versions in build activity log
+* Latest OpenRewrite patch release to allow multiple `SearchResult`s on the same element.
+
+
 ### CLI / DX v3.25.1 (2024/11/01)
 
 #### What's Changed CLI
