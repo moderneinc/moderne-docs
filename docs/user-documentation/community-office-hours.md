@@ -8,6 +8,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### OpenRewrite and Lombok: Peace at last (November 6th, 2024)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/live/xYWFigJzkdE' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### Debugging horror stories (October 30th, 2024)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=I0wE6EQG_10' controls="true" />
