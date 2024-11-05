@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.25.3 (2024/11/04)
+
+#### What's Changed CLI
+N/A
+#### What's Changed DX
+* Include child organizations when fetching organizations the user has access to.
+
+
 ### CLI / DX v3.25.2 (2024/11/01)
 
 #### What's Changed
