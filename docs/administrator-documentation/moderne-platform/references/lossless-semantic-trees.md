@@ -1,6 +1,8 @@
 # Lossless semantic trees
 
-![LST comparison](./assets/LST-comparison.png)
+<figure>
+  ![](./assets/LST-comparison.png)
+</figure>
 
 A Lossless Semantic Tree (LST) is a tree representation of code. Unlike the traditional [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (AST), OpenRewrite's LST offers a unique set of characteristics that make it possible to perform accurate transformations and searches across a repository:
 
