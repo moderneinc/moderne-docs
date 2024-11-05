@@ -92,7 +92,9 @@ On the results page, you will see a summary of your recipe criteria and an indic
 
 Each result shows the number of files searched and how many changes were detected.
 
-To see the proposed changes, click on either the ![](./assets/diff-button.png) button under `Actions` or the name of the repository (e.g. _openrewrite/rewrite_).
+import diff from './assets/diff-button.png';
+
+To see the proposed changes, click on either the <img src={diff} /> button under `Actions` or the name of the repository (e.g. _openrewrite/rewrite_).
 
 ## Step 7: View the results
 
