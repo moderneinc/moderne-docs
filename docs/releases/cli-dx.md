@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.25.4 (2024/11/05)
+
+#### What's Changed CLI
+* `mod config organizations show` now shows all organizations. The query was setting after to "0" and was omitting the first organization listed.
+#### What's Changed DX
+* The `organizationsPages` query now shows counts correctly for all organizations.
+
+
 ### CLI / DX v3.25.3 (2024/11/04)
 
 #### What's Changed CLI
