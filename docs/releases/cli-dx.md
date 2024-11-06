@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.25.5 (2024/11/06)
+
+#### What's Changed CLI
+* Add missing `org.openrewrite.kotlin.style.Autodetect` class to CLI classpath
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.25.4 (2024/11/05)
 
 #### What's Changed CLI
