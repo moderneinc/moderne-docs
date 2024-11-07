@@ -50,10 +50,6 @@ const config: Config = {
     '@docusaurus/theme-mermaid',
   ],
 
-  future: {
-    experimental_faster: true,
-  },
-
   themeConfig: {
     algolia: {
       appId: "MEFFK0HGO6",
