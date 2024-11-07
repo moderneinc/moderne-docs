@@ -14,7 +14,19 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Events**:
+    * [Tim will present at JFall on November 7th](https://jfall.nl/)
+    * [Jonathan will present at JavaMUG group in Texas on November 13th about the state of AI in large scale automated refactoring](https://www.meetup.com/javamug/events/304076816/).
+    * [Moderne announced the Code Remix summit on May 12th-14th in Florida. It will feature speakers from Walmart, Morgan Stanley, IBM, Cigna, Azul, and more](https://coderemix.ai/).
+      * Use code **MODERNE3VIP** for $300 off super-early bird price.
+* **Main topic for the week**
+  * [Lombok support has been a request for many years now](https://github.com/openrewrite/rewrite/issues/1297)
+  * In this session, Sam took us through the process for supporting this – including challenges, early attempts, breakthroughs, and the current approach. 
+  * He also shared some use cases this unlocks such as:
+    * Logging best practices for Lombok annotation provided logger fields
+    * Recipe changes where types were previously missing
+    * Replace Lombok generated getters (e.g., going from `@Value` to `record`)
 
 ### Debugging horror stories (October 30th, 2024)
 
