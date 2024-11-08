@@ -155,6 +155,10 @@ cd $HOME/workshop
 mod git clone moderne . "Default"
 ```
 
+:::warning
+If you need to enter an SSH passphrase to clone repositories, please see our [SSH keys with passphrases guide](../how-to-guides/ssh-key.md) before continuing.
+:::
+
 <details>
 
 <summary>You should see output similar to the following.</summary>
