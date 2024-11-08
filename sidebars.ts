@@ -129,6 +129,7 @@ const sidebars: SidebarsConfig = {
             'user-documentation/moderne-cli/how-to-guides/build-partitions',
             'user-documentation/moderne-cli/how-to-guides/bazel-support',
             'user-documentation/moderne-cli/how-to-guides/cli-upgrade',
+            'user-documentation/moderne-cli/how-to-guides/ssh-key',
           ],
         },
         'user-documentation/moderne-cli/cli-reference',
