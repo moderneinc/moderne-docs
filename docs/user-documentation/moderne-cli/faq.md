@@ -58,3 +58,7 @@ Build output will be written to file:///Users/you/Documents/some-repository/.mod
 If your project _does_ contain a `pom.xml` file (or similar), then you might want to double-check that your `.gitignore` file does not exclude it.
 
 The CLI skips any resources marked as Git ignored during project discovery, and remove the matching entry from `.gitignore` if present.
+
+## I need to enter an SSH passphrase to check out repositories – how does the CLI handle this?
+
+Check out our [SSH keys with passphrases guide](./how-to-guides/ssh-key.md).
