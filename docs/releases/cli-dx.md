@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.25.6 (2024/11/08)
+
+#### What's Changed CLI
+* Allow deletion of YAML recipes using file name
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.25.5 (2024/11/06)
 
 #### What's Changed CLI
