@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.26.0 (2024/11/12)
+
+#### What's Changed
+- send notification to ops-alerts when native image build fails on a release.
+* Allow deletion of YAML recipes using file name
+* Update with latest changes in JS/TS, Python, and C# parsers.
+
+
 ### CLI / DX v3.25.6 (2024/11/08)
 
 #### What's Changed CLI
