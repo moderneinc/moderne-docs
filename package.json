@@ -1,6 +1,6 @@
 {
-  "name": "my-website",
-  "version": "0.0.0",
+  "name": "moderne-docs",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -32,6 +32,9 @@
     "@docusaurus/tsconfig": "^3.6.1",
     "@docusaurus/types": "^3.6.1",
     "typescript": "~5.6.3"
+  },
+  "resolutions": {
+    "@rspack/core": "1.0.14"
   },
   "browserslist": {
     "production": [
