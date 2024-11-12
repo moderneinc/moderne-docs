@@ -5,7 +5,9 @@
 
 ### UI v10.167.0 (2024/11/11)
 
-- persist the chosen layout
+#### Builder
+
+When selecting the layout (3D topology or the tree view in the main content pane) the user's last chose will now be presisted.
 
 ### UI v10.166.0 (2024/11/05)
 
