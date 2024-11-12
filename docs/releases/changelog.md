@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.168.0 (2024/11/12)
+
+- Bug fixes and other improvements.
+
 ### UI v10.167.0 (2024/11/11)
 
 - persist the chosen layout
