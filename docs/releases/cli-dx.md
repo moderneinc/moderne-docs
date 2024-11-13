@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.26.1 (2024/11/12)
+
+#### What's Changed CLI
+* Remove `rewrite-kotlin` dependency 
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.26.0 (2024/11/12)
 
 #### What's Changed
