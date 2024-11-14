@@ -1,7 +1,19 @@
 # Platform changelog
 ### UI v10.169.0 (2024/11/14)
 
-- marketplace update fall 2024
+#### Marketplace Fall 2024 update
+
+![Fall makeover!](./assets/marketplace-fall-2024.png)
+
+It's the end of the year and the holidays are right around the corner. Sales abound! To celebrate we've given the marketplace a fresh coat of paint. We hope you enjoy the new look and feel.
+
+
+#### GraphiQL update
+![Updated GraphiQL](./assets/graphiql-2024.png)
+
+We have also updated our GraphiQL plugin to the latest version.
+
+- Bug fixes and other improvements.
 
 ### UI v10.168.0 (2024/11/12)
 
