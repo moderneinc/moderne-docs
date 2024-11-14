@@ -165,6 +165,263 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-terraform:LATEST
 mod config recipes jar install org.openrewrite.recipe:rewrite-testing-frameworks:LATEST
 ```
 
-## Next steps
+### Step 6: Create a list of your repositories
 
-You're now ready to begin using the CLI! Consider checking out the [using the CLI section in the getting started guide](../getting-started/cli-intro.md#using-the-cli) to see some ways you can use the CLI.
+In order for the CLI to run recipes against your code, you will need to provide it with a `repos.csv` file. The first row in the CSV file should be a header row that lists out the columns you intend to provide. After that, each row will represent a repository. At a minimum, you should include a URL to clone said repository – but you can also provide other columns as needed.
+
+Here is an example of a simple CSV file for cloning some OpenRewrite repositories:
+
+```csv
+cloneUrl
+https://github.com/openrewrite/rewrite-spring
+https://github.com/openrewrite/rewrite-recipe-markdown-generator
+https://github.com/openrewrite/rewrite-docs
+https://github.com/openrewrite/rewrite
+```
+
+<details>
+
+<summary>Columns you can provide in your `repos.csv` file:</summary>
+
+| Column name | Required | Description                                                                                                                                                                                                                                            | Examples                                                                      |
+|-------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| cloneUrl    | `true`   | The URL of the repository that should be ingested.                                                                                                                                                                                                     | `git@github.com:google/guava.git` or `https://github.com/openrewrite/rewrite` |
+| branch      | `false`  | The branch of the above repository that should be ingested.                                                                                                                                                                                            | `main`                                                                        |
+| changeset   | `false`  | If provided, this will check out the repository at this specific commit SHA.                                                                                                                                                                           | `aa5f25ac0031`                                                                |
+| java        | `false`  | Configures the JDK to use.                                                                                                                                                                                                                             | `17` or `17-tem` or `17.0.6-tem`                                              |
+| jvmopts     | `false`  | JVM options added to tools building LSTs. Must be configured before you can run the build command if non-standard VM options are required.                                                                                                             | `-Xmx4G`                                                                      |
+| mavenargs   | `false`  | Build arguments are added to the end of the Maven command line when building LSTs.                                                                                                                                                                     | `-P fast`                                                                     |
+| gradleargs  | `false`  | Build arguments that are added to the end of the Gradle command line when building LSTs.                                                                                                                                                               | `-Dmyprop=myvalue`                                                            |
+| org*        | `false`  | If you have configured an organizations service, you can provide one or more organization columns. Each column will specify an organization the repository should be part of. The column name should be `org` plus a number such as: `org1,org2,org3`.  | `openrewrite`                                                                 |
+
+</details>
+
+To assist with creating a `repos.csv` file, we've written some bash script that will generate a simple CSV file for you:
+
+<Tabs>
+<TabItem value="github" label="GitHub">
+
+**Step 1:** Install and configure the [GitHub CLI](https://cli.github.com/) if you haven't already done so.
+
+**Step 2:** Create a `github.sh` file like:
+
+```bash title="github.sh"
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 <org>"
+  echo "Example: $0 openrewrite"
+  exit 1
+fi
+
+organization=$1
+
+gh repo list "$organization" \
+    --no-archived --limit 1000 \
+    --json url,defaultBranchRef \
+    --template '{{"cloneUrl,branch\n"}}{{range .}}{{.url}}{{","}}{{.defaultBranchRef.name}}{{"\n"}}{{end}}'
+```
+
+**Step 3:** Grant the script access to be run:
+
+```bash
+chmod +x github.sh
+```
+
+**Step 4:** Run the script and pipe it to a `repos.csv` file:
+
+```bash
+./github.sh YOUR_ORG_NAME > repos.csv
+```
+
+If everything was done correctly, you should have a `repos.csv` file that looks similar to:
+
+```csv
+cloneUrl,branch
+https://github.com/openrewrite/rewrite-spring,main
+https://github.com/openrewrite/rewrite-recipe-markdown-generator,main
+https://github.com/openrewrite/rewrite-docs,master
+https://github.com/openrewrite/rewrite,main
+https://github.com/openrewrite/rewrite-python,main
+https://github.com/openrewrite/rewrite-migrate-java,main
+https://github.com/openrewrite/rewrite-recommendations,main
+https://github.com/openrewrite/rewrite-testing-frameworks,main
+https://github.com/openrewrite/rewrite-gradle-tooling-model,main
+https://github.com/openrewrite/rewrite-recipe-bom,main
+...
+```
+
+</TabItem>
+
+<TabItem value="gitlab" label="GitLab">
+
+**Step 1:** Create a [GitLab personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) if you don't already have one.
+
+**Step 2**: Create a `gitlab.sh` file like:
+
+```bash
+#!/bin/bash
+
+while getopts ":g:h:" opt; do
+    case ${opt} in
+        g )
+            GROUP=$OPTARG
+            ;;
+        h )
+            GITLAB_DOMAIN=$OPTARG
+            ;;
+        \? )
+            echo "Usage: gitlab.sh [-g <group>] [-h <gitlab_domain>]"
+            exit 1
+            ;;
+    esac
+done
+
+
+if [[ -z $AUTH_TOKEN ]]; then
+    echo "Please set the AUTH_TOKEN environment variable."
+    exit 1
+fi
+
+# Default GITLAB_DOMAIN to gitlab.com
+GITLAB_DOMAIN=${GITLAB_DOMAIN:-https://gitlab.com}
+
+if [[ -z $GROUP ]]; then
+    base_request_url="$GITLAB_DOMAIN/api/v4/projects?membership=true&simple=true"
+else
+    base_request_url="$GITLAB_DOMAIN/api/v4/groups/$GROUP/projects?include_subgroups=true&simple=true"
+fi
+
+page=1
+per_page=100
+
+echo '"cloneUrl","branch"'
+while :; do
+    # Construct the request URL with pagination parameters
+    request_url="${base_request_url}&page=${page}&per_page=${per_page}"
+
+    # Fetch the data
+    response=$(curl --silent --header "Authorization: Bearer $AUTH_TOKEN" "$request_url")
+
+    # Check if the response is empty, if so, break the loop
+    if [[ $(echo "$response" | jq '. | length') -eq 0 ]]; then
+        break
+    fi
+
+    # Process and output data
+    echo "$response" | jq -r '(.[] | [.http_url_to_repo, .default_branch]) | @csv'
+
+    # Increment page counter
+    ((page++))
+done
+```
+
+**Step 3:** Grant the script access to be run:
+
+```bash
+chmod +x gitlab.sh
+```
+
+**Step 4:** Run the script and pipe it to a `repos.csv` file:
+
+```bash
+AUTH_TOKEN=YOUR_AUTH_TOKEN ./gitlab.sh -g YOUR_GROUP_NAME > repos.csv
+```
+
+If everything was done correctly, you should have a `repos.csv` file that looks similar to:
+
+```csv
+"cloneUrl","branch"
+"https://gitlab.com/moderneinc/moderne-docker-build.git","main"
+"https://gitlab.com/moderneinc/spring-petclinic.git","main"
+"https://gitlab.com/moderneinc/git-test.git","main"
+"https://gitlab.com/moderneinc/moderne-gitlab-ingest.git","main"
+...
+```
+
+</TabItem>
+
+<TabItem value="bitbucket" label="Bitbucket">
+
+**Step 1**: Create a Bitbucket HTTP access token to provide to the command.
+
+**Step 2:** Create a `bitbucket-data-center.sh` file like:
+
+```bash title="bitbucket-data-center.sh"
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <bitbucket_url>"
+    echo "Example: $0 https://my-bitbucket.com/stash"
+    exit 1
+fi
+
+bitbucket_url=$1
+auth_header=""
+
+if [ -n "$AUTH_TOKEN" ]; then
+    auth_header="Authorization: Bearer $AUTH_TOKEN"
+fi
+
+ALL_REPOS=$(curl -s -X GET -H "Content-Type: application/json" -H "$auth_header" "$bitbucket_url/rest/api/1.0/repos"| jq -r '.values[] | [.slug, .project.key, (.links.clone[] | select(.name == "http").href)] | @csv')
+if [ $? -ne 0 ]; then
+    echo "Error occurred while retrieving repository list."
+    exit 1
+fi
+
+echo "cloneUrl,branch"
+for REPO in $ALL_REPOS; do
+    IFS=',' read -r repo project cloneUrl <<< "$REPO"
+    repo="${repo//\"/}"
+    project="${project//\"/}"
+    cloneUrl="${cloneUrl//\"/}"
+    branch=$(curl -s -X GET -H "Content-Type: application/json" -H "$auth_header" "$bitbucket_url/rest/api/latest/projects/$project/repos/$repo/default-branch" | jq -r '.displayId')
+
+    echo "$cloneUrl,$branch"
+done
+```
+
+**Step 3:** Grant the script access to be run:
+
+```bash
+chmod +x bitbucket-data-center.sh
+```
+
+**Step 4:** Run the script and pipe it to a `repos.csv` file:
+
+```bash
+AUTH_TOKEN=YOUR_AUTH_TOKEN ./bitbucket-data-center.sh YOUR_BITBUCKET_URL > repos.csv
+```
+
+If everything was done correctly, you should have a `repos.csv` file that looks similar to:
+
+```csv
+cloneUrl,branch
+https://bitbucket.your.place/stash/scm/greg/demo-multimodule.git,main
+https://bitbucket.your.place/stash/scm/~sjungling/demo-multimodule.git,main
+https://bitbucket.your.place/stash/scm/~sjungling/demo-multimodule-rename.git,main
+https://bitbucket.your.place/stash/scm/~sjungling/demo_private.git,main
+
+```
+
+</TabItem>
+
+</Tabs>
+
+### Step 7: Clone your repositories
+
+Create a directory somewhere on your machine where you'd like the CLI to clone the repositories to. Then navigate to that directory, copy the `repos.csv` file to it, and run the following command:
+
+```bash
+mod git clone csv . repos.csv
+```
+
+### Step 8: Build your repositories
+
+With all of the repositories cloned to your machine, you can then build LSTs for them by running the following command:
+
+```bash
+mod build .
+```
+
+With the LSTs built, you're ready to run recipes against them! Consider checking out the [using the CLI section in the getting started guide](../getting-started/cli-intro.md#using-the-cli) to see some ways you can use the CLI.
