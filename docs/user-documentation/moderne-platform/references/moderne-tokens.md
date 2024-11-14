@@ -36,9 +36,9 @@ This token can be used to make general GraphQL API calls. Please note, though, t
 
 ### Permissions
 
-This token is used in combination with an Identity Provider (IDP) to determine access for users. The IDP configuration maps specific users to specific permissions in Moderne (such as an admin role).
+A user's token shares the same permissions they have. For example, if a user is an admin, when they create a token, that token will have admin permissions, too.
 
-What this means is that the JWT itself _does not_ have a concept of a "role". Rather, a user must be configured as an admin in the IDP in order for them to have admin permissions in Moderne (which grants access to things like agent configurations, repositories, and audit logs). Likewise, if a user has their admin permissions revoked in the IDP, the token can not be used for admin related functionality in Moderne.
+If you are an admin, tokens you create can only be used if you've logged into the platform in the last **14 days**.
 
 ### Expiration
 
