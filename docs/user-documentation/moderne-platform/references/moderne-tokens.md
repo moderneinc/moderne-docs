@@ -38,7 +38,7 @@ This token can be used to make general GraphQL API calls. Please note, though, t
 
 A user's token shares the same permissions they have. For example, if a user is an admin, when they create a token, that token will have admin permissions, too.
 
-Admin tokens can only be used if they've logged into the platform in the last 14 days.
+If you are an admin, tokens you create can only be used if you've logged into the platform in the last **14 days**.
 
 ### Expiration
 
