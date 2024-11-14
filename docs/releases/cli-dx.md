@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.26.2 (2024/11/14)
+
+#### What's Changed CLI
+* Handle preferred versions in TOML for Android version detection
+
+
 ### CLI / DX v3.26.1 (2024/11/12)
 
 #### What's Changed CLI
