@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.169.1 (2024/11/15)
+
+- Bug fixes and other improvements.
+
 ### UI v10.169.0 (2024/11/14)
 
 #### Marketplace Fall 2024 update
