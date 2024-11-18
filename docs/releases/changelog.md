@@ -21,6 +21,11 @@ It's the end of the year and the holidays are right around the corner. Sales abo
 
 We have also updated our GraphiQL plugin to the latest version.
 
+![Updated GraphiQL](./assets/graphiql-share.png)
+
+You can still share your queries with others by clicking the share button. This will give you the option to either copy the URL to view the query within the Moderne UI or copy to run via cURL.
+
+
 - Bug fixes and other improvements.
 
 ### UI v10.168.0 (2024/11/12)
