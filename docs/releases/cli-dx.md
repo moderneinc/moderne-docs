@@ -1,5 +1,18 @@
 # CLI / DX changelog
 
+### CLI / DX v3.26.3 (2024/11/18)
+
+#### What's Changed CLI
+* Fix error caused by `mod config recipes moderne sync` for NuPkg packages
+* Prevent NPE on unmatched arguments
+* Address performance degradation when running `mod config recipes moderne sync`
+* Log error details when unable to read from CSV
+* Improve performance of `mod study`
+#### What's Changed DX
+* Fix NPE when generating devcenter where no security results exist
+* Only display devcenter cards where data is available
+
+
 ### CLI / DX v3.26.2 (2024/11/14)
 
 #### What's Changed CLI
