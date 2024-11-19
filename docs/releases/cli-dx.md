@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.26.4 (2024/11/19)
+
+#### What's Changed CLI
+* Add option to install recipes from NPM
+* Add suggestion to install .NET SDK when failing to sync nuget recipes
+* Adding dependency resolution time to the generated excel file from "mod log runs"
+* Suppress JvmGcMetrics warnings from micrometer when native images do not support GC notifications
+* Do not overwrite recipe sync log when installing nuget recipes
+* Stop updating CLI version in mass-ingest-example Dockerfile
+
+
 ### CLI / DX v3.26.3 (2024/11/18)
 
 #### What's Changed CLI
