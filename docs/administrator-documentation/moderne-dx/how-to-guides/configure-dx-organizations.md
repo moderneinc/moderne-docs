@@ -42,7 +42,7 @@ The above example would be used in Moderne DX to generate an organizational list
   * Netflix
     * `https://github.com/Netflix/spectator-go:main`
 
-To generate this `repos.csv`, we recommend using "[repo fetchers](https://github.com/moderneinc/moderne-organizations/blob/main/repo-fetchers/README.md)" inside our Organizations service template.
+To generate this `repos.csv`, we recommend using "[repo fetchers](https://github.com/moderneinc/repository-fetchers)".
 
 ## Service based organization structure
 
