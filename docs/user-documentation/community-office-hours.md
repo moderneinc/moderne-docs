@@ -8,13 +8,39 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Controlling configuration as code: Intro to MergeYaml
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=RdujP-CFGdw' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### Linking code and data: Identify Java type references (November 13th, 2024)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=iyN-REkbFgs' controls="true" />
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Releases**:
+    * [We've done a new release of OpenRewrite this week](https://docs.openrewrite.org/changelog/8-40-2-Release)
+  * **Events**:
+    * [Moderne announced the Code Remix summit on May 12th-14th in Florida. It will feature speakers from Walmart, Morgan Stanley, IBM, Cigna, Azul, and more](https://coderemix.ai/).
+      * Use code **MODERNE3VIP** for $300 off super-early bird price.
+    * [If you have a use case of OpenRewrite or Moderne, please consider sharing your use case in our call for speakers](https://sessionize.com/coderemixsummit/).
+    * [Jonathan will present at JavaMUG group in Texas on November 13th about the state of AI in large scale automated refactoring](https://www.meetup.com/javamug/events/304076816/).
+  * **Content**:
+    * [The November newsletter is now out](https://www.linkedin.com/pulse/codebase-thankful-november-2024-newsletter-moderneinc-kvwmc).
+    * [We have a new video on finding SQL in code and resource files](https://www.youtube.com/watch?v=UJ0nOAV6wGQ).
+* **Main topic for the week**
+  * Sam walked us through type references in XML documents.
+  * [PR for adding the TypeReference trait](https://github.com/openrewrite/rewrite/pull/4587)
+  * [Refining the API](https://github.com/openrewrite/rewrite/pull/4648)
+  * [Intended application: Replace type references in Spring XML files](https://github.com/openrewrite/rewrite-migrate-java/pull/603)
+  * Tim then talked through how you can use this to decouple logic from recipes and LST elements.
+  * There was a community question on "Would it be possible to add more types of references in other files (e.g., Java `manifest.mf` entries or `plugin.xml` Eclipse plugins) _without_ touching the existing recipe?"
+    * Yes - this is the ultimate goal of traits. Recipes themselves wouldn't need to change and they should just handle these trait changes.
 
 ### OpenRewrite and Lombok: Peace at last (November 6th, 2024)
 
