@@ -14,7 +14,21 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Events**:
+    * [Come join us for the Code Remix summit on May 12th-14th in Florida. It will feature speakers from Walmart, Morgan Stanley, IBM, Cigna, Azul, and more](https://coderemix.ai/).
+      * Use code **MODERNE3VIP** for $300 off super-early bird price.
+    * [If you have a use case of OpenRewrite or Moderne, please consider sharing your use case in our call for speakers](https://sessionize.com/coderemixsummit/).
+  * **Content**:
+    * [A StackOverflow + Moderne podcast was released this week](https://stackoverflow.blog/2024/11/19/the-open-source-ecosystem-built-to-reduce-tech-debt/). In it, we talk about the challenges of automatic refactoring, how Java has evolved, and what kind of impact tech debt has on software development.
+  * **Releases**:
+    * [We did a patch release of OpenREwrite to fix some bugs from last time](https://github.com/openrewrite/rewrite/releases/tag/v8.40.3)
+    * [We've done a UI overhaul of the Moderne Platform marketplace](https://app.moderne.io/marketplace)
+* **Main topic for the week**
+  * Tim started off by walking through a recipe he created for a Kubrnetes deprecation.
+  * He then showed off how he used Copilot to jump start recipe development.
+  * After that we went into Kubernetes best practice recipes.
+  * Sam then showed off the [MergeYaml recipe](https://app.moderne.io/recipes/org.openrewrite.yaml.MergeYaml). He talked through how it works and how you can use it.
 
 ### Linking code and data: Identify Java type references (November 13th, 2024)
 
