@@ -6,4 +6,4 @@
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.190.0/moderne-agent-0.190.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.195.0/moderne-agent-0.195.0.jar)
