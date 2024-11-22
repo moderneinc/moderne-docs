@@ -2,7 +2,7 @@
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.190.0         |
+| Agent (recommended to use **latest**) | 0.195.0         |
 
 ### Maven download
 
