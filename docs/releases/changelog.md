@@ -1,4 +1,10 @@
 # Platform changelog
+
+### Agent 0.195.0 (2024/11/21)
+
+- As of Agent version 0.195.0 we are now **no longer publishing new versions to Azure Container Registry**. If you were using Azure Container Registry to pull a Docker image for Moderne Agent, you will need to follow the instructions [here](../moderne-platform/how-to-guides/agent-configuration/agent-configuration#step-2-determine-how-you-will-run-the-agent) to build a Dockerfile and publish your own Docker image for the Moderne Agent.
+- As of Agent version 0.195.0 we are now **no longer publishing new versions to Azure DevOps**. If you were using Azure DevOps to pull the agent's executable JAR, you will now pull the agent from Maven Central.
+
 ### UI v10.169.2 (2024/11/15)
 
 - Bug fixes and other improvements.
