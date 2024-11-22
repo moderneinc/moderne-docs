@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.26.5 (2024/11/20)
+
+#### What's Changed
+* Gitignore `buildSrc/.kotlin` over nebula release plugin complaints
+* Use `worker-large-ssd` for Linux native image build
+* Handle empty data table gracefully in `mod study`
+* Use OS-specific casing for PATH environment variable for CLI subprocesses
+
+
 ### CLI / DX v3.26.4 (2024/11/19)
 
 #### What's Changed CLI
