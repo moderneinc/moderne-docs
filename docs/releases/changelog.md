@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.170.0 (2024/11/25)
+
+- display org on visualization
+
 
 ### Agent 0.195.0 (2024/11/21)
 
