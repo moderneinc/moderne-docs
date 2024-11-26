@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.171.0 (2024/11/26)
+
+- allow searching by recipe id
+
 ### UI v10.170.0 (2024/11/25)
 
 - display org on visualization
