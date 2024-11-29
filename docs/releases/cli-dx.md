@@ -14,6 +14,20 @@
 * Exclude older groovy
 
 
+### CLI / DX v3.26.6 (2024/11/26)
+
+#### What's Changed CLI
+* Fix `NPE` in `mod study`
+* Correct logic error when detecting bazel version that required both bazel and bazelisk be installed
+* Continue to list projects through JSON despite partial failure
+* Do not log stack trace when recipes fail to sync when `dotnet` is not installed
+* Gradle 8.10 supports Java 23
+* Register `JS` types for reflection in native image
+* Suggest a branch name related to recipe name
+#### What's Changed DX
+* Exclude older groovy
+
+
 ### CLI / DX v3.26.5 (2024/11/20)
 
 #### What's Changed
