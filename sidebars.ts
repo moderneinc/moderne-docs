@@ -105,6 +105,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'user-documentation/moderne-cli/getting-started/cli-intro',
+            'user-documentation/moderne-cli/getting-started/cli-dev-center',
             'user-documentation/moderne-cli/getting-started/moderne-cli-license',
           ],
         },
