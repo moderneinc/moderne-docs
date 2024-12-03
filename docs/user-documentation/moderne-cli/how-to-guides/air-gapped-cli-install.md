@@ -196,7 +196,7 @@ https://github.com/openrewrite/rewrite
 
 </details>
 
-To assist with creating a `repos.csv` file, we've written some bash script that will generate a simple CSV file for you:
+To assist with creating a `repos.csv` file, we've written some bash scripts that will generate a simple CSV file for you:
 
 <Tabs>
 <TabItem value="github" label="GitHub">
@@ -217,9 +217,8 @@ fi
 organization=$1
 
 gh repo list "$organization" \
-    --no-archived --limit 1000 \
     --json url,defaultBranchRef \
-    --template '{{"cloneUrl,branch\n"}}{{range .}}{{.url}}{{","}}{{.defaultBranchRef.name}}{{"\n"}}{{end}}'
+    --jq  '["cloneUrl","branch"], (.[] | [.url, .defaultBranchRef.name]) | @csv'
 ```
 
 **Step 3:** Grant the script access to be run:
@@ -237,18 +236,14 @@ chmod +x github.sh
 If everything was done correctly, you should have a `repos.csv` file that looks similar to:
 
 ```csv
-cloneUrl,branch
-https://github.com/openrewrite/rewrite-spring,main
-https://github.com/openrewrite/rewrite-recipe-markdown-generator,main
-https://github.com/openrewrite/rewrite-docs,master
-https://github.com/openrewrite/rewrite,main
-https://github.com/openrewrite/rewrite-python,main
-https://github.com/openrewrite/rewrite-migrate-java,main
-https://github.com/openrewrite/rewrite-recommendations,main
-https://github.com/openrewrite/rewrite-testing-frameworks,main
-https://github.com/openrewrite/rewrite-gradle-tooling-model,main
-https://github.com/openrewrite/rewrite-recipe-bom,main
-...
+"cloneUrl","branch"
+"https://github.com/openrewrite/rewrite","main"
+"https://github.com/openrewrite/rewrite-codemods-ng","main"
+"https://github.com/openrewrite/rewrite-python","main"
+"https://github.com/openrewrite/rewrite-openapi","main"
+"https://github.com/openrewrite/rewrite-static-analysis","main"
+"https://github.com/openrewrite/rewrite-java-dependencies","main"
+"https://github.com/openrewrite/rewrite-docs","master"
 ```
 
 </TabItem>
@@ -259,7 +254,7 @@ https://github.com/openrewrite/rewrite-recipe-bom,main
 
 **Step 2**: Create a `gitlab.sh` file like:
 
-```bash
+```bash title="gitlab.sh"
 #!/bin/bash
 
 while getopts ":g:h:" opt; do
@@ -325,8 +320,12 @@ chmod +x gitlab.sh
 **Step 4:** Run the script and pipe it to a `repos.csv` file:
 
 ```bash
-AUTH_TOKEN=YOUR_AUTH_TOKEN ./gitlab.sh -g YOUR_GROUP_NAME > repos.csv
+AUTH_TOKEN=YOUR_AUTH_TOKEN ./gitlab.sh [-g <group>] [-h <gitlab_domain>] > repos.csv
 ```
+
+:::info
+The `-g` option specifies a group to fetch repositories from. The `-h` option specifies the GitLab domain (defaults to [https://gitlab.com](https://gitlab.com) if not provided).
+:::
 
 If everything was done correctly, you should have a `repos.csv` file that looks similar to:
 
@@ -341,7 +340,7 @@ If everything was done correctly, you should have a `repos.csv` file that looks 
 
 </TabItem>
 
-<TabItem value="bitbucket" label="Bitbucket">
+<TabItem value="bitbucket-data-center" label="Bitbucket Data Center">
 
 **Step 1**: Create a Bitbucket HTTP access token to provide to the command.
 
@@ -402,6 +401,95 @@ https://bitbucket.your.place/stash/scm/~sjungling/demo-multimodule.git,main
 https://bitbucket.your.place/stash/scm/~sjungling/demo-multimodule-rename.git,main
 https://bitbucket.your.place/stash/scm/~sjungling/demo_private.git,main
 
+```
+
+</TabItem>
+
+<TabItem value="bitbucket-cloud" label="Bitbucket Cloud">
+
+**Step 1**: Create a Bitbucket Cloud username and password that the script can use to grab repositories.
+
+**Step 2:** Create a `bitbucket-cloud.sh` file like:
+
+```bash title="bitbucket-cloud.sh"
+#!/bin/bash
+
+usage() {
+  echo "Usage: $0 -u <username> -p <password> <workspace>"
+  exit 1
+}
+
+# Parse command-line arguments
+while getopts ":u:p:" opt; do
+  case ${opt} in
+    u) username=$OPTARG;;
+    p) app_password=$OPTARG;;
+    *) usage;;
+  esac
+done
+shift $((OPTIND -1))
+
+# Set workspace from positional argument
+workspace=$1
+
+# Check if username and app_password are provided via command line or environment variables
+if [ -z "$username" ]; then
+    username=$BITBUCKET_USERNAME
+fi
+
+if [ -z "$app_password" ]; then
+    app_password=$BITBUCKET_APP_PASSWORD
+fi
+
+if [ -z "$username" -o -z "$app_password" -o -z "$workspace" ]; then
+    echo "Error: Please provide username, password, and workspace." >&2
+    usage
+fi
+
+echo "cloneUrl,branch,org"
+
+next_page="https://api.bitbucket.org/2.0/repositories/$workspace"
+
+while [ "$next_page" ]; do
+  response=$(curl -s -u "$username:$app_password" "$next_page")
+
+  # Extract repository data and append to CSV file
+  echo "$response" | jq -r '
+    .values[] |
+    (.links.clone[] | select(.name=="https") | .href) as $cloneUrl |
+    .mainbranch.name as $branchName |
+    .workspace.name as $organization |
+    "\($cloneUrl),\($branchName),\($organization)"' |
+  while IFS=, read -r cloneUrl branchName organization; do
+    cleanUrl=$(echo "$cloneUrl" | sed -E 's|https://[^@]+@|https://|')
+    echo "$cleanUrl,$branchName,$organization"
+  done
+
+
+  next_page=$(echo "$response" | sed -e "s:${username}@::g" | jq -r '.next // empty')
+done
+```
+
+**Step 3:** Grant the script access to be run:
+
+```bash
+chmod +x bitbucket-cloud.sh
+```
+
+**Step 4:** Run the script and pipe it to a `repos.csv` file:
+
+```bash
+./bitbucket-cloud.sh -u username -p password <workspace> > repos.csv
+```
+
+If everything was done correctly, you should have a `repos.csv` file that looks similar to:
+
+```csv
+cloneUrl,branch
+https://bitbucket.your.place/stash/scm/greg/demo-multimodule.git,main
+https://bitbucket.your.place/stash/scm/~sjungling/demo-multimodule.git,main
+https://bitbucket.your.place/stash/scm/~sjungling/demo-multimodule-rename.git,main
+https://bitbucket.your.place/stash/scm/~sjungling/demo_private.git,main
 ```
 
 </TabItem>
