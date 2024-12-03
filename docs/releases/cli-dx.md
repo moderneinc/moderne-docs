@@ -1,5 +1,10 @@
 # CLI / DX changelog
 
+### CLI / DX v3.26.7 (2024/11/29)
+
+#### What's Changed CLI
+* Pick up [OpenRewrite v8.41.1](https://github.com/openrewrite/rewrite/releases/tag/v8.41.1) and associated plugins
+
 ### CLI / DX v3.26.6 (2024/11/26)
 
 #### What's Changed CLI
