@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.172.0 (2024/12/03)
+
+- add optional name/id synchronization
+
 ### UI v10.171.0 (2024/11/26)
 
 - allow searching by recipe id
