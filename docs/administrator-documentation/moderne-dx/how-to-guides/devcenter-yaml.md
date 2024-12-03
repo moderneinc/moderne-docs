@@ -129,7 +129,7 @@ devCenterConfiguration:
 #### Fields
 
 1. **name**: The name of your Organization. (String)
-2. [devCenterConfiguration](#devcenterconfiguration): Contains the configuration options for the DevCenter.
+2. **devCenterConfiguration**: Contains the configuration options for the DevCenter.
     * [upgradesAndMigrations](#upgradesandmigations): A list that defines what update and migration cards should exist for this DevCenter (e.g., Spring Boot 3 upgrade or Java 21 upgrade).
     * [security](#security): If provided, will add a security section to the DevCenter that allows you to track security issues that haven't been resolved (e.g., remediating OWASP failures).
 
