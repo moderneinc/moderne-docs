@@ -1,15 +1,27 @@
 # Platform changelog
 ### UI v10.172.0 (2024/12/03)
 
-- add optional name/id synchronization
+#### Builder
+
+When editting the recipe details or creating a new recipe there is now field synchronization between the name and id fields that can be toggled off an on:
+
+![builder-sync](moderneinc/moderne-docs/docs/releases/assets/builder-synchronization.png)
+
+When on you can edit the Name and the last part of the recipe ID will automatically be the Pascal cased version of the Name field.
+
+When toggled off you can edit the fields seperately.
 
 ### UI v10.171.0 (2024/11/26)
 
-- allow searching by recipe id
+#### Builder
+
+When searching the recipe tree partial and full matches of the recipe ID are now surfaced.
 
 ### UI v10.170.0 (2024/11/25)
 
-- display org on visualization
+#### Visualizations
+
+The header on a visualization page will now include the organization the visualization was run on.
 
 
 ### Agent 0.195.0 (2024/11/21)
