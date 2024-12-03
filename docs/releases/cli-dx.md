@@ -4,10 +4,8 @@
 
 #### What's Changed
 * Record dependency resolution time for Gradle and Maven builds
-- Refaster rules related to expressions dealing with time
 * Fallback to `python` when `python3` is not available
 * Enable completion from `install.sh` by default
-* Upgrade `slackapi/slack-github-action` to `v2`
 
 
 ### CLI / DX v3.26.7 (2024/11/29)
