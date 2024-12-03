@@ -5,7 +5,7 @@
 
 When editting the recipe details or creating a new recipe there is now field synchronization between the name and id fields that can be toggled off an on:
 
-![builder-sync](moderneinc/moderne-docs/docs/releases/assets/builder-synchronization.png)
+![builder-sync](./assets/builder-synchronization.png)
 
 When on you can edit the Name and the last part of the recipe ID will automatically be the Pascal cased version of the Name field.
 
