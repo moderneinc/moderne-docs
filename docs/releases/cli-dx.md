@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.26.9 (2024/12/03)
+
+#### What's Changed CLI
+* Drop trailing empty `env:` from native GitHub Actions
+* Filter out DevCenter recipe runs with null files with results count
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.26.8 (2024/12/03)
 
 #### What's Changed
