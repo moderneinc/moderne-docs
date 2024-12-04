@@ -11,6 +11,12 @@ Moderne offers three types of reports for administrators:
 * **Audit logs** - every action any user takes in the system is logged. We currently have two ways of accessing it: via a UI, and via the API as a download in CEF format.
 * **Recipes run** - every recipe run by every user in your system. Includes the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run.
 * **Commits made** - every commit made by every user in your system. Includes the recipe run id (to be able to link the reports together), the type of commit, status of the commit job, as well as other statistics of the commit job.
+* **Usage** - every recipe run and associated commit by every user in your system. The generated report combines the commit and recipe run reports. This report includes 
+the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run. If any commit was created in association with the recipe run details
+of the commit are included: the type of commit, status of the commit job, as well as other statistics of the commit job. This report requires administrative permission to execute 
+* **Usage by organization** - every recipe run and associated commit by every user for a specific organization. The generated report combines the commit and recipe run reports. This report includes
+the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run. If any commit was created in association with the recipe run details
+of the commit are included: the type of commit, status of the commit job, as well as other statistics of the commit job.
 
 ## Audit logs
 
@@ -23,7 +29,10 @@ Audit logs are accessible from `https://<TENANT>.moderne.io/admin/audit-logs`, a
 
 To download audit logs, use the "Export to CEF" button: ![](./assets/audit-log-download.png)
 
-## Other reports (recipe runs and commits)
+## Usages by organization
+The usages report is accessible from `https://<TENANT>.moderne.io/devcenter/{organization}`
+
+## Other reports (recipe runs, commits and usages)
 
 To access non-audit-log reports, navigate to `https://<TENANT>.moderne.io/admin/reports`.
 
