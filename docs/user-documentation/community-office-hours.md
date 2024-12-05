@@ -8,7 +8,15 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
-### Controlling configuration as code: Intro to MergeYaml
+### Better assertions with AssertJ (December 4th, 2024)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=DfwNB-eNgHQ' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
+### Controlling configuration as code: Intro to MergeYaml (November 20th, 2024)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=RdujP-CFGdw' controls="true" />
 
