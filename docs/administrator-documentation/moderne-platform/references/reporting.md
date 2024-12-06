@@ -30,6 +30,7 @@ Audit logs are accessible from `https://<TENANT>.moderne.io/admin/audit-logs`, a
 To download audit logs, use the "Export to CEF" button: ![](./assets/audit-log-download.png)
 
 ## Usages by organization
+
 The usages report is accessible from `https://<TENANT>.moderne.io/devcenter/{organization}`
 
 ## Other reports (recipe runs, commits and usages)
