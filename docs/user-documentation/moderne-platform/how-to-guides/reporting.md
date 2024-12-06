@@ -13,7 +13,7 @@ the recipe name, time saved, user that ran it, recipe, as well as various statis
 of the commit are included: the type of commit, status of the commit job, as well as other statistics of the commit job.
 
 ## Usage by organization
-The usages report is accessible from `https://<TENANT>.moderne.io/devcenter/{organization}`
+The usage report is accessible from `https://<TENANT>.moderne.io/devcenter/{organization}`
 
 ## Accessing via the API
 
