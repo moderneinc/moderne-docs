@@ -42,7 +42,7 @@ These reports can be downloaded using the download button: ![](./assets/report-d
 All of these reports can be accessed via the API as well. Here is an example of how to prepare and download the recipe run report:
 
 ```graphql
-mutation firstGenerateRecipeRunReport {
+mutation firstDownloadRecipeRunReport {
   downloadRecipeRunReport {
     id
   }
