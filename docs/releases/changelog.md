@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.173.0 (2024/12/06)
+
+- allow commits when there are errors and results
+
 ### UI v10.172.0 (2024/12/03)
 
 #### Builder
