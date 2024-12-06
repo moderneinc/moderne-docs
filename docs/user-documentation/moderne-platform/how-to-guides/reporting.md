@@ -1,6 +1,5 @@
----
-description: Instructions for downloading reports
----
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Reporting
 
@@ -19,13 +18,18 @@ The usage report is accessible from `https://<TENANT>.moderne.io/devcenter/{orga
 
 All of these reports can be accessed via the API as well. Here is an example of how to prepare and download the usage report:
 
+<Tabs>
+<TabItem value="mutation-download-report" label="Mutation download report">
 ```graphql
-mutation firstGenerateUsageReport($until: DateTime!, $since:DateTime!, $organizationId: String) {
+mutation firstDownloadUsageReport($until: DateTime!, $since:DateTime!, $organizationId: String) {
     downloadUsageReport(until: $until, since: $since , organizationId:$organizationId) {
         id
     }
 }
 ```
+</TabItem>
+
+<TabItem value="query-variables" label="Query Variables">
 
 ```json
 {
@@ -34,6 +38,8 @@ mutation firstGenerateUsageReport($until: DateTime!, $since:DateTime!, $organiza
   "organizationId":"my_organization_Id"
 }
 ```
+</TabItem>
+</Tabs>
 
 ```graphql
 query secondDownloadUsageReport($id: ID!) {
