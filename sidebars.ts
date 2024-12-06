@@ -60,6 +60,7 @@ const sidebars: SidebarsConfig = {
             'user-documentation/moderne-platform/how-to-guides/create-api-access-tokens',
             'user-documentation/moderne-platform/how-to-guides/preconditions',
             'user-documentation/moderne-platform/how-to-guides/track-migrations',
+            'user-documentation/moderne-platform/how-to-guides/reporting',
             'user-documentation/moderne-platform/how-to-guides/transitive-dependencies',
             'user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern',
             'user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering',
