@@ -6,7 +6,7 @@ description: Instructions for downloading reports
 
 ## Overview
 
-Moderne offers three types of reports for administrators:
+Moderne offers a variety of reports for administrators:
 
 * **Audit logs** - every action any user takes in the system is logged. We currently have two ways of accessing it: via a UI, and via the API as a download in CEF format.
 * **Recipes run** - every recipe run by every user in your system. Includes the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run.
