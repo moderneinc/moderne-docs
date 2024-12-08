@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.173.1 (2024/12/08)
+
+- Bug fixes and other improvements.
+
 ### UI v10.173.0 (2024/12/06)
 
 - Sometimes a recipe run will have results where some repositories have changes but also are marked with status error indicating that the recipe left informational error markers.  You can now choose to commit these changes if you would like. When commiting these changes you will see an extra warning:
