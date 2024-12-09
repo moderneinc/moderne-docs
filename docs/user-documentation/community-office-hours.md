@@ -8,6 +8,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Remove unused dependencies - live coding (December 11th, 2024)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=LeXgFhU9wT4' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### Better assertions with AssertJ (December 4th, 2024)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=DfwNB-eNgHQ' controls="true" />
