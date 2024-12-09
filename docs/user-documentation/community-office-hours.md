@@ -14,7 +14,27 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Events**:
+    * [Sam will present at the tech leader summit and give an opening night keynote on the state of AI in large scale automated refactoring](https://techleadersummit.io/schedule?hss_channel=lcp-71946171)
+  * **Content**
+    * [Olga recently wrote an article for the SD Times on whether or not AI is ready for mass-scale code refactoring and analysis](https://sdtimes.com/ai/is-ai-ready-for-mass-scale-code-refactoring-and-analysis/)
+  * **Social Media**
+    * [OpenRewrite is now on BlueSky. Give us a follow!](https://bsky.app/profile/openrewrite.github.io)
+  * **Releases**
+    * [We did a new release of OpenRewrite](https://github.com/openrewrite/rewrite-recipe-bom/releases/tag/v2.23.0). [On all of our social media platforms, we provide some key notes about the release](https://bsky.app/profile/openrewrite.github.io/post/3lbxljpa7tk2l).
+      * [We also always publish all the changes to the recipes in our docs](https://docs.openrewrite.org/changelog/8-41-0-Release)
+  * **Code Remix Summit**
+    * [At our Code Remix Summit - one of the tracks will be a "hack track" where you can pair with our developers and experts to create recipes and learn about AI-assisted coding techniques](https://cdn.nofluffjuststuff.com/pdf/show/2025/557_Code_Remix_Summit_Event_Info_1733495447986.pdf)
+* **Main topic - better assertions with AssertJ**
+  * [Tim started off by sharing a repo where he showed off some anti-patterns in testing](https://github.com/timtebeek/better-assertions).
+  * As part of that he walked through examples of assertions that were bad and explained _why_ they were dangerous and how they may have ended up in that state.
+  * [He then ran an OpenRewrite recipe against them to see what OpenRewrite can do to help](https://github.com/timtebeek/better-assertions/blob/main/rewrite.yml) – which helped highlight clear mistakes in the tests.
+    * Worth noting is that in some cases running the recipe again provided further improvements to the code.
+  * Tim recommended that you run these recipes on any PR (as we do here at Moderne).
+  * Tim then showed off Hamcrest anti-patterns instead of AssertJ anti-patterns and, similarly, showed off how to fix those with OpenRewrite.
+  * Continuing the trend, Tim also showed off anti-patterns in JUnit 4 and then fixing them with OpenRewrite.
+  * Towards the end, Tim provided links to all of the code and projects used throughout the demo.
 
 ### Controlling configuration as code: Intro to MergeYaml (November 20th, 2024)
 
@@ -30,7 +50,7 @@ Coming soon!
   * **Content**:
     * [A StackOverflow + Moderne podcast was released this week](https://stackoverflow.blog/2024/11/19/the-open-source-ecosystem-built-to-reduce-tech-debt/). In it, we talk about the challenges of automatic refactoring, how Java has evolved, and what kind of impact tech debt has on software development.
   * **Releases**:
-    * [We did a patch release of OpenREwrite to fix some bugs from last time](https://github.com/openrewrite/rewrite/releases/tag/v8.40.3)
+    * [We did a patch release of OpenRewrite to fix some bugs from last time](https://github.com/openrewrite/rewrite/releases/tag/v8.40.3)
     * [We've done a UI overhaul of the Moderne Platform marketplace](https://app.moderne.io/marketplace)
 * **Main topic for the week**
   * Tim started off by walking through a recipe he created for a Kubrnetes deprecation.
