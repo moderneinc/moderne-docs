@@ -45,7 +45,6 @@ _Ordered from least complex to most complex_
   * [Update Gradle Wrapper](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper) to keep Gradle itself up to date
   * [Update Gradle Plugin](https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.UpgradePluginVersion) to keep build plugins up to date
 *   Security enhancements and discovery
-
     * [Find secrets](https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindSecrets) like passwords, encryption keys, access tokens
     * [Use secure random number generation](https://app.moderne.io/recipes/org.openrewrite.java.security.SecureRandom)
     * [Java security best practices](https://app.moderne.io/recipes/org.openrewrite.java.security.JavaSecurityBestPractices)
@@ -54,8 +53,8 @@ _Ordered from least complex to most complex_
 
     ![](./assets/vuln-dep.png)
 * Modernize test frameworks
-  * [Junit 4 to 5 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit4to5Migration)
-  * [Mockito 1 to 4 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to5Migration)
+  * [JUnit 5 best practices](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit5BestPractices)
+  * [Mockito 1 to 5 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to5Migration)
   * [Migrate JUnit assertions to AssertJ](https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.Assertj) improved readability and consistency over stock JUnit assertions
 * Major migrations
   * [Java 8 to 11](https://app.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11)
