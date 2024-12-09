@@ -59,7 +59,7 @@ _Ordered from least complex to most complex_
   * [Migrate JUnit assertions to AssertJ](https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.Assertj) improved readability and consistency over stock JUnit assertions
 * Major migrations
   * [Java 8 to 11](https://app.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11)
-  * [Java 11 to 17](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21)
+  * [Java 11 to 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21)
   * [Spring Boot 1 to 2](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7)
   * [Spring Boot 2 to 3](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3)
 * Custom migrations. Custom recipes can be developed to help with internal platform API management, EJB to Spring migrations, etc.
