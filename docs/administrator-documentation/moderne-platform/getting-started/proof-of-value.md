@@ -55,13 +55,13 @@ _Ordered from least complex to most complex_
     ![](./assets/vuln-dep.png)
 * Modernize test frameworks
   * [Junit 4 to 5 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit4to5Migration)
-  * [Mockito 1 to 4 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to4Migration)
+  * [Mockito 1 to 4 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to5Migration)
   * [Migrate JUnit assertions to AssertJ](https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.Assertj) improved readability and consistency over stock JUnit assertions
 * Major migrations
   * [Java 8 to 11](https://app.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11)
-  * [Java 11 to 17](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava17)
+  * [Java 11 to 17](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21)
   * [Spring Boot 1 to 2](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7)
-  * [Spring Boot 2 to 3](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0)
+  * [Spring Boot 2 to 3](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3)
 * Custom migrations. Custom recipes can be developed to help with internal platform API management, EJB to Spring migrations, etc.
 
 Major migrations are complex transformations consisting of multiple individual recipes. At some point, these transformations represent one-off use cases and there are diminishing returns from trying to automate them fully. Mostly, they will lift your applications 80-90% of the way to completion with the remainder requiring some manual actions expected to be taken by developers.
