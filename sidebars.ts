@@ -388,7 +388,7 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-    'administrator-documentation/licensing',
+    'administrator-documentation/licensing/overview',
     {
       type: 'html',
       value: '<br/><strong>Releases</strong>',
