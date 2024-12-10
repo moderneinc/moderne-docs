@@ -388,7 +388,21 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-    'administrator-documentation/licensing',
+    {
+      type: 'category',
+      label: 'Licensing',
+      link: {
+        type: 'generated-index',
+        title: 'Licensing',
+        description: 'Moderne licensing docs.',
+        slug: '/administrator-documentation/licensing/',
+        keywords: ['license'],
+      },
+      items: [
+        'administrator-documentation/licensing/overview',
+        'administrator-documentation/licensing/moderne-source-available-license',
+      ],
+    },
     {
       type: 'html',
       value: '<br/><strong>Releases</strong>',
