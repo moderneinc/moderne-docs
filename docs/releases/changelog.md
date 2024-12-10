@@ -1,4 +1,17 @@
 # Platform changelog
+### Artifact storage v0.251.0 (2024/12/10)
+
+#### Ingest changes
+The way origins are determined has changed. The SaaS now uses `GitRemote.Parser` to determine the origin which means we no longer remove `/scm` at the end of a (possible) origin. This can have impact if you use Bitbucket (DC/Server) and have not correctly configured the origin in the agent.
+
+Please make sure that, in case of Bitbucket, you have configured it as such:
+```
+...
+#note there is no `/scm` at the end, this is not part of the origin.
+moderne.agent.bitbucket[0].url=https://bitbucket.moderne.io/stash 
+...
+```
+
 ### UI v10.173.1 (2024/12/08)
 
 - Bug fixes and other improvements.
