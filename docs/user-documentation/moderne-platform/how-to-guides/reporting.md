@@ -17,6 +17,8 @@ commit, status of the commit job, as well as other statistics of the commit job.
 
 The usage report is accessible from `https://<TENANT>.moderne.io/devcenter/{organization}`
 
+These reports can be downloaded using the download button: ![](./assets/usage-report-download.png)
+
 ## Accessing via the API
 
 All of these reports can be accessed via the API as well. Here is an example of how to prepare and download the usage report:
