@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.174.0 (2024/12/10)
+
+- add usage report downloads to admin and devcenter
+- add field syncing to add to builder dialog
+
 ### Artifact storage v0.251.0 (2024/12/10)
 
 #### Ingest changes
