@@ -1,75 +1,95 @@
+---
+description: The terms, conditions, and limitations for using Moderne's source-available software.
+---
+
 # Moderne Source Available License
 
 ## Acceptance
 
-This Agreement sets forth the terms and conditions on which the Licensor makes available the Software. By installing, downloading, accessing, Using, or distributing any of the Software, You agree to all of the terms and conditions of this Agreement.
+This Agreement sets forth the terms and conditions on which the Licensor makes the Software available. By installing, downloading, accessing, using, or distributing any part of the Software, you agree to all of the terms and conditions of this agreement.
 
-If You are receiving the Software on behalf of Your Company, You represent and warrant that You have the authority to agree to this Agreement on behalf of such entity.
+If you are receiving the Software on behalf of your company, you represent and warrant that you have the authority to agree to this agreement on behalf of such entity.
 
-The Licensor reserves the right to update this Agreement from time to time.
-
-The terms below have the meanings set forth below for purposes of this Agreement:
+The Licensor reserves the right to update this agreement from time to time.
 
 ## Definitions
 
-**Agreement**: this Moderne Source Available License Agreement.
+**Agreement**: This Moderne Source Available License agreement.
 
-**Control**: ownership, directly or indirectly, of substantially all the assets of an entity, or the power to direct its management and policies by vote, contract, or otherwise.
+**Control**: Ownership, directly or indirectly, of substantially all the assets of an entity, or the power to direct its management and policies by vote, contract, or otherwise.
 
-**License**: the License as described in the License paragraph below.
+**License**: The license as described in the License paragraph below.
 
-**Licensor**: the entity offering these terms, which includes Moderne, Inc. on behalf of itself and its subsidiaries and affiliates worldwide.
+**Licensor**: The entity offering these terms, including Moderne, Inc., on behalf of itself and its subsidiaries and affiliates worldwide.
 
-**Modify**, **Modified**, or **Modification**: copy from or adapt all or part of the work in a fashion requiring copyright permission other than making an exact copy. The resulting work is called a Modified version of the earlier work.
+**Modify**/**Modified**/**Modification**: Copying or adapting all or part of the work in a way that requires copyright permission, other than making an exact copy. The resulting work is called a _modified version_ of the original work.
 
-**Moderne**: the Moderne software as described in moderne.ai.
+**Moderne**: The Moderne software as described in [moderne.ai](https://www.moderne.ai/).
 
-**Software**: certain Software components designed to work with Moderne and provided to You under this Agreement.
+**Software**: Specific software components designed to work with Moderne and provided under this agreement.
 
-**Trademark**:  the trademarks, service marks, and any other similar rights.
+**Trademark**: Trademarks, service marks, and any other similar rights associated with the Licensor.
 
-**Use**:  anything You do with the Software requiring one of Your Licenses.
+**Use**: Any activity you perform with the Software that requires a license under this agreement.
 
-**You**: the recipient of the Software, the individual or entity on whose behalf You are agreeing to this Agreement.
+**You**: The recipient of the Software, whether an individual or an entity, on whose behalf this agreement is accepted.
 
-**Your Company**:  any legal entity, sole proprietorship, or other kind of organization that You work for, plus all organizations that have control over, are under the control of, or are under common control with that organization.
+**Your Company**: Any legal entity, sole proprietorship, or organization that you work for, including all organizations that control, are controlled by, or are under common control with that organization.
 
-**Your Licenses**: means all the Licenses granted to You for the Software under this Agreement.
+**Your Licenses**: All licenses granted to you for the Software under this agreement.
 
 ## License
 
-The Licensor grants You a non-exclusive, royalty-free, worldwide, non-sublicensable, non-transferable license to use, copy, distribute, make available, and prepare derivative works of the Software, in each case subject to the limitations and conditions below.
+The Licensor grants you a non-exclusive, royalty-free, worldwide, non-sublicensable, non-transferable license to use, copy, distribute, make available, and prepare derivative works of the Software, subject to the limitations and conditions below.
 
 ## Limitations
 
-You may not make the functionality of the Software or a Modified version available to third parties as a service or distribute the Software or a Modified version in a manner that makes the functionality of the Software available to third parties.
+**You may not:**
 
-Making the functionality of the Software or Modified version available to third parties includes, without limitation, enabling third parties to interact with the functionality of the Software or Modified version in distributed form or remotely through a computer network, offering a product or service, the value of which entirely or primarily derives from the value of the Software or Modified version, or offering a product or service that accomplishes for users the primary purpose of the Software or Modified version.
+1. Make the functionality of the Software or a modified version available to third parties as a service.
 
-You may not alter, remove, or obscure any licensing, copyright, or other notices of the Licensor in the Software. Any use of the Licensor’s Trademarks is subject to applicable law.
+2. Distribute the Software or a modified version in a manner that makes its functionality available to third parties.
+
+**Prohibited actions include (but are not limited to):**
+
+* Enabling third parties to interact with the functionality of the Software or a modified version in distributed form or remotely through a computer network.
+
+* Offering products or services whose value derives primarily from the Software or a modified version.
+
+* Providing a product or service that performs the primary functions of the Software or a modified version.
+
+You may not alter, remove, or obscure any licensing, copyright, or other notices provided by the Licensor. Any use of the Licensor’s trademarks is subject to applicable law.
 
 ## Patents
 
-The Licensor grants You a License, under any patent claims the Licensor can License, or becomes able to License, to make, have made, use, sell, offer for sale, import and have imported the Software, in each case subject to the limitations and conditions in this License. This License does not cover any patent claims that You cause to be infringed by Modifications or additions to the Software. If You or Your Company make any written claim that the Software infringes or contributes to infringement of any patent, your patent License for the Software granted under this Agreement ends immediately. If Your Company makes such a claim, your patent License ends immediately for work on behalf of Your Company.
+The Licensor grants you a license under any patent claims the Licensor owns or can license, to make, use, sell, offer for sale, import, and distribute the Software, subject to the limitations and conditions in this agreement.
+
+This license does not cover patent claims caused by your modifications or additions to the Software.
+
+If you or your company make any written claim that the Software infringes or contributes to the infringement of any patent, your patent license under this agreement terminates immediately.
 
 ## Notices
 
-You must ensure that anyone who gets a copy of any part of the Software from You also gets a copy of the terms and conditions in this Agreement.
+You must ensure that anyone who receives a copy of any part of the Software from you also receives a copy of this agreement.
 
-If You modify the Software, You must include in any Modified copies of the Software prominent notices stating that You have Modified the Software.
+If you modify the Software, you must include prominent notices in any modified copies stating that you have modified the Software.
 
 ## No Other Rights
 
-The terms and conditions of this Agreement do not imply any Licenses other than those expressly granted in this Agreement.
+This agreement does not imply any licenses beyond those expressly granted.
 
 ## Termination
 
-If You Use the Software in violation of this Agreement, such Use is not Licensed, and Your Licenses will automatically terminate. If the Licensor provides You with a notice of your violation, and You cease all violations of this License no later than 30 days after You receive that notice, Your Licenses will be reinstated retroactively. However, if You violate this Agreement after such reinstatement, any additional violation of this Agreement will cause your Licenses to terminate automatically and permanently.
+If you use the Software in violation of this agreement, such use is unlicensed, and your licenses will terminate automatically.
+
+If the Licensor notifies you of a violation and you cease all violations within 30 days, your licenses will be reinstated retroactively.
+
+However, subsequent violations will result in automatic and permanent termination of your licenses.
 
 ## No Liability
 
-As far as the law allows, the Software comes as is, without any warranty or condition, and the Licensor will not be liable to You for any damages arising out of this Agreement or the Use or nature of the Software, under any kind of legal claim.
+To the extent permitted by law, the Software is provided "as is," without warranties or conditions of any kind. The Licensor is not liable for any damages arising from this agreement or your use of the Software.
 
 ## Governing Law and Jurisdiction
 
-The Agreement will be construed and enforced in all respects in accordance with the laws of the State of California, U.S.A., without reference to its choice of law rules. The courts located in the County of Santa Clara, California, have exclusive jurisdiction for all purposes relating to this Agreement.
+This agreement is governed by the laws of the State of California, U.S.A., without reference to conflict-of-law principles. The courts of Santa Clara County, California, have exclusive jurisdiction for disputes related to this agreement.
