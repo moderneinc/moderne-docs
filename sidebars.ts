@@ -60,7 +60,6 @@ const sidebars: SidebarsConfig = {
             'user-documentation/moderne-platform/how-to-guides/create-api-access-tokens',
             'user-documentation/moderne-platform/how-to-guides/preconditions',
             'user-documentation/moderne-platform/how-to-guides/track-migrations',
-            'user-documentation/moderne-platform/how-to-guides/user-reports',
             'user-documentation/moderne-platform/how-to-guides/transitive-dependencies',
             'user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern',
             'user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering',
@@ -79,6 +78,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'user-documentation/moderne-platform/references/moderne-tokens',
             'user-documentation/moderne-platform/references/create-scm-access-tokens',
+            'user-documentation/moderne-platform/references/user-reports',
           ],
         },
       ],
