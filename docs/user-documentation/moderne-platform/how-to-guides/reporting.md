@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Moderne offers some reports:
+Moderne offers the following reports:
 
 * **Usage by organization** - every recipe run and associated commit by every user for a specific organization. 
 
