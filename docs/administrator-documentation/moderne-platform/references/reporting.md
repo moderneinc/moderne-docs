@@ -12,8 +12,8 @@ Moderne offers a variety of reports for administrators:
 * **Recipes run** - every recipe run by every user in your system. Includes the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run.
 * **Commits made** - every commit made by every user in your system. Includes the recipe run id (to be able to link the reports together), the type of commit, status of the commit job, as well as other statistics of the commit job.
 * **Usage** - every recipe run and associated commit by every user in your system. The generated report combines the commit and recipe run reports. This report includes 
-the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run. If any commit was created in association with the recipe run details
-of the commit are included: the type of commit, status of the commit job, as well as other statistics of the commit job. This report requires administrative permission to execute
+the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run. If any commit was created in association with the recipe run, details
+of the commit are included (e.g., the type of commit or the status of the commit job). This report requires administrative permission to execute.
 
 ## Audit logs
 
