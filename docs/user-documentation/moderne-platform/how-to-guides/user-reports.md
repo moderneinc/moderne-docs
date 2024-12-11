@@ -15,11 +15,11 @@ If any commit was created in association with the recipe run, details of the com
 
 The usage report is accessible from `https://<TENANT>.moderne.io/devcenter/{organization}`.
 
-These reports can be downloaded using the download button: 
+These reports can be downloaded using the download button in the top-right corner of a DevCenter: 
 
 <figure>
-  ![](./assets/usage-report-download.png)
-  <figcaption>_Usage report download button_</figcaption>
+  ![](./assets/usage-report-download.gif)
+  <figcaption>_Downloading the usage report_</figcaption>
 </figure>
 
 ## Accessing via the API
