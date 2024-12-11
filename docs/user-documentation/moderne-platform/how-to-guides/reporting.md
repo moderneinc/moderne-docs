@@ -13,8 +13,8 @@ Moderne offers some reports:
 
 The generated report includes every recipe run and associated commit for a given organization. This report includes
 the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run. 
-If any commit was created in association with the recipe run details of the commit are included: the type of 
-commit, status of the commit job, as well as other statistics of the commit job.
+If any commit was created in association with the recipe run, details of the commit are included (e.g., the type of 
+commit or the status of the commit job).
 
 The usage report is accessible from `https://<TENANT>.moderne.io/devcenter/{organization}`
 
