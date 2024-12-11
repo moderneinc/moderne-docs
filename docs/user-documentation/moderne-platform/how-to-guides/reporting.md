@@ -10,6 +10,7 @@ Moderne offers some reports:
 * **Usage by organization** - every recipe run and associated commit by every user for a specific organization. 
 
 ## Usage by organization
+
 The generated report includes every recipe run and associated commit for a given organization. This report includes
 the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run. 
 If any commit was created in association with the recipe run details of the commit are included: the type of 
