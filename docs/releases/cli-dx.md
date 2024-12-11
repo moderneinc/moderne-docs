@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.27.2 (2024/12/11)
+
+#### What's Changed CLI
+* Revert "Consider alternative urls when retrieving latest builds"
+* Download resources to "~/.moderne/cli/rewrite-classpath"
+* Use `git.properties` alternateUri field when parsing `GitRemote`
+* Generate uri using `GitRemote`
+#### What's Changed DX
+* Add default ssh alternate url if only https is configured
+
+
 ### CLI / DX v3.27.0 (2024/12/05)
 
 #### What's Changed CLI
