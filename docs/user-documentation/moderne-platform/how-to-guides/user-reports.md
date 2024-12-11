@@ -1,31 +1,34 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Reporting
-
-## Overview
+# How to run user reports
 
 Moderne offers the following reports:
 
-* **Usage by organization** - every recipe run and associated commit by every user for a specific organization. 
+* **Usage by organization** - This includes every recipe run and associated commit by every user for a specific organization. 
 
 ## Usage by organization
 
-The generated report includes every recipe run and associated commit for a given organization. This report includes
-the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run. 
-If any commit was created in association with the recipe run, details of the commit are included (e.g., the type of 
-commit or the status of the commit job).
+The generated report includes every recipe run and associated commit for a given organization. This report includes the recipe name, time saved, user that ran it, recipe, and various statistics of the recipe run. 
 
-The usage report is accessible from `https://<TENANT>.moderne.io/devcenter/{organization}`
+If any commit was created in association with the recipe run, details of the commit are included (e.g., the type of commit or the status of the commit job).
 
-These reports can be downloaded using the download button: ![](./assets/usage-report-download.png)
+The usage report is accessible from `https://<TENANT>.moderne.io/devcenter/{organization}`.
+
+These reports can be downloaded using the download button: 
+
+<figure>
+  ![](./assets/usage-report-download.png)
+  <figcaption>_Usage report download button_</figcaption>
+</figure>
 
 ## Accessing via the API
 
-All of these reports can be accessed via the API as well. Here is an example of how to prepare and download the usage report:
+All of these reports can be accessed via the API, as well. Below is an example of how to prepare and download the usage report:
 
 <Tabs>
 <TabItem value="mutation-download-report" label="Mutation download report">
+
 ```graphql
 mutation firstDownloadUsageReport($until: DateTime!, $since:DateTime!, $organizationId: String) {
     downloadUsageReport(until: $until, since: $since , organizationId:$organizationId) {
@@ -33,6 +36,7 @@ mutation firstDownloadUsageReport($until: DateTime!, $since:DateTime!, $organiza
     }
 }
 ```
+
 </TabItem>
 
 <TabItem value="query-variables" label="Query Variables">
@@ -44,6 +48,7 @@ mutation firstDownloadUsageReport($until: DateTime!, $since:DateTime!, $organiza
   "organizationId":"my_organization_Id"
 }
 ```
+
 </TabItem>
 </Tabs>
 
