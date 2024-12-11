@@ -54,9 +54,9 @@ The Licensor grants you a non-exclusive, royalty-free, worldwide, non-sublicensa
 
 * Enabling third parties to interact with the functionality of the Software or a modified version in distributed form or remotely through a computer network.
 
-* Offering products or services whose value derives primarily from the Software or a modified version.
+* Offering products or services whose value derives from the Software or a modified version.
 
-* Providing a product or service that performs the primary functions of the Software or a modified version.
+* Providing a product or service that performs the functions of the Software or a modified version.
 
 You may not alter, remove, or obscure any licensing, copyright, or other notices provided by the Licensor. Any use of the Licensor’s trademarks is subject to applicable law.
 
