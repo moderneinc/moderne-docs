@@ -59,3 +59,7 @@ java -jar moderne-dx-{version}.jar \
 ```
 </TabItem>
 </Tabs>
+
+:::info
+If the base url uses http(s) protocol and no alternate URLs are specified, we assume the default ssh url for the scm service. 
+:::
