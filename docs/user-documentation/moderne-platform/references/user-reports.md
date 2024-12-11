@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# How to run user reports
+# User reports
 
 Moderne offers the following reports:
 
@@ -15,7 +15,7 @@ If any commit was created in association with the recipe run, details of the com
 
 The usage report is accessible from `https://<TENANT>.moderne.io/devcenter/{organization}`.
 
-These reports can be downloaded using the download button in the top-right corner of a DevCenter: 
+This report can be downloaded by clicking on the download button in the top-right corner of a DevCenter: 
 
 <figure>
   ![](./assets/usage-report-download.gif)
