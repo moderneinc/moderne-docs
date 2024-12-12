@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v10.175.0 (2024/12/12)
+
+- CSV download option for audit logs
+- add status indicators to activity view
+
 ### UI v10.174.0 (2024/12/10)
 
 - add usage report downloads to admin and devcenter
