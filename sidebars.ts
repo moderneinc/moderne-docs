@@ -390,21 +390,6 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: 'category',
-      label: 'Licensing',
-      link: {
-        type: 'generated-index',
-        title: 'Licensing',
-        description: 'Moderne licensing docs.',
-        slug: '/administrator-documentation/licensing/',
-        keywords: ['license'],
-      },
-      items: [
-        'administrator-documentation/licensing/overview',
-        'administrator-documentation/licensing/moderne-source-available-license',
-      ],
-    },
-    {
       type: 'html',
       value: '<br/><strong>Releases</strong>',
       defaultStyle: true,
@@ -413,6 +398,13 @@ const sidebars: SidebarsConfig = {
     'releases/cli-releases',
     'releases/changelog',
     'releases/cli-dx',
+    {
+      type: 'html',
+      value: '<br/><strong>Licensing</strong>',
+      defaultStyle: true,
+    },
+    'licensing/overview',
+    'licensing/moderne-source-available-license',
   ]
 };
 
