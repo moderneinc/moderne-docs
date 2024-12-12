@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.27.3 (2024/12/12)
+
+#### What's Changed CLI
+* Add libspec and robot files to plaintext masks
+* On clone, only build url for configured clone protocol
+
+
 ### CLI / DX v3.27.2 (2024/12/11)
 
 #### What's Changed CLI
