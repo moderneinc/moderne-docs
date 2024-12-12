@@ -14,7 +14,21 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Content**:
+    * [Justine released a new blog post on embeddings](https://www.moderne.ai/blog/what-are-embeddings-and-why-are-they-great-for-code-impact-analysis)
+  * **Releases**:
+    * We are going to be doing a release this week. Some big changes include:
+      * Support for Java references in YAML files
+      * The ability to migrate from Hamcrest to JUnit or TestNG to AssertJ
+      * The ability to migrate from Easymock to Mockito
+  * **Code Remix Summit**:
+    * [As a reminder, we will be hosting a Code Remix summit in May of next year. Definitely consider joining us there!](https://coderemix.ai/)
+* **Main topic - removing unused dependencies**
+  * Sam started off by giving some background on the [Remove Unused Dependencies recipe](https://github.com/openrewrite/rewrite-java-dependencies/compare/main...remove-unused).
+  * He then took a look at the recipe itself - taking the time to explain the various components and why things were written like they were.
+  * As part of doing that, he showed how to use breakpoints in tests to figure out what is available to interact with.
+  * With the explanations of how it all works done, he then moved on to live coding a test for this recipe – making sure to explain what he was doing and why.
 
 ### Better assertions with AssertJ (December 4th, 2024)
 
