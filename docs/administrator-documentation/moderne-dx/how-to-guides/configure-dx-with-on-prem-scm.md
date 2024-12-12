@@ -59,3 +59,14 @@ java -jar moderne-dx-{version}.jar \
 ```
 </TabItem>
 </Tabs>
+
+:::info
+If you provide a base URL that uses the HTTP(S) protocol **and** you do not provide any alternate URLs, then we will create an SSH URL for your SCM service based on your base URL.
+
+For example, if you only provide the following:
+```
+java -jar moderne-dx-{version}.jar \
+--moderne.dx.scm[0].baseUrl=https://bitbucket.example.com/stash
+```
+Then we will assume the SSH URL for your SCM service is `ssh://bitbucket.example.com:7999`.
+:::
