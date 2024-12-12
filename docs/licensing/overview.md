@@ -6,7 +6,7 @@ description: The licensing requirements for using Moderne's Agent, DX, and CLI t
 
 In order to download and deploy the [Moderne Agent](#user-content-fn-1)[^1] or [Moderne DX](#user-content-fn-2)[^2], you must have a signed contract with Moderne, Inc. Your usage and deployment of the Moderne Agent and Moderne DX is bound by the terms of that contract.
 
-Your usage of the [Moderne CLI](#user-content-fn-3)[^3] is governed by the [Moderne CLI license](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
+Your usage of the [Moderne CLI](#user-content-fn-3)[^3] is governed by the [Moderne CLI license](../user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
 
 In addition, there is a group of OpenRewrite recipes that are created by Moderne specifically for multi-repo code analysis and transformation on our platform, including those designed for large-scale impact analysis and security remediation, as well as those that leverage AI tool calling. These recipes are under the Moderne Proprietary License. 
 
