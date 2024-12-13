@@ -1,12 +1,28 @@
 # Platform changelog
 ### UI v10.175.0 (2024/12/12)
 
-- CSV download option for audit logs
+#### Export audit logs as CSV
+
+![cvs and cef](./assets/audit-log-csv.png)
+
+You can now export audit logs as a CSV file in addition to the existing CEF format. The export can be limited to specific range through the date range picker.
+
+![audit log date range](./assets/audit-log-range.png)
+
+Selecting a date range will also limit the results in the data table.
+
+#### Other
 - add status indicators to activity view
 
 ### UI v10.174.0 (2024/12/10)
 
-- add usage report downloads to admin and devcenter
+#### Usage report now available
+
+Usage reports are now available across the entire tenant for  administrators. In addition, team members can download usage reports for an organization through the DevCenter.
+
+![usage reports](./assets/usage-devcenter.png)
+
+#### Other
 - add field syncing to add to builder dialog
 
 ### Artifact storage v0.251.0 (2024/12/10)
