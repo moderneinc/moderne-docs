@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.176.0 (2024/12/13)
+
+- Bug fixes and other improvements.
+
 ### UI v10.175.0 (2024/12/12)
 
 #### Export audit logs as CSV
