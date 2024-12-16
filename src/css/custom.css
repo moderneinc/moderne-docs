@@ -175,8 +175,6 @@ background-repeat: no-repeat;
   content: none;
 }
 
-[class^=docMainContainer_] .pagination-nav__link--prev {
-}
 [class^=docMainContainer_] .pagination-nav__link--next {
   text-align: left;
 }
