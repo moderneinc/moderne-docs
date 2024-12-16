@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.27.4 (2024/12/13)
+
+#### What's Changed
+* Add scss, save, config extensions to plain text parsing list
+
+
 ### CLI / DX v3.27.3 (2024/12/12)
 
 #### What's Changed CLI
