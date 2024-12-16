@@ -47,6 +47,7 @@
   --ifm-menu-color-background-active: transparent;
   --ifm-menu-color-active: #283AF7;
   --ifm-navbar-link-color: var(--ifm-heading-color);
+  --ifm-navbar-shadow: none;
   --ifm-toc-border-color: transparent;
 }
 
@@ -83,6 +84,10 @@ figure figcaption {
 
 #__docusaurus {
   overflow: clip;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(4, 24, 52, 0.3);
 }
 
 .navbar .navbar__link {
@@ -128,6 +133,10 @@ figure figcaption {
 
 [class^=docMainContainer_] {
   font-size: 1.125rem;
+}
+
+[class^=docMainContainer_] > .container:first-child {
+  padding-top: 3.25rem !important;
 }
 
 [class^=docMainContainer_] [class*=breadcrumbsContainer_] {
@@ -302,6 +311,10 @@ background-repeat: no-repeat;
 
   .menu[class*=menu_] {
     padding-left: 1.75rem;
+  }
+
+  .theme-doc-sidebar-container {
+    --ifm-toc-border-color: rgba(4, 24, 52, 0.3);
   }
 }
 
