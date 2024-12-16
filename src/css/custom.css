@@ -116,3 +116,10 @@ figure figcaption {
   font-size: inherit;
 }
 
+
+@media(min-width: 997px) {
+  [class^=docMainContainer_] [class^=generatedIndexPage_] {
+    max-width: 83% !important;
+  }
+}
+
