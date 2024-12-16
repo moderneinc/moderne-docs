@@ -53,6 +53,12 @@
   --ifm-section-divider-color: rgba(4, 24, 52, 0.3);
 }
 
+/* Use selector for specificity */
+html[data-theme=light] {
+  --docsearch-searchbox-background: #fff;
+  --docsearch-muted-color: rgba(4, 24, 52, 0.75);
+}
+
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme='dark'] {
   --ifm-background-color: #041834;
