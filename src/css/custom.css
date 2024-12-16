@@ -276,6 +276,7 @@ background-repeat: no-repeat;
   font-weight: 500;
   color: var(--ifm-heading-color);
   line-height: 1.375;
+  flex-grow: 1;
 }
 
 [class^=docMainContainer_] .pagination-nav__label::before,
