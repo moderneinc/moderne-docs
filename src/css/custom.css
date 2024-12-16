@@ -46,6 +46,7 @@
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
   --ifm-menu-color-active: #283AF7;
+  --ifm-navbar-link-color: var(--ifm-heading-color);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -81,6 +82,11 @@ figure figcaption {
 
 #__docusaurus {
   overflow: clip;
+}
+
+.navbar .navbar__link {
+  font-weight: 400;
+  font-size: 1.125rem;
 }
 
 .theme-doc-sidebar-menu {
