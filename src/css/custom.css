@@ -74,3 +74,45 @@ figure figcaption {
 .theme-doc-sidebar-item-link > strong {
   text-transform: uppercase;
 }
+
+[class^=docMainContainer_] {
+  /* TEMP */
+  /* background: red; */
+  font-size: 1.125rem;
+}
+
+[class^=docMainContainer_] [class*=breadcrumbsContainer_] {
+  margin-bottom: 3.3rem;
+}
+
+[class^=docMainContainer_] h1 {
+  --ifm-heading-font-weight: 300;
+  --ifm-heading-font-family: "Beausite", sans-serif;
+  --ifm-h1-font-size: 3.75rem;
+  --ifm-leading: 1;
+
+  margin-bottom: 1.25rem;
+}
+
+[class^=docMainContainer_] [class^=generatedIndexPage_] {
+  --ifm-spacing-horizontal: 1.625rem;
+}
+
+[class^=docMainContainer_] [class^=generatedIndexPage_] .margin-top--lg {
+  margin-top: 4.5rem !important;
+}
+
+[class^=docMainContainer_] [class^=generatedIndexPage_] .margin-bottom--lg {
+  margin-bottom: 2.5rem !important;
+}
+
+[class^=docMainContainer_] .cardTitle_HoSo {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+[class^=docMainContainer_] [class*=cardDescription_] {
+  color: var(--ifm-heading-color);
+  font-size: inherit;
+}
+
