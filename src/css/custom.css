@@ -116,6 +116,70 @@ figure figcaption {
   font-size: inherit;
 }
 
+[class^=docMainContainer_] .pagination-nav {
+  gap: calc(2 * var(--ifm-spacing-horizontal));
+  display: flex;
+  justify-content: center;
+  margin-right: var(--ifm-spacing-horizontal);
+}
+
+[class^=docMainContainer_] .pagination-nav__link {
+  display: flex;
+  background: var(--ifm-color-white);
+  border-radius: 50px;
+  border: 1px solid var(--ifm-color-border);
+  backdrop-filter: blur(15px);
+  width: 22.625rem;
+  gap: 1rem;
+  align-items: center;
+  height: auto;
+}
+
+[class^=docMainContainer_] .pagination-nav__link--prev {
+  padding-inline: 27px 38px;
+}
+
+[class^=docMainContainer_] .pagination-nav__link--prev .pagination-nav__sublabel {
+  background-image: url("data:image/svg+xml, %3Csvg%20width=%2243%22%20height=%2216%22%20viewBox=%220%200%2043%2016%22%20fill=%22none%22%20xmlns=%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d=%22M0.292892%207.2929C-0.0976296%207.68342%20-0.0976295%208.31659%200.292893%208.70711L6.65685%2015.0711C7.04738%2015.4616%207.68054%2015.4616%208.07107%2015.0711C8.46159%2014.6805%208.46159%2014.0474%208.07107%2013.6569L2.41422%208L8.07107%202.34315C8.46159%201.95262%208.46159%201.31946%208.07107%200.928935C7.68054%200.538411%207.04738%200.538411%206.65685%200.928935L0.292892%207.2929ZM43%207L1%207L1%209L43%209L43%207Z%22%20fill=%22%23041834%22%2F%3E%0A%3C%2Fsvg%3E%0A");
+  background-repeat: no-repeat;
+  width: 42px;
+  height: 16px;
+  flex: 0 0 42px;
+}
+
+[class^=docMainContainer_] .pagination-nav__link--next {
+  padding-inline: 38px 27px;
+}
+
+[class^=docMainContainer_] .pagination-nav__link--next .pagination-nav__sublabel {
+background-image: url("data:image/svg+xml, %3Csvg%20width=%2243%22%20height=%2216%22%20viewBox=%220%200%2043%2016%22%20fill=%22none%22%20xmlns=%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d=%22M42.7071%208.70711C43.0976%208.31659%2043.0976%207.68343%2042.7071%207.2929L36.3431%200.928939C35.9526%200.538414%2035.3195%200.538414%2034.9289%200.928938C34.5384%201.31946%2034.5384%201.95263%2034.9289%202.34315L40.5858%208.00001L34.9289%2013.6569C34.5384%2014.0474%2034.5384%2014.6805%2034.9289%2015.0711C35.3195%2015.4616%2035.9526%2015.4616%2036.3431%2015.0711L42.7071%208.70711ZM-1.74846e-07%209L42%209.00001L42%207.00001L1.74846e-07%207L-1.74846e-07%209Z%22%20fill=%22%23041834%22%2F%3E%0A%3C%2Fsvg%3E%0A");
+background-repeat: no-repeat;
+  width: 42px;
+  height: 16px;
+  flex: 0 0 42px;
+  order: 99;
+}
+
+[class^=docMainContainer_] .pagination-nav__sublabel {
+  font-size: 0;
+  color: transparent;
+}
+[class^=docMainContainer_] .pagination-nav__label {
+  font-weight: 500;
+  color: var(--ifm-heading-color);
+  line-height: 1.375;
+}
+
+[class^=docMainContainer_] .pagination-nav__label::before,
+[class^=docMainContainer_] .pagination-nav__label::after {
+  content: none;
+}
+
+[class^=docMainContainer_] .pagination-nav__link--prev {
+}
+[class^=docMainContainer_] .pagination-nav__link--next {
+  text-align: left;
+}
 
 @media(min-width: 997px) {
   [class^=docMainContainer_] [class^=generatedIndexPage_] {
