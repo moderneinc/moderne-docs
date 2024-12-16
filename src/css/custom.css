@@ -69,6 +69,7 @@ html[data-theme='dark'] {
   --ifm-link-color: #85fe99;
   --ifm-toc-border-color: transparent;
   --ifm-section-divider-color: #d9d9d9;
+  --ifm-card-background-color: #fff;
 }
 
 figure img {
@@ -197,6 +198,9 @@ figure figcaption {
   margin-bottom: 2.5rem !important;
 }
 
+html[data-theme='dark'] [class^=docMainContainer_] .card {
+  --ifm-heading-color: #041834;
+}
 [class^=docMainContainer_] .cardTitle_HoSo {
   font-size: 1.25rem;
   text-transform: uppercase;
