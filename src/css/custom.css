@@ -189,6 +189,16 @@ figure figcaption {
   font-size: inherit;
 }
 
+.markdown {
+  --ifm-heading-font-family: "Beausite", sans-serif;
+  --ifm-heading-font-weight: 300;
+  --ifm-link-decoration: underline;
+}
+
+.markdown h1:first-child {
+  margin-bottom: 1.25rem;
+}
+
 [class^=docMainContainer_] .pagination-nav {
   gap: calc(2 * var(--ifm-spacing-horizontal));
   display: flex;
