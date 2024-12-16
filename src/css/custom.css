@@ -39,6 +39,7 @@
   --ifm-heading-color: #041834;
   --ifm-font-weight-bold: 500;
   --ifm-footer-padding-vertical: 2.375rem;
+  --ifm-footer-background-color: transparent;
   --ifm-breadcrumb-separator: url("data:image/svg+xml, %3Csvg%20width=%228%22%20height=%2213%22%20viewBox=%220%200%208%2013%22%20fill=%22none%22%20xmlns=%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d=%22M1%2012L7%206.5L1%201%22%20stroke=%22%23415067%22%20stroke-width=%221.25%22%2F%3E%0A%3C%2Fsvg%3E%0A");
   --ifm-breadcrumb-item-background-active: #FFF;
   --ifm-breadcrumb-spacing: 0.875rem;
@@ -73,6 +74,10 @@ figure figcaption {
 /* Zoomed image background */
 [data-rmiz-modal-content] {
   background-color: black;
+}
+
+#__docusaurus {
+  overflow: clip;
 }
 
 .theme-doc-sidebar-item-link > strong {
@@ -113,6 +118,16 @@ figure figcaption {
 
 [class^=docMainContainer_] [class^=generatedIndexPage_] {
   --ifm-spacing-horizontal: 1.625rem;
+  position: relative;
+}
+
+[class^=docMainContainer_] [class^=generatedIndexPage_]::before {
+  position: absolute;
+  background: url(/img/gems-bg.webp) no-repeat 0 0;
+  width: 1322px;
+  height: 1070px;
+  z-index: -1;
+  content: '';
 }
 
 [class^=docMainContainer_] [class^=generatedIndexPage_] .margin-top--lg {
