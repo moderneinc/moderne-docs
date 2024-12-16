@@ -70,3 +70,7 @@ figure figcaption {
 [data-rmiz-modal-content] {
   background-color: black;
 }
+
+.theme-doc-sidebar-item-link > strong {
+  text-transform: uppercase;
+}
