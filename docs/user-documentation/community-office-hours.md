@@ -8,6 +8,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Close out the year by closing in on unused dependencies (December 18th, 2024)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=TMjpc-a1qN4' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### Remove unused dependencies - live coding (December 11th, 2024)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=LeXgFhU9wT4' controls="true" />
