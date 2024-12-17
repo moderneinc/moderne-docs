@@ -32,6 +32,7 @@
   --ifm-color-announcement-bar-text: #041834;
   --ifm-navbar-background-color: var(--ifm-background-color);
   --ifm-navbar-padding-vertical: 36px;
+  --ifm-navbar-item-padding-horizontal: 1.4rem;
   --ifm-navbar-height: 116px;
   --ifm-font-family-base: "Poppins", sans-serif;
   --ifm-heading-font-weight: 400;
@@ -114,6 +115,9 @@ figure figcaption {
 .navbar .navbar__link {
   font-weight: 400;
   font-size: 1.125rem;
+}
+.navbar .navbar__link svg {
+  display: none;
 }
 
 .theme-doc-sidebar-menu {
