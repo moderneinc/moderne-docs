@@ -167,6 +167,10 @@ html[data-theme=dark] .theme-doc-sidebar-menu .menu__link--active + .menu__caret
   background-image: url("data:image/svg+xml, %3Csvg%20width=%2212%22%20height=%228%22%20viewBox=%220%200%2012%208%22%20fill=%22none%22%20xmlns=%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d=%22M0.500001%200.499999L6%206.5L11.5%200.5%22%20stroke=%22%2385FE99%22%20stroke-width=%221.25%22%2F%3E%0A%3C%2Fsvg%3E%0A");
 }
 
+.reactPlayer + p {
+  margin-top: 1.25rem;
+}
+
 [class^=docMainContainer_] {
   font-size: 1.125rem;
 }
