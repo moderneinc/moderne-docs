@@ -79,6 +79,7 @@ html[data-theme='dark'] {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-color-base: #fff;
   --ifm-heading-color: #fff;
+  --ifm-menu-color: #fff;
   --ifm-link-color: #85fe99;
   --ifm-toc-border-color: transparent;
   --ifm-section-divider-color: #d9d9d9;
