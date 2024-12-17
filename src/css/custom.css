@@ -276,6 +276,9 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 [class^=docMainContainer_] .pagination-nav__link--prev {
   padding-inline: 27px 38px;
 }
+[class^=docMainContainer_] .pagination-nav__link .pagination-nav__sublabel {
+  transition: transform .25s ease-in-out; 
+}
 
 [class^=docMainContainer_] .pagination-nav__link--prev .pagination-nav__sublabel {
   background-image: url("data:image/svg+xml, %3Csvg%20width=%2243%22%20height=%2216%22%20viewBox=%220%200%2043%2016%22%20fill=%22none%22%20xmlns=%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d=%22M0.292892%207.2929C-0.0976296%207.68342%20-0.0976295%208.31659%200.292893%208.70711L6.65685%2015.0711C7.04738%2015.4616%207.68054%2015.4616%208.07107%2015.0711C8.46159%2014.6805%208.46159%2014.0474%208.07107%2013.6569L2.41422%208L8.07107%202.34315C8.46159%201.95262%208.46159%201.31946%208.07107%200.928935C7.68054%200.538411%207.04738%200.538411%206.65685%200.928935L0.292892%207.2929ZM43%207L1%207L1%209L43%209L43%207Z%22%20fill=%22%23041834%22%2F%3E%0A%3C%2Fsvg%3E%0A");
@@ -283,6 +286,10 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
   width: 42px;
   height: 16px;
   flex: 0 0 42px;
+}
+
+[class^=docMainContainer_] .pagination-nav__link--prev:hover .pagination-nav__sublabel {
+  transform: translateX(-20%);
 }
 
 [class^=docMainContainer_] .pagination-nav__link--next {
@@ -296,6 +303,10 @@ background-repeat: no-repeat;
   height: 16px;
   flex: 0 0 42px;
   order: 99;
+}
+
+[class^=docMainContainer_] .pagination-nav__link--next:hover .pagination-nav__sublabel {
+  transform: translateX(20%);
 }
 
 [class^=docMainContainer_] .pagination-nav__sublabel {
