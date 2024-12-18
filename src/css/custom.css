@@ -159,8 +159,12 @@ figure figcaption {
   background-size: 100%;
   width: 8px;
   height: 12px;
-  transform: rotate(0);
+  transform: rotate(90deg);
   filter: none;
+}
+
+.theme-doc-sidebar-menu .menu__list-item--collapsed .menu__caret:before {
+  transform: rotate(0);
 }
 
 html[data-theme=dark] .theme-doc-sidebar-menu .menu__caret:before {
@@ -171,6 +175,11 @@ html[data-theme=dark] .theme-doc-sidebar-menu .menu__caret:before {
   background-image: url("data:image/svg+xml, %3Csvg%20width=%2212%22%20height=%228%22%20viewBox=%220%200%2012%208%22%20fill=%22none%22%20xmlns=%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d=%22M0.500001%200.499999L6%206.5L11.5%200.5%22%20stroke=%22%23283AF7%22%20stroke-width=%221.25%22%2F%3E%0A%3C%2Fsvg%3E%0A");
   width: 12px;
   height: 8px;
+  transform: rotate(0);
+}
+
+.theme-doc-sidebar-menu .menu__list-item--collapsed .menu__link--active + .menu__caret:before {
+  transform: rotate(-90deg);
 }
 
 html[data-theme=dark] .theme-doc-sidebar-menu .menu__link--active + .menu__caret:before {
