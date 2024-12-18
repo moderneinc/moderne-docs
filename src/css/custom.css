@@ -32,6 +32,7 @@
   --ifm-color-announcement-bar-text: #041834;
   --ifm-navbar-background-color: var(--ifm-background-color);
   --ifm-navbar-padding-vertical: 36px;
+  --ifm-navbar-padding-horizontal: 2.5rem;
   --ifm-navbar-item-padding-horizontal: 1.4rem;
   --ifm-navbar-height: 116px;
   --ifm-font-family-base: "Poppins", sans-serif;
@@ -140,7 +141,12 @@ figure figcaption {
 }
 
 .theme-doc-sidebar-menu .menu__list-item:not(:first-child) {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
+}
+
+.theme-doc-sidebar-menu .menu__list-item[class*=menuHtmlItem_] {
+  margin-block: 1rem;
+  font-size: 1rem;
 }
 
 .theme-doc-sidebar-menu .menu__list-item[class*=menuHtmlItem_]:not(:nth-child(2)) {
