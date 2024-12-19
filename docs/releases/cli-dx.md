@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.27.5 (2024/12/19)
+
+#### What's Changed CLI
+* Allow `git clone csv` to work with `--metadata-only`
+* Allow .NET builds in directories with Gradle, Maven or Bazel build scripts
+* Pass the dependency resolution time using the properties files
+
+
 ### CLI / DX v3.27.4 (2024/12/13)
 
 #### What's Changed
