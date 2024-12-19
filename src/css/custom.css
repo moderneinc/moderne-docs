@@ -32,7 +32,6 @@
   --ifm-color-announcement-bar-text: #041834;
   --ifm-navbar-background-color: var(--ifm-background-color);
   --ifm-navbar-padding-vertical: 36px;
-  --ifm-navbar-padding-horizontal: 2.5rem;
   --ifm-navbar-item-padding-horizontal: 1.4rem;
   --ifm-navbar-height: 116px;
   --ifm-font-family-base: "Poppins", sans-serif;
@@ -278,23 +277,15 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 
 [class^=docMainContainer_] .pagination-nav {
   --ifm-heading-color: #041834;
-
-  gap: calc(2 * var(--ifm-spacing-horizontal));
-  display: flex;
   justify-content: center;
-  margin-right: var(--ifm-spacing-horizontal);
 }
 
 [class^=docMainContainer_] .pagination-nav__link {
-  display: flex;
   background: var(--ifm-color-white);
   border-radius: 50px;
   border: 1px solid var(--ifm-color-border);
   backdrop-filter: blur(15px);
-  width: 22.625rem;
-  gap: 1rem;
-  align-items: center;
-  height: auto;
+  flex-basis: 50%;
 }
 
 [class^=docMainContainer_] .pagination-nav__link--prev {
@@ -310,6 +301,7 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
   width: 42px;
   height: 16px;
   flex: 0 0 42px;
+
 }
 
 [class^=docMainContainer_] .pagination-nav__link--prev:hover .pagination-nav__sublabel {
@@ -318,15 +310,16 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 
 [class^=docMainContainer_] .pagination-nav__link--next {
   padding-inline: 38px 27px;
+  text-align: right;
 }
 
 [class^=docMainContainer_] .pagination-nav__link--next .pagination-nav__sublabel {
 background-image: url("data:image/svg+xml, %3Csvg%20width=%2243%22%20height=%2216%22%20viewBox=%220%200%2043%2016%22%20fill=%22none%22%20xmlns=%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d=%22M42.7071%208.70711C43.0976%208.31659%2043.0976%207.68343%2042.7071%207.2929L36.3431%200.928939C35.9526%200.538414%2035.3195%200.538414%2034.9289%200.928938C34.5384%201.31946%2034.5384%201.95263%2034.9289%202.34315L40.5858%208.00001L34.9289%2013.6569C34.5384%2014.0474%2034.5384%2014.6805%2034.9289%2015.0711C35.3195%2015.4616%2035.9526%2015.4616%2036.3431%2015.0711L42.7071%208.70711ZM-1.74846e-07%209L42%209.00001L42%207.00001L1.74846e-07%207L-1.74846e-07%209Z%22%20fill=%22%23041834%22%2F%3E%0A%3C%2Fsvg%3E%0A");
 background-repeat: no-repeat;
-  width: 42px;
+  background-position: 100% 0;
+  width: 100%;
   height: 16px;
   flex: 0 0 42px;
-  order: 99;
 }
 
 [class^=docMainContainer_] .pagination-nav__link--next:hover .pagination-nav__sublabel {
@@ -347,10 +340,6 @@ background-repeat: no-repeat;
 [class^=docMainContainer_] .pagination-nav__label::before,
 [class^=docMainContainer_] .pagination-nav__label::after {
   content: none;
-}
-
-[class^=docMainContainer_] .pagination-nav__link--next {
-  text-align: left;
 }
 
 .footer {
@@ -388,6 +377,10 @@ html[data-theme='dark'] .footer .footer__bottom::before {
 }
 
 @media(min-width: 997px) {
+  .navbar {
+    --ifm-navbar-padding-horizontal: 2.5rem;
+  }
+
   [class^=docMainContainer_] [class^=generatedIndexPage_] {
     max-width: 83% !important;
   }
@@ -399,6 +392,26 @@ html[data-theme='dark'] .footer .footer__bottom::before {
 
   .theme-doc-sidebar-container {
     --ifm-toc-border-color: var(--ifm-section-divider-color);
+  }
+
+  [class^=docMainContainer_] .pagination-nav {
+    gap: calc(2 * var(--ifm-spacing-horizontal));
+    margin-right: var(--ifm-spacing-horizontal);
+    display: flex;
+  }
+
+  [class^=docMainContainer_] .pagination-nav__link {
+    width: 22.625rem;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 1rem;
+    height: auto;
+  }
+
+  [class^=docMainContainer_] .pagination-nav__link--next .pagination-nav__sublabel {
+    order: 99;
+    width: 42px;
   }
 }
 
