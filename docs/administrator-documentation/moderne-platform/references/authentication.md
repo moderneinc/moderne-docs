@@ -75,10 +75,26 @@ When configuring your authentication to the Moderne SaaS, you will need to selec
 
 #### SAML integration
 
-1. Coordinate with your IAM team to create a new SSO application in your identity provider using the following `Redirect URI` (Please make sure to replace `CUSTOMER_NAME` through the URI):
-   * `https://login.CUSTOMER_NAME.moderne.io/auth/realms/CUSTOMER_NAME/broker/CUSTOMER_NAME/endpoint`
-2. Provide the URL that points to the IdP metadata to Moderne, along with the names of attributes for the claims. ([See example](#example-saml-idp-metadata))
-   * When setting up a claim for the `admin` attribute, use `admin` as the _Attribute Name_ and a simple string value of either `true` or `false`
+1. Coordinate with your IAM team to create a new SSO application in your identity provider using the following values (Please make sure to replace `CUSTOMER_NAME` through the URI):
+
+| Field | Value |
+| --- | --- |
+| **Single sign-on URL** | `https://login.CUSTOMER_NAME.moderne.io/auth/realms/CUSTOMER_NAME/broker/CUSTOMER_NAME/endpoint` |
+| **Audience URI (SP Entity ID)** | `https://login.CUSTOMER_NAME.moderne.io/auth/realms/CUSTOMER_NAME` |
+
+
+2. Provide the URL that points to the IdP metadata to Moderne. This will be used to configure the SAML integration.
+   * Example: `https://idp.EXAMPLE.com/saml/metadata`
+
+3. Ensure that four basic attributes are configured for the claims.
+   
+| Attribute Name | Description | Example Value |
+| --- | --- | --- |
+| `firstName` | The first name of the user | `Alice` |
+| `lastName` | The last name of the user | `Bobe` |
+| `email` | The email address of the user | `user@example.com` |
+| `admin` | A boolean value that determines if the user is an admin | `true` or `false` |
+
 
 :::info
 An [example of a SAML payload](#example-saml-idp-metadata) can be provided to Moderne as well to help expedite the configuration process.
@@ -86,14 +102,26 @@ An [example of a SAML payload](#example-saml-idp-metadata) can be provided to Mo
 
 #### OIDC integration
 
-1. Provide the following to to Moderne:
-   1. Discovery end-point URI
-      * Example: `http://localhost:8081/auth/realms/my-service/.well-known/openid-configuration`
-   2. Client ID
-      * Example: `my-service-id`
-   3. Client Secret
+Provide Moderne with the following values to configure the OIDC integration:
+
+| Field                  | Description                       | Example Value                                                   |
+|------------------------|-----------------------------------|-----------------------------------------------------------------|
+| **Discovery end-point URI** | The URI for the discovery endpoint | `http://localhost:8081/auth/realms/my-service/.well-known/openid-configuration` |
+| **Client ID**          | The client identifier             | `my-service-id`                                                 |
+| **Client Secret**      | The client secret                 | `super-secret-thing`                                                                |
 
 ### Appendix
+
+#### Keycloak IdP mapping
+
+Keycloak is the identity broker used by Moderne to interface with your IdP. The following table outlines the mapping of claims from the IdP to Keycloak:
+
+| IdP Claim | Keycloak mapper name | Keycloak mapper type | Keycloak friendly name | Keycloak user attribute | Keycloak name Format | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| `firstName` | `firstName` | `Attribute Importer` | `firstName` | `firstName` | `ATTRIBUTE_FORMAT_BASIC` |  |
+| `lastName` | `lastName` | `Attribute Importer` | `lastName` | `lastName` | `ATTRIBUTE_FORMAT_BASIC` |  |
+| `email` | `email` | `Attribute Importer` | `email` | `email` | `ATTRIBUTE_FORMAT_BASIC` |  |
+| `admin` | `admin` | `SAML Attribute to Role` | `admin` | `admin` |  | Role set to `admin` |
 
 #### Terminology
 
