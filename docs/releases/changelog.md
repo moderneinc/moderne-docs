@@ -3,6 +3,11 @@
 
 - Bug fixes and other improvements.
 
+### UI v10.178.0 (2024/12/23)
+
+When the screen shrinks vertically, vertical scrolling has been replaced with a `More` menu for the left-hand navigation menu.
+![397132720-bd778af0-1076-479d-b608-82cf72b180c9](https://github.com/user-attachments/assets/511e7fd0-c61d-4290-befa-9a059faddebc)
+
 ### UI v10.177.1 (2024/12/23)
 
 - Bug fixes and other improvements.
