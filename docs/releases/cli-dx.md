@@ -1,5 +1,19 @@
 # CLI / DX changelog
 
+### CLI / DX v3.27.6 (2024/12/23)
+
+#### What's Changed CLI
+* Show commands as deprecated when run and in the docs
+* Installing new recipe no longer returns the old version in some cases
+* Detect Java version from `.sdkmanrc` files
+* Detect more common recipe jars when installing
+* Do not read SNAPSHOT versions from `.moderne/cli/maven-cache`
+* Suggest next steps when recipe not found
+* fix issues around missing mod configuration
+* Color repositories based on LST availability
+* On mod build, correctly set the path for partitioned repositories
+
+
 ### CLI / DX v3.27.5 (2024/12/19)
 
 #### What's Changed CLI
