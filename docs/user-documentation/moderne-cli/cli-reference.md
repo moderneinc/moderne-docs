@@ -135,10 +135,10 @@
 * [**mod config recipes artifacts artifactory delete**](#mod-config-recipes-artifacts-artifactory-delete)
 * [**mod config recipes artifacts artifactory show**](#mod-config-recipes-artifacts-artifactory-show)
 * [**mod config recipes artifacts show**](#mod-config-recipes-artifacts-show)
-* [**mod config recipes artifacts default-repositories**](#mod-config-recipes-artifacts-default-repositories)
-* [**mod config recipes artifacts default-repositories enable**](#mod-config-recipes-artifacts-default-repositories-enable)
-* [**mod config recipes artifacts default-repositories disable**](#mod-config-recipes-artifacts-default-repositories-disable)
-* [**mod config recipes artifacts default-repositories show**](#mod-config-recipes-artifacts-default-repositories-show)
+* ~~[**mod config recipes artifacts default-repositories**](#mod-config-recipes-artifacts-default-repositories-deprecated)~~ (deprecated)
+* ~~[**mod config recipes artifacts default-repositories enable**](#mod-config-recipes-artifacts-default-repositories-enable-deprecated)~~ (deprecated)
+* ~~[**mod config recipes artifacts default-repositories disable**](#mod-config-recipes-artifacts-default-repositories-disable-deprecated)~~ (deprecated)
+* ~~[**mod config recipes artifacts default-repositories show**](#mod-config-recipes-artifacts-default-repositories-show-deprecated)~~ (deprecated)
 * [**mod config recipes artifacts maven**](#mod-config-recipes-artifacts-maven)
 * [**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit)
 * [**mod config recipes artifacts maven delete**](#mod-config-recipes-artifacts-maven-delete)
@@ -3106,7 +3106,7 @@ mod config recipes artifacts [subcommands]
 
 * `artifactory`: Configures the artifact repository to resolve recipes from.
 * `show`: Displays the recipe artifacts repository configuration.
-* `default-repositories`: (DEPRECATED) Configure the availability of maven central repositories.
+* `default-repositories`: Configure the availability of maven central repositories.
 * `maven`: Configures a Maven-formatted artifact repository that recipes will be resolved from.
 * `nuget`: Configures a Nuget-formatted artifact repository that recipes will be resolved from.
 
@@ -3211,9 +3211,9 @@ mod config recipes artifacts show
 
 
 
-## mod config recipes artifacts default-repositories
+## mod config recipes artifacts default-repositories (deprecated)
 
-(DEPRECATED) Configure the availability of maven central repositories.
+Configure the availability of maven central repositories.
 
 
 Use `mod config features no-maven-central` to disable/enable Maven Central and OSS Sonatype Snapshots.
@@ -3231,7 +3231,7 @@ mod config recipes artifacts default-repositories [subcommands]
 * `disable`
 * `show`
 
-## mod config recipes artifacts default-repositories enable
+## mod config recipes artifacts default-repositories enable (deprecated)
 
 
 (INCUBATING) Enable default repositories.
@@ -3244,7 +3244,7 @@ mod config recipes artifacts default-repositories enable
 
 
 
-## mod config recipes artifacts default-repositories disable
+## mod config recipes artifacts default-repositories disable (deprecated)
 
 
 (INCUBATING) Disable default repositories.
@@ -3257,7 +3257,7 @@ mod config recipes artifacts default-repositories disable
 
 
 
-## mod config recipes artifacts default-repositories show
+## mod config recipes artifacts default-repositories show (deprecated)
 
 
 (INCUBATING) Show the current configuration of default repositories.
