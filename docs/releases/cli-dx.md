@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.27.8 (2024/12/27)
+
+#### What's Changed CLI
+* OpenRewrite [v8.42.3](https://github.com/openrewrite/rewrite/releases/tag/v8.42.3)
+* Rewrite-JavaScript [v0.25.4](https://github.com/openrewrite/rewrite-javascript/releases/tag/v0.25.4)
+
 ### CLI / DX v3.27.7 (2024/12/24)
 
 #### What's Changed CLI
