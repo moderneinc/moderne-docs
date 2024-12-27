@@ -6,6 +6,12 @@
 * Rework logic after seeing metadata only failures
 
 
+### CLI / DX v3.27.7 (2024/12/24)
+
+#### What's Changed CLI
+* Rework logic after seeing metadata only failures
+
+
 ### CLI / DX v3.27.6 (2024/12/23)
 
 #### What's Changed CLI
