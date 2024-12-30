@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.27.9 (2024/12/30)
+
+#### What's Changed
+* update suppressions 12272024151532
+* [mod] make sure core & modjava overrides transitive dependencies with the latest
+
+
 ### CLI / DX v3.27.8 (2024/12/27)
 
 #### What's Changed CLI
