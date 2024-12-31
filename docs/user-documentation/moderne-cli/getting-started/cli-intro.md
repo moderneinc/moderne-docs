@@ -228,7 +228,7 @@ Netflix         apache          aws             awslabs         clone.log       
 
 </details>
 
-4. Now that you have the repositories on your local machine, you'll need to build the [Lossless Semantic Trees](https://docs.moderne.io/concepts/lossless-semantic-trees) (LSTs) for them so that you can run recipes against them. Fortunately, since most of these repositories have their LSTs published to the Moderne Platform, the build operation will download the LSTs without you having to build them locally. This will save you a ton of time!
+4. Now that you have the repositories on your local machine, you'll need to build the [Lossless Semantic Trees](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) (LSTs) for them so that you can run recipes against them. Fortunately, since most of these repositories have their LSTs published to the Moderne Platform, the build operation will download the LSTs without you having to build them locally. This will save you a ton of time!
 
 :::info
 By default, the CLI is able to build LSTs for well-formed projects (i.e. projects that build well with a plain `mvn verify` or `gradle build`). At times, however, you may encounter a project that fails to build. This could be because of a hidden dependency on certain tooling, like NPM, or because specific dependencies or repositories are not available without additional configuration.
