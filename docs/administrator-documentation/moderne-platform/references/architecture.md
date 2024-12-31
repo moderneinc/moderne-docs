@@ -51,7 +51,7 @@ Your team may also wish to configure the agent to:
 * Connect to your team's [Organizations service](../how-to-guides/organizations-service.md) so that the UI can provide a customized experience for some users or repositories
 
 :::info
-You can find all of the documentation for configuring agents in your environment [here](https://docs.moderne.io/how-to/on-premise-agent).
+You can find all of the documentation for configuring agents in your environment [here](../how-to-guides/agent-configuration/agent-config.md).
 :::
 
 **Setup requirements**

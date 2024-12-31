@@ -130,7 +130,7 @@ This will open a prompt that allows you to select different actions such as comm
 From this prompt, you can customize either the _Branch Name_ or the _Commit Message_ to match the contributing guidelines of a particular repository.
 
 :::info
-You will need to have [specific permissions](https://docs.moderne.io/references/github-permissions) depending on the commit strategy you decide to go with.
+You will need to have [specific permissions](../../../administrator-documentation/moderne-platform/references/github-permissions.md) depending on the commit strategy you decide to go with.
 :::
 
 ## Step 9: 🎉 Profit
