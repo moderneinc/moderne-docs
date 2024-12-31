@@ -63,6 +63,7 @@ const sidebars: SidebarsConfig = {
             'user-documentation/moderne-platform/how-to-guides/transitive-dependencies',
             'user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern',
             'user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering',
+            'user-documentation/moderne-platform/how-to-guides/writing-and-installing-recipes',
           ],
         },
         {
