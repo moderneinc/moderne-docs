@@ -11,15 +11,15 @@ and uploaded to your instance of the Moderne Platform. This is done in 3 steps:
 3. Importing Recipes
 
 ## Writing Recipes
-Before writing a new recipe, check the [recipe catalogue](https://docs.openrewrite.org/recipes) to see if an existing recipe is available. For transformations that aren't covered by the existing catalogue, new recipes can be written in [declarative YAML](https://docs.openrewrite.org/concepts-and-explanations/recipes#declarative-recipes),
-[Refaster](https://docs.openrewrite.org/authoring-recipes/refaster-recipes), or [imperative Java](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes).
+Before writing a new recipe, check the [recipe catalogue](https://docs.openrewrite.org/recipes) to see if an existing recipe is available. For transformations that aren't covered by the existing catalogue, new recipes can be written in:
+ - [Declarative YAML](https://docs.openrewrite.org/concepts-and-explanations/recipes#declarative-recipes)
+ - [Refaster](https://docs.openrewrite.org/authoring-recipes/refaster-recipes)
+ - [Imperative Java](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes).
 
 As a best practice, if your recipe can be built out of other recipes, you should make it declarative. You can make some powerful migration recipes by
-combining many tiny recipes. Depending on the code transformation a declarative YAML recipe might not be possible, and using an imperative Java or a Refaster recipe would be
-more appropriate.
-
-For details on how to write recipes follow these [instructions](https://docs.openrewrite.org/authoring-recipes/types-of-recipes).
-Try our [Recipe authoring workshop](../../workshops/recipe-authoring.md) for a step-by-step example of recipe authoring.
+combining many tiny recipes. Depending on the code transformation a declarative YAML recipe might not be possible, and using an imperative Java or a 
+Refaster recipe would be more appropriate. For details on how to write recipes follow these [instructions](https://docs.openrewrite.org/authoring-recipes/types-of-recipes). Try our [Recipe authoring workshop](../../workshops/recipe-authoring.md) 
+for a step-by-step example of recipe authoring.
 
 ## Creating a Recipe Jar
 
