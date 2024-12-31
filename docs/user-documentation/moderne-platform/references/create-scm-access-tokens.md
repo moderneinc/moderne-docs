@@ -12,5 +12,5 @@ For more information on creating Personal Access Tokens, please see:
 
 * [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 * [GitLab - Personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
-* [Bitbucket Cloud - Generating App Password / Personal Access Token](https://support.blubracket.com/hc/en-us/articles/4404687343124-How-to-Generate-an-App-Password-or-Personal-Access-Token-PAT-in-Bitbucket)
+* [Bitbucket Cloud - Generating App Password / Personal Access Token](https://confluence.atlassian.com/bamboo/personal-access-tokens-976779873.html)
 * [Bitbucket Data Center and Server - HTTP access tokens](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html)

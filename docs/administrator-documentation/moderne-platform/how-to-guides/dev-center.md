@@ -15,7 +15,7 @@ In order to configure any DevCenters, there are two things you need to do (which
 
 If you are configuring an Organizations service for the first time, we **strongly** recommend that you use our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. By doing so, you will only need to update some JSON files rather than writing your own code.
 
-If you've chosen to create your own Organizations service without using our template, please ensure your service fulfills the [latest GraphQL schema](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/moderne-organizations.graphqls). After doing so, please ensure you've [set up the Moderne agent with Maven configuration correctly](#moderne-agent-maven-configuration) and then [jump to the section of this doc about card types and what is necessary for each](#frameworks-and-migration-cards).
+If you've chosen to create your own Organizations service without using our template, please ensure your service fulfills the [latest GraphQL schema](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls). After doing so, please ensure you've [set up the Moderne agent with Maven configuration correctly](#moderne-agent-maven-configuration) and then [jump to the section of this doc about card types and what is necessary for each](#frameworks-and-migration-cards).
 
 ### Moderne agent Maven configuration
 
@@ -42,7 +42,7 @@ If you've created an Organizations service after March 2024, please ensure that 
 
 ## Step 2: Ensure you have an up-to-date `moderne-organizations.graphqls` schema
 
-Similar to the previous step, please double-check your [moderne-organizations.graphqls file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/moderne-organizations.graphqls) and ensure that there is a `devCenter` field in the `Organization` object:
+Similar to the previous step, please double-check your [moderne-organizations.graphqls file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls) and ensure that there is a `devCenter` field in the `Organization` object:
 
 ```graphql
 type Organization {
@@ -60,11 +60,11 @@ type Organization {
 }
 ```
 
-The [DevCenter object](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/moderne-organizations.graphqls#L50-L65) is the schema you need to follow in the below step to configure your DevCenter.
+The [DevCenter object](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls#L131-L150) is the schema you need to follow in the below step to configure your DevCenter.
 
 ## Step 3: Create and configure the DevCenter
 
-Your service must fulfill the [GraphQL contract mentioned in the previous step](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/moderne-organizations.graphqls). If you chose to use [our template repository](https://github.com/moderneinc/moderne-organizations) for your Organizations service, you will need to run `./gradlew generateGraphqlJava copyGeneratedGraphql` to [get the latest types](https://github.com/moderneinc/moderne-organizations/pull/61/files), and then you will need to configure your own [devcenter.json file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
+Your service must fulfill the [GraphQL contract mentioned in the previous step](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls). If you chose to use [our template repository](https://github.com/moderneinc/moderne-organizations) for your Organizations service, you will need to run `./gradlew generateGraphqlJava copyGeneratedGraphql` to [get the latest types](https://github.com/moderneinc/moderne-organizations/pull/61/files), and then you will need to configure your own [devcenter.json file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
 
 The `devcenter.json` file is where all of the configuration lies for DevCenters. In this file, you can configure things like which organizations should have a DevCenter, what cards should appear on said DevCenter, and what the keys should be on the cards. This file must follow the GraphQL schema mentioned above.
 
