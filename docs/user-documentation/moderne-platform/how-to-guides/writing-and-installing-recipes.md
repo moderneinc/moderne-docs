@@ -26,7 +26,7 @@ Try our [Recipe authoring workshop](../../workshops/recipe-authoring.md) for a s
 After the new recipes have been written, they need to be published to an Artifactory which has been set up as a [recipe source](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md#publishing-recipe-artifacts).
 
 You must set up your repository to publish the new recipes to your Artifactory or Maven Central. The [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/build.gradle.kts)
-project can serve as an example of how to publish an artifact. This repository is configured to publish to Moderne's open artifact repository (via the publishing task at the bottom of the build.gradle.kts file).1
+project can serve as an example of how to publish an artifact. This repository is configured to publish to Moderne's open artifact repository (via the publishing task at the bottom of the `build.gradle.kts` file).1
 
 These other docs might also be useful for you depending on where you want to publish the recipe:
 
