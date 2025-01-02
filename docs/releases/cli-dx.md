@@ -3,13 +3,13 @@
 ### CLI / DX v3.28.0 (2024/12/31)
 
 #### What's Changed CLI
-* OpenRewrite v8.42.4 https://github.com/openrewrite/rewrite/releases/tag/v8.42.4
-* rewrite-python v1.27.5 https://github.com/openrewrite/rewrite-python/releases/tag/v1.27.5
+* OpenRewrite [v8.42.4](https://github.com/openrewrite/rewrite/releases/tag/v8.42.4)
+* rewrite-python [v1.27.5](https://github.com/openrewrite/rewrite-python/releases/tag/v1.27.5)
 
 ### CLI / DX v3.27.9 (2024/12/30)
 
 #### What's Changed CLI
-* Rewrite-JavaScript v0.26.0 https://github.com/openrewrite/rewrite-javascript/releases/tag/v0.26.0
+* Rewrite-JavaScript [v0.26.0](https://github.com/openrewrite/rewrite-javascript/releases/tag/v0.26.0)
 
 ### CLI / DX v3.27.8 (2024/12/27)
 
