@@ -148,7 +148,7 @@ MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}'
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Download the JAR:**
-The download URL can be found on the [**Agent releases page**](../../../../../releases/agent-releases#maven-download)**.**
+The download URL can be found on the [**Agent releases page**](../../../../releases/agent-releases.md#maven-download)**.**
 
 **How to run the agent:**
 
