@@ -2,7 +2,7 @@
 
 | Component             | Current version |
 | --------------------- | --------------- |
-| CLI version (Stable)  | 3.25.3          |
+| CLI version (Stable)  | 3.26.2          |
 | CLI version (Staging) | 3.28.0          |
 
 * [How to update to the latest version of the CLI](../user-documentation/moderne-cli/how-to-guides/cli-upgrade.md)
