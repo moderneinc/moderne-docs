@@ -368,7 +368,7 @@ N/A
 
 #### What's Changed CLI
 
-* Upgrade rewrite-polyglot to [1.14.1](https://github.com/openrewrite/rewrite-polyglot/releases/tag/v1.14.1) which fixes `OmniParser` throwing an exception when presented with a source file type it doesn't have a parser for
+* Upgrade rewrite-polyglot to `1.14.1` which fixes `OmniParser` throwing an exception when presented with a source file type it doesn't have a parser for
 * Hide stacktrace on failing recipe install
 
 ### CLI / DX v3.22.1 (2024/10/01)
@@ -441,7 +441,7 @@ When DX is integrated with the organization service, it will now utilize the new
 #### What's Changed CLI
 
 * Enhance`mod config recipes moderne sync` to install C# recipes
-* Update to rewrite-polyglot [1.14.0](https://github.com/openrewrite/rewrite-polyglot/releases/tag/v1.14.0) which fixes missing type attribution in code parsed from Bazel builds
+* Update to rewrite-polyglot 1.14.0 which fixes missing type attribution in code parsed from Bazel builds
 * Only save on at least partial success
 * When recipes use the classpathFromResources mechanism use default location \~/.moderne/cli/rewrite-classpath instead of \~/rewrite/classpath
 
@@ -673,7 +673,7 @@ Nothing
 #### What's Changed DX
 
 * Fix GraphQl schema inspection issue where `RecipeSearchConnection` does not match `Recipe` node type
-* Fix `Invalid destruction signature` in `MVStoreConfig` @pstreef in https://github.com/moderneinc/moderne-cli/pull/2045
+* Fix `Invalid destruction signature` in `MVStoreConfig` @pstreef
 
 ### CLI / DX v3.18.2 (2024/08/21)
 
