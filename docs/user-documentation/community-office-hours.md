@@ -314,7 +314,7 @@ Coming soon!
 * **Main topic for the week - dependency management**
   * We started off by giving some background on dependency management. When creating software nowadays, a significant amount of code will be dependent on external libraries that you don't manage. These dependencies, while necessary, also cause a lot of issues. For instance, you'll have to deal with vulnerabilities or breaking changes in these dependencies. Those pain points were part of the motivation for creating OpenRewrite to begin with.
   * Sam then walked us through a variety of dependency management recipes – starting with the [Upgrade Gradle dependency versions recipe](https://app.moderne.io/recipes/org.openrewrite.gradle.UpgradeDependencyVersion) – then the [Find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck) – and then the [Update Gradle wrapper recipe](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper).
-  * During the session, we had a community question that asked if people can use OpenRewrite recipes for private GitHub repositories or if that requires payment. To answer that – all OpenRewrite recipes are free and open-source to use on any project. If you need to run recipes against multiple repositories, though - you should check out [Moderne](/introduction.md) and the [Moderne CLI](../user-documentation/moderne-cli/getting-started/cli-intro.md).
+  * During the session, we had a community question that asked if people can use OpenRewrite recipes for private GitHub repositories or if that requires payment. To answer that – all OpenRewrite recipes are free and open-source to use on any project. If you need to run recipes against multiple repositories, though - you should check out [Moderne](../introduction.md) and the [Moderne CLI](../user-documentation/moderne-cli/getting-started/cli-intro.md).
   * We then took a look at the [recipe code](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/UpgradeDependencyVersion.java) and Sam called out a few key pieces – such as the fact that Gradle dependency recipes will often have a [Groovy Visitor](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/UpgradeDependencyVersion.java#L148) (since `.gradle` files are written in Groovy script). Another important thing to note is that you can use [GradleDependencyConfiguration](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/UpgradeDependencyVersion.java#L678) to access the Gradle dependency configuration by name.
   * After that, [we took a look at the tests](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/test/java/org/openrewrite/gradle/UpgradeDependencyVersionTest.java) and explained what happens when you run a Gradle test. 
   * Another important thing to know about creating Gradle recipes is that most things in a Groovy script are method invocations (e.g., `repositories {}`, `mavenCentral()`, `compileOnly ...` are all method invocations). Also, since Groovy scripts are dynamically typed – you won't always have static type information available (which you would in Java). This means things like method matchers may not be as reliable as you'd like.
@@ -373,7 +373,7 @@ Coming soon!
   * We welcomed Valentin and Sridhar who are both Jenkins contributors and active OpenRewrite users. They started off by sharing some background on themselves and Jenkins in general. Jenkins, having been around for such a long time, has thousands of plugins and configurations that people have extended and need support with. Updating each plugin is a laborious and manual process – which results in many plugins falling behind.
   * Valentin then explained [how they came to find and use OpenRewrite](https://summerofcode.withgoogle.com/programs/2024/projects/anaMmWRR) to address their problems. This culminated in the [Jenkins plugin modernizer tool](https://github.com/jenkinsci/plugin-modernizer-tool/) that both of them built during the Google Summer of Code.
   * [He then presented on the architecture of the tool and where OpenRewrite fits into it](https://github.com/jenkinsci/plugin-modernizer-tool/blob/main/docs/ARCHITECTURE.md).
-  * [Next up Sridhar showed off the OpenRewrite recipes they've developed](https://github.com/jenkinsci/plugin-modernizer-tool/blob/main/plugin-modernizer-core/src/main/java/io/jenkins/tools/pluginmodernizer/core/extractor/MetadataCollector.java).
+  * Next up Sridhar showed off the OpenRewrite recipes they've developed.
   * We then discussed the impact of this tool and what their approach has been. They explained that they aren't using this at mass scale right now. Instead, they are wanting to run it against the top 200 plugins to focus on making sure it works for them.
   * After that we took a look at the "health" of Jenkins plugins and what that means with the idea being that it would be interesting to target plugins that are popular but don't have high health scores.
   * There was then a brief discussion about parsing files and what might be beneficial to support going forward.
@@ -395,7 +395,6 @@ Coming soon!
       * AI technologies and techniques at work
       * Various use cases for AI when working with large codebases
       * Considerations for large enterprises
-      * You can use [this QR code](https://www.canva.com/design/DAGKXgbdAMo/ryZU_qS3tIvVeWt_q_V_-Q/edit) to pre-order this free ebook.
     * [We have three new videos about using the Moderne CLI that address configuring the CLI, building LSTs, and running recipes](https://www.youtube.com/@Moderne-and-OpenRewrite/videos).
   * **Releases**:
     * [We did a full release of OpenRewrite this week](https://docs.openrewrite.org/changelog/8-34-0-release).
@@ -466,7 +465,7 @@ Coming soon!
 
 * Announcements for the week
   * **Releases**:
-    * [We did a new full release of OpenRewrite (8.33.4)](https://docs.openrewrite.org/changelog/8-33-4-release).
+    * We did a new full release of OpenRewrite 8.33.4.
       * We are now better able to handle larger projects. Also, we've started working towards supporting Azure DevOps and .Net.
     * [We recommend you use the rewrite-recipe-bom to align all of your versions](https://github.com/openrewrite/rewrite-recipe-bom/releases/tag/v2.17.0)
     * There's a new rewrite recipe module: `rewrite-reactive-streams`.
@@ -482,7 +481,7 @@ Coming soon!
   * **Events**
     * [Tim will be presenting at Devoxx Belgium in October](https://devoxx.be/schedule/speaker-details/?id=3951).
       * He'll be giving a workshop on OpenRewrite and Refaster.
-    * [Mike Solomon will be doing a webinar with GitBook on September 17th about how we use CI/CD to generate many of our docs](https://www.gitbook.com/events/gitbook-moderne-september-24)
+    * [Mike Solomon will be doing a webinar with GitBook on September 17th about how we use CI/CD to generate many of our docs](https://www.gitbook.com/events/events/gitbook-moderne-september)
 *   We then welcomed [Marit van Dijk](https://github.com/mlvandijk) and began our main topic for the week – OpenRewrite + IntelliJ IDEA.
 
     * Marit is a developer advocate and Java Champion from JetBrains. She's good friends with Tim and they've been traveling to many of the same conferences together – where they would both talk about IntelliJ IDEA and OpenRewrite.
@@ -531,7 +530,7 @@ Coming soon!
 
 * Announcements for the week
   * **Releases**:
-    * [We did a new full release of OpenRewrite (8.32.0)](https://docs.openrewrite.org/changelog/8-32-0-release). Notable changes include:
+    * We did a new full release of OpenRewrite 8.32.0. Notable changes include:
       * [Data table exports for Gradle](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v6.17.0)
       * [The Maven plugin can configure a single recipe from command line arguments](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v5.37.0)
       * [A ton of fixes in OpenRewrite itself](https://github.com/openrewrite/rewrite/compare/v8.30.0...v8.32.0)
@@ -565,7 +564,7 @@ Coming soon!
     * We launched a new website with bright new colors and fresh content! Check it out: [https://www.moderne.ai](https://www.moderne.ai/)
     * [We recently related a blog post summarizing the Code Remix session with Jente](https://www.moderne.ai/blog/jente-sondervorst-software-engineer-at-colruyt-moving-code-forward-with-openrewrite-recipes)
   * **Releases**:
-    * [We did a new full release of OpenRewrite (8.30.0)](https://docs.openrewrite.org/changelog/8-30-0-release).
+    * We did a new full release of OpenRewrite (8.30.0).
       * Notable changes include adding traits to support flexible new use cases with minimal API, 30+ new recipes, and 11 new contributors.
     * There are new recipes to migrate from Gradle Enterprise to Develocity.
     * Rewrite-micrometer now supports `1.13.x` migration
@@ -640,7 +639,7 @@ Coming soon!
 * Announcements for the week:
   * **Releases**:
     * We did a new release of all recipe modules, the Maven and Gradle plugins and the `rewrite-recipe-bom`.
-    * You can find the 30+ new recipes in the [8.29.0 changelog](https://docs.openrewrite.org/changelog/8-29-0-release).
+    * You can find the 30+ new recipes in the 8.29.0 changelog.
     * There were over a dozen new contributors in the past two weeks!
     * [Maven had some notable improvements and fixes](https://github.com/openrewrite/rewrite/releases/tag/v8.29.0).
     * [We also added support for migrating Java Util Logging to SLF4J](https://github.com/openrewrite/rewrite-logging-frameworks/releases/tag/v2.10.0)
@@ -701,7 +700,7 @@ Coming soon!
   * [We then went over a few other third-party recipes that have been integrated into the rewrite-third-party library](https://youtu.be/kdqdC6C5UA4?t=1178).
     * These include: [TimeFold](https://docs.timefold.ai/timefold-solver/latest/upgrade-and-migration/migrate-from-optaplanner), [Quarkus](https://github.com/quarkusio/quarkus-updates), and [Morphia](https://github.com/MorphiaOrg/morphia/blob/master/upgrading/UpgradeTo30.yml).
   * [After that, we went through some third-party recipes that _haven't_ been integrated](https://youtu.be/kdqdC6C5UA4?t=1455) - that we discovered via people posting in our community Slack. If you have any recipes you're working on, please let us know there, too!
-    * We talked through: [Azure Spring Rewrite](https://github.com/Azure/azure-spring-rewrite), [AWS SDK for Java v2](https://github.com/aws/aws-sdk-java-v2/tree/feature/master/migration-tool/migration-tool), [Redhat's WindUp migrations to Quarkus](https://github.com/windup/windup-rulesets/blob/f02cd0fe1f2400e906446cc7b20c13b02b598eaf/rules/rules-reviewed/openrewrite/jakarta/javax/imports/rewrite.yml), and [Gradle Enterprise to Develocity](https://github.com/jean-andre-gauthier/gradle-enterprise-to-develocity-recipe).
+    * We talked through: [Azure Spring Rewrite](https://github.com/Azure/azure-spring-rewrite), AWS SDK for Java v2, [Redhat's WindUp migrations to Quarkus](https://github.com/windup/windup-rulesets/blob/f02cd0fe1f2400e906446cc7b20c13b02b598eaf/rules/rules-reviewed/openrewrite/jakarta/javax/imports/rewrite.yml), and [Gradle Enterprise to Develocity](https://github.com/jean-andre-gauthier/gradle-enterprise-to-develocity-recipe).
   * [Next was talking through a larger migration effort taking place that we want to eventually integrate back into OpenRewrite](https://youtu.be/kdqdC6C5UA4?t=1773)
     * Specifically, there's work on migrating from [TestNG to JUnit 5](https://github.com/Philzen/rewrite-TestNG-to-JUnit5) and [TestNG to Jupiter](https://github.com/MBoegers/migrate-testngtojupiter-rewrite/).
   * Lastly, we highlighted an issue where we're tracking all known third-party recipes
@@ -813,7 +812,7 @@ Coming soon!
 
 * [Announcements for the week](https://youtu.be/lNLo6i7SVGI?t=28)
   * **Events**:
-    * Sam will be doing [another sessions of his fundamentals of migration engineering webinar](https://nofluffjuststuff.com/webinar/116/migration_engineering_w_openrewrite) as the last one was accidentally not recorded.
+    * Sam will be doing another sessions of his fundamentals of migration engineering webinar as the last one was accidentally not recorded.
     * On top of that, Sam will also be giving a webinar about [the fundamentals of migration engineering 2](https://nofluffjuststuff.com/webinar/117/migration_engineering_w_openrewrite_ii) on June 7th – a follow-up to the previous webinar.
   * **Content**:
     * [We released a blog post about the Moderne IDE plugin](https://www.moderne.io/blog/introducing-the-moderne-ide-plugin-for-jetbrains-intellij-idea). This covers a lot of what we discussed in the last office hours.
@@ -853,7 +852,7 @@ Coming soon!
   * **Events**:
     * Tim will be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/). He'll be giving a talk and an interactive workshop there. If you want to check out the workshop for yourself ahead of time, you can find it [in our docs right now](../user-documentation/workshops/recipe-authoring.md).
     * Tim also will be at [JNation.pt on June 5th to give a workshop on recipe authorship](https://jnation.pt/workshops/)
-    * Sam will be [hosting a No-fluff-just-stuff webinar on the fundamental of migration engineering on Friday, May 31st](https://nofluffjuststuff.com/webinar/116/migration_engineering_w_openrewrite).
+    * Sam will be hosting a No-fluff-just-stuff webinar on the fundamental of migration engineering on Friday, May 31st.
   * **Content**:
     * If you prefer reading to watching, [we released a blog post about the Moderne IDE plugin](https://www.moderne.io/blog/introducing-the-moderne-ide-plugin-for-jetbrains-intellij-idea) this week that covers a lot of what we'll discuss in this office hours.
     * We also created a bunch of developer-focused docs about the [Moderne IDE plugin that are focused on installing, configuring, and using the plugin](../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md).
@@ -902,7 +901,7 @@ Coming soon!
     * We recently released a video about [how to fix security vulnerabilities across your entire codebase quickly with Moderne](https://www.youtube.com/watch?v=g97-2br6pug)
   * **Releases**:
     * Spring Boot is doing a release this week. Fortunately, we have you covered with recipes already available to help with migration.
-    * We also [released OpenRewrite 8.27.1 along with many new recipes](https://docs.openrewrite.org/changelog/8-27-1-release) (many of which help with the new Spring Boot release).
+    * We also released OpenRewrite 8.27.1 along with many new recipes (many of which help with the new Spring Boot release).
 * [We then welcomed DaShaun Carter to the office hours](https://youtu.be/UyB12RbUPUI?t=263):
   * DaShaun is a developer advocate who is heavily involved in the community and has given numerous talks about OpenRewrite.
   * He started off by giving some context into the talks he's given and why he's doing it. It was exciting to see that it's had a recursive effect where people he's taught then go on to teach others and give their own presentations.
@@ -924,7 +923,7 @@ Coming soon!
 * [Announcements for the week](https://youtu.be/svNf6qHUYXA?t=31):
   * **Events**:
     * Tim will be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/). He'll be giving a talk and an interactive workshop there.
-    * Sam will be giving [a webinar about OpenRewrite fundamentals on May 31st at NFJS 2024](https://nofluffjuststuff.com/webinar/116/migration_engineering_w_openrewrite). There will be a second part the following week about writing custom recipes using OpenRewrite. If you want to learn how to write your own recipes, definitely consider checking that out!
+    * Sam will be giving a webinar about OpenRewrite fundamentals on May 31st at NFJS 2024. There will be a second part the following week about writing custom recipes using OpenRewrite. If you want to learn how to write your own recipes, definitely consider checking that out!
   * **Content**:
     * We've released the [latest Moderne monthly newsletter](https://www.linkedin.com/pulse/its-mai-moderne-moderneinc-hqxhc/). It's a high-level summary of key events, talks, presentations, etc. Consider subscribing if you haven't already.
 * [OpenRewrite parsers](https://youtu.be/svNf6qHUYXA?t=180):
@@ -950,7 +949,7 @@ Coming soon!
 
 * Announcements for the week:
   * **Releases**:
-    * We've done a new full release of `rewrite` and the `rewrite-recipe-bom`. For a full list of changes, check out our [changelog over on the OpenRewrite docs](https://docs.openrewrite.org/changelog/8-25-0-release).
+    * We've done a new full release of `rewrite` and the `rewrite-recipe-bom`. For a full list of changes, check out our changelog over on the OpenRewrite docs.
       * It's really exciting to see so many new contributors to OpenRewrite. For [rewrite-spring](https://github.com/openrewrite/rewrite-spring), every commit in the past few weeks has been from a new contributor! One notable addition is an explicit [Spring Framework 6 migration recipe](https://docs.openrewrite.org/recipes/java/spring/framework/upgradespringframework_6_0) added by [@pativa](https://github.com/pativa).
       * With the latest versions of the build plugins, you'll now get a report on how much time you've saved from running a recipe.
       * You'll also find that if you slightly misspell a recipe name that you'll get a hint about what you may have meant instead. This should help improve the debugging experience.
@@ -959,7 +958,7 @@ Coming soon!
   * **Events**:
     * Tim will be at [JCON Europe from May 13th - 16th](https://jconeurope2024.sched.com/). He will be giving a talk on [Transforming Code with OpenRewrite and Refaster](https://jconeurope2024.sched.com/event/1Z2tI/transforming-code-with-openrewrite-and-refaster) and [Weeding your Micro Service Landscape](https://jconeurope2024.sched.com/event/1YwSG/weeding-your-micro-service-landscape).
     * We'll be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/).
-    * Sam will be giving [a webinar about OpenRewrite fundamentals on May 31st at NFJS 2024](https://nofluffjuststuff.com/webinar/116/migration_engineering_w_openrewrite). There will be a second part the following week about writing custom recipes using OpenRewrite. If you want to learn how to write your own recipes, definitely consider checking that out!
+    * Sam will be giving a webinar about OpenRewrite fundamentals on May 31st at NFJS 2024. There will be a second part the following week about writing custom recipes using OpenRewrite. If you want to learn how to write your own recipes, definitely consider checking that out!
   * **Content**:
     * We wrote a blog post about [four ways Moderne hardens your code against security vulnerabilities](https://www.moderne.io/blog/best-practices-for-preventing-cybersecurity-threats). At a high-level, we can help by doing in-depth code analysis, static code analysis, software composition analysis, and third-party code migration.
     * We wrote a LinkedIn post about [using OpenRewrite and Moderne for mass-scale refactoring](https://www.linkedin.com/pulse/game-changer-developers-mass-scale-refactoring-moderneinc-x2eic/). This is a great introduction to both of the tools and could be helpful if you're looking to help onboard someone.
@@ -1031,7 +1030,7 @@ Coming soon!
 
 * Announcements for the week:
   * **Releases**:
-    * We've done a new full release of `rewrite` and the `rewrite-recipe-bom`. For a full list of changes, check out our [changelog over on the OpenRewrite docs](https://docs.openrewrite.org/changelog/8-24-0-release). Special shout out to the folks over at IBM who contributed a ton of changes on the `rewrite-migrate-java` project.
+    * We've done a new full release of `rewrite` and the `rewrite-recipe-bom`. For a full list of changes, check out our changelog over on the OpenRewrite docs. Special shout out to the folks over at IBM who contributed a ton of changes on the `rewrite-migrate-java` project.
   * **Events**:
     * Tim will be at [JCON Europe from May 13th - 16th](https://jconeurope2024.sched.com/). He will be giving a talk on [Transforming Code with OpenRewrite and Refaster](https://jconeurope2024.sched.com/event/1Z2tI/transforming-code-with-openrewrite-and-refaster) and [Weeding your Micro Service Landscape](https://jconeurope2024.sched.com/event/1YwSG/weeding-your-micro-service-landscape). He has a limited amount of free tickets to give away if you'd like to attend and are going to be in Germany at that time. Please reach out to him to learn more.
     * Tim and Jonathan will be at [Spring I/O from May 30th - 31st in Barcelona](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/). They'll be giving a talk on automated software refactoring with OpenRewrite and generative AI.
@@ -1189,7 +1188,7 @@ Coming soon!
     * These recipes are designed to help you write better code and catch common mistakes, and now helpfully link to the docs to show more details of what changes to expect.
   * We split off a separate [Rewrite recipe module for Apache](https://github.com/openrewrite/rewrite-apache/) projects, which you can also [run through Moderne](https://app.moderne.io/marketplace/org.openrewrite.apache).
     * The reason behind this was to make recipes related to Apache projects easier to find, use and extend.
-  * We created a new [Rewrite recipe module for Node.js](https://github.com/openrewrite/rewrite-nodejs) applications.
+  * We created a new Rewrite recipe module for Node.js applications.
     * This provides the building blocks to change Node.js applications in a safe and automated way, starting with dependency management.
       * We also allow you to [visualize dependency versions across your organization](https://app.moderne.io/recipes/org.openrewrite.nodejs.search.DependencyInsight), to plan your next modernization steps.
   * Also new is a [module for Struts applications](https://github.com/openrewrite/rewrite-struts), bringing folks from version 2.5 to 6.x.
