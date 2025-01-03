@@ -33,7 +33,7 @@ Coming soon!
   * **Code Remix Summit**:
     * [As a reminder, we will be hosting a Code Remix summit in May of next year. Definitely consider joining us there!](https://coderemix.ai/)
 * **Main topic - removing unused dependencies**
-  * Sam started off by giving some background on the [Remove Unused Dependencies recipe](https://github.com/openrewrite/rewrite-java-dependencies/compare/main...remove-unused).
+  * Sam started off by giving some background on the [Remove Unused Dependencies recipe](https://docs.openrewrite.org/recipes/java/dependencies/removeunuseddependencies).
   * He then took a look at the recipe itself - taking the time to explain the various components and why things were written like they were.
   * As part of doing that, he showed how to use breakpoints in tests to figure out what is available to interact with.
   * With the explanations of how it all works done, he then moved on to live coding a test for this recipe – making sure to explain what he was doing and why.
@@ -197,7 +197,7 @@ Coming soon!
       - org.openrewrite.staticanalysis.RemoveExtraSemicolons
       - org.openrewrite.staticanalysis.InlineVariable
     ```
-  * [Sam shared his kill your zombie dependencies recipe he's been working on](https://github.com/openrewrite/rewrite-java-dependencies/compare/main...remove-unused).
+  * [Sam shared his kill your zombie dependencies recipe he's been working on](https://docs.openrewrite.org/recipes/java/dependencies/removeunuseddependencies).
   * [Tim then talked about how to clear how feature flags](https://github.com/openrewrite/rewrite-feature-flags/issues/14).
 
 ### Automating breaking change detection (October 16th, 2024)
@@ -258,7 +258,7 @@ Coming soon!
     * [Tim will also also also present at Belgium JUG on October 24th](https://www.meetup.com/belgian-java-user-group/events/)
 * **Main topic for the week**:
   * Sam started off by showing off the [Find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck). While the results may look similar to what you're used to - the tech behind it has totally changed.
-  * He then took us through the significant rewrite of [this recipe](https://github.com/openrewrite/rewrite-java-dependencies/blob/main/src/main/java/org/openrewrite/java/dependencies/DependencyVulnerabilityCheck.java).
+  * He then took us through the significant rewrite of [this recipe](https://docs.openrewrite.org/recipes/nodejs/dependencyvulnerabilitycheck).
 
 ### The Moderne Recipe Builder in action (September 25th, 2024)
 
@@ -271,7 +271,7 @@ Coming soon!
   * **Releases**:
     * [We released a new version of OpenRewrite this week](https://x.com/OpenRewrite/status/1838703757330387052). Highlights include:
       * [Support for Java 23](https://github.com/openrewrite/rewrite/compare/v8.35.0...v8.36.0)
-      * [The first rewrite-android release](https://github.com/openrewrite/rewrite-android/releases/tag/v0.1.0)
+      * The first `rewrite-android` release.
       * [An overhaul of vulnerability checks in Java](https://github.com/openrewrite/rewrite-java-dependencies/releases/tag/v1.19.0)
       * [Multiple fixes to Mockito handling](https://github.com/openrewrite/rewrite-testing-frameworks/releases/tag/v2.19.0)
       * [The migration of HttpStatus to HttpStatusCode](https://github.com/openrewrite/rewrite-spring/releases/tag/v5.20.0)
@@ -469,12 +469,12 @@ Coming soon!
     * [We did a new full release of OpenRewrite (8.33.4)](https://docs.openrewrite.org/changelog/8-33-4-release).
       * We are now better able to handle larger projects. Also, we've started working towards supporting Azure DevOps and .Net.
     * [We recommend you use the rewrite-recipe-bom to align all of your versions](https://github.com/openrewrite/rewrite-recipe-bom/releases/tag/v2.17.0)
-    * [There's a new rewrite recipe module: rewrite-reactive-streams](https://github.com/openrewrite/rewrite-reactive-streams).
+    * There's a new rewrite recipe module: `rewrite-reactive-streams`.
       * This is now included with Spring Boot upgrades.
     * [Rewrite-micrometer is now also included with Spring Boot upgrades](https://github.com/openrewrite/rewrite-spring/releases/tag/v5.17.0)
     * [There were a ton of fixes and additions to rewrite-testing-frameworks](https://github.com/openrewrite/rewrite-testing-frameworks/releases/tag/v2.16.0)
       * Notably, there were a lot of new recipes around AssertJ migrations.
-    * [There were usability improvements for rewrite-kubernetes](https://github.com/openrewrite/rewrite-kubernetes/compare/v2.7.2...v2.8.1)
+    * There were usability improvements for `rewrite-kubernetes`
       * We now show which elements are missing and no longer show false positives on other files.
     * [Rewrite-gradle-plugin](https://github.com/openrewrite/rewrite-gradle-plugin/compare/v6.17.0...v6.20.0) and [rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin/compare/v5.37.0...v5.39.0) are faster on larger projects and have a variety of other nice changes.
   * **External recipes**:
@@ -512,7 +512,7 @@ Coming soon!
 
 * Announcements for the week
   * **Upcoming features**:
-    * [New recipe to find and fix vulnerable NPM dependencies](https://github.com/openrewrite/rewrite-nodejs/pull/8)
+    * [New recipe to find and fix vulnerable NPM dependencies](https://docs.openrewrite.org/recipes/nodejs/dependencyvulnerabilitycheck)
     * [New recipe to create software bill of materials](https://github.com/openrewrite/rewrite-java-dependencies/commit/90a31e7ad1a28cb2688023afe2dfb8e3c85058bc)
     * The next version of the Maven and Gradle plugin will come with optimizations for GitProvenance.
   * **AI**:
@@ -547,7 +547,7 @@ Coming soon!
   * Another powerful recipe worth calling out is the [Merge YAML snippet recipe](https://app.moderne.io/recipes/org.openrewrite.yaml.MergeYaml) – which allows you to merge substantial YAML components together.
     * We then took a look at some of the [Merge YAML tests](https://github.com/openrewrite/rewrite/blob/main/rewrite-yaml/src/test/java/org/openrewrite/yaml/MergeYamlTest.java) - which demonstrate some of the functionality. For instance, you can use it to [entirely populate a fresh YAML file](https://github.com/openrewrite/rewrite/blob/main/rewrite-yaml/src/test/java/org/openrewrite/yaml/MergeYamlTest.java#L54-L79) or you can [merge a complex block into an existing YAML document while not overriding existing values](https://github.com/openrewrite/rewrite/blob/main/rewrite-yaml/src/test/java/org/openrewrite/yaml/MergeYamlTest.java#L722-L754). In the latter example, you can see that we identified that `name` is the unique key for the YAML list (`objectIdentifyingProperty`) - so the recipe can know when to add something or not.
   * After that, we took a brief look at the [YAML LST](https://docs.openrewrite.org/concepts-and-explanations/yaml-lst-examples) – which is much simpler than that Java LST.
-  * To go along with that, we then jumped over to review the code for a YAML recipe. Specifically, the [SetupJavaCaching recipe](https://github.com/openrewrite/rewrite-github-actions/blob/main/src/main/java/org/openrewrite/github/SetupJavaCaching.java) - which is part of a larger collection of [GitHub action recipes](https://docs.openrewrite.org/recipes/github).
+  * To go along with that, we then jumped over to review the code for a YAML recipe. Specifically, the [SetupJavaCaching recipe](https://docs.openrewrite.org/recipes/github/setupjavacaching) - which is part of a larger collection of [GitHub action recipes](https://docs.openrewrite.org/recipes/github).
     * You'll notice that the `SetupJavaCaching` recipe is largely implemented through the YAML `FindKey` and `MergeYaml` recipe.
     * One important thing to note is the pattern of "edit-or-add". `MergeYaml` will return a new object rather than updating the existing object. Because of that, you can use referential equality to check if anything has changed after it's run. If nothing changed (i.e., it's referentially the same object as before), then you can add a new key, for instance.
     * Also note that this recipe uses a precondition to limit what source files it runs on.
@@ -955,7 +955,7 @@ Coming soon!
       * With the latest versions of the build plugins, you'll now get a report on how much time you've saved from running a recipe.
       * You'll also find that if you slightly misspell a recipe name that you'll get a hint about what you may have meant instead. This should help improve the debugging experience.
       * We've created a [doc explaining how to use data tables with the Maven plugin](https://docs.openrewrite.org/running-recipes/data-tables). Keep in mind this is fairly limited, and you'll need to use [Moderne](https://docs.moderne.io/) to get the full benefit of data tables.
-      * We've added a new recipe module this week - [rewrite-jackson](https://github.com/openrewrite/rewrite-jackson). As part of that, we added [a recipe to help you migrate from Jackson Codehaus to Jackson FasterXML](https://github.com/openrewrite/rewrite-jackson/blob/main/src/main/resources/META-INF/rewrite/codehaus-to-fasterxml.yml).
+      * We've added a new recipe module this week - `rewrite-jackson`. As part of that, we added [a recipe to help you migrate from Jackson Codehaus to Jackson FasterXML](https://docs.openrewrite.org/recipes/java/jackson/codehaustofasterxml).
   * **Events**:
     * Tim will be at [JCON Europe from May 13th - 16th](https://jconeurope2024.sched.com/). He will be giving a talk on [Transforming Code with OpenRewrite and Refaster](https://jconeurope2024.sched.com/event/1Z2tI/transforming-code-with-openrewrite-and-refaster) and [Weeding your Micro Service Landscape](https://jconeurope2024.sched.com/event/1YwSG/weeding-your-micro-service-landscape).
     * We'll be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/).
@@ -1111,7 +1111,7 @@ Coming soon!
 
 * This week we welcome Justine - our AI/machine learning research engineer!
 * Announcements for the week:
-  * [DevNexus](https://devnexus.org/presentations/fundamentals-of-migration-engineering-with-openrewrite) is next week! If you're going to be there come say hi.
+  * DevNexus is next week! If you're going to be there come say hi.
   * We released a [new video detailing the Moderne DevCenter](https://www.youtube.com/watch?v=KRXDMGt7DRE).
   * To go along with that, we also have a [getting started guide](../user-documentation/moderne-platform/getting-started/dev-center.md) for those of you who are Moderne customers and want to jump in.
 * AI topic:
@@ -1134,7 +1134,7 @@ Coming soon!
 
 * Only a few announcements this week since it's so close to the last office hours:
   * We will be [presenting on Security Boulevard at 11 AM ET on March 28th, 2024](https://webinars.securityboulevard.com/how-to-massively-pay-down-your-tech-debt-fast?hss_channel=lcp-71946171). In that presentation, we'll discuss how to massively pay down your tech debt fast.
-  * As a reminder, we will be at [DevNexus 2024](https://devnexus.org/presentations/fundamentals-of-migration-engineering-with-openrewrite) in April.
+  * As a reminder, we will be at DevNexus 2024 in April.
 * The main topic was about dependency management:
   * We talked about [how to gain insight into your dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight). For instance, maybe you're curious about if all of your repositories are using the same version of Jackson across all of their modules.
     * You can use the visualizations or data tables produced by this recipe to get detailed information about that.
@@ -1155,7 +1155,7 @@ Coming soon!
 #### Summary and related links
 
 * As usual, we began by discussing announcements related to OpenRewrite & Moderne:
-  * Jonathan and Olga will both be presenting at [DevNexus 2024](https://devnexus.org/presentations/fundamentals-of-migration-engineering-with-openrewrite) in April.
+  * Jonathan and Olga will both be presenting at DevNexus 2024 in April.
   * Jonathan will also be giving a keynote at [Uberconf 2024](https://uberconf.com/schedule) on Tuesday, July 16th. Definitely stop by if you're going to be there.
   * We released a bunch of new videos on our YouTube channel:
     * [Upgrading a Maven parent pom version](https://www.youtube.com/watch?v=LyQsQYfUlwI)
