@@ -71,7 +71,7 @@ This will trigger the process for building the visualization. Once it's done bui
 
 ## How to create visualizations
 
-Please see our [how to create visualizations guide](/administrator-documentation/moderne-platform/how-to-guides/create-visualization.md).
+Please see our [how to create visualizations guide](../../../administrator-documentation/moderne-platform/how-to-guides/create-visualization.md).
 
 ## Visualization examples
 

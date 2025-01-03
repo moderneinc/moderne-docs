@@ -48,7 +48,7 @@ To create a custom recipe you will need to:
   <figcaption>_Add recipes/preconditions from the recipe list_</figcaption>
 </figure>
 
-6. In the modal that popped up, you can search for recipes to add. If the "Add as a precondition" box is checked, that recipe will be added as a [precondition](/user-documentation/moderne-platform/how-to-guides/preconditions.md). Otherwise, the recipe will be added to the list of recipes to run.
+6. In the modal that popped up, you can search for recipes to add. If the "Add as a precondition" box is checked, that recipe will be added as a [precondition](./preconditions.md). Otherwise, the recipe will be added to the list of recipes to run.
 
 <figure>
   ![](./assets/add-recipe-modal.png)
