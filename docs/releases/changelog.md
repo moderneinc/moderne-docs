@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.180.1 (2025/01/06)
+
+- Bug fixes and other improvements.
+
 ### UI v10.180.0 (2025/01/04)
 
 - Bug fixes and other improvements.
