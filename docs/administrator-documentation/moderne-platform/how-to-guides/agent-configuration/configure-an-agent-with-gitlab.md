@@ -55,7 +55,7 @@ You can configure multiple GitLab OAuth apps by including multiple entries, each
 | `MODERNE_AGENT_GITLAB_{index}_SSH_PASSPHRASE`     | `true` (If the SSH private key is specified) |         | The passphrase used to encrypt the SSH private key.                                                                                                                    |
 | `MODERNE_AGENT_GITLAB_{index}_SSH_SSHFILENAME`    | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                  |
 | `MODERNE_AGENT_GITLAB_{index}_SSH_USER`           | `true` (If the SSH private key is specified) |         | The username used for SSH communication with GitLab.                                                                                                                   |
-| `MODERNE_AGENT_GITLAB_{index}_SSH_PORT`           | `false`                                      | `7999`  | The port used to communicate via SSH with GitLab.                                                                                                                      |
+| `MODERNE_AGENT_GITLAB_{index}_SSH_PORT`           | `false`                                      | `22`    | The port used to communicate via SSH with GitLab.                                                                                                                      |
 
 **Example:**
 
@@ -83,7 +83,7 @@ docker run \
 | `--moderne.agent.gitlab[{index}].ssh.passphrase`     | `true` (If the SSH private key is specified) |         | The passphrase used to encrypt the SSH private key.                                                                                                                    |
 | `--moderne.agent.gitlab[{index}].ssh.sshFileName`    | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                  |
 | `--moderne.agent.gitlab[{index}].ssh.user`           | `true` (If the SSH private key is specified) |         | The username used for SSH communication with GitLab.                                                                                                                   |
-| `--moderne.agent.gitlab[{index}].ssh.port`           | `false`                                      | `7999`  | The port used to communicate via SSH with GitLab.                                                                                                                      |
+| `--moderne.agent.gitlab[{index}].ssh.port`           | `false`                                      | `22`    | The port used to communicate via SSH with GitLab.                                                                                                                      |
 
 **Example:**
 
