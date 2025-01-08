@@ -35,7 +35,7 @@ If everything was configured correctly, you should be able to type `mod` into yo
 ```bash
 ➜ mod
 
-Moderne CLI 3.27.3
+Moderne CLI 3.28.0
 
 Usage:
 
@@ -164,7 +164,7 @@ If you need to enter an SSH passphrase to clone repositories, please see our [SS
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.27.3
+Moderne CLI 3.28.0
 
 > Cloning organization from Moderne
 
@@ -228,7 +228,7 @@ Netflix         apache          aws             awslabs         clone.log       
 
 </details>
 
-4. Now that you have the repositories on your local machine, you'll need to build the [Lossless Semantic Trees](https://docs.moderne.io/concepts/lossless-semantic-trees) (LSTs) for them so that you can run recipes against them. Fortunately, since most of these repositories have their LSTs published to the Moderne Platform, the build operation will download the LSTs without you having to build them locally. This will save you a ton of time!
+4. Now that you have the repositories on your local machine, you'll need to build the [Lossless Semantic Trees](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) (LSTs) for them so that you can run recipes against them. Fortunately, since most of these repositories have their LSTs published to the Moderne Platform, the build operation will download the LSTs without you having to build them locally. This will save you a ton of time!
 
 :::info
 By default, the CLI is able to build LSTs for well-formed projects (i.e. projects that build well with a plain `mvn verify` or `gradle build`). At times, however, you may encounter a project that fails to build. This could be because of a hidden dependency on certain tooling, like NPM, or because specific dependencies or repositories are not available without additional configuration.
@@ -245,7 +245,7 @@ mod build . --download-only
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.27.3
+Moderne CLI 3.28.0
 
 > Selecting repositories
 
@@ -382,7 +382,7 @@ mod run . --recipe DependencyVulnerabilityCheck
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.27.3
+Moderne CLI 3.28.0
 
 > Selecting repositories
 
@@ -506,7 +506,7 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.27.3
+Moderne CLI 3.28.0
 
 Found recipe run 20240904083238-wRnHo
 
@@ -613,7 +613,7 @@ mod run . --recipe CommonStaticAnalysis
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.27.3
+Moderne CLI 3.28.0
 
 > Selecting repositories
 
@@ -698,7 +698,7 @@ mod git checkout . -b workshop-changes --last-recipe-run
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.27.3
+Moderne CLI 3.28.0
 
 Found recipe run 20240904084031-xdbaB
 
