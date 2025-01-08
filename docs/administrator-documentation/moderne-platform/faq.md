@@ -20,4 +20,4 @@ By providing a list of every repository, even if they aren't ingested into the M
 
 If you need help configuring your Organizations service to return all repositories, please see our [reference implementation](https://github.com/moderneinc/moderne-organizations) which uses a [repos.csv](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/repos.csv) to expose all repositories – as well as [scripts that you can use to identify those repositories in your source control](https://github.com/moderneinc/repository-fetchers).
 
-Of course, you're also welcome to build your own service that fulfills [the GraphQL contract we provide](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/moderne-organizations.graphqls). 
+Of course, you're also welcome to build your own service that fulfills [the GraphQL contract we provide](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls). 

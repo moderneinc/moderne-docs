@@ -57,7 +57,7 @@ If everything was configured correctly, you should be able to type `mod` into yo
 ```bash
 ➜ mod
 
-Moderne CLI 3.27.3
+Moderne CLI 3.28.0
 
 Usage:
 
@@ -104,7 +104,7 @@ In order to run recipes, you'll need to ensure the CLI is configured with a lice
 mod config license edit <license-you-were-provided>
 ```
 
-_For more information on the Moderne CLI license, please see our [license documentation](../getting-started/moderne-cli-license)_
+_For more information on the Moderne CLI license, please see our [license documentation](../getting-started/moderne-cli-license.md)._
 
 ### Step 4: Configure the CLI to point to your internal artifact repository
 

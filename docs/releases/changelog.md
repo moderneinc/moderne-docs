@@ -1,4 +1,45 @@
 # Platform changelog
+### UI v10.180.1 (2025/01/06)
+
+- Bug fixes and other improvements.
+
+### UI v10.180.0 (2025/01/04)
+
+- Bug fixes and other improvements.
+
+### UI v10.179.2 (2024/12/27)
+
+- Bug fixes and other improvements.
+
+### UI v10.179.1 (2024/12/24)
+
+- Bug fixes and other improvements.
+
+### UI v10.179.0 (2024/12/24)
+
+- add more category logo support
+
+### UI v10.178.1 (2024/12/23)
+
+- Bug fixes and other improvements.
+
+### UI v10.178.0 (2024/12/23)
+
+When the screen shrinks vertically, vertical scrolling has been replaced with a `More` menu for the left-hand navigation menu.
+![397132720-bd778af0-1076-479d-b608-82cf72b180c9](https://github.com/user-attachments/assets/511e7fd0-c61d-4290-befa-9a059faddebc)
+
+### UI v10.177.1 (2024/12/23)
+
+- Bug fixes and other improvements.
+
+### UI v10.177.0 (2024/12/21)
+
+- add more logo support
+
+### UI v10.176.1 (2024/12/19)
+
+- Bug fixes and other improvements.
+
 ### UI v10.176.0 (2024/12/13)
 
 - Bug fixes and other improvements.

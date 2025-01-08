@@ -8,6 +8,18 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Moderne's next chapter in AI innovation (January 8th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=ZSGOT0aAwVw' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
+### Close out the year by closing in on unused dependencies (December 18th, 2024)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=TMjpc-a1qN4' controls="true" />
+
 ### Remove unused dependencies - live coding (December 11th, 2024)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=LeXgFhU9wT4' controls="true" />
@@ -25,7 +37,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * **Code Remix Summit**:
     * [As a reminder, we will be hosting a Code Remix summit in May of next year. Definitely consider joining us there!](https://coderemix.ai/)
 * **Main topic - removing unused dependencies**
-  * Sam started off by giving some background on the [Remove Unused Dependencies recipe](https://github.com/openrewrite/rewrite-java-dependencies/compare/main...remove-unused).
+  * Sam started off by giving some background on the [Remove Unused Dependencies recipe](https://docs.openrewrite.org/recipes/java/dependencies/removeunuseddependencies).
   * He then took a look at the recipe itself - taking the time to explain the various components and why things were written like they were.
   * As part of doing that, he showed how to use breakpoints in tests to figure out what is available to interact with.
   * With the explanations of how it all works done, he then moved on to live coding a test for this recipe – making sure to explain what he was doing and why.
@@ -189,7 +201,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
       - org.openrewrite.staticanalysis.RemoveExtraSemicolons
       - org.openrewrite.staticanalysis.InlineVariable
     ```
-  * [Sam shared his kill your zombie dependencies recipe he's been working on](https://github.com/openrewrite/rewrite-java-dependencies/compare/main...remove-unused).
+  * [Sam shared his kill your zombie dependencies recipe he's been working on](https://docs.openrewrite.org/recipes/java/dependencies/removeunuseddependencies).
   * [Tim then talked about how to clear how feature flags](https://github.com/openrewrite/rewrite-feature-flags/issues/14).
 
 ### Automating breaking change detection (October 16th, 2024)
@@ -250,7 +262,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * [Tim will also also also present at Belgium JUG on October 24th](https://www.meetup.com/belgian-java-user-group/events/)
 * **Main topic for the week**:
   * Sam started off by showing off the [Find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck). While the results may look similar to what you're used to - the tech behind it has totally changed.
-  * He then took us through the significant rewrite of [this recipe](https://github.com/openrewrite/rewrite-java-dependencies/blob/main/src/main/java/org/openrewrite/java/dependencies/DependencyVulnerabilityCheck.java).
+  * He then took us through the significant rewrite of [this recipe](https://docs.openrewrite.org/recipes/nodejs/dependencyvulnerabilitycheck).
 
 ### The Moderne Recipe Builder in action (September 25th, 2024)
 
@@ -263,7 +275,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * **Releases**:
     * [We released a new version of OpenRewrite this week](https://x.com/OpenRewrite/status/1838703757330387052). Highlights include:
       * [Support for Java 23](https://github.com/openrewrite/rewrite/compare/v8.35.0...v8.36.0)
-      * [The first rewrite-android release](https://github.com/openrewrite/rewrite-android/releases/tag/v0.1.0)
+      * The first `rewrite-android` release.
       * [An overhaul of vulnerability checks in Java](https://github.com/openrewrite/rewrite-java-dependencies/releases/tag/v1.19.0)
       * [Multiple fixes to Mockito handling](https://github.com/openrewrite/rewrite-testing-frameworks/releases/tag/v2.19.0)
       * [The migration of HttpStatus to HttpStatusCode](https://github.com/openrewrite/rewrite-spring/releases/tag/v5.20.0)
@@ -306,7 +318,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 * **Main topic for the week - dependency management**
   * We started off by giving some background on dependency management. When creating software nowadays, a significant amount of code will be dependent on external libraries that you don't manage. These dependencies, while necessary, also cause a lot of issues. For instance, you'll have to deal with vulnerabilities or breaking changes in these dependencies. Those pain points were part of the motivation for creating OpenRewrite to begin with.
   * Sam then walked us through a variety of dependency management recipes – starting with the [Upgrade Gradle dependency versions recipe](https://app.moderne.io/recipes/org.openrewrite.gradle.UpgradeDependencyVersion) – then the [Find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck) – and then the [Update Gradle wrapper recipe](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper).
-  * During the session, we had a community question that asked if people can use OpenRewrite recipes for private GitHub repositories or if that requires payment. To answer that – all OpenRewrite recipes are free and open-source to use on any project. If you need to run recipes against multiple repositories, though - you should check out [Moderne](/introduction.md) and the [Moderne CLI](../user-documentation/moderne-cli/getting-started/cli-intro.md).
+  * During the session, we had a community question that asked if people can use OpenRewrite recipes for private GitHub repositories or if that requires payment. To answer that – all OpenRewrite recipes are free and open-source to use on any project. If you need to run recipes against multiple repositories, though - you should check out [Moderne](../introduction.md) and the [Moderne CLI](../user-documentation/moderne-cli/getting-started/cli-intro.md).
   * We then took a look at the [recipe code](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/UpgradeDependencyVersion.java) and Sam called out a few key pieces – such as the fact that Gradle dependency recipes will often have a [Groovy Visitor](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/UpgradeDependencyVersion.java#L148) (since `.gradle` files are written in Groovy script). Another important thing to note is that you can use [GradleDependencyConfiguration](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/UpgradeDependencyVersion.java#L678) to access the Gradle dependency configuration by name.
   * After that, [we took a look at the tests](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/test/java/org/openrewrite/gradle/UpgradeDependencyVersionTest.java) and explained what happens when you run a Gradle test. 
   * Another important thing to know about creating Gradle recipes is that most things in a Groovy script are method invocations (e.g., `repositories {}`, `mavenCentral()`, `compileOnly ...` are all method invocations). Also, since Groovy scripts are dynamically typed – you won't always have static type information available (which you would in Java). This means things like method matchers may not be as reliable as you'd like.
@@ -365,7 +377,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * We welcomed Valentin and Sridhar who are both Jenkins contributors and active OpenRewrite users. They started off by sharing some background on themselves and Jenkins in general. Jenkins, having been around for such a long time, has thousands of plugins and configurations that people have extended and need support with. Updating each plugin is a laborious and manual process – which results in many plugins falling behind.
   * Valentin then explained [how they came to find and use OpenRewrite](https://summerofcode.withgoogle.com/programs/2024/projects/anaMmWRR) to address their problems. This culminated in the [Jenkins plugin modernizer tool](https://github.com/jenkinsci/plugin-modernizer-tool/) that both of them built during the Google Summer of Code.
   * [He then presented on the architecture of the tool and where OpenRewrite fits into it](https://github.com/jenkinsci/plugin-modernizer-tool/blob/main/docs/ARCHITECTURE.md).
-  * [Next up Sridhar showed off the OpenRewrite recipes they've developed](https://github.com/jenkinsci/plugin-modernizer-tool/blob/main/plugin-modernizer-core/src/main/java/io/jenkins/tools/pluginmodernizer/core/extractor/MetadataCollector.java).
+  * Next up Sridhar showed off the OpenRewrite recipes they've developed.
   * We then discussed the impact of this tool and what their approach has been. They explained that they aren't using this at mass scale right now. Instead, they are wanting to run it against the top 200 plugins to focus on making sure it works for them.
   * After that we took a look at the "health" of Jenkins plugins and what that means with the idea being that it would be interesting to target plugins that are popular but don't have high health scores.
   * There was then a brief discussion about parsing files and what might be beneficial to support going forward.
@@ -387,7 +399,6 @@ You can find each of the Code Remix sessions below along with a summary of what 
       * AI technologies and techniques at work
       * Various use cases for AI when working with large codebases
       * Considerations for large enterprises
-      * You can use [this QR code](https://www.canva.com/design/DAGKXgbdAMo/ryZU_qS3tIvVeWt_q_V_-Q/edit) to pre-order this free ebook.
     * [We have three new videos about using the Moderne CLI that address configuring the CLI, building LSTs, and running recipes](https://www.youtube.com/@Moderne-and-OpenRewrite/videos).
   * **Releases**:
     * [We did a full release of OpenRewrite this week](https://docs.openrewrite.org/changelog/8-34-0-release).
@@ -442,7 +453,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * We started off by explaining how this feature came about. A company that uses our product wanted to switch access providers and they wanted to find everywhere that they were making a call with a particular header. They saw we had a [Find method usages recipe](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods) - which does a great job at finding methods if you know _exactly_ where they come from and how they're defined. Unfortunately, they didn't know all of the libraries or methods that needed to be changed to plug in to this recipe. They wanted to be able to ask, "Where in my code base am I dealing with HTTP headers?" or "Where in my code base am I doing user authentication?"
   * This led in to the next recipe - [Finding method invocations that resemble a pattern](https://app.moderne.io/recipes/io.moderne.ai.research.FindCodeThatResembles). This uses AI to process a natural language query to find methods. We then walked through all of the details you need to know about this recipe. For more information on this, check out our [docs discussing how to use this recipe](/user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern.md).
   * To help explain how the AI stuff works, Justine created a diagram of what's actually happening when the recipe runs.
-    * To understand the diagram and what Justine is talking about, you may want to check out our [documentation on Scanning Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) or our [documentation on embeddings](../user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering#embeddings).
+    * To understand the diagram and what Justine is talking about, you may want to check out our [documentation on Scanning Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) or our [documentation on embeddings](../user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering.md#embeddings).
     * You can also find the diagram and a detailed explanation of it in our [blog post about AI code search at scale](https://www.moderne.ai/blog/ai-code-search-at-scale-finding-method-invocations-with-natural-language)
   * After a detailed explanation, we then jumped over to looking at what the results of the recipe run looked like.
   * We then dove into how you might [use those results to create or run recipes that are more focused and accurate](../user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern.md#gain-insight-from-the-results).
@@ -458,15 +469,15 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 * Announcements for the week
   * **Releases**:
-    * [We did a new full release of OpenRewrite (8.33.4)](https://docs.openrewrite.org/changelog/8-33-4-release).
+    * We did a new full release of OpenRewrite 8.33.4.
       * We are now better able to handle larger projects. Also, we've started working towards supporting Azure DevOps and .Net.
     * [We recommend you use the rewrite-recipe-bom to align all of your versions](https://github.com/openrewrite/rewrite-recipe-bom/releases/tag/v2.17.0)
-    * [There's a new rewrite recipe module: rewrite-reactive-streams](https://github.com/openrewrite/rewrite-reactive-streams).
+    * There's a new rewrite recipe module: `rewrite-reactive-streams`.
       * This is now included with Spring Boot upgrades.
     * [Rewrite-micrometer is now also included with Spring Boot upgrades](https://github.com/openrewrite/rewrite-spring/releases/tag/v5.17.0)
     * [There were a ton of fixes and additions to rewrite-testing-frameworks](https://github.com/openrewrite/rewrite-testing-frameworks/releases/tag/v2.16.0)
       * Notably, there were a lot of new recipes around AssertJ migrations.
-    * [There were usability improvements for rewrite-kubernetes](https://github.com/openrewrite/rewrite-kubernetes/compare/v2.7.2...v2.8.1)
+    * There were usability improvements for `rewrite-kubernetes`
       * We now show which elements are missing and no longer show false positives on other files.
     * [Rewrite-gradle-plugin](https://github.com/openrewrite/rewrite-gradle-plugin/compare/v6.17.0...v6.20.0) and [rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin/compare/v5.37.0...v5.39.0) are faster on larger projects and have a variety of other nice changes.
   * **External recipes**:
@@ -474,7 +485,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * **Events**
     * [Tim will be presenting at Devoxx Belgium in October](https://devoxx.be/schedule/speaker-details/?id=3951).
       * He'll be giving a workshop on OpenRewrite and Refaster.
-    * [Mike Solomon will be doing a webinar with GitBook on September 17th about how we use CI/CD to generate many of our docs](https://www.gitbook.com/events/gitbook-moderne-september-24)
+    * [Mike Solomon will be doing a webinar with GitBook on September 17th about how we use CI/CD to generate many of our docs](https://www.gitbook.com/events/events/gitbook-moderne-september)
 *   We then welcomed [Marit van Dijk](https://github.com/mlvandijk) and began our main topic for the week – OpenRewrite + IntelliJ IDEA.
 
     * Marit is a developer advocate and Java Champion from JetBrains. She's good friends with Tim and they've been traveling to many of the same conferences together – where they would both talk about IntelliJ IDEA and OpenRewrite.
@@ -504,7 +515,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 * Announcements for the week
   * **Upcoming features**:
-    * [New recipe to find and fix vulnerable NPM dependencies](https://github.com/openrewrite/rewrite-nodejs/pull/8)
+    * [New recipe to find and fix vulnerable NPM dependencies](https://docs.openrewrite.org/recipes/nodejs/dependencyvulnerabilitycheck)
     * [New recipe to create software bill of materials](https://github.com/openrewrite/rewrite-java-dependencies/commit/90a31e7ad1a28cb2688023afe2dfb8e3c85058bc)
     * The next version of the Maven and Gradle plugin will come with optimizations for GitProvenance.
   * **AI**:
@@ -523,7 +534,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 * Announcements for the week
   * **Releases**:
-    * [We did a new full release of OpenRewrite (8.32.0)](https://docs.openrewrite.org/changelog/8-32-0-release). Notable changes include:
+    * We did a new full release of OpenRewrite 8.32.0. Notable changes include:
       * [Data table exports for Gradle](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v6.17.0)
       * [The Maven plugin can configure a single recipe from command line arguments](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v5.37.0)
       * [A ton of fixes in OpenRewrite itself](https://github.com/openrewrite/rewrite/compare/v8.30.0...v8.32.0)
@@ -539,7 +550,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * Another powerful recipe worth calling out is the [Merge YAML snippet recipe](https://app.moderne.io/recipes/org.openrewrite.yaml.MergeYaml) – which allows you to merge substantial YAML components together.
     * We then took a look at some of the [Merge YAML tests](https://github.com/openrewrite/rewrite/blob/main/rewrite-yaml/src/test/java/org/openrewrite/yaml/MergeYamlTest.java) - which demonstrate some of the functionality. For instance, you can use it to [entirely populate a fresh YAML file](https://github.com/openrewrite/rewrite/blob/main/rewrite-yaml/src/test/java/org/openrewrite/yaml/MergeYamlTest.java#L54-L79) or you can [merge a complex block into an existing YAML document while not overriding existing values](https://github.com/openrewrite/rewrite/blob/main/rewrite-yaml/src/test/java/org/openrewrite/yaml/MergeYamlTest.java#L722-L754). In the latter example, you can see that we identified that `name` is the unique key for the YAML list (`objectIdentifyingProperty`) - so the recipe can know when to add something or not.
   * After that, we took a brief look at the [YAML LST](https://docs.openrewrite.org/concepts-and-explanations/yaml-lst-examples) – which is much simpler than that Java LST.
-  * To go along with that, we then jumped over to review the code for a YAML recipe. Specifically, the [SetupJavaCaching recipe](https://github.com/openrewrite/rewrite-github-actions/blob/main/src/main/java/org/openrewrite/github/SetupJavaCaching.java) - which is part of a larger collection of [GitHub action recipes](https://docs.openrewrite.org/recipes/github).
+  * To go along with that, we then jumped over to review the code for a YAML recipe. Specifically, the [SetupJavaCaching recipe](https://docs.openrewrite.org/recipes/github/setupjavacaching) - which is part of a larger collection of [GitHub action recipes](https://docs.openrewrite.org/recipes/github).
     * You'll notice that the `SetupJavaCaching` recipe is largely implemented through the YAML `FindKey` and `MergeYaml` recipe.
     * One important thing to note is the pattern of "edit-or-add". `MergeYaml` will return a new object rather than updating the existing object. Because of that, you can use referential equality to check if anything has changed after it's run. If nothing changed (i.e., it's referentially the same object as before), then you can add a new key, for instance.
     * Also note that this recipe uses a precondition to limit what source files it runs on.
@@ -557,7 +568,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * We launched a new website with bright new colors and fresh content! Check it out: [https://www.moderne.ai](https://www.moderne.ai/)
     * [We recently related a blog post summarizing the Code Remix session with Jente](https://www.moderne.ai/blog/jente-sondervorst-software-engineer-at-colruyt-moving-code-forward-with-openrewrite-recipes)
   * **Releases**:
-    * [We did a new full release of OpenRewrite (8.30.0)](https://docs.openrewrite.org/changelog/8-30-0-release).
+    * We did a new full release of OpenRewrite (8.30.0).
       * Notable changes include adding traits to support flexible new use cases with minimal API, 30+ new recipes, and 11 new contributors.
     * There are new recipes to migrate from Gradle Enterprise to Develocity.
     * Rewrite-micrometer now supports `1.13.x` migration
@@ -632,7 +643,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 * Announcements for the week:
   * **Releases**:
     * We did a new release of all recipe modules, the Maven and Gradle plugins and the `rewrite-recipe-bom`.
-    * You can find the 30+ new recipes in the [8.29.0 changelog](https://docs.openrewrite.org/changelog/8-29-0-release).
+    * You can find the 30+ new recipes in the 8.29.0 changelog.
     * There were over a dozen new contributors in the past two weeks!
     * [Maven had some notable improvements and fixes](https://github.com/openrewrite/rewrite/releases/tag/v8.29.0).
     * [We also added support for migrating Java Util Logging to SLF4J](https://github.com/openrewrite/rewrite-logging-frameworks/releases/tag/v2.10.0)
@@ -693,7 +704,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * [We then went over a few other third-party recipes that have been integrated into the rewrite-third-party library](https://youtu.be/kdqdC6C5UA4?t=1178).
     * These include: [TimeFold](https://docs.timefold.ai/timefold-solver/latest/upgrade-and-migration/migrate-from-optaplanner), [Quarkus](https://github.com/quarkusio/quarkus-updates), and [Morphia](https://github.com/MorphiaOrg/morphia/blob/master/upgrading/UpgradeTo30.yml).
   * [After that, we went through some third-party recipes that _haven't_ been integrated](https://youtu.be/kdqdC6C5UA4?t=1455) - that we discovered via people posting in our community Slack. If you have any recipes you're working on, please let us know there, too!
-    * We talked through: [Azure Spring Rewrite](https://github.com/Azure/azure-spring-rewrite), [AWS SDK for Java v2](https://github.com/aws/aws-sdk-java-v2/tree/feature/master/migration-tool/migration-tool), [Redhat's WindUp migrations to Quarkus](https://github.com/windup/windup-rulesets/blob/f02cd0fe1f2400e906446cc7b20c13b02b598eaf/rules/rules-reviewed/openrewrite/jakarta/javax/imports/rewrite.yml), and [Gradle Enterprise to Develocity](https://github.com/jean-andre-gauthier/gradle-enterprise-to-develocity-recipe).
+    * We talked through: [Azure Spring Rewrite](https://github.com/Azure/azure-spring-rewrite), AWS SDK for Java v2, [Redhat's WindUp migrations to Quarkus](https://github.com/windup/windup-rulesets/blob/f02cd0fe1f2400e906446cc7b20c13b02b598eaf/rules/rules-reviewed/openrewrite/jakarta/javax/imports/rewrite.yml), and [Gradle Enterprise to Develocity](https://github.com/jean-andre-gauthier/gradle-enterprise-to-develocity-recipe).
   * [Next was talking through a larger migration effort taking place that we want to eventually integrate back into OpenRewrite](https://youtu.be/kdqdC6C5UA4?t=1773)
     * Specifically, there's work on migrating from [TestNG to JUnit 5](https://github.com/Philzen/rewrite-TestNG-to-JUnit5) and [TestNG to Jupiter](https://github.com/MBoegers/migrate-testngtojupiter-rewrite/).
   * Lastly, we highlighted an issue where we're tracking all known third-party recipes
@@ -778,7 +789,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * **Content**:
     * [We released a new video about recruiting and retaining top tech talent](https://www.youtube.com/watch?v=D_2HT2n_3PM).
     * [Tim's session from Spring I/O is also available to watch](https://www.youtube.com/watch?v=KlQZH6WHa2c)
-    * [The workshop that Tim gave on creating recipes is also available in our docs](../user-documentation/workshops/recipe-authoring).
+    * [The workshop that Tim gave on creating recipes is also available in our docs](../user-documentation/workshops/recipe-authoring.md).
 * [We then began our main discussion for the week – recipe authoring best practices](https://youtu.be/6_w6gx7GPII?t=492)
   * [We've created a detailed doc about recipe conventions and best practices that covers a lot of the points being discussed in this session](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices).
   * Sam began by talking about a common mistake people make when first creating recipes – [not making them idempotent and immutable](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#recipes-must-be-idempotent-and-immutable). What this means is that if a recipe is given the same LST and configuration, it should _always_ produce the same result. To go along with that, a recipe's behaviour _should not_ be influenced by LSTs which have been visited previously.
@@ -805,7 +816,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 * [Announcements for the week](https://youtu.be/lNLo6i7SVGI?t=28)
   * **Events**:
-    * Sam will be doing [another sessions of his fundamentals of migration engineering webinar](https://nofluffjuststuff.com/webinar/116/migration_engineering_w_openrewrite) as the last one was accidentally not recorded.
+    * Sam will be doing another sessions of his fundamentals of migration engineering webinar as the last one was accidentally not recorded.
     * On top of that, Sam will also be giving a webinar about [the fundamentals of migration engineering 2](https://nofluffjuststuff.com/webinar/117/migration_engineering_w_openrewrite_ii) on June 7th – a follow-up to the previous webinar.
   * **Content**:
     * [We released a blog post about the Moderne IDE plugin](https://www.moderne.io/blog/introducing-the-moderne-ide-plugin-for-jetbrains-intellij-idea). This covers a lot of what we discussed in the last office hours.
@@ -829,7 +840,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
       * Sam found an example in the [Netflix/mantis repository](https://github.com/Netflix/mantis) so he cloned that and built it locally
     * To go along with this, [Sam demonstrated how to add the OpenRewrite build plugins to a project](https://youtu.be/lNLo6i7SVGI?t=2215) so that you can use them to debug a recipe.
     * [He then walked through setting up a debugger in IntelliJ IDEA and adding breakpoints that you can start from](https://youtu.be/lNLo6i7SVGI?t=2545).
-    * While the project was building, Sam mentioned that one of the downsides of using the OpenRewrite plugins instead of the CLI is that the plugins have to parse all the code every time rather than serializing the code to disk so it can be re-used. For more information about this, check out [our summary of the differences between the two](../user-documentation/moderne-cli/getting-started/cli-intro#differences-between-the-moderne-cli-and-the-openrewrite-build-plugins).
+    * While the project was building, Sam mentioned that one of the downsides of using the OpenRewrite plugins instead of the CLI is that the plugins have to parse all the code every time rather than serializing the code to disk so it can be re-used. For more information about this, check out [our summary of the differences between the two](../user-documentation/moderne-cli/getting-started/cli-intro.md#differences-between-the-moderne-cli-and-the-openrewrite-build-plugins).
     * Next up was [utilizing the debugger to look into what is happening](https://youtu.be/lNLo6i7SVGI?t=2930).
       * Sam demonstrated how to use the cursor to figure out where you are when you're debugging a recipe.
   * We ran out of time towards the end, but [Sam briefly described the steps needed to use the Moderne CLI to debug a recipe](https://youtu.be/lNLo6i7SVGI?t=3328).
@@ -843,9 +854,9 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 * [Announcements for the week](https://youtu.be/egf5Q3fb6W0?t=30)
   * **Events**:
-    * Tim will be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/). He'll be giving a talk and an interactive workshop there. If you want to check out the workshop for yourself ahead of time, you can find it [in our docs right now](../user-documentation/workshops/recipe-authoring).
+    * Tim will be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/). He'll be giving a talk and an interactive workshop there. If you want to check out the workshop for yourself ahead of time, you can find it [in our docs right now](../user-documentation/workshops/recipe-authoring.md).
     * Tim also will be at [JNation.pt on June 5th to give a workshop on recipe authorship](https://jnation.pt/workshops/)
-    * Sam will be [hosting a No-fluff-just-stuff webinar on the fundamental of migration engineering on Friday, May 31st](https://nofluffjuststuff.com/webinar/116/migration_engineering_w_openrewrite).
+    * Sam will be hosting a No-fluff-just-stuff webinar on the fundamental of migration engineering on Friday, May 31st.
   * **Content**:
     * If you prefer reading to watching, [we released a blog post about the Moderne IDE plugin](https://www.moderne.io/blog/introducing-the-moderne-ide-plugin-for-jetbrains-intellij-idea) this week that covers a lot of what we'll discuss in this office hours.
     * We also created a bunch of developer-focused docs about the [Moderne IDE plugin that are focused on installing, configuring, and using the plugin](../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md).
@@ -889,12 +900,12 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * **Cool milestone**:
     * There are now over 2,500 recipes available in the Moderne Platform! 🎉
   * **Events**:
-    * Tim will be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/). He'll be giving a talk and an interactive workshop there. If you want to check out the workshop for yourself ahead of time, you can find it [in our docs right now](../user-documentation/workshops/recipe-authoring).
+    * Tim will be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/). He'll be giving a talk and an interactive workshop there. If you want to check out the workshop for yourself ahead of time, you can find it [in our docs right now](../user-documentation/workshops/recipe-authoring.md).
   * **Content**:
     * We recently released a video about [how to fix security vulnerabilities across your entire codebase quickly with Moderne](https://www.youtube.com/watch?v=g97-2br6pug)
   * **Releases**:
     * Spring Boot is doing a release this week. Fortunately, we have you covered with recipes already available to help with migration.
-    * We also [released OpenRewrite 8.27.1 along with many new recipes](https://docs.openrewrite.org/changelog/8-27-1-release) (many of which help with the new Spring Boot release).
+    * We also released OpenRewrite 8.27.1 along with many new recipes (many of which help with the new Spring Boot release).
 * [We then welcomed DaShaun Carter to the office hours](https://youtu.be/UyB12RbUPUI?t=263):
   * DaShaun is a developer advocate who is heavily involved in the community and has given numerous talks about OpenRewrite.
   * He started off by giving some context into the talks he's given and why he's doing it. It was exciting to see that it's had a recursive effect where people he's taught then go on to teach others and give their own presentations.
@@ -916,7 +927,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 * [Announcements for the week](https://youtu.be/svNf6qHUYXA?t=31):
   * **Events**:
     * Tim will be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/). He'll be giving a talk and an interactive workshop there.
-    * Sam will be giving [a webinar about OpenRewrite fundamentals on May 31st at NFJS 2024](https://nofluffjuststuff.com/webinar/116/migration_engineering_w_openrewrite). There will be a second part the following week about writing custom recipes using OpenRewrite. If you want to learn how to write your own recipes, definitely consider checking that out!
+    * Sam will be giving a webinar about OpenRewrite fundamentals on May 31st at NFJS 2024. There will be a second part the following week about writing custom recipes using OpenRewrite. If you want to learn how to write your own recipes, definitely consider checking that out!
   * **Content**:
     * We've released the [latest Moderne monthly newsletter](https://www.linkedin.com/pulse/its-mai-moderne-moderneinc-hqxhc/). It's a high-level summary of key events, talks, presentations, etc. Consider subscribing if you haven't already.
 * [OpenRewrite parsers](https://youtu.be/svNf6qHUYXA?t=180):
@@ -942,16 +953,16 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 * Announcements for the week:
   * **Releases**:
-    * We've done a new full release of `rewrite` and the `rewrite-recipe-bom`. For a full list of changes, check out our [changelog over on the OpenRewrite docs](https://docs.openrewrite.org/changelog/8-25-0-release).
+    * We've done a new full release of `rewrite` and the `rewrite-recipe-bom`. For a full list of changes, check out our changelog over on the OpenRewrite docs.
       * It's really exciting to see so many new contributors to OpenRewrite. For [rewrite-spring](https://github.com/openrewrite/rewrite-spring), every commit in the past few weeks has been from a new contributor! One notable addition is an explicit [Spring Framework 6 migration recipe](https://docs.openrewrite.org/recipes/java/spring/framework/upgradespringframework_6_0) added by [@pativa](https://github.com/pativa).
       * With the latest versions of the build plugins, you'll now get a report on how much time you've saved from running a recipe.
       * You'll also find that if you slightly misspell a recipe name that you'll get a hint about what you may have meant instead. This should help improve the debugging experience.
       * We've created a [doc explaining how to use data tables with the Maven plugin](https://docs.openrewrite.org/running-recipes/data-tables). Keep in mind this is fairly limited, and you'll need to use [Moderne](https://docs.moderne.io/) to get the full benefit of data tables.
-      * We've added a new recipe module this week - [rewrite-jackson](https://github.com/openrewrite/rewrite-jackson). As part of that, we added [a recipe to help you migrate from Jackson Codehaus to Jackson FasterXML](https://github.com/openrewrite/rewrite-jackson/blob/main/src/main/resources/META-INF/rewrite/codehaus-to-fasterxml.yml).
+      * We've added a new recipe module this week - `rewrite-jackson`. As part of that, we added [a recipe to help you migrate from Jackson Codehaus to Jackson FasterXML](https://docs.openrewrite.org/recipes/java/jackson/codehaustofasterxml).
   * **Events**:
     * Tim will be at [JCON Europe from May 13th - 16th](https://jconeurope2024.sched.com/). He will be giving a talk on [Transforming Code with OpenRewrite and Refaster](https://jconeurope2024.sched.com/event/1Z2tI/transforming-code-with-openrewrite-and-refaster) and [Weeding your Micro Service Landscape](https://jconeurope2024.sched.com/event/1YwSG/weeding-your-micro-service-landscape).
     * We'll be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/).
-    * Sam will be giving [a webinar about OpenRewrite fundamentals on May 31st at NFJS 2024](https://nofluffjuststuff.com/webinar/116/migration_engineering_w_openrewrite). There will be a second part the following week about writing custom recipes using OpenRewrite. If you want to learn how to write your own recipes, definitely consider checking that out!
+    * Sam will be giving a webinar about OpenRewrite fundamentals on May 31st at NFJS 2024. There will be a second part the following week about writing custom recipes using OpenRewrite. If you want to learn how to write your own recipes, definitely consider checking that out!
   * **Content**:
     * We wrote a blog post about [four ways Moderne hardens your code against security vulnerabilities](https://www.moderne.io/blog/best-practices-for-preventing-cybersecurity-threats). At a high-level, we can help by doing in-depth code analysis, static code analysis, software composition analysis, and third-party code migration.
     * We wrote a LinkedIn post about [using OpenRewrite and Moderne for mass-scale refactoring](https://www.linkedin.com/pulse/game-changer-developers-mass-scale-refactoring-moderneinc-x2eic/). This is a great introduction to both of the tools and could be helpful if you're looking to help onboard someone.
@@ -987,7 +998,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * **Releases**:
     * Shout out to [Ryan Hudson](https://github.com/ryan-hudson) who [added support for data tables to the rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin/pull/751).
       * Please feel free to jump in and add similar support to the [rewrite-gradle-plugin](https://github.com/openrewrite/rewrite-gradle-plugin).
-      * If you want to learn more about data tables, check out our [getting started with data tables doc](../user-documentation/moderne-platform/getting-started/data-tables) that shows how useful they can be at scale with Moderne.
+      * If you want to learn more about data tables, check out our [getting started with data tables doc](../user-documentation/moderne-platform/getting-started/data-tables.md) that shows how useful they can be at scale with Moderne.
   * **Events**:
     * Tim will be at [JCON Europe from May 13th - 16th](https://jconeurope2024.sched.com/). He will be giving a talk on [Transforming Code with OpenRewrite and Refaster](https://jconeurope2024.sched.com/event/1Z2tI/transforming-code-with-openrewrite-and-refaster) and [Weeding your Micro Service Landscape](https://jconeurope2024.sched.com/event/1YwSG/weeding-your-micro-service-landscape). He has a limited amount of free tickets to give away if you'd like to attend and are going to be in Germany at that time. Please reach out to him to learn more.
     * We'll be at [Spring I/O in Barcelona from May 30th - 31st](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/).
@@ -1005,7 +1016,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * ![AssertJ best practices recipe](./assets/assertj-recipes.png)
     * ![AssertJ best practices sub-recipes](./assets/assertj-sub-recipes.png)
   * On a related note, [here is an example PR where Tim applied some JUnit5 best practices to an open-source project that got accepted and eventually led to discussions about migrating to AssertJ5](https://github.com/apache/shiro/pull/1338#issuecomment-1974747390).
-  * We then dove into [how to get started with running recipes](../user-documentation/moderne-platform/getting-started/running-your-first-recipe) and [creating your own user organization in Moderne](../user-documentation/moderne-platform/how-to-guides/managing-user-configured-organizations).
+  * We then dove into [how to get started with running recipes](../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md) and [creating your own user organization in Moderne](../user-documentation/moderne-platform/how-to-guides/managing-user-configured-organizations.md).
   * We then ran the AssertJ best practices recipe against the shrio repository to demonstrate what it does and how effective it is. In \~1 minute, the recipe made nearly 100 changes, and it estimates that saved someone 8 _hours_ of work. You can imagine that this would be even more effective if run across hundreds or thousands of repos at a time.
   * Once the recipe finished, we created a fork with all of the changes (which is how we'd recommend proceeding if you are contributing to a project you don't own). We demonstrated that the project still compiles with all of the changes and discussed some of the issues you may run into - such as a recipe note automating _everything_ (if it doesn't, please consider contributing to the recipe to improve them - as [we saw someone do this past week](https://github.com/openrewrite/rewrite-apache/pull/16)).
   * After that, we took a look at the [Apache Maven Dev Center](https://app.moderne.io/devcenter/Apache%20Maven) and talked through how you can create dashboards like this to track key upgrades or migrations your organization needs to make. In the Maven case, you can see that 75% of their projects are still on Java 8. For each of these issues, a recipe is provided for how to fix the issue – such as a [migrate to Java 21 recipe](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21).
@@ -1023,7 +1034,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 * Announcements for the week:
   * **Releases**:
-    * We've done a new full release of `rewrite` and the `rewrite-recipe-bom`. For a full list of changes, check out our [changelog over on the OpenRewrite docs](https://docs.openrewrite.org/changelog/8-24-0-release). Special shout out to the folks over at IBM who contributed a ton of changes on the `rewrite-migrate-java` project.
+    * We've done a new full release of `rewrite` and the `rewrite-recipe-bom`. For a full list of changes, check out our changelog over on the OpenRewrite docs. Special shout out to the folks over at IBM who contributed a ton of changes on the `rewrite-migrate-java` project.
   * **Events**:
     * Tim will be at [JCON Europe from May 13th - 16th](https://jconeurope2024.sched.com/). He will be giving a talk on [Transforming Code with OpenRewrite and Refaster](https://jconeurope2024.sched.com/event/1Z2tI/transforming-code-with-openrewrite-and-refaster) and [Weeding your Micro Service Landscape](https://jconeurope2024.sched.com/event/1YwSG/weeding-your-micro-service-landscape). He has a limited amount of free tickets to give away if you'd like to attend and are going to be in Germany at that time. Please reach out to him to learn more.
     * Tim and Jonathan will be at [Spring I/O from May 30th - 31st in Barcelona](https://2024.springio.net/sessions/automated-software-refactoring-with-openrewrite-and-generative-ai/). They'll be giving a talk on automated software refactoring with OpenRewrite and generative AI.
@@ -1061,7 +1072,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * **If someone wanted to get started with OpenRewrite, what would you recommend?**
     * Start by coming at OpenRewrite with a problem that you want to solve, so you have some context. Then, join the [OpenRewrite community Slack](https://join.slack.com/t/rewriteoss/shared_invite/zt-nj42n3ea-b\~62rIHzb3Vo0E1APKCXEA) and ask questions in there. He'd also recommend looking at [RewriteTest](https://github.com/openrewrite/rewrite/blob/4c9a9709399f722b8bd421fe94633c2b2e9de6e5/rewrite-test/src/main/java/org/openrewrite/test/RewriteTest.java#L52) and [rewriteRun](https://github.com/openrewrite/rewrite/blob/4c9a9709399f722b8bd421fe94633c2b2e9de6e5/rewrite-test/src/main/java/org/openrewrite/test/RewriteTest.java#L139) to get a better idea of the flow of recipes.
     * (We'd also recommend checking out [our documentation](https://docs.openrewrite.org/) where we've created numerous tutorials and references to help people get started. If you run into any issues or wish for something to exist that doesn't, please [let us know](https://github.com/openrewrite/rewrite-docs/issues)!)
-  * **Could you tell us about the challenges with using feature flags that motivated you to make contributions to** [**LaunchDarkly recipes**](https://docs.openrewrite.org/recipes/launchdarkly)**?**
+  * **Could you tell us about the challenges with using feature flags that motivated you to make contributions to** [**LaunchDarkly recipes**](https://docs.openrewrite.org/recipes/featureflags/launchdarkly)**?**
     * At big enterprise companies, it can be very hard to keep up with the open source community as it moves so fast. Feature flags may get added and then forgotten about. Having recipes to find and remove these has been super helpful.
   * **Are you using LaunchDarkly recipes to get rid of feature flags at Shelter?**
     * Yes. It's much nicer to use recipes than manually doing it across systems.
@@ -1103,7 +1114,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 * This week we welcome Justine - our AI/machine learning research engineer!
 * Announcements for the week:
-  * [DevNexus](https://devnexus.org/presentations/fundamentals-of-migration-engineering-with-openrewrite) is next week! If you're going to be there come say hi.
+  * DevNexus is next week! If you're going to be there come say hi.
   * We released a [new video detailing the Moderne DevCenter](https://www.youtube.com/watch?v=KRXDMGt7DRE).
   * To go along with that, we also have a [getting started guide](../user-documentation/moderne-platform/getting-started/dev-center.md) for those of you who are Moderne customers and want to jump in.
 * AI topic:
@@ -1126,7 +1137,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 * Only a few announcements this week since it's so close to the last office hours:
   * We will be [presenting on Security Boulevard at 11 AM ET on March 28th, 2024](https://webinars.securityboulevard.com/how-to-massively-pay-down-your-tech-debt-fast?hss_channel=lcp-71946171). In that presentation, we'll discuss how to massively pay down your tech debt fast.
-  * As a reminder, we will be at [DevNexus 2024](https://devnexus.org/presentations/fundamentals-of-migration-engineering-with-openrewrite) in April.
+  * As a reminder, we will be at DevNexus 2024 in April.
 * The main topic was about dependency management:
   * We talked about [how to gain insight into your dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight). For instance, maybe you're curious about if all of your repositories are using the same version of Jackson across all of their modules.
     * You can use the visualizations or data tables produced by this recipe to get detailed information about that.
@@ -1147,7 +1158,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 #### Summary and related links
 
 * As usual, we began by discussing announcements related to OpenRewrite & Moderne:
-  * Jonathan and Olga will both be presenting at [DevNexus 2024](https://devnexus.org/presentations/fundamentals-of-migration-engineering-with-openrewrite) in April.
+  * Jonathan and Olga will both be presenting at DevNexus 2024 in April.
   * Jonathan will also be giving a keynote at [Uberconf 2024](https://uberconf.com/schedule) on Tuesday, July 16th. Definitely stop by if you're going to be there.
   * We released a bunch of new videos on our YouTube channel:
     * [Upgrading a Maven parent pom version](https://www.youtube.com/watch?v=LyQsQYfUlwI)
@@ -1181,7 +1192,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * These recipes are designed to help you write better code and catch common mistakes, and now helpfully link to the docs to show more details of what changes to expect.
   * We split off a separate [Rewrite recipe module for Apache](https://github.com/openrewrite/rewrite-apache/) projects, which you can also [run through Moderne](https://app.moderne.io/marketplace/org.openrewrite.apache).
     * The reason behind this was to make recipes related to Apache projects easier to find, use and extend.
-  * We created a new [Rewrite recipe module for Node.js](https://github.com/openrewrite/rewrite-nodejs) applications.
+  * We created a new Rewrite recipe module for Node.js applications.
     * This provides the building blocks to change Node.js applications in a safe and automated way, starting with dependency management.
       * We also allow you to [visualize dependency versions across your organization](https://app.moderne.io/recipes/org.openrewrite.nodejs.search.DependencyInsight), to plan your next modernization steps.
   * Also new is a [module for Struts applications](https://github.com/openrewrite/rewrite-struts), bringing folks from version 2.5 to 6.x.
@@ -1242,9 +1253,9 @@ You can find each of the Code Remix sessions below along with a summary of what 
 * We then jumped into the main topic for the week: data tables and search recipes:
   * We demonstrated how you can use [search recipes in Moderne](https://app.moderne.io/marketplace/org.openrewrite.java.search) to [find usages of any type you care about](https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes) (perhaps because you wanted to learn more about it or find some examples to copy).
     * We explained how [Markers](https://docs.openrewrite.org/concepts-and-explanations/markers) help call out individual elements and how they work in relation to search recipes.
-  * We ran and talked through our [Find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck). We also walked through the [data table](../user-documentation/moderne-platform/getting-started/data-tables) it produced.
+  * We ran and talked through our [Find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck). We also walked through the [data table](../user-documentation/moderne-platform/getting-started/data-tables.md) it produced.
     * Using said data table, you can find transitive dependency vulnerabilities many levels deep – complete with CVE numbers and possible fix versions if they're available.
-  * We then showed how you can [produce your own class hierarchy and data table rows](../user-documentation/moderne-platform/getting-started/data-tables) as well as how to [verify the rows you produced](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/ClassHierarchyTest.java#L36-L37).
+  * We then showed how you can [produce your own class hierarchy and data table rows](../user-documentation/moderne-platform/getting-started/data-tables.md) as well as how to [verify the rows you produced](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/ClassHierarchyTest.java#L36-L37).
 
 ### Advanced recipe development: Scanning recipes (Feb 21, 2024)
 
@@ -1258,7 +1269,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * You can find [the curated list of Codemods in the Moderne Platform](https://app.moderne.io/marketplace/org.openrewrite.codemods).
   * We recently [added a bunch of Error Prone recipes to the Moderne Platform](https://app.moderne.io/marketplace/tech.picnic.errorprone.refasterrules).
   * There were some great community additions such [as this new recipe on migrating away from Swagger to SpringDoc or OpenAPI](https://app.moderne.io/recipes/org.openrewrite.java.springdoc.SwaggerToSpringDoc).
-  * We added [the ability to bump transitive dependencies in Gradle](../user-documentation/moderne-platform/how-to-guides/transitive-dependencies).
+  * We added [the ability to bump transitive dependencies in Gradle](../user-documentation/moderne-platform/how-to-guides/transitive-dependencies.md).
   * We [updated our Spring 3.2 blog](https://www.moderne.io/blog/speed-your-spring-boot-3-0-migration) to contain the latest Spring changes and also discuss Java 21 changes.
 * We then jumped into the core topic of [Scanning Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes). We walked through every part of developing a Scanning Recipe along with examples and tests.
 
@@ -1312,5 +1323,5 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * If you want to make your own Refaster recipe, check out our [Getting started with Refaster template recipes doc](https://docs.openrewrite.org/authoring-recipes/refaster-recipes).
 * There was a community question about how to can contribute to OpenRewrite. To get started with that, check out our [contributing doc](https://github.com/openrewrite/.github/blob/main/CONTRIBUTING.md) where we walk through all the different ways you can help – many of which don't even involve writing code.
 * We walked through how to use Moderne to combine recipes like [ChangeType](https://app.moderne.io/recipes/org.openrewrite.java.ChangeType) and [Add Gradle or Maven dependency](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.AddDependency) into a larger migration recipe.
-* We explained what [Preconditions are and how to use them](../user-documentation/moderne-platform/how-to-guides/preconditions).
+* We explained what [Preconditions are and how to use them](../user-documentation/moderne-platform/how-to-guides/preconditions.md).
   * You might also consider checking out the [OpenRewrite docs on Preconditions](https://docs.openrewrite.org/reference/yaml-format-reference#preconditions).

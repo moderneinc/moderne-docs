@@ -1,5 +1,62 @@
 # CLI / DX changelog
 
+### CLI / DX v3.28.0 (2024/12/31)
+
+#### What's Changed CLI
+* OpenRewrite [v8.42.4](https://github.com/openrewrite/rewrite/releases/tag/v8.42.4)
+* rewrite-python [v1.27.5](https://github.com/openrewrite/rewrite-python/releases/tag/v1.27.5)
+
+### CLI / DX v3.27.9 (2024/12/30)
+
+#### What's Changed CLI
+* Rewrite-JavaScript [v0.26.0](https://github.com/openrewrite/rewrite-javascript/releases/tag/v0.26.0)
+
+### CLI / DX v3.27.8 (2024/12/27)
+
+#### What's Changed CLI
+* OpenRewrite [v8.42.3](https://github.com/openrewrite/rewrite/releases/tag/v8.42.3)
+* Rewrite-JavaScript [v0.25.4](https://github.com/openrewrite/rewrite-javascript/releases/tag/v0.25.4)
+
+### CLI / DX v3.27.7 (2024/12/24)
+
+#### What's Changed CLI
+* Rework logic after seeing metadata only failures
+
+
+### CLI / DX v3.27.7 (2024/12/24)
+
+#### What's Changed CLI
+* Rework logic after seeing metadata only failures
+
+
+### CLI / DX v3.27.6 (2024/12/23)
+
+#### What's Changed CLI
+* Show commands as deprecated when run and in the docs
+* Installing new recipe no longer returns the old version in some cases
+* Detect Java version from `.sdkmanrc` files
+* Detect more common recipe jars when installing
+* Do not read SNAPSHOT versions from `.moderne/cli/maven-cache`
+* Suggest next steps when recipe not found
+* fix issues around missing mod configuration
+* Color repositories based on LST availability
+* On mod build, correctly set the path for partitioned repositories
+
+
+### CLI / DX v3.27.5 (2024/12/19)
+
+#### What's Changed CLI
+* Allow `git clone csv` to work with `--metadata-only`
+* Allow .NET builds in directories with Gradle, Maven or Bazel build scripts
+* Pass the dependency resolution time using the properties files
+
+
+### CLI / DX v3.27.4 (2024/12/13)
+
+#### What's Changed
+* Add scss, save, config extensions to plain text parsing list
+
+
 ### CLI / DX v3.27.3 (2024/12/12)
 
 #### What's Changed CLI
@@ -311,7 +368,7 @@ N/A
 
 #### What's Changed CLI
 
-* Upgrade rewrite-polyglot to [1.14.1](https://github.com/openrewrite/rewrite-polyglot/releases/tag/v1.14.1) which fixes `OmniParser` throwing an exception when presented with a source file type it doesn't have a parser for
+* Upgrade rewrite-polyglot to `1.14.1` which fixes `OmniParser` throwing an exception when presented with a source file type it doesn't have a parser for
 * Hide stacktrace on failing recipe install
 
 ### CLI / DX v3.22.1 (2024/10/01)
@@ -384,7 +441,7 @@ When DX is integrated with the organization service, it will now utilize the new
 #### What's Changed CLI
 
 * Enhance`mod config recipes moderne sync` to install C# recipes
-* Update to rewrite-polyglot [1.14.0](https://github.com/openrewrite/rewrite-polyglot/releases/tag/v1.14.0) which fixes missing type attribution in code parsed from Bazel builds
+* Update to rewrite-polyglot 1.14.0 which fixes missing type attribution in code parsed from Bazel builds
 * Only save on at least partial success
 * When recipes use the classpathFromResources mechanism use default location \~/.moderne/cli/rewrite-classpath instead of \~/rewrite/classpath
 
@@ -616,7 +673,7 @@ Nothing
 #### What's Changed DX
 
 * Fix GraphQl schema inspection issue where `RecipeSearchConnection` does not match `Recipe` node type
-* Fix `Invalid destruction signature` in `MVStoreConfig` @pstreef in https://github.com/moderneinc/moderne-cli/pull/2045
+* Fix `Invalid destruction signature` in `MVStoreConfig` @pstreef
 
 ### CLI / DX v3.18.2 (2024/08/21)
 

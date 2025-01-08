@@ -27,7 +27,7 @@ Organization access is determined via an [Organizations service](../how-to-guide
 
 ## SCM access
 
-In order to view recipe results, download data tables produced by a recipe, or commit recipe results, users will need to have [SCM access to the repositories](./flow#integrating-with-scms). This restriction applies even for admins in Moderne.
+In order to view recipe results, download data tables produced by a recipe, or commit recipe results, users will need to have [SCM access to the repositories](./flow.md#integrating-with-scms). This restriction applies even for admins in Moderne.
 
 [^1]: If a user does not have access to a specific repository, they will not see a row for said repository in the data table.
 
