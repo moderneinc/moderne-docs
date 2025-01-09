@@ -80,5 +80,7 @@ You will need to ensure that the environment the agent runs in is set up in a wa
   * Pip and virtualenv (venv) installed. Alias not required (called via `python3 -m pip/venv`)
 
 :::note
+
 This is not required if you do not wish to install visualizations from your own PyPi package index and have `moderne.agent.visualization.useOnlyConfigured` set to `false`
+
 :::
