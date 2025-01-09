@@ -23,6 +23,10 @@ After you're done writing your recipe(s), you will need to publish them to an ar
 Once the connection has been set up, you will need to ensure your repository publishes the recipe artifacts to the artifact repository mentioned above. 
 
 The [rewrite-recipe-starter project](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/build.gradle.kts) can serve as an example of how to publish an artifact. This repository is configured to publish to Moderne's open artifact repository (via the [publishing task](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/build.gradle.kts#L77-L84) at the bottom of the `build.gradle.kts` file).
+All Moderne SaaS instances have access to the following artifact repositories: 
+- https://repo1.maven.org/maven2
+- https://oss.sonatype.org/content/repositories/snapshots
+- https://jitpack.io
 
 You may also find it useful to read over these other artifact publishing docs:
 
