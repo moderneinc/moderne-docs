@@ -205,6 +205,10 @@ html[data-theme=dark] .theme-doc-sidebar-menu .menu__link--active + .menu__caret
   color: var(--ifm-heading-color);
 }
 
+html[data-theme=dark] [class^=docMainContainer_] .breadcrumbs__link:hover {
+  --ifm-heading-color: #041834;
+}
+
 [class^=docMainContainer_] .breadcrumbs__item:not(:last-child):after {
   opacity: 1;
   margin-left: 0.1rem;
