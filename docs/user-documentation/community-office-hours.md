@@ -14,7 +14,27 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Development**
+    * We've expanded Lombok support - such as adding support for new Java versions and new recipes. It's still behind a feature flag for now, but fingers crossed it should be coming soon.
+      * https://github.com/openrewrite/rewrite/pull/4855
+      * https://github.com/openrewrite/rewrite/pull/4769
+      * https://github.com/openrewrite/rewrite/pull/4860
+    * [Greg joined the team and squashed a ton of parser errors already](https://github.com/openrewrite/rewrite/commits?author=greg-at-moderne)
+    * [Shannon added support for the TOML parser for Gradle](https://github.com/openrewrite/rewrite/pull/4845)
+    * [There's been a ton of fixes related to the Gradle and Groovy parsers](https://github.com/openrewrite/rewrite/commits?author=jevanlingen)
+    * [You can now map erroneous nodes](https://github.com/openrewrite/rewrite/pull/4412)
+    * We're working on a few new recipe modules: `rewrite-compiled-analysis` and `rewrite-comprehension`.
+  * **Events**
+    * [Justine will be presenting at ConFoo in February about transforming code with AI](https://www.linkedin.com/posts/confoo.ca_want-smarter-refactoring-join-justine-activity-7278500649267261440-GwY8)
+    * [Tim and Merlin will present at OOP in Munich, Germany in February](https://www.oop-konferenz.de/en/program/conference-program)
+    * Tim's previous sessions from JFall are now available online
+      * https://www.youtube.com/watch?v=ADXoXjkmJj0
+      * https://www.youtube.com/watch?v=NRQtkqe50yM
+* **Main topic for the week**
+  * This week we welcomed Justine back to the code remix session. In it, she demonstrated a chatbot we're working on to complement the Moderne CLI. With it, you can ask questions like, "Do I use Apache HTTP in my code?" or "Can you draw me a histogram of the top 5 most used Apache Commons methods?"
+  * Right now, the bot is very focused on search recipes and displaying results. It can be really helpful when you want to run multiple search recipes without even knowing what those recipes are.
+  * This will hopefully be available soon<sup>*</sup>
 
 ### Close out the year by closing in on unused dependencies (December 18th, 2024)
 
