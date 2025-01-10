@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v10.181.0 (2025/01/10)
+
+- make org cells links
+
 ### UI v10.180.1 (2025/01/06)
 
 - Bug fixes and other improvements.
