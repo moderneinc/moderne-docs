@@ -127,7 +127,7 @@ figure figcaption {
 }
 
 .theme-doc-sidebar-menu > .theme-doc-sidebar-item-link:first-child {
-  display: none;
+  margin-top: 1.5rem;
 }
 
 .theme-doc-sidebar-item-link > strong {
