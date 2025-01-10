@@ -47,6 +47,7 @@
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
   --ifm-link-color: #283AF7;
+  --ifm-link-hover-color: var(--ifm-color-content);
   --ifm-menu-color: rgba(4, 24, 52);
   --ifm-menu-color-active: var(--ifm-link-color);
   --ifm-navbar-link-color: var(--ifm-heading-color);
