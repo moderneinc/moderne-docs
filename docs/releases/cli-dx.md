@@ -1,5 +1,23 @@
 # CLI / DX changelog
 
+### CLI / DX v3.29.0 (2025/01/13)
+
+#### What's Changed
+* Parallelization of recipe runs, installation, etc. More details in this [deck](https://docs.google.com/presentation/d/1K8-kJX4hkpA0eBtNbn4XTkZG9OA9dXbX/edit?usp=sharing&ouid=108669801108622792389&rtpof=true&sd=true)
+* Update key used in license test to expire in 2026.
+- freeze top row, correctly converts numerics
+* Update the CLI installation instructions wrt Help
+* Support parallel task progress bar tracking, and enable it for `mod run`
+* Provide next steps when Unable to assemble a JAR file
+- Updates to color coding to improve readability
+* support java detection for multiline .sdkmanrc
+* Add `build.tool.family` CLI metric
+- invalid entry size'
+* Add `maxFragmentWeight` to `scm.properties` to determine if an LST fragment might be too big to load into memory.
+* Add `TomlParser`
+* Also resolve snapshots from s01.oss.sonatype.org
+
+
 ### CLI / DX v3.28.0 (2024/12/31)
 
 #### What's Changed CLI
