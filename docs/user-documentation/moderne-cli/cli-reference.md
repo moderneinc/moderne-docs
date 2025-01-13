@@ -3550,12 +3550,13 @@ mod config recipes jar install org.openrewrite:rewrite-java:LATEST
 | Name | Description |
 | ---- | ----------- |
 | GAV |  The group, artifact, and version of the artifact to install in the format groupId:artifactId:version. The version may be a fixed version, LATEST, or RELEASE.
-The dependency will be resolved from the artifact source defined in **mod config lsts artifacts** |
+The dependency will be resolved from the artifact source defined in **mod config recipes artifacts** |
 
 ### Options
 
 | Name | Description |
 | ---- | ----------- |
+| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |
 | --repository-url, --repository |  The repository URL that the artifact will be resolved from. |
 
 
@@ -3760,6 +3761,11 @@ Destroys all recipes in the local CLI marketplace and replaces them with the lat
 mod config recipes moderne sync
 ```
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |
 
 
 ## mod config recipes delete
@@ -4750,6 +4756,7 @@ mod git clone csv [parameters]
 | --filter |  Equivalent to the **git clone --filter** option. |
 | --limit |  The maximum number of repositories to clone. |
 | --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
+| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |
 | --save |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. |
 | --single-branch |  |
 
@@ -4782,6 +4789,7 @@ mod git clone json [parameters]
 | --filter |  Equivalent to the **git clone --filter** option. |
 | --limit |  The maximum number of repositories to clone. |
 | --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
+| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |
 | --save |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. |
 | --single-branch |  |
 
@@ -4814,6 +4822,7 @@ mod git clone moderne [parameters]
 | --filter |  Equivalent to the **git clone --filter** option. |
 | --limit |  The maximum number of repositories to clone. |
 | --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
+| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |
 | --single-branch |  |
 
 
@@ -5218,6 +5227,7 @@ mod git sync moderne /path/to/organization
 | ---- | ----------- | ---------- |
 | --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
 | --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |  |
+| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |  |
 | --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
@@ -5502,7 +5512,9 @@ mod run /path/to/project \
 | --active-recipe |  If this flag is included, the recipe specified as the active recipe in your IDE will be run (assuming you have the Moderne plugin installed and configured). |  |
 | --jvm-debug |  Start a JDWP server on this port and pause for a remote debug connection. |  |
 | --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
+| --no-patch |  (INCUBATING) Do not generate patch files on disk at the conclusion of a recipe run that makes changes. This is useful when you are looking to only use data table outputs and don't wish to incur the cost of writing patch files when they will be unused. |  |
 | -P, --recipe-option |  Recipe options, if any. If a recipe accepts more than one option, you can include this argument multiple times. | `mod run . --recipe=<recipe> -P methodPattern='java.util.List add(..)' -P moreOptions='moreOptions'` |
+| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |  |
 | --partition |  (INCUBATING) The name of the partitions to run the recipe on. If not specified, the recipe will run on all partitions (or the whole repository if there are no partitions). |  |
 | --recipe |  The recipe ID of the recipe that should be run. | `org.openrewrite.java.search.FindMethods` |
 | --recipe-run |  A recipe run ID listed by **mod run-history** |  |
