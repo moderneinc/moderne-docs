@@ -156,15 +156,7 @@ mod git clone moderne . "Default" --parallel 0
 ```
 
 :::info
-The `--parallel` flag will **significantly** speed up Moderne CLI commands.
-
-Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads.
-
-Setting this to 1 causes the command to run sequentially, which is the same as omitting this flag.
-
-Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine.
-
-Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads.
+The `--parallel` flag will **significantly** speed up Moderne CLI commands. For more information on how to use it, check out our [how to use parallelism guide](../how-to-guides/parallelism.md)
 :::
 
 :::warning
