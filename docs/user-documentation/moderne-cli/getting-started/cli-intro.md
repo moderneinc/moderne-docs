@@ -152,8 +152,20 @@ cd $HOME/workshop
 2. For this exercise, we've prepared a list of open-source repositories for you to use. These repositories have been added to the Moderne Platform and put inside the `Default` organization. Clone these repositories by running the following command from inside your `workshop` directory:
 
 ```bash
-mod git clone moderne . "Default"
+mod git clone moderne . "Default" --parallel 0
 ```
+
+:::info
+The `--parallel` flag will **significantly** speed up Moderne CLI commands.
+
+Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads.
+
+Setting this to 1 causes the command to run sequentially, which is the same as omitting this flag.
+
+Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine.
+
+Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads.
+:::
 
 :::warning
 If you need to enter an SSH passphrase to clone repositories, please see our [SSH keys with passphrases guide](../how-to-guides/ssh-key.md) before continuing.
@@ -168,45 +180,41 @@ Moderne CLI 3.29.0
 
 > Cloning organization from Moderne
 
-Moderne has 14 repositories in Default
-Listed all 14 repositories (0.27s)
+Moderne has 12 repositories in Default
+Listed all 12 repositories (1s)
 
 > Cloning repositories
 
-Clone output will be written to /Users/mikesol/workshop/./clone.log
+Clone output will be written to /Users/mikesol/Desktop/code/workshop/./clone.log
 
-> apache/maven-doxia@master
-    + Cloned
-> aws/amazon-documentdb-jdbc-driver@develop
-    + Cloned
-> awslabs/aws-saas-boost@main
-    + Cloned
-> finos/messageml-utils@main
-    + Cloned
-> finos/spring-bot@spring-bot-master
-    + Cloned
-> finos/symphony-bdk-java@main
-    + Cloned
-> finos/symphony-wdk@master
-    + Cloned
-> Netflix/ndbench@master
-    + Cloned
-> Netflix/photon@master
-    + Cloned
-> Netflix/ribbon@master
-    + Cloned
-> openrewrite/rewrite-recipe-bom@main
-    + Cloned
-> openrewrite/rewrite-sql@main
-    + Cloned
-> spring-projects/spring-data-commons@main
-    + Cloned
-> spring-projects/spring-petclinic@main
-    + Cloned
++ Cloned
+openrewrite/rewrite-recipe-bom@main
++ Cloned
+finos/messageml-utils@main
++ Cloned
+finos/symphony-wdk@master
++ Cloned
+aws/amazon-documentdb-jdbc-driver@develop
++ Cloned
+apache/maven-doxia@master
++ Cloned
+spring-projects/spring-petclinic@main
++ Cloned
+finos/symphony-bdk-java@main
++ Cloned
+finos/spring-bot@spring-bot-master
++ Cloned
+spring-projects/spring-data-commons@main
++ Cloned
+Netflix/ribbon@master
++ Cloned
+awslabs/aws-saas-boost@main
++ Cloned
+Netflix/photon@master
 
-Cloned 14 repositories. Synchronized DevCenter configuration. (42s)
+Cloned 12 repositories. Synchronized DevCenter configuration. (15s)
 
-MOD SUCCEEDED in (43s)
+MOD SUCCEEDED in 16s
 ```
 
 </details>
@@ -250,121 +258,180 @@ Moderne CLI 3.29.0
 > Selecting repositories
 
 > apache/maven-doxia@master
-> aws/amazon-documentdb-jdbc-driver@develop
+> aws/amazon-documentdb-jdbc-driver@develop (no LST)
 > awslabs/aws-saas-boost@main
 > finos/messageml-utils@main
-> finos/spring-bot@spring-bot-master
+> finos/spring-bot@spring-bot-master (no LST)
 > finos/symphony-bdk-java@main
 > finos/symphony-wdk@master
-> Netflix/ndbench@master
 > Netflix/photon@master
 > Netflix/ribbon@master
 > openrewrite/rewrite-recipe-bom@main
-> openrewrite/rewrite-sql@main
 > spring-projects/spring-data-commons@main
 > spring-projects/spring-petclinic@main
-Selected 14 repositories (1s)
+Selected 12 repositories (1s)
 
 > Building LST(s)
 
-> apache/maven-doxia@master
-    Build output will be written to /Users/mikesol/workshop/apache/maven-doxia/.moderne/build/20240904083148-s7SDp/build.log
+> aws/amazon-documentdb-jdbc-driver@develop (no LST)
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/aws/amazon-documentdb-jdbc-driver/.moderne/build/20250114092358-tq3FB/build.log
     > Download from Moderne
-    + Downloaded LST /Users/mikesol/workshop/apache/maven-doxia/.moderne/build/20240904083148-s7SDp/maven-doxia-20240904124207407-ast.jar
-    + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
-> aws/amazon-documentdb-jdbc-driver@develop
-    Build output will be written to /Users/mikesol/workshop/aws/amazon-documentdb-jdbc-driver/.moderne/build/20240904083148-s7SDp/build.log
-    > Download from Moderne
-    !  Failed to download the LST from Moderne. Proceeding to build the LST locally
+    ! Failed to download the LST from Moderne. Proceeding to build the LST locally
     ! Skipping build because --download-only was specified
     + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
-> awslabs/aws-saas-boost@main
-    Build output will be written to /Users/mikesol/workshop/awslabs/aws-saas-boost/.moderne/build/20240904083148-s7SDp/build.log
+    + Cleaned 1 older builds.
+> aws/amazon-documentdb-jdbc-driver@develop (no LST)
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/aws/amazon-documentdb-jdbc-driver/.moderne/build/20250114092358-tq3FB/build.log
     > Download from Moderne
-    + Downloaded LST /Users/mikesol/workshop/awslabs/aws-saas-boost/.moderne/build/20240904083148-s7SDp/aws-saas-boost-20240904124344180-ast.jar
+    ! Failed to download the LST from Moderne. Proceeding to build the LST locally
+    ! Skipping build because --download-only was specified
     + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
+    + Cleaned 1 older builds.
 > finos/messageml-utils@main
-    Build output will be written to /Users/mikesol/workshop/finos/messageml-utils/.moderne/build/20240904083148-s7SDp/build.log
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/finos/messageml-utils/.moderne/build/20250114092358-tq3FB/build.log
     > Download from Moderne
-    + Downloaded LST /Users/mikesol/workshop/finos/messageml-utils/.moderne/build/20240904083148-s7SDp/messageml-utils-20240904124418454-ast.jar
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/finos/messageml-utils/.moderne/build/20250114092358-tq3FB/messageml-utils-20250113150710321-ast.jar
     + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
-> finos/spring-bot@spring-bot-master
-    Build output will be written to /Users/mikesol/workshop/finos/spring-bot/.moderne/build/20240904083148-s7SDp/build.log
+    + Cleaned 1 older builds.
+> finos/messageml-utils@main
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/finos/messageml-utils/.moderne/build/20250114092358-tq3FB/build.log
     > Download from Moderne
-    + Downloaded LST /Users/mikesol/workshop/finos/spring-bot/.moderne/build/20240904083148-s7SDp/spring-bot-20240904124515391-ast.jar
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/finos/messageml-utils/.moderne/build/20250114092358-tq3FB/messageml-utils-20250113150710321-ast.jar
     + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
-> finos/symphony-bdk-java@main
-    Build output will be written to /Users/mikesol/workshop/finos/symphony-bdk-java/.moderne/build/20240904083148-s7SDp/build.log
-    > Download from Moderne
-    + Downloaded LST /Users/mikesol/workshop/finos/symphony-bdk-java/.moderne/build/20240904083148-s7SDp/symphony-bdk-java-20240904125118774-ast.jar
-    + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
-> finos/symphony-wdk@master
-    Build output will be written to /Users/mikesol/workshop/finos/symphony-wdk/.moderne/build/20240904083148-s7SDp/build.log
-    > Download from Moderne
-    + Downloaded LST /Users/mikesol/workshop/finos/symphony-wdk/.moderne/build/20240904083148-s7SDp/symphony-wdk-20240904125339731-ast.jar
-    + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
-> Netflix/ndbench@master
-    Build output will be written to /Users/mikesol/workshop/Netflix/ndbench/.moderne/build/20240904083148-s7SDp/build.log
-    > Download from Moderne
-    !  Failed to download the LST from Moderne. Proceeding to build the LST locally
-    ! Skipping build because --download-only was specified
-    + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
-> Netflix/photon@master
-    Build output will be written to /Users/mikesol/workshop/Netflix/photon/.moderne/build/20240904083148-s7SDp/build.log
-    > Download from Moderne
-    + Downloaded LST /Users/mikesol/workshop/Netflix/photon/.moderne/build/20240904083148-s7SDp/photon-20240904134649877-ast.jar
-    + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
-> Netflix/ribbon@master
-    Build output will be written to /Users/mikesol/workshop/Netflix/ribbon/.moderne/build/20240904083148-s7SDp/build.log
-    > Download from Moderne
-    + Downloaded LST /Users/mikesol/workshop/Netflix/ribbon/.moderne/build/20240904083148-s7SDp/ribbon-20240904134938748-ast.jar
-    + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
-> openrewrite/rewrite-recipe-bom@main
-    Build output will be written to /Users/mikesol/workshop/openrewrite/rewrite-recipe-bom/.moderne/build/20240904083148-s7SDp/build.log
-    > Download from Moderne
-    + Downloaded LST /Users/mikesol/workshop/openrewrite/rewrite-recipe-bom/.moderne/build/20240904083148-s7SDp/rewrite-recipe-bom-20240904140002559-ast.jar
-    + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
-> openrewrite/rewrite-sql@main
-    Build output will be written to /Users/mikesol/workshop/openrewrite/rewrite-sql/.moderne/build/20240904083148-s7SDp/build.log
-    > Download from Moderne
-    + Downloaded LST /Users/mikesol/workshop/openrewrite/rewrite-sql/.moderne/build/20240904083148-s7SDp/rewrite-sql-20240904140118570-ast.jar
-    + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
-> spring-projects/spring-data-commons@main
-    Build output will be written to /Users/mikesol/workshop/spring-projects/spring-data-commons/.moderne/build/20240904083148-s7SDp/build.log
-    > Download from Moderne
-    !  Failed to download the LST from Moderne. Proceeding to build the LST locally
-    ! Skipping build because --download-only was specified
-    + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
+    + Cleaned 1 older builds.
 > spring-projects/spring-petclinic@main
-    Build output will be written to /Users/mikesol/workshop/spring-projects/spring-petclinic/.moderne/build/20240904083148-s7SDp/build.log
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/spring-projects/spring-petclinic/.moderne/build/20250114092358-tq3FB/build.log
     > Download from Moderne
-    + Downloaded LST /Users/mikesol/workshop/spring-projects/spring-petclinic/.moderne/build/20240904083148-s7SDp/spring-petclinic-20240904141033601-ast.jar
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/spring-projects/spring-petclinic/.moderne/build/20250114092358-tq3FB/spring-petclinic-20250113152659526-ast.jar
     + Reported build metrics to Moderne
-    + Cleaned 0 older builds.
+    + Cleaned 1 older builds.
+> spring-projects/spring-petclinic@main
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/spring-projects/spring-petclinic/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/spring-projects/spring-petclinic/.moderne/build/20250114092358-tq3FB/spring-petclinic-20250113152659526-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> openrewrite/rewrite-recipe-bom@main
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/openrewrite/rewrite-recipe-bom/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/openrewrite/rewrite-recipe-bom/.moderne/build/20250114092358-tq3FB/rewrite-recipe-bom-20250113150546513-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> openrewrite/rewrite-recipe-bom@main
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/openrewrite/rewrite-recipe-bom/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/openrewrite/rewrite-recipe-bom/.moderne/build/20250114092358-tq3FB/rewrite-recipe-bom-20250113150546513-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> spring-projects/spring-data-commons@main
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/spring-projects/spring-data-commons/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/spring-projects/spring-data-commons/.moderne/build/20250114092358-tq3FB/spring-data-commons-20250113162331800-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> spring-projects/spring-data-commons@main
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/spring-projects/spring-data-commons/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/spring-projects/spring-data-commons/.moderne/build/20250114092358-tq3FB/spring-data-commons-20250113162331800-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> Netflix/photon@master
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/Netflix/photon/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/Netflix/photon/.moderne/build/20250114092358-tq3FB/photon-20250113150010450-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> Netflix/photon@master
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/Netflix/photon/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/Netflix/photon/.moderne/build/20250114092358-tq3FB/photon-20250113150010450-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> finos/spring-bot@spring-bot-master (no LST)
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/finos/spring-bot/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    ! Failed to download the LST from Moderne. Proceeding to build the LST locally
+    ! Skipping build because --download-only was specified
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> finos/spring-bot@spring-bot-master (no LST)
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/finos/spring-bot/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    ! Failed to download the LST from Moderne. Proceeding to build the LST locally
+    ! Skipping build because --download-only was specified
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> awslabs/aws-saas-boost@main
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/awslabs/aws-saas-boost/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/awslabs/aws-saas-boost/.moderne/build/20250114092358-tq3FB/aws-saas-boost-20250113150659155-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> awslabs/aws-saas-boost@main
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/awslabs/aws-saas-boost/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/awslabs/aws-saas-boost/.moderne/build/20250114092358-tq3FB/aws-saas-boost-20250113150659155-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> finos/symphony-wdk@master
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/finos/symphony-wdk/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/finos/symphony-wdk/.moderne/build/20250114092358-tq3FB/symphony-wdk-20250113152235742-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> finos/symphony-wdk@master
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/finos/symphony-wdk/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/finos/symphony-wdk/.moderne/build/20250114092358-tq3FB/symphony-wdk-20250113152235742-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> Netflix/ribbon@master
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/Netflix/ribbon/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/Netflix/ribbon/.moderne/build/20250114092358-tq3FB/ribbon-20250114131509413-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> Netflix/ribbon@master
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/Netflix/ribbon/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/Netflix/ribbon/.moderne/build/20250114092358-tq3FB/ribbon-20250114131509413-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> apache/maven-doxia@master
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/apache/maven-doxia/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/apache/maven-doxia/.moderne/build/20250114092358-tq3FB/maven-doxia-20250113152634226-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> apache/maven-doxia@master
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/apache/maven-doxia/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/apache/maven-doxia/.moderne/build/20250114092358-tq3FB/maven-doxia-20250113152634226-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> finos/symphony-bdk-java@main
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/finos/symphony-bdk-java/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/finos/symphony-bdk-java/.moderne/build/20250114092358-tq3FB/symphony-bdk-java-20250113152151248-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
+> finos/symphony-bdk-java@main
+    Build output will be written to /Users/mikesol/Desktop/code/workshop/finos/symphony-bdk-java/.moderne/build/20250114092358-tq3FB/build.log
+    > Download from Moderne
+    + Downloaded LST /Users/mikesol/Desktop/code/workshop/finos/symphony-bdk-java/.moderne/build/20250114092358-tq3FB/symphony-bdk-java-20250113152151248-ast.jar
+    + Reported build metrics to Moderne
+    + Cleaned 1 older builds.
 
-Built LSTs for 0 repositories, downloaded 11 LSTs (11s)
+Built LSTs for 0 repositories, downloaded 10 LSTs (6s)
 
-19m 57s saved by using previously built LSTs
+1h saved by using previously built LSTs
 
 * What to do next
     > Run mod run . --recipe=<RecipeName>
     > Run mod devcenter run .
     > Run mod log builds add . logs.zip --last-build to aggregate build logs
 
-MOD SUCCEEDED in (12s)
+MOD SUCCEEDED in 6s
 ```
 
 </details>
@@ -372,7 +439,7 @@ MOD SUCCEEDED in (12s)
 5. With the LSTs downloaded to your machine, you can now run recipes against them. Let's run the `DependencyVulnerabilityCheck` recipe to find and fix vulnerable dependencies. Unlike many other tools, this recipe can find and fix dependencies that are _many_ levels deep. For instance, if you depend on a library which depends on a library which depends on a library which contains a vulnerable dependency, this recipe can find that and offer suggestions on how to fix it.
 
 ```bash
-mod run . --recipe DependencyVulnerabilityCheck
+mod run . --recipe DependencyVulnerabilityCheck --parallel 0
 
 # Select the recipe that matches org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
 ```
@@ -387,20 +454,18 @@ Moderne CLI 3.29.0
 > Selecting repositories
 
 > apache/maven-doxia@master
-> aws/amazon-documentdb-jdbc-driver@develop
+> aws/amazon-documentdb-jdbc-driver@develop (no LST)
 > awslabs/aws-saas-boost@main
 > finos/messageml-utils@main
-> finos/spring-bot@spring-bot-master
+> finos/spring-bot@spring-bot-master (no LST)
 > finos/symphony-bdk-java@main
 > finos/symphony-wdk@master
-> Netflix/ndbench@master
 > Netflix/photon@master
 > Netflix/ribbon@master
 > openrewrite/rewrite-recipe-bom@main
-> openrewrite/rewrite-sql@main
 > spring-projects/spring-data-commons@main
 > spring-projects/spring-petclinic@main
-Selected 14 repositories (0.33s)
+Selected 12 repositories (1s)
 
 [1] Find and fix vulnerable Nuget dependencies (org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck)
 [2] Find and fix vulnerable dependencies (org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
@@ -409,53 +474,49 @@ Select a recipe [1-3]: 2
 
 > Running recipe org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
 
+> aws/amazon-documentdb-jdbc-driver@develop (no LST)
+    ! Skipping recipe run because no LST was found
+> finos/spring-bot@spring-bot-master (no LST)
+    ! Skipping recipe run because no LST was found
+> openrewrite/rewrite-recipe-bom@main
+    No changes
 > apache/maven-doxia@master
     No changes
-> aws/amazon-documentdb-jdbc-driver@develop
-    ! Skipping recipe run because no LST was found
-> awslabs/aws-saas-boost@main
-    + Fix results at /Users/mikesol/workshop/awslabs/aws-saas-boost/.moderne/run/20240904083238-wRnHo/fix.patch
 > finos/messageml-utils@main
-    No changes
-> finos/spring-bot@spring-bot-master
     No changes
 > finos/symphony-bdk-java@main
     No changes
+> Netflix/ribbon@master
+    + Fix results at /Users/mikesol/Desktop/code/workshop/Netflix/ribbon/.moderne/run/20250114092127-pDBnx/fix.patch
 > finos/symphony-wdk@master
     No changes
-> Netflix/ndbench@master
-    ! Skipping recipe run because no LST was found
 > Netflix/photon@master
     No changes
-> Netflix/ribbon@master
-    + Fix results at /Users/mikesol/workshop/Netflix/ribbon/.moderne/run/20240904083238-wRnHo/fix.patch
-> openrewrite/rewrite-recipe-bom@main
-    No changes
-> openrewrite/rewrite-sql@main
-    No changes
-> spring-projects/spring-data-commons@main
-    ! Skipping recipe run because no LST was found
 > spring-projects/spring-petclinic@main
     No changes
+> awslabs/aws-saas-boost@main
+    + Fix results at /Users/mikesol/Desktop/code/workshop/awslabs/aws-saas-boost/.moderne/run/20250114092127-pDBnx/fix.patch
+> spring-projects/spring-data-commons@main
+    No changes
 
-Found change results on 2 repositories; data tables available for 11 repositories; skipped 3 repositories with no LST (1m 19s)
+Found change results on 2 repositories; data tables available for 10 repositories; skipped 2 repositories with no LST (22s)
 
-19m 57s saved by using previously built LSTs
+1h saved by using previously built LSTs
 
 * What to do next
     > ! Update out of date LSTs with mod build .
     > Click on one of the patch links above to view the changes on a particular repository
-    > Run mod study . --last-recipe-run --data-table <DATA-TABLE> to examine the following data tables produced by this recipe:
-          org.openrewrite.java.dependencies.table.VulnerabilityReport
-          org.openrewrite.table.RecipeRunStats
-          org.openrewrite.table.SourcesFileResults
+    > Run mod study to examine the following data tables produced by this recipe:
+          > mod study . --last-recipe-run --data-table VulnerabilityReport
+          > mod study . --last-recipe-run --data-table RecipeRunStats
+          > mod study . --last-recipe-run --data-table SourcesFileResults
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
-    > Run mod git checkout . -b hotfix --last-recipe-run to prepare a hotfix branch for applying the changes
+    > Run mod git checkout . -b refactor/DependencyVulnerabilityCheck --last-recipe-run to prepare a refactor/DependencyVulnerabilityCheck branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20240904083238-wRnHo to apply the changes
+    > Run mod git apply . --recipe-run 20250114092127-pDBnx to apply the changes
     > Run mod log runs add . logs.zip --last-run to aggregate run logs
 
-MOD SUCCEEDED in (2m 1s)
+MOD SUCCEEDED in 31s
 ```
 
 </details>
@@ -470,14 +531,14 @@ If you've been following along, you'll know that we just ran the `DependencyVuln
 * What to do next
     > ! Update out of date LSTs with mod build .
     > Click on one of the patch links above to view the changes on a particular repository
-    > Run mod study . --last-recipe-run --data-table <DATA-TABLE> to examine the following data tables produced by this recipe:
-          org.openrewrite.java.dependencies.table.VulnerabilityReport
-          org.openrewrite.table.RecipeRunStats
-          org.openrewrite.table.SourcesFileResults
+    > Run mod study to examine the following data tables produced by this recipe:
+          > mod study . --last-recipe-run --data-table VulnerabilityReport
+          > mod study . --last-recipe-run --data-table RecipeRunStats
+          > mod study . --last-recipe-run --data-table SourcesFileResults
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
-    > Run mod git checkout . -b hotfix --last-recipe-run to prepare a hotfix branch for applying the changes
+    > Run mod git checkout . -b refactor/DependencyVulnerabilityCheck --last-recipe-run to prepare a refactor/DependencyVulnerabilityCheck branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20240904083238-wRnHo to apply the changes
+    > Run mod git apply . --recipe-run 20250114092127-pDBnx to apply the changes
     > Run mod log runs add . logs.zip --last-run to aggregate run logs
 ```
 
@@ -508,63 +569,57 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 ```bash
 Moderne CLI 3.29.0
 
-Found recipe run 20240904083238-wRnHo
+Found recipe run 20250114092524-RN2dY
 
 > Selecting repositories
 
 > apache/maven-doxia@master
-> aws/amazon-documentdb-jdbc-driver@develop
+> aws/amazon-documentdb-jdbc-driver@develop (no LST)
 > awslabs/aws-saas-boost@main
 > finos/messageml-utils@main
-> finos/spring-bot@spring-bot-master
+> finos/spring-bot@spring-bot-master (no LST)
 > finos/symphony-bdk-java@main
 > finos/symphony-wdk@master
-> Netflix/ndbench@master
 > Netflix/photon@master
 > Netflix/ribbon@master
 > openrewrite/rewrite-recipe-bom@main
-> openrewrite/rewrite-sql@main
 > spring-projects/spring-data-commons@main
 > spring-projects/spring-petclinic@main
-Selected 14 repositories (0.16s)
+Selected 12 repositories (1s)
 
 > Building a combined data table from results on every repository
 
 > apache/maven-doxia@master
     + Did not produce any rows for this data table
-> aws/amazon-documentdb-jdbc-driver@develop
+> aws/amazon-documentdb-jdbc-driver@develop (no LST)
     ! No matching recipe run was found in this repository, skipping
 > awslabs/aws-saas-boost@main
-    + Added 57 rows
+    + Added 64 rows
 > finos/messageml-utils@main
-    + Did not produce any rows for this data table
-> finos/spring-bot@spring-bot-master
-    + Added 60 rows
-> finos/symphony-bdk-java@main
-    + Added 139 rows
-> finos/symphony-wdk@master
-    + Added 15 rows
-> Netflix/ndbench@master
+    + Added 1 rows
+> finos/spring-bot@spring-bot-master (no LST)
     ! No matching recipe run was found in this repository, skipping
+> finos/symphony-bdk-java@main
+    + Added 79 rows
+> finos/symphony-wdk@master
+    + Added 20 rows
 > Netflix/photon@master
     + Added 5 rows
 > Netflix/ribbon@master
-    + Added 687 rows
+    + Added 696 rows
 > openrewrite/rewrite-recipe-bom@main
     + Did not produce any rows for this data table
-> openrewrite/rewrite-sql@main
-    + Did not produce any rows for this data table
 > spring-projects/spring-data-commons@main
-    ! No matching recipe run was found in this repository, skipping
+    + Added 9 rows
 > spring-projects/spring-petclinic@main
-    + Added 8 rows
+    + Added 9 rows
 
-Studied 14 repositories (13s)
+Studied 12 repositories for a total of 883 rows (1s)
 
 * What to do next
-    > Open /Users/mikesol/workshop/VulnerabilityReport.xlsx
+    > Open /Users/mikesol/Desktop/code/workshop/VulnerabilityReport.xlsx
 
-MOD SUCCEEDED in (13s)
+MOD SUCCEEDED in 5s
 ```
 
 </details>
@@ -580,7 +635,7 @@ Open up the Excel file that is produced. You will see that the recipe found almo
 Maybe you don't really want an Excel spreadsheet as the output, though. Fortunately, the Moderne CLI lets you customize what you get out of data tables with templates. Let's run a new recipe to demonstrate this. Let's run a recipe to find all locations where the `java.util.List add(..)` method is used (For more information on how to select a particular method, check out our [method patterns documentation](https://docs.openrewrite.org/reference/method-patterns)).
 
 ```bash
-mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
+mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)" --parallel 0
 
 # Select the following recipe: 
 #   * Find method usages (org.openrewrite.java.search.FindMethods)
@@ -605,7 +660,7 @@ So far, everything we've done has remained local to your machine. In a real-worl
 To begin, make sure you're still in the `$HOME/workshop` directory with the `Default` organization cloned. Then, run the following recipe to resolve common static analysis issues in all of the repositories:
 
 ```bash
-mod run . --recipe CommonStaticAnalysis
+mod run . --recipe CommonStaticAnalysis --parallel 0
 ```
 
 <details>
@@ -618,69 +673,66 @@ Moderne CLI 3.29.0
 > Selecting repositories
 
 > apache/maven-doxia@master
-> aws/amazon-documentdb-jdbc-driver@develop
+> aws/amazon-documentdb-jdbc-driver@develop (no LST)
 > awslabs/aws-saas-boost@main
 > finos/messageml-utils@main
-> finos/spring-bot@spring-bot-master
+> finos/spring-bot@spring-bot-master (no LST)
 > finos/symphony-bdk-java@main
 > finos/symphony-wdk@master
-> Netflix/ndbench@master
 > Netflix/photon@master
 > Netflix/ribbon@master
 > openrewrite/rewrite-recipe-bom@main
-> openrewrite/rewrite-sql@main
 > spring-projects/spring-data-commons@main
 > spring-projects/spring-petclinic@main
-Selected 14 repositories (0.32s)
+Selected 12 repositories (1s)
 
 > Running recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
 
-> apache/maven-doxia@master
-    + Fix results at /Users/mikesol/workshop/apache/maven-doxia/.moderne/run/20240904084031-xdbaB/fix.patch
-> aws/amazon-documentdb-jdbc-driver@develop
+> aws/amazon-documentdb-jdbc-driver@develop (no LST)
     ! Skipping recipe run because no LST was found
-> awslabs/aws-saas-boost@main
-    + Fix results at /Users/mikesol/workshop/awslabs/aws-saas-boost/.moderne/run/20240904084031-xdbaB/fix.patch
-> finos/messageml-utils@main
-    + Fix results at /Users/mikesol/workshop/finos/messageml-utils/.moderne/run/20240904084031-xdbaB/fix.patch
-> finos/spring-bot@spring-bot-master
-    + Fix results at /Users/mikesol/workshop/finos/spring-bot/.moderne/run/20240904084031-xdbaB/fix.patch
-> finos/symphony-bdk-java@main
-    + Fix results at /Users/mikesol/workshop/finos/symphony-bdk-java/.moderne/run/20240904084031-xdbaB/fix.patch
-> finos/symphony-wdk@master
-    + Fix results at /Users/mikesol/workshop/finos/symphony-wdk/.moderne/run/20240904084031-xdbaB/fix.patch
-> Netflix/ndbench@master
+> finos/spring-bot@spring-bot-master (no LST)
     ! Skipping recipe run because no LST was found
-> Netflix/photon@master
-    + Fix results at /Users/mikesol/workshop/Netflix/photon/.moderne/run/20240904084031-xdbaB/fix.patch
 > Netflix/ribbon@master
-    + Fix results at /Users/mikesol/workshop/Netflix/ribbon/.moderne/run/20240904084031-xdbaB/fix.patch
+    + Fix results at /Users/mikesol/Desktop/code/workshop/Netflix/ribbon/.moderne/run/20250114093424-9Q78O/fix.patch
 > openrewrite/rewrite-recipe-bom@main
     No changes
-> openrewrite/rewrite-sql@main
+> Netflix/photon@master
+    + Fix results at /Users/mikesol/Desktop/code/workshop/Netflix/photon/.moderne/run/20250114093424-9Q78O/fix.patch
+> awslabs/aws-saas-boost@main
+    ! Found 1 errors while running the recipe. Look at org.openrewrite.table.SourcesFileErrors data table for more details.
+    + Fix results at /Users/mikesol/Desktop/code/workshop/awslabs/aws-saas-boost/.moderne/run/20250114093424-9Q78O/fix.patch
+> spring-projects/spring-petclinic@main
+    + Fix results at /Users/mikesol/Desktop/code/workshop/spring-projects/spring-petclinic/.moderne/run/20250114093424-9Q78O/fix.patch
+> finos/symphony-wdk@master
+    ! Found 2 errors while running the recipe. Look at org.openrewrite.table.SourcesFileErrors data table for more details.
+    + Fix results at /Users/mikesol/Desktop/code/workshop/finos/symphony-wdk/.moderne/run/20250114093424-9Q78O/fix.patch
+> apache/maven-doxia@master
     No changes
 > spring-projects/spring-data-commons@main
-    ! Skipping recipe run because no LST was found
-> spring-projects/spring-petclinic@main
-    + Fix results at /Users/mikesol/workshop/spring-projects/spring-petclinic/.moderne/run/20240904084031-xdbaB/fix.patch
+    + Fix results at /Users/mikesol/Desktop/code/workshop/spring-projects/spring-data-commons/.moderne/run/20250114093424-9Q78O/fix.patch
+> finos/messageml-utils@main
+    + Fix results at /Users/mikesol/Desktop/code/workshop/finos/messageml-utils/.moderne/run/20250114093424-9Q78O/fix.patch
+> finos/symphony-bdk-java@main
+    + Fix results at /Users/mikesol/Desktop/code/workshop/finos/symphony-bdk-java/.moderne/run/20250114093424-9Q78O/fix.patch
 
-Found change results on 9 repositories; data tables available for 11 repositories; skipped 3 repositories with no LST (1m 37s)
+Found change results on 8 repositories; data tables available for 10 repositories; skipped 2 repositories with no LST (23s)
 
-19m 57s saved by using previously built LSTs
+1h saved by using previously built LSTs
 
 * What to do next
     > ! Update out of date LSTs with mod build .
     > Click on one of the patch links above to view the changes on a particular repository
-    > Run mod study . --last-recipe-run --data-table <DATA-TABLE> to examine the following data tables produced by this recipe:
-          org.openrewrite.table.RecipeRunStats
-          org.openrewrite.table.SourcesFileResults
+    > Run mod study to examine the following data tables produced by this recipe:
+          > mod study . --last-recipe-run --data-table RecipeRunStats
+          > mod study . --last-recipe-run --data-table SourcesFileResults
+          > mod study . --last-recipe-run --data-table SourcesFileErrors
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
-    > Run mod git checkout . -b hotfix --last-recipe-run to prepare a hotfix branch for applying the changes
+    > Run mod git checkout . -b refactor/CommonStaticAnalysis --last-recipe-run to prepare a refactor/CommonStaticAnalysis branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20240904084031-xdbaB to apply the changes
+    > Run mod git apply . --recipe-run 20250114093424-9Q78O to apply the changes
     > Run mod log runs add . logs.zip --last-run to aggregate run logs
 
-MOD SUCCEEDED in (1m 37s)
+MOD SUCCEEDED in 24s
 ```
 
 </details>
@@ -700,62 +752,56 @@ mod git checkout . -b workshop-changes --last-recipe-run
 ```bash
 Moderne CLI 3.29.0
 
-Found recipe run 20240904084031-xdbaB
+Found recipe run 20250114093829-TkzAc
 
 > Selecting repositories
 
 > apache/maven-doxia@master
-> aws/amazon-documentdb-jdbc-driver@develop
+> aws/amazon-documentdb-jdbc-driver@develop (no LST)
 > awslabs/aws-saas-boost@main
 > finos/messageml-utils@main
-> finos/spring-bot@spring-bot-master
+> finos/spring-bot@spring-bot-master (no LST)
 > finos/symphony-bdk-java@main
 > finos/symphony-wdk@master
-> Netflix/ndbench@master
 > Netflix/photon@master
 > Netflix/ribbon@master
 > openrewrite/rewrite-recipe-bom@main
-> openrewrite/rewrite-sql@main
 > spring-projects/spring-data-commons@main
 > spring-projects/spring-petclinic@main
-Selected 14 repositories (0.16s)
+Selected 12 repositories (1s)
 
 > Checkout
 
 > apache/maven-doxia@master
-    Switched to branch workshop-changes
-> aws/amazon-documentdb-jdbc-driver@develop
+    No results to commit
+> aws/amazon-documentdb-jdbc-driver@develop (no LST)
     No results to commit
 > awslabs/aws-saas-boost@main
     Switched to branch workshop-changes
 > finos/messageml-utils@main
     Switched to branch workshop-changes
-> finos/spring-bot@spring-bot-master
-    Switched to branch workshop-changes
+> finos/spring-bot@spring-bot-master (no LST)
+    No results to commit
 > finos/symphony-bdk-java@main
     Switched to branch workshop-changes
 > finos/symphony-wdk@master
     Switched to branch workshop-changes
-> Netflix/ndbench@master
-    No results to commit
 > Netflix/photon@master
     Switched to branch workshop-changes
 > Netflix/ribbon@master
     Switched to branch workshop-changes
 > openrewrite/rewrite-recipe-bom@main
     No results to commit
-> openrewrite/rewrite-sql@main
-    No results to commit
 > spring-projects/spring-data-commons@main
-    No results to commit
+    Switched to branch workshop-changes
 > spring-projects/spring-petclinic@main
     Switched to branch workshop-changes
-Done (0.54s)
+Done (1s)
 
 * What to do next
     > Commit your changes using mod git commit . -m "commit message" --last-recipe-run.
 
-MOD SUCCEEDED in (1s)
+MOD SUCCEEDED in 1s
 ```
 
 </details>
@@ -791,16 +837,18 @@ There are a variety of ways to create PRs based on your goals. We'll provide a f
 You could push commits to the repositories via:
 
 ```bash
+# Please don't run this comand during the workshop
 mod git push . --last-recipe-run
 ```
 
 Or you could create a PR directly with the GitHub command line:
 
 ```bash
+# Please don't run this comand during the workshop
 mod exec . --last-recipe-run -- gh pr create --title "refactor: Apply AssertJ best practices"
 ```
 
-[Or you could create PRs while filtering to only certain repositories, branches, origins, recipe runs, etc.](../cli-reference.md#mod-git-push):
+Or you could [create PRs while filtering to only certain repositories, branches, origins, recipe runs, etc.](../cli-reference.md#mod-git-push):
 
 ```bash
 mod git push . --recipe-run <id> --repository-branch main
