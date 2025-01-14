@@ -30,6 +30,6 @@ A temporary access token is created when you log in to the platform. This lasts 
 
 ## View the documentation
 
-After you've navigated to the API explorer, you should see a `Documentation Explorer` on the right side of the page. You can click on `Query` or `Mutation` to navigate through their respective docs.
+After you've navigated to the API explorer, you should see a book icon in the top-left corner. If you click on it, a docs section will expand. From there, you can click on `Query` or `Mutation` to navigate through their respective docs.
 
 ![](./assets/graphql-documentation.png)
