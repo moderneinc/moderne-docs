@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.29.1 (2025/01/14)
+
+#### What's Changed CLI
+* Flag error on outcome failure
+* Correct command output field index when detecting bazel tool version
+* Use /bin/zsh for mac native install since we write to ~/.zshrc
+* Add python and node versions to build activity log
+#### What's Changed DX
+*  N/A
+
+
 ### CLI / DX v3.29.0 (2025/01/13)
 
 #### What's Changed
