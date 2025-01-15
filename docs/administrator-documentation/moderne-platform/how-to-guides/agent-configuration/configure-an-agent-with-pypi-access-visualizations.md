@@ -78,6 +78,7 @@ You will need to ensure that the environment the agent runs in is set up in a wa
 * `/bin/sh` shell with
   * Python version 3.11 available under the `python3` command
   * Pip and virtualenv (venv) installed. Alias not required (called via `python3 -m pip/venv`)
+* The working directory us writable by the user that runs the agent jar, and has enough space to download the required packages.
 
 :::note
 
