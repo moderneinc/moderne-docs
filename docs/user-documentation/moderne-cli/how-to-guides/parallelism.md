@@ -8,7 +8,7 @@ To help improve this experience, we've introduced a `--parallel` flag on a varie
 
 * Setting this option to **2 or more** causes the command to run with a fixed-size thread pool with that many threads.
 
-* Setting this to **1** causes the command to run sequentially, which is the same as omitting this flag.
+* Setting this to **1** causes the command to run sequentially.
 
 * Setting this to **0** runs the command with a thread pool sized to the number of CPU cores on your machine.
 
