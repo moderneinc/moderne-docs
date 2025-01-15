@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.29.2 (2025/01/15)
+
+#### What's Changed CLI
+* Measure maven dependency resolution without using the Maven Invoker plugin
+* Remove `ProgressBar#step()` from `Tasks#forEach()` handlers
+* Add `--parallel` option to DevCenter run to be able to tweak the cores used
+* Improve description for parallel flag
+
+
 ### CLI / DX v3.29.1 (2025/01/14)
 
 #### What's Changed CLI
