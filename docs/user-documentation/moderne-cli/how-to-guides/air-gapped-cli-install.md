@@ -73,10 +73,14 @@ Options:
       --version   Display version info.
 Commands:
 
+  afterburner          (INCUBATING) Indexes built LSTs to accelerate recipe
+                         execution.
+  audit                (INCUBATING) Perform an audit of recent activity.
   build                Generates LST artifacts for one or more repositories.
   clean                Clean build and run artifacts produced by the CLI.
   config               Global configuration options that are required by some
                          CLI commands.
+  devcenter            DevCenter operations.
   exec                 Execute an arbitrary shell command recursively on
                          selected repository roots.
   git                  Multi-repository git operations.
@@ -86,12 +90,15 @@ Commands:
                          CLI.
   publish              Publishes the LST artifacts for one or more projects.
   run                  Runs an OpenRewrite recipe locally on pre-built LSTS.
-  run-history          Get information about the most recent recipe runs.
+  run-history          Get information about the most recent recipe runs. This
+                         will be transitioning to mod audit runs list
+                         eventually. A deprecation notice will be added here
+                         when we suggest adopting the alternative.
   study                Produces studies from OpenRewrite recipe data tables
                          locally.
   generate-completion  Generate bash/zsh completion script for mod.
 
-MOD SUCCEEDED in (0.01s)
+MOD SUCCEEDED in 1s
 ```
 
 </details>
