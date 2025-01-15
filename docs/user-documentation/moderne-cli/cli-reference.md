@@ -3556,7 +3556,7 @@ The dependency will be resolved from the artifact source defined in **mod config
 
 | Name | Description |
 | ---- | ----------- |
-| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |
+| --parallel |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | --repository-url, --repository |  The repository URL that the artifact will be resolved from. |
 
 
@@ -3765,7 +3765,7 @@ mod config recipes moderne sync
 
 | Name | Description |
 | ---- | ----------- |
-| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |
+| --parallel |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 
 
 ## mod config recipes delete
@@ -4512,6 +4512,7 @@ mod devcenter run /path/to/organization
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | --output-dir |  |  |
+| --parallel |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
@@ -4756,7 +4757,7 @@ mod git clone csv [parameters]
 | --filter |  Equivalent to the **git clone --filter** option. |
 | --limit |  The maximum number of repositories to clone. |
 | --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
-| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |
+| --parallel |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | --save |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. |
 | --single-branch |  |
 
@@ -4789,7 +4790,7 @@ mod git clone json [parameters]
 | --filter |  Equivalent to the **git clone --filter** option. |
 | --limit |  The maximum number of repositories to clone. |
 | --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
-| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |
+| --parallel |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | --save |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. |
 | --single-branch |  |
 
@@ -4822,7 +4823,7 @@ mod git clone moderne [parameters]
 | --filter |  Equivalent to the **git clone --filter** option. |
 | --limit |  The maximum number of repositories to clone. |
 | --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
-| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |
+| --parallel |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | --single-branch |  |
 
 
@@ -5227,7 +5228,7 @@ mod git sync moderne /path/to/organization
 | ---- | ----------- | ---------- |
 | --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
 | --metadata-only, --metadata |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |  |
-| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |  |
+| --parallel |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
 | --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
@@ -5514,7 +5515,7 @@ mod run /path/to/project \
 | --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
 | --no-patch |  (INCUBATING) Do not generate patch files on disk at the conclusion of a recipe run that makes changes. This is useful when you are looking to only use data table outputs and don't wish to incur the cost of writing patch files when they will be unused. |  |
 | -P, --recipe-option |  Recipe options, if any. If a recipe accepts more than one option, you can include this argument multiple times. | `mod run . --recipe=<recipe> -P methodPattern='java.util.List add(..)' -P moreOptions='moreOptions'` |
-| --parallel |  (INCUBATING) Run the recipe in parallel across repositories. Setting this option to 2 or more runs in a fixed thead pool of that size. Setting to 1 causes sequential execution. Setting to 0 uses a thread pool with a number of threads equal to the number of cores on your machine. Setting to a negative number runs in a fixed thread pool with a size equal to the number of cores on your machine minus this number. |  |
+| --parallel |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
 | --partition |  (INCUBATING) The name of the partitions to run the recipe on. If not specified, the recipe will run on all partitions (or the whole repository if there are no partitions). |  |
 | --recipe |  The recipe ID of the recipe that should be run. | `org.openrewrite.java.search.FindMethods` |
 | --recipe-run |  A recipe run ID listed by **mod run-history** |  |
