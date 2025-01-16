@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.29.3 (2025/01/16)
+
+#### What's Changed CLI
+* Update with rewrite 8.43.2 which includes [this fix](https://github.com/openrewrite/rewrite/commit/2586748a25b90b3d7f272a8f06bf80ea4628550e) for system property precedence in Maven property substitutions
+* When running in parallel default to using one fewer core than is available when called by IDE
+
+
 ### CLI / DX v3.29.2 (2025/01/15)
 
 #### What's Changed CLI
