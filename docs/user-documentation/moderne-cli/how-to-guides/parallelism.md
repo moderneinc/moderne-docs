@@ -32,7 +32,7 @@ mod run . --recipe DependencyVulnerabilityCheck --parallel -1
 
 Below is a table showing what the default parallelization setting is for various commands:
 
-| Variation                         | Default behavior without explicit `--parallel`                       |
+| CLI command                       | Default behavior without explicit `--parallel`                       |
 |-----------------------------------|----------------------------------------------------------------------|
 | `mod run --recipe`                | Sequential. In a future release, this will likely change to opt-out. |
 | `mod run --active-recipe`         | Parallel                                                             |
