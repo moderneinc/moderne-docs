@@ -8,6 +8,29 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Fastest recipe runs ever - parallelizing the CLI (January 15th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=jtDduyyCAW8' controls="true" />
+
+* **Announcements for the week**
+  * **Content**
+    * [We've released our new monthly newsletter](https://www.linkedin.com/pulse/prediction-2025-large-codebases-pay-down-tech-debt-75-january-fr4mc)
+  * **Events**
+    * [Jonathan will be at the Atlanta JUG on January 21st presenting on the state of AI in large scale refactoring](https://www.meetup.com/atlantajug/events/304568656/)
+    * [A good friend of ours - Tyler - will be at the Portland JUG on January 21st presenting on OpenRewrite](https://www.meetup.com/pdxjug/events/305066002/)
+    * [Merlin will be at the Dortmund JUG on January 29th presenting on OpenRewrite](https://www.meetup.com/jug-dortmund/events/305474006/)
+    * [Tim and Merlin will be in Germany giving a workshop on modernizing applications with OpenRewrite/Moderne on February 3rd-7th](https://www.oop-konferenz.de/en/program/conference-program#item-8216)
+    * [Tim will be presenting on how to write your own custom OpenRewrite recipes in Köln on February 10th](https://www.meetup.com/softwerkskammer-koln/events/305544025/?eventOrigin=group_upcoming_events)
+  * **Releases**
+    * [We did a full release of OpenRewrite](https://docs.openrewrite.org/changelog/8-43-0-Release)
+    * [You can find get a good idea of what changed in this release in our social media posts such as this post in BlueSky](https://bsky.app/profile/openrewrite.github.io/post/3lfgbm4gts22p)
+    * [We also did a new CLI release](https://docs.moderne.io/releases/cli-dx)
+* **Main topic for the week - parallelization**
+  * This week we were showing off the new parallel flag that allows you to speed up a variety of CLI commands by using multiple threads.
+  * For information on this flag and how to use it, check out our [parallelization guide](./moderne-cli/how-to-guides/parallelism.md)
+  * Sam walked through what the parallel flag defaults to for various commands and why we chose those defaults.
+  * Tim then walked through how this can be used in an IDE to speed up IDE commands.
+
 ### Moderne's next chapter in AI innovation (January 8th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=ZSGOT0aAwVw' controls="true" />
