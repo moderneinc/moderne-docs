@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.29.4 (2025/01/16)
+
+#### What's Changed CLI
+* Remove duplicate timer
+
+
 ### CLI / DX v3.29.3 (2025/01/16)
 
 #### What's Changed CLI
