@@ -27,3 +27,17 @@ The following command will run the `DependencyVulnerabilityCheck` recipe against
 ```bash
 mod run . --recipe DependencyVulnerabilityCheck --parallel -1
 ```
+
+## Defaults
+
+Below is a table showing what the default parallelization setting is for various commands:
+
+| Variation                         | Default behavior without explicit `--parallel`                       |
+|-----------------------------------|----------------------------------------------------------------------|
+| `mod run --recipe`                | Sequential. In a future release, this will likely change to opt-out. |
+| `mod run --active-recipe`         | Parallel                                                             |
+| `mod run --streaming`             | Parallel                                                             |
+| `mod config recipes moderne sync` | Parallel                                                             |
+| `mod config recipes jar install`  | Sequential. In a future release, this will likely change to opt-out. |
+| `mod build`                       | Sequential                                                           |
+| `mod build --download-only`       | Parallel                                                             |
