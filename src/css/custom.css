@@ -259,15 +259,6 @@ html[data-theme=dark] [class^=docMainContainer_] .breadcrumbs__link:hover {
 html[data-theme='dark'] [class^=docMainContainer_] .card {
   --ifm-heading-color: #041834;
 }
-[class^=docMainContainer_] .cardTitle_HoSo {
-  font-size: 1.25rem;
-  text-transform: uppercase;
-}
-
-[class^=docMainContainer_] [class*=cardDescription_] {
-  color: var(--ifm-heading-color);
-  font-size: inherit;
-}
 
 .markdown {
   --ifm-heading-font-family: "Beausite", sans-serif;

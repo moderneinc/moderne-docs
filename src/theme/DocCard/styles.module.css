@@ -20,9 +20,13 @@
 }
 
 .cardTitle {
-  font-size: 1.2rem;
+  --ifm-heading-margin-bottom: 8px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.666;
 }
 
 .cardDescription {
-  font-size: 0.8rem;
+  color: var(--ifm-heading-color);
+  font-size: 1.125rem;
 }
