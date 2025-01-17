@@ -244,6 +244,10 @@ html[data-theme=dark] [class^=docMainContainer_] .breadcrumbs__link:hover {
   content: '';
 }
 
+[class^=docMainContainer_] [class^=generatedIndexPage_] .row[class*=list_] > .col {
+  display: flex;
+}
+
 [class^=docMainContainer_] [class^=generatedIndexPage_] .margin-top--lg {
   margin-top: 4.5rem !important;
 }
