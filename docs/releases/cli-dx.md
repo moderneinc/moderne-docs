@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.29.5 (2025/01/17)
+
+#### What's Changed
+* Parse `**/*.jsonnet` as PlainText
+* Clarify afterburner command
+* Handle nullable response from `retrieveData()`
+* Delete daemon port file if daemon shuts down/dies
+
+
 ### CLI / DX v3.29.4 (2025/01/16)
 
 #### What's Changed CLI
