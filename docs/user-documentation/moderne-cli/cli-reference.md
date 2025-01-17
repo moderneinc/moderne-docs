@@ -274,7 +274,9 @@ mod [subcommands]
 (INCUBATING) Indexes built LSTs to accelerate recipe execution.
 
 
-The intent of this command is to allow future recipe runs to avoid the cost of interacting with LSTs that could provably never return a result. Not every recipe is possible to optimize in this way, but some common ones are, and especially those recipes that are used as common actions in IDE integrations. The contents of these indexes is not guaranteed to be stable between versions of the CLI, and they are intended to only be used by the CLI itself in subsequent run commands.
+This command indexes certain parts of the LST in order to speed up repeated recipe runs against the same LST. While not all recipes can benefit from this optimization, common ones — especially those frequently used in IDE integrations — often will. 
+
+Note: The generated indexes are internal to the CLI and may change between versions. They are intended solely for use by the CLI in subsequent run commands.
 
 ### Usage
 
