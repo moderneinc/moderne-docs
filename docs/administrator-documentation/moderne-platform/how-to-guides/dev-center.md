@@ -97,7 +97,8 @@ You must ensure that the measure recipes return disjointed results (i.e., the sa
 For example, if you were tracking Java versions, you may have a repository that contains some code that uses Java 8, 11, and 17. However, you should ensure that your measure recipes only return this repository once.
 :::
 
-Each card can have up to **three measures**. These measures should be returned in a specific order; with the most urgent being returned first and the least urgent being returned last. In the `Spring Boot 3.2` example, you might have: `Major`, `Minor`, and `Patch` returned in that specific order.
+Each card can have up to **three measures**. These measures should be returned in a specific order; with the most urgent being returned first and the least urgent being returned last. 
+In the `Spring Boot 3.2` example, you might have: `Major`, `Minor` and `Completed` returned in that specific order.
 
 :::warning
 If you change any part of any measure on a card (such as the name of the measure or what recipe it should run), you will lose all results for the card until the next rebuild of the DevCenter.
@@ -113,6 +114,7 @@ If you change any part of any measure on a card (such as the name of the measure
 [
   {
     "devCenter": {
+      "version": 1,
       "upgradesAndMigrations": [
         {
           "title": "Spring boot 3.2",
@@ -158,7 +160,7 @@ If you change any part of any measure on a card (such as the name of the measure
               }
             },
             {
-              "name": "Patch",
+              "name": "Completed",
               "recipe": {
                 "recipeId": "org.openrewrite.java.dependencies.DependencyInsight",
                 "options": [
@@ -220,6 +222,18 @@ If you change any part of any measure on a card (such as the name of the measure
                   }
                 ]
               }
+            },
+            {
+              "name": "Completed",
+              "recipe": {
+                "recipeId": "org.openrewrite.java.search.HasJavaVersion",
+                "options": [
+                  {
+                    "name": "version",
+                    "value": "21-100"
+                  }
+                ]
+              }
             }
           ],
           "fix": {
@@ -237,6 +251,18 @@ If you change any part of any measure on a card (such as the name of the measure
                   {
                     "name": "annotationPattern",
                     "value": "@org.junit.Test"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Completed",
+              "recipe": {
+                "recipeId": "org.openrewrite.java.search.FindAnnotations",
+                "options": [
+                  {
+                    "name": "annotationPattern",
+                    "value": "@org.junit.jupiter.api.Test"
                   }
                 ]
               }
