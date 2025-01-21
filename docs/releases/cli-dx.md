@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.30.0 (2025/01/21)
+
+#### What's Changed CLI
+* Migrate JS build on generic remoting API
+* Add support for offline temporary CLI licenses
+#### What's Changed DX
+* Add support for offline temporary CLI licenses
+
+
 ### CLI / DX v3.29.5 (2025/01/17)
 
 #### What's Changed
