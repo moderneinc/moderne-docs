@@ -14,17 +14,23 @@ If you are a multi-tenant Moderne customer or a CLI only customer, please reach 
 
 If you aren't a Moderne customer, but still want to use the Moderne IDE plugin, please fill out our [try the Moderne IDE plugin signup form](https://www.moderne.io/moderne-ide-plugin-signup) and we will coordinate with you.
 
+## License leases
+
+Beginning with CLI and DX v3.30.0, license keys no longer need to be installed directly in the CLI. Instead, license leases are requested from a DX or single-tenant SaaS instance prior to running a recipe. License leases are valid for 3 days which allows for the running of recipes when not connected to DX or the SaaS. 
+
 ## How to configure the CLI with a license key
 
 ### Moderne DX customers
 
-To configure the license, please run the following command:
+To configure the license in DX, set the `moderne.dx.licenseKey` property to the value of the license key supplied by Moderne in the DX `local.properties` file. After which, a license lease will be automatically fetched by the CLI prior to running a recipe.
+
+To explicitly refresh a license lease, run the following command:
 
 ```bash
 mod config license moderne sync
 ```
 
-### Everyone else (including multi-tenant Moderne customers)
+### CLI-only or multi-tenant Moderne customers
 
 Please run the following command:
 
@@ -48,17 +54,3 @@ Some important details about the license check:
 * Verification of the Moderne tenant configuration only makes a call to the Moderne tenant. If you are using DX, this is a call to inside of your private network. If you are using the Moderne Platform, this is a call to your isolated tenant (and not Moderne as a whole).
 * If you have configured a license key, no network calls will ever be made to GitHub to check to see if a repository is public.
 :::
-
-## License details
-
-We use [elliptic-curve cryptography ](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography)to create the license key. A license is composed of two pieces that are encoded together:
-
-1. Data (base 64 encoded customer name + expiration date)
-2. A signature
-
-The following diagram demonstrates how this license is created and used. Note that because the public key is bundled with the CLI, _no external calls need to be made to verify the integrity of the license key_:
-
-<figure>
-  ![](./assets/cli-license-check.png)
-  <figcaption></figcaption>
-</figure>
