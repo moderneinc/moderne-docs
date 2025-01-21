@@ -59,6 +59,7 @@ For simplicity, we'll provide an example DevCenter file for you to copy below. H
 ```yaml
 name: Default
 devCenterConfiguration:
+  version: 1
   upgradesAndMigrations:
     - title: Spring Boot 3
       measures:
