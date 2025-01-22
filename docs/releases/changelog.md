@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.0.0 (2025/01/22)
+
+feat/marketplace img tag
+
 ### UI v10.182.3 (2025/01/17)
 
 - Bug fixes and other improvements.
