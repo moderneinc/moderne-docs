@@ -8,13 +8,13 @@ In this doc, we will walk through everything you need to know about the Moderne 
 
 If you are a single-tenant Moderne customer, you don't need to configure a license as it will be automatically configured when you connect the CLI to Moderne.
 
-If you are a Moderne DX, multi-tenant Moderne or a CLI-only customer, you may contact <support@moderne.io> to request a license key and then jump to the [configure the CLI with a license key section](#how-to-configure-the-cli-with-a-license-key).
+If you are a Moderne DX, multi-tenant Moderne or a CLI-only customer, you may contact <support@moderne.io> to request a license key and then jump to the [How to configure a license key section](#how-to-configure-the-cli-with-a-license-key).
 
 If you are not a Moderne customer, but still want to use the Moderne IDE plugin, please fill out our [try the Moderne IDE plugin signup form](https://www.moderne.io/moderne-ide-plugin-signup) and we will coordinate with you.
 
 ## License leases
 
-Beginning with CLI and DX v3.30.0, license keys no longer need to be installed directly in the CLI. Instead, license leases are requested from a DX or single-tenant SaaS instance prior to running a recipe. To generate license leases, DX instances must be configured with a valid license key. License leases are valid for 3 days which allows for the running of recipes when not connected to DX or the SaaS. 
+Beginning with CLI and DX v3.30.0, license keys no longer need to be installed directly in the CLI. Instead, license leases are requested from a DX or single-tenant Moderne instance prior to running a recipe. To generate license leases, DX instances must be configured with a valid license key. License leases are valid for 3 days which allows for the running of recipes when not connected to DX or Moderne.
 
 ## How to configure a license key
 
