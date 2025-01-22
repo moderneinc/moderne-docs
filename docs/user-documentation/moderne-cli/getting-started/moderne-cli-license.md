@@ -8,23 +8,21 @@ In this doc, we will walk through everything you need to know about the Moderne 
 
 If you are a single-tenant Moderne customer, you don't need to configure a license as it will be automatically configured when you connect the CLI to Moderne.
 
-If you're a Moderne DX customer, please jump to the [configure the CLI with a license key section](#how-to-configure-the-cli-with-a-license-key) as you do not need a special license key.
-
-If you are a multi-tenant Moderne customer or a CLI only customer, please reach out and we will provide you with a license key.
+If you're a Moderne DX, multi-tenant Moderne or a CLI-only customer, you may contact <support@moderne.io> to request a license key and then jump to the [configure the CLI with a license key section](#how-to-configure-the-cli-with-a-license-key).
 
 If you aren't a Moderne customer, but still want to use the Moderne IDE plugin, please fill out our [try the Moderne IDE plugin signup form](https://www.moderne.io/moderne-ide-plugin-signup) and we will coordinate with you.
 
 ## License leases
 
-Beginning with CLI and DX v3.30.0, license keys no longer need to be installed directly in the CLI. Instead, license leases are requested from a DX or single-tenant SaaS instance prior to running a recipe. License leases are valid for 3 days which allows for the running of recipes when not connected to DX or the SaaS. 
+Beginning with CLI and DX v3.30.0, license keys no longer need to be installed directly in the CLI. Instead, license leases are requested from a DX or single-tenant SaaS instance prior to running a recipe. To generate license leases, DX instances must be configured with a valid license key. License leases are valid for 3 days which allows for the running of recipes when not connected to DX or the SaaS. 
 
-## How to configure the CLI with a license key
+## How to configure a license key
 
 ### Moderne DX customers
 
-To configure the license in DX, set the `moderne.dx.licenseKey` property to the value of the license key supplied by Moderne in the DX `local.properties` file. After which, a license lease will be automatically fetched by the CLI prior to running a recipe.
+To configure the license in DX, set the `moderne.dx.licenseKey` property to the license key supplied by Moderne in the DX `local.properties` file. After which, a license lease will be automatically fetched by the CLI prior to running a recipe.
 
-To explicitly refresh a license lease, run the following command:
+To explicitly refresh a license lease, run the following CLI command:
 
 ```bash
 mod config license moderne sync
@@ -32,7 +30,7 @@ mod config license moderne sync
 
 ### CLI-only or multi-tenant Moderne customers
 
-Please run the following command:
+Please run the following CLI command:
 
 ```bash
 mod config license edit <license-you-were-provided>
@@ -50,7 +48,7 @@ The following diagram shows the flow of what checks will happen when you attempt
 :::info
 Some important details about the license check:
 
-* The license **check does NOT make any call home requests to Moderne** (the public key packaged inside of the CLI is enough to verify the integrity of the signature).
+* The license check **does NOT make any call home requests to Moderne** (the public key packaged inside of the CLI is enough to verify the integrity of the signature).
 * Verification of the Moderne tenant configuration only makes a call to the Moderne tenant. If you are using DX, this is a call to inside of your private network. If you are using the Moderne Platform, this is a call to your isolated tenant (and not Moderne as a whole).
-* If you have configured a license key, no network calls will ever be made to GitHub to check to see if a repository is public.
+* If you have configured a license key, no network calls will ever be made to an SCM vendor, such at GitHub, to check to see if a repository is public.
 :::
