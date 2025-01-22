@@ -21,6 +21,33 @@ const config: Config = {
     locales: ['en'],
   },
 
+  headTags: [
+    // <link rel="preconnect" href="https://fonts.googleapis.com">
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.googleapis.com',
+      },
+    },
+    // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
+      },
+    },
+  ],
+
   presets: [
     [
       'classic',
@@ -63,7 +90,6 @@ const config: Config = {
     announcementBar: {
       id: "code_remix",
       content: 'Now announcing the inaugural <a href="https://coderemix.ai/"><strong>Code Remix Summit</strong></a> – in Miami May 12th-14th. Use the code <strong>MODERNE3VIP</strong> for an additional $300 off.',
-      textColor: "#E3F2FD",
     },
     colorMode: {
       respectPrefersColorScheme: true,
@@ -94,8 +120,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: "dark",
-      copyright: `Copyright © ${new Date().getFullYear()} Moderne, Inc.`,
+      copyright: `© Moderne, ${new Date().getFullYear()}`,
     },
     prism: {
       theme: prismThemes.github,
