@@ -191,7 +191,7 @@ html[data-theme=dark] .theme-doc-sidebar-menu .menu__link--active + .menu__caret
 }
 
 [class^=docMainContainer_] {
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 [class^=docMainContainer_] > .container:first-child {
