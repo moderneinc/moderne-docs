@@ -1,3 +1,8 @@
+---
+sidebar_label: Understanding the Moderne DevCenter
+description: Explains where to find a DevCenter and what all of the components of it are.
+---
+
 import ReactPlayer from 'react-player';
 
 # Getting started with the Moderne DevCenter

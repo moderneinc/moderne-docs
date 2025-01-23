@@ -1,5 +1,5 @@
 ---
-description: Running your first recipe
+description: A step-by-step walkthrough of running a recipe, from signing in to committing the changes.
 ---
 
 import ReactPlayer from 'react-player';

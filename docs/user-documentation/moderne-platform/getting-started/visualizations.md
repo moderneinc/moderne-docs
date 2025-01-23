@@ -1,3 +1,8 @@
+---
+sidebar_label: Generating visualizations
+description: A guide on the different types of visualizations.
+---
+
 import ReactPlayer from 'react-player';
 
 # Getting started with visualizations
