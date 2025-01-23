@@ -8,25 +8,29 @@ In this doc, we will walk through everything you need to know about the Moderne 
 
 If you are a single-tenant Moderne customer, you don't need to configure a license as it will be automatically configured when you connect the CLI to Moderne.
 
-If you're a Moderne DX customer, please jump to the [configure the CLI with a license key section](#how-to-configure-the-cli-with-a-license-key) as you do not need a special license key.
+If you are a Moderne DX, multi-tenant Moderne or a CLI-only customer, you may contact [support@moderne.io](mailto:support@moderne.io) to request a license key and then jump to the [How to configure a license key section](#how-to-configure-the-cli-with-a-license-key).
 
-If you are a multi-tenant Moderne customer or a CLI only customer, please reach out and we will provide you with a license key.
+If you are not a Moderne customer, but still want to use the Moderne IDE plugin, please fill out our [try the Moderne IDE plugin signup form](https://www.moderne.io/moderne-ide-plugin-signup) and we will coordinate with you.
 
-If you aren't a Moderne customer, but still want to use the Moderne IDE plugin, please fill out our [try the Moderne IDE plugin signup form](https://www.moderne.io/moderne-ide-plugin-signup) and we will coordinate with you.
+## License leases
 
-## How to configure the CLI with a license key
+Beginning with CLI and DX v3.30.0, license keys no longer need to be installed directly in the CLI. Instead, license leases are requested from a DX or single-tenant Moderne instance prior to running a recipe. To generate license leases, DX instances must be configured with a valid license key. License leases are valid for 3 days which allows for the running of recipes when not connected to DX or Moderne.
+
+## How to configure a license key
 
 ### Moderne DX customers
 
-To configure the license, please run the following command:
+To configure the license in DX, set the `moderne.dx.licenseKey` property to the license key supplied by Moderne in the DX `local.properties` file. After which, a license lease will be automatically fetched by the CLI prior to running a recipe.
+
+To explicitly refresh a license lease, run the following CLI command:
 
 ```bash
 mod config license moderne sync
 ```
 
-### Everyone else (including multi-tenant Moderne customers)
+### CLI-only or multi-tenant Moderne customers
 
-Please run the following command:
+Please run the following CLI command:
 
 ```bash
 mod config license edit <license-you-were-provided>
@@ -44,21 +48,7 @@ The following diagram shows the flow of what checks will happen when you attempt
 :::info
 Some important details about the license check:
 
-* The license **check does NOT make any call home requests to Moderne** (the public key packaged inside of the CLI is enough to verify the integrity of the signature).
+* The license check **does NOT make any call home requests to Moderne** (the public key packaged inside of the CLI is enough to verify the integrity of the signature).
 * Verification of the Moderne tenant configuration only makes a call to the Moderne tenant. If you are using DX, this is a call to inside of your private network. If you are using the Moderne Platform, this is a call to your isolated tenant (and not Moderne as a whole).
-* If you have configured a license key, no network calls will ever be made to GitHub to check to see if a repository is public.
+* If you have configured a license key, no network calls will ever be made to an SCM vendor, such at GitHub, to check to see if a repository is public.
 :::
-
-## License details
-
-We use [elliptic-curve cryptography ](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography)to create the license key. A license is composed of two pieces that are encoded together:
-
-1. Data (base 64 encoded customer name + expiration date)
-2. A signature
-
-The following diagram demonstrates how this license is created and used. Note that because the public key is bundled with the CLI, _no external calls need to be made to verify the integrity of the license key_:
-
-<figure>
-  ![](./assets/cli-license-check.png)
-  <figcaption></figcaption>
-</figure>
