@@ -36,7 +36,7 @@
   --ifm-navbar-height: 116px;
   --ifm-font-family-base: "Inter", sans-serif;
   --ifm-heading-font-weight: 400;
-  --ifm-heading-line-height: 1;
+  --ifm-heading-line-height: 1.25;
   --ifm-heading-color: #041834;
   --ifm-font-weight-bold: 600;
   --ifm-footer-padding-vertical: 2.375rem;
@@ -85,6 +85,10 @@ html[data-theme='dark'] {
   --ifm-toc-border-color: transparent;
   --ifm-section-divider-color: #d9d9d9;
   --ifm-card-background-color: #fff;
+  --ifm-heading-line-height: 1.25;
+  .theme-code-block {
+    border: 1.5px solid var(--ifm-color-border);
+  }
 }
 
 figure img {
@@ -173,17 +177,16 @@ html[data-theme=dark] .theme-doc-sidebar-menu .menu__link--active + .menu__caret
   font-size: 1rem;
 }
 
-[class^=docMainContainer_] > .container:first-child {
-  padding-top: 3.25rem !important;
-}
 
 [class^=docMainContainer_] [class*=breadcrumbsContainer_] {
-  margin-bottom: 3.3rem;
-}
+  margin-bottom: 1rem;
+} 
 
 [class^=docMainContainer_] .breadcrumbs__link {
   color: var(--ifm-heading-color);
 }
+
+
 
 html[data-theme=dark] [class^=docMainContainer_] .breadcrumbs__link:hover {
   --ifm-heading-color: #041834;

@@ -123,7 +123,7 @@ const config: Config = {
       copyright: `© Moderne, ${new Date().getFullYear()}`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.vsDark,
       darkTheme: prismThemes.vsDark,
       additionalLanguages: [
         "bash",

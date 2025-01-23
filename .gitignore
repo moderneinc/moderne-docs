@@ -1,6 +1,6 @@
 .idea/
 .vscode/
-
+.obsidian/
 # Dependencies
 /node_modules
 
