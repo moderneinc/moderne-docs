@@ -1,3 +1,7 @@
+---
+description: Describes what the activity view is, where to find it, and what each part does
+---
+
 import ReactPlayer from 'react-player';
 
 # Using the activity view
