@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v11.1.0 (2025/01/23)
+
+- add alphabetical list of top-level categories
+- add commit job hover card to activity view
+
 ### UI v11.0.0 (2025/01/22)
 
 feat/marketplace img tag
