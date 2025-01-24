@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.31.0 (2025/01/24)
+
+#### What's Changed
+* Do not run `install.sh` or `mod help` when publishing
+* Follow symlinks when discovering projects
+* Ensure native image adds rewrite-javascript-remoting-server resources
+* Use `mod git push -u` to set upstream branch
+* Support TOML parsing in native image
+* Add npm build step and related config commands for node based projects
+
+
 ### CLI / DX v3.30.0 (2025/01/21)
 
 #### What's Changed CLI
