@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.1.1 (2025/01/24)
+
+- Bug fixes and other improvements.
+
 ### UI v11.1.0 (2025/01/23)
 
 - add alphabetical list of top-level categories
