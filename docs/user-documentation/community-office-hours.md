@@ -8,6 +8,26 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Hero developer contributes TOML parser to OpenRewrite (January 24th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=O1impO_dKuU' controls="true" />
+
+* **Announcements for the week**
+  * **Content**
+    * Our docs have been redesigned to match our branding a bit more. Please let us know if you run into any issues with them.
+    * [We have a new video on how to create custom recipes with the Moderne Recipe Builder](https://www.youtube.com/watch?v=VrifO9uvS1c)
+  * **Code**
+    * We've added type tables to OpenRewrite. [Check out Jonathan's post talking about them and what this enables](https://www.linkedin.com/posts/jonkschneider_introducing-typetables-a-new-and-simple-activity-7287876709977083906-rl_t).
+    * [We've merged in full support for Java 21](https://github.com/openrewrite/rewrite/pull/4661).
+  * **Events**
+    * [Jonathan gave a presentation on the state of AI in large scale automated refactoring that is available to watch online](https://www.recallact.com/presentation/state-ai-large-scale-automated-refactoring)
+    * [There will be a presentation in France about OpenRewrite on January 23rd](https://app.voxxr.in/events/snowcamp25/talks/cm162lu8n00dt1bi2704ucsen/details)
+    * [Tim and Merlin will be in Germany giving a workshop on modernizing applications with OpenRewrite/Moderne on February 3rd-7th](https://www.oop-konferenz.de/en/program/conference-program#item-8216)
+    * [Merlin will be at the Dortmund JUG on January 29th presenting on OpenRewrite](https://www.meetup.com/jug-dortmund/events/305474006/)
+    * [Tim will be presenting on how to write your own custom OpenRewrite recipes in Köln on February 10th](https://www.meetup.com/softwerkskammer-koln/events/305544025/?eventOrigin=group_upcoming_events)
+* **Main topic for the week**
+  * This week we welcomed back Shannon Pamperl – one of the most prolific contributors to OpenRewrite. He recently added a TOML parser to OpenRewrite, and we wanted to take some time to chat with him about it – such as his motivations, how he went about it, and what challenges he faced.
+
 ### Fastest recipe runs ever - parallelizing the CLI (January 15th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=jtDduyyCAW8' controls="true" />
