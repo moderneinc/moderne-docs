@@ -60,7 +60,7 @@
 * Progress indicator: Updates to color coding to improve readability
 * Support Java detection for multiline `.sdkmanrc`
 * Add `build.tool.family` CLI metric
-* Fix for 'ZipException: invalid entry size`
+* Fix for `ZipException: invalid entry size`
 * Add `maxFragmentWeight` to `scm.properties` to determine if an LST fragment might be too big to load into memory.
 * Add `TomlParser`
 * Also resolve snapshots from `s01.oss.sonatype.org`
