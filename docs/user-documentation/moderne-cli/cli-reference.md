@@ -128,6 +128,11 @@
 * [**mod config moderne show**](#mod-config-moderne-show)
 * [**mod config moderne organizations**](#mod-config-moderne-organizations)
 * [**mod config moderne organizations show**](#mod-config-moderne-organizations-show)
+* [**mod config node**](#mod-config-node)
+* [**mod config node installation**](#mod-config-node-installation)
+* [**mod config node installation edit**](#mod-config-node-installation-edit)
+* [**mod config node installation delete**](#mod-config-node-installation-delete)
+* [**mod config node installation list**](#mod-config-node-installation-list)
 * [**mod config recipes**](#mod-config-recipes)
 * [**mod config recipes artifacts**](#mod-config-recipes-artifacts)
 * [**mod config recipes artifacts artifactory**](#mod-config-recipes-artifacts-artifactory)
@@ -592,6 +597,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `license`: Configure a license key.
 * `lsts`: Configures LSTs production and publishing. 
 * `moderne`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
+* `node`: Configures Node options used for building LSTs and running recipes.
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `run`: Configures recipe run behavior.
 * `scm`: Configures source code management.
@@ -3058,6 +3064,96 @@ mod config moderne organizations show
 | --json |  |
 
 
+## mod config node
+
+Configures Node options used for building LSTs and running recipes.
+
+
+Must be configured before you can run the commands that involve non-standard Node configurations.
+
+### Usage
+
+```
+mod config node [subcommands]
+```
+
+
+### Subcommands
+
+* `installation`: Configures locations of Node that can be used by build tools.
+
+## mod config node installation
+
+Configures locations of Node that can be used by build tools.
+
+
+Must be configured before you can run the build command if Node is installed in non-standard locations.
+
+### Usage
+
+```
+mod config node installation [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures locations of Node that can be used by build tools.
+* `delete`: Removes the configured Node installations. The CLI will revert to using only detectable Node installations.
+* `list`: Displays the detected and configured Node installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+## mod config node installation edit
+
+Configures locations of Node that can be used by build tools.
+
+
+Must be configured before you can run the build command if Node is installed in non-standard locations.
+
+### Usage
+
+```
+mod config node installation edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| nodeInstallations |  The paths on disk where Node installations can be found. |
+
+
+
+## mod config node installation delete
+
+Removes the configured Node installations. The CLI will revert to using only detectable Node installations.
+
+
+### Usage
+
+```
+mod config node installation delete
+```
+
+
+
+## mod config node installation list
+
+Displays the detected and configured Node installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+
+### Usage
+
+```
+mod config node installation list
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| --named |  Filter the list of Node installations to . |
+
+
 ## mod config recipes
 
 Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
@@ -4937,7 +5033,7 @@ mod git push /path/to/project -u origin feature-branch
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --u, --set-upstream |  For every branch that is up to date or successfully pushed, add upstream (tracking) reference. |  |
+| -u, --set-upstream |  For every branch that is up to date or successfully pushed, add upstream (tracking) reference. |  |
 
 
 ## mod git reset
