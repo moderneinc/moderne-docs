@@ -1,3 +1,8 @@
+---
+sidebar_label: Moderne Recipe catalog search
+description: A short guide on how to effectively find recipes in the Moderne Platform.
+---
+
 # Moderne Recipe catalog search
 
 In order to get the most out of the Moderne Platform, it's a good idea to understand how you can effectively search for recipes.

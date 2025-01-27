@@ -1,3 +1,8 @@
+---
+sidebar_label: Using AI to understand your codebase
+description: How to gain a high-level overview of your codebase using AI clustering.
+---
+
 # How to gain a high-level overview of your codebase using AI clustering
 
 <figure>

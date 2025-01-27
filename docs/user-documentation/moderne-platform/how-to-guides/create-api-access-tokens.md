@@ -1,3 +1,8 @@
+---
+sidebar_label: Creating a personal access token
+description: How to create a personal access token to use the CLI or the Moderne APIs.
+---
+
 # Creating a personal access token
 
 In order to use the [Moderne GraphQL API](https://api.app.moderne.io/), you will need to create a Personal Access Token.
