@@ -1,3 +1,8 @@
+---
+sidebar_label: Bitbucket Data center configuration
+description: How to configure the Moderne agent to communicate with Bitbucket Data Center.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

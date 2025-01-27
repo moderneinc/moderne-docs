@@ -1,3 +1,8 @@
+---
+sidebar_label: Organizations service configuration
+description: How to configure the Moderne agent to access your Organizations service.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

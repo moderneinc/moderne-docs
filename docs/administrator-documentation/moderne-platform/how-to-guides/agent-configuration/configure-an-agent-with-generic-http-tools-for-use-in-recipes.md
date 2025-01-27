@@ -1,3 +1,9 @@
+---
+sidebar_label: HTTP tool configuration
+description: How to configure the Moderne agent with generic HTTP tools so they can be used in recipes.
+---
+
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

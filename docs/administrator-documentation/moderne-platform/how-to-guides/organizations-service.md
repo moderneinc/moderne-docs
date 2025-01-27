@@ -1,3 +1,8 @@
+---
+sidebar_label: Configuring the Organizations service
+description: How to create and configure an Organizations service to group repositories.
+---
+
 # Configuring the Organizations service
 
 Many organizations desire the ability to dynamically control the organizational structure (repository groupings) of their repositories within the Moderne Platform. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted in your environment.

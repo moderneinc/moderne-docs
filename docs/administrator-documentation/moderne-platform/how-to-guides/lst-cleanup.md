@@ -1,3 +1,8 @@
+---
+sidebar_label: Cleaning up LSTs
+description: How to clean up old or outdated LSTs.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

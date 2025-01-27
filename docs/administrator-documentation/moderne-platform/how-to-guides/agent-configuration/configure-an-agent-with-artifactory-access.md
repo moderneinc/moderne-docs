@@ -1,3 +1,8 @@
+---
+sidebar_label: Artifactory LST configuration
+description: How to configure the Moderne agent to retrieve LST artifacts from Artifactory.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

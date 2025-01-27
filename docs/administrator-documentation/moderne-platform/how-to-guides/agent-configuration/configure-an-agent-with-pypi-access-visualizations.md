@@ -1,3 +1,8 @@
+---
+sidebar_label: PyPI visualizations configuration
+description: How to configure the Moderne agent to retrieve visualization artifacts from your PyPI repository.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

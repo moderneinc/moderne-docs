@@ -1,3 +1,8 @@
+---
+sidebar_label: Configuring the DevCenter
+description: How to create and configure a Moderne DevCenter to get high-level details about your repositories.
+---
+
 # Configuring the DevCenter
 
 The Moderne DevCenter is the mission-control dashboard of the Moderne Platform. It provides you with high-level details about the state of all of your repositories. Using it, you can track the progress of upgrades, migrations, and security vulnerabilities. You can also use it to view [key visualizations](../../../user-documentation/moderne-platform/getting-started/visualizations.md) you care about – such as a dependency graph or a SQL operation usage chart.

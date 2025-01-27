@@ -1,3 +1,8 @@
+---
+sidebar_label: GitHub configuration
+description: How to configure the Moderne agent to communicate with GitHub.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

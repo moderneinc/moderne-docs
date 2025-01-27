@@ -1,3 +1,8 @@
+---
+sidebar_label: Azure DevOps configuration
+description: How to configure the Moderne agent to communicate with Azure DevOps Services.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
