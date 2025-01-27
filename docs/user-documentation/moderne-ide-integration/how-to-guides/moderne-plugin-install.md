@@ -1,3 +1,8 @@
+---
+sidebar_label: Installation and configuration
+description: How to install and configure the Moderne plugin.
+---
+
 import ReactPlayer from 'react-player';
 
 # How to install and configure the Moderne plugin

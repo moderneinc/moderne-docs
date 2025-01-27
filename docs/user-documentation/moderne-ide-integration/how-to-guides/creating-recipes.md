@@ -1,3 +1,8 @@
+---
+sidebar_label: Recipe creation
+description: How to create recipes quickly with the Moderne plugin.
+---
+
 # How to create recipes
 
 When planning large-scale code changes, it's a good idea to begin by creating a recipe that identifies all of the potential edit sites. Doing so gives you a full impact analysis of what you're about to do, before you actually do it. Taking the time to find all of these locations is especially important because real-world code is complex and nuanced. Without a proper accounting of this nuance, writing a _transformation_ recipe will not be as accurate as you'd wish.
