@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.31.1 (2025/01/27)
+
+#### What's Changed CLI
+* Log warning and continue building when failing to calculate maven dependency resolution times
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.31.0 (2025/01/24)
 
 #### What's Changed
