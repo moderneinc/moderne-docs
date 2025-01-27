@@ -1,3 +1,8 @@
+---
+sidebar_label: Using the Moderne API
+description: How to use the Moderne API to execute recipes and commit those results back to your code.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -1,3 +1,8 @@
+---
+sidebar_label: Upgrading transitive dependencies
+description: How to upgrade transitive dependencies – especially useful for security fixes.
+---
+
 import ReactPlayer from 'react-player';
 
 # How to upgrade transitive dependencies
