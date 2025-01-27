@@ -1,3 +1,8 @@
+---
+sidebar_label: License details
+description: Information on how to receive/configure a Moderne CLI license and how said license is used.
+---
+
 # Moderne CLI license
 
 In order to **run recipes against private** repositories you will need to ensure that the Moderne CLI is configured with a license. If you are using the CLI to run recipes against _public_ repositories, you do not need to worry about a license. The only thing you will need to do in that instance is authenticate with [app.moderne.io](https://app.moderne.io) and create a [Moderne token](../../moderne-platform/references/moderne-tokens.md).

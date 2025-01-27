@@ -1,3 +1,8 @@
+---
+sidebar_label: Generating DevCenters locally
+description: How to create or edit DevCenters using the Moderne CLI.
+---
+
 # Getting started with the Moderne CLI DevCenter
 
 The Moderne DevCenter provides you with high-level details about the state of all of your repositories. Using it, you can track the progress of upgrades, migrations, and security vulnerabilities. You may be aware of [this feature in the Moderne Platform](../../moderne-platform/getting-started/dev-center.md) - but did you know that you can generate a DevCenter locally via the CLI?
@@ -188,4 +193,4 @@ Open up the HTML file to see your DevCenter:
 
 ## Next steps
 
-Once you've arrived on a DevCenter that you like, consider sharing it with your team. If you have an Organization service set up, you can even define this inside of that service so that everyone has this DevCenter by default when they `mod git clone` that organization.
+Once you've arrived at a DevCenter that you like, consider sharing it with your team. If you have an Organization service set up, you can even define this inside of that service so that everyone has this DevCenter by default when they `mod git clone` that organization.
