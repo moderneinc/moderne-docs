@@ -1,3 +1,8 @@
+---
+sidebar_label: Syncing recipes
+description: How to synchronize your local recipes with Moderne DX.
+---
+
 # Syncing recipes with Moderne DX
 
 To sync recipes from Moderne DX to your local CLI, you will need to execute the following commands.
