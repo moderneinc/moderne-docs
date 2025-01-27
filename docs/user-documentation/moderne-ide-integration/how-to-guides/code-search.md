@@ -1,3 +1,8 @@
+---
+sidebar_label: Multi-repository code search
+description: How to search for code across many repositories at once.
+---
+
 # Multi-repository code search
 
 Regardless of whether you're a new developer or someone with decades of experience writing code, you will often find yourself wanting to look for examples of how particular pieces of code are used. In fact, about [one third of all Google code searches are attempting to find examples of how others have done something](https://www.oreilly.com/library/view/software-engineering-at/9781492082781/ch17.html#whyquestion_mark). Unfortunately, these searches will often lead to examples that aren't quite right – they might match the same _text_, but they often will not match the _types_. If you attempt to restrict searching to only the repositories on your local machine (such as using `grep` for instance), you will often run into a similar issue.
