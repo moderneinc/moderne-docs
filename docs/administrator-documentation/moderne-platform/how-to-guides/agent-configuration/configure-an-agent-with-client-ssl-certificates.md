@@ -1,9 +1,14 @@
+---
+sidebar_label: Client SSL certificate configuration
+description: How to configure the Moderne agent with client SSL certificates.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Configure an agent with client SSL certificates
 
-If you are configuring the Moderne agent to connect to a service that requires a self-signed certificate to perform a HTTPS request (e.g., Maven or Artifactory) you will need to:
+If you are configuring the Moderne agent to connect to a service that requires a self-signed certificate to perform an HTTPS request (e.g., Maven or Artifactory) you will need to:
 
 * Supply a KeyStore for the agent to use in the `PKCS12` format at the following location: `${JAVA_HOME}/lib/security/client_keystore.p12`
 * Configure the agent to `skipSSL` for this service (See the [Artifactory](./configuring-artifactory-with-recipes.md) or [Maven](./configure-an-agent-with-maven-repository-access.md) agent documentation)

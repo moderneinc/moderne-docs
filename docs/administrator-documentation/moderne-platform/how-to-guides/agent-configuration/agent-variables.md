@@ -1,3 +1,8 @@
+---
+sidebar_label: All agent variables
+description: A reference manual that contains all agent configuration variables.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

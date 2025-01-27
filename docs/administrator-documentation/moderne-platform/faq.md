@@ -1,3 +1,8 @@
+---
+sidebar_label: FAQ
+description: Frequently asked questions related to administrating the Moderne Platform.
+---
+
 # Frequently asked questions (FAQ)
 
 ## Why do artifact scanners detect vulnerabilities in recipe artifacts/JARs?

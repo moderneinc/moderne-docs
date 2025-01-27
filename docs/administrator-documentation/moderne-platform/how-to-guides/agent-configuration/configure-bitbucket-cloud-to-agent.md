@@ -1,3 +1,8 @@
+---
+sidebar_label: Bitbucket Cloud configuration
+description: How to configure the Moderne agent to communicate with Bitbucket Cloud.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

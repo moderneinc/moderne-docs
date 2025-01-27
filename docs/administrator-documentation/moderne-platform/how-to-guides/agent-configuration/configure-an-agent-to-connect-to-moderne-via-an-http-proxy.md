@@ -1,3 +1,8 @@
+---
+sidebar_label: HTTP proxy configuration
+description: How to configure the Moderne agent to connect to Moderne via an HTTP proxy.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

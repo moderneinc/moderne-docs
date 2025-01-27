@@ -1,3 +1,8 @@
+---
+sidebar_label: Multi-tentant private recipes
+description: How to upload and deploy company-specific recipes in a private way.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

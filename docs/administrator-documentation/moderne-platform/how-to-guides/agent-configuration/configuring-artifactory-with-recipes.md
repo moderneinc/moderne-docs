@@ -1,3 +1,8 @@
+---
+sidebar_label: Artifactory recipe configuration
+description: How to configure the Moderne agent to retrieve recipe artifacts from Artifactory.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

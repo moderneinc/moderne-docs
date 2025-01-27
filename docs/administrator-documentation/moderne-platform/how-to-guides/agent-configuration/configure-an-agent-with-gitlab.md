@@ -1,3 +1,8 @@
+---
+sidebar_label: GitLab configuration
+description: How to configure the Moderne agent to communicate with GitLab.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
