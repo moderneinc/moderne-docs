@@ -1,3 +1,8 @@
+---
+sidebar_label: Layered configuration
+description: How to set global or project-specific build arguments in the Moderne CLI.
+---
+
 # Layered configuration in the Moderne CLI
 
 One big challenge that comes with building [LSTs](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) for many repositories on many machines is configuration. What arguments do you need to build each repository? Are there Maven specific ones? Gradle specific ones? Do they change depending on the group of projects? How do you share these configurations with new people on the team?

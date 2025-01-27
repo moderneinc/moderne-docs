@@ -1,3 +1,8 @@
+---
+sidebar_label: Air-gapped environments
+description: How to install and configure the Moderne CLI in an air-gapped environment.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

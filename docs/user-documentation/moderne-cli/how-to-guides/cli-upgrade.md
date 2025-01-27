@@ -1,4 +1,9 @@
-# How to update to the latest version of Moderne CLI
+---
+sidebar_label: Updating the CLI
+description: How to update to the latest version of the Moderne CLI.
+---
+
+# How to update to the latest version of the Moderne CLI
 
 To update the CLI to a newer version, you will need to download the latest version and delete your old version.
 

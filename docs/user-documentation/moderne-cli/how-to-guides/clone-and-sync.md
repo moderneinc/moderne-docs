@@ -1,3 +1,8 @@
+---
+sidebar_label: Synchronizing organizations
+description: How to clone and synchronize organizations with the Moderne CLI.
+---
+
 # How to clone and synchronize organizations
 
 If you've configured organizations in Moderne, you may find it useful to use the CLI to clone or synchronize them to your local machine.
