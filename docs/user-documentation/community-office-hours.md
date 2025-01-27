@@ -13,9 +13,19 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
-### Hero developer contributes TOML parser to OpenRewrite (January 24th, 2025)
+### Brewing Java 21: Live coding a recipe for success (January 29th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=gQI4iZT8B7A' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
+### Hero developer contributes TOML parser to OpenRewrite (January 22nd, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=O1impO_dKuU' controls="true" />
+
+#### Summary and related links
 
 * **Announcements for the week**
   * **Content**
@@ -36,6 +46,8 @@ You can find each of the Code Remix sessions below along with a summary of what 
 ### Fastest recipe runs ever - parallelizing the CLI (January 15th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=jtDduyyCAW8' controls="true" />
+
+#### Summary and related links
 
 * **Announcements for the week**
   * **Content**
