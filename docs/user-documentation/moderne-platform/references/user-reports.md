@@ -1,3 +1,8 @@
+---
+sidebar_label: User reports
+description: What reports exist in Moderne for general users.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
