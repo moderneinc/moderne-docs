@@ -1,3 +1,8 @@
+---
+sidebar_label: Improve recipe run times
+description: How to improve recipe run times with mod afterburner.
+---
+
 # How to improve recipe run times with mod afterburner
 
 By default, every time you run a recipe against an LST, the full LST much be parsed and checked – even if no changes have been made against it. This results in recipes taking a decent amount of time to execute – regardless of how many times you've run recipes against the same LST or how complex those recipes are.

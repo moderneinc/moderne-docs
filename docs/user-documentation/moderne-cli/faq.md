@@ -1,3 +1,8 @@
+---
+sidebar_label: FAQ
+description: A list of frequently asked questions about the Moderne CLI.
+---
+
 # FAQ
 
 ## Invalid entry compressed size exception

@@ -1,3 +1,8 @@
+---
+sidebar_label: Reference manual
+description: Auto-generated documentation for all Moderne CLI commands.
+---
+
 # Moderne CLI reference
 
 ## Table of contents

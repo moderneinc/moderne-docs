@@ -1,3 +1,8 @@
+---
+sidebar_label: Configuring build steps
+description: Explains what build steps are and the various ways you can configure them.
+---
+
 # Configuring build steps
 
 ## Out-of-the-box behavior without explicit configuration

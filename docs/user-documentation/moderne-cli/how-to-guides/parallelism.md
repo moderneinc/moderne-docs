@@ -1,3 +1,8 @@
+---
+sidebar_label: Speed up the CLI with parallelism
+description: How to speed up the Moderne CLI with parallelism.
+---
+
 # How to speed up the Moderne CLI with parallelism
 
 Depending on the number of repositories you have, it can take a long time to clone the repositories or run recipes against them.

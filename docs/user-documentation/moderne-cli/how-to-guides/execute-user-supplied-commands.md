@@ -1,3 +1,8 @@
+---
+sidebar_label: Executing commands on many repositories
+description: How to execute user-supplied commands on a list of repositories.
+---
+
 # How to execute user-supplied commands on a list of repositories
 
 The Moderne CLI allows users to execute arbitrary commands on a list of repositories using the **mod exec** command. For example, the following CLI command will execute **git status** on each repository it finds under the current directory:

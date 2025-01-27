@@ -1,3 +1,8 @@
+---
+sidebar_label: JDK configuration
+description: How to configure the JDK in the Moderne CLI.
+---
+
 # JDK configuration in the Moderne CLI
 
 By default, the Moderne CLI will try and detect what version of Java applies to a specific project and where the JDK is for said version. It will then pick the most optimal one when it goes to build each project.

@@ -1,3 +1,8 @@
+---
+sidebar_label: SSH keys with passphrases
+description: How to use SSH keys with passphrases.
+---
+
 # SSH keys with passphrases
 
 If you need to enter an SSH passphrase when you clone repositories, please follow the below instructions so that the Moderne CLI will work correctly for you.
