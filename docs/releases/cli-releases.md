@@ -1,3 +1,8 @@
+---
+sidebar_label: CLI releases
+description: The current version of the Moderne CLI and links to useful CLI documentation.
+---
+
 # CLI releases
 
 | Component             | Current version |
