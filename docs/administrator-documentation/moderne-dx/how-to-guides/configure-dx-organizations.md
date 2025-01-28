@@ -1,3 +1,8 @@
+---
+sidebar_label: Organizations service configuration
+description: How to configure Moderne DX so that it can communicate with your Organizations service.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -1,3 +1,8 @@
+---
+sidebar_label: Mass ingest
+description: Instructions for ingesting a large number of repositories with Moderne.
+---
+
 # Mass ingest
 
 One of the first steps of integrating your code with Moderne is setting up a pipeline that builds and publishes [LST](../../moderne-platform/references/lossless-semantic-trees.md) artifacts to an artifact repository that you control.

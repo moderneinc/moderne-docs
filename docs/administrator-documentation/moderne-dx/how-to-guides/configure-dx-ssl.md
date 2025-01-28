@@ -1,3 +1,8 @@
+---
+sidebar_label: Client SSL certificate configuration
+description: How to configure Moderne DX to connect to a service with a self-signed certificate. 
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

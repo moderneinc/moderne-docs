@@ -1,3 +1,8 @@
+---
+sidebar_label: Artifactory LST configuration
+description: How to configure Moderne DX so that it can retrieve LST artifacts from Artifactory.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

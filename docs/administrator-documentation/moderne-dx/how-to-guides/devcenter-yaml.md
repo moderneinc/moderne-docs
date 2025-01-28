@@ -1,3 +1,8 @@
+---
+sidebar_label: Local DevCenter setup
+description: How to create and configure a DevCenter locally using the Moderne CLI. 
+---
+
 # How to create a DevCenter locally
 
 The Moderne DevCenter gives you high-level details about the state of all of your repositories. If you don't have access to the Moderne Platform, but you want to create a DevCenter locally, you can do so with the Moderne CLI.
