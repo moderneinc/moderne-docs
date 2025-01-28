@@ -1,3 +1,8 @@
+---
+sidebar_label: GitHub permissions
+description: A look into the GitHub OAuth permissions needed for Moderne to work correctly.
+---
+
 # GitHub permissions
 
 Moderne uses a GitHub OAuth application to perform various actions on your behalf. Below is an explanation of those permissions and how they're used by Moderne.

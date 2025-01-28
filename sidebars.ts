@@ -333,6 +333,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'link',
               label: 'GraphQL API reference',
+              description: 'A link to the Moderne GraphQL API reference docs.',
               href: 'https://studio.apollographql.com/public/Moderne-SaaS-API/variant/current',
             },
           ],

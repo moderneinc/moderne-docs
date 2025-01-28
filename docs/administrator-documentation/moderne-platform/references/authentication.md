@@ -1,3 +1,8 @@
+---
+sidebar_label: Authentication
+description: An in-depth look at how authentication works in the Moderne Platform.
+---
+
 # Authentication
 
 ### Goals

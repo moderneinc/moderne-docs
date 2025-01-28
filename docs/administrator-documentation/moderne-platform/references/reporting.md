@@ -1,5 +1,6 @@
 ---
-description: Instructions for downloading reports
+sidebar_label: Reporting
+description: Instructions for downloading reports.
 ---
 
 # Reporting
