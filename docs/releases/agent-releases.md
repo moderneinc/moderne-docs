@@ -1,3 +1,8 @@
+---
+sidebar_label: Agent releases
+description: The current version of the Moderne Agent and where to download it.
+---
+
 # Agent releases
 
 | Component                             | Current version |
