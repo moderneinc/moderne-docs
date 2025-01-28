@@ -1,3 +1,8 @@
+---
+sidebar_label: On-prem SCM configuration
+description: How to configure Moderne DX so that it can communicate with on-prem SCMs.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

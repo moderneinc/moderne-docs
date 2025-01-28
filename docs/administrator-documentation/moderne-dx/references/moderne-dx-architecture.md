@@ -1,3 +1,8 @@
+---
+sidebar_label: Architecture
+description: A high-level overview of the Moderne DX architecture.
+---
+
 # Moderne DX architecture
 
 Moderne DX includes a centralized, internal service you install to manage Moderne CLI instances, enabling you to share and improve recipes, coordinate across teams, and access reporting. You operate the Moderne DX edition using your own security controls, and all of your code and data stays on-premises.

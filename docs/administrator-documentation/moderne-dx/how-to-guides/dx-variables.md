@@ -1,3 +1,8 @@
+---
+sidebar_label: All DX variables
+description: A reference manual that contains all Moderne DX configuration variables.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

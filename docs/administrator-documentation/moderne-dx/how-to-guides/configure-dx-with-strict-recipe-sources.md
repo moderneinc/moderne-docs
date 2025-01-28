@@ -1,3 +1,8 @@
+---
+sidebar_label: Strict recipe source configuration
+description: How to configure Moderne DX to have strict recipe sources.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

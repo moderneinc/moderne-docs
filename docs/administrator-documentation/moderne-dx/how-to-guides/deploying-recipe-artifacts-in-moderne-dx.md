@@ -1,3 +1,8 @@
+---
+sidebar_label: Deploying recipe artifacts
+description: How to deploy recipe artifacts with Moderne DX and the Moderne CLI.
+---
+
 # Deploying recipe artifacts in Moderne DX
 
 ## Deploy using the Moderne GraphQL API

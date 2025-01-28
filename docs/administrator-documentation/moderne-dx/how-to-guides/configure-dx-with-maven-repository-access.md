@@ -1,3 +1,8 @@
+---
+sidebar_label: Maven repository configuration
+description: How to configure Moderne DX so that it can communicate with Maven repositories.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

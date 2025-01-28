@@ -1,3 +1,8 @@
+---
+sidebar_label: Configuring Moderne DX
+description: Detailed instructions for configuring Moderne DX.
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
