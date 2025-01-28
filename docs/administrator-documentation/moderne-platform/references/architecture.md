@@ -1,3 +1,8 @@
+---
+sidebar_label: Moderne architecture
+description: A detailed technical document about the Moderne Platform and how it fits into your environment.
+---
+
 # Moderne architecture
 
 To help you understand how the Moderne Platform works and how it interacts with your environment and services, this document will:

@@ -1,3 +1,8 @@
+---
+sidebar_label: Sensitive data flow
+description: Describes how sensitive data flows through Moderne's services.
+---
+
 # Sensitive data flow
 
 To give you a better understanding of how sensitive artifacts flow through Moderne services and the services they connect to, this document will:

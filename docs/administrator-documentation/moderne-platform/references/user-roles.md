@@ -1,3 +1,8 @@
+---
+sidebar_label: User roles
+description: Outlines what permissions different types of users have in the Moderne Platform.
+---
+
 # User roles
 
 | Action                                            |       Everyone                    |    Administrators     |

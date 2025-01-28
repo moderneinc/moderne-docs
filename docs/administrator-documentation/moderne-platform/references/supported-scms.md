@@ -1,3 +1,8 @@
+---
+sidebar_label: Supported SCMs
+description: What source code managers (SCMs) Moderne supports.
+---
+
 # Supported source code managers (SCMs)
 
 Moderne currently supports most Git-based SCMs:

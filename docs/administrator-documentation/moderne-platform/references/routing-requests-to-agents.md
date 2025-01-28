@@ -1,3 +1,8 @@
+---
+sidebar_label: Routing requests to agents
+description: Information on how Moderne routes requests to agents.
+---
+
 # Routing requests to agents
 
 In most enterprise environments, deployments of developer tooling like source control management (SCM) systems and artifact repositories are complex and varied. There may be multiple SCM systems on isolated network segments.
