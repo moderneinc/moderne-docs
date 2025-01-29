@@ -1,5 +1,15 @@
 # CLI / DX changelog
 
+### CLI / DX v3.31.2 (2025/01/29)
+
+#### What's Changed
+* Skip the Maven Dependency Plugin's goals by default.
+* Add clearer side label and description to auto-generated docs
+* Do not overwrite valid license.key when running recipes on unhosted repos
+* Skip recording metrics for known build errors to avoid skewing ingest success rates
+* Fixes issue with `mod build` for classes with `lombok.Generated`. **If you were affected by this problem, you will need to rebuild all affected LSTs.**
+
+
 ### CLI / DX v3.31.1 (2025/01/27)
 
 #### What's Changed CLI
