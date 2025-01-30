@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v11.2.0 (2025/01/30)
+
+- add mass commit controls for results v2. Adds retrieval of all results after run completes.
+- search result diff v2
+
 ### UI v11.1.1 (2025/01/24)
 
 - Bug fixes and other improvements.
