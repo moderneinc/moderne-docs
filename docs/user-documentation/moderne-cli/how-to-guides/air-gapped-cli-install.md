@@ -18,6 +18,12 @@ If your company has restrictions on what you can access via the internet, you'll
 
 ## Installation and configuration
 
+### Step 0: Ensure recipes exist in your internal artifact repository
+
+[There are numerous OpenRewrite recipe modules available in Maven Central](https://mvnrepository.com/artifact/org.openrewrite). Please ensure that those are copied over to your internal artifact repository (or your internal mirror of Maven Central). 
+
+[You can find the full list of all OpenRewrite recipe JARs available here](https://docs.openrewrite.org/reference/latest-versions-of-every-openrewrite-module#cli-installation).
+
 ### Step 1: Download the Moderne CLI JAR
 
 [Download the latest version of the Moderne CLI from Maven Central](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions). Once downloaded, please add it to your internal mirror so that it's accessible for all users in your environment.
