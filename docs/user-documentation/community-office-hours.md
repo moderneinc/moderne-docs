@@ -26,7 +26,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * [Merlin will be presenting at the Saarland JUG event in Germany on February 18th](https://www.meetup.com/java-user-group-saarland-jugsaar/events/304898030/)
     * [As a reminder, we are still selling tickets for the Code Remix summit on May 12th - May 14th](https://coderemix.ai/)
   * **Releases**
-    * [We did a minor version release of OpenRewrite to fix a few bugs](https://github.com/openrewrite/rewrite/releases/tag/v8.44.2)
+    * [We did a patch version release of OpenRewrite to fix a few bugs](https://github.com/openrewrite/rewrite/releases/tag/v8.44.2)
 * **Main topic for the week**
   * This week Sam walked through coding a recipe live. If you're interested in seeing how a complex Java refactoring recipe is created, this would be a good watch.
 
