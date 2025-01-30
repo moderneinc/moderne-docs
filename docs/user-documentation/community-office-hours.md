@@ -19,7 +19,16 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Events**
+    * [Tim and Merlin will be in Germany giving a workshop on modernizing applications with OpenRewrite/Moderne on February 3rd-7th](https://www.oop-konferenz.de/en/program/conference-program#item-8216)
+    * [Tim will be presenting on how to write your own custom OpenRewrite recipes in Köln on February 10th](https://www.meetup.com/softwerkskammer-koln/events/305544025/?eventOrigin=group_upcoming_events)
+    * [Merlin will be presenting at the Saarland JUG event in Germany on February 18th](https://www.meetup.com/java-user-group-saarland-jugsaar/events/304898030/)
+    * [As a reminder, we are still selling tickets for the Code Remix summit on May 12th - May 14th](https://coderemix.ai/)
+  * **Releases**
+    * [We did a minor version release of OpenRewrite to fix a few bugs](https://github.com/openrewrite/rewrite/releases/tag/v8.44.2)
+* **Main topic for the week**
+  * This week Sam walked through coding a recipe live. If you're interested in seeing how a complex Java refactoring recipe is created, this would be a good watch.
 
 ### Hero developer contributes TOML parser to OpenRewrite (January 22nd, 2025)
 
