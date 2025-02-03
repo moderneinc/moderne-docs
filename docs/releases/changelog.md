@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.4.0 (2025/02/03)
+
+- Bug fixes and other improvements.
+
 ### UI v11.3.0 (2025/02/01)
 
 - add scm organization hierarchy to results. sorting by result count
