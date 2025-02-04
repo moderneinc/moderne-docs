@@ -11,9 +11,10 @@ External recipes can be imported into Moderne for use by your organization.
 It is the responsibility of the administrator configuring this to ensure that the recipe JARs and versions are up-to-date. It is also their responsibility to select/curate the recipe JARs that should be uploaded.
 :::
 
-#### Prerequisites
+### Prerequisites
 
-* You will need an Administrator-level account in your Moderne tenant to upload new recipe artifacts.
+* If you are a **single-tenant** user, you will need an Administrator-level account in your Moderne tenant to upload new recipe artifacts.
+* If you are a **multi-tenant** user, anyone with an `@mycompany.com` email can deploy a recipe artifact if said artifact has a `groupId` that starts with `com.mycompany` (the `tenantDomain` inverted).
 
 ## Step 1: Load the recipes
 
@@ -34,6 +35,10 @@ From your Moderne tenant, click on _Deploy_ in the left-hand menu:
 </figure>
 
 2. Provide the `Group ID`, `Artifact ID`, and `Version` for the published artifact:
+
+:::info
+If you are a multi-tenant customer, you must ensure that your artifact's `groupId` starts with `com.mycompany` (the `tenantDomain` inverted). You also must ensure that your account has an `@mycompany.com` email address.
+:::
 
 <figure>
   ![](./assets/gav-artifact.png)
