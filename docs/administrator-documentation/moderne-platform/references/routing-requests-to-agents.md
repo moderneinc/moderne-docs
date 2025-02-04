@@ -27,3 +27,9 @@ Depending on the action, requests to these agents are routed differently. Modern
 | no        | yes                                  | many      | Syncing LST artifacts from a representative agent for each distinct artifact repository (partition by artifact repository) |
 | yes       | no                                   | many      | No current use case                                                                                                        |
 | no        | no                                   | one       | Git commit                                                                                                                 |
+
+## Multi-tenant customers
+
+For multi-tenant customers, Moderne runs an agent that connects to your artifact repositories. For instance, if you work for a company whose email addresses end with `@mycompany.com`, Moderne configures an agent for you with a `tenantDomain` of `mycompany.com`.
+
+If a user is logged into Moderne with an `@mycompany.com` email address, they will find that their requests (e.g., Maven resolution requests) are made to the `mycompony.com` artifact repositories.
