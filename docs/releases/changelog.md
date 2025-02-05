@@ -1,4 +1,11 @@
 # Platform changelog
+### UI v11.5.0 (2025/02/05)
+
+- add disable topology option
+- update checkbox theme
+- download datatables directly from visualization run
+- show warning when a duplicate recipe is being added
+
 ### UI v11.4.0 (2025/02/03)
 
 - Bug fixes and other improvements.
