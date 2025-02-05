@@ -314,7 +314,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'References',
-            description: 'Moderne Platform reference docs.',
+            description: 'Reference docs.',
             slug: '/administrator-documentation/moderne-platform/references',
             keywords: ['reference'],
           },
@@ -383,7 +383,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'References',
-            description: 'Moderne DX reference docs.',
+            description: 'Reference docs.',
             slug: '/administrator-documentation/moderne-dx/references',
             keywords: ['reference'],
           },
