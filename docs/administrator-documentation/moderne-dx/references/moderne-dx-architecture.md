@@ -24,7 +24,7 @@ Moderne DX includes a centralized, internal service you install to manage Modern
 | SAST - auto search and remediation   | :white_check_mark: |     :white_check_mark:    |
 | OWASP Top 10 auto-remediation        | :white_check_mark: |     :white_check_mark:    |
 | Framework and library auto-migration | :white_check_mark: |     :white_check_mark:    |
-| Global code intelligence             |                      |     :white_check_mark:    |
+| Global code intelligence             | :white_check_mark: |     :white_check_mark:    |
 | Custom recipe development assistance | :white_check_mark: |     :white_check_mark:    |
 
 ### Features
@@ -36,9 +36,8 @@ Moderne DX includes a centralized, internal service you install to manage Modern
 | Recipe marketplace             | :white_check_mark: |     :white_check_mark:    |
 | Data tables (impact analysis)  | :white_check_mark: |     :white_check_mark:    |
 | Data visualizations            |                      |     :white_check_mark:    |
-| Code intel dashboards          |                      |     :white_check_mark:    |
+| Code intel dashboards          | :white_check_mark: |     :white_check_mark:    |
 | AI integrations                |                      |     :white_check_mark:    |
-| Scheduled recipe execution     |                      |     :white_check_mark:    |
 | Change campaigns               |                      |     :white_check_mark:    |
 | Organizational hierarchy       | :white_check_mark: |     :white_check_mark:    |
 | Reporting                      | :white_check_mark: |     :white_check_mark:    |
