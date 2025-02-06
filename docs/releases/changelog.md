@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.5.1 (2025/02/06)
+
+- Bug fixes and other improvements.
+
 ### UI v11.5.0 (2025/02/05)
 
 - add disable topology option
