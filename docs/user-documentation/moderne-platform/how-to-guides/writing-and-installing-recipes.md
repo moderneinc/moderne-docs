@@ -21,6 +21,10 @@ If your recipe is more complex than that, please check out the [OpenRewrite reci
 
 You may also find it beneficial to work through our [recipe authoring workshop](../../workshops/recipe-authoring.md) that will take you through the process of writing and running many different types of recipes.
 
+:::tip
+As a Moderne customer, you have access to the [Moderne recipe bom](https://central.sonatype.com/artifact/io.moderne.recipe/moderne-recipe-bom/versions) which can help you align versions of all Moderne recipe modules.
+:::
+
 ## Step 2: Create a recipe JAR
 
 After you're done writing your recipe(s), you will need to publish them to an artifact repository that is connected to your Moderne instance. An administrator from your organization should have configured this when they set up the Moderne agent. For instructions on how to configure this connection, please see the [configuring an agent with Maven repository access doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md) or the [configuring an agent with Artifactory access doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configuring-artifactory-with-recipes.md).
