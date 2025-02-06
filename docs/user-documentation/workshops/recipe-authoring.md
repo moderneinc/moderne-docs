@@ -117,6 +117,7 @@ You'll want to have the following installed:
 5. (Optional) Customize the project's group ID and artifact ID in the `pom.xml` file, or `build.gradle` and `settings.gradle` file. Also consider updating the Java package names to reflect these changes as well.
    * This helps make the project your own, and allows you to version and share your recipes without conflicts.
    * For the purposes of this workshop, this isn't required, though. Feel free to continue using `com.yourorg` throughout.
+   * If you're creating internal recipes based on Moderne recipes, you may find it beneficial to use the [moderne-recipe-bom](https://central.sonatype.com/artifact/io.moderne.recipe/moderne-recipe-bom/versions) to align the versions of the various modules.
 6. Install the project to your local Maven repository & CLI. This is useful for debugging declarative recipes or for Moderne DX users.
    * Run `mvn install` from the root of the project, or `./gradlew publishToMavenLocal` if you're using Gradle.
    * You should see a message that the project was successfully installed to your local Maven repository.
