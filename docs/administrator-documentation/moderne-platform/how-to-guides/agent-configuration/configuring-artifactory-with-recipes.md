@@ -73,6 +73,15 @@ docker run \
 
 :::warning
 If you want to configure a [Moderne DevCenter](../dev-center.md), you will need to ensure that you have exactly one Maven repository configured with `recipeSource` set to `true`. (It is fine to have this same Maven repository configured in multiple agents.)
+
+If you do have multiple recipe sources, we recommend you set up a virtual repository that wraps them all.
+
+You will also need to ensure that the virtual repository points to the following four repositories (alongside the other repositories where recipe artifacts are stored):
+
+1. `https://oss.sonatype.org/content/repositories/snapshots/`
+2. `https://s01.oss.sonatype.org/content/repositories/snapshots/`
+3. `https://repo.maven.apache.org/maven2`
+4. `https://repo1.maven.org/maven2/`
 :::
 
 **Example:**
