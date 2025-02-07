@@ -5,7 +5,6 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Moderne Docs',
   tagline: 'Large-scale automated source code refactoring',
-  favicon: 'img/favicon.svg',
 
   url: 'https://docs.moderne.io',
   baseUrl: '/',
@@ -44,6 +43,26 @@ const config: Config = {
       attributes: {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/img/favicon.ico',
+        type: 'image/x-icon',
+        sizes: '32x32',
+        media: '(prefers-color-scheme: light)',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/img/favicon_dark.ico',
+        type: 'image/x-icon',
+        sizes: '32x32',
+        media: '(prefers-color-scheme: dark)',
       },
     },
   ],
