@@ -47,7 +47,7 @@ The API gateway receives requests from the [Moderne agent](#moderne-agent) to st
 
 ### Moderne artifact storage
 
-The Moderne artifact storage service is responsible for receiving pre-encrypted LST artifacts and recipe JARs and storing them in a private object store depending on the cloud provider you use ([Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/), [Google Cloud Storage](https://cloud.google.com/storage), or [AWS S3](https://aws.amazon.com/pm/serv-s3/)).
+The Moderne artifact storage service is responsible for receiving pre-encrypted LST artifacts and recipe JARs and storing them in a private object store depending on the cloud provider you use ([Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/) or [AWS S3](https://aws.amazon.com/pm/serv-s3/)).
 
 This service does not require access to encryption keys as it never needs to decrypt the artifacts.
 

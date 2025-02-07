@@ -15,9 +15,7 @@ To help you understand how the Moderne Platform works and how it interacts with 
 
 Moderne’s SaaS allows permitted users to run [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) on code in the repositories you've added to the platform. These recipes can yield pull requests (PRs) or commits that transform the code.
 
-As the code changes (either due to recipe results being merged in or due to active development), an artifact that contains a serialized representation of the code's [Lossless Semantic Tree](./lossless-semantic-trees.md) (LST) will need to be generated and published.
-
-Once the artifact is published, the Moderne agent will send the changes to Moderne so that the internal state can be updated. After that happens, new recipes can be run against the new artifacts and the process will repeat.
+Once the artifact is published (typically through [mass ingestion](../how-to-guides/mass-ingest.md)), the Moderne agent will send the changes to Moderne so that the internal state can be updated. After that happens, new recipes can be run against the new artifacts and the process will repeat.
 
 ![Moderne + SDL](./assets/moderne-sdl.png)
 
@@ -154,7 +152,7 @@ As configuring identity providers between services can be quite complex, the set
 
 ### Moderne artifact storage
 
-The Moderne artifact storage service is responsible for receiving pre-encrypted LST artifacts and recipe JARs and storing them in a private object store depending on the cloud provider you use ([Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/), [Google Cloud Storage](https://cloud.google.com/storage), or [AWS S3](https://aws.amazon.com/pm/serv-s3/)).
+The Moderne artifact storage service is responsible for receiving pre-encrypted LST artifacts and recipe JARs and storing them in a private object store depending on the cloud provider you use ([Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/) or [AWS S3](https://aws.amazon.com/pm/serv-s3/)).
 
 The artifact storage service will also write high-level information about where to find these artifacts and when they were last updated to our relationship database (RDS) so that the [Moderne workers](#moderne-worker) know where to go to obtain the artifacts they need.
 
