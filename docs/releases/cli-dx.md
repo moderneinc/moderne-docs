@@ -1,16 +1,15 @@
 # CLI / DX changelog
 
-### CLI / DX v3.32.0 (2025/02/07)
+### CLI v3.32.0 (2025/02/07)
 
 #### What's Changed
-* Update suppressions
 * Add duration to timeout exception message
 * Prevent more unwanted Gradle tasks to run
 * Enable JSON formatting auto-detection
 * Prevent NPE on nullable tools when reporting build outcome
-* Some projects, like rewrite-spring, have configurations which don't r…
-* Hack some notion of inclusions into the gradle plugin
-* Apply remote files
+* Build projects where some configurations fail to resolve
+* Add inclusions into the Gradle plugin
+* Apply Remote files
 
 
 ### CLI / DX v3.31.2 (2025/01/29)
