@@ -15,11 +15,11 @@ Fortunately, Moderne offers the ability to find and fix dependencies that are ma
 
 ## Finding vulnerable dependencies
 
-Moderne offers a [find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck) that will recursively search through all dependencies on all repositories in your organization for ones that have security issues. Feel free to run that recipe on the `Default` organization to see what shows up.
+Moderne offers a [find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck) that will recursively search through all dependencies on all repositories in your organization for ones that have security issues. Feel free to run that recipe on the `Default` organization to see what shows up. For more information on how to use that, check out our [fixing vulnerable dependencies guide](./vulnerable-dependencies.md).
 
 After the recipe runs, you can download a CSV file that contains all of the security issues by going to the `Data tables` tab and pressing the download button for the type of file you wish to download:
 
-![](./assets/vuln-report-download.png)
+![](./assets/vuln-data-table.png)
 
 In there, you can find key information such as what CVE a particular repository is affected by, what the current version is, what version is the minimum one needed to fix it, a clear summary of what is wrong, and how many levels deep the dependency is. In the below example, you can see that this recipe found a security issue in a dependency 8 levels deep!
 
