@@ -128,60 +128,23 @@ _For more information on the Moderne CLI license, please see our [license docume
 
 In order for the CLI to have access to read and publish LSTs, it will need to be provided with the path to your Maven settings file. This likely exists on developer machines for the sake of redirecting requests from Maven Central to an internal artifact instance.
 
-Run the following command to point the CLI to your Maven settings file:
+**If your Maven settings file is not in the default location**, please run the following command to point the CLI to your Maven settings file. If it is in the default location, skip to step 5.
 
 ```bash
 mod config build maven settings edit /path/to/maven/settings/file
 ```
 
-After that, configure the connection to your artifact repository by running one of the following commands (depending on the type of artifact repository you're using):
-
-<Tabs>
-<TabItem value="artifactory-configuration" label="Artifactory configuration">
-
-
-```bash
-mod config lsts artifacts artifactory edit <artifact-repository-url> --user <user> --password <password>
-```
-
-</TabItem>
-
-<TabItem value="maven-configuration" label="Maven configuration">
-
-
-```bash
-mod config lsts artifacts maven edit <artifact-repository-url> --user <user> --password <password>
-```
-
-</TabItem>
-</Tabs>
-
 ### Step 5: Install recipe JARs
 
-For each of the GAV coordinates below, please ensure that the artifact has been added to your internal artifact repository (assuming that your artifact repository is not a pure remote proxy to Maven Central already or that there isn't some automatic procurement step at dependency resolution time):
+The next thing you need to do is ensure your internal artifact repository has all of the recipe JARS (assuming that your artifact repository is not a pure remote proxy to Maven Central already or that there isn't some automatic procurement step at dependency resolution time).
 
-```bash
-mod config recipes jar install org.openrewrite:rewrite-core:LATEST
-mod config recipes jar install org.openrewrite:rewrite-gradle:LATEST
-mod config recipes jar install org.openrewrite:rewrite-hcl:LATEST
-mod config recipes jar install org.openrewrite:rewrite-java:LATEST
-mod config recipes jar install org.openrewrite:rewrite-json:LATEST
-mod config recipes jar install org.openrewrite:rewrite-maven:LATEST
-mod config recipes jar install org.openrewrite:rewrite-properties:LATEST
-mod config recipes jar install org.openrewrite:rewrite-protobuf:LATEST
-mod config recipes jar install org.openrewrite:rewrite-xml:LATEST
-mod config recipes jar install org.openrewrite:rewrite-yaml:LATEST
-mod config recipes jar install org.openrewrite.recipe:rewrite-hibernate:LATEST
-mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:LATEST
-mod config recipes jar install org.openrewrite.recipe:rewrite-java-security:LATEST
-mod config recipes jar install org.openrewrite.recipe:rewrite-logging-frameworks:LATEST
-mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-java:LATEST
-mod config recipes jar install org.openrewrite.recipe:rewrite-spring:LATEST
-mod config recipes jar install org.openrewrite.recipe:rewrite-sql:LATEST
-mod config recipes jar install org.openrewrite.recipe:rewrite-static-analysis:LATEST
-mod config recipes jar install org.openrewrite.recipe:rewrite-terraform:LATEST
-mod config recipes jar install org.openrewrite.recipe:rewrite-testing-frameworks:LATEST
-```
+With that done, you'll need to run the `mod config recipes jar install` command and provide it with the JARs you wish to install.
+
+The latest version of every JAR and the CLI command to install those latest versions can be found in the [OpenRewrite docs](https://docs.openrewrite.org/reference/latest-versions-of-every-openrewrite-module#cli-installation). This is automatically updated whenever we do a new release.
+
+:::tip
+You may also find it useful to use the [moderne-recipe-bom](https://mvnrepository.com/artifact/io.moderne.recipe/moderne-recipe-bom) to standardize versions.
+:::
 
 ### Step 6: Create a list of your repositories
 
