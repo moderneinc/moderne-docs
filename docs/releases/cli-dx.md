@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.32.1 (2025/02/10)
+
+#### What's Changed
+* Fix ANSI formatting of `CommandException` suggestions
+* Remove duplicated output on incorrect `indent()` and/or `unindent()` calls.
+* Allow empty commits using `--allow-empty` and fix default behaviour to not allow these empty commits.
+
+
 ### CLI v3.32.0 (2025/02/07)
 
 #### What's Changed
