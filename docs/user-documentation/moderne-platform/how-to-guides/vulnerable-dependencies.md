@@ -25,7 +25,7 @@ If you are a Moderne customer with private organizations, please select any orga
 
 ## Step 2: Navigate to the recipe
 
-From the Moderne Platform, open the [find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck). You will see a page that looks like this:
+From the Moderne Platform, open the [find and fix vulnerable dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck) (Note: We also have similar find/fix dependency recipes for [NPM](https://app.moderne.io/recipes/org.openrewrite.nodejs.DependencyVulnerabilityCheck) and [.NET](https://app.moderne.io/recipes/org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck)). You will see a page that looks like this:
 
 <figure>
   ![Find and fix vulnerable dependencies recipe](./assets/find-fix-vuln-dep.png)
@@ -118,7 +118,7 @@ For other issues, though, you'll need to consider larger and more complex recipe
 
 Some notable migration/refactoring recipes include:
 
-* [Migrating to Spring Boot 3.3](https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_3)
+* [Migrating to Spring Boot 3.4](https://docs.openrewrite.org/recipes/recipe/spring/boot3/upgradespringboot_3_4)
 * [Migrating from Micronaut 3.x to 4.x](https://docs.openrewrite.org/recipes/java/micronaut/micronaut3to4migration)
 * [Migrating from Quarkus 1 to 2](https://docs.openrewrite.org/recipes/quarkus/quarkus2/quarkus1to2migration)
 
