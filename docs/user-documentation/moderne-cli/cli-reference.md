@@ -4959,6 +4959,7 @@ mod git commit /path/to/project -m "commit message"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| --allow-empty |  Weather or not to allow making empty commits. |  |
 | --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
 | -m, --message |  The commit message to use. |  |
 | --recipe-run |  A recipe run ID listed by **mod run-history** |  |
