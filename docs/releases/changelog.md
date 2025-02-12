@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.7.0 (2025/02/12)
+
+- add marketplace sorting
+
 ### UI v11.6.2 (2025/02/12)
 
 - Bug fixes and other improvements.
