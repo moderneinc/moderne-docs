@@ -13,6 +13,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Live, Laugh, Lombok: Expanding Support (February 12th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=is-Alda-8-8' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### Brewing Java 21: Live coding a recipe for success (January 29th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=gQI4iZT8B7A' controls="true" />
