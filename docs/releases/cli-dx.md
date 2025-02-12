@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.32.2 (2025/02/12)
+
+#### What's Changed CLI
+*  OpenRewrite v8.45.2 with Lombok enabled by default on Java 11+ in https://github.com/openrewrite/rewrite/releases/tag/v8.45.2
+* Add message when repository normalization failed previously
+
+
 ### CLI / DX v3.32.1 (2025/02/10)
 
 #### What's Changed
