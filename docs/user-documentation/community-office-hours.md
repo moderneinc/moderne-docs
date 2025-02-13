@@ -19,7 +19,22 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * [We have secured $30M in Series B funding to transform enterprise code moernization](https://techcrunch.com/2025/02/11/moderne-raises-30m-to-solve-technical-debt-across-complex-codebases/)!
+  * **Events**:
+    * [We've finalized the lineup for the code remix summit](https://coderemix.ai/speakers)
+      * If you haven't registered yet, consider using the code `MODERNE3VIP` to get a substantial discount: [register here](https://coderemix.ai/app/ticket/event/557).
+    * [Merlin will be presenting at the Saarland JUG event in Germany on February 18th](https://www.meetup.com/java-user-group-saarland-jugsaar/events/304898030/) 
+    * [Justine has two sessions at Confoo in Canada on February 26th-28th](https://confoo.ca/en/speaker/justine-gehring)
+    * [Jonathan will be at the Toronto JUG in Canada on February 27th](https://www.meetup.com/toronto-java-users-group/events/305217070/)
+    * [There will be a few sessions from Moderne at DevNexus on March 4th](https://devnexus.com/presentations/migration-engineering-with-openrewrite-the-recipe-for-success).
+      * If you want to attend, consider using our promo code: `DN25MODERNE30`.
+  * **Releases**
+    * We now have over 3000 recipes in the Moderne Platform!
+    * We've also released proprietary recipes for Hibernate and Spring Boot 3.4 migrations.
+    * [We did a new release of OpenRewrite this past week](https://docs.openrewrite.org/changelog/8-45-0-Release).
+* **Main topic for the week**
+  * This week was all about Lombok. We talked through the challenges we've faced and what Lombok support means. We demonstrated various recipes that would benefit from this and also walked through some related code and tests.
 
 ### Brewing Java 21: Live coding a recipe for success (January 29th, 2025)
 
