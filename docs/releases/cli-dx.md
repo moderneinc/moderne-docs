@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.32.3 (2025/02/13)
+
+#### What's Changed CLI
+* Update to rewrite [8.45.4](https://github.com/openrewrite/rewrite/releases/tag/v8.45.4) to get access to lombok parsing fixes
+* Do not load trust-store on `trust-store` configuration attempts
+* Detect Azul Zing JDK installation path at `/opt/zing`
+* Make parallel recipe execution more robust by adding retries in `sendToDaemon()`
+
+
 ### CLI / DX v3.32.2 (2025/02/12)
 
 #### What's Changed CLI
