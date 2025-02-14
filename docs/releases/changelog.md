@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.8.0 (2025/02/14)
+
+- results v2 tab cutover
+
 ### UI v11.7.4 (2025/02/14)
 
 - Bug fixes and other improvements.
