@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.32.5 (2025/02/17)
+
+#### What's Changed CLI
+* Avoid a NPE when running `mod config recipes install` with search term
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.32.4 (2025/02/15)
 
 #### What's Changed CLI
