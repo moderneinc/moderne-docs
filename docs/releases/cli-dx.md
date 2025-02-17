@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.32.4 (2025/02/15)
+
+#### What's Changed CLI
+* Adopt [OpenRewrite v8.45.5](https://github.com/openrewrite/rewrite/releases/tag/v8.45.5) to support `TypeTable`s
+
+
 ### CLI / DX v3.32.3 (2025/02/13)
 
 #### What's Changed CLI
