@@ -126,7 +126,7 @@ _For more information on the Moderne CLI license, please see our [license docume
 
 ### Step 4: Configure the CLI to point to your internal artifact repository
 
-In order for the CLI to have access to read and publish LSTs, it will need to be provided with the path to your Maven settings file. This likely exists on developer machines for the sake of redirecting requests from Maven Central to an internal artifact instance.
+In order for the CLI to download recipes and dependencies/lookup versions as needed, it will need to be provided with the path to your Maven settings file. This likely exists on developer machines for the sake of redirecting requests from Maven Central to an internal artifact instance.
 
 **If your Maven settings file is not in the default location**, please run the following command to point the CLI to your Maven settings file. If it is in the default location, skip to step 5.
 
@@ -140,11 +140,7 @@ The next thing you need to do is ensure your internal artifact repository has al
 
 With that done, you'll need to run the `mod config recipes jar install` command and provide it with the JARs you wish to install.
 
-The latest version of every JAR and the CLI command to install those latest versions can be found in the [OpenRewrite docs](https://docs.openrewrite.org/reference/latest-versions-of-every-openrewrite-module#cli-installation). This is automatically updated whenever we do a new release.
-
-:::tip
-You may also find it useful to use the [moderne-recipe-bom](https://mvnrepository.com/artifact/io.moderne.recipe/moderne-recipe-bom) to standardize versions.
-:::
+The latest version of every JAR and the CLI command to install those latest versions can be found at the bottom of the [latest versions of every OpenRewrite module doc](https://docs.openrewrite.org/reference/latest-versions-of-every-openrewrite-module#cli-installation). This is automatically updated whenever we do a new release.
 
 ### Step 6: Create a list of your repositories
 
