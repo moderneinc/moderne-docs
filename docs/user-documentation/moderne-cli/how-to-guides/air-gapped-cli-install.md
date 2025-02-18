@@ -39,7 +39,7 @@ Add the following function to your `.bashrc` file:
 
 ```bash
 mod() {
-    "java -jar /path/to/mod.jar" "$@"
+    java -jar "/path/to/mod.jar" "$@"
 }
 ```
 </TabItem>
