@@ -5,6 +5,10 @@ description: How to find method invocations based on a pattern using AI.
 
 # How to find method invocations based on a pattern using AI
 
+:::warning
+Recipes that use AI may produce incorrect or incomplete results. Please ensure that you thoroughly review any results for clarity and accuracy before sharing or using.
+:::
+
 Searching for methods across a code base can not only help you learn more about how a particular method functions or how it's used in code, but it can also enable you to perform impact analysis across all of your repositories to see what depends on what. While this is normally a tricky problem due to the limitations of text-based searching, Moderne offers two recipes that allow you to easily and quickly search for methods – even if you don't know the exact name or parameters they're composed of.
 
 In this guide, we'll give you some background on each of these recipes and then walk through the different ways you might use them.

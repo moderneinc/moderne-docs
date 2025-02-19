@@ -5,6 +5,10 @@ description: How to gain a high-level overview of your codebase using AI cluster
 
 # How to gain a high-level overview of your codebase using AI clustering
 
+:::warning
+Recipes and visualizations that use AI may produce incorrect or incomplete results. Please ensure that you thoroughly review any results for clarity and accuracy before sharing or using.
+:::
+
 <figure>
   ![](./assets/clustering_methods.gif)
   <figcaption></figcaption>

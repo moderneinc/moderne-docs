@@ -11,6 +11,10 @@ Let's walk through some tips and tricks you might not be aware of when searching
 
 ## AI search
 
+:::warning
+Recipes that use AI may produce incorrect or incomplete results. Please ensure that you thoroughly review any results for clarity and accuracy before sharing or using.
+:::
+
 Traditionally, recipe searches in Moderne required exact word matches. For example, searching for `Common static analysis issues` required `common` or `static`. If you tried entering, `common stat`, you wouldn't get any results. This could be especially problematic if you didn't already know the exact name of the recipe or you wanted to discover new ones.
 
 To help improve the user experience of finding and discovering recipes, Moderne **now offers AI search capabilities**.
