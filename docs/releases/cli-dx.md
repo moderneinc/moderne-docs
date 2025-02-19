@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.32.6 (2025/02/19)
+
+#### What's Changed CLI
+* Remove C#/dotnet from list of default build steps
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.32.5 (2025/02/17)
 
 #### What's Changed CLI
