@@ -55,7 +55,7 @@ We use two BAAI embedding models – one for retrieval and one for reranking. We
 
 #### State management
 
-Recipe search results are saved on the worker, similar to any recipe run result. No data is permanently stored.
+Search results are saved on the worker, similar to any recipe run result. No data is permanently stored.
 
 ### AI recipe recommendations
 
