@@ -69,7 +69,7 @@ Exists inside of the `rewrite-ai-search` JAR. Only deployed if you deploy this a
 
 #### AI models
 
-Uses a bring-your-own-model (BYOM) configuration. It supports OpenAI, Gemini, Anthropic, and Ollama
+Uses [QwenCoder](https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B) for generative recommendations. Uses BAAI embedding models for clustering-based smart sampling and search, with K-means clustering.
 
 #### State management
 
