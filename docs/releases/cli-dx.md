@@ -7,6 +7,13 @@
 * Update devcenter security polar area color scale
 
 
+### CLI / DX v3.32.7 (2025/02/19)
+
+#### What's Changed CLI
+* Revert nullability validation which caused some recipe runs to fail
+* Update devcenter security polar area color scale
+
+
 ### CLI / DX v3.32.6 (2025/02/19)
 
 #### What's Changed CLI
