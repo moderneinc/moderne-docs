@@ -93,7 +93,7 @@ Uses a bring-your-own-model (BYOM) configuration. It supports OpenAI, Gemini, An
 
 #### State management
 
-No data is saved – all interactions are stateless.
+No data is saved – all interactions are stateless. Recipe results are ephemeral, like any non-AI recipe.
 
 ### Third party AI integrations (public Moderne Platform only)
 
