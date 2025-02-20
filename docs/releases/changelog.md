@@ -3,6 +3,14 @@
 
 - promote new Results v2 to default view
 
+The `Results` tab of a recipe run now renders the new `Results` experience, providing an improved way for users to view and interact with the outcomes of a recipe run.
+The former `Results` tab grid view is now available in the `Repository status` tab.
+Results tab (New!)
+![Screenshot 2025-02-20 at 2 23 08 PM](https://github.com/user-attachments/assets/3ffdab9f-3682-4ec0-a250-42e82bda8f4a)
+
+Repository status tab
+![Screenshot 2025-02-20 at 2 22 40 PM](https://github.com/user-attachments/assets/d115e9d8-b44d-4874-93f7-18024f22de8a)
+
 ### UI v11.8.5 (2025/02/20)
 
 - Bug fixes and other improvements.
