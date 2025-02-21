@@ -142,6 +142,57 @@ With that done, you'll need to run the `mod config recipes jar install` command 
 
 The latest version of every JAR and the CLI command to install those latest versions can be found at the bottom of the [latest versions of every OpenRewrite module doc](https://docs.openrewrite.org/reference/latest-versions-of-every-openrewrite-module#cli-installation). This is automatically updated whenever we do a new release.
 
+:::tip
+We've created a `moderne-recipe-bom` that aligns version numbers for all Moderne maintainced recipe modules. This can be useful for users who create their own recipe libraries that depend on proprietary recipe modules. See below for how to add this to your project.
+
+<Tabs groupId="project-type">
+<TabItem value="gradle" label="Gradle">
+Gradle uses the [platform](https://docs.gradle.org/current/userguide/platforms.html#sub:using-platform-to-control-transitive-deps) function for aligning dependency versions.
+
+```groovy
+dependencies {
+    implementation(platform("io.moderne.recipe:moderne-recipe-bom:<version>"))
+
+    // No need to specify version numbers
+    implementation("io.moderne.recipe:rewrite-spring")
+    implementation("org.openrewrite.recipe:rewrite-sql")
+}
+```
+
+</TabItem>
+
+<TabItem value="maven" label="Maven">
+Maven provides the [Bill of Materials pattern](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms) for aligning dependency versions.
+
+```groovy
+<project>
+    <dependencies>
+        <dependency>
+            <groupId>io.moderne.recipe</groupId>
+            <artifactId>rewrite-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.openrewrite.recipe</groupId>
+            <artifactId>rewrite-sql</artifactId>
+        </dependency>
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.moderne.recipe</groupId>
+                <artifactId>moderne-recipe-bom</artifactId>
+                <version><!-- desired version here --></version>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
+```
+
+</TabItem>
+</Tabs>
+:::
+
 ### Step 6: Create a list of your repositories
 
 In order for the CLI to run recipes against your code, you will need to provide it with a `repos.csv` file. The first row in the CSV file should be a header row that lists out the columns you intend to provide. After that, each row will represent a repository. At a minimum, you should include a URL to clone said repository – but you can also provide other columns as needed.
