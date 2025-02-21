@@ -56,15 +56,11 @@ If a recipe produces a visualization, you can find them in the `Visualizations` 
 
 ![Visualizations button](./assets/visualizations-tab.png)
 
-When you click on it, you'll be taken to a page that contains all of the visualizations available for that recipe. Some recipes may only have one visualization whereas others might have many:
-
-![Visualizations list](./assets/visualizations-list.png)
-
-Click on the one you want to execute. After you do, the visualization box will expand. Some visualizations will offer you options to choose from to tune the visualization to your needs:
-
-![Visualization options](./assets/visualizations-options.png)
+The visualizations page will often include multiple visualizations. Find the one you want to run and, if it has options to fill out, fill them in as needed. 
 
 Visualization options serve two main purposes: they can change the rendering of the visualization (such as turning a node from a square to a circle) or they can subset the data (e.g., taking 1000 nodes and filtering them down to 100 that match your specific needs).
+
+![Visualizations list](./assets/visualizations-list.png)
 
 Once you've selected the options you want, click the `Run Visualization` button at the bottom:
 

@@ -83,20 +83,16 @@ Click _Dry Run_ to start the recipe. You might be asked for additional GitHub pe
   <figcaption>Dry run selection</figcaption>
 </figure>
 
-On the results page, you will see a summary of your recipe criteria and an indication of progress.
+On the results page, you will see a summary of your recipe criteria, an indication of progress, and some of the results that were found.
 
 <figure>
   ![Example results](./assets/recipe-results.png)
   <figcaption>Example results</figcaption>
 </figure>
 
-Each result shows the number of files searched and how many changes were detected.
-
-import diff from './assets/diff-button.png';
-
-To see the proposed changes, click on either the <img src={diff} /> button under `Actions` or the name of the repository (e.g. _openrewrite/rewrite_).
-
 ## Step 7: View the results
+
+You can click on any repository to check out the changes. 
 
 The resulting diff allows you to preview the changes from the recipe before you decide what you want to do.
 
@@ -107,13 +103,13 @@ The resulting diff allows you to preview the changes from the recipe before you 
 
 If you're unsure why something changed, you can click on the three dots (`...`) at the top right of any file and select `Why did this change?`
 
-For instance, in the above example, the identifiers were reordered due to the [modifier order rule](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ModifierOrder).
+For instance, in the above example, we modified initializations based on the [explicit initialization recipe](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ExplicitInitialization).
 
 ## Step 8: Commit your changes
 
 Once you've confirmed you want to make the changes, the next course of action is to commit everything.
 
-In the results view, select the repositories you want to commit and then click _Commit Selected_.
+In the results view, select the repositories you want to commit and then click _Commit selected results_ in the bottom left.
 
 <figure>
   ![Repositories selected to commit changes on](./assets/CommitSelected.png)

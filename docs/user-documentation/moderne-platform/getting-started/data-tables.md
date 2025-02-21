@@ -41,17 +41,17 @@ To get started, make sure you've selected the `Default` organization and then ru
 
 You will then be taken to the recipe results page:
 
-![](./assets/check-dep-4.png)
+![](./assets/find-vuln-dep-results.png)
 
 If the recipe can fix a security vulnerability, it will do so. You can view the diffs and commit the results as you would in any other recipe. In most situations, however, this recipe will identify that there is a security vulnerability rather than fix it. If there are security vulnerabilities identified, the recipe will produce a detailed data table.
 
 To see the data table, wait until the recipe has finished running and then click on the `Data Tables` tab:
 
-![](./assets/check-dep-2.png)
+![](./assets/data-tables-tab.png)
 
 You should now be on a page that lists all of the data tables available for this recipe:
 
-![](./assets/check-dep-3.png)
+![](./assets/data-tables-list.png)
 
 As the `recipe performance` and `source files that had results` tables are primarily for the people who wrote the recipe, let's ignore them and focus on the `vulnerability report` data table instead (feel free to download them and look at them, though). The `vulnerability report` table was specifically coded into the `check for dependency vulnerabilities` recipe and it will have data relevant to our needs.
 

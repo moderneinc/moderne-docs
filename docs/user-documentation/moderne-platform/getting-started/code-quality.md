@@ -39,9 +39,9 @@ When you're ready to run the recipe, press the `Dry Run` button at the top of yo
 As the code in the SaaS is constantly changing, your results will more than likely be different.
 :::
 
-![](./assets/common-static-analysis-run.png)
+![](./assets/recipe-results.png)
 
-You can click on any of the repositories to look at the suggested changes and learn more about why the code is being changed. Some of these changes are rather complex, such as changing anonymous inner classes that contain only one method into lambdas:
+By default, changes will be displayed on the right hand of your screen for the selected repository. You can click on any of the other repositories to look at their suggested changes and learn more about why the code is being changed. Some of these changes can be rather complex, such as changing anonymous inner classes that contain only one method into lambdas:
 
 ![](./assets/lambda-example.png)
 
