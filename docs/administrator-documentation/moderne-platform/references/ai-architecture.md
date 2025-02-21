@@ -11,6 +11,8 @@ In this guide, we'll walk you through all of the AI functionality we offer. For 
 
 :::warning
 All AI tools and features may produce incorrect or incomplete results. Please ensure that you thoroughly review any results for clarity and accuracy before sharing or using.
+
+Note: Our general philosophy is to create AI tools that help you find and discover things. However, we ensure that the core recipes themselves never use AI, so we can guarantee deterministic, consistent, and reliable changes.
 :::
 
 ## AI components
@@ -87,9 +89,13 @@ For more details into how to install and run this recipe, check out our [recipe 
 
 Exists inside of the `rewrite-comprehension` JAR. Only deployed if you deploy this artifact to your tenant alongside the other recipe artifacts.
 
+:::info
+While private tenants can technically deploy this and use our key, we expect most, if not all, external calls to Gemini will be blocked. If you're interested in the feature on your private tenant, please talk to us so we can figure something out.
+:::
+
 #### AI models
 
-Uses a bring-your-own-model (BYOM) configuration. It supports OpenAI, Gemini, Anthropic, and Ollama
+Uses the Gemini model. We provide the key (in the public Moderne Platform).
 
 #### State management
 
@@ -125,5 +131,3 @@ Moderne customers can choose what AI features they want to enable or disable. Fo
 * Toggle the ModAgent chatbot availability.
 
 Furthermore, many of our AI features offer you the flexibility of bringing your own model so that you can ensure that the model you use meets your safety and security standards.
-
-We do our best
