@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.10.0 (2025/02/21)
+
+- Bug fixes and other improvements.
+
 ### UI v11.9.0 (2025/02/20)
 
 - promote new Results v2 to default view
