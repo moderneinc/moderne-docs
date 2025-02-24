@@ -40,7 +40,7 @@ Please note, though, that this AI recipe is designed to find results even if the
 1. Navigate to the [find method usages recipe in Moderne](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods).
 2. Either enter a [method pattern](https://docs.openrewrite.org/reference/method-patterns) directly into the method pattern text box, or click on the wand icon next to it to open a tool to help you build a method pattern.
 3. Press `Dry Run` to kick off the recipe.
-4. On the recipe results page, you can click on any repository to see the code that matches the method you specified. For instance, if you searched for `Java.util.List add(..)` – you might see results like:
+4. On the recipe results page, you can click on any repository to see the code that matches the method you specified. For instance, if you searched for `java.util.List add(..)` – you might see results like:
 
 <figure>
   ![](./assets/ai-find-method-usage.png)
