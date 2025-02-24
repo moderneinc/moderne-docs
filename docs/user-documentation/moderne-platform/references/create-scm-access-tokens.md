@@ -15,7 +15,7 @@ You must grant sufficient permission when creating these Personal Access Tokens.
 
 For more information on creating Personal Access Tokens, please see:
 
-* [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+* [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 * [GitLab - Personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
 * [Bitbucket Cloud - Generating App Password / Personal Access Token](https://confluence.atlassian.com/bamboo/personal-access-tokens-976779873.html)
 * [Bitbucket Data Center and Server - HTTP access tokens](https://confluence.atlassian.com/bitbucketserver/http-access-tokens-939515499.html)

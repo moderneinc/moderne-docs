@@ -495,8 +495,8 @@ Coming soon!
       * You can use [this QR code](https://www.canva.com/design/DAGKXgbdAMo/ryZU_qS3tIvVeWt_q_V_-Q/edit) to pre-order this free ebook.
 * **Main topic for the week**:
   * We welcomed Valentin and Sridhar who are both Jenkins contributors and active OpenRewrite users. They started off by sharing some background on themselves and Jenkins in general. Jenkins, having been around for such a long time, has thousands of plugins and configurations that people have extended and need support with. Updating each plugin is a laborious and manual process – which results in many plugins falling behind.
-  * Valentin then explained [how they came to find and use OpenRewrite](https://summerofcode.withgoogle.com/programs/2024/projects/anaMmWRR) to address their problems. This culminated in the [Jenkins plugin modernizer tool](https://github.com/jenkinsci/plugin-modernizer-tool/) that both of them built during the Google Summer of Code.
-  * [He then presented on the architecture of the tool and where OpenRewrite fits into it](https://github.com/jenkinsci/plugin-modernizer-tool/blob/main/docs/ARCHITECTURE.md).
+  * Valentin then explained [how they came to find and use OpenRewrite](https://summerofcode.withgoogle.com/programs/2024/projects/anaMmWRR) to address their problems. This culminated in the [Jenkins plugin modernizer tool](https://github.com/jenkins-infra/plugin-modernizer-tool) that both of them built during the Google Summer of Code.
+  * [He then presented on the architecture of the tool and where OpenRewrite fits into it](https://github.com/jenkins-infra/plugin-modernizer-tool/blob/main/docs/ARCHITECTURE.md).
   * Next up Sridhar showed off the OpenRewrite recipes they've developed.
   * We then discussed the impact of this tool and what their approach has been. They explained that they aren't using this at mass scale right now. Instead, they are wanting to run it against the top 200 plugins to focus on making sure it works for them.
   * After that we took a look at the "health" of Jenkins plugins and what that means with the idea being that it would be interesting to target plugins that are popular but don't have high health scores.
@@ -521,7 +521,7 @@ Coming soon!
       * Considerations for large enterprises
     * [We have three new videos about using the Moderne CLI that address configuring the CLI, building LSTs, and running recipes](https://www.youtube.com/@Moderne-and-OpenRewrite/videos).
   * **Releases**:
-    * [We did a full release of OpenRewrite this week](https://docs.openrewrite.org/changelog/8-34-0-release).
+    * [We did a full release of OpenRewrite this week](https://docs.openrewrite.org/changelog/8-34-0-Release).
     * There were improvements for Spring Batch, Spring Security, and Spring Fox to SpringDoc.
       * Swagger dependencies are now also migrated to Jakarta.
     * There were also continued improvements for testing frameworks
@@ -1348,7 +1348,7 @@ Coming soon!
   * We announced that we'll be returning to [Spring IO](https://2024.springio.net/) this year. Come find us if you're there!
 * We then jumped over to the main topic: automating code reviews with OpenRewrite and the [Moderne CLI](../user-documentation/moderne-cli/getting-started/cli-intro.md).
   * We showed off a [high-quality PR where we used this automation to ensure certain standards were followed](https://github.com/openrewrite/rewrite-migrate-java/pull/421) (e.g., not including `System.out.println` in released code). One especially cool part of this is that the bot provides suggestions that the committer can simply accept without ever having to go back to the code themselves.
-    * You can find our [OpenRewrite best practices recipe in the rewrite-recommendations repository](https://github.com/openrewrite/rewrite-recommendations/blob/main/src/main/resources/META-INF/rewrite/openrewrite.yml) or in the [Moderne Platform](https://app.moderne.io/recipes/org.openrewrite.recipes.OpenRewriteBestPractices).
+    * You can find our [OpenRewrite best practices recipe in the rewrite-recommendations repository](https://github.com/openrewrite/rewrite-recommendations/blob/main/src/main/resources/META-INF/rewrite/openrewrite.yml) or in the [Moderne Platform](https://app.moderne.io/recipes/org.openrewrite.recipes.rewrite.OpenRewriteRecipeBestPractices).
   * We then dove into demonstrating how we did this:
     * The first step is [running the receive-pr workflow](https://github.com/openrewrite/rewrite-migrate-java/blob/main/.github/workflows/receive-pr.yml) – which then calls out to [our shared workflow](https://github.com/openrewrite/gh-automation/blob/main/.github/workflows/receive-pr.yml) in [our GitHub automations repository](https://github.com/openrewrite/gh-automation). The shared workflow runs the OpenRewrite recipes against the code in the PR.
     * The last step is commenting the changes back to the PR – which is what the [comment-pr workflow](https://github.com/openrewrite/rewrite-migrate-java/blob/main/.github/workflows/comment-pr.yml) does (which similarly calls out to [our shared one](https://github.com/openrewrite/gh-automation/blob/main/.github/workflows/comment-pr.yml)).
