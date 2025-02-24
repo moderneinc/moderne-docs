@@ -118,7 +118,7 @@ For other issues, though, you'll need to consider larger and more complex recipe
 
 Some notable migration/refactoring recipes include:
 
-* [Migrating to Spring Boot 3.4](https://docs.openrewrite.org/recipes/recipe/spring/boot3/upgradespringboot_3_4)
+* [Migrating to Spring Boot 3.4](https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_4)
 * [Migrating from Micronaut 3.x to 4.x](https://docs.openrewrite.org/recipes/java/micronaut/micronaut3to4migration)
 * [Migrating from Quarkus 1 to 2](https://docs.openrewrite.org/recipes/quarkus/quarkus2/quarkus1to2migration)
 
