@@ -30,21 +30,14 @@ Let's walk through how to find and use this recipe so you can be more confident 
 
 * After you've come up with the list of field names to search for, you can select whether or not you want the recipe to perform a transitive search. Setting this field to `true` (**recommended**) will recursively check through objects for sensitive data. For instance, if this field is `true` and an `Owner` object has a `getPet` method that returns a `Pet` object that contains PII or secrets (for example, `birthDate` from the options we chose), then the recipe would flag any methods that return an `Owner` because it could then return a `Pet`. If this field is set to `false`, then the recipe would only check the `Owner` class and any objects the `Owner` class extends (such as a `Person` class).
 
-* Once you've configured the recipe as you want, press the `Dry run` button and Moderne will begin searching for sensitive APIs. You'll be redirected to a page that looks like this:
+* Once you've configured the recipe as you want, press the `Dry run` button and Moderne will begin searching for sensitive APIs. You'll be redirected to a page that looks like this. On the right side of the page, you'll see what APIs returned sensitive information.
 
 <figure>
   ![](./assets/find-sensitive-results.png)
   <figcaption>_Recipe results_</figcaption>
 </figure>
 
-* You can click on any of the repositories to see what APIs return sensitive information:
-
-<figure>
-  ![](./assets/sensitive-pet-results.png)
-  <figcaption>_Example sensitive data_</figcaption>
-</figure>
-
-* Clicking on the text that is underlined will provide you with context about what sensitive data is exposed:
+* Clicking on the text that is highlighted will provide you with context about what sensitive data is exposed:
 
 <figure>
   ![](./assets/sensitive-pet-example.png)

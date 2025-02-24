@@ -23,7 +23,7 @@ As an example, let's say that you are wanting to find all of the places where yo
 
 If you searched for `createFile` in GitHub, you might end up with a ton of irrelevant results as this is a fairly common method name. To find results that match the method name _and_ are from the correct library, please follow these steps:
 
-*   From the [Java Search](https://app.moderne.io/marketplace/org.openrewrite.java.search) page, scroll down and click on `Find method usages`:
+*   Navigate to the [find method usages recipe](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods):
 
     ![](./assets/find-method-usage-empty.png)
 * (Optionally) [Filter down to a specific group of repositories](./managing-user-configured-organizations.md).
@@ -45,10 +45,10 @@ The combination of the fully qualified receiver type, the method name, and the a
 For extensive documentation on each of these components and more examples of different ways you can use method patterns to search for methods, please check out the [OpenRewrite docs](https://docs.openrewrite.org/reference/method-patterns).
 :::
 
-*   Your window should look like:
+* Your window should look like:
 
     ![](./assets/find-method-usage-full.png)
-*   Press `Dry Run` to begin the search. You will be redirected to a page that looks like:
+* Press `Dry Run` to begin the search. You will be redirected to a page that looks like:
 
     ![](./assets/find-method-usage-results.png)
 
@@ -56,9 +56,7 @@ For extensive documentation on each of these components and more examples of dif
 As the code in the SaaS is constantly changing, your results will more than likely be different.
 :::
 
-*   If you click on one of the repository names such as `eclipse/winery`, you'll be taken into the code for that repository. Lines that match the search will be underlined and marked with a magnifying glass icon. These lines match the type that was specified in the search. This means that if any other `createFile` method was invoked, you wouldn't see those results here. Instead, you will see:
-
-    ![](./assets/find-method-usage-result.png)
+* On the right side of the screen, you can see methods that exactly matched the method pattern. In other words, if a different `createFile` method was invoked in your code, you wouldn't see it here.
 
 From there, you can make intelligent decisions about the code. For instance, maybe you'll see that there aren't too many instances of this and conclude that you can safely replace it with a new `createFile` method. Or maybe you just wanted to learn how other people use it to safely use it in your new class. Regardless of what you end up doing, you can be confident that you correctly and quickly found all of the places that use this method.
 

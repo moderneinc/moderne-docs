@@ -59,7 +59,7 @@ Press `Dry Run` at the bottom of the page and wait for the recipe to run. Once t
 
 ## Step 5: Examine the changes
 
-After the recipe has finished, you can click on any repository to see the changes the recipe made. Keep in mind, though, that these changes will be minimal in nature if you selected `patch` for the `maximum upgrade delta`.
+The right side of the screen shows the changes made for each repository. You can click on any repository to see the changes made. Keep in mind, though, that these changes will be minimal in nature if you selected `patch` for the `maximum upgrade delta`.
 
 <figure>
   ![Example dependency change to fix a security issue](./assets/vuln-dep-change.png)

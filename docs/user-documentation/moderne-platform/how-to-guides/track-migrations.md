@@ -33,9 +33,11 @@ When you're done selecting the dependencies you want to look for, press the `Dry
 
 ## Understanding recipe results
 
-If you click on any of the repositories on the recipe results page, you will be redirected to a diff view. Unlike other recipes that actively change code, this recipe will highlight dependencies that depend on one of the dependencies you specified above. 
+On the right side of the page, you can see the results for the selected repository. Feel free to select different repositories to see their results. 
 
-For instance, in the following examples, we can see that `org.springframework.cloud` was highlighted by the recipe. If you mouse over the code or the magnifying glass, you can see that it was highlighted because that depends on `com.fasterxml.jackson.core`:
+Unlike other recipes that actively change code, this recipe will highlight dependencies that depend on one of the dependencies you specified above. 
+
+For instance, in the following examples, we can see that `org.springframework.boot` was highlighted by the recipe. If you click on the highlighted code, you can see that it was highlighted because that depends on `com.fasterxml.jackson.core`:
 
 <figure>
   ![](./assets/dep-insight-diff.png)

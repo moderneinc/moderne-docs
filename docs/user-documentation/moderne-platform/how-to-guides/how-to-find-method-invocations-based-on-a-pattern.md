@@ -13,11 +13,6 @@ Searching for methods across a code base can not only help you learn more about 
 
 In this guide, we'll give you some background on each of these recipes and then walk through the different ways you might use them.
 
-<figure>
-  ![](./assets/AIDoc.gif)
-  <figcaption></figcaption>
-</figure>
-
 ## Recipes that search for methods
 
 The Moderne marketplace has two key recipes that can help you find method invocations throughout your codebases:
@@ -76,13 +71,13 @@ The AI search is aware of the arguments inside the method invocation. If you are
 After running each of these recipes, you may want to view the results in a different way or learn more about why certain results were or were not included. To assist with this goal, Moderne offers a few data tables and visualizations you can run with the recipe results. Let's take a look at a few of them. You can find these by clicking on the `Visualization` or `Data tables` tab at the top of the recipe results page:
 
 <figure>
-  ![](./assets/ai-recipe-results.png)
+  ![](./assets/ai-tabs.png)
   <figcaption></figcaption>
 </figure>
 
 ### Find uses of method in code
 
-The find uses of method in code visualization creates a table of all the methods that match the method pattern you specified. It will give you the exact file location where a method was found and a snippet of the source code that matched. You can search for specific files or results – or you can download it as a CSV to run your own analytics against the results.
+The `find uses of method in code` visualization creates a table of all the methods that match the method pattern you specified. It will give you the exact file location where a method was found and a snippet of the source code that matched. You can search for specific files or results – or you can download it as a CSV to run your own analytics against the results.
 
 <figure>
   ![](./assets/ai-vis.png)

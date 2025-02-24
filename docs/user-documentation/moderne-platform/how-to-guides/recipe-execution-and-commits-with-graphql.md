@@ -32,12 +32,12 @@ This guide assumes that you:
 
 2. Navigate to the recipe you wish to run and fill out the recipe options.
 
+3. In the top right corner of the page, click on `API examples` and select `Run a recipe`. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your organization selection from step 1.
+
 <figure>
-  ![](./assets/update-gradle-plugin-recipe-run.png)
+  ![](./assets/api-link.png)
   <figcaption></figcaption>
 </figure>
-
-3. In the top right corner of the page, click on `API examples` and select `Run a recipe`. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your organization selection from step 1.
 
 4. You can then execute a recipe with the following mutation:
 
