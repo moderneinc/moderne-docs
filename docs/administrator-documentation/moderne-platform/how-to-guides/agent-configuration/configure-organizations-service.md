@@ -15,19 +15,19 @@ In order for Moderne to obtain information about your organizational structure, 
 
 **Variables:**
 
-| Variable Name                                        | Required | Default | Description                                                                                                                                                                          |
-|------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_URL`                     | `true`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
-| `MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS` | `false`  | `600`   | Specifies how often to request your organization information.                                                                                                                        |
-| `MODERNE_AGENT_ORGANIZATION_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Variable Name                                                | Required | Default | Description                                                                                                                                                                          |
+|--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`                     | `true`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS` | `false`  | `600`   | Specifies how often to request your organization information.                                                                                                                        |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_AGENT_ORGANIZATION_SERVICE_URL=http://localhost:8091 \
+-e MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS=600 \
 # ... Additional variables
 ```
 </TabItem>
@@ -36,19 +36,19 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                        | Required | Default | Description                                                                                                                                                                          |
-|------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.url`                   | `true`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
-| `--moderne.agent.organization.updateIntervalSeconds` | `false`  | `600`   | Specifies how often to request your organization information.                                                                                                                        |
-| `--moderne.agent.organization.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Argument Name                                                | Required | Default | Description                                                                                                                                                                          |
+|--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.agent.organization.service.url`                   | `true`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
+| `--moderne.agent.organization.service.updateIntervalSeconds` | `false`  | `600`   | Specifies how often to request your organization information.                                                                                                                        |
+| `--moderne.agent.organization.service.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 
 ```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
---moderne.agent.organization.url=http://localhost:8091 \
---moderne.agent.organization.updateIntervalSeconds=600 \
+--moderne.agent.organization.service.url=http://localhost:8091 \
+--moderne.agent.organization.service.updateIntervalSeconds=600 \
 # ... Additional arguments
 ```
 </TabItem>
