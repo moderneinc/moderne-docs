@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.33.2 (2025/02/25)
+
+#### What's Changed CLI
+* N/A
+#### What's Changed DX
+* Add support for Nexus maven repositories as LST sources to DX
+
+
 ### CLI / DX v3.33.1 (2025/02/24)
 
 #### What's Changed
