@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.33.1 (2025/02/24)
+
+#### What's Changed
+* Re-enable Maven dependency resolution
+
+
 ### CLI / DX v3.32.7 (2025/02/19)
 
 #### What's Changed CLI
