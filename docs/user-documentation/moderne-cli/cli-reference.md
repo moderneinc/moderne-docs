@@ -3249,7 +3249,7 @@ mod config recipes artifacts artifactory edit [parameters]
 ### Examples
 
 ```
-mod config recipes artifacts artifactory edit <artifact-repository-url> --user <user> --password <password>
+mod config recipes artifacts edit <artifact-repository-url> --user <user> --password <password>
 ```
 
 ### Parameters
