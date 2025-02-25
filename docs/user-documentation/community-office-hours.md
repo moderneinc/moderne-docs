@@ -19,7 +19,24 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Events**:
+    * [We've finalized the lineup for the code remix summit](https://coderemix.ai/speakers)
+      * If you haven't registered yet, consider using the code `MODERNE3VIP` to get a substantial discount: [register here](https://coderemix.ai/app/ticket/event/557).
+    * [Justine has two sessions at Confoo in Canada on February 26th-28th](https://confoo.ca/en/speaker/justine-gehring)
+    * [Jonathan will be at the Toronto JUG in Canada on February 27th](https://www.meetup.com/toronto-java-users-group/events/305217070/)
+    * [There will be a few sessions from Moderne at DevNexus on March 4th](https://devnexus.com/presentations/migration-engineering-with-openrewrite-the-recipe-for-success).
+      * If you want to attend, consider using our promo code: `DN25MODERNE30`.
+  * **Releases**:
+    * Lombok support has been officially released. Make sure you're using version [v8.45.5 or higher](https://github.com/openrewrite/rewrite/releases/tag/v8.45.5).
+* **Main topic for the week - type tables**
+  * Historically, many of our recipes that updated insecure libraries to secure ones caused some problems for people that had vulnerability scanners. That's because, as part of fixing the old code, we needed to have the old JARs to compile that old code. The JARs were **never** executed, but it still caused people to be concerned. To remedy this, we've created type tables.
+  * Now, instead of pulling in the whole JAR, we throw away the implementation and take _just_ enough for type attribution. These type types are not a class and can't be re-hydrated into anything executable. This lets us run recipes against old, insecure code without having to take in a concerning JAR.
+  * Type tables have an additional benefit beyond not getting security warnings – size savings. Using type tables, we are able to reduce the size of the libraries we need to pull in by 90%. Because of that, every release of OpenRewrite will now being significantly smaller.
+  * Below are relevant links that you might find useful about this topic:
+    * [The PR that added a new Gradle task](https://github.com/openrewrite/rewrite-build-gradle-plugin/pull/75)
+    * [The TypeTable task itself](https://github.com/openrewrite/rewrite-build-gradle-plugin/blob/main/src/main/java/org/openrewrite/gradle/RecipeDependenciesTypeTableTask.java)
+    * [Tim adding TypeTables to rewrite-spring](https://github.com/openrewrite/rewrite-spring/pull/676)
 
 ### Live, Laugh, Lombok: Expanding Support (February 12th, 2025)
 
