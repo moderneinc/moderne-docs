@@ -3,6 +3,23 @@
 
 - Bug fixes and other improvements.
 
+### Agent v0.210.0 (2025/02/22)
+
+As of Moderne Agent v0.210.0, the organizations service configuration has moved from `moderne.agent.organization` to `moderne.agent.organization.service`.
+
+
+#### Before
+```properties
+moderne.agent.organization.url=https://my-organizations-service
+moderne.agent.organization.updateIntervalSeconds=600
+```
+
+#### After
+```properties
+moderne.agent.organization.service.url=https://my-organizations-service
+moderne.agent.organization.service.updateIntervalSeconds=600
+```
+
 ### UI v11.10.1 (2025/02/22)
 
 - Bug fixes and other improvements.
