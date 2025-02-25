@@ -489,4 +489,4 @@ With all of the repositories cloned to your machine, you can then build LSTs for
 mod build .
 ```
 
-With the LSTs built, you're ready to run recipes against them! Consider checking out the [using the CLI section in the getting started guide](../getting-started/cli-intro.md#using-the-cli) to see some ways you can use the CLI.
+With the LSTs built, you're ready to run recipes against them! Consider checking out the [using the CLI section in the getting started guide](../getting-started/cli-intro.md#running) to see some ways you can use the CLI.

@@ -145,6 +145,9 @@ With installation and configuration done, you're now ready to use the CLI. Let's
 
 ### Run recipes against many repositories at once
 
+
+#### Building
+
 In this example, we will use the Moderne CLI to run the `DependencyVulnerabilityCheck` recipe against a group of open-source repositories.
 
 1. From your terminal, create a directory to work in and `cd` into it:
@@ -433,7 +436,9 @@ MOD SUCCEEDED in 6s
 
 </details>
 
-5. With the LSTs downloaded to your machine, you can now run recipes against them. Let's run the `DependencyVulnerabilityCheck` recipe to find and fix vulnerable dependencies. Unlike many other tools, this recipe can find and fix dependencies that are _many_ levels deep. For instance, if you depend on a library which depends on a library which depends on a library which contains a vulnerable dependency, this recipe can find that and offer suggestions on how to fix it.
+#### Running
+
+With the LSTs built, you can now run recipes against them. Let's run the `DependencyVulnerabilityCheck` recipe to find and fix vulnerable dependencies. Unlike many other tools, this recipe can find and fix dependencies that are _many_ levels deep. For instance, if you depend on a library which depends on a library which depends on a library which contains a vulnerable dependency, this recipe can find that and offer suggestions on how to fix it.
 
 ```bash
 mod run . --recipe DependencyVulnerabilityCheck --parallel 0
@@ -518,7 +523,7 @@ MOD SUCCEEDED in 31s
 
 </details>
 
-6. To learn more about what changed, you can command/ctrl click on the `fix.patch` files generated in the above command. If you open one of these patch files up, you'll see that various dependencies in `pom.xml` or `build.gradle` files have been updated. While these updates to the dependencies are useful, they are only a minor part of what this recipe does. In the next section we'll take a look at the real power of this recipe – the data table that is produced.
+To learn more about what changed, you can command/ctrl click on the `fix.patch` files generated in the above command. If you open one of these patch files up, you'll see that various dependencies in `pom.xml` or `build.gradle` files have been updated. While these updates to the dependencies are useful, they are only a minor part of what this recipe does. In the next section we'll take a look at the real power of this recipe – the data table that is produced.
 
 ### Study the results of a recipe
 
