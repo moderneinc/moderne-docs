@@ -36,9 +36,9 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                        | Required | Default | Description                                                                                                                                                                          |
-|------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.service.url`           | `true`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
+| Argument Name                                                | Required | Default | Description                                                                                                                                                                          |
+|--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.agent.organization.service.url`                   | `true`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
 | `--moderne.agent.organization.service.updateIntervalSeconds` | `false`  | `600`   | Specifies how often to request your organization information.                                                                                                                        |
 | `--moderne.agent.organization.service.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
