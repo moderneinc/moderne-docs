@@ -34,6 +34,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * Now, instead of pulling in the whole JAR, we throw away the implementation and take _just_ enough for type attribution. These type types are not a class and can't be re-hydrated into anything executable. This lets us run recipes against old, insecure code without having to take in a concerning JAR.
   * Type tables have an additional benefit beyond not getting security warnings – size savings. Using type tables, we are able to reduce the size of the libraries we need to pull in by 90%. Because of that, every release of OpenRewrite will now being significantly smaller.
   * Below are relevant links that you might find useful about this topic:
+    * [TypeTable documentation](https://docs.openrewrite.org/authoring-recipes/multiple-versions#type-tables)
     * [The PR that added a new Gradle task](https://github.com/openrewrite/rewrite-build-gradle-plugin/pull/75)
     * [The TypeTable task itself](https://github.com/openrewrite/rewrite-build-gradle-plugin/blob/main/src/main/java/org/openrewrite/gradle/RecipeDependenciesTypeTableTask.java)
     * [Tim adding TypeTables to rewrite-spring](https://github.com/openrewrite/rewrite-spring/pull/676)
