@@ -210,12 +210,11 @@ chmod +x github.sh
 ./github.sh YOUR_ORG_NAME > repos.csv
 ```
 
-If everything was done correctly, you should have a `repos.csv` file that looks similar to:
+If everything was done correctly, you should have a `repos.csv` file that looks similar to the following:
 
 ```csv
 "cloneUrl","branch"
 "https://github.com/openrewrite/rewrite","main"
-"https://github.com/openrewrite/rewrite-codemods-ng","main"
 "https://github.com/openrewrite/rewrite-python","main"
 "https://github.com/openrewrite/rewrite-openapi","main"
 "https://github.com/openrewrite/rewrite-static-analysis","main"
