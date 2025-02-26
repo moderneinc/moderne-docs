@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.13.0 (2025/02/26)
+
+- persist audit log grid state to url
+
 ### UI v11.12.0 (2025/02/26)
 
 - expose LLM card and configuration for agent LLM configuration
