@@ -1,5 +1,5 @@
 ---
-sidebar_label: Multi-tentant private recipes
+sidebar_label: Multi-tenant private recipes
 description: How to upload and deploy company-specific recipes in a private way.
 ---
 
