@@ -108,18 +108,18 @@ USER app
 
 # Download the specified version of moderne-agent JAR file if MODERNE_AGENT_VERSION is provided,
 # otherwise download the latest version
-RUN if [ -n "${MODERNE_AGENT_VERSION}" ]; then \
-    echo "Downloading version: ${MODERNE_AGENT_VERSION}"; \
-    curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/${MODERNE_AGENT_VERSION}/moderne-agent-${MODERNE_AGENT_VERSION}.jar" --output agent.jar; \
-    else \
-    LATEST_VERSION=$(curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/maven-metadata.xml" | xmllint --xpath 'string(/metadata/versioning/latest)' -); \
-    if [ -z "${LATEST_VERSION}" ]; then \
-    echo "Failed to get latest version"; \
-    exit 1; \
-    fi; \
-    echo "Downloading latest version: ${LATEST_VERSION}"; \
-    curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/${LATEST_VERSION}/moderne-agent-${LATEST_VERSION}.jar" --output agent.jar; \
-    fi
+RUN  if [ -n "${MODERNE_AGENT_VERSION}" ]; then \
+          echo "Downloading version: ${MODERNE_AGENT_VERSION}"; \
+          curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/${MODERNE_AGENT_VERSION}/moderne-agent-${MODERNE_AGENT_VERSION}.jar" --output agent.jar; \
+     else \
+          LATEST_VERSION=$(curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/maven-metadata.xml" | xmllint --xpath 'string(/metadata/versioning/latest)' -); \
+          if [ -z "${LATEST_VERSION}" ]; then \
+               echo "Failed to get latest version"; \
+               exit 1; \
+          fi; \
+          echo "Downloading latest version: ${LATEST_VERSION}"; \
+          curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/${LATEST_VERSION}/moderne-agent-${LATEST_VERSION}.jar" --output agent.jar; \
+     fi
 
 ENTRYPOINT ["java"]
 CMD ["-XX:-OmitStackTraceInFastThrow", "-XX:MaxRAMPercentage=65.0", "-XX:MaxDirectMemorySize=2G", "-XX:+HeapDumpOnOutOfMemoryError", "-XX:+UseStringDeduplication", "-jar", "/app/agent.jar"]
