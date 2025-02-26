@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.12.0 (2025/02/26)
+
+- expose LLM card and configuration for agent LLM configuration
+
 ### UI v11.11.0 (2025/02/25)
 
 - Bug fixes and other improvements.
