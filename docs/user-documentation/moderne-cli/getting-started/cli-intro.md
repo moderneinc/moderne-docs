@@ -40,7 +40,7 @@ If everything was configured correctly, you should be able to type `mod` into yo
 ```bash
 ➜ mod
 
-Moderne CLI 3.33.4
+Moderne CLI 3.33.5
 
 Usage:
 
@@ -176,7 +176,7 @@ If you need to enter an SSH passphrase to clone repositories, please see our [SS
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.33.4
+Moderne CLI 3.33.5
 
 > Cloning organization from Moderne
 
@@ -253,7 +253,7 @@ mod build . --download-only
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.33.4
+Moderne CLI 3.33.5
 
 > Selecting repositories
 
@@ -451,7 +451,7 @@ mod run . --recipe DependencyVulnerabilityCheck --parallel 0
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.33.4
+Moderne CLI 3.33.5
 
 > Selecting repositories
 
@@ -569,7 +569,7 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.33.4
+Moderne CLI 3.33.5
 
 Found recipe run 20250114092524-RN2dY
 
@@ -670,7 +670,7 @@ mod run . --recipe CommonStaticAnalysis --parallel 0
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.33.4
+Moderne CLI 3.33.5
 
 > Selecting repositories
 
@@ -752,7 +752,7 @@ mod git checkout . -b workshop-changes --last-recipe-run
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.33.4
+Moderne CLI 3.33.5
 
 Found recipe run 20250114093829-TkzAc
 
