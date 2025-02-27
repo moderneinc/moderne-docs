@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.33.3 (2025/02/26)
+
+#### What's Changed
+* Update with rewrite 8.47.3
+* Fix small typo in run command description
+* Complete removal of XZ and LZ4 dependencies
+
+
 ### CLI / DX v3.33.2 (2025/02/25)
 
 #### What's Changed CLI
