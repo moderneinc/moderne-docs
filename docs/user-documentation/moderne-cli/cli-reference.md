@@ -274,7 +274,7 @@ mod [subcommands]
 * `list`: Lists the repositories that can be built and published.
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
 * `publish`: Publishes the LST artifacts for one or more projects.
-* `run`: Runs an OpenRewrite recipe locally on pre-built LSTS.
+* `run`: Runs an OpenRewrite recipe locally on pre-built LSTs.
 * `run-history`: Get information about the most recent recipe runs. This will be transitioning to **mod audit runs list** eventually. A deprecation notice will be added here when we suggest adopting the alternative.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
 * `generate-completion`
@@ -5585,7 +5585,7 @@ mod publish /path/to/project
 
 ## mod run
 
-Runs an OpenRewrite recipe locally on pre-built LSTS.
+Runs an OpenRewrite recipe locally on pre-built LSTs.
 
 
 You must run the **mod build** command before this command will work. You also must set up a connection to moderne (**mod config moderne**) and install recipes (**mod config recipes**) for this command to work.
