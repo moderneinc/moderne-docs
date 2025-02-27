@@ -13,6 +13,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Top Tips & Techniques for Recipe Authors (February 27th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=RRRC5bUN5Lg' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### Type Tables: Breaking up with classpath drama (February 19th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/live/vw7fYOCyFXY' controls="true" />
