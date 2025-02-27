@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.33.5 (2025/02/27)
+
+#### What's Changed CLI
+* Revert "Complete removal of XZ and LZ4 dependencies"
+
+
 ### CLI / DX v3.33.3 (2025/02/27)
 
 #### What's Changed
