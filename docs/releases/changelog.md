@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.14.0 (2025/02/27)
+
+- add light/dark mode toggle for builder
+
 ### UI v11.13.0 (2025/02/26)
 
 - persist audit log grid state to url
