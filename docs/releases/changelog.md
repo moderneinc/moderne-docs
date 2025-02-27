@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.14.1 (2025/02/27)
+
+- Bug fixes and other improvements.
+
 ### UI v11.14.0 (2025/02/27)
 
 - add light/dark mode toggle for builder
