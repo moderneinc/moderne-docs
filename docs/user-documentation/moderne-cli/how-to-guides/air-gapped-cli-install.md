@@ -124,7 +124,7 @@ mod config license edit <license-you-were-provided>
 
 _For more information on the Moderne CLI license, please see our [license documentation](../getting-started/moderne-cli-license.md)._
 
-### Step 4: Configure the CLI to point to your internal artifact repository
+### (Optional) Step 4: Configure the CLI to point to your internal artifact repository
 
 **If your Maven settings file is not in the default location**, please run the following command to point the CLI to your Maven settings file. If it is in the default location, skip to step 5.
 
@@ -132,9 +132,17 @@ _For more information on the Moderne CLI license, please see our [license docume
 mod config build maven settings edit /path/to/maven/settings/file
 ```
 
-In order for the CLI to download recipes and dependencies/lookup versions as needed, it will need to be provided with the path to your Maven settings file. This likely exists on developer machines for the sake of redirecting requests from Maven Central to an internal artifact instance.
+In order for the CLI to download dependencies/lookup versions as needed, it will need to be provided with the path to your Maven settings file. This likely exists on developer machines for the sake of redirecting requests from Maven Central to an internal artifact instance.
 
-### Step 5: Install recipe JARs
+### (Optional) Step 5: Configure the CLI to point to an internal Artifactory to download recipes
+
+If you have an internal Artifactory instance where you plan on storing recipes, please direct the CLI to it by running the following command:
+
+```bash
+mod config recipes artifacts artifactory edit
+```
+
+### Step 6: Install recipe JARs
 
 The next thing you need to do is ensure your internal artifact repository has all of the recipe JARS (assuming that your artifact repository is not a pure remote proxy to Maven Central already or that there isn't some automatic procurement step at dependency resolution time).
 
@@ -142,7 +150,7 @@ With that done, you'll need to run the `mod config recipes jar install` command 
 
 The latest version of every JAR and the CLI command to install those latest versions can be found at the bottom of the [latest versions of every OpenRewrite module doc](https://docs.openrewrite.org/reference/latest-versions-of-every-openrewrite-module#cli-installation). This is automatically updated whenever we do a new release.
 
-### Step 6: Create a list of your repositories
+### Step 7: Create a list of your repositories
 
 In order for the CLI to run recipes against your code, you will need to provide it with a `repos.csv` file. The first row in the CSV file should be a header row that lists out the columns you intend to provide. After that, each row will represent a repository. At a minimum, you should include a URL to clone said repository – but you can also provide other columns as needed.
 
@@ -472,7 +480,7 @@ https://bitbucket.your.place/stash/scm/~sjungling/demo_private.git,main
 
 </Tabs>
 
-### Step 7: Clone your repositories
+### Step 8: Clone your repositories
 
 Create a directory somewhere on your machine where you'd like the CLI to clone the repositories to. Then navigate to that directory, copy the `repos.csv` file to it, and run the following command:
 
@@ -480,7 +488,7 @@ Create a directory somewhere on your machine where you'd like the CLI to clone t
 mod git clone csv . repos.csv
 ```
 
-### Step 8: Build your repositories
+### Step 9: Build your repositories
 
 With all of the repositories cloned to your machine, you can then build LSTs for them by running the following command:
 
