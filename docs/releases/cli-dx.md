@@ -8,13 +8,15 @@
 
 ### CLI / DX v3.33.3 (2025/02/27)
 
-#### What's Changed
+#### What's Changed CLI
 * Update with rewrite 8.47.3
 * Fixes small typo in run command.
 * Complete removal of XZ and LZ4 dependencies
 * Update `RecipeMarketplace` wrt new `RecipeDescriptor` API
-* Delete LST files on download failures
 * Fix data table API change
+
+#### What's Changed DX
+* Delete LST files on download failures
 
 
 ### CLI / DX v3.33.3 (2025/02/27)
