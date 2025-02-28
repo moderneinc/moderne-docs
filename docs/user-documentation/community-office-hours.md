@@ -19,7 +19,22 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+ * **Events**:
+    * [We've finalized the lineup for the code remix summit](https://coderemix.ai/speakers)
+      * If you haven't registered yet, consider using the code `MODERNE3VIP` to get a substantial discount: [register here](https://coderemix.ai/app/ticket/event/557).
+    * [Justine has two sessions at Confoo in Canada on February 26th-28th](https://confoo.ca/en/speaker/justine-gehring)
+    * [Jonathan will be at the Toronto JUG in Canada on February 27th](https://www.meetup.com/toronto-java-users-group/events/305217070/)
+    * [There will be a few sessions from Moderne at DevNexus on March 4th](https://devnexus.com/presentations/migration-engineering-with-openrewrite-the-recipe-for-success).
+      * If you want to attend, consider using our promo code: `DN25MODERNE30`.
+* **Main topic for the week**
+  * Sam took us through a variety of recipe authoring tips. Below you can find a very high-level summary of each tip, but if you want to know more please check out the video.
+  * Tip 1: Parse text you need into LST elements with parsers.
+  * Tip 1.5: Save the results of those computations into the execution context so you won't have to do them frequently. When possible, cache things that are invariable.
+  * Tip 2: Debugging JavaTemplates - use `doBeforeParseTemplate()`.
+  * Tip 3: Create sub-visitors when you have something complex.
+  * Tip 4: How to do HTTP communication in a recipe
+  * Tip 5: Delegate to scanning recipes
 
 ### Type Tables: Breaking up with classpath drama (February 19th, 2025)
 
