@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.15.0 (2025/02/28)
+
+- add banner to notifiy user of service disruption
+
 ### UI v11.14.4 (2025/02/28)
 
 - Bug fixes and other improvements.
