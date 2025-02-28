@@ -108,7 +108,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'user-documentation/moderne-cli/getting-started/cli-intro',
-            'user-documentation/moderne-cli/getting-started/cli-dev-center',
             'user-documentation/moderne-cli/getting-started/moderne-cli-license',
           ],
         },
@@ -125,6 +124,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'user-documentation/moderne-cli/how-to-guides/air-gapped-cli-install',
             'user-documentation/moderne-cli/how-to-guides/cli-upgrade',
+            'user-documentation/moderne-cli/how-to-guides/cli-dev-center',
             'user-documentation/moderne-cli/how-to-guides/clone-and-sync',
             'user-documentation/moderne-cli/how-to-guides/parallelism',
             'user-documentation/moderne-cli/how-to-guides/afterburner',
