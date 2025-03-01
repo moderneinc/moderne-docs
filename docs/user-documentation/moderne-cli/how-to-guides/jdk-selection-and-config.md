@@ -103,6 +103,24 @@ If you want to see what Java version the CLI is currently using, you can run the
 mod config java version show
 ```
 
+## Explicitly specifying Java version in CSV
+
+When cloning using `mod git clone csv`, it is possible to add a `"java"` column to the CSV to explicitly specify the version for certain repositories.
+
+In the below configuration, `rewrite-maven-plugin` is explicitly configured to use Java 8. Because the `"java"` column is blank for `rewrite-spring`, that repository will use the JDK auto-detection logic.
+
+```csv
+"cloneUrl","branch","java"
+"https://github.com/openrewrite/rewrite-maven-plugin","main",8
+"https://github.com/openrewrite/rewrite-spring","main"
+```
+
+The CLI uses `mod config java version edit <VERSION> --local <REPO>` for each row in the repository that has a value for that column, so it is possible to verify that the column was enforced by subsequently running:
+
+```bash
+mod config java version show --local <REPO>
+```
+
 ## Additional reading
 
 For more information about each of the commands listed here, please see our [CLI reference docs](../cli-reference.md).
