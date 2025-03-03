@@ -22,7 +22,7 @@ All AI tools and features may produce incorrect or incomplete results. Please en
 Moddy is an AI chatbot that can search for OpenRewrite recipes and execute them within the Moderne Platform.
 
 <figure>
-  ![](./assets/mod-agent.png)
+  ![](./assets/moddy.png)
   <figcaption>_A preview of Moddy_</figcaption>
 </figure>
 
