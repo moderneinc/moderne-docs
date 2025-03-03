@@ -456,10 +456,9 @@ Moderne CLI 3.33.5
 > Selecting repositories
 
 > apache/maven-doxia@master
-> aws/amazon-documentdb-jdbc-driver@develop (no LST)
 > awslabs/aws-saas-boost@main
 > finos/messageml-utils@main
-> finos/spring-bot@spring-bot-master (no LST)
+> finos/spring-bot@spring-bot-master
 > finos/symphony-bdk-java@main
 > finos/symphony-wdk@master
 > Netflix/photon@master
@@ -467,7 +466,7 @@ Moderne CLI 3.33.5
 > openrewrite/rewrite-recipe-bom@main
 > spring-projects/spring-data-commons@main
 > spring-projects/spring-petclinic@main
-Selected 12 repositories (1s)
+Selected 11 repositories (1s)
 
 [1] Find and fix vulnerable Nuget dependencies (org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck)
 [2] Find and fix vulnerable dependencies (org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
@@ -476,49 +475,46 @@ Select a recipe [1-3]: 2
 
 > Running recipe org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
 
-> aws/amazon-documentdb-jdbc-driver@develop (no LST)
-    ! Skipping recipe run because no LST was found
-> finos/spring-bot@spring-bot-master (no LST)
-    ! Skipping recipe run because no LST was found
-> openrewrite/rewrite-recipe-bom@main
+> Netflix/ribbon@master
+    + Fix results at /Users/mikesol/workshop/Netflix/ribbon/.moderne/run/20250303090700-X0knL/fix.patch
+> Netflix/photon@master
     No changes
 > apache/maven-doxia@master
+    No changes
+> spring-projects/spring-data-commons@main
+    No changes
+> finos/symphony-wdk@master
+    No changes
+> spring-projects/spring-petclinic@main
+    No changes
+> awslabs/aws-saas-boost@main
+    + Fix results at /Users/mikesol/workshop/awslabs/aws-saas-boost/.moderne/run/20250303090700-X0knL/fix.patch
+> openrewrite/rewrite-recipe-bom@main
     No changes
 > finos/messageml-utils@main
     No changes
 > finos/symphony-bdk-java@main
     No changes
-> Netflix/ribbon@master
-    + Fix results at /Users/mikesol/Desktop/code/workshop/Netflix/ribbon/.moderne/run/20250114092127-pDBnx/fix.patch
-> finos/symphony-wdk@master
-    No changes
-> Netflix/photon@master
-    No changes
-> spring-projects/spring-petclinic@main
-    No changes
-> awslabs/aws-saas-boost@main
-    + Fix results at /Users/mikesol/Desktop/code/workshop/awslabs/aws-saas-boost/.moderne/run/20250114092127-pDBnx/fix.patch
-> spring-projects/spring-data-commons@main
-    No changes
+> finos/spring-bot@spring-bot-master
+    + Fix results at /Users/mikesol/workshop/finos/spring-bot/.moderne/run/20250303090700-X0knL/fix.patch
 
-Found change results on 2 repositories; data tables available for 10 repositories; skipped 2 repositories with no LST (22s)
+Found change results on 3 repositories; data tables available for 11 repositories; skipped 1 repository with no LST (1m 27s)
 
-1h saved by using previously built LSTs
+26m 8s saved by using previously built LSTs
 
 * What to do next
-    > ! Update out of date LSTs with mod build .
     > Click on one of the patch links above to view the changes on a particular repository
     > Run mod study to examine the following data tables produced by this recipe:
-          > mod study . --last-recipe-run --data-table VulnerabilityReport
           > mod study . --last-recipe-run --data-table RecipeRunStats
+          > mod study . --last-recipe-run --data-table VulnerabilityReport
           > mod study . --last-recipe-run --data-table SourcesFileResults
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
     > Run mod git checkout . -b refactor/DependencyVulnerabilityCheck --last-recipe-run to prepare a refactor/DependencyVulnerabilityCheck branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20250114092127-pDBnx to apply the changes
+    > Run mod git apply . --recipe-run 20250303090700-X0knL to apply the changes
     > Run mod log runs add . logs.zip --last-run to aggregate run logs
 
-MOD SUCCEEDED in 31s
+MOD SUCCEEDED in 1m 33s
 ```
 
 </details>
@@ -531,16 +527,15 @@ If you've been following along, you'll know that we just ran the `DependencyVuln
 
 ```bash
 * What to do next
-    > ! Update out of date LSTs with mod build .
     > Click on one of the patch links above to view the changes on a particular repository
     > Run mod study to examine the following data tables produced by this recipe:
-          > mod study . --last-recipe-run --data-table VulnerabilityReport
           > mod study . --last-recipe-run --data-table RecipeRunStats
+          > mod study . --last-recipe-run --data-table VulnerabilityReport
           > mod study . --last-recipe-run --data-table SourcesFileResults
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
     > Run mod git checkout . -b refactor/DependencyVulnerabilityCheck --last-recipe-run to prepare a refactor/DependencyVulnerabilityCheck branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20250114092127-pDBnx to apply the changes
+    > Run mod git apply . --recipe-run 20250303090700-X0knL to apply the changes
     > Run mod log runs add . logs.zip --last-run to aggregate run logs
 ```
 
@@ -548,21 +543,17 @@ You may notice that one of the suggestions on what to do next is the `mod study`
 
 In the above example, you'll see there are three data tables produced by this recipe:
 
-```bash
-org.openrewrite.table.RecipeRunStats
-org.openrewrite.java.dependencies.table.VulnerabilityReport
-org.openrewrite.table.SourcesFileResults
-```
+* RecipeRunStats
+* VulnerabilityReport
+* SourcesFileResults
 
 The `VulnerabilityReport` contains detailed information about the vulnerabilities that exist in the repositories. For instance, it will tell you what CVE a particular repository is affected by, what the current version is, what the minimum fixed version is, a clear summary of what is wrong, and how many levels deep the dependency is.
 
 Let's generate this data table by running the following command:
 
-
 ```bash
 mod study . --last-recipe-run --data-table VulnerabilityReport
 ```
-
 
 <details>
 
@@ -571,15 +562,14 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 ```bash
 Moderne CLI 3.33.5
 
-Found recipe run 20250114092524-RN2dY
+Found recipe run 20250303090700-X0knL
 
 > Selecting repositories
 
 > apache/maven-doxia@master
-> aws/amazon-documentdb-jdbc-driver@develop (no LST)
 > awslabs/aws-saas-boost@main
 > finos/messageml-utils@main
-> finos/spring-bot@spring-bot-master (no LST)
+> finos/spring-bot@spring-bot-master
 > finos/symphony-bdk-java@main
 > finos/symphony-wdk@master
 > Netflix/photon@master
@@ -587,39 +577,37 @@ Found recipe run 20250114092524-RN2dY
 > openrewrite/rewrite-recipe-bom@main
 > spring-projects/spring-data-commons@main
 > spring-projects/spring-petclinic@main
-Selected 12 repositories (1s)
+Selected 11 repositories (1s)
 
 > Building a combined data table from results on every repository
 
 > apache/maven-doxia@master
     + Did not produce any rows for this data table
-> aws/amazon-documentdb-jdbc-driver@develop (no LST)
-    ! No matching recipe run was found in this repository, skipping
 > awslabs/aws-saas-boost@main
-    + Added 64 rows
+    + Added 56 rows
 > finos/messageml-utils@main
     + Added 1 rows
-> finos/spring-bot@spring-bot-master (no LST)
-    ! No matching recipe run was found in this repository, skipping
+> finos/spring-bot@spring-bot-master
+    + Added 72 rows
 > finos/symphony-bdk-java@main
-    + Added 79 rows
+    + Did not produce any rows for this data table
 > finos/symphony-wdk@master
-    + Added 20 rows
+    + Did not produce any rows for this data table
 > Netflix/photon@master
-    + Added 5 rows
+    + Did not produce any rows for this data table
 > Netflix/ribbon@master
-    + Added 696 rows
+    + Added 71 rows
 > openrewrite/rewrite-recipe-bom@main
     + Did not produce any rows for this data table
 > spring-projects/spring-data-commons@main
-    + Added 9 rows
+    + Added 4 rows
 > spring-projects/spring-petclinic@main
-    + Added 9 rows
+    + Did not produce any rows for this data table
 
-Studied 12 repositories for a total of 883 rows (1s)
+Studied 11 repositories for a total of 204 rows (1s)
 
 * What to do next
-    > Open /Users/mikesol/Desktop/code/workshop/VulnerabilityReport.xlsx
+    > Open /Users/mikesol/workshop/VulnerabilityReport.xlsx
 
 MOD SUCCEEDED in 5s
 ```
@@ -675,10 +663,9 @@ Moderne CLI 3.33.5
 > Selecting repositories
 
 > apache/maven-doxia@master
-> aws/amazon-documentdb-jdbc-driver@develop (no LST)
 > awslabs/aws-saas-boost@main
 > finos/messageml-utils@main
-> finos/spring-bot@spring-bot-master (no LST)
+> finos/spring-bot@spring-bot-master
 > finos/symphony-bdk-java@main
 > finos/symphony-wdk@master
 > Netflix/photon@master
@@ -686,43 +673,39 @@ Moderne CLI 3.33.5
 > openrewrite/rewrite-recipe-bom@main
 > spring-projects/spring-data-commons@main
 > spring-projects/spring-petclinic@main
-Selected 12 repositories (1s)
+Selected 11 repositories (1s)
 
 > Running recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
 
-> aws/amazon-documentdb-jdbc-driver@develop (no LST)
-    ! Skipping recipe run because no LST was found
-> finos/spring-bot@spring-bot-master (no LST)
-    ! Skipping recipe run because no LST was found
-> Netflix/ribbon@master
-    + Fix results at /Users/mikesol/Desktop/code/workshop/Netflix/ribbon/.moderne/run/20250114093424-9Q78O/fix.patch
-> openrewrite/rewrite-recipe-bom@main
-    No changes
+> apache/maven-doxia@master
+    + Fix results at /Users/mikesol/workshop/apache/maven-doxia/.moderne/run/20250303092511-yfVkq/fix.patch
+> finos/symphony-bdk-java@main
+    + Fix results at /Users/mikesol/workshop/finos/symphony-bdk-java/.moderne/run/20250303092511-yfVkq/fix.patch
 > Netflix/photon@master
-    + Fix results at /Users/mikesol/Desktop/code/workshop/Netflix/photon/.moderne/run/20250114093424-9Q78O/fix.patch
+    + Fix results at /Users/mikesol/workshop/Netflix/photon/.moderne/run/20250303092511-yfVkq/fix.patch
+> finos/spring-bot@spring-bot-master
+    + Fix results at /Users/mikesol/workshop/finos/spring-bot/.moderne/run/20250303092511-yfVkq/fix.patch
 > awslabs/aws-saas-boost@main
     ! Found 1 errors while running the recipe. Look at org.openrewrite.table.SourcesFileErrors data table for more details.
-    + Fix results at /Users/mikesol/Desktop/code/workshop/awslabs/aws-saas-boost/.moderne/run/20250114093424-9Q78O/fix.patch
-> spring-projects/spring-petclinic@main
-    + Fix results at /Users/mikesol/Desktop/code/workshop/spring-projects/spring-petclinic/.moderne/run/20250114093424-9Q78O/fix.patch
-> finos/symphony-wdk@master
-    ! Found 2 errors while running the recipe. Look at org.openrewrite.table.SourcesFileErrors data table for more details.
-    + Fix results at /Users/mikesol/Desktop/code/workshop/finos/symphony-wdk/.moderne/run/20250114093424-9Q78O/fix.patch
-> apache/maven-doxia@master
-    No changes
+    + Fix results at /Users/mikesol/workshop/awslabs/aws-saas-boost/.moderne/run/20250303092511-yfVkq/fix.patch
 > spring-projects/spring-data-commons@main
-    + Fix results at /Users/mikesol/Desktop/code/workshop/spring-projects/spring-data-commons/.moderne/run/20250114093424-9Q78O/fix.patch
+    + Fix results at /Users/mikesol/workshop/spring-projects/spring-data-commons/.moderne/run/20250303092511-yfVkq/fix.patch
+> openrewrite/rewrite-recipe-bom@main
+    No changes
+> spring-projects/spring-petclinic@main
+    + Fix results at /Users/mikesol/workshop/spring-projects/spring-petclinic/.moderne/run/20250303092511-yfVkq/fix.patch
 > finos/messageml-utils@main
-    + Fix results at /Users/mikesol/Desktop/code/workshop/finos/messageml-utils/.moderne/run/20250114093424-9Q78O/fix.patch
-> finos/symphony-bdk-java@main
-    + Fix results at /Users/mikesol/Desktop/code/workshop/finos/symphony-bdk-java/.moderne/run/20250114093424-9Q78O/fix.patch
+    + Fix results at /Users/mikesol/workshop/finos/messageml-utils/.moderne/run/20250303092511-yfVkq/fix.patch
+> Netflix/ribbon@master
+    + Fix results at /Users/mikesol/workshop/Netflix/ribbon/.moderne/run/20250303092511-yfVkq/fix.patch
+> finos/symphony-wdk@master
+    + Fix results at /Users/mikesol/workshop/finos/symphony-wdk/.moderne/run/20250303092511-yfVkq/fix.patch
 
-Found change results on 8 repositories; data tables available for 10 repositories; skipped 2 repositories with no LST (23s)
+Found change results on 10 repositories; data tables available for 11 repositories; skipped 1 repository with no LST (47s)
 
-1h saved by using previously built LSTs
+25m 14s saved by using previously built LSTs
 
 * What to do next
-    > ! Update out of date LSTs with mod build .
     > Click on one of the patch links above to view the changes on a particular repository
     > Run mod study to examine the following data tables produced by this recipe:
           > mod study . --last-recipe-run --data-table RecipeRunStats
@@ -731,10 +714,10 @@ Found change results on 8 repositories; data tables available for 10 repositorie
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
     > Run mod git checkout . -b refactor/CommonStaticAnalysis --last-recipe-run to prepare a refactor/CommonStaticAnalysis branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20250114093424-9Q78O to apply the changes
+    > Run mod git apply . --recipe-run 20250303092511-yfVkq to apply the changes
     > Run mod log runs add . logs.zip --last-run to aggregate run logs
 
-MOD SUCCEEDED in 24s
+MOD SUCCEEDED in 48s
 ```
 
 </details>
