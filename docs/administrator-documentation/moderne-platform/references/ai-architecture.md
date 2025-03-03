@@ -17,13 +17,13 @@ Note: Our general philosophy is to create AI tools that help you find and discov
 
 ## AI components
 
-### ModAgent (chatbot) - coming soon
+### Moddy (chatbot) - coming soon
 
-ModAgent is an AI chatbot that can search for OpenRewrite recipes and execute them within the Moderne Platform.
+Moddy is an AI chatbot that can search for OpenRewrite recipes and execute them within the Moderne Platform.
 
 <figure>
   ![](./assets/mod-agent.png)
-  <figcaption>_A preview of ModAgent_</figcaption>
+  <figcaption>_A preview of Moddy_</figcaption>
 </figure>
 
 #### Deployment
@@ -128,6 +128,6 @@ Moderne customers can choose what AI features they want to enable or disable. Fo
 
 * Disable AI-powered search and rely on keyword matching only.
 * Choose not to import any of the AI-powered recipes.
-* Toggle the ModAgent chatbot availability.
+* Toggle the Moddy chatbot availability.
 
 Furthermore, many of our AI features offer you the flexibility of bringing your own model so that you can ensure that the model you use meets your safety and security standards.
