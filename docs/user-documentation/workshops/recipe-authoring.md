@@ -232,7 +232,7 @@ Let's update the `stringutils.yml` recipe to only run on sources that are likely
 #### Steps
 
 1. Open the `UseApacheStringUtils` YAML file (`src/main/resources/META-INF/rewrite/stringutils.yml`) once again.
-2. Add a `preconditions` field to the recipe, in between the `description` and `recipeList` fields. **Note**: IntelliJ may warn you that this property isn't allowed, but that's [an IntelliJ bug that will hopefully be fixed soon](https://youtrack.jetbrains.com/issue/IDEA-352288/OpenRewrite-file-editor-should-not-give-a-warning-when-using-preconditions).
+2. Add a `preconditions` field to the recipe, in between the `description` and `recipeList` fields. 
    * Add a single `org.openrewrite.java.search.IsLikelyTest` recipe to the list of preconditions, with no options.
    * [Here's an example of what this recipe looks like with the precondition added](https://gist.github.com/mike-solomon/04287b874e335a5e1b40c529d6f3eab9).
 3. Open the unit test `src/test/java/com/yourorg/UseApacheStringUtilsTest.java`.
