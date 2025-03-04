@@ -12,3 +12,4 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 * [How to update to the latest version of the CLI](../user-documentation/moderne-cli/how-to-guides/cli-upgrade.md)
 * [Moderne CLI reference docs](../user-documentation/moderne-cli/cli-reference.md)
+* [CLI / DX changelog](./cli-dx.md)
