@@ -73,6 +73,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config clone protocol delete**](#mod-config-clone-protocol-delete)
 * [**mod config clone protocol edit**](#mod-config-clone-protocol-edit)
 * [**mod config clone protocol show**](#mod-config-clone-protocol-show)
+* [**mod config clone timeout**](#mod-config-clone-timeout)
+* [**mod config clone timeout delete**](#mod-config-clone-timeout-delete)
+* [**mod config clone timeout edit**](#mod-config-clone-timeout-edit)
+* [**mod config clone timeout show**](#mod-config-clone-timeout-show)
 * [**mod config dotnet**](#mod-config-dotnet)
 * [**mod config dotnet installation**](#mod-config-dotnet-installation)
 * [**mod config dotnet installation edit**](#mod-config-dotnet-installation-edit)
@@ -1776,6 +1780,7 @@ mod config clone [subcommands]
 ### Subcommands
 
 * `protocol`: Configures the wire protocol(s) that are used for cloning.
+* `timeout`: Configures the timeout for clone operations.
 
 ## mod config clone protocol
 
@@ -1844,6 +1849,77 @@ This set governs all subsequent clone attempts.
 
 ```
 mod config clone protocol show
+```
+
+
+
+## mod config clone timeout
+
+Configures the timeout for clone operations.
+
+
+All subsequent clones will use these settings.
+
+### Usage
+
+```
+mod config clone timeout [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Restores the default clone timeout.
+* `edit`: Configures the timeout for clone operations.
+* `show`: Displays the timeouts configured for cloning.
+
+## mod config clone timeout delete
+
+Restores the default clone timeout.
+
+
+The default is to time out after 10 minutes.
+
+### Usage
+
+```
+mod config clone timeout delete
+```
+
+
+
+## mod config clone timeout edit
+
+Configures the timeout for clone operations.
+
+
+All subsequent clones will use these settings. The default is 10 minutes.
+
+### Usage
+
+```
+mod config clone timeout edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| timeout |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
+
+
+
+## mod config clone timeout show
+
+Displays the timeouts configured for cloning.
+
+
+This timeout governs all subsequent clone attempts.
+
+### Usage
+
+```
+mod config clone timeout show
 ```
 
 
