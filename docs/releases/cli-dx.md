@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.33.6 (2025/03/03)
+
+#### What's Changed
+* Add new column `Error log` to the `mod log run add` command
+* Add timeout configuration for clone operations
+* Fix "plugin descriptor version mismatch" errors you can get in local development.
+* Update IntelliJ run config to use the correct module.
+* Refine matching of version strings from `gradle --version` output
+* Downstream fix for maven.config parsing fix
+
+
 ### CLI / DX v3.33.5 (2025/02/27)
 
 #### What's Changed CLI
