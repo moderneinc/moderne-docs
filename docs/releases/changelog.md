@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.19.0 (2025/03/05)
+
+- add drag handle to results view
+
 ### UI v11.18.0 (2025/03/04)
 
 - Bug fixes and other improvements.
