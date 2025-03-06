@@ -34,7 +34,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 #### Summary and related links
 
 * **Announcements for the week**
- * **Events**:
+  * **Events**:
     * [We've finalized the lineup for the code remix summit](https://coderemix.ai/speakers)
       * If you haven't registered yet, consider using the code `MODERNE3VIP` to get a substantial discount: [register here](https://coderemix.ai/app/ticket/event/557).
     * [Justine has two sessions at Confoo in Canada on February 26th-28th](https://confoo.ca/en/speaker/justine-gehring)
