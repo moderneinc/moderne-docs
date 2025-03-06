@@ -13,6 +13,20 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Security Starts With Culture (March 6th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/live/TV7DXmt6ZSo' controls="true" />
+
+* **Announcements for the week**
+  * **Events**:
+    * We are at DevNexus this week. If you're here make sure to stop by and say hi!
+  * **Releases**:
+    * We've released [Moddy – Moderne's multi-repo AI agent for transforming code at scale](https://www.moderne.ai/blog/introducing-moderne-multi-repo-ai-agent-for-transforming-code-at-scale).
+  * **Content**:
+    * Dustin, our new CISO, [wrote a new post on culture issues related to security and how you can solve those problems](https://www.linkedin.com/posts/dustinlehr_securitychampions-securityculture-applicationsecurity-activity-7302692651516993536-vInR/.
+* **Main topic for the week**
+  * This week we introduced Dustin Lehr, our new CISO. Sam and Dustin had a lengthy discussion about security and the culture around it. They discussed practical ways to keep team engaged in protecting code, and how to address the ongoing challenge of transitioning from a "throw-it-over-the-wall" mentality to a collaborative, empowered environment.
+
 ### Top Tips & Techniques for Recipe Authors (February 27th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=RRRC5bUN5Lg' controls="true" />
