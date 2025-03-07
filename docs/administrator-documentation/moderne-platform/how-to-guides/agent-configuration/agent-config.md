@@ -103,6 +103,10 @@ ENV MODERNE_AGENT_VERSION=${MODERNE_AGENT_VERSION}
 
 WORKDIR /app
 USER root
+# If necessary, download the Moderne tenant SSL certificate and add it to the default Java TrustStore.
+# RUN openssl s_client -showcerts -connect <tenant_name>.moderne.io:443 </dev/null 2>/dev/null | openssl x509 -outform DER > moderne_cert.der
+# RUN /opt/java/openjdk/bin/keytool -import -trustcacerts -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt -alias moderne-cert -file moderne_cert.der
+
 RUN groupadd -r app && useradd --no-log-init -r -m -g app app && chown -R app:app /app
 USER app
 
