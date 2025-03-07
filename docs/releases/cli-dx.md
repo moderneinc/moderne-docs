@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.33.7 (2025/03/07)
+
+#### What's Changed CLI
+* Fix regression setting minimum supported gradle version to 5.0 from 4.10
+#### What's Changed DX
+* Remove commit options from DX
+
+
 ### CLI / DX v3.33.6 (2025/03/03)
 
 #### What's Changed
