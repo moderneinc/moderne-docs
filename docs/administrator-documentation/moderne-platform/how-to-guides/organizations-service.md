@@ -19,7 +19,8 @@ When selecting which option is best for you, keep in mind that you can change th
 :::
 
 ## Providing the files on the Agent service
-When providing files on the Agent service, 
+
+When providing files to the Agent you will need to:
 
 1. Create and deploy an Organizations service that fulfills [this GraphQL contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls)  and [this REST contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/OrganizationController.java) your environment_
 2. [Configure your Moderne agent to point to this service](./agent-configuration/configure-agent-file-service.md)
