@@ -12,8 +12,7 @@ Let's walk through everything you need to know to build and integrate such a ser
 ## Integration requirements
 
 This can be done by either providing the required files to the Agent or by setting up an organization service. 
-Running an Organization service allows for more flexibility when setting up the required GraphQL and REST endpoint. While 
-providing the requisite files on the Agent requires less setup. 
+Running an Organization service allows for more flexibility when setting up the required GraphQL and REST endpoint. On the other hand, providing the agent with the files requires less setup at the cost of limited flexibility.
 
 Note: When selecting which option is best for you, keep in mind that you can change the approach you have taken later. 
 
