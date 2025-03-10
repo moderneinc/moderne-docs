@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configure the agent with the Agent with file sources
+# Configure the agent with file sources
 
 In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne
 agent to have access to the required files. This guide will explain how to do that.
