@@ -3,8 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # Configure the agent with file sources
 
-In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne
-agent to have access to the required files. This guide will explain how to do that.
+In order for Moderne to obtain information about your organizational structure, you will need to create some configuration files and direct the Moderne agent to said files. This guide will explain how to do both of those things.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
