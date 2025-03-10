@@ -11,12 +11,25 @@ Let's walk through everything you need to know to build and integrate such a ser
 
 ## Integration requirements
 
+This can be done by either providing the required files on the Agent service or by setting up an organization service. 
+Running an Organization service allows for more flexibility when setting up the required GraphQL and REST endpoint. While 
+providing the requisite files on the Agent requires less setup. 
+
+Note: When selecting which option is best for you, keep in mind that you can change the approach you have taken later. 
+
+## Providing the files on the Agent service
+When providing files on the Agent service, 
+
+1. Create and deploy an Organizations service that fulfills [this GraphQL contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls)  and [this REST contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/OrganizationController.java) your environment_
+2. [Configure your Moderne agent to point to this service](./agent-configuration/configure-agent-file-service.md)
+
+## Running an Organization service
 In order to dynamically control the organizational structure in Moderne, you will need to:
 
-1. Create and deploy an Organizations service that fulfills [this GraphQL contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls) _in your environment_
+1. Create and deploy an Organizations service that fulfills [this GraphQL contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls)  and [this REST contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/OrganizationController.java) your environment_
 2. [Configure your Moderne agent to point to this service](./agent-configuration/configure-organizations-service.md)
 
-## Coding the Organizations service
+### Coding the Organizations service
 
 You have two main options for building this service. You can:
 
@@ -25,7 +38,7 @@ You have two main options for building this service. You can:
 
 We generally recommend forking the template and modifying it as, in most cases, that will be faster and easier than building it yourself. Regardless of which one you choose, however, some developer time will be required on your end.
 
-## Deploying the service
+### Deploying the service
 
 How you deploy the service is largely up to your company. With that being said, there are a few important things to be aware of:
 

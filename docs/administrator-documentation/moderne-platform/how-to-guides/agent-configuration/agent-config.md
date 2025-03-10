@@ -465,8 +465,8 @@ docker run \
 -e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_AGENT_MAVEN_0_USERNAME \
 -e MODERNE_AGENT_MAVEN_0_PASSWORD \
--e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_AGENT_ORGANIZATION_SERVICE_URL=http://localhost:8091 \
+-e MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS=600 \
 -p 8080:8080
 moderne-agent:latest
 ```
@@ -498,8 +498,8 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.agent.maven[0].localRepository=~/.moderne-maven \
---moderne.agent.organization.url=http://localhost:8091 \
---moderne.agent.organization.updateIntervalSeconds=600 \
+--moderne.agent.organization.service.url=http://localhost:8091 \
+--moderne.agent.organization.service.updateIntervalSeconds=600 \
 ```
 </TabItem>
 </Tabs>
@@ -545,8 +545,8 @@ docker run \
 -e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_AGENT_MAVEN_0_USERNAME \
 -e MODERNE_AGENT_MAVEN_0_PASSWORD \
--e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_AGENT_ORGANIZATION_SERVICE_URL=http://localhost:8091 \
+-e MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS=600 \
 -e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
 -p 8080:8080
 moderne-agent:latest
@@ -580,8 +580,8 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.agent.maven[0].localRepository=~/.moderne-maven \
---moderne.agent.organization.url=http://localhost:8091 \
---moderne.agent.organization.updateIntervalSeconds=600 \
+--moderne.agent.organization.service.url=http://localhost:8091 \
+--moderne.agent.organization.service.updateIntervalSeconds=600 \
 --moderne.agent.recipe.useOnlyConfigured=true
 ```
 </TabItem>
@@ -646,8 +646,8 @@ docker run \
 -e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_AGENT_MAVEN_0_USERNAME \
 -e MODERNE_AGENT_MAVEN_0_PASSWORD \
--e MODERNE_AGENT_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_AGENT_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_AGENT_ORGANIZATION_SERVICE_URL=http://localhost:8091 \
+-e MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS=600 \
 -p 8080:8080
 moderne-agent:latest
 ```
@@ -681,8 +681,8 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.agent.maven[0].localRepository=~/.moderne-maven \
---moderne.agent.organization.url=http://localhost:8091 \
---moderne.agent.organization.updateIntervalSeconds=600 \
+--moderne.agent.organization.service.url=http://localhost:8091 \
+--moderne.agent.organization.service.updateIntervalSeconds=600 \
 ```
 
 * Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}`.
