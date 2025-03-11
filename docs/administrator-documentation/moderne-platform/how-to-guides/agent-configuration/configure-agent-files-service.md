@@ -22,8 +22,8 @@ The above example would be used in Moderne DX to generate an organizational list
 * ALL
     * Open Source
         * `https://github.com/openrewrite/rewrite-recipe-bom:main`
-    * Netflix
-        * `https://github.com/Netflix/spectator-go:main`
+        * Netflix
+            * `https://github.com/Netflix/spectator-go:main`
 
 To generate this `repos.csv`, we recommend using "[repo fetchers](https://github.com/moderneinc/repository-fetchers)".
 
