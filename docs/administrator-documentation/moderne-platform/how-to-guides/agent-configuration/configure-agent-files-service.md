@@ -17,7 +17,7 @@ When provided your organization details, they must be provided in a CSV file wit
 
 The organizations under `org1`, `org2`, `org3`, etc. represent the hierarchy of organizations. There is no limit to the number of organizations that can be provided via this CSV.
 
-The above example would be used in Moderne DX to generate an organizational listing of the following:
+The above example would be used to generate an organizational listing of the following:
 
 * ALL
     * Open Source
