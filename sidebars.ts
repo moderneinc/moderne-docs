@@ -284,6 +284,7 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config',
+                'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-agent-files-service',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-to-agent',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent',
