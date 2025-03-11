@@ -10,10 +10,11 @@ In order for Moderne to obtain information about your organizational structure, 
 This is a **required** file, which outlines the repositories and the organizations which they are associated with.
 When provided your organization details, they must be provided in a CSV file with the following format:
 
-| cloneUrl      | branch   | org1    | org2        | org3 |
-|---------------|----------|---------|-------------|------|
-| `https://github.com/openrewrite/rewrite-recipe-bom` | main | Open Source | ALL | |
-| `https://github.com/Netflix/spectator-go` | main | Netflix | Open Source | ALL |
+| cloneUrl      | branch   | org1          | org2             | org3 |
+|---------------|----------|---------------|------------------|------|
+| `https://github.com/openrewrite/rewrite-recipe-bom` | main | Open Source   | ALL              | |
+| `https://github.com/Netflix/spectator-go` | main | Netflix - ALL | Open Source      | ALL |
+| `https://github.com/Netflix/spectator-go` | main | Netflix - GO  | Open Source - GO | ALL |
 
 The organizations under `org1`, `org2`, `org3`, etc. represent the hierarchy of organizations. There is no limit to the number of organizations that can be provided via this CSV.
 
@@ -22,7 +23,10 @@ The above example would be used to generate an organizational listing of the fol
 * ALL
     * Open Source
         * `https://github.com/openrewrite/rewrite-recipe-bom:main`
-        * Netflix
+        * Netflix - ALL
+            * `https://github.com/Netflix/spectator-go:main`
+    * Open Source - GO
+        * Netflix - GO
             * `https://github.com/Netflix/spectator-go:main`
 
 To generate this `repos.csv`, we recommend using "[repo fetchers](https://github.com/moderneinc/repository-fetchers)".
@@ -36,38 +40,29 @@ When no commit options are provided for a specific repositories we will fall bac
 If you want to provide specific commit options for specific repositories, these can be provided in a text file with the following format:
 ```text
 Open Source=Branch,PullRequest
-Netflix=Branch,Direct,PullRequest
+Netflix - ALL=Branch,Direct,PullRequest
 ```
 
 ## idMapping.txt
 
 This is an optional file, which set an organization name. By default, an organization name is the same as its ID, these organization IDs are provided in the repos.csv.
+A use case for using the `idMapping.txt`, is that there are 2 organizations under different parent organizations that should have the same name. This cannot be achieved using the IDs, because IDs must be unique, but this can be achieved using the `idMapping.txt`
 These can be overwritten by provided a text file with the following format:
 ```text
-My Organzation ID 1=Some name
-My Organzation ID 2=Some name 2
+Netflix - GO=Netflix
+Netflix - ALL=Netflix
 ```
 
-A use case for using the `idMapping.txt`, is that there are 2 organizations under different parent organizations that should have the same name. This cannot be achieved using the IDs, because IDs must be unique, but this can be achieved using the `idMapping.txt`
-For example, given this organizational listing:
+The above idMapping.txt with the previously reference repos.csv would generate an organizational structure which displays like this:
 * ALL
-    * Some Department
-        * Java Repositories Some Department
-    * Some Other Department
-        * Java Repositories Some Other Department
+    * Open Source
+        * `https://github.com/openrewrite/rewrite-recipe-bom:main`
+        * Netflix
+            * `https://github.com/Netflix/spectator-go:main`
+    * Open Source - GO
+        * Netflix
+            * `https://github.com/Netflix/spectator-go:main`
 
-We could update it to:
-* ALL
-  * Some Department
-    * Java Repositories
-  * Some Other Department
-      * Java Repositories
-
-With at `idMapping.txt` like this: 
-```text
-Java Repositories Some Department=Java Repositories
-Java Repositories Some Other Department=Java Repositories
-```
 
 ## devCenter.json
 
