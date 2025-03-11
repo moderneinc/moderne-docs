@@ -76,12 +76,12 @@ The provided [devCenter.json should follow the structure of this file](https://g
 
 **Variables:**
 
-| Argument Name                                       | Required | Default                                    | Description                                                                                          |
-|-----------------------------------------------------|----------|--------------------------------------------|------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH`      | `true`   |                                            | File path to the CSV file which outlines your organization structure                                 |
-| `MODERNE_AGENT_ORGANIZATION_FILE_COMMITOPTIONSPATH` | `false`  | All options available.                     | File path a text file which set commit options for specific repositories                             |
+| Argument Name                                       | Required | Default                                    | Description                                                                                        |
+|-----------------------------------------------------|----------|--------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH`      | `true`   |                                            | File path to the CSV file which outlines your organization structure                               |
+| `MODERNE_AGENT_ORGANIZATION_FILE_COMMITOPTIONSPATH` | `false`  | All options available.                     | File path a text file which sets commit options for specific repositories                          |
 | `MODERNE_AGENT_ORGANIZATION_FILE_IDMAPPINGPATH`     | `false`  | Organization use provided ID as their name | File path to a text which overrides any organization name to a different name then the provided ID |
-| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`     | `false`  | A default Devcenter is provided            | File path to a JSON file which outlines the DevCenter for specific organizations                     |
+| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`     | `false`  | A default Devcenter is provided            | File path to a JSON file which outlines the DevCenter for specific organizations                   |
 
 **Example:**
 
