@@ -18,7 +18,7 @@ Running an Organization service allows for more flexibility when setting up the 
 When selecting which option is best for you, keep in mind that you can change the approach you have taken later. 
 :::
 
-## Providing the files on the Agent service
+## Providing the files on the Agent
 
 When providing files to the Agent you will need to:
 
