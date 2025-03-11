@@ -29,7 +29,10 @@ To generate this `repos.csv`, we recommend using "[repo fetchers](https://github
 
 ## commitOptions.txt
 
-This is an optional file, which allows for custom commit options for individual repositories. When no commit options are provided for a specific repositories we will fall back the default commit options which are specified in the [agent configuration](agent-variables.md#all-agent-configuration-variables) or all commit options if no default are provided.
+This is an optional file, which allows for custom commit options for individual repositories.
+Commit options let you configure how code changes can be committed. For example, you could specify that you only want your organization to allow pull requests. Or you could allow people to commit the results directly to main.
+[For more details check out this guide](https://github.com/moderneinc/moderne-organizations/tree/main?tab=readme-ov-file#commit-options). 
+When no commit options are provided for a specific repositories we will fall back the default commit options which are specified in the [agent configuration](agent-variables.md#all-agent-configuration-variables) or all commit options if no default are provided.
 If you want to provide specific commit options for specific repositories, these can be provided in a text file with the following format:
 ```text
 Open Source=Branch,PullRequest
