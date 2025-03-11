@@ -32,8 +32,8 @@ To generate this `repos.csv`, we recommend using "[repo fetchers](https://github
 This is an optional file, which allows for custom commit options for individual repositories. When no commit options are provided for a specific repositories we will fall back the default commit options which are specified in the [agent configuration](agent-variables.md#all-agent-configuration-variables) or all commit options if no default are provided.
 If you want to provide specific commit options for specific repositories, these can be provided in a text file with the following format:
 ```text
-My Organzation ID 1=Branch,PullRequest
-My Organzation ID 2=Branch,Direct,PullRequest
+Open Source=Branch,PullRequest
+Netflix=Branch,Direct,PullRequest
 ```
 
 ## idMapping.txt
