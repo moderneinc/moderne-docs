@@ -60,7 +60,7 @@ We could update it to:
   * Some Other Department
       * Java Repositories
 
-With at idMapping.txt like this: 
+With at `idMapping.txt` like this: 
 ```text
 Java Repositories Some Department=Java Repositories
 Java Repositories Some Other Department=Java Repositories
