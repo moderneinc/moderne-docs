@@ -7,7 +7,7 @@ In order for Moderne to obtain information about your organizational structure, 
 
 ## repos.csv
 
-This is a required file, which outlines the repositories and the organizations which they are associated with.
+This is a **required** file, which outlines the repositories and the organizations which they are associated with.
 When provided your organization details, they must be provided in a CSV file with the following format:
 
 | cloneUrl      | branch   | org1    | org2        | org3 |
