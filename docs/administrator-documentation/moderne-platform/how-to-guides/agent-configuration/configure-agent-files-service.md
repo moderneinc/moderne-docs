@@ -38,11 +38,32 @@ My_Organzation_ID_2=Branch,Direct,PullRequest
 
 ## idMapping.txt
 
-This is an optional file, which set an organization name. By default an organization name is the same as its ID.
+This is an optional file, which set an organization name. By default, an organization name is the same as its ID, these organization IDs are provided in the repos.csv.
 These can be overwritten by provided a text file with the following format:
 ```text
-My_Organzation_ID_1=My_Organzation_Name_1
-My_Organzation_ID_2=My_Organzation_Name_2
+My Organzation ID 1=Some name
+My Organzation ID 2=Some name 2
+```
+
+A use case for using the idMapping.txt, is that there are 2 organizations under different parent organizations that should have the same name. This cannot be achieved using the IDs, because IDs must be unique, but this can be achieved using the idMapping.txt
+For example, given this organizational listing:
+* ALL
+    * Some Department
+        * Java Repositories Some Department
+    * Some Other Department
+        * Java Repositories Some Other Department
+
+We could update it to:
+* ALL
+  * Some Department
+    * Java Repositories
+  * Some Other Department
+      * Java Repositories
+
+With at idMapping.txt like this: 
+```text
+Java Repositories Some Department=Java Repositories
+Java Repositories Some Other Department=Java Repositories
 ```
 
 ## devCenter.json
