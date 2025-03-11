@@ -68,8 +68,8 @@ Java Repositories Some Other Department=Java Repositories
 
 ## devCenter.json
 
-This is an optional file, which is used to generate the DevCenter. For more details about configuring your DevCenter please reference this [guide](../dev-center.md#step-3-create-and-configure-the-devcenter).
-The provided devCenter.json should follow the structure of this [file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
+This is an optional file, which is used to generate the DevCenter. For more details about [configuring your DevCenter please reference this guide](../dev-center.md#step-3-create-and-configure-the-devcenter).
+The provided [devCenter.json should follow the structure of this file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
 
 ## Agent Configurations
 
