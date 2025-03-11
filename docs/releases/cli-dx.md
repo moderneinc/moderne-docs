@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.34.0 (2025/03/07)
+
+#### What's Changed
+* update suppressions 03-05-2025 vulnerability report
+* remove snappy constraint
+- get organization from rest endpoint that returns the repos csv on the org if it's available
+
+
 ### CLI / DX v3.33.7 (2025/03/07)
 
 #### What's Changed CLI
