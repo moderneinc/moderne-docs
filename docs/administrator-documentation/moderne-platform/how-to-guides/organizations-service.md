@@ -25,7 +25,7 @@ When providing files to the Agent you will need to:
 1. [Review the list of potential files which can be provided on the Agent](./agent-configuration/configure-agent-file-service.md)
 2. Determine which files your setup requires and generate the files
 3. Place the files somewhere your Agent has access to
-4. Update you [Agent configuration](./agent-configuration/configure-agent-files-service.md#agent-configurations) to point to the files
+4. Update your [Agent configuration](./agent-configuration/configure-agent-files-service.md#agent-configurations) to point to the files
 
 ## Running an Organization service
 In order to dynamically control the organizational structure in Moderne, you will need to:
