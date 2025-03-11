@@ -45,7 +45,7 @@ My Organzation ID 1=Some name
 My Organzation ID 2=Some name 2
 ```
 
-A use case for using the idMapping.txt, is that there are 2 organizations under different parent organizations that should have the same name. This cannot be achieved using the IDs, because IDs must be unique, but this can be achieved using the idMapping.txt
+A use case for using the `idMapping.txt`, is that there are 2 organizations under different parent organizations that should have the same name. This cannot be achieved using the IDs, because IDs must be unique, but this can be achieved using the `idMapping.txt`
 For example, given this organizational listing:
 * ALL
     * Some Department
