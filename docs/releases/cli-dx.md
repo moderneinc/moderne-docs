@@ -157,7 +157,7 @@
 * Allow empty commits using `--allow-empty` and fix default behaviour to not allow these empty commits.
 
 
-### CLI 3.33.7 (2025/02/07)
+### CLI 3.34.0 (2025/02/07)
 
 #### What's Changed
 * Add duration to timeout exception message
