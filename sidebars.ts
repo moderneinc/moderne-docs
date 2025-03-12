@@ -284,7 +284,6 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config',
-                'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-agent-files-service',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-to-agent',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent',
@@ -294,6 +293,7 @@ const sidebars: SidebarsConfig = {
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configuring-artifactory-with-recipes',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-pypi-access-visualizations',
+                'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-agent-files-service',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-organizations-service',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-generic-http-tools-for-use-in-recipes',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-strict-recipe-sources',

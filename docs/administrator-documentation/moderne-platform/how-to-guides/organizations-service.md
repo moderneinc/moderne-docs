@@ -1,37 +1,41 @@
 ---
-sidebar_label: Configuring the Organizations service
-description: How to create and configure an Organizations service to group repositories.
+sidebar_label: Configuring organizational structure
+description: How to create and configure an organizational structure to group repositories.
 ---
 
-# Configuring the Organizations service
+# How to create and configure an organizational structure to group repositories
 
-Many organizations desire the ability to dynamically control the organizational structure (repository groupings) of their repositories within the Moderne Platform. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted in your environment.
+Many organizations desire the ability to dynamically control the organizational structure (repository groupings) of their repositories within the Moderne Platform. To facilitate this need, Moderne offers two options: integration with an Organizations service that is hosted in your environment or a simpler, file-based system.
 
-Let's walk through everything you need to know to build and integrate such a service with Moderne.
+Let's walk through everything you need to know about both of these options.
 
-## Integration requirements
+## Which to pick?
 
-This can be done by either providing the required files to the Agent or by setting up an organization service. 
-Running an Organization service allows for more flexibility when setting up the required GraphQL and REST endpoint. On the other hand, providing the agent with the files requires less setup at the cost of limited flexibility.
+While both options offer you the ability to control an organizational structure, there are advantages/disadvantages to each.
+
+Running an Organization service allows for more flexibility when setting up the required GraphQL and REST endpoint. On the other hand, providing the agent with the files requires less setup at the cost of limited flexibility. 
+
+Because of that, **we'd recommend the file-based approach** unless you have a compelling reason to not do that.
 
 :::tip
 When selecting which option is best for you, keep in mind that you can change the approach you have taken later. 
 :::
 
-## Providing the files on the Agent
+## Providing the files to the agent (recommended)
 
-When providing files to the Agent you will need to:
+To configure an organizational structure with files, you will need to:
 
-1. [Review the list of potential files which can be provided on the Agent](./agent-configuration/configure-agent-file-service.md)
-2. Determine which files your setup requires and generate the files
-3. Place the files somewhere your Agent has access to
-4. Update your [Agent configuration](./agent-configuration/configure-agent-files-service.md#agent-configurations) to point to the files
+1. [Review the list of potential files which can be provided on the agent](./agent-configuration/configure-agent-files-service.md).
+2. Determine which files your setup requires – and then create those.
+3. Place the files somewhere your agent has access to.
+4. Update your [agent configuration](./agent-configuration/configure-agent-files-service.md#agent-configurations) to point to the files.
 
 ## Running an Organization service
-In order to dynamically control the organizational structure in Moderne, you will need to:
 
-1. Create and deploy an Organizations service that fulfills [this GraphQL contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls)  and [this REST contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/OrganizationController.java) your environment_
-2. [Configure your Moderne agent to point to this service](./agent-configuration/configure-organizations-service.md)
+To configure an organization structure with a dedicated service, you will need to:
+
+1. Create and deploy an Organizations service that fulfills [this GraphQL contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls) and [this REST contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/OrganizationController.java) your environment._
+2. [Configure your Moderne agent to point to this service](./agent-configuration/configure-organizations-service.md).
 
 ### Coding the Organizations service
 
@@ -50,7 +54,7 @@ How you deploy the service is largely up to your company. With that being said, 
 * Moderne will make a request per repository to the Organizations service once every 10 minutes by default (you can change this interval in your [agent configuration](./agent-configuration/configure-organizations-service.md)). Please ensure that you have metrics to track how this service is performing so you can adjust it over time.
 * You'll want a minimum system spec of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent storage.
 
-## FAQ
+## Organizations service FAQ
 
 ### If the Organizations service stops responding (e.g., the service is down), what is the expected behavior?
 

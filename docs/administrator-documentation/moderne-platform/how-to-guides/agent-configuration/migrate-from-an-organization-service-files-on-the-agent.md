@@ -1,68 +1,67 @@
 ---
-sidebar_label: Migrating off of an Organization Service
-description: How to migrate off of an Organization to provide the organization details from the Agent
+sidebar_label: Migrating to file-based organizations
+description: How to migrate from an Organization service to a file-based organizational structure.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate from an Organization Service to the organization details as files on the Agent
+# How to migrate from an Organization service to a file-based organizational structure
 
-If you are migrating off of an Organization to provide your organization details as files on your Agent, this guide
-will walk you through the steps.
-You will first need to identify and generate the files which apply to your setup.
+If you've decided that you no longer want to run an [Organization service](./configure-organizations-service.md) and, instead, you'd like to configure your organizations with files, then please follow along with this guide.
 
-### repos.csv (required)
+## Step 1: Ensure that you have the expected files
 
-You must provide a `repos.csv`, this file outlines your organization structure. If you created
-your [organization using the template](https://github.com/moderneinc/moderne-organizations), use your existing
-`repos.csv`.
-If you do not have a `repos.csv`, follow
-these [setup instructions to generate one](configure-agent-files-service.md#reposcsv).
+### `repos.csv` (required)
 
-### DevCenter.json (optional)
+The first thing the agent needs is knowledge of how your organizations are structured. To provide it with that information, you will need to create a `repos.csv` file that outlines your organizational structure. If you previously [created your Organization service using our template](https://github.com/moderneinc/moderne-organizations), please use your existing `repos.csv` file.
+	
+If you do not have a `repos.csv` file, please follow the setup instructions in our [configuring the agent with file sources guide](./configure-agent-files-service.md#reposcsv).
 
-If you are using the DevCenter you will need to provide a devCenter. This file contains a list of devCenters and the
-associated organization, here is
-a [reference to the expected format](https://github.com/moderneinc/moderne-organizations/blob/fbc92af9e31076c6dea95499517f7f4e53fdc33c/src/main/resources/devcenter.json#L3).
-If you created your [organization using the template](https://github.com/moderneinc/moderne-organizations), you most
-likely already have a devCenter.json which matches the expected format. If not you will need to generate a file
-which match the above format.
+### `devCenter.json` (optional)
 
-### idMapping.txt (optional)
+If you want to create DevCenters, you will need to provide the agent a `devCenter.json` file. This file contains a list of DevCenters and their associated organizations. This file should follow the same format as [the one in our moderne-organization example repository](https://github.com/moderneinc/moderne-organizations/blob/fbc92af9e31076c6dea95499517f7f4e53fdc33c/src/main/resources/devcenter.json#L3).
 
-Many setups don't use the id mapping, this is used if multiple organizations with the same display name, if you are not
-using this feature do not provide this file. If you created
-your [organization using the template](https://github.com/moderneinc/moderne-organizations) and you are using this
-feature use your existing `id-mapping.txt`.
-If you do not have an `id-mapping.txt`, follow
-these [setup instructions to generate one](configure-agent-files-service.md#idmappingtxt).
+If you [created your Organization service using our template repository](https://github.com/moderneinc/moderne-organizations), you most likely already have a `devCenter.json` file which matches the expected format. If not, you will need to generate a file which matches the above format.
 
-### commitOptions.txt (optional)
+### `id-mapping.txt` (optional)
 
-Many setups don't use the commit options, this allows for organizations to have a different set of commit options to be
-available to users, if you are not using this feature do not provide this file. If you created
-your [organization using the template](https://github.com/moderneinc/moderne-organizations) and you are using this
-feature use your existing `commitOptions.txt`.
-If you do not have a `commitOptions.txt`, follow
-these [setup instructions to generate one](configure-agent-files-service.md#commitoptionstxt).
+The `id-mapping.txt` file is an optional file that is only beneficial if you want to have multiple organizations with the same display name. If you are not in that situation, feel free to skip this section. 
+	
+If you [created your Organizational service using our template](https://github.com/moderneinc/moderne-organizations), and you are already using this feature, then you should already have an `id-mapping.txt` file that you can use here. If you don't have one, please [follow the setup instructions in our configuring the agent with files guide](./configure-agent-files-service.md#idmappingtxt-optional).
 
-## Updating your Agent
+### `commitOptions.txt` (optional)
 
-After you have identified and collected the required files, put them in a location where your Agent has access to said
-files. Update the associated configurations with the associated file paths.
+This is an optional file which allows you to configure custom commit options for individual repositories. By commit options, we mean the various ways that code can be committed such as only allowing pull requests for code changes –– or allowing people to commit directly to main.
+
+If you don't provide this file, we'll fall back to the default commit options [you specified in your agent configuration](./agent-variables.md#all-agent-configuration-variables) (if you configured that). If you didn't configure that, then we will assume that you want all commit options available to every repository.
+
+If you [created your Organizational service using our template](https://github.com/moderneinc/moderne-organizations) and you are already using this feature, then you should use your existing `commitOptions.txt` file. If you don't have one, please [follow the setup instructions in our configuring the agent with files guide](./configure-agent-files-service.md#commitoptionstxt-optional)
+
+## Step 2: Update the agent to point to the files
+
+After you have created or collected the above files please put them in a location where your agent has access to. Next, please update your agent run command and add the following variables:
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Variables:**
 
-| Argument Name                                       | Required | Default                                    | Description                                                                                        |
-|-----------------------------------------------------|----------|--------------------------------------------|----------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH`      | `true`   |                                            | File path to the CSV file which outlines your organization structure                               |
-| `MODERNE_AGENT_ORGANIZATION_FILE_COMMITOPTIONSPATH` | `false`  | All options available.                     | File path a text file which sets commit options for specific repositories                           |
-| `MODERNE_AGENT_ORGANIZATION_FILE_IDMAPPINGPATH`     | `false`  | Organization use provided ID as their name | File path to a text which overrides any organization name to a different name then the provided ID |
-| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`     | `false`  | A default Devcenter is provided            | File path to a JSON file which outlines the DevCenter for specific organizations                   |
+| Argument Name                                       | Required | Description                                                                                                  |
+|-----------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH`      | `true`   | The file path to a CSV file which outlines your organization structure.                                      |
+| `MODERNE_AGENT_ORGANIZATION_FILE_COMMITOPTIONSPATH` | `false`  | The file path a text file which sets commit options for specific repositories.                               |
+| `MODERNE_AGENT_ORGANIZATION_FILE_IDMAPPINGPATH`     | `false`  | The file path to a text file which overrides any organization name to a different name than the provided ID. |
+| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`     | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations.                        |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH=/Users/MY_USER/Documents/repos.csv \
+# ... Additional variables
+```
 
 </TabItem>
 
@@ -70,17 +69,28 @@ files. Update the associated configurations with the associated file paths.
 
 **Arguments:**
 
-| Argument Name                                         | Required | Default                                    | Description                                                                                         |
-|-------------------------------------------------------|----------|--------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.file.reposCsvPath`      | `true`   |                                            | File path to the CSV file which outlines your organization structure                                |
-| `--moderne.agent.organization.file.commitOptionsPath` | `false`  | All options available.                     | File path a text file which sets commit options for specific repositories                           |
-| `--moderne.agent.organization.file.idMappingPath`     | `false`  | Organization use provided ID as their name | File path to a text which overrides any organizations name to a different name than the provided ID |
-| `--moderne.agent.organization.file.devCenterPath`     | `false`  | A default Devcenter is provided            | File path to a JSON file which outlines the DevCenter for specific organizations                    |
+| Argument Name                                         | Required | Description                                                                                                  |
+|-------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
+| `--moderne.agent.organization.file.reposCsvPath`      | `true`   | The file path to a CSV file which outlines your organization structure.                                      |
+| `--moderne.agent.organization.file.commitOptionsPath` | `false`  | The file path a text file which sets commit options for specific repositories.                               |
+| `--moderne.agent.organization.file.idMappingPath`     | `false`  | The file path to a text file which overrides any organization name to a different name than the provided ID. |
+| `--moderne.agent.organization.file.devCenterPath`     | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations.                        |
+
+**Example:**
+
+```bash
+java -jar moderne-agent-{version}.jar \
+# ... Existing arguments
+--moderne.agent.organization.file.reposCsvPath=/Users/MY_USER/Documents/repos.csv \
+# ... Additional arguments
+```
 
 </TabItem>
 </Tabs>
 
-Make sure that the following configurations are not provided
+## Step 3: Ensure the agent does not have Organization service variables
+
+Lastly, please make sure that the following configurations are not included in your agent run command: 
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
