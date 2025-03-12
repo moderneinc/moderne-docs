@@ -13,7 +13,7 @@ In this doc, we'll walk you through everything you need to know to configure you
 
 In order to configure any DevCenters, there are two things you need to do (which we'll walk through in more detail below):
 
-1. You must have [configured an Organizations service](./organizations-service.md).
+1. You must have either [configured an Organizations service](./organizations-service.md) or [directed the agent to a devCenter.json file](./agent-configuration/configure-agent-files-service.md#devcenterjson-optional).
 2. You must ensure that the [Moderne agent Maven configuration](./agent-configuration/configure-an-agent-with-maven-repository-access.md) only has **one** entry where the recipe source is set to `true`. (Note: this does not apply to one Maven repository configured identically in multiple agents. Only that you cannot have two distinct Maven repositories configured where recipe source is set to `true`.)
 
 ### Organizations service
@@ -69,7 +69,7 @@ The [DevCenter object](https://github.com/moderneinc/moderne-organizations/blob/
 
 ## Step 3: Create and configure the DevCenter
 
-Your service must fulfill the [GraphQL contract mentioned in the previous step](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls). If you chose to use [our template repository](https://github.com/moderneinc/moderne-organizations) for your Organizations service, you will need to run `./gradlew generateGraphqlJava copyGeneratedGraphql` to [get the latest types](https://github.com/moderneinc/moderne-organizations/pull/61/files), and then you will need to configure your own [devcenter.json file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
+Your Organization service must fulfill the [GraphQL contract mentioned in the previous step](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls), or [your agent must be directed to a `devCenter.json` file](./agent-configuration/configure-agent-files-service.md#devcenterjson-optional). If you chose to use [our template repository](https://github.com/moderneinc/moderne-organizations) for your Organizations service, you will need to run `./gradlew generateGraphqlJava copyGeneratedGraphql` to [get the latest types](https://github.com/moderneinc/moderne-organizations/pull/61/files), and then you will need to configure your own [devcenter.json file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
 
 The `devcenter.json` file is where all of the configuration lies for DevCenters. In this file, you can configure things like which organizations should have a DevCenter, what cards should appear on said DevCenter, and what the keys should be on the cards. This file must follow the GraphQL schema mentioned above.
 

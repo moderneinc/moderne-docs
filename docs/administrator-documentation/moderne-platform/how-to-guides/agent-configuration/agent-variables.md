@@ -414,8 +414,8 @@ docker run \
 ```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
---moderne.agent.organization.url=http://localhost:8091 \
---moderne.agent.organization.updateIntervalSeconds=600 \
+--moderne.agent.organization.service.url=http://localhost:8091 \
+--moderne.agent.organization.service.updateIntervalSeconds=600 \
 # ... Additional arguments
 ```
 </TabItem>
