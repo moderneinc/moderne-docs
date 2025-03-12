@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.21.1 (2025/03/12)
+
+- Bug fixes and other improvements.
+
 ### UI v11.21.0 (2025/03/11)
 
 - add non-configured state to moddy page
