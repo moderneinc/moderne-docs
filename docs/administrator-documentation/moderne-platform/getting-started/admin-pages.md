@@ -34,7 +34,7 @@ You can see whether or not an agent is connected to a particular service by scro
   <figcaption>_Connected status_</figcaption>
 </figure>
 
-For Artifactory specifically, you can also get an AQL query to test to make sure you've configured it correctly. You can do this by clicking on the Artifactory card, and then clicking on `CURL` or `WebRequest` underneath the `Test on Mac/Linux` or `Test on Windows` label:
+For Artifactory specifically, you can also get an AQL query to test to make sure you've configured it correctly. You can do this by clicking on the Artifactory card, and then clicking on `cURL` or `WebRequest` underneath the `Test on Mac/Linux` or `Test on Windows` label:
 
 <figure>
   ![](./assets/artifactory-test.png)
