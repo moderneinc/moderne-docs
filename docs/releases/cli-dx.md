@@ -1,5 +1,15 @@
 # CLI / DX changelog
 
+### CLI / DX v3.34.1 (2025/03/13)
+
+#### What's Changed CLI
+* Ignore `transient` recipe fields
+* Register `style` subpackages for reflection in GraalVM
+* Configured JVM options are also used when running recipes
+* Use multiple steps to build an LST in Maven to prevent OOME in the SaaS
+* Output `bazel query` in XML to broaden support of bazel versions
+
+
 ### CLI / DX v3.34.0 (2025/03/07)
 
 #### What's Changed CLI
