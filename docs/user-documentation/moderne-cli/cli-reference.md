@@ -2360,7 +2360,7 @@ mod config java [subcommands]
 ### Subcommands
 
 * `jdk`: Configures locations of JDKs that can be used by build tools.
-* `options`: Configures JVM options added to tools building LSTs.
+* `options`: Configures JVM options for use building LSTs and running recipes.
 * `version`: Configures the JDK to use.
 
 ## mod config java jdk
@@ -2437,7 +2437,7 @@ mod config java jdk list
 
 ## mod config java options
 
-Configures JVM options added to tools building LSTs.
+Configures JVM options for use building LSTs and running recipes.
 
 
 Must be configured before you can run the build command if non-standard VM options are required.
@@ -2451,13 +2451,13 @@ mod config java options [subcommands]
 
 ### Subcommands
 
-* `edit`: Configures JVM options added to tools building LSTs.
+* `edit`: Configures JVM options for use building LSTs and running recipes.
 * `delete`: Removes configured JVM options. The CLI will no longer use custom JVM options.
 * `show`: Displays the configured JVM options.
 
 ## mod config java options edit
 
-Configures JVM options added to tools building LSTs.
+Configures JVM options for use building LSTs and running recipes.
 
 
 Must be configured before you can run the build command if non-standard VM options are required.
