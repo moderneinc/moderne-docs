@@ -440,10 +440,10 @@ MOD SUCCEEDED in 6s
 
 With the LSTs built, you can now run recipes against them. Let's run the `DependencyVulnerabilityCheck` recipe to find and fix vulnerable dependencies. Unlike many other tools, this recipe can find and fix dependencies that are _many_ levels deep. For instance, if you depend on a library which depends on a library which depends on a library which contains a vulnerable dependency, this recipe can find that and offer suggestions on how to fix it.
 
+**Note**: Please make sure to pick the `org.openrewrite.java.dependencies.DependencyVulnerabilityCheck` recipe when you run the following command as multiple recipes with this title exist.
+
 ```bash
 mod run . --recipe DependencyVulnerabilityCheck --parallel 0
-
-# Select the recipe that matches org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
 ```
 
 <details>
