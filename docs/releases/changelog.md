@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.23.0 (2025/03/14)
+
+- add admin status page link to deployment banner
+
 ### UI v11.22.0 (2025/03/14)
 
 - add llm logos to agent cards
