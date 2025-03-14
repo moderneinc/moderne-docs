@@ -8,7 +8,13 @@ import TabItem from '@theme/TabItem';
 
 # Configure the agent with the Organizations service
 
-In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne agent to point to your [Organizations service](../organizations-service.md). This guide will explain how to do that.
+If you've created an [Organizations service](../organizations-service.md) to store your organizational structure, you will need to configure the Moderne agent to point to your service. This guide will walk you through how to do that.
+
+:::tip
+We'd actually recommend you [use a file-based system for configuring your organizational structure](./configure-agent-files-service.md) instead of creating an Organizations service.
+
+If you'd like to migrate from a traditional Organizations service to a file-based one, please check out our [file-based structure migration guide](./migrate-from-an-organization-service-files-on-the-agent.md)
+:::
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
