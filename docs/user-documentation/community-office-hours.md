@@ -13,7 +13,34 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
-### Security Starts With Culture (March 6th, 2025)
+### Meet Moddy: AI Agent for Multi-Repo Modernization (March 12th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=JlfCzgZxObA' controls="true" />
+
+#### Summary and related links
+
+* **Announcements for the week**
+  * **Releases**
+    * We've done a [new release of OpenRewrite](https://bsky.app/profile/openrewrite.github.io/post/3lk72jeovqs2p)! New features include a Gradle KTS parser, the promotion of rewrite-kotlin, and the ability to parse `.mvn`/`.mvnconfig` properties.
+  * **Events**
+    * Today, in Germany, [Merlin will be presenting at 30 Jahre Java](https://entwickler.de/live-events/30-jahre-java/).
+    * [Tim will be presenting at MiniConfg on March 20th in the Netherlands](https://programme.miniconf.io/sessions/episode-x/2025-01-05/). In that conference, you can come ask Tim anything about OpenRewrite.
+    * A few weeks later, on April 1st - 3rd, [Tim will be presenting at JavaLand on Generative AI on millions of lines of code](https://programme.miniconf.io/sessions/episode-x/2025-01-05/).
+    * [Don't forget we are going to be hosting a Code Remix summit in May. If you want to come and you need a discount, please send us a message](https://coderemix.ai/speakers).
+* **Interesting community question**
+  * There was a community question that we thought was particularly notable and wanted to call out. Someone asked, "Is there a way to tell `rewriteTest` to ignore formatting when comparing before and after? Likewise, can we just compare LST equivalence while ignoring static imports or fully qualified types?"
+    * You can find the detailed answer for that in our [OpenRewrite FAQ page](https://docs.openrewrite.org/reference/faq#is-there-a-way-to-tell-rewritetest-to-ignore-formatting-when-comparing-before-and-after-likewise-can-we-just-compare-lst-equivalence-while-ignoring-static-imports-or-fully-qualified-types).
+* **Main topic for the week**
+  * This week we welcomed back Justine – who talked about our new AI agent: Moddy. For a detailed written guide on this, check out [our blog post where we introduced Moddy](https://www.moderne.ai/blog/introducing-moderne-multi-repo-ai-agent-for-transforming-code-at-scale).
+  * If you've kept up with our code remix sessions, you may remember that [Justine was on a code remix session a few weeks ago](#modernes-next-chapter-in-ai-innovation-january-8th-2025) talking about something similar – Mod Agent. That was the precursor to the latest version – Moddy.
+  * One of the first key points we discussed was about what Moddy is and what it isn't. Moddy **is not** a fully trained LLM model like ChatGPT or Llama or whatnot. Rather, it's meant to **augment** those existing models and connect them to Moderne and OpenRewrite – which is the irreplaceable core. In fact, users can choose to use whatever model they want with Moddy.
+  * By creating Moddy like this, it means that people can safely run Moddy on their own internal code base without us ever seeing or having access to their code.
+  * We also touched upon the interesting question of, "Why do you need to augment a model like this? Can't you just ask one of those other models to rewrite a 100,000 files for me?"
+    * There's a couple reasons for this – first of all, it takes a significant amount of time to run these models. If you're passing in millions of lines of code and thousands of repos, you're going waiting a ridiculous amount of time. Then, even when (if) it does finish, it will likely be filled with hallucinations that lead to broken code. Lastly, for many of these models, you would be required to give these LLMs access to your code – which doesn't make sense for most companies.
+  * After that, Justine took us through a demo of Moddy. With it, you can discover/find relevant recipes and, also, ask it intelligent questions about your code such as, "What repositories do I use Apache Commons in?"
+  * Moddy isn't widely available yet -- but it will be soon for Moderne customers so keep your eyes out for it.
+
+### Security Starts With Culture (March 5th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/live/TV7DXmt6ZSo' controls="true" />
 
@@ -27,7 +54,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 * **Main topic for the week**
   * This week we introduced Dustin Lehr, our new CISO. Sam and Dustin had a lengthy discussion about security and the culture around it. They discussed practical ways to keep team engaged in protecting code, and how to address the ongoing challenge of transitioning from a "throw-it-over-the-wall" mentality to a collaborative, empowered environment.
 
-### Top Tips & Techniques for Recipe Authors (February 27th, 2025)
+### Top Tips & Techniques for Recipe Authors (February 26th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=RRRC5bUN5Lg' controls="true" />
 
