@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v11.22.0 (2025/03/14)
+
+- add llm logos to agent cards
+- increase visibility of results status bar
+
 ### UI v11.21.1 (2025/03/12)
 
 - Bug fixes and other improvements.
