@@ -3,6 +3,9 @@ sidebar_label: Configuring the DevCenter
 description: How to create and configure a Moderne DevCenter to get high-level details about your repositories.
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Configuring the DevCenter
 
 The Moderne DevCenter is the mission-control dashboard of the Moderne Platform. It provides you with high-level details about the state of all of your repositories. Using it, you can track the progress of upgrades, migrations, and security vulnerabilities. You can also use it to view [key visualizations](../../../user-documentation/moderne-platform/getting-started/visualizations.md) you care about – such as a dependency graph or a SQL operation usage chart.
@@ -16,11 +19,13 @@ In order to configure any DevCenters, there are two things you need to do (which
 1. You must have either [configured an Organizations service](./organizations-service.md) or [directed the agent to a devCenter.json file](./agent-configuration/configure-agent-files-service.md#devcenterjson-optional).
 2. You must ensure that the [Moderne agent Maven configuration](./agent-configuration/configure-an-agent-with-maven-repository-access.md) only has **one** entry where the recipe source is set to `true`. (Note: this does not apply to one Maven repository configured identically in multiple agents. Only that you cannot have two distinct Maven repositories configured where recipe source is set to `true`.)
 
-### Organizations service
+### Organizations configuration
 
-If you are configuring an Organizations service for the first time, we **strongly** recommend that you use our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. By doing so, you will only need to update some JSON files rather than writing your own code.
+If you are configuring an Organizations  for the first time, we **strongly** recommend that you use our [file-based approach](agent-configuration#file-based-organizational-configuration) and modify it to meet your needs. By doing so, you will only need to update some CSV files rather than writing your own code.
 
-If you've chosen to create your own Organizations service without using our template, please ensure your service fulfills the [latest GraphQL schema](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls). After doing so, please ensure you've [set up the Moderne agent with Maven configuration correctly](#moderne-agent-maven-configuration) and then [jump to the section of this doc about card types and what is necessary for each](#frameworks-and-migration-cards).
+If you are choosing to not use a file base approach and setup an Organizations service, we **strongly** recommend that you use our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. By doing so, you will only need to update some JSON files rather than writing your own code.
+
+If you've chosen to create your own Organizations service without using our template, please ensure your service fulfills the [latest GraphQL schema](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls) and [REST contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/OrganizationController.java). After doing so, please ensure you've [set up the Moderne agent with Maven configuration correctly](#moderne-agent-maven-configuration) and then [jump to the section of this doc about card types and what is necessary for each](#frameworks-and-migration-cards).
 
 ### Moderne agent Maven configuration
 
@@ -39,7 +44,7 @@ If you have multiple locations where recipes are stored, you will need to create
 
 ## Step 1: Ensure you have a `DevCenterDataFetcher` class
 
-_This step only applies if you used the_ [_Moderne Organizations service template_](https://github.com/moderneinc/moderne-organizations)_. If you made your own, please jump to_ [_step 3_](dev-center.md#step-3-create-and-configure-the-devcenter)_._
+_This step only applies if you aer running an Organization service, and you used the_ [_Moderne Organizations service template_](https://github.com/moderneinc/moderne-organizations)_. If you made your own, please jump to_ [_step 3_](dev-center.md#step-3-create-and-configure-the-devcenter)_._
 
 If you've created an Organizations service prior to March 2024, you will need to copy the [new DevCenterDataFetcher file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/DevCenterDataFetcher.java) to your Organizations service repository. It will go in the same location as the other source classes such as [Application.java](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/Application.java).
 
@@ -362,6 +367,53 @@ Security cards are composed of a list of recipes that fix security issues you ca
 ```
 
 </details>
+
+## Step 4: Configure your agent
+_This step only applies if you used the_ file based approach _to configure your Organizations service. If you used an Organizations service, please jump to_ [the next steps](dev-center.md#next-steps)_._
+
+Now that you have you a `devCenter.json` file place this file in a location were you agent has access to it. Next, please update the path in the agent configuration which picks up the `devCenter.json` file.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Variables:**
+
+| Argument Name                                       | Required | Description                                                                                                  |
+|-----------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`     | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations.                        |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH=/Users/MY_USER/Documents/repos.csv \
+# ... Additional variables
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                         | Required | Description                                                                                                  |
+|-------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
+| `--moderne.agent.organization.file.devCenterPath`     | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations.                        |
+
+**Example:**
+
+```bash
+java -jar moderne-agent-{version}.jar \
+# ... Existing arguments
+--moderne.agent.organization.file.reposCsvPath=/Users/MY_USER/Documents/repos.csv \
+# ... Additional arguments
+```
+
+</TabItem>
+</Tabs>
+
+After you have updated your agent configuration, please restart your agent.
 
 ## Next steps
 
