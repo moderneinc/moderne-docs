@@ -23,7 +23,7 @@ In order to configure any DevCenters, there are two things you need to do (which
 
 If you are configuring an Organizations  for the first time, we **strongly** recommend that you use our [file-based approach](agent-configuration#file-based-organizational-configuration) and modify it to meet your needs. By doing so, you will only need to update some CSV files rather than writing your own code.
 
-If you are choosing to not use a file base approach and setup an Organizations service, we **strongly** recommend that you use our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. By doing so, you will only need to update some JSON files rather than writing your own code.
+If you are choosing to not use a file-based approach on the agent and setup an Organizations service, we **strongly** recommend that you use our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. By doing so, you will only need to update some JSON files rather than writing your own code.
 
 If you've chosen to create your own Organizations service without using our template, please ensure your service fulfills the [latest GraphQL schema](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls) and [REST contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/OrganizationController.java). After doing so, please ensure you've [set up the Moderne agent with Maven configuration correctly](#moderne-agent-maven-configuration) and then [jump to the section of this doc about card types and what is necessary for each](#frameworks-and-migration-cards).
 
@@ -44,7 +44,7 @@ If you have multiple locations where recipes are stored, you will need to create
 
 ## Step 1: Ensure you have a `DevCenterDataFetcher` class
 
-_This step only applies if you aer running an Organization service, and you used the_ [_Moderne Organizations service template_](https://github.com/moderneinc/moderne-organizations)_. If you made your own, please jump to_ [_step 3_](dev-center.md#step-3-create-and-configure-the-devcenter)_._
+_This step only applies if you are running an Organization service, and you used the_ [_Moderne Organizations service template_](https://github.com/moderneinc/moderne-organizations)_. If you made your own, please jump to_ [_step 3_](dev-center.md#step-3-create-and-configure-the-devcenter)_._
 
 If you've created an Organizations service prior to March 2024, you will need to copy the [new DevCenterDataFetcher file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/DevCenterDataFetcher.java) to your Organizations service repository. It will go in the same location as the other source classes such as [Application.java](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/Application.java).
 
