@@ -21,14 +21,14 @@ Because of that, **we'd recommend the file-based approach** unless you have a co
 When selecting which option is best for you, keep in mind that you can change the approach you have taken later. 
 :::
 
-## Providing the files to the agent (recommended)
+## (Recommended) Providing the files to the agent
 
 To configure an organizational structure with files, you will need to:
 
 1. [Review the list of potential files which can be provided on the agent](./agent-configuration/configure-agent-files-service.md).
 2. Determine which files your setup requires – and then create those.
 3. Place the files somewhere your agent has access to.
-4. Update your [agent configuration](./agent-configuration/configure-agent-files-service.md#agent-configurations) to point to the files.
+4. Update your [agent configuration](./agent-configuration/configure-agent-files-service.md#agent-configuration) to point to the files.
 
 ## Running an Organization service
 
