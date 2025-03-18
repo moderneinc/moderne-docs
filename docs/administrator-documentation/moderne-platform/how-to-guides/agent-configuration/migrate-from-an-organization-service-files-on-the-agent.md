@@ -16,7 +16,7 @@ If you've decided that you no longer want to run an [Organization service](./con
 
 The first thing the agent needs is knowledge of how your organizations are structured. To provide it with that information, you will need to create a `repos.csv` file that outlines your organizational structure. If you previously [created your Organization service using our template](https://github.com/moderneinc/moderne-organizations), please use your existing `repos.csv` file.
 	
-If you do not have a `repos.csv` file, please follow the setup instructions in our [configuring the agent with file sources guide](./configure-agent-files-service.md#reposcsv).
+If you do not have a `repos.csv` file, please follow the setup instructions in our [configuring the agent with file sources guide](./configure-agent-files-service.md#reposcsv-required).
 
 ### `devCenter.json` (optional)
 
@@ -34,7 +34,7 @@ If you [created your Organizational service using our template](https://github.c
 
 This is an optional file which allows you to configure custom commit options for individual repositories. By commit options, we mean the various ways that code can be committed such as only allowing pull requests for code changes –– or allowing people to commit directly to main.
 
-If you don't provide this file, we'll fall back to the default commit options [you specified in your agent configuration](./agent-variables.md#all-agent-configuration-variables) (if you configured that). If you didn't configure that, then we will assume that you want all commit options available to every repository.
+If you don't provide this file, we'll fall back to the default commit options [you specified in your agent configuration](./agent-variables.md) (if you configured that). If you didn't configure that, then we will assume that you want all commit options available to every repository.
 
 If you [created your Organizational service using our template](https://github.com/moderneinc/moderne-organizations) and you are already using this feature, then you should use your existing `commitOptions.txt` file. If you don't have one, please [follow the setup instructions in our configuring the agent with files guide](./configure-agent-files-service.md#commitoptionstxt-optional)
 

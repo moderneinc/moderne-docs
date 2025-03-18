@@ -51,7 +51,7 @@ To generate this `repos.csv` file, we recommend using "[repo fetchers](https://g
 
 This is an optional file which allows you to configure custom commit options for individual organizations. By commit options, we mean the various ways that code can be committed such as only allowing pull requests for code changes –– or allowing people to commit directly to main.
 
-If you don't provide this file, we'll fall back to the default commit options [you specified in your agent configuration](./agent-variables.md#all-agent-configuration-variables) (if you configured that). If you didn't configure that, then we will assume that you want all commit options available to every repository. 
+If you don't provide this file, we'll fall back to the default commit options [you specified in your agent configuration](./agent-variables.md) (if you configured that). If you didn't configure that, then we will assume that you want all commit options available to every repository. 
 
 For more information on commit options and how to configure this file, please see our [Moderne organizations example repository](https://github.com/moderneinc/moderne-organizations/tree/main?tab=readme-ov-file#commit-options).
 
