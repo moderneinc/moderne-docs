@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.34.2 (2025/03/18)
+
+#### What's Changed CLI
+* Don't skip the "dependencies" plugin's goals by default.
+#### What's Changed DX
+* Resolve the issue where fetching a large repos.csv from the organization service REST endpoint causes a DataBufferLimitException.
+
+
 ### CLI / DX v3.34.1 (2025/03/13)
 
 #### What's Changed CLI
