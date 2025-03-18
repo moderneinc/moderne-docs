@@ -91,7 +91,7 @@ The above `idMapping.txt` file with the previously referenced `repos.csv` would 
 
 ### `devCenter.json` (optional)
 
-This is an optional file which is used to generate DevCenters. For more details about configuring your DevCenter and what this file should look like [please see our creating a DevCenter guide](../dev-center.md#step-3-create-and-configure-the-devcenter).
+This is an optional file which is used to generate DevCenters. For more details about configuring your DevCenter and what this file should look like [please see our creating a DevCenter guide](../dev-center.md#step-1-create-a-devcenterjson-file).
 
 The provided `devCenter.json` should follow the same structure as [our Organizations service example repository](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
 

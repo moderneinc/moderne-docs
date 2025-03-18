@@ -14,18 +14,18 @@ In this doc, we'll walk you through everything you need to know to configure you
 
 ## Prerequisites
 
-In order to configure any DevCenters, there are two things you need to do (which we'll walk through in more detail below):
+In order to configure any DevCenters, there are two things you must have already done (which we'll touch upon below):
 
-1. You must have either [configured an Organizations service](./organizations-service.md) or [directed the agent to a devCenter.json file](./agent-configuration/configure-agent-files-service.md#devcenterjson-optional).
+1. You must have configured an organizational structure. This can be done via a [file-based approach](./agent-configuration/configure-agent-files-service.md#reposcsv-required) or [by creating a dedicated Organizations service](./organizations-service.md).
 2. You must ensure that the [Moderne agent Maven configuration](./agent-configuration/configure-an-agent-with-maven-repository-access.md) only has **one** entry where the recipe source is set to `true`. (Note: this does not apply to one Maven repository configured identically in multiple agents. Only that you cannot have two distinct Maven repositories configured where recipe source is set to `true`.)
 
-### Organizations configuration
+### Organization structure configuration
 
-If you are configuring an Organizations  for the first time, we **strongly** recommend that you use our [file-based approach](agent-configuration#file-based-organizational-configuration) and modify it to meet your needs. By doing so, you will only need to update some CSV files rather than writing your own code.
+If you are configuring an organizational structure for the first time, we **strongly** recommend that you use our [file-based approach](./agent-configuration/configure-agent-files-service.md#reposcsv-required) and modify it to meet your needs. By doing so, you will only need to update some CSV files rather than writing your own code.
 
-If you are choosing to not use a file-based approach on the agent and setup an Organizations service, we **strongly** recommend that you use our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. By doing so, you will only need to update some JSON files rather than writing your own code.
+If you, instead, want to create an Organizations service, we would **strongly** recommend that you use our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. By doing so, you will only need to update some JSON files rather than writing your own code.
 
-If you've chosen to create your own Organizations service without using our template, please ensure your service fulfills the [latest GraphQL schema](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls) and [REST contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/OrganizationController.java). After doing so, please ensure you've [set up the Moderne agent with Maven configuration correctly](#moderne-agent-maven-configuration) and then [jump to the section of this doc about card types and what is necessary for each](#frameworks-and-migration-cards).
+If you've chosen to create your own Organizations service without using our template, please ensure your service fulfills the [latest GraphQL schema](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls) and [REST contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/OrganizationController.java). After doing so, please ensure you've [set up the Moderne agent with Maven configuration correctly](#moderne-agent-maven-configuration).
 
 ### Moderne agent Maven configuration
 
@@ -42,15 +42,302 @@ If you have multiple locations where recipes are stored, you will need to create
 3. `https://repo.maven.apache.org/maven2`
 4. `https://repo1.maven.org/maven2/`
 
-## Step 1: Ensure you have a `DevCenterDataFetcher` class
+## File-based DevCenter configuration
 
-_This step only applies if you are running an Organization service, and you used the_ [_Moderne Organizations service template_](https://github.com/moderneinc/moderne-organizations)_. If you made your own, please jump to_ [_step 3_](dev-center.md#step-3-create-and-configure-the-devcenter)_._
+_These steps only apply if you're using files to define an organizational structure, and you want to create a file to define the DevCenter configuration. If you've, instead, created a dedicated Organizations service, please see the [organization service configuration instructions](#configuring-the-devcenter-in-an-organizations-service)_.
+
+### Step 1: Create a `devcenter.json` file
+
+The `devcenter.json` file is where all of the configuration lies for DevCenters. In this file, you can configure things like which organizations should have a DevCenter, what cards should appear on said DevCenter, and what the keys should be on the cards. 
+
+For more details about each component that makes up this file, please see the [components of a DevCenter section at the bottom of this guide](#components-of-a-devcenter). You can also take a look at our `moderne-organizations` repository to [find a full example of this file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
+
+This `devcenter.json` file must follow [the GraphQL schema included in our moderne-organizations repository](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls#L131-L150).
+
+
+<details>
+  <summary>
+    Below you can find an example of what this file might look like:
+  </summary>
+
+  ```json title="devcenter.json"
+  [
+    {
+      "devCenter": {
+        "version" : 1,
+        "upgradesAndMigrations": [
+          {
+            "title": "Spring boot",
+            "measures": [
+              {
+                "name": "Major",
+                "recipe": {
+                  "recipeId": "org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion",
+                  "options": [
+                    {
+                      "name": "groupIdPattern",
+                      "value": "org.springframework.boot"
+                    },
+                    {
+                      "name": "artifactIdPattern",
+                      "value": "spring-boot"
+                    },
+                    {
+                      "name": "version",
+                      "value": "1-2.999"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "Minor",
+                "recipe": {
+                  "recipeId": "org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion",
+                  "options": [
+                    {
+                      "name": "groupIdPattern",
+                      "value": "org.springframework.boot"
+                    },
+                    {
+                      "name": "artifactIdPattern",
+                      "value": "spring-boot"
+                    },
+                    {
+                      "name": "version",
+                      "value": "3-3.2.999"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "Patch",
+                "recipe": {
+                  "recipeId": "org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion",
+                  "options": [
+                    {
+                      "name": "groupIdPattern",
+                      "value": "org.springframework.boot"
+                    },
+                    {
+                      "name": "artifactIdPattern",
+                      "value": "spring-boot"
+                    },
+                    {
+                      "name": "version",
+                      "value": "3.3-3.3.2"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "Completed",
+                "recipe": {
+                  "recipeId": "org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion",
+                  "options": [
+                    {
+                      "name": "groupIdPattern",
+                      "value": "org.springframework.boot"
+                    },
+                    {
+                      "name": "artifactIdPattern",
+                      "value": "spring-boot"
+                    },
+                    {
+                      "name": "version",
+                      "value": "3.3.3-3.999"
+                    }
+                  ]
+                }
+              }
+            ],
+            "fix": {
+              "recipeId": "org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2"
+            }
+          },
+          {
+            "title": "Java 21",
+            "measures": [
+              {
+                "name": "Java 8+",
+                "recipe": {
+                  "recipeId": "org.openrewrite.java.search.HasMinimumJavaVersion",
+                  "options": [
+                    {
+                      "name": "version",
+                      "value": "8-10"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "Java 11+",
+                "recipe": {
+                  "recipeId": "org.openrewrite.java.search.HasMinimumJavaVersion",
+                  "options": [
+                    {
+                      "name": "version",
+                      "value": "11-16"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "Java 17+",
+                "recipe": {
+                  "recipeId": "org.openrewrite.java.search.HasMinimumJavaVersion",
+                  "options": [
+                    {
+                      "name": "version",
+                      "value": "17-20"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "Java 21+",
+                "recipe": {
+                  "recipeId": "org.openrewrite.java.search.HasMinimumJavaVersion",
+                  "options": [
+                    {
+                      "name": "version",
+                      "value": "21-100"
+                    }
+                  ]
+                }
+              }
+            ],
+            "fix": {
+              "recipeId": "org.openrewrite.java.migrate.UpgradeToJava21"
+            }
+          },
+          {
+            "title": "JUnit 5",
+            "measures": [
+              {
+                "name": "JUnit 4",
+                "recipe": {
+                  "recipeId": "org.openrewrite.java.search.FindAnnotations",
+                  "options": [
+                    {
+                      "name": "annotationPattern",
+                      "value": "@org.junit.Test"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "JUnit 5",
+                "recipe": {
+                  "recipeId": "org.openrewrite.java.search.FindAnnotations",
+                  "options": [
+                    {
+                      "name": "annotationPattern",
+                      "value": "@org.junit.jupiter.api.Test"
+                    }
+                  ]
+                }
+              }
+            ],
+            "fix": {
+              "recipeId": "org.openrewrite.java.testing.junit5.JUnit4to5Migration"
+            }
+          }
+        ],
+        "visualizations": [
+          {
+            "visualizationId": "io.moderne.DependencyUsageViolin"
+          },
+          {
+            "visualizationId": "io.moderne.LanguageComposition"
+          },
+          {
+            "visualizationId": "io.moderne.SqlCrud"
+          }
+        ],
+        "security": [
+          { "recipeId": "org.openrewrite.java.security.OwaspA01" },
+          { "recipeId": "org.openrewrite.java.security.OwaspA02" },
+          { "recipeId": "org.openrewrite.java.security.OwaspA03" },
+          { "recipeId": "org.openrewrite.java.security.OwaspA05" },
+          { "recipeId": "org.openrewrite.java.security.OwaspA06" },
+          { "recipeId": "org.openrewrite.java.security.OwaspA08" },
+          {
+            "recipeId": "org.openrewrite.java.security.RegularExpressionDenialOfService"
+          },
+          { "recipeId": "org.openrewrite.java.security.secrets.FindSecrets" },
+          { "recipeId": "org.openrewrite.java.security.ZipSlip" },
+          { "recipeId": "org.openrewrite.java.security.SecureTempFileCreation" }
+        ]
+      },
+      "organizations": ["Default"]
+    },
+  ]
+  ```
+</details>
+
+:::tip
+When creating a DevCenter for the first time, we **strongly recommend** that you only create a DevCenter for a few key organizations. This will allow you to get data into the platform faster and ensure that you've configured everything correctly. Once everything is working as expected, you can then add more DevCenters as desired.
+:::
+
+### Step 2: Configure your agent
+
+Now that you have you a `devcenter.json` file, please place this file in a location were you agent has access to. Next, please direct your agent to said `devcenter.json` file by providing the argument shown below:
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Variables:**
+
+| Argument Name                                       | Required | Description                                                                                                  |
+|-----------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`     | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations.                        |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH=/Users/MY_USER/Documents/repos.csv \
+# ... Additional variables
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                         | Required | Description                                                                                                  |
+|-------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
+| `--moderne.agent.organization.file.devCenterPath`     | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations.                        |
+
+**Example:**
+
+```bash
+java -jar moderne-agent-{version}.jar \
+# ... Existing arguments
+--moderne.agent.organization.file.reposCsvPath=/Users/MY_USER/Documents/repos.csv \
+# ... Additional arguments
+```
+
+</TabItem>
+</Tabs>
+
+After you have updated your agent configuration, please restart your agent.
+
+## Configuring the DevCenter in an Organizations service
+
+_These steps only apply if you've created an Organization's service to control your organizational structure. If you're using a file-based approach, please see the [file-based configuration instructions](#file-based-devcenter-configuration)._
+
+### Step 1: Ensure you have a `DevCenterDataFetcher` class
+
+_This step only applies if you are running an Organization service, and you used the [Moderne Organizations service template](https://github.com/moderneinc/moderne-organizations). If you made your own, please jump to [step 3](dev-center.md#step-3-create-and-configure-the-devcenter)._
 
 If you've created an Organizations service prior to March 2024, you will need to copy the [new DevCenterDataFetcher file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/DevCenterDataFetcher.java) to your Organizations service repository. It will go in the same location as the other source classes such as [Application.java](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/Application.java).
 
 If you've created an Organizations service after March 2024, please ensure that you have a `DevCenterDataFetcher.java` file in your Organizations service repository before moving on to step 2.
 
-## Step 2: Ensure you have an up-to-date `moderne-organizations.graphqls` schema
+### Step 2: Ensure you have an up-to-date `moderne-organizations.graphqls` schema
 
 Similar to the previous step, please double-check your [moderne-organizations.graphqls file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls) and ensure that there is a `devCenter` field in the `Organization` object:
 
@@ -72,15 +359,19 @@ type Organization {
 
 The [DevCenter object](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls#L131-L150) is the schema you need to follow in the below step to configure your DevCenter.
 
-## Step 3: Create and configure the DevCenter
+### Step 3: Create and configure the DevCenter
 
-Your Organization service must fulfill the [GraphQL contract mentioned in the previous step](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls), or [your agent must be directed to a `devCenter.json` file](./agent-configuration/configure-agent-files-service.md#devcenterjson-optional). If you chose to use [our template repository](https://github.com/moderneinc/moderne-organizations) for your Organizations service, you will need to run `./gradlew generateGraphqlJava copyGeneratedGraphql` to [get the latest types](https://github.com/moderneinc/moderne-organizations/pull/61/files), and then you will need to configure your own [devcenter.json file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
+Your Organization service must fulfill the [GraphQL contract mentioned in the previous step](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls). If you chose to use [our template repository](https://github.com/moderneinc/moderne-organizations) for your Organizations service, you will need to run `./gradlew generateGraphqlJava copyGeneratedGraphql` to [get the latest types](https://github.com/moderneinc/moderne-organizations/pull/61/files), and then you will need to configure your own `devcenter.json` file.
 
 The `devcenter.json` file is where all of the configuration lies for DevCenters. In this file, you can configure things like which organizations should have a DevCenter, what cards should appear on said DevCenter, and what the keys should be on the cards. This file must follow the GraphQL schema mentioned above.
+
+For more details about the individual components in this file, please see the [components of a DevCenter section at the bottom of this guide](#components-of-a-devcenter). Or, check out our `moderne-organizations` repository for [a full example of this file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
 
 :::tip
 When creating a DevCenter for the first time, we **strongly recommend** that you only create a DevCenter for a few key organizations. This will allow you to get data into the platform faster and ensure that you've configured everything correctly. Once everything is working as expected, you can then add more DevCenters as desired.
 :::
+
+## Components of a DevCenter
 
 ### Frameworks and migration cards
 
@@ -93,7 +384,7 @@ Framework and migration cards allow you to see things like what Java version you
 
 To create these cards, you will need three things:
 
-1. [A relevant title for the card](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json#L6) (e.g., `Spring Boot 3.2`)
+1. [A relevant title for the card](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json#L7) (e.g., `Spring Boot 3.2`)
 2. [A recipe that can be run to fix the core issue the card is highlighting](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json#L11) (e.g., `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2`)
 3. [Some measures that break up the card into key categories and help your users determine a level of urgency](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json#L12-L26).
 
@@ -367,53 +658,6 @@ Security cards are composed of a list of recipes that fix security issues you ca
 ```
 
 </details>
-
-## Step 4: Configure your agent
-_This step only applies if you used the_ file based approach _to configure your Organizations service. If you used an Organizations service, please jump to_ [the next steps](dev-center.md#next-steps)_._
-
-Now that you have you a `devCenter.json` file place this file in a location were you agent has access to it. Next, please update the path in the agent configuration which picks up the `devCenter.json` file.
-
-<Tabs groupId="agent-type">
-<TabItem value="oci-container" label="OCI Container">
-
-**Variables:**
-
-| Argument Name                                       | Required | Description                                                                                                  |
-|-----------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`     | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations.                        |
-
-**Example:**
-
-```bash
-docker run \
-# ... Existing variables
--e MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH=/Users/MY_USER/Documents/repos.csv \
-# ... Additional variables
-```
-
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-**Arguments:**
-
-| Argument Name                                         | Required | Description                                                                                                  |
-|-------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.file.devCenterPath`     | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations.                        |
-
-**Example:**
-
-```bash
-java -jar moderne-agent-{version}.jar \
-# ... Existing arguments
---moderne.agent.organization.file.reposCsvPath=/Users/MY_USER/Documents/repos.csv \
-# ... Additional arguments
-```
-
-</TabItem>
-</Tabs>
-
-After you have updated your agent configuration, please restart your agent.
 
 ## Next steps
 
