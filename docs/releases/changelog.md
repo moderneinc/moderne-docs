@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.24.0 (2025/03/18)
+
+- builder bulk delete
+
 ### UI v11.23.0 (2025/03/14)
 
 - add admin status page link to deployment banner
