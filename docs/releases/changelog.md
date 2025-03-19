@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.25.0 (2025/03/19)
+
+- add logo support for dropwizard and biome
+
 ### UI v11.24.0 (2025/03/18)
 
 - builder bulk delete
