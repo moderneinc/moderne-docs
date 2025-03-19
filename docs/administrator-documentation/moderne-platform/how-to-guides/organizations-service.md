@@ -71,7 +71,7 @@ Violating the GraphQL contract will cause errors and make it so the Moderne Plat
 
 ### If no Organizations service is active/configured, would it be possible to change the default commit options and repositories in the Moderne UI?
 
-No – it is not possible to change the defaults. If no Organizations service is configured in the agent, then an `All` organization will be returned that contains all of the repositories in your org with all commit options available. If an Organizations service is configured – but not accessible – then nothing will be available in Moderne.
+No – it is not possible to change the defaults. If no Organizations service is configured in the agent, then an `All` organization will be returned that contains all of the repositories in your org. If an Organizations service is configured – but not accessible – then nothing will be available in Moderne.
 
 ### How often are organizations synced to Moderne?
 
