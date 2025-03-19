@@ -1,5 +1,15 @@
 # CLI / DX changelog
 
+### CLI / DX v3.34.3 (2025/03/19)
+
+#### What's Changed DX
+* Make origin and path case insensitive for LST resolution
+#### What's Changed CLI
+* [OpenRewrite v8.48.1](https://github.com/openrewrite/rewrite/releases/tag/v8.48.1)
+* [rewrite-maven-plugin v6.3.2](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.3.2)
+* [rewrite-gradle-plugin v7.2.1](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.2.1)
+
+
 ### CLI / DX v3.34.2 (2025/03/18)
 
 #### What's Changed CLI
