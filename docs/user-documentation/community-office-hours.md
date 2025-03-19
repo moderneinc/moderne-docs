@@ -13,6 +13,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### The Shanman Strikes Again: Gradle .kts Support (March 19th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=DNIDeClbfaU' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### Meet Moddy: AI Agent for Multi-Repo Modernization (March 12th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=JlfCzgZxObA' controls="true" />
