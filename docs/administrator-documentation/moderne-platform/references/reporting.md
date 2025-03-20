@@ -9,7 +9,7 @@ description: Instructions for downloading reports.
 
 Moderne offers a variety of reports for administrators:
 
-* **Audit logs** - Every time a user takes an action in the platform, either via the UI or the API, that action is recorded along with the user who took the action, a description of the action, the time that action took place, and whether that action was successful. We currently have two ways of accessing it: via a UI, and via the API as a download in CEF format.
+* **Audit logs** - every action a user attempts to take in the platform, either via the UI or the API, that action is recorded along with the user who took the action, a description of the action, the time that action took place, and whether that action was successful. We currently have two ways of accessing it: via a UI, and via the API as a download in CEF format.
 * **Recipes run** - every recipe run by every user in your system. Includes the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run.
 * **Commits made** - every commit made by every user in your system. Includes the recipe run id (to be able to link the reports together), the type of commit, status of the commit job, as well as other statistics of the commit job.
 * **Usage** - every recipe run and associated commit by every user in your system. The generated report combines the commit and recipe run reports. This report includes 
