@@ -19,7 +19,27 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Events**
+    * [Tim will be presenting at MiniConfg on March 20th in the Netherlands](https://programme.miniconf.io/sessions/episode-x/2025-01-05/). In that conference, you can come ask Tim anything about OpenRewrite.
+    * On March 27th, [Jonathan will be presenting on making a difference in application security at the RSAC Conference](https://www.linkedin.com/posts/jonkschneider_appsec-activity-7308182817367044096-x6uY)
+    * A few weeks later, on April 1st - 3rd, [Tim will be presenting at JavaLand on Generative AI on millions of lines of code](https://programme.miniconf.io/sessions/episode-x/2025-01-05/).
+    * [Don't forget we are going to be hosting a Code Remix summit in May. If you want to come and you need a discount, please send us a message](https://coderemix.ai/speakers).
+  * **Releases**
+    * [There's a new .patch release of OpenRewrite and plugins](https://github.com/openrewrite/rewrite/releases/tag/v8.48.1). There were 37 commits in this week's release!
+  * **Java 24**
+    * We are aware that Java 24 has been released and that [there is some incompatibility with that](https://github.com/openrewrite/rewrite/issues/4768). We are eyeing an early `rewrite-java-25` module instead.
+* **Main topic for the week**
+  * This week we welcome back Shannon Pamperl. He's one of the oldest and most prolific contributors to OpenRewrite. If you've kept up with code remix weekly sessions, you may recall Shannon as he's been on multiple times before sharing some of the cool things he's done.
+  * His latest heroic deeds have been around [Gradle Kotlin support](https://github.com/openrewrite/rewrite/issues/3291) – which has been an open issue for a few years now.
+    * [PR for Gradle Kotlin DSL](https://github.com/openrewrite/rewrite/pull/5122)
+    * [PR for Gradle Kotlin DSL recipes](https://github.com/openrewrite/rewrite/pull/5158)
+  * The big focus has been around adding/upgrading/changing dependencies as those are central to general migrations.
+  * After this initial explanation, Sam asked, "Is there a path forward for type-attributed Gradle Kotlin scripts?"
+    * The answer is "it's probably possible" - either Gradle has to start providing a library that's more easily consumable or we have to require a Gradle distribution being available anytime we need to do parsing. This would be fine for the CLI - but much harder for the Moderne Platform.
+    * There was also some follow-up discussion on the feasibility of type tables.
+  * Next up we talked about future goals and what Shannon's plans are going forward. Things like what recipes still need to be done and when is the Gradle Kotlin chapter "complete" or not.
+  * This transitioned into a discussion of what other areas of OpenRewrite interest Shannon.
 
 ### Meet Moddy: AI Agent for Multi-Repo Modernization (March 12th, 2025)
 
