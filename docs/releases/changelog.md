@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.27.0 (2025/03/21)
+
+- display org context information with moddy
+
 ### UI v11.26.1 (2025/03/20)
 
 - Bug fixes and other improvements.
