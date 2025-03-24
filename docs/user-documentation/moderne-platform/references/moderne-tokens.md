@@ -55,15 +55,17 @@ Personal access tokens are used to make queries against the [Moderne GraphQL API
 
 ### Permissions
 
-These tokens **do not** have a role associated with them. That means that users can't do things like view agent configurations, delete repositories, or view the audit logs. These tokens are, effectively, the same thing as a [login token](#login-token) for users who are not admins.
+Personal access tokens share the same permissions as your user. What this means is that, if you are an admin, any personal access token you create will have admin permissions.
 
 ### Expiration
 
-Personal access tokens do not expire. [Please follow these instructions if you want to revoke them](../how-to-guides/create-api-access-tokens.md#how-to-revoke-an-access-token).
+Personal access tokens do not expire. That being said, they **stop working** if you do not log in to the Moderne Platform for 14 days. Once you log in again after the 14 days, they will start working again.
+
+For instructions on how to revoke personal access tokens, please see our [managing personal access tokens doc](../how-to-guides/create-api-access-tokens.md#how-to-revoke-an-access-token)
 
 ### Further reading
 
-For instructions on how to create, view, or revoke personal access tokens, please read the [Personal Access Token doc](../how-to-guides/create-api-access-tokens.md).
+For instructions on how to create, view, or revoke personal access tokens, please read the [managing personal access tokens doc](../how-to-guides/create-api-access-tokens.md).
 
 ## Source Code Management (SCM) OAuth token
 

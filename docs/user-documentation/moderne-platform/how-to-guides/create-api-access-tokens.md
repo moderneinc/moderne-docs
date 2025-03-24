@@ -5,7 +5,9 @@ description: How to create a personal access token to use the CLI or the Moderne
 
 # Creating a personal access token
 
-In order to use the [Moderne GraphQL API](https://api.app.moderne.io/), you will need to create a Personal Access Token.
+In order to use the [Moderne GraphQL API](https://api.app.moderne.io/), you will need to create a Personal Access Token. These tokens have the same level of permissions as your account – meaning that if you are an admin, your tokens will have admin permissions.
+
+You **must** log in to the Moderne Platform every 14 days for your tokens to continue functioning.
 
 :::info
 If you want to learn how to use an access token, please go to the [Accessing the Moderne API doc](accessing-the-moderne-api.md).
@@ -16,7 +18,6 @@ In this doc, you can find out:
 * [How to make a new access token](#how-to-make-an-access-token)
 * [How to view what access tokens already exist](#how-to-view-your-access-tokens)
 * [How to revoke access tokens you no longer want](#how-to-revoke-an-access-token)
-* [Some limitations around these access tokens](#limitations)
 
 ## How to make an access token
 
@@ -42,6 +43,7 @@ In this doc, you can find out:
 </figure>
 
 4. In the text box that says `Enter token name`, enter a descriptive name for your token so that it can easily be distinguished from other tokens.
+
 5.  Press the `generate` button. You should see something that looks like:
 
 <figure>
@@ -69,6 +71,3 @@ From the [access token](https://app.moderne.io/settings/access-token) page, clic
   <figcaption></figcaption>
 </figure>
 
-## Limitations
-
-* Personal access tokens have the lowest level of permissions possible. They do not have the same permissions as your user account. For instance, actions that require a specific role (such as deploying a recipe or uploading an AST) will fail as forbidden if attempted with an access token.
