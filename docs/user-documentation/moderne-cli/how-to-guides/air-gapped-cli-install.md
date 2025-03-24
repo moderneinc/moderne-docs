@@ -485,8 +485,14 @@ https://bitbucket.your.place/stash/scm/~sjungling/demo_private.git,main
 Create a directory somewhere on your machine where you'd like the CLI to clone the repositories to. Then navigate to that directory, copy the `repos.csv` file to it, and run the following command:
 
 ```bash
-mod git clone csv . repos.csv
+mod git clone csv . repos.csv --filter=tree:0 --parallel
 ```
+
+:::info
+The `--filter=tree:0` argument limits the amount of data that Git downloads from a repository. Specifically, it indicates that you want to only download the repos commit history and metadata, but not the actual files in the repo.
+
+The `--parallel` flag increases the speed of cloning the repositories by performing multiple clones at once. For more information on parallelism, check out our [parallelism guide](./parallelism.md)
+:::
 
 ### Step 9: Build your repositories
 
