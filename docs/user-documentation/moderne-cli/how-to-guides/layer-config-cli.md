@@ -19,6 +19,12 @@ By default, the Moderne CLI will write configuration files to `~/.moderne/cli`. 
 ```bash
 export MODERNE_CLI_HOME=/space/moderne/cli
 ```
+
+To only share the global `moderne.yml` configuration file, you can set the `MODERNE_CLI_MODERNE_YML` environment variable.
+
+```bash
+export MODERNE_CLI_MODERNE_YML=/net/moderne/cli/moderne.yml
+```
 :::
 
 ## Global configuration
