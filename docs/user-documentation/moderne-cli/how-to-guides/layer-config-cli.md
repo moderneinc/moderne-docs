@@ -45,6 +45,15 @@ mod config build gradle arguments show
 
 Or, you can navigate to the `~/.moderne/cli/moderne.yml` file and see all of your configuration options for all commands there.
 
+:::info
+
+To share the global `moderne.yml` configuration file, you can set the `MODERNE_CLI_CONFIG_HOME` environment variable to point to a network accessible directory containing `moderne.yml`.
+
+```bash
+export MODERNE_CLI_CONFIG_HOME=/net/moderne/cli
+```
+:::
+
 If you want to delete the global arguments, you can run the commands:
 
 ```bash
