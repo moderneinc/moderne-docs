@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.34.4 (2025/03/24)
+
+#### What's Changed CLI
+* Fix NumberFormatException when getting java from SDKMAN file with java version like java=21-tem
+* Extract native `libzstd-jni` library from already packaged `zstd-jni` jar
+* Fix issue where patch apply would fail if a diff hunk was for a file not in the repository.
+* Add `MODERNE_CLI_MODERNE_YML` environment variable to specify custom `moderne.yml` locations outside `.moderne/cli`
+#### What's Changed DX
+* Reduce DX LST download concurrency to mitigate disk space exhaustion
+
+
 ### CLI / DX v3.34.3 (2025/03/19)
 
 #### What's Changed DX
