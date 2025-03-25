@@ -47,10 +47,10 @@ Or, you can navigate to the `~/.moderne/cli/moderne.yml` file and see all of you
 
 ::info
 
-To share the global `moderne.yml` configuration file over a network file system, you can set the `MODERNE_CLI_MODERNE_YML` environment variable.
+To share the global `moderne.yml` configuration file, you can set the `MODERNE_CLI_CONFIG_HOME` environment variable to point to a network accessible directory containing `moderne.yml`.
 
 ```bash
-export MODERNE_CLI_MODERNE_YML=/net/moderne/cli/moderne.yml
+export MODERNE_CLI_CONFIG_HOME=/net/moderne/cli
 ```
 ::
 
