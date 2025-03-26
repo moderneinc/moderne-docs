@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.29.0 (2025/03/26)
+
+- Add visual to indicate a recipe is running
+
 ### UI v11.28.1 (2025/03/26)
 
 - Bug fixes and other improvements.
