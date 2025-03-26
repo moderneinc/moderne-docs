@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.34.5 (2025/03/26)
+
+#### What's Changed CLI
+* Add `DurationProperty` for parsing `Duration` `CommandLine` arguments
+* Skip the build for a repository if there are no source files found
+#### What's Changed DX
+* Extract LST `scm.properties` in same pipeline as download to avoid disk space exhaustion
+
+
 ### CLI / DX v3.34.4 (2025/03/24)
 
 #### What's Changed CLI
