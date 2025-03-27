@@ -13,6 +13,30 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Scrying the future of Java with Merlin (March 26th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=jvMeIsN9Xtc' controls="true" />
+
+#### Summary and related links
+
+* **Announcements for the week**
+  * **Code Remix Summit**
+    * We are excited to welcome two new sponsors: [CodeGate](https://codegate.ai/) and [Azul](https://www.azul.com/)!
+      * CodeGate, from Stacklok, is a new gateway between your AI coding assistance and LLMs, shielding your privacy and enhancing developer productivity.
+      * Azul, a leader in high-performance Java runtimes, helps companies optimize and modernize their Java applications.
+      * Both of these places will be participating in the Hack track at the event where attendees will be able to try out the solutions to help an actual business use case. 
+  * **Events**
+    * On March 27th, [Jonathan will be presenting on making a difference in application security at the RSAC Conference](https://www.linkedin.com/posts/jonkschneider_appsec-activity-7308182817367044096-x6uY)
+    * A few weeks later, on April 1st - 3rd, [Tim and Merlin will be presenting at JavaLand on OpenRewrite and Generative AI on millions of lines of code](https://programme.miniconf.io/sessions/episode-x/2025-01-05/).
+    * [We also will be at JCON Europe on May 12th - May 15th](https://2025.europe.jcon.one/) 
+    * [Lastly, we'll be at Spring I/O in Barcelona on May 21st - 23rd](https://2025.springio.net/)
+  * **Releases**
+    * We're doing a new full release of OpenRewrite tomorrow
+* **Highlighted community effort**
+  * Fossur, a member of our community, recently [created a bunch of recipes for migrating from Dropwizard to Spring Boot](https://github.com/openrewrite/rewrite-dropwizard/pull/1).
+* **Main topic for the week**
+  * This week we welcomed Merlin to discuss the future of Java.
+
 ### The Shanman Strikes Again: Gradle .kts Support (March 19th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=DNIDeClbfaU' controls="true" />
