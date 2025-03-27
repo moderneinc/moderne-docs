@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.30.0 (2025/03/27)
+
+- data table description tool integration
+
 ### UI v11.29.2 (2025/03/27)
 
 - Bug fixes and other improvements.
