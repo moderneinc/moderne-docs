@@ -306,21 +306,6 @@ const sidebars: SidebarsConfig = {
             },
             'administrator-documentation/moderne-platform/how-to-guides/organizations-service',
             'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/migrate-from-an-organization-service-files-on-the-agent',
-            {
-              type: 'category',
-              label: 'Organization Service',
-              link: {
-                type: 'generated-index',
-                title: 'Organization Service',
-                description: 'Moderne Agent configuration docs.',
-                slug: '/administrator-documentation/moderne-platform/agent-configuration',
-                keywords: ['guides'],
-              },
-              items: [
-                'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/migrate-organization-versions',
-                'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/organization-service-features',
-              ],
-            },
             'administrator-documentation/moderne-platform/how-to-guides/dev-center',
             'administrator-documentation/moderne-platform/how-to-guides/create-visualization',
             'administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes',
