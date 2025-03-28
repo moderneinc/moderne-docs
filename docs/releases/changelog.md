@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.31.0 (2025/03/28)
+
+- Add GitLab signin option
+
 ### UI v11.30.2 (2025/03/28)
 
 - Bug fixes and other improvements.
