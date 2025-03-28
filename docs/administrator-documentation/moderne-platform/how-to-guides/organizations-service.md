@@ -13,7 +13,7 @@ Let's walk through everything you need to know about both of these options.
 
 While both options offer you the ability to control an organizational structure, there are advantages/disadvantages to each.
 
-Running an Organization service allows for more flexibility when setting up the required GraphQL and REST endpoint. On the other hand, providing the agent with the files requires less setup at the cost of limited flexibility. 
+Running an Organization service allows for more flexibility when setting up the required GraphQL and REST endpoint. For instance, you can configure custom commit messages, so you can automate tasks like adding a JIRA ticket to a commit message. On the other hand, providing the agent with the files requires less setup at the cost of limited flexibility. It's much quicker and simpler to get started.
 
 Because of that, **we'd recommend the file-based approach** unless you have a compelling reason to not do that.
 
@@ -53,6 +53,20 @@ How you deploy the service is largely up to your company. With that being said, 
 * Communication with the Organizations service is done through the [Moderne agent](./agent-configuration/agent-config.md). Therefore, this service **must** be accessible from the agent.
 * Moderne will make a request per repository to the Organizations service once every 10 minutes by default (you can change this interval in your [agent configuration](./agent-configuration/configure-organizations-service.md)). Please ensure that you have metrics to track how this service is performing so you can adjust it over time.
 * You'll want a minimum system spec of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent storage.
+
+### Configuring custom commit messages
+
+By default, when a user creates a commit in the Moderne Platform, the commit message they provide is the one that is used. However, there are some instances where you may not want this. For example, maybe you want to apply a transformation to the existing message to retrieve a JIRA ticket and add it into the commit message.
+
+To do this, you will need to add custom logic to the [commitMessage query](https://github.com/moderneinc/moderne-organizations/blob/fbc92af9e31076c6dea95499517f7f4e53fdc33c/src/main/java/io/moderne/organizations/OrganizationDataFetcher.java#L47). This query expects a `message` and an `extendedMessage`. If this commit will be used to create a PR, the `message` will be the title of the PR and the body will be the `extendedMessage`. 
+
+For example, if your `message` is: `Purr-fect fix: Cat avatars now display correctly` and your `extendedMessage` is: `Resolved issue where cat avatars were displaying upside down.` – then your commit will look like:
+
+```text
+Purr-fect fix: Cat avatars now display correctly
+
+Resolved issue where cat avatars were displaying upside down.
+```
 
 ## Organizations service FAQ
 
