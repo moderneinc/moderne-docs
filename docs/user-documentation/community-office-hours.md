@@ -35,7 +35,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 * **Highlighted community effort**
   * Fossur, a member of our community, recently [created a bunch of recipes for migrating from Dropwizard to Spring Boot](https://github.com/openrewrite/rewrite-dropwizard/pull/1).
 * **Main topic for the week**
-  * This week we welcomed Merlin to discuss the future of Java.
+  * This week we welcomed Merlin to discuss the future of Java. We talked through things like what upcoming features we're excited about and what things we need to keep in mind going forward. 
 
 ### The Shanman Strikes Again: Gradle .kts Support (March 19th, 2025)
 
