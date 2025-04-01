@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.36.0 (2025/04/01)
+
+#### What's Changed CLI
+* Document `mod exec` output options `Console` and `File`
+* Remove obsolete `mod config recipes jar install` `--repository-url` parameter
+* Use FormatStyle.LONG for license expiry
+* Fix parsing truststore config
+
+
 ### CLI / DX v3.35.0 (2025/03/27)
 
 #### What's Changed CLI
