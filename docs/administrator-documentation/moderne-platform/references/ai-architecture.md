@@ -95,7 +95,7 @@ While private tenants can technically deploy this and use our key, we expect mos
 
 #### AI models
 
-Uses the Gemini model. We provide the key (in the public Moderne Platform).
+Uses a bring-your-own-model (BYOM) configuration. It supports OpenAI, Gemini, Anthropic, and Ollama.
 
 #### State management
 
