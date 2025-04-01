@@ -3736,7 +3736,6 @@ The dependency will be resolved from the artifact source defined in **mod config
 | Name | Description |
 | ---- | ----------- |
 | --parallel |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| --repository-url, --repository |  The repository URL that the artifact will be resolved from. |
 
 
 ## mod config recipes jar delete
@@ -3817,11 +3816,6 @@ mod config recipes nupkg install rewrite.java:LATEST
 | PIV |  The package id, and version of the package to install in the format packageId:version. The version may be a fixed version, LATEST, or RELEASE.
 The dependency will be resolved from the package source defined in **mod config lsts artifacts** |
 
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| --repository-url, --repository |  The repository URL that the package will be resolved from. |
 
 
 ## mod config recipes nupkg delete
@@ -4735,7 +4729,7 @@ mod exec /path/to/project rm *.hprof
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| -o, --out, --output |  The output type for the command. If not specified, the output will be printed to the console. |  |
+| -o, --out, --output |  The output type for the command. Accepts `Console` and `File`. If not specified, the output will be printed to the console. |  |
 | --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
