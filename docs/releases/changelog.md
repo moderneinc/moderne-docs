@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v11.34.0 (2025/04/03)
+
+- update conversation query to new schema
+- stop conversation in progress
+
 ### UI v11.33.0 (2025/04/02)
 
 - Bug fixes and other improvements.
