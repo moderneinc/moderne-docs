@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v11.36.0 (2025/04/04)
+
+- add nickname to agent grid
+- handle batch change commit display
+
 ### UI v11.35.0 (2025/04/04)
 
 - update builder dialogs to be full screen
