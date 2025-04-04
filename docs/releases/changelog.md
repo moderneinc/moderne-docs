@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.35.0 (2025/04/04)
+
+- update builder dialogs to be full screen
+
 ### UI v11.34.0 (2025/04/03)
 
 - update conversation query to new schema
