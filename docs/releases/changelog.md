@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.37.0 (2025/04/05)
+
+- use instance name on recipe run title
+
 ### UI v11.36.0 (2025/04/04)
 
 - add nickname to agent grid
