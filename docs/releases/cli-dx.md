@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.36.1 (2025/04/04)
+
+#### What's Changed CLI
+* listRepositories to handle Git exceptions as warnings
+#### What's Changed DX
+* Pre-populate cache of recently described LSTs to avoid redundant downloads
+
+
 ### CLI / DX v3.36.0 (2025/04/01)
 
 #### What's Changed CLI
