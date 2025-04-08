@@ -148,7 +148,7 @@ MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite
 MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true
 
 # Set the environment variables for your artifactory
-# N.B. Remove this part if you can use not the artifactory repository configuration (see step 5)
+# Remove this part if you can not use the artifactory repository configuration (see step 5)
 MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/
 MODERNE_AGENT_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME}
 MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD}
