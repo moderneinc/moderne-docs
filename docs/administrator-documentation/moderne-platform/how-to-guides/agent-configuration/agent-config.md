@@ -133,7 +133,7 @@ EXPOSE 8080
 **Example environment variables file**
 
 ```bash
-MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket
 MODERNE_AGENT_CRYPTO_SYMMETRICKEY=${SYMMETRIC_KEY}
 MODERNE_AGENT_TOKEN=${MODERNE_AGENT_TOKEN}
 MODERNE_AGENT_NICKNAME=prod-1
