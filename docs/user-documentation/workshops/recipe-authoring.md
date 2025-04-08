@@ -184,7 +184,7 @@ If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor supp
 :::
 
 1. Open the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project in IntelliJ IDEA.
-   * You can also compose recipes in [the Moderne Platform recipe builder](https://app.moderne.io/recipes/builder), and run them against open-source projects.
+   * You can also compose recipes in [the Moderne Platform recipe builder](https://app.moderne.io/builder), and run them against open-source projects.
 2. Open the `UseApacheStringUtils` recipe which is defined in a YAML file: [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml).
    * Notice how the file is structured, with a `type`, `name`, `displayName`, `description`, and `recipeList` fields.
    * Comment out the `type:` and see how that disables the OpenRewrite support.
