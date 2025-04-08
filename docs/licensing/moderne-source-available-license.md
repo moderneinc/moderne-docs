@@ -50,6 +50,8 @@ Making the functionality of the Software or Modified version available to third 
 
 Examples of third parties that are prohibited under this limitation include but are not limited to:
   * Sourcegraph and Sourcegraph Batch Changes
+  * Amazon Q Code Transformer
+  * Broadcom Application Advisor
 
 You may not and will not alter, remove, or obscure any licensing, copyright, or other notices of the Licensor in the Software. Any use of the Licensor’s Trademarks is subject to applicable law (but no license is granted hereunder with respect to the Licensor’s Trademarks).
 
