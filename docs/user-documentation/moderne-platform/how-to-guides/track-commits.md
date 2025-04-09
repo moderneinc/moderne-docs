@@ -41,7 +41,7 @@ If opening a PR failed for some reason, you can see the details of why on this s
 
 Lastly, you can download all of this information as a data table by clicking on the `Export` button – which can be useful if you want to pipe the data into another system.
 
-### If you commited directly
+### If you committed directly
 
 <figure>
   ![](./assets/commit-view-commits.png)
