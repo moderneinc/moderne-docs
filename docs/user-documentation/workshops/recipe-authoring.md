@@ -506,7 +506,7 @@ For example, imagine you had a JSON document that represented the customer list 
 
 Because of that, there's a temptation to put the methods directly onto the classes that represent the LSTs themselves. That poses a problem, though, as we don't want to be continuously expanding the API surface area of these elements. To handle this problem, we have implemented [traits](https://en.wikipedia.org/wiki/Trait_(computer_programming)).
 
-For a full understanding of traits, check out our [code remix session where we introduced traits and explained how to use them](https://docs.moderne.io/user-documentation/community-office-hours#enlightening-lsts-with-traits-july-17th-2024).
+For a full understanding of traits, check out our [documentation on traits](https://docs.openrewrite.org/concepts-and-explanations/traits).
 
 ## Recipe conventions and best practices
 
