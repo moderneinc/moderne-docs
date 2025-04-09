@@ -1,5 +1,17 @@
 # CLI / DX changelog
 
+### CLI / DX v3.37.0 (2025/04/09)
+
+#### What's Changed CLI
+* [OpenRewrite v8.50.0](https://github.com/openrewrite/rewrite/releases/tag/v8.50.0)
+* [rewrite-gradle-plugin v7.4.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.4.0)
+* [rewrite-maven-plugin v6.5.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.5.0)
+* Suggest running afterburner after `mod build`
+#### What's Changed DX
+* Update DX to pass devCenter configuration to the CLI when `mod git sync moderne` is executed
+* Do not create Maven artifact repositories for indexing if `astSource` config is false
+
+
 ### CLI / DX v3.36.1 (2025/04/04)
 
 #### What's Changed CLI
