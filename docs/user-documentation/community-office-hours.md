@@ -19,7 +19,21 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * [OpenRewrite was featured as #64 on Thoughtworks' tech radar](https://www.thoughtworks.com/radar/tools/openrewrite)!
+  * **Releases**
+    * [We've done a substantial new release this week](https://github.com/openrewrite/rewrite/releases/tag/v8.50.0).
+    * [One big new thing this week is the support for Gradle Kotlin DSL](https://github.com/openrewrite/rewrite/pull/5158) - thanks Shannon!
+  * **Events**
+    * [Merlin will be at JCON Europe on May 12th - May 15th](https://2025.europe.jcon.one/)
+      * We have tickets we can give out for this talk. Reach out to us in Slack if you want them.
+    * [Tim will be at Spring I/O in Barcelona on May 21st - 23rd talking about better assertions with AssertJ](https://2025.springio.net/)
+  * **Recipes**
+    * [Our friends at Oracle have released their recipes for Weblogic](https://github.com/oracle/rewrite-recipes).
+* **Highlighted community effort**
+  * [We have support for Gradle Kotlin DSL thanks to Shannon](https://github.com/openrewrite/rewrite/pull/5158)
+* **Main topic for the week**
+  * This week we welcomed Laurens Westerlaken to chat about his lessons from years at a bank vs. his few months at Moderne.
 
 ### Scrying the future of Java with Merlin (March 26th, 2025)
 
