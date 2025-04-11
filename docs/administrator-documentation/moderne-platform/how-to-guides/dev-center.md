@@ -279,9 +279,12 @@ This `devcenter.json` file must follow [the GraphQL schema included in our moder
 When creating a DevCenter for the first time, we **strongly recommend** that you only create a DevCenter for a few key organizations. This will allow you to get data into the platform faster and ensure that you've configured everything correctly. Once everything is working as expected, you can then add more DevCenters as desired.
 :::
 
-### Step 2: Configure your agent
+### Step 2: Configure your agent or DX
 
-Now that you have you a `devcenter.json` file, please place this file in a location were you agent has access to. Next, please direct your agent to said `devcenter.json` file by providing the argument shown below:
+Now that you have you a `devcenter.json` file, please place this file in a location were you agent or DX has access to. Next, please direct your agent to said `devcenter.json` file by providing the argument shown below:
+
+<Tabs groupId="source">
+<TabItem value="agent" label="Agent">
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -322,8 +325,52 @@ java -jar moderne-agent-{version}.jar \
 
 </TabItem>
 </Tabs>
+</TabItem>
+<TabItem value="dx" label="DX">
 
-After you have updated your agent configuration, please restart your agent.
+<Tabs groupId="type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Variables:**
+
+| Argument Name                           | Required | Description                                                                           |
+|-----------------------------------------|----------|---------------------------------------------------------------------------------------|
+| `MODERNE_DX_ORGANIZATION_DEVCENTERJSON` | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_DX_ORGANIZATION_DEVCENTERJSON=/Users/MY_USER/Documents/repos.csv \
+# ... Additional variables
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                               | Required                                                                              | Description |
+|---------------------------------------------|---------------------------------------------------------------------------------------|-------------|
+| `--moderne.dx.organization.devCenterJsonse` | The file path to a JSON file which outlines the DevCenter for specific organizations. |
+
+**Example:**
+
+```bash
+java -jar moderne-dx-{version}.jar  \
+# ... Existing arguments
+--moderne.dx.organization.devCenterJson=/Users/MY_USER/Documents/repos.csv \
+# ... Additional arguments
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+</Tabs>
+
+After you have updated your agent configuration, please restart your agent or DX.
 
 ## Configuring the DevCenter in an Organizations service
 
