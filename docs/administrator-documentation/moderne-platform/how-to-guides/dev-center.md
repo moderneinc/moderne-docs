@@ -281,7 +281,7 @@ When creating a DevCenter for the first time, we **strongly recommend** that you
 
 ### Step 2: Configure your agent or DX
 
-Now that you have you a `devcenter.json` file, please place this file in a location were you agent or DX has access to. Next, please direct your agent to said `devcenter.json` file by providing the argument shown below:
+Now that you have you a `devcenter.json` file, please place this file in a location were your agent or DX has access to. Next, please direct your agent to said `devcenter.json` file by providing the argument shown below:
 
 <Tabs groupId="source">
 <TabItem value="agent" label="Agent">
