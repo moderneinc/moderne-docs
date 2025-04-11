@@ -1,31 +1,25 @@
 # CLI / DX changelog
 
-### CLI / DX v3.37.1 (2025/04/10)
+### CLI / DX v3.37.3 (2025/04/11)
 
 #### What's Changed CLI
+* Fix settings.xml server configuration being ignored, potentially leading to missing HTTP headers failing dependency resolution requests
 * `mod config recipes moderne sync` - save recipes on partial success
-* Adding back negation `!` in `lstIsExtracted()`
-    This fixes a 'java.nio.file.NoSuchFileException' bug when building and then running a recipe
-#### What's Changed DX
-* Improve warnings when `mod config moderne edit` is run with token and DX
 
 
-### CLI / DX v3.37.1 (2025/04/10)
+### CLI / DX v3.37.2 (2025/04/10)
 
 #### What's Changed CLI
-* `mod config recipes moderne sync` - save recipes on partial success
-* Adding back negation `!` in `lstIsExtracted()`
-    This fixes a 'java.nio.file.NoSuchFileException' bug when building and then running a recipe
-#### What's Changed DX
-* Improve warnings when `mod config moderne edit` is run with token and DX
+* [OpenRewrite v8.50.2](https://github.com/openrewrite/rewrite/releases/tag/v8.50.2)
+* [rewrite-gradle-plugin v7.4.1](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.4.1)
+* [rewrite-maven-plugin v6.6.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.6.0)
 
 
 ### CLI / DX v3.37.1 (2025/04/10)
 
 #### What's Changed CLI
 * `mod config recipes moderne sync` - save recipes on partial success
-* Adding back negation `!` in `lstIsExtracted()`
-    This fixes a 'java.nio.file.NoSuchFileException' bug when building and then running a recipe
+* Adding back negation `!` in `lstIsExtracted()`; This fixes a `java.nio.file.NoSuchFileException` bug when building and then running a recipe
 #### What's Changed DX
 * Improve warnings when `mod config moderne edit` is run with token and DX
 
