@@ -20,6 +20,16 @@
 * Improve warnings when `mod config moderne edit` is run with token and DX
 
 
+### CLI / DX v3.37.1 (2025/04/10)
+
+#### What's Changed CLI
+* `mod config recipes moderne sync` - save recipes on partial success
+* Adding back negation `!` in `lstIsExtracted()`
+    This fixes a 'java.nio.file.NoSuchFileException' bug when building and then running a recipe
+#### What's Changed DX
+* Improve warnings when `mod config moderne edit` is run with token and DX
+
+
 ### CLI / DX v3.37.0 (2025/04/09)
 
 #### What's Changed CLI
