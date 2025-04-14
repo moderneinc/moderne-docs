@@ -246,6 +246,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod run-history**](#mod-run-history)
 * [**mod study**](#mod-study)
 * [**mod generate-completion**](#mod-generate-completion)
+* [**mod batch**](#mod-batch)
+* [**mod batch publish**](#mod-batch-publish)
 
 ## mod
 
@@ -282,6 +284,7 @@ mod [subcommands]
 * `run-history`: Get information about the most recent recipe runs. This will be transitioning to **mod audit runs list** eventually. A deprecation notice will be added here when we suggest adopting the alternative.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
 * `generate-completion`
+* `batch`: Add batch changes to the Moderne platform.
 
 ## mod afterburner
 
@@ -290,7 +293,7 @@ mod [subcommands]
 
 This command indexes certain parts of the LST in order to speed up repeated recipe runs against the same LST. While not all recipes can benefit from this optimization, common ones — especially those frequently used in IDE integrations — often will. 
 
-Note: The generated indexes are internal to the CLI and may change between versions. They are intended solely for use by the CLI in subsequent run commands.
+Note: The generated indexes are internal to the CLI and may change between versions. They are intended solely for use by the CLI in subsequent run commands. Executed on multiple repositories in parallel by default, but can be opted out with **--parallel=1**.
 
 ### Usage
 
@@ -445,7 +448,7 @@ If the path itself is not a Git repository, then this command will recursively l
 
 If this command executes successfully, the LST artifact for each project will be stored in a **.moderne/build** directory inside of each repository that is built.
 
-If you've set up a connection with Moderne (by running the **mod config moderne** command), this command will attempt to download LST artifacts from Moderne instead of building them locally. This will allow you to quickly run recipes and make changes. If you do not want this command to look for LST artifacts in Moderne, you can add the **--no-download** flag.
+If you've set up a connection with Moderne (by running the **mod config moderne** command), this command will attempt to download LST artifacts from Moderne instead of building them locally. This will allow you to quickly run recipes and make changes. If you do not want this command to look for LST artifacts in Moderne, you can add the **--no-download** flag. Executes builds in sequential order, except if the **--download-only** flag is specified.
 
 ### Usage
 
@@ -469,7 +472,7 @@ mod build /path/to/project
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| --download-only |  Only download LSTs from Moderne. If no download is available, do not build the LST from source. |  |
+| --download-only |  Only download LSTs from Moderne. If no download is available, do not build the LST from source. Downloads the LSTs in parallel by default. |  |
 | --dry-run |  Do not actually build the LST(s), but list the steps that would be required to do so. |  |
 | --no-download |  Do not attempt to download LSTs from Moderne. |  |
 | --offline |  When an underlying build tool has an offline mode, enable it. |  |
@@ -3710,7 +3713,7 @@ mod config recipes jar install org.openrewrite:rewrite-java:LATEST
 Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
 
 
-The recipes defined by this artifact will then be available to run.
+The recipes defined by this artifact will then be available to run. Installs the provided GAVs sequential by default, but can be installed in parallel with the --parallel option.
 
 ### Usage
 
@@ -3926,7 +3929,7 @@ mod config recipes moderne push
 Synchronizes the local CLI recipe marketplace with Moderne.
 
 
-Destroys all recipes in the local CLI marketplace and replaces them with the latest recipes available in Moderne. The recipes defined by these artifacts will then be available to run.
+Destroys all recipes in the local CLI marketplace and replaces them with the latest recipes available in Moderne. The recipes defined by these artifacts will then be available to run. Downloads recipe artifacts in parallel by default.
 
 ### Usage
 
@@ -4660,7 +4663,7 @@ mod devcenter [subcommands]
 (INCUBATING) Runs all configured DevCenter recipes.
 
 
-
+Executes recipes in parallel by default, can be opted out with **--parallel=1**.
 
 ### Usage
 
@@ -4881,7 +4884,7 @@ mod git checkout /path/to/project
 Performs the equivalent of **git clone** on multiple repositories.
 
 
-Rather than cloning one at a time, this operates on multiple repositories. The list of repositories can be sourced from different places, like Moderne or a CSV.
+Rather than cloning one at a time, this operates on multiple repositories. The list of repositories can be sourced from different places, like Moderne or a CSV. All clone operations ca be performed in parallel by opt in via |@bold --parallel=0 |@.
 
 ### Usage
 
@@ -4907,7 +4910,7 @@ mod git clone moderne /path/to/folder/to/clone/into Apache
 Clones the repositories listed in a CSV file.
 
 
-The CSV file should have a header row with the required column **cloneUrl** and any number of optional columns. The optional columns are **branch, changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**.
+The CSV file should have a header row with the required column **cloneUrl** and any number of optional columns. The optional columns are **branch, changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**. All clone operations can be performed in parallel by opt in via **--parallel=0**.
 
 ### Usage
 
@@ -4940,7 +4943,7 @@ mod git clone csv [parameters]
 Clones the repositories listed in a JSON file.
 
 
-The JSON file should consist of an array of repositories with the required keys **cloneUrl| and @|bold branch** and any number of optional keys. The optional keys are **changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**.
+The JSON file should consist of an array of repositories with the required keys **cloneUrl| and @|bold branch** and any number of optional keys. The optional keys are **changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**. All clone operations can be performed in parallel by opt in via **--parallel=0**.
 
 ### Usage
 
@@ -4973,7 +4976,7 @@ mod git clone json [parameters]
 Clones the repositories in an organization on Moderne.
 
 
-The repositories are cloned at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne. 
+The repositories are cloned at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne. All clone operations can be performed in parallel by opt in via **--parallel=0**.
 
 ### Usage
 
@@ -5684,19 +5687,19 @@ mod run /path/to/project \
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| --active-recipe |  If this flag is included, the recipe specified as the active recipe in your IDE will be run (assuming you have the Moderne plugin installed and configured). |  |
+| --active-recipe |  If this flag is included, the recipe specified as the active recipe in your IDE will be run (assuming you have the Moderne plugin installed and configured). Executes the recipe in parallel by default. |  |
 | --jvm-debug |  Start a JDWP server on this port and pause for a remote debug connection. |  |
 | --last-recipe-run |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
 | --no-patch |  (INCUBATING) Do not generate patch files on disk at the conclusion of a recipe run that makes changes. This is useful when you are looking to only use data table outputs and don't wish to incur the cost of writing patch files when they will be unused. |  |
 | -P, --recipe-option |  Recipe options, if any. If a recipe accepts more than one option, you can include this argument multiple times. | `mod run . --recipe=<recipe> -P methodPattern='java.util.List add(..)' -P moreOptions='moreOptions'` |
 | --parallel |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
 | --partition |  (INCUBATING) The name of the partitions to run the recipe on. If not specified, the recipe will run on all partitions (or the whole repository if there are no partitions). |  |
-| --recipe |  The recipe ID of the recipe that should be run. | `org.openrewrite.java.search.FindMethods` |
+| --recipe |  The recipe ID of the recipe that should be run. Executes recipes in sequential mode, unless --parallel is specified. | `org.openrewrite.java.search.FindMethods` |
 | --recipe-run |  A recipe run ID listed by **mod run-history** |  |
 | --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| --streaming |  (INCUBATING) Stream results from the recipe run to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. |  |
+| --streaming |  (INCUBATING) Stream results from the recipe run to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. Executes the recipe in parallel by default. |  |
 
 
 ## mod run-history
@@ -5787,5 +5790,69 @@ mod generate-completion
 | Name | Description |
 | ---- | ----------- |
 | -V, --version |  Print version information and exit. |
+
+
+## mod batch
+
+Add batch changes to the Moderne platform.
+
+
+This command is used to add repository changes generated by third-party tools to the Moderne platform.
+
+### Usage
+
+```
+mod batch [subcommands]
+```
+
+### Examples
+
+```
+mod batch publish --recipe com.acme.CollectionsSortToListSort --recipe-name "Prefer List#sort over Collections#sort" --recipe-description "Migrate java.util.Collections#sort calls to java.util.List#sort" --recipe-run ChangeCampaignApr25 . -- git diff
+```
+
+
+### Subcommands
+
+* `publish`: Publish changes to a Moderne recipe run
+
+## mod batch publish
+
+Publish changes to a Moderne recipe run
+
+
+Executes a supplied command on one or more repositories to generate a diff between a working and target branch, and publishes them to a Moderne recipe run. If you want to execute a command that contains positional parameters, please ensure that you use the end-of-options POSIX delimiter (**--**) before your command.
+
+### Usage
+
+```
+mod batch publish [parameters]
+```
+
+### Examples
+
+```
+mod batch publish --recipe com.acme.CollectionsSortToListSort --recipe-name "Prefer List#sort over Collections#sort" --recipe-description "Migrate java.util.Collections#sort calls to java.util.List#sort" --recipe-run ChangeCampaignApr25 . -- git diff
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| path |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| cmd |  The command used to generate a diff of changes between the working and target branches of the repository. |
+| args |  Arguments for the command, if any exist. |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| --recipe |  A recipe ID to associate this batch change with. |  |
+| --recipe-description |  A description for the recipe. |  |
+| --recipe-name |  A descriptive name for the recipe. |  |
+| --recipe-run |  A recipe run ID to add this batch change to. The same recipe run ID can be used to group multiple repositories of the same batch change. |  |
+| --repository-branch |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
+| --repository-origin |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
+| --repository-path |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 
 
