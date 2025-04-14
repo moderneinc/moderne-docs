@@ -92,7 +92,7 @@ Reports SQL operation usage. A good way to understand the SQL usage patterns and
 
 Reports the known vulnerabilities and the related dependencies, broken down by the severity of the vulnerability. Notes whether a major, minor, or patch version increase would be sufficient to move the affected dependency to a version known to have a fix for the vulnerability.
 
-![Dependency vulnerability profile](./assets/dependency-vulnerability-profile.png)
+![Dependency vulnerability profile](./assets/visualization-result.png)
 
 ### Gradle wrapper composition
 
