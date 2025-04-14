@@ -7,7 +7,7 @@ description: How to speed up the Moderne CLI with parallelism.
 
 Depending on the number of repositories you have, it can take a long time to clone the repositories or run recipes against them.
 
-To help improve this experience, we've introduced a `--parallel` flag on a variety of commands in the CLI. Adding this option to the end of a supported command will allow you to configure how many threads the command should use. More threads dedicated to the command will result in significant speed improvements.
+To help improve this experience, we've introduced a `--parallel` flag on a variety of commands in the CLI. Adding this option to the end of a supported command will allow you to configure how many threads the command should use. By default, this option is automatically enabled for some commands without the need to explicitly setting the `--parallel` flag (see below). More threads dedicated to the command will result in significant speed improvements.
 
 ## `--parallel` flag options
 
@@ -37,12 +37,16 @@ mod run . --recipe DependencyVulnerabilityCheck --parallel -1
 
 Below is a table showing what the default parallelization setting is for various commands:
 
-| CLI command                       | Default behavior without explicit `--parallel`                       |
-|-----------------------------------|----------------------------------------------------------------------|
-| `mod run --recipe`                | Sequential. In a future release, this will likely change to opt-out. |
-| `mod run --active-recipe`         | Parallel                                                             |
-| `mod run --streaming`             | Parallel                                                             |
-| `mod config recipes moderne sync` | Parallel                                                             |
-| `mod config recipes jar install`  | Sequential. In a future release, this will likely change to opt-out. |
-| `mod build`                       | Sequential                                                           |
-| `mod build --download-only`       | Parallel                                                             |
+| CLI command                       | Default behavior without explicit `--parallel` |
+|-----------------------------------|------------------------------------------------|
+| `mod build`                       | Sequential                                     |
+| `mod build --download-only`       | Parallel                                       |
+| `mod config recipes moderne sync` | Parallel                                       |
+| `mod config recipes jar install`  | Sequential                                     |
+| `mod devcenter run`               | Parallel                                       |
+| `mod git clone`                   | Sequential                                     |
+| `mod run --recipe`                | Sequential                                     |
+| `mod run --active-recipe`         | Parallel                                       |
+| `mod run --streaming`             | Parallel                                       |
+
+In a future release, the `Sequential` defaults will likely change to opt-out.
