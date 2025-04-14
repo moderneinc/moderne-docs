@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.41.0 (2025/04/14)
+
+- change with authorization from list of buttons to grid
+
 ### UI v11.40.0 (2025/04/11)
 
 - Bug fixes and other improvements.
