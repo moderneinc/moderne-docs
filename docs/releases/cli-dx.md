@@ -1,5 +1,15 @@
 # CLI / DX changelog
 
+### CLI / DX v3.37.4 (2025/04/14)
+
+#### What's Changed CLI
+* Catch all Throwables in isGitRepository
+* Document parallel behavior
+* Add `mod batch publish` command
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.37.3 (2025/04/11)
 
 #### What's Changed CLI
