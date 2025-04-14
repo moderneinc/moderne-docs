@@ -7,7 +7,7 @@ description: How to speed up the Moderne CLI with parallelism.
 
 Depending on the number of repositories you have, it can take a long time to clone the repositories or run recipes against them.
 
-To help improve this experience, we've introduced a `--parallel` flag on a variety of commands in the CLI. Adding this option to the end of a supported command will allow you to configure how many threads the command should use. By default, this option is automatically enabled for some commands without the need to explicitly setting the `--parallel` flag (see [below](#Defaults)). More threads dedicated to the command will result in significant speed improvements.
+To help improve this experience, we've introduced a `--parallel` flag on a variety of commands in the CLI. Adding this option to the end of a supported command will allow you to configure how many threads the command should use. By default, this option is automatically enabled for some commands without the need to explicitly setting the `--parallel` flag (see [below](#defaults)). More threads dedicated to the command will result in significant speed improvements.
 
 ## `--parallel` flag options
 
