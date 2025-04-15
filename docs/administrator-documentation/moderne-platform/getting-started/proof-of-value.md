@@ -34,7 +34,8 @@ _The recipes below are listed in order of increasing complexity. You can click t
   * Improve code quality and readability
   * Fix common mistakes
   * Eliminate legacy patterns and minor performance issues
-  * ```bash
+  * 
+    ```bash
     mod run . --recipe CommonStaticAnalysis
     ```
 * SLF4J Logging best practices
@@ -44,7 +45,8 @@ _The recipes below are listed in order of increasing complexity. You can click t
       mod run . --recipe ParameterizedLogging
       ```
   * [Improve error reporting](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.CompleteExceptionLogging) by using exception-specialized logging invocations where applicable
-    *  ```bash
+    * 
+      ```bash
       mod run . --recipe CompleteExceptionLogging
       ```
 * Maven dependency management
