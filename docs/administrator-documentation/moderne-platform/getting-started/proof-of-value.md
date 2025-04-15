@@ -34,46 +34,116 @@ _The recipes below are listed in order of increasing complexity. You can click t
   * Improve code quality and readability
   * Fix common mistakes
   * Eliminate legacy patterns and minor performance issues
-  * 
+  * Moderne CLI:
     ```bash
     mod run . --recipe CommonStaticAnalysis
     ```
 * SLF4J Logging best practices
   * [Improve performance](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging) by preferring parameterized logging to string concatenation
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe ParameterizedLogging
+      ```
   * [Improve error reporting](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.CompleteExceptionLogging) by using exception-specialized logging invocations where applicable
-  * Run with:
-  
-    ```bash
-    mod run . --recipe ParameterizedLogging
-    ```
-*   Maven dependency management
-
-    * [Upgrade Maven dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.UpgradeDependencyVersion) to keep dependencies patched and up-to-date
-    * [Exclude test dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.ExcludeDependency) like JUnit from the compile scope
-    * [Remove redundant explicit dependency versions](https://app.moderne.io/recipes/org.openrewrite.maven.RemoveRedundantDependencyVersions) to clean up Maven POMs
-    * [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe CompleteExceptionLogging
+      ```
+* Maven dependency management
+  * [Upgrade Maven dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.UpgradeDependencyVersion) to keep dependencies patched and up-to-date
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe UpgradeDependencyVersion -P "groupId=com.fasterxml.jackson*" -P "artifactId=jackson-module*" -P "newVersion=29.X" -P "versionPattern='-jre'" -P "retainVersions=com.jcraft:jsch"
+      ```
+  * [Exclude test dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.ExcludeDependency) like JUnit from the compile scope
+  * [Remove redundant explicit dependency versions](https://app.moderne.io/recipes/org.openrewrite.maven.RemoveRedundantDependencyVersions) to clean up Maven POMs
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe RemoveRedundantDependencyVersions
+      ```
+  * [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe DependencyInsight -P groupIdPattern='com.fasterxml.jackson*' -P artifactIdPattern='jackson*'
+      ```
 
     ![](./assets/dep-insight.png)
 * Gradle wrapper and plugin upgrades
   * [Update Gradle Wrapper](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper) to keep Gradle itself up to date
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe UpdateGradleWrapper
+      ```
   * [Update Gradle Plugin](https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.UpgradePluginVersion) to keep build plugins up to date
-*   Security enhancements and discovery
-    * [Find secrets](https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindSecrets) like passwords, encryption keys, access tokens
-    * [Use secure random number generation](https://app.moderne.io/recipes/org.openrewrite.java.security.SecureRandom)
-    * [Java security best practices](https://app.moderne.io/recipes/org.openrewrite.java.security.JavaSecurityBestPractices)
-    * [OWASP Top 10](https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspTopTen)
-    * [Find and fix vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe UpgradePluginVersion -P "pluginIdPattern=com.jfrog.bintray" -P "newVersion=29.X" -P "versionPattern='-jre'"
+      ```
+* Security enhancements and discovery
+  * [Find secrets](https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindSecrets) like passwords, encryption keys, access tokens
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe FindSecrets
+      ```
+  * [Use secure random number generation](https://app.moderne.io/recipes/org.openrewrite.java.security.SecureRandom)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe SecureRandom
+      ```
+  * [Java security best practices](https://app.moderne.io/recipes/org.openrewrite.java.security.JavaSecurityBestPractices)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe JavaSecurityBestPractices
+      ```
+  * [OWASP Top 10](https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspTopTen)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe OwaspTopTen
+      ```
+  * [Find and fix vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe DependencyVulnerabilityCheck -P scope='runtime' -P overrideTransitive=true -P maximumUpgradeDelta='patch'
+      ```
 
     ![](./assets/vuln-dep.png)
 * Modernize test frameworks
   * [JUnit 5 best practices](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit5BestPractices)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe JUnit5BestPractices
+      ```
   * [Mockito 1 to 5 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to5Migration)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe Mockito1to5Migration
+      ```
   * [Migrate JUnit assertions to AssertJ](https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.Assertj) improved readability and consistency over stock JUnit assertions
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe Assertj
+      ```
 * Major migrations
   * [Java 8 to 11](https://app.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe Java8toJava11
+      ```
   * [Java 11 to 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe UpgradeToJava21
+      ```
   * [Spring Boot 1 to 2](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe UpgradeSpringBoot_2_7
+      ```
   * [Spring Boot 3.4 best practices](https://app.moderne.io/recipes/io.moderne.java.spring.boot3.SpringBoot3BestPractices)
+    * Moderne CLI:
+      ```bash
+      mod run . --recipe SpringBoot3BestPractices
+      ```
 * Custom migrations. Custom recipes can be developed to help with internal platform API management, EJB to Spring migrations, etc.
 
 Major migrations are complex transformations consisting of multiple individual recipes. At some point, these transformations represent one-off use cases and there are diminishing returns from trying to automate them fully. Mostly, they will lift your applications 80-90% of the way to completion with the remainder requiring some manual actions expected to be taken by developers.
