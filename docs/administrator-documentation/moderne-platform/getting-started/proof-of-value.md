@@ -93,9 +93,6 @@ Major migrations are complex transformations consisting of multiple individual r
 | UpgradeSpringBoot_2_7 | `mod run . --recipe UpgradeSpringBoot_2_7` |
 | SpringBoot3BestPractices | `mod run . --recipe SpringBoot3BestPractices` |
 
-
-
-
 ### Impact analysis
 
 Another substantial use case worth testing is impact analysis. When adding new functionality or fixing a bug, it's often times good to think about what the consequences would be. While you _could_ make a change and see who yells at you, it's generally better if you take the time to do your due diligence and figure out what's going to happen.
