@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 
 const options = [
@@ -14,21 +14,23 @@ const options = [
         key: 'clientId',
         javaCliKey: 'moderne.agent.github[${i}].clientId',
         dockerCliKey: 'MODERNE_AGENT_GITHUB_${i}_CLIENT_ID',
+        required: true,
       },
       {
         label: 'Client Secret',
         key: 'clientSecret',
         javaCliKey: 'moderne.agent.github[${i}].clientSecret',
         dockerCliKey: 'MODERNE_AGENT_GITHUB_${i}_CLIENT_SECRET',
+        required: true,
       },
       {
         label: 'URL',
         key: 'url',
         javaCliKey: 'moderne.agent.github[${i}].url',
         dockerCliKey: 'MODERNE_AGENT_GITHUB_${i}_URL',
+        required: false,
       },
     ]
-    
   },
   {
     label: 'Uses Bitbucket',
@@ -42,29 +44,33 @@ const options = [
         key: 'clientId',
         javaCliKey: 'moderne.agent.bitbucket[${i}].clientId',
         dockerCliKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_ID',
+        required: true,
       },
       {
         label: 'Client Secret',
         key: 'clientSecret',
         javaCliKey: 'moderne.agent.bitbucket[${i}].clientSecret',
         dockerCliKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_SECRET',
+        required: true,
       },
       {
         label: 'URL',
         key: 'url',
         javaCliKey: 'moderne.agent.bitbucket[${i}].url',
         dockerCliKey: 'MODERNE_AGENT_BITBUCKET_${i}_URL',
+        required: false,
       },
     ]
   },
 ];
 
-
 export default function CommandBuilder() {
   const [cliType, setCliType] = useState('docker'); // or 'java'
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [providerData, setProviderData] = useState({});
+  const [warningMessage, setWarningMessage] = useState('');
   const [copied, setCopied] = useState(false);
+  const [command, setCommand] = useState('');
   const { colorMode } = useColorMode();
   const isDark = colorMode === 'dark';
 
@@ -113,46 +119,64 @@ export default function CommandBuilder() {
     }));
   };
 
+  // This function is used to generate the CLI command.
   const buildCommand = () => {
-    let cmd = cliType === 'java'
+    let cmd = cliType === 'java' 
       ? `mycli ${selectedOptions.filter(opt => !opt.includes('--auth')).join(' ')}`
       : `docker run myimage`;
-  
+
+    let missingFields = false;
+    let message = '';
+
     options.forEach((opt) => {
       if (selectedOptions.includes(opt.value) && opt.hasExtraFields && opt.canRepeat) {
         const data = providerData[opt.id];
         if (!data) return;
-  
+
         for (let i = 0; i < data.count; i++) {
           opt.fields.forEach((field) => {
             const val = data.inputs[`${field.key}_${i}`];
+
+            // Check if any required fields are missing
+            if (field.required && !val) {
+              missingFields = true;
+            }
+
             if (val) {
-              const keyTemplate =
-                cliType === 'java' ? field.javaCliKey : field.dockerCliKey;
+              const keyTemplate = cliType === 'java' ? field.javaCliKey : field.dockerCliKey;
               const resolvedKey = keyTemplate.replace('${i}', i);
-  
-              if (cliType === 'java') {
-                cmd += ` --${resolvedKey}=${val}`;
-              } else if (cliType === 'docker') {
-                cmd += ` -e ${resolvedKey}=${val}`;
-              }
+
+              cmd += cliType === 'java'
+                ? ` --${resolvedKey}=${val}`
+                : ` -e ${resolvedKey}=${val}`;
             }
           });
         }
       }
     });
-  
+
+    // If there are missing required fields, display the warning message
+    if (missingFields) {
+      message = 'One or more required fields does not have a value.';
+    }
+
+    setWarningMessage(message);
     return cmd;
   };
-  
-  
-  const command = buildCommand();
+
+  // Update the command every time the options or data change
+  useEffect(() => {
+    const generatedCommand = buildCommand();
+    setCommand(generatedCommand); // Update the command in the state
+  }, [selectedOptions, providerData, cliType]);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(command).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
+    if (command) {
+      navigator.clipboard.writeText(command).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
+    }
   };
 
   return (
@@ -166,6 +190,7 @@ export default function CommandBuilder() {
       }}
     >
       <h3>Build Your CLI Command</h3>
+      
       <div
         style={{
           marginBottom: '2rem',
@@ -228,17 +253,20 @@ export default function CommandBuilder() {
                   <div key={index} style={{ marginTop: '1rem', paddingLeft: '1rem' }}>
                     <strong>{opt.label} #{index + 1}</strong>
                     {opt.fields.map((field) => (
-                      <div key={field.key} style={{ marginBottom: '0.5rem' }}>
-                        <label>
-                          {field.label}:{' '}
-                          <input
-                            type="text"
-                            value={providerData[opt.id]?.inputs?.[`${field.key}_${index}`] || ''}
-                            onChange={(e) =>
-                              handleFieldChange(opt.id, field.key, index, e.target.value)
-                            }
-                          />
+                      <div key={`${opt.id}-${field.key}-${index}`} style={{ marginBottom: '1rem' }}>
+                        <label style={{ display: 'block' }}>
+                          {field.label}
+                          {field.required && <span style={{ color: 'red' }}> *</span>}
                         </label>
+                        <input
+                          type="text"
+                          value={providerData[opt.id]?.inputs[`${field.key}_${index}`] || ''}
+                          onChange={(e) => handleFieldChange(opt.id, field.key, index, e.target.value)}
+                          required={field.required}
+                          style={{
+                            border: field.required && !providerData[opt.id]?.inputs[`${field.key}_${index}`] ? '1px solid red' : '1px solid #ccc',
+                          }}
+                        />
                       </div>
                     ))}
                   </div>
@@ -248,6 +276,12 @@ export default function CommandBuilder() {
           </div>
         ))}
       </div>
+
+      {warningMessage && (
+        <div style={{ color: 'red', marginTop: '1rem' }}>
+          {warningMessage}
+        </div>
+      )}
 
       <div style={{ marginTop: '1rem' }}>
         <code
