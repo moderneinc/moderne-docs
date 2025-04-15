@@ -34,9 +34,10 @@ _The recipes below are listed in order of increasing complexity. You can click t
   * Improve code quality and readability
   * Fix common mistakes
   * Eliminate legacy patterns and minor performance issues
-```bash
-mod run . --recipe CommonStaticAnalysis
-```
+  * 
+    ```bash
+    mod run . --recipe CommonStaticAnalysis
+    ```
 * SLF4J Logging best practices
   * [Improve performance](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging) by preferring parameterized logging to string concatenation
   * [Improve error reporting](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.CompleteExceptionLogging) by using exception-specialized logging invocations where applicable
