@@ -56,6 +56,10 @@ _The recipes below are listed in order of increasing complexity. You can click t
       mod run . --recipe UpgradeDependencyVersion -P "groupId=com.fasterxml.jackson*" -P "artifactId=jackson-module*" -P "newVersion=29.X" -P "versionPattern='-jre'" -P "retainVersions=com.jcraft:jsch"
       ```
   * [Exclude test dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.ExcludeDependency) like JUnit from the compile scope
+    * 
+      ```bash
+      mod run . --recipe ExcludeDependency -P "groupId=com.google.guava" -P "artifactId=guava" -P "scope=compile"
+      ```
   * [Remove redundant explicit dependency versions](https://app.moderne.io/recipes/org.openrewrite.maven.RemoveRedundantDependencyVersions) to clean up Maven POMs
     * 
       ```bash
