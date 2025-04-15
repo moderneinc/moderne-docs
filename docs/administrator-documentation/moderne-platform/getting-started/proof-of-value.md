@@ -69,29 +69,29 @@ Major migrations are complex transformations consisting of multiple individual r
 
 #### CLI command reference
 
-| Recipe Name | CLI Command |
+| Recipe | CLI command |
 |-------------|-------------|
-| CommonStaticAnalysis | ```mod run . --recipe CommonStaticAnalysis``` |
-| ParameterizedLogging | `mod run . --recipe ParameterizedLogging` |
-| CompleteExceptionLogging | `mod run . --recipe CompleteExceptionLogging` |
-| UpgradeDependencyVersion | `mod run . --recipe UpgradeDependencyVersion -P "groupId=com.fasterxml.jackson*" -P "artifactId=jackson-module*" -P "newVersion=29.X" -P "versionPattern='-jre'" -P "retainVersions=com.jcraft:jsch"` |
-| ExcludeDependency | `mod run . --recipe ExcludeDependency -P "groupId=org.junit.vintage" -P "junit-vintage-engine" -P "scope=compile"` |
-| RemoveRedundantDependencyVersions | `mod run . --recipe RemoveRedundantDependencyVersions` |
-| DependencyInsight | `mod run . --recipe DependencyInsight -P groupIdPattern='com.fasterxml.jackson*' -P artifactIdPattern='jackson*'` |
-| UpdateGradleWrapper | `mod run . --recipe UpdateGradleWrapper` |
-| UpgradePluginVersion | `mod run . --recipe UpgradePluginVersion -P "pluginIdPattern=com.jfrog.bintray" -P "newVersion=29.X" -P "versionPattern='-jre'"` |
-| FindSecrets | `mod run . --recipe FindSecrets` |
-| SecureRandom | `mod run . --recipe SecureRandom` |
-| JavaSecurityBestPractices | `mod run . --recipe JavaSecurityBestPractices` |
-| OwaspTopTen | `mod run . --recipe OwaspTopTen` |
-| DependencyVulnerabilityCheck | `mod run . --recipe DependencyVulnerabilityCheck -P scope='runtime' -P overrideTransitive=true -P maximumUpgradeDelta='patch'` |
-| JUnit5BestPractices | `mod run . --recipe JUnit5BestPractices` |
-| Mockito1to5Migration | `mod run . --recipe Mockito1to5Migration` |
-| Assertj | `mod run . --recipe Assertj` |
-| Java8toJava11 | `mod run . --recipe Java8toJava11` |
-| UpgradeToJava21 | `mod run . --recipe UpgradeToJava21` |
-| UpgradeSpringBoot_2_7 | `mod run . --recipe UpgradeSpringBoot_2_7` |
-| SpringBoot3BestPractices | `mod run . --recipe SpringBoot3BestPractices` |
+| Common static analysis issues | ```mod run . --recipe CommonStaticAnalysis``` |
+| Parameterize SLF4J's logging statements | `mod run . --recipe ParameterizedLogging` |
+| Enhances logging of exceptions | `mod run . --recipe CompleteExceptionLogging` |
+| Upgrade Maven dependency version | `mod run . --recipe UpgradeDependencyVersion -P "groupId=com.fasterxml.jackson*" -P "artifactId=jackson-module*" -P "newVersion=29.X" -P "versionPattern='-jre'" -P "retainVersions=com.jcraft:jsch"` |
+| Exclude Maven dependency | `mod run . --recipe ExcludeDependency -P "groupId=org.junit.vintage" -P "junit-vintage-engine" -P "scope=compile"` |
+| Remove redundant explicit dependency and plugin versions | `mod run . --recipe RemoveRedundantDependencyVersions` |
+| Dependency insight for Gradle and Maven | `mod run . --recipe DependencyInsight -P groupIdPattern='com.fasterxml.jackson*' -P artifactIdPattern='jackson*'` |
+| Update Gradle wrapper | `mod run . --recipe UpdateGradleWrapper` |
+| Update a Gradle plugin by id | `mod run . --recipe UpgradePluginVersion -P "pluginIdPattern=com.jfrog.bintray" -P "newVersion=29.X" -P "versionPattern='-jre'"` |
+| Find secrets | `mod run . --recipe FindSecrets` |
+| Secure random | `mod run . --recipe SecureRandom` |
+| Java security best practices | `mod run . --recipe JavaSecurityBestPractices` |
+| Remediate vulnerabilities from the OWASP Top Ten | `mod run . --recipe OwaspTopTen` |
+| Find and fix vulnerable dependencies | `mod run . --recipe DependencyVulnerabilityCheck -P scope='runtime' -P overrideTransitive=true -P maximumUpgradeDelta='patch'` |
+| JUnit Jupiter best practices | `mod run . --recipe JUnit5BestPractices` |
+| Mockito 5.x upgrade | `mod run . --recipe Mockito1to5Migration` |
+| AssertJ best practices | `mod run . --recipe Assertj` |
+| Migrate to Java 11 | `mod run . --recipe Java8toJava11` |
+| Migrate to Java 21 | `mod run . --recipe UpgradeToJava21` |
+| Migrate to Spring Boot 2.7 | `mod run . --recipe UpgradeSpringBoot_2_7` |
+| Spring Boot 3.4 best practices | `mod run . --recipe SpringBoot3BestPractices` |
 
 ### Impact analysis
 
