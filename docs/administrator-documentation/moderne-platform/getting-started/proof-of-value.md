@@ -58,7 +58,7 @@ _The recipes below are listed in order of increasing complexity. You can click t
   * [Exclude test dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.ExcludeDependency) like JUnit from the compile scope
     * 
       ```bash
-      mod run . --recipe ExcludeDependency -P "groupId=com.google.guava" -P "artifactId=guava" -P "scope=compile"
+      mod run . --recipe ExcludeDependency -P "groupId=org.junit.vintage" -P "junit-vintage-engine" -P "scope=compile"
       ```
   * [Remove redundant explicit dependency versions](https://app.moderne.io/recipes/org.openrewrite.maven.RemoveRedundantDependencyVersions) to clean up Maven POMs
     * 
