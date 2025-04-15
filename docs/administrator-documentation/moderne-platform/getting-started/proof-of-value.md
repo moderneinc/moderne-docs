@@ -28,12 +28,15 @@ The idea is for all of these types of updates to become a continuous process for
 
 ### Recipes to run
 
-_Ordered from least complex to most complex_
+_The recipes below are listed in order of increasing complexity. You can click the links to run them directly on the Moderne Platform. Alternatively, you can run the same recipes using the CLI._
 
 * [Common static analysis fixes](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis)
   * Improve code quality and readability
   * Fix common mistakes
   * Eliminate legacy patterns and minor performance issues
+```bash
+mod run . --recipe CommonStaticAnalysis
+```
 * SLF4J Logging best practices
   * [Improve performance](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging) by preferring parameterized logging to string concatenation
   * [Improve error reporting](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.CompleteExceptionLogging) by using exception-specialized logging invocations where applicable
