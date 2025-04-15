@@ -40,6 +40,9 @@ mod run . --recipe CommonStaticAnalysis
 * SLF4J Logging best practices
   * [Improve performance](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging) by preferring parameterized logging to string concatenation
   * [Improve error reporting](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.CompleteExceptionLogging) by using exception-specialized logging invocations where applicable
+  * ```bash
+mod run . --recipe ParameterizedLogging
+```
 *   Maven dependency management
 
     * [Upgrade Maven dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.UpgradeDependencyVersion) to keep dependencies patched and up-to-date
