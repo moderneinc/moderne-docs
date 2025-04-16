@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.42.3 (2025/04/16)
+
+- Bug fixes and other improvements.
+
 ### UI v11.42.2 (2025/04/15)
 
 - Bug fixes and other improvements.
