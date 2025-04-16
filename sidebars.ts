@@ -346,7 +346,6 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'administrator-documentation/moderne-platform/faq',
-        'administrator-documentation/moderne-platform/experimental-builder'
       ],
     },
     {

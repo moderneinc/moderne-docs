@@ -119,50 +119,79 @@ export default function CommandBuilder() {
     }));
   };
 
+  const handleEnvToggle = (providerId, fieldKey, index, checked) => {
+    setProviderData((prev) => ({
+      ...prev,
+      [providerId]: {
+        ...prev[providerId],
+        inputs: {
+          ...prev[providerId]?.inputs,
+          [`${fieldKey}_${index}_useEnv`]: checked,
+        },
+      },
+    }));
+  };  
+
   // This function is used to generate the CLI command.
   const buildCommand = () => {
-    let cmd = cliType === 'java' 
-      ? `mycli ${selectedOptions.filter(opt => !opt.includes('--auth')).join(' ')}`
-      : `docker run myimage`;
-
+    let baseCmd =
+      cliType === 'java'
+        ? `mycli ${selectedOptions.filter((opt) => !opt.includes('--auth')).join(' ')}`
+        : `docker run myimage`;
+  
+    let exports = [];
     let missingFields = false;
-    let message = '';
-
+  
     options.forEach((opt) => {
-      if (selectedOptions.includes(opt.value) && opt.hasExtraFields && opt.canRepeat) {
+      if (
+        selectedOptions.includes(opt.value) &&
+        opt.hasExtraFields &&
+        opt.canRepeat
+      ) {
         const data = providerData[opt.id];
         if (!data) return;
-
+  
         for (let i = 0; i < data.count; i++) {
           opt.fields.forEach((field) => {
             const val = data.inputs[`${field.key}_${i}`];
-
-            // Check if any required fields are missing
+            const useEnv = data.inputs[`${field.key}_${i}_useEnv`] || false;
+  
             if (field.required && !val) {
               missingFields = true;
             }
-
+  
             if (val) {
-              const keyTemplate = cliType === 'java' ? field.javaCliKey : field.dockerCliKey;
+              const keyTemplate =
+                cliType === 'java' ? field.javaCliKey : field.dockerCliKey;
               const resolvedKey = keyTemplate.replace('${i}', i);
-
-              cmd += cliType === 'java'
-                ? ` --${resolvedKey}=${val}`
-                : ` -e ${resolvedKey}=${val}`;
+  
+              if (useEnv) {
+                exports.push(`export ${resolvedKey}=${val}`);
+                baseCmd +=
+                  cliType === 'java'
+                    ? ` --${resolvedKey}`
+                    : ` -e ${resolvedKey}`;
+              } else {
+                baseCmd +=
+                  cliType === 'java'
+                    ? ` --${resolvedKey}=${val}`
+                    : ` -e ${resolvedKey}=${val}`;
+              }
             }
           });
         }
       }
     });
-
-    // If there are missing required fields, display the warning message
-    if (missingFields) {
-      message = 'One or more required fields does not have a value.';
-    }
-
+  
+    const exportBlock = exports.length ? exports.map(line => line + '\n').join('') + '\n' : '';
+    const message = missingFields
+      ? '⚠️ Some required fields are missing.'
+      : '';
     setWarningMessage(message);
-    return cmd;
+  
+    return exportBlock + baseCmd;
   };
+  
 
   // Update the command every time the options or data change
   useEffect(() => {
@@ -254,20 +283,39 @@ export default function CommandBuilder() {
                     <strong>{opt.label} #{index + 1}</strong>
                     {opt.fields.map((field) => (
                       <div key={`${opt.id}-${field.key}-${index}`} style={{ marginBottom: '1rem' }}>
-                        <label style={{ display: 'block' }}>
-                          {field.label}
-                          {field.required && <span style={{ color: 'red' }}> *</span>}
-                        </label>
+                      <label style={{ display: 'block' }}>
+                        {field.label}
+                        {field.required && <span style={{ color: 'red' }}> *</span>}
+                      </label>
+                      <input
+                        type="text"
+                        value={providerData[opt.id]?.inputs[`${field.key}_${index}`] || ''}
+                        onChange={(e) =>
+                          handleFieldChange(opt.id, field.key, index, e.target.value)
+                        }
+                        required={field.required}
+                        style={{
+                          border:
+                            field.required &&
+                            !providerData[opt.id]?.inputs[`${field.key}_${index}`]
+                              ? '1px solid red'
+                              : '1px solid #ccc',
+                        }}
+                      />
+                      <label style={{ marginLeft: '0.5rem', fontSize: '0.9rem' }}>
                         <input
-                          type="text"
-                          value={providerData[opt.id]?.inputs[`${field.key}_${index}`] || ''}
-                          onChange={(e) => handleFieldChange(opt.id, field.key, index, e.target.value)}
-                          required={field.required}
-                          style={{
-                            border: field.required && !providerData[opt.id]?.inputs[`${field.key}_${index}`] ? '1px solid red' : '1px solid #ccc',
-                          }}
+                          type="checkbox"
+                          checked={
+                            providerData[opt.id]?.inputs[`${field.key}_${index}_useEnv`] || false
+                          }
+                          onChange={(e) =>
+                            handleEnvToggle(opt.id, field.key, index, e.target.checked)
+                          }
+                          style={{ marginRight: '0.25rem' }}
                         />
-                      </div>
+                        Environment variable
+                      </label>
+                    </div>                    
                     ))}
                   </div>
                 ))}
@@ -293,6 +341,7 @@ export default function CommandBuilder() {
             borderRadius: '4px',
             wordBreak: 'break-word',
             fontFamily: 'monospace',
+            whiteSpace: 'pre-wrap',
           }}
         >
           {command}
