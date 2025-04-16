@@ -132,7 +132,7 @@ Lastly, you can download all of this information as a data table by clicking on 
 
 ## Important considerations
 
-**You can't run recipes against existing PRs**. Once you run a recipe and open a PR with Moderne, Moderne will strictly track whether or not that PR has been merged in. You are free to make changes on your own, but we can't modify it further. If you want to change the recipe to get different results, you will need to open new PRs.
+**Take care when running recipes against existing PRs**. Once you open a PR, you can continue pushing changes to that PR as long as they don't conflict with the current state of the branch. If you change a recipe and push again to the branch, or if you push changes manually to the branch, it is unlikely that Moderne will be able to push any further changes to that branch.
 
 On a related note, it's important to realize that merging in a PR generated from a recipe **is not good enough to say that an issue has been resolved**. As Moderne does not know what happens on a PR after it's been opened, it's quite possible for a developer to come and change something and partially undo a fix. 
 
