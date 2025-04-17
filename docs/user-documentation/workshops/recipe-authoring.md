@@ -148,7 +148,7 @@ Read up on the following concepts in the [OpenRewrite documentation](https://doc
    * [TreeVisitingPrinter](https://docs.openrewrite.org/concepts-and-explanations/tree-visiting-printer)
 2. [Visitors](https://docs.openrewrite.org/concepts-and-explanations/visitors)
    * [Cursoring](https://docs.openrewrite.org/concepts-and-explanations/visitors#cursoring)
-   * [Isomorphic vs. non-isomorphic](https://docs.openrewrite.org/concepts-and-explanations/visitors#isomorphic-vs.-non-isomorphic-visitors)
+   * [Isomorphic vs. non-isomorphic](https://docs.openrewrite.org/concepts-and-explanations/visitors#isomorphic-vs-non-isomorphic-visitors)
 3. [Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes)
 
 These concepts should give you some sense as to the importance of exact type attribution, and how visitors are used to traverse and modify the LST. Without these, it would be next to impossible to write recipes that make changes to your code reliably.
