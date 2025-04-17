@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 
 import StepSCMConfig from './StepSCMConfig';
@@ -14,32 +14,42 @@ const steps = [
 export default function CommandBuilderSteps() {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({}); // master shared state
+  const [validationState, setValidationState] = useState({});
   const { colorMode } = useColorMode();
   const isDark = colorMode === 'dark';
 
   const CurrentComponent = steps[currentStep].component;
-
-  // Check if current step allows proceeding to next step
-  const canProceed = () => {
-    if (currentStep === 0) {
-      // For General Config step, check required fields
-      const generalConfig = formData.generalConfig || {};
-      const fields = generalConfig.fields || {};
-      
-      // Check required fields
-      const apiGatewayField = fields.apiGatewayRSocketUri || {};
-      const cryptoKeyField = fields.cryptoSymmetricKey || {};
-      
-      if (!apiGatewayField.value || !cryptoKeyField.value) {
-        return false;
+  
+  // Trigger initial validation when the step changes
+  useEffect(() => {
+    // Trigger validation for the current step
+    setFormData(prev => ({
+      ...prev,
+      triggerValidation: {
+        ...prev.triggerValidation,
+        [steps[currentStep].label]: true
       }
-    }
+    }));
+  }, [currentStep]);
+
+  // Trigger validation in the current step component
+  const validateCurrentStep = () => {
+    // Set a flag for the current component to perform validation
+    setFormData(prev => ({
+      ...prev,
+      triggerValidation: {
+        ...prev.triggerValidation,
+        [steps[currentStep].label]: true
+      }
+    }));
     
-    return true;
+    // Return the current validation state for this step
+    return validationState[steps[currentStep].label]?.valid !== false;
   };
 
   const goNext = () => {
-    if (canProceed()) {
+    // Only proceed if validation passes
+    if (validateCurrentStep()) {
       setCurrentStep((s) => Math.min(s + 1, steps.length - 1));
     }
   };
@@ -47,10 +57,37 @@ export default function CommandBuilderSteps() {
   const goBack = () => setCurrentStep((s) => Math.max(s - 1, 0));
 
   const updateData = (updates) => {
+    // Extract validation info if provided by the component
+    const validation = updates.validation;
+    if (validation) {
+      setValidationState(prev => ({
+        ...prev,
+        [steps[currentStep].label]: validation
+      }));
+      
+      // Remove validation from the updates to keep formData clean
+      delete updates.validation;
+    }
+    
+    // Update the main form data
     setFormData((prev) => ({
       ...prev,
       ...updates
     }));
+  };
+
+  // Determine if the Next button should be disabled
+  const isNextDisabled = () => {
+    // Always disabled on the last step
+    if (currentStep === steps.length - 1) return true;
+    
+    // Disabled if the current step has validation and it's invalid
+    const currentStepValidation = validationState[steps[currentStep].label];
+    if (currentStepValidation && currentStepValidation.valid === false) {
+      return true;
+    }
+    
+    return false;
   };
 
   return (
@@ -92,7 +129,7 @@ export default function CommandBuilderSteps() {
         </button>
         <button 
           onClick={goNext} 
-          disabled={currentStep === steps.length - 1 || !canProceed()}
+          disabled={isNextDisabled()}
           className="button button--primary"
           aria-label={currentStep === steps.length - 1 ? "Finish" : "Go to next step"}
         >

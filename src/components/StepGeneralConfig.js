@@ -64,12 +64,48 @@ export default function StepGeneralConfig({ data, updateData }) {
     };
   });
   
+  // Track validation state
+  const [validationAttempted, setValidationAttempted] = useState(false);
+  
+  // Validate and update parent
+  const validateAndUpdate = () => {
+    let isValid = true;
+    let missingFields = [];
+    
+    // Check all required fields
+    generalOptions.forEach(option => {
+      if (option.required) {
+        const field = generalConfig.fields[option.key];
+        if (!field || !field.value || field.value.trim() === '') {
+          isValid = false;
+          missingFields.push(option.label);
+        }
+      }
+    });
+    
+    // Update parent with validation info
+    updateData({
+      generalConfig,
+      validation: {
+        valid: isValid,
+        missingFields
+      }
+    });
+    
+    return isValid;
+  };
+  
   // Update parent state when local state changes
   useEffect(() => {
-    updateData({
-      generalConfig
-    });
-  }, [generalConfig, updateData]);
+    if (validationAttempted) {
+      validateAndUpdate();
+    } else {
+      // Just update the data without validation info
+      updateData({
+        generalConfig
+      });
+    }
+  }, [generalConfig]);
 
   // Handle input changes for text fields
   const handleInputChange = (key, value) => {
@@ -120,14 +156,32 @@ export default function StepGeneralConfig({ data, updateData }) {
     });
   };
 
-  // Check if a field has an error (only show after user has tried to proceed)
+  // Check if a field has an error
   const hasFieldError = (key) => {
+    if (!validationAttempted) return false;
+    
     const option = generalOptions.find(opt => opt.key === key);
     if (!option || !option.required) return false;
     
-    const field = generalConfig.fields[key] || {};
-    return !field.value;
+    const field = generalConfig.fields[key];
+    return !field || !field.value || field.value.trim() === '';
   };
+
+  // Respond to validation trigger from parent
+  useEffect(() => {
+    if (data.triggerValidation?.['General Config']) {
+      setValidationAttempted(true);
+      validateAndUpdate();
+      
+      // Reset the trigger
+      updateData({
+        triggerValidation: {
+          ...data.triggerValidation,
+          'General Config': false
+        }
+      });
+    }
+  }, [data.triggerValidation]);
 
   return (
     <div className="general-config">
@@ -254,6 +308,7 @@ export default function StepGeneralConfig({ data, updateData }) {
         
         .env-toggle {
           font-size: 0.85rem;
+          margin-top: 0.25rem;
           display: flex;
           align-items: center;
         }
