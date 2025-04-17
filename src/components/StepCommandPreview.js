@@ -1,70 +1,126 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function StepCommandPreview({ data }) {
   // Get data from previous steps
   const { providers = [], providerConfigs = {} } = data || {};
   const generalData = data.generalConfig || {};
+  
+  // Add command type selection
+  const [commandType, setCommandType] = useState('docker');
 
-  const exportLines = [];
-  const dockerArgs = [];
-
-  // Process SCM providers configurations
-  providers.forEach(providerId => {
-    const config = providerConfigs[providerId];
-    if (!config) return;
+  // Generate command whenever data or command type changes
+  const [commandText, setCommandText] = useState('');
+  
+  useEffect(() => {
+    generateCommand();
+  }, [commandType, data]);
+  
+  const generateCommand = () => {
+    const exportLines = [];
+    const cmdArgs = [];
     
-    const { instances = [] } = config;
-    
-    instances.forEach((instance, index) => {
-      if (!instance) return;
+    // Process SCM providers configurations
+    providers.forEach(providerId => {
+      const config = providerConfigs[providerId];
+      if (!config) return;
       
-      Object.entries(instance).forEach(([fieldKey, fieldData]) => {
-        if (!fieldData || !fieldData.value) return;
+      const { instances = [] } = config;
+      
+      instances.forEach((instance, index) => {
+        if (!instance) return;
         
-        const { value, asEnv, envKey } = fieldData;
-        
-        if (asEnv) {
-          // Add as environment variable export
-          exportLines.push(`export ${envKey}=${value}`);
-          // Pass just the env var name to Docker
-          dockerArgs.push(`-e ${envKey}`);
-        } else {
-          // Add direct environment variable to Docker command
-          dockerArgs.push(`-e ${envKey}=${value}`);
-        }
+        Object.entries(instance).forEach(([fieldKey, fieldData]) => {
+          if (!fieldData || !fieldData.value) return;
+          
+          const { value, asEnv, envKey } = fieldData;
+          
+          if (asEnv) {
+            // Always add exports for environment variables
+            exportLines.push(`export ${envKey}=${value}`);
+            
+            if (commandType === 'docker') {
+              // For Docker, pass env var by name
+              cmdArgs.push(`-e ${envKey}`);
+            } else {
+              // For Java, don't include in command line args
+              // (it will use the exported env var)
+            }
+          } else {
+            if (commandType === 'docker') {
+              // For Docker, pass as direct env var
+              cmdArgs.push(`-e ${envKey}=${value}`);
+            } else {
+              // For Java, transform to Java format
+              const javaArg = transformToJavaFormat(envKey, value, index);
+              cmdArgs.push(javaArg);
+            }
+          }
+        });
       });
     });
-  });
-
-  // Process general configuration (if available)
-  if (generalData && generalData.entries) {
-    generalData.entries.forEach(entry => {
-      if (!entry || !entry.value) return;
-      
-      const { key, value, asEnv } = entry;
-      
-      if (asEnv) {
-        // Add as environment variable export
-        exportLines.push(`export ${key}=${value}`);
-        // Pass just the env var name to Docker
-        dockerArgs.push(`-e ${key}`);
-      } else {
-        // Add direct environment variable to Docker command
-        dockerArgs.push(`-e ${key}=${value}`);
-      }
-    });
-  }
-
-  // Build the full command
-  let commandText = '';
+    
+    // Process general config
+    if (generalData && generalData.entries) {
+      generalData.entries.forEach(entry => {
+        if (!entry || !entry.value) return;
+        
+        const { key, value, asEnv } = entry;
+        
+        if (asEnv) {
+          exportLines.push(`export ${key}=${value}`);
+          if (commandType === 'docker') {
+            cmdArgs.push(`-e ${key}`);
+          }
+        } else {
+          if (commandType === 'docker') {
+            cmdArgs.push(`-e ${key}=${value}`);
+          } else {
+            // For Java, transform general config keys too
+            const javaKey = key.toLowerCase().replace(/_/g, '.');
+            cmdArgs.push(`--${javaKey}=${value}`);
+          }
+        }
+      });
+    }
+    
+    // Build the command string
+    let command = '';
+    
+    // Add export lines if any
+    if (exportLines.length > 0) {
+      command += exportLines.join('\n') + '\n\n';
+    }
+    
+    // Add the command based on type
+    if (commandType === 'docker') {
+      command += `docker run ${cmdArgs.join(' ')} -p 8080:8080 moderne-agent:latest`;
+    } else {
+      command += `java -jar moderne-agent-{version}.jar ${cmdArgs.join(' ')}`;
+    }
+    
+    setCommandText(command);
+  };
   
-  // Add export lines if any
-  if (exportLines.length > 0) {
-    commandText += exportLines.join('\n') + '\n\n';
-  }
-  
-  // Add docker run command
-  commandText += `docker run moderne/agent ${dockerArgs.join(' ')}`;
+  // Convert env var key format to Java argument format
+  const transformToJavaFormat = (envKey, value, index) => {
+    // Example: MODERNE_AGENT_GITHUB_0_URL → moderne.agent.github[0].url
+    let javaKey = envKey.toLowerCase();
+    
+    // Replace underscores with dots
+    javaKey = javaKey.replace(/_/g, '.');
+    
+    // Find the index position (should be right before the field name)
+    const indexPosition = javaKey.lastIndexOf('.' + index + '.');
+    
+    if (indexPosition !== -1) {
+      // Replace .0. with [0].
+      javaKey = javaKey.substring(0, indexPosition) + 
+                '[' + index + ']' + 
+                javaKey.substring(indexPosition + 3);
+    }
+    
+    return `--${javaKey}=${value}`;
+  };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(commandText).then(
@@ -82,6 +138,30 @@ export default function StepCommandPreview({ data }) {
 
   return (
     <div className="command-preview">
+      <h4>Command Format</h4>
+      <div className="format-selector">
+        <label className="radio-label">
+          <input
+            type="radio"
+            name="command-type"
+            value="docker"
+            checked={commandType === 'docker'}
+            onChange={() => setCommandType('docker')}
+          />
+          Docker
+        </label>
+        <label className="radio-label">
+          <input
+            type="radio"
+            name="command-type"
+            value="java"
+            checked={commandType === 'java'}
+            onChange={() => setCommandType('java')}
+          />
+          Java
+        </label>
+      </div>
+      
       <h4>Generated Command</h4>
       <div className="command-container">
         <pre className="command-code">
@@ -100,15 +180,25 @@ export default function StepCommandPreview({ data }) {
         <p>
           Run this command to start the Moderne Agent with your configuration.
         </p>
-        <ul>
-          <li>For environment variables: Values are exported at the top and passed to Docker</li>
-          <li>For direct values: Values are passed directly to Docker as environment variables</li>
-        </ul>
       </div>
       
       <style jsx>{`
         .command-preview {
           margin-top: 1rem;
+        }
+        
+        .format-selector {
+          margin-bottom: 1rem;
+        }
+        
+        .radio-label {
+          margin-right: 1.5rem;
+          display: inline-flex;
+          align-items: center;
+        }
+        
+        .radio-label input {
+          margin-right: 0.5rem;
         }
         
         .command-container {
