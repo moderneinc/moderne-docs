@@ -6,13 +6,15 @@ const generalOptions = [
     label: 'API Gateway RSocket URI', 
     key: 'apiGatewayRSocketUri', 
     envKey: 'MODERNE_AGENT_APIGATEWAYRSOCKETURI',
-    description: 'URL for the RSocket connection to the Moderne platform'
+    description: 'URL for the RSocket connection to the Moderne platform',
+    required: true
   },
   { 
     label: 'Crypto Symmetric Key', 
     key: 'cryptoSymmetricKey', 
     envKey: 'MODERNE_AGENT_CRYPTO_SYMMETRICKEY',
-    description: 'Encryption key for secure communications'
+    description: 'Encryption key for secure communications',
+    required: true
   },
   { 
     label: 'Agent Nickname', 
@@ -39,29 +41,33 @@ const availableCommitOptions = [
 export default function StepGeneralConfig({ data, updateData }) {
   // Initialize state from parent data or default values
   const [generalConfig, setGeneralConfig] = useState(() => {
-    const savedConfig = data.generalConfig || {};
+    // Get saved values if they exist
+    const savedFields = data.generalConfig?.fields || {};
+    const savedCommitOptions = data.generalConfig?.commitOptions || [];
+    
     const fieldValues = {};
     
-    // Initialize fields with saved values (no defaults)
+    // Initialize fields with saved values or create defaults
     generalOptions.forEach(option => {
-      const saved = savedConfig[option.key] || {};
+      const saved = savedFields[option.key] || {};
+      
       fieldValues[option.key] = {
         value: saved.value || '',
-        asEnv: saved.asEnv !== undefined ? saved.asEnv : false, // Default to NOT using env vars
+        asEnv: saved.asEnv !== undefined ? saved.asEnv : false,
         envKey: option.envKey
       };
     });
     
     return {
       fields: fieldValues,
-      commitOptions: savedConfig.commitOptions || []
+      commitOptions: savedCommitOptions
     };
   });
   
   // Update parent state when local state changes
   useEffect(() => {
-    updateData({ 
-      generalConfig 
+    updateData({
+      generalConfig
     });
   }, [generalConfig, updateData]);
 
@@ -114,39 +120,60 @@ export default function StepGeneralConfig({ data, updateData }) {
     });
   };
 
+  // Check if a field has an error (only show after user has tried to proceed)
+  const hasFieldError = (key) => {
+    const option = generalOptions.find(opt => opt.key === key);
+    if (!option || !option.required) return false;
+    
+    const field = generalConfig.fields[key] || {};
+    return !field.value;
+  };
+
   return (
     <div className="general-config">
       <section className="config-section">
         <h4>Agent Configuration</h4>
         <p>Configure the core settings for your Moderne Agent</p>
         
-        {generalOptions.map(option => (
-          <div key={option.key} className="field-item">
-            <label className="field-label">
-              {option.label}
-            </label>
-            
-            {option.description && (
-              <div className="field-description">{option.description}</div>
-            )}
-            
-            <input
-              type="text"
-              value={generalConfig.fields[option.key]?.value || ''}
-              onChange={(e) => handleInputChange(option.key, e.target.value)}
-              className="field-input"
-            />
-            
-            <label className="env-toggle">
+        {generalOptions.map(option => {
+          const field = generalConfig.fields[option.key] || {};
+          const showError = hasFieldError(option.key);
+          
+          return (
+            <div key={option.key} className="field-item">
+              <label className="field-label">
+                {option.label}
+                {option.required && <span className="required-mark">*</span>}
+              </label>
+              
+              {option.description && (
+                <div className="field-description">{option.description}</div>
+              )}
+              
               <input
-                type="checkbox"
-                checked={generalConfig.fields[option.key]?.asEnv || false}
-                onChange={() => handleEnvToggle(option.key)}
-              />{' '}
-              Use as environment variable
-            </label>
-          </div>
-        ))}
+                type="text"
+                value={field.value || ''}
+                onChange={(e) => handleInputChange(option.key, e.target.value)}
+                className={`field-input ${showError ? 'field-input-error' : ''}`}
+                aria-required={option.required}
+                aria-invalid={showError}
+              />
+              
+              {showError && (
+                <div className="field-error">This field is required</div>
+              )}
+              
+              <label className="env-toggle">
+                <input
+                  type="checkbox"
+                  checked={field.asEnv || false}
+                  onChange={() => handleEnvToggle(option.key)}
+                />{' '}
+                Use as environment variable
+              </label>
+            </div>
+          );
+        })}
       </section>
       
       <section className="config-section">
@@ -195,6 +222,11 @@ export default function StepGeneralConfig({ data, updateData }) {
           margin-bottom: 0.25rem;
         }
         
+        .required-mark {
+          color: var(--ifm-color-danger);
+          margin-left: 0.25rem;
+        }
+        
         .field-description {
           font-size: 0.85rem;
           color: var(--ifm-color-emphasis-600);
@@ -208,6 +240,16 @@ export default function StepGeneralConfig({ data, updateData }) {
           margin-bottom: 0.5rem;
           border: 1px solid var(--ifm-color-emphasis-300);
           border-radius: 4px;
+        }
+        
+        .field-input-error {
+          border-color: var(--ifm-color-danger);
+        }
+        
+        .field-error {
+          color: var(--ifm-color-danger);
+          font-size: 0.85rem;
+          margin-bottom: 0.5rem;
         }
         
         .env-toggle {
