@@ -199,6 +199,7 @@ export default function StepSCMConfig({ data, updateData }) {
                       const fieldConfig = instance[field.key] || {};
                       const fieldValue = fieldConfig.value || '';
                       const useAsEnv = fieldConfig.asEnv || false;
+                      // Still calculate envKey for internal use, but don't display it
                       const envKey = field.envKey.replace('${i}', index);
                       
                       return (
@@ -224,9 +225,6 @@ export default function StepSCMConfig({ data, updateData }) {
                               onChange={() => handleEnvToggle(id, index, field.key)}
                             />{' '}
                             Use as environment variable
-                            {useAsEnv && (
-                              <span className="env-name"> ({envKey})</span>
-                            )}
                           </label>
                         </div>
                       );
@@ -282,11 +280,6 @@ export default function StepSCMConfig({ data, updateData }) {
         }
         .required {
           color: var(--ifm-color-danger);
-        }
-        .env-name {
-          margin-left: 0.5rem;
-          font-family: monospace;
-          color: var(--ifm-color-emphasis-700);
         }
       `}</style>
     </div>
