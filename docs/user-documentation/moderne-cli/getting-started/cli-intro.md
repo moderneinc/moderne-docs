@@ -822,14 +822,14 @@ There are a variety of ways to create PRs based on your goals. We'll provide a f
 You could push commits to the repositories via:
 
 ```bash
-# Please don't run this comand during the workshop
+# Please don't run this command during the workshop
 mod git push . --last-recipe-run
 ```
 
 Or you could create a PR directly with the GitHub command line:
 
 ```bash
-# Please don't run this comand during the workshop
+# Please don't run this command during the workshop
 mod exec . --last-recipe-run -- gh pr create --title "refactor: Apply AssertJ best practices"
 ```
 
