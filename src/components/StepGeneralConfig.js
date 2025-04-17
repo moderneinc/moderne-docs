@@ -199,9 +199,6 @@ export default function StepGeneralConfig({ data, updateData }) {
   return (
     <div className="general-config">
       <section className="config-section">
-        <h4>Agent Configuration</h4>
-        <p>Configure the core settings for your Moderne Agent</p>
-        
         {generalOptions.map(option => {
           const field = generalConfig.fields[option.key] || {};
           const showError = hasFieldError(option.key);
