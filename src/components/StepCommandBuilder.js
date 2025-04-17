@@ -11,7 +11,7 @@ const steps = [
   { label: 'Command Preview', component: StepCommandPreview },
 ];
 
-export default function CommandBuilderSteps() {
+export default function StepCommandBuilder() {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({}); // master shared state
   const [validationState, setValidationState] = useState({});
