@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// Define the general configuration options
 const generalOptions = [
   { 
     label: 'API Gateway RSocket URI', 
@@ -46,7 +45,6 @@ const generalOptions = [
   }
 ];
 
-// Define commit options that can be selected
 const availableCommitOptions = [
   { label: 'Direct', value: 'Direct' },
   { label: 'Branch', value: 'Branch' },
