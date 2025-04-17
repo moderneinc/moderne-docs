@@ -3,10 +3,10 @@ import { useColorMode } from '@docusaurus/theme-common';
 
 import StepSCMConfig from './StepSCMConfig';
 import StepCommandPreview from './StepCommandPreview';
-// import StepGeneralConfig from './StepGeneralConfig';
+import StepGeneralConfig from './StepGeneralConfig';
 
 const steps = [
-  // { label: 'General config', component: StepGeneralConfig },
+  { label: 'General config', component: StepGeneralConfig },
   { label: 'SCM Configuration', component: StepSCMConfig },
   { label: 'Command Preview', component: StepCommandPreview },
 ];

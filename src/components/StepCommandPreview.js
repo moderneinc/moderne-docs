@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 export default function StepCommandPreview({ data }) {
   // Get data from previous steps
   const { providers = [], providerConfigs = {} } = data || {};
-  const generalData = data.generalConfig || {};
+  const generalConfig = data.generalConfig || {};
   
   // Add command type selection
   const [commandType, setCommandType] = useState('docker');
@@ -18,6 +18,48 @@ export default function StepCommandPreview({ data }) {
   const generateCommand = () => {
     const exportLines = [];
     const cmdArgs = [];
+    
+    // Process general configuration
+    if (generalConfig && generalConfig.fields) {
+      Object.entries(generalConfig.fields).forEach(([key, config]) => {
+        if (!config || !config.value) return;
+        
+        const { value, asEnv, envKey } = config;
+        
+        if (asEnv) {
+          // Always add exports for environment variables
+          exportLines.push(`export ${envKey}=${value}`);
+          
+          if (commandType === 'docker') {
+            // For Docker, pass env var by name
+            cmdArgs.push(`-e ${envKey}`);
+          }
+        } else {
+          if (commandType === 'docker') {
+            // For Docker, pass as direct env var
+            cmdArgs.push(`-e ${envKey}=${value}`);
+          } else {
+            // For Java, transform to Java format
+            const javaKey = envKey.toLowerCase().replace(/_/g, '.');
+            cmdArgs.push(`--${javaKey}=${value}`);
+          }
+        }
+      });
+    }
+    
+    // Process commit options
+    if (generalConfig && generalConfig.commitOptions && generalConfig.commitOptions.length > 0) {
+      generalConfig.commitOptions.forEach((option, index) => {
+        const envKey = `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_${index}`;
+        
+        if (commandType === 'docker') {
+          cmdArgs.push(`-e ${envKey}=${option}`);
+        } else {
+          const javaKey = `moderne.agent.defaultCommitOptions[${index}]`;
+          cmdArgs.push(`--${javaKey}=${option}`);
+        }
+      });
+    }
     
     // Process SCM providers configurations
     providers.forEach(providerId => {
@@ -41,9 +83,6 @@ export default function StepCommandPreview({ data }) {
             if (commandType === 'docker') {
               // For Docker, pass env var by name
               cmdArgs.push(`-e ${envKey}`);
-            } else {
-              // For Java, don't include in command line args
-              // (it will use the exported env var)
             }
           } else {
             if (commandType === 'docker') {
@@ -58,30 +97,6 @@ export default function StepCommandPreview({ data }) {
         });
       });
     });
-    
-    // Process general config
-    if (generalData && generalData.entries) {
-      generalData.entries.forEach(entry => {
-        if (!entry || !entry.value) return;
-        
-        const { key, value, asEnv } = entry;
-        
-        if (asEnv) {
-          exportLines.push(`export ${key}=${value}`);
-          if (commandType === 'docker') {
-            cmdArgs.push(`-e ${key}`);
-          }
-        } else {
-          if (commandType === 'docker') {
-            cmdArgs.push(`-e ${key}=${value}`);
-          } else {
-            // For Java, transform general config keys too
-            const javaKey = key.toLowerCase().replace(/_/g, '.');
-            cmdArgs.push(`--${javaKey}=${value}`);
-          }
-        }
-      });
-    }
     
     // Build the command string
     let command = '';
