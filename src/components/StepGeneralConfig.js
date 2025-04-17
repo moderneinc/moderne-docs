@@ -65,7 +65,7 @@ export default function StepGeneralConfig({ data, updateData }) {
   });
   
   // Track validation state
-  const [validationAttempted, setValidationAttempted] = useState(false);
+  const [validationAttempted, setValidationAttempted] = useState(true); // Start with validation on
   
   // Validate and update parent
   const validateAndUpdate = () => {
@@ -95,16 +95,14 @@ export default function StepGeneralConfig({ data, updateData }) {
     return isValid;
   };
   
+  // Run initial validation when component mounts
+  useEffect(() => {
+    validateAndUpdate();
+  }, []);
+  
   // Update parent state when local state changes
   useEffect(() => {
-    if (validationAttempted) {
-      validateAndUpdate();
-    } else {
-      // Just update the data without validation info
-      updateData({
-        generalConfig
-      });
-    }
+    validateAndUpdate();
   }, [generalConfig]);
 
   // Handle input changes for text fields
