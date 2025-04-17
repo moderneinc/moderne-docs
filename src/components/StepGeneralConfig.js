@@ -6,36 +6,53 @@ const generalOptions = [
     label: 'API Gateway RSocket URI', 
     key: 'apiGatewayRSocketUri', 
     envKey: 'MODERNE_AGENT_APIGATEWAYRSOCKETURI',
-    description: 'URL for the RSocket connection to the Moderne platform',
+    description: 'The URI used to connect to the Moderne API, provided by Moderne.',
     required: true
   },
   { 
     label: 'Crypto Symmetric Key', 
     key: 'cryptoSymmetricKey', 
     envKey: 'MODERNE_AGENT_CRYPTO_SYMMETRICKEY',
-    description: 'Encryption key for secure communications',
+    description: 'A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.',
     required: true
   },
   { 
     label: 'Agent Nickname', 
-    key: 'nickname', 
+    key: 'agentNickname', 
     envKey: 'MODERNE_AGENT_NICKNAME',
-    description: 'Name used to identify this agent instance'
+    description: 'A name used to identify your agent in the SaaS agent dashboard UI.',
+    required: true
   },
   { 
-    label: 'Authentication Token', 
-    key: 'token', 
+    label: 'Agent Token', 
+    key: 'agentToken', 
     envKey: 'MODERNE_AGENT_TOKEN',
-    description: 'Token used for authenticating with the Moderne platform'
+    description: 'The Moderne SaaS agent connection token, provided by Moderne.',
+    required: true
+  },
+  { 
+    label: 'Download Parallelism', 
+    key: 'downloadParallelism', 
+    envKey: 'MODERNE_AGENT_DOWNLOADPARALLELISM',
+    description: 'How many threads are used to download LSTs. Defaults to 2 threads.',
+    required: false
+  },
+  { 
+    label: 'Artifact Index Interval Seconds', 
+    key: 'artifactIndexInterval', 
+    envKey: 'MODERNE_AGENT_ARTIFACTINDEXINTERVALSECONDS	',
+    description: 'How frequently LSTs will be indexed. Defaults to 120 seconds.',
+    required: false
   }
 ];
 
 // Define commit options that can be selected
 const availableCommitOptions = [
+  { label: 'Direct', value: 'Direct' },
+  { label: 'Branch', value: 'Branch' },
+  { label: 'Fork', value: 'Fork' },
   { label: 'Pull Request', value: 'PullRequest' },
-  { label: 'Fork and Pull Request', value: 'ForkAndPullRequest' },
-  { label: 'Direct Commit', value: 'DirectCommit' },
-  { label: 'Branch', value: 'Branch' }
+  { label: 'Fork and Pull Request', value: 'ForkAndPullRequest' },  
 ];
 
 export default function StepGeneralConfig({ data, updateData }) {
@@ -230,7 +247,7 @@ export default function StepGeneralConfig({ data, updateData }) {
       
       <section className="config-section">
         <h4>Default Commit Options</h4>
-        <p>Select how you want changes to be committed by default</p>
+        <p>Use to restrict which commit options are available on a tenant level (if the organizations service doesn't return any). By default, all options are available.</p>
         
         <div className="commit-options">
           {availableCommitOptions.map((option) => (
