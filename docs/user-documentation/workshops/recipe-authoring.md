@@ -508,6 +508,10 @@ Because of that, there's a temptation to put the methods directly onto the class
 
 For a full understanding of traits, check out our [documentation on traits](https://docs.openrewrite.org/concepts-and-explanations/traits).
 
+### Automating breaking changes
+
+Now that you've seen the various ways in which you can write recipes, you're perfectly positioned to start [automating breaking changes](https://docs.openrewrite.org/authoring-recipes/automate-breaking-changes).
+
 ## Recipe conventions and best practices
 
 We've documented the most important [recipe conventions and best practices](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices) to help you write recipes that are safe, idempotent, and efficient. Where possible, we've automated these checks in the unit testing framework, to help you catch issues early.
