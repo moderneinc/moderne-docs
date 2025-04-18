@@ -68,7 +68,7 @@ export default function StepCommandPreview({ data }) {
       
       const { instances = [] } = config;
       
-      instances.forEach((instance, index) => {
+      instances.forEach((instance, instanceIndex) => {
         if (!instance) return;
         
         Object.entries(instance).forEach(([fieldKey, fieldData]) => {
@@ -76,22 +76,38 @@ export default function StepCommandPreview({ data }) {
           
           const { value, asEnv, envKey } = fieldData;
           
-          if (asEnv) {
-            // Always add exports for environment variables
-            exportLines.push(`export ${envKey}=${value}`);
-            
-            if (commandType === 'docker') {
-              // For Docker, pass env var by name
-              cmdArgs.push(`-e ${envKey}`);
-            }
+          // Handle array fields differently
+          if (Array.isArray(value)) {
+            value.forEach((item, arrayIndex) => {
+              const arrayEnvKey = envKey.replace(/\${i}/g, arrayIndex);
+              if (asEnv) {
+                exportLines.push(`export ${arrayEnvKey}=${item}`);
+                if (commandType === 'docker') {
+                  cmdArgs.push(`-e ${arrayEnvKey}`);
+                }
+              } else {
+                if (commandType === 'docker') {
+                  cmdArgs.push(`-e ${arrayEnvKey}=${item}`);
+                } else {
+                  const javaArg = transformToJavaFormat(arrayEnvKey, item, instanceIndex);
+                  cmdArgs.push(javaArg);
+                }
+              }
+            });
           } else {
-            if (commandType === 'docker') {
-              // For Docker, pass as direct env var
-              cmdArgs.push(`-e ${envKey}=${value}`);
+            // Handle non-array fields as before
+            if (asEnv) {
+              exportLines.push(`export ${envKey}=${value}`);
+              if (commandType === 'docker') {
+                cmdArgs.push(`-e ${envKey}`);
+              }
             } else {
-              // For Java, transform to Java format
-              const javaArg = transformToJavaFormat(envKey, value, index);
-              cmdArgs.push(javaArg);
+              if (commandType === 'docker') {
+                cmdArgs.push(`-e ${envKey}=${value}`);
+              } else {
+                const javaArg = transformToJavaFormat(envKey, value, instanceIndex);
+                cmdArgs.push(javaArg);
+              }
             }
           }
         });
