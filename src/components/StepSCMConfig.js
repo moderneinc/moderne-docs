@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import scmProviderDefinitions from './scmProviderDefinitions';
-import ProviderSection from './ProviderSection';
+import SCMProviderSection from './SCMProviderSection';
 import useSCMValidation from './useSCMValidation';
 
 /**
@@ -8,13 +8,13 @@ import useSCMValidation from './useSCMValidation';
  */
 export default function StepSCMConfig({ data, updateData }) {
   // Initialize state from parent data or default values
-  const [providers, setProviders] = useState(data.providers || []);
-  const [providerConfigs, setProviderConfigs] = useState(data.providerConfigs || {});
+  const [scmProviders, setScmProviders] = useState(data.providers || []);
+  const [scmProviderConfigs, setScmProviderConfigs] = useState(data.providerConfigs || {});
   
   // Use custom validation hook
   const { validateAndUpdate, hasFieldError } = useSCMValidation(
-    providers, 
-    providerConfigs,
+    scmProviders, 
+    scmProviderConfigs,
     scmProviderDefinitions,
     data,
     updateData
@@ -23,35 +23,35 @@ export default function StepSCMConfig({ data, updateData }) {
   // Update parent state when local state changes
   useEffect(() => {
     validateAndUpdate();
-  }, [providers, providerConfigs]);
+  }, [scmProviders, scmProviderConfigs]);
 
-  // Add or remove a provider
-  const toggleProvider = (id) => {
-    const newProviders = providers.includes(id)
-      ? providers.filter(p => p !== id)
-      : [...providers, id];
+  // Add or remove an SCM provider
+  const toggleSCMProvider = (id) => {
+    const newProviders = scmProviders.includes(id)
+      ? scmProviders.filter(p => p !== id)
+      : [...scmProviders, id];
       
-    let newConfigs = {...providerConfigs};
+    let newConfigs = {...scmProviderConfigs};
     
-    if (providers.includes(id)) {
+    if (scmProviders.includes(id)) {
       // Remove this provider
       delete newConfigs[id];
     } else {
       // Add this provider with default 1 instance
       newConfigs[id] = {
         count: 1,
-        instances: [createDefaultInstance(id, 0)]
+        instances: [createDefaultSCMInstance(id, 0)]
       };
     }
     
-    setProviders(newProviders);
-    setProviderConfigs(newConfigs);
+    setScmProviders(newProviders);
+    setScmProviderConfigs(newConfigs);
   };
 
   // Create a default instance with empty values
-  const createDefaultInstance = (providerId, index) => {
+  const createDefaultSCMInstance = (scmProviderId, index) => {
     const instance = {};
-    scmProviderDefinitions[providerId].fields.forEach(field => {
+    scmProviderDefinitions[scmProviderId].fields.forEach(field => {
       let defaultValue = '';
       // Set appropriate default for each field type
       if (field.type === 'boolean') {
@@ -67,19 +67,19 @@ export default function StepSCMConfig({ data, updateData }) {
     return instance;
   };
 
-  // Update the number of instances for a provider
-  const setProviderCount = (providerId, count) => {
+  // Update the number of instances for an SCM provider
+  const setSCMProviderCount = (scmProviderId, count) => {
     count = Math.max(1, count); // Ensure at least 1
     
-    const currentCount = providerConfigs[providerId]?.count || 1;
-    const currentInstances = [...(providerConfigs[providerId]?.instances || [])];
+    const currentCount = scmProviderConfigs[scmProviderId]?.count || 1;
+    const currentInstances = [...(scmProviderConfigs[scmProviderId]?.instances || [])];
     
     let newInstances = [...currentInstances];
     
     // Add more instances if needed
     if (count > currentCount) {
       for (let i = currentCount; i < count; i++) {
-        newInstances.push(createDefaultInstance(providerId, i));
+        newInstances.push(createDefaultSCMInstance(scmProviderId, i));
       }
     } 
     // Remove excess instances if count decreased
@@ -88,22 +88,22 @@ export default function StepSCMConfig({ data, updateData }) {
     }
     
     const newConfigs = {
-      ...providerConfigs,
-      [providerId]: {
+      ...scmProviderConfigs,
+      [scmProviderId]: {
         count,
         instances: newInstances
       }
     };
     
-    setProviderConfigs(newConfigs);
+    setScmProviderConfigs(newConfigs);
   };
 
   // Update a specific field value
-  const handleInputChange = (providerId, instanceIndex, fieldKey, value) => {
-    const instances = [...(providerConfigs[providerId]?.instances || [])];
+  const handleSCMInputChange = (scmProviderId, instanceIndex, fieldKey, value) => {
+    const instances = [...(scmProviderConfigs[scmProviderId]?.instances || [])];
     
     if (!instances[instanceIndex]) {
-      instances[instanceIndex] = createDefaultInstance(providerId, instanceIndex);
+      instances[instanceIndex] = createDefaultSCMInstance(scmProviderId, instanceIndex);
     }
     
     instances[instanceIndex] = {
@@ -115,22 +115,22 @@ export default function StepSCMConfig({ data, updateData }) {
     };
     
     const newConfigs = {
-      ...providerConfigs,
-      [providerId]: {
-        ...providerConfigs[providerId],
+      ...scmProviderConfigs,
+      [scmProviderId]: {
+        ...scmProviderConfigs[scmProviderId],
         instances
       }
     };
     
-    setProviderConfigs(newConfigs);
+    setScmProviderConfigs(newConfigs);
   };
 
   // Toggle environment variable usage
-  const handleEnvToggle = (providerId, instanceIndex, fieldKey) => {
-    const instances = [...(providerConfigs[providerId]?.instances || [])];
+  const handleSCMEnvToggle = (scmProviderId, instanceIndex, fieldKey) => {
+    const instances = [...(scmProviderConfigs[scmProviderId]?.instances || [])];
     
     if (!instances[instanceIndex]) {
-      instances[instanceIndex] = createDefaultInstance(providerId, instanceIndex);
+      instances[instanceIndex] = createDefaultSCMInstance(scmProviderId, instanceIndex);
     }
     
     instances[instanceIndex] = {
@@ -142,14 +142,14 @@ export default function StepSCMConfig({ data, updateData }) {
     };
     
     const newConfigs = {
-      ...providerConfigs,
-      [providerId]: {
-        ...providerConfigs[providerId],
+      ...scmProviderConfigs,
+      [scmProviderId]: {
+        ...scmProviderConfigs[scmProviderId],
         instances
       }
     };
     
-    setProviderConfigs(newConfigs);
+    setScmProviderConfigs(newConfigs);
   };
 
   return (
@@ -157,17 +157,17 @@ export default function StepSCMConfig({ data, updateData }) {
       <p>Select which SCM providers you want to configure:</p>
       
       {Object.entries(scmProviderDefinitions).map(([id, config]) => (
-        <ProviderSection
+        <SCMProviderSection
           key={id}
-          providerType={id}
-          providerConfig={config}
-          selected={providers.includes(id)}
-          instances={providerConfigs[id]?.instances || []}
-          count={providerConfigs[id]?.count || 1}
-          onToggle={() => toggleProvider(id)}
-          onCountChange={setProviderCount}
-          onFieldChange={handleInputChange}
-          onEnvToggle={handleEnvToggle}
+          scmProviderType={id}
+          scmProviderConfig={config}
+          selected={scmProviders.includes(id)}
+          instances={scmProviderConfigs[id]?.instances || []}
+          count={scmProviderConfigs[id]?.count || 1}
+          onToggle={() => toggleSCMProvider(id)}
+          onCountChange={setSCMProviderCount}
+          onFieldChange={handleSCMInputChange}
+          onEnvToggle={handleSCMEnvToggle}
           hasFieldError={hasFieldError}
         />
       ))}

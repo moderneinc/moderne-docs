@@ -18,12 +18,12 @@ function useSCMValidation(providers, providerConfigs, scmOptions, data, updateDa
       return true;
     }
     
-    // Validate each selected provider
+    // Validate each selected SCM provider
     let isValid = true;
     let missingFields = [];
     
-    for (const providerId of providers) {
-      const config = providerConfigs[providerId];
+    for (const scmProviderId of providers) {
+      const config = providerConfigs[scmProviderId];
       if (!config) {
         isValid = false;
         continue;
@@ -37,12 +37,12 @@ function useSCMValidation(providers, providerConfigs, scmOptions, data, updateDa
         if (!instance) continue;
         
         // Check required fields based on provider config
-        scmOptions[providerId].fields.forEach(field => {
+        scmOptions[scmProviderId].fields.forEach(field => {
           if (field.required) {
             const fieldData = instance[field.key];
             if (!fieldData || (field.type !== 'boolean' && (!fieldData.value || fieldData.value.trim() === ''))) {
               isValid = false;
-              missingFields.push(`${providerId} #${i+1} ${field.label}`);
+              missingFields.push(`${scmProviderId} #${i+1} ${field.label}`);
             }
           }
         });
@@ -63,13 +63,13 @@ function useSCMValidation(providers, providerConfigs, scmOptions, data, updateDa
   };
 
   // Check if a field has an error
-  const hasFieldError = (providerId, instanceIndex, fieldKey) => {
+  const hasFieldError = (scmProviderId, instanceIndex, fieldKey) => {
     if (!validationAttempted) return false;
     
-    const field = scmOptions[providerId].fields.find(f => f.key === fieldKey);
+    const field = scmOptions[scmProviderId].fields.find(f => f.key === fieldKey);
     if (!field || !field.required) return false;
     
-    const instance = providerConfigs[providerId]?.instances?.[instanceIndex];
+    const instance = providerConfigs[scmProviderId]?.instances?.[instanceIndex];
     if (!instance) return false;
     
     const fieldData = instance[fieldKey];

@@ -1,12 +1,12 @@
 import React from 'react';
-import ProviderInstance from './ProviderInstance';
+import SCMProviderInstance from './SCMProviderInstance';
 
 /**
- * Renders a provider section with all its instances
+ * Renders an SCM provider section with all its instances
  */
-function ProviderSection({
-  providerType,
-  providerConfig,
+function SCMProviderSection({
+  scmProviderType,
+  scmProviderConfig,
   selected,
   instances,
   count,
@@ -17,34 +17,34 @@ function ProviderSection({
   hasFieldError
 }) {
   return (
-    <div className="provider-section">
-      <label className="provider-checkbox">
+    <div className="scm-provider-section">
+      <label className="scm-provider-checkbox">
         <input
           type="checkbox"
           checked={selected}
           onChange={onToggle}
         />{' '}
-        {providerConfig.label}
+        {scmProviderConfig.label}
       </label>
 
       {selected && (
-        <div className="provider-configs">
+        <div className="scm-provider-configs">
           <label className="instance-count">
-            Number of {providerConfig.label} Configs:{' '}
+            Number of {scmProviderConfig.label} Configs:{' '}
             <input
               type="number"
               min={1}
               value={count}
-              onChange={(e) => onCountChange(providerType, parseInt(e.target.value || '1', 10))}
+              onChange={(e) => onCountChange(scmProviderType, parseInt(e.target.value || '1', 10))}
               style={{ width: '60px' }}
             />
           </label>
 
           {Array.from({ length: count }).map((_, index) => (
-            <ProviderInstance
-              key={`${providerType}-instance-${index}`}
-              providerType={providerType}
-              providerConfig={providerConfig}
+            <SCMProviderInstance
+              key={`${scmProviderType}-instance-${index}`}
+              scmProviderType={scmProviderType}
+              scmProviderConfig={scmProviderConfig}
               index={index}
               instance={instances[index] || {}}
               onFieldChange={onFieldChange}
@@ -56,17 +56,17 @@ function ProviderSection({
       )}
 
       <style jsx>{`
-        .provider-section {
+        .scm-provider-section {
           margin-bottom: 1.5rem;
           padding-bottom: 1rem;
           border-bottom: 1px solid var(--ifm-color-emphasis-200);
         }
-        .provider-checkbox {
+        .scm-provider-checkbox {
           font-weight: bold;
           display: flex;
           align-items: center;
         }
-        .provider-configs {
+        .scm-provider-configs {
           padding-left: 1.5rem;
           margin-top: 0.75rem;
         }
@@ -79,4 +79,4 @@ function ProviderSection({
   );
 }
 
-export default ProviderSection;
+export default SCMProviderSection;
