@@ -233,7 +233,7 @@ export default function StepGeneralConfig({ data, updateData }) {
                   checked={field.asEnv || false}
                   onChange={() => handleEnvToggle(option.key)}
                 />{' '}
-                Use as environment variable
+                Environment variable
               </label>
             </div>
           );

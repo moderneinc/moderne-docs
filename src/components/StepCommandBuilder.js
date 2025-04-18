@@ -6,7 +6,7 @@ import StepCommandPreview from './StepCommandPreview';
 import StepGeneralConfig from './StepGeneralConfig';
 
 const steps = [
-  { label: 'Core variables', component: StepGeneralConfig },
+  // { label: 'Core variables', component: StepGeneralConfig },
   { label: 'SCM Configuration', component: StepSCMConfig },
   { label: 'Command Preview', component: StepCommandPreview },
 ];

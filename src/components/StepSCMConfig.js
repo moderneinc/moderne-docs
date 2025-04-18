@@ -1,20 +1,87 @@
 import React, { useState, useEffect } from 'react';
 
 const scmOptions = {
+  azure: {
+    label: 'Azure DevOps',
+    fields: [
+      { 
+        label: 'Client ID', 
+        key: 'clientId', 
+        envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_OAUTH_CLIENTID', 
+        required: true,
+        description: 'The client ID of the registered OAuth app.'
+      },
+      { 
+        label: 'Client Secret', 
+        key: 'clientSecret', 
+        envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_OAUTH_CLIENTSECRET', 
+        required: true,
+        description: 'The client secret of the registered OAuth app.'
+      },
+      { 
+        label: 'OAuth Tenant ID', 
+        key: 'oauthTenantId', 
+        envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_OAUTH_TENANTID', 
+        required: true,
+        description: 'The Azure tenant ID of the registered OAuth app.'
+      },
+      { 
+        label: 'Skip SSL', 
+        key: 'skipSSL', 
+        envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_SKIPSSL', 
+        required: false,
+        description: 'Specifies whether or not to skip SSL validation for HTTP connections to this Azure DevOps instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to false.'
+      },
+    ],
+  },
   github: {
     label: 'GitHub',
     fields: [
-      { label: 'Client ID', key: 'clientId', envKey: 'MODERNE_AGENT_GITHUB_${i}_CLIENT_ID', required: true },
-      { label: 'Client Secret', key: 'clientSecret', envKey: 'MODERNE_AGENT_GITHUB_${i}_CLIENT_SECRET', required: true },
-      { label: 'URL', key: 'url', envKey: 'MODERNE_AGENT_GITHUB_${i}_URL' },
+      { 
+        label: 'Client ID', 
+        key: 'clientId', 
+        envKey: 'MODERNE_AGENT_GITHUB_${i}_CLIENT_ID', 
+        required: true,
+        description: 'OAuth App Client ID from your GitHub organization settings'
+      },
+      { 
+        label: 'Client Secret', 
+        key: 'clientSecret', 
+        envKey: 'MODERNE_AGENT_GITHUB_${i}_CLIENT_SECRET', 
+        required: true,
+        description: 'OAuth App Client Secret from your GitHub organization settings'
+      },
+      { 
+        label: 'URL', 
+        key: 'url', 
+        envKey: 'MODERNE_AGENT_GITHUB_${i}_URL',
+        description: 'GitHub instance URL (leave empty for github.com)'
+      },
     ],
   },
   bitbucket: {
     label: 'Bitbucket',
     fields: [
-      { label: 'Client ID', key: 'clientId', envKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_ID', required: true },
-      { label: 'Client Secret', key: 'clientSecret', envKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_SECRET', required: true },
-      { label: 'URL', key: 'url', envKey: 'MODERNE_AGENT_BITBUCKET_${i}_URL' },
+      { 
+        label: 'Client ID', 
+        key: 'clientId', 
+        envKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_ID', 
+        required: true,
+        description: 'OAuth Consumer Key from your Bitbucket workspace settings'
+      },
+      { 
+        label: 'Client Secret', 
+        key: 'clientSecret', 
+        envKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_SECRET', 
+        required: true,
+        description: 'OAuth Consumer Secret from your Bitbucket workspace settings'
+      },
+      { 
+        label: 'URL', 
+        key: 'url', 
+        envKey: 'MODERNE_AGENT_BITBUCKET_${i}_URL',
+        description: 'Bitbucket instance URL (leave empty for bitbucket.org)'
+      },
     ],
   },
 };
@@ -23,7 +90,7 @@ export default function StepSCMConfig({ data, updateData }) {
   // Initialize state from parent data or default values
   const [providers, setProviders] = useState(data.providers || []);
   const [providerConfigs, setProviderConfigs] = useState(data.providerConfigs || {});
-  const [validationAttempted, setValidationAttempted] = useState(false);
+  const [validationAttempted, setValidationAttempted] = useState(true); // Start with validation on
   
   // Validate all fields and update parent with validation state
   const validateAndUpdate = (newProviders, newConfigs) => {
@@ -84,17 +151,14 @@ export default function StepSCMConfig({ data, updateData }) {
     return isValid;
   };
   
+  // Run initial validation when component mounts
+  useEffect(() => {
+    validateAndUpdate();
+  }, []);
+  
   // Update parent state when local state changes
   useEffect(() => {
-    if (validationAttempted) {
-      validateAndUpdate();
-    } else {
-      // Just update the data without validation messages
-      updateData({
-        providers,
-        providerConfigs
-      });
-    }
+    validateAndUpdate();
   }, [providers, providerConfigs]);
 
   // Add or remove a provider
@@ -118,11 +182,6 @@ export default function StepSCMConfig({ data, updateData }) {
     
     setProviders(newProviders);
     setProviderConfigs(newConfigs);
-    
-    // If validation has been attempted, update validation
-    if (validationAttempted) {
-      validateAndUpdate(newProviders, newConfigs);
-    }
   };
 
   // Create a default instance with empty values
@@ -301,6 +360,10 @@ export default function StepSCMConfig({ data, updateData }) {
                             {field.required && <span className="required-mark">*</span>}
                           </label>
                           
+                          {field.description && (
+                            <div className="field-description">{field.description}</div>
+                          )}
+                          
                           <input
                             type="text"
                             value={fieldValue}
@@ -322,7 +385,7 @@ export default function StepSCMConfig({ data, updateData }) {
                               checked={useAsEnv}
                               onChange={() => handleEnvToggle(id, index, field.key)}
                             />{' '}
-                            Use as environment variable
+                            Environment variable
                           </label>
                         </div>
                       );
@@ -374,6 +437,11 @@ export default function StepSCMConfig({ data, updateData }) {
         .required-mark {
           color: var(--ifm-color-danger);
           margin-left: 0.25rem;
+        }
+        .field-description {
+          font-size: 0.85rem;
+          color: var(--ifm-color-emphasis-600);
+          margin-bottom: 0.5rem;
         }
         .field-input {
           width: 100%;
