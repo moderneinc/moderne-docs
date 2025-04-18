@@ -9,28 +9,32 @@ const scmOptions = {
         key: 'clientId', 
         envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_OAUTH_CLIENTID', 
         required: true,
-        description: 'The client ID of the registered OAuth app.'
+        type: 'text',
+        description: 'Application (client) ID for your Azure DevOps OAuth app'
       },
       { 
         label: 'Client Secret', 
         key: 'clientSecret', 
         envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_OAUTH_CLIENTSECRET', 
         required: true,
-        description: 'The client secret of the registered OAuth app.'
+        type: 'text',
+        description: 'Secret key for your Azure DevOps OAuth app authentication'
       },
       { 
         label: 'OAuth Tenant ID', 
         key: 'oauthTenantId', 
         envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_OAUTH_TENANTID', 
         required: true,
-        description: 'The Azure tenant ID of the registered OAuth app.'
+        type: 'text',
+        description: 'Directory (tenant) ID for your Azure Active Directory'
       },
       { 
-        label: 'Skip SSL', 
+        label: 'Skip SSL Verification', 
         key: 'skipSSL', 
         envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_SKIPSSL', 
         required: false,
-        description: 'Specifies whether or not to skip SSL validation for HTTP connections to this Azure DevOps instance. This must be set to true if you use a self-signed SSL/TLS certificate. Defaults to false.'
+        type: 'boolean',
+        description: 'Disable SSL verification (not recommended for production)'
       },
     ],
   },
@@ -42,6 +46,7 @@ const scmOptions = {
         key: 'clientId', 
         envKey: 'MODERNE_AGENT_GITHUB_${i}_CLIENT_ID', 
         required: true,
+        type: 'text',
         description: 'OAuth App Client ID from your GitHub organization settings'
       },
       { 
@@ -49,12 +54,14 @@ const scmOptions = {
         key: 'clientSecret', 
         envKey: 'MODERNE_AGENT_GITHUB_${i}_CLIENT_SECRET', 
         required: true,
+        type: 'text',
         description: 'OAuth App Client Secret from your GitHub organization settings'
       },
       { 
         label: 'URL', 
         key: 'url', 
         envKey: 'MODERNE_AGENT_GITHUB_${i}_URL',
+        type: 'text',
         description: 'GitHub instance URL (leave empty for github.com)'
       },
     ],
@@ -67,6 +74,7 @@ const scmOptions = {
         key: 'clientId', 
         envKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_ID', 
         required: true,
+        type: 'text',
         description: 'OAuth Consumer Key from your Bitbucket workspace settings'
       },
       { 
@@ -74,12 +82,14 @@ const scmOptions = {
         key: 'clientSecret', 
         envKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_SECRET', 
         required: true,
+        type: 'text',
         description: 'OAuth Consumer Secret from your Bitbucket workspace settings'
       },
       { 
         label: 'URL', 
         key: 'url', 
         envKey: 'MODERNE_AGENT_BITBUCKET_${i}_URL',
+        type: 'text',
         description: 'Bitbucket instance URL (leave empty for bitbucket.org)'
       },
     ],
@@ -129,7 +139,7 @@ export default function StepSCMConfig({ data, updateData }) {
         scmOptions[providerId].fields.forEach(field => {
           if (field.required) {
             const fieldData = instance[field.key];
-            if (!fieldData || !fieldData.value || fieldData.value.trim() === '') {
+            if (!fieldData || (field.type !== 'boolean' && (!fieldData.value || fieldData.value.trim() === ''))) {
               isValid = false;
               missingFields.push(`${providerId} #${i+1} ${field.label}`);
             }
@@ -188,8 +198,14 @@ export default function StepSCMConfig({ data, updateData }) {
   const createDefaultInstance = (providerId, index) => {
     const instance = {};
     scmOptions[providerId].fields.forEach(field => {
+      let defaultValue = '';
+      // Set appropriate default for each field type
+      if (field.type === 'boolean') {
+        defaultValue = 'false';
+      }
+      
       instance[field.key] = {
-        value: '',
+        value: defaultValue,
         asEnv: false,
         envKey: field.envKey.replace('${i}', index)
       };
@@ -293,6 +309,9 @@ export default function StepSCMConfig({ data, updateData }) {
     if (!instance) return false;
     
     const fieldData = instance[fieldKey];
+    // Boolean fields are always valid (they default to false)
+    if (field.type === 'boolean') return false;
+    
     return !fieldData?.value || fieldData.value.trim() === '';
   };
 
@@ -311,6 +330,52 @@ export default function StepSCMConfig({ data, updateData }) {
       });
     }
   }, [data.triggerValidation]);
+
+  // Render different input types based on field type
+  const renderFieldInput = (field, providerId, instanceIndex, instance) => {
+    const fieldConfig = instance[field.key] || {};
+    const fieldValue = fieldConfig.value || '';
+    const useAsEnv = fieldConfig.asEnv || false;
+    const showError = hasFieldError(providerId, instanceIndex, field.key);
+
+    if (field.type === 'boolean') {
+      return (
+        <div className="radio-group">
+          <label className="radio-label">
+            <input
+              type="radio"
+              name={`${providerId}-${instanceIndex}-${field.key}`}
+              value="true"
+              checked={fieldValue === 'true'}
+              onChange={() => handleInputChange(providerId, instanceIndex, field.key, 'true')}
+            />{' '}
+            True
+          </label>
+          <label className="radio-label">
+            <input
+              type="radio"
+              name={`${providerId}-${instanceIndex}-${field.key}`}
+              value="false"
+              checked={fieldValue === 'false'}
+              onChange={() => handleInputChange(providerId, instanceIndex, field.key, 'false')}
+            />{' '}
+            False
+          </label>
+        </div>
+      );
+    } else {
+      return (
+        <input
+          type="text"
+          value={fieldValue}
+          onChange={(e) => handleInputChange(providerId, instanceIndex, field.key, e.target.value)}
+          className={`field-input ${showError ? 'field-input-error' : ''}`}
+          aria-required={field.required}
+          aria-invalid={showError}
+        />
+      );
+    }
+  };
 
   return (
     <div className="scm-config">
@@ -349,7 +414,6 @@ export default function StepSCMConfig({ data, updateData }) {
                     
                     {config.fields.map((field) => {
                       const fieldConfig = instance[field.key] || {};
-                      const fieldValue = fieldConfig.value || '';
                       const useAsEnv = fieldConfig.asEnv || false;
                       const showError = hasFieldError(id, index, field.key);
                       
@@ -364,16 +428,7 @@ export default function StepSCMConfig({ data, updateData }) {
                             <div className="field-description">{field.description}</div>
                           )}
                           
-                          <input
-                            type="text"
-                            value={fieldValue}
-                            onChange={(e) => 
-                              handleInputChange(id, index, field.key, e.target.value)
-                            }
-                            className={`field-input ${showError ? 'field-input-error' : ''}`}
-                            aria-required={field.required}
-                            aria-invalid={showError}
-                          />
+                          {renderFieldInput(field, id, index, instance)}
                           
                           {showError && (
                             <div className="field-error">This field is required</div>
@@ -464,6 +519,18 @@ export default function StepSCMConfig({ data, updateData }) {
           margin-top: 0.25rem;
           display: flex;
           align-items: center;
+        }
+        .radio-group {
+          display: flex;
+          gap: 1.5rem;
+          margin-bottom: 0.5rem;
+        }
+        .radio-label {
+          display: flex;
+          align-items: center;
+        }
+        .radio-label input {
+          margin-right: 0.5rem;
         }
       `}</style>
     </div>
