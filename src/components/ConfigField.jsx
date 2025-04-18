@@ -62,7 +62,10 @@ function ConfigField({
       </label>
       
       {field.description && (
-        <div className="field-description">{field.description}</div>
+        <div 
+          className="field-description" 
+          dangerouslySetInnerHTML={{ __html: field.description }}
+        />
       )}
       
       {renderFieldInput()}
@@ -97,6 +100,9 @@ function ConfigField({
           font-size: 0.85rem;
           color: var(--ifm-color-emphasis-600);
           margin-bottom: 0.5rem;
+        }
+        .field-description strong {
+          font-weight: 600;
         }
         .field-input {
           width: 100%;

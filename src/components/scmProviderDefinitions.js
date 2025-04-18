@@ -43,6 +43,42 @@ const scmProviderDefinitions = {
         defaultValue: 'false',
         description: 'Disable SSL verification (not recommended for production)'
       },
+      { 
+        label: 'SSH Private Key', 
+        key: 'sshPrivateKey', 
+        envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_SSH_PRIVATEKEY', 
+        required: false,
+        type: 'text',
+        defaultValue: '',
+        description: 'The SSH private key used to establish a SSH connection with Azure DevOps.'
+      },
+      { 
+        label: 'SSH Passphrase', 
+        key: 'sshPassphrase', 
+        envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_SSH_PASSPHRASE', 
+        required: false,
+        type: 'text',
+        defaultValue: '',
+        description: 'The passphrase used to encrypt the SSH private key. <strong>This is required if the private key is specified and encrypted.</strong>'
+      },
+      { 
+        label: 'SSH Filename', 
+        key: 'sshFilename', 
+        envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_SSH_SSHFILENAME', 
+        required: false,
+        type: 'text',
+        defaultValue: '',
+        description: 'The file name of the private key, which the agent will store locally. <strong>This is required if the private key is specified.</strong>'
+      },
+      { 
+        label: 'SSH User', 
+        key: 'sshUser', 
+        envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_SSH_USER', 
+        required: false,
+        type: 'text',
+        defaultValue: '',
+        description: 'The username used for SSH communication with Azure DevOps. <strong>This is required if the private key is specified.</strong>'
+      },
     ],
   },
   github: {
