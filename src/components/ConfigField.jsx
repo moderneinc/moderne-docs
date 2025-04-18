@@ -1,5 +1,5 @@
 import React from 'react';
-import ArrayField from './ArrayField';  // Add this import
+import ArrayField from './ArrayField';
 
 /**
  * Renders a configuration field based on its type
@@ -13,7 +13,6 @@ function ConfigField({
   hasError, 
   name 
 }) {
-  // Render different input types based on field type
   const renderFieldInput = () => {
     if (field.type === 'array') {
       return (
