@@ -81,6 +81,37 @@ const scmProviderDefinitions = {
       },
     ],
   },
+  bitbucketDC: {
+    label: 'Bitbucket Data Center',
+    fields: [
+      { 
+        label: 'Private Key', 
+        key: 'privateKey', 
+        envKey: 'MODERNE_AGENT_BITBUCKET_${i}_PRIVATEKEY', 
+        required: true,
+        type: 'text',
+        defaultValue: '',
+        description: 'The private key you configured for this Bitbucket instance.'
+      },
+      { 
+        label: 'Client Secret', 
+        key: 'clientSecret', 
+        envKey: 'MODERNE_AGENT_BITBUCKET_${i}_URL', 
+        required: true,
+        type: 'text',
+        defaultValue: '',
+        description: 'The fully-qualified URL of the running Bitbucket instance. For example: <em>https://bitbucket.myorg.com</em>.'
+      },
+      { 
+        label: 'Alternate URLs', 
+        key: 'alternateUrls', 
+        envKey: 'MODERNE_AGENT_BITBUCKET_${i}_ALTERNATEURLS_${i}',
+        type: 'text',
+        defaultValue: 'https://bitbucket.org',
+        description: 'The list of alternative fully-qualified URL of the running Bitbucket instance. For example: https://bitbucket.myorg.com.'
+      },
+    ],
+  },
   github: {
     label: 'GitHub',
     fields: [
@@ -109,37 +140,6 @@ const scmProviderDefinitions = {
         type: 'text',
         defaultValue: 'https://github.com',
         description: 'GitHub instance URL (leave empty for github.com)'
-      },
-    ],
-  },
-  bitbucket: {
-    label: 'Bitbucket',
-    fields: [
-      { 
-        label: 'Client ID', 
-        key: 'clientId', 
-        envKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_ID', 
-        required: true,
-        type: 'text',
-        defaultValue: '',
-        description: 'OAuth Consumer Key from your Bitbucket workspace settings'
-      },
-      { 
-        label: 'Client Secret', 
-        key: 'clientSecret', 
-        envKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_SECRET', 
-        required: true,
-        type: 'text',
-        defaultValue: '',
-        description: 'OAuth Consumer Secret from your Bitbucket workspace settings'
-      },
-      { 
-        label: 'URL', 
-        key: 'url', 
-        envKey: 'MODERNE_AGENT_BITBUCKET_${i}_URL',
-        type: 'text',
-        defaultValue: 'https://bitbucket.org',
-        description: 'Bitbucket instance URL (leave empty for bitbucket.org)'
       },
     ],
   },

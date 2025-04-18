@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import scmProviderDefinitions from './scmProviderDefinitions';
+import scmProviderDefinitions from './SCMProviderDefinitions';
 import SCMProviderSection from './SCMProviderSection';
 import useSCMValidation from './useSCMValidation';
 
