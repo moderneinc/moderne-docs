@@ -11,34 +11,43 @@ const generalConfigDefinition = {
       key: 'apiGatewayRSocketUri', 
       envKey: 'MODERNE_AGENT_APIGATEWAYRSOCKETURI',
       description: 'The URI used to connect to the Moderne API, provided by Moderne.',
-      required: true
+      required: true,
+      type: 'text',
+      defaultValue: ''
     },
     { 
       label: 'Crypto Symmetric Key', 
       key: 'cryptoSymmetricKey', 
       envKey: 'MODERNE_AGENT_CRYPTO_SYMMETRICKEY',
       description: 'A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.',
-      required: true
+      required: true,
+      type: 'text',
+      defaultValue: ''
     },
     { 
       label: 'Agent Nickname', 
       key: 'agentNickname', 
       envKey: 'MODERNE_AGENT_NICKNAME',
       description: 'A name used to identify your agent in the SaaS agent dashboard UI.',
-      required: true
+      required: true,
+      type: 'text',
+      defaultValue: ''
     },
     { 
       label: 'Agent Token', 
       key: 'agentToken', 
       envKey: 'MODERNE_AGENT_TOKEN',
       description: 'The Moderne SaaS agent connection token, provided by Moderne.',
-      required: true
+      required: true,
+      type: 'text',
+      defaultValue: ''
     },
     { 
       label: 'Download Parallelism', 
       key: 'downloadParallelism', 
       envKey: 'MODERNE_AGENT_DOWNLOADPARALLELISM',
       description: 'How many threads are used to download LSTs. Defaults to 2 threads.',
+      type: 'text',
       defaultValue: '2',
       required: false
     },
@@ -47,6 +56,7 @@ const generalConfigDefinition = {
       key: 'artifactIndexInterval', 
       envKey: 'MODERNE_AGENT_ARTIFACTINDEXINTERVALSECONDS',
       description: 'How frequently LSTs will be indexed. Defaults to 120 seconds.',
+      type: 'text',
       defaultValue: '120',
       required: false
     }

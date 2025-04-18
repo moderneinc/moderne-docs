@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import ConfigField from './ConfigField';
 import generalConfigDefinition from './generalConfigDefinition';
+import useGeneralValidation from './useGeneralValidation';
 
-export default function StepGeneralConfig({ data, updateData }) {
-  const [fields, setFields] = useState(data.generalConfig?.fields || {});
-  
-  // Initialize fields with defaults from definition
+export default function StepGeneralConfig({ data = {}, updateData }) {
+  const [fields, setFields] = useState(data?.generalConfig?.fields || {});
+
+  // Use validation hook
+  const { validateAndUpdate, hasFieldError } = useGeneralValidation(
+    fields,
+    generalConfigDefinition,
+    data,
+    updateData
+  );
+
+  // Initialize fields with defaults and run initial validation
   useEffect(() => {
     if (Object.keys(fields).length === 0) {
       const defaultFields = {};
@@ -17,24 +26,34 @@ export default function StepGeneralConfig({ data, updateData }) {
         };
       });
       setFields(defaultFields);
+      
+      // Initial update to parent with validation
+      updateData({
+        ...data,
+        generalConfig: {
+          fields: defaultFields,
+          validation: {
+            valid: false,
+            missingFields: generalConfigDefinition.fields
+              .filter(f => f.required)
+              .map(f => f.label)
+          }
+        },
+        validation: {
+          ...data?.validation,
+          'General Configuration': false
+        }
+      });
     }
   }, []);
-
-  // Update parent when fields change
-  useEffect(() => {
-    updateData({
-      generalConfig: {
-        fields
-      }
-    });
-  }, [fields]);
 
   const handleFieldChange = (fieldKey, value) => {
     setFields(prev => ({
       ...prev,
       [fieldKey]: {
         ...prev[fieldKey],
-        value
+        value,
+        envKey: generalConfigDefinition.fields.find(f => f.key === fieldKey)?.envKey
       }
     }));
   };
@@ -57,6 +76,7 @@ export default function StepGeneralConfig({ data, updateData }) {
         const fieldData = fields[field.key] || {};
         const fieldValue = fieldData.value || field.defaultValue || '';
         const useAsEnv = fieldData.asEnv || false;
+        const showError = hasFieldError(field.key);
         
         return (
           <ConfigField
@@ -66,20 +86,11 @@ export default function StepGeneralConfig({ data, updateData }) {
             onChange={(value) => handleFieldChange(field.key, value)}
             onEnvToggle={() => handleEnvToggle(field.key)}
             useAsEnv={useAsEnv}
-            hasError={false}
+            hasError={showError}
             name={field.key}
           />
         );
       })}
-
-      <style jsx>{`
-        .general-config {
-          margin-bottom: 2rem;
-        }
-        h3 {
-          margin-bottom: 1rem;
-        }
-      `}</style>
     </div>
   );
 }
