@@ -46,6 +46,7 @@ function ConfigField({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className={`field-input ${hasError ? 'field-input-error' : ''}`}
+          placeholder={field.defaultValue || ''}
           aria-required={field.required}
           aria-invalid={hasError}
         />

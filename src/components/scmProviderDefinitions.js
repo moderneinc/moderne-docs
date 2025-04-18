@@ -13,6 +13,7 @@ const scmProviderDefinitions = {
         envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_OAUTH_CLIENTID', 
         required: true,
         type: 'text',
+        defaultValue: '',
         description: 'Application (client) ID for your Azure DevOps OAuth app'
       },
       { 
@@ -21,6 +22,7 @@ const scmProviderDefinitions = {
         envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_OAUTH_CLIENTSECRET', 
         required: true,
         type: 'text',
+        defaultValue: '',
         description: 'Secret key for your Azure DevOps OAuth app authentication'
       },
       { 
@@ -29,6 +31,7 @@ const scmProviderDefinitions = {
         envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_OAUTH_TENANTID', 
         required: true,
         type: 'text',
+        defaultValue: '',
         description: 'Directory (tenant) ID for your Azure Active Directory'
       },
       { 
@@ -37,6 +40,7 @@ const scmProviderDefinitions = {
         envKey: 'MODERNE_AGENT_AZUREDEVOPS_${i}_SKIPSSL', 
         required: false,
         type: 'boolean',
+        defaultValue: 'false',
         description: 'Disable SSL verification (not recommended for production)'
       },
     ],
@@ -50,6 +54,7 @@ const scmProviderDefinitions = {
         envKey: 'MODERNE_AGENT_GITHUB_${i}_CLIENT_ID', 
         required: true,
         type: 'text',
+        defaultValue: '',
         description: 'OAuth App Client ID from your GitHub organization settings'
       },
       { 
@@ -58,6 +63,7 @@ const scmProviderDefinitions = {
         envKey: 'MODERNE_AGENT_GITHUB_${i}_CLIENT_SECRET', 
         required: true,
         type: 'text',
+        defaultValue: '',
         description: 'OAuth App Client Secret from your GitHub organization settings'
       },
       { 
@@ -65,6 +71,7 @@ const scmProviderDefinitions = {
         key: 'url', 
         envKey: 'MODERNE_AGENT_GITHUB_${i}_URL',
         type: 'text',
+        defaultValue: 'https://github.com',
         description: 'GitHub instance URL (leave empty for github.com)'
       },
     ],
@@ -78,6 +85,7 @@ const scmProviderDefinitions = {
         envKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_ID', 
         required: true,
         type: 'text',
+        defaultValue: '',
         description: 'OAuth Consumer Key from your Bitbucket workspace settings'
       },
       { 
@@ -86,6 +94,7 @@ const scmProviderDefinitions = {
         envKey: 'MODERNE_AGENT_BITBUCKET_${i}_CLIENT_SECRET', 
         required: true,
         type: 'text',
+        defaultValue: '',
         description: 'OAuth Consumer Secret from your Bitbucket workspace settings'
       },
       { 
@@ -93,6 +102,7 @@ const scmProviderDefinitions = {
         key: 'url', 
         envKey: 'MODERNE_AGENT_BITBUCKET_${i}_URL',
         type: 'text',
+        defaultValue: 'https://bitbucket.org',
         description: 'Bitbucket instance URL (leave empty for bitbucket.org)'
       },
     ],

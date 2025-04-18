@@ -48,15 +48,12 @@ export default function StepSCMConfig({ data, updateData }) {
     setScmProviderConfigs(newConfigs);
   };
 
-  // Create a default instance with empty values
+  // Create a default instance with default values from definitions
   const createDefaultSCMInstance = (scmProviderId, index) => {
     const instance = {};
     scmProviderDefinitions[scmProviderId].fields.forEach(field => {
-      let defaultValue = '';
-      // Set appropriate default for each field type
-      if (field.type === 'boolean') {
-        defaultValue = 'false';
-      }
+      // Get the default value from the field definition
+      let defaultValue = field.defaultValue || '';
       
       instance[field.key] = {
         value: defaultValue,
