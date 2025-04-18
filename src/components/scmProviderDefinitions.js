@@ -106,7 +106,7 @@ const scmProviderDefinitions = {
         label: 'Alternate URLs', 
         key: 'alternateUrls', 
         envKey: 'MODERNE_AGENT_BITBUCKET_${i}_ALTERNATEURLS_${i}',
-        type: 'text',
+        type: 'array',
         defaultValue: 'https://bitbucket.org',
         description: 'The list of alternative fully-qualified URL of the running Bitbucket instance. For example: https://bitbucket.myorg.com.'
       },

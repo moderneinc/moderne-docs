@@ -1,4 +1,5 @@
 import React from 'react';
+import ArrayField from './ArrayField';  // Add this import
 
 /**
  * Renders a configuration field based on its type
@@ -14,7 +15,15 @@ function ConfigField({
 }) {
   // Render different input types based on field type
   const renderFieldInput = () => {
-    if (field.type === 'boolean') {
+    if (field.type === 'array') {
+      return (
+        <ArrayField
+          field={field}
+          value={value}
+          onChange={onChange}
+        />
+      );
+    } else if (field.type === 'boolean') {
       return (
         <div className="radio-group">
           <label className="radio-label">

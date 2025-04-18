@@ -103,11 +103,13 @@ export default function StepSCMConfig({ data, updateData }) {
       instances[instanceIndex] = createDefaultSCMInstance(scmProviderId, instanceIndex);
     }
     
+    const field = scmProviderDefinitions[scmProviderId].fields.find(f => f.key === fieldKey);
+    
     instances[instanceIndex] = {
       ...instances[instanceIndex],
       [fieldKey]: {
         ...instances[instanceIndex][fieldKey],
-        value
+        value: field.type === 'array' ? (Array.isArray(value) ? value : [value]) : value
       }
     };
     
