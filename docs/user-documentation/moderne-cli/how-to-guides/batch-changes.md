@@ -12,7 +12,7 @@ mod exec . -- find . -name '*.java' -exec sed -i '' 's/Collections.emptySet()/Se
 mod batch publish . --recipe com.acme.CollectionsEmptySetToSetOf --recipe-name "Prefer Set#of over Collections#emptySet" --recipe-description "Migrate uses of java.util.Collections#emptySet to Java 9's java.util.Set#of" --recipe-run ChangeCampaign20250419 -- git diff
 ```
 
-After uploading the results, users can navigate to the batch changes activity page by clicking on **Batch changes** in the Moderne UI's sidebar.
+After uploading the results, users can navigate to the batch changes activity page by clicking on **Batch Changes** in the Moderne UI's sidebar.
 
 <figure>
   ![](./assets/batch-changes-sidenav.png)
