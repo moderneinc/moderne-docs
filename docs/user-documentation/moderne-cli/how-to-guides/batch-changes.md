@@ -5,7 +5,7 @@ description: How to publish batch change results to the Moderne platform.
 
 # How to publish batch change results to the Moderne platform
 
-The `mod batch publish` command allows users to add repository changes created using ad hoc scripts or third-party tools to the Moderne platform. For example, the following commands first leverage `mod exec` to execute a simple `sed` script on a list of repositories and then runs `mod batch publish` to upload the change results to Moderne:
+The `mod batch publish` command allows users to upload repository changes, created using ad hoc scripts or third-party tools, to the Moderne platform. For example, the following commands first use `mod exec` to run a simple `sed` script across a list of repositories, and then use `mod batch publish` to upload the resulting changes to Moderne:
 
 ```bash
 mod exec . -- find . -name '*.java' -exec sed -i '' 's/Collections.emptySet()/Set.of()/g' {} ';'
