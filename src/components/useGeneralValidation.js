@@ -18,6 +18,7 @@ function useGeneralValidation(fields, generalConfigDefinition, data, updateData)
       }
     });
 
+    // Update parent with both the general config validation and overall step validation
     updateData({
       ...data,
       generalConfig: {
@@ -27,9 +28,12 @@ function useGeneralValidation(fields, generalConfigDefinition, data, updateData)
           missingFields
         }
       },
+      // This matches the SCM validation structure exactly
+      providers: data?.providers || [],
+      providerConfigs: data?.providerConfigs || {},
       validation: {
-        ...data?.validation,
-        'General Configuration': isValid
+        valid: isValid,
+        missingFields
       }
     });
 
@@ -46,6 +50,11 @@ function useGeneralValidation(fields, generalConfigDefinition, data, updateData)
     return !fieldData?.value || fieldData.value.toString().trim() === '';
   };
 
+  // Run validation on mount
+  useEffect(() => {
+    validateAndUpdate();
+  }, []);
+
   // Run validation when fields change
   useEffect(() => {
     validateAndUpdate();
@@ -56,6 +65,14 @@ function useGeneralValidation(fields, generalConfigDefinition, data, updateData)
     if (data?.triggerValidation?.['General Configuration']) {
       setValidationAttempted(true);
       validateAndUpdate();
+      
+      updateData({
+        ...data,
+        triggerValidation: {
+          ...data.triggerValidation,
+          'General Configuration': false
+        }
+      });
     }
   }, [data?.triggerValidation]);
 
