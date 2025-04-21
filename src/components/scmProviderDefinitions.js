@@ -129,6 +129,7 @@ const scmProviderDefinitions = {
         label: 'Alternate URLs', 
         key: 'alternateUrls', 
         envKey: 'MODERNE_AGENT_BITBUCKET_${i}_ALTERNATEURLS_${i}',
+        required: false,
         type: 'array',
         defaultValue: '',
         description: 'The list of alternative fully-qualified URL of the running Bitbucket instance. For example: https://bitbucket.myorg.com.'
@@ -214,6 +215,7 @@ const scmProviderDefinitions = {
         label: 'URL', 
         key: 'url', 
         envKey: 'MODERNE_AGENT_GITHUB_${i}_URL',
+        required: true,
         type: 'text',
         defaultValue: '',
         description: 'The fully-qualified hostname of the running GitHub instance.'
@@ -288,6 +290,92 @@ const scmProviderDefinitions = {
         type: 'text',
         defaultValue: '7999',
         description: 'The port used to communicate via SSH with GitHub. <strong>This is required if the private key is specified.</strong>'
+      },
+    ],
+  },
+  gitlab: {
+    label: 'GitLab',
+    fields: [
+      { 
+        label: 'Client ID', 
+        key: 'clientId', 
+        envKey: 'MODERNE_AGENT_GITLAB_${i}_OAUTH_CLIENTID', 
+        required: true,
+        type: 'text',
+        defaultValue: '',
+        description: 'The application id configured in GitLab.'
+      },
+      { 
+        label: 'Client Secret', 
+        key: 'clientSecret', 
+        envKey: 'MODERNE_AGENT_GITLAB_${i}_OAUTH_CLIENTSECRET', 
+        required: true,
+        type: 'text',
+        defaultValue: '',
+        description: 'The client secret configured in GitLab.'
+      },
+      { 
+        label: 'URL', 
+        key: 'url', 
+        envKey: 'MODERNE_AGENT_GITLAB_${i}_URL',
+        required: true,
+        type: 'text',
+        defaultValue: '',
+        description: 'The fully-qualified hostname of the running GitLab instance.'
+      },
+      { 
+        label: 'Skip SSL Verification', 
+        key: 'skipSSL', 
+        envKey: 'MODERNE_AGENT_GITLAB_${i}_SKIPSSL', 
+        required: false,
+        type: 'boolean',
+        defaultValue: 'false',
+        description: 'Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. <strong>This must be set to true if you use a self-signed SSL/TLS certificate</strong>.'
+      },
+      { 
+        label: 'SSH Private Key', 
+        key: 'sshPrivateKey', 
+        envKey: 'MODERNE_AGENT_GILAB_${i}_SSH_PRIVATEKEY', 
+        required: false,
+        type: 'text',
+        defaultValue: '',
+        description: 'The SSH private key used to establish a SSH connection with GitLab.'
+      },
+      { 
+        label: 'SSH Passphrase', 
+        key: 'sshPassphrase', 
+        envKey: 'MODERNE_AGENT_GITLAB_${i}_SSH_PASSPHRASE', 
+        required: false,
+        type: 'text',
+        defaultValue: '',
+        description: 'The passphrase used to encrypt the SSH private key. <strong>This is required if the private key is specified and encrypted.</strong>'
+      },
+      { 
+        label: 'SSH Filename', 
+        key: 'sshFilename', 
+        envKey: 'MODERNE_AGENT_GITLAB_${i}_SSH_SSHFILENAME', 
+        required: false,
+        type: 'text',
+        defaultValue: '',
+        description: 'The file name of the private key, which the agent will store locally. <strong>This is required if the private key is specified.</strong>'
+      },
+      { 
+        label: 'SSH User', 
+        key: 'sshUser', 
+        envKey: 'MODERNE_AGENT_GITLAB_${i}_SSH_USER', 
+        required: false,
+        type: 'text',
+        defaultValue: '',
+        description: 'The username used for SSH communication with GitLab. <strong>This is required if the private key is specified.</strong>'
+      },
+      { 
+        label: 'SSH Port', 
+        key: 'sshPort', 
+        envKey: 'MODERNE_AGENT_GITLAB_${i}_SSH_PORT', 
+        required: false,
+        type: 'text',
+        defaultValue: '7999',
+        description: 'The port used to communicate via SSH with GitLab. <strong>This is required if the private key is specified.</strong>'
       },
     ],
   },
