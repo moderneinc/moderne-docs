@@ -144,11 +144,6 @@ export const generateCommand = (data, commandType) => {
     });
   }
   
-  // Process organization service configuration
-  if (data?.orgServiceConfig?.enabled && data.orgServiceConfig.fields) {
-    processFieldsSection(data.orgServiceConfig.fields, exportLines, cmdArgs, commandType);
-  }
-  
   // Process SCM providers configurations
   providers.forEach(providerId => {
     const config = providerConfigs[providerId];
@@ -178,6 +173,11 @@ export const generateCommand = (data, commandType) => {
       });
     });
   });
+
+  // Process organization service configuration
+  if (data?.orgServiceConfig?.enabled && data.orgServiceConfig.fields) {
+    processFieldsSection(data.orgServiceConfig.fields, exportLines, cmdArgs, commandType);
+  }
   
   // Build the command string
   let command = '';
