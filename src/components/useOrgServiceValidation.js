@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
+import orgServiceConfigDefinition from './orgServiceConfigDefinition';
 
-function useOrgServiceValidation(fields, enabled, orgServiceConfigDefinition, data, updateData) {
+function useOrgServiceValidation(fields, enabled, data, updateData) {
   const [validationAttempted, setValidationAttempted] = useState(true);
+  
+  // Get the label from the config definition
+  const configLabel = orgServiceConfigDefinition.label;
 
   const validateAndUpdate = () => {
     // If the step is disabled, always consider it valid
@@ -18,7 +22,7 @@ function useOrgServiceValidation(fields, enabled, orgServiceConfigDefinition, da
         },
         validation: {
           ...data?.validation,
-          'Organizations Service Configuration': true
+          [configLabel]: true
         }
       });
       return true;
@@ -52,7 +56,7 @@ function useOrgServiceValidation(fields, enabled, orgServiceConfigDefinition, da
       },
       validation: {
         ...data?.validation,
-        'Organizations Service Configuration': isValid
+        [configLabel]: isValid
       }
     });
 
@@ -77,7 +81,7 @@ function useOrgServiceValidation(fields, enabled, orgServiceConfigDefinition, da
 
   // Handle validation trigger from parent
   useEffect(() => {
-    if (data?.triggerValidation?.['Organizations Service Configuration']) {
+    if (data?.triggerValidation?.[configLabel]) {
       setValidationAttempted(true);
       validateAndUpdate();
       
@@ -85,7 +89,7 @@ function useOrgServiceValidation(fields, enabled, orgServiceConfigDefinition, da
         ...data,
         triggerValidation: {
           ...data.triggerValidation,
-          'Organizations Service Configuration': false
+          [configLabel]: false
         }
       });
     }

@@ -12,7 +12,6 @@ export default function StepStrictRecipeSourcesConfig({ data = {}, updateData })
   const { validateAndUpdate, hasFieldError } = useStrictRecipeSourcesValidation(
     fields,
     enabled,
-    strictRecipeSourcesConfigDefinition,
     data,
     updateData
   );

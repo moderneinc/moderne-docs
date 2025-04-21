@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
+import strictRecipeSourcesConfigDefinition from './strictRecipeSourcesConfigDefinition';
 
-function useStrictRecipeSourcesValidation(fields, enabled, strictRecipeSourcesConfigDefinition, data, updateData) {
+function useStrictRecipeSourcesValidation(fields, enabled, data, updateData) {
   const [validationAttempted, setValidationAttempted] = useState(true);
+  
+  // Get the label from the config definition
+  const configLabel = strictRecipeSourcesConfigDefinition.label;
 
   const validateAndUpdate = () => {
     // If the step is disabled, always consider it valid
@@ -18,7 +22,7 @@ function useStrictRecipeSourcesValidation(fields, enabled, strictRecipeSourcesCo
         },
         validation: {
           ...data?.validation,
-          'Strict Recipe Sources Configuration': true
+          [configLabel]: true
         }
       });
       return true;
@@ -52,7 +56,7 @@ function useStrictRecipeSourcesValidation(fields, enabled, strictRecipeSourcesCo
       },
       validation: {
         ...data?.validation,
-        'Strict Recipe Sources Configuration': isValid
+        [configLabel]: isValid
       }
     });
 
@@ -77,7 +81,7 @@ function useStrictRecipeSourcesValidation(fields, enabled, strictRecipeSourcesCo
 
   // Handle validation trigger from parent
   useEffect(() => {
-    if (data?.triggerValidation?.['Strict Recipe Sources Configuration']) {
+    if (data?.triggerValidation?.[configLabel]) {
       setValidationAttempted(true);
       validateAndUpdate();
       
@@ -85,7 +89,7 @@ function useStrictRecipeSourcesValidation(fields, enabled, strictRecipeSourcesCo
         ...data,
         triggerValidation: {
           ...data.triggerValidation,
-          'Strict Recipe Sources Configuration': false
+          [configLabel]: false
         }
       });
     }

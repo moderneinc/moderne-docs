@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ConfigField from './ConfigField';
-import orgServiceConfigDefinition from './orgServiceConfigDefinitions';
+import orgServiceConfigDefinition from './orgServiceConfigDefinition';
 import useOrgServiceValidation from './useOrgServiceValidation';
 
 export default function StepOrgServiceConfig({ data = {}, updateData }) {
@@ -12,7 +12,6 @@ export default function StepOrgServiceConfig({ data = {}, updateData }) {
   const { validateAndUpdate, hasFieldError } = useOrgServiceValidation(
     fields,
     enabled,
-    orgServiceConfigDefinition,
     data,
     updateData
   );
