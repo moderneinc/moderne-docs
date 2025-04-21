@@ -127,7 +127,7 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
       
       <div className="commit-options-section">
         <h4>Default Commit Options</h4>
-        <p>Use to restrict which commit options are available on a tenant level (if the organizations service doesn't return any). <br/> <strong>If you don't check any, it defaults to making all commit options available.</strong></p>
+        <p>Use to restrict which commit options are available in Moderne (if the organizations service doesn't return any). <br/> <strong>If you don't check any, it defaults to making all commit options available.</strong></p>
         
         <div className="commit-options-list">
           {COMMIT_OPTIONS.map((option) => (
