@@ -95,7 +95,7 @@ export default function StepStrictRecipeSourcesConfig({ data = {}, updateData })
             checked={enabled}
             onChange={toggleEnabled}
           />{' '}
-          Enable {strictRecipeSourcesConfigDefinition.label}
+          Add {strictRecipeSourcesConfigDefinition.label}
         </label>
         
         {!enabled && (
