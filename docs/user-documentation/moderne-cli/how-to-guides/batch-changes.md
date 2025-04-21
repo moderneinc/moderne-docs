@@ -17,7 +17,7 @@ mod batch publish . --recipe com.acme.CollectionsEmptySetToSetOf --recipe-name "
 The `mod batch publish` command can run on a single git repository or recursively over a set of repositories.
 :::
 
-<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=NEEDLINKAFTERITSPOSTED' controls="true" />
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=Em-4by2EJO8' controls="true" />
 
 After uploading the results, users can navigate to the batch changes activity page by clicking on **Batch Changes** in the Moderne UI's sidebar.
 
