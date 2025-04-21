@@ -88,7 +88,7 @@ function ConfigField({
           checked={useAsEnv}
           onChange={onEnvToggle}
         />{' '}
-        Environment variable
+        Use an exported environment variable
       </label>
 
       <style jsx>{`

@@ -3,8 +3,18 @@ import ConfigField from './ConfigField';
 import generalConfigDefinition from './generalConfigDefinition';
 import useGeneralValidation from './useGeneralValidation';
 
+// Define common commit options
+const COMMIT_OPTIONS = [
+  { label: 'Direct', value: 'Direct' },
+  { label: 'Branch', value: 'Branch' },
+  { label: 'Fork', value: 'Fork' },
+  { label: 'Pull Request', value: 'PullRequest' },
+  { label: 'Fork and Pull Request', value: 'ForkAndPullRequest' },  
+];
+
 export default function StepGeneralConfig({ data = {}, updateData }) {
   const [fields, setFields] = useState(data?.generalConfig?.fields || {});
+  const [commitOptions, setCommitOptions] = useState(data?.generalConfig?.commitOptions || []);
 
   // Use validation hook
   const { validateAndUpdate, hasFieldError } = useGeneralValidation(
@@ -32,6 +42,7 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
         ...data,
         generalConfig: {
           fields: defaultFields,
+          commitOptions: commitOptions,
           validation: {
             valid: false,
             missingFields: generalConfigDefinition.fields
@@ -46,6 +57,19 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
       });
     }
   }, []);
+
+  // Update parent data whenever fields or commitOptions change
+  useEffect(() => {
+    updateData({
+      ...data,
+      generalConfig: {
+        ...data.generalConfig,
+        fields,
+        commitOptions,
+        validation: data.generalConfig?.validation
+      }
+    });
+  }, [fields, commitOptions]);
 
   const handleFieldChange = (fieldKey, value) => {
     setFields(prev => ({
@@ -66,6 +90,15 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
         asEnv: !prev[fieldKey]?.asEnv
       }
     }));
+  };
+
+  // Handle toggling a commit option
+  const toggleCommitOption = (optionValue) => {
+    setCommitOptions(prev => {
+      return prev.includes(optionValue)
+        ? prev.filter(opt => opt !== optionValue)
+        : [...prev, optionValue];
+    });
   };
 
   return (
@@ -91,6 +124,53 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
           />
         );
       })}
+      
+      <div className="commit-options-section">
+        <h4>Default Commit Options</h4>
+        <p>Use to restrict which commit options are available on a tenant level (if the organizations service doesn't return any). <br/> <strong>If you don't check any, it defaults to making all commit options available.</strong></p>
+        
+        <div className="commit-options-list">
+          {COMMIT_OPTIONS.map((option) => (
+            <label key={option.value} className="commit-option-label">
+              <input
+                type="checkbox"
+                checked={commitOptions.includes(option.value)}
+                onChange={() => toggleCommitOption(option.value)}
+              />{' '}
+              {option.label}
+            </label>
+          ))}
+        </div>
+      </div>
+      
+      <style jsx>{`
+        .general-config {
+          margin-bottom: 1.5rem;
+        }
+        
+        .commit-options-section {
+          margin-top: 2rem;
+          border-top: 1px solid var(--ifm-color-emphasis-200);
+          padding-top: 1rem;
+        }
+        
+        .commit-options-list {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          margin-top: 1rem;
+        }
+        
+        .commit-option-label {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+        }
+        
+        .commit-option-label input {
+          margin-right: 0.5rem;
+        }
+      `}</style>
     </div>
   );
 }
