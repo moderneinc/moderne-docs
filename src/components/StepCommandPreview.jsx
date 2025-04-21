@@ -136,19 +136,22 @@ export default function StepCommandPreview({ data }) {
   const transformToJavaFormat = (envKey, value, index) => {
     // Example: MODERNE_AGENT_GITHUB_0_URL → moderne.agent.github[0].url
     let javaKey = envKey.toLowerCase();
+
+    // Replace ${i} placeholders if present
+    javaKey = javaKey.replace(/\${i}/g, '0');
     
     // Replace underscores with dots
     javaKey = javaKey.replace(/_/g, '.');
     
-    // Find the index position (should be right before the field name)
-    const indexPosition = javaKey.lastIndexOf('.' + index + '.');
+    // Handle array indices - match patterns like .0. or .1.
+    javaKey = javaKey.replace(/\.(\d+)\./g, (match, digit) => {
+      return `[${digit}].`;
+    });
     
-    if (indexPosition !== -1) {
-      // Replace .0. with [0].
-      javaKey = javaKey.substring(0, indexPosition) + 
-                '[' + index + ']' + 
-                javaKey.substring(indexPosition + 3);
-    }
+    // Handle the last index if it ends with a digit
+    javaKey = javaKey.replace(/\.(\d+)$/, (match, digit) => {
+      return `[${digit}]`;
+    });
     
     return `--${javaKey}=${value}`;
   };
