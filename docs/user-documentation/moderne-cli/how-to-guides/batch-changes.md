@@ -3,6 +3,8 @@ sidebar_label: Publishing batch change results
 description: How to publish batch change results to the Moderne platform.
 ---
 
+import ReactPlayer from 'react-player';
+
 # How to publish batch change results to the Moderne platform
 
 The `mod batch publish` command allows users to upload repository changes, created using ad hoc scripts or third-party tools, to the Moderne platform. For example, the following commands first use `mod exec` to run a simple `sed` script across a list of repositories, and then use `mod batch publish` to upload the resulting changes to Moderne:
