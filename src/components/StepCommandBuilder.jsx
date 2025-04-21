@@ -4,10 +4,12 @@ import { useColorMode } from '@docusaurus/theme-common';
 import StepSCMConfig from './StepSCMConfig';
 import StepCommandPreview from './StepCommandPreview';
 import StepGeneralConfig from './StepGeneralConfig';
+import StepOrgServiceConfig from './StepOrgServiceConfig';
 
 const steps = [
-  { label: 'Core variables', component: StepGeneralConfig },
+  // { label: 'Core variables', component: StepGeneralConfig },
   { label: 'SCM Configuration', component: StepSCMConfig },
+  { label: '(Optional) Organization Service', component: StepOrgServiceConfig },
   { label: 'Command Preview', component: StepCommandPreview },
 ];
 

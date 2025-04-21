@@ -83,6 +83,36 @@ export const generateCommand = (data, commandType) => {
     });
   }
   
+  // Process organization service configuration
+  if (data?.orgServiceConfig?.enabled && data.orgServiceConfig.fields) {
+    const orgServiceFields = data.orgServiceConfig.fields;
+    
+    Object.entries(orgServiceFields).forEach(([key, config]) => {
+      if (!config || !config.value) return;
+      
+      const { value, asEnv, envKey } = config;
+      
+      if (asEnv) {
+        // Always add exports for environment variables
+        exportLines.push(`export ${envKey}=${value}`);
+        
+        if (commandType === 'docker') {
+          // For Docker, pass env var by name
+          cmdArgs.push(`-e ${envKey}`);
+        }
+      } else {
+        if (commandType === 'docker') {
+          // For Docker, pass as direct env var
+          cmdArgs.push(`-e ${envKey}=${value}`);
+        } else {
+          // For Java, transform to Java format
+          const javaKey = envKey.toLowerCase().replace(/_/g, '.');
+          cmdArgs.push(`--${javaKey}=${value}`);
+        }
+      }
+    });
+  }
+  
   // Process SCM providers configurations
   providers.forEach(providerId => {
     const config = providerConfigs[providerId];
