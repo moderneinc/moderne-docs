@@ -43,7 +43,7 @@ function ArrayField({ field, value = [], onChange }) {
         onClick={handleAddItem}
         className="add-button"
       >
-        Add URL
+        Add Item
       </button>
 
       <style jsx>{`
