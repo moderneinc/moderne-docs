@@ -80,6 +80,7 @@ Commands:
   study                Produces studies from OpenRewrite recipe data tables
                          locally.
   generate-completion  Generate bash/zsh completion script for mod.
+  batch                Add batch changes to the Moderne platform.
 
 MOD SUCCEEDED in (0.01s)
 ```
