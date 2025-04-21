@@ -178,6 +178,11 @@ export const generateCommand = (data, commandType) => {
   if (data?.orgServiceConfig?.enabled && data.orgServiceConfig.fields) {
     processFieldsSection(data.orgServiceConfig.fields, exportLines, cmdArgs, commandType);
   }
+
+  // Process strict recipe sources configuration
+  if (data?.strictRecipeSourcesConfig?.enabled && data.strictRecipeSourcesConfig.fields) {
+    processFieldsSection(data.strictRecipeSourcesConfig.fields, exportLines, cmdArgs, commandType);
+  }
   
   // Build the command string
   let command = '';
