@@ -1,11 +1,9 @@
 /**
  * Transforms an environment variable key to Java argument format
  * @param {string} envKey - The environment variable key
- * @param {string} value - The value to set
- * @param {number} index - The instance index
- * @returns {string} The formatted Java argument
+ * @returns {string} The formatted Java key
  */
-export const transformToJavaFormat = (envKey, value, index) => {
+export const transformToJavaFormat = (envKey) => {
   // Example: MODERNE_AGENT_GITHUB_0_URL → moderne.agent.github[0].url
   let javaKey = envKey.toLowerCase();
 
@@ -25,7 +23,93 @@ export const transformToJavaFormat = (envKey, value, index) => {
     return `[${digit}]`;
   });
   
-  return `--${javaKey}=${value}`;
+  return javaKey;
+};
+
+/**
+ * Process a single field and add to command arguments
+ * @param {Object} config - Field configuration
+ * @param {Array} exportLines - Array to collect export lines
+ * @param {Array} cmdArgs - Array to collect command arguments
+ * @param {string} commandType - Docker or Java
+ */
+const processField = (config, exportLines, cmdArgs, commandType) => {
+  if (!config || !config.value) return;
+  
+  const { value, asEnv, envKey } = config;
+  
+  if (asEnv) {
+    // Add to exports
+    exportLines.push(`export ${envKey}=${value}`);
+    
+    if (commandType === 'docker') {
+      cmdArgs.push(`-e ${envKey}`);
+    }
+  } else {
+    if (commandType === 'docker') {
+      cmdArgs.push(`-e ${envKey}=${value}`);
+    } else {
+      const javaKey = transformToJavaFormat(envKey);
+      cmdArgs.push(`--${javaKey}=${value}`);
+    }
+  }
+};
+
+/**
+ * Process an array field
+ * @param {Array} values - Array of values
+ * @param {string} envKeyPattern - Environment key with ${i} placeholder
+ * @param {boolean} asEnv - Whether to use as environment variable
+ * @param {Array} exportLines - Array to collect export lines
+ * @param {Array} cmdArgs - Array to collect command arguments
+ * @param {string} commandType - Docker or Java
+ */
+const processArrayField = (values, envKeyPattern, asEnv, exportLines, cmdArgs, commandType) => {
+  if (!Array.isArray(values) || values.length === 0) return;
+  
+  values.forEach((item, index) => {
+    const arrayEnvKey = envKeyPattern.replace(/\${i}/g, index);
+    
+    if (asEnv) {
+      exportLines.push(`export ${arrayEnvKey}=${item}`);
+      if (commandType === 'docker') {
+        cmdArgs.push(`-e ${arrayEnvKey}`);
+      }
+    } else {
+      if (commandType === 'docker') {
+        cmdArgs.push(`-e ${arrayEnvKey}=${item}`);
+      } else {
+        const javaKey = transformToJavaFormat(arrayEnvKey);
+        cmdArgs.push(`--${javaKey}=${item}`);
+      }
+    }
+  });
+};
+
+/**
+ * Process a section of fields
+ * @param {Object} fieldsObject - Object containing field configs
+ * @param {Array} exportLines - Array to collect export lines
+ * @param {Array} cmdArgs - Array to collect command arguments
+ * @param {string} commandType - Docker or Java
+ */
+const processFieldsSection = (fieldsObject, exportLines, cmdArgs, commandType) => {
+  if (!fieldsObject) return;
+  
+  Object.entries(fieldsObject).forEach(([key, config]) => {
+    if (Array.isArray(config.value)) {
+      processArrayField(
+        config.value, 
+        config.envKey, 
+        config.asEnv, 
+        exportLines, 
+        cmdArgs, 
+        commandType
+      );
+    } else {
+      processField(config, exportLines, cmdArgs, commandType);
+    }
+  });
 };
 
 /**
@@ -43,30 +127,7 @@ export const generateCommand = (data, commandType) => {
   
   // Process general configuration
   if (generalConfig && generalConfig.fields) {
-    Object.entries(generalConfig.fields).forEach(([key, config]) => {
-      if (!config || !config.value) return;
-      
-      const { value, asEnv, envKey } = config;
-      
-      if (asEnv) {
-        // Always add exports for environment variables
-        exportLines.push(`export ${envKey}=${value}`);
-        
-        if (commandType === 'docker') {
-          // For Docker, pass env var by name
-          cmdArgs.push(`-e ${envKey}`);
-        }
-      } else {
-        if (commandType === 'docker') {
-          // For Docker, pass as direct env var
-          cmdArgs.push(`-e ${envKey}=${value}`);
-        } else {
-          // For Java, transform to Java format
-          const javaKey = envKey.toLowerCase().replace(/_/g, '.');
-          cmdArgs.push(`--${javaKey}=${value}`);
-        }
-      }
-    });
+    processFieldsSection(generalConfig.fields, exportLines, cmdArgs, commandType);
   }
   
   // Process commit options
@@ -85,32 +146,7 @@ export const generateCommand = (data, commandType) => {
   
   // Process organization service configuration
   if (data?.orgServiceConfig?.enabled && data.orgServiceConfig.fields) {
-    const orgServiceFields = data.orgServiceConfig.fields;
-    
-    Object.entries(orgServiceFields).forEach(([key, config]) => {
-      if (!config || !config.value) return;
-      
-      const { value, asEnv, envKey } = config;
-      
-      if (asEnv) {
-        // Always add exports for environment variables
-        exportLines.push(`export ${envKey}=${value}`);
-        
-        if (commandType === 'docker') {
-          // For Docker, pass env var by name
-          cmdArgs.push(`-e ${envKey}`);
-        }
-      } else {
-        if (commandType === 'docker') {
-          // For Docker, pass as direct env var
-          cmdArgs.push(`-e ${envKey}=${value}`);
-        } else {
-          // For Java, transform to Java format
-          const javaKey = envKey.toLowerCase().replace(/_/g, '.');
-          cmdArgs.push(`--${javaKey}=${value}`);
-        }
-      }
-    });
+    processFieldsSection(data.orgServiceConfig.fields, exportLines, cmdArgs, commandType);
   }
   
   // Process SCM providers configurations
@@ -126,41 +162,18 @@ export const generateCommand = (data, commandType) => {
       Object.entries(instance).forEach(([fieldKey, fieldData]) => {
         if (!fieldData || !fieldData.value) return;
         
-        const { value, asEnv, envKey } = fieldData;
-        
         // Handle array fields differently
-        if (Array.isArray(value)) {
-          value.forEach((item, arrayIndex) => {
-            const arrayEnvKey = envKey.replace(/\${i}/g, arrayIndex);
-            if (asEnv) {
-              exportLines.push(`export ${arrayEnvKey}=${item}`);
-              if (commandType === 'docker') {
-                cmdArgs.push(`-e ${arrayEnvKey}`);
-              }
-            } else {
-              if (commandType === 'docker') {
-                cmdArgs.push(`-e ${arrayEnvKey}=${item}`);
-              } else {
-                const javaArg = transformToJavaFormat(arrayEnvKey, item, instanceIndex);
-                cmdArgs.push(javaArg);
-              }
-            }
-          });
+        if (Array.isArray(fieldData.value)) {
+          processArrayField(
+            fieldData.value, 
+            fieldData.envKey, 
+            fieldData.asEnv, 
+            exportLines, 
+            cmdArgs, 
+            commandType
+          );
         } else {
-          // Handle non-array fields as before
-          if (asEnv) {
-            exportLines.push(`export ${envKey}=${value}`);
-            if (commandType === 'docker') {
-              cmdArgs.push(`-e ${envKey}`);
-            }
-          } else {
-            if (commandType === 'docker') {
-              cmdArgs.push(`-e ${envKey}=${value}`);
-            } else {
-              const javaArg = transformToJavaFormat(envKey, value, instanceIndex);
-              cmdArgs.push(javaArg);
-            }
-          }
+          processField(fieldData, exportLines, cmdArgs, commandType);
         }
       });
     });
