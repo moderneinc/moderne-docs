@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import scmProviderDefinitions from './SCMProviderDefinitions';
+import scmProviderDefinitions from './scmProviderDefinitions';
 import SCMProviderSection from './SCMProviderSection';
 import useSCMValidation from './useSCMValidation';
 
@@ -52,7 +52,6 @@ export default function StepSCMConfig({ data, updateData }) {
   const createDefaultSCMInstance = (scmProviderId, index) => {
     const instance = {};
     scmProviderDefinitions[scmProviderId].fields.forEach(field => {
-      // Get the default value from the field definition
       let defaultValue = field.defaultValue || '';
       
       instance[field.key] = {
