@@ -174,6 +174,20 @@ export const generateCommand = (data, commandType) => {
     });
   });
 
+  // Process Artifactory LST configuration
+  if (data?.artifactoryLSTConfig?.enabled && data.artifactoryLSTConfig.fields) {
+    // Check if any fields have values
+    const fields = data.artifactoryLSTConfig.fields;
+    const hasValues = Object.values(fields).some(config => 
+      config?.value && config.value.toString().trim() !== ''
+    );
+    
+    // Only process if there are values
+    if (hasValues) {
+      processFieldsSection(fields, exportLines, cmdArgs, commandType);
+    }
+  }
+
   // Process organization service configuration
   if (data?.orgServiceConfig?.enabled && data.orgServiceConfig.fields) {
     processFieldsSection(data.orgServiceConfig.fields, exportLines, cmdArgs, commandType);

@@ -5,11 +5,13 @@ import StepSCMConfig from './StepSCMConfig';
 import StepCommandPreview from './StepCommandPreview';
 import StepGeneralConfig from './StepGeneralConfig';
 import StepStrictRecipeSourcesConfig from './StepStrictRecipeSourcesConfig';
+import StepArtifactoryLSTConfig from './StepArtifactoryLSTConfig';
 import StepOrgServiceConfig from './StepOrgServiceConfig';
 
 const steps = [
   // { label: 'Core variables', component: StepGeneralConfig },
   { label: 'SCM Configuration', component: StepSCMConfig },
+  { label: 'Artifactory LST storage', component: StepArtifactoryLSTConfig },
   { label: '(Optional) Organization Service', component: StepOrgServiceConfig },
   { label: '(Optional) Strict Recipe Sources', component: StepStrictRecipeSourcesConfig },
   { label: 'Command Preview', component: StepCommandPreview },
