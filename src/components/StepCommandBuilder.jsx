@@ -115,24 +115,15 @@ export default function StepCommandBuilder() {
     const currentStepData = steps[currentStep];
     const currentStepLabel = currentStepData.label;
     
-    // Debug logging
-    console.log("Current step:", currentStepLabel);
-    console.log("Validation state:", validationState[currentStepLabel]);
-    console.log("Is optional:", currentStepData.optional);
-    
     if (currentStepData.optional && currentStepData.configKey) {
       const configEnabled = formData[currentStepData.configKey]?.enabled;
-      console.log("Config enabled:", configEnabled);
-      console.log("Validation valid:", validationState[currentStepLabel]?.valid);
       
       if (configEnabled && validationState[currentStepLabel]?.valid === false) {
-        console.log("Disabling Next button due to invalid optional step");
         return true;
       }
     } else {
       const currentStepValidation = validationState[currentStepLabel];
       if (currentStepValidation && currentStepValidation.valid === false) {
-        console.log("Disabling Next button due to invalid required step");
         return true;
       }
     }
