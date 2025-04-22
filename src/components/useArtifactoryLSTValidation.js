@@ -9,29 +9,29 @@ function useArtifactoryLSTValidation(fields, enabled, data, updateData) {
   // Get the label from the config definition
   const configLabel = artifactoryLSTConfigDefinition.label;
 
-  const validateAndUpdate = () => {
+  const validateAndUpdate = (fieldValues = fields, isEnabled = enabled) => {
     // If the step is disabled, always consider it valid
-    if (!enabled) {
+    if (!isEnabled) {
       updateData({
         ...data,
         artifactoryLSTConfig: {
-          enabled,
-          fields,
+          enabled: isEnabled,
+          fields: fieldValues,
           validation: {
             valid: true,
             missingFields: []
           }
         },
-        validation: {
-          ...data?.validation,
-          [configLabel]: true
+        validation: { 
+          valid: true, 
+          missingFields: [] 
         }
       });
       return true;
     }
     
     // Special validation: Check if any field has a value
-    const hasAnyValue = Object.values(fields).some(fieldData => 
+    const hasAnyValue = Object.values(fieldValues).some(fieldData => 
       fieldData.value && fieldData.value.toString().trim() !== ''
     );
     
@@ -40,16 +40,16 @@ function useArtifactoryLSTValidation(fields, enabled, data, updateData) {
       updateData({
         ...data,
         artifactoryLSTConfig: {
-          enabled,
-          fields,
+          enabled: isEnabled,
+          fields: fieldValues,
           validation: {
             valid: true,
             missingFields: []
           }
         },
-        validation: {
-          ...data?.validation,
-          [configLabel]: true
+        validation: { 
+          valid: true, 
+          missingFields: [] 
         }
       });
       return true;
@@ -61,7 +61,7 @@ function useArtifactoryLSTValidation(fields, enabled, data, updateData) {
     
     artifactoryLSTConfigDefinition.fields.forEach(field => {
       if (field.required) {
-        const fieldData = fields[field.key];
+        const fieldData = fieldValues[field.key];
         const isEmpty = !fieldData?.value || fieldData.value.toString().trim() === '';
         if (isEmpty) {
           isValid = false;
@@ -74,19 +74,20 @@ function useArtifactoryLSTValidation(fields, enabled, data, updateData) {
     updateData({
       ...data,
       artifactoryLSTConfig: {
-        enabled,
-        fields,
+        enabled: isEnabled,
+        fields: fieldValues,
         validation: {
           valid: isValid,
           missingFields
         }
       },
-      validation: {
-        ...data?.validation,
-        [configLabel]: isValid
+      validation: { 
+        valid: isValid, 
+        missingFields 
       }
     });
 
+    console.log("Validation result:", isValid, "Missing fields:", missingFields);
     return isValid;
   };
 

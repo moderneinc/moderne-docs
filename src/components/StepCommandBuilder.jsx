@@ -9,12 +9,36 @@ import StepArtifactoryLSTConfig from './StepArtifactoryLSTConfig';
 import StepOrgServiceConfig from './StepOrgServiceConfig';
 
 const steps = [
-  // { label: 'Core variables', component: StepGeneralConfig },
-  { label: 'SCM Configuration', component: StepSCMConfig },
-  { label: 'Artifactory LST storage', component: StepArtifactoryLSTConfig },
-  { label: '(Optional) Organization Service', component: StepOrgServiceConfig },
-  { label: '(Optional) Strict Recipe Sources', component: StepStrictRecipeSourcesConfig },
-  { label: 'Command Preview', component: StepCommandPreview },
+  // { 
+  //   label: 'Core Variables', 
+  //   component: StepGeneralConfig 
+  // },
+  { 
+    label: 'SCM Configuration', 
+    component: StepSCMConfig 
+  },
+  { 
+    label: 'Artifactory LST', 
+    component: StepArtifactoryLSTConfig,
+    configKey: 'artifactoryLSTConfig',
+    optional: true
+  },
+  { 
+    label: 'Organization Service', 
+    component: StepOrgServiceConfig,
+    configKey: 'orgServiceConfig',
+    optional: true
+  },
+  { 
+    label: 'Strict Recipe Sources', 
+    component: StepStrictRecipeSourcesConfig,
+    configKey: 'strictRecipeSourcesConfig',
+    optional: true
+  },
+  { 
+    label: 'Command Preview', 
+    component: StepCommandPreview 
+  },
 ];
 
 export default function StepCommandBuilder() {
@@ -83,14 +107,34 @@ export default function StepCommandBuilder() {
   };
 
   // Determine if the Next button should be disabled
+  // Add this debugging to the isNextDisabled function
   const isNextDisabled = () => {
     // Always disabled on the last step
     if (currentStep === steps.length - 1) return true;
     
-    // Disabled if the current step has validation and it's invalid
-    const currentStepValidation = validationState[steps[currentStep].label];
-    if (currentStepValidation && currentStepValidation.valid === false) {
-      return true;
+    const currentStepData = steps[currentStep];
+    const currentStepLabel = currentStepData.label;
+    
+    // Debug logging
+    console.log("Current step:", currentStepLabel);
+    console.log("Validation state:", validationState[currentStepLabel]);
+    console.log("Is optional:", currentStepData.optional);
+    
+    if (currentStepData.optional && currentStepData.configKey) {
+      const configEnabled = formData[currentStepData.configKey]?.enabled;
+      console.log("Config enabled:", configEnabled);
+      console.log("Validation valid:", validationState[currentStepLabel]?.valid);
+      
+      if (configEnabled && validationState[currentStepLabel]?.valid === false) {
+        console.log("Disabling Next button due to invalid optional step");
+        return true;
+      }
+    } else {
+      const currentStepValidation = validationState[currentStepLabel];
+      if (currentStepValidation && currentStepValidation.valid === false) {
+        console.log("Disabling Next button due to invalid required step");
+        return true;
+      }
     }
     
     return false;

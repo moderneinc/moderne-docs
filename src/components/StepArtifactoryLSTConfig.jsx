@@ -64,14 +64,19 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
   }, [enabled]);
 
   const handleFieldChange = (fieldKey, value) => {
-    setFields(prev => ({
-      ...prev,
+    const newFields = {
+      ...fields,
       [fieldKey]: {
-        ...prev[fieldKey],
+        ...fields[fieldKey],
         value,
         envKey: artifactoryLSTConfigDefinition.fields.find(f => f.key === fieldKey)?.envKey
       }
-    }));
+    };
+    
+    setFields(newFields);
+    
+    // Force validation to run immediately
+    validateAndUpdate(newFields, enabled);
   };
 
   const handleEnvToggle = (fieldKey) => {
