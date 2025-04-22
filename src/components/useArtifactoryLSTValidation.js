@@ -30,32 +30,7 @@ function useArtifactoryLSTValidation(fields, enabled, data, updateData) {
       return true;
     }
     
-    // Special validation: Check if any field has a value
-    const hasAnyValue = Object.values(fieldValues).some(fieldData => 
-      fieldData.value && fieldData.value.toString().trim() !== ''
-    );
-    
-    // If no values at all, it's valid (all fields optional)
-    if (!hasAnyValue) {
-      updateData({
-        ...data,
-        artifactoryLSTConfig: {
-          enabled: isEnabled,
-          fields: fieldValues,
-          validation: {
-            valid: true,
-            missingFields: []
-          }
-        },
-        validation: { 
-          valid: true, 
-          missingFields: [] 
-        }
-      });
-      return true;
-    }
-    
-    // If any values, then all required fields must be filled
+    // Otherwise validate required fields normally
     let isValid = true;
     let missingFields = [];
     
@@ -87,23 +62,13 @@ function useArtifactoryLSTValidation(fields, enabled, data, updateData) {
       }
     });
 
-    console.log("Validation result:", isValid, "Missing fields:", missingFields);
     return isValid;
   };
 
   const hasFieldError = (fieldKey) => {
     // If step is disabled, no fields have errors
     if (!enabled || !validationAttempted) return false;
-    
-    // Get all fields that have values
-    const hasAnyValue = Object.values(fields).some(fieldData => 
-      fieldData.value && fieldData.value.toString().trim() !== ''
-    );
-    
-    // If no fields have values, no errors
-    if (!hasAnyValue) return false;
-    
-    // If any field has a value, check if this field is required and empty
+
     const field = artifactoryLSTConfigDefinition.fields.find(f => f.key === fieldKey);
     if (!field || !field.required) return false;
 

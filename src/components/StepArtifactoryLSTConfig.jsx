@@ -115,10 +115,6 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
       {enabled && (
         <>
           <div className="sectionTitle">{artifactoryLSTConfigDefinition.label}</div>
-          <p className="special-validation-info">
-            Note: You can leave all fields empty, but if you fill in any field, 
-            all required fields must be completed.
-          </p>
           
           {artifactoryLSTConfigDefinition.fields.map((field) => {
             const fieldData = fields[field.key] || {};
@@ -164,15 +160,6 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
         .info-text {
           margin-top: 0.5rem;
           margin-bottom: 0;
-          color: var(--ifm-color-emphasis-700);
-        }
-        
-        .special-validation-info {
-          margin-top: 0.5rem;
-          padding: 0.75rem;
-          background-color: var(--ifm-color-info-lightest);
-          border-left: 3px solid var(--ifm-color-info);
-          border-radius: 0 4px 4px 0;
           color: var(--ifm-color-emphasis-700);
         }
         
