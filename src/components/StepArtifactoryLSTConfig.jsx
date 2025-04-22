@@ -1,54 +1,66 @@
-// StepArtifactoryLSTConfig.jsx
-
 import React, { useState, useEffect } from 'react';
-import ConfigField from './ConfigField';
 import artifactoryLSTConfigDefinition from './artifactoryLSTConfigDefinition';
 import useArtifactoryLSTValidation from './useArtifactoryLSTValidation';
+import ArtifactoryLSTInstance from './ArtifactoryLSTInstance';
 
 export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
   // Initialize enabled state from data or default to false
   const [enabled, setEnabled] = useState(data?.artifactoryLSTConfig?.enabled || false);
-  const [fields, setFields] = useState(data?.artifactoryLSTConfig?.fields || {});
+  const [instances, setInstances] = useState(data?.artifactoryLSTConfig?.instances || []);
+  const [count, setCount] = useState(data?.artifactoryLSTConfig?.count || 1);
 
   // Use validation hook
   const { validateAndUpdate, hasFieldError } = useArtifactoryLSTValidation(
-    fields,
     enabled,
+    instances,
+    count,
     data,
     updateData
   );
 
-  // Initialize fields with defaults
+  // Initialize instances with defaults if empty
   useEffect(() => {
-    if (Object.keys(fields).length === 0) {
-      const defaultFields = {};
-      artifactoryLSTConfigDefinition.fields.forEach(field => {
-        defaultFields[field.key] = {
-          value: field.defaultValue || '',
-          asEnv: false,
-          envKey: field.envKey
-        };
-      });
-      setFields(defaultFields);
+    if (instances.length === 0) {
+      const defaultInstances = Array.from({ length: count }, (_, index) => 
+        createDefaultInstance(index)
+      );
       
-      // Initial update to parent with validation
+      setInstances(defaultInstances);
+      
+      // Initial update to parent
       updateData({
         ...data,
         artifactoryLSTConfig: {
           enabled,
-          fields: defaultFields,
+          instances: defaultInstances,
+          count,
           validation: {
             valid: true,
             missingFields: []
           }
         },
         validation: {
-          ...data?.validation,
-          [artifactoryLSTConfigDefinition.label]: true
+          valid: true,
+          missingFields: []
         }
       });
     }
   }, []);
+
+  // Create a default instance
+  const createDefaultInstance = (index) => {
+    const instance = {};
+    artifactoryLSTConfigDefinition.fields.forEach(field => {
+      let defaultValue = field.defaultValue || '';
+      
+      instance[field.key] = {
+        value: defaultValue,
+        asEnv: false,
+        envKey: field.envKey.replace(/\${i}/g, index)
+      };
+    });
+    return instance;
+  };
 
   // Update parent when enabled state changes
   useEffect(() => {
@@ -63,30 +75,76 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
     }
   }, [enabled]);
 
-  const handleFieldChange = (fieldKey, value) => {
-    const newFields = {
-      ...fields,
+  // Update count of instances
+  const handleCountChange = (newCount) => {
+    newCount = Math.max(1, newCount);
+    
+    let newInstances = [...instances];
+    
+    // Add more instances if needed
+    if (newCount > count) {
+      for (let i = count; i < newCount; i++) {
+        newInstances.push(createDefaultInstance(i));
+      }
+    } 
+    // Remove excess instances if count decreased
+    else if (newCount < count) {
+      newInstances = newInstances.slice(0, newCount);
+    }
+    
+    setCount(newCount);
+    setInstances(newInstances);
+    
+    // Update parent
+    updateData({
+      ...data,
+      artifactoryLSTConfig: {
+        ...data.artifactoryLSTConfig,
+        count: newCount,
+        instances: newInstances
+      }
+    });
+  };
+
+  // Update a specific field
+  const handleFieldChange = (instanceIndex, fieldKey, value) => {
+    const newInstances = [...instances];
+    
+    if (!newInstances[instanceIndex]) {
+      newInstances[instanceIndex] = createDefaultInstance(instanceIndex);
+    }
+    
+    const field = artifactoryLSTConfigDefinition.fields.find(f => f.key === fieldKey);
+    
+    newInstances[instanceIndex] = {
+      ...newInstances[instanceIndex],
       [fieldKey]: {
-        ...fields[fieldKey],
-        value,
-        envKey: artifactoryLSTConfigDefinition.fields.find(f => f.key === fieldKey)?.envKey
+        ...newInstances[instanceIndex][fieldKey],
+        value: field.type === 'array' ? (Array.isArray(value) ? value : [value]) : value
       }
     };
     
-    setFields(newFields);
-    
-    // Force validation to run immediately
-    validateAndUpdate(newFields, enabled);
+    setInstances(newInstances);
+    validateAndUpdate(newInstances, enabled);
   };
 
-  const handleEnvToggle = (fieldKey) => {
-    setFields(prev => ({
-      ...prev,
+  // Toggle environment variable usage
+  const handleEnvToggle = (instanceIndex, fieldKey) => {
+    const newInstances = [...instances];
+    
+    if (!newInstances[instanceIndex]) {
+      newInstances[instanceIndex] = createDefaultInstance(instanceIndex);
+    }
+    
+    newInstances[instanceIndex] = {
+      ...newInstances[instanceIndex],
       [fieldKey]: {
-        ...prev[fieldKey],
-        asEnv: !prev[fieldKey]?.asEnv
+        ...newInstances[instanceIndex][fieldKey],
+        asEnv: !newInstances[instanceIndex][fieldKey]?.asEnv
       }
-    }));
+    };
+    
+    setInstances(newInstances);
   };
 
   const toggleEnabled = () => {
@@ -107,7 +165,11 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
         
         {!enabled && (
           <p className="info-text">
-            This configuration is optional. Enable it if you want to use Artifactory as an LST source.
+          If you want to use Artifactory to store your LST artifacts, enable this step. 
+          This will allow you to use AQL queries to fetch the LSTs – which will result 
+          in a noticeable speed improvement.
+
+          For more information, please see <a href="https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access">our documentation</a>
           </p>
         )}
       </div>
@@ -116,25 +178,28 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
         <>
           <div className="sectionTitle">{artifactoryLSTConfigDefinition.label}</div>
           
-          {artifactoryLSTConfigDefinition.fields.map((field) => {
-            const fieldData = fields[field.key] || {};
-            const fieldValue = fieldData.value || field.defaultValue || '';
-            const useAsEnv = fieldData.asEnv || false;
-            const showError = hasFieldError(field.key);
-            
-            return (
-              <ConfigField
-                key={field.key}
-                field={field}
-                value={fieldValue}
-                onChange={(value) => handleFieldChange(field.key, value)}
-                onEnvToggle={() => handleEnvToggle(field.key)}
-                useAsEnv={useAsEnv}
-                hasError={showError}
-                name={field.key}
-              />
-            );
-          })}
+          <label className="instance-count">
+            Number of Artifactory Configurations:{' '}
+            <input
+              type="number"
+              min={1}
+              value={count}
+              onChange={(e) => handleCountChange(parseInt(e.target.value || '1', 10))}
+              style={{ width: '60px' }}
+            />
+          </label>
+          
+          {Array.from({ length: count }).map((_, index) => (
+            <ArtifactoryLSTInstance
+              key={`artifactory-instance-${index}`}
+              index={index}
+              instance={instances[index] || {}}
+              configDefinition={artifactoryLSTConfigDefinition}
+              onFieldChange={handleFieldChange}
+              onEnvToggle={handleEnvToggle}
+              hasFieldError={hasFieldError}
+            />
+          ))}
         </>
       )}
       
@@ -169,6 +234,12 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
           margin: 1rem 0 1rem;
           padding-bottom: 0.5rem;
           border-bottom: 1px solid var(--ifm-color-emphasis-200);
+        }
+        
+        .instance-count {
+          display: block;
+          margin-bottom: 1rem;
+          font-weight: 500;
         }
       `}</style>
     </div>

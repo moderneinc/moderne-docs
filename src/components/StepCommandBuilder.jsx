@@ -18,7 +18,7 @@ const steps = [
     component: StepSCMConfig 
   },
   { 
-    label: 'Artifactory LST', 
+    label: 'Artifactory LST Storage', 
     component: StepArtifactoryLSTConfig,
     configKey: 'artifactoryLSTConfig',
     optional: true
