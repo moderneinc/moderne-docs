@@ -53,13 +53,11 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
     artifactoryLSTConfigDefinition.fields.forEach(field => {
       let defaultValue = field.defaultValue || '';
       
-      const envKey = field.envKey.replace(/\${i}/g, index);
-      console.log(`Creating default instance - Field: ${field.key}, EnvKey: ${envKey}`);
-      
+      // For array fields, store the original envKey pattern
       instance[field.key] = {
         value: defaultValue,
         asEnv: false,
-        envKey: envKey
+        envKey: field.envKey.replace('${i}', index) // Only replace first ${i} for instance index
       };
     });
     return instance;
@@ -123,13 +121,13 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
       ...newInstances[instanceIndex],
       [fieldKey]: {
         ...newInstances[instanceIndex][fieldKey],
-        value: field.type === 'array' ? (Array.isArray(value) ? value : [value]) : value
+        value: field.type === 'array' ? (Array.isArray(value) ? value : [value]) : value,
+        // Keep the original envKey pattern for array fields
+        envKey: field.type === 'array' 
+          ? field.envKey.replace('${i}', instanceIndex)
+          : field.envKey.replace(/\${i}/g, instanceIndex)
       }
     };
-    
-    console.log(`Updating field ${fieldKey}:`, 
-      JSON.parse(JSON.stringify(newInstances[instanceIndex][fieldKey]))
-    );
     
     setInstances(newInstances);
     validateAndUpdate(newInstances, enabled);
