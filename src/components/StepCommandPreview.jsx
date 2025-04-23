@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useFormContext } from 'react-hook-form';
 import { generateCommand } from './commandGenerationUtils';
 import styles from './styles/StepCommandPreview.module.css';
 
-export default function StepCommandPreview({ data }) {
+export default function StepCommandPreview({ stepKey }) {
+  const { watch } = useFormContext();
+  const formValues = watch();
+  
   // Add command type selection
-  const [commandType, setCommandType] = useState('docker');
-  // Generate command whenever data or command type changes
+  const [agentType, setAgentType] = useState('oci-container');
+  // Generate command whenever data or agent type changes
   const [commandText, setCommandText] = useState('');
   
   useEffect(() => {
-    // Use the extracted utility function
-    setCommandText(generateCommand(data, commandType));
-  }, [commandType, data]);
+    // Use the enhanced utility function with form values
+    setCommandText(generateCommand(agentType, formValues));
+  }, [agentType, formValues]);
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(commandText).then(
@@ -29,27 +33,27 @@ export default function StepCommandPreview({ data }) {
 
   return (
     <div className={styles.container}>
-      <h4>Command Format</h4>
+      <h4>Agent Type</h4>
       <div className={styles.formatSelector}>
         <label className={styles.radioLabel}>
           <input
             type="radio"
-            name="command-type"
-            value="docker"
-            checked={commandType === 'docker'}
-            onChange={() => setCommandType('docker')}
+            name="agent-type"
+            value="oci-container"
+            checked={agentType === 'oci-container'}
+            onChange={() => setAgentType('oci-container')}
           />
-          Docker
+          OCI Container (Docker)
         </label>
         <label className={styles.radioLabel}>
           <input
             type="radio"
-            name="command-type"
-            value="java"
-            checked={commandType === 'java'}
-            onChange={() => setCommandType('java')}
+            name="agent-type"
+            value="executable-jar"
+            checked={agentType === 'executable-jar'}
+            onChange={() => setAgentType('executable-jar')}
           />
-          Java
+          Executable JAR
         </label>
       </div>
       
@@ -71,6 +75,7 @@ export default function StepCommandPreview({ data }) {
       <div className={styles.commandHelp}>
         <p>
           Run this command to start the Moderne Agent with your configuration.
+          Make sure to replace any placeholder values with your actual credentials.
         </p>
       </div>
     </div>

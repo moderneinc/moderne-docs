@@ -19,11 +19,13 @@
     "@docusaurus/faster": "^3.7.0",
     "@docusaurus/preset-classic": "^3.7.0",
     "@docusaurus/theme-mermaid": "^3.7.0",
+    "@hookform/devtools": "4.4.0",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-hook-form": "7.56.1",
     "react-medium-image-zoom": "^5.2.10",
     "react-player": "^2.16.0"
   },

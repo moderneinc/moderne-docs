@@ -14,9 +14,29 @@
   align-items: center;
   justify-content: center;
   margin: 0 8px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .active {
   background-color: var(--ifm-color-primary);
   color: white;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.clickable:active {
+  transform: scale(0.95);
+}
+
+/* Addition for accessibility - focus indicator */
+.clickable:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
 }

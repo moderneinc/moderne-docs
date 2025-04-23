@@ -1,4 +1,3 @@
-import React from 'react';
 import ConfigField from './ConfigField';
 import styles from './styles/SCMProviderInstance.module.css';
 
@@ -9,42 +8,38 @@ function SCMProviderInstance({
   scmProviderType, 
   scmProviderConfig, 
   index, 
-  instance, 
+  instance = {}, 
   onFieldChange, 
   onEnvToggle, 
   hasFieldError 
 }) {
-  const handleInputChange = (fieldKey, value) => {
-    onFieldChange(scmProviderType, index, fieldKey, value);
+  // Handle field change
+  const handleFieldChange = (fieldKey, value) => {
+    // Call the parent's onFieldChange
+    onFieldChange(fieldKey, value);
   };
-
+  
+  // Handle env toggle
   const handleEnvToggle = (fieldKey) => {
-    onEnvToggle(scmProviderType, index, fieldKey);
+    onEnvToggle(fieldKey);
   };
 
   return (
     <div className={styles.instance}>
       <h4>{scmProviderConfig.label} #{index + 1}</h4>
       
-      {scmProviderConfig.fields.map((field) => {
-        const fieldConfig = instance[field.key] || {};
-        const fieldValue = fieldConfig.value || (field.type === 'boolean' ? 'false' : '');
-        const useAsEnv = fieldConfig.asEnv || false;
-        const showError = hasFieldError(scmProviderType, index, field.key);
-        
-        return (
-          <ConfigField
-            key={`${scmProviderType}-${index}-${field.key}`}
-            field={field}
-            value={fieldValue}
-            onChange={(value) => handleInputChange(field.key, value)}
-            onEnvToggle={() => handleEnvToggle(field.key)}
-            useAsEnv={useAsEnv}
-            hasError={showError}
-            name={`${scmProviderType}-${index}-${field.key}`}
-          />
-        );
-      })}
+      {scmProviderConfig.fields.map((field) => (
+        <ConfigField
+          key={`${scmProviderType}-${index}-${field.key}`}
+          field={field}
+          value={instance[field.key] || ''}
+          onChange={(value) => handleFieldChange(field.key, value)}
+          onEnvToggle={() => handleEnvToggle(field.key)}
+          useAsEnv={instance[`${field.key}_useAsEnv`] || false}
+          hasError={hasFieldError(field.key)}
+          name={`${scmProviderType}-${index}-${field.key}`}
+        />
+      ))}
     </div>
   );
 }

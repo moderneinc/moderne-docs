@@ -1,246 +1,224 @@
 /**
- * Transforms an environment variable key to Java argument format
- * @param {string} envKey - The environment variable key
- * @returns {string} The formatted Java key
+ * Utility functions for generating agent configuration commands
  */
-export const transformToJavaFormat = (envKey) => {
-  // Example: MODERNE_AGENT_GITHUB_0_URL → moderne.agent.github[0].url
-  let javaKey = envKey.toLowerCase();
 
-  // Replace ${i} placeholders if present
-  javaKey = javaKey.replace(/\${i}/g, '0');
-  
-  // Replace underscores with dots
-  javaKey = javaKey.replace(/_/g, '.');
-  
-  // Handle array indices - match patterns like .0. or .1.
-  javaKey = javaKey.replace(/\.(\d+)\./g, (match, digit) => {
-    return `[${digit}].`;
-  });
-  
-  // Handle the last index if it ends with a digit
-  javaKey = javaKey.replace(/\.(\d+)$/, (match, digit) => {
-    return `[${digit}]`;
-  });
-  
-  return javaKey;
-};
+import { configSections } from "./configSchema";
 
 /**
- * Process a single field and add to command arguments
- * @param {Object} config - Field configuration
- * @param {Array} exportLines - Array to collect export lines
- * @param {Array} cmdArgs - Array to collect command arguments
- * @param {string} commandType - Docker or Java
+ * Generates a Docker command from the form data
+ * @param {Object} formData - The compiled form data from all steps
+ * @returns {string} - The complete Docker command
  */
-const processField = (config, exportLines, cmdArgs, commandType) => {
-  if (!config || !config.value) return;
-  
-  const { value, asEnv, envKey } = config;
-  
-  if (asEnv) {
-    // Add to exports
-    exportLines.push(`export ${envKey}=${value}`);
-    
-    if (commandType === 'docker') {
-      cmdArgs.push(`-e ${envKey}`);
-    }
-  } else {
-    if (commandType === 'docker') {
-      cmdArgs.push(`-e ${envKey}=${value}`);
-    } else {
-      const javaKey = transformToJavaFormat(envKey);
-      cmdArgs.push(`--${javaKey}=${value}`);
-    }
-  }
-};
+export function generateDockerCommand(formData) {
+  const envVars = [];
+  const secretsDeclarations = [];
 
-/**
- * Process an array field
- * @param {Array} values - Array of values
- * @param {string} envKeyPattern - Environment key with ${i} placeholder
- * @param {boolean} asEnv - Whether to use as environment variable
- * @param {Array} exportLines - Array to collect export lines
- * @param {Array} cmdArgs - Array to collect command arguments
- * @param {string} commandType - Docker or Java
- */
-const processArrayField = (values, envKeyPattern, asEnv, exportLines, cmdArgs, commandType) => {
-  if (!Array.isArray(values) || values.length === 0) return;
-  
-  values.forEach((item, index) => {
-    const arrayEnvKey = envKeyPattern.replace(/\${i}/g, index);
-    
-    if (asEnv) {
-      exportLines.push(`export ${arrayEnvKey}=${item}`);
-      if (commandType === 'docker') {
-        cmdArgs.push(`-e ${arrayEnvKey}`);
-      }
-    } else {
-      if (commandType === 'docker') {
-        cmdArgs.push(`-e ${arrayEnvKey}=${item}`);
-      } else {
-        const javaKey = transformToJavaFormat(arrayEnvKey);
-        cmdArgs.push(`--${javaKey}=${item}`);
-      }
-    }
-  });
-};
-
-/**
- * Process a section of fields
- * @param {Object} fieldsObject - Object containing field configs
- * @param {Array} exportLines - Array to collect export lines
- * @param {Array} cmdArgs - Array to collect command arguments
- * @param {string} commandType - Docker or Java
- */
-const processFieldsSection = (fieldsObject, exportLines, cmdArgs, commandType) => {
-  if (!fieldsObject) return;
-  
-  Object.entries(fieldsObject).forEach(([key, config]) => {
-    if (Array.isArray(config.value)) {
-      processArrayField(
-        config.value, 
-        config.envKey, 
-        config.asEnv, 
-        exportLines, 
-        cmdArgs, 
-        commandType
-      );
-    } else {
-      processField(config, exportLines, cmdArgs, commandType);
-    }
-  });
-};
-
-/**
- * Generates command string based on configuration
- * @param {Object} data - The form data
- * @param {string} commandType - The command type (docker or java)
- * @returns {string} The generated command
- */
-export const generateCommand = (data, commandType) => {
-  const exportLines = [];
-  const cmdArgs = [];
-  
-  const { providers = [], providerConfigs = {} } = data || {};
-  const generalConfig = data.generalConfig || {};
-  
   // Process general configuration
-  if (generalConfig && generalConfig.fields) {
-    processFieldsSection(generalConfig.fields, exportLines, cmdArgs, commandType);
-  }
-  
-  // Process commit options
-  if (generalConfig && generalConfig.commitOptions && generalConfig.commitOptions.length > 0) {
-    generalConfig.commitOptions.forEach((option, index) => {
-      const envKey = `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_${index}`;
-      
-      if (commandType === 'docker') {
-        cmdArgs.push(`-e ${envKey}=${option}`);
+  const generalConfig = formData.generalConfig?.fields || {};
+  Object.entries(generalConfig).forEach(([key, fieldData]) => {
+    const field = configSections.generalConfig.fields.find(
+      (f) => f.key === key
+    );
+    if (field && fieldData.value) {
+      if (fieldData.useAsEnv) {
+        secretsDeclarations.push(`export ${field.envKey}=...`);
+        envVars.push(`-e ${field.envKey}`);
       } else {
-        const javaKey = `moderne.agent.defaultCommitOptions[${index}]`;
-        cmdArgs.push(`--${javaKey}=${option}`);
+        envVars.push(`-e ${field.envKey}=${fieldData.value}`);
       }
-    });
-  }
-  
-  // Process SCM providers configurations
-  providers.forEach(providerId => {
-    const config = providerConfigs[providerId];
-    if (!config) return;
-    
-    const { instances = [] } = config;
-    
-    instances.forEach((instance, instanceIndex) => {
-      if (!instance) return;
-      
-      Object.entries(instance).forEach(([fieldKey, fieldData]) => {
-        if (!fieldData || !fieldData.value) return;
-        
-        // Handle array fields differently
-        if (Array.isArray(fieldData.value)) {
-          processArrayField(
-            fieldData.value, 
-            fieldData.envKey, 
-            fieldData.asEnv, 
-            exportLines, 
-            cmdArgs, 
-            commandType
-          );
+    }
+  });
+
+  // Process SCM providers
+  const providers = formData.providers || [];
+  const providerConfigs = formData.providerConfigs || {};
+
+  providers.forEach((provider, index) => {
+    const providerDef = configSections.scmConfig.providers[provider];
+    const config = providerConfigs[provider] || {};
+
+    providerDef.fields.forEach((field) => {
+      const fieldValue = config[field.key];
+      if (fieldValue) {
+        const envKey = field.envKey.replace("{index}", index);
+
+        if (config[`${field.key}_useAsEnv`]) {
+          secretsDeclarations.push(`export ${envKey}=...`);
+          envVars.push(`-e ${envKey}`);
         } else {
-          processField(fieldData, exportLines, cmdArgs, commandType);
+          envVars.push(`-e ${envKey}=${fieldValue}`);
         }
-      });
+      }
     });
   });
 
-  // Process Artifactory LST configuration
-  if (data?.artifactoryLSTConfig?.enabled && data.artifactoryLSTConfig.instances) {
-    const instances = data.artifactoryLSTConfig.instances;
-        
-    instances.forEach((instance, instanceIndex) => {
-      if (!instance) return;
-      
-      Object.entries(instance).forEach(([fieldKey, fieldData]) => {        
-        if (!fieldData || !fieldData.value) return;
-        
-        // Handle array fields differently
-        if (Array.isArray(fieldData.value)) {
-          
-          processArrayField(
-            fieldData.value, 
-            fieldData.envKey, 
-            fieldData.asEnv, 
-            exportLines, 
-            cmdArgs, 
-            commandType
-          );
+  // Process Artifactory LST config
+  if (formData.artifactoryLSTConfig?.enabled) {
+    const artifactoryFields = formData.artifactoryLSTConfig.fields || {};
+    configSections.artifactoryLSTConfig.fields.forEach((field) => {
+      const fieldData = artifactoryFields[field.key];
+      if (fieldData?.value) {
+        if (fieldData.useAsEnv) {
+          secretsDeclarations.push(`export ${field.envKey}=...`);
+          envVars.push(`-e ${field.envKey}`);
         } else {
-          processField(fieldData, exportLines, cmdArgs, commandType);
+          envVars.push(`-e ${field.envKey}=${fieldData.value}`);
         }
-      });
+      }
     });
   }
 
-  // Process Maven repository configuration
-  if (data?.mavenRepositoryConfig?.enabled && data.mavenRepositoryConfig.instances) {
-    const instances = data.mavenRepositoryConfig.instances;
-        
-    instances.forEach((instance, instanceIndex) => {
-      if (!instance) return;
-      
-      Object.entries(instance).forEach(([fieldKey, fieldData]) => {        
-        if (!fieldData || !fieldData.value) return;
-        
-        processField(fieldData, exportLines, cmdArgs, commandType);
-      });
+  // Process Maven Repository config
+  if (formData.mavenRepositoryConfig?.enabled) {
+    const mavenFields = formData.mavenRepositoryConfig.fields || {};
+    configSections.mavenRepositoryConfig.fields.forEach((field) => {
+      const fieldData = mavenFields[field.key];
+      if (fieldData?.value) {
+        if (fieldData.useAsEnv) {
+          secretsDeclarations.push(`export ${field.envKey}=...`);
+          envVars.push(`-e ${field.envKey}`);
+        } else {
+          envVars.push(`-e ${field.envKey}=${fieldData.value}`);
+        }
+      }
     });
   }
 
-  // Process organization service configuration
-  if (data?.orgServiceConfig?.enabled && data.orgServiceConfig.fields) {
-    processFieldsSection(data.orgServiceConfig.fields, exportLines, cmdArgs, commandType);
+  // Process Organization Service config
+  if (formData.orgServiceConfig?.enabled) {
+    const orgFields = formData.orgServiceConfig.fields || {};
+    configSections.orgServiceConfig.fields.forEach((field) => {
+      const fieldData = orgFields[field.key];
+      if (fieldData?.value) {
+        if (fieldData.useAsEnv) {
+          secretsDeclarations.push(`export ${field.envKey}=...`);
+          envVars.push(`-e ${field.envKey}`);
+        } else {
+          envVars.push(`-e ${field.envKey}=${fieldData.value}`);
+        }
+      }
+    });
   }
 
-  // Process strict recipe sources configuration
-  if (data?.strictRecipeSourcesConfig?.enabled && data.strictRecipeSourcesConfig.fields) {
-    processFieldsSection(data.strictRecipeSourcesConfig.fields, exportLines, cmdArgs, commandType);
+  // Process Strict Recipe Sources config
+  if (formData.strictRecipeSourcesConfig?.enabled) {
+    const strictFields = formData.strictRecipeSourcesConfig.fields || {};
+    configSections.strictRecipeSourcesConfig.fields.forEach((field) => {
+      const fieldData = strictFields[field.key];
+      if (fieldData?.value) {
+        if (fieldData.useAsEnv) {
+          secretsDeclarations.push(`export ${field.envKey}=...`);
+          envVars.push(`-e ${field.envKey}`);
+        } else {
+          envVars.push(`-e ${field.envKey}=${fieldData.value}`);
+        }
+      }
+    });
   }
-  
-  // Build the command string
-  let command = '';
-  
-  // Add export lines if any
-  if (exportLines.length > 0) {
-    command += exportLines.join('\n') + '\n\n';
+
+  // Build the final command
+  let command = "";
+
+  if (secretsDeclarations.length > 0) {
+    command +=
+      "# Please note that if you create environment variables for secrets, you still need to let Docker\n";
+    command +=
+      "# know that these variables exist by including it via: `-e ENV_VAR_NAME`.\n";
+    command += secretsDeclarations.join("\n");
+    command += "\n\n";
   }
-  
-  // Add the command based on type
-  if (commandType === 'docker') {
-    command += `docker run ${cmdArgs.join(' ')} -p 8080:8080 moderne-agent:latest`;
-  } else {
-    command += `java -jar moderne-agent-{version}.jar ${cmdArgs.join(' ')}`;
-  }
-  
+
+  command += "docker run \\\n";
+  command += envVars.map((v) => v + " \\").join("\n");
+  command += "\n-p 8080:8080\nmoderne-agent:latest";
+
   return command;
-};
+}
+
+/**
+ * Generates a JAR command from the form data
+ * @param {Object} formData - The compiled form data from all steps
+ * @returns {string} - The complete JAR command
+ */
+export function generateJarCommand(formData) {
+  const args = [];
+  const secretsDeclarations = [];
+
+  // Process general configuration
+  const generalConfig = formData.generalConfig?.fields || {};
+  Object.entries(generalConfig).forEach(([key, fieldData]) => {
+    const field = configSections.generalConfig.fields.find(
+      (f) => f.key === key
+    );
+    if (field && fieldData.value) {
+      const argKey = field.envKey.toLowerCase().replace(/_/g, ".");
+
+      if (fieldData.useAsEnv) {
+        secretsDeclarations.push(`export ${field.envKey}=...`);
+      } else {
+        args.push(`--${argKey}=${fieldData.value}`);
+      }
+    }
+  });
+
+  // Process SCM providers
+  const providers = formData.providers || [];
+  const providerConfigs = formData.providerConfigs || {};
+
+  providers.forEach((provider, index) => {
+    const providerDef = configSections.scmConfig.providers[provider];
+    const config = providerConfigs[provider] || {};
+
+    providerDef.fields.forEach((field) => {
+      const fieldValue = config[field.key];
+      if (fieldValue) {
+        const envKey = field.envKey.replace("{index}", index);
+        const argKey = envKey
+          .toLowerCase()
+          .replace(/_/g, ".")
+          .replace(/\[/g, ".")
+          .replace(/\]/g, "");
+
+        if (config[`${field.key}_useAsEnv`]) {
+          secretsDeclarations.push(`export ${envKey}=...`);
+        } else {
+          args.push(`--${argKey}=${fieldValue}`);
+        }
+      }
+    });
+  });
+
+  // Process other configurations similarly to the Docker command
+  // Artifactory LST, Maven Repository, Organization Service, etc.
+
+  // Build the final command
+  let command = "";
+
+  if (secretsDeclarations.length > 0) {
+    command +=
+      "# Exporting environment variables with the exact same structure as the parameter in the Java command\n";
+    command +=
+      "# makes it so you no longer need to include them in the below Java command.\n";
+    command += secretsDeclarations.join("\n");
+    command += "\n\n";
+  }
+
+  command += "java -jar moderne-agent-{version}.jar \\\n";
+  command += args.map((a) => a + " \\").join("\n");
+
+  return command;
+}
+
+/**
+ * Returns the appropriate command string based on agent type
+ * @param {string} agentType - "oci-container" or "executable-jar"
+ * @param {Object} formData - The compiled form data
+ * @returns {string} - The command string
+ */
+export function generateCommand(agentType, formData) {
+  if (agentType === "executable-jar") {
+    return generateJarCommand(formData);
+  } else {
+    return generateDockerCommand(formData);
+  }
+}
