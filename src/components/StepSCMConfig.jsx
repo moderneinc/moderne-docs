@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import scmProviderDefinitions from './scmProviderDefinitions';
 import SCMProviderSection from './SCMProviderSection';
 import useSCMValidation from './useSCMValidation';
+import styles from './styles/StepSCMConfig.module.css';
 
 /**
  * SCM Configuration Step Component
@@ -151,7 +152,7 @@ export default function StepSCMConfig({ data, updateData }) {
   };
 
   return (
-    <div className="scm-config">
+    <div className={styles.container}>
       <p>
         Connecting the agent to your SCM enables Moderne to display recipe results in the UI and 
         commit changes from recipes back to your SCM (in the form of PRs, forks, commits, etc).
@@ -174,12 +175,6 @@ export default function StepSCMConfig({ data, updateData }) {
           hasFieldError={hasFieldError}
         />
       ))}
-      
-      <style jsx>{`
-        .scm-config p {
-          margin-bottom: 1rem;
-        }
-      `}</style>
     </div>
   );
 }

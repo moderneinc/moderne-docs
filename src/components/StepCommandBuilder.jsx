@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
+import styles from './styles/StepCommandBuilder.module.css';
 
 import StepSCMConfig from './StepSCMConfig';
 import StepCommandPreview from './StepCommandPreview';
@@ -10,10 +11,10 @@ import StepMavenRepositoryConfig from './StepMavenRepositoryConfig';
 import StepOrgServiceConfig from './StepOrgServiceConfig';
 
 const steps = [
-  { 
-    label: 'Core Variables', 
-    component: StepGeneralConfig 
-  },
+  // { 
+  //   label: 'Core Variables', 
+  //   component: StepGeneralConfig 
+  // },
   { 
     label: 'SCM Configuration', 
     component: StepSCMConfig 
@@ -114,7 +115,6 @@ export default function StepCommandBuilder() {
   };
 
   // Determine if the Next button should be disabled
-  // Add this debugging to the isNextDisabled function
   const isNextDisabled = () => {
     // Always disabled on the last step
     if (currentStep === steps.length - 1) return true;
@@ -149,11 +149,11 @@ export default function StepCommandBuilder() {
       }}
     >
       {/* Progress indicator */}
-      <div className="steps-progress" aria-label="Progress" role="progressbar" 
+      <div className={styles.stepsProgress} aria-label="Progress" role="progressbar" 
            aria-valuenow={currentStep + 1} aria-valuemin="1" aria-valuemax={steps.length}>
         {steps.map((step, idx) => (
           <div key={step.label} 
-               className={`step-indicator ${idx <= currentStep ? 'active' : ''}`}
+               className={`${styles.stepIndicator} ${idx <= currentStep ? styles.active : ''}`}
                aria-current={idx === currentStep ? 'step' : null}>
             {idx + 1}
           </div>
@@ -184,31 +184,6 @@ export default function StepCommandBuilder() {
           {currentStep === steps.length - 1 ? 'Finish' : 'Next →'}
         </button>
       </div>
-      
-      <style jsx>{`
-        .steps-progress {
-          display: flex;
-          justify-content: center;
-          margin-bottom: 1rem;
-        }
-
-        .step-indicator {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          background-color: var(--ifm-color-emphasis-200);
-          color: var(--ifm-color-emphasis-900);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 8px;
-        }
-
-        .step-indicator.active {
-          background-color: var(--ifm-color-primary);
-          color: white;
-        }
-      `}</style>
     </div>
   );
 }

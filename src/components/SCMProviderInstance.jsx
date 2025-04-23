@@ -1,5 +1,6 @@
 import React from 'react';
 import ConfigField from './ConfigField';
+import styles from './styles/SCMProviderInstance.module.css';
 
 /**
  * Renders a single instance of an SCM provider configuration
@@ -22,7 +23,7 @@ function SCMProviderInstance({
   };
 
   return (
-    <div className="scm-provider-instance">
+    <div className={styles.instance}>
       <h4>{scmProviderConfig.label} #{index + 1}</h4>
       
       {scmProviderConfig.fields.map((field) => {
@@ -44,15 +45,6 @@ function SCMProviderInstance({
           />
         );
       })}
-
-      <style jsx>{`
-        .scm-provider-instance {
-          margin-bottom: 1.5rem;
-          padding: 1rem;
-          border: 1px solid var(--ifm-color-emphasis-200);
-          border-radius: 4px;
-        }
-      `}</style>
     </div>
   );
 }

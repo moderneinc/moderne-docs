@@ -1,5 +1,6 @@
 import React from 'react';
 import ConfigField from './ConfigField';
+import styles from './styles/ArtifactoryLSTInstance.module.css';
 
 /**
  * Renders a single instance of an Artifactory LST configuration
@@ -21,7 +22,7 @@ function ArtifactoryLSTInstance({
   };
 
   return (
-    <div className="artifactory-lst-instance">
+    <div className={styles.instanceContainer}>
       <h4>{configDefinition.label} #{index + 1}</h4>
       
       {configDefinition.fields.map((field) => {
@@ -43,15 +44,6 @@ function ArtifactoryLSTInstance({
           />
         );
       })}
-
-      <style jsx>{`
-        .artifactory-lst-instance {
-          margin-bottom: 1.5rem;
-          padding: 1rem;
-          border: 1px solid var(--ifm-color-emphasis-200);
-          border-radius: 4px;
-        }
-      `}</style>
     </div>
   );
 }

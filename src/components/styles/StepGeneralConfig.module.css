@@ -1,0 +1,26 @@
+.container {
+  margin-bottom: 1.5rem;
+}
+
+.commitOptionsSection {
+  margin-top: 2rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: 1rem;
+}
+
+.commitOptionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.commitOptionLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.commitOptionLabel input {
+  margin-right: 0.5rem;
+}

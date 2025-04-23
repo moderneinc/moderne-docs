@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import mavenRepositoryConfigDefinition from './mavenRepositoryConfigDefinition';
 import useMavenRepositoryValidation from './useMavenRepositoryValidation';
 import MavenRepositoryInstance from './MavenRepositoryInstance';
+import styles from './styles/StepMavenRepositoryConfig.module.css';
 
 export default function StepMavenRepositoryConfig({ data = {}, updateData }) {
   const [enabled, setEnabled] = useState(data?.mavenRepositoryConfig?.enabled || false);
@@ -142,9 +143,9 @@ export default function StepMavenRepositoryConfig({ data = {}, updateData }) {
   };
 
   return (
-    <div className="maven-repository-config">
-      <div className="enable-section">
-        <label className="enable-checkbox">
+    <div className={styles.container}>
+      <div className={styles.enableSection}>
+        <label className={styles.enableCheckbox}>
           <input
             type="checkbox"
             checked={enabled}
@@ -154,7 +155,7 @@ export default function StepMavenRepositoryConfig({ data = {}, updateData }) {
         </label>
         
         {!enabled && (
-          <p className="info-text">
+          <p className={styles.infoText}>
             In order for Moderne to retrieve your Lossless Semantic Tree (LST) or recipe artifacts, 
             the agent needs to be configured to talk to your Maven-formatted artifact repositories. 
             This connection also allows Moderne to lookup dependency versions to determine if a 
@@ -167,9 +168,9 @@ export default function StepMavenRepositoryConfig({ data = {}, updateData }) {
       
       {enabled && (
         <>
-          <div className="sectionTitle">{mavenRepositoryConfigDefinition.label}</div>
+          <div className={styles.sectionTitle}>{mavenRepositoryConfigDefinition.label}</div>
           
-          <label className="instance-count">
+          <label className={styles.instanceCount}>
             Number of Maven Repository Configs:{' '}
             <input
               type="number"
@@ -193,46 +194,6 @@ export default function StepMavenRepositoryConfig({ data = {}, updateData }) {
           ))}
         </>
       )}
-      
-      <style jsx>{`
-        .maven-repository-config {
-          margin-bottom: 1.5rem;
-        }
-        
-        .enable-section {
-          margin-bottom: 1.5rem;
-          padding: 1rem;
-          background-color: var(--ifm-color-emphasis-100);
-          border-radius: 4px;
-        }
-        
-        .enable-checkbox {
-          font-weight: bold;
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-        }
-        
-        .info-text {
-          margin-top: 0.5rem;
-          margin-bottom: 0;
-          color: var(--ifm-color-emphasis-700);
-        }
-        
-        .sectionTitle {
-          font-size: 1.2rem;
-          font-weight: 600;
-          margin: 1rem 0 1rem;
-          padding-bottom: 0.5rem;
-          border-bottom: 1px solid var(--ifm-color-emphasis-200);
-        }
-        
-        .instance-count {
-          display: block;
-          margin-bottom: 1rem;
-          font-weight: 500;
-        }
-      `}</style>
     </div>
   );
 }

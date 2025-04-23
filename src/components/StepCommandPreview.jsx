@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { generateCommand } from './commandGenerationUtils';
+import styles from './styles/StepCommandPreview.module.css';
 
 export default function StepCommandPreview({ data }) {
   // Add command type selection
@@ -27,10 +28,10 @@ export default function StepCommandPreview({ data }) {
   };
 
   return (
-    <div className="command-preview">
+    <div className={styles.container}>
       <h4>Command Format</h4>
-      <div className="format-selector">
-        <label className="radio-label">
+      <div className={styles.formatSelector}>
+        <label className={styles.radioLabel}>
           <input
             type="radio"
             name="command-type"
@@ -40,7 +41,7 @@ export default function StepCommandPreview({ data }) {
           />
           Docker
         </label>
-        <label className="radio-label">
+        <label className={styles.radioLabel}>
           <input
             type="radio"
             name="command-type"
@@ -53,13 +54,13 @@ export default function StepCommandPreview({ data }) {
       </div>
       
       <h4>Generated Command</h4>
-      <div className="command-container">
-        <pre className="command-code">
+      <div className={styles.commandContainer}>
+        <pre className={styles.commandCode}>
           {commandText}
         </pre>
         <button
           id="copy-button"
-          className="copy-button button button--primary button--sm"
+          className={`${styles.copyButton} button button--primary button--sm`}
           onClick={copyToClipboard}
           aria-label="Copy command to clipboard"
         >
@@ -67,63 +68,11 @@ export default function StepCommandPreview({ data }) {
         </button>
       </div>
       
-      <div className="command-help">
+      <div className={styles.commandHelp}>
         <p>
           Run this command to start the Moderne Agent with your configuration.
         </p>
       </div>
-      
-      <style jsx>{`
-        .command-preview {
-          margin-top: 1rem;
-        }
-        
-        .format-selector {
-          margin-bottom: 1rem;
-        }
-        
-        .radio-label {
-          margin-right: 1.5rem;
-          display: inline-flex;
-          align-items: center;
-        }
-        
-        .radio-label input {
-          margin-right: 0.5rem;
-        }
-        
-        .command-container {
-          position: relative;
-          margin: 1rem 0;
-        }
-        
-        .command-code {
-          background: var(--ifm-code-background);
-          color: var(--ifm-code-color);
-          padding: 1rem;
-          border-radius: 5px;
-          white-space: pre-wrap;
-          overflow-x: auto;
-          word-break: break-word;
-          margin: 0;
-        }
-        
-        .copy-button {
-          position: absolute;
-          top: 0.5rem;
-          right: 0.5rem;
-        }
-        
-        .command-help {
-          font-size: 0.9rem;
-          color: var(--ifm-color-emphasis-700);
-        }
-        
-        .command-help ul {
-          padding-left: 1.5rem;
-          margin-top: 0.5rem;
-        }
-      `}</style>
     </div>
   );
 }

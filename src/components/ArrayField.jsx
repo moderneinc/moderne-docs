@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './styles/ArrayField.module.css';
 
 function ArrayField({ field, value = [], onChange }) {
   // Ensure value is always an array
@@ -20,9 +21,9 @@ function ArrayField({ field, value = [], onChange }) {
   };
 
   return (
-    <div className="array-field">
+    <div className={styles.arrayField}>
       {values.map((item, index) => (
-        <div key={index} className="array-field-item">
+        <div key={index} className={styles.arrayFieldItem}>
           <input
             type="text"
             value={item}
@@ -32,7 +33,7 @@ function ArrayField({ field, value = [], onChange }) {
           <button 
             type="button" 
             onClick={() => handleRemoveItem(index)}
-            className="remove-button"
+            className={styles.removeButton}
           >
             Remove
           </button>
@@ -41,43 +42,10 @@ function ArrayField({ field, value = [], onChange }) {
       <button 
         type="button" 
         onClick={handleAddItem}
-        className="add-button"
+        className={styles.addButton}
       >
         Add Item
       </button>
-
-      <style jsx>{`
-        .array-field {
-          margin-bottom: 1rem;
-        }
-        .array-field-item {
-          display: flex;
-          gap: 0.5rem;
-          margin-bottom: 0.5rem;
-        }
-        .array-field-item input {
-          flex: 1;
-          padding: 0.5rem;
-          border: 1px solid var(--ifm-color-emphasis-300);
-          border-radius: 4px;
-        }
-        .remove-button {
-          padding: 0.5rem;
-          color: var(--ifm-color-danger);
-          border: 1px solid var(--ifm-color-danger);
-          background: none;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-        .add-button {
-          padding: 0.5rem 1rem;
-          color: var(--ifm-color-primary);
-          border: 1px solid var(--ifm-color-primary);
-          background: none;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-      `}</style>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import ArrayField from './ArrayField';
+import styles from './styles/ConfigField.module.css';
 
 /**
  * Renders a configuration field based on its type
@@ -24,8 +25,8 @@ function ConfigField({
       );
     } else if (field.type === 'boolean') {
       return (
-        <div className="radio-group">
-          <label className="radio-label">
+        <div className={styles.radioGroup}>
+          <label className={styles.radioLabel}>
             <input
               type="radio"
               name={name}
@@ -35,7 +36,7 @@ function ConfigField({
             />{' '}
             True
           </label>
-          <label className="radio-label">
+          <label className={styles.radioLabel}>
             <input
               type="radio"
               name={name}
@@ -53,7 +54,7 @@ function ConfigField({
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className={`field-input ${hasError ? 'field-input-error' : ''}`}
+          className={`${styles.fieldInput} ${hasError ? styles.fieldInputError : ''}`}
           placeholder={field.defaultValue || ''}
           aria-required={field.required}
           aria-invalid={hasError}
@@ -63,15 +64,15 @@ function ConfigField({
   };
 
   return (
-    <div className="field-item">
-      <label className="field-label">
+    <div className={styles.fieldItem}>
+      <label className={styles.fieldLabel}>
         {field.label}
-        {field.required && <span className="required-mark">*</span>}
+        {field.required && <span className={styles.requiredMark}>*</span>}
       </label>
       
       {field.description && (
         <div 
-          className="field-description" 
+          className={styles.fieldDescription} 
           dangerouslySetInnerHTML={{ __html: field.description }}
         />
       )}
@@ -79,10 +80,10 @@ function ConfigField({
       {renderFieldInput()}
       
       {hasError && (
-        <div className="field-error">This field is required</div>
+        <div className={styles.fieldError}>This field is required</div>
       )}
       
-      <label className="env-toggle">
+      <label className={styles.envToggle}>
         <input
           type="checkbox"
           checked={useAsEnv}
@@ -90,63 +91,6 @@ function ConfigField({
         />{' '}
         Use an exported environment variable
       </label>
-
-      <style jsx>{`
-        .field-item {
-          margin-bottom: 1rem;
-        }
-        .field-label {
-          display: block;
-          font-weight: 500;
-          margin-bottom: 0.25rem;
-        }
-        .required-mark {
-          color: var(--ifm-color-danger);
-          margin-left: 0.25rem;
-        }
-        .field-description {
-          font-size: 0.85rem;
-          color: var(--ifm-color-emphasis-600);
-          margin-bottom: 0.5rem;
-        }
-        .field-description strong {
-          font-weight: 600;
-        }
-        .field-input {
-          width: 100%;
-          max-width: 400px;
-          padding: 0.5rem;
-          margin-bottom: 0.5rem;
-          border: 1px solid var(--ifm-color-emphasis-300);
-          border-radius: 4px;
-        }
-        .field-input-error {
-          border-color: var(--ifm-color-danger);
-        }
-        .field-error {
-          color: var(--ifm-color-danger);
-          font-size: 0.85rem;
-          margin-bottom: 0.5rem;
-        }
-        .env-toggle {
-          font-size: 0.85rem;
-          margin-top: 0.25rem;
-          display: flex;
-          align-items: center;
-        }
-        .radio-group {
-          display: flex;
-          gap: 1.5rem;
-          margin-bottom: 0.5rem;
-        }
-        .radio-label {
-          display: flex;
-          align-items: center;
-        }
-        .radio-label input {
-          margin-right: 0.5rem;
-        }
-      `}</style>
     </div>
   );
 }

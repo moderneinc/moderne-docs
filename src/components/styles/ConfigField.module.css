@@ -1,0 +1,65 @@
+.fieldItem {
+  margin-bottom: 1rem;
+}
+
+.fieldLabel {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.requiredMark {
+  color: var(--ifm-color-danger);
+  margin-left: 0.25rem;
+}
+
+.fieldDescription {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 0.5rem;
+}
+
+.fieldDescription strong {
+  font-weight: 600;
+}
+
+.fieldInput {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+}
+
+.fieldInputError {
+  border-color: var(--ifm-color-danger);
+}
+
+.fieldError {
+  color: var(--ifm-color-danger);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.envToggle {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+}
+
+.radioLabel input {
+  margin-right: 0.5rem;
+}

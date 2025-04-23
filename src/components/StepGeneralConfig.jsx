@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ConfigField from './ConfigField';
 import generalConfigDefinition from './generalConfigDefinition';
 import useGeneralValidation from './useGeneralValidation';
+import styles from './styles/StepGeneralConfig.module.css';
 
 // Define common commit options
 const COMMIT_OPTIONS = [
@@ -102,7 +103,7 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
   };
 
   return (
-    <div className="general-config">
+    <div className={styles.container}>
       <h3>{generalConfigDefinition.label}</h3>
 
       <p>
@@ -131,13 +132,13 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
         );
       })}
       
-      <div className="commit-options-section">
+      <div className={styles.commitOptionsSection}>
         <h4>Default Commit Options</h4>
         <p>Use to restrict which commit options are available in Moderne (if the organizations service doesn't return any). <br/> <strong>If you don't check any, it defaults to making all commit options available.</strong></p>
         
-        <div className="commit-options-list">
+        <div className={styles.commitOptionsList}>
           {COMMIT_OPTIONS.map((option) => (
-            <label key={option.value} className="commit-option-label">
+            <label key={option.value} className={styles.commitOptionLabel}>
               <input
                 type="checkbox"
                 checked={commitOptions.includes(option.value)}
@@ -148,35 +149,6 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
           ))}
         </div>
       </div>
-      
-      <style jsx>{`
-        .general-config {
-          margin-bottom: 1.5rem;
-        }
-        
-        .commit-options-section {
-          margin-top: 2rem;
-          border-top: 1px solid var(--ifm-color-emphasis-200);
-          padding-top: 1rem;
-        }
-        
-        .commit-options-list {
-          display: flex;
-          flex-direction: column;
-          gap: 0.75rem;
-          margin-top: 1rem;
-        }
-        
-        .commit-option-label {
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-        }
-        
-        .commit-option-label input {
-          margin-right: 0.5rem;
-        }
-      `}</style>
     </div>
   );
 }

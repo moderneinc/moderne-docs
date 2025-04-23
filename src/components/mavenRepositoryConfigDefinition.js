@@ -68,7 +68,7 @@ const mavenRepositoryConfigDefinition = {
       label: 'LST Source', 
       key: 'lstSource', 
       envKey: 'MODERNE_AGENT_MAVEN_${i}_ASTSOURCE',
-      description: 'Specifies whether or not this repository should be searched for LST artifacts. <strong>DO NOT SET THIS if you configured Artifactory LST storage</strong>.',
+      description: 'Specifies whether or not this repository should be searched for LST artifacts. <strong>Set this to false if you configured Artifactory LST storage</strong>.',
       required: false,
       type: 'boolean',
       defaultValue: 'true'

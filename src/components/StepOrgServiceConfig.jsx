@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ConfigField from './ConfigField';
 import orgServiceConfigDefinition from './orgServiceConfigDefinition';
 import useOrgServiceValidation from './useOrgServiceValidation';
+import styles from './styles/StepOrgServiceConfig.module.css';
 
 export default function StepOrgServiceConfig({ data = {}, updateData }) {
   // Initialize enabled state from data or default to false
@@ -87,9 +88,9 @@ export default function StepOrgServiceConfig({ data = {}, updateData }) {
   };
 
   return (
-    <div className="org-service-config">
-      <div className="enable-section">
-        <label className="enable-checkbox">
+    <div className={styles.container}>
+      <div className={styles.enableSection}>
+        <label className={styles.enableCheckbox}>
           <input
             type="checkbox"
             checked={enabled}
@@ -99,7 +100,7 @@ export default function StepOrgServiceConfig({ data = {}, updateData }) {
         </label>
         
         {!enabled && (
-          <p className="info-text">
+          <p className={styles.infoText}>
             If you've <a href="https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/organizations-service">configured an Organizations service</a>, 
             you will need to enable this so the agent can know about it.
 
@@ -110,7 +111,7 @@ export default function StepOrgServiceConfig({ data = {}, updateData }) {
       
       {enabled && (
         <>
-          <div className="sectionTitle">{orgServiceConfigDefinition.label}</div>
+          <div className={styles.sectionTitle}>{orgServiceConfigDefinition.label}</div>
           <p>Configure your organization service connection settings.</p>
           
           {orgServiceConfigDefinition.fields.map((field) => {
@@ -134,40 +135,6 @@ export default function StepOrgServiceConfig({ data = {}, updateData }) {
           })}
         </>
       )}
-      
-      <style jsx>{`
-        .org-service-config {
-          margin-bottom: 1.5rem;
-        }
-        
-        .enable-section {
-          margin-bottom: 1.5rem;
-          padding: 1rem;
-          background-color: var(--ifm-color-emphasis-100);
-          border-radius: 4px;
-        }
-        
-        .enable-checkbox {
-          font-weight: bold;
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-        }
-        
-        .info-text {
-          margin-top: 0.5rem;
-          margin-bottom: 0;
-          color: var(--ifm-color-emphasis-700);
-        }
-        
-        .sectionTitle {
-          font-size: 1.2rem;
-          font-weight: 600;
-          margin: 1rem 0 1rem;
-          padding-bottom: 0.5rem;
-          border-bottom: 1px solid var(--ifm-color-emphasis-200);
-        }
-      `}</style>
     </div>
   );
 }

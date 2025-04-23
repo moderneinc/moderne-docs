@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ConfigField from './ConfigField';
 import strictRecipeSourcesConfigDefinition from './strictRecipeSourcesConfigDefinition';
 import useStrictRecipeSourcesValidation from './useStrictRecipeSourcesValidation';
+import styles from './styles/StepStrictRecipeSourcesConfig.module.css';
 
 export default function StepStrictRecipeSourcesConfig({ data = {}, updateData }) {
   // Initialize enabled state from data or default to false
@@ -87,9 +88,9 @@ export default function StepStrictRecipeSourcesConfig({ data = {}, updateData })
   };
 
   return (
-    <div className="strict-recipe-sources-config">
-      <div className="enable-section">
-        <label className="enable-checkbox">
+    <div className={styles.container}>
+      <div className={styles.enableSection}>
+        <label className={styles.enableCheckbox}>
           <input
             type="checkbox"
             checked={enabled}
@@ -99,7 +100,7 @@ export default function StepStrictRecipeSourcesConfig({ data = {}, updateData })
         </label>
         
         {!enabled && (
-          <p className="info-text">
+          <p className={styles.infoText}>
             Some organizations want recipe artifacts to only come from locations configured in the Moderne agent. 
             If you want to configure that, please enable this step.
 
@@ -110,7 +111,7 @@ export default function StepStrictRecipeSourcesConfig({ data = {}, updateData })
       
       {enabled && (
         <>
-          <div className="sectionTitle">{strictRecipeSourcesConfigDefinition.label}</div>
+          <div className={styles.sectionTitle}>{strictRecipeSourcesConfigDefinition.label}</div>
           <p>Configure your recipe sources service connection settings.</p>
           
           {strictRecipeSourcesConfigDefinition.fields.map((field) => {
@@ -134,40 +135,6 @@ export default function StepStrictRecipeSourcesConfig({ data = {}, updateData })
           })}
         </>
       )}
-      
-      <style jsx>{`
-        .strict-recipe-sources-config {
-          margin-bottom: 1.5rem;
-        }
-        
-        .enable-section {
-          margin-bottom: 1.5rem;
-          padding: 1rem;
-          background-color: var(--ifm-color-emphasis-100);
-          border-radius: 4px;
-        }
-        
-        .enable-checkbox {
-          font-weight: bold;
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-        }
-        
-        .info-text {
-          margin-top: 0.5rem;
-          margin-bottom: 0;
-          color: var(--ifm-color-emphasis-700);
-        }
-        
-        .sectionTitle {
-          font-size: 1.2rem;
-          font-weight: 600;
-          margin: 1rem 0 1rem;
-          padding-bottom: 0.5rem;
-          border-bottom: 1px solid var(--ifm-color-emphasis-200);
-        }
-      `}</style>
     </div>
   );
 }

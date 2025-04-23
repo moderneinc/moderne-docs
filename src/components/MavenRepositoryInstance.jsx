@@ -1,5 +1,6 @@
 import React from 'react';
 import ConfigField from './ConfigField';
+import styles from './styles/MavenRepositoryInstance.module.css';
 
 function MavenRepositoryInstance({ 
   index, 
@@ -18,7 +19,7 @@ function MavenRepositoryInstance({
   };
 
   return (
-    <div className="maven-repository-instance">
+    <div className={styles.instanceContainer}>
       <h4>{configDefinition.label} #{index + 1}</h4>
       
       {configDefinition.fields.map((field) => {
@@ -40,15 +41,6 @@ function MavenRepositoryInstance({
           />
         );
       })}
-
-      <style jsx>{`
-        .maven-repository-instance {
-          margin-bottom: 1.5rem;
-          padding: 1rem;
-          border: 1px solid var(--ifm-color-emphasis-200);
-          border-radius: 4px;
-        }
-      `}</style>
     </div>
   );
 }

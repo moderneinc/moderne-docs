@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import artifactoryLSTConfigDefinition from './artifactoryLSTConfigDefinition';
 import useArtifactoryLSTValidation from './useArtifactoryLSTValidation';
 import ArtifactoryLSTInstance from './ArtifactoryLSTInstance';
+import styles from './styles/StepArtifactoryLSTConfig.module.css';
 
 export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
   // Initialize enabled state from data or default to false
@@ -158,9 +159,9 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
   };
 
   return (
-    <div className="artifactory-lst-config">
-      <div className="enable-section">
-        <label className="enable-checkbox">
+    <div className={styles.container}>
+      <div className={styles.enableSection}>
+        <label className={styles.enableCheckbox}>
           <input
             type="checkbox"
             checked={enabled}
@@ -170,7 +171,7 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
         </label>
         
         {!enabled && (
-          <p className="info-text">
+          <p className={styles.infoText}>
           If you want to use Artifactory to store your LST artifacts, enable this step. 
           This will allow you to use AQL queries to fetch the LSTs – which will result 
           in a noticeable speed improvement.
@@ -182,9 +183,9 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
       
       {enabled && (
         <>
-          <div className="sectionTitle">{artifactoryLSTConfigDefinition.label}</div>
+          <div className={styles.sectionTitle}>{artifactoryLSTConfigDefinition.label}</div>
           
-          <label className="instance-count">
+          <label className={styles.instanceCount}>
             Number of Artifactory Configurations:{' '}
             <input
               type="number"
@@ -208,46 +209,6 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
           ))}
         </>
       )}
-      
-      <style jsx>{`
-        .artifactory-lst-config {
-          margin-bottom: 1.5rem;
-        }
-        
-        .enable-section {
-          margin-bottom: 1.5rem;
-          padding: 1rem;
-          background-color: var(--ifm-color-emphasis-100);
-          border-radius: 4px;
-        }
-        
-        .enable-checkbox {
-          font-weight: bold;
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-        }
-        
-        .info-text {
-          margin-top: 0.5rem;
-          margin-bottom: 0;
-          color: var(--ifm-color-emphasis-700);
-        }
-        
-        .sectionTitle {
-          font-size: 1.2rem;
-          font-weight: 600;
-          margin: 1rem 0 1rem;
-          padding-bottom: 0.5rem;
-          border-bottom: 1px solid var(--ifm-color-emphasis-200);
-        }
-        
-        .instance-count {
-          display: block;
-          margin-bottom: 1rem;
-          font-weight: 500;
-        }
-      `}</style>
     </div>
   );
 }

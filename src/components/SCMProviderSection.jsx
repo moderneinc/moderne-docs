@@ -1,5 +1,6 @@
 import React from 'react';
 import SCMProviderInstance from './SCMProviderInstance';
+import styles from './styles/SCMProviderSection.module.css';
 
 /**
  * Renders an SCM provider section with all its instances
@@ -17,8 +18,8 @@ function SCMProviderSection({
   hasFieldError
 }) {
   return (
-    <div className="scm-provider-section">
-      <label className="scm-provider-checkbox">
+    <div className={styles.section}>
+      <label className={styles.checkbox}>
         <input
           type="checkbox"
           checked={selected}
@@ -28,8 +29,8 @@ function SCMProviderSection({
       </label>
 
       {selected && (
-        <div className="scm-provider-configs">
-          <label className="instance-count">
+        <div className={styles.configs}>
+          <label className={styles.instanceCount}>
             Number of {scmProviderConfig.label} Configs:{' '}
             <input
               type="number"
@@ -54,27 +55,6 @@ function SCMProviderSection({
           ))}
         </div>
       )}
-
-      <style jsx>{`
-        .scm-provider-section {
-          margin-bottom: 1.5rem;
-          padding-bottom: 1rem;
-          border-bottom: 1px solid var(--ifm-color-emphasis-200);
-        }
-        .scm-provider-checkbox {
-          font-weight: bold;
-          display: flex;
-          align-items: center;
-        }
-        .scm-provider-configs {
-          padding-left: 1.5rem;
-          margin-top: 0.75rem;
-        }
-        .instance-count {
-          display: block;
-          margin-bottom: 1rem;
-        }
-      `}</style>
     </div>
   );
 }

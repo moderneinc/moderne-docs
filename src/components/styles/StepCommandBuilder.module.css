@@ -1,0 +1,22 @@
+.stepsProgress {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.stepIndicator {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
+}
+
+.active {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
