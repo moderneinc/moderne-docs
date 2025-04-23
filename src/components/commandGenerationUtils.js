@@ -159,9 +159,6 @@ export const generateCommand = (data, commandType) => {
         
         // Handle array fields differently
         if (Array.isArray(fieldData.value)) {
-          console.log(`Processing array field ${fieldKey}:`, fieldData.value);
-          console.log('Environment Key:', fieldData.envKey);
-
           processArrayField(
             fieldData.value, 
             fieldData.envKey, 
