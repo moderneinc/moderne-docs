@@ -180,21 +180,15 @@ export const generateCommand = (data, commandType) => {
   // Process Artifactory LST configuration
   if (data?.artifactoryLSTConfig?.enabled && data.artifactoryLSTConfig.instances) {
     const instances = data.artifactoryLSTConfig.instances;
-    
-    console.log('Artifactory LST Instances:', JSON.parse(JSON.stringify(instances)));
-    
+        
     instances.forEach((instance, instanceIndex) => {
       if (!instance) return;
       
-      Object.entries(instance).forEach(([fieldKey, fieldData]) => {
-        console.log(`Field Key: ${fieldKey}`, JSON.parse(JSON.stringify(fieldData)));
-        
+      Object.entries(instance).forEach(([fieldKey, fieldData]) => {        
         if (!fieldData || !fieldData.value) return;
         
         // Handle array fields differently
         if (Array.isArray(fieldData.value)) {
-          console.log(`Processing array field ${fieldKey}:`, fieldData.value);
-          console.log('Environment Key:', fieldData.envKey);
           
           processArrayField(
             fieldData.value, 
@@ -207,6 +201,21 @@ export const generateCommand = (data, commandType) => {
         } else {
           processField(fieldData, exportLines, cmdArgs, commandType);
         }
+      });
+    });
+  }
+
+  // Process Maven repository configuration
+  if (data?.mavenRepositoryConfig?.enabled && data.mavenRepositoryConfig.instances) {
+    const instances = data.mavenRepositoryConfig.instances;
+        
+    instances.forEach((instance, instanceIndex) => {
+      if (!instance) return;
+      
+      Object.entries(instance).forEach(([fieldKey, fieldData]) => {        
+        if (!fieldData || !fieldData.value) return;
+        
+        processField(fieldData, exportLines, cmdArgs, commandType);
       });
     });
   }
