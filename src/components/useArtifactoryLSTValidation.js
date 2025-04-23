@@ -3,12 +3,10 @@ import artifactoryLSTConfigDefinition from './artifactoryLSTConfigDefinition';
 
 function useArtifactoryLSTValidation(enabled, instances, count, data, updateData) {
   const [validationAttempted, setValidationAttempted] = useState(true);
-  
-  // Get the label from the config definition
   const configLabel = artifactoryLSTConfigDefinition.label;
 
   const validateAndUpdate = (currentInstances = instances, isEnabled = enabled) => {
-    // If the step is disabled, always consider it valid
+    // If disabled, always valid
     if (!isEnabled) {
       updateData({
         ...data,
@@ -29,7 +27,7 @@ function useArtifactoryLSTValidation(enabled, instances, count, data, updateData
       return true;
     }
     
-    // Otherwise validate all instances
+    // Otherwise validate required fields
     let isValid = true;
     let missingFields = [];
     
@@ -38,11 +36,10 @@ function useArtifactoryLSTValidation(enabled, instances, count, data, updateData
       const instance = currentInstances[i];
       if (!instance) continue;
       
-      // Check required fields for each instance
       artifactoryLSTConfigDefinition.fields.forEach(field => {
         if (field.required) {
           const fieldData = instance[field.key];
-          const isEmpty = !fieldData?.value || (field.type !== 'boolean' && fieldData.value.toString().trim() === '');
+          const isEmpty = !fieldData?.value || fieldData.value.toString().trim() === '';
           if (isEmpty) {
             isValid = false;
             missingFields.push(`Instance #${i+1} ${field.label}`);
@@ -51,7 +48,6 @@ function useArtifactoryLSTValidation(enabled, instances, count, data, updateData
       });
     }
 
-    // Update parent with validation result
     updateData({
       ...data,
       artifactoryLSTConfig: {
@@ -73,7 +69,6 @@ function useArtifactoryLSTValidation(enabled, instances, count, data, updateData
   };
 
   const hasFieldError = (instanceIndex, fieldKey) => {
-    // If step is disabled, no fields have errors
     if (!enabled || !validationAttempted) return false;
 
     const instance = instances[instanceIndex];
@@ -82,19 +77,16 @@ function useArtifactoryLSTValidation(enabled, instances, count, data, updateData
     const field = artifactoryLSTConfigDefinition.fields.find(f => f.key === fieldKey);
     if (!field || !field.required) return false;
 
-    const fieldData = instance[fieldKey];
-    // Boolean fields are always valid (they default to false)
-    if (field.type === 'boolean') return false;
-    
+    const fieldData = instance[field.key];
     return !fieldData?.value || fieldData.value.toString().trim() === '';
   };
 
-  // Run validation whenever instances or enabled state change
+  // Run validation on changes
   useEffect(() => {
     validateAndUpdate();
   }, [instances, enabled, count]);
 
-  // Handle validation trigger from parent
+  // Handle validation trigger
   useEffect(() => {
     if (data?.triggerValidation?.[configLabel]) {
       setValidationAttempted(true);

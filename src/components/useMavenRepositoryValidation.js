@@ -37,7 +37,7 @@ function useMavenRepositoryValidation(enabled, instances, count, data, updateDat
       mavenRepositoryConfigDefinition.fields.forEach(field => {
         if (field.required) {
           const fieldData = instance[field.key];
-          const isEmpty = !fieldData?.value || (field.type !== 'boolean' && fieldData.value.toString().trim() === '');
+          const isEmpty = !fieldData?.value || fieldData.value.toString().trim() === '';
           if (isEmpty) {
             isValid = false;
             missingFields.push(`Instance #${i+1} ${field.label}`);
@@ -75,7 +75,7 @@ function useMavenRepositoryValidation(enabled, instances, count, data, updateDat
     const field = mavenRepositoryConfigDefinition.fields.find(f => f.key === fieldKey);
     if (!field || !field.required) return false;
 
-    const fieldData = instance[fieldKey];
+    const fieldData = instance[field.key];
     if (field.type === 'boolean') return false;
     
     return !fieldData?.value || fieldData.value.toString().trim() === '';
