@@ -104,6 +104,12 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
   return (
     <div className="general-config">
       <h3>{generalConfigDefinition.label}</h3>
+
+      <p>
+        All agents must be configured with the variables listed below.
+        For more information on the agent and additional context around
+        the variables, please see our <a href="https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-configuration">agent configuration documentation</a>.
+      </p>
       
       {generalConfigDefinition.fields.map((field) => {
         const fieldData = fields[field.key] || {};

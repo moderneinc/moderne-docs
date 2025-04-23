@@ -100,7 +100,10 @@ export default function StepStrictRecipeSourcesConfig({ data = {}, updateData })
         
         {!enabled && (
           <p className="info-text">
-            This configuration is optional. Enable it if you need to restrict recipe sources.
+            Some organizations want recipe artifacts to only come from locations configured in the Moderne agent. 
+            If you want to configure that, please enable this step.
+
+            For more information on these variables and how to configure them, please see our <a href="https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-strict-recipe-sources">strict recipe sources documentation</a>.
           </p>
         )}
       </div>

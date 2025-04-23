@@ -152,7 +152,12 @@ export default function StepSCMConfig({ data, updateData }) {
 
   return (
     <div className="scm-config">
-      <p>Select which SCM providers you want to configure:</p>
+      <p>
+        Connecting the agent to your SCM enables Moderne to display recipe results in the UI and 
+        commit changes from recipes back to your SCM (in the form of PRs, forks, commits, etc).
+
+        For more information on the variables or how to configure your SCM, please see our <a href="https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-configuration/#step-4-configure-the-agent-to-work-with-your-scms">SCM configuration documentation</a>.
+      </p>
       
       {Object.entries(scmProviderDefinitions).map(([id, config]) => (
         <SCMProviderSection
