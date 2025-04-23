@@ -11,10 +11,10 @@ import StepMavenRepositoryConfig from './StepMavenRepositoryConfig';
 import StepOrgServiceConfig from './StepOrgServiceConfig';
 
 const steps = [
-  // { 
-  //   label: 'Core Variables', 
-  //   component: StepGeneralConfig 
-  // },
+  { 
+    label: 'Core Variables', 
+    component: StepGeneralConfig 
+  },
   { 
     label: 'SCM Configuration', 
     component: StepSCMConfig 
