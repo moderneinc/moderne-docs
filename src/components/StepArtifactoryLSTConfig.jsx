@@ -122,7 +122,8 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
       [fieldKey]: {
         ...newInstances[instanceIndex][fieldKey],
         value: field.type === 'array' ? (Array.isArray(value) ? value : [value]) : value,
-        // Keep the original envKey pattern for array fields
+        // Keep the original envKey pattern for array fields so that the command preview 
+        // can correctly iterate over the array instances.
         envKey: field.type === 'array' 
           ? field.envKey.replace('${i}', instanceIndex)
           : field.envKey.replace(/\${i}/g, instanceIndex)
