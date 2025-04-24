@@ -2,8 +2,9 @@
  * SCM Provider Definitions
  * Contains configuration for all supported SCM providers
  */
+import { SCMProviderDefinitions } from "./types";
 
-const scmProviderDefinitions = {
+const scmProviderDefinitions: SCMProviderDefinitions = {
   azure: {
     label: "Azure DevOps",
     fields: [
@@ -68,60 +69,55 @@ const scmProviderDefinitions = {
       {
         label: "SSH Filename",
         key: "sshFilename",
-        envKey: "MODERNE_AGENT_AZUREDEVOPS_${i}_SSH_SSHFILENAME",
+        envKey: "MODERNE_AGENT_AZUREDEVOPS_${i}_SSH_FILENAME",
         required: false,
         type: "text",
-        defaultValue: "",
+        defaultValue: "id_rsa",
         description:
-          "The file name of the private key, which the agent will store locally. <strong>This is required if the private key is specified.</strong>",
+          "The filename to use for the SSH key when it's written to disk. <strong>This is required if the private key is specified.</strong>",
       },
       {
-        label: "SSH User",
-        key: "sshUser",
-        envKey: "MODERNE_AGENT_AZUREDEVOPS_${i}_SSH_USER",
+        label: "SSH Host",
+        key: "sshHost",
+        envKey: "MODERNE_AGENT_AZUREDEVOPS_${i}_SSH_HOST",
         required: false,
         type: "text",
         defaultValue: "",
         description:
-          "The username used for SSH communication with Azure DevOps. <strong>This is required if the private key is specified.</strong>",
+          "The host to use for SSH connections. <strong>This is required if the private key is specified.</strong>",
+      },
+      {
+        label: "SSH Port",
+        key: "sshPort",
+        envKey: "MODERNE_AGENT_AZUREDEVOPS_${i}_SSH_PORT",
+        required: false,
+        type: "text",
+        defaultValue: "22",
+        description:
+          "The port used to communicate via SSH with Azure DevOps. <strong>This is required if the private key is specified.</strong>",
       },
     ],
   },
-  bitbucketCloud: {
-    label: "Bitbucket Cloud",
+  bitbucket: {
+    label: "Bitbucket",
     fields: [
       {
-        label: "Private Key",
-        key: "privateKey",
-        envKey: "MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY",
+        label: "Client ID",
+        key: "clientId",
+        envKey: "MODERNE_AGENT_BITBUCKET_${i}_OAUTH_CLIENTID",
         required: true,
         type: "text",
         defaultValue: "",
-        description: "The key specified in your Bitbucket OAuth consumer.",
+        description: "The client id configured in Bitbucket.",
       },
       {
         label: "Client Secret",
         key: "clientSecret",
-        envKey: "MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET",
+        envKey: "MODERNE_AGENT_BITBUCKET_${i}_OAUTH_CLIENTSECRET",
         required: true,
         type: "text",
         defaultValue: "",
-        description: "The secret specified in your Bitbucket OAuth consumer.",
-      },
-    ],
-  },
-  bitbucketDC: {
-    label: "Bitbucket Data Center",
-    fields: [
-      {
-        label: "Private Key",
-        key: "privateKey",
-        envKey: "MODERNE_AGENT_BITBUCKET_${i}_PRIVATEKEY",
-        required: true,
-        type: "text",
-        defaultValue: "",
-        description:
-          "The private key you configured for this Bitbucket instance.",
+        description: "The client secret configured in Bitbucket.",
       },
       {
         label: "URL",
@@ -176,22 +172,22 @@ const scmProviderDefinitions = {
       {
         label: "SSH Filename",
         key: "sshFilename",
-        envKey: "MODERNE_AGENT_BITBUCKET_${i}_SSH_SSHFILENAME",
+        envKey: "MODERNE_AGENT_BITBUCKET_${i}_SSH_FILENAME",
         required: false,
         type: "text",
-        defaultValue: "",
+        defaultValue: "id_rsa",
         description:
-          "The file name of the private key, which the agent will store locally. <strong>This is required if the private key is specified.</strong>",
+          "The filename to use for the SSH key when it's written to disk. <strong>This is required if the private key is specified.</strong>",
       },
       {
-        label: "SSH User",
-        key: "sshUser",
-        envKey: "MODERNE_AGENT_BITBUCKET_${i}_SSH_USER",
+        label: "SSH Host",
+        key: "sshHost",
+        envKey: "MODERNE_AGENT_BITBUCKET_${i}_SSH_HOST",
         required: false,
         type: "text",
         defaultValue: "",
         description:
-          "The username used for SSH communication with Bitbucket. <strong>This is required if the private key is specified.</strong>",
+          "The host to use for SSH connections. <strong>This is required if the private key is specified.</strong>",
       },
       {
         label: "SSH Port",
@@ -264,7 +260,7 @@ const scmProviderDefinitions = {
         type: "boolean",
         defaultValue: "false",
         description:
-          "By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to true.",
+          "Allows access to private repositories. If this is set to true, you will need to add specific permissions to your OAuth app, see <a href='https://docs.moderne.io/administrator-documentation/moderne-platform/references/github-permissions'>GitHub permissions</a>.",
       },
       {
         label: "SSH Private Key",
@@ -289,22 +285,22 @@ const scmProviderDefinitions = {
       {
         label: "SSH Filename",
         key: "sshFilename",
-        envKey: "MODERNE_AGENT_GITHUB_${i}_SSH_SSHFILENAME",
+        envKey: "MODERNE_AGENT_GITHUB_${i}_SSH_FILENAME",
         required: false,
         type: "text",
-        defaultValue: "",
+        defaultValue: "id_rsa",
         description:
-          "The file name of the private key, which the agent will store locally. <strong>This is required if the private key is specified.</strong>",
+          "The filename to use for the SSH key when it's written to disk. <strong>This is required if the private key is specified.</strong>",
       },
       {
-        label: "SSH User",
-        key: "sshUser",
-        envKey: "MODERNE_AGENT_GITHUB_${i}_SSH_USER",
+        label: "SSH Host",
+        key: "sshHost",
+        envKey: "MODERNE_AGENT_GITHUB_${i}_SSH_HOST",
         required: false,
         type: "text",
         defaultValue: "",
         description:
-          "The username used for SSH communication with GitHub. <strong>This is required if the private key is specified.</strong>",
+          "The host to use for SSH connections. <strong>This is required if the private key is specified.</strong>",
       },
       {
         label: "SSH Port",
@@ -312,7 +308,7 @@ const scmProviderDefinitions = {
         envKey: "MODERNE_AGENT_GITHUB_${i}_SSH_PORT",
         required: false,
         type: "text",
-        defaultValue: "7999",
+        defaultValue: "22",
         description:
           "The port used to communicate via SSH with GitHub. <strong>This is required if the private key is specified.</strong>",
       },
@@ -382,22 +378,22 @@ const scmProviderDefinitions = {
       {
         label: "SSH Filename",
         key: "sshFilename",
-        envKey: "MODERNE_AGENT_GITLAB_${i}_SSH_SSHFILENAME",
+        envKey: "MODERNE_AGENT_GITLAB_${i}_SSH_FILENAME",
         required: false,
         type: "text",
-        defaultValue: "",
+        defaultValue: "id_rsa",
         description:
-          "The file name of the private key, which the agent will store locally. <strong>This is required if the private key is specified.</strong>",
+          "The filename to use for the SSH key when it's written to disk. <strong>This is required if the private key is specified.</strong>",
       },
       {
-        label: "SSH User",
-        key: "sshUser",
-        envKey: "MODERNE_AGENT_GITLAB_${i}_SSH_USER",
+        label: "SSH Host",
+        key: "sshHost",
+        envKey: "MODERNE_AGENT_GITLAB_${i}_SSH_HOST",
         required: false,
         type: "text",
         defaultValue: "",
         description:
-          "The username used for SSH communication with GitLab. <strong>This is required if the private key is specified.</strong>",
+          "The host to use for SSH connections. <strong>This is required if the private key is specified.</strong>",
       },
       {
         label: "SSH Port",

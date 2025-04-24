@@ -4,15 +4,26 @@
  */
 
 import artifactoryLSTConfigDefinition from "./artifactoryLSTConfigDefinition";
-// Import individual config definitions
 import generalConfigDefinition from "./generalConfigDefinition";
 import mavenRepositoryConfigDefinition from "./mavenRepositoryConfigDefinition";
 import orgServiceConfigDefinition from "./orgServiceConfigDefinition";
 import { scmProviderDefinitions } from "./scmProviderDefinitions";
 import strictRecipeSourcesConfigDefinition from "./strictRecipeSourcesConfigDefinition";
+import {
+  ConfigDefinition,
+  ConfigSections,
+  Field,
+  ProviderDefinition,
+  WizardStep,
+} from "./types";
+
+// Re-export necessary types
+export type { ConfigDefinition, Field, ProviderDefinition, WizardStep };
+export type ConfigField = Field;
+export type ConfigSectionDefinition = ConfigDefinition;
 
 // Centralized configuration schema
-export const configSections = {
+export const configSections: ConfigSections = {
   generalConfig: {
     ...generalConfigDefinition,
     configKey: "generalConfig",
@@ -48,7 +59,7 @@ export const configSections = {
 };
 
 // This defines the order and structure of the wizard steps
-export const wizardSteps = [
+export const wizardSteps: WizardStep[] = [
   {
     label: "Core Variables",
     section: configSections.generalConfig,
@@ -62,12 +73,12 @@ export const wizardSteps = [
   {
     label: "Artifactory LST Storage",
     section: configSections.artifactoryLSTConfig,
-    component: "ConfigStep",
+    component: "ArtifactoryLSTStep",
   },
   {
     label: "Maven Repository",
     section: configSections.mavenRepositoryConfig,
-    component: "ConfigStep",
+    component: "MavenRepositoryStep",
   },
   {
     label: "Organization Service",

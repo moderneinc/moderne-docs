@@ -1,0 +1,15 @@
+.instancesContainer {
+  margin-bottom: 1rem;
+}
+
+.instancesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.instanceWrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
