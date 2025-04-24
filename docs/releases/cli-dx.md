@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.38.1 (2025/04/24)
+
+#### What's Changed CLI
+* Exec `git --version` test in current directory when executing `mod git clone csv`
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.38.0 (2025/04/24)
 
 #### What's Changed CLI
