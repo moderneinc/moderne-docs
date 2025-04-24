@@ -1,5 +1,18 @@
 # CLI / DX changelog
 
+### CLI / DX v3.37.5 (2025/04/23)
+
+#### What's Changed CLI
+* Show helpful message when git clone attempted but git not found
+* Use `CommandException.getFixSuggestions` in error output
+* Suggest visiting results page after successful `mod batch publish`
+* Allow `mod build` to assemble LST jar files with no LST fragments
+* Fix `JavaType.Method`, `MavenRepository` constructor calls
+* Pin PicoCLI to 4.7.6
+#### What's Changed DX
+* Add Jansi dependency to DX
+
+
 ### CLI / DX v3.37.4 (2025/04/14)
 
 #### What's Changed CLI
