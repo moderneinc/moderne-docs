@@ -1,20 +1,21 @@
 import React from 'react';
 import styles from './styles/ArrayField.module.css';
+import { ArrayFieldProps } from './types';
 
-function ArrayField({ field, value = [], onChange }) {
+const ArrayField: React.FunctionComponent<ArrayFieldProps> = ({ field, value = [], onChange }) => {
   // Ensure value is always an array
-  const values = Array.isArray(value) ? value : value ? [value] : [];
+  const values: string[] = Array.isArray(value) ? value : value ? [value] : [];
 
-  const handleAddItem = () => {
+  const handleAddItem = (): void => {
     onChange([...values, '']);
   };
 
-  const handleRemoveItem = (index) => {
+  const handleRemoveItem = (index: number): void => {
     const newValues = values.filter((_, idx) => idx !== index);
     onChange(newValues);
   };
 
-  const handleItemChange = (index, newValue) => {
+  const handleItemChange = (index: number, newValue: string): void => {
     const newValues = [...values];
     newValues[index] = newValue;
     onChange(newValues);
