@@ -1,15 +1,7 @@
 import { useState, useEffect } from 'react';
 import artifactoryLSTConfigDefinition from './artifactoryLSTConfigDefinition';
-import { FormData, Instance } from './types';
+import { FormData, Instance, ValidationHookResult } from './types';
 
-interface ValidationHookResult {
-  validationAttempted: boolean;
-  setValidationAttempted: React.Dispatch<React.SetStateAction<boolean>>;
-  validateAndUpdate: (currentInstances?: Instance[], isEnabled?: boolean) => boolean;
-  hasFieldError: (instanceIndex: number, fieldKey: string) => boolean;
-}
-
-// Main validation hook
 function useArtifactoryLSTValidation(
   enabled: boolean,
   instances: Instance[],

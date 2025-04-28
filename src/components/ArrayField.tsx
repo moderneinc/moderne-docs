@@ -1,6 +1,12 @@
 import React from 'react';
 import styles from './styles/ArrayField.module.css';
-import { ArrayFieldProps } from './types';
+import { Field } from './types';
+
+interface ArrayFieldProps {
+  field: Field;
+  value?: string | string[];
+  onChange: (values: string[]) => void;
+}
 
 const ArrayField: React.FunctionComponent<ArrayFieldProps> = ({ field, value = [], onChange }) => {
   // Ensure value is always an array
