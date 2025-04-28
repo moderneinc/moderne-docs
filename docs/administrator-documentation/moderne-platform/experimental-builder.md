@@ -1,5 +1,5 @@
 # Experimental agent builder
 
-import CommandBuilder from '@site/src/components/CommandBuilder'
+import StepCommandBuilder from '@site/src/components/StepCommandBuilder'
 
-<CommandBuilder />
+<StepCommandBuilder />

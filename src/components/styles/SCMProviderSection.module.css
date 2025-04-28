@@ -1,0 +1,21 @@
+.section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.checkbox {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.configs {
+  padding-left: 1.5rem;
+  margin-top: 0.75rem;
+}
+
+.instanceCount {
+  display: block;
+  margin-bottom: 1rem;
+}

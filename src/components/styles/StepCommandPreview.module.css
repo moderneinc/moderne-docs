@@ -1,0 +1,49 @@
+.container {
+  margin-top: 1rem;
+}
+
+.formatSelector {
+  margin-bottom: 1rem;
+}
+
+.radioLabel {
+  margin-right: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.radioLabel input {
+  margin-right: 0.5rem;
+}
+
+.commandContainer {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.commandCode {
+  background: var(--ifm-code-background);
+  color: var(--ifm-code-color);
+  padding: 1rem;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  word-break: break-word;
+  margin: 0;
+}
+
+.copyButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.commandHelp {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.commandHelp ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}

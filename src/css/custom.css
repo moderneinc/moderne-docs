@@ -400,3 +400,27 @@ html[data-theme='dark'] .footer .footer__bottom::before {
 h1, .markdown h2, .markdown h3, .markdown h4 {
   font-weight: bold;
 }
+
+/* Agent builder CSS */
+.steps-progress {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.step-indicator {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
+}
+
+.step-indicator.active {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}

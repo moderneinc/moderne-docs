@@ -1,0 +1,6 @@
+.instance {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 4px;
+}
