@@ -305,6 +305,7 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'administrator-documentation/moderne-platform/how-to-guides/organizations-service',
+            'administrator-documentation/moderne-platform/how-to-guides/organizations-service-new',
             'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/migrate-from-an-organization-service-files-on-the-agent',
             'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/migrate-organization-versions',
             'administrator-documentation/moderne-platform/how-to-guides/dev-center',
