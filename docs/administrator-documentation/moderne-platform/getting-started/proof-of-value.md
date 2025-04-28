@@ -72,7 +72,7 @@ Major migrations are complex transformations consisting of multiple individual r
 | Recipe | CLI command |
 |-------------|-------------|
 | Common static analysis issues | ```mod run . --recipe CommonStaticAnalysis``` |
-| Parameterize SLF4J's logging statements | `mod run . --recipe ParameterizedLogging` |
+| Parameterize SLF4J's logging statements | `mod run . --recipe org.openrewrite.java.logging.slf4j.ParameterizedLogging` |
 | Enhances logging of exceptions | `mod run . --recipe CompleteExceptionLogging` |
 | Upgrade Maven dependency version | `mod run . --recipe UpgradeDependencyVersion -P "groupId=com.fasterxml.jackson*" -P "artifactId=jackson-module*" -P "newVersion=29.X" -P "versionPattern='-jre'" -P "retainVersions=com.jcraft:jsch"` |
 | Exclude Maven dependency | `mod run . --recipe ExcludeDependency -P "groupId=org.junit.vintage" -P "junit-vintage-engine" -P "scope=compile"` |
