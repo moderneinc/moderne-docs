@@ -1,36 +1,6 @@
 import { useState, useEffect } from 'react';
 import artifactoryLSTConfigDefinition from './artifactoryLSTConfigDefinition';
-
-// Define interfaces for the types
-interface FieldData {
-  value: string | string[];
-  asEnv: boolean;
-  envKey: string;
-}
-
-interface Instance {
-  [key: string]: FieldData;
-}
-
-interface ValidationResult {
-  valid: boolean;
-  missingFields: string[];
-}
-
-interface ArtifactoryLSTConfig {
-  enabled: boolean;
-  instances: Instance[];
-  count: number;
-  validation: ValidationResult;
-}
-
-interface FormData {
-  artifactoryLSTConfig?: ArtifactoryLSTConfig;
-  validation?: ValidationResult;
-  triggerValidation?: {
-    [key: string]: boolean;
-  };
-}
+import { FormData, Instance } from './types';
 
 interface ValidationHookResult {
   validationAttempted: boolean;
