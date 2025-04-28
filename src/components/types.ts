@@ -59,3 +59,10 @@ export interface FormData {
     [key: string]: boolean;
   };
 }
+
+export interface ValidationHookResult {
+  validationAttempted: boolean;
+  setValidationAttempted: React.Dispatch<React.SetStateAction<boolean>>;
+  validateAndUpdate: (currentInstances?: Instance[], isEnabled?: boolean) => boolean;
+  hasFieldError: (instanceIndex: number, fieldKey: string) => boolean;
+}
