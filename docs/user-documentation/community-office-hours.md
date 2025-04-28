@@ -13,6 +13,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Building Secure and Scalable Health Systems (April 25th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=v74Qq7JCKsY&' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### Code, Change, and Roc with Isaac Van Doren (April 16th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=lxjvpKvot4c' controls="true" />
