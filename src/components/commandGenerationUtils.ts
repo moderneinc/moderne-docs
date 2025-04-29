@@ -1,9 +1,15 @@
+import { 
+  FormData, 
+  FieldData, 
+  CommandType
+} from './types';
+
 /**
  * Transforms an environment variable key to Java argument format
  * @param {string} envKey - The environment variable key
  * @returns {string} The formatted Java key
  */
-export const transformToJavaFormat = (envKey) => {
+export const transformToJavaFormat = (envKey: string): string => {
   // Example: MODERNE_AGENT_GITHUB_0_URL → moderne.agent.github[0].url
   let javaKey = envKey.toLowerCase();
 
@@ -14,12 +20,12 @@ export const transformToJavaFormat = (envKey) => {
   javaKey = javaKey.replace(/_/g, '.');
   
   // Handle array indices - match patterns like .0. or .1.
-  javaKey = javaKey.replace(/\.(\d+)\./g, (match, digit) => {
+  javaKey = javaKey.replace(/\.(\d+)\./g, (_match, digit) => {
     return `[${digit}].`;
   });
   
   // Handle the last index if it ends with a digit
-  javaKey = javaKey.replace(/\.(\d+)$/, (match, digit) => {
+  javaKey = javaKey.replace(/\.(\d+)$/, (_match, digit) => {
     return `[${digit}]`;
   });
   
@@ -28,12 +34,17 @@ export const transformToJavaFormat = (envKey) => {
 
 /**
  * Process a single field and add to command arguments
- * @param {Object} config - Field configuration
- * @param {Array} exportLines - Array to collect export lines
- * @param {Array} cmdArgs - Array to collect command arguments
- * @param {string} commandType - Docker or Java
+ * @param {FieldData} config - Field configuration
+ * @param {string[]} exportLines - Array to collect export lines
+ * @param {string[]} cmdArgs - Array to collect command arguments
+ * @param {CommandType} commandType - Docker or Java
  */
-const processField = (config, exportLines, cmdArgs, commandType) => {
+const processField = (
+  config: FieldData | undefined, 
+  exportLines: string[], 
+  cmdArgs: string[], 
+  commandType: CommandType
+): void => {
   if (!config || !config.value) return;
   
   const { value, asEnv, envKey } = config;
@@ -57,18 +68,25 @@ const processField = (config, exportLines, cmdArgs, commandType) => {
 
 /**
  * Process an array field
- * @param {Array} values - Array of values
+ * @param {string[]} values - Array of values
  * @param {string} envKeyPattern - Environment key with ${i} placeholder
  * @param {boolean} asEnv - Whether to use as environment variable
- * @param {Array} exportLines - Array to collect export lines
- * @param {Array} cmdArgs - Array to collect command arguments
- * @param {string} commandType - Docker or Java
+ * @param {string[]} exportLines - Array to collect export lines
+ * @param {string[]} cmdArgs - Array to collect command arguments
+ * @param {CommandType} commandType - Docker or Java
  */
-const processArrayField = (values, envKeyPattern, asEnv, exportLines, cmdArgs, commandType) => {
+const processArrayField = (
+  values: string[], 
+  envKeyPattern: string, 
+  asEnv: boolean | undefined, 
+  exportLines: string[], 
+  cmdArgs: string[], 
+  commandType: CommandType
+): void => {
   if (!Array.isArray(values) || values.length === 0) return;
   
   values.forEach((item, index) => {
-    const arrayEnvKey = envKeyPattern.replace(/\${i}/g, index);
+    const arrayEnvKey = envKeyPattern.replace(/\${i}/g, index.toString());
     
     if (asEnv) {
       exportLines.push(`export ${arrayEnvKey}=${item}`);
@@ -88,18 +106,23 @@ const processArrayField = (values, envKeyPattern, asEnv, exportLines, cmdArgs, c
 
 /**
  * Process a section of fields
- * @param {Object} fieldsObject - Object containing field configs
- * @param {Array} exportLines - Array to collect export lines
- * @param {Array} cmdArgs - Array to collect command arguments
- * @param {string} commandType - Docker or Java
+ * @param {Record<string, FieldData>} fieldsObject - Object containing field configs
+ * @param {string[]} exportLines - Array to collect export lines
+ * @param {string[]} cmdArgs - Array to collect command arguments
+ * @param {CommandType} commandType - Docker or Java
  */
-const processFieldsSection = (fieldsObject, exportLines, cmdArgs, commandType) => {
+const processFieldsSection = (
+  fieldsObject: Record<string, FieldData> | undefined, 
+  exportLines: string[], 
+  cmdArgs: string[], 
+  commandType: CommandType
+): void => {
   if (!fieldsObject) return;
   
   Object.entries(fieldsObject).forEach(([key, config]) => {
     if (Array.isArray(config.value)) {
       processArrayField(
-        config.value, 
+        config.value as string[], 
         config.envKey, 
         config.asEnv, 
         exportLines, 
@@ -114,16 +137,19 @@ const processFieldsSection = (fieldsObject, exportLines, cmdArgs, commandType) =
 
 /**
  * Generates command string based on configuration
- * @param {Object} data - The form data
- * @param {string} commandType - The command type (docker or java)
+ * @param {FormData} data - The form data
+ * @param {CommandType} commandType - The command type (docker or java)
  * @returns {string} The generated command
  */
-export const generateCommand = (data, commandType) => {
-  const exportLines = [];
-  const cmdArgs = [];
+export const generateCommand = (
+  data: FormData | undefined, 
+  commandType: CommandType
+): string => {
+  const exportLines: string[] = [];
+  const cmdArgs: string[] = [];
   
   const { providers = [], providerConfigs = {} } = data || {};
-  const generalConfig = data.generalConfig || {};
+  const generalConfig = data?.generalConfig || {};
   
   // Process general configuration
   if (generalConfig && generalConfig.fields) {
@@ -151,16 +177,16 @@ export const generateCommand = (data, commandType) => {
     
     const { instances = [] } = config;
     
-    instances.forEach((instance, instanceIndex) => {
+    instances.forEach((instance) => {
       if (!instance) return;
       
-      Object.entries(instance).forEach(([fieldKey, fieldData]) => {
+      Object.entries(instance).forEach(([_fieldKey, fieldData]) => {
         if (!fieldData || !fieldData.value) return;
         
         // Handle array fields differently
         if (Array.isArray(fieldData.value)) {
           processArrayField(
-            fieldData.value, 
+            fieldData.value as string[], 
             fieldData.envKey, 
             fieldData.asEnv, 
             exportLines, 
@@ -178,17 +204,16 @@ export const generateCommand = (data, commandType) => {
   if (data?.artifactoryLSTConfig?.enabled && data.artifactoryLSTConfig.instances) {
     const instances = data.artifactoryLSTConfig.instances;
         
-    instances.forEach((instance, instanceIndex) => {
+    instances.forEach((instance) => {
       if (!instance) return;
       
-      Object.entries(instance).forEach(([fieldKey, fieldData]) => {        
+      Object.entries(instance).forEach(([_fieldKey, fieldData]) => {        
         if (!fieldData || !fieldData.value) return;
         
         // Handle array fields differently
         if (Array.isArray(fieldData.value)) {
-          
           processArrayField(
-            fieldData.value, 
+            fieldData.value as string[], 
             fieldData.envKey, 
             fieldData.asEnv, 
             exportLines, 
@@ -206,10 +231,10 @@ export const generateCommand = (data, commandType) => {
   if (data?.mavenRepositoryConfig?.enabled && data.mavenRepositoryConfig.instances) {
     const instances = data.mavenRepositoryConfig.instances;
         
-    instances.forEach((instance, instanceIndex) => {
+    instances.forEach((instance) => {
       if (!instance) return;
       
-      Object.entries(instance).forEach(([fieldKey, fieldData]) => {        
+      Object.entries(instance).forEach(([_fieldKey, fieldData]) => {        
         if (!fieldData || !fieldData.value) return;
         
         processField(fieldData, exportLines, cmdArgs, commandType);
