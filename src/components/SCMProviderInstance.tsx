@@ -1,6 +1,30 @@
 import React from 'react';
 import ConfigField from './ConfigField';
 import styles from './styles/SCMProviderInstance.module.css';
+import { Field, ConfigDefinition, Instance } from './types';
+
+interface SCMProviderInstanceProps {
+  scmProviderType: string;
+  scmProviderConfig: ConfigDefinition;
+  index: number;
+  instance: Instance;
+  onFieldChange: (
+    scmProviderType: string, 
+    index: number, 
+    fieldKey: string, 
+    value: string | string[] | boolean
+  ) => void;
+  onEnvToggle: (
+    scmProviderType: string, 
+    index: number, 
+    fieldKey: string
+  ) => void;
+  hasFieldError: (
+    scmProviderType: string, 
+    index: number, 
+    fieldKey: string
+  ) => boolean;
+}
 
 /**
  * Renders a single instance of an SCM provider configuration
@@ -13,12 +37,12 @@ function SCMProviderInstance({
   onFieldChange, 
   onEnvToggle, 
   hasFieldError 
-}) {
-  const handleInputChange = (fieldKey, value) => {
+}: SCMProviderInstanceProps) {
+  const handleInputChange = (fieldKey: string, value: string | string[] | boolean): void => {
     onFieldChange(scmProviderType, index, fieldKey, value);
   };
 
-  const handleEnvToggle = (fieldKey) => {
+  const handleEnvToggle = (fieldKey: string): void => {
     onEnvToggle(scmProviderType, index, fieldKey);
   };
 
@@ -26,9 +50,11 @@ function SCMProviderInstance({
     <div className={styles.instance}>
       <h4>{scmProviderConfig.label} #{index + 1}</h4>
       
-      {scmProviderConfig.fields.map((field) => {
-        const fieldConfig = instance[field.key] || {};
-        const fieldValue = fieldConfig.value || (field.type === 'boolean' ? 'false' : '');
+      {scmProviderConfig.fields.map((field: Field) => {
+        const fieldConfig = instance[field.key] || ({} as Instance);
+        const fieldValue = fieldConfig.value !== undefined 
+          ? fieldConfig.value 
+          : (field.type === 'boolean' ? 'false' : '');
         const useAsEnv = fieldConfig.asEnv || false;
         const showError = hasFieldError(scmProviderType, index, field.key);
         

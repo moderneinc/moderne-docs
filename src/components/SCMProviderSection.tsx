@@ -1,6 +1,33 @@
 import React from 'react';
 import SCMProviderInstance from './SCMProviderInstance';
 import styles from './styles/SCMProviderSection.module.css';
+import { ConfigDefinition, Instance } from './types';
+
+interface SCMProviderSectionProps {
+  scmProviderType: string;
+  scmProviderConfig: ConfigDefinition;
+  selected: boolean;
+  instances: Instance[];
+  count: number;
+  onToggle: (scmProviderType: string) => void;
+  onCountChange: (scmProviderType: string, count: number) => void;
+  onFieldChange: (
+    scmProviderType: string, 
+    index: number, 
+    fieldKey: string, 
+    value: string | string[] | boolean
+  ) => void;
+  onEnvToggle: (
+    scmProviderType: string, 
+    index: number, 
+    fieldKey: string
+  ) => void;
+  hasFieldError: (
+    scmProviderType: string, 
+    index: number, 
+    fieldKey: string
+  ) => boolean;
+}
 
 /**
  * Renders an SCM provider section with all its instances
@@ -16,14 +43,14 @@ function SCMProviderSection({
   onFieldChange,
   onEnvToggle,
   hasFieldError
-}) {
+}: SCMProviderSectionProps) {
   return (
     <div className={styles.section}>
       <label className={styles.checkbox}>
         <input
           type="checkbox"
           checked={selected}
-          onChange={onToggle}
+          onChange={() => onToggle(scmProviderType)}
         />{' '}
         {scmProviderConfig.label}
       </label>
@@ -36,7 +63,10 @@ function SCMProviderSection({
               type="number"
               min={1}
               value={count}
-              onChange={(e) => onCountChange(scmProviderType, parseInt(e.target.value || '1', 10))}
+              onChange={(e) => onCountChange(
+                scmProviderType, 
+                parseInt(e.target.value || '1', 10)
+              )}
               style={{ width: '60px' }}
             />
           </label>
