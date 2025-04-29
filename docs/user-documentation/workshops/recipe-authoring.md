@@ -508,7 +508,7 @@ Because of that, there's a temptation to put the methods directly onto the class
 
 For a full understanding of traits, check out our [documentation on traits](https://docs.openrewrite.org/concepts-and-explanations/traits).
 
-The [src/main/java/com/yourorg/FindSpringBeans.java recipe](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/FindSpringBeans.java) in the starter project is a good example of how to use traits.
+The [FindSpringBeans recipe](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/FindSpringBeans.java) in the starter project is a good example of how to use traits.
 
 ### Automating breaking changes
 
