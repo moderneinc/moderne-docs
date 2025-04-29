@@ -15,7 +15,7 @@ export interface ConfigDefinition {
 }
 
 export interface FieldData {
-  value: string | string[];
+  value: string | string[] | boolean;
   asEnv: boolean;
   envKey: string;
 }
@@ -42,7 +42,7 @@ export interface ValidationHookResult {
   validationAttempted: boolean;
   setValidationAttempted: React.Dispatch<React.SetStateAction<boolean>>;
   validateAndUpdate: (currentInstances?: Instance[], isEnabled?: boolean) => boolean;
-  hasFieldError: (instanceIndex: number, fieldKey: string) => boolean;
+  hasFieldError: (instanceIndex: number | string, fieldKey?: string) => boolean;
 }
 
 // Provider configurations
@@ -58,34 +58,29 @@ export interface GeneralConfig {
 }
 
 // Configuration sections
-export interface ArtifactoryLSTConfig {
+export interface BaseConfig {
   enabled: boolean;
+  validation?: ValidationResult;
+}
+
+export interface InstancesConfig extends BaseConfig {
   instances: Instance[];
   count?: number;
-  validation?: ValidationResult;
 }
 
-export interface MavenRepositoryConfig {
-  enabled: boolean;
-  instances: Instance[];
-  validation?: ValidationResult;
-}
-
-export interface OrgServiceConfig {
-  enabled: boolean;
+export interface FieldsConfig extends BaseConfig {
   fields: {
     [key: string]: FieldData;
   };
-  validation?: ValidationResult;
 }
 
-export interface StrictRecipeSourcesConfig {
-  enabled: boolean;
-  fields: {
-    [key: string]: FieldData;
-  };
-  validation?: ValidationResult;
-}
+export interface ArtifactoryLSTConfig extends InstancesConfig {}
+
+export interface MavenRepositoryConfig extends InstancesConfig {}
+
+export interface OrgServiceConfig extends FieldsConfig {}
+
+export interface StrictRecipeSourcesConfig extends FieldsConfig {}
 
 // Main form data interface
 export interface FormData {
@@ -98,6 +93,7 @@ export interface FormData {
   mavenRepositoryConfig?: MavenRepositoryConfig;
   orgServiceConfig?: OrgServiceConfig;
   strictRecipeSourcesConfig?: StrictRecipeSourcesConfig;
+  [key: string]: any; // To allow for dynamic config keys
   validation?: ValidationResult;
   triggerValidation?: {
     [key: string]: boolean;
