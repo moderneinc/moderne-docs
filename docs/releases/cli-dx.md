@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.38.2 (2025/04/29)
+
+#### What's Changed CLI
+* Exclude the flyway migration task for Gradle
+* Add ability to clone organizations whose IDs don't match their names
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.38.1 (2025/04/24)
 
 #### What's Changed CLI
