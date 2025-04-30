@@ -77,19 +77,25 @@ Comma-separated files (CSV) are best manipulated using a dedicated editor such a
 :::warning
 Org columns must start immediately after the branch column. Likewise, they must be contiguous. **Do not** try and add empty orgs so that the orgs line up with one another.
 
+<Tabs>
+<TabItem value="not-this" label="Don't do this">
 ```csv {showLineNumbers}
-# ❌ Don't do this
 cloneUrl,branch,org1,org2,org3,org4
 "https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
 "https://github.com/Netflix/photon","main","Team 2","","Director B","ALL"
 "https://github.com/Netflix/ribbon","master","","Director A","ALL"
+```
+</TabItem>
 
-# ✅ This is OK
+<TabItem value="do-this" label="Do this">
+```csv {showLineNumbers}
 cloneUrl,branch,org1,org2,org3,org4
 "https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
 "https://github.com/Netflix/photon","main","Team 2","Director B","ALL"
 "https://github.com/Netflix/ribbon","master","Director A","ALL"
 ```
+</TabItem>
+</Tabs>
 :::
 
 ## Agent configuration
