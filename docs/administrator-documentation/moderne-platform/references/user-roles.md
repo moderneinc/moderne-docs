@@ -7,15 +7,15 @@ description: Outlines what permissions different types of users have in the Mode
 
 | Action                                            |       Everyone                    |    Administrators     |
 | ------------------------------------------------- | :-------------------------------: | :-------------------: |
-| Interact with DevCenter                           | [Users with organization access](#organization-access)    | :white_check_mark:  |
+| Interact with DevCenter                           | Users with organization access    | :white_check_mark:  |
 | View Marketplace                                  |       :white_check_mark:        | :white_check_mark:  |
 | Build recipes                                     |       :white_check_mark:        | :white_check_mark:  |
 | Create and use access tokens                      |       :white_check_mark:        | :white_check_mark:  |
 | Deploy recipe and visualization artifacts         |              :x:                  | :white_check_mark:  |
-| View list of repositories                         | [Users with organization access](#organization-access)    | :white_check_mark:  |
-| [View repository insights](#repository-insights)                          | [Users with organization access](#organization-access)    | :white_check_mark:  |
-| View activity log                                 | [Users with organization access](#organization-access)    | :white_check_mark:  |
-| Run recipes and visualizations                    | [Users with organization access](#organization-access)    | :white_check_mark:  |
+| View list of repositories                         | Users with organization access    | :white_check_mark:  |
+| [View repository insights](#repository-insights)  | Users with organization access    | :white_check_mark:  |
+| View activity log                                 | Users with organization access    | :white_check_mark:  |
+| Run recipes and visualizations                    | Users with organization access    | :white_check_mark:  |
 | View recipe results                               | [Users with SCM access](#scm-access)             | [Users with SCM access](#scm-access)|
 | Commit recipe results                             | [Users with SCM access](#scm-access)             | [Users with SCM access](#scm-access) | 
 | [Download data tables](#user-content-fn-1)[^1]    | [Users with SCM access](#scm-access)             | [Users with SCM access](#scm-access) |
@@ -25,10 +25,6 @@ description: Outlines what permissions different types of users have in the Mode
 | View and delete user access tokens                |              :x:                  | :white_check_mark:  |
 | Quarantine repositories                           |              :x:                  | :white_check_mark:  |
 | View connected workers                            |              :x:                  | :white_check_mark:  |
-
-## Organization access
-
-Organization access is determined via an [Organizations service](../how-to-guides/organizations-service.md). Once an organization service is configured, users will only be able to view and interact with repositories that belong to the organizations they've been assigned to. Even if they have direct access to a repositories code, they won't be able to do anything in Moderne with it unless they've been granted access to an organization that contains that repository.
 
 ## SCM access
 
