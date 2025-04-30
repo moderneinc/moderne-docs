@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.49.0 (2025/04/30)
+
+- refactor moddy subscription to use subscribeToMore
+
 ### UI v11.48.0 (2025/04/25)
 
 - Bug fixes and other improvements.
