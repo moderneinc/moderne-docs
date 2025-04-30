@@ -10,9 +10,12 @@ import TabItem from '@theme/TabItem';
 
 ## What was the Organization Service?
 
-The Organization Service was an optional component deployed in customer environments to provide dynamic organizational hierarchies.
+The Organization Service was an optional component deployed in customer environments to provide dynamic organizational
+hierarchies.
 
-To simplify Moderne’s operational complexity, it was decided to sunset the Organization Service and replace it with a file-based mechanism managed directly by the Agent. This change streamlines customer deployments by reducing the number of moving parts and eliminates the need for an additional network hop whenever organizational data is accessed.
+To simplify Moderne’s operational complexity, it was decided to sunset the Organization Service and replace it with a
+file-based mechanism managed directly by the Agent. This change streamlines customer deployments by reducing the number
+of moving parts and eliminates the need for an additional network hop whenever organizational data is accessed.
 
 ## Migration instructions
 
@@ -31,15 +34,15 @@ Make sure that the following configurations are not included in your Agent run c
 
 **Variables:**
 
-| Argument Name                                                |
-|--------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`                     |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS` |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_SKIP_SSL`                |
-| `MODERNE_AGENT_ORGANIZATION_FILE_REPOS_CSV_PATH`             | 
-| `MODERNE_AGENT_ORGANIZATION_FILE_COMMIT_OPTIONS_PATH`        | 
-| `MODERNE_AGENT_ORGANIZATION_FILE_ID_MAPPING_PATH`            | 
-| `MODERNE_AGENT_ORGANIZATION_FILE_DEV_CENTER_PATH`            | 
+| Argument Name                                              |
+|------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`                   |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS` |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_SKIPSSL`               |
+| `MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH`             | 
+| `MODERNE_AGENT_ORGANIZATION_FILE_COMMITOPTIONSPATH`        | 
+| `MODERNE_AGENT_ORGANIZATION_FILE_IDMAPPINGPATH`            | 
+| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`            | 
 
 </TabItem>
 
@@ -63,7 +66,9 @@ Make sure that the following configurations are not included in your Agent run c
 ### 2. Configure the Agent to use `repos.csv` and `devcenter.json`
 
 1. Copy the `devcenter.json` file from your Organization Service and make it accessible to where your Agent is deployed
-2. Follow [the instructions](agent-configuration/organizations-hierarchy.md) to generate a `repos.csv` based on your organization hierarchy and similarly place it on your agent. Alternatively, if your Organization Service already uses a `repos.csv`, you may copy that file directly.
+2. Follow [the instructions](agent-configuration/organizations-hierarchy.md) to generate a `repos.csv` based on your
+   organization hierarchy and similarly place it on your agent. Alternatively, if your Organization Service already uses
+   a `repos.csv`, you may copy that file directly.
 3. Update the relevant variables in your Agent deployment.
 
 <Tabs groupId="agent-type">
@@ -76,7 +81,6 @@ Make sure that the following configurations are not included in your Agent run c
 | `MODERNE_AGENT_ORGANIZATION_REPOSCSV`  |
 | `MODERNE_AGENT_ORGANIZATION_DEVCENTER` |
 
-
 **Example:**
 
 ```bash
@@ -86,7 +90,6 @@ docker run \
 -e MODERNE_AGENT_ORGANIZATION_DEVCENTER=/Users/MY_USER/Documents/devcenter.json \
 # ... Additional variables
 ```
-
 
 </TabItem>
 
@@ -109,16 +112,14 @@ java -jar moderne-agent-{version}.jar \
 # ... Additional arguments
 ```
 
-
-
 </TabItem>
 </Tabs>
 
 
 :::tip
-The Agent is able to fetch your `repos.csv` from an unauthenticated HTTP/HTTPS endpoint. To specify an endpoint instead of a local file, use a URI instead of a local file. 
+The Agent is able to fetch your `repos.csv` from an unauthenticated HTTP/HTTPS endpoint. To specify an endpoint instead
+of a local file, use a URI instead of a local file.
 :::
-
 
 ### 3. Remove the organization service from your system
 
