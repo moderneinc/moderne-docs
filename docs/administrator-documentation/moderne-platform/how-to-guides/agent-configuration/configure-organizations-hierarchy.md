@@ -7,9 +7,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-# Configure the Organizational Hierarchy
+# Configure the organizational hierarchy
 
-## What is the Organizational Hierarchy?
+## What is the organizational hierarchy?
 
 In Moderne, an _organization_ is a collection of related repositories. The organizational hierarchy defines how these organizations are structured and related to one another.
 
@@ -27,13 +27,13 @@ ALL
 
 There are no strict requirements for how the organizational hierarchy must be structured. However, customers often model it after their internal reporting hierarchy.
 
-## Is the Organization Hierarchy Mandatory?
+## Is the organization hierarchy mandatory?
 
 No. If no organization hierarchy is configured, all repositories will default to the `All` organization. This setup can be suitable when managing a relatively small number of repositories. However, as your repository count grows, we recommend establishing an organization hierarchy to improve structure and scalability.
 
-## How is the Organization Hierarchy Defined?
+## How is the organization hierarchy defined?
 
-Organizational structure is a configured via a `repos.csv` file, accessible to the Agent via the filesystem or network. Depending on your deployment configuration, this may by done by placing the file in the same host as the agent or by using a file/network mount. The Agent can also be configured with an unauthenticated http/s URI that serves the aforementioned `repos.csv`.
+Organizational structure is a configured via a `repos.csv` file, accessible to the Agent via the filesystem or network. Depending on your deployment configuration, this may by done by placing the file in the same host as the agent or by using a file/network mount. The Agent can also be configured with an unauthenticated HTTP/s URI that serves the aforementioned `repos.csv`.
 
 This configuration is best explained with an example. Consider an organization that consists of two teams and two Directors:  
 
@@ -104,11 +104,9 @@ cloneUrl,branch,org1,org2,org3
 ```
 :::
 
-
-
 ## Agent configuration
 
-The `repos.csv` source can is determined using the `moderne.agent.organization.repoCsv` variable. Its value may be either be a local path or an unauthenticated HTTP URI. 
+The `repos.csv` source location is configured via the `moderne.agent.organization.repoCsv` variable. Its value may be a local path or an unauthenticated HTTP URI. 
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
