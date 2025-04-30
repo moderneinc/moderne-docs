@@ -33,9 +33,9 @@ No. If no organization hierarchy is configured, all repositories will default to
 
 ## How is the organization hierarchy defined?
 
-Organizational structure is a configured via a `repos.csv` file, accessible to the Agent via the filesystem or network. Depending on your deployment configuration, this may by done by placing the file in the same host as the agent or by using a file/network mount. The Agent can also be configured with an unauthenticated HTTP/s URI that serves the aforementioned `repos.csv`.
+Organizational structure is a configured via a `repos.csv` file, accessible to the Agent via the file system or network. Depending on your deployment configuration, this may be done by placing the file in the same host as the agent or by using a file/network mount. The Agent can also be configured with an unauthenticated HTTP/s URI that serves the aforementioned `repos.csv`.
 
-This configuration is best explained with an example. Consider an organization that consists of two teams and two Directors:  
+This configuration is best explained with an example. Consider an organization that consists of two teams and two directors:  
 
 ```
 All
@@ -46,6 +46,8 @@ All
 
 ```
 
+The following CSV file would represent this organizational structure:
+
 ```csv showLineNumbers
 cloneUrl,branch,org1,org2,org3
 "https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
@@ -54,14 +56,14 @@ cloneUrl,branch,org1,org2,org3
 "https://github.com/apache/maven-doxia","master","Director B","ALL"
 ```
 
-In this example `repos.csv`, we're defining 5 organizations, associating 3 repos with them. Every repository is automatically associated with its parent organizations. In our example, `Director A` owns all 3 repositories. 
+In the above file, we define 5 organizations (ALL, Director A, Director B, Team 1, and Team 2) and 3 repositories. Notice that one repository can be defined multiple times if you want two distinct organizations to have access to it. 
+
+Also note that organizations on the left are children of organizations on the right. For instance, `Team 1` is a child of `Director A` which is a child of `ALL`.
 
 :::tip
-
-Comma-separated files (csv) are best manipulated using a dedicated editor such as Microsoft Excel, Google Sheets, or Apple Numbers. Here is what the above csv would look like on Apple Numbers:
+Comma-separated files (CSV) are best manipulated using a dedicated editor such as Microsoft Excel, Google Sheets, or Apple Numbers. Here is what the above CSV would look like on Apple Numbers:
 
 ![](../assets/numbers-csv-screenshot.png)
-
 :::
     
 ## Expected format for `repos.csv` 
@@ -73,34 +75,20 @@ Comma-separated files (csv) are best manipulated using a dedicated editor such a
 
 
 :::warning
-Org columns must start immediately after the branch column. 
+Org columns must start immediately after the branch column. Likewise, they must be contiguous. **Do not** try and add empty orgs so that the orgs line up with one another.
 
 ```csv {showLineNumbers}
 # ❌ Don't do this
-cloneUrl,branch,org1,org2,org3
-"https://github.com/apache/maven-doxia","master","Org 1", "Org2", "Org3"
-"https://github.com/apache/maven","master","","Org2","Org3"
+cloneUrl,branch,org1,org2,org3,org4
+"https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
+"https://github.com/Netflix/photon","main","Team 2","","Director B","ALL"
+"https://github.com/Netflix/ribbon","master","","Director A","ALL"
 
 # ✅ This is OK
-cloneUrl,branch,org1,org2,org3
-"https://github.com/apache/maven-doxia","master","Org 1", "Org2", "Org3"
-"https://github.com/apache/maven","master","Org2","Org3"
-```
-:::
-
-:::warning
-Org columns must be contiguous. There cannot be empty values in between. 
-
-```csv {showLineNumbers}
-# ❌ Don't do this
-cloneUrl,branch,org1,org2,org3
-"https://github.com/apache/maven-doxia","master","Org 1", "Org2", "Org3"
-"https://github.com/apache/maven","master","Org2,"","Org3"
-
-# ✅ This is OK
-cloneUrl,branch,org1,org2,org3
-"https://github.com/apache/maven-doxia","master","Org 1", "Org2", "Org3"
-"https://github.com/apache/maven","master","Org2","Org3"
+cloneUrl,branch,org1,org2,org3,org4
+"https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
+"https://github.com/Netflix/photon","main","Team 2","Director B","ALL"
+"https://github.com/Netflix/ribbon","master","Director A","ALL"
 ```
 :::
 
