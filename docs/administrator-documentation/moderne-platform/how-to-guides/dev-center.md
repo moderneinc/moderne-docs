@@ -16,7 +16,7 @@ In this doc, we'll walk you through everything you need to know to configure you
 
 In order to configure any DevCenters, there are two things you must have already done (which we'll touch upon below):
 
-1. You must have configured an [organizational structure](agent-configuration/configure-organizations-hierarchy.md). 
+1. You must have configured an [organizational structure](./agent-configuration/configure-organizations-hierarchy.md). 
 2. You must ensure that the [Moderne agent Maven configuration](./agent-configuration/configure-an-agent-with-maven-repository-access.md) only has **one** entry where the recipe source is set to `true`. (Note: this does not apply to one Maven repository configured identically in multiple agents. Only that you cannot have two distinct Maven repositories configured where recipe source is set to `true`.)
 
 ### Moderne agent Maven configuration
