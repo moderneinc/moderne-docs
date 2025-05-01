@@ -1,27 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { generateCommand } from './commandGenerationUtils';
 import styles from './styles/StepCommandPreview.module.css';
+import { FormData, CommandType } from './types';
 
-export default function StepCommandPreview({ data }) {
+interface StepCommandPreviewProps {
+  data: FormData;
+  updateData?: (data: FormData) => void;
+}
+
+export default function StepCommandPreview({ data }: StepCommandPreviewProps): JSX.Element {
   // Add command type selection
-  const [commandType, setCommandType] = useState('docker');
+  const [commandType, setCommandType] = useState<CommandType>('docker');
   // Generate command whenever data or command type changes
-  const [commandText, setCommandText] = useState('');
+  const [commandText, setCommandText] = useState<string>('');
   
   useEffect(() => {
     // Use the extracted utility function
     setCommandText(generateCommand(data, commandType));
   }, [commandType, data]);
 
-  const copyToClipboard = () => {
+  const copyToClipboard = (): void => {
     navigator.clipboard.writeText(commandText).then(
       () => {
         const button = document.getElementById('copy-button');
-        const originalText = button.textContent;
-        button.textContent = 'Copied!';
-        setTimeout(() => {
-          button.textContent = originalText;
-        }, 2000);
+        if (button) {
+          const originalText = button.textContent || '';
+          button.textContent = 'Copied!';
+          setTimeout(() => {
+            button.textContent = originalText;
+          }, 2000);
+        }
       },
       (err) => console.error('Could not copy text: ', err)
     );

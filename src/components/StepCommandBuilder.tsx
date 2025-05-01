@@ -8,8 +8,25 @@ import StepGeneralConfig from './StepGeneralConfig';
 import StepStrictRecipeSourcesConfig from './StepStrictRecipeSourcesConfig';
 import StepArtifactoryLSTConfig from './StepArtifactoryLSTConfig';
 import StepMavenRepositoryConfig from './StepMavenRepositoryConfig';
+import { FormData, ValidationResult } from './types';
 
-const steps = [
+// Define the interface for step configuration
+interface Step {
+  label: string;
+  component: React.ComponentType<{
+    data: FormData;
+    updateData: (updates: FormData) => void;
+  }>;
+  configKey?: string;
+  optional?: boolean;
+}
+
+// Define the validation state interface
+interface ValidationState {
+  [key: string]: ValidationResult;
+}
+
+const steps: Step[] = [
   { 
     label: 'Core Variables', 
     component: StepGeneralConfig 
@@ -42,10 +59,10 @@ const steps = [
   },
 ];
 
-export default function StepCommandBuilder() {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState({}); // master shared state
-  const [validationState, setValidationState] = useState({});
+export default function StepCommandBuilder(): JSX.Element {
+  const [currentStep, setCurrentStep] = useState<number>(0);
+  const [formData, setFormData] = useState<FormData>({}); // master shared state
+  const [validationState, setValidationState] = useState<ValidationState>({});
   const { colorMode } = useColorMode();
   const isDark = colorMode === 'dark';
 
@@ -64,7 +81,7 @@ export default function StepCommandBuilder() {
   }, [currentStep]);
 
   // Trigger validation in the current step component
-  const validateCurrentStep = () => {
+  const validateCurrentStep = (): boolean => {
     // Set a flag for the current component to perform validation
     setFormData(prev => ({
       ...prev,
@@ -78,16 +95,16 @@ export default function StepCommandBuilder() {
     return validationState[steps[currentStep].label]?.valid !== false;
   };
 
-  const goNext = () => {
+  const goNext = (): void => {
     // Only proceed if validation passes
     if (validateCurrentStep()) {
       setCurrentStep((s) => Math.min(s + 1, steps.length - 1));
     }
   };
   
-  const goBack = () => setCurrentStep((s) => Math.max(s - 1, 0));
+  const goBack = (): void => setCurrentStep((s) => Math.max(s - 1, 0));
 
-  const updateData = (updates) => {
+  const updateData = (updates: FormData): void => {
     // Extract validation info if provided by the component
     const validation = updates.validation;
     if (validation) {
@@ -108,7 +125,7 @@ export default function StepCommandBuilder() {
   };
 
   // Determine if the Next button should be disabled
-  const isNextDisabled = () => {
+  const isNextDisabled = (): boolean => {
     // Always disabled on the last step
     if (currentStep === steps.length - 1) return true;
     
@@ -143,11 +160,11 @@ export default function StepCommandBuilder() {
     >
       {/* Progress indicator */}
       <div className={styles.stepsProgress} aria-label="Progress" role="progressbar" 
-           aria-valuenow={currentStep + 1} aria-valuemin="1" aria-valuemax={steps.length}>
+           aria-valuenow={currentStep + 1} aria-valuemin={1} aria-valuemax={steps.length}>
         {steps.map((step, idx) => (
           <div key={step.label} 
                className={`${styles.stepIndicator} ${idx <= currentStep ? styles.active : ''}`}
-               aria-current={idx === currentStep ? 'step' : null}>
+               aria-current={idx === currentStep ? 'step' : undefined}>
             {idx + 1}
           </div>
         ))}
