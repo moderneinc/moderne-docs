@@ -97,5 +97,4 @@ export interface FormData {
   };
 }
 
-// Command types
 export type CommandType = 'docker' | 'java';
