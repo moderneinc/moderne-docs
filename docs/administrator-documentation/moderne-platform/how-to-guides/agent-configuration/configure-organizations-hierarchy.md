@@ -48,7 +48,7 @@ All
 
 The following CSV file would represent this organizational structure:
 
-```csv showLineNumbers
+```bash showLineNumbers
 cloneUrl,branch,org1,org2,org3
 "https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
 "https://github.com/Netflix/photon","main","Team 2","Director A","ALL"
@@ -79,16 +79,18 @@ Org columns must start immediately after the branch column. Likewise, they must 
 
 <Tabs>
 <TabItem value="not-this" label="Don't do this">
-```csv {showLineNumbers}
+```bash {showLineNumbers}
 cloneUrl,branch,org1,org2,org3,org4
 "https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
+# Non-contiguous series of orgs 👇 
 "https://github.com/Netflix/photon","main","Team 2","","Director B","ALL"
+# First org does not start immediately after the branch column 👇 
 "https://github.com/Netflix/ribbon","master","","Director A","ALL"
 ```
 </TabItem>
 
 <TabItem value="do-this" label="Do this">
-```csv {showLineNumbers}
+```bash {showLineNumbers}
 cloneUrl,branch,org1,org2,org3,org4
 "https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
 "https://github.com/Netflix/photon","main","Team 2","Director B","ALL"
