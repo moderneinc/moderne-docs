@@ -30,8 +30,8 @@ interface OptionalStepComponentProps {
   updateData: (data: FormData) => void;                            // Function to update data
   validationHook: (...args: any[]) => ValidationHookResult;        // Validation hook
   hasInstances?: boolean;                                          // Whether this config uses instances
-  infoText?: string;                                               // Text to show when disabled
-  instanceComponent: React.ComponentType<InstanceComponentProps>;  // Component to render for instances
+  infoText?: React.ReactNode;                                      // Text to show when disabled
+  instanceComponent?: React.ComponentType<InstanceComponentProps>;                     // Component to render for instances
 }
 
 export default function OptionalStepComponent({

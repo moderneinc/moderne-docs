@@ -3,8 +3,20 @@ import artifactoryLSTConfigDefinition from './artifactoryLSTConfigDefinition';
 import useArtifactoryLSTValidation from './useArtifactoryLSTValidation';
 import ArtifactoryLSTInstance from './ArtifactoryLSTInstance';
 import OptionalStepComponent from './OptionalStepComponent';
+import { FormData, ConfigDefinition } from './types';
 
-export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
+interface StepArtifactoryLSTConfigProps {
+  data?: FormData;
+  updateData: (data: FormData) => void;
+}
+
+// Type assertion to ensure the imported config matches our ConfigDefinition type
+const typedArtifactoryLSTConfigDefinition = artifactoryLSTConfigDefinition as ConfigDefinition;
+
+export default function StepArtifactoryLSTConfig({ 
+  data = {}, 
+  updateData 
+}: StepArtifactoryLSTConfigProps) {
   const infoText = (
     <>
       If you want to use Artifactory to store your LST artifacts, enable this step. 
@@ -18,7 +30,7 @@ export default function StepArtifactoryLSTConfig({ data = {}, updateData }) {
   return (
     <OptionalStepComponent
       configKey="artifactoryLSTConfig"
-      configDefinition={artifactoryLSTConfigDefinition}
+      configDefinition={typedArtifactoryLSTConfigDefinition}
       data={data}
       updateData={updateData}
       validationHook={useArtifactoryLSTValidation}

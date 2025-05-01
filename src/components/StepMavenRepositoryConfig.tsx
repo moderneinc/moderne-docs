@@ -3,8 +3,20 @@ import mavenRepositoryConfigDefinition from './mavenRepositoryConfigDefinition';
 import useMavenRepositoryValidation from './useMavenRepositoryValidation';
 import MavenRepositoryInstance from './MavenRepositoryInstance';
 import OptionalStepComponent from './OptionalStepComponent';
+import { FormData, ConfigDefinition } from './types';
 
-export default function StepMavenRepositoryConfig({ data = {}, updateData }) {
+interface StepMavenRepositoryConfigProps {
+  data?: FormData;
+  updateData: (data: FormData) => void;
+}
+
+// Type assertion to ensure the imported config matches our ConfigDefinition type
+const typedMavenRepositoryConfigDefinition = mavenRepositoryConfigDefinition as ConfigDefinition;
+
+export default function StepMavenRepositoryConfig({ 
+  data = {}, 
+  updateData 
+}: StepMavenRepositoryConfigProps) {
   const infoText = (
     <>
       In order for Moderne to retrieve your Lossless Semantic Tree (LST) or recipe artifacts, 
@@ -19,7 +31,7 @@ export default function StepMavenRepositoryConfig({ data = {}, updateData }) {
   return (
     <OptionalStepComponent
       configKey="mavenRepositoryConfig"
-      configDefinition={mavenRepositoryConfigDefinition}
+      configDefinition={typedMavenRepositoryConfigDefinition}
       data={data}
       updateData={updateData}
       validationHook={useMavenRepositoryValidation}

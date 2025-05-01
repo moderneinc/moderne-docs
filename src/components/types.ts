@@ -5,7 +5,7 @@ export interface Field {
   envKey: string;
   description?: string;
   required: boolean;
-  type: "text" | "boolean" | "array";
+  type: string;
   defaultValue?: string;
 }
 
