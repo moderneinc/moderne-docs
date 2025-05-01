@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.38.3 (2025/05/01)
+
+#### What's Changed CLI
+* Avoid NPE when publishing batch changes on git repos with no commits
+* Detect Java version from pom.xml properties even when parsing fails
+* Sorting options in root command alphabetically
+* Suggest to run `mod config recipes export` after `mod config recipes list`
+
+
 ### CLI / DX v3.38.2 (2025/04/29)
 
 #### What's Changed CLI
