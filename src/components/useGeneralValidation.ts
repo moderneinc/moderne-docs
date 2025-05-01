@@ -1,15 +1,29 @@
 import { useState, useEffect } from 'react';
+import { 
+  FormData, 
+  FieldData, 
+  ConfigDefinition, 
+  ValidationHookResult 
+} from './types';
 
-function useGeneralValidation(fields, generalConfigDefinition, data, updateData) {
-  const [validationAttempted, setValidationAttempted] = useState(true);
+function useGeneralValidation(
+  fields: Record<string, FieldData>,
+  generalConfigDefinition: ConfigDefinition,
+  data: FormData,
+  updateData: (data: FormData) => void
+): ValidationHookResult {
+  const [validationAttempted, setValidationAttempted] = useState<boolean>(true);
 
-  const validateAndUpdate = () => {
+  const validateAndUpdate = (...args: any[]): boolean => {
+    // Determine if called with field values or not
+    const fieldValues = args.length > 0 && args[0] ? args[0] : fields;
+    
     let isValid = true;
-    let missingFields = [];
+    const missingFields: string[] = [];
     
     generalConfigDefinition.fields.forEach(field => {
       if (field.required) {
-        const fieldData = fields[field.key];
+        const fieldData = fieldValues[field.key];
         const isEmpty = !fieldData?.value || fieldData.value.toString().trim() === '';
         if (isEmpty) {
           isValid = false;
@@ -22,11 +36,8 @@ function useGeneralValidation(fields, generalConfigDefinition, data, updateData)
     updateData({
       ...data,
       generalConfig: {
-        fields,
-        validation: {
-          valid: isValid,
-          missingFields
-        }
+        fields: fieldValues,
+        commitOptions: data.generalConfig?.commitOptions || []
       },
       // This matches the SCM validation structure exactly
       providers: data?.providers || [],
@@ -40,7 +51,7 @@ function useGeneralValidation(fields, generalConfigDefinition, data, updateData)
     return isValid;
   };
 
-  const hasFieldError = (fieldKey) => {
+  const hasFieldError = (fieldKey: string | number): boolean => {
     if (!validationAttempted) return false;
 
     const field = generalConfigDefinition.fields.find(f => f.key === fieldKey);
@@ -62,7 +73,7 @@ function useGeneralValidation(fields, generalConfigDefinition, data, updateData)
 
   // Handle validation trigger from parent
   useEffect(() => {
-    if (data?.triggerValidation?.['General Configuration']) {
+    if (data?.triggerValidation?.['Core Variables']) {
       setValidationAttempted(true);
       validateAndUpdate();
       
@@ -70,7 +81,7 @@ function useGeneralValidation(fields, generalConfigDefinition, data, updateData)
         ...data,
         triggerValidation: {
           ...data.triggerValidation,
-          'General Configuration': false
+          'Core Variables': false
         }
       });
     }
