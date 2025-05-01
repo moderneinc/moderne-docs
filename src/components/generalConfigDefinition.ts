@@ -59,6 +59,15 @@ const generalConfigDefinition = {
       type: 'text',
       defaultValue: '120',
       required: false
+    },
+    { 
+      label: 'Organization repositories CSV source location', 
+      key: 'orgReposCsvPath', 
+      envKey: 'MODERNE_AGENT_ORGANIZATION_REPOSCSV',
+      description: 'The location of the repos.csv file that defines organizational hierarchy. Its value may be a local path or an unauthenticated HTTP URI.',
+      type: 'text',
+      defaultValue: '',
+      required: false
     }
   ]
 };
