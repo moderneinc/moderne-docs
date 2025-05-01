@@ -122,7 +122,7 @@ const config: Config = {
       },
       items: [
         {
-          href: "https://www.moderne.io/",
+          href: "https://www.moderne.ai/",
           label: "Moderne website",
           position: "right",
         },
