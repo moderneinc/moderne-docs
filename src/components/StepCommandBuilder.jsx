@@ -8,7 +8,6 @@ import StepGeneralConfig from './StepGeneralConfig';
 import StepStrictRecipeSourcesConfig from './StepStrictRecipeSourcesConfig';
 import StepArtifactoryLSTConfig from './StepArtifactoryLSTConfig';
 import StepMavenRepositoryConfig from './StepMavenRepositoryConfig';
-import StepOrgServiceConfig from './StepOrgServiceConfig';
 
 const steps = [
   { 
@@ -29,12 +28,6 @@ const steps = [
     label: 'Maven Repository Config', 
     component: StepMavenRepositoryConfig,
     configKey: 'mavenRepositoryConfig',
-    optional: true
-  },
-  { 
-    label: 'Organization Service', 
-    component: StepOrgServiceConfig,
-    configKey: 'orgServiceConfig',
     optional: true
   },
   { 

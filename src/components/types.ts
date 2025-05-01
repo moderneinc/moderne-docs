@@ -78,8 +78,6 @@ export interface ArtifactoryLSTConfig extends InstancesConfig {}
 
 export interface MavenRepositoryConfig extends InstancesConfig {}
 
-export interface OrgServiceConfig extends FieldsConfig {}
-
 export interface StrictRecipeSourcesConfig extends FieldsConfig {}
 
 // Main form data interface
@@ -91,7 +89,6 @@ export interface FormData {
   };
   artifactoryLSTConfig?: ArtifactoryLSTConfig;
   mavenRepositoryConfig?: MavenRepositoryConfig;
-  orgServiceConfig?: OrgServiceConfig;
   strictRecipeSourcesConfig?: StrictRecipeSourcesConfig;
   [key: string]: any; // To allow for dynamic config keys
   validation?: ValidationResult;
