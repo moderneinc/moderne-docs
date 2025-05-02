@@ -11,4 +11,4 @@ description: The current version of the Moderne Agent and where to download it.
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.219.0/moderne-agent-0.219.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.220.0/moderne-agent-0.220.0.jar)
