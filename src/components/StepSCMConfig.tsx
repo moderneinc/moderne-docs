@@ -30,7 +30,19 @@ interface StepSCMConfigProps {
 export default function StepSCMConfig({ data, updateData }: StepSCMConfigProps): JSX.Element {
   // Initialize state from parent data or default values
   const [scmProviders, setScmProviders] = useState<string[]>(data.providers || []);
-  const [scmProviderConfigs, setScmProviderConfigs] = useState<SCMProviderConfigs>(data.providerConfigs || {});
+  const [scmProviderConfigs, setScmProviderConfigs] = useState<SCMProviderConfigs>(() => {
+    if (data.providerConfigs) {
+      const convertedConfigs: SCMProviderConfigs = {};
+      Object.entries(data.providerConfigs).forEach(([providerId, config]) => {
+        convertedConfigs[providerId] = {
+          count: config.instances.length,
+          instances: config.instances
+        };
+      });
+      return convertedConfigs;
+    }
+    return {};
+  });
   
   // Use custom validation hook
   const { validateAndUpdate, hasFieldError } = useSCMValidation(
@@ -189,6 +201,10 @@ export default function StepSCMConfig({ data, updateData }: StepSCMConfigProps):
     setScmProviderConfigs(newConfigs);
   };
 
+  const handleFieldError = (scmProviderType: string, index: number, fieldKey: string): boolean => {
+    return hasFieldError(index, fieldKey);
+  };
+
   return (
     <div className={styles.container}>
       <p>
@@ -210,7 +226,7 @@ export default function StepSCMConfig({ data, updateData }: StepSCMConfigProps):
           onCountChange={setSCMProviderCount}
           onFieldChange={handleSCMInputChange}
           onEnvToggle={handleSCMEnvToggle}
-          hasFieldError={hasFieldError}
+          hasFieldError={handleFieldError}
         />
       ))}
     </div>
