@@ -7,7 +7,7 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.219.0         |
+| Agent (recommended to use **latest**) | 0.220.0         |
 
 ### Maven download
 
