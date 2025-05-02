@@ -1,23 +1,32 @@
 import { useState, useEffect } from 'react';
 import mavenRepositoryConfigDefinition from './mavenRepositoryConfigDefinition';
+import { 
+  FormData, 
+  Instance, 
+  ConfigDefinition, 
+  ValidationHookResult 
+} from './types';
 
-function useMavenRepositoryValidation(enabled, instances, count, data, updateData) {
-  const [validationAttempted, setValidationAttempted] = useState(true);
+function useMavenRepositoryValidation(
+  enabled: boolean,
+  instances: Instance[],
+  count: number,
+  data: FormData,
+  updateData: (data: FormData) => void
+): ValidationHookResult {
+  const [validationAttempted, setValidationAttempted] = useState<boolean>(true);
   
-  const configLabel = mavenRepositoryConfigDefinition.label;
+  const configDef = mavenRepositoryConfigDefinition as ConfigDefinition;
+  const configLabel = configDef.label;
 
-  const validateAndUpdate = (currentInstances = instances, isEnabled = enabled) => {
+  const validateAndUpdate = (currentInstances: Instance[] = instances, isEnabled: boolean = enabled): boolean => {
     if (!isEnabled) {
       updateData({
         ...data,
         mavenRepositoryConfig: {
           enabled: isEnabled,
           instances: currentInstances,
-          count,
-          validation: {
-            valid: true,
-            missingFields: []
-          }
+          count
         },
         validation: { 
           valid: true, 
@@ -28,13 +37,13 @@ function useMavenRepositoryValidation(enabled, instances, count, data, updateDat
     }
     
     let isValid = true;
-    let missingFields = [];
+    const missingFields: string[] = [];
     
     for (let i = 0; i < count; i++) {
       const instance = currentInstances[i];
       if (!instance) continue;
       
-      mavenRepositoryConfigDefinition.fields.forEach(field => {
+      configDef.fields.forEach(field => {
         if (field.required) {
           const fieldData = instance[field.key];
           const isEmpty = !fieldData?.value || fieldData.value.toString().trim() === '';
@@ -51,11 +60,7 @@ function useMavenRepositoryValidation(enabled, instances, count, data, updateDat
       mavenRepositoryConfig: {
         enabled: isEnabled,
         instances: currentInstances,
-        count,
-        validation: {
-          valid: isValid,
-          missingFields
-        }
+        count
       },
       validation: { 
         valid: isValid, 
@@ -66,13 +71,13 @@ function useMavenRepositoryValidation(enabled, instances, count, data, updateDat
     return isValid;
   };
 
-  const hasFieldError = (instanceIndex, fieldKey) => {
-    if (!enabled || !validationAttempted) return false;
+  const hasFieldError = (instanceIndex: number, fieldKey?: string): boolean => {
+    if (!enabled || !validationAttempted || !fieldKey) return false;
 
     const instance = instances[instanceIndex];
     if (!instance) return false;
 
-    const field = mavenRepositoryConfigDefinition.fields.find(f => f.key === fieldKey);
+    const field = configDef.fields.find(f => f.key === fieldKey);
     if (!field || !field.required) return false;
 
     const fieldData = instance[field.key];

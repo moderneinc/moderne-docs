@@ -1,24 +1,36 @@
 import { useState, useEffect } from 'react';
 import strictRecipeSourcesConfigDefinition from './strictRecipeSourcesConfigDefinition';
+import { 
+  FormData, 
+  FieldData, 
+  ConfigDefinition, 
+  ValidationHookResult 
+} from './types';
 
-function useStrictRecipeSourcesValidation(fields, enabled, data, updateData) {
-  const [validationAttempted, setValidationAttempted] = useState(true);
+function useStrictRecipeSourcesValidation(
+  fields: Record<string, FieldData>,
+  enabled: boolean,
+  data: FormData,
+  updateData: (data: FormData) => void
+): ValidationHookResult {
+  const [validationAttempted, setValidationAttempted] = useState<boolean>(true);
   
   // Get the label from the config definition
-  const configLabel = strictRecipeSourcesConfigDefinition.label;
+  const configDef = strictRecipeSourcesConfigDefinition as ConfigDefinition;
+  const configLabel = configDef.label;
 
-  const validateAndUpdate = (fieldValues = fields, isEnabled = enabled) => {
+  const validateAndUpdate = (...args: any[]): boolean => {
+    // Extract arguments
+    const fieldValues = args.length > 0 && args[0] ? args[0] : fields;
+    const isEnabled = args.length > 1 ? args[1] : enabled;
+    
     // If the step is disabled, always consider it valid
     if (!isEnabled) {
       updateData({
         ...data,
         strictRecipeSourcesConfig: {
           enabled: isEnabled,
-          fields: fieldValues,
-          validation: {
-            valid: true,
-            missingFields: []
-          }
+          fields: fieldValues
         },
         validation: { 
           valid: true, 
@@ -30,9 +42,9 @@ function useStrictRecipeSourcesValidation(fields, enabled, data, updateData) {
     
     // Otherwise validate required fields
     let isValid = true;
-    let missingFields = [];
+    const missingFields: string[] = [];
     
-    strictRecipeSourcesConfigDefinition.fields.forEach(field => {
+    configDef.fields.forEach(field => {
       if (field.required) {
         const fieldData = fieldValues[field.key];
         const isEmpty = !fieldData?.value || fieldData.value.toString().trim() === '';
@@ -48,11 +60,7 @@ function useStrictRecipeSourcesValidation(fields, enabled, data, updateData) {
       ...data,
       strictRecipeSourcesConfig: {
         enabled: isEnabled,
-        fields: fieldValues,
-        validation: {
-          valid: isValid,
-          missingFields
-        }
+        fields: fieldValues
       },
       validation: { 
         valid: isValid, 
@@ -63,14 +71,14 @@ function useStrictRecipeSourcesValidation(fields, enabled, data, updateData) {
     return isValid;
   };
 
-  const hasFieldError = (fieldKey) => {
+  const hasFieldError = (fieldKey: string | number): boolean => {
     // If step is disabled, no fields have errors
     if (!enabled || !validationAttempted) return false;
 
-    const field = strictRecipeSourcesConfigDefinition.fields.find(f => f.key === fieldKey);
+    const field = configDef.fields.find(f => f.key === fieldKey);
     if (!field || !field.required) return false;
 
-    const fieldData = fields[field.key];
+    const fieldData = fields[field.key as string];
     return !fieldData?.value || fieldData.value.toString().trim() === '';
   };
 

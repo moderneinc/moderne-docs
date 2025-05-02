@@ -1,11 +1,29 @@
 import { useState, useEffect } from 'react';
 import artifactoryLSTConfigDefinition from './artifactoryLSTConfigDefinition';
+import { 
+  FormData, 
+  Instance, 
+  ConfigDefinition,
+  ValidationHookResult 
+} from './types';
 
-function useArtifactoryLSTValidation(enabled, instances, count, data, updateData) {
-  const [validationAttempted, setValidationAttempted] = useState(true);
-  const configLabel = artifactoryLSTConfigDefinition.label;
+function useArtifactoryLSTValidation(
+  enabled: boolean,
+  instances: Instance[],
+  count: number,
+  data: FormData,
+  updateData: (data: FormData) => void
+): ValidationHookResult {
+  const [validationAttempted, setValidationAttempted] = useState<boolean>(true);
+  
+  const configDef = artifactoryLSTConfigDefinition as ConfigDefinition;
+  const configLabel = configDef.label;
 
-  const validateAndUpdate = (currentInstances = instances, isEnabled = enabled) => {
+  const validateAndUpdate = (...args: any[]): boolean => {
+    // Extract arguments based on expected types
+    const currentInstances = args.length > 0 && Array.isArray(args[0]) ? args[0] : instances;
+    const isEnabled = args.length > 1 && typeof args[1] === 'boolean' ? args[1] : enabled;
+    
     // If disabled, always valid
     if (!isEnabled) {
       updateData({
@@ -13,11 +31,7 @@ function useArtifactoryLSTValidation(enabled, instances, count, data, updateData
         artifactoryLSTConfig: {
           enabled: isEnabled,
           instances: currentInstances,
-          count,
-          validation: {
-            valid: true,
-            missingFields: []
-          }
+          count
         },
         validation: { 
           valid: true, 
@@ -29,14 +43,14 @@ function useArtifactoryLSTValidation(enabled, instances, count, data, updateData
     
     // Otherwise validate required fields
     let isValid = true;
-    let missingFields = [];
+    const missingFields: string[] = [];
     
     // Check each instance
     for (let i = 0; i < count; i++) {
       const instance = currentInstances[i];
       if (!instance) continue;
       
-      artifactoryLSTConfigDefinition.fields.forEach(field => {
+      configDef.fields.forEach(field => {
         if (field.required) {
           const fieldData = instance[field.key];
           const isEmpty = !fieldData?.value || fieldData.value.toString().trim() === '';
@@ -53,11 +67,7 @@ function useArtifactoryLSTValidation(enabled, instances, count, data, updateData
       artifactoryLSTConfig: {
         enabled: isEnabled,
         instances: currentInstances,
-        count,
-        validation: {
-          valid: isValid,
-          missingFields
-        }
+        count
       },
       validation: { 
         valid: isValid, 
@@ -68,13 +78,13 @@ function useArtifactoryLSTValidation(enabled, instances, count, data, updateData
     return isValid;
   };
 
-  const hasFieldError = (instanceIndex, fieldKey) => {
-    if (!enabled || !validationAttempted) return false;
+  const hasFieldError = (instanceIndex: number, fieldKey?: string): boolean => {
+    if (!enabled || !validationAttempted || !fieldKey) return false;
 
     const instance = instances[instanceIndex];
     if (!instance) return false;
 
-    const field = artifactoryLSTConfigDefinition.fields.find(f => f.key === fieldKey);
+    const field = configDef.fields.find(f => f.key === fieldKey);
     if (!field || !field.required) return false;
 
     const fieldData = instance[field.key];

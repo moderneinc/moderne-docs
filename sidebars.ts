@@ -311,6 +311,7 @@ const sidebars: SidebarsConfig = {
             'administrator-documentation/moderne-platform/how-to-guides/create-visualization',
             'administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes',
             'administrator-documentation/moderne-platform/how-to-guides/lst-cleanup',
+            'administrator-documentation/moderne-platform/experimental-builder',
           ],
         },
         {

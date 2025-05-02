@@ -3,9 +3,16 @@ import ConfigField from './ConfigField';
 import generalConfigDefinition from './generalConfigDefinition';
 import useGeneralValidation from './useGeneralValidation';
 import styles from './styles/StepGeneralConfig.module.css';
+import { FormData, FieldData, ConfigDefinition, Instance } from './types';
+
+// Define commit option type
+interface CommitOption {
+  label: string;
+  value: string;
+}
 
 // Define common commit options
-const COMMIT_OPTIONS = [
+const COMMIT_OPTIONS: CommitOption[] = [
   { label: 'Direct', value: 'Direct' },
   { label: 'Branch', value: 'Branch' },
   { label: 'Fork', value: 'Fork' },
@@ -13,14 +20,22 @@ const COMMIT_OPTIONS = [
   { label: 'Fork and Pull Request', value: 'ForkAndPullRequest' },  
 ];
 
-export default function StepGeneralConfig({ data = {}, updateData }) {
-  const [fields, setFields] = useState(data?.generalConfig?.fields || {});
-  const [commitOptions, setCommitOptions] = useState(data?.generalConfig?.commitOptions || []);
+interface StepGeneralConfigProps {
+  data?: FormData;
+  updateData: (data: FormData) => void;
+}
+
+export default function StepGeneralConfig({ 
+  data = {}, 
+  updateData 
+}: StepGeneralConfigProps): JSX.Element {
+  const [fields, setFields] = useState<Record<string, FieldData>>(data?.generalConfig?.fields || {});
+  const [commitOptions, setCommitOptions] = useState<string[]>(data?.generalConfig?.commitOptions || []);
 
   // Use validation hook
   const { validateAndUpdate, hasFieldError } = useGeneralValidation(
     fields,
-    generalConfigDefinition,
+    generalConfigDefinition as ConfigDefinition,
     data,
     updateData
   );
@@ -28,8 +43,10 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
   // Initialize fields with defaults and run initial validation
   useEffect(() => {
     if (Object.keys(fields).length === 0) {
-      const defaultFields = {};
-      generalConfigDefinition.fields.forEach(field => {
+      const defaultFields: Record<string, FieldData> = {};
+      const configDef = generalConfigDefinition as ConfigDefinition;
+      
+      configDef.fields.forEach(field => {
         defaultFields[field.key] = {
           value: field.defaultValue || '',
           asEnv: false,
@@ -39,21 +56,19 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
       setFields(defaultFields);
       
       // Initial update to parent with validation
+      const missingFields = configDef.fields
+        .filter(f => f.required)
+        .map(f => f.label);
+        
       updateData({
         ...data,
         generalConfig: {
           fields: defaultFields,
-          commitOptions: commitOptions,
-          validation: {
-            valid: false,
-            missingFields: generalConfigDefinition.fields
-              .filter(f => f.required)
-              .map(f => f.label)
-          }
+          commitOptions: commitOptions
         },
         validation: {
-          ...data?.validation,
-          'General Configuration': false
+          valid: false,
+          missingFields: missingFields
         }
       });
     }
@@ -61,29 +76,34 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
 
   // Update parent data whenever fields or commitOptions change
   useEffect(() => {
-    updateData({
-      ...data,
-      generalConfig: {
-        ...data.generalConfig,
-        fields,
-        commitOptions,
-        validation: data.generalConfig?.validation
-      }
-    });
+    if (data.generalConfig) {
+      updateData({
+        ...data,
+        generalConfig: {
+          ...data.generalConfig,
+          fields,
+          commitOptions
+        }
+      });
+    }
   }, [fields, commitOptions]);
 
-  const handleFieldChange = (fieldKey, value) => {
+  const handleFieldChange = (fieldKey: string, value: string | string[] | boolean): void => {
+    const configDef = generalConfigDefinition as ConfigDefinition;
+    const fieldConfig = configDef.fields.find(f => f.key === fieldKey);
+    const envKey = fieldConfig?.envKey || '';
+    
     setFields(prev => ({
       ...prev,
       [fieldKey]: {
         ...prev[fieldKey],
         value,
-        envKey: generalConfigDefinition.fields.find(f => f.key === fieldKey)?.envKey
+        envKey
       }
     }));
   };
 
-  const handleEnvToggle = (fieldKey) => {
+  const handleEnvToggle = (fieldKey: string): void => {
     setFields(prev => ({
       ...prev,
       [fieldKey]: {
@@ -94,7 +114,7 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
   };
 
   // Handle toggling a commit option
-  const toggleCommitOption = (optionValue) => {
+  const toggleCommitOption = (optionValue: string): void => {
     setCommitOptions(prev => {
       return prev.includes(optionValue)
         ? prev.filter(opt => opt !== optionValue)
@@ -102,9 +122,11 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
     });
   };
 
+  const configDef = generalConfigDefinition as ConfigDefinition;
+
   return (
     <div className={styles.container}>
-      <h3>{generalConfigDefinition.label}</h3>
+      <h3>{configDef.label}</h3>
 
       <p>
         All agents must be configured with the variables listed below.
@@ -112,8 +134,8 @@ export default function StepGeneralConfig({ data = {}, updateData }) {
         the variables, please see our <a href="https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-configuration">agent configuration documentation</a>.
       </p>
       
-      {generalConfigDefinition.fields.map((field) => {
-        const fieldData = fields[field.key] || {};
+      {configDef.fields.map((field) => {
+        const fieldData = fields[field.key] || ({} as Instance);
         const fieldValue = fieldData.value || field.defaultValue || '';
         const useAsEnv = fieldData.asEnv || false;
         const showError = hasFieldError(field.key);
