@@ -54,7 +54,7 @@ function ConfigField({
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className={`${styles.fieldInput} ${hasError ? styles.fieldInputError : ''}`}
+          className={`${styles.fieldInput}`}
           placeholder={field.defaultValue || ''}
           aria-required={field.required}
           aria-invalid={hasError}
