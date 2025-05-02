@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.50.0 (2025/05/02)
+
+- add new task center
+
 ### UI v11.49.0 (2025/04/30)
 
 - refactor moddy subscription to use subscribeToMore
