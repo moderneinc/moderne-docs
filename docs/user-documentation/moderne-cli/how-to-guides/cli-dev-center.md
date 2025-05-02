@@ -59,7 +59,7 @@ For simplicity, we'll provide an example DevCenter file for you to copy below. H
 
 <details>
 
-<summary>Example `organizations.yml` file:</summary>
+<summary>Example `organization.yml` file:</summary>
 
 ```yaml
 name: Default
