@@ -148,6 +148,20 @@ export default function StepCommandBuilder(): JSX.Element {
     return false;
   };
 
+  // Navigate to a specific step
+  const navigateToStep = (stepIndex: number): void => {
+    // Optionally, you could add validation before allowing navigation
+    // For now, allow direct navigation to any step
+    setCurrentStep(stepIndex);
+  };
+
+  // Determine if a step can be clicked (you can customize this logic)
+  const isStepClickable = (stepIndex: number): boolean => {
+    // For example, you might want to prevent clicks on future steps
+    // unless previous ones are completed. This is optional.
+    return true; // Allow clicking on all steps
+  };
+
   return (
     <div
       style={{
@@ -162,9 +176,25 @@ export default function StepCommandBuilder(): JSX.Element {
       <div className={styles.stepsProgress} aria-label="Progress" role="progressbar" 
            aria-valuenow={currentStep + 1} aria-valuemin={1} aria-valuemax={steps.length}>
         {steps.map((step, idx) => (
-          <div key={step.label} 
-               className={`${styles.stepIndicator} ${idx <= currentStep ? styles.active : ''}`}
-               aria-current={idx === currentStep ? 'step' : undefined}>
+          <div 
+            key={step.label} 
+            className={`${styles.stepIndicator} ${idx <= currentStep ? styles.active : ''}`}
+            aria-current={idx === currentStep ? 'step' : undefined}
+            onClick={() => navigateToStep(idx)}
+            style={{
+              cursor: isStepClickable(idx) ? 'pointer' : 'default',
+              opacity: isStepClickable(idx) ? 1 : 0.7
+            }}
+            role="button"
+            tabIndex={isStepClickable(idx) ? 0 : -1}
+            onKeyDown={(e) => {
+              if ((e.key === 'Enter' || e.key === ' ') && isStepClickable(idx)) {
+                e.preventDefault(); // Prevent default space bar scrolling
+                navigateToStep(idx);
+              }
+            }}
+            aria-label={`Go to step ${idx + 1}: ${step.label}`}
+          >
             {idx + 1}
           </div>
         ))}
