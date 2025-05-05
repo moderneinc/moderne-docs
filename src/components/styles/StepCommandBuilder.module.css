@@ -14,9 +14,68 @@
   align-items: center;
   justify-content: center;
   margin: 0 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.stepIndicator:hover {
+  background-color: var(--ifm-color-primary-dark);
+  transform: scale(1.1);
+}
+
+.stepIndicator:active {
+  transform: scale(0.95);
+}
+
+.stepIndicator.disabled {
+  cursor: default;
+  opacity: 0.7;
 }
 
 .active {
   background-color: var(--ifm-color-primary);
   color: white;
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.docsLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  text-decoration: none;
+  color: var(--ifm-color-primary);
+  margin-left: 4px;
+  transition: all 0.2s ease;
+}
+
+.docsLink:hover {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.docsIcon {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.navigationContainer {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.formContainer {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
 }

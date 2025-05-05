@@ -19,6 +19,7 @@ interface Step {
   }>;
   configKey?: string;
   optional?: boolean;
+  docsLink?: string;
 }
 
 // Define the validation state interface
@@ -29,33 +30,39 @@ interface ValidationState {
 const steps: Step[] = [
   { 
     label: 'Core Variables', 
-    component: StepGeneralConfig 
+    component: StepGeneralConfig,
+    docsLink: 'https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-configuration'
   },
   { 
     label: 'SCM Configuration', 
-    component: StepSCMConfig 
+    component: StepSCMConfig,
+    docsLink: 'https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-configuration/#step-4-configure-the-agent-to-work-with-your-scms'
   },
   { 
     label: 'Artifactory LST Storage', 
     component: StepArtifactoryLSTConfig,
     configKey: 'artifactoryLSTConfig',
-    optional: true
+    optional: true,
+    docsLink: 'https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access'
   },
   { 
     label: 'Maven Repository Config', 
     component: StepMavenRepositoryConfig,
     configKey: 'mavenRepositoryConfig',
-    optional: true
+    optional: true,
+    docsLink: 'https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-configuration#step-5-configure-the-agent-to-connect-to-your-artifact-repositories'
   },
   { 
     label: 'Strict Recipe Sources', 
     component: StepStrictRecipeSourcesConfig,
     configKey: 'strictRecipeSourcesConfig',
-    optional: true
+    optional: true,
+    docsLink: 'https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-strict-recipe-sources'
   },
   { 
     label: 'Command Preview', 
-    component: StepCommandPreview 
+    component: StepCommandPreview,
+    docsLink: 'https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-configuration#step-9-run-the-agent'
   },
 ];
 
@@ -163,28 +170,16 @@ export default function StepCommandBuilder(): JSX.Element {
   };
 
   return (
-    <div
-      style={{
-        border: '1px solid var(--ifm-color-emphasis-300)',
-        padding: '1rem',
-        borderRadius: '8px',
-        backgroundColor: 'var(--ifm-background-surface-color)',
-        color: 'var(--ifm-font-color-base)',
-      }}
-    >
+    <div className={styles.formContainer}>
       {/* Progress indicator */}
       <div className={styles.stepsProgress} aria-label="Progress" role="progressbar" 
            aria-valuenow={currentStep + 1} aria-valuemin={1} aria-valuemax={steps.length}>
         {steps.map((step, idx) => (
           <div 
             key={step.label} 
-            className={`${styles.stepIndicator} ${idx <= currentStep ? styles.active : ''}`}
+            className={`${styles.stepIndicator} ${idx <= currentStep ? styles.active : ''} ${!isStepClickable(idx) ? styles.disabled : ''}`}
             aria-current={idx === currentStep ? 'step' : undefined}
             onClick={() => navigateToStep(idx)}
-            style={{
-              cursor: isStepClickable(idx) ? 'pointer' : 'default',
-              opacity: isStepClickable(idx) ? 1 : 0.7
-            }}
             role="button"
             tabIndex={isStepClickable(idx) ? 0 : -1}
             onKeyDown={(e) => {
@@ -200,13 +195,27 @@ export default function StepCommandBuilder(): JSX.Element {
         ))}
       </div>
       
-      <h3>Step {currentStep + 1}: {steps[currentStep].label}</h3>
+      <h3 className={styles.stepHeader}>
+        Step {currentStep + 1}: {steps[currentStep].label}
+        {steps[currentStep].docsLink && (
+          <a 
+            href={steps[currentStep].docsLink} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={styles.docsLink}
+            aria-label={`View documentation for ${steps[currentStep].label}`}
+            title="View documentation"
+          >
+            <span className={styles.docsIcon}>?</span>
+          </a>
+        )}
+      </h3>
       <CurrentComponent
         data={formData}
         updateData={updateData}
       />
 
-      <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'space-between' }}>
+      <div className={styles.navigationContainer}>
         <button 
           onClick={goBack} 
           disabled={currentStep === 0} 
