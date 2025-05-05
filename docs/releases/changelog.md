@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.51.0 (2025/05/05)
+
+- Bug fixes and other improvements.
+
 ### UI v11.50.0 (2025/05/02)
 
 - add new task center
