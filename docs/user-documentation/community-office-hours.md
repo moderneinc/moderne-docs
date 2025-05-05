@@ -13,21 +13,33 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Fix & Refactor Faster with Venkat Subramanium (April 30th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=6ifaybmmFzI' controls="true" />
+
+#### Summary and related links
+
+* **Announcements for the week**
+  * [We now support Java 24+](https://github.com/openrewrite/rewrite/pull/5309)!
+  * [We also now have support for generic Refastor templates](https://github.com/PicnicSupermarket/error-prone-support/releases/tag/v0.23.0)
+    * This means we've gone from 487 to 912 recipes based on Picnic's Error-Prone Support.
+  * [We released a blog on how to modernize at scale using Moderne's batch change functionality](https://www.moderne.ai/blog/how-to-modernize-at-scale-batch-changes-and-mass-pr-issuance-with-moderne)
+* **Highlighted community question/effort**
+  * [Thanks to wapkch for their OSS Spring Boot 3.4 migration recipes](https://github.com/openrewrite/rewrite-spring/pull/700)
+
 ### Building Secure and Scalable Health Systems (April 25th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=v74Qq7JCKsY&' controls="true" />
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * Our documentation once again includes example before/after outputs for most recipes. This is based on a [recipe that extracts examples from methods annotated with @DocumentExample](https://github.com/openrewrite/rewrite-rewrite/pull/11). Thanks Tim for doing this!
+  * [We did a full new release last week](https://docs.openrewrite.org/changelog/8-51-0-Release)
 
 ### Code, Change, and Roc with Isaac Van Doren (April 16th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=lxjvpKvot4c' controls="true" />
-
-#### Summary and related links
-
-Coming soon!
 
 ### Banking vs. Startup: Engineering Lessons Learned (April 9th, 2025)
 
