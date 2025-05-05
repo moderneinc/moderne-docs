@@ -102,16 +102,17 @@ cloneUrl,branch,org1,org2,org3,org4
 
 ## Agent configuration
 
-The `repos.csv` source location is configured via the `moderne.agent.organization.repoCsv` variable. Its value may be a local path or an unauthenticated HTTP URI. 
+The `repos.csv` source location is configured via the `moderne.agent.organization.repoCsv` variable. Its value may be a local path or an unauthenticated HTTP URI. You can also configure how often the agent looks for changes to this file (by default it's every 10 minutes).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
-| Argument Name                          |
-|----------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`  |
+| Environment variable | Required | Default | Description |
+|----------------------|----------|---------|-------------|
+| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`  | `true` |  | The path to the `repos.csv` file that defines your organizational structure. |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS` | `false` | 600 | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
 
 **Example:**
 
@@ -128,9 +129,10 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                            |
-|------------------------------------------|
-| `--moderne.agent.organization.reposCsv`  |
+| Argument name | Required | Default | Description |
+|----------------------|----------|---------|-------------|
+| `--moderne.agent.organization.reposCsv`  | `true` |  | The path to the `repos.csv` file that defines your organizational structure. |
+| `--moderne.agent.organization.service.update.interval.seconds` | `false` | 600 | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
 
 **Example:**
 
@@ -141,9 +143,5 @@ java -jar moderne-agent-{version}.jar \
 # ... Additional arguments
 ```
 
-
-
-
 </TabItem>
 </Tabs>
-
