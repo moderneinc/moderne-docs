@@ -55,7 +55,7 @@ This fallback behavior can be disabled using recipe configuration. If the Modern
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                | Required                                         | Default | Description                                                                                       |
 |----------------------------------------------|--------------------------------------------------|---------|---------------------------------------------------------------------------------------------------|

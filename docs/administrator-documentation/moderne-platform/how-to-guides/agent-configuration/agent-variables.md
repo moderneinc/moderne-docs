@@ -15,7 +15,7 @@ This document includes all of the variables you can configure the Moderne agent 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                | Required   | Default                | Description                                                                                                                                                                                                 |
 |----------------------------------------------|------------|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -75,7 +75,7 @@ java -jar moderne-agent-{version}.jar \
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                          | Required                                         | Default | Description                                                                                                                                                                  |
 |--------------------------------------------------------|--------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -133,7 +133,7 @@ java -jar moderne-agent-{version}.jar \
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                 | Required | Default | Description                                            |
 |-----------------------------------------------|----------|---------|--------------------------------------------------------|
@@ -181,7 +181,7 @@ You can configure multiple Bitbucket instances by including multiple entries, ea
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                           | Required                                      | Default | Description                                                                                                                                                               |
 |---------------------------------------------------------|-----------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -244,7 +244,7 @@ You can configure multiple GitHub OAuth apps by including multiple entries, each
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                                  | Required                                     | Default         | Description                                                                                                                                                                                                                      |
 |----------------------------------------------------------------|----------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -318,7 +318,7 @@ You can configure multiple GitLab OAuth apps by including multiple entries, each
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                        | Required                                     | Default | Description                                                                                                                                                            |
 |------------------------------------------------------|----------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -380,7 +380,7 @@ java -jar moderne-agent-{version}.jar \
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                                | Required | Default | Description                                                                                                                                                                          |
 |--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -428,7 +428,7 @@ You can configure multiple Maven repositories by including multiple entries, eac
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                 | Required                                              | Default            | Description                                                                                                                                                           |
 |-----------------------------------------------|-------------------------------------------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -492,7 +492,7 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                               | Required                                       | Default | Description                                                                                                                                  |
 |-------------------------------------------------------------|------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -548,7 +548,7 @@ java -jar moderne-agent-{version}.jar \
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                 | Required | Default            | Description                                                                                                                                                           |
 |-----------------------------------------------|----------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -620,7 +620,7 @@ java -jar moderne-agent-{version}.jar \
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                   | Required                                  | Default | Description                                                                                       |
 |-------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
@@ -680,7 +680,7 @@ You can configure multiple PyPI package indexes by including multiple entries, e
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                    | Required | Default | Description                                                                                                                                                               |
 |--------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -734,7 +734,7 @@ java -jar moderne-agent-{version}.jar \
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                         | Required | Default | Description                                 |
 |---------------------------------------|----------|---------|---------------------------------------------|
@@ -786,7 +786,7 @@ java -jar moderne-agent-{version}.jar \
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                             | Required | Default | Description                                                                                                                                                                                                             |
 |-----------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

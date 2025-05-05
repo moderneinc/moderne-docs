@@ -24,7 +24,7 @@ The following table contains all the variables/arguments you need to add to your
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                         | Required | Default | Description                                 |
 |---------------------------------------|----------|---------|---------------------------------------------|

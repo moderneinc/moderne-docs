@@ -61,7 +61,7 @@ The following table contains all of the variables/arguments you need to add to y
 <Tabs>
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                 | Required | Default | Description                                            |
 |-----------------------------------------------|----------|---------|--------------------------------------------------------|

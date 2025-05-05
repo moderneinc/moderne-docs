@@ -19,7 +19,7 @@ You can configure multiple SCM servers by including multiple entries, each with 
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                                | Required | Default | Description                                                                                                                                                                                                      |
 |--------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

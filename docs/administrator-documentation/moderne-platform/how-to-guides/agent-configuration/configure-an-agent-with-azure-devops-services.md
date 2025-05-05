@@ -76,7 +76,7 @@ You can configure multiple Azure DevOps OAuth apps by including multiple entries
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                          | Required                                         | Default | Description                                                                                                                                                                  |
 |--------------------------------------------------------|--------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

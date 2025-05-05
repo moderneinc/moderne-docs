@@ -102,7 +102,7 @@ With the files created, you will then need to let the agent know about them. To 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Argument Name                                       | Required | Description                                                                                                  |
 |-----------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|

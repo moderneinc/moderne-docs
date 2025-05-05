@@ -31,7 +31,7 @@ You can configure multiple generic HTTP tools by including multiple entries, eac
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                             | Required | Default | Description                                                                                                                                                                                                             |
 |-----------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

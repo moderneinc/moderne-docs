@@ -23,7 +23,7 @@ You can configure multiple Maven formatted repositories by including multiple en
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                 | Required | Default            | Description                                                                                                                                                           |
 |-----------------------------------------------|----------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

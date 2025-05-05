@@ -29,7 +29,7 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                               | Required                                       | Default | Description                                                                                                                                  |
 |-------------------------------------------------------------|------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------|

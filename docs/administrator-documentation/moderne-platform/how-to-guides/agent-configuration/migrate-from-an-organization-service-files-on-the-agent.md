@@ -45,7 +45,7 @@ After you have created or collected the above files please put them in a locatio
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Argument Name                                       | Required | Description                                                                                                  |
 |-----------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
@@ -95,7 +95,7 @@ Lastly, please make sure that the following configurations are not included in y
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Argument Name                                                |
 |--------------------------------------------------------------|

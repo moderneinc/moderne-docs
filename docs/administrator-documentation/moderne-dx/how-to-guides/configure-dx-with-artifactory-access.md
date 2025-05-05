@@ -31,7 +31,7 @@ Also, by default, LST indexing has to happen on every new installation before `m
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                             | Required | Default                                | Description                                                                                                                                                                                                                      |
 |-----------------------------------------------------------|----------|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

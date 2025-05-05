@@ -289,7 +289,7 @@ Now that you have you a `devcenter.json` file, please place this file in a locat
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Argument Name                                       | Required | Description                                                                                                  |
 |-----------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
@@ -331,7 +331,7 @@ java -jar moderne-agent-{version}.jar \
 <Tabs groupId="type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Argument Name                           | Required | Description                                                                           |
 |-----------------------------------------|----------|---------------------------------------------------------------------------------------|

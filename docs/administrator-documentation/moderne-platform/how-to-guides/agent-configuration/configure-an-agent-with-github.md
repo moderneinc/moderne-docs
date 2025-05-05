@@ -67,7 +67,7 @@ You can configure multiple GitHub OAuth apps by including multiple entries, each
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                                  | Required                                     | Default         | Description                                                                                                                                                                                                                      |
 |----------------------------------------------------------------|----------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

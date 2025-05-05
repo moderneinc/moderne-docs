@@ -98,7 +98,7 @@ You can configure multiple Bitbucket instances by including multiple entries, ea
 <Tabs>
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                           | Required                                      | Default | Description                                                                                                                                                               |
 |---------------------------------------------------------|-----------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

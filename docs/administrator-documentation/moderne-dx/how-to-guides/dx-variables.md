@@ -15,7 +15,7 @@ This document includes all of the variables you can configure the Moderne agent 
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                 | Required | Default            | Description                                                                                                                                                           |
 |-----------------------------------------------|----------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -79,7 +79,7 @@ java -jar moderne-dx-{version}.jar \
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                             | Required | Default                                | Description                                                                                                                                                                                                                      |
 |-----------------------------------------------------------|----------|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -149,7 +149,7 @@ java -jar moderne-dx-{version}.jar \
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                 | Required | Default            | Description                                                                                                                                                           |
 |-----------------------------------------------|----------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -215,7 +215,7 @@ java -jar moderne-dx-{version}.jar \
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                                | Required | Default | Description                                                                                                                                                                                                      |
 |--------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -266,7 +266,7 @@ java -jar moderne-dx-{version}.jar \
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                     | Required | Default | Description                                                                                                                                                                                                                                      |
 |---------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -320,7 +320,7 @@ java -jar moderne-dx-{version}.jar \
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                | Required                                         | Default | Description                                                                                       |
 |----------------------------------------------|--------------------------------------------------|---------|---------------------------------------------------------------------------------------------------|

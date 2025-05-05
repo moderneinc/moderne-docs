@@ -198,7 +198,7 @@ All agents must be configured with the variables listed as required below:
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment variables:**
 
 | Variable Name                                | Required   | Default                | Description                                                                                                                                                                                                 |
 |----------------------------------------------|------------|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
