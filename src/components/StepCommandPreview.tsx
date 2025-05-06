@@ -41,55 +41,51 @@ export default function StepCommandPreview({ data }: StepCommandPreviewProps): J
   return (
     <div className={styles.container}>
       <h4 className={styles.sectionHeader}>Command Format</h4>
-      <div className={styles.formatOptions}>
-        <div className={styles.formatOption}>
-          <label className={styles.radioLabel}>
-            <input
-              type="radio"
-              name="command-type"
-              value="docker"
-              checked={commandType === 'docker'}
-              onChange={() => setCommandType('docker')}
-            />
-            Docker
-          </label>
-          <label className={styles.radioLabel}>
-            <input
-              type="radio"
-              name="command-type"
-              value="java"
-              checked={commandType === 'java'}
-              onChange={() => setCommandType('java')}
-            />
-            Java
-          </label>
-        </div>
+      <div>
+        <label className={styles.radioLabel}>
+          <input
+            type="radio"
+            name="command-type"
+            value="docker"
+            checked={commandType === 'docker'}
+            onChange={() => setCommandType('docker')}
+          />
+          Docker
+        </label>
+        <label className={styles.radioLabel}>
+          <input
+            type="radio"
+            name="command-type"
+            value="java"
+            checked={commandType === 'java'}
+            onChange={() => setCommandType('java')}
+          />
+          Java
+        </label>
       </div>
       
       <h4 className={styles.sectionHeader}>Operating System</h4>
-      <div className={styles.formatOptions}>
-        <div className={styles.formatOption}>
-          <label className={styles.radioLabel}>
-            <input
-              type="radio"
-              name="os-type"
-              value="unix"
-              checked={osType === 'unix'}
-              onChange={() => setOSType('unix')}
-            />
-            Unix/Linux
-          </label>
-          <label className={styles.radioLabel}>
-            <input
-              type="radio"
-              name="os-type"
-              value="windows"
-              checked={osType === 'windows'}
-              onChange={() => setOSType('windows')}
-            />
-            Windows
-          </label>
-        </div>
+      <div>
+        <label className={styles.radioLabel}>
+          <input
+            type="radio"
+            name="os-type"
+            value="unix"
+            checked={osType === 'unix'}
+            onChange={() => setOSType('unix')}
+          />
+          Unix/Linux
+        </label>
+        <label className={styles.radioLabel}>
+          <input
+            type="radio"
+            name="os-type"
+            value="windows"
+            checked={osType === 'windows'}
+            onChange={() => setOSType('windows')}
+          />
+          Windows
+        </label>
       </div>
       
       <h4 className={styles.sectionHeader}>Generated Command</h4>
