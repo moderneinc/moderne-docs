@@ -1,5 +1,3 @@
-# Experimental agent builder
+import { Redirect } from '@docusaurus/router';
 
-import StepCommandBuilder from '@site/src/components/StepCommandBuilder'
-
-<StepCommandBuilder />
+<Redirect to="/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/experimental-builder" />;
