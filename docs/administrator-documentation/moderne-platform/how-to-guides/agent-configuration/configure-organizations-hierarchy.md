@@ -40,7 +40,7 @@ recommend establishing an organization hierarchy to improve structure and scalab
 
 Organizational structure is a configured via a `repos.csv` file, accessible to the Agent via the file system or network.
 Depending on your deployment configuration, this may be done by placing the file in the same host as the agent or by
-using a file/network mount. The Agent can also be configured with an unauthenticated HTTP/s URI that serves the
+using a file/network mount. The Agent can also be configured with an unauthenticated HTTP/S URI that serves the
 aforementioned `repos.csv`.
 
 This configuration is best explained with an example. Consider an organization that consists of two teams and two
@@ -125,10 +125,10 @@ file (by default it's every 10 minutes).
 
 **Environment variables:**
 
-| Environment variable                                         | Required | Default | Description                                                                                               |
-|--------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                        | `true`   |         | The path to the `repos.csv` file that defines your organizational structure.                              |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS` | `false`  | 600     | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
+| Environment variable                                         | Required | Default | Description                                                                                                                                                                  |
+|--------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                        | `true`   |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS` | `false`  | 600     | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                    |
 
 **Example:**
 
@@ -145,10 +145,10 @@ docker run \
 
 **Arguments:**
 
-| Argument name                                                  | Required | Default | Description                                                                                               |
-|----------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.reposCsv`                        | `true`   |         | The path to the `repos.csv` file that defines your organizational structure.                              |
-| `--moderne.agent.organization.service.update.interval.seconds` | `false`  | 600     | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
+| Argument name                                                  | Required | Default | Description                                                                                                                                                                  |
+|----------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.agent.organization.reposCsv`                        | `true`   |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
+| `--moderne.agent.organization.service.update.interval.seconds` | `false`  | 600     | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                    |
 
 **Example:**
 
