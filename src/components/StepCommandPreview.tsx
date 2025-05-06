@@ -41,7 +41,7 @@ export default function StepCommandPreview({ data }: StepCommandPreviewProps): J
   return (
     <div className={styles.container}>
       <h4 className={styles.sectionHeader}>Command Format</h4>
-      <div>
+      <div className={styles.formatSelector}>
         <label className={styles.radioLabel}>
           <input
             type="radio"
@@ -65,7 +65,7 @@ export default function StepCommandPreview({ data }: StepCommandPreviewProps): J
       </div>
       
       <h4 className={styles.sectionHeader}>Operating System</h4>
-      <div>
+      <div className={styles.formatSelector}>
         <label className={styles.radioLabel}>
           <input
             type="radio"
