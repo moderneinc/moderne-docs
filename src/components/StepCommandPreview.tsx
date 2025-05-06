@@ -74,7 +74,7 @@ export default function StepCommandPreview({ data }: StepCommandPreviewProps): J
             checked={osType === 'unix'}
             onChange={() => setOSType('unix')}
           />
-          Unix/Linux
+          macOS/Linux
         </label>
         <label className={styles.radioLabel}>
           <input
