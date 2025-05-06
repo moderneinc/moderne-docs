@@ -2960,7 +2960,7 @@ Hover over the info icon to quickly view more information including the commit t
 
 #### Removal of the default repository group `All`
 
-Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can [define their own named repository group](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-organizations-service.md) through Agent to provide this functionality. See the example below.
+Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can define their own named repository group through Agent to provide this functionality. See the example below.
 
 ```json
 {

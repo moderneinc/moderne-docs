@@ -52,7 +52,7 @@ To generate this `repos.csv`, we recommend using "[repo fetchers](https://github
 
 ## Service based organization structure
 
-A more feature rich replacement of the file based approach is to create an [Organizations service](../../moderne-platform/how-to-guides/organizations-service.md). This allows you to use additional features like the DevCenter, organization based access control, and per organization commit options.
+A more feature rich replacement of the file based approach is to create an Organizations service. This allows you to use additional features like the DevCenter, organization based access control, and per organization commit options.
 
 ### Organizations service template and API
 

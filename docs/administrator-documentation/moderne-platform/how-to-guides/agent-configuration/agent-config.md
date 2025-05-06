@@ -51,7 +51,7 @@ If you deploy to Kubernetes or any other containerized environment like AWS ECS,
 
 If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) environment such Cloud Foundry, you'll want to use the JAR to run the agent.
 
-The table below provides the core command for running the agent. However, in order for the agent to function correctly, additional variables will need to be added based on your environment (such as what SCM(s) your company uses, what artifact repositories you have configured, and whether or not you've configured an [Organizations service](../organizations-service.md)). We'll walk through each of those in the following steps.
+The table below provides the core command for running the agent. However, in order for the agent to function correctly, additional variables will need to be added based on your environment (such as what SCM(s) your company uses, what artifact repositories you have configured). We'll walk through each of those in the following steps.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -344,7 +344,7 @@ The Moderne agent can only talk to _Maven formatted_ artifact repositories. Ther
 
 Moderne offers two options for connecting to your artifact repository: a generic Maven connection that can connect to any Maven formatted repository regardless of vendor and an Artifactory-specific connection that is optimized to serve LST artifacts more quickly.
 
-If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](./configure-an-agent-with-maven-repository-access.md) and then jump to [Step 6](#step-6-optionally-configure-the-organizations-service).
+If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](./configure-an-agent-with-maven-repository-access.md) and then jump to [Step 6](#step-6-optionally-use-strict-recipe-sources).
 
 If you _do_ plan on using Artifactory to store artifacts, you have two options:
 
@@ -436,89 +436,7 @@ java -jar moderne-agent-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 6: (Optionally) Configure the Organizations service
-
-Many organizations desire the ability to control the organizational structure of their repositories within the Moderne Platform in a dynamic way. To facilitate this need, Moderne provides an optional integration with an Organizations service that is hosted inside of your environment.
-
-If you want to set up this service, please check out our [configuring the Organizations service guide](../organizations-service.md). Then, once it has been set up, [please configure the agent accordingly](./configure-organizations-service.md).
-
-Below is an example of what an agent run command might look like at the end of this step if you set up the Organizations service.
-
-<Tabs groupId="agent-type">
-<TabItem value="oci-container" label="OCI Container">
-
-```bash
-# Please note that if you create environment variables for secrets, you still need to let Docker
-# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
-export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_AGENT_MAVEN_0_USERNAME=...
-export MODERNE_AGENT_MAVEN_0_PASSWORD=...
-
-docker run \
--e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
--e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET \
--e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
--e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
--e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_0_USERNAME \
--e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_AGENT_MAVEN_0_USERNAME \
--e MODERNE_AGENT_MAVEN_0_PASSWORD \
--e MODERNE_AGENT_ORGANIZATION_SERVICE_URL=http://localhost:8091 \
--e MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS=600 \
--p 8080:8080
-moderne-agent:latest
-```
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-```bash
-# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.agent.crypto.symmetricKey=...
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
-export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_AGENT_MAVEN_0_USERNAME=...
-export MODERNE_AGENT_MAVEN_0_PASSWORD=...
-
-java -jar moderne-agent-{version}.jar \
---moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.nickname=prod-1 \
---moderne.agent.github[0].url=https://myorg.github.com \
---moderne.agent.github[0].allowableOrganizations[0]=moderne \
---moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
---moderne.agent.github[0].oauth.includePrivateRepos=true \
---moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
---moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.agent.maven[0].localRepository=~/.moderne-maven \
---moderne.agent.organization.service.url=http://localhost:8091 \
---moderne.agent.organization.service.updateIntervalSeconds=600 \
-```
-</TabItem>
-</Tabs>
-
-### Step 7: (Optionally) Use strict recipe sources.
+### Step 6: (Optionally) Use strict recipe sources.
 
 Some organizations want recipe artifacts to only come from locations configured in the Moderne agent. If you want to configure that, please follow the [strict recipe sources instructions](./configure-an-agent-with-strict-recipe-sources.md).
 
@@ -601,11 +519,11 @@ java -jar moderne-agent-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 8: (Optionally) Provide SSL client keystore
+### Step 7: (Optionally) Provide SSL client keystore
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](./configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
 
-### Step 9: Run the agent
+### Step 8: Run the agent
 
 At this point, you should have configured everything needed to run the Moderne agent. If you run into issues running the command, please don't hesitate to reach out.
 

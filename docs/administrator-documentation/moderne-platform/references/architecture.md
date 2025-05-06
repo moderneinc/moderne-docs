@@ -51,7 +51,6 @@ At a minimum, the agent will need to connect to:
 Your team may also wish to configure the agent to:
 
 * Look in your artifact repositories for custom recipe JARs your team creates so that those recipes can be run in the Moderne SaaS
-* Connect to your team's [Organizations service](../how-to-guides/organizations-service.md) so that the UI can provide a customized experience for some users or repositories
 
 :::info
 You can find all of the documentation for configuring agents in your environment [here](../how-to-guides/agent-configuration/agent-config.md).
@@ -81,17 +80,6 @@ When you set up an agent, Moderne will share a token with you that you must conf
 The connection to Moderne is established over [layer 7](https://www.cloudflare.com/learning/ddos/what-is-layer-7/), so you may choose to route traffic from the agent through your own layer 7 gateway. This might be chosen to satisfy a desire for [Moderne’s API gateway](#moderne-api-gateway) to perform client verification of an inbound agent connection using a mechanism like X.509 in addition to token-based verification.
 
 These measures act in concert with techniques to limit IP addressability of the Moderne API gateway to enhance the overall security posture.
-
-### Organizations service
-
-The Organizations service is an _optional_ service that you can configure in your environment. It defines the organizational structure that a user or a repository belongs to. The Moderne SaaS will use this information to present different UIs or options for different users and repositories. Please see our [Organizations service doc](../how-to-guides/organizations-service.md) for more information.
-
-**Setup requirements**
-
-You must:
-
-* Ensure that the Organizations service is capable of receiving requests from the [Moderne agent](#moderne-agent)
-* Ensure your service fulfills the GraphQL contract outlined in our [Organizations service documentation](../how-to-guides/organizations-service.md)
 
 ### Moderne API gateway
 

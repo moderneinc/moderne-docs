@@ -16,16 +16,8 @@ In this doc, we'll walk you through everything you need to know to configure you
 
 In order to configure any DevCenters, there are two things you must have already done (which we'll touch upon below):
 
-1. You must have configured an organizational structure. This can be done via a [file-based approach](./agent-configuration/configure-agent-files-service.md#reposcsv-required) or [by creating a dedicated Organizations service](./organizations-service.md).
+1. You must have configured an [organizational structure](./agent-configuration/configure-organizations-hierarchy.md). 
 2. You must ensure that the [Moderne agent Maven configuration](./agent-configuration/configure-an-agent-with-maven-repository-access.md) only has **one** entry where the recipe source is set to `true`. (Note: this does not apply to one Maven repository configured identically in multiple agents. Only that you cannot have two distinct Maven repositories configured where recipe source is set to `true`.)
-
-### Organization structure configuration
-
-If you are configuring an organizational structure for the first time, we **strongly** recommend that you use our [file-based approach](./agent-configuration/configure-agent-files-service.md#reposcsv-required) and modify it to meet your needs. By doing so, you will only need to update some CSV files rather than writing your own code.
-
-If you, instead, want to create an Organizations service, we would **strongly** recommend that you use our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. By doing so, you will only need to update some JSON files rather than writing your own code.
-
-If you've chosen to create your own Organizations service without using our template, please ensure your service fulfills the [latest GraphQL schema](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls) and [REST contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/OrganizationController.java). After doing so, please ensure you've [set up the Moderne agent with Maven configuration correctly](#moderne-agent-maven-configuration).
 
 ### Moderne agent Maven configuration
 
@@ -42,9 +34,7 @@ If you have multiple locations where recipes are stored, you will need to create
 3. `https://repo.maven.apache.org/maven2`
 4. `https://repo1.maven.org/maven2/`
 
-## File-based DevCenter configuration
-
-_These steps only apply if you're using files to define an organizational structure, and you want to create a file to define the DevCenter configuration. If you've, instead, created a dedicated Organizations service, please see the [organization service configuration instructions](#configuring-the-devcenter-in-an-organizations-service)_.
+## DevCenter configuration
 
 ### Step 1: Create a `devcenter.json` file
 
@@ -371,52 +361,6 @@ java -jar moderne-dx-{version}.jar  \
 </Tabs>
 
 After you have updated your agent configuration, please restart your agent or DX.
-
-## Configuring the DevCenter in an Organizations service
-
-_These steps only apply if you've created an Organization's service to control your organizational structure. If you're using a file-based approach, please see the [file-based configuration instructions](#file-based-devcenter-configuration)._
-
-### Step 1: Ensure you have a `DevCenterDataFetcher` class
-
-_This step only applies if you are running an Organization service, and you used the [Moderne Organizations service template](https://github.com/moderneinc/moderne-organizations). If you made your own, please jump to [step 3](dev-center.md#step-3-create-and-configure-the-devcenter)._
-
-If you've created an Organizations service prior to March 2024, you will need to copy the [new DevCenterDataFetcher file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/DevCenterDataFetcher.java) to your Organizations service repository. It will go in the same location as the other source classes such as [Application.java](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/java/io/moderne/organizations/Application.java).
-
-If you've created an Organizations service after March 2024, please ensure that you have a `DevCenterDataFetcher.java` file in your Organizations service repository before moving on to step 2.
-
-### Step 2: Ensure you have an up-to-date `moderne-organizations.graphqls` schema
-
-Similar to the previous step, please double-check your [moderne-organizations.graphqls file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls) and ensure that there is a `devCenter` field in the `Organization` object:
-
-```graphql
-type Organization {
-    id: ID!
-    name: String!
-
-    """
-    Ordered list of commit options as they should appear in the UI.
-    """
-    commitOptions: [CommitOption!]!
-
-    parent: Organization
-
-    devCenter: DevCenter
-}
-```
-
-The [DevCenter object](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls#L131-L150) is the schema you need to follow in the below step to configure your DevCenter.
-
-### Step 3: Create and configure the DevCenter
-
-Your Organization service must fulfill the [GraphQL contract mentioned in the previous step](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls). If you chose to use [our template repository](https://github.com/moderneinc/moderne-organizations) for your Organizations service, you will need to run `./gradlew generateGraphqlJava copyGeneratedGraphql` to [get the latest types](https://github.com/moderneinc/moderne-organizations/pull/61/files), and then you will need to configure your own `devcenter.json` file.
-
-The `devcenter.json` file is where all of the configuration lies for DevCenters. In this file, you can configure things like which organizations should have a DevCenter, what cards should appear on said DevCenter, and what the keys should be on the cards. This file must follow the GraphQL schema mentioned above.
-
-For more details about the individual components in this file, please see the [components of a DevCenter section at the bottom of this guide](#components-of-a-devcenter). Or, check out our `moderne-organizations` repository for [a full example of this file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
-
-:::tip
-When creating a DevCenter for the first time, we **strongly recommend** that you only create a DevCenter for a few key organizations. This will allow you to get data into the platform faster and ensure that you've configured everything correctly. Once everything is working as expected, you can then add more DevCenters as desired.
-:::
 
 ## Components of a DevCenter
 

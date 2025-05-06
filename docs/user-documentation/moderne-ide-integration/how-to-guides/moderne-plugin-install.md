@@ -63,7 +63,7 @@ After configuring the plugin, you will see the repositories belonging to the mul
 * A set of repositories that uses a core platform library or component that you are developing whose developers belong to product teams other than your own.
 * A set of repositories all using a certain technology (e.g., all Gradle projects or all Cassandra projects) that you would like to study together, though the responsibility for this set of repositories is spread across several or many distinct product teams.
 
-[Moderne Organizations](../../../administrator-documentation/moderne-platform/how-to-guides/organizations-service.md) are directly configurable as a multi-repo. In some cases, though, individual engineers may assemble their own multi-repos based on what they have on their local machines.
+Moderne Organizations are directly configurable as a multi-repo. In some cases, though, individual engineers may assemble their own multi-repos based on what they have on their local machines.
 
 ## Next steps
 
