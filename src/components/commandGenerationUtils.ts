@@ -1,7 +1,8 @@
 import { 
   FormData, 
   FieldData, 
-  CommandType
+  CommandType,
+  OSType,
 } from './types';
 
 /**
@@ -139,11 +140,13 @@ const processFieldsSection = (
  * Generates command string based on configuration
  * @param {FormData} data - The form data
  * @param {CommandType} commandType - The command type (docker or java)
+ * @param {OSType} osType - Unix or Windows
  * @returns {string} The generated command
  */
 export const generateCommand = (
   data: FormData | undefined, 
-  commandType: CommandType
+  commandType: CommandType,
+  osType: OSType = 'unix'
 ): string => {
   const exportLines: string[] = [];
   const cmdArgs: string[] = [];
@@ -243,12 +246,12 @@ export const generateCommand = (
   }
 
   // Process organization service configuration
-  if (data?.orgServiceConfig?.enabled && data.orgServiceConfig.fields) {
+  if (data?.orgServiceConfig?.enabled && data?.orgServiceConfig.fields) {
     processFieldsSection(data.orgServiceConfig.fields, exportLines, cmdArgs, commandType);
   }
 
   // Process strict recipe sources configuration
-  if (data?.strictRecipeSourcesConfig?.enabled && data.strictRecipeSourcesConfig.fields) {
+  if (data?.strictRecipeSourcesConfig?.enabled && data?.strictRecipeSourcesConfig.fields) {
     processFieldsSection(data.strictRecipeSourcesConfig.fields, exportLines, cmdArgs, commandType);
   }
   
@@ -267,5 +270,89 @@ export const generateCommand = (
     command += `java -jar moderne-agent-{version}.jar ${cmdArgs.join(' ')}`;
   }
   
-  return command;
+  // Format the command based on OS type
+  return formatCommand(command, commandType, osType);
+};
+
+/**
+ * Formats a command string for better readability based on OS type
+ * @param {string} command - The command to format
+ * @param {CommandType} commandType - Docker or Java
+ * @param {OSType} osType - Unix or Windows
+ * @returns {string} Formatted command
+ */
+export const formatCommand = (
+  command: string,
+  commandType: CommandType,
+  osType: OSType = 'unix'
+): string => {
+  const lineContinuation = osType === 'unix' ? '\\' : '^';
+  
+  // Handle the exports section and command section separately
+  const parts = command.split('\n\n');
+  
+  if (parts.length < 2) {
+    // If there's only one part (no exports), format just the command
+    return formatCommandPart(parts[0], commandType, lineContinuation);
+  }
+  
+  // Format exports if using Windows style
+  let exportsSection = parts[0];
+  if (osType === 'windows') {
+    // Optionally convert to Windows set commands
+    exportsSection = exportsSection.replace(/^export /gm, 'set ');
+  }
+  
+  // Format the command part
+  const commandSection = formatCommandPart(parts[1], commandType, lineContinuation);
+  
+  return exportsSection + '\n\n' + commandSection;
+};
+
+/**
+ * Formats just the command part (not exports)
+ * @param {string} commandPart - The command part to format
+ * @param {CommandType} commandType - Docker or Java
+ * @param {string} continuation - Line continuation character
+ * @returns {string} Formatted command part
+ */
+const formatCommandPart = (
+  commandPart: string,
+  commandType: CommandType,
+  continuation: string
+): string => {
+  if (commandType === 'docker') {
+    // Format Docker command
+    return commandPart.replace(/\s-([a-zA-Z])\s/g, ` ${continuation}\n  -$1 `);
+  } else {
+    // Format Java command
+    // Check if we have a java -jar command
+    if (commandPart.startsWith('java -jar')) {
+      // Find if we have parameters
+      if (commandPart.includes('--')) {
+        // Get the base command (java -jar moderne-agent-{version}.jar)
+        const jarPattern = /java -jar [^\s]+/;
+        const match = commandPart.match(jarPattern);
+        
+        if (match) {
+          const baseCommand = match[0];
+          // Get everything after the jar file name
+          const rest = commandPart.substring(baseCommand.length).trim();
+          
+          // Format parameters with line continuations
+          const formattedParams = rest.replace(/\s+(--[a-zA-Z0-9.-]+)/g, ` ${continuation}\n  $1`);
+          
+          // If there are parameters, add a continuation after the base command
+          if (formattedParams.length > 0) {
+            return `${baseCommand} ${continuation}\n  ${formattedParams.trim()}`;
+          } else {
+            return baseCommand;
+          }
+        }
+      }
+    }
+    
+    // Default fallback if pattern matching fails
+    return commandPart;
+  }
 };

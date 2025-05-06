@@ -98,3 +98,4 @@ export interface FormData {
 }
 
 export type CommandType = 'docker' | 'java';
+export type OSType = 'unix' | 'windows';

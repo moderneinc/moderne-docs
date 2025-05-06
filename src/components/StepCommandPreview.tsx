@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { generateCommand } from './commandGenerationUtils';
 import styles from './styles/StepCommandPreview.module.css';
-import { FormData, CommandType } from './types';
+import { FormData, CommandType, OSType } from './types';
 
 interface StepCommandPreviewProps {
   data: FormData;
@@ -9,15 +9,18 @@ interface StepCommandPreviewProps {
 }
 
 export default function StepCommandPreview({ data }: StepCommandPreviewProps): JSX.Element {
-  // Add command type selection
+  // Command type selection
   const [commandType, setCommandType] = useState<CommandType>('docker');
-  // Generate command whenever data or command type changes
+  // OS type selection
+  const [osType, setOSType] = useState<OSType>('unix');
+  // Command text state
   const [commandText, setCommandText] = useState<string>('');
   
   useEffect(() => {
-    // Use the extracted utility function
-    setCommandText(generateCommand(data, commandType));
-  }, [commandType, data]);
+    // Generate formatted command using the updated utility
+    const formattedCommand = generateCommand(data, commandType, osType);
+    setCommandText(formattedCommand);
+  }, [commandType, osType, data]);
 
   const copyToClipboard = (): void => {
     navigator.clipboard.writeText(commandText).then(
@@ -37,31 +40,59 @@ export default function StepCommandPreview({ data }: StepCommandPreviewProps): J
 
   return (
     <div className={styles.container}>
-      <h4>Command Format</h4>
-      <div className={styles.formatSelector}>
-        <label className={styles.radioLabel}>
-          <input
-            type="radio"
-            name="command-type"
-            value="docker"
-            checked={commandType === 'docker'}
-            onChange={() => setCommandType('docker')}
-          />
-          Docker
-        </label>
-        <label className={styles.radioLabel}>
-          <input
-            type="radio"
-            name="command-type"
-            value="java"
-            checked={commandType === 'java'}
-            onChange={() => setCommandType('java')}
-          />
-          Java
-        </label>
+      <h4 className={styles.sectionHeader}>Command Format</h4>
+      <div className={styles.formatOptions}>
+        <div className={styles.formatOption}>
+          <label className={styles.radioLabel}>
+            <input
+              type="radio"
+              name="command-type"
+              value="docker"
+              checked={commandType === 'docker'}
+              onChange={() => setCommandType('docker')}
+            />
+            Docker
+          </label>
+          <label className={styles.radioLabel}>
+            <input
+              type="radio"
+              name="command-type"
+              value="java"
+              checked={commandType === 'java'}
+              onChange={() => setCommandType('java')}
+            />
+            Java
+          </label>
+        </div>
       </div>
       
-      <h4>Generated Command</h4>
+      <h4 className={styles.sectionHeader}>Operating System</h4>
+      <div className={styles.formatOptions}>
+        <div className={styles.formatOption}>
+          <label className={styles.radioLabel}>
+            <input
+              type="radio"
+              name="os-type"
+              value="unix"
+              checked={osType === 'unix'}
+              onChange={() => setOSType('unix')}
+            />
+            Unix/Linux
+          </label>
+          <label className={styles.radioLabel}>
+            <input
+              type="radio"
+              name="os-type"
+              value="windows"
+              checked={osType === 'windows'}
+              onChange={() => setOSType('windows')}
+            />
+            Windows
+          </label>
+        </div>
+      </div>
+      
+      <h4 className={styles.sectionHeader}>Generated Command</h4>
       <div className={styles.commandContainer}>
         <pre className={styles.commandCode}>
           {commandText}

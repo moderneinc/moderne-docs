@@ -16,6 +16,11 @@
   margin-right: 0.5rem;
 }
 
+.sectionHeader {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
 .commandContainer {
   position: relative;
   margin: 1rem 0;
