@@ -385,7 +385,7 @@ java -jar moderne-agent-{version}.jar \
 | Environment Variable                                       | Required | Default | Description |
 |------------------------------------------------------------|----------|---------|-------------|
 | `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
-| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     | `false`  |         | The path of your `devcenter.json` file that provides the devCenter configurations. |
+| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
 | `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
 
 **Example:**
@@ -407,7 +407,7 @@ docker run \
 | Argument Name                                                | Required | Default | Description |
 |--------------------------------------------------------------|----------|---------|-------------|
 | `--moderne.agent.organization.reposCsv`                      | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
-| `--moderne.agent.organization.devCenter`                     | `false`  |         | The path of your `devcenter.json` file that provides the devCenter configurations. |
+| `--moderne.agent.organization.devCenter`                     | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
 | `--moderne.agent.organization.service.updateIntervalSeconds` | `false`  | `600`   |The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
 
 **Example:**

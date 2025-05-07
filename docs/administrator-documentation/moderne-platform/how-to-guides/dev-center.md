@@ -283,14 +283,14 @@ Now that you have you a `devcenter.json` file, please place this file in a locat
 
 | Argument Name                                       | Required | Description                                                                                                  |
 |-----------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`     | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations.                        |
+| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`     | `false`  | The path of your `devcenter.json` file that provides the DevCenter configurations.                        |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH=/Users/MY_USER/Documents/repos.csv \
+-e MODERNE_AGENT_ORGANIZATION_DEVCENTER=/Users/MY_USER/Documents/repos.csv \
 # ... Additional variables
 ```
 
@@ -302,14 +302,14 @@ docker run \
 
 | Argument Name                                         | Required | Description                                                                                                  |
 |-------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.file.devCenterPath`     | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations.                        |
+| `--moderne.agent.organization.devCenter`     | `false`  | The path of your `devcenter.json` file that provides the DevCenter configurations.                        |
 
 **Example:**
 
 ```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
---moderne.agent.organization.file.reposCsvPath=/Users/MY_USER/Documents/repos.csv \
+--moderne.agent.organization.devCenter=/Users/MY_USER/Documents/repos.csv \
 # ... Additional arguments
 ```
 
@@ -344,7 +344,7 @@ docker run \
 
 | Argument Name                               | Required                                                                              | Description |
 |---------------------------------------------|---------------------------------------------------------------------------------------|-------------|
-| `--moderne.dx.organization.devCenterJsonse` | The file path to a JSON file which outlines the DevCenter for specific organizations. |
+| `--moderne.dx.organization.devCenterJson` | The file path to a JSON file which outlines the DevCenter for specific organizations. |
 
 **Example:**
 

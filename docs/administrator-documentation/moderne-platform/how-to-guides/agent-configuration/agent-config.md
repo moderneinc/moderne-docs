@@ -477,8 +477,6 @@ docker run \
 -e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_AGENT_MAVEN_0_USERNAME \
 -e MODERNE_AGENT_MAVEN_0_PASSWORD \
--e MODERNE_AGENT_ORGANIZATION_SERVICE_URL=http://localhost:8091 \
--e MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS=600 \
 -e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
 -p 8080:8080
 moderne-agent:latest
@@ -512,18 +510,24 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.agent.maven[0].localRepository=~/.moderne-maven \
---moderne.agent.organization.service.url=http://localhost:8091 \
---moderne.agent.organization.service.updateIntervalSeconds=600 \
 --moderne.agent.recipe.useOnlyConfigured=true
 ```
 </TabItem>
 </Tabs>
 
-### Step 7: (Optionally) Provide SSL client keystore
+### Step 7: (Optionally) Configure organizational hierarchy
+
+If you would like to have an organizational hierarchy available inside of the Moderne Platform, you will need to [configure an organizational hierarchy](./configure-organizations-hierarchy.md) and let the agent know about it.
+
+### Step 8: (Optionally) Configure a DevCenter
+
+The DevCenter is the mission-control dashboard of the Moderne Platform. If you wish to have DevCenters available inside of the Moderne Platform, you will need to [ensure you've defined an organizational hierarchy](#step-7-optionally-configure-organizational-hierarchy) and then [follow the instructions for configuring a DevCenter](../dev-center.md).
+
+### Step 9: (Optionally) Provide SSL client keystore
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](./configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
 
-### Step 8: Run the agent
+### Step 10: Run the agent
 
 At this point, you should have configured everything needed to run the Moderne agent. If you run into issues running the command, please don't hesitate to reach out.
 
@@ -578,8 +582,6 @@ docker run \
 -e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_AGENT_MAVEN_0_USERNAME \
 -e MODERNE_AGENT_MAVEN_0_PASSWORD \
--e MODERNE_AGENT_ORGANIZATION_SERVICE_URL=http://localhost:8091 \
--e MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS=600 \
 -p 8080:8080
 moderne-agent:latest
 ```
@@ -613,8 +615,6 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.agent.maven[0].localRepository=~/.moderne-maven \
---moderne.agent.organization.service.url=http://localhost:8091 \
---moderne.agent.organization.service.updateIntervalSeconds=600 \
 ```
 
 * Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}`.

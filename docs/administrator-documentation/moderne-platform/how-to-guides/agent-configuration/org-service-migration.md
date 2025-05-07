@@ -77,7 +77,7 @@ Make sure that the following configurations are not included in your Agent run c
 | Environment Variable                                       | Default | Description |
 |------------------------------------------------------------|---------|-------------|
 | `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      |         | The path of your `repos.csv` file that provides organization information. |
-| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     |         | The path of your `devcenter.json` file that provides the devCenter configurations. |
+| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
 | `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS` | `600`   | Specifies how often to request your organization information. |
 
 **Example:**
@@ -100,7 +100,7 @@ docker run \
 | Argument Name                                                | Default | Description |
 |--------------------------------------------------------------|---------|-------------|
 | `--moderne.agent.organization.reposCsv`                      |         | The path of your `repos.csv` file that provides organization information. |
-| `--moderne.agent.organization.devCenter`                     |         | The path of your `devcenter.json` file that provides the devCenter configurations. |
+| `--moderne.agent.organization.devCenter`                     |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
 | `--moderne.agent.organization.service.updateIntervalSeconds` | `600`   | Specifies how often to request your organization information. |
 
 **Example:**
