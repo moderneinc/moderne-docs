@@ -18,11 +18,12 @@ export default function StepOrgHierarchyAndDevCenterConfig({
 }: StepOrgHierarchyAndDevCenterConfigProps) {
   const infoText = (
     <>
-      Configure your organization hierarchy and development center integration.
-      This allows the agent to synchronize with your organization structure and
-      connect to the development center for enhanced collaboration features.
+      If you want to configure an organizational hierarchy in the Moderne Platform, please enable this step.
+      This step also allows you to configure Dev Centers if desired – although you must provide an organizational hierarchy to as well.
 
-      For more information on these settings, please see our <a href="https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-organization-hierarchy">organization hierarchy documentation</a>.
+      <br /><br />
+      For more information on DevCenters, please see our <a href="https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/dev-center">Dev Center configuration doc</a>. <br />
+      For more information on the organizational hierarchy, please see our <a href="https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-organizations-hierarchy">organization hierarchy documentation</a>.
     </>
   );
 
