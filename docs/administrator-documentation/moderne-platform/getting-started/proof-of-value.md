@@ -107,3 +107,4 @@ Below are some recipes that you can use to help you with impact analysis as well
 * [Find types](https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes)
 * [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)
 * [Update Gradle or Maven dependency versions](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.UpgradeDependencyVersion)
+* [Plan a Java version migration](https://app.moderne.io/recipes/org.openrewrite.java.migrate.search.PlanJavaMigration)
