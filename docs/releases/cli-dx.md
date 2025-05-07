@@ -1,13 +1,15 @@
 # CLI / DX changelog
 
-### CLI / DX v3.39.0 (2025/05/01)
+### CLI / DX v3.39.0 (2025/05/07)
 
 #### What's Changed CLI
 * [OpenRewrite v8.52.0](https://github.com/openrewrite/rewrite/releases/tag/v8.52.0)
 * [rewrite-gradle-plugin v7.6.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.6.0)
 * [rewrite-maven-plugin v6.8.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.8.0)
-- v6.8.0
+* Drop special Java version detection for `maven.compiler.release` as requiring Java 9+
 
+#### What's Changed DX
+* Add the ability to pull reposCsv and devCenterJson from URIs in DX
 
 ### CLI / DX v3.38.3 (2025/05/01)
 
