@@ -375,26 +375,27 @@ java -jar moderne-agent-{version}.jar \
 </TabItem>
 </Tabs>
 
-## Organizations service variables
+## Organization hierarchy and DevCenter variables
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                                                | Required | Default | Description                                                                                                                                                                          |
-|--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`                     | `true`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS` | `false`  | `600`   | Specifies how often to request your organization information.                                                                                                                        |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Environment Variable                                       | Required | Default | Description |
+|------------------------------------------------------------|----------|---------|-------------|
+| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
+| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     | `false`  |         | The path of your `devcenter.json` file that provides the devCenter configurations. |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_ORGANIZATION_SERVICE_URL=http://localhost:8091 \
--e MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_AGENT_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
+-e MODERNE_AGENT_ORGANIZATION_DEVCENTER=/Users/MY_USER/Documents/devcenter.json \
+-e MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS=600 \
 # ... Additional variables
 ```
 </TabItem>
@@ -403,18 +404,19 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                | Required | Default | Description                                                                                                                                                                          |
-|--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.service.url`                   | `true`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
-| `--moderne.agent.organization.service.updateIntervalSeconds` | `false`  | `600`   | Specifies how often to request your organization information.                                                                                                                        |
-| `--moderne.agent.organization.service.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Argument Name                                                | Required | Default | Description |
+|--------------------------------------------------------------|----------|---------|-------------|
+| `--moderne.agent.organization.reposCsv`                      | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
+| `--moderne.agent.organization.devCenter`                     | `false`  |         | The path of your `devcenter.json` file that provides the devCenter configurations. |
+| `--moderne.agent.organization.service.updateIntervalSeconds` | `false`  | `600`   |The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
 
 **Example:**
 
 ```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
---moderne.agent.organization.service.url=http://localhost:8091 \
+--moderne.agent.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
+--moderne.agent.organization.devCenter=/Users/MY_USER/Documents/devcenter.json \
 --moderne.agent.organization.service.updateIntervalSeconds=600 \
 # ... Additional arguments
 ```

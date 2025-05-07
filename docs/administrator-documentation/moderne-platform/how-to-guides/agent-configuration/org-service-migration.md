@@ -72,13 +72,13 @@ Make sure that the following configurations are not included in your Agent run c
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-**Variables:**
+**Environment Variables:**
 
-| Argument Name                                              |
-|------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      |
-| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS` |
+| Environment Variable                                       | Default | Description |
+|------------------------------------------------------------|---------|-------------|
+| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      |         | The path of your `repos.csv` file that provides organization information. |
+| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     |         | The path of your `devcenter.json` file that provides the devCenter configurations. |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS` | `600`   | Specifies how often to request your organization information. |
 
 **Example:**
 
@@ -97,11 +97,11 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                |
-|--------------------------------------------------------------|
-| `--moderne.agent.organization.reposCsv`                      |
-| `--moderne.agent.organization.devCenter`                     |
-| `--moderne.agent.organization.service.updateIntervalSeconds` |
+| Argument Name                                                | Default | Description |
+|--------------------------------------------------------------|---------|-------------|
+| `--moderne.agent.organization.reposCsv`                      |         | The path of your `repos.csv` file that provides organization information. |
+| `--moderne.agent.organization.devCenter`                     |         | The path of your `devcenter.json` file that provides the devCenter configurations. |
+| `--moderne.agent.organization.service.updateIntervalSeconds` | `600`   | Specifies how often to request your organization information. |
 
 **Example:**
 
