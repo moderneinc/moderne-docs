@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.39.0 (2025/05/01)
+
+#### What's Changed CLI
+* [OpenRewrite v8.52.0](https://github.com/openrewrite/rewrite/releases/tag/v8.52.0)
+* [rewrite-gradle-plugin v7.6.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.6.0)
+* [rewrite-maven-plugin v6.8.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.8.0)
+- v6.8.0
+
+
 ### CLI / DX v3.38.3 (2025/05/01)
 
 #### What's Changed CLI
