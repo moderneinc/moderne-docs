@@ -71,27 +71,27 @@ Major migrations are complex transformations consisting of multiple individual r
 
 | Recipe | CLI command |
 |-------------|-------------|
-| Common static analysis issues | ```mod run . --recipe CommonStaticAnalysis``` |
-| Parameterize SLF4J's logging statements | `mod run . --recipe org.openrewrite.java.logging.slf4j.ParameterizedLogging` |
-| Enhances logging of exceptions | `mod run . --recipe CompleteExceptionLogging` |
-| Upgrade Maven dependency version | `mod run . --recipe UpgradeDependencyVersion -P "groupId=com.fasterxml.jackson*" -P "artifactId=jackson-module*" -P "newVersion=29.X" -P "versionPattern='-jre'" -P "retainVersions=com.jcraft:jsch"` |
-| Exclude Maven dependency | `mod run . --recipe ExcludeDependency -P "groupId=org.junit.vintage" -P "junit-vintage-engine" -P "scope=compile"` |
-| Remove redundant explicit dependency and plugin versions | `mod run . --recipe RemoveRedundantDependencyVersions` |
-| Dependency insight for Gradle and Maven | `mod run . --recipe DependencyInsight -P groupIdPattern='com.fasterxml.jackson*' -P artifactIdPattern='jackson*'` |
-| Update Gradle wrapper | `mod run . --recipe UpdateGradleWrapper` |
-| Update a Gradle plugin by id | `mod run . --recipe UpgradePluginVersion -P "pluginIdPattern=com.jfrog.bintray" -P "newVersion=29.X" -P "versionPattern='-jre'"` |
-| Find secrets | `mod run . --recipe FindSecrets` |
-| Secure random | `mod run . --recipe SecureRandom` |
-| Java security best practices | `mod run . --recipe JavaSecurityBestPractices` |
-| Remediate vulnerabilities from the OWASP Top Ten | `mod run . --recipe OwaspTopTen` |
-| Find and fix vulnerable dependencies | `mod run . --recipe DependencyVulnerabilityCheck -P scope='runtime' -P overrideTransitive=true -P maximumUpgradeDelta='patch'` |
-| JUnit Jupiter best practices | `mod run . --recipe JUnit5BestPractices` |
-| Mockito 5.x upgrade | `mod run . --recipe Mockito1to5Migration` |
-| AssertJ best practices | `mod run . --recipe Assertj` |
-| Migrate to Java 11 | `mod run . --recipe Java8toJava11` |
-| Migrate to Java 21 | `mod run . --recipe UpgradeToJava21` |
-| Migrate to Spring Boot 2.7 | `mod run . --recipe UpgradeSpringBoot_2_7` |
-| Spring Boot 3.4 best practices | `mod run . --recipe SpringBoot3BestPractices` |
+| Common static analysis issues | `mod run . --recipe CommonStaticAnalysis --parallel` |
+| Parameterize SLF4J's logging statements | `mod run . --recipe org.openrewrite.java.logging.slf4j.ParameterizedLogging --parallel` |
+| Enhances logging of exceptions | `mod run . --recipe CompleteExceptionLogging --parallel` |
+| Upgrade Maven dependency version | `mod run . --recipe UpgradeDependencyVersion -P "groupId=com.fasterxml.jackson*" -P "artifactId=jackson-module*" -P "newVersion=29.X" -P "versionPattern='-jre'" -P "retainVersions=com.jcraft:jsch" --parallel` |
+| Exclude Maven dependency | `mod run . --recipe ExcludeDependency -P "groupId=org.junit.vintage" -P "junit-vintage-engine" -P "scope=compile" --parallel` |
+| Remove redundant explicit dependency and plugin versions | `mod run . --recipe RemoveRedundantDependencyVersions --parallel` |
+| Dependency insight for Gradle and Maven | `mod run . --recipe DependencyInsight -P groupIdPattern='com.fasterxml.jackson*' -P artifactIdPattern='jackson*' --parallel` |
+| Update Gradle wrapper | `mod run . --recipe UpdateGradleWrapper --parallel` |
+| Update a Gradle plugin by id | `mod run . --recipe UpgradePluginVersion -P "pluginIdPattern=com.jfrog.bintray" -P "newVersion=29.X" -P "versionPattern='-jre'" --parallel` |
+| Find secrets | `mod run . --recipe FindSecrets --parallel` |
+| Secure random | `mod run . --recipe SecureRandom --parallel` |
+| Java security best practices | `mod run . --recipe JavaSecurityBestPractices --parallel` |
+| Remediate vulnerabilities from the OWASP Top Ten | `mod run . --recipe OwaspTopTen --parallel` |
+| Find and fix vulnerable dependencies | `mod run . --recipe DependencyVulnerabilityCheck -P scope='runtime' -P overrideTransitive=true -P maximumUpgradeDelta='patch' --parallel` |
+| JUnit Jupiter best practices | `mod run . --recipe JUnit5BestPractices --parallel` |
+| Mockito 5.x upgrade | `mod run . --recipe Mockito1to5Migration --parallel` |
+| AssertJ best practices | `mod run . --recipe Assertj --parallel` |
+| Migrate to Java 11 | `mod run . --recipe Java8toJava11 --parallel` |
+| Migrate to Java 21 | `mod run . --recipe UpgradeToJava21 --parallel` |
+| Migrate to Spring Boot 2.7 | `mod run . --recipe UpgradeSpringBoot_2_7 --parallel` |
+| Spring Boot 3.4 best practices | `mod run . --recipe SpringBoot3BestPractices --parallel` |
 
 ### Impact analysis
 
