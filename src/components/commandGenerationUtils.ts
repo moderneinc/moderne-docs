@@ -154,6 +154,8 @@ export const generateCommand = (
   const { providers = [], providerConfigs = {} } = data || {};
   const generalConfig = data?.generalConfig || {};
   
+  // START: STEP PROCESSING SECTION - ADD NEW STEPS HERE
+
   // Process general configuration
   if (generalConfig && generalConfig.fields) {
     processFieldsSection(generalConfig.fields, exportLines, cmdArgs, commandType);
@@ -254,6 +256,13 @@ export const generateCommand = (
   if (data?.strictRecipeSourcesConfig?.enabled && data?.strictRecipeSourcesConfig.fields) {
     processFieldsSection(data.strictRecipeSourcesConfig.fields, exportLines, cmdArgs, commandType);
   }
+
+  // Process organization hierarchy and dev center configuration
+  if (data?.orgHierarchyAndDevCenterConfig?.enabled && data?.orgHierarchyAndDevCenterConfig.fields) {
+    processFieldsSection(data.orgHierarchyAndDevCenterConfig.fields, exportLines, cmdArgs, commandType);
+  }
+
+  // END: STEP PROCESSING SECTION
   
   // Build the command string
   let command = '';

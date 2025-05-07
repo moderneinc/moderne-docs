@@ -5,6 +5,7 @@ import styles from './styles/StepCommandBuilder.module.css';
 import StepSCMConfig from './StepSCMConfig';
 import StepCommandPreview from './StepCommandPreview';
 import StepGeneralConfig from './StepGeneralConfig';
+import StepOrgHierarchyAndDevCenterConfig from './StepOrgHierarchyAndDevCenterConfig';
 import StepStrictRecipeSourcesConfig from './StepStrictRecipeSourcesConfig';
 import StepArtifactoryLSTConfig from './StepArtifactoryLSTConfig';
 import StepMavenRepositoryConfig from './StepMavenRepositoryConfig';
@@ -27,6 +28,7 @@ interface ValidationState {
   [key: string]: ValidationResult;
 }
 
+// DO NOT FORGET TO ALSO UPDATE THE commandGenerationUtils.ts FILE SO THAT THE COMMAND PREVIEW AT THE END WORKS
 const steps: Step[] = [
   { 
     label: 'Core Variables', 
@@ -58,6 +60,13 @@ const steps: Step[] = [
     configKey: 'strictRecipeSourcesConfig',
     optional: true,
     docsLink: 'https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-strict-recipe-sources'
+  },
+  { 
+    label: 'Org Hierarchy and Dev Center', 
+    component: StepOrgHierarchyAndDevCenterConfig,
+    configKey: 'orgHierarchyAndDevCenterConfig',
+    optional: true,
+    docsLink: 'http://localhost:3000/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-organizations-hierarchy'
   },
   { 
     label: 'Command Preview', 
