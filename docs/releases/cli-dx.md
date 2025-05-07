@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.39.1 (2025/05/07)
+
+#### What's Changed CLI
+* Parse Gradle lockfiles as plain text so that recipes may manipulate them
+#### What's Changed DX
+* Optimize DX parsing of `repos.csv` files
+
+
 ### CLI / DX v3.39.0 (2025/05/07)
 
 #### What's Changed CLI
