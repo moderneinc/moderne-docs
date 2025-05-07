@@ -290,7 +290,7 @@ Now that you have you a `devcenter.json` file, please place this file in a locat
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_ORGANIZATION_DEVCENTER=/Users/MY_USER/Documents/repos.csv \
+-e MODERNE_AGENT_ORGANIZATION_DEVCENTER=/Users/MY_USER/Documents/devcenter.json \
 # ... Additional variables
 ```
 
@@ -309,7 +309,7 @@ docker run \
 ```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
---moderne.agent.organization.devCenter=/Users/MY_USER/Documents/repos.csv \
+--moderne.agent.organization.devCenter=/Users/MY_USER/Documents/devcenter.json \
 # ... Additional arguments
 ```
 
@@ -332,7 +332,7 @@ java -jar moderne-agent-{version}.jar \
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_DX_ORGANIZATION_DEVCENTERJSON=/Users/MY_USER/Documents/repos.csv \
+-e MODERNE_DX_ORGANIZATION_DEVCENTERJSON=/Users/MY_USER/Documents/devcenter.json \
 # ... Additional variables
 ```
 
@@ -351,7 +351,7 @@ docker run \
 ```bash
 java -jar moderne-dx-{version}.jar  \
 # ... Existing arguments
---moderne.dx.organization.devCenterJson=/Users/MY_USER/Documents/repos.csv \
+--moderne.dx.organization.devCenterJson=/Users/MY_USER/Documents/devcenter.json \
 # ... Additional arguments
 ```
 
