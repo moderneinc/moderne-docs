@@ -34,14 +34,15 @@ Make sure that the following configurations are not included in your Agent run c
 
 **Variables:**
 
-| Argument Name                                       |
-|-----------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`            |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_SKIPSSL`        |
-| `MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH`      | 
-| `MODERNE_AGENT_ORGANIZATION_FILE_COMMITOPTIONSPATH` | 
-| `MODERNE_AGENT_ORGANIZATION_FILE_IDMAPPINGPATH`     | 
-| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`     | 
+| Argument Name                                              |
+|------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`                   |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_SKIPSSL`               |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS` |
+| `MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH`             | 
+| `MODERNE_AGENT_ORGANIZATION_FILE_COMMITOPTIONSPATH`        | 
+| `MODERNE_AGENT_ORGANIZATION_FILE_IDMAPPINGPATH`            | 
+| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`            | 
 
 </TabItem>
 
@@ -49,14 +50,15 @@ Make sure that the following configurations are not included in your Agent run c
 
 **Arguments:**
 
-| Argument Name                                    |
-|--------------------------------------------------|
-| `--moderne.agent.organization.service.url`       |
-| `--moderne.agent.organization.service.skipSsl`   |
-| `--moderne.agent.organization.file.reposCsvPath` | 
-| `--moderne.agent.organization.commitOptionsPath` | 
-| `--moderne.agent.organization.idMappingPath`     | 
-| `--moderne.agent.organization.devCenterPath`     | 
+| Argument Name                                                |
+|--------------------------------------------------------------|
+| `--moderne.agent.organization.service.url`                   |
+| `--moderne.agent.organization.service.skipSsl`               |
+| `--moderne.agent.organization.service.updateIntervalSeconds` |
+| `--moderne.agent.organization.file.reposCsvPath`             | 
+| `--moderne.agent.organization.commitOptionsPath`             | 
+| `--moderne.agent.organization.idMappingPath`                 | 
+| `--moderne.agent.organization.devCenterPath`                 | 
 
 </TabItem>
 </Tabs>
