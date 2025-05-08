@@ -116,7 +116,7 @@ cloneUrl,branch,org1,org2,org3,org4
 
 ## Agent configuration
 
-The `repos.csv` source location is configured via the `moderne.agent.organization.repoCsv` variable. Its value may be a
+The `repos.csv` source location is configured via the `moderne.agent.organization.reposCsv` variable. Its value may be a
 local path or an unauthenticated HTTP(S) URI. You can also configure how often the agent looks for changes to this
 file (by default it's every 10 minutes).
 
