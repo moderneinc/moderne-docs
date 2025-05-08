@@ -293,7 +293,7 @@ docker run \
 -e MODERNE_DX_MAVEN_0_USERNAME \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 # ... Additional variables to come
 -p 8080:8080
@@ -319,7 +319,7 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.updateIntervalSeconds=600 \
+--moderne.dx.organization.syncIntervalSeconds=600 \
 --moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
 ```
 </TabItem>
@@ -355,7 +355,7 @@ docker run \
 -e MODERNE_DX_MAVEN_0_USERNAME \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
 -e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 -p 8080:8080
@@ -381,7 +381,7 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.updateIntervalSeconds=600 \
+--moderne.dx.organization.syncIntervalSeconds=600 \
 --moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
 --moderne.dx.recipe.useOnlyConfigured=true
 ```
@@ -425,7 +425,7 @@ docker run \
 -e MODERNE_DX_MAVEN_0_USERNAME \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 -p 8080:8080
 moderne-dx:latest
@@ -452,7 +452,7 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.updateIntervalSeconds=600 \
+--moderne.dx.organization.syncIntervalSeconds=600 \
 --moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
 ```
 

@@ -386,7 +386,7 @@ java -jar moderne-agent-{version}.jar \
 |------------------------------------------------------------|----------|---------|-------------|
 | `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
 | `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
+| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
 
 **Example:**
 
@@ -395,7 +395,7 @@ docker run \
 # ... Existing variables
 -e MODERNE_AGENT_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_AGENT_ORGANIZATION_DEVCENTER=/Users/MY_USER/Documents/devcenter.json \
--e MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS=600 \
+-e MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS=600 \
 # ... Additional variables
 ```
 </TabItem>
@@ -408,7 +408,7 @@ docker run \
 |--------------------------------------------------------------|----------|---------|-------------|
 | `--moderne.agent.organization.reposCsv`                      | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
 | `--moderne.agent.organization.devCenter`                     | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
-| `--moderne.agent.organization.service.updateIntervalSeconds` | `false`  | `600`   |The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
+| `--moderne.agent.organization.updateIntervalSeconds` | `false`  | `600`   |The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
 
 **Example:**
 
@@ -417,7 +417,7 @@ java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 --moderne.agent.organization.devCenter=/Users/MY_USER/Documents/devcenter.json \
---moderne.agent.organization.service.updateIntervalSeconds=600 \
+--moderne.agent.organization.updateIntervalSeconds=600 \
 # ... Additional arguments
 ```
 </TabItem>

@@ -13,7 +13,7 @@ const orgHierarchyAndDevCenterConfigDefinition = {
     { 
       label: 'Update interval (seconds)', 
       key: 'updateIntervalSeconds', 
-      envKey: 'MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS',
+      envKey: 'MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS',
       description: 'The number of seconds that the agent should wait before it checks for an update to your <strong>repos.csv</strong> file.',
       required: false,
       type: 'text',

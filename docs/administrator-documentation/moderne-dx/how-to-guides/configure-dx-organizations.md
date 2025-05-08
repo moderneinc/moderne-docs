@@ -85,7 +85,7 @@ The following table contains all of the variables/arguments you need to add to y
 | `MODERNE_DX_ORGANIZATION_REPOSCSV`                | `true`   |         | The path of your `repos.csv` file that provides organization information. Cannot be combined with `MODERNE_DX_ORGANIZATION_URL`.                                                                                                                   |
 | `MODERNE_DX_ORGANIZATION_DEVCENTERJSON`           | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                 |
 | `MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS`    | `false`  |         | The commit options used if not specified by the organization service.                                                                                                                                                                            |
-| `MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`.                                                                                                                        |
+| `MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`.                                                                                                                        |
 | `MODERNE_DX_ORGANIZATION_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
@@ -94,7 +94,7 @@ The following table contains all of the variables/arguments you need to add to y
 docker run \
 # ... Existing variables
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional variables
 ```
@@ -110,7 +110,7 @@ docker run \
 | `--moderne.dx.organization.reposCsv`              | `true`   |         | The path of your `repos.csv` file that provides organization information. Cannot be combined with `--moderne.dx.organization.url`.                                                                                                                   |
 | `--moderne.dx.organization.devCenterJson`         | `true`   |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                   |
 | `--moderne.dx.organization.defaultCommitOptions`  | `false`  |         | The commit options used if not specified by the organization service.                                                                                                                                                                              |
-| `--moderne.dx.organization.updateIntervalSeconds` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `--moderne.dx.organization.url`.                                                                                                                        |
+| `--moderne.dx.organization.syncIntervalSeconds` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `--moderne.dx.organization.url`.                                                                                                                        |
 | `--moderne.dx.organization.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `--moderne.dx.organization.url`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
@@ -119,7 +119,7 @@ docker run \
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.updateIntervalSeconds=600 \
+--moderne.dx.organization.syncIntervalSeconds=600 \
 --moderne.dx.organization.defaultCommitOptions=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional arguments
 ```

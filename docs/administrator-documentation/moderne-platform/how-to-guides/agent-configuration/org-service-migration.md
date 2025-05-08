@@ -78,7 +78,7 @@ Make sure that the following configurations are not included in your Agent run c
 |------------------------------------------------------------|---------|-------------|
 | `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      |         | The path of your `repos.csv` file that provides organization information. |
 | `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS` | `600`   | Specifies how often to request your organization information. |
+| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `600`   | Specifies how often to request your organization information. |
 
 **Example:**
 
@@ -87,7 +87,7 @@ docker run \
 # ... Existing variables
 -e MODERNE_AGENT_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_AGENT_ORGANIZATION_DEVCENTER=/Users/MY_USER/Documents/devcenter.json \
--e MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS=600 \
+-e MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS=600 \
 # ... Additional variables
 ```
 
@@ -101,7 +101,7 @@ docker run \
 |--------------------------------------------------------------|---------|-------------|
 | `--moderne.agent.organization.reposCsv`                      |         | The path of your `repos.csv` file that provides organization information. |
 | `--moderne.agent.organization.devCenter`                     |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
-| `--moderne.agent.organization.service.updateIntervalSeconds` | `600`   | Specifies how often to request your organization information. |
+| `--moderne.agent.organization.updateIntervalSeconds` | `600`   | Specifies how often to request your organization information. |
 
 **Example:**
 
@@ -110,7 +110,7 @@ java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 --moderne.agent.organization.devCenter=/Users/MY_USER/Documents/devcenter.json \
---moderne.agent.organization.service.updateIntervalSeconds=600 \
+--moderne.agent.organization.updateIntervalSeconds=600 \
 # ... Additional arguments
 ```
 
