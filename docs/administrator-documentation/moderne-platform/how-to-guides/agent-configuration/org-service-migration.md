@@ -42,6 +42,7 @@ Make sure that the following configurations are not included in your Agent run c
 | `MODERNE_AGENT_ORGANIZATION_FILE_COMMITOPTIONSPATH` | 
 | `MODERNE_AGENT_ORGANIZATION_FILE_IDMAPPINGPATH`     | 
 | `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`     | 
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS` |
 
 </TabItem>
 
@@ -57,6 +58,7 @@ Make sure that the following configurations are not included in your Agent run c
 | `--moderne.agent.organization.commitOptionsPath` | 
 | `--moderne.agent.organization.idMappingPath`     | 
 | `--moderne.agent.organization.devCenterPath`     | 
+| `--moderne.agent.organization.service.updateIntervalSeconds` |
 
 </TabItem>
 </Tabs>
