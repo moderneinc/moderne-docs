@@ -297,9 +297,7 @@ export default function OptionalStepComponent({
               })}
             </>
           ) : (
-            <>
-              <p>Configure your {configDefinition.label.toLowerCase()} settings.</p>
-              
+            <>              
               {configDefinition.fields.map((field) => {
                 const fieldData = fields[field.key] || ({} as Instance);
                 const fieldValue = fieldData.value || field.defaultValue || '';
