@@ -274,7 +274,7 @@ java -jar moderne-dx-{version}.jar \
 | `MODERNE_DX_ORGANIZATION_REPOSCSV`                | `true`   |         | The path of your `repos.csv` file that provides organization information. Cannot be combined with `MODERNE_DX_ORGANIZATION_URL`.                                                                                                                   |
 | `MODERNE_DX_ORGANIZATION_DEVCENTERJSON`           | `false`  |         | The path of your `devcenter.json` file that provides the devCenter configurations.                                                                                                        |
 | `MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS`    | `false`  |         | The commit options used if not specified by the organization service.                                                                                                                                                                            |
-| `MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`.                                                                                                                        |
+| `MODERNE_DX_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`.                                                                                                                        |
 | `MODERNE_DX_ORGANIZATION_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
@@ -283,7 +283,7 @@ java -jar moderne-dx-{version}.jar \
 docker run \
 # ... Existing variables
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_UPDATE_INTERVAL_SECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_UPDATEINTERVALSECONDS=600 \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional variables
 ```
