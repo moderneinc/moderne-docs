@@ -24,6 +24,7 @@ To migrate from the old organization service to the new file-based configuration
 1. Remove any configuration related to the Organization Service from your Agent
 2. Configure the Agent to use `repos.csv` and `devcenter.json`
 3. Remove the organization service from your system
+4. Ensure that your agent is using at least version `0.221.0` (to get the latest variable names included in this doc)
 
 ### 1. Remove any configuration related to the Organization Service from your Agent
 
