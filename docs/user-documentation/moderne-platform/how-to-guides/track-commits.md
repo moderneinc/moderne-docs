@@ -115,6 +115,13 @@ To navigate to the open PRs themselves, you can either click on the repository n
 
 If opening a PR failed for some reason, you can see the details of why on this screen. You can also press the `Re-run failed` button to try and open them again.
 
+You may also see a PR status of `Blocked` if a review is required, but the PR hasn't been reviewed. Likewise, you might see `Blocked` if the CI pipeline needs to complete prior to a merge, but it hasn't. If you mouse over the `Blocked` status, you'll get more information about it:
+
+<figure>
+  ![](./assets/blocked.png)
+  <figcaption>_An example of a commit being blocked._</figcaption>
+</figure>
+
 Lastly, you can download all of this information as a data table by clicking on the `Export` button – which can be useful if you want to pipe the data into another system.
 
 #### If you committed directly
