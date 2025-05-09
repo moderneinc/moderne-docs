@@ -370,3 +370,45 @@ java -jar moderne-dx-{version}.jar \
 ```
 </TabItem>
 </Tabs>
+
+## Token and license variables
+
+<Tabs groupId="dx-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name             | Required | Default | Description |
+|---------------------------|----------|---------|-------------|
+| `MODERNE_DX_LICENSEKEY`   | `true`   |         | A license key that you receive from Moderne. This is necessary for users to run recipes. |
+| `MODERNE_DX_TOKEN_{index}`| `false`  |         | A shared secret that grants users administrative access to DX when included in their local command. This elevated access allows them to perform actions like installing recipes or running diagnostics against a DX instance. You can define one or more tokens. While DX can start without them, we strongly recommend setting at least one.  |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_DX_TOKEN_0=some-token \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                | Required | Default | Description |
+|------------------------------|----------|---------|-------------|
+| `--moderne.dx.licenseKey`    | `true`   |         | A license key that you receive from Moderne. This is necessary for users to run recipes. |
+| `--moderne.dx.token[{index}]`| `false`  |         | A shared secret that grants users administrative access to DX when included in their local command. This elevated access allows them to perform actions like installing recipes or running diagnostics against a DX instance. You can define one or more tokens. While DX can start without them, we strongly recommend setting at least one. |
+
+**Example:**
+
+```bash
+java -jar moderne-dx-{version}.jar \
+# ... Existing arguments
+--moderne.dx.token[0]=some-token \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>

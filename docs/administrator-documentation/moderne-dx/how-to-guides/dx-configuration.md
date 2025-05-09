@@ -156,7 +156,7 @@ The Moderne DX service can only talk to _Maven formatted_ artifact repositories.
 
 Moderne offers two options for connecting to your artifact repository: a generic Maven connection that can connect to any Maven formatted repository regardless of vendor and an Artifactory-specific connection that is optimized to serve LST artifacts more quickly.
 
-If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](./configure-dx-with-maven-repository-access.md) and then jump to [Step 4](#step-4-optionally-configure-an-organization-structure).
+If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](./configure-dx-with-maven-repository-access.md) and then jump to [Step 5](#step-5-optionally-configure-an-organization-structure).
 
 If you _do_ plan on using Artifactory to store artifacts, you have two options:
 
@@ -176,9 +176,6 @@ Please ensure you've followed either the [Maven](./configure-dx-with-maven-repos
 
 Below is an example of what the Moderne DX service run command might look like at the end of this step.
 
-:::tip
-`token[N]` / `TOKEN_N` is used to specify one or more tokens that can be used by admins.
-:::
 
 <Tabs groupId="dx-type">
 <TabItem value="docker-image" label="Docker image">
@@ -186,14 +183,12 @@ Below is an example of what the Moderne DX service run command might look like a
 ```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
-export MODERNE_DX_TOKEN_0=...
 export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
 export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
 export MODERNE_DX_MAVEN_0_USERNAME=...
 export MODERNE_DX_MAVEN_0_PASSWORD=...
 
 docker run \
--e MODERNE_DX_TOKEN_0 \
 -e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
 -e MODERNE_DX_ARTIFACTORY_0_USERNAME \
 -e MODERNE_DX_ARTIFACTORY_0_PASSWORD \
@@ -263,7 +258,43 @@ java -jar moderne-dx-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 4: (Optionally) Configure an organization structure
+### Step 4: (Optional but recommended) Add one or more admin tokens
+
+An admin token is a shared secret that grants users administrative access to DX when included in their local command. This elevated access allows them to perform actions like installing recipes or running diagnostics against a DX instance. You can define one or more tokens. While DX can start without them, we strongly recommend setting at least one.
+
+<Tabs groupId="dx-type">
+<TabItem value="docker-image" label="Docker image">
+
+```bash
+export MODERNE_DX_TOKEN_0=...
+export MODERNE_DX_TOKEN_1=...
+
+docker run \
+# ... other arguments
+-e MODERNE_DX_TOKEN_0
+-e MODERNE_DX_TOKEN_1
+# ... Additional variables to come
+-p 8080:8080
+moderne-dx:latest
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+```bash
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.dx.token[0]=...
+# --moderne.dx.token[1]=...
+export MODERNE_DX_TOKEN_0=...
+export MODERNE_DX_TOKEN_1=...
+
+java -jar moderne-dx-{version}.jar \
+# ... other arguments
+```
+</TabItem>
+</Tabs>
+
+### Step 5: (Optionally) Configure an organization structure
 
 Many organizations desire the ability to control the organizational structure of their repositories within the Moderne Platform in a dynamic way. To facilitate this need, Moderne provides two approaches: a file-based one or a service-based one (where you configure an Organizations service that is hosted inside of your environment).
 
@@ -325,7 +356,7 @@ java -jar moderne-dx-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 5: (Optionally) Use strict recipe sources.
+### Step 6: (Optionally) Use strict recipe sources.
 
 Some organizations want recipe artifacts to only come from locations configured in the Moderne DX service. If you want to configure that, please follow the [strict recipe sources instructions](./configure-dx-with-strict-recipe-sources.md).
 
@@ -388,11 +419,11 @@ java -jar moderne-dx-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 6: (Optionally) Provide SSL client keystore
+### Step 7: (Optionally) Provide SSL client keystore
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please see the [configure DX with SSL certificate instructions](./configure-dx-ssl.md).
 
-### Step 7: Run the service
+### Step 8: Run the service
 
 At this point, you should have configured everything needed to run the Moderne DX service. If you run into issues running the command, please don't hesitate to reach out.
 
