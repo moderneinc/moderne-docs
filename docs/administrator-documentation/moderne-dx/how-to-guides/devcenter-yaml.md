@@ -17,7 +17,7 @@ If you haven't configured said service, you can still manually create such a fil
 
 <details>
 
-<summary>Example `organizations.yml` file:</summary>
+<summary>Example `organization.yml` file:</summary>
 
 ```yaml
 name: Default
