@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.39.2 (2025/05/09)
+
+#### What's Changed CLI
+* Do not forward `Authorization` header on following cross realm redirects
+* wrap parameters and option names in backticks for preformatted text output for docs
+#### What's Changed DX
+* Propagate download errors to ensure completion of LST sync task
+* Catch exception when failing to fetch `repos.csv` by DX to ensure fallback is executed
+* Avoid infinite loop when executing `/refreshOrganizations` DX mutation
+
+
 ### CLI / DX v3.39.1 (2025/05/07)
 
 #### What's Changed CLI
