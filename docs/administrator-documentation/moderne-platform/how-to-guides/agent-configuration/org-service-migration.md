@@ -10,12 +10,9 @@ import TabItem from '@theme/TabItem';
 
 ## What was the Organization Service?
 
-The Organization Service was an optional component deployed in customer environments to provide dynamic organizational
-hierarchies.
+The Organization Service was an optional component deployed in customer environments to provide dynamic organizational hierarchies.
 
-To simplify Moderne’s operational complexity, it was decided to sunset the Organization Service and replace it with a
-file-based mechanism managed directly by the Moderne Agent. This change streamlines customer deployments by reducing the
-number of moving parts and eliminates the need for an additional network hop whenever organizational data is accessed.
+To simplify Moderne’s operational complexity, it was decided to sunset the Organization Service and replace it with a file-based mechanism managed directly by the Moderne Agent. This change streamlines customer deployments by reducing the number of moving parts and eliminates the need for an additional network hop whenever organizational data is accessed.
 
 ## Migration instructions
 
@@ -23,6 +20,7 @@ To migrate from the old organization service to the new file-based configuration
 
 1. Remove any configuration related to the Organization Service from your Agent
 2. Configure the Agent to use `repos.csv` and `devcenter.json`
+   * If copying from a previous `repos.csv` file, you may need to make some minor changes to your `repos.csv` file.
 3. Remove the organization service from your system
 4. Ensure that your agent is using at least version `0.221.0` (to get the latest variable names included in this doc)
 
@@ -67,9 +65,8 @@ Make sure that the following configurations are not included in your Agent run c
 ### 2. Configure the Agent to use `repos.csv` and `devcenter.json`
 
 1. Copy the `devcenter.json` file from your Organization Service and put it somewhere where your Agent can access.
-2. Follow [the organizational hierarchy configuration instructions](./configure-organizations-hierarchy.md) to generate
-   a `repos.csv`. Alternatively, if your Organization Service already uses a `repos.csv`, you may copy that file
-   directly and put it somewhere where your Agent can access.
+2. Follow [the organizational hierarchy configuration instructions](./configure-organizations-hierarchy.md) to generate a `repos.csv`. Alternatively, if your Organization Service already uses a `repos.csv`, you may copy that file directly and put it somewhere where your Agent can access.
+   * **Note**: There are a couple of changes you should be aware of if you previously used an Organization Service. We've [documented those at the bottom of this doc](#notable-changes-from-the-previous-organization-service).
 3. Update the relevant variables in your Agent deployment so that your Agent knows where these files are.
 
 <Tabs groupId="agent-type">
@@ -130,3 +127,28 @@ of a local file, use a URI instead of a local file.
 
 This step will depend on your specific deployment topology. 
 
+## Notable changes from the previous Organization Service
+
+### Organization ID changes
+
+It's no longer possible to customize ID names via an `id-mapping.txt` file. Organization IDs are, instead, entirely generated from the organization names. For instance, if you have a `repos.csv` file that looks like this:
+
+```bash
+cloneUrl,branch,org1,org2,org3,org4
+<url>,<branch>,Team,Director,VP,ALL
+```
+
+Then four organizations will be produced. The IDs for these organizations will be:
+
+1. `ALL/VP/Director/Team`
+2. `ALL/VP/Director`
+3. `ALL/VP`
+4. `ALL`
+
+These are the IDs you'd then use in your `devcenter.json` file if you wanted to create Dev Centers. These are also the IDs you can use with the CLI when you run commands like: `mod git clone moderne <path> <moderne org id>`. 
+
+Note that above command also allows you to clone orgs with just the name instead of the ID – but if multiple organizations share the same name it will then ask you to pick which one you want.
+
+### Commit option changes
+
+It's no longer possible to define [commit options](./agent-config.md#step-3-configure-the-agent-with-the-core-variablesarguments) on a per-org basis. Instead, you must define what commit options you want available [in your agent](./agent-config.md#step-3-configure-the-agent-with-the-core-variablesarguments) and those commit options will be shared between all organizations.
