@@ -145,7 +145,7 @@ Then four organizations will be produced. The IDs for these organizations will b
 3. `ALL/VP`
 4. `ALL`
 
-These are the IDs you'd then use in your `devcenter.json` file if you wanted to create Dev Centers. These are also the IDs you can use with the CLI when you run commands like: `mod git clone moderne <path> <moderne org id>`. 
+These are the IDs you'd then use in your `devcenter.json` file if you wanted to create DevCenters. These are also the IDs you can use with the CLI when you run commands like: `mod git clone moderne <path> <moderne org id>`. 
 
 Note that above command also allows you to clone orgs with just the name instead of the ID – but if multiple organizations share the same name it will then ask you to pick which one you want.
 
