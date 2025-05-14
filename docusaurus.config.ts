@@ -106,10 +106,10 @@ const config: Config = {
       apiKey: "15eb9c9f6f3147b1cf82b1b7f93cace8",
       indexName: "moderne",
     },
-    announcementBar: {
-      id: "code_remix",
-      content: 'Now announcing the inaugural <a href="https://coderemix.ai/"><strong>Code Remix Summit</strong></a> – in Miami May 12th-14th. Use the code <strong>MODERNE3VIP</strong> for an additional $300 off.',
-    },
+    // announcementBar: {
+    //   id: "code_remix",
+    //   content: 'Now announcing the inaugural <a href="https://coderemix.ai/"><strong>Code Remix Summit</strong></a> – in Miami May 12th-14th.',
+    // },
     colorMode: {
       respectPrefersColorScheme: true,
     },
