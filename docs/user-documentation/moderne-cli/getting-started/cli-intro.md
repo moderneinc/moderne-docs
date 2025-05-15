@@ -59,6 +59,7 @@ Commands:
   afterburner          (INCUBATING) Indexes built LSTs to accelerate recipe
                          execution.
   audit                (INCUBATING) Perform an audit of recent activity.
+  batch                Add batch changes to the Moderne platform.
   build                Generates LST artifacts for one or more repositories.
   clean                Clean build and run artifacts produced by the CLI.
   config               Global configuration options that are required by some
@@ -66,21 +67,20 @@ Commands:
   devcenter            DevCenter operations.
   exec                 Execute an arbitrary shell command recursively on
                          selected repository roots.
+  generate-completion  Generate bash/zsh completion script for mod.
   git                  Multi-repository git operations.
   log                  Manages a log aggregate.
   list                 Lists the repositories that can be built and published.
   monitor              (INCUBATING) Launches an HTTP server used to monitor the
                          CLI.
   publish              Publishes the LST artifacts for one or more projects.
-  run                  Runs an OpenRewrite recipe locally on pre-built LSTS.
+  run                  Runs an OpenRewrite recipe locally on pre-built LSTs.
   run-history          Get information about the most recent recipe runs. This
                          will be transitioning to mod audit runs list
                          eventually. A deprecation notice will be added here
                          when we suggest adopting the alternative.
   study                Produces studies from OpenRewrite recipe data tables
                          locally.
-  generate-completion  Generate bash/zsh completion script for mod.
-  batch                Add batch changes to the Moderne platform.
 
 MOD SUCCEEDED in (0.01s)
 ```
@@ -161,7 +161,7 @@ cd $HOME/workshop
 2. For this exercise, we've prepared a list of open-source repositories for you to use. These repositories have been added to the Moderne Platform and put inside the `Default` organization. Clone these repositories by running the following command from inside your `workshop` directory:
 
 ```bash
-mod git clone moderne . "Default" --parallel 0
+mod git clone moderne . "Default" --parallel -1
 ```
 
 :::info
@@ -444,7 +444,7 @@ With the LSTs built, you can now run recipes against them. Let's run the `Depend
 **Note**: Please make sure to pick the `org.openrewrite.java.dependencies.DependencyVulnerabilityCheck` recipe when you run the following command as multiple recipes with this title exist.
 
 ```bash
-mod run . --recipe DependencyVulnerabilityCheck --parallel 0
+mod run . --recipe DependencyVulnerabilityCheck --parallel -1
 ```
 
 <details>
@@ -626,7 +626,7 @@ Open up the Excel file that is produced. You will see that the recipe found almo
 Maybe you don't really want an Excel spreadsheet as the output, though. Fortunately, the Moderne CLI lets you customize what you get out of data tables with templates. Let's run a new recipe to demonstrate this. Let's run a recipe to find all locations where the `java.util.List add(..)` method is used (For more information on how to select a particular method, check out our [method patterns documentation](https://docs.openrewrite.org/reference/method-patterns)).
 
 ```bash
-mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)" --parallel 0
+mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)" --parallel -1
 
 # Select the following recipe: 
 #   * Find method usages (org.openrewrite.java.search.FindMethods)
@@ -651,7 +651,7 @@ So far, everything we've done has remained local to your machine. In a real-worl
 To begin, make sure you're still in the `$HOME/workshop` directory with the `Default` organization cloned. Then, run the following recipe to resolve common static analysis issues in all of the repositories:
 
 ```bash
-mod run . --recipe CommonStaticAnalysis --parallel 0
+mod run . --recipe CommonStaticAnalysis --parallel -1
 ```
 
 <details>
