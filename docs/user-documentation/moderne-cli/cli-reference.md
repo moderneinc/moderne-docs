@@ -231,9 +231,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod git stashset**](#mod-git-stashset)
 * [**mod git stashset apply**](#mod-git-stashset-apply)
 * [**mod git stashset push**](#mod-git-stashset-push)
-* [**mod git stashset**](#mod-git-stashset)
-* [**mod git stashset apply**](#mod-git-stashset-apply)
-* [**mod git stashset push**](#mod-git-stashset-push)
 * [**mod git sync**](#mod-git-sync)
 * [**mod git sync moderne**](#mod-git-sync-moderne)
 * [**mod git status**](#mod-git-status)
@@ -5265,92 +5262,6 @@ mod git rev-parse /path/to/project
 | `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-
-
-## mod git stashset
-
-Performs the equivalent of **git stash** on multiple repositories.
-
-
-Rather than applying one stash at a time, this operates on multiple repositories.
-
-This command does not affect the stash log of the repository, but rather stores the otherwise untracked commit in a multi-repository stash file in Moderne configuration, so the whole 'stashset' can be applied at once atomically.
-
-### Usage
-
-```
-mod git stashset [subcommands]
-```
-
-### Examples
-
-```
-mod git stashset /path/to/project
-```
-
-
-### Subcommands
-
-* `apply`: Performs the equivalent of **git stash apply** on multiple repositories.
-* `push`: Performs the equivalent of **git stash push** on multiple repositories.
-
-## mod git stashset apply
-
-Performs the equivalent of **git stash apply** on multiple repositories.
-
-
-
-
-### Usage
-
-```
-mod git stashset apply [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| `ref` |  The stash ref to apply. |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--force` |  Pop the stash after applying it, regardless of whether it made a change. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-
-
-## mod git stashset push
-
-Performs the equivalent of **git stash push** on multiple repositories.
-
-
-
-
-### Usage
-
-```
-mod git stashset push [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `-u`, `--include-untracked` |  Include untracked files. |  |
 
 
 ## mod git stashset
