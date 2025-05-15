@@ -1,5 +1,15 @@
 # CLI / DX changelog
 
+### CLI / DX v3.40.0 (2025/05/14)
+
+#### What's Changed CLI
+* Allow `mod git clone moderne` to clone by organization name or organization id
+* Improve windows file path handling for `JAVA_HOME`
+* Pinning jinjava to 2.7.4
+* Blocking Javascript build step for now
+* Fix duplicated command issue with docs
+
+
 ### CLI / DX v3.39.2 (2025/05/09)
 
 #### What's Changed CLI
