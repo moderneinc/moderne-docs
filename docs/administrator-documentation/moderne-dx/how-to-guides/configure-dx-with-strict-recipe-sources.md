@@ -61,13 +61,13 @@ This fallback behavior can be disabled using recipe configuration. If the Modern
 |----------------------------------------------|--------------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
 | `MODERNE_DX_RECIPE_USEONLYCONFIGURED`        | `true`                                           |         | Only use the recipe sources configured in the service.                                            |
 | `MODERNE_DX_RECIPE_POMCACHE_TYPE`            | `false`                                          |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
-| `MODERNE_DX_RECIPE_POMCACHE_ENTRYTTLMINUTES` | `false`                                          |         | How long entries should live in the POM cache.                                                    |
+| `MODERNE_DX_RECIPE_POMCACHE_ENTRYTTLMINUTES` | `false`                                          |   60    | How long entries should live in the POM cache.                                                    |
 | `MODERNE_DX_RECIPE_POMCACHE_REDIS_HOST`      | `true` (If the POM cache type is set to `REDIS`) |         | The URL of the Redis instance.                                                                    |
-| `MODERNE_DX_RECIPE_POMCACHE_REDIS_PORT`      | `true` (If the POM cache type is set to `REDIS`) |         | The port number of the Redis instance.                                                            |
+| `MODERNE_DX_RECIPE_POMCACHE_REDIS_PORT`      | `true` (If the POM cache type is set to `REDIS`) |  6379   | The port number of the Redis instance.                                                            |
 | `MODERNE_DX_RECIPE_POMCACHE_REDIS_USERNAME`  | `false`                                          |         | The username needed to authenticate to the Redis instance.                                        |
 | `MODERNE_DX_RECIPE_POMCACHE_REDIS_PASSWORD`  | `false`                                          |         | The password needed to authenticate with the Redis instance.                                      |
 | `MODERNE_DX_RECIPE_POMCACHE_REDIS_SSL`       | `false`                                          | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.              |
-| `MODERNE_DX_RECIPE_POMCACHE_REDIS_DATABASE`  | `false`                                          |         | The Redis DB index.                                                                               |
+| `MODERNE_DX_RECIPE_POMCACHE_REDIS_DATABASE`  | `false`                                          |   0     | The Redis DB index.                                                                               |
 
 **Example:**
 
@@ -87,13 +87,13 @@ docker run \
 |------------------------------------------------|--------------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
 | `--moderne.dx.recipe.useOnlyConfigured`        | `true`                                           |         | Only use the recipe sources configured in the service.                                            |
 | `--moderne.dx.recipe.pomCache.type`            | `false`                                          |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
-| `--moderne.dx.recipe.pomCache.entryTtlMinutes` | `false`                                          |         | How long entries should live in the POM cache.                                                    |
+| `--moderne.dx.recipe.pomCache.entryTtlMinutes` | `false`                                          |   60    | How long entries should live in the POM cache.                                                    |
 | `--moderne.dx.recipe.pomCache.redis.host`      | `true` (If the POM cache type is set to `REDIS`) |         | The URL of the Redis instance.                                                                    |
-| `--moderne.dx.recipe.pomCache.redis.port`      | `true` (If the POM cache type is set to `REDIS`) |         | The port number of the Redis instance.                                                            |
+| `--moderne.dx.recipe.pomCache.redis.port`      | `true` (If the POM cache type is set to `REDIS`) |   6379  | The port number of the Redis instance.                                                            |
 | `--moderne.dx.recipe.pomCache.redis.username`  | `false`                                          |         | The username needed to authenticate to the Redis instance.                                        |
 | `--moderne.dx.recipe.pomCache.redis.password`  | `false`                                          |         | The password needed to authenticate with the Redis instance.                                      |
 | `--moderne.dx.recipe.pomCache.redis.ssl`       | `false`                                          | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.              |
-| `--moderne.dx.recipe.pomCache.redis.database`  | `false`                                          |         | The Redis DB index.                                                                               |
+| `--moderne.dx.recipe.pomCache.redis.database`  | `false`                                          |    0    | The Redis DB index.                                                                               |
 
 **Example:**
 
