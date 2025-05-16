@@ -31,7 +31,7 @@ const strictRecipeSourcesConfigDefinition = {
       description: 'How long entries should live in the POM cache.',
       required: false,
       type: 'text',
-      defaultValue: ''
+      defaultValue: '60'
     },
     { 
       label: 'Redis Host', 
@@ -49,7 +49,7 @@ const strictRecipeSourcesConfigDefinition = {
       description: 'The port number of the Redis instance. <strong>This must be set if POM Cache Type is set to REDIS.</strong>',
       required: false,
       type: 'text',
-      defaultValue: ''
+      defaultValue: '6379'
     },
     { 
       label: 'Redis Username', 
@@ -85,7 +85,7 @@ const strictRecipeSourcesConfigDefinition = {
       description: 'The Redis DB index.',
       required: false,
       type: 'text',
-      defaultValue: ''
+      defaultValue: '0'
     },
   ]
 };
