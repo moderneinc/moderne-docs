@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v11.52.0 (2025/05/17)
+
+- display status icons on results tree
+- update builder greeter
+
 ### UI v11.51.4 (2025/05/09)
 
 - Bug fixes and other improvements.
