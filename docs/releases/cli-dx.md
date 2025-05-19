@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.41.0 (2025/05/19)
+
+#### What's Changed CLI
+- add generate docs
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.40.0 (2025/05/14)
 
 #### What's Changed CLI
