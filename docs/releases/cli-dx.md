@@ -1,11 +1,9 @@
 # CLI / DX changelog
 
-### CLI / DX v3.41.0 (2025/05/19)
+### CLI / DX v3.41.0 (2025/05/20)
 
 #### What's Changed CLI
-- add generate docs
-#### What's Changed DX
-* N/A
+- [OpenRewrite v8.53.0](https://github.com/openrewrite/rewrite/releases/tag/v8.53.0)
 
 
 ### CLI / DX v3.40.0 (2025/05/14)
