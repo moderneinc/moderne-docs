@@ -15,6 +15,7 @@ To help you understand how to automate recipe execution and commits, we'll walk 
 * [Execute recipes](#recipe-execution)
 * [Verify that recipes have been completed](#verify-recipe-completion)
 * [Retrieve repository results](#retrieve-repositories-with-results)
+* [Download data tables](#downloading-data-tables)
 * [Commit changes](#creating-a-pull-request)
 * [Ensure that committed changes are correct](#verify-commit-job)
 
@@ -245,6 +246,135 @@ curl --request POST \
   }
 }
 ```
+
+### Downloading data tables
+
+1. To begin, you'll need to create and run a query that specifies what data table you'd like to create. The following command demonstrates how you'd request the `org.openrewrite.table.SourceFileResults` data table:
+
+<Tabs>
+<TabItem value="data-table-mutation" label="Start Data Table Download Mutation">
+
+```graphql
+mutation demoStartDataTableDownload($recipeRunId: ID!, $dataTable: String! = "org.openrewrite.table.SourcesFileResults", $format: DataTableFormat! = CSV, $scmAccessTokens:[ScmAccessToken!]) {
+  downloadDataTable(
+    recipeRunId: $recipeRunId
+    dataTable: $dataTable
+    format: $format
+    scmAccessTokens:$scmAccessTokens
+  ) {
+    id
+    state
+    stats {
+      repositories
+      fileSize
+    }
+    stateMessage
+    downloadUrl
+  }
+}
+```
+</TabItem>
+
+<TabItem value="mutation-variables" label="Mutation Variables">
+
+```graphql
+{
+  "recipeRunId": "<recipe run id>",
+  "dataTable": "org.openrewrite.table.SourcesFileResults",
+  "format": "CSV",
+  "scmAccessTokens": [
+    {
+      "origin": "https://github.com", 
+      "value" : "<github personal access token>"
+    }]
+}
+```
+</TabItem>
+</Tabs>
+
+2. The above command will return an ID in the response. As the data table creation will take time, you will need to poll with this ID until the download is ready:
+
+<Tabs>
+<TabItem value="data-table-download-mutation" label="Data Table Download Mutation">
+
+```graphql
+query demoDownloadDataTable($dataTableDownloadId: ID!) {
+  dataTableDownload(id: $dataTableDownloadId) {
+    format
+    id
+    state
+    stats {
+      repositories
+      fileSize
+    }
+    stateMessage
+    downloadUrl
+  }
+}
+```
+</TabItem>
+
+<TabItem value="mutation-variables" label="Mutation Variables">
+
+```graphql
+{
+  "dataTableDownloadId": "jNOUKRsYF"
+}
+```
+</TabItem>
+</Tabs>
+
+The response will either be "pending" or "success":
+
+<Tabs>
+<TabItem value="pending" label="Pending">
+
+```json
+{
+  "data": {
+    "dataTableDownload": {
+      "format": "CSV",
+      "id": "vkBmCwP1E",
+      "state": "PENDING",
+      "stats": {
+        "repositories": 0,
+        "fileSize": 0,
+        "__typename": "DataTableDownloadStats"
+      },
+      "stateMessage": null,
+      "downloadUrl": null,
+      "__typename": "DataTableDownloadTask"
+    }
+  }
+}
+```
+</TabItem>
+
+<TabItem value="success" label="Success">
+
+```json
+{
+  "data": {
+    "dataTableDownload": {
+      "format": "CSV",
+      "id": "vkBmCwP1E",
+      "state": "SUCCESS",
+      "stats": {
+        "repositories": 72,
+        "fileSize": 383432,
+        "__typename": "DataTableDownloadStats"
+      },
+      "stateMessage": null,
+      "downloadUrl": "https://api.app.moderne.io/dataTable/vkBmCwP1E",
+      "__typename": "DataTableDownloadTask"
+    }
+  }
+}
+```
+</TabItem>
+</Tabs>
+
+3. Once you receive a `state` of `SUCCESS`, then the data table is ready to download at the location specified by the `downloadUrl` parameter. 
 
 ### Creating a pull request
 
