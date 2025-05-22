@@ -277,7 +277,7 @@ mutation demoStartDataTableDownload($recipeRunId: ID!, $dataTable: String! = "or
 
 <TabItem value="mutation-variables" label="Mutation Variables">
 
-```graphql
+```json
 {
   "recipeRunId": "<recipe run id>",
   "dataTable": "org.openrewrite.table.SourcesFileResults",
@@ -316,7 +316,7 @@ query demoDownloadDataTable($dataTableDownloadId: ID!) {
 
 <TabItem value="mutation-variables" label="Mutation Variables">
 
-```graphql
+```json
 {
   "dataTableDownloadId": "jNOUKRsYF"
 }
