@@ -38,159 +38,64 @@ With the repositories cloned, you now need to build them so that the DevCenter c
 mod build devcenter-demo
 ```
 
-## Step 3: Define your DevCenter
+## Step 3: Install rewrite-devcenter recipes
 
-Once all of your repositories are built, it's now time to figure out what your DevCenter will look like. This is done by adding an `organization.yml` file to your `.moderne` directory that should exist inside of your shared directory:
-
+Starting with CLI v3.42.0, DevCenter dashboards are built using YAML declarative recipes composed with recipes provided by the [rewrite-devcenter](https://github.com/moderneinc/rewrite-devcenter) recipe artifact. To install the latest version of rewrite-devcenter, run the following command:
 ```bash
-devcenter-demo
-├── .moderne
-│   ├── organization.yml
-├── repo1
-├── repo2
-└── repo3
+mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
 ```
 
-This file will determine what is displayed in your DevCenter. Maybe you want to track if your repositories are you using Java 21 – or maybe you care more about security vulnerabilities.
+## Step 4: Generate the DevCenterStarter dashboard
 
-In either case, you'll want to define those pieces inside of this `organization.yml` file.
-
-For simplicity, we'll provide an example DevCenter file for you to copy below. However, feel free to [edit it to meet your needs](../../../administrator-documentation/moderne-dx/how-to-guides/devcenter-yaml.md)
-
-<details>
-
-<summary>Example `organization.yml` file:</summary>
-
-```yaml
-name: Default
-devCenterConfiguration:
-  version: 1
-  upgradesAndMigrations:
-    - title: Spring Boot 3
-      measures:
-        - name: Major
-          recipe:
-            id: org.openrewrite.java.dependencies.DependencyInsight
-            options:
-              - name: groupIdPattern
-                value: org.springframework.boot
-              - name: artifactIdPattern
-                value: spring-boot-starter
-              - name: version
-                value: 1-2.999
-        - name: Minor
-          recipe:
-            id: org.openrewrite.java.dependencies.DependencyInsight
-            options:
-              - name: groupIdPattern
-                value: org.springframework.boot
-              - name: artifactIdPattern
-                value: spring-boot-starter
-              - name: version
-                value: 3-3.2
-        - name: Patch
-          recipe:
-            id: org.openrewrite.java.dependencies.DependencyInsight
-            options:
-              - name: groupIdPattern
-                value: org.springframework.boot
-              - name: artifactIdPattern
-                value: spring-boot-starter
-              - name: version
-                value: 3.3.0
-    - title: Java 21
-      measures:
-        - name: Java 8+
-          recipe:
-            id: org.openrewrite.java.search.HasMinimumJavaVersion
-            options:
-              - name: version
-                value: 8-10
-        - name: Java 11+
-          recipe:
-            id: org.openrewrite.java.search.HasMinimumJavaVersion
-            options:
-              - name: version
-                value: 11-16
-        - name: Java 17+
-          recipe:
-            id: org.openrewrite.java.search.HasMinimumJavaVersion
-            options:
-              - name: version
-                value: 17-20
-    - title: JUnit 5
-      measures:
-        - name: JUnit 4
-          recipe:
-            id: org.openrewrite.java.search.FindAnnotations
-            options:
-              - name: annotationPattern
-                value: '@org.junit.Test'
-  security:
-    name: Security
-    measures:
-      - recipe:
-          id: org.openrewrite.java.security.OwaspA01
-          options: []
-      - recipe:
-          id: org.openrewrite.java.security.OwaspA02
-          options: []
-      - recipe:
-          id: org.openrewrite.java.security.OwaspA03
-          options: []
-      - recipe:
-          id: org.openrewrite.java.security.OwaspA05
-          options: []
-      - recipe:
-          id: org.openrewrite.java.security.OwaspA06
-          options: []
-      - recipe:
-          id: org.openrewrite.java.security.OwaspA08
-          options: []
-      - recipe:
-          id: org.openrewrite.java.security.RegularExpressionDenialOfService
-          options: []
-      - recipe:
-          id: org.openrewrite.java.security.secrets.FindSecrets
-          options: []
-      - recipe:
-          id: org.openrewrite.java.security.ZipSlip
-          options: []
-      - recipe:
-          id: org.openrewrite.java.security.SecureTempFileCreation
-          options: []
-```
-
-</details>
-
-## Step 4: Generate your DevCenter
-
-Now that you've configured your DevCenter, you can generate it locally by running the following command inside of your shared directory:
-
+rewrite-devcenter includes an example DevCenterStarter recipe which you can run as follows:
 ```bash
-mod devcenter run .
+mod run devcenter-demo --recipe io.moderne.devcenter.DevCenterStarter
 ```
 
-This will take a significant amount of time to run depending on the number of repositories you have and how many recipes you've defined in your DevCenter.
+This recipe will generate the data tables required to build the DevCenter dashboard using the command:
+```bash
+mod devcenter devcenter-demo --last-recipe-run
+```
 
-At the end of it, you should see something like:
-
+Once complete, `mod devcenter` will provide the location of the DevCenter dashboard:
 ```bash
 > Generating DevCenter
 
-Created DevCenter XLSX at /Users/mikesol/cli-test/./devcenter.xlsx
-Created DevCenter HTML at /Users/mikesol/cli-test/./devcenter.html (2s)
+Done (26s)
 
-MOD SUCCEEDED in (1h 3m 16s)
+* What to do next
+    > Open /Users/brycetompkins/repos/devcenter-demo/devcenter.html
+
+MOD SUCCEEDED in 27s
 ```
 
-Open up the HTML file to see your DevCenter:
+Open the HTML file to see your DevCenter:
 
 <figure>
   ![](./assets/devcenter-example.png)
   <figcaption>_An example of what a locally generated DevCenter looks like_</figcaption>
 </figure>
 
+
+## Step 3: Create your custom DevCenter recipe
+
+The source for the DevCenterStarter recipe can be found [here](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml). You can use it as a starting point to configure a custom DevCenter dashboard.
+
+:::warning
+Make sure to give your recipes unique names so as not to conflict with installed starter recipes.
+:::
+
+Once complete, you can install the recipe to the local recipe marketplace with the command:
+```bash
+mod config recipes yaml install MyDevCenter.yml
+```
+
+Next run the recipe and generate the dashboard:
+```bash
+mod run dashboard-demo --recipe com.acme.MyDevCenter
+mod devcenter dashboard-demo --last-recipe-run
+```
+
 ## Next steps
 
-Once you've arrived at a DevCenter that you like, consider sharing it with your team. If you have an Organization service set up, you can even define this inside of that service so that everyone has this DevCenter by default when they `mod git clone` that organization.
+Once you've arrived at a DevCenter that you like, consider sharing it with your team by publishing the recipe to your Moderne marketplace using the command `mod config recipes moderne push`.
