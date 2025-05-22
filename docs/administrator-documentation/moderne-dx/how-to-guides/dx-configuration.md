@@ -296,11 +296,9 @@ java -jar moderne-dx-{version}.jar \
 
 ### Step 5: (Optionally) Configure an organization structure
 
-Many organizations desire the ability to control the organizational structure of their repositories within the Moderne Platform in a dynamic way. To facilitate this need, Moderne provides two approaches: a file-based one or a service-based one (where you configure an Organizations service that is hosted inside of your environment).
+Many organizations desire the ability to control the organizational structure of their repositories within the Moderne Platform in a dynamic way. To create an organizational hierarchy, please [follow the instructions in our organizational hierarchy configuration doc](./configure-dx-organizations.md).
 
-If you want to set up this integration, please [follow the instructions in our configuring Organizations with Moderne DX doc](./configure-dx-organizations.md).
-
-Below is an example of what the Moderne DX service run command might look like at the end of this step if you set up the Organizations service.
+Below is an example of what the Moderne DX service run command might look like at the end of this step.
 
 <Tabs groupId="dx-type">
 <TabItem value="docker-image" label="Docker image">
@@ -323,8 +321,7 @@ docker run \
 -e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_DX_MAVEN_0_USERNAME \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
--e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 # ... Additional variables to come
 -p 8080:8080
@@ -349,9 +346,8 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
---moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.syncIntervalSeconds=600 \
---moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
+--moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
+--moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Fork \
 ```
 </TabItem>
 </Tabs>
@@ -385,10 +381,9 @@ docker run \
 -e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_DX_MAVEN_0_USERNAME \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
--e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
--e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
+-e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
+-e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
 -p 8080:8080
 moderne-dx:latest
 ```
@@ -411,9 +406,8 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
---moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.syncIntervalSeconds=600 \
---moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
+--moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
+--moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Fork \
 --moderne.dx.recipe.useOnlyConfigured=true
 ```
 </TabItem>
@@ -455,8 +449,7 @@ docker run \
 -e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_DX_MAVEN_0_USERNAME \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
--e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 -p 8080:8080
 moderne-dx:latest
@@ -482,9 +475,8 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
---moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.syncIntervalSeconds=600 \
---moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
+--moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
+--moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Fork \
 ```
 
 * Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.dx.token={token_value}` as an argument instead of `--moderne.dx.token={token_value}`.

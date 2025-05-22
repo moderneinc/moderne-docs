@@ -369,7 +369,6 @@ const sidebars: SidebarsConfig = {
           items: [
             'administrator-documentation/moderne-dx/how-to-guides/mass-ingest-and-run-dx',
             'administrator-documentation/moderne-dx/how-to-guides/dx-configuration',
-            'administrator-documentation/moderne-dx/how-to-guides/devcenter-yaml',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-maven-repository-access',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-artifactory-access',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-artifactory-recipes',

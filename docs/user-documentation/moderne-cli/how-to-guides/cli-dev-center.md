@@ -28,7 +28,7 @@ devcenter-demo
 You may find it useful to start by only cloning a small subset of your repositories locally so that you can test, build, and iterate quickly. Once you've confirmed everything is working as you want, you can then add more repositories as desired.
 :::
 
-We'd recommend using the [mod git clone command](../cli-reference.md#mod-git-clone) to create this shared directory. With it, you can clone repositories from a CSV file, a JSON file, or from an existing organization (if your company has set up an Organizations service).
+We'd recommend using the [mod git clone command](../cli-reference.md#mod-git-clone) to create this shared directory. With it, you can clone repositories from a CSV file, a JSON file, or from an existing organization.
 
 ## Step 2: Build the LSTs
 
@@ -55,7 +55,7 @@ This file will determine what is displayed in your DevCenter. Maybe you want to 
 
 In either case, you'll want to define those pieces inside of this `organization.yml` file.
 
-For simplicity, we'll provide an example DevCenter file for you to copy below. However, feel free to [edit it to meet your needs](../../../administrator-documentation/moderne-dx/how-to-guides/devcenter-yaml.md)
+For simplicity, we'll provide an example DevCenter file for you to copy below. However, feel free to edit it to meet your needs.
 
 <details>
 
@@ -193,4 +193,4 @@ Open up the HTML file to see your DevCenter:
 
 ## Next steps
 
-Once you've arrived at a DevCenter that you like, consider sharing it with your team. If you have an Organization service set up, you can even define this inside of that service so that everyone has this DevCenter by default when they `mod git clone` that organization.
+Once you've arrived at a DevCenter that you like, consider sharing it with your team.

@@ -24,7 +24,6 @@ The Moderne on-premise agent:
 * Encrypts and ships [LST](../../references/lossless-semantic-trees.md) and recipe artifacts from your artifact repository (e.g., Artifactory) to the Moderne SaaS
 * Provides the symmetric key that Moderne needs to decrypt your artifacts
 * Forwards requests from the Moderne SaaS to your SCM(s) (e.g., GitHub)
-* Forwards requests from the Moderne SaaS to the organization service (if configured)
 
 ## Agent setup instructions
 
@@ -208,7 +207,7 @@ All agents must be configured with the variables listed as required below:
 | `MODERNE_AGENT_TOKEN`                        | `true`     |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                                                                               |
 | `MODERNE_AGENT_DOWNLOADPARALLELISM`          | `false`    | 2 threads              | How many threads are used to download LSTs.                                                                                                                                                                 |
 | `MODERNE_AGENT_ARTIFACTINDEXINTERVALSECONDS` | `false`    | 120 seconds            | How frequently LSTs will be indexed.                                                                                                                                                                        |
-| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`    | All options available. | Use to restrict which commit options are available in Moderne (if the organizations service doesn't return any). Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`    | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
@@ -243,7 +242,7 @@ moderne-agent:latest
 | `--moderne.agent.token`                        | `true`     |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                                                                               |
 | `--moderne.agent.downloadParallelism`          | `false`    | 2 threads              | How many threads are used to download LSTs.                                                                                                                                                                 |
 | `--moderne.agent.artifactIndexIntervalSeconds` | `false`    | 120 seconds            | How frequently LSTs will be indexed.                                                                                                                                                                        |
-| `--moderne.agent.defaultCommitOptions[{index}]` | `false`    | All options available. | Use to restrict which commit options are available in Moderne (if the organizations service doesn't return any). Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `--moderne.agent.defaultCommitOptions[{index}]` | `false`    | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 

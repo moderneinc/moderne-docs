@@ -25,7 +25,7 @@ This document includes all of the variables you can configure the Moderne agent 
 | `MODERNE_AGENT_TOKEN`                        | `true`     |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                                                                               |
 | `MODERNE_AGENT_DOWNLOADPARALLELISM`          | `false`    | 2 threads              | How many threads are used to download LSTs.                                                                                                                                                                 |
 | `MODERNE_AGENT_ARTIFACTINDEXINTERVALSECONDS` | `false`    | 120 seconds            | How frequently LSTs will be indexed.                                                                                                                                                                        |
-| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`    | All options available. | Use to restrict which commit options are available in Moderne (if the organizations service doesn't return any). Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`    | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
@@ -53,7 +53,7 @@ docker run \
 | `--moderne.agent.token`                         | `true`     |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                                                                               |
 | `--moderne.agent.downloadParallelism`           | `false`    | 2 threads              | How many threads are used to download LSTs.                                                                                                                                                                 |
 | `--moderne.agent.artifactIndexIntervalSeconds`  | `false`    | 120 seconds            | How frequently LSTs will be indexed.                                                                                                                                                                        |
-| `--moderne.agent.defaultCommitOptions[{index}]` | `false`    | All options available. | Use to restrict which commit options are available in Moderne (if the organizations service doesn't return any). Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `--moderne.agent.defaultCommitOptions[{index}]` | `false`    | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
@@ -385,7 +385,7 @@ java -jar moderne-agent-{version}.jar \
 | Environment Variable                                       | Required | Default | Description |
 |------------------------------------------------------------|----------|---------|-------------|
 | `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
-| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
+| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`    | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 | `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
 
 **Example:**
@@ -394,7 +394,8 @@ java -jar moderne-agent-{version}.jar \
 docker run \
 # ... Existing variables
 -e MODERNE_AGENT_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
--e MODERNE_AGENT_ORGANIZATION_DEVCENTER=/Users/MY_USER/Documents/devcenter.json \
+-e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_0=PullRequest \
+-e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_1=ForkAndPullRequest \
 -e MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS=600 \
 # ... Additional variables
 ```

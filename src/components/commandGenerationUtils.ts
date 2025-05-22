@@ -247,11 +247,6 @@ export const generateCommand = (
     });
   }
 
-  // Process organization service configuration
-  if (data?.orgServiceConfig?.enabled && data?.orgServiceConfig.fields) {
-    processFieldsSection(data.orgServiceConfig.fields, exportLines, cmdArgs, commandType);
-  }
-
   // Process strict recipe sources configuration
   if (data?.strictRecipeSourcesConfig?.enabled && data?.strictRecipeSourcesConfig.fields) {
     processFieldsSection(data.strictRecipeSourcesConfig.fields, exportLines, cmdArgs, commandType);
