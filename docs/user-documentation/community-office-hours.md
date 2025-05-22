@@ -13,6 +13,19 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Code Remix Summit Recap (May 21st, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=ztSmTodzMsM' controls="true" />
+
+#### Summary and related links
+
+* **Announcements for the week**
+  * [We've partnered with Azul to boost Java developer productivity](https://www.businesswire.com/news/home/20250513241025/en/Azul-and-Moderne-Announce-Partnership-to-Boost-Java-Developer-Productivity)
+  * [We've also parnetered with DiffBlue to combine their AI powered unit test writing with OpenRewrite](https://siliconangle.com/2025/05/13/moderne-diffblue-team-use-ai-faster-cost-effective-app-modernization/)
+  * [Tim will be presenting about AssertJ at SpringIO this week](https://2025.springio.net/sessions/better-assertions-with-assertj/)
+  * [We released a new version of OpenRewrite which includes a JavaScript parser](https://github.com/openrewrite/rewrite/releases/tag/v8.53.0)
+    * Also, the [rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin) now supports TypeTables. For more information check out the [OpenRewrite TypeTable documentation](https://docs.openrewrite.org/authoring-recipes/multiple-versions#typetable-generation-for-maven-projects).
+
 ### Fix & Refactor Faster with Venkat Subramanium (April 30th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=6ifaybmmFzI' controls="true" />
