@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v11.53.0 (2025/05/22)
+
+- add quick search to results tree
+- add quick filters to recipe results tree
+
 ### UI v11.52.0 (2025/05/17)
 
 - display status icons on results tree
