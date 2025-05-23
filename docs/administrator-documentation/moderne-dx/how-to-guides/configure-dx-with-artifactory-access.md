@@ -88,8 +88,8 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.dx.artifactory[0].username=admin \
 --moderne.dx.artifactory[0].password=password \
---moderne.dx.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.dx.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
+--moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.artifactSync.since=2024-01-01T00:00:00Z \
 # ... Additional arguments
 ```
