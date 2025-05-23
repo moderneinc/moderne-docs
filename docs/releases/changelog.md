@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.53.1 (2025/05/23)
+
+- Bug fixes and other improvements.
+
 ### UI v11.53.0 (2025/05/22)
 
 - add quick search to results tree
