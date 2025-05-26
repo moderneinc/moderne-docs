@@ -212,7 +212,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config user edit**](#mod-config-user-edit)
 * [**mod config user show**](#mod-config-user-show)
 * [**mod devcenter**](#mod-devcenter)
-* [**mod devcenter run**](#mod-devcenter-run)
 * [**mod exec**](#mod-exec)
 * [**mod generate-completion**](#mod-generate-completion)
 * [**mod git**](#mod-git)
@@ -271,7 +270,7 @@ mod [subcommands]
 * `build`: Generates LST artifacts for one or more repositories.
 * `clean`: Clean build and run artifacts produced by the CLI.
 * `config`: Global configuration options that are required by some CLI commands.
-* `devcenter`: DevCenter operations.
+* `devcenter`: Generate DevCenter dashboards.
 * `exec`: Execute an arbitrary shell command recursively on selected repository roots.
 * `generate-completion`
 * `git`: Multi-repository git operations.
@@ -4703,39 +4702,21 @@ mod config user show
 
 ## mod devcenter
 
-DevCenter operations.
+Generate DevCenter dashboards.
 
 
-
-
-### Usage
-
-```
-mod devcenter [subcommands]
-```
-
-
-### Subcommands
-
-* `run`: (INCUBATING) Runs all configured DevCenter recipes.
-
-## mod devcenter run
-
-(INCUBATING) Runs all configured DevCenter recipes.
-
-
-Executes recipes in parallel by default, can be opted out with **--parallel=1**.
+Generate a dashboard from a DevCenter recipe run.
 
 ### Usage
 
 ```
-mod devcenter run [parameters]
+mod devcenter [parameters]
 ```
 
 ### Examples
 
 ```
-mod devcenter run /path/to/organization
+mod devcenter /path/to/organization
 ```
 
 ### Parameters
@@ -4748,8 +4729,9 @@ mod devcenter run /path/to/organization
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
 | `--output-dir` |  |  |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
+| `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
 | `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
 | `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
 | `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
