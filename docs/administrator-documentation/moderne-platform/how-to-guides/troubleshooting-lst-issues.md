@@ -30,7 +30,7 @@ If your company **does not** provide an organizational hierarchy to Moderne, the
 
 1. Navigate to the repositories list located at `https://TENANT.moderne.io/organizations` (replace `TENANT` in the URL with your company's Moderne tenant)
 2. Search for the repository whose LST is missing
-3. You should see a warning icon in the `origin` column. If you mouse over it, you will see a warning about a "Missing SCM info for <some VCS>". Remember that VCS for the next step.
+3. You should see a warning icon in the `origin` column. If you mouse over it, you will see a warning about a "Missing SCM info for &lt;some VCS&gt;". Remember that VCS for the next step.
 
 <figure>
   ![](./assets/missing-scm-configuration.png)
@@ -119,7 +119,7 @@ Update your `repos.csv` file to ensure the `origin`, `path`, and `branch` values
 </figure>
 
 3. Search for the repository in question
-4. You should see a warning icon in the `origin` column. If you mouse over it, you will see a warning about a "Missing SCM info for <some VCS>". Remember that VCS for the next step.
+4. You should see a warning icon in the `origin` column. If you mouse over it, you will see a warning about a "Missing SCM info for &lt;some VCS&gt;". Remember that VCS for the next step.
 
 <figure>
   ![](./assets/missing-scm-configuration.png)
