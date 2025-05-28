@@ -1,43 +1,57 @@
 ---
 sidebar_label: Troubleshooting LST issues
-description: How to troubleshoot common issues with LSTs in the platform
+description: How to troubleshoot common issues with LSTs in the platform.
 ---
 
 # Troubleshooting LST issues
 
-## My LST is built but not showing up in my organization
+This guide will help you diagnose and resolve common issues with Lossless Semantic Trees (LSTs) in the Moderne platform.
 
-If you have built an LST for a repository, but it is not showing up in your organization, it is likely be caused by one of the following:
+## LST built but not showing up in an organization
 
-1. The `origin` does not correctly match one of your version control systems (e.g. GitHub, GitLab) defined in your agent (hereafter, **version control system** will be abbreviated as **VCS**. VCS and SCM—source code management—are used interchangeably throughout Moderne's docs and platform).
-2. The `path` or `branch` does not correctly match the `path` or `branch` provided by your organization hierarchy.
+### Common root causes
 
-### My company doesn't provide an organization hierarchy to Moderne
+When an LST is missing from your organization, the issue is typically caused by:
 
-If your company does not provide an organization hierarchy to Moderne, then this can only be caused by a mismatch in `origin` from your version control system.
+* **Origin mismatch**: The repository's `origin` doesn't match your version control system (VCS) configuration.
+* **Path/branch mismatch**: The repository's `path` or `branch` doesn't match what's defined in your organization hierarchy.
 
-Follow these steps to see what `origin` was detected:
+### Troubleshooting steps
 
-1. Navigate to https://TENANT.moderne.io/organizations (replace `TENANT` in the URL with your company's Moderne tenant)
-2. Search for the repository in question
-3. You'll see "Missing SCM info". Take a note of the `origin` value shown there.
+#### Step 1: Determine your organization setup
 
-![](missing-scm-configuration.png)
+Does your company provide an [organizational hierarchy to Moderne](./agent-configuration/configure-organizations-hierarchy.md)? If so, jump to [Step 2b](#step-2b-organizational-hierarchy-provided). If not, proceed to [Step 2a](#step-2a-no-organizational-hierarchy-provided).
 
-4. Check the URL of your VCS in your Agent configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is https://github.com (or the base URL of your on-prem GitHub instance).
-5. If your VCS is Bitbucket Server or Bitbucket Data Center, and you use a non-standard SSH port or a different URL, make sure that you have an alternate URL defined via `MODERNE_AGENT_BITBUCKET_0_ALTERNATEURLS_0`.
+#### Step 2a: No organizational hierarchy provided
 
+If your company **does not** provide an organizational hierarchy to Moderne, then your issue is an `origin` mismatch.
 
-### My company provides an organization hierarchy to Moderne
+#### To diagnose:
 
-If your company provides an organization hierarchy to Moderne, then this can be caused by either a mismatch in `origin` or a mismatch in `path` or `branch`.
+1. Navigate to the repositories list located at `https://TENANT.moderne.io/organizations` (replace `TENANT` in the URL with your company's Moderne tenant)
+2. Search for the repository whose LST is missing
+3. You should see a warning icon in the `origin` column. If you mouse over it, you will see a warning about a "Missing SCM info for some VCS". Remember that VCS for the next step.
 
-#### Check if repo matches origin, path, and branch from `repos.csv`
+<figure>
+  ![](./assets/missing-scm-configuration.png)
+  <figcaption>_An example of what a repo with a missing SCM configuration looks like_</figcaption>
+</figure>
 
-First, let's check if your repo exists but doesn't match an `origin`, `path`, or `branch` in your organization hierarchy:
+#### To fix:
 
-1. Navigate to https://TENANT.moderne.io/graphql (replace `TENANT` in the URL with your company's Moderne tenant)
-2. Enter the following query:
+Check your VCS URL in your Agent configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is `https://github.com` (or the base URL of your on-prem GitHub instance).
+
+If your VCS is Bitbucket Server or Bitbucket Data Center, and you use a non-standard SSH port or a different URL, make sure that you have an alternate URL defined via `MODERNE_AGENT_BITBUCKET_0_ALTERNATEURLS_0`.
+
+#### Step 2b: Organizational hierarchy provided
+
+If your company **does** provide an organizational hierarchy, the issue could be either an `origin` mismatch or a `path`/`branch` mismatch.
+
+#### To diagnose:
+
+1. Navigate to the GraphQL API explorer located at `https://TENANT.moderne.io/graphql` (replace `TENANT` in the URL with your company's Moderne tenant)
+2. Run the following GraphQL query:
+
 ```graphql
 query organizationlessRepositories {
   organizationlessRepositories {
@@ -57,43 +71,63 @@ query organizationlessRepositories {
   }
 }
 ```
-3. Look through the results and see if your repository is listed there. If it is, then it means that your repository exists but does not match any `origin`, `path`, or `branch` in your organization hierarchy. Please go correct your `repos.csv` to ensure that the `origin`, `path`, and `branch` match your repository.
 
-> ℹ️ **Note:** The `organizationlessRepositories` query returns a paginated list of repositories that are not part of any organization. By default, it returns up to 100 results at a time.  
-> To retrieve additional results, use the `after` cursor from the `pageInfo.endCursor` field in a subsequent request.  
-> Example:
->
-> ```graphql
-> query {
->   organizationlessRepositories(first: 100, after: "END_CURSOR_HERE") {
->     edges {
->       node {
->         origin
->         path
->         branch
->       }
->     }
->     pageInfo {
->       endCursor
->       hasNextPage
->     }
->   }
-> }
-> ```
+:::info
+ The `organizationlessRepositories` query returns a paginated list of repositories that are not part of any organization. By default, it returns up to 100 results at a time.
 
-#### Check if repo matches `origin` from VCS configuration in Agent
+ To retrieve additional results, use the `after` cursor from the `pageInfo.endCursor` field in a subsequent request.
 
-Follow these steps to see what `origin` was detected:
+ Example query:
 
-1. Navigate to https://TENANT.moderne.io/organizations (replace `TENANT` in the URL with your company's Moderne tenant)
-2. Click "Organization" in the left nav and select the organization you expect this repository to appear in
+ ```graphql
+query {
+  organizationlessRepositories(first: 100, after: "END_CURSOR_HERE") {
+    edges {
+      node {
+        origin
+        path
+        branch
+      }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}
+```
+:::
 
-![](select-organization.png)
+3. Look through the results and see if your repository is listed there.
+  * **If found**: Your repository exists, but doesn't match the `origin`, `path`, or `branch` defined in your organizational hierarchy. [See the fix below](#to-fix-1).
+  * **If not found**: Proceed to [check for an `origin` mismatch](#check-for-an-origin-mismatch) (the next section). 
+
+#### To fix: 
+
+Update your `repos.csv` file to ensure the `origin`, `path`, and `branch` values match your repository _exactly_. 
+
+#### Check for an `origin` mismatch
+
+#### To diagnose:
+
+1. Navigate to `https://TENANT.moderne.io/organizations` (replace `TENANT` in the URL with your company's Moderne tenant)
+2. Click `Organization` in the left nav and select the organization you expect this repository to appear in:
+
+<figure>
+  ![](./assets/select-organization.gif)
+  <figcaption>_An example of selecting the OpenRewrite organization._</figcaption>
+</figure>
 
 3. Search for the repository in question
-4. You'll see "Missing SCM info". Take a note of the `origin` value shown there.
+4. You should see a warning icon in the `origin` column. If you mouse over it, you will see a warning about a "Missing SCM info for some VCS". Remember that VCS for the next step.
 
-![](missing-scm-configuration.png)
+<figure>
+  ![](./assets/missing-scm-configuration.png)
+  <figcaption>_An example of what a repo with a missing SCM configuration looks like_</figcaption>
+</figure>
 
-5. Check the URL of your VCS in your Agent configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is https://github.com (or the base URL of your on-prem GitHub instance).
-6. If your VCS is Bitbucket Server or Bitbucket Data Center, and you use a non-standard SSH port or a different URL, make sure that you have an alternate URL defined via `MODERNE_AGENT_BITBUCKET_0_ALTERNATEURLS_0`.
+#### To fix:
+
+Check your VCS URL in your Agent configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is `https://github.com` (or the base URL of your on-prem GitHub instance).
+
+If your VCS is Bitbucket Server or Bitbucket Data Center, and you use a non-standard SSH port or a different URL, make sure that you have an alternate URL defined via `MODERNE_AGENT_BITBUCKET_0_ALTERNATEURLS_0`.
