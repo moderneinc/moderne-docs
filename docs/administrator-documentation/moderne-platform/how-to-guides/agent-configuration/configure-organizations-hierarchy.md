@@ -88,8 +88,7 @@ Apple Numbers. Here is what the above CSV would look like on Apple Numbers:
   for an example.
 
 :::warning
-Org columns must start immediately after the branch column. Likewise, they must be contiguous. **Do not** add empty orgs
-so that the orgs line up with one another.
+Orgs must be contiguous. **Do not** add empty orgs so that the orgs line up with one another.
 
 <Tabs>
 <TabItem value="not-this" label="Don't do this">
