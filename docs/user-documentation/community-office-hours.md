@@ -13,6 +13,32 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Don't migrate to Spring Boot 3.5 until you watch this (May 28th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=mD9IkhMjrCo' controls="true" />
+
+#### Summary and related links
+
+* **Announcements for the week**
+  * [The keynote from the Code Remix Summit is not available on YouTube](https://www.youtube.com/watch?v=KIdnP2e8Cno)
+    * [We will continue to add more videos to the Code Remix Summit playlist](https://www.youtube.com/playlist?list=PLIasdWXKABOmxpJ0YDBQUuZIbmnSt0s-z)
+  * **Events**:
+    * [Tim will be presenting at the Full Stack Conference on June 3rd about trusting AI to modernize software at scale](https://www.fullstackconference.nl/)
+    * [Tim will also be speaking at JFokus in Stockholm on June 10th about the same topic](https://www.jfokus.se/ai-fokus/talks/2557)
+    * [If you missed either of the above ones, Tim will be presenting again on the same topic for Devoxx in Luxembourg on June 19th](https://mobile.devoxx.com/events/voxxedlu2025/talks/3593/details)
+  * **Releases**:
+    * [We've done a full release of OpenRewrite - 8.54.0](https://github.com/openrewrite/rewrite-recipe-bom/releases/tag/v3.9.0). Notable changes include:
+      * Javascript support
+      * Spring Boot 3.5 migration recipe
+      * Spring Cloud 2024/2025 recipes
+      * Type tables for Maven
+* **Main discussions**
+  * This week we talked about a variety of topics such as:
+    * Better assertions with AssertJ
+    * An explanation of the recipe licensing changes
+    * The Spring Boot 3.5 recipe itself
+    * Recipe performance tips
+
 ### Code Remix Summit Recap (May 21st, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=ztSmTodzMsM' controls="true" />
