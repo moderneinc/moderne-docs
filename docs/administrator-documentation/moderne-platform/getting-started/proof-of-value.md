@@ -61,7 +61,7 @@ _The recipes below are listed in order of increasing complexity. You can click t
   * [Java 8 to 11](https://app.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11)
   * [Java 11 to 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21)
   * [Spring Boot 1 to 2](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7)
-  * [Spring Boot 3.4 best practices](https://app.moderne.io/recipes/io.moderne.java.spring.boot3.SpringBoot3BestPractices)
+  * [Spring Boot 3.5 best practices](https://app.moderne.io/recipes/io.moderne.java.spring.boot3.SpringBoot3BestPractices)
 
 * Custom migrations. Custom recipes can be developed to help with internal platform API management, EJB to Spring migrations, etc.
 
@@ -91,7 +91,7 @@ Major migrations are complex transformations consisting of multiple individual r
 | Migrate to Java 11 | `mod run . --recipe Java8toJava11 --parallel` |
 | Migrate to Java 21 | `mod run . --recipe UpgradeToJava21 --parallel` |
 | Migrate to Spring Boot 2.7 | `mod run . --recipe UpgradeSpringBoot_2_7 --parallel` |
-| Spring Boot 3.4 best practices | `mod run . --recipe SpringBoot3BestPractices --parallel` |
+| Spring Boot 3.5 best practices | `mod run . --recipe SpringBoot3BestPractices --parallel` |
 
 ### Impact analysis
 
