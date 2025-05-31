@@ -28,7 +28,7 @@ devcenter-demo
 You may find it useful to start by only cloning a small subset of your repositories locally so that you can test, build, and iterate quickly. Once you've confirmed everything is working as you want, you can then add more repositories as desired.
 :::
 
-We'd recommend using the [mod git clone command](../cli-reference.md#mod-git-clone) to create this shared directory. With it, you can clone repositories from a CSV file, a JSON file, or from an existing organization (if your company has set up an Organizations service).
+We'd recommend using the [mod git clone command](../cli-reference.md#mod-git-clone) to create this shared directory. With it, you can clone repositories from a CSV file, a JSON file, or from an existing organization.
 
 ## Step 2: Build the LSTs
 
