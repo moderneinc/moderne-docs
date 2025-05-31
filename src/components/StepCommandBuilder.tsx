@@ -9,6 +9,7 @@ import StepOrgHierarchyAndDevCenterConfig from './StepOrgHierarchyAndDevCenterCo
 import StepStrictRecipeSourcesConfig from './StepStrictRecipeSourcesConfig';
 import StepArtifactoryLSTConfig from './StepArtifactoryLSTConfig';
 import StepMavenRepositoryConfig from './StepMavenRepositoryConfig';
+import StepOrgServiceConfig from './StepOrgServiceConfig';
 import { FormData, ValidationResult } from './types';
 
 // Define the interface for step configuration
@@ -67,6 +68,13 @@ const steps: Step[] = [
     configKey: 'orgHierarchyAndDevCenterConfig',
     optional: true,
     docsLink: 'http://localhost:3000/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-organizations-hierarchy'
+  },
+  { 
+    label: 'Organization Service', 
+    component: StepOrgServiceConfig,
+    configKey: 'orgServiceConfig',
+    optional: true,
+    docsLink: '',
   },
   { 
     label: 'Command Preview', 

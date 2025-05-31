@@ -78,6 +78,8 @@ export interface ArtifactoryLSTConfig extends InstancesConfig {}
 
 export interface MavenRepositoryConfig extends InstancesConfig {}
 
+export interface OrgServiceConfig extends FieldsConfig {}
+
 export interface StrictRecipeSourcesConfig extends FieldsConfig {}
 
 // Main form data interface
