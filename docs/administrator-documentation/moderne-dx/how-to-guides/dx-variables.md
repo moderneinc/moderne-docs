@@ -261,7 +261,7 @@ java -jar moderne-dx-{version}.jar \
 </TabItem>
 </Tabs>
 
-## Organizations service variables
+## Organizational hierarchy variables
 
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -270,20 +270,17 @@ java -jar moderne-dx-{version}.jar \
 
 | Variable Name                                     | Required | Default | Description                                                                                                                                                                                                                                      |
 |---------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_DX_ORGANIZATION_URL`                     | `true`   |         | The URL of your GraphQL service that provides organization information. Cannot be combined with `MODERNE_DX_ORGANIZATION_REPOSCSV`.                                                                                                              |
-| `MODERNE_DX_ORGANIZATION_REPOSCSV`                | `true`   |         | The path of your `repos.csv` file that provides organization information. Cannot be combined with `MODERNE_DX_ORGANIZATION_URL`.                                                                                                                   |
-| `MODERNE_DX_ORGANIZATION_DEVCENTERJSON`           | `false`  |         | The path of your `devcenter.json` file that provides the devCenter configurations.                                                                                                        |
-| `MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS`    | `false`  |         | The commit options used if not specified by the organization service.                                                                                                                                                                            |
-| `MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`.                                                                                                                        |
-| `MODERNE_DX_ORGANIZATION_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_DX_ORGANIZATION_REPOSCSV`                | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`.            |
+| `MODERNE_DX_ORGANIZATION_URL`                     | `false`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
+| `MODERNE_DX_ORGANIZATION_DEVCENTERJSON`           | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                 |
+| `MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS`    | `false`  | All options available | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional variables
 ```
@@ -295,21 +292,59 @@ docker run \
 
 | Argument Name                                     | Required | Default | Description                                                                                                                                                                                                                                        |
 |---------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.dx.organization.url`                   | `true`   |         | The URL of your GraphQL service that provides organization information. Cannot be combined with `--moderne.dx.organization.url`.                                                                                                                |
-| `--moderne.dx.organization.reposCsv`              | `true`   |         | The path of your repos.csv file that provides organization information. Cannot be combined with `--moderne.dx.organization.reposCsv`.                                                                                                              |
-| `--moderne.dx.organization.devCenterJson`         | `false`  |         | The path of your `devcenter.json` file that provides the devCenter configurations.                                                                                                                                                                   |
-| `--moderne.dx.organization.defaultCommitOptions`  | `false`  |         | The commit options used if not specified by the organization service.                                                                                                                                                                              |
-| `--moderne.dx.organization.syncIntervalSeconds` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `--moderne.dx.organization.url`.                                                                                                                        |
-| `--moderne.dx.organization.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `--moderne.dx.organization.url`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `--moderne.dx.organization.reposCsv`              | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`.                                                                                                                   |
+| `--moderne.dx.organization.url`                   | `false`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
+| `--moderne.dx.organization.devCenterJson`         | `false`   |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                   |
+| `--moderne.dx.organization.defaultCommitOptions`  | `false`  | All options available | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`.                                                                                                                                                                              |
 
 **Example:**
 
 ```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
---moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.syncIntervalSeconds=600 \
+--moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 --moderne.dx.organization.defaultCommitOptions=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+## Organizational service variables
+
+<Tabs groupId="dx-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                     | Required | Default | Description                                                                          |
+|---------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------|
+| `MODERNE_DX_ORGANIZATION_URL`                     | `true`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
+| `MODERNE_DX_ORGANIZATION_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                     | Required | Default | Description                                                                          |
+|---------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------|
+| `--moderne.dx.organization.url`                   | `true`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
+| `--moderne.dx.organization.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `--moderne.dx.organization.url`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+**Example:**
+
+```bash
+java -jar moderne-dx-{version}.jar \
+# ... Existing arguments
+--moderne.dx.organization.url=http://localhost:8091 \
 # ... Additional arguments
 ```
 </TabItem>

@@ -1,16 +1,16 @@
 ---
-sidebar_label: Organizations service configuration
-description: How to configure Moderne DX so that it can communicate with your Organizations service.
+sidebar_label: Organizational hierarchy configuration
+description: How to configure an organizational hierarchy in Moderne DX.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configure Organizations with Moderne DX
+# Configure an organizational hierarchy with Moderne DX
 
-Many users desire the ability to dynamically control the organizational structure (repository groupings) of their repositories within Moderne DX. There are two ways to achieve this, either by supplying DX with a file describing the organizational structure (via a `repos.csv`) or by integrating with an organization service. 
+In order for users to effectively access and run recipes against specific groups of repositories, Moderne DX admins will need to define an organizational structure for their company. This structure, defined via a `repos.csv` file, needs to either be deployed as a static file alongside DX or be accessible from DX via an unauthenticated URI.
 
-In order for Moderne to obtain information about your organizational structure, you will need to configure the Moderne DX service to point to your Organizations source. This guide will explain how to do that.
+This guide will provide you with everything you need to know to configure either of those options.
 
 #### Prerequisites
 
@@ -18,56 +18,18 @@ This guide assumes that:
 
 * You are an admin of Moderne DX
 * You have deployed Moderne DX in your environment
-* You have already [configured Moderne DX to connect to your Artifactory instance](./configure-dx-with-artifactory-access.md)
+* You have already configured Moderne DX to connect to your [Artifactory](./configure-dx-with-artifactory-access.md) or [Nexus](./configure-dx-with-maven-repository-access.md) instance.
+* You have already built a `repos.csv` file as part of the [mass ingestion step](./mass-ingest-and-run-dx.md)
 
-## File based organization structure
+## Updating the `repos.csv` file to define an organizational hierarchy
 
-The simplest way to achieve the organization structure is to supply a `repos.csv` file directly in DX. Please note, though, that if you are on version `3.36.1` or earlier of the CLI, you cannot configure any [DevCenter](../../moderne-platform/how-to-guides/dev-center.md). You'll need to upgrade to a more moderne version of the CLI to enable this functionality.
+You should already have a `repos.csv` file that you created as part of [mass ingestion](./mass-ingest-and-run-dx.md). To group those repositories into a hierarchy of organizations, you can add one or more organization columns to the end of each row.
 
-## Generating repos.csv
-
-If you choose to fork our Organizations service template, you will have to generate your `repos.csv` file. This file takes the following format:
-
-| cloneUrl      | branch   | org1    | org2        | org3 |
-|---------------|----------|---------|-------------|------|
-| `https://github.com/openrewrite/rewrite-recipe-bom` | main | Open Source | ALL | |
-| `https://github.com/Netflix/spectator-go` | main | Netflix | Open Source | ALL |
-
-The organizations under `org1`, `org2`, `org3`, etc. represent the hierarchy of organizations. There is no limit to the number of organizations that can be provided via this CSV.
-
-The above example would be used in Moderne DX to generate an organizational listing of the following:
-
-* ALL
-  * Open Source
-    * `https://github.com/openrewrite/rewrite-recipe-bom:main`
-  * Netflix
-    * `https://github.com/Netflix/spectator-go:main`
-
-To generate this `repos.csv`, we recommend using "[repo fetchers](https://github.com/moderneinc/repository-fetchers)".
-
-## Service based organization structure
-
-A more feature rich replacement of the file based approach is to create an Organizations service. This allows you to use additional features like the DevCenter, organization based access control, and per organization commit options.
-
-### Organizations service template and API
-
-You have two main options for building this service. You can:
-
-1. (**Recommended**) Fork our [Organizations service template](https://github.com/moderneinc/moderne-organizations) and modify it to meet your needs. Please see the [README](https://github.com/moderneinc/moderne-organizations/blob/main/README.md) for how to spin this up quickly. It can be as simple as updating a CSV file.
-2. Build your own service that fulfills the [GraphQL contract](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls) using any GraphQL stack (e.g., NodeJS, Rust, C#, etc.)
-
-We generally recommend forking the template and modifying it as, in most cases, that will be faster and easier than building it yourself. Regardless of which one you choose, however, some developer time will be required on your end.
-
-### Deploying the service
-
-How you deploy the service is largely up to your company. With that being said, there are a few important things to be aware of:
-
-* Moderne will make a request per repository to the Organizations service once every 10 minutes by default (you can change this interval in your configuration). Please ensure that you have metrics to track how this service is performing so you can adjust it over time.
-* You'll want a minimum system spec of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent storage.
+For specific details around this file and how to configure an organizational hierarchy, please check out our [creating a repos.csv doc](../../references/repos-csv.md).
 
 ## DX organization structure configuration
 
-The following table contains all of the variables/arguments you need to add to your Moderne DX service run command in order for it to interact with your organization structure data source. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne DX service guide](./dx-configuration.md).
+Once you have the `repos.csv` file updated with organizations, you'll need to update your DX service run command to provide it with a few variables. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne DX service guide](./dx-configuration.md).
 
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -76,20 +38,17 @@ The following table contains all of the variables/arguments you need to add to y
 
 | Variable Name                                     | Required | Default | Description                                                                                                                                                                                                                                      |
 |---------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_DX_ORGANIZATION_URL`                     | `true`   |         | The URL of your GraphQL service that provides organization information. Cannot be combined with `MODERNE_DX_ORGANIZATION_REPOSCSV`.                                                                                                              |
-| `MODERNE_DX_ORGANIZATION_REPOSCSV`                | `true`   |         | The path of your `repos.csv` file that provides organization information. Cannot be combined with `MODERNE_DX_ORGANIZATION_URL`.                                                                                                                   |
+| `MODERNE_DX_ORGANIZATION_REPOSCSV`                | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`.            |
+| `MODERNE_DX_ORGANIZATION_URL`                     | `false`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
 | `MODERNE_DX_ORGANIZATION_DEVCENTERJSON`           | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                 |
-| `MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS`    | `false`  |         | The commit options used if not specified by the organization service.                                                                                                                                                                            |
-| `MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`.                                                                                                                        |
-| `MODERNE_DX_ORGANIZATION_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS`    | `false`  | All options available | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional variables
 ```
@@ -101,20 +60,17 @@ docker run \
 
 | Argument Name                                     | Required | Default | Description                                                                                                                                                                                                                                        |
 |---------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.dx.organization.url`                   | `true`   |         | The URL of your GraphQL service that provides organization information. Cannot be combined with `--moderne.dx.organization.reposCsv`.                                                                                                              |
-| `--moderne.dx.organization.reposCsv`              | `true`   |         | The path of your `repos.csv` file that provides organization information. Cannot be combined with `--moderne.dx.organization.url`.                                                                                                                   |
-| `--moderne.dx.organization.devCenterJson`         | `true`   |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                   |
-| `--moderne.dx.organization.defaultCommitOptions`  | `false`  |         | The commit options used if not specified by the organization service.                                                                                                                                                                              |
-| `--moderne.dx.organization.syncIntervalSeconds` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `--moderne.dx.organization.url`.                                                                                                                        |
-| `--moderne.dx.organization.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `--moderne.dx.organization.url`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `--moderne.dx.organization.reposCsv`              | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`.                                                                                                                   |
+| `--moderne.dx.organization.url`                   | `false`   |         | The URL of your GraphQL service that provides organization information.                                                                                                              |
+| `--moderne.dx.organization.devCenterJson`         | `false`   |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                   |
+| `--moderne.dx.organization.defaultCommitOptions`  | `false`  |         | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`.                                                                                                                                                                              |
 
 **Example:**
 
 ```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
---moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.syncIntervalSeconds=600 \
+--moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 --moderne.dx.organization.defaultCommitOptions=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional arguments
 ```
@@ -209,3 +165,12 @@ mod git clone moderne <path> <organization-id>
 ```
 
 Once these are both done, your developers can now start running recipes and committing the results!
+
+## Additional customization
+
+You may want to create a dedicated organizations service if you want to:
+
+* Limit access to the organizations you've defined above so that some users only have access to some repositories 
+* Customize commit messages by repository (such as adding a JIRA ticket per repository)
+
+To create this service, please check out our [creating an organizations service guide](./dx-org-service.md).
