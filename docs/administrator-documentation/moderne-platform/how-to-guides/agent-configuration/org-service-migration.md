@@ -1,30 +1,30 @@
 ---
-sidebar_label: Migrating out of the organizations service
-description: How to ensure a smooth migration out of the organizations service.
+sidebar_label: Organization service migration guide
+description: How to migrate repos.csv from the org service to the agent.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Organization Service Migration
+# Organization service migration
 
-## What was the Organization Service?
+In order to simplify Moderne's operational complexity, we decided that configuring organizational hierarachies should only require creating a file and giving it to the Moderne agent (either via direct access or via an unauthenticated HTTP endpoint), rather than running a dedicated Organizations service.
 
-The Organization Service was an optional component deployed in customer environments to provide dynamic organizational hierarchies.
+While you can still [run an Organizations service](./org-service.md) to restrict access to various repositories/organizations or to customize commit messages by repository, the functionality around org hierarchies is being moved to the Agent.
 
-To simplify Moderne’s operational complexity, it was decided to sunset the Organization Service and replace it with a file-based mechanism managed directly by the Moderne Agent. This change streamlines customer deployments by reducing the number of moving parts and eliminates the need for an additional network hop whenever organizational data is accessed.
+This guide will walk you through everything you need to know to migrate this functionality to the Moderne Agent.
 
 ## Migration instructions
 
-To migrate from the old organization service to the new file-based configuration, you'll need to:
+At a high-level, the migration process is as follows:
 
-1. Remove any configuration related to the Organization Service from your Agent
+1. Remove any configuration related to the org hierarchies or DevCenters from your Agent
 2. Configure the Agent to use `repos.csv` and `devcenter.json`
    * If copying from a previous `repos.csv` file, you may need to make some minor changes to your `repos.csv` file.
-3. Remove the organization service from your system
-4. Ensure that your agent is using at least version `0.221.0` (to get the latest variable names included in this doc)
+3. Ensure that your agent is using at least version `0.221.0` (to get the latest variable names included in this doc)
+4. (Optionally) If you don't plan on using an Organizations service anymore, remove it from your system.
 
-### 1. Remove any configuration related to the Organization Service from your Agent
+### 1. Remove any old configuration variables from your Agent
 
 Make sure that the following configurations are not included in your Agent run command:
 
@@ -35,8 +35,6 @@ Make sure that the following configurations are not included in your Agent run c
 
 | Argument Name                                       |
 |-----------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`            |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_SKIPSSL`        |
 | `MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH`      | 
 | `MODERNE_AGENT_ORGANIZATION_FILE_COMMITOPTIONSPATH` | 
 | `MODERNE_AGENT_ORGANIZATION_FILE_IDMAPPINGPATH`     | 
@@ -51,8 +49,6 @@ Make sure that the following configurations are not included in your Agent run c
 
 | Argument Name                                    |
 |--------------------------------------------------|
-| `--moderne.agent.organization.service.url`       |
-| `--moderne.agent.organization.service.skipSsl`   |
 | `--moderne.agent.organization.file.reposCsvPath` | 
 | `--moderne.agent.organization.commitOptionsPath` | 
 | `--moderne.agent.organization.idMappingPath`     | 
@@ -62,12 +58,15 @@ Make sure that the following configurations are not included in your Agent run c
 </TabItem>
 </Tabs>
 
-### 2. Configure the Agent to use `repos.csv` and `devcenter.json`
+### 2. Create the new files and put them somewhere the Agent can access
 
-1. Copy the `devcenter.json` file from your Organization Service and put it somewhere where your Agent can access.
-2. Follow [the organizational hierarchy configuration instructions](./configure-organizations-hierarchy.md) to generate a `repos.csv`. Alternatively, if your Organization Service already uses a `repos.csv`, you may copy that file directly and put it somewhere where your Agent can access.
+1. Copy the `devcenter.json` file from your Organization Service and put it somewhere where your Agent can access. This could mean putting this file on the same file system that Agent has access to – or it could mean putting it behind an unauthenticated HTTP endpoint.
+2. Follow [our guide for creating a repos.csv file](../../../references/repos-csv.md). Alternatively, if your Organization Service already uses a `repos.csv`, you may copy that file directly and put it somewhere where your Agent can access (either by putting it on a file system the agent has access to or by putting the file behind an unauthenticated HTTP endpoint that the agent can call).
    * **Note**: There are a couple of changes you should be aware of if you previously used an Organization Service. We've [documented those at the bottom of this doc](#notable-changes-from-the-previous-organization-service).
-3. Update the relevant variables in your Agent deployment so that your Agent knows where these files are.
+
+### 3. Configure the Agent to use the new variables 
+
+Update the relevant variables in your Agent deployment so that your Agent knows where these files are.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -76,8 +75,9 @@ Make sure that the following configurations are not included in your Agent run c
 
 | Environment Variable                                       | Default | Description |
 |------------------------------------------------------------|---------|-------------|
-| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      |         | The path of your `repos.csv` file that provides organization information. |
-| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
+| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
+| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URI in the form of `https://your-service/devcenter.json`. |
+| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}`               | `false`  | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. Defaults to allowing access to all commit options. |
 | `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `600`   | Specifies how often to request your organization information. |
 
 **Example:**
@@ -87,6 +87,8 @@ docker run \
 # ... Existing variables
 -e MODERNE_AGENT_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_AGENT_ORGANIZATION_DEVCENTER=/Users/MY_USER/Documents/devcenter.json \
+-e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_0=PullRequest \
+-e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_1=ForkAndPullRequest \
 -e MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS=600 \
 # ... Additional variables
 ```
@@ -99,8 +101,9 @@ docker run \
 
 | Argument Name                                                | Default | Description |
 |--------------------------------------------------------------|---------|-------------|
-| `--moderne.agent.organization.reposCsv`                      |         | The path of your `repos.csv` file that provides organization information. |
-| `--moderne.agent.organization.devCenter`                     |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
+| `--moderne.agent.organization.reposCsv`                      |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
+| `--moderne.agent.organization.devCenter`                     |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URI in the form of `https://your-service/devcenter.json`. |
+| `--moderne.agent.defaultCommitOptions[{index}]`              | `false`  | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. Defaults to allowing access to all commit options. |
 | `--moderne.agent.organization.updateIntervalSeconds` | `600`   | Specifies how often to request your organization information. |
 
 **Example:**
@@ -110,22 +113,14 @@ java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
 --moderne.agent.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 --moderne.agent.organization.devCenter=/Users/MY_USER/Documents/devcenter.json \
+--moderne.agent.defaultCommitOptions[0]=PullRequest \
+--moderne.agent.defaultCommitOptions[1]=ForkAndPullRequest \
 --moderne.agent.organization.updateIntervalSeconds=600 \
 # ... Additional arguments
 ```
 
 </TabItem>
 </Tabs>
-
-
-:::tip
-The Agent is able to fetch your `repos.csv` from an unauthenticated HTTP/HTTPS endpoint. To specify an endpoint instead
-of a local file, use a URI instead of a local file.
-:::
-
-### 3. Remove the organization service from your system
-
-This step will depend on your specific deployment topology. 
 
 ## Notable changes from the previous Organization Service
 

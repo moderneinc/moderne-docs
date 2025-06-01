@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Creating a repos.csv file
 
-Whether you are configuring mass ingestion of repositories into Moderne or you are defining an organizational hierarchy, you will need to create a `repos.csv` file. 
+Whether you are configuring mass ingestion of repositories into Moderne or you are defining an organizational hierarchy, you will need to create a `repos.csv` file that defines your repositories and configuration around them. 
 
 This doc will provide you with everything you need to know about creating and using this file.
 

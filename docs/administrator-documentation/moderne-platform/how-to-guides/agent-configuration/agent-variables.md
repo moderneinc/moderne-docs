@@ -25,7 +25,7 @@ This document includes all of the variables you can configure the Moderne agent 
 | `MODERNE_AGENT_TOKEN`                        | `true`     |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                                                                               |
 | `MODERNE_AGENT_DOWNLOADPARALLELISM`          | `false`    | 2 threads              | How many threads are used to download LSTs.                                                                                                                                                                 |
 | `MODERNE_AGENT_ARTIFACTINDEXINTERVALSECONDS` | `false`    | 120 seconds            | How frequently LSTs will be indexed.                                                                                                                                                                        |
-| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`    | All options available. | Use to restrict which commit options are available in Moderne (if the organizations service doesn't return any). Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`    | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
@@ -53,7 +53,7 @@ docker run \
 | `--moderne.agent.token`                         | `true`     |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                                                                               |
 | `--moderne.agent.downloadParallelism`           | `false`    | 2 threads              | How many threads are used to download LSTs.                                                                                                                                                                 |
 | `--moderne.agent.artifactIndexIntervalSeconds`  | `false`    | 120 seconds            | How frequently LSTs will be indexed.                                                                                                                                                                        |
-| `--moderne.agent.defaultCommitOptions[{index}]` | `false`    | All options available. | Use to restrict which commit options are available in Moderne (if the organizations service doesn't return any). Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `--moderne.agent.defaultCommitOptions[{index}]` | `false`    | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
@@ -385,8 +385,8 @@ java -jar moderne-agent-{version}.jar \
 | Environment Variable                                       | Required | Default | Description |
 |------------------------------------------------------------|----------|---------|-------------|
 | `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
-| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
-| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
+| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     |          |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URI in the form of `https://your-service/devcenter.json`. |
+| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS`         | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
 
 **Example:**
 
@@ -407,7 +407,7 @@ docker run \
 | Argument Name                                                | Required | Default | Description |
 |--------------------------------------------------------------|----------|---------|-------------|
 | `--moderne.agent.organization.reposCsv`                      | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
-| `--moderne.agent.organization.devCenter`                     | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. |
+| `--moderne.agent.organization.devCenter`                     | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URI in the form of `https://your-service/devcenter.json`. |
 | `--moderne.agent.organization.updateIntervalSeconds` | `false`  | `600`   |The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file. |
 
 **Example:**
@@ -418,6 +418,48 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 --moderne.agent.organization.devCenter=/Users/MY_USER/Documents/devcenter.json \
 --moderne.agent.organization.updateIntervalSeconds=600 \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+## Org service variables
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                                | Required | Default | Description                                                                                                                                                                          |
+|--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`                     | `true`   |         | The URL of your GraphQL service.                                                                                                              |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_AGENT_ORGANIZATION_SERVICE_URL=http://localhost:8091 \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                | Required | Default | Description                                                                                                                                                                          |
+|--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.agent.organization.service.url`                   | `true`   |         | The URL of your GraphQL service.                                                                                                              |
+| `--moderne.agent.organization.service.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+java -jar moderne-agent-{version}.jar \
+# ... Existing arguments
+--moderne.agent.organization.service.url=http://localhost:8091 \
 # ... Additional arguments
 ```
 </TabItem>

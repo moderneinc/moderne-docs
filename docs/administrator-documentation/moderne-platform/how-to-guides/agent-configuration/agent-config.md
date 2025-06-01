@@ -208,7 +208,7 @@ All agents must be configured with the variables listed as required below:
 | `MODERNE_AGENT_TOKEN`                        | `true`     |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                                                                               |
 | `MODERNE_AGENT_DOWNLOADPARALLELISM`          | `false`    | 2 threads              | How many threads are used to download LSTs.                                                                                                                                                                 |
 | `MODERNE_AGENT_ARTIFACTINDEXINTERVALSECONDS` | `false`    | 120 seconds            | How frequently LSTs will be indexed.                                                                                                                                                                        |
-| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`    | All options available. | Use to restrict which commit options are available in Moderne (if the organizations service doesn't return any). Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`    | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
@@ -243,7 +243,7 @@ moderne-agent:latest
 | `--moderne.agent.token`                        | `true`     |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                                                                               |
 | `--moderne.agent.downloadParallelism`          | `false`    | 2 threads              | How many threads are used to download LSTs.                                                                                                                                                                 |
 | `--moderne.agent.artifactIndexIntervalSeconds` | `false`    | 120 seconds            | How frequently LSTs will be indexed.                                                                                                                                                                        |
-| `--moderne.agent.defaultCommitOptions[{index}]` | `false`    | All options available. | Use to restrict which commit options are available in Moderne (if the organizations service doesn't return any). Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `--moderne.agent.defaultCommitOptions[{index}]` | `false`    | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
@@ -515,19 +515,28 @@ java -jar moderne-agent-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 7: (Optionally) Configure organizational hierarchy
+### Step 7: (Optional but recommended) Configure organizational hierarchy
 
-If you would like to have an organizational hierarchy available inside of the Moderne Platform, you will need to [configure an organizational hierarchy](./configure-organizations-hierarchy.md) and let the agent know about it.
+If you would like to have an organizational hierarchy available inside of the Moderne Platform, you will need to [configure an organizational hierarchy](./configure-organizations-hierarchy.md) and [let the agent know about it](./configure-organizations-hierarchy.md#agent-configuration).
 
-### Step 8: (Optionally) Configure a DevCenter
+### Step 8: (Optionally) Create an Organizations service
 
-The DevCenter is the mission-control dashboard of the Moderne Platform. If you wish to have DevCenters available inside of the Moderne Platform, you will need to [ensure you've defined an organizational hierarchy](#step-7-optionally-configure-organizational-hierarchy) and then [follow the instructions for configuring a DevCenter](../dev-center.md).
+You should create an Organizations service if you want to:
 
-### Step 9: (Optionally) Provide SSL client keystore
+* Limit access to the organizations you've [previously defined](./configure-organizations-hierarchy.md) so that some users only have access to some repositories OR
+* Customize commit messages by repository (e.g., adding a JIRA ticket to your commit messages based on the repository)
+
+To do so, please follow the instructions in our [creating an Organizations service guide](../org-service.md) and then [let the agent know about it](../org-service.md#agent-variables).
+
+### Step 9: (Optionally) Configure a DevCenter
+
+The DevCenter is the mission-control dashboard of the Moderne Platform. If you wish to have DevCenters available inside of the Moderne Platform, you will need to [ensure you've defined an organizational hierarchy](./configure-organizations-hierarchy.md) and then [follow the instructions for configuring a DevCenter](../dev-center.md).
+
+### Step 10: (Optionally) Provide SSL client keystore
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](./configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
 
-### Step 10: Run the agent
+### Step 11: Run the agent
 
 At this point, you should have configured everything needed to run the Moderne agent. If you run into issues running the command, please don't hesitate to reach out.
 
