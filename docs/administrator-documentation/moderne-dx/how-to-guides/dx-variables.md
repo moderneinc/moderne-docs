@@ -271,7 +271,6 @@ java -jar moderne-dx-{version}.jar \
 | Variable Name                                     | Required | Default | Description                                                                                                                                                                                                                                      |
 |---------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `MODERNE_DX_ORGANIZATION_REPOSCSV`                | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`.            |
-| `MODERNE_DX_ORGANIZATION_URL`                     | `false`   |         | The URL of your GraphQL service.                                                                                                              |
 | `MODERNE_DX_ORGANIZATION_DEVCENTERJSON`           | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                 |
 | `MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS`    | `false`  | All options available | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
@@ -280,7 +279,6 @@ java -jar moderne-dx-{version}.jar \
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional variables
@@ -294,7 +292,6 @@ docker run \
 | Argument Name                                     | Required | Default | Description                                                                                                                                                                                                                                        |
 |---------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `--moderne.dx.organization.reposCsv`              | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`.                                                                                                                   |
-| `--moderne.dx.organization.url`                   | `false`   |         | The URL of your GraphQL service.                                                                                                              |
 | `--moderne.dx.organization.devCenterJson`         | `false`   |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                   |
 | `--moderne.dx.organization.defaultCommitOptions`  | `false`  | All options available | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`.                                                                                                                                                                              |
 
@@ -303,7 +300,6 @@ docker run \
 ```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
---moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 --moderne.dx.organization.defaultCommitOptions=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional arguments
