@@ -280,6 +280,7 @@ java -jar moderne-dx-{version}.jar \
 ```bash
 docker run \
 # ... Existing variables
+-e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional variables
@@ -302,6 +303,7 @@ docker run \
 ```bash
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
+--moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 --moderne.dx.organization.defaultCommitOptions=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional arguments
