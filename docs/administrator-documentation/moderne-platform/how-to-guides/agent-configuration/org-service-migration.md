@@ -18,7 +18,7 @@ This guide will walk you through everything you need to know to migrate this fun
 
 At a high-level, the migration process is as follows:
 
-1. Remove any configuration related to the org hierarchies or DevCenters from your Agent
+1. Remove any outdated configuration related to the org hierarchies or DevCenters from your Agent
 2. Configure the Agent to use `repos.csv` and `devcenter.json`
    * If copying from a previous `repos.csv` file, you may need to make some minor changes to your `repos.csv` file.
 3. Ensure that your agent is using at least version `0.221.0` (to get the latest variable names included in this doc)
