@@ -20,7 +20,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 #### Summary and related links
 
 * **Announcements for the week**
-  * [The keynote from the Code Remix Summit is not available on YouTube](https://www.youtube.com/watch?v=KIdnP2e8Cno)
+  * [The keynote from the Code Remix Summit is now available on YouTube](https://www.youtube.com/watch?v=KIdnP2e8Cno)
     * [We will continue to add more videos to the Code Remix Summit playlist](https://www.youtube.com/playlist?list=PLIasdWXKABOmxpJ0YDBQUuZIbmnSt0s-z)
   * **Events**:
     * [Tim will be presenting at the Full Stack Conference on June 3rd about trusting AI to modernize software at scale](https://www.fullstackconference.nl/)
