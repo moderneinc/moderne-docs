@@ -363,7 +363,7 @@ You should create a dedicated organizations service if you want to:
 
 If you desire this functionality, please follow the instructions in our [creating an organizations service guide](./dx-org-service.md).
 
-Below is an example of what the Moderne DX service run command might look like at the end of this step if you configured the service to use only configured recipe sources.
+Below is an example of what the Moderne DX service run command might look like at the end of this step.
 
 <Tabs groupId="dx-type">
 <TabItem value="docker-image" label="Docker image">

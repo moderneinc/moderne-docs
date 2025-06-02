@@ -35,7 +35,7 @@ Once you've created an organizations service, you'll need to update your Agent r
 
 | Variable Name                                                | Required | Default | Description                                                                                                                                                                          |
 |--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`                     | `true`   |         | The URL of your GraphQL service.                                                                                                              |
+| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`                     | `true`   |         | The URL of your GraphQL service that provides access control for your organizations or commit message customization.                                                                                                              |
 | `MODERNE_AGENT_ORGANIZATION_SERVICE_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
@@ -54,7 +54,7 @@ docker run \
 
 | Argument Name                                                | Required | Default | Description                                                                                                                                                                          |
 |--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.service.url`                   | `true`   |         | The URL of your GraphQL service.                                                                                                              |
+| `--moderne.agent.organization.service.url`                   | `true`   |         | The URL of your GraphQL service that provides access control for your organizations or commit message customization.                                                                                                             |
 | `--moderne.agent.organization.service.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**

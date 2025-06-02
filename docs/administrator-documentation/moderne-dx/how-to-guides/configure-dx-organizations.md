@@ -39,9 +39,10 @@ Once you have the `repos.csv` file updated with organizations, you'll need to up
 | Variable Name                                     | Required | Default | Description                                                                                                                                                                                                                                      |
 |---------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `MODERNE_DX_ORGANIZATION_REPOSCSV`                | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-server/repos.csv`.            |
-| `MODERNE_DX_ORGANIZATION_URL`                     | `false`   |         | The URL of your GraphQL service.                                                                                                              |
+| `MODERNE_DX_ORGANIZATION_URL`                     | `false`   |         |The URL of an optional GraphQL service that provides access control for organizations. See [Additional customization](#additional-customization) for more information.                   |
 | `MODERNE_DX_ORGANIZATION_DEVCENTERJSON`           | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                 |
 | `MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS`    | `false`  | All options available | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `MODERNE_DX_ORGANIZATION_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 
@@ -61,9 +62,10 @@ docker run \
 | Argument Name                                     | Required | Default | Description                                                                                                                                                                                                                                        |
 |---------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `--moderne.dx.organization.reposCsv`              | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`.                                                                                                                   |
-| `--moderne.dx.organization.url`                   | `false`   |         | The URL of your GraphQL service.                                                                                                              |
+| `--moderne.dx.organization.url`                   | `false`   |         | The URL of an optional GraphQL service that provides access control for organizations. See [Additional customization](#additional-customization) for more information.                                |
 | `--moderne.dx.organization.devCenterJson`         | `false`   |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                   |
 | `--moderne.dx.organization.defaultCommitOptions`  | `false`  |         | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`.                                                                                                                                                                              |
+| `--moderne.dx.organization.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `--moderne.dx.organization.url`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 
@@ -168,9 +170,6 @@ Once these are both done, your developers can now start running recipes and comm
 
 ## Additional customization
 
-You may want to create a dedicated organizations service if you want to:
-
-* Limit access to the organizations you've defined above so that some users only have access to some repositories 
-* Customize commit messages by repository (such as adding a JIRA ticket per repository)
+You may want to create a dedicated organizations service if you want to limit access to the organizations you've defined above so that some users only have access to some repositories.
 
 To create this service, please check out our [creating an organizations service guide](./dx-org-service.md).

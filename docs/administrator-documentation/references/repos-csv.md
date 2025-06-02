@@ -77,8 +77,7 @@ Comma-separated files (CSV) are best manipulated using a dedicated editor such a
   for an example.
 
 :::warning
-Org columns must start immediately after the branch column. Likewise, they must be contiguous. **Do not** add empty orgs
-so that the orgs line up with one another.
+**Do not** add empty orgs so that the orgs line up with one another.
 
 <Tabs>
 <TabItem value="not-this" label="Don't do this">
@@ -87,8 +86,6 @@ cloneUrl,branch,org1,org2,org3,org4
 "https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
 # Non-contiguous series of orgs 👇 
 "https://github.com/Netflix/photon","main","Team 2","","Director B","ALL"
-# First org does not start immediately after the branch column 👇 
-"https://github.com/Netflix/ribbon","master","","Director A","ALL"
 ```
 </TabItem>
 
