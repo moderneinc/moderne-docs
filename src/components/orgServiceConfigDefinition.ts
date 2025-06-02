@@ -11,7 +11,7 @@ const orgServiceConfigDefinition = {
       label: 'Organization Service URL', 
       key: 'orgServiceUrl', 
       envKey: 'MODERNE_AGENT_ORGANIZATION_SERVICE_URL',
-      description: 'The URL of your GraphQL service that provides organization information.',
+      description: 'The URL of your GraphQL service that provides access control for your organizations or commit message customization.',
       required: true,
       type: 'text',
       defaultValue: ''
