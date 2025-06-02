@@ -384,8 +384,8 @@ java -jar moderne-agent-{version}.jar \
 
 | Environment Variable                               | Required | Default | Description                                                                                                                                                                               |
 |----------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`              | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`.                 |
-| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`             | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URI in the form of `https://your-service/devcenter.json`. |
+| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`              | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`.                 |
+| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`             | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/devcenter.json`. |
 | `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                                 |
 
 **Example:**
@@ -406,8 +406,8 @@ docker run \
 
 | Argument Name                                        | Required | Default | Description                                                                                                                                                                               |
 |------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.reposCsv`              | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`.                 |
-| `--moderne.agent.organization.devCenter`             | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URI in the form of `https://your-service/devcenter.json`. |
+| `--moderne.agent.organization.reposCsv`              | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`.                 |
+| `--moderne.agent.organization.devCenter`             | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/devcenter.json`. |
 | `--moderne.agent.organization.updateIntervalSeconds` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                                 |
 
 **Example:**

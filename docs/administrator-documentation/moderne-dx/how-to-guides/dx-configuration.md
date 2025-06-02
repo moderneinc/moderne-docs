@@ -519,6 +519,7 @@ docker run \
 -e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_DX_MAVEN_0_USERNAME \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
+-e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
 -p 8080:8080
@@ -547,6 +548,7 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.syncIntervalSeconds=600 \
+--moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 ```
 
 * Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.dx.token={token_value}` as an argument instead of `--moderne.dx.token={token_value}`.

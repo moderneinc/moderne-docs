@@ -268,10 +268,11 @@ java -jar moderne-dx-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                           | Required | Default | Description                                                                                                                                                               |
-|-----------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_DX_ORGANIZATION_REPOSCSV`      | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
-| `MODERNE_DX_ORGANIZATION_DEVCENTERJSON` | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                        |
+| Variable Name                                 | Required | Default | Description                                                                                                                                                               |
+|-----------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_DX_ORGANIZATION_REPOSCSV`            | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://your-serve/repos.csv`. |
+| `MODERNE_DX_ORGANIZATION_DEVCENTERJSON`       | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                        |
+| `MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `--moderne.dx.organization.url`.                                               |
 
 **Example:**
 
@@ -287,10 +288,11 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                             | Required | Default | Description                                                                                                                                                               |
-|-------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.dx.organization.reposCsv`      | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
-| `--moderne.dx.organization.devCenterJson` | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                        |
+| Argument Name                                   | Required | Default | Description                                                                                                                                                               |
+|-------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.dx.organization.reposCsv`            | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://your-serve/repos.csv`. |
+| `--moderne.dx.organization.devCenterJson`       | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                        |
+| `--moderne.dx.organization.syncIntervalSeconds` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `--moderne.dx.organization.url`.                                               |
 
 **Example:**
 
