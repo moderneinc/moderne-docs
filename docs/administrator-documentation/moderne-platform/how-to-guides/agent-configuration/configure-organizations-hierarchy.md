@@ -115,8 +115,8 @@ cloneUrl,branch,org1,org2,org3,org4
 
 ## Agent configuration
 
-The `repos.csv` source location is configured via the `moderne.agent.organization.reposCsv` variable. Its value may be a
-local path or an unauthenticated HTTP(S) URI. You can also configure how often the agent looks for changes to this
+The `repos.csv` source location is provided to the Agent by setting a variable in the Agent run command. Its value may be a
+local path or an unauthenticated HTTP(S) URI. You can also configure how often the Agent looks for changes to this
 file (by default it's every 10 minutes).
 
 <Tabs groupId="agent-type">
@@ -126,7 +126,7 @@ file (by default it's every 10 minutes).
 
 | Environment variable                                         | Required | Default | Description                                                                                                                                                                  |
 |--------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                        | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
+| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                        | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URL in the form of `https://your-serve/repos.csv`. |
 | `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | 600     | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                    |
 
 **Example:**
@@ -146,7 +146,7 @@ docker run \
 
 | Argument name                                                  | Required | Default | Description                                                                                                                                                                  |
 |----------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.reposCsv`                        | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`. |
+| `--moderne.agent.organization.reposCsv`                        | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URL in the form of `https://your-serve/repos.csv`. |
 | `--moderne.agent.organization.updateIntervalSeconds` | `false`  | 600     | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                    |
 
 **Example:**

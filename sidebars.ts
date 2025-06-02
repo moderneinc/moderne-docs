@@ -306,6 +306,7 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'administrator-documentation/moderne-platform/how-to-guides/dev-center',
+            'administrator-documentation/moderne-platform/how-to-guides/org-service',
             'administrator-documentation/moderne-platform/how-to-guides/create-visualization',
             'administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes',
             'administrator-documentation/moderne-platform/how-to-guides/lst-cleanup',
@@ -375,6 +376,7 @@ const sidebars: SidebarsConfig = {
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-artifactory-recipes',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-on-prem-scm',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-organizations',
+            'administrator-documentation/moderne-dx/how-to-guides/dx-org-service',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-strict-recipe-sources',
             'administrator-documentation/moderne-dx/how-to-guides/deploying-recipe-artifacts-in-moderne-dx',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-ssl',
@@ -395,6 +397,20 @@ const sidebars: SidebarsConfig = {
             'administrator-documentation/moderne-dx/references/moderne-dx-architecture',
           ],
         },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Shared references',
+      link: {
+        type: 'generated-index',
+        title: 'Shared references',
+        description: 'Reference docs.',
+        slug: '/administrator-documentation/references',
+        keywords: ['reference'],
+      },
+      items: [
+        'administrator-documentation/references/repos-csv',
       ],
     },
     {

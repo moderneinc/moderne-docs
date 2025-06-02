@@ -156,7 +156,7 @@ The Moderne DX service can only talk to _Maven formatted_ artifact repositories.
 
 Moderne offers two options for connecting to your artifact repository: a generic Maven connection that can connect to any Maven formatted repository regardless of vendor and an Artifactory-specific connection that is optimized to serve LST artifacts more quickly.
 
-If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](./configure-dx-with-maven-repository-access.md) and then jump to [Step 5](#step-5-optionally-configure-an-organization-structure).
+If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](./configure-dx-with-maven-repository-access.md) and then jump to [Step 5](#step-5-optional-but-recommended-configure-an-organizational-hierarchy).
 
 If you _do_ plan on using Artifactory to store artifacts, you have two options:
 
@@ -166,10 +166,10 @@ If you _do_ plan on using Artifactory to store artifacts, you have two options:
 The below table shows the key differences between the two types of configuration:
 
 | **Maven repository configuration**                                                                                                                                                                                                                                                                                                                                                                                                                                  | **Artifactory repository configuration**                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Is not tied to a particular vendor.                                                                                                                                                                                                                                                                                                                                                                                                                                 | Can only be used with Artifactory.                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Serves BOTH recipe artifacts and LST artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                     | Serves ONLY LST artifacts. Requires Maven configuration to serve recipe artifacts.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Recipe artifacts are immediately available for [deployment to Moderne](../../moderne-platform/how-to-guides/importing-external-recipes.md) upon publishing to the Maven formatted repository.                                                                                                                                                                                                                                                                       | Can not serve recipe artifacts without Maven configuration.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Recipe artifacts are immediately available for deployment to Moderne upon publishing to the Maven formatted repository.                                                                                                                                                                                                                                                                                                                                             | Can not serve recipe artifacts without Maven configuration.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | LST artifacts may be served if an index in the [Maven Indexer](https://maven.apache.org/maven-indexer/) format is regularly published to the repository. There will be a considerable delay between when an LST is published to the Maven repository and when it is available in the Moderne CLI. This delay is approximately the delay between updates to the index – which is controlled by a batch process that your artifact repository executes on a schedule. | LST artifacts will be available in near-real time (within a minute or two) in the Moderne CLI when they are published to Artifactory. This is because Artifactory configuration uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to identify recently published artifacts. AQL queries Artifactory's internal relational database for information about artifacts rather than using an index produced in a batch process. |
 
 Please ensure you've followed either the [Maven](./configure-dx-with-maven-repository-access.md) or [Artifactory](./configure-dx-with-artifactory-access.md) instructions before continuing.
@@ -294,13 +294,13 @@ java -jar moderne-dx-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 5: (Optionally) Configure an organization structure
+### Step 5: (Optional but recommended) Configure an organizational hierarchy
 
-Many organizations desire the ability to control the organizational structure of their repositories within the Moderne Platform in a dynamic way. To facilitate this need, Moderne provides two approaches: a file-based one or a service-based one (where you configure an Organizations service that is hosted inside of your environment).
+In order for users to effectively access and run recipes against specific groups of repositories, Moderne DX admins will need to define an organizational structure for their company. This structure, defined via a repos.csv file, needs to either be deployed as a static file alongside DX or be accessible from DX via an unauthenticated URI.
 
-If you want to set up this integration, please [follow the instructions in our configuring Organizations with Moderne DX doc](./configure-dx-organizations.md).
+If you want to support this functionality, which we'd strongly recommend, please [follow the instructions in our organizational hierarchy configuration doc](./configure-dx-organizations.md).
 
-Below is an example of what the Moderne DX service run command might look like at the end of this step if you set up the Organizations service.
+Below is an example of what the Moderne DX service run command might look like at the end of this step if you configure this hierarchy.
 
 <Tabs groupId="dx-type">
 <TabItem value="docker-image" label="Docker image">
@@ -323,10 +323,73 @@ docker run \
 -e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_DX_MAVEN_0_USERNAME \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
+-e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
+# ... Additional variables to come
+-p 8080:8080
+moderne-dx:latest
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+```bash
+# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
+# --moderne.dx.token[0]=...
+export MODERNE_DX_TOKEN_0=...
+export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
+export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_DX_MAVEN_0_USERNAME=...
+export MODERNE_DX_MAVEN_0_PASSWORD=...
+
+java -jar moderne-dx-{version}.jar \
+--moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
+--moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
+--moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
+--moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
+--moderne.dx.maven[0].localRepository=~/.moderne-maven \
+--moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
+```
+</TabItem>
+</Tabs>
+
+### Step 6: (Optionally) Configure an organizations service
+
+You should create a dedicated organizations service if you want to:
+
+* Limit access to the organizations you've [previously defined](./configure-dx-organizations.md) so that some users only have access to some repositories OR
+* Customize commit messages by repository (e.g., adding a JIRA ticket to your commit messages based on the repository)
+
+If you desire this functionality, please follow the instructions in our [creating an organizations service guide](./dx-org-service.md).
+
+Below is an example of what the Moderne DX service run command might look like at the end of this step.
+
+<Tabs groupId="dx-type">
+<TabItem value="docker-image" label="Docker image">
+
+```bash
+# Please note that if you create environment variables for secrets, you still need to let Docker
+# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
+export MODERNE_DX_TOKEN_0=...
+export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
+export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_DX_MAVEN_0_USERNAME=...
+export MODERNE_DX_MAVEN_0_PASSWORD=...
+
+docker run \
+-e MODERNE_DX_TOKEN_0 \
+-e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_DX_ARTIFACTORY_0_USERNAME \
+-e MODERNE_DX_ARTIFACTORY_0_PASSWORD \
+-e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
+-e MODERNE_DX_MAVEN_0_USERNAME \
+-e MODERNE_DX_MAVEN_0_PASSWORD \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
--e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
-# ... Additional variables to come
+-e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
+-e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
 -p 8080:8080
 moderne-dx:latest
 ```
@@ -351,12 +414,13 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.syncIntervalSeconds=600 \
---moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
+--moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
+--moderne.dx.recipe.useOnlyConfigured=true
 ```
 </TabItem>
 </Tabs>
 
-### Step 6: (Optionally) Use strict recipe sources.
+### Step 7: (Optionally) Use strict recipe sources
 
 Some organizations want recipe artifacts to only come from locations configured in the Moderne DX service. If you want to configure that, please follow the [strict recipe sources instructions](./configure-dx-with-strict-recipe-sources.md).
 
@@ -387,8 +451,8 @@ docker run \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
+-e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
--e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 -p 8080:8080
 moderne-dx:latest
 ```
@@ -413,17 +477,17 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.syncIntervalSeconds=600 \
---moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
+--moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 --moderne.dx.recipe.useOnlyConfigured=true
 ```
 </TabItem>
 </Tabs>
 
-### Step 7: (Optionally) Provide SSL client keystore
+### Step 8: (Optionally) Provide SSL client keystore
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please see the [configure DX with SSL certificate instructions](./configure-dx-ssl.md).
 
-### Step 8: Run the service
+### Step 9: Run Moderne DX
 
 At this point, you should have configured everything needed to run the Moderne DX service. If you run into issues running the command, please don't hesitate to reach out.
 
@@ -455,9 +519,9 @@ docker run \
 -e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_DX_MAVEN_0_USERNAME \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
+-e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
--e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 -p 8080:8080
 moderne-dx:latest
 ```
@@ -484,7 +548,7 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.syncIntervalSeconds=600 \
---moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
+--moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 ```
 
 * Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.dx.token={token_value}` as an argument instead of `--moderne.dx.token={token_value}`.

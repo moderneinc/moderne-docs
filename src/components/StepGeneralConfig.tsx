@@ -156,7 +156,7 @@ export default function StepGeneralConfig({
       
       <div className={styles.commitOptionsSection}>
         <h4>Default Commit Options</h4>
-        <p>Use to restrict which commit options are available in Moderne (if the organizations service doesn't return any). <br/> <strong>If you don't check any, it defaults to making all commit options available.</strong></p>
+        <p>Use to restrict which commit options are available in Moderne. <br/> <strong>If you don't check any, it defaults to making all commit options available.</strong></p>
         
         <div className={styles.commitOptionsList}>
           {COMMIT_OPTIONS.map((option) => (
