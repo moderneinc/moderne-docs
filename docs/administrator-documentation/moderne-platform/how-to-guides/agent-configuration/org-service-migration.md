@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Organizations service migration
 
-In order to simplify Moderne's operational complexity, we decided that configuring organizational hierarchies should only require creating a file and giving it to the Moderne agent (either via direct access or via an unauthenticated HTTP/S endpoint), rather than running a dedicated Organizations service.
+In order to simplify Moderne's operational complexity, we decided that configuring organizational hierarchies should only require creating a file and giving it to the Moderne agent (either via direct access or via an unauthenticated HTTP/S endpoint), rather than running a dedicated endpoint for organization hierarchy via an Organizations service.
 
 While you can still [run an Organizations service](../org-service.md) to restrict access to various repositories/organizations or to customize commit messages by repository, the functionality around org hierarchies is being moved to the Agent.
 
