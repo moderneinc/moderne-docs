@@ -33,12 +33,12 @@ Make sure that the following configurations are not included in your Agent run c
 
 **Variables:**
 
-| Argument Name                                       |
-|-----------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH`      | 
-| `MODERNE_AGENT_ORGANIZATION_FILE_COMMITOPTIONSPATH` | 
-| `MODERNE_AGENT_ORGANIZATION_FILE_IDMAPPINGPATH`     | 
-| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`     | 
+| Argument Name                                              |
+|------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_FILE_REPOSCSVPATH`             |
+| `MODERNE_AGENT_ORGANIZATION_FILE_COMMITOPTIONSPATH`        |
+| `MODERNE_AGENT_ORGANIZATION_FILE_IDMAPPINGPATH`            |
+| `MODERNE_AGENT_ORGANIZATION_FILE_DEVCENTERPATH`            |
 | `MODERNE_AGENT_ORGANIZATION_SERVICE_UPDATEINTERVALSECONDS` |
 
 </TabItem>
@@ -47,12 +47,12 @@ Make sure that the following configurations are not included in your Agent run c
 
 **Arguments:**
 
-| Argument Name                                    |
-|--------------------------------------------------|
-| `--moderne.agent.organization.file.reposCsvPath` | 
-| `--moderne.agent.organization.commitOptionsPath` | 
-| `--moderne.agent.organization.idMappingPath`     | 
-| `--moderne.agent.organization.devCenterPath`     | 
+| Argument Name                                                |
+|--------------------------------------------------------------|
+| `--moderne.agent.organization.file.reposCsvPath`             |
+| `--moderne.agent.organization.commitOptionsPath`             |
+| `--moderne.agent.organization.idMappingPath`                 |
+| `--moderne.agent.organization.devCenterPath`                 |
 | `--moderne.agent.organization.service.updateIntervalSeconds` |
 
 </TabItem>
@@ -73,12 +73,12 @@ Update the relevant variables in your Agent deployment so that your Agent knows 
 
 **Environment Variables:**
 
-| Environment Variable                                       | Default | Description |
-|------------------------------------------------------------|---------|-------------|
-| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`                      |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://<internal-endpoint>/repos.csv`. |
-| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`                     |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URI in the form of `https://<internal-endpoint>/devcenter.json`. |
-| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}`               | `false`  | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. Defaults to allowing access to all commit options. |
-| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `600`   | Specifies how often to request your organization information. |
+| Environment Variable                               | Default | Description                                                                                                                                                                                           |
+|----------------------------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`              |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://<internal-endpoint>/repos.csv`.                    |
+| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`             |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URI in the form of `https://<internal-endpoint>/devcenter.json`.      |
+| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}`       | `false` | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. Defaults to allowing access to all commit options. |
+| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `600`   | Specifies how often to request your organization information.                                                                                                                                         |
 
 **Example:**
 
@@ -99,12 +99,12 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                | Default | Description |
-|--------------------------------------------------------------|---------|-------------|
-| `--moderne.agent.organization.reposCsv`                      |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://<internal-endpoint>/repos.csv`. |
-| `--moderne.agent.organization.devCenter`                     |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URI in the form of `https://<internal-endpoint>/devcenter.json`. |
-| `--moderne.agent.defaultCommitOptions[{index}]`              | `false`  | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. Defaults to allowing access to all commit options. |
-| `--moderne.agent.organization.updateIntervalSeconds` | `600`   | Specifies how often to request your organization information. |
+| Argument Name                                        | Default | Description                                                                                                                                                                                           |
+|------------------------------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.agent.organization.reposCsv`              |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://<internal-endpoint>/repos.csv`.                    |
+| `--moderne.agent.organization.devCenter`             |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URI in the form of `https://<internal-endpoint>/devcenter.json`.      |
+| `--moderne.agent.defaultCommitOptions[{index}]`      | `false` | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. Defaults to allowing access to all commit options. |
+| `--moderne.agent.organization.updateIntervalSeconds` | `600`   | Specifies how often to request your organization information.                                                                                                                                         |
 
 **Example:**
 
