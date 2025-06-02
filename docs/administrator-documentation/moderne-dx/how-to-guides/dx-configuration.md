@@ -324,7 +324,6 @@ docker run \
 -e MODERNE_DX_MAVEN_0_USERNAME \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
 -e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
--e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 # ... Additional variables to come
 -p 8080:8080
 moderne-dx:latest
@@ -349,7 +348,6 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
---moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
 ```
 </TabItem>
 </Tabs>
@@ -392,7 +390,6 @@ docker run \
 -e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
 -e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
--e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 -p 8080:8080
 moderne-dx:latest
 ```
@@ -418,7 +415,6 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.syncIntervalSeconds=600 \
 --moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
---moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
 --moderne.dx.recipe.useOnlyConfigured=true
 ```
 </TabItem>
@@ -457,7 +453,6 @@ docker run \
 -e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
 -e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 -e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
--e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 -p 8080:8080
 moderne-dx:latest
 ```
@@ -483,7 +478,6 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.syncIntervalSeconds=600 \
 --moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
---moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
 --moderne.dx.recipe.useOnlyConfigured=true
 ```
 </TabItem>
@@ -527,7 +521,6 @@ docker run \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
 -e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
 -e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
--e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=PullRequest,Branch,Direct \
 -p 8080:8080
 moderne-dx:latest
 ```
@@ -554,7 +547,6 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
 --moderne.dx.organization.url=http://localhost:8091 \
 --moderne.dx.organization.syncIntervalSeconds=600 \
---moderne.dx.organization.defaultCommitOptions=PullRequest,Branch,Direct \
 ```
 
 * Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.dx.token={token_value}` as an argument instead of `--moderne.dx.token={token_value}`.

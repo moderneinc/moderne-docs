@@ -272,7 +272,6 @@ java -jar moderne-dx-{version}.jar \
 |---------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `MODERNE_DX_ORGANIZATION_REPOSCSV`                | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`.            |
 | `MODERNE_DX_ORGANIZATION_DEVCENTERJSON`           | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                 |
-| `MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS`    | `false`  | All options available | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
@@ -280,7 +279,6 @@ java -jar moderne-dx-{version}.jar \
 docker run \
 # ... Existing variables
 -e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
--e MODERNE_DX_ORGANIZATION_DEFAULTCOMMITOPTIONS=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional variables
 ```
 </TabItem>
@@ -293,7 +291,6 @@ docker run \
 |---------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `--moderne.dx.organization.reposCsv`              | `true`   |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URI in the form of `https://your-serve/repos.csv`.                                                                                                                   |
 | `--moderne.dx.organization.devCenterJson`         | `false`   |         | The path of your `devcenter.json` file that provides the DevCenter configurations.                                                                                                                                                                   |
-| `--moderne.dx.organization.defaultCommitOptions`  | `false`  | All options available | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`.                                                                                                                                                                              |
 
 **Example:**
 
@@ -301,7 +298,6 @@ docker run \
 java -jar moderne-dx-{version}.jar \
 # ... Existing arguments
 --moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
---moderne.dx.organization.defaultCommitOptions=Direct,Branch,Fork,PullRequest,ForkAndPullRequest \
 # ... Additional arguments
 ```
 </TabItem>
