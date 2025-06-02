@@ -23,7 +23,9 @@ This guide assumes that:
 
 ## Updating the `repos.csv` file to define an organizational hierarchy
 
-You should already have a `repos.csv` file that you created as part of [mass ingestion](./mass-ingest-and-run-dx.md). To group those repositories into a hierarchy of organizations, you can add one or more organization columns to the end of each row.
+You should already have a `repos.csv` file that you created as part of [mass ingestion](./mass-ingest-and-run-dx.md). To group those repositories into a hierarchy of organizations, you can add one or more organization columns to the end of each row. 
+
+You also will need to update the `repos.csv` file to include a `branch` column if you didn't already include it.
 
 For specific details around this file and how to configure an organizational hierarchy, please check out our [creating a repos.csv doc](../../references/repos-csv.md).
 
