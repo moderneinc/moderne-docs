@@ -61,7 +61,7 @@ Once you have the `repos.csv` file updated with organizations, you'll need to up
 | `MODERNE_DX_ORGANIZATION_URL`                 | `false`  |         | The URL of an optional GraphQL service that provides access control for organizations. See [Additional customization](#additional-customization) for more information.                                                                           |
 | `MODERNE_DX_ORGANIZATION_DEVCENTERJSON`       | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/devcenter.json`.                                                 |
 | `MODERNE_DX_ORGANIZATION_SKIPSSL`             | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `--moderne.dx.organization.url`.                                                                                                                      |
+| `MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS` | `false`  | `600`   | Specifies how often to request your organization information.                                                                                                                                                                                    |
 
 **Example:**
 
@@ -83,7 +83,7 @@ docker run \
 | `--moderne.dx.organization.url`                 | `false`  |         | The URL of an optional GraphQL service that provides access control for organizations. See [Additional customization](#additional-customization) for more information.                                                                             |
 | `--moderne.dx.organization.devCenterJson`       | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/devcenter.json`.                                                   |
 | `--moderne.dx.organization.skipSsl`             | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `--moderne.dx.organization.url`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.dx.organization.syncIntervalSeconds` | `false`  | `600`   | Specifies how often to request your organization information. Only used when combined with `--moderne.dx.organization.url`.                                                                                                                        |
+| `--moderne.dx.organization.syncIntervalSeconds` | `false`  | `600`   | Specifies how often to request your organization information.                                                                                                                                                                                      |
 
 **Example:**
 
