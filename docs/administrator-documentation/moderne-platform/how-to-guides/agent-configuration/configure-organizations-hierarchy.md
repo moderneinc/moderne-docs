@@ -89,3 +89,74 @@ java -jar moderne-agent-{version}.jar \
 
 </TabItem>
 </Tabs>
+
+## Confirming it works
+
+After starting up the Moderne Agent again, you can now make the following GraphQL query using the embedded GraphiQL IDE found at `https://api.<your-tenant>/graphql`:
+
+```graphql
+query orgs {
+  organizations {
+    id
+    repositoriesPages {
+      count
+      edges {
+        node {
+          origin
+          path
+          branch
+        }
+      }
+    }
+    parent {
+      id
+    }
+  }
+}
+```
+
+If you run this immediately after startup, you may get no results. Once your index operation is completed, you will get results similar to the following:
+
+```graphql
+{
+  "data": {
+    "organizations": [
+      {
+        "id": "Organization 1",
+        "repositoriesPages": {
+          "count": 2,
+          "edges": [
+            {
+              "node": {
+                "origin": "github.com",
+                "path": "organization/repository1",
+                "branch": "main"
+              }
+            },
+            {
+              "node": {
+                "origin": "github.com",
+                "path": "organization/repository2",
+                "branch": "main"
+              }
+            }
+          ]
+      },
+      {
+        "id": "Organization 2",
+        "repositoriesPages": {
+          "count": 7,
+          "edges": [...]
+        }
+      },
+      {
+        "id": "Organization 3",
+        "repositoriesPages": {
+          "count": 25,
+          "edges": [...]
+        }
+      }
+    ]
+  }
+}
+```

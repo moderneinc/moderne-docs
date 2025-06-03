@@ -21,6 +21,23 @@ This guide assumes that:
 * You have already configured Moderne DX to connect to your [Artifactory](./configure-dx-with-artifactory-access.md) or [Nexus](./configure-dx-with-maven-repository-access.md) instance.
 * You have already built a `repos.csv` file as part of the [mass ingestion step](./mass-ingest-and-run-dx.md)
 
+## What is an organizational hierarchy?
+
+In Moderne, an _organization_ is a collection of related repositories. The organizational hierarchy defines how these organizations are structured and related to one another.
+
+A pre-configured organization hierarchy streamlines work by enabling operations to target well-defined groups of repositories. For example, if Team 1 wants to run a migration on only their own repositories, they can select their team’s organization. Meanwhile, a manager overseeing both Team 1 and Team 2 could select the parent organization to run operations across both teams’ repositories.
+
+```
+ALL
+├── VP
+    └── Director
+        └── Manager
+           ├── Team 1
+           └── Team 2
+```
+
+There are no strict requirements for how the organizational hierarchy must be structured. However, customers often model it after their internal reporting hierarchy.
+
 ## Updating the `repos.csv` file to define an organizational hierarchy
 
 You should already have a `repos.csv` file that you created as part of [mass ingestion](./mass-ingest-and-run-dx.md). To group those repositories into a hierarchy of organizations, you can add one or more organization columns to the end of each row. 
