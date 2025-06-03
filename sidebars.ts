@@ -377,6 +377,7 @@ const sidebars: SidebarsConfig = {
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-on-prem-scm',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-organizations',
             'administrator-documentation/moderne-dx/how-to-guides/dx-org-service',
+            'administrator-documentation/moderne-dx/how-to-guides/org-source-migration',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-strict-recipe-sources',
             'administrator-documentation/moderne-dx/how-to-guides/deploying-recipe-artifacts-in-moderne-dx',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-ssl',

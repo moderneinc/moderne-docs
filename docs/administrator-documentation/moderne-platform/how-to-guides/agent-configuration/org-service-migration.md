@@ -60,9 +60,9 @@ Make sure that the following configurations are not included in your Agent run c
 
 ### 2. Create the new files and put them somewhere the Agent can access
 
-1. Copy the `devcenter.json` file from your Organization Service and put it somewhere where your Agent can access. This could mean putting this file on the same file system that Agent has access to – or it could mean putting it behind an unauthenticated HTTP/S endpoint.
-2. Follow [our guide for creating a repos.csv file](../../../references/repos-csv.md). Alternatively, if your Organization Service already uses a `repos.csv`, you may copy that file directly and put it somewhere where your Agent can access (either by putting it on a file system the agent has access to or by putting the file behind an unauthenticated HTTP/S endpoint that the agent can call).
-   * **Note**: There are a couple of changes you should be aware of if you previously used an Organization Service. We've [documented those at the bottom of this doc](#notable-changes-from-the-previous-organization-service).
+1. Copy the `devcenter.json` file from your Organization service and put it somewhere where your Agent can access. This could mean putting this file on the same file system that Agent has access to – or it could mean putting it behind an unauthenticated HTTP/S endpoint.
+2. Follow [our guide for creating a repos.csv file](../../../references/repos-csv.md). Alternatively, if your Organization service already uses a `repos.csv`, you may copy that file directly and put it somewhere where your Agent can access (either by putting it on a file system the agent has access to or by putting the file behind an unauthenticated HTTP/S endpoint that the agent can call).
+   * **Note**: There are a couple of changes you should be aware of if you previously used an Organization service. We've [documented those at the bottom of this doc](#notable-changes-from-the-previous-organization-service).
 
 ### 3. Configure the Agent to use the new variables 
 

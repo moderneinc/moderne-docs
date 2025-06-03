@@ -5,7 +5,7 @@ const orgHierarchyAndDevCenterConfigDefinition = {
       label: 'Organization Repos CSV path', 
       key: 'orgReposCsv', 
       envKey: 'MODERNE_AGENT_ORGANIZATION_REPOSCSV',
-      description: 'The path of your <strong>repos.csv</strong> file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of <strong>https://your-serve/repos.csv</strong>.',
+      description: 'The path of your <strong>repos.csv</strong> file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of <strong>https://<internal-endpoint>repos.csv</strong>.',
       required: false,
       type: 'text',
       defaultValue: ''
