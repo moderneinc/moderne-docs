@@ -170,6 +170,6 @@ Once these are both done, your developers can now start running recipes and comm
 
 ## Additional customization
 
-You may want to create a dedicated organizations service if you want to limit access to the organizations you've defined above so that some users only have access to some repositories.
+You may want to create a dedicated Organizations service if you want to limit access to the organizations you've defined above so that some users only have access to some repositories.
 
-To create this service, please check out our [creating an organizations service guide](./dx-org-service.md).
+To create this service, please check out our [creating an Organizations service guide](./dx-org-service.md).

@@ -352,14 +352,14 @@ java -jar moderne-dx-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 6: (Optionally) Configure an organizations service
+### Step 6: (Optionally) Configure an Organizations service
 
-You should create a dedicated organizations service if you want to:
+You should create a dedicated Organizations service if you want to:
 
 * Limit access to the organizations you've [previously defined](./configure-dx-organizations.md) so that some users only have access to some repositories OR
 * Customize commit messages by repository (e.g., adding a JIRA ticket to your commit messages based on the repository)
 
-If you desire this functionality, please follow the instructions in our [creating an organizations service guide](./dx-org-service.md).
+If you desire this functionality, please follow the instructions in our [creating an Organizations service guide](./dx-org-service.md).
 
 Below is an example of what the Moderne DX service run command might look like at the end of this step.
 

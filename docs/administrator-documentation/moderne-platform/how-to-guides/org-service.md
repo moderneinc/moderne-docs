@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Creating an Organizations service
 
-You should create a dedicated organizations service if you want to:
+You should create a dedicated Organizations service if you want to:
 
 * Limit access to the organizations you've [previously defined](./agent-configuration/configure-organizations-hierarchy.md) so that some users only have access to some repositories OR
 * Customize commit messages by repository (e.g., adding a JIRA ticket to your commit messages based on the repository)

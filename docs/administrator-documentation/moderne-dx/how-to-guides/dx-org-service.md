@@ -1,14 +1,14 @@
 ---
-sidebar_label: Creating an organizations service
+sidebar_label: Creating an Organizations service
 description: How to create and configure an organizations service that pairs with Moderne DX.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Creating an organizations service
+# Creating an Organizations service
 
-You should create a dedicated organizations service if you want to limit access to the organizations you've [previously defined](./configure-dx-organizations.md) so that some users only have access to some repositories.
+You should create a dedicated Organizations service if you want to limit access to the organizations you've [previously defined](./configure-dx-organizations.md) so that some users only have access to some repositories.
 
 This guide will walk you through everything you need to know to create such a service.
 
@@ -31,7 +31,7 @@ We generally recommend forking the template and modifying it as, in most cases, 
 
 ## DX variables
 
-Once you've created an organizations service, you'll need to update your DX run command to provide it with additional variables. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne DX service guide](./dx-configuration.md).
+Once you've created an Organizations service, you'll need to update your DX run command to provide it with additional variables. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne DX service guide](./dx-configuration.md).
 
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">
