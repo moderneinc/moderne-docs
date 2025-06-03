@@ -1,12 +1,12 @@
 ---
-sidebar_label: Organizations service migration guide
-description: How to migrate repos.csv from the org service to the agent.
+sidebar_label: Organizations source migration guide
+description: How to migrate repos.csv from an Organizations service to the agent.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Organizations service migration
+# Organization source migration
 
 In order to simplify Moderne's operational complexity, we decided that configuring organizational hierarchies should only require creating a file and giving it to the Moderne agent (either via direct access or via an unauthenticated HTTP/S endpoint), rather than running a dedicated endpoint for organization hierarchy via an Organizations service.
 
