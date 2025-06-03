@@ -46,7 +46,7 @@ You also will need to update the `repos.csv` file to include a `branch` column i
 
 For specific details around this file and how to configure an organizational hierarchy, please check out our [creating a repos.csv doc](../../references/repos-csv.md).
 
-## DX organization structure configuration
+## DX configuration
 
 Once you have the `repos.csv` file updated with organizations, you'll need to update your DX service run command to provide it with a few variables. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne DX service guide](./dx-configuration.md).
 

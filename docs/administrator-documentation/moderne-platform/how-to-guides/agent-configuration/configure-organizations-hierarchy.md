@@ -6,7 +6,7 @@ description: How to configure your organizational hierarchy.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configure the organizational hierarchy
+# Configure an organizational hierarchy
 
 ## What is the organizational hierarchy?
 
@@ -30,13 +30,13 @@ ALL
 There are no strict requirements for how the organizational hierarchy must be structured. However, customers often model
 it after their internal reporting hierarchy.
 
-## Is the organization hierarchy mandatory?
+## Is an organizational hierarchy mandatory?
 
 No. If no organization hierarchy is configured, all repositories will default to the `All` organization. This setup can
 be suitable when managing a relatively small number of repositories. However, as your repository count grows, we
 recommend establishing an organization hierarchy to improve structure and scalability.
 
-## How is the organization hierarchy defined?
+## How is an organizational hierarchy defined?
 
 Organizational structure is a configured via a `repos.csv` file, accessible to the Agent via the file system or network.
 
