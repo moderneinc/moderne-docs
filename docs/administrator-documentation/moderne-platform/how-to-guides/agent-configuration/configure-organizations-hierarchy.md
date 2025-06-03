@@ -39,79 +39,8 @@ recommend establishing an organization hierarchy to improve structure and scalab
 ## How is the organization hierarchy defined?
 
 Organizational structure is a configured via a `repos.csv` file, accessible to the Agent via the file system or network.
-Depending on your deployment configuration, this may be done by placing the file in the same host as the agent or by
-using a file/network mount. The Agent can also be configured with an unauthenticated HTTP/S URI that serves the
-aforementioned `repos.csv`.
 
-This configuration is best explained with an example. Consider an organization that consists of two teams and two
-directors:
-
-```
-All
-├── Director A
-|       └── Team 1
-|       └── Team 2
-├── Director B
-
-```
-
-The following CSV file would represent this organizational structure:
-
-```bash showLineNumbers
-cloneUrl,branch,org1,org2,org3
-"https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
-"https://github.com/Netflix/photon","main","Team 2","Director A","ALL"
-"https://github.com/Netflix/ribbon","master","Director A","ALL"
-"https://github.com/apache/maven-doxia","master","Director B","ALL"
-```
-
-In the above file, we define 5 organizations (ALL, Director A, Director B, Team 1, and Team 2) and 3 repositories.
-Notice that one repository can be defined multiple times if you want two distinct organizations to have access to it.
-
-Also note that organizations on the left are children of organizations on the right. For instance, `Team 1` is a child
-of `Director A` which is a child of `ALL`.
-
-:::tip
-Comma-separated files (CSV) are best manipulated using a dedicated editor such as Microsoft Excel, Google Sheets, or
-Apple Numbers. Here is what the above CSV would look like on Apple Numbers:
-
-![](../assets/numbers-csv-screenshot.png)
-:::
-
-## Expected format for `repos.csv`
-
-- Use quotation marks around each value to help differentiate between the different columns.
-- A single row may not have more columns than what is defined in the first row.
-- A single repository may be associated with multiple organizations by being referenced in multiple rows. In the above
-  example, `maven-doxia` is associated with both `Director B` and `Team 1`.
-- Repositories can be associated with any organization down the tree, not just the leaves. See line 4 in the `csv` file
-  for an example.
-
-:::warning
-Orgs must be contiguous. **Do not** add empty orgs so that the orgs line up with one another.
-
-<Tabs>
-<TabItem value="not-this" label="Don't do this">
-```bash {showLineNumbers}
-cloneUrl,branch,org1,org2,org3,org4
-"https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
-# Non-contiguous series of orgs 👇 
-"https://github.com/Netflix/photon","main","Team 2","","Director B","ALL"
-# First org does not start immediately after the branch column 👇 
-"https://github.com/Netflix/ribbon","master","","Director A","ALL"
-```
-</TabItem>
-
-<TabItem value="do-this" label="Do this">
-```bash {showLineNumbers}
-cloneUrl,branch,org1,org2,org3,org4
-"https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
-"https://github.com/Netflix/photon","main","Team 2","Director B","ALL"
-"https://github.com/Netflix/ribbon","master","Director A","ALL"
-```
-</TabItem>
-</Tabs>
-:::
+Please see our [creating a repos.csv guide](../../../references/repos-csv.md) for details into how to create and format this file.
 
 ## Agent configuration
 
