@@ -64,7 +64,10 @@ Also note that organizations on the left are children of organizations on the ri
 :::tip
 Comma-separated files (CSV) are best manipulated using a dedicated editor such as Microsoft Excel, Google Sheets, or Apple Numbers. Here is what the above CSV would look like on Apple Numbers:
 
-![](./assets/numbers-csv-screenshot.png)
+<figure>
+  ![](./assets/numbers-csv-screenshot.png)
+  <figcaption></figcaption>
+</figure>
 :::
 
 ## Formatting details
@@ -74,6 +77,11 @@ Comma-separated files (CSV) are best manipulated using a dedicated editor such a
 * You can add empty orgs to the beginning, middle, or end of a row to make them line up as desired (although you don't need to).
 * You can choose to surround elements with quotes or not depending on your preference – just keep in mind general CSV formatting rules.
 * You can order columns in any way.
+
+<figure>
+  ![](./assets/repos-csv-example.png)
+  <figcaption>_An example demonstrating various orgs lining up with blanks in between_.</figcaption>
+</figure>
 
 ## Full example
 
