@@ -489,7 +489,7 @@ mod git clone csv . repos.csv --filter=tree:0 --parallel
 ```
 
 :::info
-The `--filter=tree:0` argument limits the amount of data that Git downloads from a repository. Specifically, it indicates that you want to only download the repos commit history and metadata, but not the actual files in the repo.
+The `--filter=tree:0` argument limits the amount of data that Git downloads from a repository. Specifically, it indicates that you want to only download the repos commit history and metadata, but not the actual files in the repo. For more information on this, please see the [GitHub blog post on speeding up partial clones](https://github.blog/open-source/git/get-up-to-speed-with-partial-clone-and-shallow-clone).
 
 The `--parallel` flag increases the speed of cloning the repositories by performing multiple clones at once. For more information on parallelism, check out our [parallelism guide](./parallelism.md)
 :::
