@@ -70,8 +70,7 @@ Comma-separated files (CSV) are best manipulated using a dedicated editor such a
 ## Formatting details
 
 * A single row may not have more columns than what is defined in the first row.
-* A single repository may be associated with multiple organizations by being referenced in multiple rows. In the above
-  example, `maven-doxia` is associated with both `Director B` and `Team 1`.
+* A single repository may be associated with multiple organizations by being referenced in multiple rows. In the above example, `maven-doxia` is associated with both `Director B` and `Team 1`.
 * You can add empty orgs to the beginning, middle, or end of a row to make them line up as desired (although you don't need to).
 * You can choose to surround elements with quotes or not depending on your preference – just keep in mind general CSV formatting rules.
 * You can order columns in any way.
