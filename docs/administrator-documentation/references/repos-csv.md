@@ -69,35 +69,12 @@ Comma-separated files (CSV) are best manipulated using a dedicated editor such a
 
 ## Formatting details
 
-- A single row may not have more columns than what is defined in the first row.
-- A single repository may be associated with multiple organizations by being referenced in multiple rows. In the above
+* A single row may not have more columns than what is defined in the first row.
+* A single repository may be associated with multiple organizations by being referenced in multiple rows. In the above
   example, `maven-doxia` is associated with both `Director B` and `Team 1`.
-- Repositories can be associated with any organization down the tree, not just the leaves. See line 4 in the `csv` file
-  for an example.
-
-:::warning
-**Do not** add empty orgs so that the orgs line up with one another.
-
-<Tabs>
-<TabItem value="not-this" label="Don't do this">
-```bash {showLineNumbers}
-cloneUrl,branch,org1,org2,org3,org4
-"https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
-# Non-contiguous series of orgs 👇 
-"https://github.com/Netflix/photon","main","Team 2","","Director B","ALL"
-```
-</TabItem>
-
-<TabItem value="do-this" label="Do this">
-```bash {showLineNumbers}
-cloneUrl,branch,org1,org2,org3,org4
-"https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
-"https://github.com/Netflix/photon","main","Team 2","Director B","ALL"
-"https://github.com/Netflix/ribbon","master","Director A","ALL"
-```
-</TabItem>
-</Tabs>
-:::
+* You can add empty orgs to the beginning, middle, or end of a row to make them line up as desired (although you don't need to).
+* You can choose to surround elements with quotes or not depending on your preference – just keep in mind general CSV formatting rules.
+* You can order columns in any way.
 
 ## Full example
 
