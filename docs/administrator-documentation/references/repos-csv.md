@@ -82,18 +82,3 @@ Comma-separated files (CSV) are best manipulated using a dedicated editor such a
   ![](./assets/repos-csv-example.png)
   <figcaption>_An example demonstrating various orgs lining up with blanks in between_.</figcaption>
 </figure>
-
-## Full example
-
-Here is a full example of what the first two rows might look like if you defined all of the columns:
-
-```csv
-cloneUrl,branch,changeset,java,jvmOpts,mavenArgs,gradleArgs,org1,org2,org3
-https://github.com/openrewrite/rewrite-recipe-bom,main,aa5f25ac0031,17-tem,-Xmx4G,-Pfast,-Dmyprop=myvalue,Team 1, Director 1, ALL
-```
-
-Formatted in a table:
-
-| cloneUrl                                            | branch | changeset      | java     | jvmOpts  | mavenArgs | gradleArgs         | org1     | org2         | org3  |
-|-----------------------------------------------------|--------|----------------|----------|----------|-----------|--------------------|----------|--------------|-------|
-| `https://github.com/openrewrite/rewrite-recipe-bom` | `main` | `aa5f25ac0031` | `17-tem` | `-Xmx4G` | `-Pfast`  | `-Dmyprop=myvalue` | `Team 1` | `Director 1` | `ALL` |
