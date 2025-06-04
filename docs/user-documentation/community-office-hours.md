@@ -13,6 +13,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### OpenRewrite and C#: A match made in .NET heaven
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=9vJL1ST4u6U' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### Don't migrate to Spring Boot 3.5 until you watch this (May 28th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=mD9IkhMjrCo' controls="true" />
