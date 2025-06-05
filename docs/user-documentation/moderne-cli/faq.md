@@ -67,3 +67,7 @@ The CLI skips any resources marked as Git ignored during project discovery, and 
 ## I need to enter an SSH passphrase to check out repositories – how does the CLI handle this?
 
 Check out our [SSH keys with passphrases guide](./how-to-guides/ssh-key.md).
+
+## How can I inspect the current configuration of the CLI?
+
+All configuration is stored in `~/.moderne/cli/moderne.yml` and can be inspected there.
