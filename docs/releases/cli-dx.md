@@ -1,5 +1,22 @@
 # CLI / DX changelog
 
+### CLI / DX v3.42.0 (2025/06/08)
+
+#### What's Changed CLI
+* Suggest `mod exec . --last-recipe-run MODERNE_BUILD_TOOL_CHECK` after `git apply`
+* Drop all non whitelisted headers on cross realm redirect
+* Recipe-based DevCenter generation using `mod devcenter`
+* Normalize paths returned by `Links#link`
+* Expose recipe options and datatable descriptors with `mod config recipes export json`
+* Avoid double counting of no-LST repositories when generating DevCenter dashboards
+* Improve error message when `~/.moderne` isn't accessible or isn't a directory
+* Add .cbl files to NativeBuild for when cobol parser is not available
+* Test value's type before parsing recipe list options as strings
+* Disable Mac native building until we can get a new notarization ID
+#### What's Changed DX
+* Remove returning DevCenter configurations in DX's `/organization` query
+
+
 ### CLI / DX v3.41.0 (2025/05/20)
 
 #### What's Changed CLI
