@@ -71,3 +71,7 @@ Check out our [SSH keys with passphrases guide](./how-to-guides/ssh-key.md).
 ## How can I inspect the current configuration of the CLI?
 
 All configuration is stored in `~/.moderne/cli/moderne.yml` and can be inspected there.
+
+## Can I run multiple CLI commands at once?
+
+**No**. The CLI was not designed to run multiple commands simultaneously.

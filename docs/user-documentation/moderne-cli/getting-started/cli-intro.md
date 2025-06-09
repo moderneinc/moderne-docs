@@ -144,6 +144,10 @@ This will grab _all_ of the recipes from the tenant you specified in `mod config
 
 With installation and configuration done, you're now ready to use the CLI. Let's walk through some things you might do with it. We recommend you follow along on your own machine to get a feel for how to use the CLI.
 
+:::info
+The Moderne CLI was not designed to run multiple commands simultaneously. Please only execute one command at a time.
+::: 
+
 ### Run recipes against many repositories at once
 
 
