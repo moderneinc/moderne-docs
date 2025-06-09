@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.42.1 (2025/06/09)
+
+#### What's Changed
+* Re-enable native building for Mac
+
+
 ### CLI / DX v3.42.0 (2025/06/08)
 
 #### What's Changed CLI
