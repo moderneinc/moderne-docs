@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.42.2 (2025/06/10)
+
+#### What's Changed CLI
+* Printing the estimatedEffortTimeSavings in the CLI
+
+
 ### CLI / DX v3.42.1 (2025/06/09)
 
 #### What's Changed
