@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.42.3 (2025/06/10)
+
+#### What's Changed CLI
+* Skip YAML recipe artifacts when executing `mod config recipes moderne push` command
+#### What's Changed DX
+* Ensure all LSTs are synced prior to incrementing modified time in AQL query
+* Delete downloaded LSTs from prior DX sync operations
+
+
 ### CLI / DX v3.42.2 (2025/06/10)
 
 #### What's Changed CLI
