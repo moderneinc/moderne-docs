@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.57.0 (2025/06/10)
+
+- Bug fixes and other improvements.
+
 ### UI v11.56.0 (2025/06/09)
 
 - devCenter Recipe support
