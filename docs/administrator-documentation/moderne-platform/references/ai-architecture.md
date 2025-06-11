@@ -38,6 +38,13 @@ Uses a bring-your-own-model (BYOM) configuration. It supports OpenAI, Gemini, An
 
 Conversation history is stored locally in the browser (e.g., cookies/local storage). If a user clears their browser data or switches devices, their history is lost.
 
+#### Workflow
+
+<figure>
+  ![](./assets/moddy-steps.png)
+  <figcaption>_AI model interactions_</figcaption>
+</figure>
+
 ### AI recipe search
 
 Moderne offers users the ability to search for recipes with AI. This can help if you don't remember the name of a recipe or if you don't even know if a recipe exists or not. For more details about AI search, check out our [guide on how to use AI to search for recipe](../../../user-documentation/moderne-platform/how-to-guides/moderne-platform-search.md#ai-search).
