@@ -17,7 +17,7 @@ All AI tools and features may produce incorrect or incomplete results. Please en
 
 ## AI components
 
-### Moddy (chatbot) - coming soon
+### Moddy (chatbot) - restricted beta
 
 Moddy is an AI chatbot that can search for OpenRewrite recipes and execute them within the Moderne Platform.
 
