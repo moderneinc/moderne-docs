@@ -12,7 +12,7 @@ In this guide, we'll walk you through all of the AI functionality we offer. For 
 :::warning
 All AI tools and features may produce incorrect or incomplete results. Please ensure that you thoroughly review any results for clarity and accuracy before sharing or using.
 
-**Note**: Our general philosophy is to create AI tools that help you _find_ and _discover_ things. However, we ensure that the core recipes themselves **never** use AI, so we can guarantee deterministic, consistent, and reliable changes.
+**Note**: Our general philosophy is to create AI tools that help you _find_ and _discover_ things. However, we ensure that the core recipes themselves don't use AI unless explicitly described as such, so we can guarantee deterministic, consistent, and reliable changes.
 :::
 
 ## AI components
