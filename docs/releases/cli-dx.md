@@ -10,6 +10,16 @@
 * Avoid a potential divide by zero exception when logging LST sync progress
 
 
+### CLI / DX v3.42.4 (2025/06/11)
+
+#### What's Changed CLI
+* Obfuscate the libraries used by the CLI with top-secret, advanced, uncrackable encryption
+* Register `io.moderne.cli.commands` for reflection for navite images
+* More Specific Java version pattern matching for toolchain configurations
+#### What's Changed DX
+* Avoid a potential divide by zero exception when logging LST sync progress
+
+
 ### CLI / DX v3.42.3 (2025/06/10)
 
 #### What's Changed CLI
