@@ -13,6 +13,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Gartner APPS Unpacked: Key Takeaways and Insights (June 11th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=5fGCkKqCwE0' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### OpenRewrite and C#: A match made in .NET heaven (June 4th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=9vJL1ST4u6U' controls="true" />
