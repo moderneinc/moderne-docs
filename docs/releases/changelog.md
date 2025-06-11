@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.58.0 (2025/06/11)
+
+- exposes the ingested and published at dates for repositories in the repository grid. Displays the last refresh of the grid data
+
 ### UI v11.57.0 (2025/06/10)
 
 - Bug fixes and other improvements.
