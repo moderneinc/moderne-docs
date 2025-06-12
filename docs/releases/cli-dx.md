@@ -1,14 +1,9 @@
 # CLI / DX changelog
 
-### CLI / DX v3.42.4 (2025/06/11)
+### CLI / DX v3.42.5 (2025/06/12)
 
-#### What's Changed CLI
-* Obfuscate the libraries used by the CLI with top-secret, advanced, uncrackable encryption
-* Register `io.moderne.cli.commands` for reflection for navite images
-* More Specific Java version pattern matching for toolchain configurations
-#### What's Changed DX
-* Avoid a potential divide by zero exception when logging LST sync progress
-
+#### What's Changed CLI & DX
+* OpenRewrite 8.55.3, which contains fixes for resolving Maven dependencies of type tgz.
 
 ### CLI / DX v3.42.4 (2025/06/11)
 
