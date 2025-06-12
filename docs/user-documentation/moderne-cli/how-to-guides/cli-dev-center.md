@@ -49,7 +49,7 @@ mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
 
 `rewrite-devcenter` includes an example DevCenterStarter recipe which you can run as follows:
 ```bash
-mod run devcenter-demo --recipe io.moderne.devcenter.DevCenterStarter
+mod run devcenter-demo --recipe io.moderne.devcenter.DevCenterStarter --parallel
 ```
 
 This recipe will generate the data tables required to build the DevCenter dashboard using the command:
@@ -92,7 +92,7 @@ mod config recipes yaml install MyDevCenter.yml
 
 Next, run the recipe and generate the dashboard:
 ```bash
-mod run dashboard-demo --recipe com.acme.MyDevCenter
+mod run dashboard-demo --recipe com.acme.MyDevCenter --parallel
 mod devcenter dashboard-demo --last-recipe-run
 ```
 
