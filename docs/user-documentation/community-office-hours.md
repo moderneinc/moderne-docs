@@ -19,7 +19,16 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Releases**
+    * [We've released OpenRewrite 8.55.2](https://github.com/openrewrite/rewrite/releases/tag/v8.55.2) - it comes with a bunch of JavaScript updates and bug fixes.
+  * **Content**
+    * [Check out our post on preparing for post quantum cryptography](https://www.linkedin.com/posts/jonkschneider_preparing-for-post-quantum-cryptography-activity-7336421570774544385-xZvx)
+    * [Our monthly newsletter was released this past week](https://www.linkedin.com/newsletters/moderne-monthly-7150204049416409088/)
+  * **Training**
+    * You can now sign up for [an introduction to OpenRewrite](https://www.moderne.ai/content-library/introduction-to-openrewrite) and [advanced OpenRewrite training](https://www.moderne.ai/content-library/advanced-openrewrite-training) courses that we are offering.
+  * **Events**
+    * [Tim will be be presenting about trusting AI to modernize software in Devoxx in Luxembourg on June 19th](https://mobile.devoxx.com/events/voxxedlu2025/talks/3593/details)
 
 ### OpenRewrite and C#: A match made in .NET heaven (June 4th, 2025)
 
