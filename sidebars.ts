@@ -110,6 +110,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'user-documentation/moderne-cli/getting-started/cli-intro',
             'user-documentation/moderne-cli/getting-started/moderne-cli-license',
+            'user-documentation/moderne-cli/getting-started/moddy-desktop',
           ],
         },
         {
