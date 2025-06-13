@@ -97,7 +97,7 @@ Moddy Desktop does not include its own model. You configure your own. Right now 
 
 Models deployed to your on-prem environment can also be supported.
 
-### What data doees Moddy desktop send to the models?
+### What data does Moddy desktop send to the models?
 
 Recipe results and data tables.
 
