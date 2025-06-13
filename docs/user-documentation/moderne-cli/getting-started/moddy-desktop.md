@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Getting started with Moddy Desktop
 
-Moddy is a multi-repo AI agent that combines natural language with the accuracy and scalability of Moderne and OpenRewrite. With it, you can analyze and modify large and complex codebases. For instance, you could ask it questions like, "How do I use Apache Commons?" or "Help me upgrade to Spring Boot 3.5," and it would search for the appropriate OpenRewrite recipes and then execute them for you.
+Moddy is a multi-repo AI agent (**currently in a restricted beta**) that combines natural language with the accuracy and scalability of Moderne and OpenRewrite. With it, you can analyze and modify large and complex codebases. For instance, you could ask it questions like, "How do I use Apache Commons?" or "Help me upgrade to Spring Boot 3.5," and it would search for the appropriate OpenRewrite recipes and then execute them for you.
 
 In this guide, we'll walk you through everything you need to know about Moddy Desktop – from installation instructions to architecture design.
 
