@@ -100,3 +100,7 @@ Models deployed to your on-prem environment can also be supported.
 ### What data doees Moddy desktop send to the models?
 
 Recipe results and data tables.
+
+### What data is sent to Moderne?
+
+None. We employee a bring-your-own-model (BYOM) configuration. All traffic to models is routed from an on-prem Moderne agent (not to be confused with an AI agent).
