@@ -103,4 +103,4 @@ Recipe results and data tables.
 
 ### What data is sent to Moderne?
 
-None. We employee a bring-your-own-model (BYOM) configuration. All traffic to models is routed from an on-prem Moderne agent (not to be confused with an AI agent).
+None. We employ a bring-your-own-model (BYOM) configuration. Moddy Desktop reaches out to your model and no data is passed to Moderne.
