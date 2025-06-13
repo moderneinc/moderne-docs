@@ -93,7 +93,7 @@ The AI model is chosen by the customer. All traffic to the model is routed via a
 
 ### What models do you use and how are they trained?
 
-Moddy Desktop does not include its own model. You configure your own. Right now we support Anthropic, but other models have been tested and performed relatively similarly. We plan to support all Generative models via their APIs.
+Moddy Desktop does not include its own model. You configure your own. Right now we support Anthropic, but other models have been tested and performed relatively similarly. We plan to support all generative models via their APIs.
 
 Models deployed to your on-prem environment can also be supported.
 
