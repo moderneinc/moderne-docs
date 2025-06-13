@@ -89,10 +89,10 @@ The AI model is chosen by the customer. All traffic to the model is routed via a
 
 ### What models do you use and how are they trained?
 
-Moderne doesn't train or fine-tune its own models. Instead, we leverage approved third-party models from vendors or OSS. We employe a bring-your-own-model (BYOM) configuration. All traffic to models is routed from an on-prem Moderne agent (not to be confused with an AI agent).
+Moddy Desktop does not include its own model. You configure your own. Right now we support Anthropic, but other models have been tested and performed relatively similarly. We plan to support all Generative models via their APIs.
 
-### What is your licensing model for third party data used in Moddy Desktop?
+Models deployed to your on-prem environment can also be supported.
 
-Moderne doesn't use any third party data. We don't have access to customer data and we don't train models on customer data. The model is controlled via a system prompt to only answer questions about the code by leveraging Moderne recipe/tools.
+### What data doees Moddy desktop send to the models?
 
-The recipes and tools are governed by the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview/), the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license/), and the [Apache License Version 2.0](https://docs.openrewrite.org/licensing/openrewrite-licensing#apache-license-version-20).
+Recipe results and data tables.
