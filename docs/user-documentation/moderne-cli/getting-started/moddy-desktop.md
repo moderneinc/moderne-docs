@@ -12,6 +12,10 @@ Moddy is a multi-repo AI agent (**currently in a restricted beta**) that combine
 
 In this guide, we'll walk you through everything you need to know about Moddy Desktop – from installation instructions to architecture design.
 
+## Prerequisites
+
+In order for Moddy Desktop to function, you will need to have already [setup and configured the Moderne CLI](./cli-intro.md).
+
 ## Installation
 
 We support installing Moddy Desktop via Homebrew (MacOS) or Chocolatey (Windows):
