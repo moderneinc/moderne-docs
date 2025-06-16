@@ -7,7 +7,7 @@ description: A detailed technical document about all of the places Moderne uses 
 
 Moderne offers a variety of features and recipes that utilize AI to enhance your experience. All of these are highly customizable so that you can choose to only enable or use the ones you're comfortable with.
 
-This architecture doc will walk through all of the AI components that use **generative AI**. In other words, these AI components generate new content 
+This architecture doc will walk through all of the AI components that use **generative AI**. In other words, these AI components generate new content based on your requests.
 
 :::warning
 All AI tools and features may produce incorrect or incomplete results. Please ensure that you thoroughly review any results for clarity and accuracy before sharing or using.
