@@ -24,15 +24,15 @@ Moderne offers users the ability to search for recipes with AI. This can help if
   <figcaption>_Searching for recipes using AI_</figcaption>
 </figure>
 
-### Deployment
+#### Deployment
 
 Deployed as part of the Moderne Platform. You can [choose whether or not to enable this](../../../user-documentation/moderne-platform/how-to-guides/moderne-platform-search.md#how-to-enable-or-disable-ai-search), though.
 
-### AI models
+#### AI models
 
 We use two BAAI embedding models – one for retrieval and one for reranking. We obtain the models from HuggingFace and deploy them using LangChain.
 
-### State management
+#### State management
 
 Search results are saved on the worker, similar to any recipe run result. No data is permanently stored.
 
@@ -42,15 +42,15 @@ Moderne has created recipes that can look through your code base and offer sugge
 
 Check out the [get recommendations recipe documentation](https://docs.openrewrite.org/recipes/ai/research/getrecommendations#recommendations) for more information into how to use this. You might also find it beneficial to read about [AI embeddings and how we use them](https://www.moderne.ai/blog/what-are-embeddings-and-why-are-they-great-for-code-impact-analysis).
 
-### Deployment
+#### Deployment
 
 Exists inside of the `rewrite-ai-search` JAR. Only deployed if you deploy this artifact to your tenant alongside the other recipe artifacts.
 
-### AI models
+#### AI models
 
 Uses [QwenCoder](https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B) for generative recommendations. Uses BAAI embedding models for clustering-based smart sampling and search, with K-means clustering.
 
-### State management
+#### State management
 
 Recipe recommendation results are stored on the worker, similar to any recipe run. No data is permanently saved.
 
@@ -62,7 +62,7 @@ For instance, if you created or updated a project that didn't have a useful READ
 
 For more details into how to install and run this recipe, check out our [recipe documentation](https://docs.openrewrite.org/recipes/knowledge/docs/updateopenrewritereadme).
 
-### Deployment
+#### Deployment
 
 Exists inside of the `rewrite-comprehension` JAR. Only deployed if you deploy this artifact to your tenant alongside the other recipe artifacts.
 
@@ -70,10 +70,10 @@ Exists inside of the `rewrite-comprehension` JAR. Only deployed if you deploy th
 While private tenants can technically deploy this and use our key, we expect most, if not all, external calls to Gemini will be blocked. If you're interested in the feature on your private tenant, please talk to us so we can figure something out.
 :::
 
-### AI models
+#### AI models
 
 Uses a bring-your-own-model (BYOM) configuration. It supports OpenAI, Gemini, Anthropic, and Ollama.
 
-### State management
+#### State management
 
 No data is saved – all interactions are stateless. Recipe results are ephemeral, like any non-AI recipe.

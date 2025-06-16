@@ -24,19 +24,19 @@ Moddy is an AI chatbot that can search for OpenRewrite recipes and execute them 
   <figcaption>_A preview of Moddy_</figcaption>
 </figure>
 
-### Deployment
+#### Deployment
 
 Deployed as part of the Moderne Platform. Moderne customers can choose whether or not to enable this chatbot in their tenants.
 
-### AI models
+#### AI models
 
 Moddy does not include its own model. You configure your own. Right now we support Anthropic, but other models have been tested and performed relatively similarly. We plan to support all generative models via their APIs.
 
-### State management
+#### State management
 
 Conversation history is stored locally in the browser (e.g., cookies/local storage). If a user clears their browser data or switches devices, their history is lost.
 
-### Workflow
+#### Workflow
 
 <figure>
   ![](./assets/moddy-steps.png)
@@ -52,15 +52,15 @@ The public Moderne Platform offers users the ability to connect to third party s
   <figcaption>_Connecting the Moderne Platform to OpenAI_</figcaption>
 </figure>
 
-### Deployment
+#### Deployment
 
 This is deployed by default in the public Moderne Platform. It is not available in private Moderne tenants.
 
-### AI models
+#### AI models
 
 Integrates with external AI services. As of February 2025, the only integration available is with OpenAI.
 
-### State mangement
+#### State mangement
 
 API keys are stored only on the user's machine (their browser) and are used on demand.
 
