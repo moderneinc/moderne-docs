@@ -30,7 +30,7 @@ Deployed as part of the Moderne Platform. Moderne customers can choose whether o
 
 ### AI models
 
-Uses a bring-your-own-model (BYOM) configuration. It supports OpenAI, Gemini, Anthropic, and Ollama.
+Moddy does not include its own model. You configure your own. Right now we support Anthropic, but other models have been tested and performed relatively similarly. We plan to support all generative models via their APIs.
 
 ### State management
 
@@ -64,7 +64,9 @@ Integrates with external AI services. As of February 2025, the only integration 
 
 API keys are stored only on the user's machine (their browser) and are used on demand.
 
-## Configuring and customizing AI features
+## Frequently asked questions
+
+### Can I configure and customize AI features?
 
 Moderne customers can choose what AI features they want to enable or disable. For instance, you can:
 
@@ -73,3 +75,13 @@ Moderne customers can choose what AI features they want to enable or disable. Fo
 * Toggle the Moddy chatbot availability.
 
 Furthermore, many of our AI features offer you the flexibility of bringing your own model so that you can ensure that the model you use meets your safety and security standards.
+
+### What models do you use and how are they trained?
+
+Moddy Desktop does not include its own model. You configure your own. Right now we support Anthropic, but other models have been tested and performed relatively similarly. We plan to support all generative models via their APIs.
+
+Third party AI integrations use whatever model you connect to.
+
+### What data does Moddy desktop send to the models?
+
+Recipe results and data tables.
