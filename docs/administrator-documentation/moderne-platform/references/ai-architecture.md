@@ -15,9 +15,9 @@ All AI tools and features may produce incorrect or incomplete results. Please en
 **Note**: Our general philosophy is to create AI tools that help you _find_ and _discover_ things. However, we ensure that the core recipes themselves don't use AI unless explicitly described as such, so we can guarantee deterministic, consistent, and reliable changes.
 :::
 
-## Moddy (chatbot) - restricted beta
+## Moddy (AI agent) - restricted beta
 
-Moddy is an AI chatbot that can search for OpenRewrite recipes and execute them within the Moderne Platform. There is also a [standalone version of Moddy](../../../user-documentation/moderne-cli/getting-started/moddy-desktop.md) available in restricted beta.
+Moddy is an AI agent that can search for OpenRewrite recipes and execute them within the Moderne Platform. There is also a [standalone version of Moddy](../../../user-documentation/moderne-cli/getting-started/moddy-desktop.md) available in restricted beta.
 
 <figure>
   ![](./assets/moddy.png)
@@ -26,7 +26,7 @@ Moddy is an AI chatbot that can search for OpenRewrite recipes and execute them 
 
 #### Deployment
 
-Deployed as part of the Moderne Platform. Moderne customers can choose whether or not to enable this chatbot in their tenants.
+Deployed as part of the Moderne Platform. Moderne customers can choose whether or not to enable this AI agent in their tenants.
 
 #### AI models
 
@@ -72,7 +72,7 @@ Moderne customers can choose what AI features they want to enable or disable. Fo
 
 * Disable AI-powered search and rely on keyword matching only.
 * Choose not to import any of the AI-powered recipes.
-* Toggle the Moddy chatbot availability.
+* Toggle the Moddy AI agent availability.
 
 Furthermore, many of our AI features offer you the flexibility of bringing your own model so that you can ensure that the model you use meets your safety and security standards.
 
