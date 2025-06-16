@@ -329,6 +329,7 @@ const sidebars: SidebarsConfig = {
             'administrator-documentation/moderne-platform/references/reporting',
             'administrator-documentation/moderne-platform/references/architecture',
             'administrator-documentation/moderne-platform/references/ai-architecture',
+            'administrator-documentation/moderne-platform/references/non-gen-ai-architecture',
             'administrator-documentation/moderne-platform/references/flow',
             'administrator-documentation/moderne-platform/references/user-roles',
             'administrator-documentation/moderne-platform/references/github-permissions',
