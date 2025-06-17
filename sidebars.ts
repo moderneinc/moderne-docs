@@ -414,6 +414,7 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'administrator-documentation/references/repos-csv',
+        'administrator-documentation/references/faq',
       ],
     },
     {
