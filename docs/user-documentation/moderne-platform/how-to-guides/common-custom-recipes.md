@@ -22,7 +22,17 @@ recipeList:
      groupId: io.moderne
      artifactId: moderne-parent
      newVersion: 1.2.x
+    # Changes application property io.moderne.this to io.moderne.that
+  - org.openrewrite.java.spring.ChangeSpringPropertyValue:
+     propertyKey: io.moderne.this
+     newValue: io.moderne.that
+    # Changes the name of the environment variable IO_MODERNE_THIS to IO_MODERNE_THAT in a Kubernetes deployment YAML
+  - org.openrewrite.yaml.ChangeValue:
+      keyPath: $.spec.template.spec.containers[*].env[?(@.name ==
+        'IO_MODERNE_THIS')].name
+      value: IO_MODERNE_THAT
   - io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5
+
 ```
 * You can then run `io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5` against the parent project
 * And run `io.moderne.ModerneSpringBootUpgrade` against any projects using `io.moderne:moderne-parent` as a parent.
