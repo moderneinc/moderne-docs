@@ -9,7 +9,7 @@ The Moderne DevCenter provides you with high-level details about the state of al
 
 In this guide, we'll walk you through how to do that.
 
-## Prerequisities
+## Prerequisites
 
 This guide assumes that you have already [installed and configured the CLI](../getting-started/cli-intro.md#installation-and-configuration).
 
@@ -77,7 +77,7 @@ Open the HTML file to view your DevCenter dashboard:
 </figure>
 
 
-## Step 5: Create your custom DevCenter recipe
+## (Optional) Step 5: Create your custom DevCenter recipe
 
 The source for the DevCenterStarter recipe can be found [here](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml). You can use this recipe as a starting point to configure a custom DevCenter dashboard.
 
@@ -98,4 +98,5 @@ mod devcenter dashboard-demo --last-recipe-run
 
 ## Next steps
 
-Once you've arrived at a DevCenter that you like, consider sharing it with your team by publishing the recipe to your Moderne recipe marketplace using the command `mod config recipes moderne push`.
+Once you've arrived at a DevCenter that you like, consider sharing it with your team by publishing it as part of a custom recipe artifact.
+You can find more info on how to do so [here](https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides/writing-and-installing-recipes#step-2-create-a-recipe-jar)
