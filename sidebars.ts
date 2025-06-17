@@ -56,6 +56,7 @@ const sidebars: SidebarsConfig = {
             'user-documentation/moderne-platform/how-to-guides/accessing-the-moderne-api',
             'user-documentation/moderne-platform/how-to-guides/recipe-execution-and-commits-with-graphql',
             'user-documentation/moderne-platform/how-to-guides/find-pii',
+            'user-documentation/moderne-platform/how-to-guides/custom-dev-center',
             'user-documentation/moderne-platform/how-to-guides/vulnerable-dependencies',
             'user-documentation/moderne-platform/how-to-guides/managing-user-configured-organizations',
             'user-documentation/moderne-platform/how-to-guides/create-api-access-tokens',
