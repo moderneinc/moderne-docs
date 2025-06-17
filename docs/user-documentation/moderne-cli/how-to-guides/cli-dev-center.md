@@ -40,24 +40,28 @@ mod build devcenter-demo
 
 ## Step 3: Install DevCenter starter recipes
 
-Starting with CLI 3.42.5, DevCenter dashboards are built using YAML declarative recipes composed with recipes provided by the [rewrite-devcenter](https://github.com/moderneinc/rewrite-devcenter) recipe artifact. To install the latest version of `rewrite-devcenter`, run the following command:
+Starting with CLI `3.42.5`, DevCenter dashboards are built using declarative YAML recipes composed with recipes provided by the [rewrite-devcenter](https://github.com/moderneinc/rewrite-devcenter) recipe artifact. To install the latest version of `rewrite-devcenter`, run the following command:
+
 ```bash
 mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
 ```
 
 ## Step 4: Generate the DevCenterStarter dashboard
 
-`rewrite-devcenter` includes an example DevCenterStarter recipe which you can run as follows:
+`rewrite-devcenter` includes an [example DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml) which you can run as follows:
+
 ```bash
 mod run devcenter-demo --recipe io.moderne.devcenter.DevCenterStarter --parallel
 ```
 
 This recipe will generate the data tables required to build the DevCenter dashboard using the command:
+
 ```bash
 mod devcenter devcenter-demo --last-recipe-run
 ```
 
 Once complete, `mod devcenter` will provide the location of the DevCenter dashboard:
+
 ```bash
 > Generating DevCenter
 
@@ -77,20 +81,22 @@ Open the HTML file to view your DevCenter dashboard:
 </figure>
 
 
-## (Optional) Step 5: Create your custom DevCenter recipe
+## (Optional) Step 5: Create a custom DevCenter recipe
 
-The source for the DevCenterStarter recipe can be found [here](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml). You can use this recipe as a starting point to configure a custom DevCenter dashboard.
+If you wish to customize your DevCenter you are free to do so. We'd encourage you to start by looking at [the example DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml) so you can understand what is expected for a DevCenter to run successfully. 
 
 :::warning
 Make sure to give your recipes unique names so as not to conflict with installed starter recipes.
 :::
 
 Once complete, you can install the recipe to the local recipe marketplace with the command:
+
 ```bash
 mod config recipes yaml install MyDevCenter.yml
 ```
 
 Next, run the recipe and generate the dashboard:
+
 ```bash
 mod run dashboard-demo --recipe com.acme.MyDevCenter --parallel
 mod devcenter dashboard-demo --last-recipe-run
@@ -98,5 +104,4 @@ mod devcenter dashboard-demo --last-recipe-run
 
 ## Next steps
 
-Once you've arrived at a DevCenter that you like, consider sharing it with your team by publishing it as part of a custom recipe artifact.
-You can find more info on how to do so [here](https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides/writing-and-installing-recipes#step-2-create-a-recipe-jar)
+Once you've arrived at a DevCenter that you like, consider sharing it with your team by [publishing it as part of a custom recipe artifact](../../moderne-platform/how-to-guides/writing-and-installing-recipes.md).
