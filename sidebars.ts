@@ -217,16 +217,17 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Workshops',
+      label: 'Recipes',
       link: {
         type: 'generated-index',
-        title: 'Workshops',
-        description: 'Moderne workshops.',
-        slug: '/user-documentation/workshops',
-        keywords: ['workshops'],
+        title: 'Recipes',
+        description: 'Documentation related to recipes.',
+        slug: '/user-documentation/recipes',
+        keywords: ['recipes'],
       },
       items: [
-        'user-documentation/workshops/recipe-authoring'
+        'user-documentation/recipes/recipe-authoring',
+        'user-documentation/recipes/common-custom-recipes',
       ],
     },
     'user-documentation/community-office-hours',
