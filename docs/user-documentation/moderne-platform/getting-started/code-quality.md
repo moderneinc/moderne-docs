@@ -25,12 +25,19 @@ To get to this recipe:
 * Ensure that you are at the [recipe marketplace](https://app.moderne.io/marketplace).
 * From there, click on `Static analysis and remediation` and then `Core`. Click on the `Common static analysis issues` recipe and then click on `See details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
 
+<figure>
   ![](./assets/CommonStaticAnalysis.gif)
+  <figcaption></figcaption>
+</figure>
 
 ### Running the recipe
 
 The bottom half of the page lists all of the recipes that will be run as part of this analysis. You can click on any of the recipes to get more information about that specific recipe or to just run that one.
 
+<figure>
+  ![](./assets/CommonStaticAnalysis.gif)
+  <figcaption></figcaption>
+</figure>
 ![](./assets/static-recipe-list.png)
 
 When you're ready to run the recipe, press the `Dry Run` button at the top of your screen. You will then be redirected to a page that looks like this:
@@ -39,20 +46,32 @@ When you're ready to run the recipe, press the `Dry Run` button at the top of yo
 As the code in the SaaS is constantly changing, your results will more than likely be different.
 :::
 
-![](./assets/recipe-results.png)
+<figure>
+  ![](./assets/recipe-results.png)
+  <figcaption></figcaption>
+</figure>
 
 By default, changes will be displayed on the right hand of your screen for the selected repository. You can click on any of the other repositories to look at their suggested changes and learn more about why the code is being changed. Some of these changes can be rather complex, such as changing anonymous inner classes that contain only one method into lambdas:
 
-![](./assets/lambda-example.png)
+<figure>
+  ![](./assets/lambda-example.png)
+  <figcaption></figcaption>
+</figure>
 
 ### Learning what's wrong with the code
 
 If you want to learn more about _why_ the code is changing, you can press the three dots (`...`) in the top right-hand corner of any file and select `Why did this change?`:
 
-![](<./assets/why-did-this-change.png>)
+<figure>
+  ![](./assets/why-did-this-change.png)
+  <figcaption></figcaption>
+</figure>
 
 This will display a list of all of the recipes that affected the selected file along with a sentence or two describing the rule in more detail:
 
-![](./assets/example-change-recipes.png)
+<figure>
+  ![](./assets/example-change-recipes.png)
+  <figcaption></figcaption>
+</figure>
 
 You can then click on the rule itself to be taken to a page where you can get more information about it or run just that recipe.
