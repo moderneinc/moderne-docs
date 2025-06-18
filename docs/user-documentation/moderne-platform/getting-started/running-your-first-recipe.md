@@ -26,7 +26,7 @@ If you're an enterprise user, you'll need to navigate to and sign in with the li
 If you're not an enterprise user, go to [https://app.moderne.io](https://app.moderne.io) and sign in:
 
 <figure>
-  ![Moderne Login Button](./assets/GitHubLogin.png)
+  ![Moderne Login Button](./assets/login-page.png)
   <figcaption></figcaption>
 </figure>
 
