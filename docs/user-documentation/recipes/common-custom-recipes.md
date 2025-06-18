@@ -1,24 +1,25 @@
 ---
-sidebar_label: Common recipe customization
-description: Showcase of a couple of common recipe customizations.
+sidebar_label: Common recipe customizations
+description: A showcase of common recipe customizations.
 ---
 
 # Common recipe customizations
 
-We often see that customers have a custom parent project that depends on Spring Boot and includes organization-specific standards—such as fixed dependency versions, additional Maven plugins, or company-wide configuration defaults.
-In these cases, we recommend creating a custom, declarative recipe that builds on the standard, out-of-the-box upgrade recipes, while also incorporating your customizations.
-This gives you full control over how upgrades are rolled out across projects in your organization.
-On this page, we’ll showcase a few common customizations that we often see our customers make when working with OpenRewrite recipes.
+Many organizations use custom parent projects that extend Spring Boot with organization-specific standards – such as fixed dependency versions, additional Maven plugins, or company-wide configuration details. When upgrading these environments, we recommend creating custom declarative recipes that build on standard upgrade recipes, while also incorporating your specific customizations. This approach provides full control over how upgrades are deployed across your organization's project.
+
+To help you get started with that, this doc will provide some common customization patterns we've often seen Moderne customers use.
 
 ## Proprietary Spring Boot upgrade
- 
-Suppose you have a parent project called `moderne-parent` that:
-* manages your Spring Boot version,
-* configures shared dependencies and plugins,
-* and is used as a parent by most of your projects.
 
-In this case, it’s often necessary to **upgrade the parent project first**, before rolling out the Spring Boot upgrade to the rest of your codebase.
-You can achieve this with the following declarative recipe:
+Let's suppose you have a parent project called `moderne-parent` that:
+
+* Manages your Spring Boot version
+* Configures shared dependencies and plugins
+* Services as the parent for most of your projects.
+
+In this instance, you typically need to **upgrade the parent project first** before rolling out the Spring Boot upgrade to dependent projects.
+
+The following declarative recipe accomplishes this: 
 
 ```yaml
 type: specs.openrewrite.org/v1beta/recipe
@@ -45,5 +46,11 @@ recipeList:
   - io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5
 ```
 
-Once everything is in place, you first run the `io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5` against the parent project first, ensuring it's updated and aligned with the desired setup.
-Then run the custom recipe `io.moderne.ModerneSpringBootUpgrade` against any projects using `io.moderne:moderne-parent` as a parent.
+#### Implementation steps
+
+Once you've created this recipe, you will need to:
+
+1. Run the `io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5` against the parent project to ensure it's updated and properly configured.
+2. Run the custom recipe `io.moderne.ModerneSpringBootUpgrade` against any projects that use `io.moderne:moderne-parent` as a parent.
+
+This sequence ensures dependencies are upgraded in the correct order and prevents version conflicts during the upgrade process.
