@@ -5,20 +5,17 @@ description: A showcase of common recipe customizations.
 
 # Common recipe customizations
 
-The recipes offered by Moderne take care of a lot of changes out of the box. However, with every customer, we get to a point where they have a specific setup, configuration or dependency that requires a custom recipe to be migrated.
-This can be achieved by creating custom declarative recipes that build on standard upgrade recipes, while also incorporating your specific customizations.
+While Moderne recipes handle a broad range of issues, most people find that they eventually need to create or customize recipes for their specific setup, configuration, or dependency. The best way to handle that is to create a custom [declarative recipe](https://docs.openrewrite.org/reference/yaml-format-reference) that builds on the standard recipes – while incorporating your specific customization needs.
 
 To help you get started with that, this doc will provide some common customization patterns we've often seen Moderne customers use.
 
 ## Proprietary Spring Boot upgrade
 
-Many organizations use custom parent projects that extend Spring Boot with organization-specific standards – such as managed dependency versions, additional plugins, or company-wide configuration details.
-This parent then serves as the foundation for a large set of projects within the organization.
+Many organizations use custom parent projects that extend Spring Boot with organization-specific standards – such as managed dependency versions, additional plugins, or company-wide configuration details. This parent then serves as the foundation for a large set of projects within the organization.
 
 In this instance, you typically need to **upgrade the parent project first** before rolling out the Spring Boot upgrade to dependent projects.
 
-For the sake of an example let's assume that parent project is called `moderne-parent`.
-The following declarative recipe could be used to upgrade projects using the `moderne-parent`.
+For the sake of an example let's assume that parent project is called `moderne-parent`. The following declarative recipe could be used to upgrade projects using the `moderne-parent`:
 
 ```yaml
 type: specs.openrewrite.org/v1beta/recipe
