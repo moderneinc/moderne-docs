@@ -62,7 +62,7 @@ All recipes that should be private to your company **must** start with the rever
 </figure>
 
 :::tip
-You can use `LATEST` as the version so that the recipe will pick up the latest snapshot or release version.\
+You can use `LATEST` as the version so that the recipe will pick up the latest snapshot or release version.
 :::
 
 ### Using private recipes
