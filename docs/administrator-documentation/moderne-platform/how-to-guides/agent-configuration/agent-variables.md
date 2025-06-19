@@ -914,7 +914,7 @@ docker run \
 | `--moderne.agent.tenantDomain` | `false`  |         | Host (without scheme) to upload and deploy your own company-specific recipes. |
 
 :::warning
-Only be used when your company is using the [app.moderne.io](https://app.moderne.io/getting-started) tenant AND you want to upload and deploy your own company-specific recipes.
+Only be used when your company is using the [app.moderne.io](https://app.moderne.io/getting-started) tenant, and you want to upload and deploy your own company-specific recipes.
 See [Multi-tenant private recipes](multi-tenant-private-recipes.md) for more information.
 :::
 
