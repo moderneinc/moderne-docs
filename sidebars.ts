@@ -136,6 +136,7 @@ const sidebars: SidebarsConfig = {
             'user-documentation/moderne-cli/how-to-guides/execute-user-supplied-commands',
             'user-documentation/moderne-cli/how-to-guides/on-prem-scm-config',
             'user-documentation/moderne-cli/how-to-guides/build-steps',
+            'user-documentation/moderne-cli/how-to-guides/build-partitions',
             'user-documentation/moderne-cli/how-to-guides/batch-changes',
           ],
         },
