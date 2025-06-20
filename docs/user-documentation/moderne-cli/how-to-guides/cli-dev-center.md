@@ -83,13 +83,13 @@ Open the HTML file to view your DevCenter dashboard:
 
 ## (Optional) Step 5: Create a custom DevCenter recipe
 
-If you wish to customize your DevCenter you are free to do so. We'd encourage you to start by looking at [the example DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml) so you can understand what is expected for a DevCenter to run successfully. 
+If you wish to customize your DevCenter by creating your own recipe, you are free to do so. We'd encourage you to start by taking a look over our [documentation on how to create and run DevCenter recipes](../../../administrator-documentation/moderne-platform/how-to-guides/dev-center.md). We also have an [example DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml) you can use. 
 
 :::warning
-Make sure to give your recipes unique names so as not to conflict with installed starter recipes.
+If you copy our example starter recipe to make changes to it, make sure to give your recipe a unique name so that it doesn't conflict with the existing starter recipes.
 :::
 
-Once complete, you can install the recipe to the local recipe marketplace with the command:
+Once complete, you can install your recipe to the local recipe marketplace with the command:
 
 ```bash
 mod config recipes yaml install MyDevCenter.yml
