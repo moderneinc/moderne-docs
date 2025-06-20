@@ -24,6 +24,8 @@ Before you can use the Moderne IDE plugin, you'll need to:
 
 * [Download and install the Moderne CLI](../../moderne-cli/getting-started/cli-intro.md)
 * [Ensure the CLI is configured with a Moderne license](../../moderne-cli/getting-started/moderne-cli-license.md)
+  
+  * **Note**: Configuring the CLI with an access token as in the [Getting started with the Moderne CLI](../../moderne-cli/getting-started/cli-intro.md) guide is not enough in this case. The Moderne IDE plugin requires the CLI to be configured with a proper license as described in the [Moderne CLI license](../../moderne-cli/getting-started/moderne-cli-license.md) document.
 
 ## Configuring the Moderne plugin
 
