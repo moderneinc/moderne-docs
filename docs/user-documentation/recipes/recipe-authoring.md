@@ -59,12 +59,6 @@ To get comfortable running recipes, let's walk through using the [Moderne Platfo
 1. If you have access to the [Moderne Platform](https://app.moderne.io/marketplace), navigate to it and [follow along with our quickstart guide for running recipes](../moderne-platform/getting-started/running-your-first-recipe.md). If you don't have access, skip to step 2.
    * Note that, by default, you will be running recipes against a hand-picked group of open-source repositories.
    * Feel free to explore other recipes that match your interests such as [migrating to Java 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21) or [finding and fixing vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck).
-   *   Consider checking out the source code for the recipes by clicking on the triple dots in the top-right hand corner of any recipe and then selecting `View recipe source`:
-
-<figure>
-  ![](./assets/view-recipe-source.png)
-  <figcaption></figcaption>
-</figure>
 
 2. If you don't have the CLI installed, please follow along with [our instructions for installing and configuring the Moderne CLI](../moderne-cli/getting-started/cli-intro.md#installation-and-configuration).
 3. Once the CLI is installed, please work through [our examples of using the CLI to run recipes](../moderne-cli/getting-started/cli-intro.md#using-the-cli). Please refrain from applying any recipe changes, though - as this may cause issues in future steps.
@@ -91,8 +85,8 @@ You'll want to have the following installed:
 
 * Java 17 or 21, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks.
   * Recipes use Java 8 source level, so they can run on Java 8 and higher.
-* IntelliJ IDEA Ultimate 2024.1+ (required by the OpenRewrite plugin).
-* The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (This comes pre-installed with IntelliJ versions 2024.1 or later).
+* IntelliJ IDEA Ultimate 2024.1+ (required for the OpenRewrite plugin; Community Edition is not supported).
+* The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (This comes pre-installed with IntelliJ Ultimate versions 2024.1 or later).
 * [The Moderne plugin](../moderne-ide-integration/how-to-guides/moderne-plugin-install.md), for faster recipe development and to help debug recipes.
 * [The Moderne CLI](../moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs.
 
@@ -121,9 +115,9 @@ You'll want to have the following installed:
 6. Install the project to your local Maven repository & CLI. This is useful for debugging declarative recipes or for Moderne DX users.
    * Run `mvn install` from the root of the project, or `./gradlew publishToMavenLocal` if you're using Gradle.
    * You should see a message that the project was successfully installed to your local Maven repository.
-   * From there make the recipe available to the CLI through `mod config recipes jar install com.yourorg:rewrite-recipe-starter:0.1.0-SNAPSHOT`
+   * From there make the recipe available to the CLI through `mod config recipes jar install com.yourorg:rewrite-recipe-starter:1.0.1-SNAPSHOT`
    * **Note**: You can also test recipes directly from IntelliJ using the Moderne plugin as described in [exercise 9](#exercise-9-using-the-moderne-plugin).
-7. Confirm that everything is set up correctly for testing imperative recipes (we'll explain the types of recipes in the next section) by opening up the `AssertEqualsToAssertThat` class, right-clicking on the class name, and clicking on the `Set Active Recipe` option. Then, open your terminal and navigate to the `workshop` directory (that you set up in the CLI tutorial earlier) and run: `mod run . --active-recipe`.
+7. Confirm that everything is set up correctly for testing imperative recipes (we'll explain the types of recipes in the next section) by opening up the `AssertEqualsToAssertThat` class, right-clicking on the class name in the code, and clicking on the `Set Active Recipe` option. Then, open your terminal and navigate to the `workshop` directory (that you set up in the CLI tutorial earlier) and run: `mod run . --active-recipe`.
    * You should see: `Running recipe com.yourorg.AssertEqualsToAssertThat` in the output.
 8. Confirm everything is set up for testing declarative recipes by opening your terminal and navigating to the `/src/main/resources/META-INF/rewrite` directory in the `rewrite-recipe-starter` repo. Then run the command: `mod config recipes yaml install stringutils.yml`. Afterwards, navigate to your `workshop` directory and run: `mod run . --recipe=com.yourorg.UseApacheStringUtils`.
    * If everything worked correctly, you should see that the recipe was installed from the YAML file and then was recognized by the `mod run` command.
@@ -190,13 +184,13 @@ If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor supp
    * Comment out the `type:` and see how that disables the OpenRewrite support.
 3. Note how the `recipeList` field is a list of fully qualified class names of recipes along with their options (if any exist).
    * Click through on the `AddDependency` and `ChangeType` recipes to open their definition.
-   * Have your IDE suggest options to existing recipes by triggering auto-completion (ctrl + space by default). You should see that the recipe doesn't have every option by default (e.g., it's missing `estimatedEffortPerOccurrence`).
+   * Have your IDE suggest additional options to include in the recipes by adding a new line between the `description` and `recipeList` fields, then triggering auto-completion (ctrl + space by default). You should see that the recipe doesn't include every option by default (e.g., it's missing `estimatedEffortPerOccurrence` and others).
 4. The migration recipe is a great start, but far from complete. Let's add a recipe to change from [Spring's `trimWhitepace(String)`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/StringUtils.html#trimWhitespace\(java.lang.String\)) to [Apache Common's `StringUtils.strip(String)`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html#strip-java.lang.String-).
    * Begin by adding the [org.openrewrite.java.ChangeMethodName](https://docs.openrewrite.org/recipes/java/changemethodname) recipe to the end of the `recipeList` field.
    * Make sure to pass in `methodPattern: org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)` and `newMethodName: strip` such as in [this example gist](https://gist.github.com/mike-solomon/4e1271c92c07665725d77beedd3ae1f9).
    * Please note that [the method pattern](https://docs.openrewrite.org/reference/method-patterns) refers to a method that does not exist. Apache Commons does not have a `trimWhitespace` method, but Spring _does_. That's because recipes in the `recipeList` are executed in order. The [ChangeType recipe](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml#L29-L31) comes before our new `ChangeMethodName` recipe. That means that when our `ChangeMethodName` recipe is run, there will no longer be a Spring `trimWhitespace` method. This is important to keep in mind when chaining recipes together.
 5. Open the unit test [src/test/java/com/yourorg/UseApacheStringUtilsTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/UseApacheStringUtilsTest.java).
-   * Notice how we implement `RewriteTest`, override `defaults(RecipeSpec)` to run our recipe, and configure a classpath for the tests that has both `commons-lang3` and `spring-core` on it.
+   * Notice how we implement `RewriteTest`, override `defaults(RecipeSpec)` to run our recipe, and configure a classpath for the tests that has `spring-core` on it. (A comment in the code here explains why we only need `spring-core` and not `commons-lang3` in the classpath because only dependencies to compile the before code are required, not the after code.)
    * Run the first test. Note that we invoke `rewriteRun(SourceSpecs...)` and pass in a single `java(String, String)` source specification, that takes in a before and after text block.
    * The `//language=java` [language injection](https://www.jetbrains.com/help/idea/using-language-injections.html) enables syntax highlighting and code completion in the text block.
    * All together, this asserts that when we run the recipe, code that matches the `before` block will be converted to code that matches the `after` block.
@@ -279,12 +273,11 @@ Let's explore the unit tests in the starter project, to see what elements you ca
 
 1. Open [src/test/java/com/yourorg/AppendToReleaseNotesTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/AppendToReleaseNotesTest.java).
    * Notice how the recipe specification directly constructs a `JavaRecipe` and passes that in. This is most convenient when testing imperative recipes.
-   * Notice how `@Test void createNewReleaseNotes() { ... }` uses `org.openrewrite.test.SourceSpecs.text(java.lang.String, java.lang.String)` to provide a before and after text block.
+   * Notice how `@Test void createNewReleaseNotes() { ... }` uses `org.openrewrite.test.SourceSpecs.text(java.lang.String, java.lang.String, ...)` to provide a before and after text block, with the third parameter using `spec -> spec.path(Path.of("RELEASE.md")` to set the path where the source file either exists or should be created.
    * The before text block is `null` to indicate that the file does not exist initially. Conversely, you can pass in `null` as the second argument to indicate that the file should be deleted.
-   * `@Test void editExistingReleaseNotes()` uses an additional `spec -> spec.path(Paths.get("RELEASE.md")` to set the source file, such that the recipe will match.
 2. Open [src/test/java/com/yourorg/AssertEqualsToAssertThatTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/AssertEqualsToAssertThatTest.java).
    * Note how `.parser(JavaParser.fromJavaVersion().classpath("junit-jupiter-api"))` is called on the recipe specification.
-   * Comment out `classpath("junit-jupiter-api")` and then run the test.
+   * Comment out just the `.classpath("junit-jupiter-api")` part and then run the test. 
    * The resulting `java.lang.IllegalStateException: LST contains missing or invalid type information` indicates that the type information is missing, and that the test classpath is likely not correctly set up.
 3. Open [src/test/java/com/yourorg/NoGuavaListsNewArrayListTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/NoGuavaListsNewArrayListTest.java).
    * Read the various comments throughout this test class.
@@ -293,7 +286,7 @@ Let's explore the unit tests in the starter project, to see what elements you ca
    * Note how each `rewriteRun` consumes a `RecipeSpec` to assert the `dataTable` rows produced in the recipe run.
    * Correlate this to the `insertRow` calls in the recipe, to see how the recipe produces the expected output.
 5. Open [src/test/java/com/yourorg/SimplifyTernaryTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/SimplifyTernaryTest.java).
-   * Note how the instantiated recipe is a generated class, not the Refaster template class itself.
+   * Note how the instantiated recipe is a generated class, not the Refaster template class itself. (More details in the [next exercise](#refaster-recipes).)
    * See how `@Test void unchanged() { ... }` asserts no changes are made where those would be unsafe to make.
 
 #### Takeaways
@@ -367,7 +360,7 @@ Let's create a Refaster recipe that standardizes various ways to check if a Stri
    * Add your first `@BeforeTemplate` and `@AfterTemplate` annotated methods, to match and replace the first way to check for an empty string.
 4. Trigger an explicit build of your project to generate the Recipe class with Ctrl + F9, or equivalent.
    * Notice how the unit test now compiles; compare the generated recipe with the template you wrote.
-   * Run the test to see where you stand, and add additional `@BeforeTemplate` annotated methods to cover all cases.
+   * Run the test to see where you stand, and add additional `@BeforeTemplate` annotated methods to cover all cases. (If you get stuck, look at [the OpenRewrite documentation](https://docs.openrewrite.org/authoring-recipes/refaster-recipes#refaster-template) for some hints.)
 5. Follow the instructions in the tests to add a name and description to your recipe.
    * These will be visible in any generated documentation, when folks run and discover recipes, and in Moderne.
 
@@ -401,9 +394,10 @@ Let's look at an existing imperative recipe in the starter project, and see how 
    * Read through the recipe, and see how it matches three variants of Guava's `Lists.newArrayList()`.
    * Three replacement [`JavaTemplate`s](https://docs.openrewrite.org/concepts-and-explanations/javatemplate) are provided, to replace each of the Guava calls with `new ArrayList<>(..)`.
 2. We override `visitCompilationUnit` to print the tree.
+   * The call to `TreeVisitingPrinter.printTree(cu)` returns a string that is then printed to the console.
    * Notice the call to `super.visitCompilationUnit`, which is necessary to traverse the tree.
    * Click through on `super.visitCompilationUnit` to see how the tree is traversed.
-   * Comment out the `super.visitCompilationUnit` and see how the recipe fails to make any changes.
+   * Comment out the `return super.visitCompilationUnit` line (and uncomment `return cu;`) and see how the recipe fails to make any changes.
 3. We override `visitMethodInvocation` to replace each of the Guava calls.
    * See how we apply Preconditions here too, through the Java API, to limit which source files are visited.
    * Notice how we pass in a `Cursor` and `JavaCoordinates` when we apply the `JavaTemplate`. This is necessary to ensure that the changes are made in the correct location. Briefly explore the other coordinates available.
@@ -418,8 +412,6 @@ Let's look at an existing imperative recipe in the starter project, and see how 
 6. Set a breakpoint in the `visitMethodInvocation` method, and run each of the tests.
    * Explore the LST in the debugger, and see all the elements present on the current element.
    * Compare the LST printed to the console with the diagrams in [our Java LST examples doc](https://docs.openrewrite.org/concepts-and-explanations/lst-examples).
-7. Add a `TreeVisitingPrinter.printTreeAll(method)` to the `visitMethodInvocation` method, to see elements in more detail.
-   * Run the tests again, and see the tree printed to the console.
 
 #### Takeaways
 
@@ -535,3 +527,5 @@ We have some [good first issues](https://github.com/orgs/openrewrite/projects/4/
 Note that there are separate modules for Spring recipes, Java recipes, testing recipes, logging recipes, and many more. It helps to browse the existing modules for any related work that might be similar and start from there.
 
 For any further questions, feel free to ask in the [OpenRewrite Slack](https://join.slack.com/t/rewriteoss/shared_invite/zt-nj42n3ea-b\~62rIHzb3Vo0E1APKCXEA) or [Discord](https://discord.gg/xk3ZKrhWAb). Hope to see you there!
+=======
+<Redirect to="/user-documentation/recipes/recipe-authoring" />;
