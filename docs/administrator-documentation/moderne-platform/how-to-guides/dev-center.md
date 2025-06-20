@@ -1,655 +1,237 @@
 ---
-sidebar_label: Configuring the DevCenter
-description: How to create and configure a Moderne DevCenter to get high-level details about your repositories.
+sidebar_label: Creating DevCenters
+description: How to create and run DevCenter recipes to get high-level details about your repositories.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# How to create and run custom DevCenter recipes
 
-# Configuring the DevCenter
+The Moderne DevCenter is the mission-control dashboard of the Moderne Platform. It provides you with high-level details about the state of all of your repositories. Using it, you can track the progress of upgrades, migrations, and security vulnerabilities.
 
-The Moderne DevCenter is the mission-control dashboard of the Moderne Platform. It provides you with high-level details about the state of all of your repositories. Using it, you can track the progress of upgrades, migrations, and security vulnerabilities. You can also use it to view [key visualizations](../../../user-documentation/moderne-platform/getting-started/visualizations.md) you care about – such as a dependency graph or a SQL operation usage chart.
+A DevCenter is generated from a recipe that you create and configure. In this doc, we'll walk you through everything you need to know about this process.
 
-In this doc, we'll walk you through everything you need to know to configure your own DevCenter.
+We'll start by showing you how to create, deploy, and run a DevCenter recipe. After that, we'll walk you through an example DevCenter recipe and provide you with useful context so you can create your own.
 
 ## Prerequisites
 
-In order to configure any DevCenters, there are two things you must have already done (which we'll touch upon below):
+This guide assumes that:
 
-1. You must have configured an [organizational structure](./agent-configuration/configure-organizations-hierarchy.md). 
-2. You must ensure that the [Moderne agent Maven configuration](./agent-configuration/configure-an-agent-with-maven-repository-access.md) only has **one** entry where the recipe source is set to `true`. (Note: this does not apply to one Maven repository configured identically in multiple agents. Only that you cannot have two distinct Maven repositories configured where recipe source is set to `true`.)
+* You've already configured an [organizational structure](./agent-configuration/configure-organizations-hierarchy.md).
+* You have a basic understanding of what [declarative YAML recipes](https://docs.openrewrite.org/reference/yaml-format-reference) look like and how to work with them.
 
-### Moderne agent Maven configuration
+## Creating and deploying a DevCenter recipe
 
-In order for the DevCenter to function correctly, the agent needs to be configured with details about a Maven repository it can use to store and access recipe JARs from.
+### Step 1: Create a new recipe repository
 
-If you have not configured the Moderne agent with Maven repository access before, please follow [the instructions in our Moderne agent Maven configuration documentation](./agent-configuration/configure-an-agent-with-maven-repository-access.md) to add **one** entry with recipe source set to `true`.
+The first thing you need to do is to create a new recipe repository using either the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) or your own internal recipe starter template. This repository is where you'll create all of the DevCenter recipes you'd like to use.
 
-If you have already configured the Moderne agent with Maven repository access, then you need to ensure that only _one_ has the configuration of `MODERNE_AGENT_MAVEN_{index}_RECIPESOURCE` / `moderne.agent.maven[{index}].recipeSource` set to `true`.
+### Step 2: Add the devcenter dependency
 
-If you have multiple locations where recipes are stored, you will need to create a virtual repository that wraps all of the locations where recipes can be stored. You will also need to ensure that the virtual repository points to the following four repositories (alongside the other repositories where recipe artifacts are stored):
+Once you've created your recipe repository, you will need to update your `build.gradle` or `pom.xml` file to include a dependency on [io.moderne.recipe:rewrite-devcenter](https://central.sonatype.com/artifact/io.moderne.recipe/rewrite-devcenter). This will give you access to key components you need to create and run DevCenter recipes.
 
-1. `https://oss.sonatype.org/content/repositories/snapshots/`
-2. `https://s01.oss.sonatype.org/content/repositories/snapshots/`
-3. `https://repo.maven.apache.org/maven2`
-4. `https://repo1.maven.org/maven2/`
+### Step 3: Create a declarative DevCenter recipe
 
-## DevCenter configuration
+We've provided a [devcenter-starter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml) that you can copy to your own repository to get started. You can also create your own if you desire. [Later on in this doc, we'll walk through a DevCenter recipe](#understanding-how-a-devcenter-recipe-works) so that you can understand how they work.
 
-### Step 1: Create a `devcenter.json` file
+The [rewrite-devcenter repository](https://github.com/moderneinc/rewrite-devcenter) contains common card recipe that you may want to use or modify such as the [LibraryUpgrade card recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java).
 
-The `devcenter.json` file is where all of the configuration lies for DevCenters. In this file, you can configure things like which organizations should have a DevCenter, what cards should appear on said DevCenter, and what the keys should be on the cards. 
+### Step 4: Deploy the recipe artifact
 
-For more details about each component that makes up this file, please see the [components of a DevCenter section at the bottom of this guide](#components-of-a-devcenter). You can also take a look at our `moderne-organizations` repository to [find a full example of this file](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json).
+Once you're satisfied with your recipe(s), you will need to [deploy them to your tenant](./importing-external-recipes.md).
 
-This `devcenter.json` file must follow [the GraphQL schema included in our moderne-organizations repository](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/schema/organizations.graphqls#L131-L150).
+## Executing a DevCenter recipe
 
+### Step 1: Select which recipe to run
 
-<details>
-  <summary>
-    Below you can find an example of what this file might look like:
-  </summary>
+After you've deployed DevCenter recipes to your tenant, you can select which DevCenter recipe should be run for an organization by navigating to the DevCenter page and clicking on the `Customize` button in the top-right hand corner of the screen:
 
-  ```json title="devcenter.json"
-  [
-    {
-      "devCenter": {
-        "version" : 1,
-        "upgradesAndMigrations": [
-          {
-            "title": "Spring boot",
-            "measures": [
-              {
-                "name": "Major",
-                "recipe": {
-                  "recipeId": "org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion",
-                  "options": [
-                    {
-                      "name": "groupIdPattern",
-                      "value": "org.springframework.boot"
-                    },
-                    {
-                      "name": "artifactIdPattern",
-                      "value": "spring-boot"
-                    },
-                    {
-                      "name": "version",
-                      "value": "1-2.999"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "Minor",
-                "recipe": {
-                  "recipeId": "org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion",
-                  "options": [
-                    {
-                      "name": "groupIdPattern",
-                      "value": "org.springframework.boot"
-                    },
-                    {
-                      "name": "artifactIdPattern",
-                      "value": "spring-boot"
-                    },
-                    {
-                      "name": "version",
-                      "value": "3-3.2.999"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "Patch",
-                "recipe": {
-                  "recipeId": "org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion",
-                  "options": [
-                    {
-                      "name": "groupIdPattern",
-                      "value": "org.springframework.boot"
-                    },
-                    {
-                      "name": "artifactIdPattern",
-                      "value": "spring-boot"
-                    },
-                    {
-                      "name": "version",
-                      "value": "3.3-3.3.2"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "Completed",
-                "recipe": {
-                  "recipeId": "org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion",
-                  "options": [
-                    {
-                      "name": "groupIdPattern",
-                      "value": "org.springframework.boot"
-                    },
-                    {
-                      "name": "artifactIdPattern",
-                      "value": "spring-boot"
-                    },
-                    {
-                      "name": "version",
-                      "value": "3.3.3-3.999"
-                    }
-                  ]
-                }
-              }
-            ],
-            "fix": {
-              "recipeId": "org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2"
-            }
-          },
-          {
-            "title": "Java 21",
-            "measures": [
-              {
-                "name": "Java 8+",
-                "recipe": {
-                  "recipeId": "org.openrewrite.java.search.HasMinimumJavaVersion",
-                  "options": [
-                    {
-                      "name": "version",
-                      "value": "8-10"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "Java 11+",
-                "recipe": {
-                  "recipeId": "org.openrewrite.java.search.HasMinimumJavaVersion",
-                  "options": [
-                    {
-                      "name": "version",
-                      "value": "11-16"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "Java 17+",
-                "recipe": {
-                  "recipeId": "org.openrewrite.java.search.HasMinimumJavaVersion",
-                  "options": [
-                    {
-                      "name": "version",
-                      "value": "17-20"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "Java 21+",
-                "recipe": {
-                  "recipeId": "org.openrewrite.java.search.HasMinimumJavaVersion",
-                  "options": [
-                    {
-                      "name": "version",
-                      "value": "21-100"
-                    }
-                  ]
-                }
-              }
-            ],
-            "fix": {
-              "recipeId": "org.openrewrite.java.migrate.UpgradeToJava21"
-            }
-          },
-          {
-            "title": "JUnit 5",
-            "measures": [
-              {
-                "name": "JUnit 4",
-                "recipe": {
-                  "recipeId": "org.openrewrite.java.search.FindAnnotations",
-                  "options": [
-                    {
-                      "name": "annotationPattern",
-                      "value": "@org.junit.Test"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "JUnit 5",
-                "recipe": {
-                  "recipeId": "org.openrewrite.java.search.FindAnnotations",
-                  "options": [
-                    {
-                      "name": "annotationPattern",
-                      "value": "@org.junit.jupiter.api.Test"
-                    }
-                  ]
-                }
-              }
-            ],
-            "fix": {
-              "recipeId": "org.openrewrite.java.testing.junit5.JUnit4to5Migration"
-            }
-          }
-        ],
-        "visualizations": [
-          {
-            "visualizationId": "io.moderne.DependencyUsageViolin"
-          },
-          {
-            "visualizationId": "io.moderne.LanguageComposition"
-          },
-          {
-            "visualizationId": "io.moderne.SqlCrud"
-          }
-        ],
-        "security": [
-          { "recipeId": "org.openrewrite.java.security.OwaspA01" },
-          { "recipeId": "org.openrewrite.java.security.OwaspA02" },
-          { "recipeId": "org.openrewrite.java.security.OwaspA03" },
-          { "recipeId": "org.openrewrite.java.security.OwaspA05" },
-          { "recipeId": "org.openrewrite.java.security.OwaspA06" },
-          { "recipeId": "org.openrewrite.java.security.OwaspA08" },
-          {
-            "recipeId": "org.openrewrite.java.security.RegularExpressionDenialOfService"
-          },
-          { "recipeId": "org.openrewrite.java.security.secrets.FindSecrets" },
-          { "recipeId": "org.openrewrite.java.security.ZipSlip" },
-          { "recipeId": "org.openrewrite.java.security.SecureTempFileCreation" }
-        ]
-      },
-      "organizations": ["Default"]
-    },
-  ]
-  ```
-</details>
+<figure>
+  ![](./assets/customize-button.png)
+  <figcaption></figcaption>
+</figure>
+
+You will then be taken to a page that lists out all of the recipes you can run:
+
+<figure>
+  ![](./assets/dev-center-recipe-list.png)
+  <figcaption></figcaption>
+</figure>
+
+Click on the one you want and press `Save`.
+
+### Step 2: Run the DevCenter recipe
+
+After you selected the recipe you want, click on the `Run DevCenter` button and the recipe will be executed. After it finishes running, your DevCenter will be updated to reflect the current state of your repositories.
+
+You are free to re-run this recipe whenever you want to get the latest data by clicking on the `Run DevCenter recipe` button – which is next to the `Customize` button you clicked on earlier.
+
+## Understanding how a DevCenter recipe works
+
+In order to help you get a better understanding of how DevCenter recipes work, let's walk through the [DevCenter starter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml). By the end, you should have a good idea of what makes up a DevCenter recipe and how you can create your own.
+
+### Metadata
+
+The top of this recipe begins with standard metadata (e.g., `name` and `description`) that you would find in any declarative YAML recipe:
+
+```yaml
+type: specs.openrewrite.org/v1beta/recipe
+name: io.moderne.devcenter.DevCenterStarter
+displayName: DevCenter
+description: >-
+  This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration.
+  It includes a combination of upgrades, migrations, and security fixes.
+  You can customize this configuration to suit your needs.
+  
+  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/dev-center/).
+```
+
+### Recipe list
+
+After that, it lists out the recipes that will be run to build the DevCenter dashboard. Each of these recipes will turn into a card in your DevCenter:
+
+```yaml
+recipeList:
+  - io.moderne.devcenter.LibraryUpgrade:
+      cardName: Move to Spring Boot 3.5.0
+      groupIdPattern: org.springframework.boot
+      artifactIdPattern: '*'
+      version: 3.5.0
+      upgradeRecipe: io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5
+  - io.moderne.devcenter.JavaVersionUpgrade:
+      majorVersion: 21
+      upgradeRecipe: org.openrewrite.java.migrate.UpgradeToJava21
+  - io.moderne.devcenter.JUnitJupiterUpgrade:
+      upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
+  - io.moderne.devcenter.SecurityStarter
+```
+
+These recipes have some properties you probably haven't seen before. Specifically:
+
+* `cardName` is a property that allows you to customize what the name of the card should be. Not all recipes have a `cardName` property. For instance, the [LibaryUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java#L35-L38) has a `cardName` property – whereas the [JavaVersionUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/JavaVersionUpgrade.java) does not.
+* `upgradeRecipe` is a property that defines the recipe that should be run to upgrade your repositories. It is the recipe that will get executed when you press the `Upgrade` button on a card.
+
+<figure>
+  ![](./assets/example-card.png)
+  <figcaption>_An example of a DevCenter card._</figcaption>
+</figure>
+
+### Security card
+
+It's also possible to create recipes in your `devcenter.yml` file. For instance, at the bottom of our example, you will find a recipe that is used to create a security card in the DevCenter:
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: io.moderne.devcenter.SecurityStarter
+displayName: OWASP top ten
+description: >-
+  This recipe is a starter card to reveal common OWASP Top 10 issues in your source code.
+  You can customize this configuration to suit your needs.
+  
+  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/dev-center/).
+recipeList:
+  - org.openrewrite.java.security.OwaspA01
+  - org.openrewrite.java.security.OwaspA02
+  - org.openrewrite.java.security.OwaspA03
+  - org.openrewrite.java.security.OwaspA08
+  - org.openrewrite.java.security.RegularExpressionDenialOfService
+  - org.openrewrite.java.security.ZipSlip
+  - org.openrewrite.java.security.SecureTempFileCreation
+  # Changes made by recipes above this one in the recipe list are reported as occurrences
+  # in the Security DevCenter card.
+  - io.moderne.devcenter.ReportAsSecurityIssues:
+      fixRecipe: org.openrewrite.java.security.OwaspTopTen
+```
+
+This security recipe differs slightly from a traditional YAML recipe. In the recipe list, there is a specical recipe called `io.moderne.devcenter.ReportAsSecurityIssues`. By adding that recipe to the list, it will detect the number of issues found in the above recipes and generate a card that display them all.
+
+This recipe takes in a `fixRecipe` property that defines the recipe that can be run to fix the issues reported by the above security recipes.
+
+<figure>
+  ![](./assets/example-security.png)
+  <figcaption>_An example of a security section in a DevCenter._</figcaption>
+</figure>
+
+## Examples of customizations
+
+To help you get a better idea of how you can customize this to meet your own needs, let's walk through a few more examples.
+
+### Quarkus example
+
+```yaml
+# An example DevCenter configuration for a Quarkus application.
+# Includes a named custom upgrade recipe.
+type: specs.openrewrite.org/v1beta/recipe
+name: io.moderne.devcenter.DevCenterQuarkus
+displayName: DevCenter
+description: >-
+  DevCenter for organizations that use Quarkus.
+  Also includes Java and JUnit upgrades and security findings.
+recipeList:
+  - io.moderne.devcenter.LibraryUpgrade:
+      cardName: Move to Quarkus 3.23.0
+      groupIdPattern: io.quarkus
+      artifactIdPattern: '*'
+      version: 3.23.0
+      upgradeRecipe: io.moderne.devcenter.UpgradeQuarkus
+  - io.moderne.devcenter.JavaVersionUpgrade:
+      majorVersion: 21
+      upgradeRecipe: org.openrewrite.java.migrate.UpgradeToJava21
+  - io.moderne.devcenter.JUnitJupiterUpgrade:
+      upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
+  - io.moderne.devcenter.SecurityStarter
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: io.moderne.devcenter.UpgradeQuarkus
+displayName: DevCenter
+description: >-
+  This recipe upgrades all Quarkus dependencies to the latest 3.23 version.
+recipeList:
+  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
+      groupId: io.quarkus
+      artifactId: '*'
+      newVersion: 3.23.x
+```
+* The `LibraryUpgrade` recipe was adjusted to target `io.quarkus` dependencies instead of `org.springframework.boot`.
+* As a generic `UpgradeQuarkus` recipe doesn't exist yet, a new `UpgradeQuarkus` recipe was created to upgrade all Quarkus dependencies to the latest version.
 
 :::tip
-When creating a DevCenter for the first time, we **strongly recommend** that you only create a DevCenter for a few key organizations. This will allow you to get data into the platform faster and ensure that you've configured everything correctly. Once everything is working as expected, you can then add more DevCenters as desired.
+Additional recipes do not have to be in the same file or even the same module.
 :::
 
-### Step 2: Configure your agent or DX
+### Custom parent example
 
-Now that you have you a `devcenter.json` file, please place this file in a location were your agent or DX has access to. Next, please direct your agent to said `devcenter.json` file by providing the argument shown below:
-
-<Tabs groupId="source">
-<TabItem value="agent" label="Agent">
-
-<Tabs groupId="agent-type">
-<TabItem value="oci-container" label="OCI Container">
-
-**Environment variables:**
-
-| Argument Name                                       | Required | Description                                                                                                  |
-|-----------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`     | `false`  | The path of your `devcenter.json` file that provides the DevCenter configurations.                        |
-
-**Example:**
-
-```bash
-docker run \
-# ... Existing variables
--e MODERNE_AGENT_ORGANIZATION_DEVCENTER=/Users/MY_USER/Documents/devcenter.json \
-# ... Additional variables
+```yaml
+# An example DevCenter tracking Parent POM versions, illustrated by using the Apache Maven parent POM
+type: specs.openrewrite.org/v1beta/recipe
+name: io.moderne.devcenter.DevCenterApacheParent
+displayName: DevCenter
+description: >-
+  DevCenter for organizations that use the apache maven parent.
+  Also includes Java and JUnit upgrades and security findings.
+recipeList:
+  - io.moderne.devcenter.ParentPomUpgrade:
+      cardName: Move to the latest Apache Maven parent POM
+      groupIdPattern: org.apache.maven
+      artifactIdPattern: maven-parent
+      version: x
+      upgradeRecipe: io.moderne.devcenter.UpgradeApacheMavenParent
+  - io.moderne.devcenter.JavaVersionUpgrade:
+      majorVersion: 21
+      upgradeRecipe: org.openrewrite.java.migrate.UpgradeToJava21
+  - io.moderne.devcenter.JUnitJupiterUpgrade:
+      upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
+  - io.moderne.devcenter.SecurityStarter
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: io.moderne.devcenter.UpgradeApacheMavenParent
+displayName: Upgrade Apache Maven Parent
+description: >-
+  Upgrades the Apache Maven parent POM to the latest version.
+recipeList:
+  - org.openrewrite.maven.UpgradeParentVersion:
+      groupId: org.apache.maven
+      artifactId: maven-parent
+      newVersion: x
 ```
-
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-**Arguments:**
-
-| Argument Name                                         | Required | Description                                                                                                  |
-|-------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.devCenter`     | `false`  | The path of your `devcenter.json` file that provides the DevCenter configurations.                        |
-
-**Example:**
-
-```bash
-java -jar moderne-agent-{version}.jar \
-# ... Existing arguments
---moderne.agent.organization.devCenter=/Users/MY_USER/Documents/devcenter.json \
-# ... Additional arguments
-```
-
-</TabItem>
-</Tabs>
-</TabItem>
-<TabItem value="dx" label="DX">
-
-<Tabs groupId="type">
-<TabItem value="oci-container" label="OCI Container">
-
-**Environment variables:**
-
-| Argument Name                           | Required | Description                                                                           |
-|-----------------------------------------|----------|---------------------------------------------------------------------------------------|
-| `MODERNE_DX_ORGANIZATION_DEVCENTERJSON` | `false`  | The file path to a JSON file which outlines the DevCenter for specific organizations. |
-
-**Example:**
-
-```bash
-docker run \
-# ... Existing variables
--e MODERNE_DX_ORGANIZATION_DEVCENTERJSON=/Users/MY_USER/Documents/devcenter.json \
-# ... Additional variables
-```
-
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-**Arguments:**
-
-| Argument Name                               | Required                                                                              | Description |
-|---------------------------------------------|---------------------------------------------------------------------------------------|-------------|
-| `--moderne.dx.organization.devCenterJson` | The file path to a JSON file which outlines the DevCenter for specific organizations. |
-
-**Example:**
-
-```bash
-java -jar moderne-dx-{version}.jar  \
-# ... Existing arguments
---moderne.dx.organization.devCenterJson=/Users/MY_USER/Documents/devcenter.json \
-# ... Additional arguments
-```
-
-</TabItem>
-</Tabs>
-</TabItem>
-</Tabs>
-
-After you have updated your agent configuration, please restart your agent or DX.
-
-## Components of a DevCenter
-
-### Frameworks and migration cards
-
-Framework and migration cards allow you to see things like what Java version your repositories use, what version of Spring Boot they're on, or what JUnit version they use:
-
-<figure>
-  ![](./assets/migration-card.png)
-  <figcaption></figcaption>
-</figure>
-
-To create these cards, you will need three things:
-
-1. [A relevant title for the card](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json#L7) (e.g., `Spring Boot 3.2`)
-2. [A recipe that can be run to fix the core issue the card is highlighting](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json#L11) (e.g., `org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2`)
-3. [Some measures that break up the card into key categories and help your users determine a level of urgency](https://github.com/moderneinc/moderne-organizations/blob/main/src/main/resources/devcenter.json#L12-L26).
-
-#### Measures
-
-Each measure consists of a name and a recipe that can be used to determine whether or not a repository falls into said measure. We do not recommend that this recipe be the same recipe as the one used to "fix" the card. For instance, in a `Spring Boot 3.2` card, one measure might have a name of `Major` – which represents all repositories that are one or more major versions behind. The corresponding recipe would be `org.openrewrite.java.dependencies.DependencyInsight` and it would include the options of `1-2`. This would mark all repositories that use Spring Boot version `1.x` or `2.x` as being a major version or more behind.
-
-:::danger
-You must ensure that the measure recipes return disjointed results (i.e., the same repository **can not** be returned by multiple recipes).
-
-For example, if you were tracking Java versions, you may have a repository that contains some code that uses Java 8, 11, and 17. However, you should ensure that your measure recipes only return this repository once.
-:::
-
-Each card can have up to **three measures**. These measures should be returned in a specific order; with the most urgent being returned first and the least urgent being returned last. 
-In the `Spring Boot 3.2` example, you might have: `Major`, `Minor` and `Completed` returned in that specific order.
-
-:::warning
-If you change any part of any measure on a card (such as the name of the measure or what recipe it should run), you will lose all results for the card until the next rebuild of the DevCenter.
-:::
-
-#### Example
-
-<details>
-
-<summary>Below is an example of an upgradesAndMigrations section for a Spring Boot 3.2 card:</summary>
-
-```json
-[
-  {
-    "devCenter": {
-      "version": 1,
-      "upgradesAndMigrations": [
-        {
-          "title": "Spring boot 3.2",
-          "measures": [
-            {
-              "name": "Major",
-              "recipe": {
-                "recipeId": "org.openrewrite.java.dependencies.DependencyInsight",
-                "options": [
-                  {
-                    "name": "groupIdPattern",
-                    "value": "org.springframework.boot"
-                  },
-                  {
-                    "name": "artifactIdPattern",
-                    "value": "spring-boot-starter"
-                  },
-                  {
-                    "name": "version",
-                    "value": "1-2"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Minor",
-              "recipe": {
-                "recipeId": "org.openrewrite.java.dependencies.DependencyInsight",
-                "options": [
-                  {
-                    "name": "groupIdPattern",
-                    "value": "org.springframework.boot"
-                  },
-                  {
-                    "name": "artifactIdPattern",
-                    "value": "spring-boot-starter"
-                  },
-                  {
-                    "name": "version",
-                    "value": "3-3.1"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Completed",
-              "recipe": {
-                "recipeId": "org.openrewrite.java.dependencies.DependencyInsight",
-                "options": [
-                  {
-                    "name": "groupIdPattern",
-                    "value": "org.springframework.boot"
-                  },
-                  {
-                    "name": "artifactIdPattern",
-                    "value": "spring-boot-starter"
-                  },
-                  {
-                    "name": "version",
-                    "value": "3.2-3.2.2"
-                  }
-                ]
-              }
-            }
-          ],
-          "fix": {
-            "recipeId": "org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2"
-          }
-        },
-        {
-          "title": "Java 21",
-          "measures": [
-            {
-              "name": "Java 8+",
-              "recipe": {
-                "recipeId": "org.openrewrite.java.search.HasJavaVersion",
-                "options": [
-                  {
-                    "name": "version",
-                    "value": "8-10"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Java 11+",
-              "recipe": {
-                "recipeId": "org.openrewrite.java.search.HasJavaVersion",
-                "options": [
-                  {
-                    "name": "version",
-                    "value": "11-16"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Java 17+",
-              "recipe": {
-                "recipeId": "org.openrewrite.java.search.HasJavaVersion",
-                "options": [
-                  {
-                    "name": "version",
-                    "value": "17-20"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Completed",
-              "recipe": {
-                "recipeId": "org.openrewrite.java.search.HasJavaVersion",
-                "options": [
-                  {
-                    "name": "version",
-                    "value": "21-100"
-                  }
-                ]
-              }
-            }
-          ],
-          "fix": {
-            "recipeId": "org.openrewrite.java.migrate.UpgradeToJava21"
-          }
-        },
-        {
-          "title": "JUnit 5",
-          "measures": [
-            {
-              "name": "JUnit 4",
-              "recipe": {
-                "recipeId": "org.openrewrite.java.search.FindAnnotations",
-                "options": [
-                  {
-                    "name": "annotationPattern",
-                    "value": "@org.junit.Test"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Completed",
-              "recipe": {
-                "recipeId": "org.openrewrite.java.search.FindAnnotations",
-                "options": [
-                  {
-                    "name": "annotationPattern",
-                    "value": "@org.junit.jupiter.api.Test"
-                  }
-                ]
-              }
-            }
-          ],
-          "fix": {
-            "recipeId": "org.openrewrite.java.testing.junit5.JUnit4to5Migration"
-          }
-        }
-      ],
-
-      // Other things
-  }
-]
-```
-
-</details>
-
-### Visualization cards
-
-If there are some visualizations you find particularly important for your organization, you can add them to your DevCenter so that you can quickly view and share them with others.
-
-<figure>
-  ![](./assets/visualization-card.png)
-  <figcaption></figcaption>
-</figure>
-
-To create these cards you need two things:
-
-1. A `visualizationId` that identifies which visualization you want to include (e.g., `io.moderne.DependencyUsageViolin`).
-2. Options for the visualization (if any exist).
-
-The `visualizationId` can be found on any visualization card you run in the Moderne Platform:
-
-<figure>
-  ![](./assets/visualization-id.png)
-  <figcaption></figcaption>
-</figure>
-
-#### Example
-
-<details>
-
-<summary>Below is an example of a visualizations section you might have in your DevCenter:</summary>
-
-```json
-"visualizations": [
-    {
-        "visualizationId": "io.moderne.DependencyUsageViolin",
-    },
-    {
-        "visualizationId": "io.moderne.LanguageComposition"
-    },
-    {
-        "visualizationId": "io.moderne-private.SqlHistogram"
-    }
-],
-```
-
-</details>
-
-### Security cards
-
-Security cards give your team a high-level overview of what security issues your repositories have or have not resolved.
-
-Security cards are composed of a list of recipes that fix security issues you care about. You should include no more than 10 security recipes on one DevCenter.
-
-<figure>
-  ![](./assets/security-card.png)
-  <figcaption></figcaption>
-</figure>
-
-#### Example
-
-<details>
-
-<summary>Below is an example of a security section you might have in your DevCenter:</summary>
-
-```json
-"security": [
-    {"recipeId": "org.openrewrite.java.security.OwaspA01"},
-    {"recipeId": "org.openrewrite.java.security.OwaspA02"},
-    {"recipeId": "org.openrewrite.java.security.OwaspA03"},
-    {"recipeId": "org.openrewrite.java.security.OwaspA05"},
-    {"recipeId": "org.openrewrite.java.security.OwaspA06"},
-    {"recipeId": "org.openrewrite.java.security.OwaspA08"},
-    {"recipeId": "org.openrewrite.java.security.RegularExpressionDenialOfService"},
-    {"recipeId": "org.openrewrite.java.security.SecureRandom"},
-    {"recipeId": "org.openrewrite.java.security.ZipSlip"},
-    {"recipeId": "org.openrewrite.java.security.XmlParserXXEVulnerability"}
-]
-```
-
-</details>
-
-## Next steps
-
-Once you've configured a DevCenter, you will need to wait for data to propagate to it. This can take a considerable amount of time depending on how many repositories and recipes you've configured. Please wait at least 24 hours for data to flow in.
+* Instead of the `LibraryUpgrade` recipe seen previously, this example uses a `ParentPomUpgrade` recipe to target the Apache Maven parent POM.
+* A generic recipe to upgrade parent versions does exist, but to fill its parameters in a DevCenter recipe, you need to create a custom recipe that specifies the `groupId` and `artifactId` of the parent POM you want to upgrade.
