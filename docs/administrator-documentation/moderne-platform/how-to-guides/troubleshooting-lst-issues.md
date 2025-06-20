@@ -136,6 +136,7 @@ Returns up to 100 results at a time by default.
 ### Advanced usage
 
 **Pagination:**
+
 ```graphql
 query paginatedResults {
   lostAndFound {
@@ -148,6 +149,7 @@ query paginatedResults {
 ```
 
 **Filtering and sorting:**
+
 ```graphql
 query sortedResults {
   lostAndFound {
