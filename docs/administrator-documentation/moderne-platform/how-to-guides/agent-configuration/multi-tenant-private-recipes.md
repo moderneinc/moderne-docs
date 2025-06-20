@@ -19,7 +19,7 @@ If your company has your own private tenant (e.g., `<tenant>.moderne.io`), then 
 
 ### Configuration
 
-When you log in to Moderne, you can either log in with GitHub or BitBucket Cloud.
+When you log in to Moderne, you can either log in with GitHub, BitBucket Cloud or Gitlab.
 
 In order for this feature to work, everyone at your company who logs in to Moderne will need to use the same SCM to log in, and they must have the same email domain for their primary email address in said SCM.
 
@@ -62,7 +62,7 @@ All recipes that should be private to your company **must** start with the rever
 </figure>
 
 :::tip
-You can use `LATEST` as the version so that the recipe will pick up the latest snapshot or release version.\
+You can use `LATEST` as the version so that the recipe will pick up the latest snapshot or release version.
 :::
 
 ### Using private recipes

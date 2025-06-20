@@ -20,7 +20,7 @@ Moderne supports seamless integration by offering various authentication options
 
 * **Social Logins**: Enable users to authenticate using their existing accounts (e.g., Google, GitHub) for quick and convenient sign-in experiences.
 * **SAML** (Security Assertion Markup Language): Facilitates SSO capabilities by leveraging pre-existing enterprise identity infrastructures that adhere to industry standards.
-* **OIDC** (Open Authorization): Provides a modern, flexible authentication framework based on open protocols and allows for secure authorization across different services and applications.
+* **OIDC** (OpenID Connect): Provides a modern, flexible authentication framework based on open protocols and allows for secure authorization across different services and applications.
 
 SAML or OIDC provides customers with the ability to assert claims for each authenticating principal. Claims can define a principal's email, first name, last name, and whether they should be assigned the role of `admin`.
 

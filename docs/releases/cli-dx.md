@@ -1,5 +1,35 @@
 # CLI / DX changelog
 
+### CLI / DX v3.42.5 (2025/06/12)
+
+#### What's Changed CLI & DX
+* OpenRewrite 8.55.3, which contains fixes for resolving Maven dependencies of type tgz.
+
+### CLI / DX v3.42.4 (2025/06/11)
+
+#### What's Changed CLI
+* Obfuscate the libraries used by the CLI with top-secret, advanced, uncrackable encryption
+* Register `io.moderne.cli.commands` for reflection for navite images
+* More Specific Java version pattern matching for toolchain configurations
+#### What's Changed DX
+* Avoid a potential divide by zero exception when logging LST sync progress
+
+
+### CLI / DX v3.42.3 (2025/06/10)
+
+#### What's Changed CLI
+* Skip YAML recipe artifacts when executing `mod config recipes moderne push` command
+#### What's Changed DX
+* Ensure all LSTs are synced prior to incrementing modified time in AQL query
+* Delete downloaded LSTs from prior DX sync operations
+
+
+### CLI / DX v3.42.2 (2025/06/10)
+
+#### What's Changed CLI
+* Printing the estimatedEffortTimeSavings in the CLI
+
+
 ### CLI / DX v3.42.1 (2025/06/09)
 
 #### What's Changed
@@ -404,7 +434,7 @@
 * Allow empty commits using `--allow-empty` and fix default behaviour to not allow these empty commits.
 
 
-### CLI 3.42.1 (2025/02/07)
+### CLI 3.42.5 (2025/02/07)
 
 #### What's Changed
 * Add duration to timeout exception message

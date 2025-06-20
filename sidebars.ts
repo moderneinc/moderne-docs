@@ -110,6 +110,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'user-documentation/moderne-cli/getting-started/cli-intro',
             'user-documentation/moderne-cli/getting-started/moderne-cli-license',
+            'user-documentation/moderne-cli/getting-started/moddy-desktop',
           ],
         },
         {
@@ -135,6 +136,7 @@ const sidebars: SidebarsConfig = {
             'user-documentation/moderne-cli/how-to-guides/execute-user-supplied-commands',
             'user-documentation/moderne-cli/how-to-guides/on-prem-scm-config',
             'user-documentation/moderne-cli/how-to-guides/build-steps',
+            'user-documentation/moderne-cli/how-to-guides/build-partitions',
             'user-documentation/moderne-cli/how-to-guides/batch-changes',
           ],
         },
@@ -216,16 +218,17 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Workshops',
+      label: 'Recipes',
       link: {
         type: 'generated-index',
-        title: 'Workshops',
-        description: 'Moderne workshops.',
-        slug: '/user-documentation/workshops',
-        keywords: ['workshops'],
+        title: 'Recipes',
+        description: 'Documentation related to recipes.',
+        slug: '/user-documentation/recipes',
+        keywords: ['recipes'],
       },
       items: [
-        'user-documentation/workshops/recipe-authoring'
+        'user-documentation/recipes/recipe-authoring',
+        'user-documentation/recipes/common-custom-recipes',
       ],
     },
     'user-documentation/community-office-hours',
@@ -328,6 +331,7 @@ const sidebars: SidebarsConfig = {
             'administrator-documentation/moderne-platform/references/reporting',
             'administrator-documentation/moderne-platform/references/architecture',
             'administrator-documentation/moderne-platform/references/ai-architecture',
+            'administrator-documentation/moderne-platform/references/non-gen-ai-architecture',
             'administrator-documentation/moderne-platform/references/flow',
             'administrator-documentation/moderne-platform/references/user-roles',
             'administrator-documentation/moderne-platform/references/github-permissions',
@@ -412,6 +416,7 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'administrator-documentation/references/repos-csv',
+        'administrator-documentation/references/faq',
       ],
     },
     {

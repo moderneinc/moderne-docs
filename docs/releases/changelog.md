@@ -1,4 +1,24 @@
 # Platform changelog
+### UI v11.61.0 (2025/06/19)
+
+- Bug fixes and other improvements.
+
+### UI v11.60.0 (2025/06/17)
+
+- Bug fixes and other improvements.
+
+### UI v11.59.0 (2025/06/13)
+
+- Bug fixes and other improvements.
+
+### UI v11.58.0 (2025/06/11)
+
+- exposes the ingested and published at dates for repositories in the repository grid. Displays the last refresh of the grid data
+
+### UI v11.57.0 (2025/06/10)
+
+- Bug fixes and other improvements.
+
 ### UI v11.56.0 (2025/06/09)
 
 - devCenter Recipe support

@@ -13,13 +13,39 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
-### OpenRewrite and C#: A match made in .NET heaven
+### Gartner APPS Unpacked: Key Takeaways and Insights (June 11th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=5fGCkKqCwE0' controls="true" />
+
+#### Summary and related links
+
+* **Announcements for the week**
+  * **Releases**
+    * [We've released OpenRewrite 8.55.2](https://github.com/openrewrite/rewrite/releases/tag/v8.55.2) - it comes with a bunch of JavaScript updates and bug fixes.
+  * **Content**
+    * [Check out our post on preparing for post quantum cryptography](https://www.linkedin.com/posts/jonkschneider_preparing-for-post-quantum-cryptography-activity-7336421570774544385-xZvx)
+    * [Our monthly newsletter was released this past week](https://www.linkedin.com/newsletters/moderne-monthly-7150204049416409088/)
+  * **Training**
+    * You can now sign up for [an introduction to OpenRewrite](https://www.moderne.ai/content-library/introduction-to-openrewrite) and [advanced OpenRewrite training](https://www.moderne.ai/content-library/advanced-openrewrite-training) courses that we are offering.
+  * **Events**
+    * [Tim will be be presenting about trusting AI to modernize software in Devoxx in Luxembourg on June 19th](https://mobile.devoxx.com/events/voxxedlu2025/talks/3593/details)
+
+### OpenRewrite and C#: A match made in .NET heaven (June 4th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=9vJL1ST4u6U' controls="true" />
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Content**
+    * [We've created a blog post summarizing Dov Katz' keynote presentation at Code Remix](https://www.moderne.ai/blog/enterprise-tech-debt-refactoring-at-scale)
+    * [We've updated our Spring Boot migration blog to 3.5](https://www.moderne.ai/blog/speed-your-spring-boot-3-0-migration)
+    * [We've added another video from the Code Remix Summit to the playlist](https://www.youtube.com/playlist?list=PLIasdWXKABOmxpJ0YDBQUuZIbmnSt0s-z)
+  * **Releases**
+    * [For a short summary of the big new features in our releases, check out our BlueSky page](https://bsky.app/profile/openrewrite.github.io/post/3lqbdoju5uk2r)
+  * **Events**
+    * [Tim will be speaking at JFokus in Stockholm on June 10th about trusting AI to modernize software](https://www.jfokus.se/ai-fokus/talks/2557)
+    * [Tim will be also be presenting on the same topic for Devoxx in Luxembourg on June 19th](https://mobile.devoxx.com/events/voxxedlu2025/talks/3593/details)
 
 ### Don't migrate to Spring Boot 3.5 until you watch this (May 28th, 2025)
 

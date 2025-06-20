@@ -878,3 +878,54 @@ java -jar moderne-agent-{version}.jar \
 ```
 </TabItem>
 </Tabs>
+
+## Multi-tenant private recipes
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                | Required | Default | Description                                                                   |
+|------------------------------|----------|---------|-------------------------------------------------------------------------------|
+| `MODERNE_AGENT_TENANTDOMAIN` | `false`  |         | Host (without scheme) to upload and deploy your own company-specific recipes. |
+
+:::warning
+Only be used when your company is using the [app.moderne.io](https://app.moderne.io/getting-started) tenant AND you want to upload and deploy your own company-specific recipes.
+See [Multi-tenant private recipes](multi-tenant-private-recipes.md) for more information.
+:::
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_AGENT_TENANTDOMAIN=mycompany.com \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                  | Required | Default | Description                                                                   |
+|--------------------------------|----------|---------|-------------------------------------------------------------------------------|
+| `--moderne.agent.tenantDomain` | `false`  |         | Host (without scheme) to upload and deploy your own company-specific recipes. |
+
+:::warning
+Only be used when your company is using the [app.moderne.io](https://app.moderne.io/getting-started) tenant, and you want to upload and deploy your own company-specific recipes.
+See [Multi-tenant private recipes](multi-tenant-private-recipes.md) for more information.
+:::
+
+
+**Example:**
+
+```bash
+java -jar moderne-agent-{version}.jar \
+# ... Existing arguments
+--moderne.agent.tenantDomain=mycompany.com \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>

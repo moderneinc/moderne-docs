@@ -49,58 +49,13 @@ If your company **does** provide an organizational hierarchy, the issue could be
 
 #### To diagnose:
 
-1. Navigate to the GraphQL API explorer located at `https://TENANT.moderne.io/graphql` (replace `TENANT` in the URL with your company's Moderne tenant)
-2. Run the following GraphQL query:
+Use the [Lost and Found GraphQL query](#using-the-lost-and-found-query) to check if your repository is listed.
 
-```graphql
-query organizationlessRepositories {
-  organizationlessRepositories {
-    count
-    pageInfo {
-      hasNextPage
-      startCursor
-      endCursor
-    }
-    edges {
-      node {
-        origin
-        path
-        branch
-      }
-    }
-  }
-}
-```
-
-:::info
- The `organizationlessRepositories` query returns a paginated list of repositories that are not part of any organization. By default, it returns up to 100 results at a time.
-
- To retrieve additional results, use the `after` cursor from the `pageInfo.endCursor` field in a subsequent request.
-
- Example query:
-
- ```graphql
-query {
-  organizationlessRepositories(first: 100, after: "END_CURSOR_HERE") {
-    edges {
-      node {
-        origin
-        path
-        branch
-      }
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
-  }
-}
-```
-:::
-
-3. Look through the results and see if your repository is listed there.
-  * **If found**: Your repository exists, but doesn't match the `origin`, `path`, or `branch` defined in your organizational hierarchy. [See the fix below](#to-fix-1).
-  * **If not found**: Proceed to [check for an `origin` mismatch](#check-for-an-origin-mismatch) (the next section). 
+* **If found**: Your repository exists but has issues that prevent it from being usable. This could be due to:
+  - Missing from organizational hierarchy (doesn't match the `origin`, `path`, or `branch` defined in your organizational hierarchy)
+  - SCM configuration mismatch (orphaned repository with no connected agent)
+  - [See the fix below](#to-fix-1).
+* **If not found**: Proceed to [check for an `origin` mismatch](#check-for-an-origin-mismatch) (the next section). 
 
 #### To fix: 
 
@@ -131,3 +86,78 @@ Update your `repos.csv` file to ensure the `origin`, `path`, and `branch` values
 Check your VCS URL in your Agent configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is `https://github.com` (or the base URL of your on-prem GitHub instance).
 
 If your VCS is Bitbucket Server or Bitbucket Data Center, and you use a non-standard SSH port or a different URL, make sure that you have an alternate URL defined via `MODERNE_AGENT_BITBUCKET_0_ALTERNATEURLS_0`.
+
+## Using the Lost and Found query
+
+The Lost and Found feature provides a comprehensive view of all repositories that are not usable in the Moderne platform for various reasons. Use this query when troubleshooting repository visibility issues.
+
+### Running the query
+
+1. Navigate to the GraphQL API explorer at `https://TENANT.moderne.io/graphql` (replace `TENANT` with your company's Moderne tenant)
+2. Run this query to see all repositories with issues:
+
+```graphql
+query lostAndFoundRepositories {
+  lostAndFound {
+    repositories {
+      count
+      pageInfo {
+        hasNextPage
+        startCursor
+        endCursor
+      }
+      edges {
+        node {
+          origin
+          path
+          branch
+        }
+      }
+    }
+  }
+}
+```
+
+:::info
+**What the Lost and Found query returns:**
+
+1. **Organizationless repositories** - Repositories not part of any organization due to:
+   - Missing from your `repos.csv` file
+   - Mismatched `origin`, `path`, or `branch` values in your organizational hierarchy
+
+2. **Orphaned repositories** - Repositories from SCM tools with no connected agent due to:
+   - Agent was previously connected but is now disconnected
+   - SCM configuration doesn't match any connected agent
+   - URL mismatches between repository origin and agent configuration
+
+Returns up to 100 results at a time by default.
+:::
+
+### Advanced usage
+
+**Pagination:**
+
+```graphql
+query paginatedResults {
+  lostAndFound {
+    repositories(first: 100, after: "CURSOR_HERE") {
+      edges { node { origin path branch } }
+      pageInfo { endCursor hasNextPage }
+    }
+  }
+}
+```
+
+**Filtering and sorting:**
+
+```graphql
+query sortedResults {
+  lostAndFound {
+    repositories(filter: { sortBy: PATH, sortOrder: ASC }) {
+      edges { node { origin path branch } }
+    }
+  }
+}
+```
+
+Sort options: `PATH`, `ORIGIN`, `BRANCH` | Sort orders: `ASC`, `DESC`
