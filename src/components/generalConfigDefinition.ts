@@ -64,7 +64,7 @@ const generalConfigDefinition = {
       label: 'Organization repositories CSV source location', 
       key: 'orgReposCsvPath', 
       envKey: 'MODERNE_AGENT_ORGANIZATION_REPOSCSV',
-      description: 'The location of the repos.csv file that defines <a href="https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/organizations-service">organizational hierarchy</a>. Its value may be a local path or an unauthenticated HTTP URI.',
+      description: 'The location of the repos.csv file that defines <a href="https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/org-service">organizational hierarchy</a>. Its value may be a local path or an unauthenticated HTTP URI.',
       type: 'text',
       defaultValue: '',
       required: false
