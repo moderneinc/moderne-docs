@@ -53,7 +53,7 @@ Use the [Lost and Found GraphQL query](#using-the-lost-and-found-query) to check
 
 * **If found**: Your repository exists but has issues that prevent it from being usable. This could be due to:
   - Missing from organizational hierarchy (doesn't match the `origin`, `path`, or `branch` defined in your organizational hierarchy)
-  - SCM configuration mismatch (orphaned repository with no connected agent)
+  - SCM configuration mismatch (repository whose `origin` does not match any SCM connection from connected agents)
   - [See the fix below](#to-fix-1).
 * **If not found**: Proceed to [check for an `origin` mismatch](#check-for-an-origin-mismatch) (the next section). 
 
@@ -108,6 +108,7 @@ query lostAndFoundRepositories {
       }
       edges {
         node {
+          __typename
           origin
           path
           branch
@@ -125,10 +126,12 @@ query lostAndFoundRepositories {
    - Missing from your `repos.csv` file
    - Mismatched `origin`, `path`, or `branch` values in your organizational hierarchy
 
-2. **Orphaned repositories** - Repositories from SCM tools with no connected agent due to:
+2. **Repositories that don't match SCM configuration** - Repositories from SCM tools with no connected agent due to:
    - Agent was previously connected but is now disconnected
    - SCM configuration doesn't match any connected agent
    - URL mismatches between repository origin and agent configuration
+
+To tell whether a repository is organizationless or has SCM configuration issues, look at the `__typename` field in the response. If the typename is  `__typename: OrphanedRepository`, this repository has a mismatch in its SCM configuration.
 
 Returns up to 100 results at a time by default.
 :::
