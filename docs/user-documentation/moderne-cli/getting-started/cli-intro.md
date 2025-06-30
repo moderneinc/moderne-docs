@@ -531,7 +531,7 @@ MOD SUCCEEDED in 1m 33s
 :::info
 Some of the repositories may show `(no LST)` and return the message `! Skipping recipe run because no LST was found`. This is because in the previous step, we used the `--download-only` option to specify that we don't want to build an LST locally and only want to download one from the Moderne Platform. However, if there is no LST already built on the Moderne Platform, then there is nothing to download and no LST will exist for this repository. 
 
-If you don't specify `--download-only`, then the LSTs will attempt to build locally. For the purposes of this tutorial, however, we may ignore this message for now and not worry about the repositories that don't have LSTs.
+If you don't specify `--download-only`, then the LSTs will attempt to build locally. For the purposes of this tutorial, however, we will ignore this message and not worry about the repositories that don't have LSTs.
 :::
 
 To learn more about what changed, you can command/ctrl click on the `fix.patch` files generated in the above command. If you open one of these patch files up, you'll see that various dependencies in `pom.xml` or `build.gradle` files have been updated. While these updates to the dependencies are useful, they are only a minor part of what this recipe does. In the next section we'll take a look at the real power of this recipe – the data table that is produced.
