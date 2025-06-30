@@ -138,6 +138,10 @@ With the Moderne connection established, you can download recipes to your local 
 mod config recipes moderne sync
 ```
 
+:::info
+Occasionally, a few of the recipes may fail to sync properly and return the message `! Failed to install`. If the majority of the recipes installed successfully, however, you will see the `MOD PARTIALLY SUCCEEDED` message when the command completes, and you can still continue on without a problem for the purposes of this tutorial.
+::: 
+
 This will grab _all_ of the recipes from the tenant you specified in `mod config` – so please expect this command to take a few minutes to download the recipes. 
 
 ## Using the CLI
@@ -524,6 +528,12 @@ MOD SUCCEEDED in 1m 33s
 
 </details>
 
+:::info
+Some of the repositories may show `(no LST)` and return the message `! Skipping recipe run because no LST was found`. This is because in the previous step, we used the `--download-only` option to specify that we don't want to build an LST locally and only want to download one from the Moderne Platform. However, if there is no LST already built on the Moderne Platform, then there is nothing to download and no LST will exist for this repository. 
+
+If you don't specify `--download-only`, then the LSTs will attempt to build locally. For the purposes of this tutorial, however, we will ignore this message and not worry about the repositories that don't have LSTs.
+:::
+
 To learn more about what changed, you can command/ctrl click on the `fix.patch` files generated in the above command. If you open one of these patch files up, you'll see that various dependencies in `pom.xml` or `build.gradle` files have been updated. While these updates to the dependencies are useful, they are only a minor part of what this recipe does. In the next section we'll take a look at the real power of this recipe – the data table that is produced.
 
 ### Study the results of a recipe
@@ -623,11 +633,13 @@ MOD SUCCEEDED in 5s
 We used the short name for the data table (`VulnerabilityReport`) rather than the fully-qualified name. As long as the short name is distinct, you can do this to save some typing.
 :::
 
-Open up the Excel file that is produced. You will see that the recipe found almost 1,000 vulnerabilities. You can sort them by severity to see what the most important ones to start with are – or you could find the ones that can be fixed with a version update only to quickly address some of the problems. Having a table like this can help you and your organization track and prioritize security issues.
+Open up the Excel file that is produced. You will see that the recipe found hundreds of vulnerabilities. You can sort them by severity to see what the most important ones to start with are – or you could find the ones that can be fixed with a version update only to quickly address some of the problems. Having a table like this can help you and your organization track and prioritize security issues.
 
 ### Adjust the format of data tables
 
 Maybe you don't really want an Excel spreadsheet as the output, though. Fortunately, the Moderne CLI lets you customize what you get out of data tables with templates. Let's run a new recipe to demonstrate this. Let's run a recipe to find all locations where the `java.util.List add(..)` method is used (For more information on how to select a particular method, check out our [method patterns documentation](https://docs.openrewrite.org/reference/method-patterns)).
+
+**Note**: Please make sure to pick the `org.openrewrite.java.search.FindMethods` recipe when you run the following command as multiple recipes with this title may exist.
 
 ```bash
 mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)" --parallel -1
