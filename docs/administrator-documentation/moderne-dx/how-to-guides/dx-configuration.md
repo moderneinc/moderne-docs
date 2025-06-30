@@ -258,9 +258,9 @@ java -jar moderne-dx-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 4: (Optional but recommended) Add one or more admin tokens
+### Step 4: Add one or more admin tokens
 
-An admin token is a shared secret that grants users administrative access to DX when included in their local command. This elevated access allows them to perform actions like installing recipes or running diagnostics against a DX instance. You can define one or more tokens. While DX can start without them, we strongly recommend setting at least one.
+An admin token is a shared secret that grants users administrative access to DX when included in their local command. This elevated access allows them to perform actions like installing recipes or running diagnostics against a DX instance. You can define one or more tokens. Without an admin token, you will not be able to populate DX with recipes.
 
 <Tabs groupId="dx-type">
 <TabItem value="docker-image" label="Docker image">
@@ -294,11 +294,11 @@ java -jar moderne-dx-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 5: (Optional but recommended) Configure an organizational hierarchy
+### Step 5: Configure an organizational hierarchy
 
-In order for users to effectively access and run recipes against specific groups of repositories, Moderne DX admins will need to define an organizational structure for their company. This structure, defined via a repos.csv file, needs to either be deployed as a static file alongside DX or be accessible from DX via an unauthenticated URI.
+In order for users to effectively access and run recipes against specific groups of repositories, Moderne DX admins will need to define an organizational structure for their company. This structure, defined via a `repos.csv` file, needs to either be deployed as a static file alongside DX or be accessible from DX via an unauthenticated URI.
 
-If you want to support this functionality, which we'd strongly recommend, please [follow the instructions in our organizational hierarchy configuration doc](./configure-dx-organizations.md).
+Please [follow the instructions in our organizational hierarchy configuration doc](./configure-dx-organizations.md) to configure this.
 
 Below is an example of what the Moderne DX service run command might look like at the end of this step if you configure this hierarchy.
 
@@ -352,142 +352,11 @@ java -jar moderne-dx-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 6: (Optionally) Configure an Organizations service
-
-You should create a dedicated Organizations service if you want to:
-
-* Limit access to the organizations you've [previously defined](./configure-dx-organizations.md) so that some users only have access to some repositories OR
-* Customize commit messages by repository (e.g., adding a JIRA ticket to your commit messages based on the repository)
-
-If you desire this functionality, please follow the instructions in our [creating an Organizations service guide](./dx-org-service.md).
-
-Below is an example of what the Moderne DX service run command might look like at the end of this step.
-
-<Tabs groupId="dx-type">
-<TabItem value="docker-image" label="Docker image">
-
-```bash
-# Please note that if you create environment variables for secrets, you still need to let Docker
-# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
-export MODERNE_DX_TOKEN_0=...
-export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
-export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_DX_MAVEN_0_USERNAME=...
-export MODERNE_DX_MAVEN_0_PASSWORD=...
-
-docker run \
--e MODERNE_DX_TOKEN_0 \
--e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_DX_ARTIFACTORY_0_USERNAME \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD \
--e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_DX_MAVEN_0_USERNAME \
--e MODERNE_DX_MAVEN_0_PASSWORD \
--e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
--e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
--e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
--p 8080:8080
-moderne-dx:latest
-```
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-```bash
-# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.dx.token[0]=...
-export MODERNE_DX_TOKEN_0=...
-export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
-export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_DX_MAVEN_0_USERNAME=...
-export MODERNE_DX_MAVEN_0_PASSWORD=...
-
-java -jar moderne-dx-{version}.jar \
---moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
---moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
---moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.dx.maven[0].localRepository=~/.moderne-maven \
---moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.syncIntervalSeconds=600 \
---moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
---moderne.dx.recipe.useOnlyConfigured=true
-```
-</TabItem>
-</Tabs>
-
-### Step 7: (Optionally) Use strict recipe sources
-
-Some organizations want recipe artifacts to only come from locations configured in the Moderne DX service. If you want to configure that, please follow the [strict recipe sources instructions](./configure-dx-with-strict-recipe-sources.md).
-
-Below is an example of what the Moderne DX service run command might look like at the end of this step if you configured the service to use only configured recipe sources.
-
-<Tabs groupId="dx-type">
-<TabItem value="docker-image" label="Docker image">
-
-```bash
-# Please note that if you create environment variables for secrets, you still need to let Docker
-# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
-export MODERNE_DX_TOKEN_0=...
-export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
-export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_DX_MAVEN_0_USERNAME=...
-export MODERNE_DX_MAVEN_0_PASSWORD=...
-
-docker run \
--e MODERNE_DX_TOKEN_0 \
--e MODERNE_DX_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_DX_ARTIFACTORY_0_USERNAME \
--e MODERNE_DX_ARTIFACTORY_0_PASSWORD \
--e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_DX_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_DX_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_DX_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
--e MODERNE_DX_MAVEN_0_USERNAME \
--e MODERNE_DX_MAVEN_0_PASSWORD \
--e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
--e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
--e MODERNE_DX_RECIPE_USEONLYCONFIGURED=true \
--p 8080:8080
-moderne-dx:latest
-```
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-```bash
-# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.dx.token[0]=...
-export MODERNE_DX_TOKEN_0=...
-export MODERNE_DX_ARTIFACTORY_0_USERNAME=...
-export MODERNE_DX_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_DX_MAVEN_0_USERNAME=...
-export MODERNE_DX_MAVEN_0_PASSWORD=...
-
-java -jar moderne-dx-{version}.jar \
---moderne.dx.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.dx.artifactory[0].astQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
---moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
---moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.dx.maven[0].localRepository=~/.moderne-maven \
---moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.syncIntervalSeconds=600 \
---moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
---moderne.dx.recipe.useOnlyConfigured=true
-```
-</TabItem>
-</Tabs>
-
-### Step 8: (Optionally) Provide SSL client keystore
+### Step 6: (Optionally) Provide SSL client keystore
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please see the [configure DX with SSL certificate instructions](./configure-dx-ssl.md).
 
-### Step 9: Run Moderne DX
+### Step 7: Run Moderne DX
 
 At this point, you should have configured everything needed to run the Moderne DX service. If you run into issues running the command, please don't hesitate to reach out.
 
@@ -520,8 +389,6 @@ docker run \
 -e MODERNE_DX_MAVEN_0_USERNAME \
 -e MODERNE_DX_MAVEN_0_PASSWORD \
 -e MODERNE_DX_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
--e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
--e MODERNE_DX_ORGANIZATION_SYNCINTERVALSECONDS=600 \
 -p 8080:8080
 moderne-dx:latest
 ```
@@ -546,8 +413,6 @@ java -jar moderne-dx-{version}.jar \
 --moderne.dx.artifactory[0].astQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.dx.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
 --moderne.dx.maven[0].localRepository=~/.moderne-maven \
---moderne.dx.organization.url=http://localhost:8091 \
---moderne.dx.organization.syncIntervalSeconds=600 \
 --moderne.dx.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
 ```
 
