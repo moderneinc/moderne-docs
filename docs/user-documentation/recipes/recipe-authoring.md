@@ -334,7 +334,7 @@ Let's look at an existing Refaster recipe in the starter project, and see how it
 
 * Refaster templates are converted into regular OpenRewrite recipes, and can be run as such.
 * Common base classes, and embedding options lighten the load in implementing Refaster templates.
-* Some 400+ recipes from [Picnic's ErrorProne Support](https://error-prone.picnic.tech/) have made it into [rewrite-third-party](https://github.com/openrewrite/rewrite-third-party) and [the app.moderne.io marketplace](https://app.moderne.io/marketplace/tech.picnic.errorprone.refasterrules).
+* Some 900+ recipes from [Picnic's ErrorProne Support](https://error-prone.picnic.tech/) have made it into [rewrite-third-party](https://github.com/openrewrite/rewrite-third-party) and [the app.moderne.io marketplace](https://app.moderne.io/marketplace/tech.picnic.errorprone.refasterrules).
 
 ### Exercise 7: Create a Refaster recipe
 
@@ -369,6 +369,12 @@ Let's create a Refaster recipe that standardizes various ways to check if a Stri
 * Refaster templates can be generated from the IDE, and used as a starting point for more complex recipe implementations.
 * A Refaster rule can contain more than one before template, to match different ways to check for an empty string.
 * You can customize the Recipe name and description, with the help of the `@RecipeDescriptor` annotation.
+
+#### For  extra credit
+
+Consider what it would take to write a Refaster recipe to adopt [Java 21's `SequencedCollection`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/SequencedCollection.html).
+Which cases would you want to cover? How would you handle generic types?
+All of this is still possible with Refaster recipes.
 
 ## Imperative recipes
 
