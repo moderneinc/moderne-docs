@@ -43,27 +43,6 @@ Conversation history is stored locally in the browser (e.g., cookies/local stora
   <figcaption>_AI model interactions_</figcaption>
 </figure>
 
-## Third party AI integrations (public Moderne Platform only)
-
-The public Moderne Platform offers users the ability to connect to third party services to improve the Moderne experience. For example, you may wish to connect to OpenAI to enable AI summaries and suggestions.
-
-<figure>
-  ![](./assets/third-party-integ.png)
-  <figcaption>_Connecting the Moderne Platform to OpenAI_</figcaption>
-</figure>
-
-#### Deployment
-
-This is deployed by default in the public Moderne Platform. It is not available in private Moderne tenants.
-
-#### AI models
-
-Integrates with external AI services. As of February 2025, the only integration available is with OpenAI.
-
-#### State mangement
-
-API keys are stored only on the user's machine (their browser) and are used on demand.
-
 ## Frequently asked questions
 
 ### Can I configure and customize AI features?
