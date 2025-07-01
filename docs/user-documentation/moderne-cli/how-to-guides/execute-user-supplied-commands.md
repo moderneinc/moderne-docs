@@ -31,7 +31,7 @@ User-supplied commands can take advantage of a set of variables computed by the 
 mod exec . -- MODERNE_BUILD_TOOL_CHECK
 ```
 
-the Moderne CLI will substitute `MODERNE_BUILD_TOOL_CHECK` with the build tool command to execute verification tasks specific to the repository. This would expand to `gradle check` and `mvn verify` for Gradle and Maven projects respectively.
+the Moderne CLI will substitute `MODERNE_BUILD_TOOL_CHECK` with the build tool command to execute verification tasks specific to the repository. For example, for a Gradle project, `MODERNE_BUILD_TOOL_CHECK` would be replaced with `./gradlew check`. Similarly, a Maven project would run `./mvnw test`. The point of `MODERNE_BUILD_TOOL_CHECK` is to select the correct tool per repository without you needing to worry about it. 
 
 Additionally, each computed variable is added to the environment the command is run in, there by allowing access to variables within the script. For example, the following script named `repo_validation.sh` will set the JDK version prior to executing repository validation tasks using the computed Java version supplied by the `MODERNE_JAVA_VERSION` environment variable:
 
