@@ -23,7 +23,7 @@ The Moderne SaaS is configured to use the following Maven repositories to load r
 </repository>
 <repository>
   <id>oss-snapshots</id>
-  <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+  <url>https://central.sonatype.com/repository/maven-snapshots</url>
   <snapshots>
     <enabled>true</enabled>
   </snapshots>

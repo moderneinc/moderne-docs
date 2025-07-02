@@ -35,7 +35,7 @@ The [rewrite-recipe-starter project](https://github.com/moderneinc/rewrite-recip
 All Moderne SaaS instances have access to the following artifact repositories: 
 
 * `https://repo1.maven.org/maven2`
-* `https://oss.sonatype.org/content/repositories/snapshots`
+* `https://central.sonatype.com/repository/maven-snapshots`
 * `https://jitpack.io`
 
 You may also find it useful to read over these other artifact publishing docs:
