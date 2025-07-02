@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.66.0 (2025/07/02)
+
+- remove openai integration
+
 ### UI v11.65.0 (2025/06/27)
 
 - Bug fixes and other improvements.
