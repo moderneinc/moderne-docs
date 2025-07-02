@@ -78,8 +78,8 @@ If you do have multiple recipe sources, we recommend you set up a virtual reposi
 
 You will also need to ensure that the virtual repository points to the following four repositories (alongside the other repositories where recipe artifacts are stored):
 
-1. `https://oss.sonatype.org/content/repositories/snapshots/`
-2. `https://s01.oss.sonatype.org/content/repositories/snapshots/`
+1. `https://central.sonatype.com/repository/maven-snapshots/`
+2. `https://central.sonatype.com/repository/maven-snapshots/`
 3. `https://repo.maven.apache.org/maven2`
 4. `https://repo1.maven.org/maven2/`
 :::
