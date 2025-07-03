@@ -17,9 +17,20 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=lkVDuciTlYQ' controls="true" />
 
+#### Summary and related links
+
+Coming soon!
+
 ### Fix slow Gradle builds before they ruin your life (July 2nd, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=Y9PMzqWAsEQ' controls="true" />
+
+#### Summary and related links
+
+* **Announcements for the week**
+  * [We wrote a new blog post summarizing the Code Remix Summit](https://www.moderne.ai/blog/autonomous-testing-ai-developer-productivity)
+  * [There are many talks from the conference available on YouTube](https://www.youtube.com/watch?v=KIdnP2e8Cno&list=PLIasdWXKABOmxpJ0YDBQUuZIbmnSt0s-z)
+  * Sonatype has changed the location of where snapshots exist – which will result in various URLs needing to be updated.
 
 ### OpenRewrite Demystified: What it can really do for you (June 25th, 2025)
 
