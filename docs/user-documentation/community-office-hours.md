@@ -41,7 +41,7 @@ Coming soon!
 * **Announcements for the week**
   * **Releases**
     * [We've done a full release of OpenRewrite](https://docs.openrewrite.org/changelog/8-56-0-Release) – with over 100 new recipes.
-      * This release includes three new recipe modules – include a community contributed [rewrite-netty module](https://github.com/openrewrite/rewrite-netty).
+      * This release includes three new recipe modules – shout out to the community contributed [rewrite-netty module](https://github.com/openrewrite/rewrite-netty).
   * **Training**
     * We are offering two courses on OpenRewrite:
       * [Introduction to OpenRewrite](https://www.moderne.ai/content-library/introduction-to-openrewrite) (July 22nd) – 4 hours
