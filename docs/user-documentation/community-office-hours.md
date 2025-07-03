@@ -25,6 +25,38 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=MYbhx0iLBM8' controls="true" />
 
+#### Summary and related links
+
+* **Announcements for the week**
+  * **Releases**
+    * [We've done a full release of OpenRewrite](https://docs.openrewrite.org/changelog/8-56-0-Release) – with over 100 new recipes.
+      * This release includes three new recipe modules – include a community contributed [rewrite-netty module](https://github.com/openrewrite/rewrite-netty).
+  * **Training**
+    * We are offering two courses on OpenRewrite:
+      * [Introduction to OpenRewrite](https://www.moderne.ai/content-library/introduction-to-openrewrite) (July 22nd) – 4 hours
+      * [Advanced OpenRewrite training](https://www.moderne.ai/content-library/advanced-openrewrite-training) (July 29th) – 4 hours
+  * **Blogs**
+    * We wrote a few blog posts over the past few weeks. These include:
+      * [A blog post on how Choice Hotels upgraded to Java 21](https://www.moderne.ai/blog/enterprise-java-modernization-choice-hotels)
+      * [A blog post on modernizing fintech software at scale with AI](https://www.moderne.ai/blog/open-source-auto-refactoring-meets-ai-agent-to-modernize-fintech-software-at-scale)
+      * [A blog post on tech debt and the lessons we learned from GartnerAPPS 2025](https://www.moderne.ai/blog/gartner-application-innovation-business-summit-2025-recap)
+* **Main topic**
+  * This week we went over common myths that people have about OpenRewrite that aren't true. These myths include:
+    * "OpenRewrite is just a code formatter" / "OpenRewrite requires a code formatter"
+    * "You need to write your own recipes to use it"
+    * "It might break my code or run unsafe transformations"
+    * "It only works with Java projects"
+    * "It rewrites everything at once without control"
+    * "It uses reflection or runs code to make decisions"
+    * "If it pulls old libraries, my app will be vulnerable"
+    * "OpenRewrite can not upgrade internal libraries or frameworks"
+    * "OpenRewrite/Moderne uses AI to make the changes"
+    * "OpenRewrite is only for upgrades"
+    * "You can only run recipes once"
+    * "You have to check every line of code that is changed"
+    * "OpenRewrite competes with AI technologies"
+    * "Large refactors are impossible without a monorepo"
+
 ### Gartner APPS Unpacked: Key Takeaways and Insights (June 11th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=5fGCkKqCwE0' controls="true" />
