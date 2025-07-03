@@ -13,6 +13,18 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Scaling OpenRewrite to 3B lines of code (July 9th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=lkVDuciTlYQ' controls="true" />
+
+### Fix slow Gradle builds before they ruin your life (July 2nd, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=Y9PMzqWAsEQ' controls="true" />
+
+### OpenRewrite Demystified: What it can really do for you (June 25th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=MYbhx0iLBM8' controls="true" />
+
 ### Gartner APPS Unpacked: Key Takeaways and Insights (June 11th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=5fGCkKqCwE0' controls="true" />
