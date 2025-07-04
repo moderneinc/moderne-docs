@@ -1,5 +1,23 @@
 # CLI / DX changelog
 
+### CLI / DX v3.42.6 (2025/07/04)
+
+#### What's Changed CLI
+* Remove obsolete code and terminology related to removing Moderne marketplace artifacts in `mod config recipes moderne push`
+* Add exclusion
+- typo in endpoint name
+* update suppressions
+* Add new maven central url
+- Remove out-of-date OWASP suppressions
+- org.openrewrite.mavencentral
+* Remove unnecessary dependency on rewrite-migrate-java now that rewrite-devcenter depends on it
+#### What's Changed DX
+* Use `OrganizationReader` to consolidate DX logic to parse `repos.csv` and change organization ID to new format
+* During DX's artifact sync, ensure that all "artifacts to process" will be processed oldest to newest
+* Fix /graphiql for DX, which was broken by upstream CDN changes in graphql itself
+* dx build improvements
+
+
 ### CLI / DX v3.42.5 (2025/06/12)
 
 #### What's Changed CLI & DX
