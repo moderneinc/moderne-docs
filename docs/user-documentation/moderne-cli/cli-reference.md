@@ -3932,7 +3932,7 @@ mod config recipes moderne sync
 ### Subcommands
 
 * `install`: Allows you to find and install recipes from Moderne.
-* `push`: Pushes the local CLI recipe marketplace to Moderne.
+* `push`: Pushes local CLI marketplace recipes to Moderne.
 * `sync`: Synchronizes the local CLI recipe marketplace with Moderne.
 
 ## mod config recipes moderne install
@@ -3966,10 +3966,10 @@ mod config recipes moderne install "Migrate Java"
 
 ## mod config recipes moderne push
 
-Pushes the local CLI recipe marketplace to Moderne.
+Pushes local CLI marketplace recipes to Moderne.
 
 
-Adds or replaces all recipes in the Moderne tenant with the recipes installed in the local marketplace.
+Adds or replaces recipes in the Moderne tenant with the recipes installed in the local marketplace.
 
 ### Usage
 
