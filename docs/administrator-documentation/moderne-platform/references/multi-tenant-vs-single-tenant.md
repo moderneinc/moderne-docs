@@ -24,7 +24,7 @@ For details about the single-tenant edition, please see the following docs:
 
 ## Multi-tenant
 
-The multi-tenant edition of Moderne is one where multiple companies have a secure, private area in a shared cloud instance of the Moderne Platform. As multiple companies share a single cloud instance and resources, your contract with Moderne will cost less than it would if your company had their [own dedicated instance](#single-tenant).
+The multi-tenant edition of Moderne is one where multiple companies have a secure, private area in a shared cloud instance of the Moderne Platform. Sincle multiple companies share a single cloud instance and resources, your contract with Moderne will cost less than it would if your company had their [own dedicated instance](#single-tenant).
 
 ### Architecture
 
@@ -35,18 +35,18 @@ The multi-tenant edition of Moderne is one where multiple companies have a secur
 
 ### Configuration
 
-As part of the multi-tenant set up, you will need to:
+As part of the multi-tenant setup, you will need to:
 
 * Own and deploy a [Moderne agent](../how-to-guides/agent-configuration/agent-config.md) in some location that has access to your source code repositories
 * Set up [mass ingestion](../how-to-guides/mass-ingest.md) to build and publish LSTs to an Artifactory instance (either one we own or your own personal Artifactory instance that the agent connects to)
 
 :::tip
-As the Moderne Platform is run in AWS us-west-1, it would be beneficial for these pieces to be configured in the same region or in a closeby region to minimize the amount of time it takes to send data back and forth.
+Since the Moderne Platform runs in AWS us-west-1, it would be beneficial for these components to be configured in the same region or in a nearby region to minimize the amount of time it takes to send data back and forth.
 :::
 
 ### Authentication
 
-Multi-tenant users are required to login to Moderne through an SCM such as GitHub, Gitlab, or Bitbucket. For added security, you can ensure that your SCM is backed by an identity provider that supports SAML or OIDC.
+Multi-tenant users are required to log in to Moderne through an SCM such as GitHub, GitLab, or Bitbucket. For added security, you can ensure that your SCM is backed by an identity provider that supports SAML or OIDC.
 
 ### Data access
 
@@ -54,7 +54,7 @@ Moderne does not have direct access to your code. Permissions are governed by SS
 
 As part of setting up a multi-tenant instance of Moderne, you will [create a repos.csv file](../../references/repos-csv.md) that you share with us so that we can create an organization in the Moderne Platform for you.
 
-After that, you will then create and share with us a file that contains a list of emails that should have access to your repositories and organization. Note that these emails **must** match the emails you login to your SCM with.
+After that, you will then create and share with us a file that contains a list of emails that should have access to your repositories and organization. Note that these emails **must** match the emails you use to log in to your SCM.
 
 ### Data storage
 
