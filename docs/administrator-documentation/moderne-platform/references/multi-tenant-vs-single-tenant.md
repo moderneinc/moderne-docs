@@ -24,7 +24,7 @@ For details about the single-tenant edition, please see the following docs:
 
 ## Multi-tenant
 
-The multi-tenant edition of Moderne is one where multiple companies have a secure, private area in a shared cloud instance of the Moderne Platform. Sincle multiple companies share a single cloud instance and resources, your contract with Moderne will cost less than it would if your company had their [own dedicated instance](#single-tenant).
+The multi-tenant edition of Moderne is one where multiple companies have a secure, private area in a shared cloud instance of the Moderne Platform. Since multiple companies share a single cloud instance and resources, your contract with Moderne will cost less than it would if your company had their [own dedicated instance](#single-tenant).
 
 ### Architecture
 
