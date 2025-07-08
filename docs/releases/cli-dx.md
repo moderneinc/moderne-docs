@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.42.9 (2025/07/08)
+
+#### What's Changed
+* Add redirect strategy regardless of skipping ssl
+
+
 ### CLI / DX v3.42.8 (2025/07/08)
 
 #### What's Changed
