@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.42.8 (2025/07/08)
+
+#### What's Changed
+* Adjust redirect strategy
+
+
 ### CLI / DX 3.42.7 (2025/07/04)
 
 
