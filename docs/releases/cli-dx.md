@@ -5,11 +5,6 @@
 #### What's Changed
 * Adjust redirect strategy
 
-
-### CLI / DX 3.42.7 (2025/07/04)
-
-
-
 ### CLI / DX v3.42.6 (2025/07/04)
 
 #### What's Changed CLI
