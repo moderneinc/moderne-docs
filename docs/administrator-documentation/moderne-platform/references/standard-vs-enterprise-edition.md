@@ -24,7 +24,7 @@ For details about the Enterprise edition, please see the following docs:
 
 ## Standard edition
 
-The Standard edition of Moderne offers a more cost-effective operational footprint by leveraging shared infrastructure – allowing it to be provided at a lower price point. In contrast, the Enterprise edition is typically more expensive, as it operates on dedicated resources and does not share infrastructure with other customers.
+The Standard edition of Moderne offers a more cost-effective operational footprint by leveraging shared infrastructure. In contrast, the Enterprise edition is typically more expensive, as it operates on dedicated resources and does not share infrastructure with other customers.
 
 ### Architecture
 
@@ -41,7 +41,7 @@ As part of the Standard edition setup, you will need to:
 * Set up [mass ingestion](../how-to-guides/mass-ingest.md) to build and publish LSTs to an Artifactory/Nexus instance (either one we own or you manage that the agent connects to)
 
 :::tip
-Since the Moderne Platform runs in AWS us-west-1, it would be beneficial for these components to be configured in the same region or in a nearby region to minimize the amount of time and money it takes to send data back and forth.
+Since the Moderne Platform runs in AWS `us-west-1`, it would be beneficial for these components to be configured in the same region or nearby to minimize latency and data transfer costs.
 :::
 
 ### Authentication
