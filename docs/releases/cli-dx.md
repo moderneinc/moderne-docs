@@ -2,32 +2,25 @@
 
 ### CLI / DX v3.42.9 (2025/07/08)
 
-#### What's Changed
-* Add redirect strategy regardless of skipping ssl
+#### What's Changed CLI
 
-
-### CLI / DX v3.42.8 (2025/07/08)
-
-#### What's Changed
-* Adjust redirect strategy
+* Corrected HTTP redirection logic in the CLI to allow for certain authorization workflows.
 
 ### CLI / DX v3.42.6 (2025/07/04)
 
 #### What's Changed CLI
-* Remove obsolete code and terminology related to removing Moderne marketplace artifacts in `mod config recipes moderne push`
-* Add exclusion
-- typo in endpoint name
-* update suppressions
-* Add new maven central url
-- Remove out-of-date OWASP suppressions
-- org.openrewrite.mavencentral
-* Remove unnecessary dependency on rewrite-migrate-java now that rewrite-devcenter depends on it
+
+* Improve documentation around the `mod config recipes moderne push` command so that it's clearer that it only overrides recipes that exist in the local marketplace.
+* Fixed an issue that resulted in a `NullPointerException` when running `mod run` with a `--parallel` flag.
+* [Updated Maven central repository to the new URL](https://central.sonatype.org/pages/ossrh-eol/#publishing-to-central-portal).
+* Fixed a build issue that prevented DevCenter from running.
+
 #### What's Changed DX
+
 * Use `OrganizationReader` to consolidate DX logic to parse `repos.csv` and change organization ID to new format
 * During DX's artifact sync, ensure that all "artifacts to process" will be processed oldest to newest
 * Fix /graphiql for DX, which was broken by upstream CDN changes in graphql itself
 * dx build improvements
-
 
 ### CLI / DX v3.42.5 (2025/06/12)
 
