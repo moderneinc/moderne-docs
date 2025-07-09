@@ -161,3 +161,7 @@ query sortedResults {
 ```
 
 Sort options: `PATH`, `ORIGIN`, `BRANCH` | Sort orders: `ASC`, `DESC`
+
+## LSTs not being ingested after upgrading from Nexus 2 to 3
+
+When migrating from Nexus 2 to 3, the default URL path changes and that may result in errors ingesting. Please double-check that the [URLs have been configured correctly](https://support.sonatype.com/hc/en-us/articles/39325029843219-Repository-How-to-enable-Nexus-2-URL-paths-in-Nexus-3).
