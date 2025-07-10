@@ -10,8 +10,6 @@ import TabItem from '@theme/TabItem';
 
 In order to simplify Moderne's operational complexity, we decided that configuring organizational hierarchies should only require creating a file and giving it to Moderne DX (either via direct access or via an unauthenticated HTTP/S endpoint), rather than running a dedicated endpoint for organizational hierarchy via an Organizations service.
 
-While you can still [run an Organizations service](./dx-org-service.md) to restrict access to various repositories/organizations, the functionality around org hierarchies is being moved to DX.
-
 This guide will walk you through everything you need to know to migrate this functionality to Moderne DX.
 
 ## Migration instructions

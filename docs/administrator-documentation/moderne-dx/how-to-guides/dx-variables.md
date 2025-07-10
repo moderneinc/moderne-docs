@@ -305,48 +305,6 @@ java -jar moderne-dx-{version}.jar \
 </TabItem>
 </Tabs>
 
-## Organizational service variables
-
-<Tabs groupId="dx-type">
-<TabItem value="oci-container" label="OCI Container">
-
-**Environment variables:**
-
-| Variable Name                     | Required | Default | Description                                                                                                                                                                                                                                      |
-|-----------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_DX_ORGANIZATION_URL`     | `true`   |         | The URL of your GraphQL service that provides access control for organizations.                                                                                                                                                                  |
-| `MODERNE_DX_ORGANIZATION_SKIPSSL` | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `MODERNE_DX_ORGANIZATION_URL`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-
-**Example:**
-
-```bash
-docker run \
-# ... Existing variables
--e MODERNE_DX_ORGANIZATION_URL=http://localhost:8091 \
-# ... Additional variables
-```
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-**Arguments:**
-
-| Argument Name                       | Required | Default | Description                                                                                                                                                                                                                                        |
-|-------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.dx.organization.url`     | `true`   |         | The URL of your GraphQL service that provides access control for organizations.                                                                                                                                                                    |
-| `--moderne.dx.organization.skipSsl` | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. Only used when combined with `--moderne.dx.organization.url`. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-
-**Example:**
-
-```bash
-java -jar moderne-dx-{version}.jar \
-# ... Existing arguments
---moderne.dx.organization.url=http://localhost:8091 \
-# ... Additional arguments
-```
-</TabItem>
-</Tabs>
-
 ## Strict recipe sources variables
 
 <Tabs groupId="dx-type">

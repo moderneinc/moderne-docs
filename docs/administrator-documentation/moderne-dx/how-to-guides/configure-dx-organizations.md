@@ -184,9 +184,3 @@ mod git clone moderne <path> <organization-id>
 ```
 
 Once these are both done, your developers can now start running recipes and committing the results!
-
-## Additional customization
-
-You may want to create a dedicated Organizations service if you want to limit access to the organizations you've defined above so that some users only have access to some repositories.
-
-To create this service, please check out our [creating an Organizations service guide](./dx-org-service.md).
