@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Module 8: Imperative recipes"
-description: Exploring and writing Refaster recipes
+description: Exploring and writing imperative recipes
 ---
 
 # Module 8: Imperative recipes
