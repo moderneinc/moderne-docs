@@ -29,12 +29,12 @@ Let's explore the unit tests in the starter project, to see what elements you ca
 
 1. Open [src/test/java/com/yourorg/AppendToReleaseNotesTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/AppendToReleaseNotesTest.java).
    * Notice how the recipe specification directly constructs a `JavaRecipe` and passes that in. This is most convenient when testing imperative recipes.
-   * Notice how `@Test void createNewReleaseNotes() { ... }` uses `org.openrewrite.test.SourceSpecs.text(java.lang.String, java.lang.String)` to provide a before and after text block.
+   * Notice how `@Test void createNewReleaseNotes() { ... }` uses `org.openrewrite.test.SourceSpecs.text(java.lang.String, java.lang.String, ...)` to provide a before and after text block, with the third parameter using `spec -> spec.path(Path.of("RELEASE.md")` to set the path where the source file either exists or should be created.
    * The before text block is `null` to indicate that the file does not exist initially. Conversely, you can pass in `null` as the second argument to indicate that the file should be deleted.
    * `@Test void editExistingReleaseNotes()` uses an additional `spec -> spec.path(Paths.get("RELEASE.md")` to set the source file, such that the recipe will match.
 2. Open [src/test/java/com/yourorg/AssertEqualsToAssertThatTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/AssertEqualsToAssertThatTest.java).
    * Note how `.parser(JavaParser.fromJavaVersion().classpath("junit-jupiter-api"))` is called on the recipe specification.
-   * Comment out `classpath("junit-jupiter-api")` and then run the test.
+   * Comment out just the `.classpath("junit-jupiter-api")` part and then run the test.
    * The resulting `java.lang.IllegalStateException: LST contains missing or invalid type information` indicates that the type information is missing, and that the test classpath is likely not correctly set up.
 3. Open [src/test/java/com/yourorg/NoGuavaListsNewArrayListTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/NoGuavaListsNewArrayListTest.java).
    * Read the various comments throughout this test class.
@@ -43,7 +43,7 @@ Let's explore the unit tests in the starter project, to see what elements you ca
    * Note how each `rewriteRun` consumes a `RecipeSpec` to assert the `dataTable` rows produced in the recipe run.
    * Correlate this to the `insertRow` calls in the recipe, to see how the recipe produces the expected output.
 5. Open [src/test/java/com/yourorg/SimplifyTernaryTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/SimplifyTernaryTest.java).
-   * Note how the instantiated recipe is a generated class, not the Refaster template class itself.
+   * Note how the instantiated recipe is a generated class, not the Refaster template class itself. (More details in the [next module](module-6-refaster-recipes).)
    * See how `@Test void unchanged() { ... }` asserts no changes are made where those would be unsafe to make.
 
 ### Takeaways

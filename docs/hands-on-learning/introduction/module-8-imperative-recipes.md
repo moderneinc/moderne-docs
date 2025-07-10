@@ -27,9 +27,10 @@ Let's look at an existing imperative recipe in the starter project, and see how 
    * Read through the recipe, and see how it matches three variants of Guava's `Lists.newArrayList()`.
    * Three replacement [`JavaTemplate`s](https://docs.openrewrite.org/concepts-and-explanations/javatemplate) are provided, to replace each of the Guava calls with `new ArrayList<>(..)`.
 2. We override `visitCompilationUnit` to print the tree.
+   * The call to `TreeVisitingPrinter.printTree(cu)` returns a string that is then printed to the console.
    * Notice the call to `super.visitCompilationUnit`, which is necessary to traverse the tree.
    * Click through on `super.visitCompilationUnit` to see how the tree is traversed.
-   * Comment out the `super.visitCompilationUnit` and see how the recipe fails to make any changes.
+   * Comment out the `return super.visitCompilationUnit` line (and uncomment `return cu;`) and see how the recipe fails to make any changes.
 3. We override `visitMethodInvocation` to replace each of the Guava calls.
    * See how we apply Preconditions here too, through the Java API, to limit which source files are visited.
    * Notice how we pass in a `Cursor` and `JavaCoordinates` when we apply the `JavaTemplate`. This is necessary to ensure that the changes are made in the correct location. Briefly explore the other coordinates available.
@@ -44,8 +45,6 @@ Let's look at an existing imperative recipe in the starter project, and see how 
 6. Set a breakpoint in the `visitMethodInvocation` method, and run each of the tests.
    * Explore the LST in the debugger, and see all the elements present on the current element.
    * Compare the LST printed to the console with the diagrams in [our Java LST examples doc](https://docs.openrewrite.org/concepts-and-explanations/lst-examples).
-7. Add a `TreeVisitingPrinter.printTreeAll(method)` to the `visitMethodInvocation` method, to see elements in more detail.
-   * Run the tests again, and see the tree printed to the console.
 
 ### Takeaways
 
@@ -85,4 +84,5 @@ Now that you've learned all the basics of building recipes, you may:
 * Review [conventions and best practices](../../user-documentation/recipes/conventions-and-best-practices) for writing OpenRewrite recipes. 
 * See how you can [contribute to the OpenRewrite community](../../user-documentation/recipes/contributing-to-openrewrite).
 * Learn about some of the more complex and powerful features of OpenRewrite in the [advanced workshop](../advanced/).
+
 <!-- Potentially add another CTA to schedule training, book a demo, etc. -->

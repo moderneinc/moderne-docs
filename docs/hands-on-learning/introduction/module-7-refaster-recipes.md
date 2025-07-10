@@ -66,7 +66,7 @@ Let's create a Refaster recipe that standardizes various ways to check if a Stri
    * Add your first `@BeforeTemplate` and `@AfterTemplate` annotated methods, to match and replace the first way to check for an empty string.
 4. Trigger an explicit build of your project to generate the Recipe class with Ctrl + F9, or equivalent.
    * Notice how the unit test now compiles; compare the generated recipe with the template you wrote.
-   * Run the test to see where you stand, and add additional `@BeforeTemplate` annotated methods to cover all cases.
+   * Run the test to see where you stand, and add additional `@BeforeTemplate` annotated methods to cover all cases. (If you get stuck, look at [the OpenRewrite documentation](https://docs.openrewrite.org/authoring-recipes/refaster-recipes#refaster-template) for some hints.)
 5. Follow the instructions in the tests to add a name and description to your recipe.
    * These will be visible in any generated documentation, when folks run and discover recipes, and in Moderne.
 
