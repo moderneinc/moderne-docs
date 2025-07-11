@@ -14,7 +14,7 @@ You'll want to have the following installed:
 * IntelliJ IDEA Ultimate 2024.1+ (required for the OpenRewrite plugin; Community Edition is not supported).
 * The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (This comes pre-installed with IntelliJ Ultimate versions 2024.1 or later).
 * [The Moderne plugin](../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md), for faster recipe development and to help debug recipes.
-* [The Moderne CLI](../../moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs.
+* [The Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs.
 
 ## Exercise 3: Create and test your own recipe module
 
@@ -23,7 +23,7 @@ You'll want to have the following installed:
 * Set up a new recipe module in your IDE, based on the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project.
 * Run the unit tests for the recipe module, to ensure everything is set up correctly.
 * Install your recipe module to your local Maven repository for debugging later.
-* Use the CLI to run different types of recipes against the `Default` group of repositories [you set up earlier](../../moderne-cli/getting-started/cli-intro.md#using-the-cli).
+* Use the CLI to run different types of recipes against the `Default` group of repositories [you set up earlier](../../user-documentation/moderne-cli/getting-started/cli-intro.md#using-the-cli).
 
 ### Steps
 

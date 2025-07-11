@@ -17,15 +17,15 @@ If you are an OSS contributor writing OSS recipes for your projects, you can use
 
 There are three main ways to run recipes for Moderne customers:
 
-1. The [Moderne CLI](../../moderne-cli/getting-started/cli-intro.md) allows you to run recipes against **multiple projects locally**, and to debug recipes at scale.
-   * Free to use on open-source projects, but [requires a Moderne CLI license](../../moderne-cli/getting-started/moderne-cli-license.md) for private projects.
+1. The [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) allows you to run recipes against **multiple projects locally**, and to debug recipes at scale.
+   * Free to use on open-source projects, but [requires a Moderne CLI license](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md) for private projects.
    * **Serializes the LST of your project to disk**, and runs recipes against that serialized LST. Larger projects that won't work well with OpenRewrite can use the CLI instead.
 2. The [Moderne Platform](https://app.moderne.io/marketplace) offers a UI that allows you to run recipes at scale, create data visualizations, and track progress over time.
    * Supports over 37,000 open-source projects and organizations for free.
    * Requires a company subscription for private projects.
    * Similar to the CLI, it can handle projects of any size.
 3. The [Moderne IntelliJ IDEA plugin](../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md) allows you to run recipes that you're developing or have checked out locally from inside of IntelliJ.
-   * Free to use on open-source projects, but [requires a Moderne CLI license](../../moderne-cli/getting-started/moderne-cli-license.md) for private projects.
+   * Free to use on open-source projects, but [requires a Moderne CLI license](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md) for private projects.
    * Currently limited to only [imperative and refaster template recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes).
 
 :::info
@@ -34,7 +34,7 @@ Learn more about [the differences between OpenRewrite and Moderne](https://docs.
 
 ## Exercise 1: Run a recipe against a group of repositories.
 
-To get comfortable running recipes, let's walk through using the [Moderne Platform](https://app.moderne.io/marketplace) and/or the [Moderne CLI](../../moderne-cli/getting-started/cli-intro.md) to run recipes against a group of repositories.
+To get comfortable running recipes, let's walk through using the [Moderne Platform](https://app.moderne.io/marketplace) and/or the [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) to run recipes against a group of repositories.
 
 ### Goals for this exercise
 
@@ -44,18 +44,12 @@ To get comfortable running recipes, let's walk through using the [Moderne Platfo
 
 ### Steps
 
-1. If you have access to the [Moderne Platform](https://app.moderne.io/marketplace), navigate to it and [follow along with our quickstart guide for running recipes](../../moderne-platform/getting-started/running-your-first-recipe.md). If you don't have access, skip to step 2.
+1. If you have access to the [Moderne Platform](https://app.moderne.io/marketplace), navigate to it and [follow along with our quickstart guide for running recipes](../../user-documentation/moderne-cli-platform/getting-started/running-your-first-recipe.md). If you don't have access, skip to step 2.
    * Note that, by default, you will be running recipes against a hand-picked group of open-source repositories.
    * Feel free to explore other recipes that match your interests such as [migrating to Java 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21) or [finding and fixing vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck).
-   *   Consider checking out the source code for the recipes by clicking on the triple dots in the top-right hand corner of any recipe and then selecting `View recipe source`:
-
-<figure>
-  ![](./assets/view-recipe-source.png)
-  <figcaption></figcaption>
-</figure>
-
-2. If you don't have the CLI installed, please follow along with [our instructions for installing and configuring the Moderne CLI](../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration).
-3. Once the CLI is installed, please work through [our examples of using the CLI to run recipes](../../moderne-cli/getting-started/cli-intro.md#using-the-cli). Please refrain from applying any recipe changes, though - as this may cause issues in future steps.
+ 
+2. If you don't have the CLI installed, please follow along with [our instructions for installing and configuring the Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md#installation-and-configuration).
+3. Once the CLI is installed, please work through [our examples of using the CLI to run recipes](../../user-documentation/moderne-cli/getting-started/cli-intro.md#using-the-cli). Please refrain from applying any recipe changes, though - as this may cause issues in future steps.
    * This will have you run a recipe against a tailored group of open-source repositories and then have you study the results and data tables produced by the recipes. You will use this group of repositories again in future steps as we write and test recipes.
    * Feel free to explore the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and run other recipes by following the `Moderne CLI` instructions on each recipe page.
    * Similarly, we'd recommend checking out the source code for the recipes by clicking on the `GitHub` link at the top of each recipe page.
