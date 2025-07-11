@@ -24,7 +24,7 @@ There are three main ways to run recipes for Moderne customers:
    * Supports over 37,000 open-source projects and organizations for free.
    * Requires a company subscription for private projects.
    * Similar to the CLI, it can handle projects of any size.
-3. The [Moderne IntelliJ IDEA plugin](../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md) allows you to run recipes that you're developing or have checked out locally from inside of IntelliJ.
+3. The [Moderne IntelliJ IDEA plugin](../../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md) allows you to run recipes that you're developing or have checked out locally from inside of IntelliJ.
    * Free to use on open-source projects, but [requires a Moderne CLI license](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md) for private projects.
    * Currently limited to only [imperative and refaster template recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes).
 
@@ -44,7 +44,7 @@ To get comfortable running recipes, let's walk through using the [Moderne Platfo
 
 ### Steps
 
-1. If you have access to the [Moderne Platform](https://app.moderne.io/marketplace), navigate to it and [follow along with our quickstart guide for running recipes](../../user-documentation/moderne-cli-platform/getting-started/running-your-first-recipe.md). If you don't have access, skip to step 2.
+1. If you have access to the [Moderne Platform](https://app.moderne.io/marketplace), navigate to it and [follow along with our quickstart guide for running recipes](../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md). If you don't have access, skip to step 2.
    * Note that, by default, you will be running recipes against a hand-picked group of open-source repositories.
    * Feel free to explore other recipes that match your interests such as [migrating to Java 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21) or [finding and fixing vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck).
  
