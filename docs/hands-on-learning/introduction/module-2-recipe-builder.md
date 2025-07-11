@@ -25,7 +25,7 @@ Let's use the recipe builder to create a custom recipe by combining existing ste
       ![](./assets/recipe-builder-start.png)
       <figcaption></figcaption>
       </figure>
-      * Note: If you have created a recipe using Builder before, you may see a previous recipe instead of this "Let's get started" screen. In this case, click the name of the existing recipe in the upper left hand corner and click `New`.
+      * **Note:** If you have created a recipe using Builder before, you may see a previous recipe instead of this `Let's get started` screen. In this case, click the name of the existing recipe in the upper left hand corner and click `New`.
       <figure>
       ![](./assets/new-recipe.png)
       <figcaption></figcaption>
@@ -40,17 +40,17 @@ Let's use the recipe builder to create a custom recipe by combining existing ste
          - Simplify compound statement (`org.openrewrite.staticanalysis.SimplifyCompoundStatement`)
          - Simplify boolean return (`org.openrewrite.staticanalysis.SimplifyBooleanReturn`)
       * Your recipe will autosave after each addition or change.
-      * (Optional) Add or explore other recipes.
+      * _(Optional)_ Add or explore other recipes.
 5.	Once you've added all the recipes you want, you can either run your recipe from the Moderne platform, or download it to run locally using the CLI.
-      * To use the platform to run it against the group of repositories under the organizaton you have selected, just click `Dry Run` as you did in the previous exercise.
+      * To use the platform to run it against the group of repositories under the organizaton you have selected, just click `Dry Run` as you did in the previous module.
       * If you'd instead like to download the recipe to inspect the YAML or run it on a local repository, click the name of the recipe in the upper left hand corner and select `Download YAML`.
       <figure>
       ![](./assets/download-recipe.png)
       <figcaption></figcaption>
       </figure>
 6.	Return to the Builder to edit your recipe. Remove one of the steps and run it again to observe the difference.
-      * Mouse over the "Format Java code" step in the recipe list and click the trash can icon to delete the step.
-7.	Use the Search to find the "Migrate to Java 21" recipe. Instead of doing a dry run, click the `Add to Builder` button then `Add to new recipe`, give it a name, and click `Create new recipe`.
+      * Mouse over the `Format Java code` step in the recipe list and click the trash can icon to delete the step.
+7.	Use the Search to find the `Migrate to Java 21` recipe. Instead of doing a dry run, click the `Add to Builder` button then `Add to new recipe`, give it a name, and click `Create new recipe`.
       * Now you can see all of the steps included in this recipe in the recipe list. This gives you a starting point that you can add or remove steps from to customize the recipe for your purposes.
 
 ### Takeaways

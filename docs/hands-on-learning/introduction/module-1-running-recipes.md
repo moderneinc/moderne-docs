@@ -44,7 +44,7 @@ To get comfortable running recipes, let's walk through using the [Moderne Platfo
 
 ### Steps
 
-1. If you have access to the [Moderne Platform](https://app.moderne.io/marketplace), navigate to it and [follow along with our quickstart guide for running recipes](../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md). If you don't have access, skip to step 2.
+1. Navigate to the [Moderne Platform](https://app.moderne.io/marketplace) and [follow along with our quickstart guide for running recipes](../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md).
    * Note that, by default, you will be running recipes against a hand-picked group of open-source repositories.
    * Feel free to explore other recipes that match your interests such as [migrating to Java 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21) or [finding and fixing vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck).
  
@@ -52,7 +52,7 @@ To get comfortable running recipes, let's walk through using the [Moderne Platfo
 3. Once the CLI is installed, please work through [our examples of using the CLI to run recipes](../../user-documentation/moderne-cli/getting-started/cli-intro.md#using-the-cli). Please refrain from applying any recipe changes, though - as this may cause issues in future steps.
    * This will have you run a recipe against a tailored group of open-source repositories and then have you study the results and data tables produced by the recipes. You will use this group of repositories again in future steps as we write and test recipes.
    * Feel free to explore the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and run other recipes by following the `Moderne CLI` instructions on each recipe page.
-   * Similarly, we'd recommend checking out the source code for the recipes by clicking on the `GitHub` link at the top of each recipe page.
+   * Similarly, we'd recommend checking out the source code for the recipes. If it's available, you can click on the `GitHub` link at the top of the recipe page.
 
 ### Takeaways
 

@@ -26,9 +26,9 @@ Let's update the `stringutils.yml` recipe to only run on sources that are likely
    * Add a single `org.openrewrite.java.search.IsLikelyTest` recipe to the list of preconditions, with no options.
    * [Here's an example of what this recipe looks like with the precondition added](https://gist.github.com/mike-solomon/04287b874e335a5e1b40c529d6f3eab9).
 3. Open the unit test `src/test/java/com/yourorg/UseApacheStringUtilsTest.java`.
-   * Run the tests – they should fail and not make any changes.
-   * Add a static import on `org.openrewrite.java.Assertions.srcTestJava`.
-   * Wrap the `java(String, String)` methods with `srcTestJava()` to indicate that the sources are tests.
+   * Run the tests – they should fail and not make any changes. This is because the precondition has not been met since the sources are not identified as tests. We can fix that with the following steps:
+      * Add a static import on `org.openrewrite.java.Assertions.srcTestJava`.
+      * Wrap the `java(String, String)` methods with `srcTestJava()` to indicate that the sources are tests. Make sure to do this in all three tests.
    * [Here's an example of what this should look like](https://gist.github.com/mike-solomon/84b85e62825e671ff27a5de96c520218).
    * Run the tests again, and verify that they now pass.
 4. You may be interested in exploring other `Find` recipes in the OpenRewrite recipe catalog. These are often used as preconditions for recipes:

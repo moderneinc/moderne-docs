@@ -9,7 +9,7 @@ description: How to run, create, and test recipes with OpenRewrite and Moderne.
 
 In this workshop, we'll walk through everything you need to know to get started with recipe development – from writing simple YAML recipes, to creating complex imperative recipes, along with all of the steps in between such as testing or debugging recipes.
 
-This workshop is designed to be hands-on, so you can follow along with the examples in your own environment. The workshop consists of the materials you see here, and a set of exercises to help you practice what you've learned.
+This workshop is designed to be hands-on, so you can follow along with the examples in your own environment. The workshop consists of a series of modules that highlight key concepts, each with one or more exercises to help you practice what you've learned.
 
 Be sure to also follow links to the [OpenRewrite documentation](https://docs.openrewrite.org/) for more in-depth information. Feel free to skip around to the sections that interest you most, based on your needs and experience level.
 
