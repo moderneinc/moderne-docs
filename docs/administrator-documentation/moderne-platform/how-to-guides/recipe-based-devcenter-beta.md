@@ -10,13 +10,13 @@ import TabItem from '@theme/TabItem';
 
 The Moderne DevCenter is the mission-control dashboard of the Moderne Platform. It provides you with high-level details about the state of all of your repositories. Using it, you can track the progress of upgrades, migrations, and security vulnerabilities.
 
-While you can [still define a DevCenter via JSON](./dev-center.md), we'd encourage you to [generate DevCenters from recipes instead](./dev-center-recipe.md). 
+While you can [still define a DevCenter via JSON](./dev-center.md), we'd encourage you to [generate DevCenters from recipes instead](./creating-a-devcenter-recipe-beta.md). 
 
 In this doc, we'll walk you through how to configure a recipe-based DevCenter. By the end, you should know how to access this new UI and have a recipe-based DevCenter up and running.
 
 ## Prerequisites
 
-This guide assumes that you have already [created and deployed a DevCenter recipe to your tenant](./dev-center-recipe.md).
+This guide assumes that you have already [created and deployed a DevCenter recipe to your tenant](./creating-a-devcenter-recipe-beta.md).
 
 ## Configuring and executing a DevCenter recipe
 
@@ -39,7 +39,7 @@ At that point you will be see a page asking you to configure a DevCenter (presum
 
 ### Step 2: Examine the available DevCenter recipes
 
-Click on the `Configure DevCenter` button. You will be taken to a page that lists out all of the DevCenter recipes deployed to your Moderne instance. If you [followed the instructions to create and deploy a DevCenter recipe](./dev-center-recipe.md), you should see your recipe in this list.
+Click on the `Configure DevCenter` button. You will be taken to a page that lists out all of the DevCenter recipes deployed to your Moderne instance. If you [followed the instructions to create and deploy a DevCenter recipe](./creating-a-devcenter-recipe-beta.md), you should see your recipe in this list.
 
 <figure>
   ![](./assets/example-devcenter-recipes.png)

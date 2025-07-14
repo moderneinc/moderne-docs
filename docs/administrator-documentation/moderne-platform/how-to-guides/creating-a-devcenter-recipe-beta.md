@@ -7,7 +7,7 @@ description: How to create a DevCenter recipe.
 
 Moderne DevCenters can be defined and configured via a standard OpenRewrite recipe. This approach delivers significantly better performance and greater flexibility in the generation process compared to [defining a DevCenter via a JSON file](./dev-center.md).
 
-In this doc, we'll walk you through how to create a DevCenter recipe and deploy it to your tenant. By the end, you should be ready to [configure a recipe-based DevCenter in your tenant](./recipe-dev-center.md).
+In this doc, we'll walk you through how to create a DevCenter recipe and deploy it to your tenant. By the end, you should be ready to [configure a recipe-based DevCenter in your tenant](./recipe-based-devcenter-beta.md).
 
 ## Prerequisites
 
