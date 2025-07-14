@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.43.1 (2025/07/14)
+
+#### What's Changed
+* Move publishing CLI from Azure DevOps to GitHub Releases
+
+
 ### CLI / DX v3.43.0 (2025/07/09)
 
 #### What's Changed CLI
