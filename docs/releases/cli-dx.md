@@ -3,15 +3,9 @@
 ### CLI / DX v3.43.2 (2025/07/14)
 
 #### What's Changed CLI
-* Improve native build step resilience
-* clean up release step to azure
 
-
-### CLI / DX v3.43.1 (2025/07/14)
-
-#### What's Changed CLI
-* Move publishing native CLI from Azure DevOps to GitHub Releases
-
+* Updated where the CLI is published. We are no longer publishing to Azure due to size limitations of what could be uploaded. 
+    * If you were downloading the CLI via an Azure URL, you will need to [download it from the new URL](../user-documentation/moderne-cli/getting-started/cli-intro.md#step-1-download-the-cli). 
 
 ### CLI / DX v3.43.0 (2025/07/09)
 
