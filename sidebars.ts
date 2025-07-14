@@ -340,6 +340,7 @@ const sidebars: SidebarsConfig = {
             'administrator-documentation/moderne-platform/references/routing-requests-to-agents',
             'administrator-documentation/moderne-platform/references/how-lst-artifacts-are-produced',
             'administrator-documentation/moderne-platform/references/supported-scms',
+            'administrator-documentation/moderne-platform/references/standard-vs-enterprise-edition',
             'administrator-documentation/moderne-platform/references/lossless-semantic-trees',
             {
               type: 'link',
