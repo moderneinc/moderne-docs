@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.43.4 (2025/07/14)
+
+#### What's Changed CLI
+* Fix release issues on windows/chocolatey. The previous version will not be available on windows.
+
+
 ### CLI / DX v3.43.2 (2025/07/14)
 
 #### What's Changed CLI
