@@ -26,14 +26,14 @@ For details about the Enterprise edition, please see the following docs:
 
 The Standard edition of Moderne offers a more cost-effective operational footprint by leveraging shared infrastructure. In contrast, the Enterprise edition is typically more expensive, as it operates on dedicated resources and does not share infrastructure with other customers.
 
-### Architecture
+#### Architecture
 
 <figure>
   ![image](./assets/standard-edition-architecture.png)
   <figcaption>_Standard edition architecture_ ([editable version](./assets/standard-edition-architecture.excalidraw))</figcaption>
 </figure>
 
-### Configuration
+#### Configuration
 
 As part of the Standard edition setup, you will need to:
 
@@ -44,11 +44,11 @@ As part of the Standard edition setup, you will need to:
 Since the Moderne Platform runs in AWS `us-west-1`, it would be beneficial for these components to be configured in the same region or nearby to minimize latency and data transfer costs.
 :::
 
-### Authentication
+#### Authentication
 
 Standard edition users are required to log in to Moderne through an SCM such as GitHub, GitLab, or Bitbucket. For added security, you can ensure that your SCM is backed by an identity provider that supports SAML or OIDC.
 
-### Data access
+#### Data access
 
 Moderne does not have direct access to your code. Permissions are governed by SSO/SCM/IdP. Moderne employees can only read or write to your code if you grant them access via your SCM.
 
@@ -56,7 +56,7 @@ As part of setting up the Standard edition of Moderne, you will [create a repos.
 
 After that, you will then create and share with us a file that contains a list of emails that should have access to your repositories and organization. Note that these emails **must** match the emails you use to log in to your SCM.
 
-### Data storage
+#### Data storage
 
 LSTs can be stored in either your's or Moderne's artifact repository. In either case they will be unencrypted in the artifact repository.
 
@@ -64,6 +64,6 @@ At the time they're ingested in to the Moderne platform, they will be encrypted 
 
 Moderne also maintains audit logs for all actions performed within the system under your tenant.
 
-### Compliance
+#### Compliance
 
 Moderne is SOC 2 Type 2 certified.
