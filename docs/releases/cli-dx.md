@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.43.2 (2025/07/14)
+
+#### What's Changed CLI
+* Improve native build step resilience
+* clean up release step to azure
+
+
 ### CLI / DX v3.43.1 (2025/07/14)
 
 #### What's Changed CLI
