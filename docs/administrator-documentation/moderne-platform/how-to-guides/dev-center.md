@@ -12,6 +12,10 @@ The Moderne DevCenter is the mission-control dashboard of the Moderne Platform. 
 
 In this doc, we'll walk you through everything you need to know to configure your own DevCenter.
 
+:::tip
+While you can follow the instructions in this doc to create a DevCenter, if you want a more performant and more configurable experience, you should [create a recipe-based DevCenter instead](./dev-center-recipe.md).
+:::
+
 ## Prerequisites
 
 In order to configure any DevCenters, there are two things you must have already done (which we'll touch upon below):
