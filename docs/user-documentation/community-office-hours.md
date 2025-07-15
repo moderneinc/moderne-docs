@@ -19,7 +19,19 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Releases**
+    * [We released OpenRewrite 8.57.0](https://docs.openrewrite.org/changelog/8-57-0-Release)
+  * **Upcoming releases**
+    * We are going to be adding support for Java 25 and Spring Boot 4. Please reach out if you want to help with either of these.
+  * **Blogs**
+    * [We wrote a blog post summarizing the Code Remix Summit](https://www.moderne.ai/blog/autonomous-testing-ai-developer-productivity)
+  * **Training**
+    * We are offering two courses on OpenRewrite:
+      * [Introduction to OpenRewrite](https://www.moderne.ai/content-library/introduction-to-openrewrite) (July 22nd) – 4 hours
+      * [Advanced OpenRewrite training](https://www.moderne.ai/content-library/advanced-openrewrite-training) (July 29th) – 4 hours
+* **Main topic for the week**
+  * This week we welcomed Kevin back to share the story behind building the Moderne SaaS and how we scaled OpenRewrite to support 3 billion lines of code.
 
 ### Fix slow Gradle builds before they ruin your life (July 2nd, 2025)
 
