@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.43.5 (2025/07/15)
+
+#### What's Changed
+* Avoid circular task dependency in Gradle builds that include themselves as a composite build.
+
+
 ### CLI / DX v3.43.4 (2025/07/14)
 
 #### What's Changed CLI
