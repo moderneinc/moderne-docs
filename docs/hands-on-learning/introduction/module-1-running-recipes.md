@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Module 1: Running existing recipes"
-description: How to run recipes using OpenRewrite and Moderne
+description: How to run recipes using OpenRewrite and Moderne.
 ---
 
 # Module 1: Running existing recipes

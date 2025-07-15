@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Module 3: Environment setup"
-description: How to set up your IDE to write custom recipes
+description: How to set up your IDE to write custom recipes.
 ---
 
 # Module 3: Recipe development environment

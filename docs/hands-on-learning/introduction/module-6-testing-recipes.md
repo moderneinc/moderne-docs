@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Module 6: Testing Recipes"
-description: Explore how to unit test recipes
+description: Explore how to unit test recipes.
 ---
 
 # Module 6: Testing recipes
@@ -43,7 +43,7 @@ Let's explore the unit tests in the starter project, to see what elements you ca
    * Note how each `rewriteRun` consumes a `RecipeSpec` to assert the `dataTable` rows produced in the recipe run.
    * Correlate this to the `insertRow` calls in the recipe, to see how the recipe produces the expected output.
 5. Open [src/test/java/com/yourorg/SimplifyTernaryTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/SimplifyTernaryTest.java).
-   * Note how the instantiated recipe is a generated class, not the Refaster template class itself. We'll take a closer look at Refaster templates in the [next module](module-6-refaster-recipes).
+   * Note how the instantiated recipe is a generated class, not the Refaster template class itself. We'll take a closer look at Refaster templates in the [next module](./module-7-refaster-recipes).
    * See how `@Test void unchanged() { ... }` asserts no changes are made where those would be unsafe to make.
 
 ### Takeaways

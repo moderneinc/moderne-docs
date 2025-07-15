@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Module 5: Preconditions"
-description: Adding preconditions to a recipe
+description: Adding preconditions to a recipe.
 ---
 
 # Module 5: Preconditions

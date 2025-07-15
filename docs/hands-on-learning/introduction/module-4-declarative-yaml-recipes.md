@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Module 4: Declarative recipes"
-description: How to write a declarative YAML recipe
+description: How to write a declarative YAML recipe.
 ---
 
 # Module 4: Declarative YAML recipes

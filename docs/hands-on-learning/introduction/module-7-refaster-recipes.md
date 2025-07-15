@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Module 7: Refaster recipes"
-description: Exploring and writing Refaster recipes
+description: Exploring and writing Refaster recipes.
 ---
 
 # Module 7: Refaster recipes

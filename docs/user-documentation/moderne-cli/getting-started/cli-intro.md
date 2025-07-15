@@ -862,7 +862,7 @@ If you want to learn more about the Moderne CLI, we'd encourage you to check out
 
 * [Learn more about how to configure the CLI to meet your needs](../how-to-guides/layer-config-cli.md)
 * [Learn more about how JDK selection works and how you might configure other locations for JDKs](../how-to-guides/jdk-selection-and-config.md)
-* [Learn how to use the Moderne IntelliJ plugin in combination with the CLI to test recipes](../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
+* [Learn how to use the Moderne IntelliJ plugin in combination with the CLI to test recipes](../../moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
 
 Or watch the following videos:
 

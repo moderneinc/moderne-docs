@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Module 2: Recipe builder"
-description: How to compose a recipe with recipe builder
+description: How to compose a recipe with recipe builder.
 ---
 
 # Module 2: Recipe builder
