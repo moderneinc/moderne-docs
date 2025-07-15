@@ -22,15 +22,9 @@ This guide assumes that you have already [created and deployed a DevCenter recip
 
 ### Step 1: Navigate to the recipe-based DevCenter
 
-In the navigation bar on the left-side of your screen, click on the `DevCenter` icon. This will take you to the **old** DevCenter.
+In the navigation bar on the left-side of your screen, click on the `DevCenter (Beta)` icon.
 
-To access the recipe-based DevCenter, please modify the URL to add `next/` between `devcenter/` and the organization list.
-
-:::info
-**Example**: If your URL is `https://app.moderne.io/devcenter/ALL%2FDefault`, you would want to change it to be: `https://app.moderne.io/devcenter/next/ALL%2FDefault`.
-:::
-
-At that point you will be see a page asking you to configure a DevCenter (presuming nobody else in your company has already configured a DevCenter for the organization you've selected):
+You will arrive at a page asking you to configure a DevCenter (presuming nobody else in your company has already configured a DevCenter for the organization you've selected):
 
 <figure>
   ![](./assets/configure-devcenter.png)
