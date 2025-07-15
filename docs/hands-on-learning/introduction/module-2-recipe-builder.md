@@ -25,7 +25,7 @@ Let's use the recipe builder to create a custom recipe by combining existing ste
       ![](./assets/recipe-builder-start.png)
       <figcaption></figcaption>
       </figure>
-      * **Note:** If you have created a recipe using Builder before, you may see a previous recipe instead of this `Let's get started` screen. In this case, click the name of the existing recipe in the upper left hand corner and click `New`.
+      * **Note:** If you have created a recipe using Builder before, you may see a previous recipe instead of this `Let's get started` screen. In this case, click the name of the existing recipe in the upper left-hand corner and click `New`.
       <figure>
       ![](./assets/new-recipe.png)
       <figcaption></figcaption>
@@ -42,8 +42,8 @@ Let's use the recipe builder to create a custom recipe by combining existing ste
       * Your recipe will autosave after each addition or change.
       * _(Optional)_ Add or explore other recipes.
 5.	Once you've added all the recipes you want, you can either run your recipe from the Moderne platform, or download it to run locally using the CLI.
-      * To use the platform to run it against the group of repositories under the organizaton you have selected, just click `Dry Run` as you did in the previous module.
-      * If you'd instead like to download the recipe to inspect the YAML or run it on a local repository, click the name of the recipe in the upper left hand corner and select `Download YAML`.
+      * To use the platform to run it against the group of repositories under the organization you have selected, just click `Dry Run` as you did in the previous module.
+      * If you'd instead like to download the recipe to inspect the YAML or run it on a local repository, click the name of the recipe in the upper left-hand corner and select `Download YAML`.
       <figure>
       ![](./assets/download-recipe.png)
       <figcaption></figcaption>

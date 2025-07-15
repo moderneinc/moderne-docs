@@ -13,7 +13,7 @@ You'll want to have the following installed:
   * The [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project expects Temurin JDK 21.0.7 (`temurin-21.0.7`).
   * Recipes use Java 8 source level, so they can run on Java 8 and higher.
 * IntelliJ IDEA Ultimate 2024.1+ (required for the OpenRewrite plugin; Community Edition is not supported).
-* The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (This comes pre-installed with IntelliJ Ultimate versions 2024.1 or later).
+* The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (this comes pre-installed with IntelliJ Ultimate versions 2024.1 or later).
 * [The Moderne plugin](../../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md), for faster recipe development and to help debug recipes.
 * [The Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs.
 
@@ -50,7 +50,7 @@ You'll want to have the following installed:
    * You should see: `Running recipe com.yourorg.AssertEqualsToAssertThat` in the output.
 8. Confirm everything is set up for testing declarative recipes by opening your terminal and navigating to the `/src/main/resources/META-INF/rewrite` directory in the `rewrite-recipe-starter` repo. Then run the command: `mod config recipes yaml install stringutils.yml`. Afterwards, navigate to your `workshop` directory and run: `mod run . --recipe=com.yourorg.UseApacheStringUtils`.
    * If everything worked correctly, you should see that the recipe was installed from the YAML file and then was recognized by the `mod run` command.
-9. Briefly look over the various recipes and tests in the starter project. We will visit these in more details in upcoming modules.
+9. Briefly look over the various recipes and tests in the starter project. We will visit these in more detail in upcoming modules.
 
 ### Takeaways
 

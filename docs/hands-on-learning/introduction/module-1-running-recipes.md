@@ -15,7 +15,7 @@ We recommend using Moderne multi-repository tools for authoring and testing reci
 If you are an OSS contributor writing OSS recipes for your projects, you can use Moderne tools for free. Specifically, both the Moderne CLI and the Moderne IntelliJ plugin are free to test on OSS repositories that you control. If you don't see your project in the Moderne Platform, [please reach out to us](mailto:support@moderne.io), and we'll get it added.
 :::
 
-There are three main ways to run recipes for Moderne customers:
+There are three main ways to for Moderne customers to run recipes:
 
 1. The [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) allows you to run recipes against **multiple projects locally**, and to debug recipes at scale.
    * Free to use on open-source projects, but [requires a Moderne CLI license](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md) for private projects.
@@ -46,7 +46,7 @@ To get comfortable running recipes, let's walk through using the [Moderne Platfo
 
 1. Navigate to the [Moderne Platform](https://app.moderne.io/marketplace) and [follow along with our quickstart guide for running recipes](../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md).
    * Note that, by default, you will be running recipes against a hand-picked group of open-source repositories.
-   * Feel free to explore other recipes that match your interests such as [migrating to Java 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21) or [finding and fixing vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck).
+   * Feel free to explore other recipes that match your interests, such as [migrating to Java 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21) or [finding and fixing vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck).
  
 2. If you don't have the CLI installed, please follow along with [our instructions for installing and configuring the Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md#installation-and-configuration).
 3. Once the CLI is installed, please work through [our examples of using the CLI to run recipes](../../user-documentation/moderne-cli/getting-started/cli-intro.md#using-the-cli). Please refrain from applying any recipe changes, though - as this may cause issues in future steps.

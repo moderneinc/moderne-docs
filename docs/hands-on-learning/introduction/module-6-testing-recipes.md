@@ -31,7 +31,7 @@ Let's explore the unit tests in the starter project, to see what elements you ca
    * Notice how the recipe specification directly constructs a `JavaRecipe` and passes that in. This is most convenient when testing imperative recipes.
    * Notice how `@Test void createNewReleaseNotes() { ... }` uses `org.openrewrite.test.SourceSpecs.text(java.lang.String, java.lang.String, ...)` to provide a before and after text block, with the third parameter using `spec -> spec.path(Path.of("RELEASE.md")` to set the path where the source file either exists or should be created.
    * The before text block is `null` to indicate that the file does not exist initially. Conversely, you can pass in `null` as the second argument to indicate that the file should be deleted.
-   * `@Test void editExistingReleaseNotes()` also uses `spec -> spec.path(Paths.get("RELEASE.md")` to set the source file, such that the recipe will match.
+   * `@Test void editExistingReleaseNotes()` also uses `spec -> spec.path(Paths.get("RELEASE.md"))` to set the source file, such that the recipe will match.
 2. Open [src/test/java/com/yourorg/AssertEqualsToAssertThatTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/AssertEqualsToAssertThatTest.java).
    * Note how `.parser(JavaParser.fromJavaVersion().classpath("junit-jupiter-api"))` is called on the recipe specification.
    * Comment out just the `.classpath("junit-jupiter-api")` part and then run the test.

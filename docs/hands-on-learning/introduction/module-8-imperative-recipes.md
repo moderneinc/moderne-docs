@@ -7,7 +7,7 @@ description: Exploring and writing imperative recipes
 
 For use cases beyond what declarative recipes and Refaster templates can handle, you'll want to look at [writing a Java refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe).
 
-You might want to refresh your memory on [visitor pattern](https://docs.openrewrite.org/concepts-and-explanations/visitors) and [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees) before you dive in.
+You might want to refresh your memory on the [visitor pattern](https://docs.openrewrite.org/concepts-and-explanations/visitors) and [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees) before you dive in.
 
 These [imperative recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes) use the visitor pattern to traverse the LSTs, and make changes to the code. The `JavaTemplate` class is used to [create new LST elements](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate) that can replace existing LST elements while preserving the code style and formatting around it.
 
@@ -80,7 +80,7 @@ This kind of transformation can’t be handled by declarative or Refaster recipe
    * Determine whether to use a `JavaVisitor` or a `JavaIsoVisitor`. (Here's a hint in [the OpenRewrite documentation](https://docs.openrewrite.org/concepts-and-explanations/visitors#isomorphic-vs-non-isomorphic-visitors).)
    * Decide what method to overwrite depending on what type of LST elements you need to visit. You can reference the complete list of [Java LST examples](https://docs.openrewrite.org/concepts-and-explanations/lst-examples#java-lst-types) for help.
    * Don't forget the call to the superclass version of the method as in Exercise 8a.
-   * Look at using a method from `org.openrewrite.java.tree.TypeUtils` to help make decisions based on element or argument types. 
+   * Consider using a method from `org.openrewrite.java.tree.TypeUtils` to help make decisions based on element or argument types. 
    * You will use `JavaTemplate.builder(...).build().apply(...)` to make the necessary changes and return that result.
 4. Build your project and run the tests.
    * All tests should pass, and you should see a message that the project was successfully built.
