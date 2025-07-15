@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.75.0 (2025/07/15)
+
+- shorten organizations in urls
+
 ### UI v11.74.1 (2025/07/15)
 
 - Bug fixes and other improvements.
