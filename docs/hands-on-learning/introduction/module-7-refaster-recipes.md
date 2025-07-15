@@ -25,7 +25,7 @@ Let's look at an existing Refaster recipe in the starter project, and see how it
    * Note how we're only using a limited subset of Refaster's capabilities, as not everything is supported yet.
 2. Open the unit test [src/test/java/com/yourorg/SimplifyTernaryTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/SimplifyTernaryTest.java)
    * Read through the test, and see how each ternary is simplified, and wrapped as necessary.
-3. Click through on the `com.yourorg.SimplifyTernaryRecipes` class that is referenced in the `defaults` method of the test, to see the generated recipe.
+3. Click through on the `com.yourorg.SimplifyTernaryRecipes` class that is referenced in the `defaults` method of the test, to see the _generated_ recipe.
    * Note how the `SimplifyTernaryRecipes` extends `Recipe` and overrides `getRecipeList()` to return two recipes.
    * Each inner recipe returns a visitor that extends `AbstractRefasterJavaVisitor`.
    * There are before and after `JavaTemplates` that are used to match and replace the ternary expressions.
@@ -65,12 +65,12 @@ Let's create a Refaster recipe that standardizes various ways to check if a Stri
    * Using the knowledge gained in Exercise 7a, and the requirements from the test, write a Refaster recipe that matches various ways to check if a String is empty.
    * Think about if your methods should take in any argument, and what the type of that argument should be.
    * Add your first `@BeforeTemplate` and `@AfterTemplate` annotated methods to match and replace the first way to check for an empty string.
-   <!--  TODO: Link to completed solution example. -->
 4. Trigger an explicit build of your project to generate the Recipe class with Ctrl + F9, or equivalent.
    * Notice how the unit test now compiles; compare the generated recipe with the template you wrote.
    * Run the test to see where you stand, and add additional `@BeforeTemplate` annotated methods to cover all cases. (If you get stuck, look at [the OpenRewrite documentation](https://docs.openrewrite.org/authoring-recipes/refaster-recipes#refaster-template) for some hints.)
 5. Follow the instructions in the tests to add a name and description to your recipe.
    * These will be visible in any generated documentation, when folks run and discover recipes, and in Moderne.
+6. In case you get completely stuck or just need a reference, [here's an example of a completed `StringIsEmpty.java` file](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/StringIsEmpty.java).
 
 ### Takeaways
 

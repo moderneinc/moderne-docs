@@ -45,7 +45,7 @@ You'll want to have the following installed:
 6. Install the project to your local Maven repository & CLI. This is useful for debugging declarative recipes or for Moderne DX users.
    * Run `mvn install` from the root of the project if you're using Maven, or `./gradlew publishToMavenLocal` if you're using Gradle.
    * You should see a message that the project was successfully installed to your local Maven repository.
-   * From there, make the recipe available to the CLI by running `mod config recipes jar install com.yourorg:rewrite-recipe-starter:1.0.1-SNAPSHOT`.
+   * From there, make the recipe available to the CLI by running `mod config recipes jar install com.yourorg:rewrite-recipe-starter:0.1.0-SNAPSHOT`.
 7. Confirm that everything is set up correctly for testing imperative recipes (we'll explain the types of recipes in the next module) by opening up the `AssertEqualsToAssertThat` class, right-clicking on the class name in the code, and clicking on the `Set Active Recipe` option. Then, open your terminal and navigate to the `workshop` directory (that you set up in the CLI tutorial earlier) and run: `mod run . --active-recipe`.
    * You should see: `Running recipe com.yourorg.AssertEqualsToAssertThat` in the output.
 8. Confirm everything is set up for testing declarative recipes by opening your terminal and navigating to the `/src/main/resources/META-INF/rewrite` directory in the `rewrite-recipe-starter` repo. Then run the command: `mod config recipes yaml install stringutils.yml`. Afterwards, navigate to your `workshop` directory and run: `mod run . --recipe=com.yourorg.UseApacheStringUtils`.

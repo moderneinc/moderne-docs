@@ -39,14 +39,11 @@ Let's explore the unit tests in the starter project, to see what elements you ca
 3. Open [src/test/java/com/yourorg/NoGuavaListsNewArrayListTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/NoGuavaListsNewArrayListTest.java).
    * Read the various comments throughout this test class.
    * Try to make minimal changes in the recipe and see how they affect the tests.
-
-<!-- TODO: These next two examples use concepts we haven't introduced yet: data tables and refaster templates. Do we want to replace these examples, or just caveat/tease them? -->
-
 4. Open [src/test/java/com/yourorg/ClassHierarchyTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/ClassHierarchyTest.java).
    * Note how each `rewriteRun` consumes a `RecipeSpec` to assert the `dataTable` rows produced in the recipe run.
    * Correlate this to the `insertRow` calls in the recipe, to see how the recipe produces the expected output.
 5. Open [src/test/java/com/yourorg/SimplifyTernaryTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/SimplifyTernaryTest.java).
-   * Note how the instantiated recipe is a generated class, not the Refaster template class itself. (More details in the [next module](module-6-refaster-recipes).)
+   * Note how the instantiated recipe is a generated class, not the Refaster template class itself. We'll take a closer look at Refaster templates in the [next module](module-6-refaster-recipes).
    * See how `@Test void unchanged() { ... }` asserts no changes are made where those would be unsafe to make.
 
 ### Takeaways

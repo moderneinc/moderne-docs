@@ -9,7 +9,7 @@ For use cases beyond what declarative recipes and Refaster templates can handle,
 
 You might want to refresh your memory on [visitor pattern](https://docs.openrewrite.org/concepts-and-explanations/visitors) and [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees) before you dive in.
 
-These [imperative recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes) use the visitor pattern to traverse the LSTs, and make changes to the code. The `JavaTemplate` class is used to [create new LST elements](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate), that can replace existing LST elements.
+These [imperative recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes) use the visitor pattern to traverse the LSTs, and make changes to the code. The `JavaTemplate` class is used to [create new LST elements](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate) that can replace existing LST elements while preserving the code style and formatting around it.
 
 ## Exercise 8a: Explore an imperative recipe
 
@@ -54,28 +54,45 @@ Let's look at an existing imperative recipe in the starter project, and see how 
 * The `maybeAddImport` and `maybeRemoveImport` methods are necessary to ensure that the imports are correctly updated.
 * The `TreeVisitingPrinter` can be used to print the LST elements in more detail, to help you understand the structure of the tree.
 
-## Exercise 8b: Create an imperative recipe
+## Exercise 8b: Write an imperative recipe
 
-INTRO
+Let's write an imperative recipe in Java that replaces uses of `new Integer(x)` with `Integer.valueOf(x)` when `x` is an `int`, and `Integer.parseInt(x)` when `x` is a `String`.
+
+This kind of transformation can’t be handled by declarative or Refaster recipes because it's replacing a constructor call with a method call, so it’s a great example of when imperative recipes are necessary.
 
 ### Goals for this exercise
 
-* GOAL 1
-* GOAL 2
-* ...
+* Understand when to use imperative recipes instead of YAML or Refaster.
+* Get experience building new code elements (like method calls) to replace existing ones.
+* Practice building an imperative recipe using JavaTemplate to transform LST elements.
 
 ### Steps
 
-1. STEP 1
-   * ...
-2. STEP 2
-   * ...
+1. Open the unit test [src/test/java/com/yourorg/UseIntegerValueOfTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/UseIntegerValueOfTest.java) in IntelliJ IDEA.
+   * Read through the tests, to get a feel for the cases you should cover.
+   * Remove the `@Disabled` annotation, and run the tests to see that it fails. 
+2. Now open the imperative recipe template [src/main/java/com/yourorg/UseIntegerValueOf.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/UseIntegerValueOf.java).
+   * Using the knowledge gained in Exercise 8a, and the requirements from the test, write an imperative recipe that uses `JavaTemplate` to match the `Integer` boxing constructors and replace them with the correct method calls.
+   * Start by overriding and populating the `getDisplayName()` and `getDescription()` methods.
+   * Now override the `getVisitor()` method. This is where you will define all of the logic for what changes to make to the LST.
+3. Add the necessary code inside `getVisitor()` to transform the LST accordingly.
+   * Consider including a precondition so the recipe only visits source files that use the constructor.
+   * Determine whether to use a `JavaVisitor` or a `JavaIsoVisitor`. (Here's a hint in [the OpenRewrite documentation](https://docs.openrewrite.org/concepts-and-explanations/visitors#isomorphic-vs-non-isomorphic-visitors).)
+   * Decide what method to overwrite depending on what type of LST elements you need to visit. You can reference the complete list of [Java LST examples](https://docs.openrewrite.org/concepts-and-explanations/lst-examples#java-lst-types) for help.
+   * Don't forget the call to the superclass version of the method as in Exercise 8a.
+   * Look at using a method from `org.openrewrite.java.tree.TypeUtils` to help make decisions based on element or argument types. 
+   * You will use `JavaTemplate.builder(...).build().apply(...)` to make the necessary changes and return that result.
+4. Build your project and run the tests.
+   * All tests should pass, and you should see a message that the project was successfully built.
+   * If one or more of the tests fail, use the description of the failure to try to find where the problem is.
+5. In case you get completely stuck or just need a reference, [here's an example of a completed `UseIntegerValueOf.java` file](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/UseIntegerValueOf.java).
 
 ### Takeaways
 
-* TAKEAWAY 1
-* TAKEAWAY 2
-* ...
+* Use imperative recipes when you need precise control like replacing constructors or branching on argument types.
+* `JavaVisitor` (or `JavaIsoVisitor`) targets specific LST nodes, and `JavaTemplate` builds replacements with preserved formatting.
+* Type inspection with `TypeUtils` can enable conditional logic in your transformations.
+* Tests help define the expected behavior of your recipe and ensure it handles all relevant cases correctly.
 
 ## Learn More
 
@@ -84,5 +101,3 @@ Now that you've learned all the basics of building recipes, you may:
 * Review [conventions and best practices](../../user-documentation/recipes/conventions-and-best-practices) for writing OpenRewrite recipes. 
 * See how you can [contribute to the OpenRewrite community](../../user-documentation/recipes/contributing-to-openrewrite).
 * Learn about some of the more complex and powerful features of OpenRewrite in the [advanced workshop](../advanced/).
-
-<!-- Potentially add another CTA to schedule training, book a demo, etc. -->
