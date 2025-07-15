@@ -30,9 +30,9 @@ If you're not an enterprise user, go to [https://app.moderne.io](https://app.mod
   <figcaption></figcaption>
 </figure>
 
-## Step 2: Configure GitHub permissions
+## Step 2: Configure your source code manager permissions
 
-The first time you sign in to Moderne through GitHub, you will be presented with an authorization prompt for a few permissions to help enhance your experience.
+The first time you sign in to Moderne, you will be presented with an authorization prompt for a few permissions to help enhance your experience. This authorization screen will depend on which source code manager you signed in with.
 
 :::info
 For a better understanding of the permissions requested, please see [GitHub Permissions](../../../administrator-documentation/moderne-platform/references/github-permissions.md#oauth-permission).
@@ -40,7 +40,7 @@ For a better understanding of the permissions requested, please see [GitHub Perm
 
 <figure>
   ![GitHub login permissions](./assets/authentication-github-signin.png)
-  <figcaption>_GitHub permission request_</figcaption>
+  <figcaption>_An example of what the GitHub permission request might look like._</figcaption>
 </figure>
 
 ## Step 3: (Optionally) select an organization
@@ -108,6 +108,10 @@ For instance, in the above example, we modified initializations based on the [ex
 ## Step 8: Commit your changes
 
 Once you've confirmed you want to make the changes, the next course of action is to commit everything.
+
+:::warn
+Depending on what organization you ran the recipe against, you may not have access to commit code or create a PR. Please don't try and open PRs against random projects that aren't your own.
+:::
 
 In the results view, select the repositories you want to commit and then click _Commit selected results_ in the bottom left.
 
