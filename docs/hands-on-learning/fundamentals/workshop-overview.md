@@ -3,7 +3,7 @@ sidebar_label: Workshop overview
 description: A high-level overview of what this workshop will entail.
 ---
 
-# Introduction workshop overview
+# Fundamentals of recipe development workshop overview
 
 [OpenRewrite](https://docs.openrewrite.org/) is a framework for writing and running code transformations. [Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) are the unit of work in OpenRewrite, and can be written in [YAML](https://docs.openrewrite.org/concepts-and-explanations/recipes#declarative-recipes), [Refaster](https://docs.openrewrite.org/authoring-recipes/refaster-recipes), or [imperative Java](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes).
 
