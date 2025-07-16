@@ -309,8 +309,6 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'administrator-documentation/moderne-platform/how-to-guides/dev-center',
-            'administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe-beta',
-            'administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta',
             'administrator-documentation/moderne-platform/how-to-guides/org-service',
             'administrator-documentation/moderne-platform/how-to-guides/create-visualization',
             'administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes',
