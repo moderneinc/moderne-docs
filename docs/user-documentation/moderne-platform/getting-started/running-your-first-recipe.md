@@ -109,7 +109,7 @@ For instance, in the above example, we modified initializations based on the [ex
 
 Once you've confirmed you want to make the changes, the next course of action is to commit everything.
 
-:::warn
+:::warning
 Depending on what organization you ran the recipe against, you may not have access to commit code or create a PR. Please don't try and open PRs against random projects that aren't your own.
 :::
 
