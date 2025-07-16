@@ -210,57 +210,6 @@ java -jar moderne-dx-{version}.jar \
 </TabItem>
 </Tabs>
 
-## On-prem SCM variables
-
-<Tabs groupId="dx-type">
-<TabItem value="oci-container" label="OCI Container">
-
-**Environment variables:**
-
-| Variable Name                                                | Required | Default | Description                                                                                                                                                                                                      |
-|--------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_DX_SCM_{index}_BASEURL`                             | `true`   |         | The primary URL of your SCM server. This URL will be used as the origin.                                                                                                                                         |
-| `MODERNE_DX_SCM_{index}_TYPE`                                | `true`   |         | Specifies the type of the SCM server (case insensitive). Choose between: `GitHub, GitLab, Bitbucket, BitbucketCloud, AzureDevOps`.                                                                               |
-| `MODERNE_DX_SCM_{index}_ALTERNATEURLS_{alternate_url_index}` | `true`   |         | One or more alternate URLs (each with a different `{alternate_url_index}`) which point to the same server. Use this to specify all the protocol and port combinations that can be used to reach the same server. |
-
-**Example:**
-
-```bash
-docker run \
-# ... Existing variables
--e MODERNE_DX_SCM_0_BASEURL=https://bitbucket.example.com/stash \
--e MODERNE_DX_SCM_0_TYPE=Bitbucket \
--e MODERNE_DX_SCM_0_ALTERNATEURLS_0=ssh://bitbucket.example.com:7999 \
--e MODERNE_DX_SCM_0_ALTERNATEURLS_1=http://bitbucket.example.com:8080/stash \
-# ... Additional variables
-```
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-
-**Arguments:**
-
-| Argument Name                                                    | Required | Default | Description                                                                                                                                                                                                      |
-|------------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.dx.scm[{index}].baseUrl`                              | `true`   |         | The primary URL of your SCM server. This URL will be used as the origin.                                                                                                                                         |
-| `--moderne.dx.scm[{index}].type`                                 | `true`   |         | Specifies the type of the SCM server (case insensitive). Choose between: `GitHub, GitLab, Bitbucket, BitbucketCloud, AzureDevOps`.                                                                               |
-| `--moderne.dx.scm[{index}].alternateUrls[{alternate_url_index}]` | `true`   |         | One or more alternate URLs (each with a different `{alternate_url_index}`) which point to the same server. Use this to specify all the protocol and port combinations that can be used to reach the same server. |
-
-**Example:**
-
-```bash
-java -jar moderne-dx-{version}.jar \
-# ... Existing arguments
---moderne.dx.scm[0].baseUrl=https://bitbucket.example.com/stash \
---moderne.dx.scm[0].type=Bitbucket \
---moderne.dx.scm[0].alternateUrls[0]=ssh://bitbucket.example.com:7999 \
---moderne.dx.scm[0].alternateUrls[1]=http://bitbucket.example.com:8080/stash \
-# ... Additional arguments
-```
-</TabItem>
-</Tabs>
-
 ## Organizational hierarchy variables
 
 <Tabs groupId="dx-type">

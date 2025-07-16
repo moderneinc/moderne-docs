@@ -378,7 +378,6 @@ const sidebars: SidebarsConfig = {
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-maven-repository-access',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-artifactory-access',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-artifactory-recipes',
-            'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-on-prem-scm',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-organizations',
             'administrator-documentation/moderne-dx/how-to-guides/org-source-migration',
             'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-strict-recipe-sources',
