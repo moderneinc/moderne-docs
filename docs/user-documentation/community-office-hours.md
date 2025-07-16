@@ -13,6 +13,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Live Debug: Mapping Release Train Dependencies with OpenRewrite (July 16th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=rKN-UGiLazs' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### Scaling OpenRewrite to 3B lines of code (July 9th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=lkVDuciTlYQ' controls="true" />
