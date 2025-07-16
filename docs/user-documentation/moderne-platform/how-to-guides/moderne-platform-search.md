@@ -26,7 +26,6 @@ To get the most value out of AI search, you'll want to approach searching for re
 * **Asking questions** such as, "How can I make my code more secure?"
 * **Entering keywords** such as, "JUnit" or "Jakarta".
 * **Expressing something you want to do** such as, "I want to upgrade Spring".
-* **Entering tags for the recipe to search for** such as, `tags:"RSPEC-2204"` to find all recipes with the `RSPEC-2204` tag. Please note that the other fields mentioned in the [non-ai search tip](#non-ai-search-tips) will not work with AI enabled.
 
 If you know the exact name or ID of a recipe (because you're familiar with the recipe or you're coming from the docs or the code), you can find the recipe by:
 
