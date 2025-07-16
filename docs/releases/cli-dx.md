@@ -3,7 +3,7 @@
 ### CLI / DX v3.43.6 (2025/07/15)
 
 #### What's Changed DX
-* Allow organizations to work with or without a synthetic root
+* Fixed an issue that prevented cloning the root organization.
 
 
 ### CLI / DX v3.43.5 (2025/07/15)
