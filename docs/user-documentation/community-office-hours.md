@@ -19,7 +19,11 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * [We've released a new blog about backpatching what matters, when it matters](https://www.moderne.ai/blog/backpatching-enterprise-software-security)
+  * [This week we welcome Mark Heckler to Moderne where he'll be our Senior Director of Field Engineering](https://bsky.app/profile/mkheck.bsky.social/post/3lu3j2l3lfc27)
+* **Main topic**
+  * This week we welcome back Merlin to talk through mapping release train dependencies with OpenRewrite.
 
 ### Scaling OpenRewrite to 3B lines of code (July 9th, 2025)
 
