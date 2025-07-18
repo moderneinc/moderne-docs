@@ -13,7 +13,15 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
-### Live Debug: Mapping Release Train Dependencies with OpenRewrite (July 16th, 2025)
+### The missing piece in your observability puzzle (July 23rd, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=xqKN9R6LWZo' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
+### Live Debug: Mapping release train dependencies with OpenRewrite (July 16th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=rKN-UGiLazs' controls="true" />
 
