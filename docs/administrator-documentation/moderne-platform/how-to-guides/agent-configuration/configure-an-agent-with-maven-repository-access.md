@@ -55,7 +55,7 @@ For a repository to be a source of LSTs, it must be included in the list of repo
 
 <TabItem value="nexus-repository" label="Nexus Repository">
 
-Under the administration view, select `Tasks` on the left nav:
+Under the administration view, select `Settings` --> `System` --> `Tasks` on the left nav:
 
 ![](./assets/sona-tasks.png)
 

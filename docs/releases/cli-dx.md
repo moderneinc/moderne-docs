@@ -1,5 +1,30 @@
 # CLI / DX changelog
 
+### CLI / DX v3.43.6 (2025/07/15)
+
+#### What's Changed DX
+* Fixed an issue that prevented cloning the root organization.
+
+
+### CLI / DX v3.43.5 (2025/07/15)
+
+#### What's Changed
+* Avoid circular task dependency in Gradle builds that include themselves as a composite build.
+
+
+### CLI / DX v3.43.4 (2025/07/14)
+
+#### What's Changed CLI
+* Fix release issues on windows/chocolatey. The previous version will not be available on windows.
+
+
+### CLI / DX v3.43.2 (2025/07/14)
+
+#### What's Changed CLI
+
+* Updated where the CLI is published. We are no longer publishing to Azure due to size limitations of what could be uploaded. 
+    * If you were downloading the CLI via an Azure URL, you will need to [download it from the new URL](../user-documentation/moderne-cli/getting-started/cli-intro.md#step-1-download-the-cli). 
+
 ### CLI / DX v3.43.0 (2025/07/09)
 
 #### What's Changed CLI
@@ -461,7 +486,7 @@
 * Allow empty commits using `--allow-empty` and fix default behaviour to not allow these empty commits.
 
 
-### CLI 3.43.0 (2025/02/07)
+### CLI 3.43.6 (2025/02/07)
 
 #### What's Changed
 * Add duration to timeout exception message

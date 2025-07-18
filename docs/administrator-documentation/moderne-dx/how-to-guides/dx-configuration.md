@@ -156,7 +156,7 @@ The Moderne DX service can only talk to _Maven formatted_ artifact repositories.
 
 Moderne offers two options for connecting to your artifact repository: a generic Maven connection that can connect to any Maven formatted repository regardless of vendor and an Artifactory-specific connection that is optimized to serve LST artifacts more quickly.
 
-If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](./configure-dx-with-maven-repository-access.md) and then jump to [Step 5](#step-5-optional-but-recommended-configure-an-organizational-hierarchy).
+If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](./configure-dx-with-maven-repository-access.md) and then jump to [Step 5](#step-5-configure-an-organizational-hierarchy).
 
 If you _do_ plan on using Artifactory to store artifacts, you have two options:
 

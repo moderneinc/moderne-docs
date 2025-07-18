@@ -13,13 +13,45 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### The missing piece in your observability puzzle (July 23rd, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=xqKN9R6LWZo' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
+### Live Debug: Mapping release train dependencies with OpenRewrite (July 16th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=rKN-UGiLazs' controls="true" />
+
+#### Summary and related links
+
+* **Announcements for the week**
+  * [We've released a new blog about backpatching what matters, when it matters](https://www.moderne.ai/blog/backpatching-enterprise-software-security)
+  * [This week we welcome Mark Heckler to Moderne where he'll be our Senior Director of Field Engineering](https://bsky.app/profile/mkheck.bsky.social/post/3lu3j2l3lfc27)
+* **Main topic**
+  * This week we welcome back Merlin to talk through mapping release train dependencies with OpenRewrite.
+
 ### Scaling OpenRewrite to 3B lines of code (July 9th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=lkVDuciTlYQ' controls="true" />
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * **Releases**
+    * [We released OpenRewrite 8.57.0](https://docs.openrewrite.org/changelog/8-57-0-Release)
+  * **Upcoming releases**
+    * We are going to be adding support for Java 25 and Spring Boot 4. Please reach out if you want to help with either of these.
+  * **Blogs**
+    * [We wrote a blog post summarizing the Code Remix Summit](https://www.moderne.ai/blog/autonomous-testing-ai-developer-productivity)
+  * **Training**
+    * We are offering two courses on OpenRewrite:
+      * [Introduction to OpenRewrite](https://www.moderne.ai/content-library/introduction-to-openrewrite) (July 22nd) – 4 hours
+      * [Advanced OpenRewrite training](https://www.moderne.ai/content-library/advanced-openrewrite-training) (July 29th) – 4 hours
+* **Main topic for the week**
+  * This week we welcomed Kevin back to share the story behind building the Moderne SaaS and how we scaled OpenRewrite to support 3 billion lines of code.
 
 ### Fix slow Gradle builds before they ruin your life (July 2nd, 2025)
 

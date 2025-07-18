@@ -1,4 +1,56 @@
 # Platform changelog
+### UI v11.76.3 (2025/07/17)
+
+- Bug fixes and other improvements.
+
+### UI v11.76.2 (2025/07/17)
+
+- Bug fixes and other improvements.
+
+### UI v11.76.1 (2025/07/16)
+
+- Bug fixes and other improvements.
+
+### UI v11.76.0 (2025/07/15)
+
+- Bug fixes and other improvements.
+
+### UI v11.75.0 (2025/07/15)
+
+- shorten organizations in urls
+
+### UI v11.74.1 (2025/07/15)
+
+- Bug fixes and other improvements.
+
+### UI v11.73.1 (2025/07/14)
+
+- Bug fixes and other improvements.
+
+### UI v11.73.0 (2025/07/11)
+
+- Bug fixes and other improvements.
+
+### UI v11.72.0 (2025/07/11)
+
+- Bug fixes and other improvements.
+
+### UI v11.71.0 (2025/07/10)
+
+- Bug fixes and other improvements.
+
+### UI v11.70.1 (2025/07/10)
+
+- Bug fixes and other improvements.
+
+### UI v11.70.0 (2025/07/10)
+
+- Bug fixes and other improvements.
+
+### UI v11.69.0 (2025/07/10)
+
+- Bug fixes and other improvements.
+
 ### UI v11.68.2 (2025/07/09)
 
 - Bug fixes and other improvements.
