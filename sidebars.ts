@@ -262,20 +262,6 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: 'category',
-      label: 'Advanced recipe development',
-      link: {
-        type: 'generated-index',
-        title: 'Advanced recipe development workshop',
-        description: 'Learn to build advanced recipes that can extract insights and generate code.',
-        slug: '/hands-on-learning/advanced',
-        keywords: ['recipes'],
-      },
-      items: [
-        'hands-on-learning/advanced/workshop-overview',
-      ],
-    },
-    {
       type: 'html',
       value: '<br/><strong>Administrator Documentation</strong>',
       defaultStyle: true,
