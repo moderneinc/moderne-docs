@@ -10,7 +10,7 @@ Now that you've seen how to run recipes and built one in Moderne using the recip
 You'll want to have the following installed:
 
 * Java 21, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks.
-  * The [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project expects Temurin JDK 21.0.7 (`temurin-21.0.7`).
+  * The [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project expects Temurin JDK 21.0.7 (`temurin-21.0.7`).
   * Recipes use Java 8 source level, so they can run on Java 8 and higher.
 * IntelliJ IDEA Ultimate 2024.1+ (required for the OpenRewrite plugin; Community Edition is not supported).
 * The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (this comes pre-installed with IntelliJ Ultimate versions 2024.1 or later).
@@ -21,14 +21,14 @@ You'll want to have the following installed:
 
 ### Goals for this exercise
 
-* Set up a new recipe module in your IDE, based on the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project.
+* Set up a new recipe module in your IDE, based on the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project.
 * Run the unit tests for the recipe module, to ensure everything is set up correctly.
 * Install your recipe module to your local Maven repository for debugging later.
 * Use the CLI to run different types of recipes against the `Default` group of repositories [you set up earlier](../../user-documentation/moderne-cli/getting-started/cli-intro.md#using-the-cli).
 
 ### Steps
 
-1. Git clone the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter).
+1. Git clone the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter).
    * You can either clone the project as is, or [use it as a template](https://github.com/new?template_name=rewrite-recipe-starter&template_owner=moderneinc) to create a new GitHub repository.
    * Review the `README.md` to familiarize yourself with the reference recipes included in this project. We will refer to and use many of them later in this workshop.
 2. Open the project in IntelliJ IDEA.

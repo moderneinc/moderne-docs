@@ -25,7 +25,7 @@ Let's have a look at a simple declarative YAML recipe, and expand that to cover 
 If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor support for writing and running recipes. Some of the below steps will not work for you without this.
 :::
 
-1. With the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) still open in IntelliJ, open the `UseApacheStringUtils` recipe which is defined in a YAML file: [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml).
+1. With the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) still open in IntelliJ, open the `UseApacheStringUtils` recipe which is defined in a YAML file: [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml).
    * Notice how the file is structured, with a `type`, `name`, `displayName`, `description`, and `recipeList` fields.
    * Comment out the `type:` and see how that disables the OpenRewrite support.
 2. Note how the `recipeList` field is a list of fully qualified class names of recipes along with their options (if any exist).

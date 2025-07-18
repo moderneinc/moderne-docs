@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Module 6: Testing Recipes"
+sidebar_label: "Module 6: Testing recipes"
 description: Explore how to unit test recipes.
 ---
 
