@@ -38,6 +38,14 @@ To access non-audit-log reports, navigate to `https://<TENANT>.moderne.io/admin/
 
 These reports can be downloaded using the download button: ![](./assets/report-download.png)
 
+## Usage report
+
+The usage report includes several columns that may need clarification:
+
+* **totalFilesResults** - The number of results from the recipe run. This includes both changes produced by the recipe and [markers](https://docs.openrewrite.org/concepts-and-explanations/markers) generated from the recipe.
+* **totalFilesChanges** - The number of changes produced by the recipe (excludes markers).
+* **timeSavingsInMinutes** - The sum of the number of changes (not markers) multiplied by the time savings as defined in the recipe that made the changes.
+
 ## Accessing via the API
 
 All of these reports can be accessed via the API as well. Here is an example of how to prepare and download the recipe run report:
