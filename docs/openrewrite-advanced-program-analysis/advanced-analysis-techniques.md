@@ -2,17 +2,17 @@
 description: Explore advanced program analysis techniques that combine control flow and data flow for sophisticated analyses
 ---
 
-# Advanced Analysis Techniques
+# Advanced analysis techniques
 
 Beyond the fundamental control flow and data flow analyses, modern program analysis combines these techniques in sophisticated ways to solve complex problems. These advanced analyses often blend multiple approaches, consider additional program properties, or tackle domain-specific challenges.
 
 Think of these techniques as specialized tools in your analysis toolkit. While a hammer (basic data flow) and saw (control flow) are essential, sometimes you need a precision instrument designed for a specific task.
 
-## Call Graph Analysis
+## Call graph analysis
 
 One of the most fundamental questions about a program is "who calls whom?" Call graph analysis constructs a graph showing the calling relationships between methods, forming the backbone for many inter-procedural analyses.
 
-### Understanding Call Relationships
+### Understanding call relationships
 
 In simple cases, determining call relationships seems straightforward.
 ```java
@@ -45,7 +45,7 @@ class PayPal implements PaymentMethod {
 
 The actual method called depends on the runtime type of `payment`. Call graph analysis must approximate these possibilities.
 
-### Applications of Call Graphs
+### Applications of call graphs
 
 Call graphs enable powerful analyses and tools:
 
@@ -90,7 +90,7 @@ private void storeInDatabase(String data) {
 }
 ```
 
-### Call Graph Precision in OpenRewrite
+### Call graph precision in OpenRewrite
 
 Traditional static analysis tools struggle with method resolution because they work with incomplete type information. OpenRewrite's fully type-attributed ASTs provide significant advantages, though some challenges remain.
 
@@ -129,11 +129,11 @@ Remaining challenges:
 IDEs use call graphs constantly. When you use "Find Usages" on a method, the IDE is querying its call graph. When it warns that a method is never used, it's checked the call graph for callers.
 :::
 
-## Path-Sensitive Analysis
+## Path-sensitive analysis
 
 Standard data flow analysis merges information at control flow join points, losing precision about which paths were taken. Path-sensitive analysis maintains separate information for different execution paths.
 
-### The Precision Problem
+### The precision problem
 
 Consider this null-checking code.
 ```java
@@ -150,7 +150,7 @@ public void process(String input) {
 
 Standard analysis would warn about potential null pointer issues even in the safe branch. Path-sensitive analysis maintains separate facts for each path.
 
-### Tracking Path Conditions
+### Tracking path conditions
 
 Path-sensitive analysis tracks the conditions that must hold on each path.
 ```java
@@ -225,7 +225,7 @@ class Connection {
 }
 ```
 
-### Performance Considerations
+### Performance considerations
 
 Path sensitivity comes at a cost. The number of paths can grow exponentially with program size. Analyses must use techniques like path merging, pruning infeasible paths, and symbolic execution to remain tractable.
 
@@ -233,11 +233,11 @@ Path sensitivity comes at a cost. The number of paths can grow exponentially wit
 Full path sensitivity is often impractical for large programs. Most analyses use selective path sensitivity, maintaining separate paths only where it significantly improves precision (like null checks).
 :::
 
-## Resource Analysis
+## Resource analysis
 
 Programs don't just manipulate data – they acquire and release resources like files, network connections, and locks. Resource analysis ensures these resources are properly managed.
 
-### The Resource Lifecycle
+### The resource lifecycle
 
 Every resource follows a lifecycle.
 ```java
@@ -253,7 +253,7 @@ file.close();  // Must happen on all paths!
 
 Resource analysis tracks this lifecycle to find leaks, use-after-release bugs, and double-release errors.
 
-### Common Resource Patterns
+### Common resource patterns
 
 Modern Java provides several patterns for resource management:
 
@@ -284,7 +284,7 @@ file.write(data);
 file.close();  // What if write() throws an exception?
 ```
 
-### Resource Leak Patterns
+### Resource leak patterns
 
 Resource analysis identifies common leak patterns.
 ```java
@@ -313,7 +313,7 @@ public void handleRequest() {
 }
 ```
 
-### Custom Resource Types
+### Custom resource types
 
 Resource analysis can handle application-specific resources.
 ```java
@@ -331,11 +331,11 @@ try {
 }
 ```
 
-## Combining Analyses
+## Combining analyses
 
 The real power comes from combining different analyses. Each analysis provides a piece of the puzzle; together they reveal the complete picture.
 
-### Taint + Call Graph
+### Taint + call graph
 
 Track security vulnerabilities across method boundaries.
 ```java
@@ -344,7 +344,7 @@ Track security vulnerabilities across method boundaries.
 // Together: Find that user input reaches SQL execution
 ```
 
-### Control Flow + Type Analysis
+### Control flow + type analysis
 
 Improve precision by understanding both control flow and types.
 ```java
@@ -354,7 +354,7 @@ if (obj instanceof String) {
 }
 ```
 
-### Resource + Path-Sensitive
+### Resource + path-sensitive
 
 Ensure resources are released on all execution paths.
 ```java
@@ -367,17 +367,14 @@ Ensure resources are released on all execution paths.
 Modern IDEs and analysis tools rarely use just one technique. When IntelliJ suggests extracting a method, it's using control flow (to find complete code blocks), data flow (to determine parameters), and call graph analysis (to check for conflicts).
 :::
 
-## Next Steps
+## Next steps
 
 These advanced techniques open doors to sophisticated analyses:
 
-- [Path-Sensitive Analysis Guide](path-sensitive-guide.md) - Add precision with path sensitivity
-- [Resource Analysis Patterns](resource-patterns.md) - Track custom resources in your application
-- [Inter-procedural Analysis](../data-flow/inter-procedural-analysis.md) - Track data across method boundaries
-- [Security Analysis](../security/overview.md) - Apply these techniques to find vulnerabilities
-- [Combining Analyses](analysis-composition.md) - Build powerful composite analyses
+- [Inter-procedural Analysis](data-flow/inter-procedural-analysis.md) - Track data across method boundaries
+- [Security Analysis](security/overview.md) - Apply these techniques to find vulnerabilities
 
-## Further Reading
+## Further reading
 
 For deeper exploration of these topics:
 - "Secure Programming with Static Analysis" by Chess and West - Excellent coverage of security-focused analyses

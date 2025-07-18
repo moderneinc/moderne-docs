@@ -8,11 +8,11 @@ Data flow analysis is like being a detective tracking clues through a program. I
 
 If control flow analysis gives us the map of the city, data flow analysis tells us about the traffic patterns – what cargo moves along those roads and where it ends up.
 
-## Understanding the Flow of Information
+## Understanding the flow of information
 
 Imagine you're tracking a package through a delivery system. The package (data) starts at some origin (definition), travels through various distribution centers (statements), and eventually reaches its destinations (uses). Data flow analysis does exactly this for every piece of data in your program.
 
-### A Simple Example
+### A simple example
 
 Let's start with a concrete example to build intuition.
 ```java
@@ -29,11 +29,11 @@ public void processOrder(Order order) {
 
 When we reach the `finalPrice` calculation, which value of `discount` do we use? Data flow analysis can tell us that either D1 or D2 might reach this point, depending on whether the customer is premium. This is valuable information for optimization and understanding.
 
-## Types of Data Flow Analysis
+## Types of data flow analysis
 
 Data flow analyses come in two main flavors, distinguished by the direction they analyze the program.
 
-### Forward Data Flow Analysis
+### Forward data flow analysis
 
 Forward analyses follow the natural flow of execution, propagating information from earlier statements to later ones. They answer questions about the past: "What happened before we got here?"
 
@@ -62,7 +62,7 @@ x = 5;             // Invalidates x + y
 int c = x + y;     // Must recompute
 ```
 
-### Backward Data Flow Analysis
+### Backward data flow analysis
 
 Backward analyses work in reverse, propagating information from later statements to earlier ones. They answer questions about the future: "What will happen after this point?"
 
@@ -84,15 +84,15 @@ Liveness analysis is essential for register allocation in compilers and for dete
 
 This analysis finds expressions that will definitely be computed on all paths forward from a point. If an expression is very busy, we might want to compute it early to avoid redundant calculations later.
 
-## Core Concepts
+## Core concepts
 
-### Data Flow Facts
+### Data flow facts
 
 In data flow analysis, we track "facts" about the program. A fact is a piece of information we're interested in. For reaching definitions, facts are "definition D reaches this point." For liveness, facts are "variable V is live here."
 
 Facts flow through the program according to rules. Some statements generate new facts (GEN), while others invalidate existing facts (KILL).
 
-### Transfer Functions
+### Transfer functions
 
 Transfer functions describe how statements transform facts. They're the rules of the game.
 
@@ -107,7 +107,7 @@ x = y + z;  // Before: {x is live}
             // The assignment killed x's liveness and generated liveness for y and z
 ```
 
-### Merge Operations
+### Merge operations
 
 When control flow paths join, we need to combine facts from different paths. The merge operation depends on the analysis type.
 
@@ -137,7 +137,7 @@ if (condition) {
 A simple way to remember: "may" analyses are optimistic (anything possible), while "must" analyses are pessimistic (only what's guaranteed). Choose based on safety – use "may" when missing a fact could cause incorrectness, use "must" when incorrectly including a fact could cause problems.
 :::
 
-## The Iterative Algorithm
+## The iterative algorithm
 
 Data flow analysis typically uses an iterative algorithm that keeps refining the solution until it stabilizes.
 
@@ -159,20 +159,20 @@ Data flow analysis enables numerous practical applications.
 ### Optimization
 Compilers use data flow analysis extensively. Dead code elimination removes assignments to variables that are never used (found via liveness analysis). Constant propagation replaces variables with their constant values when possible (using reaching definitions). Common subexpression elimination avoids recomputing expressions (using available expressions).
 
-### Bug Detection
+### Bug detection
 Many subtle bugs become obvious with data flow analysis. Uninitialized variables are uses without reaching definitions. Dead stores are definitions that don't reach any use. Resource leaks occur when resources have definitions (allocation) but no reaching "release" operations.
 
-### Program Understanding
+### Program understanding
 IDEs use data flow analysis to help you understand code. "Find all uses" features use reaching definitions. "Find where this value comes from" uses backward slicing. Refactoring tools ensure transformations preserve data flow properties.
 
-### Security Analysis
+### Security analysis
 Security tools use specialized data flow analyses. Taint analysis (covered in detail in another section) tracks untrusted data through the program. Information flow analysis ensures sensitive data doesn't leak to public outputs.
 
 :::info Real-World Impact
 Modern Java IDEs perform data flow analysis constantly. When IntelliJ IDEA grays out an unused variable or warns about a potential null pointer, it's using these exact techniques behind the scenes.
 :::
 
-## Next Steps
+## Next steps
 
 Now that you understand the fundamentals, you can dive deeper:
 

@@ -6,11 +6,11 @@ description: Detect and prevent SQL injection vulnerabilities using advanced tai
 
 SQL injection remains one of the most dangerous web application vulnerabilities. It occurs when untrusted data is concatenated directly into SQL queries, allowing attackers to modify query logic, bypass authentication, steal data, or even take control of the database server.
 
-## Understanding SQL Injection
+## Understanding SQL injection
 
 Imagine a library where visitors write their requests on slips of paper. A SQL injection is like a visitor writing "Give me 'War and Peace' AND also give me the master key to all rooms" on their slip. If the librarian blindly follows these instructions, the visitor gains unauthorized access.
 
-### A Simple Example
+### A simple example
 
 ```java
 // VULNERABLE: User input directly in query
@@ -25,11 +25,11 @@ ResultSet rs = statement.executeQuery(query);
 // The -- comments out the password check!
 ```
 
-## How OpenRewrite Detects SQL Injection
+## How OpenRewrite detects SQL injection
 
 The `FindSqlInjection` recipe uses taint analysis to track untrusted data from sources to SQL sinks:
 
-### 1. Identifying Taint Sources
+### 1. Identifying taint sources
 
 ```java
 // Common sources of untrusted data
@@ -41,7 +41,7 @@ bufferedReader.readLine()           // User input
 new Scanner(System.in).nextLine()   // Console input
 ```
 
-### 2. Tracking Through the Program
+### 2. Tracking through the program
 
 The analysis follows data through all transformations.
 ```java
@@ -51,7 +51,7 @@ String query = "SELECT * FROM users WHERE id = " + upperId;  // query is TAINTED
 statement.execute(query);                       // VULNERABILITY!
 ```
 
-### 3. Recognizing SQL Sinks
+### 3. Recognizing SQL sinks
 
 The recipe identifies various SQL execution methods.
 ```java
@@ -72,9 +72,9 @@ jdbcTemplate.query(query, ...)
 jdbcTemplate.update(query, ...)
 ```
 
-## Common SQL Injection Patterns
+## Common SQL injection patterns
 
-### Basic Concatenation
+### Basic concatenation
 
 ```java
 // VULNERABLE
@@ -87,7 +87,7 @@ public User getUser(String id) {
 // Result: Returns all users!
 ```
 
-### String Format Injection
+### String format injection
 
 ```java
 // VULNERABLE - String.format doesn't help!
@@ -102,7 +102,7 @@ public List<Order> getOrders(String status) {
 // Attack: status = "'; DELETE FROM orders; --"
 ```
 
-### Dynamic Table Names
+### Dynamic table names
 
 ```java
 // VULNERABLE - Table name injection
@@ -114,7 +114,7 @@ public int countRecords(String tableName) {
 // Attack: tableName = "users; DROP TABLE sensitive_data; --"
 ```
 
-### Complex Query Building
+### Complex query building
 
 ```java
 // VULNERABLE - Dynamic query construction
@@ -132,9 +132,9 @@ public List<Product> searchProducts(SearchCriteria criteria) {
 }
 ```
 
-## Safe Patterns and Remediation
+## Safe patterns and remediation
 
-### Use Prepared Statements
+### Use prepared statements
 
 The primary defense against SQL injection.
 ```java
@@ -154,7 +154,7 @@ public List<Order> getOrders(String status, String customerId) {
 }
 ```
 
-### Use Query Builders
+### Use query builders
 
 Modern frameworks provide safe query builders.
 ```java
@@ -176,7 +176,7 @@ public List<Product> searchProducts(String category) {
 }
 ```
 
-### Validate and Sanitize
+### Validate and sanitize
 
 When dynamic queries are unavoidable.
 ```java
@@ -194,9 +194,9 @@ public int countRecords(String tableName) {
 }
 ```
 
-## Advanced Detection Features
+## Advanced detection features
 
-### Field-Sensitive Analysis
+### Field-sensitive analysis
 
 OpenRewrite tracks taint through object fields.
 ```java
@@ -214,7 +214,7 @@ req.setUserName(sanitize(request.getParameter("name"))); // req.userName is CLEA
 String query = "SELECT * FROM users WHERE id = " + req.getUserId(); // VULNERABLE
 ```
 
-### Inter-procedural Analysis
+### Inter-procedural analysis
 
 Tracks taint across method boundaries.
 ```java
@@ -230,7 +230,7 @@ public class UserDao {
 }
 ```
 
-### Path-Sensitive Detection
+### Path-sensitive detection
 
 Considers execution paths.
 ```java
@@ -246,9 +246,9 @@ public void processUser(String input, boolean trusted) {
 }
 ```
 
-## Recipe Configuration
+## Recipe configuration
 
-### Basic Usage
+### Basic usage
 
 ```yaml
 # In rewrite.yml
@@ -259,7 +259,7 @@ recipeList:
   - org.openrewrite.analysis.java.security.FindSqlInjection
 ```
 
-### With Custom Sources and Sinks
+### With custom sources and sinks
 
 Extend the recipe for custom patterns.
 ```java
@@ -292,9 +292,9 @@ public class CustomSqlInjectionRecipe extends FindSqlInjection {
 }
 ```
 
-## Testing and Validation
+## Testing and validation
 
-### Unit Tests
+### Unit tests
 
 ```java
 @Test
@@ -333,9 +333,9 @@ void allowsPreparedStatements() {
 }
 ```
 
-## Common False Positives and How to Handle Them
+## Common false positives and how to handle them
 
-### Constants and Literals
+### Constants and literals
 
 ```java
 // Not a vulnerability - constant value
@@ -345,7 +345,7 @@ String query = "SELECT * FROM " + TABLE;  // Safe
 // OpenRewrite correctly identifies this as safe
 ```
 
-### Already Validated Input
+### Already validated input
 
 ```java
 // Input is validated but analysis might not recognize it
@@ -363,7 +363,7 @@ public List<User> getUsers(String sortField) {
 }
 ```
 
-## Next Steps
+## Next steps
 
 - [Command Injection](command-injection.md) - Similar pattern for OS commands
 - [LDAP Injection](ldap-injection.md) - Directory service injection

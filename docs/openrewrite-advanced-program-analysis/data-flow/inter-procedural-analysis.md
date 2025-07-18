@@ -6,7 +6,7 @@ description: Learn how to track data flow across method boundaries for whole-pro
 
 Real-world bugs and vulnerabilities rarely stay within a single method. A SQL injection vulnerability might start with user input in a web controller, flow through several business logic methods, and finally reach a database query in a data access layer. Inter-procedural analysis tracks data as it flows across method boundaries, providing a complete picture of how information moves through your entire program.
 
-## The Challenge of Method Calls
+## The challenge of method calls
 
 Consider this simple example.
 
@@ -35,9 +35,9 @@ To determine if this code has a SQL injection vulnerability, we need to:
 
 This requires analyzing how data flows between methods, not just within them.
 
-## Approaches to Inter-procedural Analysis
+## Approaches to inter-procedural analysis
 
-### Context-Insensitive Analysis
+### Context-insensitive analysis
 
 The simplest approach treats each method independently, using summaries of what each method does.
 ```java
@@ -54,7 +54,7 @@ The simplest approach treats each method independently, using summaries of what 
 
 This approach is fast but can be imprecise because it doesn't distinguish between different call sites.
 
-### Context-Sensitive Analysis
+### Context-sensitive analysis
 
 More precise analysis tracks calling contexts separately.
 ```java
@@ -77,9 +77,9 @@ public class DataProcessor {
 
 Context sensitivity prevents false positives by keeping different calling contexts separate.
 
-## Implementation Strategies
+## Implementation strategies
 
-### Method Summaries
+### Method summaries
 
 The key to scalable inter-procedural analysis is computing and caching method summaries.
 ```java
@@ -100,7 +100,7 @@ public class MethodSummary {
 }
 ```
 
-### Computing Summaries
+### Computing summaries
 
 Here's how to compute method summaries.
 ```java
@@ -131,7 +131,7 @@ public class SummaryComputer {
 }
 ```
 
-### Using Summaries in Analysis
+### Using summaries in analysis
 
 When encountering a method call during analysis.
 ```java
@@ -163,9 +163,9 @@ public class InterProceduralTaintAnalysis extends TaintAnalysis {
 }
 ```
 
-## Handling Special Cases
+## Handling special cases
 
-### Virtual Method Calls
+### Virtual method calls
 
 OpenRewrite's type-attributed ASTs provide significant advantages for handling polymorphic method calls, though virtual dispatch still requires considering multiple implementations.
 
@@ -210,7 +210,7 @@ OpenRewrite's advantages:
 
 When analyzing virtual method calls, use type hierarchy information to find all relevant implementations, but benefit from OpenRewrite's precise type information to avoid considering unrelated methods.
 
-### Callbacks and Lambdas
+### Callbacks and lambdas
 
 Modern Java code often uses callbacks.
 ```java
@@ -222,7 +222,7 @@ list.stream()
 
 These require special handling to track data flow through functional interfaces.
 
-### Recursive Methods
+### Recursive methods
 
 Recursive calls need special treatment to avoid infinite analysis.
 ```java
@@ -285,9 +285,7 @@ public class InterProceduralSecurityAnalysis extends Recipe {
 }
 ```
 
-## Next Steps
+## Next steps
 
 - [Method Summary Analysis](method-summary-analysis.md) - Deep dive into computing and using method summaries
-- [Context Sensitivity](context-sensitivity.md) - Add precision with calling context
-- [Scalability Techniques](scalability.md) - Handle large codebases efficiently
 - [Taint Analysis](../taint-analysis/comprehensive-guide.md) - Apply inter-procedural analysis to security

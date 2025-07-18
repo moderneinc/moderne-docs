@@ -6,11 +6,11 @@ description: Master reaching definitions analysis - tracking where variable valu
 
 Reaching definitions analysis is a fundamental forward data flow analysis that tracks which assignments (definitions) of variables may reach each point in a program. It answers the critical question: "Where could this variable's value have come from?"
 
-## Understanding Reaching Definitions
+## Understanding reaching definitions
 
 Imagine tracking packages through a delivery network. When a package arrives at your door, you want to know all the possible distribution centers it might have passed through. Similarly, when you use a variable, reaching definitions tells you all the assignments that could have provided its current value.
 
-### Core Concepts
+### Core concepts
 
 A definition "reaches" a program point if there's an execution path from the definition to that point where the variable isn't redefined.
 ```java
@@ -25,9 +25,9 @@ if (condition) {
 print(x);       // x could be 5 or 15
 ```
 
-## The Mathematics Behind It
+## The mathematics behind it
 
-### Formal Definition
+### Formal definition
 
 For each program point, we track a set of definitions that reach it:
 
@@ -36,7 +36,7 @@ For each program point, we track a set of definitions that reach it:
 - **IN[B]**: Definitions reaching the entry of B
 - **OUT[B]**: Definitions reaching the exit of B
 
-### Data Flow Equations
+### Data flow equations
 
 This is a forward analysis with these equations.
 ```
@@ -89,11 +89,11 @@ public class ReachingDefinitionsAnalysis extends ForwardDataFlowAnalysis<Definit
 }
 ```
 
-## Working with ReachingDefinitions Results
+## Working with reachingdefinitions results
 
 The `ReachingDefinitions` result type provides rich querying capabilities:
 
-### Basic Queries
+### Basic queries
 
 ```java
 ReachingDefinitionsAnalysis analysis = new ReachingDefinitionsAnalysis(cfg);
@@ -112,7 +112,7 @@ Set<Expression> possibleValues = definitions.stream()
     .collect(Collectors.toSet());
 ```
 
-### Advanced Queries
+### Advanced queries
 
 ```java
 // Find uses with multiple reaching definitions (join points)
@@ -128,9 +128,9 @@ Set<Definition> deadDefs = reachingDefs.findDeadDefinitions();
 boolean isKilled = reachingDefs.isDefinitionKilled(definition, programPoint);
 ```
 
-## Common Applications
+## Common applications
 
-### Uninitialized Variable Detection
+### Uninitialized variable detection
 
 Find variables used before initialization.
 ```java
@@ -162,7 +162,7 @@ public class UninitializedVariableDetector extends Recipe {
 }
 ```
 
-### Constant Propagation
+### Constant propagation
 
 Replace variable uses with constant values when possible.
 ```java
@@ -190,7 +190,7 @@ public class ConstantPropagation {
 }
 ```
 
-### Def-Use Chain Analysis
+### Def-use chain analysis
 
 Understanding data dependencies.
 ```java
@@ -213,9 +213,9 @@ public class DataDependencyAnalyzer {
 }
 ```
 
-## Advanced Patterns
+## Advanced patterns
 
-### Copy Propagation
+### Copy propagation
 
 Eliminate unnecessary variable copies.
 ```java
@@ -235,7 +235,7 @@ public void propagateCopies(ReachingDefinitions reachingDefs) {
 }
 ```
 
-### Available Expressions
+### Available expressions
 
 Combine with expression analysis.
 ```java
@@ -253,7 +253,7 @@ public class AvailableExpressions {
 }
 ```
 
-### Type Inference
+### Type inference
 
 Use reaching definitions for type refinement.
 ```java
@@ -277,9 +277,9 @@ public class TypeRefinement {
 }
 ```
 
-## Performance Optimization
+## Performance optimization
 
-### Sparse Representations
+### Sparse representations
 
 For large methods, use sparse representations.
 ```java
@@ -293,7 +293,7 @@ public class SparseReachingDefinitions {
 }
 ```
 
-### Incremental Updates
+### Incremental updates
 
 Update reaching definitions incrementally when code changes.
 ```java
@@ -324,9 +324,9 @@ public class IncrementalReachingDefs {
 }
 ```
 
-## Integration with Other Analyses
+## Integration with other analyses
 
-### With Liveness Analysis
+### With liveness analysis
 
 Combine for more precise dead code detection.
 ```java
@@ -357,7 +357,7 @@ public Set<Definition> findTrulyDeadDefinitions(
 }
 ```
 
-### With Taint Analysis
+### With taint analysis
 
 Track taint propagation through definitions.
 ```java
@@ -391,7 +391,7 @@ public class TaintTracking {
 }
 ```
 
-## Common Pitfalls
+## Common pitfalls
 
 ### Aliasing
 
@@ -402,7 +402,7 @@ int[] b = a;  // a and b alias
 b[0] = 5;     // Also defines a[0]
 ```
 
-### Field Definitions
+### Field definitions
 
 Field assignments need special handling.
 ```java
@@ -417,7 +417,7 @@ class Container {
 }
 ```
 
-### Control Flow Complexity
+### Control flow complexity
 
 Some definitions are conditional.
 ```java
@@ -430,7 +430,7 @@ if (checkCondition()) {
 // x might still be uninitialized here!
 ```
 
-## Testing Reaching Definitions
+## Testing reaching definitions
 
 Always test with complex patterns.
 ```java
@@ -456,7 +456,7 @@ void testMultipleDefinitions() {
 }
 ```
 
-## Next Steps
+## Next steps
 
 - [Liveness Analysis](liveness-analysis.md) - The complementary backward analysis
 - [Inter-procedural Analysis](inter-procedural-analysis.md) - Tracking data across method boundaries

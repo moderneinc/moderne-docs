@@ -2,7 +2,7 @@
 description: Master taint analysis for finding security vulnerabilities in Java applications
 ---
 
-# Comprehensive Guide to Taint Analysis
+# Comprehensive guide to taint analysis
 
 Taint analysis tracks the flow of untrusted (tainted) data through a program to find security vulnerabilities. It's like following a drop of colored dye through water – once data is tainted, we track everywhere it flows until it either reaches a dangerous sink or gets sanitized.
 
@@ -10,7 +10,7 @@ Taint analysis tracks the flow of untrusted (tainted) data through a program to 
 This guide assumes you've read the [Introduction to Taint Analysis](introduction.md) which covers the core concepts of sources, sinks, and sanitizers. This guide focuses on implementation details and advanced patterns.
 :::
 
-## How Taint Analysis Works
+## How taint analysis works
 
 Taint analysis is a specialized forward data flow analysis that propagates taint labels through the program.
 ```java
@@ -91,9 +91,9 @@ public class TaintAnalysis extends ForwardDataFlowAnalysis<TaintedValue, TaintFl
 }
 ```
 
-## Defining Taint Specifications
+## Defining taint specifications
 
-### Basic Taint Specification
+### Basic taint specification
 
 ```java
 public class WebSecuritySpec implements TaintFlowSpec {
@@ -151,7 +151,7 @@ public class WebSecuritySpec implements TaintFlowSpec {
 }
 ```
 
-### Advanced Specifications with Context
+### Advanced specifications with context
 
 ```java
 public class ContextAwareTaintSpec implements TaintFlowSpec {
@@ -193,7 +193,7 @@ public class ContextAwareTaintSpec implements TaintFlowSpec {
 }
 ```
 
-## Field-Sensitive Analysis
+## Field-sensitive analysis
 
 OpenRewrite's taint analysis is field-sensitive by default, distinguishing between different fields.
 ```java
@@ -211,11 +211,11 @@ String userName = userData.name;                // userName is TAINTED
 String userId = userData.id;                    // userId is CLEAN
 ```
 
-## Working with TaintFlows Results
+## Working with TaintFlows results
 
 The `TaintFlows` result type provides comprehensive querying:
 
-### Finding Vulnerabilities
+### Finding vulnerabilities
 
 ```java
 TaintAnalysis analysis = new TaintAnalysis(cfg, new WebSecuritySpec());
@@ -236,7 +236,7 @@ for (TaintFlow flow : vulnerabilities) {
 }
 ```
 
-### Analyzing Specific Variables
+### Analyzing specific variables
 
 ```java
 // Check if a specific variable is tainted
@@ -249,7 +249,7 @@ Set<TaintedValue> taints = taintFlows.getTaints(expression);
 Set<String> taintedVars = taintFlows.getTaintedVariables(statement);
 ```
 
-### Path Queries
+### Path queries
 
 ```java
 // Get the taint propagation path
@@ -262,9 +262,9 @@ List<TaintPath> allPaths = taintFlows.findAllPaths(sink);
 Set<Tree> propagationPoints = taintFlows.getPropagationPoints(taintedValue);
 ```
 
-## Creating Security Recipes
+## Creating security recipes
 
-### SQL Injection Detection
+### SQL injection detection
 
 ```java
 public class FindSqlInjection extends Recipe {
@@ -322,7 +322,7 @@ public class FindSqlInjection extends Recipe {
 }
 ```
 
-### Cross-Site Scripting Detection
+### Cross-site scripting detection
 
 ```java
 public class FindXss extends Recipe {
@@ -362,9 +362,9 @@ public class FindXss extends Recipe {
 }
 ```
 
-## Advanced Taint Analysis Patterns
+## Advanced taint analysis patterns
 
-### Context-Sensitive Analysis
+### Context-sensitive analysis
 
 Track taint through method calls with context.
 ```java
@@ -386,7 +386,7 @@ public class ContextSensitiveTaint extends TaintAnalysis {
 }
 ```
 
-### Implicit Flow Tracking
+### Implicit flow tracking
 
 Track taint through control flow.
 ```java
@@ -415,7 +415,7 @@ public class ImplicitFlowTaint extends TaintAnalysis {
 }
 ```
 
-### Taint Sanitization Validation
+### Taint sanitization validation
 
 Ensure sanitizers are used correctly.
 ```java
@@ -439,9 +439,9 @@ public class SanitizationValidator {
 }
 ```
 
-## Performance Optimization
+## Performance optimization
 
-### Demand-Driven Analysis
+### Demand-driven analysis
 
 Only analyze paths that matter.
 ```java
@@ -460,7 +460,7 @@ public class DemandDrivenTaint {
 }
 ```
 
-### Summary-Based Analysis
+### Summary-based analysis
 
 Use pre-computed summaries for library methods.
 ```java
@@ -483,7 +483,7 @@ public class LibraryModeledTaint extends TaintAnalysis {
 }
 ```
 
-## Testing Taint Analysis
+## Testing taint analysis
 
 Comprehensive tests ensure accuracy.
 ```java
@@ -536,32 +536,29 @@ void tracksFieldTaint() {
 }
 ```
 
-## Best Practices
+## Best practices
 
-### Minimize False Positives
+### Minimize false positives
 
 1. Model sanitizers accurately
 2. Consider validation patterns
 3. Understand framework behavior
 4. Track taint types precisely
 
-### Maximize Coverage
+### Maximize coverage
 
 1. Include all relevant sources
 2. Model library propagation
 3. Handle reflection when possible
 4. Consider indirect flows
 
-### Performance Considerations
+### Performance considerations
 
 1. Use demand-driven analysis for large codebases
 2. Cache method summaries
 3. Prune irrelevant paths early
 4. Leverage incremental analysis
 
-## Next Steps
+## Next steps
 
 - [Security Recipes](../security/overview.md) - Pre-built security analysis recipes
-- [Taint Specifications](taint-specifications.md) - Defining custom taint sources and sinks
-- [Advanced Taint Patterns](advanced-patterns.md) - Handling complex taint scenarios
-- [Library Modeling](library-modeling.md) - Modeling taint through third-party libraries

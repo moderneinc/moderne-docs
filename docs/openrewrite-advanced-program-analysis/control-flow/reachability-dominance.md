@@ -6,11 +6,11 @@ description: Master graph algorithms for analyzing control flow relationships, r
 
 Reachability and dominance are fundamental relationships in control flow graphs that answer critical questions about program structure. These analyses form the foundation for many optimizations and program transformations.
 
-## Understanding Reachability
+##Understanding reachability
 
 Reachability analysis determines which parts of a program can be executed from a given starting point. It's like exploring a cave system with a flashlight - you want to know which chambers you can reach from the entrance.
 
-### Basic Reachability
+###Basic reachability
 
 A basic block B is reachable from block A if there exists a path in the CFG from A to B. This is computed using a simple graph traversal.
 ```java
@@ -43,7 +43,7 @@ public class ReachabilityAnalysis {
 }
 ```
 
-### Finding Unreachable Code
+###Finding unreachable code
 
 Unreachable code is code that cannot be executed under any circumstances.
 ```java
@@ -94,7 +94,7 @@ public class UnreachableCodeDetector extends Recipe {
 }
 ```
 
-### Common Patterns of Unreachable Code
+###Common patterns of unreachable code
 
 #### Code After Return
 
@@ -134,11 +134,11 @@ while (condition) {
 }
 ```
 
-## Understanding Dominance
+##Understanding dominance
 
 Dominance relationships capture the "must pass through" structure of a program. Block A dominates block B if every path from the entry to B must pass through A.
 
-### Immediate Dominators
+###Immediate dominators
 
 Every block (except the entry) has exactly one immediate dominator - the closest dominator on all paths from the entry.
 ```java
@@ -201,7 +201,7 @@ public class DominatorAnalysis {
 }
 ```
 
-### Dominator Trees
+###Dominator trees
 
 The immediate dominator relationship forms a tree structure that's invaluable for many analyses.
 ```java
@@ -254,7 +254,7 @@ public class DominatorTree {
 }
 ```
 
-## Post-Dominance Analysis
+##Post-dominance analysis
 
 Post-dominance is the reverse relationship: block B post-dominates block A if B is on every path from A to the exit. This is computed on the reverse CFG.
 ```java
@@ -285,7 +285,7 @@ public class PostDominatorAnalysis extends DominatorAnalysis {
 }
 ```
 
-## Control Dependence
+##Control dependence
 
 Control dependence combines dominance and post-dominance to determine which conditions control the execution of statements.
 ```java
@@ -332,9 +332,9 @@ public class ControlDependenceAnalysis {
 }
 ```
 
-## Practical Applications
+##Practical applications
 
-### Dead Code Elimination
+###Dead code elimination
 
 Use dominance to safely remove code.
 ```java
@@ -363,7 +363,7 @@ public class DeadCodeEliminator {
 }
 ```
 
-### Loop-Invariant Code Motion
+###Loop-invariant code motion
 
 Move code out of loops when safe.
 ```java
@@ -388,7 +388,7 @@ public class LoopInvariantCodeMotion {
 }
 ```
 
-### Partial Redundancy Elimination
+###Partial redundancy elimination
 
 Eliminate computations that are redundant on some paths.
 ```java
@@ -412,7 +412,7 @@ public class PartialRedundancyElimination {
 }
 ```
 
-## Next Steps
+##Next steps
 
 - [Loop Analysis Techniques](loop-analysis.md) - Deep dive into loop structure analysis
 - [Building Control Flow Graphs](building-cfgs.md) - Construct CFGs from source code

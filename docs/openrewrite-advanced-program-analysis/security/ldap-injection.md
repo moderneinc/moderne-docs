@@ -6,11 +6,11 @@ description: Detect and prevent LDAP injection vulnerabilities in directory serv
 
 LDAP (Lightweight Directory Access Protocol) injection vulnerabilities occur when untrusted data is incorporated into LDAP queries without proper sanitization. Attackers can modify query logic to bypass authentication, extract sensitive directory information, or modify directory entries.
 
-## Understanding LDAP Injection
+## Understanding LDAP injection
 
 Think of LDAP like a company phone directory. Normally, you search for "John in Sales." But LDAP injection is like tricking the directory to show you "Everyone's salaries and passwords" instead. The attacker manipulates your search to reveal information they shouldn't access.
 
-### LDAP Query Basics
+### LDAP query basics
 
 LDAP uses a filter syntax with special characters.
 ```java
@@ -24,11 +24,11 @@ LDAP uses a filter syntax with special characters.
 "(&(uid=*)(password=*))"  // Returns all users with passwords!
 ```
 
-## How OpenRewrite Detects LDAP Injection
+## How OpenRewrite detects LDAP injection
 
 The `FindLdapInjection` recipe tracks untrusted data flowing into LDAP query construction:
 
-### 1. LDAP Query Sinks
+### 1. LDAP query sinks
 
 ```java
 // JNDI LDAP queries
@@ -48,7 +48,7 @@ connection.search(baseDN, scope, filter);
 connection.search(searchRequest);
 ```
 
-### 2. Common Attack Patterns
+### 2. Common attack patterns
 
 ```java
 // Authentication bypass
@@ -67,9 +67,9 @@ name = "*";
 // Returns all entries!
 ```
 
-## Vulnerable Patterns
+## Vulnerable patterns
 
-### Basic Authentication Bypass
+### Basic authentication bypass
 
 ```java
 // VULNERABLE - Direct string concatenation
@@ -87,7 +87,7 @@ public boolean authenticate(String username, String password) {
 // Password check is bypassed!
 ```
 
-### Search Injection
+### Search injection
 
 ```java
 // VULNERABLE - User-controlled search
@@ -105,7 +105,7 @@ public List<User> searchUsers(@RequestParam String name) {
 // Returns all objects in directory!
 ```
 
-### Attribute Injection
+### Attribute injection
 
 ```java
 // VULNERABLE - Multiple injection points
@@ -122,7 +122,7 @@ public void updatePhoneNumber(String uid, String phone) {
 // Modifies admin's phone instead of intended user!
 ```
 
-### Complex Filter Injection
+### Complex filter injection
 
 ```java
 // VULNERABLE - Complex query building
@@ -148,9 +148,9 @@ public List<User> advancedSearch(SearchCriteria criteria) {
 // Can extract admin info or all users!
 ```
 
-## Safe Patterns and Remediation
+## Safe patterns and remediation
 
-### Use Parameterized Filters
+### Use parameterized filters
 
 The safest approach is using parameterized LDAP filters.
 ```java
@@ -180,7 +180,7 @@ public boolean authenticate(String username, String password) {
 }
 ```
 
-### LDAP Encoding Functions
+### LDAP encoding functions
 
 When parameterized queries aren't available, properly encode special characters.
 ```java
@@ -222,7 +222,7 @@ public class LdapEncoder {
 }
 ```
 
-### DN Encoding
+### DN encoding
 
 Distinguished Names (DNs) require different encoding.
 ```java
@@ -244,7 +244,7 @@ public void updateUser(String uid, Attributes newAttrs) {
 }
 ```
 
-### Input Validation
+### Input validation
 
 Validate input before building queries.
 ```java
@@ -278,9 +278,9 @@ public class LdapValidator {
 }
 ```
 
-## Advanced LDAP Security Patterns
+## Advanced LDAP security patterns
 
-### Query Builders with Validation
+### Query builders with validation
 
 Create safe query builders that validate and encode.
 ```java
@@ -331,7 +331,7 @@ public class SafeLdapQueryBuilder {
 }
 ```
 
-### Preventing Blind LDAP Injection
+### Preventing blind LDAP injection
 
 Detect timing-based attacks.
 ```java
@@ -373,9 +373,9 @@ public class LdapSecurityMonitor {
 }
 ```
 
-## Testing LDAP Injection Detection
+## Testing LDAP injection detection
 
-### Unit Tests
+### Unit tests
 
 ```java
 @Test
@@ -424,9 +424,9 @@ void detectsComplexFilterInjection() {
 }
 ```
 
-## Common LDAP Injection Scenarios
+## Common LDAP injection scenarios
 
-### Authentication Bypass
+### Authentication bypass
 
 ```java
 // Vulnerable login
@@ -437,7 +437,7 @@ password: anything
 // The (&(objectClass=*)) is always true, short-circuiting the password check
 ```
 
-### Information Extraction
+### Information extraction
 
 ```java
 // Search injection to extract all emails
@@ -447,7 +447,7 @@ search: *)(mail=*;
 // Returns all entries with email addresses
 ```
 
-### Privilege Escalation
+### Privilege escalation
 
 ```java
 // Modifying group membership
@@ -456,9 +456,9 @@ groupName: admins)(member=uid=attacker,ou=users,dc=com;
 // Adds attacker to admins group through injection
 ```
 
-## Performance and Security Monitoring
+## Performance and security monitoring
 
-### Query Logging
+### Query logging
 
 ```java
 @Aspect
@@ -487,9 +487,9 @@ public class LdapQueryLogger {
 }
 ```
 
-## Integration with Directory Services
+## Integration with directory services
 
-### Active Directory Specific Concerns
+### Active Directory specific concerns
 
 ```java
 // AD-specific attributes that need protection
@@ -511,10 +511,9 @@ public void validateAdQuery(String filter) {
 }
 ```
 
-## Next Steps
+## Next steps
 
 - [SQL Injection](sql-injection.md) - Similar injection pattern for databases
-- [XPath Injection](xpath-injection.md) - XML query injection
 - [Command Injection](command-injection.md) - OS command injection
 
 :::warning Security Best Practice

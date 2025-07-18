@@ -308,20 +308,7 @@ const sidebars: SidebarsConfig = {
         'openrewrite-advanced-program-analysis/security/pii-protection',
       ],
     },
-    {
-      type: 'category',
-      label: 'Advanced Analysis Techniques',
-      link: {
-        type: 'generated-index',
-        title: 'Advanced Analysis Techniques',
-        description: 'Learn about call graphs, path-sensitive analysis, and other advanced techniques.',
-        slug: '/openrewrite-advanced-program-analysis/advanced-techniques',
-        keywords: ['call-graph', 'path-sensitive', 'resource-analysis'],
-      },
-      items: [
-        'openrewrite-advanced-program-analysis/other-analysis-functions/introduction',
-      ],
-    },
+    'openrewrite-advanced-program-analysis/advanced-analysis-techniques',
     {
       type: 'html',
       value: '<br/><strong>Administrator Documentation</strong>',

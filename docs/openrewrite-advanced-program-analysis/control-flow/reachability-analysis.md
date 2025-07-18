@@ -6,7 +6,7 @@ description: Learn how to determine which parts of code can be reached during ex
 
 Reachability analysis determines which parts of a program can actually be executed. It's one of the most fundamental control flow analyses, answering the simple but crucial question: "Can execution ever reach this point?" This analysis is essential for dead code detection, security analysis, and understanding program behavior.
 
-## Understanding Reachability
+## Understanding reachability
 
 Imagine you're exploring a cave system with multiple passages. Some passages lead to dead ends, others loop back, and some are blocked by collapsed rocks. Reachability analysis creates a map showing which chambers you can actually reach from the entrance.
 
@@ -32,11 +32,11 @@ public void process(String input) {
 }
 ```
 
-## How Reachability Analysis Works
+## How reachability analysis works
 
 Reachability analysis is a graph traversal problem on the Control Flow Graph (CFG). Starting from entry points, we mark all blocks we can reach by following edges.
 
-### Basic Algorithm
+### Basic algorithm
 
 ```java
 public class ReachabilityAnalysis {
@@ -73,7 +73,7 @@ public class ReachabilityAnalysis {
 }
 ```
 
-### Handling Different Edge Types
+### Handling different edge types
 
 Not all edges are equal. Some represent normal flow, others exceptional flow.
 ```java
@@ -114,9 +114,9 @@ public class PreciseReachabilityAnalysis {
 }
 ```
 
-## Common Unreachability Patterns
+## Common unreachability patterns
 
-### Dead Code After Return
+### Dead code after return
 
 The most common pattern.
 ```java
@@ -129,7 +129,7 @@ public int calculate(int x) {
 }
 ```
 
-### Impossible Conditions
+### Impossible conditions
 
 Static analysis can detect always-false conditions.
 ```java
@@ -149,7 +149,7 @@ public void process() {
 }
 ```
 
-### Infinite Loops Without Breaks
+### Infinite loops without breaks
 
 Code after infinite loops is unreachable.
 ```java
@@ -165,7 +165,7 @@ public void server() {
 }
 ```
 
-### Exception Flow
+### Exception flow
 
 Exception handling creates complex reachability patterns.
 ```java
@@ -250,9 +250,9 @@ public class UnreachableCodeDetector extends Recipe {
 }
 ```
 
-## Advanced Reachability Concepts
+## Advanced reachability concepts
 
-### Conditional Reachability
+### Conditional reachability
 
 Some code is reachable only under certain conditions.
 ```java
@@ -291,7 +291,7 @@ public class ConditionalReachability {
 }
 ```
 
-### Interprocedural Reachability
+### Interprocedural reachability
 
 Tracking reachability across method calls.
 ```java
@@ -325,9 +325,9 @@ public class InterproceduralReachability {
 }
 ```
 
-## Practical Applications
+## Practical applications
 
-### Dead Code Elimination
+### Dead code elimination
 
 Remove code that can never execute.
 ```java
@@ -347,7 +347,7 @@ public class DeadCodeEliminator {
 }
 ```
 
-### Security Analysis
+### Security analysis
 
 Ensure security checks aren't bypassed.
 ```java
@@ -369,7 +369,7 @@ public class SecurityCheckVerifier {
 }
 ```
 
-### Test Coverage Analysis
+### Test coverage analysis
 
 Identify code not covered by tests.
 ```java
@@ -394,9 +394,9 @@ public class CoverageAnalyzer {
 }
 ```
 
-## Optimization Techniques
+## Optimization techniques
 
-### Early Termination
+### Early termination
 
 Stop analysis once we've found what we're looking for.
 ```java
@@ -423,7 +423,7 @@ public boolean canReach(ControlFlowGraph cfg, BasicBlock from, BasicBlock to) {
 }
 ```
 
-### Caching Results
+### Caching results
 
 Cache reachability information for repeated queries.
 ```java
@@ -446,9 +446,9 @@ public class CachedReachabilityAnalysis {
 }
 ```
 
-## Common Pitfalls
+## Common pitfalls
 
-### Dynamic Dispatch
+### Dynamic dispatch
 
 Virtual method calls complicate reachability.
 ```java
@@ -461,7 +461,7 @@ public void process(Handler handler) {
 }
 ```
 
-### Reflection and Dynamic Code
+### Reflection and dynamic code
 
 Some reachability is only determinable at runtime.
 ```java
@@ -472,7 +472,7 @@ public void dynamic(String className) {
 }
 ```
 
-### Concurrent Execution
+### Concurrent execution
 
 Thread interactions affect reachability.
 ```java
@@ -490,7 +490,7 @@ void thread2() {
 }
 ```
 
-## Testing Reachability Analysis
+## Testing reachability analysis
 
 Comprehensive tests ensure accuracy.
 ```java
@@ -529,11 +529,11 @@ void testReachableAfterBreak() {
 }
 ```
 
-## Integration with Other Analyses
+## Integration with other analyses
 
 Reachability analysis forms the foundation for many other analyses:
 
-### With Dominance Analysis
+### With dominance analysis
 ```java
 // Block A dominates B if all paths to B go through A
 boolean dominates(BasicBlock a, BasicBlock b) {
@@ -542,7 +542,7 @@ boolean dominates(BasicBlock a, BasicBlock b) {
 }
 ```
 
-### With Live Variable Analysis
+### With live variable analysis
 ```java
 // Only analyze reachable blocks
 for (BasicBlock block : reachableBlocks) {
@@ -550,9 +550,8 @@ for (BasicBlock block : reachableBlocks) {
 }
 ```
 
-## Next Steps
+## Next steps
 
 - [Reachability and Dominance Analysis](reachability-dominance.md) - Combined techniques for control dependencies
 - [Building Control Flow Graphs](building-cfgs.md) - Foundation for reachability analysis
 - [Liveness Analysis](../data-flow/liveness-analysis.md) - Finding dead code through data flow
-- [Path-Sensitive Analysis](../other-analysis-functions/path-sensitive-guide.md) - Considering path conditions

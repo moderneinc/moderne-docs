@@ -8,11 +8,11 @@ Control flow analysis is a fundamental technique in program analysis that examin
 
 When you write a program, you're not just writing a linear sequence of instructions. You're creating a complex web of decisions, loops, and jumps. Control flow analysis helps us understand and reason about this web systematically.
 
-## What is a Control Flow Graph (CFG)?
+## What is a control flow graph (CFG)?
 
 A Control Flow Graph is a representation of all paths that might be traversed through a program during its execution. If your program were a city, the CFG would be its road map, showing how you can travel from one location (statement) to another.
 
-### Basic Blocks: The Building Blocks
+### Basic blocks: the building blocks
 
 At the heart of a CFG are basic blocks. A basic block is a sequence of consecutive statements with an important property: if you execute the first statement, you must execute all the others in order. There's no way to jump into the middle of a basic block or leave before the end.
 
@@ -36,7 +36,7 @@ public int calculatePrice(int quantity) {
 
 This method contains four basic blocks. The first three statements form one block because they always execute together. The if-statement creates a branch, leading to two separate blocks for the true and false cases. Finally, the last three statements form another block that always executes together.
 
-### Control Flow Edges: The Connections
+### Control flow edges: the connections
 
 Edges in a CFG represent the possible transfers of control between basic blocks. These aren't just simple arrows – they carry meaning about why control transfers from one block to another.
 
@@ -52,9 +52,9 @@ Exception edges represent the paths control can take when exceptions are thrown.
 Understanding edge types is crucial for many analyses. For example, loop optimization algorithms specifically look for back edges, while exception analysis focuses on exception edges.
 :::
 
-## Direct Applications of Control Flow Analysis
+## Direct applications of control flow analysis
 
-### Reachability Analysis
+### Reachability analysis
 
 One of the most fundamental questions we can ask about code is: "Can this statement ever execute?" Reachability analysis answers this by traversing the CFG from the entry point to see which blocks can be reached.
 
@@ -74,23 +74,23 @@ public void process(String input) {
 }
 ```
 
-### Loop Analysis
+### Loop analysis
 
 Loops are where programs spend most of their time, making loop analysis critical for performance optimization. By analyzing the CFG, we can detect loops, understand their structure, and even estimate how many times they'll execute.
 
 Loop analysis can identify nested loops (loops within loops), which are often performance hotspots. It can detect infinite loops by finding cycles in the CFG with no exit edges. It can even recognize common patterns like for-each loops or countdown loops, enabling specific optimizations.
 
-### Exception Flow Analysis
+### Exception flow analysis
 
 Modern programs use exceptions extensively, but understanding how exceptions flow through a program can be challenging. Exception flow analysis traces the paths exceptions can take from where they're thrown to where they're caught (or where they escape the method).
 
 This analysis helps identify methods that might throw undeclared exceptions, catch blocks that will never execute because the exception can't reach them, and resources that might leak when exceptions occur.
 
-### Control Dependency Analysis
+### Control dependency analysis
 
 Sometimes we need to know which statements control the execution of other statements. For example, if statement B is inside an if-block controlled by condition A, then B is control-dependent on A. This relationship is crucial for many advanced analyses and transformations.
 
-## Relationship to Data Flow Analysis
+## Relationship to data flow analysis
 
 Control flow graphs aren't just useful on their own – they form the foundation for data flow analyses. These analyses track how data moves through your program, but they need the CFG to know which paths the data can take.
 
@@ -109,7 +109,7 @@ Some analyses even work in both directions, gathering information from both pred
 If you're new to program analysis, focus on understanding CFGs thoroughly before moving to data flow analysis. A solid grasp of control flow makes data flow concepts much easier to understand.
 :::
 
-## Next Steps
+## Next steps
 
 Now that you understand the basics of control flow analysis, you can explore:
 

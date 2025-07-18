@@ -6,11 +6,11 @@ description: Deep dive into liveness analysis - determining which variables are 
 
 Liveness analysis is a fundamental backward data flow analysis that determines which variables might be used in the future at each point in a program. A variable is "live" at a program point if its current value may be read before it's overwritten. This analysis is crucial for dead code elimination, register allocation, and understanding data dependencies.
 
-## Understanding Liveness
+## Understanding liveness
 
 Think of liveness like tracking which ingredients in your kitchen will be used before they expire. If you have flour that won't be used before you buy new flour, the current flour is "dead" – you could throw it away without affecting any future recipes.
 
-### Intuition Through Examples
+### Intuition through examples
 
 Let's build intuition with progressively complex examples.
 ```java
@@ -29,16 +29,16 @@ return z;       // Point D: z is used here
 
 The key insight: we work **backward** through the program, propagating liveness information against the flow of control.
 
-## The Mathematics of Liveness
+## The mathematics of liveness
 
-### Formal Definition
+### Formal definition
 
 For each program point, we track a set of live variables. The analysis computes:
 
 - **LIVE_IN[B]**: Variables live at the entry of basic block B
 - **LIVE_OUT[B]**: Variables live at the exit of basic block B
 
-### Transfer Function
+### Transfer function
 
 The transfer function for a basic block B is.
 ```
@@ -49,7 +49,7 @@ Where:
 - **GEN[B]**: Variables used in B before being defined
 - **KILL[B]**: Variables defined in B
 
-### Data Flow Equations
+### Data flow equations
 
 For the exit of a block.
 ```
@@ -100,11 +100,11 @@ public class LivenessAnalysis extends BackwardDataFlowAnalysis<LiveVariable, Liv
 }
 ```
 
-## Working with LiveVariables Results
+## Working with livevariables results
 
 The `LiveVariables` result type provides rich querying capabilities:
 
-### Basic Queries
+### Basic queries
 
 ```java
 LivenessAnalysis analysis = new LivenessAnalysis(cfg);
@@ -120,7 +120,7 @@ Set<String> liveAtStatement = liveVars.getLiveVariableNames(statement);
 Set<String> liveAtEntry = liveVars.getLiveVariableNames(block);
 ```
 
-### Advanced Queries
+### Advanced queries
 
 ```java
 // Find all dead assignments automatically
@@ -137,9 +137,9 @@ Set<String> liveAtExit = liveVars.getLiveAtExit();
 boolean hasLiveVars = liveVars.hasLiveVariables();
 ```
 
-## Common Patterns and Edge Cases
+## Common patterns and edge cases
 
-### Assignment Chains
+### Assignment chains
 
 ```java
 int x = 5;      // Dead - immediately overwritten
@@ -149,7 +149,7 @@ int y = x * 2;  // x is used here
 
 Liveness analysis correctly identifies that the first assignment is dead.
 
-### Conditional Assignments
+### Conditional assignments
 
 ```java
 int result;
@@ -163,7 +163,7 @@ return result;  // result used here
 
 Both assignments are live because `result` is used after the if-statement.
 
-### Loop Variables
+### Loop variables
 
 ```java
 for (int i = 0; i < n; i++) {
@@ -175,7 +175,7 @@ for (int i = 0; i < n; i++) {
 
 Loop variables have special liveness patterns due to back edges.
 
-### Field Access
+### Field access
 
 Field access requires careful handling.
 ```java
@@ -192,9 +192,9 @@ class Container {
 
 OpenRewrite's implementation tracks fields separately when possible.
 
-## Practical Applications
+## Practical applications
 
-### Dead Code Elimination
+### Dead code elimination
 
 The most direct application.
 ```java
@@ -213,7 +213,7 @@ public void optimizeMethod() {
 }
 ```
 
-### Register Allocation
+### Register allocation
 
 Compilers use liveness for efficient register allocation.
 ```java
@@ -226,9 +226,9 @@ use(y);
 // x and y can use the same register!
 ```
 
-## Advanced Topics
+## Advanced topics
 
-### Liveness with Aliasing
+### Liveness with aliasing
 
 When variables can alias, liveness becomes more complex.
 ```java
@@ -238,7 +238,7 @@ arr2[0] = 5;        // Also affects arr1
 // Both arr1 and arr2 are live if either is used
 ```
 
-### Inter-procedural Liveness
+### Inter-procedural liveness
 
 Tracking liveness across method calls.
 ```java
@@ -250,7 +250,7 @@ public int compute(int x) {
 }
 ```
 
-### Liveness in Concurrent Programs
+### Liveness in concurrent programs
 
 Thread interactions affect liveness.
 ```java
@@ -261,9 +261,9 @@ void thread1() {
 }
 ```
 
-## Performance Optimization
+## Performance optimization
 
-### Sparse Representations
+### Sparse representations
 
 For large methods, use sparse representations.
 ```java
@@ -274,7 +274,7 @@ Map<ProgramPoint, Set<Variable>> allLiveness;  // Dense
 Map<ProgramPoint, LivenessChange> changes;     // Sparse
 ```
 
-### Incremental Updates
+### Incremental updates
 
 When code changes, update liveness incrementally.
 ```java
@@ -287,9 +287,9 @@ public void updateLiveness(Statement changed) {
 }
 ```
 
-## Common Pitfalls
+## Common pitfalls
 
-### Side Effects in Expressions
+### Side effects in expressions
 
 Not all "dead" assignments can be removed.
 ```java
@@ -297,7 +297,7 @@ int x = sideEffect();  // Can't remove even if x is dead!
 // The method call might have important effects
 ```
 
-### Exception Paths
+### Exception paths
 
 Variables might be live only on exception paths.
 ```java
@@ -311,7 +311,7 @@ try {
 }
 ```
 
-### Implicit Uses
+### Implicit uses
 
 Some uses aren't obvious in the AST.
 ```java
@@ -320,7 +320,7 @@ public String toString() {
 }
 ```
 
-## Testing Liveness Analysis
+## Testing liveness analysis
 
 Always test with various patterns.
 ```java
@@ -344,11 +344,11 @@ void testConditionalLiveness() {
 }
 ```
 
-## Integration with Other Analyses
+## Integration with other analyses
 
 Liveness analysis combines well with other analyses:
 
-### With Reaching Definitions
+### With reaching definitions
 ```java
 // Find uninitialized variable uses
 if (liveVars.isLive(var, point) && !reachingDefs.hasDefinition(var, point)) {
@@ -356,7 +356,7 @@ if (liveVars.isLive(var, point) && !reachingDefs.hasDefinition(var, point)) {
 }
 ```
 
-### With Constant Propagation
+### With constant propagation
 ```java
 // Only propagate constants to live variables
 if (liveVars.isLive(var, point) && constants.isConstant(var)) {
@@ -364,7 +364,7 @@ if (liveVars.isLive(var, point) && constants.isConstant(var)) {
 }
 ```
 
-## Next Steps
+## Next steps
 
 - [Reaching Definitions Analysis](reaching-definitions.md) - The complementary forward analysis
 - [Building Your First Data Flow Analysis](building-your-first-data-flow-analysis.md) - Hands-on tutorial using liveness

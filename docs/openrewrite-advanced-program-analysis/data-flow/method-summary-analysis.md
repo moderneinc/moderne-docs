@@ -6,7 +6,7 @@ description: Learn how to compute and use method summaries for efficient inter-p
 
 Method summaries are compact representations of what a method does, enabling efficient inter-procedural analysis without repeatedly analyzing method bodies. Think of them as "nutrition labels" for methods – they tell you what goes in, what comes out, and what effects occur, without needing to examine all the ingredients.
 
-## Understanding Method Summaries
+## Understanding method summaries
 
 A method summary captures the essential behavior of a method relevant to your analysis. For taint analysis, this might include.
 ```java
@@ -26,11 +26,11 @@ public String processUser(String name, int id, boolean validate) {
 // - Side effect: writes to log
 ```
 
-## Designing Summary Representations
+## Designing summary representations
 
 The structure of your summaries depends on your analysis needs:
 
-### Basic Flow Summary
+### Basic flow summary
 
 For simple taint tracking.
 ```java
@@ -50,7 +50,7 @@ public class BasicFlowSummary {
 }
 ```
 
-### Conditional Flow Summary
+### Conditional flow summary
 
 For more precision with path-sensitive information.
 ```java
@@ -83,7 +83,7 @@ public class ConditionalFlowSummary {
 }
 ```
 
-### Access Path Summary
+### Access path summary
 
 For field-sensitive analysis.
 ```java
@@ -105,9 +105,9 @@ public class AccessPathSummary {
 }
 ```
 
-## Computing Summaries
+## Computing summaries
 
-### Bottom-Up Analysis
+### Bottom-up analysis
 
 The standard approach computes summaries starting from leaf methods.
 ```java
@@ -143,7 +143,7 @@ public class SummaryComputer {
 }
 ```
 
-### Incremental Summary Computation
+### Incremental summary computation
 
 For large codebases, compute summaries incrementally.
 ```java
@@ -170,9 +170,9 @@ public class IncrementalSummaryComputer {
 }
 ```
 
-## Advanced Summary Features
+## Advanced summary features
 
-### Heap Abstractions
+### Heap abstractions
 
 Track modifications to heap objects.
 ```java
@@ -191,7 +191,7 @@ public class HeapSummary {
 }
 ```
 
-### Effect Summaries
+### Effect summaries
 
 Capture side effects beyond data flow.
 ```java
@@ -213,7 +213,7 @@ public class EffectSummary {
 }
 ```
 
-### Compositional Summaries
+### Compositional summaries
 
 Build complex summaries from simpler ones.
 ```java
@@ -241,9 +241,9 @@ public class CompositionalSummary {
 }
 ```
 
-## Using Summaries Effectively
+## Using summaries effectively
 
-### Summary Application
+### Summary application
 
 Apply summaries at call sites.
 ```java
@@ -280,7 +280,7 @@ public class SummaryApplication {
 }
 ```
 
-### Summary Precision Policies
+### Summary precision policies
 
 Different analyses need different precision levels.
 ```java
@@ -303,7 +303,7 @@ public class SecurityFocusedPolicy implements SummaryPrecisionPolicy {
 }
 ```
 
-## Practical Example: Taint Summary
+## Practical example: taint summary
 
 Here's a complete example of computing and using taint summaries.
 ```java
@@ -370,9 +370,9 @@ public class TaintSummaryExample {
 }
 ```
 
-## Performance Considerations
+## Performance considerations
 
-### Summary Size Management
+### Summary size management
 
 Keep summaries compact.
 ```java
@@ -392,7 +392,7 @@ public class CompactSummary {
 }
 ```
 
-### Caching Strategies
+### Caching strategies
 
 Effective caching is crucial.
 ```java
@@ -426,15 +426,15 @@ public class SummaryCache {
 }
 ```
 
-## Best Practices
+## Best practices
 
-### Design for Your Analysis
+### Design for your analysis
 Don't over-engineer summaries. Include only information relevant to your specific analysis.
 
-### Balance Precision and Size
+### Balance precision and size
 More precise summaries are larger and slower to compute. Find the right trade-off for your use case.
 
-### Validate Summaries
+### Validate summaries
 Test that summaries accurately represent method behavior.
 ```java
 @Test
@@ -449,12 +449,9 @@ void validateSummary() {
 }
 ```
 
-### Document Summary Format
+### Document summary format
 Clearly document what your summaries represent and how to interpret them.
 
-## Next Steps
+## Next steps
 
 - [Inter-procedural Analysis](inter-procedural-analysis.md) - Using summaries in whole-program analysis
-- [Context Sensitivity](context-sensitivity.md) - Improving precision with calling context
-- [Incremental Analysis](incremental-analysis.md) - Efficiently updating summaries
-- [Summary Inference](summary-inference.md) - Learning summaries from examples
