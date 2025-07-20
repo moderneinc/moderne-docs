@@ -58,11 +58,8 @@ Let's look at an existing imperative recipe in the starter project, and see how 
 
 Let's write an imperative recipe in Java that replaces uses of `new Integer(x)` with `Integer.valueOf(x)` when `x` is an `int`, and `Integer.parseInt(x)` when `x` is a `String`.
 
-This kind of transformation can’t be handled by declarative or Refaster recipes because it's replacing a constructor call with a method call, so it’s a great example of when imperative recipes are necessary.
-
 ### Goals for this exercise
 
-* Understand when to use imperative recipes instead of YAML or Refaster.
 * Get experience building new code elements (like method calls) to replace existing ones.
 * Practice building an imperative recipe using JavaTemplate to transform LST elements.
 
@@ -89,7 +86,6 @@ This kind of transformation can’t be handled by declarative or Refaster recipe
 
 ### Takeaways
 
-* Use imperative recipes when you need precise control like replacing constructors or branching on argument types.
 * `JavaVisitor` (or `JavaIsoVisitor`) targets specific LST nodes, and `JavaTemplate` builds replacements with preserved formatting.
 * Type inspection with `TypeUtils` can enable conditional logic in your transformations.
 * Tests help define the expected behavior of your recipe and ensure it handles all relevant cases correctly.
