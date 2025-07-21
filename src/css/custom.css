@@ -423,20 +423,6 @@ html[data-theme='dark'] {
   padding: 0 calc(var(--ifm-pre-padding) - 3px) 0 var(--ifm-pre-padding);
 }
 
-/* Enhanced styles for better accessibility */
-.theme-code-block .docusaurus-highlight-code-line {
-  position: relative;
-}
-
-/* Optional: Add subtle animation for better visibility */
-.docusaurus-highlight-code-line {
-  transition: all 0.2s ease-in-out;
-}
-
-.theme-code-block:hover .docusaurus-highlight-code-line {
-  background-color: var(--docusaurus-highlighted-code-line-bg);
-  transform: translateX(2px);
-}
 
 /* Agent builder CSS */
 .steps-progress {
