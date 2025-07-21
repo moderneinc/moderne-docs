@@ -1,5 +1,5 @@
 ---
-description: Detect, analyze, and understand loops in control flow graphs for optimization and analysis
+description: Detect, analyze, and understand loops in control flow graphs for optimization and analysis.
 ---
 
 # Loop Analysis Techniques
@@ -679,8 +679,6 @@ public class LoopCacheAnalysis {
 
 ## Next steps
 
-* [Reachability and Dominance Analysis](reachability-dominance.md) - Understand the foundations of loop detection
-* [Building Control Flow Graphs](building-cfgs.md) - Learn how loops appear in CFGs
 * [Data Flow Analysis](../data-flow/introduction.md) - Apply loop analysis to data flow problems
 
 :::tip

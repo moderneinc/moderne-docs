@@ -1,5 +1,5 @@
 ---
-description: Learn how to construct and work with Control Flow Graphs in OpenRewrite
+description: Learn how to construct and work with Control Flow Graphs in OpenRewrite.
 ---
 
 # Building Control Flow Graphs
@@ -438,5 +438,6 @@ if (cfg == null) {
 
 ## Next steps
 
-* [Reachability and Dominance Analysis](./reachability-dominance.md) - Advanced CFG algorithms
+* [Readability Analysis](./reachability-analysis.md) - Learn how to determine which parts of code can be reached during execution.
+* [Dominance Analysis](./reachability-dominance.md) - Master dominance relationships and control dependencies
 * [Loop Analysis Techniques](./loop-analysis.md) - Detecting and analyzing loops

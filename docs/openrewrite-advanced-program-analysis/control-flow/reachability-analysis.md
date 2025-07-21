@@ -1,5 +1,5 @@
 ---
-description: Learn how to determine which parts of code can be reached during execution
+description: Learn how to determine which parts of code can be reached during execution.
 ---
 
 # Reachability Analysis
@@ -572,6 +572,5 @@ for (BasicBlock block : reachableBlocks) {
 
 ## Next steps
 
-* [Reachability and Dominance Analysis](reachability-dominance.md) - Combined techniques for control dependencies
-* [Building Control Flow Graphs](building-cfgs.md) - Foundation for reachability analysis
-* [Liveness Analysis](../data-flow/liveness-analysis.md) - Finding dead code through data flow
+* [Dominance Analysis](./reachability-dominance.md) - Master dominance relationships and control dependencies.
+* [Loop Analysis Techniques](./loop-analysis.md) - Master the intricacies of loop detection and analysis.
