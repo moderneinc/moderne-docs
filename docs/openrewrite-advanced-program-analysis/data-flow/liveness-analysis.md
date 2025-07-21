@@ -35,8 +35,8 @@ The key insight: we work **backward** through the program, propagating liveness 
 
 For each program point, we track a set of live variables. The analysis computes:
 
-- **LIVE_IN[B]**: Variables live at the entry of basic block B
-- **LIVE_OUT[B]**: Variables live at the exit of basic block B
+* **LIVE_IN[B]**: Variables live at the entry of basic block B
+* **LIVE_OUT[B]**: Variables live at the exit of basic block B
 
 ### Transfer function
 
@@ -46,8 +46,8 @@ LIVE_IN[B] = GEN[B] ∪ (LIVE_OUT[B] - KILL[B])
 ```
 
 Where:
-- **GEN[B]**: Variables used in B before being defined
-- **KILL[B]**: Variables defined in B
+* **GEN[B]**: Variables used in B before being defined
+* **KILL[B]**: Variables defined in B
 
 ### Data flow equations
 
@@ -366,5 +366,5 @@ if (liveVars.isLive(var, point) && constants.isConstant(var)) {
 
 ## Next steps
 
-- [Reaching Definitions Analysis](reaching-definitions.md) - The complementary forward analysis
-- [Building Your First Data Flow Analysis](building-your-first-data-flow-analysis.md) - Hands-on tutorial using liveness
+* [Reaching Definitions Analysis](reaching-definitions.md) - The complementary forward analysis
+* [Building Your First Data Flow Analysis](building-your-first-data-flow-analysis.md) - Hands-on tutorial using liveness

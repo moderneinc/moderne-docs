@@ -345,9 +345,9 @@ When implementing data flow analyses, keep these tips in mind:
 Building CFGs is expensive. Always use `ControlFlowSupport` for automatic caching and lazy evaluation. See [Building Control Flow Graphs](../control-flow/building-cfgs.md) for detailed information about CFG caching strategies.
 
 ### Analyze at the right granularity
-- For spot checks (is this assignment dead?), analyze individual statements
-- For comprehensive analysis (find all dead code), analyze entire methods at once
-- Avoid analyzing the same method multiple times
+* For spot checks (is this assignment dead?), analyze individual statements
+* For comprehensive analysis (find all dead code), analyze entire methods at once
+* Avoid analyzing the same method multiple times
 
 ### Leverage result type methods
 The specialized result types like `LiveVariables` provide optimized implementations of common queries. Use `findDeadAssignments()` instead of manually iterating through all assignments.
@@ -369,9 +369,9 @@ The pattern shown here works for any data flow analysis. Just swap `LivenessAnal
 
 ### Field access complexity
 This example handles only simple field access. Real implementations need to consider:
-- Static vs. instance fields
-- Qualified field access (`this.field`, `super.field`)
-- Fields accessed through method calls
+* Static vs. instance fields
+* Qualified field access (`this.field`, `super.field`)
+* Fields accessed through method calls
 
 ### Side effects
 Some "dead" assignments might have side effects.

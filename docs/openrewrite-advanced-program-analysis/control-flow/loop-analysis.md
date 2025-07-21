@@ -21,11 +21,11 @@ A loop in a control flow graph is a strongly connected component with a single e
 
 Before diving into algorithms, let's establish common terminology:
 
-- **Header**: The single entry point to the loop
-- **Back Edge**: An edge from a node to one of its dominators
-- **Loop Body**: All blocks that can reach the back edge without going through the header
-- **Exit Blocks**: Blocks inside the loop with edges leading outside
-- **Preheader**: A block that has the header as its only successor (useful for optimizations)
+* **Header**: The single entry point to the loop
+* **Back Edge**: An edge from a node to one of its dominators
+* **Loop Body**: All blocks that can reach the back edge without going through the header
+* **Exit Blocks**: Blocks inside the loop with edges leading outside
+* **Preheader**: A block that has the header as its only successor (useful for optimizations)
 
 ## Loop detection
 
@@ -679,9 +679,9 @@ public class LoopCacheAnalysis {
 
 ## Next steps
 
-- [Reachability and Dominance Analysis](reachability-dominance.md) - Understand the foundations of loop detection
-- [Building Control Flow Graphs](building-cfgs.md) - Learn how loops appear in CFGs
-- [Data Flow Analysis](../data-flow/introduction.md) - Apply loop analysis to data flow problems
+* [Reachability and Dominance Analysis](reachability-dominance.md) - Understand the foundations of loop detection
+* [Building Control Flow Graphs](building-cfgs.md) - Learn how loops appear in CFGs
+* [Data Flow Analysis](../data-flow/introduction.md) - Apply loop analysis to data flow problems
 
 :::tip
 Loop analysis is one of the most impactful areas of program optimization. Even simple transformations like moving invariant code can significantly improve performance in hot loops.

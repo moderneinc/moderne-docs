@@ -552,6 +552,6 @@ for (BasicBlock block : reachableBlocks) {
 
 ## Next steps
 
-- [Reachability and Dominance Analysis](reachability-dominance.md) - Combined techniques for control dependencies
-- [Building Control Flow Graphs](building-cfgs.md) - Foundation for reachability analysis
-- [Liveness Analysis](../data-flow/liveness-analysis.md) - Finding dead code through data flow
+* [Reachability and Dominance Analysis](reachability-dominance.md) - Combined techniques for control dependencies
+* [Building Control Flow Graphs](building-cfgs.md) - Foundation for reachability analysis
+* [Liveness Analysis](../data-flow/liveness-analysis.md) - Finding dead code through data flow

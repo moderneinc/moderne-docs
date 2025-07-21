@@ -13,12 +13,14 @@ The `ControlFlowSupport` class is your primary interface for working with CFGs i
 ### Why use ControlFlowSupport?
 
 Building CFGs is computationally expensive. For a typical method:
+
 1. Parse all statements into basic blocks
 2. Analyze control structures (if/else, loops, try/catch)
 3. Build edges between blocks
 4. Compute dominance relationships
 
 `ControlFlowSupport` ensures this expensive computation happens only once per method.
+
 ```java
 // DON'T DO THIS - builds CFG every time
 public void analyzeMethod(J.MethodDeclaration method) {
@@ -50,6 +52,7 @@ public void analyzeMethod(Cursor cursor) {
 ### Basic usage
 
 The most common pattern is analyzing a specific statement or expression.
+
 ```java
 public class MyAnalysisRecipe extends Recipe {
     @Override
@@ -78,6 +81,7 @@ public class MyAnalysisRecipe extends Recipe {
 ### Analyzing entire methods
 
 To analyze a complete method at once.
+
 ```java
 @Override
 public J.MethodDeclaration visitMethodDeclaration(
@@ -133,6 +137,7 @@ ControlFlowGraph cfg = ControlFlowGraphs.build(lambda);
 ### Batch construction
 
 For analyzing multiple methods at once.
+
 ```java
 public void analyzeCompilationUnit(J.CompilationUnit cu) {
     // Build all CFGs at once
@@ -158,6 +163,7 @@ public void analyzeCompilationUnit(J.CompilationUnit cu) {
 ### Basic blocks
 
 A CFG consists of basic blocks connected by edges.
+
 ```java
 ControlFlowGraph cfg = ...;
 
@@ -181,6 +187,7 @@ for (BasicBlock block : blocks) {
 ### Edge types
 
 Different edge types represent different control flow.
+
 ```java
 // Get typed edges
 Set<ControlFlowEdge> edges = cfg.getEdges();
@@ -213,6 +220,7 @@ for (ControlFlowEdge edge : edges) {
 ### Finding containing blocks
 
 To find which block contains a specific statement.
+
 ```java
 public BasicBlock findContainingBlock(ControlFlowGraph cfg, Tree statement) {
     for (BasicBlock block : cfg.getAllBlocks()) {
@@ -227,6 +235,7 @@ public BasicBlock findContainingBlock(ControlFlowGraph cfg, Tree statement) {
 ### Path analysis
 
 To check if one block can reach another.
+
 ```java
 public boolean canReach(ControlFlowGraph cfg, BasicBlock from, BasicBlock to) {
     Set<BasicBlock> visited = new HashSet<>();
@@ -251,6 +260,7 @@ public boolean canReach(ControlFlowGraph cfg, BasicBlock from, BasicBlock to) {
 ### Dominance analysis
 
 CFGs support dominance queries.
+
 ```java
 // Check if block A dominates block B
 // (all paths to B go through A)
@@ -268,20 +278,21 @@ Set<BasicBlock> frontier = cfg.getDominanceFrontier(block);
 ### When to use ControlFlowSupport vs. manual construction
 
 Use `ControlFlowSupport` when:
-- Analyzing specific statements or expressions
-- Working within a visitor pattern
-- Wanting automatic caching and lazy evaluation
-- Needing null safety for non-method contexts
+* Analyzing specific statements or expressions
+* Working within a visitor pattern
+* Wanting automatic caching and lazy evaluation
+* Needing null safety for non-method contexts
 
 Use manual construction when:
-- Analyzing all methods in a compilation unit at once
-- Performing whole-program analysis
-- Needing to coordinate results across multiple methods
-- Building custom caching strategies
+* Analyzing all methods in a compilation unit at once
+* Performing whole-program analysis
+* Needing to coordinate results across multiple methods
+* Building custom caching strategies
 
 ### Caching strategies
 
 The `ControlFlowSupport` cache is scoped to a compilation unit and uses weak references.
+
 ```java
 // Cache implementation (simplified)
 public class ControlFlowSupport {
@@ -310,15 +321,16 @@ public class ControlFlowSupport {
 ### Memory considerations
 
 CFGs can be memory-intensive for large methods. The caching system helps by:
-- Using weak references for compilation units (garbage collected under memory pressure)
-- Using soft references for CFGs (kept as long as memory permits)
-- Building CFGs lazily (only for methods actually analyzed)
+* Using weak references for compilation units (garbage collected under memory pressure)
+* Using soft references for CFGs (kept as long as memory permits)
+* Building CFGs lazily (only for methods actually analyzed)
 
 ## Advanced topics
 
 ### Supporting language constructs
 
 OpenRewrite's CFG builder handles complex Java constructs.
+
 ```java
 // Try-catch-finally
 try {
@@ -348,6 +360,7 @@ list.forEach(item -> {
 ### Debugging CFGs
 
 To visualize or debug CFGs.
+
 ```java
 public void printCfg(ControlFlowGraph cfg) {
     System.out.println("CFG with " + cfg.getAllBlocks().size() + " blocks:");
@@ -373,6 +386,7 @@ public void printCfg(ControlFlowGraph cfg) {
 ### Analyzing non-method code
 
 Not all code is inside methods.
+
 ```java
 // Field initializers don't have CFGs
 class Example {
@@ -388,6 +402,7 @@ class Example {
 ### Lambda and anonymous class boundaries
 
 Each lambda and anonymous class has its own CFG.
+
 ```java
 public void process() {
     // Outer method CFG
@@ -401,9 +416,9 @@ public void process() {
 ### Incomplete CFGs
 
 Some constructs may result in incomplete CFGs:
-- Parsing errors
-- Unsupported language features
-- Synthetic or generated code
+* Parsing errors
+* Unsupported language features
+* Synthetic or generated code
 
 Always check for null and handle gracefully.
 ```java
@@ -416,5 +431,5 @@ if (cfg == null) {
 
 ## Next steps
 
-- [Reachability and Dominance Analysis](reachability-dominance.md) - Advanced CFG algorithms
-- [Loop Analysis Techniques](loop-analysis.md) - Detecting and analyzing loops
+* [Reachability and Dominance Analysis](reachability-dominance.md) - Advanced CFG algorithms
+* [Loop Analysis Techniques](loop-analysis.md) - Detecting and analyzing loops

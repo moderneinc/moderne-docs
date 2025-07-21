@@ -203,10 +203,10 @@ void example(Processor p, Logger log) {
 ```
 
 OpenRewrite's advantages:
-- The `JavaType.Method` on each `J.MethodInvocation` identifies the declared method signature
-- Methods with the same name on unrelated types are never confused
-- Only implementations of the actual interface/superclass need to be considered
-- No false positives from text-based matching
+* The `JavaType.Method` on each `J.MethodInvocation` identifies the declared method signature
+* Methods with the same name on unrelated types are never confused
+* Only implementations of the actual interface/superclass need to be considered
+* No false positives from text-based matching
 
 When analyzing virtual method calls, use type hierarchy information to find all relevant implementations, but benefit from OpenRewrite's precise type information to avoid considering unrelated methods.
 
@@ -287,5 +287,5 @@ public class InterProceduralSecurityAnalysis extends Recipe {
 
 ## Next steps
 
-- [Method Summary Analysis](method-summary-analysis.md) - Deep dive into computing and using method summaries
-- [Taint Analysis](../taint-analysis/comprehensive-guide.md) - Apply inter-procedural analysis to security
+* [Method Summary Analysis](method-summary-analysis.md) - Deep dive into computing and using method summaries
+* [Taint Analysis](../taint-analysis/comprehensive-guide.md) - Apply inter-procedural analysis to security

@@ -97,8 +97,8 @@ Facts flow through the program according to rules. Some statements generate new 
 Transfer functions describe how statements transform facts. They're the rules of the game.
 
 For a simple assignment like `x = y + z`:
-- In reaching definitions: KILLs all previous definitions of x, GENs a new definition
-- In liveness: KILLs liveness of x (unless x is used on the right side), GENs liveness for y and z
+* In reaching definitions: KILLs all previous definitions of x, GENs a new definition
+* In liveness: KILLs liveness of x (unless x is used on the right side), GENs liveness for y and z
 
 ```java
 // Liveness example
@@ -144,8 +144,8 @@ Data flow analysis typically uses an iterative algorithm that keeps refining the
 ```
 1. Initialize all facts (usually to empty or full sets)
 2. For each basic block:
-   - Apply the transfer function
-   - Merge facts from predecessors (forward) or successors (backward)
+   * Apply the transfer function
+   * Merge facts from predecessors (forward) or successors (backward)
 3. If any facts changed, repeat step 2
 4. When nothing changes, we've found the solution
 ```
@@ -176,9 +176,9 @@ Modern Java IDEs perform data flow analysis constantly. When IntelliJ IDEA grays
 
 Now that you understand the fundamentals, you can dive deeper:
 
-- [Building Your First Data Flow Analysis](building-your-first-data-flow-analysis.md) - Hands-on guide to implementing analyses
-- [Liveness Analysis in Detail](liveness-analysis.md) - Deep dive into this fundamental backward analysis
-- [Reaching Definitions Analysis](reaching-definitions.md) - Master the classic forward analysis
+* [Building Your First Data Flow Analysis](building-your-first-data-flow-analysis.md) - Hands-on guide to implementing analyses
+* [Liveness Analysis in Detail](liveness-analysis.md) - Deep dive into this fundamental backward analysis
+* [Reaching Definitions Analysis](reaching-definitions.md) - Master the classic forward analysis
 
 :::info Further Reading
 For theoretical foundations, see "Principles of Program Analysis" by Nielson, Nielson, and Hankin. For practical implementation details, "Modern Compiler Implementation in Java" by Appel provides excellent coverage with actual code.

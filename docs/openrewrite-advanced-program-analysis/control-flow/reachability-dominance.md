@@ -421,9 +421,9 @@ public class PartialRedundancyElimination {
 
 ## Next steps
 
-- [Loop Analysis Techniques](loop-analysis.md) - Deep dive into loop structure analysis
-- [Building Control Flow Graphs](building-cfgs.md) - Construct CFGs from source code
-- [Data Flow Analysis](../data-flow/introduction.md) - See how dominance enables optimizations
+* [Loop Analysis Techniques](loop-analysis.md) - Deep dive into loop structure analysis
+* [Building Control Flow Graphs](building-cfgs.md) - Construct CFGs from source code
+* [Data Flow Analysis](../data-flow/introduction.md) - See how dominance enables optimizations
 
 :::tip
 Dominance relationships are fundamental to many compiler optimizations. Understanding them well will help you implement sophisticated program transformations and analyses.
