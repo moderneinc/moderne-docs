@@ -8,29 +8,30 @@ Control flow analysis is a fundamental technique in program analysis that examin
 
 When you write a program, you're not just writing a linear sequence of instructions. You're creating a complex web of decisions, loops, and jumps. Control flow analysis helps us understand and reason about this web systematically.
 
-## What is a control flow graph (CFG)?
+## What is a Control Flow Graph?
 
-A Control Flow Graph is a representation of all paths that might be traversed through a program during its execution. If your program were a city, the CFG would be its road map, showing how you can travel from one location (statement) to another.
+A Control Flow Graph (CFG) is a representation of all paths that might be traversed through a program during its execution. If your program were a city, the CFG would be its road map, showing how you can travel from one location (statement) to another.
 
-### Basic blocks: the building blocks
+### Basic blocks: the core components
 
 At the heart of a CFG are basic blocks. A basic block is a sequence of consecutive statements with an important property: if you execute the first statement, you must execute all the others in order. There's no way to jump into the middle of a basic block or leave before the end.
 
-Consider this simple code.
+Consider this simple code:
+
 ```java
 public int calculatePrice(int quantity) {
-    int basePrice = 10;        // Block 1 starts
-    int discount = 0;          // Block 1 continues
+    int basePrice = 10;                        // Block 1 starts
+    int discount = 0;                          // Block 1 continues
     
-    if (quantity > 100) {      // Block 1 ends
-        discount = 5;          // Block 2 (complete)
+    if (quantity > 100) {                      // Block 1 ends
+        discount = 5;                          // Block 2 (complete)
     } else {
-        discount = 2;          // Block 3 (complete)
+        discount = 2;                          // Block 3 (complete)
     }
     
-    int total = basePrice * quantity;    // Block 4 starts
+    int total = basePrice * quantity;          // Block 4 starts
     total = total - (total * discount / 100);  // Block 4 continues
-    return total;              // Block 4 ends
+    return total;                              // Block 4 ends
 }
 ```
 
@@ -40,13 +41,15 @@ This method contains four basic blocks. The first three statements form one bloc
 
 Edges in a CFG represent the possible transfers of control between basic blocks. These aren't just simple arrows – they carry meaning about why control transfers from one block to another.
 
-Sequential edges represent the normal flow from one statement to the next. When your if-statement completes, control flows to the next statement – that's a sequential edge.
+The main type of edges include:
 
-Conditional edges arise from decision points in your code. An if-statement creates two conditional edges: one for when the condition is true, another for when it's false. Switch statements can create many conditional edges, one for each case.
+* **Sequential edges** represent the normal flow from one statement to the next. When your if-statement completes, control flows to the next statement – that's a sequential edge.
 
-Loop edges (also called back edges) occur when control can flow backward in the program, creating a cycle. These are crucial for understanding iteration.
+* **Conditional edges** arise from decision points in your code. An if-statement creates two conditional edges: one for when the condition is true, another for when it's false. Switch statements can create many conditional edges, one for each case.
 
-Exception edges represent the paths control can take when exceptions are thrown. These edges often lead to catch blocks or method exits.
+* **Loop edges** (also called **back edges**) occur when control can flow backward in the program, creating a cycle. These are crucial for understanding iteration.
+
+* **Exception edges** represent the paths control can take when exceptions are thrown. These edges often lead to catch blocks or method exits.
 
 :::info
 Understanding edge types is crucial for many analyses. For example, loop optimization algorithms specifically look for back edges, while exception analysis focuses on exception edges.
@@ -65,10 +68,12 @@ public void process(String input) {
     if (input == null) {
         return;
     }
-    
+
+    //highlight-start
     if (input == null) {  // This check is unreachable!
         throw new IllegalArgumentException();
     }
+    //highlight-end
     
     // Process the input...
 }
@@ -92,16 +97,18 @@ Sometimes we need to know which statements control the execution of other statem
 
 ## Relationship to data flow analysis
 
-Control flow graphs aren't just useful on their own – they form the foundation for data flow analyses. These analyses track how data moves through your program, but they need the CFG to know which paths the data can take.
+Control flow graphs aren't just useful on their own – they form the foundation for data flow analysis. Data flow analysis tracks how data moves through your program, but it needs the CFG to know which paths the data can take.
 
-Forward data flow analyses follow the direction of control flow. They're useful for tracking how values propagate through the program. Examples include:
-- Reaching definitions (which assignments reach which uses)
-- Available expressions (which computed values are still valid)
-- Constant propagation (tracking constant values through the program)
+**Forward data flow analyses** follow the direction of control flow. They're useful for tracking how values propagate through the program. Examples include:
 
-Backward data flow analyses work against the direction of control flow. They're useful for understanding what the program needs at each point. Examples include:
-- Liveness analysis (which variables will be used later)
-- Very busy expressions (expressions computed on all paths forward)
+* Reaching definitions (which assignments reach which uses)
+* Available expressions (which computed values are still valid)
+* Constant propagation (tracking constant values through the program)
+
+**Backward data flow analyses** work against the direction of control flow. They're useful for understanding what the program needs at each point. Examples include:
+
+* Liveness analysis (which variables will be used later)
+* Very busy expressions (expressions computed on all paths forward)
 
 Some analyses even work in both directions, gathering information from both predecessors and successors to achieve maximum precision.
 
