@@ -28,8 +28,8 @@ You'll want to have the following installed:
 
 ### Steps
 
-1. Git clone the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter).
-   * You can either clone the project as is, or [use it as a template](https://github.com/new?template_name=rewrite-recipe-starter&template_owner=moderneinc) to create a new GitHub repository.
+1. Git clone (or fork) the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter).
+   * You can either clone the project as is, fork it, or [use it as a template](https://github.com/new?template_name=rewrite-recipe-starter&template_owner=moderneinc) to create a new GitHub repository.
    * Review the `README.md` to familiarize yourself with the reference recipes included in this project. We will refer to and use many of them later in this workshop.
 2. Open the project in IntelliJ IDEA.
    * You have the option to import the project as a Maven project, or as a Gradle project. Pick the one you're most comfortable with.
