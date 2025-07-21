@@ -5,7 +5,7 @@ description: How to compose a recipe with recipe builder.
 
 # Module 2: Recipe builder
 
-Once you know what recipes are available and how to run them, you may want to customize what they do. You might want to change the order of steps, remove something you don’t need, or combine several small recipes into one. The recipe builder in Moderne lets you do this without writing any code.
+Once you know what recipes are available and how to run them, you may want to customize what they do. You might want to change the order of steps, remove something you don’t need, or combine several small recipes into one. The [recipe builder](https://docs.openrewrite.org/running-recipes/customize-recipe) in Moderne lets you do this without writing any code.
 
 ## Exercise 2: Compose a recipe in Moderne with recipe builder
 

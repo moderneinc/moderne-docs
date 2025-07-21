@@ -7,9 +7,20 @@ description: Exploring and writing imperative recipes.
 
 For use cases beyond what declarative recipes and Refaster templates can handle, you'll want to look at [writing a Java refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe).
 
-You might want to refresh your memory on the [visitor pattern](https://docs.openrewrite.org/concepts-and-explanations/visitors) and [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees) before you dive in.
+These [imperative recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes) use the visitor pattern to traverse the Lossless Semantic Trees (LSTs), and make changes to the code. The `JavaTemplate` class is used to [create new LST elements](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate) that can replace existing LST elements while preserving the code style and formatting around it.
 
-These [imperative recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes) use the visitor pattern to traverse the LSTs, and make changes to the code. The `JavaTemplate` class is used to [create new LST elements](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate) that can replace existing LST elements while preserving the code style and formatting around it.
+The following concepts in the [OpenRewrite documentation](https://docs.openrewrite.org/) are important to understand, particularly when writing imperative OpenRewrite recipes:
+
+1. [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees)
+   * [Java LST examples](https://docs.openrewrite.org/concepts-and-explanations/lst-examples)
+   * [YAML LST examples](https://docs.openrewrite.org/concepts-and-explanations/yaml-lst-examples)
+   * [TreeVisitingPrinter](https://docs.openrewrite.org/concepts-and-explanations/tree-visiting-printer)
+2. [Visitors](https://docs.openrewrite.org/concepts-and-explanations/visitors)
+   * [Cursoring](https://docs.openrewrite.org/concepts-and-explanations/visitors#cursoring)
+   * [Isomorphic vs. non-isomorphic](https://docs.openrewrite.org/concepts-and-explanations/visitors#isomorphic-vs-non-isomorphic-visitors)
+3. [Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes)
+
+These concepts should give you some sense as to the importance of exact type attribution, and how visitors are used to traverse and modify the LST. Without these, it would be next to impossible to write recipes that make changes to your code reliably.
 
 ## Exercise 8a: Explore an imperative recipe
 
@@ -83,6 +94,7 @@ Let's write an imperative recipe in Java that replaces uses of `new Integer(x)` 
    * All tests should pass, and you should see a message that the project was successfully built.
    * If one or more of the tests fail, use the description of the failure to try to find where the problem is.
 5. In case you get completely stuck or just need a reference, [here's an example of a completed `UseIntegerValueOf.java` file](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/UseIntegerValueOf.java).
+6. _(Optional)_ This recipe is useful as an example for the purposes of this workshop, but it actually could more easily have been written as a Refaster recipe rather than as an imperative one. See if you can write a recipe that does the same thing only using Refaster templates instead.
 
 ### Takeaways
 
