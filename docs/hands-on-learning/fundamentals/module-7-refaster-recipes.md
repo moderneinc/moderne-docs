@@ -7,7 +7,7 @@ description: Exploring and writing Refaster recipes.
 
 OpenRewrite has support for [writing Refaster recipes](https://docs.openrewrite.org/authoring-recipes/refaster-recipes), which are a way to write code transformations in Java and have them run as recipes.
 
-Refaster recipes are an easy step-up to writing imperative recipes, as they are written in Java and can be run as recipes. Your compiler will help you catch syntax errors, and you can use your IDE to navigate to definitions and references. The generated recipes can also be used as a starting point for more complex recipe implementations.
+Refaster recipes are an easy step-up to writing imperative recipes, as they are written in Java and can be run as recipes. Refaster template recipes can be used to replace one expression with another, or one statement with another, but only if the expression or statement can fit inside the body of a method. Your compiler will help you catch syntax errors, and you can use your IDE to navigate to definitions and references. The generated recipes can also be used as a starting point for more complex recipe implementations. 
 
 ## Exercise 7a: Explore Refaster recipe support
 
@@ -67,7 +67,7 @@ Let's create a Refaster recipe that standardizes various ways to check if a Stri
    * Add your first `@BeforeTemplate` and `@AfterTemplate` annotated methods to match and replace the first way to check for an empty string.
 4. Trigger an explicit build of your project to generate the Recipe class with Ctrl + F9 or equivalent.
    * Notice how the unit test now compiles; compare the generated recipe with the template you wrote.
-   * Run the test to see where you stand and add additional `@BeforeTemplate` annotated methods to cover all cases. (If you get stuck, look at [the OpenRewrite documentation](https://docs.openrewrite.org/authoring-recipes/refaster-recipes#refaster-template) for some hints.)
+   * Run the test to see where you stand and add additional `@BeforeTemplate` annotated methods to cover all cases (check [the OpenRewrite documentation](https://docs.openrewrite.org/authoring-recipes/refaster-recipes#refaster-template) for hints if you get stuck.)
 5. Follow the instructions in the tests to add a name and description to your recipe.
    * These will be visible in any generated documentation, when folks run and discover recipes, and in Moderne.
 6. In case you get completely stuck or just need a reference, [here's an example of a completed `StringIsEmpty.java` file](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/StringIsEmpty.java).

@@ -10,7 +10,7 @@ Now that you've seen how to run recipes and built one in Moderne using the recip
 You'll want to have the following installed:
 
 * Java 21, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks.
-  * The [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project expects Temurin JDK 21.0.7 (`temurin-21.0.7`).
+  * The [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project expects JDK 21. (Temurin JDK 21.0.7 (`temurin-21.0.7`), for example, has been specified in the `.sdkmanrc` file, but other version 21 JDKs may work as well.)
   * Recipes use Java 8 source level, so they can run on Java 8 and higher.
 * IntelliJ IDEA Ultimate 2024.1+ (required for the OpenRewrite plugin; Community Edition is not supported).
 * The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (this comes pre-installed with IntelliJ Ultimate versions 2024.1 or later).
@@ -28,8 +28,8 @@ You'll want to have the following installed:
 
 ### Steps
 
-1. Git clone the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter).
-   * You can either clone the project as is, or [use it as a template](https://github.com/new?template_name=rewrite-recipe-starter&template_owner=moderneinc) to create a new GitHub repository.
+1. Git clone (or fork) the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter).
+   * You can either clone the project as is, fork it, or [use it as a template](https://github.com/new?template_name=rewrite-recipe-starter&template_owner=moderneinc) to create a new GitHub repository.
    * Review the `README.md` to familiarize yourself with the reference recipes included in this project. We will refer to and use many of them later in this workshop.
 2. Open the project in IntelliJ IDEA.
    * You have the option to import the project as a Maven project, or as a Gradle project. Pick the one you're most comfortable with.
@@ -40,13 +40,14 @@ You'll want to have the following installed:
    * All tests should pass, and you should see a message that the project was successfully built. (You can ignore any warnings as long as the build is successful.)
 5. _(Optional)_ Customize the project's group ID and artifact ID in the `pom.xml` file, or `build.gradle.kts` and `settings.gradle.kts` files. Also consider updating the Java package names to reflect these changes as well.
    * This helps make the project your own, and allows you to version and share your recipes without conflicts.
-   * For the purposes of this workshop, this isn't required, though. Feel free to continue using `com.yourorg` throughout. (The rest of the workshop will reference `com.yourorg` but replace that with whatever you use if you change it.)
+   * For the purposes of this workshop, this isn't required, though. Feel free to continue using `com.yourorg` throughout. (The rest of the workshop uses `com.yourorg` as a placeholder. If you've chosen a different package name, make sure to substitute it accordingly throughout.)
    * If you're creating internal recipes based on Moderne recipes, you may find it beneficial to use the [moderne-recipe-bom](https://central.sonatype.com/artifact/io.moderne.recipe/moderne-recipe-bom/versions) to align the versions of the various modules.
 6. Install the project to your local Maven repository & CLI. This is useful for debugging declarative recipes or for Moderne DX users.
    * Run `mvn install` from the root of the project if you're using Maven, or `./gradlew publishToMavenLocal` if you're using Gradle.
    * You should see a message that the project was successfully installed to your local Maven repository.
    * From there, make the recipe available to the CLI by running `mod config recipes jar install com.yourorg:rewrite-recipe-starter:0.1.0-SNAPSHOT`.
 7. Confirm that everything is set up correctly for testing imperative recipes (we'll explain the types of recipes in the next module) by opening up the `AssertEqualsToAssertThat` class, right-clicking on the class name in the code, and clicking on the `Set Active Recipe` option. Then, open your terminal and navigate to the `workshop` directory (that you set up in the CLI tutorial earlier) and run: `mod run . --active-recipe`.
+   * Note: This requires [the Moderne plugin](../../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md), so if you have not installed it, you won't see the option to set an active recipe.
    * You should see: `Running recipe com.yourorg.AssertEqualsToAssertThat` in the output.
 8. Confirm everything is set up for testing declarative recipes by opening your terminal and navigating to the `/src/main/resources/META-INF/rewrite` directory in the `rewrite-recipe-starter` repo. Then run the command: `mod config recipes yaml install stringutils.yml`. Afterwards, navigate to your `workshop` directory and run: `mod run . --recipe=com.yourorg.UseApacheStringUtils`.
    * If everything worked correctly, you should see that the recipe was installed from the YAML file and then was recognized by the `mod run` command.
@@ -59,24 +60,7 @@ You'll want to have the following installed:
 * The unit tests in the starter project take in text blocks that assert the state before and after running a recipe.
 * You can quickly test recipes against actual repositories with the CLI.
 
-## Fundamental concepts
-
-Before we move on and dive into writing recipes, let's take a look at some fundamental concepts that underpin OpenRewrite.
-
-Read up on the following concepts in the [OpenRewrite documentation](https://docs.openrewrite.org/), to get a better understanding of how OpenRewrite works:
-
-1. [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees)
-   * [Java LST examples](https://docs.openrewrite.org/concepts-and-explanations/lst-examples)
-   * [YAML LST examples](https://docs.openrewrite.org/concepts-and-explanations/yaml-lst-examples)
-   * [TreeVisitingPrinter](https://docs.openrewrite.org/concepts-and-explanations/tree-visiting-printer)
-2. [Visitors](https://docs.openrewrite.org/concepts-and-explanations/visitors)
-   * [Cursoring](https://docs.openrewrite.org/concepts-and-explanations/visitors#cursoring)
-   * [Isomorphic vs. non-isomorphic](https://docs.openrewrite.org/concepts-and-explanations/visitors#isomorphic-vs-non-isomorphic-visitors)
-3. [Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes)
-
-These concepts should give you some sense as to the importance of exact type attribution, and how visitors are used to traverse and modify the LST. Without these, it would be next to impossible to write recipes that make changes to your code reliably.
-
-### Three types of recipes
+## Three types of recipes
 
 It's important to note there are different types of recipes, each with their own trade-offs.
 
@@ -84,5 +68,6 @@ It's important to note there are different types of recipes, each with their own
 2. [Refaster rules](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#refaster-template-recipes) bring you the benefit of compiler support, and work best for straightforward replacements. They generate recipes that can also be used as a starting point for more complex recipe implementations.
 3. [Imperative recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#imperative-recipes) are the most powerful, and allow you to write Java code to implement your recipe. By [using the `JavaTemplate` builder](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate), you can keep complexity down, as you define arbitrary code changes.
 
-No matter which method of recipe development you choose, you can (and should) always [write unit tests for your recipe](https://docs.openrewrite.org/authoring-recipes/recipe-testing). Beyond that, there are [best practices for writing recipes](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices), such as ensuring idempotence, and avoiding harmful changes.
+No matter which method of recipe development you choose, you can (and should) always [write unit tests for your recipe](https://docs.openrewrite.org/authoring-recipes/recipe-testing). Beyond that, there are [best practices for writing recipes](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices), such as ensuring idempotence, and avoiding harmful changes. The remaining modules will explore in more detail how to write and test all three of these types of recipes.
+
 

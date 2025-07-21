@@ -5,7 +5,7 @@ description: How to compose a recipe with recipe builder.
 
 # Module 2: Recipe builder
 
-Once you know what recipes are available and how to run them, you may want to customize what they do. You might want to change the order of steps, remove something you don’t need, or combine several small recipes into one. The recipe builder in Moderne lets you do this without writing any code.
+Once you know what recipes are available and how to run them, you may want to customize what they do. You might want to change the order of steps, remove something you don’t need, or combine several small recipes into one. The [recipe builder](https://docs.openrewrite.org/running-recipes/customize-recipe) in Moderne lets you do this without writing any code.
 
 ## Exercise 2: Compose a recipe in Moderne with recipe builder
 
@@ -41,7 +41,7 @@ Let's use the recipe builder to create a custom recipe by combining existing ste
          - Simplify boolean return (`org.openrewrite.staticanalysis.SimplifyBooleanReturn`)
       * Your recipe will autosave after each addition or change.
       * _(Optional)_ Add or explore other recipes.
-5.	Once you've added all the recipes you want, you can either run your recipe from the Moderne platform, or download it to run locally using the CLI.
+5.	Once you've added all the recipes you want, you can either run your recipe from the Moderne platform, or download it to run locally using the CLI. (We'll explore how to use the CLI to run recipes in the next module.)
       * To use the platform to run it against the group of repositories under the organization you have selected, just click `Dry Run` as you did in the previous module.
       * If you'd instead like to download the recipe to inspect the YAML or run it on a local repository, click the name of the recipe in the upper left-hand corner and select `Download YAML`.
       <figure>

@@ -5,7 +5,7 @@ description: Adding preconditions to a recipe.
 
 # Module 5: Preconditions
 
-[Preconditions](https://docs.openrewrite.org/reference/yaml-format-reference#preconditions) are recipes that run before other recipes to limit which source files the recipe will run on. Preconditions are often used to ensure a recipe only runs against certain files or directories – but any recipe which is not a `ScanningRecipe` can technically be used as a precondition.
+[Preconditions](https://docs.openrewrite.org/reference/yaml-format-reference#preconditions) are recipes that run before other recipes to limit which source files the recipe will run on. Preconditions are often used to ensure a recipe only runs against certain files or directories.
 
 When a recipe is used as a precondition, any file it would make a change to is considered to meet the precondition. When more than one recipe is used, all of them must make a change to the file for it to be considered to "meet the precondition".
 
@@ -26,7 +26,7 @@ Let's update the `stringutils.yml` recipe to only run on sources that are likely
    * Add a single `org.openrewrite.java.search.IsLikelyTest` recipe to the list of preconditions, with no options.
    * [Here's an example of what this recipe looks like with the precondition added](https://gist.github.com/mike-solomon/04287b874e335a5e1b40c529d6f3eab9).
 3. Open the unit test `src/test/java/com/yourorg/UseApacheStringUtilsTest.java`.
-   * Run the tests – they should fail and not make any changes. This is because the precondition has not been met since the sources are not identified as tests. We can fix that with the following steps:
+   * Run the tests. They should fail and not make any changes. This is because the precondition has not been met since the sources are not identified as tests. We can fix that with the following steps:
       * Add a static import on `org.openrewrite.java.Assertions.srcTestJava`.
       * Wrap the `java(String, String)` methods with `srcTestJava()` to indicate that the sources are tests. Make sure to do this in all three tests.
    * [Here's an example of what this should look like](https://gist.github.com/mike-solomon/84b85e62825e671ff27a5de96c520218).
