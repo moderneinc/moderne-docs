@@ -439,12 +439,14 @@ As of Moderne Agent v0.210.0, the organizations service configuration has moved 
 
 
 #### Before
+
 ```properties
 moderne.agent.organization.url=https://my-organizations-service
 moderne.agent.organization.updateIntervalSeconds=600
 ```
 
 #### After
+
 ```properties
 moderne.agent.organization.service.url=https://my-organizations-service
 moderne.agent.organization.service.updateIntervalSeconds=600
@@ -668,9 +670,10 @@ Usage reports are now available across the entire tenant for  administrators. In
 The way origins are determined has changed. The SaaS now uses `GitRemote.Parser` to determine the origin which means we no longer remove `/scm` at the end of a (possible) origin. This can have impact if you use Bitbucket (DC/Server) and have not correctly configured the origin in the agent.
 
 Please make sure that, in case of Bitbucket, you have configured it as such:
+
 ```
 ...
-#note there is no `/scm` at the end, this is not part of the origin.
+# note there is no `/scm` at the end, this is not part of the origin.
 moderne.agent.bitbucket[0].url=https://bitbucket.moderne.io/stash 
 ...
 ```

@@ -67,7 +67,7 @@ USER root
 
 COPY s2s-cert.pem ${JAVA_HOME}/lib/security/s2s-cert.pem
 
-#Certifcate without keys
+# Certificate without keys
 RUN openssl pkcs12 -export \
 -in ${JAVA_HOME}/lib/security/s2s-cert.pem \
 -out ${JAVA_HOME}/lib/security/client_keystore.p12 \

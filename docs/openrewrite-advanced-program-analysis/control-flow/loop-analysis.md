@@ -10,14 +10,14 @@ Loops are where programs spend most of their execution time, making loop analysi
 This guide includes example implementations of loop analysis concepts. OpenRewrite's core library provides control flow graph construction but not specialized loop analysis classes. The `Loop`, `DataDependence`, and other types shown here are example implementations you could create for your own analyses.
 :::
 
-##Understanding loops in CFGs
+## Understanding loops in CFGs
 
 A loop in a control flow graph is a strongly connected component with a single entry point. More formally, a natural loop has two key properties:
 
 1. **Single Entry**: There's one block (the header) that dominates all blocks in the loop
 2. **Back Edge**: There's at least one edge from a block in the loop back to the header
 
-###Loop terminology
+### Loop terminology
 
 Before diving into algorithms, let's establish common terminology:
 
@@ -27,9 +27,9 @@ Before diving into algorithms, let's establish common terminology:
 - **Exit Blocks**: Blocks inside the loop with edges leading outside
 - **Preheader**: A block that has the header as its only successor (useful for optimizations)
 
-##Loop detection
+## Loop detection
 
-###Loop representation
+### Loop representation
 
 First, let's define how we represent loops. Since OpenRewrite doesn't provide a built-in Loop class, we'll define our own.
 
@@ -89,7 +89,7 @@ public class Edge {
 }
 ```
 
-###Finding back edges
+### Finding back edges
 
 The first step in loop analysis is identifying back edges.
 
@@ -115,7 +115,7 @@ public class LoopDetector {
 }
 ```
 
-###Identifying natural loops
+### Identifying natural loops
 
 Once we have back edges, we can find the natural loops.
 
@@ -163,7 +163,7 @@ public class NaturalLoopFinder {
 }
 ```
 
-###Loop nesting structure
+### Loop nesting structure
 
 Loops can be nested within other loops. Building a loop nesting tree helps analyze complex loop structures.
 
@@ -207,11 +207,12 @@ public class LoopNestingTree {
 }
 ```
 
-##Loop properties analysis
+## Loop properties analysis
 
-###Loop exit analysis
+### Loop exit analysis
 
 Understanding how loops terminate is crucial for optimization.
+
 ```java
 public class LoopExitAnalysis {
     public Set<BasicBlock> findExitBlocks(Loop loop) {
@@ -249,9 +250,10 @@ public class LoopExitAnalysis {
 }
 ```
 
-###Loop-carried dependencies
+### Loop-carried dependencies
 
 Identify dependencies between loop iterations.
+
 ```java
 public class DataDependence {
     private final Tree definition;
@@ -302,9 +304,10 @@ public class LoopCarriedDependencies {
 }
 ```
 
-##Loop invariant analysis
+## Loop invariant analysis
 
 Loop invariant code doesn't change across iterations and can be moved outside.
+
 ```java
 public class LoopInvariantAnalysis {
     public Set<Tree> findLoopInvariantStatements(Loop loop) {
@@ -353,11 +356,12 @@ public class LoopInvariantAnalysis {
 }
 ```
 
-##Loop optimization techniques
+## Loop optimization techniques
 
-###Loop invariant code motion
+### Loop invariant code motion
 
 Move invariant computations outside the loop.
+
 ```java
 public class LoopInvariantCodeMotion extends Recipe {
     @Override
@@ -391,9 +395,10 @@ public class LoopInvariantCodeMotion extends Recipe {
 }
 ```
 
-###Loop unrolling detection
+### Loop unrolling detection
 
 Identify candidates for loop unrolling.
+
 ```java
 public class LoopUnrollingAnalyzer {
     public boolean isUnrollCandidate(Loop loop) {
@@ -430,9 +435,10 @@ public class LoopUnrollingAnalyzer {
 }
 ```
 
-###Loop fusion
+### Loop fusion
 
 Detect opportunities to merge adjacent loops.
+
 ```java
 public class LoopFusionOpportunity {
     private final Loop first;
@@ -481,11 +487,12 @@ public class LoopFusionDetector {
 }
 ```
 
-##Advanced loop analysis
+## Advanced loop analysis
 
-###Induction variable analysis
+### Induction variable analysis
 
 Identify and analyze variables that change predictably in loops.
+
 ```java
 public class InductionVariableAnalysis {
     public static class InductionVariable {
@@ -521,9 +528,10 @@ public class InductionVariableAnalysis {
 }
 ```
 
-###Loop strength reduction
+### Loop strength reduction
 
 Replace expensive operations with cheaper ones.
+
 ```java
 public class LoopStrengthReduction {
     public void reduceStrength(Loop loop) {
@@ -548,9 +556,10 @@ public class LoopStrengthReduction {
 }
 ```
 
-###Loop parallelization analysis
+### Loop parallelization analysis
 
 Determine if loops can be safely parallelized.
+
 ```java
 public class LoopParallelizationAnalysis {
     public boolean isParallelizable(Loop loop) {
@@ -583,11 +592,12 @@ public class LoopParallelizationAnalysis {
 }
 ```
 
-##Performance considerations
+## Performance considerations
 
-###Loop recognition patterns
+### Loop recognition patterns
 
 Recognize common loop patterns for optimization.
+
 ```java
 public enum LoopPattern {
     COUNTING_LOOP,      // for (int i = 0; i < n; i++)
@@ -621,9 +631,10 @@ public class LoopPatternRecognizer {
 }
 ```
 
-###Loop cache analysis
+### Loop cache analysis
 
 Analyze memory access patterns for cache optimization.
+
 ```java
 public class AccessPattern {
     private final String arrayName;
@@ -666,7 +677,7 @@ public class LoopCacheAnalysis {
 }
 ```
 
-##Next steps
+## Next steps
 
 - [Reachability and Dominance Analysis](reachability-dominance.md) - Understand the foundations of loop detection
 - [Building Control Flow Graphs](building-cfgs.md) - Learn how loops appear in CFGs
