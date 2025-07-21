@@ -13,6 +13,7 @@ Imagine tracking packages through a delivery network. When a package arrives at 
 ### Core concepts
 
 A definition "reaches" a program point if there's an execution path from the definition to that point where the variable isn't redefined.
+
 ```java
 int x = 5;      // Definition D1
 int y = 10;     // Definition D2
@@ -39,6 +40,7 @@ For each program point, we track a set of definitions that reach it:
 ### Data flow equations
 
 This is a forward analysis with these equations.
+
 ```
 IN[B] = ∪ OUT[P] for all predecessors P of B
 OUT[B] = GEN[B] ∪ (IN[B] - KILL[B])
@@ -49,6 +51,7 @@ The analysis uses union because a definition reaches if it reaches along **any**
 ## Implementation in OpenRewrite
 
 Here's how reaching definitions analysis is implemented.
+
 ```java
 public class ReachingDefinitionsAnalysis extends ForwardDataFlowAnalysis<Definition, ReachingDefinitions> {
     
@@ -133,6 +136,7 @@ boolean isKilled = reachingDefs.isDefinitionKilled(definition, programPoint);
 ### Uninitialized variable detection
 
 Find variables used before initialization.
+
 ```java
 public class UninitializedVariableDetector extends Recipe {
     @Override
@@ -165,6 +169,7 @@ public class UninitializedVariableDetector extends Recipe {
 ### Constant propagation
 
 Replace variable uses with constant values when possible.
+
 ```java
 public class ConstantPropagation {
     public void propagateConstants(J.MethodDeclaration method) {
@@ -193,6 +198,7 @@ public class ConstantPropagation {
 ### Def-use chain analysis
 
 Understanding data dependencies.
+
 ```java
 public class DataDependencyAnalyzer {
     public DependencyGraph buildDataDependencies(ControlFlowGraph cfg) {
@@ -218,6 +224,7 @@ public class DataDependencyAnalyzer {
 ### Copy propagation
 
 Eliminate unnecessary variable copies.
+
 ```java
 // Before: x = y; z = x + 1;
 // After:  x = y; z = y + 1;
@@ -238,6 +245,7 @@ public void propagateCopies(ReachingDefinitions reachingDefs) {
 ### Available expressions
 
 Combine with expression analysis.
+
 ```java
 public class AvailableExpressions {
     private final ReachingDefinitions reachingDefs;
@@ -256,6 +264,7 @@ public class AvailableExpressions {
 ### Type inference
 
 Use reaching definitions for type refinement.
+
 ```java
 public class TypeRefinement {
     public JavaType refineType(J.Identifier var, ReachingDefinitions reachingDefs) {
@@ -282,6 +291,7 @@ public class TypeRefinement {
 ### Sparse representations
 
 For large methods, use sparse representations.
+
 ```java
 public class SparseReachingDefinitions {
     // Only track definitions at points where they're used
@@ -296,6 +306,7 @@ public class SparseReachingDefinitions {
 ### Incremental updates
 
 Update reaching definitions incrementally when code changes.
+
 ```java
 public class IncrementalReachingDefs {
     public void updateAfterEdit(Edit edit) {
@@ -329,6 +340,7 @@ public class IncrementalReachingDefs {
 ### With liveness analysis
 
 Combine for more precise dead code detection.
+
 ```java
 public Set<Definition> findTrulyDeadDefinitions(
         ReachingDefinitions reachingDefs, 
@@ -360,6 +372,7 @@ public Set<Definition> findTrulyDeadDefinitions(
 ### With taint analysis
 
 Track taint propagation through definitions.
+
 ```java
 public class TaintTracking {
     public Set<Definition> findTaintedDefinitions(
@@ -396,6 +409,7 @@ public class TaintTracking {
 ### Aliasing
 
 Multiple variables can refer to the same memory.
+
 ```java
 int[] a = new int[10];
 int[] b = a;  // a and b alias
@@ -405,6 +419,7 @@ b[0] = 5;     // Also defines a[0]
 ### Field definitions
 
 Field assignments need special handling.
+
 ```java
 class Container {
     int value;
@@ -420,6 +435,7 @@ class Container {
 ### Control flow complexity
 
 Some definitions are conditional.
+
 ```java
 int x;  // Declaration without initialization
 if (checkCondition()) {
@@ -433,6 +449,7 @@ if (checkCondition()) {
 ## Testing reaching definitions
 
 Always test with complex patterns.
+
 ```java
 @Test
 void testMultipleDefinitions() {

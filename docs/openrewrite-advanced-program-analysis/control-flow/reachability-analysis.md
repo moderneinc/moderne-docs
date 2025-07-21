@@ -11,6 +11,7 @@ Reachability analysis determines which parts of a program can actually be execut
 Imagine you're exploring a cave system with multiple passages. Some passages lead to dead ends, others loop back, and some are blocked by collapsed rocks. Reachability analysis creates a map showing which chambers you can actually reach from the entrance.
 
 In code, unreachable statements are like blocked passages.
+
 ```java
 public void process(String input) {
     if (input == null) {
@@ -76,6 +77,7 @@ public class ReachabilityAnalysis {
 ### Handling different edge types
 
 Not all edges are equal. Some represent normal flow, others exceptional flow.
+
 ```java
 public class PreciseReachabilityAnalysis {
     // Track how blocks are reached
@@ -119,6 +121,7 @@ public class PreciseReachabilityAnalysis {
 ### Dead code after return
 
 The most common pattern.
+
 ```java
 public int calculate(int x) {
     if (x < 0) {
@@ -132,6 +135,7 @@ public int calculate(int x) {
 ### Impossible conditions
 
 Static analysis can detect always-false conditions.
+
 ```java
 public void process() {
     final boolean DEBUG = false;
@@ -152,6 +156,7 @@ public void process() {
 ### Infinite loops without breaks
 
 Code after infinite loops is unreachable.
+
 ```java
 public void server() {
     initialize();
@@ -168,6 +173,7 @@ public void server() {
 ### Exception flow
 
 Exception handling creates complex reachability patterns.
+
 ```java
 public void example() {
     try {
@@ -186,6 +192,7 @@ public void example() {
 ## Implementation in OpenRewrite
 
 OpenRewrite provides reachability analysis through the CFG API.
+
 ```java
 public class UnreachableCodeDetector extends Recipe {
     @Override
@@ -255,6 +262,7 @@ public class UnreachableCodeDetector extends Recipe {
 ### Conditional reachability
 
 Some code is reachable only under certain conditions.
+
 ```java
 public class ConditionalReachability {
     // Track conditions required to reach blocks
@@ -294,6 +302,7 @@ public class ConditionalReachability {
 ### Interprocedural reachability
 
 Tracking reachability across method calls.
+
 ```java
 public class InterproceduralReachability {
     private final CallGraph callGraph;
@@ -330,6 +339,7 @@ public class InterproceduralReachability {
 ### Dead code elimination
 
 Remove code that can never execute.
+
 ```java
 public class DeadCodeEliminator {
     public void eliminate(J.MethodDeclaration method) {
@@ -350,6 +360,7 @@ public class DeadCodeEliminator {
 ### Security analysis
 
 Ensure security checks aren't bypassed.
+
 ```java
 public class SecurityCheckVerifier {
     public void verifySecurityChecks(ControlFlowGraph cfg) {
@@ -372,6 +383,7 @@ public class SecurityCheckVerifier {
 ### Test coverage analysis
 
 Identify code not covered by tests.
+
 ```java
 public class CoverageAnalyzer {
     private final Set<BasicBlock> executed = new HashSet<>();
@@ -399,6 +411,7 @@ public class CoverageAnalyzer {
 ### Early termination
 
 Stop analysis once we've found what we're looking for.
+
 ```java
 public boolean canReach(ControlFlowGraph cfg, BasicBlock from, BasicBlock to) {
     if (from.equals(to)) return true;
@@ -426,6 +439,7 @@ public boolean canReach(ControlFlowGraph cfg, BasicBlock from, BasicBlock to) {
 ### Caching results
 
 Cache reachability information for repeated queries.
+
 ```java
 public class CachedReachabilityAnalysis {
     private final ControlFlowGraph cfg;
@@ -451,6 +465,7 @@ public class CachedReachabilityAnalysis {
 ### Dynamic dispatch
 
 Virtual method calls complicate reachability.
+
 ```java
 interface Handler {
     void handle();
@@ -464,6 +479,7 @@ public void process(Handler handler) {
 ### Reflection and dynamic code
 
 Some reachability is only determinable at runtime.
+
 ```java
 public void dynamic(String className) {
     Class<?> clazz = Class.forName(className);
@@ -475,6 +491,7 @@ public void dynamic(String className) {
 ### Concurrent execution
 
 Thread interactions affect reachability.
+
 ```java
 volatile boolean flag = false;
 
@@ -493,6 +510,7 @@ void thread2() {
 ## Testing reachability analysis
 
 Comprehensive tests ensure accuracy.
+
 ```java
 @Test
 void testUnreachableAfterReturn() {
@@ -534,6 +552,7 @@ void testReachableAfterBreak() {
 Reachability analysis forms the foundation for many other analyses:
 
 ### With dominance analysis
+
 ```java
 // Block A dominates B if all paths to B go through A
 boolean dominates(BasicBlock a, BasicBlock b) {
@@ -543,6 +562,7 @@ boolean dominates(BasicBlock a, BasicBlock b) {
 ```
 
 ### With live variable analysis
+
 ```java
 // Only analyze reachable blocks
 for (BasicBlock block : reachableBlocks) {

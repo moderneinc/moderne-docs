@@ -9,6 +9,7 @@ Method summaries are compact representations of what a method does, enabling eff
 ## Understanding method summaries
 
 A method summary captures the essential behavior of a method relevant to your analysis. For taint analysis, this might include.
+
 ```java
 // Original method
 public String processUser(String name, int id, boolean validate) {
@@ -33,6 +34,7 @@ The structure of your summaries depends on your analysis needs:
 ### Basic flow summary
 
 For simple taint tracking.
+
 ```java
 public class BasicFlowSummary {
     // Which parameters flow to the return value
@@ -53,6 +55,7 @@ public class BasicFlowSummary {
 ### Conditional flow summary
 
 For more precision with path-sensitive information.
+
 ```java
 public class ConditionalFlowSummary {
     // Flows that always happen
@@ -86,6 +89,7 @@ public class ConditionalFlowSummary {
 ### Access path summary
 
 For field-sensitive analysis.
+
 ```java
 public class AccessPathSummary {
     // Tracks precise paths like param0.field1.field2
@@ -110,6 +114,7 @@ public class AccessPathSummary {
 ### Bottom-up analysis
 
 The standard approach computes summaries starting from leaf methods.
+
 ```java
 public class SummaryComputer {
     private final Map<MethodId, MethodSummary> computed = new HashMap<>();
@@ -146,6 +151,7 @@ public class SummaryComputer {
 ### Incremental summary computation
 
 For large codebases, compute summaries incrementally.
+
 ```java
 public class IncrementalSummaryComputer {
     private final DependencyTracker deps = new DependencyTracker();
@@ -175,6 +181,7 @@ public class IncrementalSummaryComputer {
 ### Heap abstractions
 
 Track modifications to heap objects.
+
 ```java
 public class HeapSummary {
     // Which fields of which parameters are modified
@@ -194,6 +201,7 @@ public class HeapSummary {
 ### Effect summaries
 
 Capture side effects beyond data flow.
+
 ```java
 public class EffectSummary {
     // I/O effects
@@ -216,6 +224,7 @@ public class EffectSummary {
 ### Compositional summaries
 
 Build complex summaries from simpler ones.
+
 ```java
 public class CompositionalSummary {
     // Compose summaries for common patterns
@@ -246,6 +255,7 @@ public class CompositionalSummary {
 ### Summary application
 
 Apply summaries at call sites.
+
 ```java
 public class SummaryApplication {
     public Set<TaintedValue> applyMethodSummary(
@@ -306,6 +316,7 @@ public class SecurityFocusedPolicy implements SummaryPrecisionPolicy {
 ## Practical example: taint summary
 
 Here's a complete example of computing and using taint summaries.
+
 ```java
 public class TaintSummaryExample {
     
@@ -375,6 +386,7 @@ public class TaintSummaryExample {
 ### Summary size management
 
 Keep summaries compact.
+
 ```java
 public class CompactSummary {
     // Use bit vectors for parameter sets
@@ -395,6 +407,7 @@ public class CompactSummary {
 ### Caching strategies
 
 Effective caching is crucial.
+
 ```java
 public class SummaryCache {
     // Two-level cache: memory and disk

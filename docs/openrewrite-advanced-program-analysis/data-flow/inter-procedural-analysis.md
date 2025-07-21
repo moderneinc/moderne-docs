@@ -40,6 +40,7 @@ This requires analyzing how data flows between methods, not just within them.
 ### Context-insensitive analysis
 
 The simplest approach treats each method independently, using summaries of what each method does.
+
 ```java
 // Method summary for validateInput:
 // - Parameter 0 flows to return value
@@ -57,6 +58,7 @@ This approach is fast but can be imprecise because it doesn't distinguish betwee
 ### Context-sensitive analysis
 
 More precise analysis tracks calling contexts separately.
+
 ```java
 public class DataProcessor {
     public void processSafe() {
@@ -82,6 +84,7 @@ Context sensitivity prevents false positives by keeping different calling contex
 ### Method summaries
 
 The key to scalable inter-procedural analysis is computing and caching method summaries.
+
 ```java
 public class MethodSummary {
     // What happens to parameters
@@ -103,6 +106,7 @@ public class MethodSummary {
 ### Computing summaries
 
 Here's how to compute method summaries.
+
 ```java
 public class SummaryComputer {
     public MethodSummary computeSummary(J.MethodDeclaration method) {
@@ -134,6 +138,7 @@ public class SummaryComputer {
 ### Using summaries in analysis
 
 When encountering a method call during analysis.
+
 ```java
 public class InterProceduralTaintAnalysis extends TaintAnalysis {
     private final Map<String, MethodSummary> summaries;

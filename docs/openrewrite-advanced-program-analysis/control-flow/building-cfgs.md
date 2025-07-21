@@ -421,6 +421,7 @@ Some constructs may result in incomplete CFGs:
 * Synthetic or generated code
 
 Always check for null and handle gracefully.
+
 ```java
 ControlFlowGraph cfg = cfgs.getCfg(method);
 if (cfg == null) {

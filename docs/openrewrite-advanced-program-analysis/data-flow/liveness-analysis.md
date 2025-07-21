@@ -13,6 +13,7 @@ Think of liveness like tracking which ingredients in your kitchen will be used b
 ### Intuition through examples
 
 Let's build intuition with progressively complex examples.
+
 ```java
 // Example 1: Simple linear flow
 int x = 5;      // Point A: Is x live? Look ahead...
@@ -41,6 +42,7 @@ For each program point, we track a set of live variables. The analysis computes:
 ### Transfer function
 
 The transfer function for a basic block B is.
+
 ```
 LIVE_IN[B] = GEN[B] ∪ (LIVE_OUT[B] - KILL[B])
 ```
@@ -52,6 +54,7 @@ Where:
 ### Data flow equations
 
 For the exit of a block.
+
 ```
 LIVE_OUT[B] = ∪ LIVE_IN[S] for all successors S of B
 ```
@@ -61,6 +64,7 @@ This is a "may" analysis using union – a variable is live if it's live on **an
 ## Implementation in OpenRewrite
 
 Here's how liveness analysis is implemented in OpenRewrite.
+
 ```java
 public class LivenessAnalysis extends BackwardDataFlowAnalysis<LiveVariable, LiveVariables> {
     
@@ -178,6 +182,7 @@ Loop variables have special liveness patterns due to back edges.
 ### Field access
 
 Field access requires careful handling.
+
 ```java
 class Container {
     int value;
@@ -197,6 +202,7 @@ OpenRewrite's implementation tracks fields separately when possible.
 ### Dead code elimination
 
 The most direct application.
+
 ```java
 public void optimizeMethod() {
     LiveVariables liveVars = new LivenessAnalysis(cfg).analyze();
@@ -216,6 +222,7 @@ public void optimizeMethod() {
 ### Register allocation
 
 Compilers use liveness for efficient register allocation.
+
 ```java
 // Variables with non-overlapping live ranges can share registers
 int x = compute1();  // Live: lines 1-3
@@ -231,6 +238,7 @@ use(y);
 ### Liveness with aliasing
 
 When variables can alias, liveness becomes more complex.
+
 ```java
 int[] arr1 = new int[10];
 int[] arr2 = arr1;  // arr2 aliases arr1
@@ -241,6 +249,7 @@ arr2[0] = 5;        // Also affects arr1
 ### Inter-procedural liveness
 
 Tracking liveness across method calls.
+
 ```java
 public int compute(int x) {
     int y = transform(x);  // Is x live after this?
@@ -253,6 +262,7 @@ public int compute(int x) {
 ### Liveness in concurrent programs
 
 Thread interactions affect liveness.
+
 ```java
 volatile int shared;
 
@@ -266,6 +276,7 @@ void thread1() {
 ### Sparse representations
 
 For large methods, use sparse representations.
+
 ```java
 // Instead of tracking all variables at all points
 Map<ProgramPoint, Set<Variable>> allLiveness;  // Dense
@@ -277,6 +288,7 @@ Map<ProgramPoint, LivenessChange> changes;     // Sparse
 ### Incremental updates
 
 When code changes, update liveness incrementally.
+
 ```java
 public void updateLiveness(Statement changed) {
     BasicBlock block = findContainingBlock(changed);
@@ -292,6 +304,7 @@ public void updateLiveness(Statement changed) {
 ### Side effects in expressions
 
 Not all "dead" assignments can be removed.
+
 ```java
 int x = sideEffect();  // Can't remove even if x is dead!
 // The method call might have important effects
@@ -300,6 +313,7 @@ int x = sideEffect();  // Can't remove even if x is dead!
 ### Exception paths
 
 Variables might be live only on exception paths.
+
 ```java
 String error = "Starting";
 try {
@@ -314,6 +328,7 @@ try {
 ### Implicit uses
 
 Some uses aren't obvious in the AST.
+
 ```java
 public String toString() {
     return name;  // Implicit use of 'this.name'
