@@ -11,7 +11,7 @@ You've already seen examples of how OpenRewrite has extensive support for [testi
 
 In addition to verifying the textual output, the unit testing framework also makes assertions on the underlying types and structure of the LST, as that might otherwise negatively affect recipe composition. The testing framework will tell you when there are issues with the type information, and help you to correct them.
 
-There are various ways to provide a [recipe specification](https://docs.openrewrite.org/authoring-recipes/recipe-testing#recipespec) – from reading a recipe from any YAML resource through `recipeFromResources`, to reading a recipe from a specific resource, to constructing a Java recipe directly and passing that in.
+There are various ways to provide a [recipe specification](https://docs.openrewrite.org/authoring-recipes/recipe-testing#recipespec), from reading a recipe from any YAML resource through `recipeFromResources`, to reading a recipe from a specific resource, to constructing a Java recipe directly and passing that in.
 
 Similarly, there are various ways to pass in [source specifications](https://docs.openrewrite.org/authoring-recipes/recipe-testing#sourcespec). Each parser has an `Assertions` class to provide test source files of a specific type. Source specifications can take in a single text block to assert no changes are made to a file, or a pair of text blocks to assert that a file is changed from one state to another as you also saw in the previous module. An optional final argument can consume a [`SourceSpec`](https://github.com/openrewrite/rewrite/blob/main/rewrite-test/src/main/java/org/openrewrite/test/SourceSpec.java) to provide additional configuration, or make assertions before or after the recipe is run.
 

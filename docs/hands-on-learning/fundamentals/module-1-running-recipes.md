@@ -7,7 +7,7 @@ description: How to run recipes using OpenRewrite and Moderne.
 
 Before you begin writing your own recipes, you should make sure you are aware of what recipes already exist and how to run them. This is beneficial for two reasons: you won't spend time creating a recipe that someone else has already made, and you will gain a better understanding of how people will actually use any recipe you write.
 
-There are two main locations for discovering recipes: the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and [the Moderne Platform](https://app.moderne.io/marketplace). The former contains all the information you'll need to run the recipe – whereas the latter has a richer search and view, that allows you to directly run recipes.
+There are two main locations for discovering recipes: the [OpenRewrite recipe catalog](https://docs.openrewrite.org/recipes) and [the Moderne Platform](https://app.moderne.io/marketplace). The former contains all the information you'll need to run the recipe, whereas the latter has a richer search and view, that allows you to directly run recipes.
 
 :::warning
 We recommend using Moderne multi-repository tools for authoring and testing recipes at scale. This accelerates the feedback loop on recipe quality, and allows you to validate recipes on real-life scenarios encountered in real codebases.
