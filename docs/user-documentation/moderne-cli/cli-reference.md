@@ -71,10 +71,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build maven timeout edit**](#mod-config-build-maven-timeout-edit)
 * [**mod config build maven timeout show**](#mod-config-build-maven-timeout-show)
 * [**mod config clone**](#mod-config-clone)
-* [**mod config clone protocol**](#mod-config-clone-protocol)
-* [**mod config clone protocol delete**](#mod-config-clone-protocol-delete)
-* [**mod config clone protocol edit**](#mod-config-clone-protocol-edit)
-* [**mod config clone protocol show**](#mod-config-clone-protocol-show)
+* ~~[**mod config clone protocol**](#mod-config-clone-protocol-deprecated)~~ (deprecated)
+* ~~[**mod config clone protocol delete**](#mod-config-clone-protocol-delete-deprecated)~~ (deprecated)
+* ~~[**mod config clone protocol edit**](#mod-config-clone-protocol-edit-deprecated)~~ (deprecated)
+* ~~[**mod config clone protocol show**](#mod-config-clone-protocol-show-deprecated)~~ (deprecated)
 * [**mod config clone timeout**](#mod-config-clone-timeout)
 * [**mod config clone timeout delete**](#mod-config-clone-timeout-delete)
 * [**mod config clone timeout edit**](#mod-config-clone-timeout-edit)
@@ -89,7 +89,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config features**](#mod-config-features)
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
 * [**mod config features no-maven-central**](#mod-config-features-no-maven-central)
-* [**mod config features no-nuget-org**](#mod-config-features-no-nuget-org)
+* [**mod config features rich-terminal**](#mod-config-features-rich-terminal)
+* [**mod config features rich-terminal enable**](#mod-config-features-rich-terminal-enable)
+* [**mod config features rich-terminal disable**](#mod-config-features-rich-terminal-disable)
 * [**mod config http**](#mod-config-http)
 * [**mod config http proxy**](#mod-config-http-proxy)
 * [**mod config http proxy delete**](#mod-config-http-proxy-delete)
@@ -102,6 +104,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config http trust-store edit file**](#mod-config-http-trust-store-edit-file)
 * [**mod config http trust-store edit java-home**](#mod-config-http-trust-store-edit-java-home)
 * [**mod config http trust-store show**](#mod-config-http-trust-store-show)
+* [**mod config http key-store**](#mod-config-http-key-store)
+* [**mod config http key-store delete**](#mod-config-http-key-store-delete)
+* [**mod config http key-store edit**](#mod-config-http-key-store-edit)
+* [**mod config http key-store edit file**](#mod-config-http-key-store-edit-file)
+* [**mod config http key-store show**](#mod-config-http-key-store-show)
 * [**mod config java**](#mod-config-java)
 * [**mod config java jdk**](#mod-config-java-jdk)
 * [**mod config java jdk edit**](#mod-config-java-jdk-edit)
@@ -187,26 +194,26 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config run timeout delete**](#mod-config-run-timeout-delete)
 * [**mod config run timeout edit**](#mod-config-run-timeout-edit)
 * [**mod config run timeout show**](#mod-config-run-timeout-show)
-* [**mod config scm**](#mod-config-scm)
-* [**mod config scm gitlab**](#mod-config-scm-gitlab)
+* ~~[**mod config scm**](#mod-config-scm-deprecated)~~ (deprecated)
+* ~~[**mod config scm gitlab**](#mod-config-scm-gitlab-deprecated)~~ (deprecated)
 * ~~[**mod config scm gitlab base-url**](#mod-config-scm-gitlab-base-url-deprecated)~~ (deprecated)
 * ~~[**mod config scm gitlab base-url delete**](#mod-config-scm-gitlab-base-url-delete-deprecated)~~ (deprecated)
 * ~~[**mod config scm gitlab base-url edit**](#mod-config-scm-gitlab-base-url-edit-deprecated)~~ (deprecated)
 * ~~[**mod config scm gitlab base-url show**](#mod-config-scm-gitlab-base-url-show-deprecated)~~ (deprecated)
-* [**mod config scm gitlab base-urls**](#mod-config-scm-gitlab-base-urls)
-* [**mod config scm gitlab base-urls delete**](#mod-config-scm-gitlab-base-urls-delete)
-* [**mod config scm gitlab base-urls edit**](#mod-config-scm-gitlab-base-urls-edit)
-* [**mod config scm gitlab base-urls show**](#mod-config-scm-gitlab-base-urls-show)
-* [**mod config scm bitbucket**](#mod-config-scm-bitbucket)
-* [**mod config scm bitbucket base-urls**](#mod-config-scm-bitbucket-base-urls)
-* [**mod config scm bitbucket base-urls delete**](#mod-config-scm-bitbucket-base-urls-delete)
-* [**mod config scm bitbucket base-urls edit**](#mod-config-scm-bitbucket-base-urls-edit)
-* [**mod config scm bitbucket base-urls show**](#mod-config-scm-bitbucket-base-urls-show)
-* [**mod config scm moderne**](#mod-config-scm-moderne)
-* [**mod config scm moderne sync**](#mod-config-scm-moderne-sync)
-* [**mod config scm add**](#mod-config-scm-add)
-* [**mod config scm remove**](#mod-config-scm-remove)
-* [**mod config scm show**](#mod-config-scm-show)
+* ~~[**mod config scm gitlab base-urls**](#mod-config-scm-gitlab-base-urls-deprecated)~~ (deprecated)
+* ~~[**mod config scm gitlab base-urls delete**](#mod-config-scm-gitlab-base-urls-delete-deprecated)~~ (deprecated)
+* ~~[**mod config scm gitlab base-urls edit**](#mod-config-scm-gitlab-base-urls-edit-deprecated)~~ (deprecated)
+* ~~[**mod config scm gitlab base-urls show**](#mod-config-scm-gitlab-base-urls-show-deprecated)~~ (deprecated)
+* ~~[**mod config scm bitbucket**](#mod-config-scm-bitbucket-deprecated)~~ (deprecated)
+* ~~[**mod config scm bitbucket base-urls**](#mod-config-scm-bitbucket-base-urls-deprecated)~~ (deprecated)
+* ~~[**mod config scm bitbucket base-urls delete**](#mod-config-scm-bitbucket-base-urls-delete-deprecated)~~ (deprecated)
+* ~~[**mod config scm bitbucket base-urls edit**](#mod-config-scm-bitbucket-base-urls-edit-deprecated)~~ (deprecated)
+* ~~[**mod config scm bitbucket base-urls show**](#mod-config-scm-bitbucket-base-urls-show-deprecated)~~ (deprecated)
+* ~~[**mod config scm moderne**](#mod-config-scm-moderne-deprecated)~~ (deprecated)
+* ~~[**mod config scm moderne sync**](#mod-config-scm-moderne-sync-deprecated)~~ (deprecated)
+* ~~[**mod config scm add**](#mod-config-scm-add-deprecated)~~ (deprecated)
+* ~~[**mod config scm remove**](#mod-config-scm-remove-deprecated)~~ (deprecated)
+* ~~[**mod config scm show**](#mod-config-scm-show-deprecated)~~ (deprecated)
 * [**mod config user**](#mod-config-user)
 * [**mod config user delete**](#mod-config-user-delete)
 * [**mod config user edit**](#mod-config-user-edit)
@@ -218,10 +225,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod git add**](#mod-git-add)
 * [**mod git apply**](#mod-git-apply)
 * [**mod git checkout**](#mod-git-checkout)
-* [**mod git clone**](#mod-git-clone)
-* [**mod git clone csv**](#mod-git-clone-csv)
-* [**mod git clone json**](#mod-git-clone-json)
-* [**mod git clone moderne**](#mod-git-clone-moderne)
+* ~~[**mod git clone**](#mod-git-clone-deprecated)~~ (deprecated)
+* ~~[**mod git clone csv**](#mod-git-clone-csv-deprecated)~~ (deprecated)
+* ~~[**mod git clone moderne**](#mod-git-clone-moderne-deprecated)~~ (deprecated)
 * [**mod git commit**](#mod-git-commit)
 * [**mod git pull**](#mod-git-pull)
 * [**mod git push**](#mod-git-push)
@@ -231,6 +237,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod git stashset apply**](#mod-git-stashset-apply)
 * [**mod git stashset push**](#mod-git-stashset-push)
 * [**mod git sync**](#mod-git-sync)
+* [**mod git sync csv**](#mod-git-sync-csv)
 * [**mod git sync moderne**](#mod-git-sync-moderne)
 * [**mod git status**](#mod-git-status)
 * [**mod log**](#mod-log)
@@ -311,11 +318,9 @@ mod afterburner /path/to/project
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 
 
 ## mod audit
@@ -376,12 +381,9 @@ mod audit builds list [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--streaming` |  (INCUBATING) Stream results from the audit to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--streaming` |  (INCUBATING) Stream results from the audit to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. |
 
 
 ## mod audit runs
@@ -423,12 +425,9 @@ mod audit runs list [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--streaming` |  (INCUBATING) Stream results from the audit to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--streaming` |  (INCUBATING) Stream results from the audit to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. |
 
 
 ## mod batch
@@ -484,15 +483,12 @@ mod batch publish --recipe com.acme.CollectionsSortToListSort --recipe-name "Pre
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--recipe` |  A recipe ID to associate this batch change with. |  |
-| `--recipe-description` |  A description for the recipe. |  |
-| `--recipe-name` |  A descriptive name for the recipe. |  |
-| `--recipe-run` |  A recipe run ID to add this batch change to. The same recipe run ID can be used to group multiple repositories of the same batch change. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--recipe` |  A recipe ID to associate this batch change with. |
+| `--recipe-description` |  A description for the recipe. |
+| `--recipe-name` |  A descriptive name for the recipe. |
+| `--recipe-run` |  A recipe run ID to add this batch change to. The same recipe run ID can be used to group multiple repositories of the same batch change. |
 
 
 ## mod build
@@ -530,16 +526,13 @@ mod build /path/to/project
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--download-only` |  Only download LSTs from Moderne. If no download is available, do not build the LST from source. Downloads the LSTs in parallel by default. |  |
-| `--dry-run` |  Do not actually build the LST(s), but list the steps that would be required to do so. |  |
-| `--no-download` |  Do not attempt to download LSTs from Moderne. |  |
-| `--offline` |  When an underlying build tool has an offline mode, enable it. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--streaming` |  (INCUBATING) Stream results from the build to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like in the IDE. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--download-only` |  Only download LSTs from Moderne. If no download is available, do not build the LST from source. Downloads the LSTs in parallel by default. |
+| `--dry-run` |  Do not actually build the LST(s), but list the steps that would be required to do so. |
+| `--no-download` |  Do not attempt to download LSTs from Moderne. |
+| `--offline` |  When an underlying build tool has an offline mode, enable it. |
+| `--streaming` |  (INCUBATING) Stream results from the build to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like in the IDE. |
 
 
 ## mod clean
@@ -594,12 +587,9 @@ mod clean builds /path/to/project --keep 1
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--keep` |  Keep this many run artifacts and clean all others. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--keep` |  Keep this many run artifacts and clean all others. |
 
 
 ## mod clean runs
@@ -629,12 +619,9 @@ mod clean runs /path/to/project --keep 1
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--keep` |  Keep this many run artifacts and clean all others. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--keep` |  Keep this many run artifacts and clean all others. |
 
 
 ## mod config
@@ -672,7 +659,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `node`: Configures Node options used for building LSTs and running recipes.
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `run`: Configures recipe run behavior.
-* `scm`: Configures source code management.
+* `scm`: (DEPRECATED) Configures source code management.
 * `user`: Configure the active user.
 
 ## mod config build
@@ -730,13 +717,10 @@ mod config build active-styles delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build active-styles edit
@@ -760,13 +744,10 @@ mod config build active-styles edit [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build active-styles show
@@ -782,13 +763,10 @@ mod config build active-styles show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel
@@ -844,13 +822,10 @@ mod config build bazel arguments delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel arguments edit
@@ -868,13 +843,10 @@ mod config build bazel arguments edit
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel arguments show
@@ -890,13 +862,10 @@ mod config build bazel arguments show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel executable
@@ -933,13 +902,10 @@ mod config build bazel executable delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel executable edit
@@ -963,13 +929,10 @@ mod config build bazel executable edit [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel executable show
@@ -987,13 +950,10 @@ mod config build bazel executable show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel timeout
@@ -1029,13 +989,10 @@ mod config build bazel timeout delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel timeout edit
@@ -1059,13 +1016,10 @@ mod config build bazel timeout edit [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel timeout show
@@ -1081,13 +1035,10 @@ mod config build bazel timeout show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build dotnet
@@ -1141,13 +1092,10 @@ mod config build dotnet timeout delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build dotnet timeout edit
@@ -1171,13 +1119,10 @@ mod config build dotnet timeout edit [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build dotnet timeout show
@@ -1193,13 +1138,10 @@ mod config build dotnet timeout show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle
@@ -1261,13 +1203,10 @@ mod config build gradle arguments delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle arguments edit
@@ -1285,13 +1224,10 @@ mod config build gradle arguments edit
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle arguments show
@@ -1307,13 +1243,10 @@ mod config build gradle arguments show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle root (deprecated)
@@ -1351,13 +1284,10 @@ mod config build gradle root delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle root edit (deprecated)
@@ -1381,13 +1311,10 @@ mod config build gradle root edit [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle root show (deprecated)
@@ -1405,13 +1332,10 @@ mod config build gradle root show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle timeout
@@ -1447,13 +1371,10 @@ mod config build gradle timeout delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle timeout edit
@@ -1477,13 +1398,10 @@ mod config build gradle timeout edit [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle timeout show
@@ -1499,13 +1417,10 @@ mod config build gradle timeout show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven
@@ -1567,13 +1482,10 @@ mod config build maven arguments delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven arguments edit
@@ -1591,13 +1503,10 @@ mod config build maven arguments edit
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven arguments show
@@ -1613,13 +1522,10 @@ mod config build maven arguments show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven settings
@@ -1663,13 +1569,10 @@ mod config build maven settings delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven settings edit
@@ -1699,13 +1602,10 @@ mod config build maven settings edit <path-to-settings.xml>
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven settings show
@@ -1723,13 +1623,10 @@ mod config build maven settings show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven timeout
@@ -1765,13 +1662,10 @@ mod config build maven timeout delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven timeout edit
@@ -1795,13 +1689,10 @@ mod config build maven timeout edit [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven timeout show
@@ -1817,13 +1708,10 @@ mod config build maven timeout show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config clone
@@ -1842,12 +1730,12 @@ mod config clone [subcommands]
 
 ### Subcommands
 
-* `protocol`: Configures the wire protocol(s) that are used for cloning.
+* `protocol`: (DEPRECATED) Configures the wire protocol(s) that are used for cloning. This option is ignored now, and clone URLs are driven from repos.csv.
 * `timeout`: Configures the timeout for clone operations.
 
-## mod config clone protocol
+## mod config clone protocol (deprecated)
 
-Configures the wire protocol(s) that are used for cloning.
+(DEPRECATED) Configures the wire protocol(s) that are used for cloning. This option is ignored now, and clone URLs are driven from repos.csv.
 
 
 All subsequent clones from Moderne organizations will use these settings. Clones from JSON or CSV use the explicitly provided clone URL without attempting to change the protocol.
@@ -1865,7 +1753,7 @@ mod config clone protocol [subcommands]
 * `edit`: Configures the wire protocols that are used for cloning.
 * `show`: Displays the wire protocols that are used for cloning.
 
-## mod config clone protocol delete
+## mod config clone protocol delete (deprecated)
 
 Restores the default clone protocols.
 
@@ -1880,7 +1768,7 @@ mod config clone protocol delete
 
 
 
-## mod config clone protocol edit
+## mod config clone protocol edit (deprecated)
 
 Configures the wire protocols that are used for cloning.
 
@@ -1901,7 +1789,7 @@ mod config clone protocol edit [parameters]
 
 
 
-## mod config clone protocol show
+## mod config clone protocol show (deprecated)
 
 Displays the wire protocols that are used for cloning.
 
@@ -2128,7 +2016,7 @@ mod config features [subcommands]
 
 * `index-recipes`
 * `no-maven-central`: (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
-* `no-nuget-org`: (INCUBATING) Configure the availability of NuGet.org.
+* `rich-terminal`: Configure rich terminal features.
 
 ## mod config features index-recipes
 
@@ -2168,24 +2056,49 @@ mod config features no-maven-central
 | `--enabled` |  |
 
 
-## mod config features no-nuget-org
+## mod config features rich-terminal
 
-(INCUBATING) Configure the availability of NuGet.org.
+Configure rich terminal features.
 
 
-NuGet.org is considered as a valid recipe and dependency source by default.It is implicitly used as a fallback for the resolution of recipes. In some environments access to these repositories is not allowed. This command be used to disable adding them implicitly to the list of repositories used for installing running recipes.
+Rich terminal features include OSC8 hyperlinks and extended UTF-8 characters for enhanced visual output. When enabled, terminals that support these features will display clickable links and use special characters for drawing boxes and other UI elements. The default value is automatically detected based on your terminal capabilities.
 
 ### Usage
 
 ```
-mod config features no-nuget-org
+mod config features rich-terminal [subcommands]
 ```
 
-### Options
 
-| Name | Description |
-| ---- | ----------- |
-| `--enabled` |  |
+### Subcommands
+
+* `enable`
+* `disable`
+
+## mod config features rich-terminal enable
+
+
+Enable rich terminal features (OSC8 hyperlinks and extended UTF-8 characters).
+
+### Usage
+
+```
+mod config features rich-terminal enable
+```
+
+
+
+## mod config features rich-terminal disable
+
+
+Disable rich terminal features.
+
+### Usage
+
+```
+mod config features rich-terminal disable
+```
+
 
 
 ## mod config http
@@ -2206,6 +2119,7 @@ mod config http [subcommands]
 
 * `proxy`: Configures HTTP proxy settings that will be used for every HTTP request.
 * `trust-store`: Configures truststore options that will be used throughout the CLI.
+* `key-store`: Configures keystore options that will be used throughout the CLI.
 
 ## mod config http proxy
 
@@ -2406,6 +2320,101 @@ mod config http trust-store show
 
 
 
+## mod config http key-store
+
+Configures keystore options that will be used throughout the CLI.
+
+
+All subsequent commands will use these settings.
+
+### Usage
+
+```
+mod config http key-store [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes keystore settings from global configuration.
+* `edit`: Configures keystore options that will be used throughout the CLI.
+* `show`: Displays the keystore setting from global configuration.
+
+## mod config http key-store delete
+
+Removes keystore settings from global configuration.
+
+
+Keystore settings will no longer be used for HTTP requests.
+
+### Usage
+
+```
+mod config http key-store delete
+```
+
+
+
+## mod config http key-store edit
+
+Configures keystore options that will be used throughout the CLI.
+
+
+All subsequent commands will use these settings.
+
+### Usage
+
+```
+mod config http key-store edit [subcommands]
+```
+
+### Subcommands
+
+* `file`: Configures keystore to point to a file.
+
+## mod config http key-store edit file
+
+Configures keystore to point to a file.
+
+
+All subsequent commands will use this keystore.
+
+### Usage
+
+```
+mod config http key-store edit file [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `file` |  The path to the keystore file. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--password` |  The password used to access the keystore. |
+| `--provider` |  The provider of the keystore. |
+| `--type` |  The type of the keystore file. |
+
+
+## mod config http key-store show
+
+Displays the keystore setting from global configuration.
+
+
+Shows the currently configured keystore setting, if any.
+
+### Usage
+
+```
+mod config http key-store show
+```
+
+
+
 ## mod config java
 
 Configures Java options used for building LSTs and running recipes.
@@ -2539,13 +2548,10 @@ mod config java options edit "\-Xmx4G"
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config java options delete
@@ -2561,13 +2567,10 @@ mod config java options delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config java options show
@@ -2583,13 +2586,10 @@ mod config java options show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config java version
@@ -2639,13 +2639,10 @@ mod config java version edit "17-tem"
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config java version delete
@@ -2661,13 +2658,10 @@ mod config java version delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config java version show
@@ -2683,13 +2677,10 @@ mod config java version show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config license
@@ -2827,6 +2818,7 @@ Must be configured before you can run the publish command.
 ```
 mod config lsts [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3005,9 +2997,6 @@ mod config lsts artifacts edit <artifact-repository-url> --user <user> --passwor
 | `--authorization` |  The authorization header value to use. | `Bearer XXXXX` |
 | `--local` |  Configuration relevant to a specific group of repositories. |  |
 | `--password` |  The password to authenticate with. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 | `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--user` |  The user to authenticate with. |  |
@@ -3028,13 +3017,10 @@ mod config lsts artifacts maven delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config lsts artifacts maven show
@@ -3052,13 +3038,10 @@ mod config lsts artifacts maven show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config moderne
@@ -3087,7 +3070,7 @@ mod config moderne edit <host> --token <token>
 * `edit`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `local`: Configures a connection to a Moderne DX instance running locally on the same machine.
 * `show`: Displays the Moderne tenant configuration.
-* `organizations`: The organizational hierarchy of repository ownership.
+* `organizations`: (INCUBATING) The organizational hierarchy of repository ownership.
 
 ## mod config moderne delete
 
@@ -3172,7 +3155,7 @@ mod config moderne show
 
 ## mod config moderne organizations
 
-The organizational hierarchy of repository ownership.
+(INCUBATING) The organizational hierarchy of repository ownership.
 
 
 Each of these organizations are cloneable.
@@ -3794,11 +3777,6 @@ mod config recipes jar install org.openrewrite:rewrite-java:LATEST
 | `GAV` |  The group, artifact, and version of the artifact to install in the format groupId:artifactId:version. The version may be a fixed version, LATEST, or RELEASE.
 The dependency will be resolved from the artifact source defined in **mod config recipes artifacts** |
 
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 
 
 ## mod config recipes jar delete
@@ -3997,11 +3975,6 @@ Destroys all recipes in the local CLI marketplace and replaces them with the lat
 mod config recipes moderne sync
 ```
 
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 
 
 ## mod config recipes delete
@@ -4196,13 +4169,10 @@ mod config run timeout delete
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config run timeout edit
@@ -4226,13 +4196,10 @@ mod config run timeout edit [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config run timeout show
@@ -4248,18 +4215,15 @@ mod config run timeout show
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Configuration relevant to a specific group of repositories. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
-## mod config scm
+## mod config scm (deprecated)
 
-Configures source code management.
+(DEPRECATED) Configures source code management.
 
 
 
@@ -4275,12 +4239,12 @@ mod config scm [subcommands]
 
 * `gitlab`: (DEPRECATED) Configures GitLab.
 * `bitbucket`: (DEPRECATED) Configures Bitbucket.
-* `moderne`: (INCUBATING) Configures the SCM configuration with Moderne
+* `moderne`: (DEPRECATED) Configures the SCM configuration with Moderne
 * `add`
 * `remove`
-* `show`: Displays the configured SCMs
+* `show`: (DEPRECATED) Displays the configured SCMs
 
-## mod config scm gitlab
+## mod config scm gitlab (deprecated)
 
 (DEPRECATED) Configures GitLab.
 
@@ -4372,7 +4336,7 @@ mod config scm gitlab base-url show
 
 
 
-## mod config scm gitlab base-urls
+## mod config scm gitlab base-urls (deprecated)
 
 (DEPRECATED) Configure the base URLs.
 
@@ -4398,7 +4362,7 @@ mod config scm gitlab base-urls edit "https://acme.com/gitlab-ee/"
 * `edit`: (DEPRECATED) Configure one or more base URLs.
 * `show`: (DEPRECATED) Displays the configured base URLs.
 
-## mod config scm gitlab base-urls delete
+## mod config scm gitlab base-urls delete (deprecated)
 
 (DEPRECATED) Removes base URL customization.
 
@@ -4411,7 +4375,7 @@ mod config scm gitlab base-urls delete
 
 
 
-## mod config scm gitlab base-urls edit
+## mod config scm gitlab base-urls edit (deprecated)
 
 (DEPRECATED) Configure one or more base URLs.
 
@@ -4432,7 +4396,7 @@ mod config scm gitlab base-urls edit [parameters]
 
 
 
-## mod config scm gitlab base-urls show
+## mod config scm gitlab base-urls show (deprecated)
 
 (DEPRECATED) Displays the configured base URLs.
 
@@ -4445,7 +4409,7 @@ mod config scm gitlab base-urls show
 
 
 
-## mod config scm bitbucket
+## mod config scm bitbucket (deprecated)
 
 (DEPRECATED) Configures Bitbucket.
 
@@ -4463,7 +4427,7 @@ mod config scm bitbucket [subcommands]
 
 * `base-urls`: (DEPRECATED) Configure the base URLs.
 
-## mod config scm bitbucket base-urls
+## mod config scm bitbucket base-urls (deprecated)
 
 (DEPRECATED) Configure the base URLs.
 
@@ -4489,7 +4453,7 @@ mod config scm bitbucket base-urls edit "https://bitbucket.acme.com/stash/"
 * `edit`: (DEPRECATED) Configure one or more base URLs.
 * `show`: (DEPRECATED) Displays the configured base URLs.
 
-## mod config scm bitbucket base-urls delete
+## mod config scm bitbucket base-urls delete (deprecated)
 
 (DEPRECATED) Removes base URL customization.
 
@@ -4502,7 +4466,7 @@ mod config scm bitbucket base-urls delete
 
 
 
-## mod config scm bitbucket base-urls edit
+## mod config scm bitbucket base-urls edit (deprecated)
 
 (DEPRECATED) Configure one or more base URLs.
 
@@ -4523,7 +4487,7 @@ mod config scm bitbucket base-urls edit [parameters]
 
 
 
-## mod config scm bitbucket base-urls show
+## mod config scm bitbucket base-urls show (deprecated)
 
 (DEPRECATED) Displays the configured base URLs.
 
@@ -4536,9 +4500,9 @@ mod config scm bitbucket base-urls show
 
 
 
-## mod config scm moderne
+## mod config scm moderne (deprecated)
 
-(INCUBATING) Configures the SCM configuration with Moderne
+(DEPRECATED) Configures the SCM configuration with Moderne
 
 
 
@@ -4560,7 +4524,7 @@ mod config scm moderne sync
 
 * `sync`: Synchronizes the SCM configuration with your Moderne instance
 
-## mod config scm moderne sync
+## mod config scm moderne sync (deprecated)
 
 Synchronizes the SCM configuration with your Moderne instance
 
@@ -4575,10 +4539,10 @@ mod config scm moderne sync
 
 
 
-## mod config scm add
+## mod config scm add (deprecated)
 
 
-(INCUBATING) Add an SCM configuration
+(DEPRECATED) Add an SCM configuration
 
 ### Usage
 
@@ -4600,10 +4564,10 @@ mod config scm add [parameters]
 | `--alternate-url` |  Alternate SCM URLs |
 
 
-## mod config scm remove
+## mod config scm remove (deprecated)
 
 
-(INCUBATING) Remove an SCM configuration by type and URL
+(DEPRECATED) Remove an SCM configuration by type and URL
 
 ### Usage
 
@@ -4620,9 +4584,9 @@ mod config scm remove [parameters]
 
 
 
-## mod config scm show
+## mod config scm show (deprecated)
 
-Displays the configured SCMs
+(DEPRECATED) Displays the configured SCMs
 
 
 ### Usage
@@ -4705,7 +4669,7 @@ mod config user show
 Generate DevCenter dashboards.
 
 
-Generate a dashboard from a DevCenter recipe run.
+Generate a dashboard from a DevCenter recipe run for each organization.
 
 ### Usage
 
@@ -4727,14 +4691,10 @@ mod devcenter /path/to/organization
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| `--output-dir` |  |  |
-| `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 
 
 ## mod exec
@@ -4772,14 +4732,11 @@ mod exec /path/to/project rm *.hprof
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| `-o`, `--out`, `--output` |  The output type for the command. Accepts `Console` and `File`. If not specified, the output will be printed to the console. |  |
-| `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `-o`, `--out`, `--output` |  The output type for the command. Accepts `Console` and `File`. If not specified, the output will be printed to the console. |
+| `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 
 
 ## mod generate-completion
@@ -4819,7 +4776,7 @@ mod git [subcommands]
 * `add`: Performs the equivalent of **git add** on multiple repositories.
 * `apply`: Performs the equivalent of **git apply** on multiple repositories.
 * `checkout`: Performs the equivalent of **git checkout** on multiple repositories.
-* `clone`: Performs the equivalent of **git clone** on multiple repositories.
+* `clone`: (DEPRECATED) ist of repositories can be sourced from different places, like Moderne or a CSV. All clone operations ca be performed in parallel by opt in via |@bold --parallel=0 |@.
 * `commit`: Performs the equivalent of **git commit** on multiple repositories.
 * `pull`: Performs the equivalent of **git pull** on multiple repositories.
 * `push`: Performs the equivalent of **git push** on multiple repositories.
@@ -4857,13 +4814,10 @@ mod git add /path/to/project --recipe-run <recipe-run-id>
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 
 
 ## mod git apply
@@ -4893,13 +4847,10 @@ mod git apply /path/to/project --recipe-run 20230903164310-2qVRM
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 
 
 ## mod git checkout
@@ -4930,22 +4881,17 @@ mod git checkout /path/to/project
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `-b`, `-B` |  Causes a new branch to be created as if git-branch were called and then checked out. |  |
-| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `-b`, `-B` |  Causes a new branch to be created as if git-branch were called and then checked out. |
+| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 
 
-## mod git clone
+## mod git clone (deprecated)
 
-Performs the equivalent of **git clone** on multiple repositories.
+(DEPRECATED) ist of repositories can be sourced from different places, like Moderne or a CSV. All clone operations ca be performed in parallel by opt in via |@bold --parallel=0 |@.
 
-
-Rather than cloning one at a time, this operates on multiple repositories. The list of repositories can be sourced from different places, like Moderne or a CSV. All clone operations ca be performed in parallel by opt in via |@bold --parallel=0 |@.
 
 ### Usage
 
@@ -4962,13 +4908,12 @@ mod git clone moderne /path/to/folder/to/clone/into Apache
 
 ### Subcommands
 
-* `csv`: Clones the repositories listed in a CSV file.
-* `json`: Clones the repositories listed in a JSON file.
-* `moderne`: Clones the repositories in an organization on Moderne.
+* `csv`: (DEPRECATED) Clones the repositories listed in a CSV file.
+* `moderne`: (DEPRECATED) Clones the repositories in an organization on Moderne.
 
-## mod git clone csv
+## mod git clone csv (deprecated)
 
-Clones the repositories listed in a CSV file.
+(DEPRECATED) Clones the repositories listed in a CSV file.
 
 
 The CSV file should have a header row with the required column **cloneUrl** and any number of optional columns. The optional columns are **branch, changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**. All clone operations can be performed in parallel by opt in via **--parallel=0**.
@@ -4993,51 +4938,18 @@ mod git clone csv [parameters]
 | `--depth` |  Equivalent to the **git clone --depth** option. |
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
-| `--metadata-only`, `--metadata` |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| `--save` |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. |
-| `--single-branch` |  |
+| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.modernecfg** which can be committed to source control. |
+| `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
+| `--with-sources` |  Whether to clone the repository at the specified branch. |
 
 
-## mod git clone json
+## mod git clone moderne (deprecated)
 
-Clones the repositories listed in a JSON file.
-
-
-The JSON file should consist of an array of repositories with the required keys **cloneUrl| and @|bold branch** and any number of optional keys. The optional keys are **changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**. All clone operations can be performed in parallel by opt in via **--parallel=0**.
-
-### Usage
-
-```
-mod git clone json [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `cloneInto` |  The directory to clone all projects into. This directory will be created if it doesn't exist. |
-| `json` |  The path to a JSON file containing repositories to clone. |
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--depth` |  Equivalent to the **git clone --depth** option. |
-| `--filter` |  Equivalent to the **git clone --filter** option. |
-| `--limit` |  The maximum number of repositories to clone. |
-| `--metadata-only`, `--metadata` |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| `--save` |  Any per repository configuration should be placed in a **.modernecfg** which can be committed to source control. |
-| `--single-branch` |  |
+(DEPRECATED) Clones the repositories in an organization on Moderne.
 
 
-## mod git clone moderne
-
-Clones the repositories in an organization on Moderne.
-
-
-The repositories are cloned at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne. All clone operations can be performed in parallel by opt in via **--parallel=0**.
+This redirects to **mod git sync moderne** instead, which is a superset of the original behavior of this command.
 
 ### Usage
 
@@ -5059,9 +4971,10 @@ mod git clone moderne [parameters]
 | `--depth` |  Equivalent to the **git clone --depth** option. |
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
-| `--metadata-only`, `--metadata` |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| `--single-branch` |  |
+| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.modernecfg** which can be committed to source control. |
+| `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
+| `--with-sources` |  Whether to clone the repository at the specified branch. |
 
 
 ## mod git commit
@@ -5091,15 +5004,12 @@ mod git commit /path/to/project -m "commit message"
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--allow-empty` |  Weather or not to allow making empty commits. |  |
-| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| `-m`, `--message` |  The commit message to use. |  |
-| `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--allow-empty` |  Weather or not to allow making empty commits. |
+| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `-m`, `--message` |  The commit message to use. |
+| `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 
 
 ## mod git pull
@@ -5132,9 +5042,6 @@ mod git pull /path/to/project
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `--rebase` |  Pull with rebase or not. | `github.com` |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 
 
 ## mod git push
@@ -5166,14 +5073,11 @@ mod git push /path/to/project -u origin feature-branch
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `-u`, `--set-upstream` |  For every branch that is up to date or successfully pushed, add upstream (tracking) reference. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `-u`, `--set-upstream` |  For every branch that is up to date or successfully pushed, add upstream (tracking) reference. |
 
 
 ## mod git reset
@@ -5203,12 +5107,9 @@ mod git reset /path/to/project
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--hard` |  Resets the index and working tree. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--hard` |  Resets the index and working tree. |
 
 
 ## mod git rev-parse
@@ -5216,7 +5117,7 @@ mod git reset /path/to/project
 Performs the equivalent of **git rev-parse** on multiple repositories.
 
 
-Rather than applying one rev-parse at a time, this operates on multiple repositories.
+Rather than applying one rev-parse at a time, this operates on multiple repositories. Arguments passed to **git rev-parse** must be specified after the end-of-options POSIX delimiter (**--**).
 
 ### Usage
 
@@ -5227,7 +5128,7 @@ mod git rev-parse [parameters]
 ### Examples
 
 ```
-mod git rev-parse /path/to/project
+mod git rev-parse /path/to/project -- --show-toplevel
 ```
 
 ### Parameters
@@ -5237,13 +5138,6 @@ mod git rev-parse /path/to/project
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
 | `args` |  |
 
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 
 
 ## mod git stashset
@@ -5295,12 +5189,9 @@ mod git stashset apply [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--force` |  Pop the stash after applying it, regardless of whether it made a change. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--force` |  Pop the stash after applying it, regardless of whether it made a change. |
 
 
 ## mod git stashset push
@@ -5324,12 +5215,9 @@ mod git stashset push [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `-u`, `--include-untracked` |  Include untracked files. |  |
+| Name | Description |
+| ---- | ----------- |
+| `-u`, `--include-untracked` |  Include untracked files. |
 
 
 ## mod git sync
@@ -5337,7 +5225,7 @@ mod git stashset push [parameters]
 Synchronizing with Moderne.
 
 
-
+Synchronizes the set of repositories on disk to a source of repositories and at what branch and changeset they should be.
 
 ### Usage
 
@@ -5345,9 +5233,40 @@ Synchronizing with Moderne.
 mod git sync [subcommands]
 ```
 
+
 ### Subcommands
 
+* `csv`
 * `moderne`: Synchronizes the repositories and metadata of an organization on Moderne.
+
+## mod git sync csv
+
+
+### Usage
+
+```
+mod git sync csv [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| `csv` |  The URI (local file or remote) to the CSV file to write the organization to. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--depth` |  Equivalent to the **git clone --depth** option. |
+| `--filter` |  Equivalent to the **git clone --filter** option. |
+| `--limit` |  The maximum number of repositories to clone. |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
+| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.modernecfg** which can be committed to source control. |
+| `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
+| `--with-sources` |  Whether to clone the repository at the specified branch. |
+
 
 ## mod git sync moderne
 
@@ -5365,7 +5284,7 @@ mod git sync moderne [parameters]
 ### Examples
 
 ```
-mod git sync moderne /path/to/organization
+mod git sync moderne /path/to/organization <ORG_NAME>
 ```
 
 ### Parameters
@@ -5373,18 +5292,19 @@ mod git sync moderne /path/to/organization
 | Name | Description |
 | ---- | ----------- |
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| `organizationNameOrId` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| `--metadata-only`, `--metadata` |  Do not perform a traditional git clone, but rather just record the repository origin, path, branch, and changeset in a 'repository' folder. |  |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
-| `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--depth` |  Equivalent to the **git clone --depth** option. |
+| `--filter` |  Equivalent to the **git clone --filter** option. |
+| `--limit` |  The maximum number of repositories to clone. |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
+| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.modernecfg** which can be committed to source control. |
+| `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
+| `--with-sources` |  Whether to clone the repository at the specified branch. |
 
 
 ## mod git status
@@ -5412,13 +5332,6 @@ mod git status /path/to/project
 | ---- | ----------- |
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
 
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 
 
 ## mod log
@@ -5480,13 +5393,10 @@ mod log builds add [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--build` |  A build ID for a build that has completed previously. |  |
-| `--last-build` |  Select whatever the last build was, whether the build ran fully to completion or terminated early. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--build` |  A build ID for a build that has completed previously. |
+| `--last-build` |  Select whatever the last build was, whether the build ran fully to completion or terminated early. |
 
 
 ## mod log runs
@@ -5529,14 +5439,11 @@ mod log runs add [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--last-run` |  Select whatever the last run was, whether the run ran fully to completion or terminated early. |  |
-| `--organization` |  Organization name to override the organization associated with each run. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--run` |  A run ID for a run that has completed previously. |  |
+| Name | Description |
+| ---- | ----------- |
+| `--last-run` |  Select whatever the last run was, whether the run ran fully to completion or terminated early. |
+| `--organization` |  Organization name to override the organization associated with each run. |
+| `--run` |  A run ID for a run that has completed previously. |
 
 
 ## mod list
@@ -5566,12 +5473,9 @@ mod list /path/to/project
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--json` |  (INCUBATING) Output the repository listing in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  (INCUBATING) Output the repository listing in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
 
 
 ## mod monitor
@@ -5621,14 +5525,6 @@ mod publish /path/to/project
 | ---- | ----------- |
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
 
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--partition` |  (INCUBATING) The name of the partitions to publish. If not specified, the recipe will publish all partitions (or the whole repository if there are no partitions). |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 
 
 ## mod run
@@ -5668,12 +5564,8 @@ mod run /path/to/project \
 | `--no-patch` |  (INCUBATING) Do not generate patch files on disk at the conclusion of a recipe run that makes changes. This is useful when you are looking to only use data table outputs and don't wish to incur the cost of writing patch files when they will be unused. |  |
 | `-P`, `--recipe-option` |  Recipe options, if any. If a recipe accepts more than one option, you can include this argument multiple times. | `mod run . --recipe=<recipe> -P methodPattern='java.util.List add(..)' -P moreOptions='moreOptions'` |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
-| `--partition` |  (INCUBATING) The name of the partitions to run the recipe on. If not specified, the recipe will run on all partitions (or the whole repository if there are no partitions). |  |
 | `--recipe` |  The recipe ID of the recipe that should be run. Executes recipes in sequential mode, unless --parallel is specified. | `org.openrewrite.java.search.FindMethods` |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
 | `--streaming` |  (INCUBATING) Stream results from the recipe run to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. Executes the recipe in parallel by default. |  |
 
 
@@ -5698,14 +5590,10 @@ mod run-history [parameters]
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--json` |  (INCUBATING) Output the run history in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |  |
-| `--most-recent` |  Only show the most recent run of each recipe. |  |
-| `--partition` |  (INCUBATING) The name of the partitions to retrieve history on. If not specified, the recipe will retrieve history on all partitions (or the whole repository if there are no partitions). |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  (INCUBATING) Output the run history in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
+| `--most-recent` |  Only show the most recent run of each recipe. |
 
 
 ## mod study
@@ -5735,17 +5623,14 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 
 ### Options
 
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--csv` |  Output in CSV format |  |
-| `--data-table` |  The name of the data table to study. |  |
-| `--json` |  Output the data table in JSON format with the specified fields. If no value is provided, all columns from the data table will be kept. |  |
-| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
-| `-o`, `--output-file` |  The location to output the data table. |  |
-| `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
-| `--repository-branch` |  Restricts the command to only run against repositories that are currently on this branch. | `main` |
-| `--repository-origin` |  Restricts the command to only run against repositories that have an origin that matches this.<br/><br/>Supports partial matches (e.g., if the origin is *git@github.com:foo/bar* - all of the following would match this: github.com:foo/bar, github.com, foo, and foo/bar). | `github.com` |
-| `--repository-path` |  Restricts the command to only run against repositories that have a path (a combination of the organization/project and the repository name) that matches this.<br/><br/>Supports partial matches (e.g., if the repository is in the _foo_ organization and is called _bar_ - all of the following would match this: foo/bar, foo/.*, foo, and bar). | `openrewrite/rewrite` |
-| `--template` |  |  |
+| Name | Description |
+| ---- | ----------- |
+| `--csv` |  Output in CSV format |
+| `--data-table` |  The name of the data table to study. |
+| `--json` |  Output the data table in JSON format with the specified fields. If no value is provided, all columns from the data table will be kept. |
+| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `-o`, `--output-file` |  The location to output the data table. |
+| `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `--template` |  |
 
 
