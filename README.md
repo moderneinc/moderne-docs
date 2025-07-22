@@ -8,8 +8,7 @@ We encourage you to contribute to our docs! Please feel free to create an issue 
 
 We use [Docusaurus](https://docusaurus.io/) to manage our documentation. When any changes are merged into this repository, a build is kicked off to update the docs.
 
-## Standards
+## Documentation Standards
 
-* In document titles and headers, use sentence case. That is, capitalize only the first word in the title, the first word in a subheading after a colon, and any proper nouns or other terms that are always capitalized a certain way. Don't put a period at the end of a title or heading.
-* When using acronyms, you must always fully define the acronym before it can be used in the document. For instance, you would say something like: "The North Atlantic Treaty Organization (NATO) did..." Then, in the rest of the document, you can freely use NATO instead.
+Please follow our comprehensive [Style Guide](./STYLE_GUIDE.md) when contributing to the documentation. It covers formatting rules, markdown conventions, and content guidelines to ensure consistency across all Moderne documentation.
  
