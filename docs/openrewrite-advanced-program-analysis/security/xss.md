@@ -1,5 +1,5 @@
 ---
-description: Detect and prevent Cross-Site Scripting (XSS) vulnerabilities in web applications
+description: Detect and prevent Cross-Site Scripting (XSS) vulnerabilities in web applications.
 ---
 
 # Cross-Site Scripting (XSS) Detection

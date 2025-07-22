@@ -1,5 +1,5 @@
 ---
-description: Master taint analysis for finding security vulnerabilities in Java applications
+description: Master taint analysis for finding security vulnerabilities in Java applications.
 ---
 
 # Comprehensive guide to taint analysis

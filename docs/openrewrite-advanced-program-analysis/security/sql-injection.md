@@ -1,5 +1,5 @@
 ---
-description: Detect and prevent SQL injection vulnerabilities using advanced taint analysis
+description: Detect and prevent SQL injection vulnerabilities using advanced taint analysis.
 ---
 
 # SQL Injection Detection

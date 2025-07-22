@@ -1,5 +1,5 @@
 ---
-description: Learn how to track data flow across method boundaries for whole-program analysis
+description: Learn how to track data flow across method boundaries for whole-program analysis.
 ---
 
 # Inter-procedural Analysis

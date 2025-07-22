@@ -1,5 +1,5 @@
 ---
-description: Find and fix security vulnerabilities using OpenRewrite's advanced program analysis
+description: Find and fix security vulnerabilities using OpenRewrite's advanced program analysis.
 ---
 
 # Security Analysis Overview

@@ -1,5 +1,5 @@
 ---
-description: Detect and prevent command injection vulnerabilities in Java applications
+description: Detect and prevent command injection vulnerabilities in Java applications.
 ---
 
 # Command Injection Detection

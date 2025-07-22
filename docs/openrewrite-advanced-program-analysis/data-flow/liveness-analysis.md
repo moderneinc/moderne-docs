@@ -1,5 +1,5 @@
 ---
-description: Deep dive into liveness analysis - determining which variables are "live" at each program point
+description: Deep dive into liveness analysis - determining which variables are "live" at each program point.
 ---
 
 # Liveness Analysis

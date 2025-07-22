@@ -1,5 +1,5 @@
 ---
-description: Explore advanced program analysis techniques that combine control flow and data flow for sophisticated analyses
+description: Explore advanced program analysis techniques that combine control flow and data flow for sophisticated analyses.
 ---
 
 # Advanced analysis techniques

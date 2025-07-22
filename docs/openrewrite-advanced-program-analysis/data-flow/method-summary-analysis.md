@@ -1,5 +1,5 @@
 ---
-description: Learn how to compute and use method summaries for efficient inter-procedural analysis
+description: Learn how to compute and use method summaries for efficient inter-procedural analysis.
 ---
 
 # Method Summary Analysis

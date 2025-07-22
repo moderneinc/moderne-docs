@@ -1,5 +1,5 @@
 ---
-description: Master reaching definitions analysis - tracking where variable values come from
+description: Master reaching definitions analysis - tracking where variable values come from.
 ---
 
 # Reaching Definitions Analysis

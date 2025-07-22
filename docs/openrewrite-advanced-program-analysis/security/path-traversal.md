@@ -1,5 +1,5 @@
 ---
-description: Detect and prevent path traversal vulnerabilities in file system operations
+description: Detect and prevent path traversal vulnerabilities in file system operations.
 ---
 
 # Path Traversal Detection

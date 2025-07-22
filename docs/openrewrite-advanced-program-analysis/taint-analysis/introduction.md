@@ -1,5 +1,5 @@
 ---
-description: Learn how taint analysis tracks untrusted data through programs to identify security vulnerabilities
+description: Learn how taint analysis tracks untrusted data through programs to identify security vulnerabilities.
 ---
 
 # Introduction to taint analysis

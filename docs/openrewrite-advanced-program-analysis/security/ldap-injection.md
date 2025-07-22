@@ -1,5 +1,5 @@
 ---
-description: Detect and prevent LDAP injection vulnerabilities in directory service queries
+description: Detect and prevent LDAP injection vulnerabilities in directory service queries.
 ---
 
 # LDAP Injection Detection

@@ -1,5 +1,5 @@
 ---
-description: Learn how data flow analysis tracks information through programs to enable powerful optimizations and bug detection
+description: Learn how data flow analysis tracks information through programs to enable powerful optimizations and bug detection.
 ---
 
 # Introduction to Data Flow Analysis

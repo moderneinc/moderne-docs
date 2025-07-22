@@ -1,5 +1,5 @@
 ---
-description: Detect and prevent XML External Entity (XXE) vulnerabilities in XML processing
+description: Detect and prevent XML External Entity (XXE) vulnerabilities in XML processing.
 ---
 
 # XXE Vulnerability Detection

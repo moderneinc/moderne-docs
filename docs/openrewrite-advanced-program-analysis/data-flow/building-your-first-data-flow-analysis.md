@@ -1,5 +1,5 @@
 ---
-description: Step-by-step guide to implementing a data flow analysis recipe using OpenRewrite's analysis framework
+description: Step-by-step guide to implementing a data flow analysis recipe using OpenRewrite's analysis framework.
 ---
 
 # Building Your First Data Flow Analysis

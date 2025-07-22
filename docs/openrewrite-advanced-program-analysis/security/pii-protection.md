@@ -1,5 +1,5 @@
 ---
-description: Detect and prevent exposure of Personally Identifiable Information (PII) in applications
+description: Detect and prevent exposure of Personally Identifiable Information (PII) in applications.
 ---
 
 # PII Protection
