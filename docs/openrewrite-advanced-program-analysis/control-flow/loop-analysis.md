@@ -12,20 +12,44 @@ This guide includes example implementations of loop analysis concepts. OpenRewri
 
 ## Understanding loops in CFGs
 
-A loop in a control flow graph is a strongly connected component with a single entry point. More formally, a natural loop has two key properties:
+Think of a loop as a circular path in your program's control flow. When you write a `for` or `while` loop, you're creating a structure where execution can flow in a circle - going from the condition check, through the loop body, and back to the condition check again.
 
-1. **Single Entry**: There's one block (the header) that dominates all blocks in the loop
-2. **Back Edge**: There's at least one edge from a block in the loop back to the header
+### What makes a "natural loop"?
+
+A **natural loop** is the most common and well-behaved type of loop that compilers can easily analyze and optimize. It has two essential characteristics that make it predictable:
+
+1. **Single Entry Point (Header)**: There's only one way to enter the loop - through its header block (the condition check). This is like having only one entrance to a building.
+2. **Back Edge**: There's a "back edge" - a path that flows from somewhere inside the loop back to the header, creating the circular flow.
+
+Why do we care about "natural" loops? Because they're easier to analyze and optimize than more complex control structures with multiple entry points or tangled flows.
 
 ### Loop terminology
 
-Before diving into algorithms, let's establish common terminology:
+Before diving into algorithms, let's establish key terms using a familiar `for` loop as an example:
 
-* **Header**: The single entry point to the loop
-* **Back Edge**: An edge from a node to one of its dominators
-* **Loop Body**: All blocks that can reach the back edge without going through the header
-* **Exit Blocks**: Blocks inside the loop with edges leading outside
-* **Preheader**: A block that has the header as its only successor (useful for optimizations)
+```java
+// Preheader: code before the loop
+int sum = 0;
+
+for (int i = 0; i < items.length; i++) {  // <- Header: loop condition check
+    if (items[i] > threshold) {           // <- Loop Body: code inside the loop
+        sum += items[i];
+        
+        if (sum > limit) {
+            break;                        // <- Exit: way out of the loop
+        }
+    }
+}  // <- Back Edge: flow from end of body back to header
+
+// Code after the loop continues here
+```
+
+**Key terms:**
+* **Header**: The loop's condition check - every iteration starts here
+* **Loop Body**: All the code inside the loop that executes repeatedly  
+* **Back Edge**: The invisible flow from the end of the loop body back to the header for the next iteration
+* **Exit Blocks**: Parts of the loop that can jump outside (like `break` statements)
+* **Preheader**: Code that runs once before the loop starts (useful for placing optimized code)
 
 ## Loop detection
 
@@ -165,7 +189,9 @@ public class NaturalLoopFinder {
 
 ### Loop nesting structure
 
-Loops can be nested within other loops. Building a loop nesting tree helps analyze complex loop structures.
+Loops can be nested within other loops, creating a hierarchy where inner loops execute completely for each iteration of outer loops. Understanding this nesting structure is crucial for optimization - inner loops typically have the highest impact on performance since they execute the most frequently.
+
+For example, in a doubly-nested loop, the innermost statements execute `outer_iterations × inner_iterations` times, making them prime targets for optimization.
 
 ```java
 public class LoopNestingTree {
@@ -211,7 +237,12 @@ public class LoopNestingTree {
 
 ### Loop exit analysis
 
-Understanding how loops terminate is crucial for optimization.
+Understanding how and where loops can terminate is essential for optimization and correctness analysis. Some loops have a single exit point (the normal condition), while others have multiple exits (`break` statements, exceptions, early returns).
+
+**Why this matters:**
+- **Single-exit loops** are easier to optimize and transform
+- **Multiple-exit loops** require more careful analysis to ensure optimizations don't change behavior
+- **Exit points** determine where we can safely place optimized code
 
 ```java
 public class LoopExitAnalysis {
@@ -252,7 +283,31 @@ public class LoopExitAnalysis {
 
 ### Loop-carried dependencies
 
-Identify dependencies between loop iterations.
+Loop-carried dependencies are relationships between different iterations of a loop - when one iteration depends on the results of a previous iteration. Understanding these dependencies is crucial because they determine whether we can safely optimize or parallelize a loop.
+
+**Why do we need to identify these dependencies?**
+
+Consider this simple example:
+```java
+for (int i = 1; i < 10; i++) {
+    array[i] = array[i-1] + 1;  // This iteration depends on the previous one!
+}
+```
+
+Here, each iteration depends on the result from the previous iteration. This dependency prevents us from running iterations in parallel - we must execute them in order. Contrast this with:
+
+```java
+for (int i = 0; i < 10; i++) {
+    array[i] = i * 2;  // Each iteration is independent
+}
+```
+
+In the second example, each iteration is completely independent, so we could safely run them in parallel or reorder them.
+
+Identifying these dependencies helps us:
+- **Determine parallelization potential** - Independent iterations can run in parallel
+- **Enable optimizations** - We can reorder or transform independent computations
+- **Ensure correctness** - We preserve the program's intended behavior
 
 ```java
 public class DataDependence {
@@ -306,7 +361,27 @@ public class LoopCarriedDependencies {
 
 ## Loop invariant analysis
 
-Loop invariant code doesn't change across iterations and can be moved outside.
+**Loop invariant code** is code that produces the same result no matter which iteration of the loop is executing it. Since it doesn't change, we can move it outside the loop to avoid repeatedly computing the same value.
+
+### Why move invariant code?
+
+Consider this inefficient loop:
+```java
+for (int i = 0; i < items.length; i++) {
+    String prefix = configuration.getPrefix();  // Same result every time!
+    processItem(items[i], prefix);
+}
+```
+
+The `configuration.getPrefix()` call returns the same value in every iteration, but we're calling it repeatedly. We can optimize this to:
+```java
+String prefix = configuration.getPrefix();  // Moved outside - computed once
+for (int i = 0; i < items.length; i++) {
+    processItem(items[i], prefix);
+}
+```
+
+This optimization can provide significant performance improvements, especially for expensive computations inside frequently-executed loops.
 
 ```java
 public class LoopInvariantAnalysis {
@@ -491,7 +566,27 @@ public class LoopFusionDetector {
 
 ### Induction variable analysis
 
-Identify and analyze variables that change predictably in loops.
+**Induction variables** are variables that change in a predictable pattern during loop execution - typically incrementing or decrementing by a constant amount each iteration.
+
+### Why do we care about induction variables?
+
+Consider this common pattern:
+```java
+for (int i = 0; i < 100; i++) {
+    int offset = i * 4;        // This is a derived induction variable!
+    process(data[offset]);
+}
+```
+
+Here, `i` is a basic induction variable (increases by 1 each iteration), and `offset` is a derived induction variable (increases by 4 each iteration). Instead of computing `i * 4` in every iteration, we can optimize this to:
+
+```java
+for (int i = 0, offset = 0; i < 100; i++, offset += 4) {
+    process(data[offset]);     // Replaced multiplication with addition!
+}
+```
+
+This optimization (called **strength reduction**, covered in detail below) can significantly improve performance in tight loops.
 
 ```java
 public class InductionVariableAnalysis {
@@ -530,7 +625,22 @@ public class InductionVariableAnalysis {
 
 ### Loop strength reduction
 
-Replace expensive operations with cheaper ones.
+**Strength reduction** is an optimization that replaces expensive operations (like multiplication or division) with cheaper equivalent operations (like addition or subtraction) inside loops.
+
+The key insight is that induction variables change predictably, so instead of recomputing expensive expressions from scratch each iteration, we can incrementally update them using cheaper operations.
+
+**Example transformation:**
+```java
+// Before: expensive multiplication each iteration
+for (int i = 0; i < n; i++) {
+    array[i * 4] = value;  // Multiply by 4 every iteration
+}
+
+// After: cheaper addition each iteration  
+for (int i = 0, offset = 0; i < n; i++, offset += 4) {
+    array[offset] = value;  // Just add 4 each iteration
+}
+```
 
 ```java
 public class LoopStrengthReduction {
@@ -558,7 +668,43 @@ public class LoopStrengthReduction {
 
 ### Loop parallelization analysis
 
-Determine if loops can be safely parallelized.
+Parallelization analysis determines whether we can safely run loop iterations simultaneously on multiple cores or processors. This can dramatically improve performance for suitable loops, but we must ensure that running iterations out-of-order or simultaneously won't change the program's behavior.
+
+### What prevents parallelization?
+
+Several factors can make a loop unsafe for parallelization:
+
+**Loop-carried dependencies**: When iterations depend on each other
+```java
+for (int i = 1; i < n; i++) {
+    a[i] = a[i-1] + b[i];  // Can't parallelize - each iteration needs the previous result
+}
+```
+
+**Shared mutable state**: When iterations modify shared variables unpredictably
+```java
+int sum = 0;
+for (int i = 0; i < n; i++) {
+    sum += array[i];  // Race condition if parallelized naively
+}
+```
+
+**Side effects**: I/O operations, exception handling, or other operations that must happen in order
+
+However, some patterns *can* be parallelized with special handling, like **reductions**. A reduction combines many values into a single result using operations like sum, max, or min. These work because we can split the computation across threads and then combine the partial results:
+
+```java
+// Sequential reduction
+int sum = 0;
+for (int i = 0; i < array.length; i++) {
+    sum += array[i];  // Combine many values into one
+}
+
+// Parallel reduction approach:
+// Thread 1: sum elements 0-499   → partial_sum1
+// Thread 2: sum elements 500-999 → partial_sum2  
+// Final: total_sum = partial_sum1 + partial_sum2
+```
 
 ```java
 public class LoopParallelizationAnalysis {
@@ -596,7 +742,15 @@ public class LoopParallelizationAnalysis {
 
 ### Loop recognition patterns
 
-Recognize common loop patterns for optimization.
+Different loop patterns have different optimization opportunities. By recognizing these common patterns, we can apply pattern-specific optimizations more effectively.
+
+**Why pattern recognition matters:**
+- **Counting loops** (`for (int i = 0; i < n; i++)`) are often good candidates for vectorization or unrolling
+- **Iterator loops** (`for (Item item : collection)`) might benefit from different optimizations than index-based loops  
+- **Reduction loops** (accumulating sums, finding maximums) can often be parallelized using special reduction techniques
+- **Search loops** (looking for a specific element) can often be terminated early when the target is found
+
+Recognizing these patterns helps the compiler choose the most appropriate optimization strategy for each specific loop type.
 
 ```java
 public enum LoopPattern {
