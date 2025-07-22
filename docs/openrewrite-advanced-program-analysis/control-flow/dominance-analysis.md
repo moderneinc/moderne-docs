@@ -50,6 +50,7 @@ This dominance information tells us that Block 1 is a "gatekeeper" for the entir
 Every block (except the entry) has exactly one immediate dominator - the closest dominator on all paths from the entry. Think of the immediate dominator as the "direct parent" in the dominance hierarchy. While a block might be dominated by several other blocks, its immediate dominator is the one that directly controls access to it.
 
 For example, if blocks A, B, and C all dominate block D, but B dominates C, then B is the immediate dominator of C, and C is the immediate dominator of D. The immediate dominator is always the "last checkpoint" you must pass through before reaching your destination.
+
 ```java
 public class DominatorAnalysis {
     private final ControlFlowGraph cfg;

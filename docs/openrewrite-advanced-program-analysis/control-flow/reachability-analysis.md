@@ -572,5 +572,5 @@ for (BasicBlock block : reachableBlocks) {
 
 ## Next steps
 
-* [Dominance Analysis](./reachability-dominance.md) - Master dominance relationships and control dependencies.
+* [Dominance Analysis](./dominance-analysis.md) - Master dominance relationships and control dependencies.
 * [Loop Analysis Techniques](./loop-analysis.md) - Master the intricacies of loop detection and analysis.

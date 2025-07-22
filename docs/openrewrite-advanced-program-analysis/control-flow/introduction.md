@@ -122,7 +122,7 @@ Now that you understand the basics of control flow analysis, you can explore:
 
 * [Building Control Flow Graphs](./building-cfgs.md) - Learn how to construct CFGs from source code.
 * [Readability Analysis](./reachability-analysis.md) - Learn how to determine which parts of code can be reached during execution.
-* [Dominance Analysis](./reachability-dominance.md) - Master dominance relationships and control dependencies.
+* [Dominance Analysis](./dominance-analysis.md) - Master dominance relationships and control dependencies.
 * [Loop Analysis Techniques](./loop-analysis.md) - Master the intricacies of loop detection and analysis.
 * [Data Flow Analysis](../data-flow/introduction.md) - See how CFGs enable powerful data analyses.
 
