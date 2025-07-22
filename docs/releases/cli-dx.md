@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.44.1 (2025/07/22)
+
+#### What's Changed CLI
+* BuildSrc with Java plugin needs to add Gradle API dependency
+* Stop iteration on successful fetch in repository cloning
+#### What's Changed DX
+* Remove DX publishing to Azure Container Registry
+
+
 ### CLI / DX v3.44.0 (2025/07/21)
 
 #### What's Changed
