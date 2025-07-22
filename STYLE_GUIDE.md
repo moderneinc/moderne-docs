@@ -2,9 +2,9 @@
 
 This document outlines the formatting and style conventions for all Moderne documentation. Following these rules ensures consistency across all documentation files.
 
-## Markdown Formatting Rules
+## Markdown formatting rules
 
-### 1. Headers and Spacing
+### 1. Headers and spacing
 
 **Rule**: Every markdown header (`##`, `###`, etc.) must be followed by a blank line.
 
@@ -19,7 +19,7 @@ This document outlines the formatting and style conventions for all Moderne docu
     ## Example Header
     Content immediately follows without blank line.
 
-### 2. Code Blocks
+### 2. Code blocks
 
 **Rule**: Every code block must be preceded by a blank line.
 
@@ -41,7 +41,7 @@ This document outlines the formatting and style conventions for all Moderne docu
     // No blank line before code block
     ```
 
-### 3. Bullet Points
+### 3. Bullet points
 
 **Rule**: Use asterisks (`*`) for all bullet points, not dashes (`-`).
 
@@ -65,7 +65,7 @@ This document outlines the formatting and style conventions for all Moderne docu
 * SQL comments: `-- SQL comment`
 * Hyphenated words: `field-sensitive`, `cross-site`, `well-formed`
 
-### 4. Bullet List Spacing
+### 4. Bullet list spacing
 
 **Rule**: Bulleted lists should have a blank line between the explanation and the bullets.
 
@@ -84,7 +84,7 @@ This document outlines the formatting and style conventions for all Moderne docu
     * Second bullet point
     * Third bullet point
 
-### 5. Description Lines
+### 5. Description lines
 
 **Rule**: All `description:` lines in YAML front matter must end with exactly one period.
 
@@ -104,7 +104,7 @@ This document outlines the formatting and style conventions for all Moderne docu
     description: Learn how taint analysis works..  <!-- Too many periods -->
     ---
 
-### 6. Code Examples
+### 6. Code examples
 
 **Rule**: Provide context and explanations for code examples.
 
@@ -118,9 +118,9 @@ statement.execute(query);
 
 Then follow up with explanation of why this matters.
 
-## File Organization Rules
+## File organization rules
 
-### 7. Document Titles and Headers
+### 7. Document titles and headers
 
 **Rule**: Use sentence case for document titles and headers, and do not end with a period.
 
@@ -136,7 +136,7 @@ Then follow up with explanation of why this matters.
     ## Core Concepts.                   <!-- Period at end -->
     ### Finding Vulnerabilities         <!-- Title case -->
 
-### 8. Acronym Definitions
+### 8. Acronym definitions
 
 **Rule**: Always define acronyms on first use before using them throughout the document.
 
@@ -149,7 +149,7 @@ Then follow up with explanation of why this matters.
 
     XSS vulnerabilities are common in web applications.    <!-- XSS not defined -->
 
-### 9. Link Paths
+### 9. Link paths
 
 **Rule**: Use explicit relative paths with `./` for same-directory links and `../` for parent directory links.
 
@@ -164,7 +164,7 @@ Then follow up with explanation of why this matters.
     * [Same directory file](other-file.md)    <!-- Missing ./ -->
     * [Parent directory file](README.md)      <!-- Should use ../ -->
 
-### 10. File Naming
+### 10. File naming
 
 **Rule**: Use kebab-case for file names.
 
@@ -180,7 +180,7 @@ Then follow up with explanation of why this matters.
 * `taint_analysis.md`
 * `TaintAnalysis.md`
 
-## Complete Example
+## Complete example
 
 Here's what properly formatted documentation looks like:
 
@@ -225,7 +225,7 @@ Here's what properly formatted documentation looks like:
     * [Control Flow Analysis](./control-flow/introduction.md)
     * [Data Flow Analysis](./data-flow/introduction.md)
 
-## Quick Reference Checklist
+## Quick reference checklist
 
 When editing documentation, verify:
 
