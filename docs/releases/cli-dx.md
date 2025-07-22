@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.44.0 (2025/07/21)
+
+#### What's Changed
+* Update DevCenter visualization to match improvements in Moderne SaaS @zieka in https://github.com/moderneinc/moderne-cli/pull/2614
+* Parse `**/*.cfg` as `PlainText`
+* **Major overhaul of multi-repository commands to become organization aware**
+
+
 ### CLI / DX v3.43.6 (2025/07/15)
 
 #### What's Changed DX
