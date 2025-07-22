@@ -438,6 +438,6 @@ if (cfg == null) {
 
 ## Next steps
 
-* [Readability Analysis](./reachability-analysis.md) - Learn how to determine which parts of code can be reached during execution.
-* [Dominance Analysis](./dominance-analysis.md) - Master dominance relationships and control dependencies
-* [Loop Analysis Techniques](./loop-analysis.md) - Detecting and analyzing loops
+* [Reachability Analysis](./reachability-analysis.md) - Learn how to determine which parts of code can be reached during execution.
+* [Dominance Analysis](./dominance-analysis.md) - Master dominance relationships and control dependencies.
+* [Loop Analysis Techniques](./loop-analysis.md) - Detect and analyze loops in control flow graphs.

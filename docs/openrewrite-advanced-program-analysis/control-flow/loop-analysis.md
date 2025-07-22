@@ -679,7 +679,7 @@ public class LoopCacheAnalysis {
 
 ## Next steps
 
-* [Data Flow Analysis](../data-flow/introduction.md) - Apply loop analysis to data flow problems
+* [Data Flow Analysis](../data-flow/introduction.md) - Apply loop analysis to data flow problems and optimizations.
 
 :::tip
 Loop analysis is one of the most impactful areas of program optimization. Even simple transformations like moving invariant code can significantly improve performance in hot loops.
