@@ -218,6 +218,7 @@ When analyzing virtual method calls, use type hierarchy information to find all 
 ### Callbacks and lambdas
 
 Modern Java code often uses callbacks.
+
 ```java
 list.stream()
     .map(this::transform)  // Method reference

@@ -13,6 +13,7 @@ This tutorial assumes you've read the [Introduction to Data Flow Analysis](intro
 ## The problem: dead assignments
 
 Dead assignments waste resources and clutter code. They often indicate bugs where a developer forgot to use a computed value.
+
 ```java
 public double calculateTotal(List<Item> items) {
     double total = 0;
@@ -33,6 +34,7 @@ We'll use liveness analysis (a backward data flow analysis) to find these dead a
 ## Step 1: create the recipe structure
 
 Let's start with the basic recipe structure.
+
 ```java
 package com.example.analysis;
 
@@ -72,6 +74,7 @@ public class FindDeadAssignments extends Recipe {
 ## Step 2: implement the visitor
 
 The visitor will examine each assignment and use liveness analysis to determine if it's dead.
+
 ```java
 private static class DeadAssignmentVisitor extends JavaIsoVisitor<ExecutionContext> {
     
@@ -122,6 +125,7 @@ private static class DeadAssignmentVisitor extends JavaIsoVisitor<ExecutionConte
 ## Step 3: handle variable declarations
 
 Dead assignments often occur in variable declarations with initializers.
+
 ```java
 @Override
 public J.VariableDeclarations.NamedVariable visitVariable(
@@ -155,6 +159,7 @@ public J.VariableDeclarations.NamedVariable visitVariable(
 ## Step 4: leverage the livevariables API
 
 The `LiveVariables` result type provides convenient methods beyond basic queries.
+
 ```java
 private void demonstrateAdvancedFeatures(LiveVariables liveVars) {
     // Find all dead assignments automatically
@@ -175,6 +180,7 @@ private void demonstrateAdvancedFeatures(LiveVariables liveVars) {
 ## Step 5: create a comprehensive dead code recipe
 
 Let's combine everything into a more complete recipe.
+
 ```java
 public class ComprehensiveDeadCodeFinder extends Recipe {
     
@@ -247,6 +253,7 @@ public class ComprehensiveDeadCodeFinder extends Recipe {
 ## Testing your recipe
 
 Here's how to test your dead code finder.
+
 ```java
 import org.junit.jupiter.api.Test;
 import org.openrewrite.test.RecipeSpec;
@@ -375,6 +382,7 @@ This example handles only simple field access. Real implementations need to cons
 
 ### Side effects
 Some "dead" assignments might have side effects.
+
 ```java
 int result = calculateAndLog();  // Method has side effects!
 // Even if result is unused, we can't remove this
@@ -382,6 +390,7 @@ int result = calculateAndLog();  // Method has side effects!
 
 ### Exception paths
 Variables might be "live" only on exception paths.
+
 ```java
 String message = "Starting process";
 try {

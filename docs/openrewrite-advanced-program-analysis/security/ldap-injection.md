@@ -153,6 +153,7 @@ public List<User> advancedSearch(SearchCriteria criteria) {
 ### Use parameterized filters
 
 The safest approach is using parameterized LDAP filters.
+
 ```java
 // SAFE - Using Spring LDAP Filter
 import org.springframework.ldap.filter.*;
