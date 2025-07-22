@@ -349,6 +349,7 @@ public class XMLValidator {
 ### Schema Validation
 
 Use XML Schema validation as additional protection.
+
 ```java
 public class SchemaValidatingParser {
     private final Schema schema;
@@ -492,6 +493,7 @@ void detectsJAXBVulnerability() {
 ## Common XXE Attack Scenarios
 
 ### File Disclosure
+
 ```xml
 <!DOCTYPE foo [
   <!ENTITY xxe SYSTEM "file:///etc/passwd">
@@ -500,6 +502,7 @@ void detectsJAXBVulnerability() {
 ```
 
 ### SSRF Attack
+
 ```xml
 <!DOCTYPE foo [
   <!ENTITY xxe SYSTEM "http://internal-server/admin">
@@ -508,6 +511,7 @@ void detectsJAXBVulnerability() {
 ```
 
 ### Denial of Service
+
 ```xml
 <!DOCTYPE lolz [
   <!ENTITY lol "lol">
@@ -519,6 +523,7 @@ void detectsJAXBVulnerability() {
 ```
 
 ### Blind XXE (Out-of-Band)
+
 ```xml
 <!DOCTYPE foo [
   <!ENTITY % file SYSTEM "file:///etc/passwd">
@@ -564,8 +569,8 @@ public class XXEDetectionAspect {
 
 ## Next Steps
 
-- [SQL Injection](sql-injection.md) - Database query injection
-- [Command Injection](command-injection.md) - OS command injection
+* [SQL Injection](sql-injection.md) - Database query injection
+* [Command Injection](command-injection.md) - OS command injection
 
 :::danger High Severity
 XXE vulnerabilities can lead to file disclosure, SSRF, DoS, and in some cases RCE. Always disable external entities and DTDs when processing untrusted XML. Consider using JSON instead of XML when possible.

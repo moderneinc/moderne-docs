@@ -39,9 +39,10 @@ public int calculateDiscount(boolean isPremium, int orderTotal) {
 ```
 
 In this example:
-- **Block 1 dominates all other blocks** - every execution path must start here
-- **Block 2 dominates blocks 3 and 4** - to reach either discount assignment, you must pass through the `orderTotal > 100` check
-- **Block 5 is dominated only by Block 1** - you can reach the return without going through the inner conditions if `isPremium` is false
+
+* **Block 1 dominates all other blocks** - every execution path must start here
+* **Block 2 dominates blocks 3 and 4** - to reach either discount assignment, you must pass through the `orderTotal > 100` check
+* **Block 5 is dominated only by Block 1** - you can reach the return without going through the inner conditions if `isPremium` is false
 
 This dominance information tells us that Block 1 is a "gatekeeper" for the entire method, while Block 2 controls access to the premium discount logic.
 

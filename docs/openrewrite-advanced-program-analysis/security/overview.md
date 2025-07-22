@@ -83,23 +83,23 @@ statement.execute("SELECT * FROM users WHERE id = " + userId);
 ```
 
 Each finding includes:
-- **Location**: Where the vulnerability occurs
-- **Type**: The specific vulnerability (SQL injection, XSS, etc.)
-- **Source**: Where the tainted data originated
-- **Severity**: Risk level (High, Medium, Low)
-- **Remediation**: How to fix the issue
+* **Location**: Where the vulnerability occurs
+* **Type**: The specific vulnerability (SQL injection, XSS, etc.)
+* **Source**: Where the tainted data originated
+* **Severity**: Risk level (High, Medium, Low)
+* **Remediation**: How to fix the issue
 
 ## Next steps
 
 Explore specific security recipes in detail:
 
-- [SQL Injection Detection](sql-injection.md)
-- [Cross-Site Scripting Prevention](xss.md)
-- [Command Injection Analysis](command-injection.md)
-- [Path Traversal Detection](path-traversal.md)
-- [LDAP Injection Finding](ldap-injection.md)
-- [XXE Vulnerability Detection](xxe.md)
-- [PII Protection](pii-protection.md)
+* [SQL Injection Detection](sql-injection.md)
+* [Cross-Site Scripting Prevention](xss.md)
+* [Command Injection Analysis](command-injection.md)
+* [Path Traversal Detection](path-traversal.md)
+* [LDAP Injection Finding](ldap-injection.md)
+* [XXE Vulnerability Detection](xxe.md)
+* [PII Protection](pii-protection.md)
 
 :::tip
 Start with `FindSecurityVulnerabilities` to run all security checks, then dive into specific categories based on your application's risk profile.

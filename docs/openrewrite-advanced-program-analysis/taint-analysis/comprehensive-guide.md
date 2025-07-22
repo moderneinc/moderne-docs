@@ -13,6 +13,7 @@ This guide assumes you've read the [Introduction to Taint Analysis](introduction
 ## How taint analysis works
 
 Taint analysis is a specialized forward data flow analysis that propagates taint labels through the program.
+
 ```java
 // Taint flows through assignments
 String input = request.getParameter("id");     // input is TAINTED
@@ -30,6 +31,7 @@ String stillTainted = input;                   // input remains TAINTED
 ## Implementation in OpenRewrite
 
 OpenRewrite provides a sophisticated field-sensitive taint analysis.
+
 ```java
 public class TaintAnalysis extends ForwardDataFlowAnalysis<TaintedValue, TaintFlows> {
     private final TaintFlowSpec spec;
@@ -95,6 +97,7 @@ public class TaintAnalysis extends ForwardDataFlowAnalysis<TaintedValue, TaintFl
 
 ### Basic taint specification
 
+
 ```java
 public class WebSecuritySpec implements TaintFlowSpec {
     @Override
@@ -153,6 +156,7 @@ public class WebSecuritySpec implements TaintFlowSpec {
 
 ### Advanced specifications with context
 
+
 ```java
 public class ContextAwareTaintSpec implements TaintFlowSpec {
     
@@ -196,6 +200,7 @@ public class ContextAwareTaintSpec implements TaintFlowSpec {
 ## Field-sensitive analysis
 
 OpenRewrite's taint analysis is field-sensitive by default, distinguishing between different fields.
+
 ```java
 class UserData {
     String name;      // Might be tainted
@@ -216,6 +221,7 @@ String userId = userData.id;                    // userId is CLEAN
 The `TaintFlows` result type provides comprehensive querying:
 
 ### Finding vulnerabilities
+
 
 ```java
 TaintAnalysis analysis = new TaintAnalysis(cfg, new WebSecuritySpec());
@@ -238,6 +244,7 @@ for (TaintFlow flow : vulnerabilities) {
 
 ### Analyzing specific variables
 
+
 ```java
 // Check if a specific variable is tainted
 boolean isTainted = taintFlows.isTainted("userInput", statement);
@@ -250,6 +257,7 @@ Set<String> taintedVars = taintFlows.getTaintedVariables(statement);
 ```
 
 ### Path queries
+
 
 ```java
 // Get the taint propagation path
@@ -265,6 +273,7 @@ Set<Tree> propagationPoints = taintFlows.getPropagationPoints(taintedValue);
 ## Creating security recipes
 
 ### SQL injection detection
+
 
 ```java
 public class FindSqlInjection extends Recipe {
@@ -324,6 +333,7 @@ public class FindSqlInjection extends Recipe {
 
 ### Cross-site scripting detection
 
+
 ```java
 public class FindXss extends Recipe {
     @Override
@@ -367,6 +377,7 @@ public class FindXss extends Recipe {
 ### Context-sensitive analysis
 
 Track taint through method calls with context.
+
 ```java
 public class ContextSensitiveTaint extends TaintAnalysis {
     private final CallStringContext context = new CallStringContext(3); // k=3
@@ -389,6 +400,7 @@ public class ContextSensitiveTaint extends TaintAnalysis {
 ### Implicit flow tracking
 
 Track taint through control flow.
+
 ```java
 public class ImplicitFlowTaint extends TaintAnalysis {
     @Override
@@ -418,6 +430,7 @@ public class ImplicitFlowTaint extends TaintAnalysis {
 ### Taint sanitization validation
 
 Ensure sanitizers are used correctly.
+
 ```java
 public class SanitizationValidator {
     public void validateSanitization(TaintFlows flows) {
@@ -444,6 +457,7 @@ public class SanitizationValidator {
 ### Demand-driven analysis
 
 Only analyze paths that matter.
+
 ```java
 public class DemandDrivenTaint {
     public boolean canReachSink(Tree source, Tree sink) {
@@ -463,6 +477,7 @@ public class DemandDrivenTaint {
 ### Summary-based analysis
 
 Use pre-computed summaries for library methods.
+
 ```java
 public class LibraryModeledTaint extends TaintAnalysis {
     private final Map<String, LibraryModel> models = loadLibraryModels();
@@ -486,6 +501,7 @@ public class LibraryModeledTaint extends TaintAnalysis {
 ## Testing taint analysis
 
 Comprehensive tests ensure accuracy.
+
 ```java
 @Test
 void detectsSimpleSqlInjection() {
@@ -561,4 +577,4 @@ void tracksFieldTaint() {
 
 ## Next steps
 
-- [Security Recipes](../security/overview.md) - Pre-built security analysis recipes
+* [Security Recipes](../security/overview.md) - Pre-built security analysis recipes

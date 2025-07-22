@@ -293,6 +293,7 @@ public class SummaryApplication {
 ### Summary precision policies
 
 Different analyses need different precision levels.
+
 ```java
 public interface SummaryPrecisionPolicy {
     // Decide how precise summaries should be
@@ -442,13 +443,17 @@ public class SummaryCache {
 ## Best practices
 
 ### Design for your analysis
+
 Don't over-engineer summaries. Include only information relevant to your specific analysis.
 
 ### Balance precision and size
+
 More precise summaries are larger and slower to compute. Find the right trade-off for your use case.
 
 ### Validate summaries
+
 Test that summaries accurately represent method behavior.
+
 ```java
 @Test
 void validateSummary() {
@@ -463,6 +468,7 @@ void validateSummary() {
 ```
 
 ### Document summary format
+
 Clearly document what your summaries represent and how to interpret them.
 
 ## Next steps

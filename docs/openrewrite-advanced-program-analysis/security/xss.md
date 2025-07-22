@@ -142,6 +142,7 @@ response.getWriter().write(
 ### HTML Entity Encoding
 
 The primary defense against XSS.
+
 ```java
 // SAFE - Using OWASP Java Encoder
 import org.owasp.encoder.Encode;
@@ -169,6 +170,7 @@ response.getWriter().write(
 ### Using Framework Protection
 
 Modern frameworks provide automatic escaping.
+
 ```java
 // SAFE - Spring with Thymeleaf (auto-escapes by default)
 @GetMapping("/profile")
@@ -187,6 +189,7 @@ public String profile(@RequestParam String name, Model model) {
 ### Content Security Policy
 
 Defense in depth with CSP.
+
 ```java
 // Add CSP header to prevent inline scripts
 @Component
@@ -205,6 +208,7 @@ public class SecurityHeadersFilter implements Filter {
 ### Context-Aware Encoding
 
 Different contexts require different encoding.
+
 ```java
 public class SafeHtmlBuilder {
     public String buildHtml(UserData data) {
@@ -234,6 +238,7 @@ public class SafeHtmlBuilder {
 ### Stored XSS Detection
 
 Tracks tainted data through persistence layers.
+
 ```java
 // Phase 1: Malicious data stored
 public void saveComment(HttpServletRequest request) {
@@ -256,6 +261,7 @@ public void displayComments(HttpServletResponse response) {
 ### Rich Content Handling
 
 Detecting XSS in rich content scenarios.
+
 ```java
 // VULNERABLE - Allowing some HTML
 public String processRichText(String userHtml) {
@@ -278,6 +284,7 @@ public String processRichText(String userHtml) {
 ### Template Injection Detection
 
 Finding XSS in template engines.
+
 ```java
 // VULNERABLE - User controls template
 public String renderTemplate(String templateName, Model model) {
@@ -306,6 +313,7 @@ recipeList:
 ### Custom XSS Detection
 
 Extend for framework-specific patterns.
+
 ```java
 public class CustomXssRecipe extends FindXssVulnerability {
     @Override
@@ -384,6 +392,7 @@ ${fn:escapeXml(param.userInput)}
 ### React/Angular Integration
 
 When building APIs for SPAs.
+
 ```java
 // SAFE - Return JSON, let framework handle rendering
 @RestController
@@ -487,8 +496,8 @@ XSS detection is typically fast because:
 
 ## Next Steps
 
-- [SQL Injection](sql-injection.md) - Similar taint analysis for database queries
-- [Command Injection](command-injection.md) - OS command vulnerabilities
+* [SQL Injection](sql-injection.md) - Similar taint analysis for database queries
+* [Command Injection](command-injection.md) - OS command vulnerabilities
 
 :::tip Defense in Depth
 XSS prevention requires multiple layers: input validation, output encoding, Content Security Policy, and secure frameworks. Automated detection helps but isn't a complete solution.

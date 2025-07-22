@@ -364,6 +364,7 @@ void testConditionalLiveness() {
 Liveness analysis combines well with other analyses:
 
 ### With reaching definitions
+
 ```java
 // Find uninitialized variable uses
 if (liveVars.isLive(var, point) && !reachingDefs.hasDefinition(var, point)) {
@@ -372,6 +373,7 @@ if (liveVars.isLive(var, point) && !reachingDefs.hasDefinition(var, point)) {
 ```
 
 ### With constant propagation
+
 ```java
 // Only propagate constants to live variables
 if (liveVars.isLive(var, point) && constants.isConstant(var)) {

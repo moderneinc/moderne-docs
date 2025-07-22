@@ -15,6 +15,7 @@ Imagine you're tracking a package through a delivery system. The package (data) 
 ### A simple example
 
 Let's start with a concrete example to build intuition.
+
 ```java
 public void processOrder(Order order) {
     int discount = 10;                    // Definition D1
@@ -157,15 +158,19 @@ This process always terminates because we're dealing with finite sets and monoto
 Data flow analysis enables numerous practical applications.
 
 ### Optimization
+
 Compilers use data flow analysis extensively. Dead code elimination removes assignments to variables that are never used (found via liveness analysis). Constant propagation replaces variables with their constant values when possible (using reaching definitions). Common subexpression elimination avoids recomputing expressions (using available expressions).
 
 ### Bug detection
+
 Many subtle bugs become obvious with data flow analysis. Uninitialized variables are uses without reaching definitions. Dead stores are definitions that don't reach any use. Resource leaks occur when resources have definitions (allocation) but no reaching "release" operations.
 
 ### Program understanding
+
 IDEs use data flow analysis to help you understand code. "Find all uses" features use reaching definitions. "Find where this value comes from" uses backward slicing. Refactoring tools ensure transformations preserve data flow properties.
 
 ### Security analysis
+
 Security tools use specialized data flow analyses. Taint analysis (covered in detail in another section) tracks untrusted data through the program. Information flow analysis ensures sensitive data doesn't leak to public outputs.
 
 :::info Real-World Impact

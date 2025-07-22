@@ -14,27 +14,27 @@ Think of PII like someone's house keys and ID card. If these fall into the wrong
 
 ```java
 // High Sensitivity PII
-- Social Security Numbers (SSN)
-- Credit card numbers
-- Bank account numbers
-- Driver's license numbers
-- Passport numbers
-- Health records
-- Biometric data
+* Social Security Numbers (SSN)
+* Credit card numbers
+* Bank account numbers
+* Driver's license numbers
+* Passport numbers
+* Health records
+* Biometric data
 
 // Medium Sensitivity PII
-- Full names
-- Email addresses
-- Phone numbers
-- Date of birth
-- Home addresses
-- IP addresses
+* Full names
+* Email addresses
+* Phone numbers
+* Date of birth
+* Home addresses
+* IP addresses
 
 // Context-Dependent PII
-- User IDs (when linkable)
-- Device identifiers
-- Location data
-- Employment information
+* User IDs (when linkable)
+* Device identifiers
+* Location data
+* Employment information
 ```
 
 ## PII in URLs Detection
@@ -44,12 +44,12 @@ The `FindPiiInUrls` recipe detects when sensitive information is exposed in URLs
 ### Why URLs Are Dangerous for PII
 
 URLs are particularly risky because they:
-- Appear in server logs
-- Get stored in browser history
-- Are sent in HTTP Referrer headers
-- Can be cached by proxies
-- May be shared via copy/paste
-- Appear in analytics tools
+* Appear in server logs
+* Get stored in browser history
+* Are sent in HTTP Referrer headers
+* Can be cached by proxies
+* May be shared via copy/paste
+* Appear in analytics tools
 
 ### Vulnerable Patterns
 

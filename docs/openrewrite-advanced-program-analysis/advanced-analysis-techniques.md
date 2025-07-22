@@ -110,20 +110,20 @@ public void processOrder(Order order) {
 ```
 
 OpenRewrite's advantages:
-- **Type-aware**: Every `J.MethodInvocation` has a `JavaType.Method` identifying the declared method
-- **No name confusion**: Methods with the same name on unrelated types are properly distinguished
-- **Precise overload resolution**: Knows exactly which overloaded method is called based on arguments
-- **Better than text-based tools**: No false matches from string similarity
+* **Type-aware**: Every `J.MethodInvocation` has a `JavaType.Method` identifying the declared method
+* **No name confusion**: Methods with the same name on unrelated types are properly distinguished
+* **Precise overload resolution**: Knows exactly which overloaded method is called based on arguments
+* **Better than text-based tools**: No false matches from string similarity
 
 For virtual dispatch (interfaces/inheritance), OpenRewrite still needs to consider all possible implementations, but with key improvements:
-- Only considers implementations of the actual declared type (not all classes with a method of that name)
-- Can leverage additional type information from the AST context
-- Integrates with type-use information when available
+* Only considers implementations of the actual declared type (not all classes with a method of that name)
+* Can leverage additional type information from the AST context
+* Integrates with type-use information when available
 
 Remaining challenges:
-- **Virtual dispatch**: Must still consider all implementations of an interface/superclass
-- **Reflection**: Dynamic method invocation requires conservative handling
-- **Dynamic class loading**: Runtime-loaded classes aren't visible to static analysis
+* **Virtual dispatch**: Must still consider all implementations of an interface/superclass
+* **Reflection**: Dynamic method invocation requires conservative handling
+* **Dynamic class loading**: Runtime-loaded classes aren't visible to static analysis
 
 :::info Real-World Usage
 IDEs use call graphs constantly. When you use "Find Usages" on a method, the IDE is querying its call graph. When it warns that a method is never used, it's checked the call graph for callers.
@@ -371,12 +371,12 @@ Modern IDEs and analysis tools rarely use just one technique. When IntelliJ sugg
 
 These advanced techniques open doors to sophisticated analyses:
 
-- [Inter-procedural Analysis](data-flow/inter-procedural-analysis.md) - Track data across method boundaries
-- [Security Analysis](security/overview.md) - Apply these techniques to find vulnerabilities
+* [Inter-procedural Analysis](data-flow/inter-procedural-analysis.md) - Track data across method boundaries
+* [Security Analysis](security/overview.md) - Apply these techniques to find vulnerabilities
 
 ## Further reading
 
 For deeper exploration of these topics:
-- "Secure Programming with Static Analysis" by Chess and West - Excellent coverage of security-focused analyses
-- "Pointer Analysis" by Smaragdakis and Balatsouras - Deep dive into alias and call graph analysis
-- Research papers from conferences like PLDI, POPL, and ICSE for cutting-edge techniques
+* "Secure Programming with Static Analysis" by Chess and West - Excellent coverage of security-focused analyses
+* "Pointer Analysis" by Smaragdakis and Balatsouras - Deep dive into alias and call graph analysis
+* Research papers from conferences like PLDI, POPL, and ICSE for cutting-edge techniques

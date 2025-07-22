@@ -45,6 +45,7 @@ for (int i = 0; i < items.length; i++) {  // <- Header: loop condition check
 ```
 
 **Key terms:**
+
 * **Header**: The loop's condition check - every iteration starts here
 * **Loop Body**: All the code inside the loop that executes repeatedly  
 * **Back Edge**: The invisible flow from the end of the loop body back to the header for the next iteration
@@ -240,9 +241,10 @@ public class LoopNestingTree {
 Understanding how and where loops can terminate is essential for optimization and correctness analysis. Some loops have a single exit point (the normal condition), while others have multiple exits (`break` statements, exceptions, early returns).
 
 **Why this matters:**
-- **Single-exit loops** are easier to optimize and transform
-- **Multiple-exit loops** require more careful analysis to ensure optimizations don't change behavior
-- **Exit points** determine where we can safely place optimized code
+
+* **Single-exit loops** are easier to optimize and transform
+* **Multiple-exit loops** require more careful analysis to ensure optimizations don't change behavior
+* **Exit points** determine where we can safely place optimized code
 
 ```java
 public class LoopExitAnalysis {
@@ -305,9 +307,10 @@ for (int i = 0; i < 10; i++) {
 In the second example, each iteration is completely independent, so we could safely run them in parallel or reorder them.
 
 Identifying these dependencies helps us:
-- **Determine parallelization potential** - Independent iterations can run in parallel
-- **Enable optimizations** - We can reorder or transform independent computations
-- **Ensure correctness** - We preserve the program's intended behavior
+
+* **Determine parallelization potential** - Independent iterations can run in parallel
+* **Enable optimizations** - We can reorder or transform independent computations
+* **Ensure correctness** - We preserve the program's intended behavior
 
 ```java
 public class DataDependence {
@@ -745,10 +748,11 @@ public class LoopParallelizationAnalysis {
 Different loop patterns have different optimization opportunities. By recognizing these common patterns, we can apply pattern-specific optimizations more effectively.
 
 **Why pattern recognition matters:**
-- **Counting loops** (`for (int i = 0; i < n; i++)`) are often good candidates for vectorization or unrolling
-- **Iterator loops** (`for (Item item : collection)`) might benefit from different optimizations than index-based loops  
-- **Reduction loops** (accumulating sums, finding maximums) can often be parallelized using special reduction techniques
-- **Search loops** (looking for a specific element) can often be terminated early when the target is found
+
+* **Counting loops** (`for (int i = 0; i < n; i++)`) are often good candidates for vectorization or unrolling
+* **Iterator loops** (`for (Item item : collection)`) might benefit from different optimizations than index-based loops  
+* **Reduction loops** (accumulating sums, finding maximums) can often be parallelized using special reduction techniques
+* **Search loops** (looking for a specific element) can often be terminated early when the target is found
 
 Recognizing these patterns helps the compiler choose the most appropriate optimization strategy for each specific loop type.
 
