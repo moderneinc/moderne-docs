@@ -843,6 +843,14 @@ You could push commits to the repositories via:
 mod git push . --last-recipe-run
 ```
 
+:::warning
+Depending on the branch you've checked out, you may need to specify an upstream branch when running `mod git push` such as in:
+
+```bash
+mod git push . --last-recipe-run --set-upstream <MigrationBranchName>
+```
+:::
+
 Or you could create a PR directly with the GitHub command line:
 
 ```bash
