@@ -7,7 +7,7 @@ description: Step-by-step guide to implementing a data flow analysis recipe usin
 This tutorial walks you through creating a practical data flow analysis recipe that detects dead code in Java programs. We'll build a recipe that finds assignments to variables that are never used – a common code quality issue.
 
 :::info Prerequisites
-This tutorial assumes you've read the [Introduction to Data Flow Analysis](introduction.md) and understand basic concepts like forward vs. backward analysis, transfer functions, and the role of control flow graphs.
+This tutorial assumes you've read the [Introduction to Data Flow Analysis](./introduction.md) and understand basic concepts like forward vs. backward analysis, transfer functions, and the role of control flow graphs.
 :::
 
 ## The problem: dead assignments

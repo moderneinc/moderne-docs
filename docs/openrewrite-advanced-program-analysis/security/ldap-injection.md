@@ -514,8 +514,8 @@ public void validateAdQuery(String filter) {
 
 ## Next steps
 
-* [SQL Injection](sql-injection.md) - Similar injection pattern for databases
-* [Command Injection](command-injection.md) - OS command injection
+* [SQL Injection](./sql-injection.md) - Similar injection pattern for databases
+* [Command Injection](./command-injection.md) - OS command injection
 
 :::warning Security Best Practice
 Always use parameterized LDAP filters or proper encoding functions. Never concatenate user input directly into LDAP queries. Consider implementing query logging and monitoring for suspicious patterns.

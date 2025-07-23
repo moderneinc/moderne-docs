@@ -365,8 +365,8 @@ public List<User> getUsers(String sortField) {
 
 ## Next steps
 
-* [Command Injection](command-injection.md) - Similar pattern for OS commands
-* [LDAP Injection](ldap-injection.md) - Directory service injection
+* [Command Injection](./command-injection.md) - Similar pattern for OS commands
+* [LDAP Injection](./ldap-injection.md) - Directory service injection
 
 :::warning Security Note
 Even with automated detection, always follow secure coding practices. Defense in depth means using prepared statements, input validation, least privilege database access, and regular security reviews.

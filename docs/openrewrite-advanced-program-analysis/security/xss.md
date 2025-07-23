@@ -496,8 +496,8 @@ XSS detection is typically fast because:
 
 ## Next Steps
 
-* [SQL Injection](sql-injection.md) - Similar taint analysis for database queries
-* [Command Injection](command-injection.md) - OS command vulnerabilities
+* [SQL Injection](./sql-injection.md) - Similar taint analysis for database queries
+* [Command Injection](./command-injection.md) - OS command vulnerabilities
 
 :::tip Defense in Depth
 XSS prevention requires multiple layers: input validation, output encoding, Content Security Policy, and secure frameworks. Automated detection helps but isn't a complete solution.

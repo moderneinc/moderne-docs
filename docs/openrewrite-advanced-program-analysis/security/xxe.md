@@ -569,8 +569,8 @@ public class XXEDetectionAspect {
 
 ## Next Steps
 
-* [SQL Injection](sql-injection.md) - Database query injection
-* [Command Injection](command-injection.md) - OS command injection
+* [SQL Injection](./sql-injection.md) - Database query injection
+* [Command Injection](./command-injection.md) - OS command injection
 
 :::danger High Severity
 XXE vulnerabilities can lead to file disclosure, SSRF, DoS, and in some cases RCE. Always disable external entities and DTDs when processing untrusted XML. Consider using JSON instead of XML when possible.

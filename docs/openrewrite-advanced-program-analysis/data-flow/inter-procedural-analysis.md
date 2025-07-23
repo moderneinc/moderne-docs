@@ -293,5 +293,5 @@ public class InterProceduralSecurityAnalysis extends Recipe {
 
 ## Next steps
 
-* [Method Summary Analysis](method-summary-analysis.md) - Deep dive into computing and using method summaries
+* [Method Summary Analysis](./method-summary-analysis.md) - Deep dive into computing and using method summaries
 * [Taint Analysis](../taint-analysis/comprehensive-guide.md) - Apply inter-procedural analysis to security

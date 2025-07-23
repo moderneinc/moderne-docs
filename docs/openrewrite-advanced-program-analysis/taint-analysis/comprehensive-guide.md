@@ -7,7 +7,7 @@ description: Master taint analysis for finding security vulnerabilities in Java 
 Taint analysis tracks the flow of untrusted (tainted) data through a program to find security vulnerabilities. It's like following a drop of colored dye through water – once data is tainted, we track everywhere it flows until it either reaches a dangerous sink or gets sanitized.
 
 :::info Prerequisites
-This guide assumes you've read the [Introduction to Taint Analysis](introduction.md) which covers the core concepts of sources, sinks, and sanitizers. This guide focuses on implementation details and advanced patterns.
+This guide assumes you've read the [Introduction to Taint Analysis](./introduction.md) which covers the core concepts of sources, sinks, and sanitizers. This guide focuses on implementation details and advanced patterns.
 :::
 
 ## How taint analysis works

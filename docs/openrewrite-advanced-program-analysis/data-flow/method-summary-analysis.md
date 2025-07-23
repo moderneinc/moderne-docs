@@ -473,4 +473,4 @@ Clearly document what your summaries represent and how to interpret them.
 
 ## Next steps
 
-* [Inter-procedural Analysis](inter-procedural-analysis.md) - Using summaries in whole-program analysis
+* [Inter-procedural Analysis](./inter-procedural-analysis.md) - Using summaries in whole-program analysis

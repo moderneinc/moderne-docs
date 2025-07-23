@@ -383,5 +383,5 @@ if (liveVars.isLive(var, point) && constants.isConstant(var)) {
 
 ## Next steps
 
-* [Reaching Definitions Analysis](reaching-definitions.md) - The complementary forward analysis
-* [Building Your First Data Flow Analysis](building-your-first-data-flow-analysis.md) - Hands-on tutorial using liveness
+* [Reaching Definitions Analysis](./reaching-definitions.md) - The complementary forward analysis
+* [Building Your First Data Flow Analysis](./building-your-first-data-flow-analysis.md) - Hands-on tutorial using liveness

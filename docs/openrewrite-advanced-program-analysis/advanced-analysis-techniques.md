@@ -371,8 +371,8 @@ Modern IDEs and analysis tools rarely use just one technique. When IntelliJ sugg
 
 These advanced techniques open doors to sophisticated analyses:
 
-* [Inter-procedural Analysis](data-flow/inter-procedural-analysis.md) - Track data across method boundaries
-* [Security Analysis](security/overview.md) - Apply these techniques to find vulnerabilities
+* [Inter-procedural Analysis](./data-flow/inter-procedural-analysis.md) - Track data across method boundaries
+* [Security Analysis](./security/overview.md) - Apply these techniques to find vulnerabilities
 
 ## Further reading
 

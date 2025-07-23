@@ -313,7 +313,7 @@ Recognize:
 
 Ready to put taint analysis to work? Explore these topics:
 
-* [Comprehensive Guide to Taint Analysis](comprehensive-guide.md) - Deep dive into implementation and advanced patterns
+* [Comprehensive Guide to Taint Analysis](./comprehensive-guide.md) - Deep dive into implementation and advanced patterns
 * [Security Analysis](../security/overview.md) - Use pre-built analyses for common vulnerabilities
 
 :::tip Start Small

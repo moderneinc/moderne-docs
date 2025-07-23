@@ -475,7 +475,7 @@ void testMultipleDefinitions() {
 
 ## Next steps
 
-* [Liveness Analysis](liveness-analysis.md) - The complementary backward analysis
-* [Inter-procedural Analysis](inter-procedural-analysis.md) - Tracking data across method boundaries
+* [Liveness Analysis](./liveness-analysis.md) - The complementary backward analysis
+* [Inter-procedural Analysis](./inter-procedural-analysis.md) - Tracking data across method boundaries
 * [Taint Analysis](../taint-analysis/comprehensive-guide.md) - Security-focused data flow analysis
-* [Building Your First Data Flow Analysis](building-your-first-data-flow-analysis.md) - Practical tutorial
+* [Building Your First Data Flow Analysis](./building-your-first-data-flow-analysis.md) - Practical tutorial

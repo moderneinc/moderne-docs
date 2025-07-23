@@ -181,9 +181,9 @@ Modern Java IDEs perform data flow analysis constantly. When IntelliJ IDEA grays
 
 Now that you understand the fundamentals, you can dive deeper:
 
-* [Building Your First Data Flow Analysis](building-your-first-data-flow-analysis.md) - Hands-on guide to implementing analyses
-* [Liveness Analysis in Detail](liveness-analysis.md) - Deep dive into this fundamental backward analysis
-* [Reaching Definitions Analysis](reaching-definitions.md) - Master the classic forward analysis
+* [Building Your First Data Flow Analysis](./building-your-first-data-flow-analysis.md) - Hands-on guide to implementing analyses
+* [Liveness Analysis in Detail](./liveness-analysis.md) - Deep dive into this fundamental backward analysis
+* [Reaching Definitions Analysis](./reaching-definitions.md) - Master the classic forward analysis
 
 :::info Further Reading
 For theoretical foundations, see "Principles of Program Analysis" by Nielson, Nielson, and Hankin. For practical implementation details, "Modern Compiler Implementation in Java" by Appel provides excellent coverage with actual code.

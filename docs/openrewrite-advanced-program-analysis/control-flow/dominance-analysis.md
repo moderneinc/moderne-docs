@@ -341,7 +341,7 @@ public class PartialRedundancyElimination {
 
 ## Next steps
 
-* [Loop Analysis Techniques](loop-analysis.md) - Detect and analyze loops in control flow graphs.
+* [Loop Analysis Techniques](./loop-analysis.md) - Detect and analyze loops in control flow graphs.
 * [Data Flow Analysis](../data-flow/introduction.md) - See how dominance relationships enable powerful data flow optimizations.
 
 :::tip
