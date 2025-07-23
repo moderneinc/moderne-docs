@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.77.0 (2025/07/23)
+
+- add copy command to install recipe to local Moderne CLI
+
 ### UI v11.76.3 (2025/07/17)
 
 - Bug fixes and other improvements.
