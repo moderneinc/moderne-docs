@@ -40,7 +40,7 @@ mod build devcenter-demo
 
 ## Step 3: Install DevCenter starter recipes
 
-Starting with CLI 3.44.1, DevCenter dashboards are built using YAML declarative recipes composed with recipes provided by the [rewrite-devcenter](https://github.com/moderneinc/rewrite-devcenter) recipe artifact. To install the latest version of `rewrite-devcenter`, run the following command:
+Starting with CLI 3.44.2, DevCenter dashboards are built using YAML declarative recipes composed with recipes provided by the [rewrite-devcenter](https://github.com/moderneinc/rewrite-devcenter) recipe artifact. To install the latest version of `rewrite-devcenter`, run the following command:
 ```bash
 mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
 ```
