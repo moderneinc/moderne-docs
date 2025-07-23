@@ -349,14 +349,17 @@ class FindDeadAssignmentsTest implements RewriteTest {
 When implementing data flow analyses, keep these tips in mind:
 
 ### CFG construction and caching
+
 Building CFGs is expensive. Always use `ControlFlowSupport` for automatic caching and lazy evaluation. See [Building Control Flow Graphs](../control-flow/building-cfgs.md) for detailed information about CFG caching strategies.
 
 ### Analyze at the right granularity
+
 * For spot checks (is this assignment dead?), analyze individual statements
 * For comprehensive analysis (find all dead code), analyze entire methods at once
 * Avoid analyzing the same method multiple times
 
 ### Leverage result type methods
+
 The specialized result types like `LiveVariables` provide optimized implementations of common queries. Use `findDeadAssignments()` instead of manually iterating through all assignments.
 
 ## Next steps
@@ -375,12 +378,14 @@ The pattern shown here works for any data flow analysis. Just swap `LivenessAnal
 ## Common pitfalls and solutions
 
 ### Field access complexity
+
 This example handles only simple field access. Real implementations need to consider:
 * Static vs. instance fields
 * Qualified field access (`this.field`, `super.field`)
 * Fields accessed through method calls
 
 ### Side effects
+
 Some "dead" assignments might have side effects.
 
 ```java
@@ -389,6 +394,7 @@ int result = calculateAndLog();  // Method has side effects!
 ```
 
 ### Exception paths
+
 Variables might be "live" only on exception paths.
 
 ```java

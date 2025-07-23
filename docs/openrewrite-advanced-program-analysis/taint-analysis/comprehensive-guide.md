@@ -97,7 +97,6 @@ public class TaintAnalysis extends ForwardDataFlowAnalysis<TaintedValue, TaintFl
 
 ### Basic taint specification
 
-
 ```java
 public class WebSecuritySpec implements TaintFlowSpec {
     @Override
@@ -155,7 +154,6 @@ public class WebSecuritySpec implements TaintFlowSpec {
 ```
 
 ### Advanced specifications with context
-
 
 ```java
 public class ContextAwareTaintSpec implements TaintFlowSpec {
@@ -222,7 +220,6 @@ The `TaintFlows` result type provides comprehensive querying:
 
 ### Finding vulnerabilities
 
-
 ```java
 TaintAnalysis analysis = new TaintAnalysis(cfg, new WebSecuritySpec());
 TaintFlows taintFlows = analysis.analyze();
@@ -244,7 +241,6 @@ for (TaintFlow flow : vulnerabilities) {
 
 ### Analyzing specific variables
 
-
 ```java
 // Check if a specific variable is tainted
 boolean isTainted = taintFlows.isTainted("userInput", statement);
@@ -257,7 +253,6 @@ Set<String> taintedVars = taintFlows.getTaintedVariables(statement);
 ```
 
 ### Path queries
-
 
 ```java
 // Get the taint propagation path
@@ -273,7 +268,6 @@ Set<Tree> propagationPoints = taintFlows.getPropagationPoints(taintedValue);
 ## Creating security recipes
 
 ### SQL injection detection
-
 
 ```java
 public class FindSqlInjection extends Recipe {
@@ -332,7 +326,6 @@ public class FindSqlInjection extends Recipe {
 ```
 
 ### Cross-site scripting detection
-
 
 ```java
 public class FindXss extends Recipe {
