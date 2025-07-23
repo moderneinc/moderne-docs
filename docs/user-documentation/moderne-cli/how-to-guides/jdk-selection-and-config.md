@@ -105,7 +105,7 @@ mod config java version show
 
 ## Explicitly specifying Java version in CSV
 
-When cloning using `mod git clone csv`, it is possible to add a `"java"` column to the CSV to explicitly specify the version for certain repositories.
+When cloning using `mod git sync csv`, it is possible to add a `"java"` column to the CSV to explicitly specify the version for certain repositories.
 
 In the below configuration, `rewrite-maven-plugin` is explicitly configured to use Java 8. Because the `"java"` column is blank for `rewrite-spring`, that repository will use the JDK auto-detection logic.
 

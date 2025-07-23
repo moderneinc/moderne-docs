@@ -169,12 +169,8 @@ cd $HOME/workshop
 2. For this exercise, we've prepared a list of open-source repositories for you to use. These repositories have been added to the Moderne Platform and put inside the `Default` organization. Clone these repositories by running the following command from inside your `workshop` directory:
 
 ```bash
-mod git clone moderne . "Default" --parallel -1
+mod git sync moderne . "Default"
 ```
-
-:::info
-The `--parallel` flag will **significantly** speed up Moderne CLI commands. For more information on how to use it, check out our [how to use parallelism guide](../how-to-guides/parallelism.md)
-:::
 
 :::warning
 If you need to enter an SSH passphrase to clone repositories, please see our [SSH keys with passphrases guide](../how-to-guides/ssh-key.md) before continuing.
@@ -452,7 +448,7 @@ With the LSTs built, you can now run recipes against them. Let's run the `Depend
 **Note**: Please make sure to pick the `org.openrewrite.java.dependencies.DependencyVulnerabilityCheck` recipe when you run the following command as multiple recipes with this title exist.
 
 ```bash
-mod run . --recipe DependencyVulnerabilityCheck --parallel -1
+mod run . --recipe DependencyVulnerabilityCheck
 ```
 
 <details>
@@ -642,7 +638,7 @@ Maybe you don't really want an Excel spreadsheet as the output, though. Fortunat
 **Note**: Please make sure to pick the `org.openrewrite.java.search.FindMethods` recipe when you run the following command as multiple recipes with this title may exist.
 
 ```bash
-mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)" --parallel -1
+mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
 
 # Select the following recipe: 
 #   * Find method usages (org.openrewrite.java.search.FindMethods)
@@ -667,7 +663,7 @@ So far, everything we've done has remained local to your machine. In a real-worl
 To begin, make sure you're still in the `$HOME/workshop` directory with the `Default` organization cloned. Then, run the following recipe to resolve common static analysis issues in all of the repositories:
 
 ```bash
-mod run . --recipe CommonStaticAnalysis --parallel -1
+mod run . --recipe CommonStaticAnalysis
 ```
 
 <details>

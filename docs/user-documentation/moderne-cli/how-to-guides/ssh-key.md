@@ -17,7 +17,7 @@ ssh-add ~/.ssh/id_rsa
 
 <figure>
   ![](./assets/ssh-add.png)
-  <figcaption>_Running `ssh-add` prior to `mod git clone`_</figcaption>
+  <figcaption>_Running `ssh-add` prior to `mod git sync`_</figcaption>
 </figure>
 
 ## Option 2: Create an executable script that will echo your SSH passphrase

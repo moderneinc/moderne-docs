@@ -4890,7 +4890,7 @@ mod git checkout /path/to/project
 
 ## mod git clone (deprecated)
 
-(DEPRECATED) ist of repositories can be sourced from different places, like Moderne or a CSV. All clone operations ca be performed in parallel by opt in via |@bold --parallel=0 |@.
+(DEPRECATED) List of repositories can be sourced from different places, like Moderne or a CSV. All clone operations can be performed in parallel by opt in via **--parallel=0**.
 
 
 ### Usage

@@ -24,7 +24,7 @@ To help improve this experience, we've introduced a `--parallel` flag on a varie
 The following command will clone all of the repositories in the `Default` org to your local machine using the _number of threads available on your computer_:
 
 ```bash
-mod git clone moderne . "Default" --parallel 0
+mod git sync moderne . "Default" --parallel 0
 ```
 
 The following command will run the `DependencyVulnerabilityCheck` recipe against all of the repositories in your current directory using a thread pool with the number of threads _equal to the number of cores available on your computer minus 1_:
@@ -44,7 +44,7 @@ Below is a table showing what the default parallelization setting is for various
 | `mod config recipes moderne sync` | Parallel                                       |
 | `mod config recipes jar install`  | Sequential                                     |
 | `mod devcenter run`               | Parallel                                       |
-| `mod git clone`                   | Sequential                                     |
+| `mod git sync`                    | Sequential                                     |
 | `mod run --recipe`                | Sequential                                     |
 | `mod run --active-recipe`         | Parallel                                       |
 | `mod run --streaming`             | Parallel                                       |
