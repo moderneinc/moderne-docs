@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.78.1 (2025/07/24)
+
+- Bug fixes and other improvements.
+
 ### UI v11.78.0 (2025/07/24)
 
 - add confirmation when about to run on more than 3000 repos
