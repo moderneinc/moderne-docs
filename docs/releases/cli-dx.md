@@ -3,9 +3,8 @@
 ### CLI / DX v3.44.3 (2025/07/23)
 
 #### What's Changed CLI
-* [OpenRewrite v8.59.1](https://github.com/openrewrite/rewrite/releases/tag/v8.59.1)
-* [rewrite-gradle-plugin v7.12.1](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.12.1)
-* [rewrite-maven-plugin v6.15.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.15.0)
+
+* Incorporates the latest versions of OpenRewrite ([v8.59.1](https://github.com/openrewrite/rewrite/releases/tag/v8.59.1)), rewrite-gradle-plugin ([v7.12.1](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.12.1)), and the rewrite-maven-plugin ([v6.15.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.15.0)) to improve code parsing accuracy and recipe execution reliability.
 
 ### CLI / DX v3.44.2 (2025/07/22)
 
