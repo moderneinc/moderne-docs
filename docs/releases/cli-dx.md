@@ -15,37 +15,39 @@
 ### CLI / DX v3.44.1 (2025/07/22)
 
 #### What's Changed CLI
+
 * BuildSrc with Java plugin needs to add Gradle API dependency
 * Stop iteration on successful fetch in repository cloning
-#### What's Changed DX
-* Remove DX publishing to Azure Container Registry
 
+#### What's Changed DX
+
+* Remove DX publishing to Azure Container Registry
 
 ### CLI / DX v3.44.0 (2025/07/21)
 
 #### What's Changed
+
 * Update DevCenter visualization to match improvements in Moderne SaaS @zieka in https://github.com/moderneinc/moderne-cli/pull/2614
 * Parse `**/*.cfg` as `PlainText`
 * **Major overhaul of multi-repository commands to become organization aware**
 
-
 ### CLI / DX v3.43.6 (2025/07/15)
 
 #### What's Changed DX
-* Fixed an issue that prevented cloning the root organization.
 
+* Fixed an issue that prevented cloning the root organization.
 
 ### CLI / DX v3.43.5 (2025/07/15)
 
 #### What's Changed
-* Avoid circular task dependency in Gradle builds that include themselves as a composite build.
 
+* Avoid circular task dependency in Gradle builds that include themselves as a composite build.
 
 ### CLI / DX v3.43.4 (2025/07/14)
 
 #### What's Changed CLI
-* Fix release issues on windows/chocolatey. The previous version will not be available on windows.
 
+* Fix release issues on windows/chocolatey. The previous version will not be available on windows.
 
 ### CLI / DX v3.43.2 (2025/07/14)
 
@@ -85,41 +87,46 @@
 ### CLI / DX v3.42.5 (2025/06/12)
 
 #### What's Changed CLI & DX
+
 * OpenRewrite 8.55.3, which contains fixes for resolving Maven dependencies of type tgz.
 
 ### CLI / DX v3.42.4 (2025/06/11)
 
 #### What's Changed CLI
+
 * Register `io.moderne.cli.commands` for reflection for native images
 * More Specific Java version pattern matching for toolchain configurations
 #### What's Changed DX
-* Avoid a potential divide by zero exception when logging LST sync progress
 
+* Avoid a potential divide by zero exception when logging LST sync progress
 
 ### CLI / DX v3.42.3 (2025/06/10)
 
 #### What's Changed CLI
+
 * Skip YAML recipe artifacts when executing `mod config recipes moderne push` command
+
 #### What's Changed DX
+
 * Ensure all LSTs are synced prior to incrementing modified time in AQL query
 * Delete downloaded LSTs from prior DX sync operations
-
 
 ### CLI / DX v3.42.2 (2025/06/10)
 
 #### What's Changed CLI
-* Printing the estimatedEffortTimeSavings in the CLI
 
+* Printing the estimatedEffortTimeSavings in the CLI
 
 ### CLI / DX v3.42.1 (2025/06/09)
 
 #### What's Changed
-* Re-enable native building for Mac
 
+* Re-enable native building for Mac
 
 ### CLI / DX v3.42.0 (2025/06/08)
 
 #### What's Changed CLI
+
 * Suggest `mod exec . --last-recipe-run MODERNE_BUILD_TOOL_CHECK` after `git apply`
 * Drop all non whitelisted headers on cross realm redirect
 * Recipe-based DevCenter generation using `mod devcenter`
@@ -130,253 +137,268 @@
 * Add .cbl files to NativeBuild for when cobol parser is not available
 * Test value's type before parsing recipe list options as strings
 * Disable Mac native building until we can get a new notarization ID
-#### What's Changed DX
-* Remove returning DevCenter configurations in DX's `/organization` query
 
+#### What's Changed DX
+
+* Remove returning DevCenter configurations in DX's `/organization` query
 
 ### CLI / DX v3.41.0 (2025/05/20)
 
 #### What's Changed CLI
-- [OpenRewrite v8.53.0](https://github.com/openrewrite/rewrite/releases/tag/v8.53.0)
 
+* [OpenRewrite v8.53.0](https://github.com/openrewrite/rewrite/releases/tag/v8.53.0)
 
 ### CLI / DX v3.40.0 (2025/05/14)
 
 #### What's Changed CLI
+
 * Allow `mod git clone moderne` to clone by organization name or organization id
 * Improve windows file path handling for `JAVA_HOME`
 * Pinning jinjava to 2.7.4
 * Blocking Javascript build step for now
 * Fix duplicated command issue with docs
 
-
 ### CLI / DX v3.40.0 (2025/05/14)
 
 #### What's Changed CLI
+
 * Allow `mod git clone moderne` to clone by organization name or organization id
 * Improve windows file path handling for `JAVA_HOME`
 * Pinning jinjava to 2.7.4
 * Blocking Javascript build step for now
 * Fix duplicated command issue with docs
-
 
 ### CLI / DX v3.39.2 (2025/05/09)
 
 #### What's Changed CLI
+
 * Do not forward `Authorization` header on following cross realm redirects
 * wrap parameters and option names in backticks for preformatted text output for docs
 #### What's Changed DX
+
 * Propagate download errors to ensure completion of LST sync task
 * Catch exception when failing to fetch `repos.csv` by DX to ensure fallback is executed
 * Avoid infinite loop when executing `/refreshOrganizations` DX mutation
 
-
 ### CLI / DX v3.39.1 (2025/05/07)
 
 #### What's Changed CLI
-* Parse Gradle lockfiles as plain text so that recipes may manipulate them
-#### What's Changed DX
-* Optimize DX parsing of `repos.csv` files
 
+* Parse Gradle lockfiles as plain text so that recipes may manipulate them
+
+#### What's Changed DX
+
+* Optimize DX parsing of `repos.csv` files
 
 ### CLI / DX v3.39.0 (2025/05/07)
 
 #### What's Changed CLI
+
 * [OpenRewrite v8.52.0](https://github.com/openrewrite/rewrite/releases/tag/v8.52.0)
 * [rewrite-gradle-plugin v7.6.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.6.0)
 * [rewrite-maven-plugin v6.8.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.8.0)
 * Drop special Java version detection for `maven.compiler.release` as requiring Java 9+
 
 #### What's Changed DX
+
 * Add the ability to pull reposCsv and devCenterJson from URIs in DX
 
 ### CLI / DX v3.38.3 (2025/05/01)
 
 #### What's Changed CLI
+
 * Avoid NPE when publishing batch changes on git repos with no commits
 * Detect Java version from pom.xml properties even when parsing fails
 * Sorting options in root command alphabetically
 * Suggest to run `mod config recipes export` after `mod config recipes list`
 
-
 ### CLI / DX v3.38.2 (2025/04/29)
 
 #### What's Changed CLI
+
 * Exclude the flyway migration task for Gradle
 * Add ability to clone organizations whose IDs don't match their names
-#### What's Changed DX
-* N/A
-
 
 ### CLI / DX v3.38.1 (2025/04/24)
 
 #### What's Changed CLI
-* Exec `git --version` test in current directory when executing `mod git clone csv`
-#### What's Changed DX
-* N/A
 
+* Exec `git --version` test in current directory when executing `mod git clone csv`
 
 ### CLI / DX v3.38.0 (2025/04/24)
 
 #### What's Changed CLI
+
 * [OpenRewrite v8.51.0](https://github.com/openrewrite/rewrite/releases/tag/v8.51.0)
 * [rewrite-gradle-plugin v7.5.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.5.0)
 * [rewrite-maven-plugin v6.7.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.7.0)
-- v6.7.0
-
 
 ### CLI / DX v3.37.5 (2025/04/23)
 
 #### What's Changed CLI
+
 * Show helpful message when git clone attempted but git not found
 * Use `CommandException.getFixSuggestions` in error output
 * Suggest visiting results page after successful `mod batch publish`
 * Allow `mod build` to assemble LST jar files with no LST fragments
 * Fix `JavaType.Method`, `MavenRepository` constructor calls
 * Pin PicoCLI to 4.7.6
-#### What's Changed DX
-* Add Jansi dependency to DX
 
+#### What's Changed DX
+
+* Add Jansi dependency to DX
 
 ### CLI / DX v3.37.4 (2025/04/14)
 
 #### What's Changed CLI
+
 * Catch all Throwables in isGitRepository
 * Document parallel behavior
 * Add `mod batch publish` command
-#### What's Changed DX
-* N/A
-
 
 ### CLI / DX v3.37.3 (2025/04/11)
 
 #### What's Changed CLI
+
 * Fix settings.xml server configuration being ignored, potentially leading to missing HTTP headers failing dependency resolution requests
 * `mod config recipes moderne sync` - save recipes on partial success
-
 
 ### CLI / DX v3.37.2 (2025/04/10)
 
 #### What's Changed CLI
+
 * [OpenRewrite v8.50.2](https://github.com/openrewrite/rewrite/releases/tag/v8.50.2)
 * [rewrite-gradle-plugin v7.4.1](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.4.1)
 * [rewrite-maven-plugin v6.6.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.6.0)
 
-
 ### CLI / DX v3.37.1 (2025/04/10)
 
 #### What's Changed CLI
+
 * `mod config recipes moderne sync` - save recipes on partial success
 * Adding back negation `!` in `lstIsExtracted()`; This fixes a `java.nio.file.NoSuchFileException` bug when building and then running a recipe
 #### What's Changed DX
-* Improve warnings when `mod config moderne edit` is run with token and DX
 
+* Improve warnings when `mod config moderne edit` is run with token and DX
 
 ### CLI / DX v3.37.0 (2025/04/09)
 
 #### What's Changed CLI
+
 * [OpenRewrite v8.50.0](https://github.com/openrewrite/rewrite/releases/tag/v8.50.0)
 * [rewrite-gradle-plugin v7.4.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.4.0)
 * [rewrite-maven-plugin v6.5.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.5.0)
 * Suggest running afterburner after `mod build`
+
 #### What's Changed DX
+
 * Update DX to pass devCenter configuration to the CLI when `mod git sync moderne` is executed
 * Do not create Maven artifact repositories for indexing if `astSource` config is false
-
 
 ### CLI / DX v3.36.1 (2025/04/04)
 
 #### What's Changed CLI
+
 * listRepositories to handle Git exceptions as warnings
 #### What's Changed DX
-* Pre-populate cache of recently described LSTs to avoid redundant downloads
 
+* Pre-populate cache of recently described LSTs to avoid redundant downloads
 
 ### CLI / DX v3.36.0 (2025/04/01)
 
 #### What's Changed CLI
+
 * Document `mod exec` output options `Console` and `File`
 * Remove obsolete `mod config recipes jar install` `--repository-url` parameter
 * Use FormatStyle.LONG for license expiry
 * Fix parsing truststore config
 
-
 ### CLI / DX v3.35.0 (2025/03/27)
 
 #### What's Changed CLI
+
 * [OpenRewrite v8.49.0](https://github.com/openrewrite/rewrite/releases/tag/v8.49.0)
 * [rewrite-gradle-plugin v7.3.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.3.0)
 * [rewrite-maven-plugin v6.4.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.4.0)
 - v6.4.0
 
-
 ### CLI / DX v3.34.5 (2025/03/26)
 
 #### What's Changed CLI
+
 * Add `DurationProperty` for parsing `Duration` `CommandLine` arguments
 * Skip the build for a repository if there are no source files found
 #### What's Changed DX
-* Extract LST `scm.properties` in same pipeline as download to avoid disk space exhaustion
 
+* Extract LST `scm.properties` in same pipeline as download to avoid disk space exhaustion
 
 ### CLI / DX v3.34.4 (2025/03/24)
 
 #### What's Changed CLI
+
 * Fix NumberFormatException when getting java from SDKMAN file with java version like java=21-tem
 * Extract native `libzstd-jni` library from already packaged `zstd-jni` jar
 * Fix issue where patch apply would fail if a diff hunk was for a file not in the repository.
 #### What's Changed DX
-* Reduce DX LST download concurrency to mitigate disk space exhaustion
 
+* Reduce DX LST download concurrency to mitigate disk space exhaustion
 
 ### CLI / DX v3.34.3 (2025/03/19)
 
 #### What's Changed DX
+
 * Make origin and path case insensitive for LST resolution
 #### What's Changed CLI
+
 * [OpenRewrite v8.48.1](https://github.com/openrewrite/rewrite/releases/tag/v8.48.1)
 * [rewrite-maven-plugin v6.3.2](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.3.2)
 * [rewrite-gradle-plugin v7.2.1](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.2.1)
 
-
 ### CLI / DX v3.34.2 (2025/03/18)
 
 #### What's Changed CLI
-* Don't skip the "dependencies" plugin's goals by default.
-#### What's Changed DX
-* Resolve the issue where fetching a large repos.csv from the organization service REST endpoint causes a DataBufferLimitException.
 
+* Don't skip the "dependencies" plugin's goals by default.
+
+#### What's Changed DX
+
+* Resolve the issue where fetching a large repos.csv from the organization service REST endpoint causes a DataBufferLimitException.
 
 ### CLI / DX v3.34.1 (2025/03/13)
 
 #### What's Changed CLI
+
 * Ignore `transient` recipe fields
 * Register `style` subpackages for reflection in GraalVM
 * Configured JVM options are also used when running recipes
 * Use multiple steps to build an LST in Maven to prevent OOME in the SaaS
 * Output `bazel query` in XML to broaden support of bazel versions
 
-
 ### CLI / DX v3.34.0 (2025/03/07)
 
 #### What's Changed CLI
+
 * Update suppressions 03-05-2025 vulnerability report
 * Remove snappy constraint
 
 #### What's Changed DX
-- Get organization from rest endpoint that returns the repos.csv on the org if it's available
+
+* Get organization from rest endpoint that returns the repos.csv on the org if it's available
 
 ### CLI / DX v3.33.7 (2025/03/07)
 
 #### What's Changed CLI
-* Fix regression setting minimum supported gradle version to 5.0 from 4.10
-#### What's Changed DX
-* Remove commit options from DX
 
+* Fix regression setting minimum supported gradle version to 5.0 from 4.10
+
+#### What's Changed DX
+
+* Remove commit options from DX
 
 ### CLI / DX v3.33.6 (2025/03/03)
 
 #### What's Changed
+
 * Add new column `Error log` to the `mod log run add` command
 * Add timeout configuration for clone operations
 * Fix "plugin descriptor version mismatch" errors you can get in local development.
@@ -384,16 +406,16 @@
 * Refine matching of version strings from `gradle --version` output
 * Downstream fix for maven.config parsing fix
 
-
 ### CLI / DX v3.33.5 (2025/02/27)
 
 #### What's Changed CLI
-* Revert "Complete removal of XZ and LZ4 dependencies"
 
+* Revert "Complete removal of XZ and LZ4 dependencies"
 
 ### CLI / DX v3.33.3 (2025/02/27)
 
 #### What's Changed CLI
+
 * Update with rewrite 8.47.3
 * Fixes small typo in run command.
 * Complete removal of XZ and LZ4 dependencies
@@ -401,12 +423,13 @@
 * Fix data table API change
 
 #### What's Changed DX
-* Delete LST files on download failures
 
+* Delete LST files on download failures
 
 ### CLI / DX v3.33.3 (2025/02/27)
 
 #### What's Changed
+
 * Update with rewrite 8.47.3
 * Fixes small typo in run command.
 * Complete removal of XZ and LZ4 dependencies
@@ -414,110 +437,104 @@
 * Delete LST files on download failures
 * Fix data table API change
 
-
 ### CLI / DX v3.33.3 (2025/02/27)
 
 #### What's Changed
+
 * Update with rewrite 8.47.3
 * Fixes small typo in run command.
 * Complete removal of XZ and LZ4 dependencies
 * Update `RecipeMarketplace` wrt new `RecipeDescriptor` API
-
 
 ### CLI / DX v3.33.3 (2025/02/26)
 
 #### What's Changed
+
 * Update with rewrite 8.47.3
 * Fix small typo in run command description
 * Complete removal of XZ and LZ4 dependencies
 
-
 ### CLI / DX v3.33.2 (2025/02/25)
 
-#### What's Changed CLI
-* N/A
 #### What's Changed DX
-* Add support for Nexus maven repositories as LST sources to DX
 
+* Add support for Nexus maven repositories as LST sources to DX
 
 ### CLI / DX v3.33.1 (2025/02/24)
 
 #### What's Changed
+
 * Re-enable Maven dependency resolution
 
+### CLI / DX v3.32.7 (2025/02/19)
+
+#### What's Changed CLI
+
+* Revert nullability validation which caused some recipe runs to fail
+* Update devcenter security polar area color scale
 
 ### CLI / DX v3.32.7 (2025/02/19)
 
 #### What's Changed CLI
+
 * Revert nullability validation which caused some recipe runs to fail
 * Update devcenter security polar area color scale
-
-
-### CLI / DX v3.32.7 (2025/02/19)
-
-#### What's Changed CLI
-* Revert nullability validation which caused some recipe runs to fail
-* Update devcenter security polar area color scale
-
 
 ### CLI / DX v3.32.6 (2025/02/19)
 
 #### What's Changed CLI
-* Remove C#/dotnet from list of default build steps
-#### What's Changed DX
-* N/A
 
+* Remove C#/dotnet from list of default build steps
 
 ### CLI / DX v3.32.5 (2025/02/17)
 
 #### What's Changed CLI
-* Avoid a NPE when running `mod config recipes install` with search term
-#### What's Changed DX
-* N/A
 
+* Avoid a NPE when running `mod config recipes install` with search term
 
 ### CLI / DX v3.32.4 (2025/02/15)
 
 #### What's Changed CLI
+
 * Adopt [OpenRewrite v8.45.5](https://github.com/openrewrite/rewrite/releases/tag/v8.45.5) to support `TypeTable`s
 
-
 ### CLI / DX v3.32.3 (2025/02/13)
 
 #### What's Changed CLI
+
 * Update to rewrite [8.45.4](https://github.com/openrewrite/rewrite/releases/tag/v8.45.4) to get access to lombok parsing fixes
 * Do not load trust-store on `trust-store` configuration attempts
 * Detect Azul Zing JDK installation path at `/opt/zing`
 * Make parallel recipe execution more robust by adding retries in `sendToDaemon()`
 
-
 ### CLI / DX v3.32.3 (2025/02/13)
 
 #### What's Changed CLI
+
 * Update to rewrite [8.45.4](https://github.com/openrewrite/rewrite/releases/tag/v8.45.4) to get access to lombok parsing fixes
 * Do not load trust-store on `trust-store` configuration attempts
 * Detect Azul Zing JDK installation path at `/opt/zing`
 * Make parallel recipe execution more robust by adding retries in `sendToDaemon()`
-
 
 ### CLI / DX v3.32.2 (2025/02/12)
 
 #### What's Changed CLI
+
 *  OpenRewrite v8.45.2 with Lombok enabled by default on Java 11+ in https://github.com/openrewrite/rewrite/releases/tag/v8.45.2
 * Add message when repository normalization failed previously
-
 
 ### CLI / DX v3.32.1 (2025/02/10)
 
 #### What's Changed
+
 * Fix ANSI formatting of `CommandException` suggestions
 * Remove duplicated output on incorrect `indent()` and/or `unindent()` calls.
 * Allow empty commits using `--allow-empty` and fix default behaviour to not allow these empty commits.
 
-
 ### CLI 3.44.3 (2025/02/07)
 
 #### What's Changed
+
 * Add duration to timeout exception message
 * Prevent more unwanted Gradle tasks to run
 * Enable JSON formatting auto-detection
@@ -526,28 +543,26 @@
 * Add inclusions into the Gradle plugin
 * Apply Remote files
 
-
 ### CLI / DX v3.31.2 (2025/01/29)
 
 #### What's Changed
+
 * Skip the Maven Dependency Plugin's goals by default.
 * Add clearer side label and description to auto-generated docs
 * Do not overwrite valid license.key when running recipes on unhosted repos
 * Skip recording metrics for known build errors to avoid skewing ingest success rates
 * Fixes issue with `mod build` for classes with `lombok.Generated`. **If you were affected by this problem, you will need to rebuild all affected LSTs.**
 
-
 ### CLI / DX v3.31.1 (2025/01/27)
 
 #### What's Changed CLI
-* Log warning and continue building when failing to calculate maven dependency resolution times
-#### What's Changed DX
-* N/A
 
+* Log warning and continue building when failing to calculate maven dependency resolution times
 
 ### CLI / DX v3.31.0 (2025/01/24)
 
 #### What's Changed
+
 * Do not run `install.sh` or `mod help` when publishing
 * Follow symlinks when discovering projects
 * Ensure native image adds rewrite-javascript-remoting-server resources
@@ -555,61 +570,60 @@
 * Support TOML parsing in native image
 * Add npm build step and related config commands for node based projects
 
-
 ### CLI / DX v3.30.0 (2025/01/21)
 
 #### What's Changed CLI
+
 * Migrate JS build on generic remoting API
 * Add support for offline temporary CLI licenses
 #### What's Changed DX
-* Add support for offline temporary CLI licenses
 
+* Add support for offline temporary CLI licenses
 
 ### CLI / DX v3.29.5 (2025/01/17)
 
 #### What's Changed
+
 * Parse `**/*.jsonnet` as PlainText
 * Clarify afterburner command
 * Handle nullable response from `retrieveData()`
 * Delete daemon port file if daemon shuts down/dies
 
-
 ### CLI / DX v3.29.4 (2025/01/16)
 
 #### What's Changed CLI
-* Remove duplicate timer
 
+* Remove duplicate timer
 
 ### CLI / DX v3.29.3 (2025/01/16)
 
 #### What's Changed CLI
+
 * Update with rewrite 8.43.2 which includes [this fix](https://github.com/openrewrite/rewrite/commit/2586748a25b90b3d7f272a8f06bf80ea4628550e) for system property precedence in Maven property substitutions
 * When running in parallel default to using one fewer core than is available when called by IDE
-
 
 ### CLI / DX v3.29.2 (2025/01/15)
 
 #### What's Changed CLI
+
 * Measure maven dependency resolution without using the Maven Invoker plugin
 * Remove `ProgressBar#step()` from `Tasks#forEach()` handlers
 * Add `--parallel` option to DevCenter run to be able to tweak the cores used
 * Improve description for parallel flag
 
-
 ### CLI / DX v3.29.1 (2025/01/14)
 
 #### What's Changed CLI
+
 * Flag error on outcome failure
 * Correct command output field index when detecting bazel tool version
 * Use /bin/zsh for mac native install since we write to ~/.zshrc
 * Add python and node versions to build activity log
-#### What's Changed DX
-*  N/A
-
 
 ### CLI / DX v3.29.0 (2025/01/13)
 
 #### What's Changed
+
 * Parallelization of recipe runs, installation, etc. More details in this [deck](https://docs.google.com/presentation/d/1K8-kJX4hkpA0eBtNbn4XTkZG9OA9dXbX/edit?usp=sharing&ouid=108669801108622792389&rtpof=true&sd=true)
 * Mod study excel output: freeze top row, correctly converts numerics
 * Support parallel task progress bar tracking, and enable it for `mod run`
@@ -624,35 +638,39 @@
 ### CLI / DX v3.28.0 (2024/12/31)
 
 #### What's Changed CLI
+
 * OpenRewrite [v8.42.4](https://github.com/openrewrite/rewrite/releases/tag/v8.42.4)
 * rewrite-python [v1.27.5](https://github.com/openrewrite/rewrite-python/releases/tag/v1.27.5)
 
 ### CLI / DX v3.27.9 (2024/12/30)
 
 #### What's Changed CLI
+
 * Rewrite-JavaScript [v0.26.0](https://github.com/openrewrite/rewrite-javascript/releases/tag/v0.26.0)
 
 ### CLI / DX v3.27.8 (2024/12/27)
 
 #### What's Changed CLI
+
 * OpenRewrite [v8.42.3](https://github.com/openrewrite/rewrite/releases/tag/v8.42.3)
 * Rewrite-JavaScript [v0.25.4](https://github.com/openrewrite/rewrite-javascript/releases/tag/v0.25.4)
 
 ### CLI / DX v3.27.7 (2024/12/24)
 
 #### What's Changed CLI
-* Rework logic after seeing metadata only failures
 
+* Rework logic after seeing metadata only failures
 
 ### CLI / DX v3.27.7 (2024/12/24)
 
 #### What's Changed CLI
-* Rework logic after seeing metadata only failures
 
+* Rework logic after seeing metadata only failures
 
 ### CLI / DX v3.27.6 (2024/12/23)
 
 #### What's Changed CLI
+
 * Show commands as deprecated when run and in the docs
 * Installing new recipe no longer returns the old version in some cases
 * Detect Java version from `.sdkmanrc` files
@@ -663,80 +681,84 @@
 * Color repositories based on LST availability
 * On mod build, correctly set the path for partitioned repositories
 
-
 ### CLI / DX v3.27.5 (2024/12/19)
 
 #### What's Changed CLI
+
 * Allow `git clone csv` to work with `--metadata-only`
 * Allow .NET builds in directories with Gradle, Maven or Bazel build scripts
 * Pass the dependency resolution time using the properties files
 
-
 ### CLI / DX v3.27.4 (2024/12/13)
 
 #### What's Changed
-* Add scss, save, config extensions to plain text parsing list
 
+* Add scss, save, config extensions to plain text parsing list
 
 ### CLI / DX v3.27.3 (2024/12/12)
 
 #### What's Changed CLI
+
 * Add libspec and robot files to plaintext masks
 * On clone, only build url for configured clone protocol
-
 
 ### CLI / DX v3.27.2 (2024/12/11)
 
 #### What's Changed CLI
+
 * Revert "Consider alternative urls when retrieving latest builds"
 * Download resources to "~/.moderne/cli/rewrite-classpath"
 * Use `git.properties` alternateUri field when parsing `GitRemote`
 * Generate uri using `GitRemote`
 #### What's Changed DX
+
 * Add default ssh alternate url if only https is configured
 
+### CLI / DX v3.27.0 (2024/12/05)
+
+#### What's Changed CLI
+
+* Upgrade to [OpenRewrite v8.41.2](https://github.com/openrewrite/rewrite/releases/tag/v8.41.2) and associated plugin versions
+
+#### What's Changed DX
+
+* Consider alternative urls when retrieving latest builds
 
 ### CLI / DX v3.27.0 (2024/12/05)
 
 #### What's Changed CLI
+
 * Upgrade to [OpenRewrite v8.41.2](https://github.com/openrewrite/rewrite/releases/tag/v8.41.2) and associated plugin versions
+
 #### What's Changed DX
+
 * Consider alternative urls when retrieving latest builds
-
-
-### CLI / DX v3.27.0 (2024/12/05)
-
-#### What's Changed CLI
-* Upgrade to [OpenRewrite v8.41.2](https://github.com/openrewrite/rewrite/releases/tag/v8.41.2) and associated plugin versions
-#### What's Changed DX
-* Consider alternative urls when retrieving latest builds
-
 
 ### CLI / DX v3.26.9 (2024/12/03)
 
 #### What's Changed CLI
+
 * Drop trailing empty `env:` from native GitHub Actions
 * Filter out DevCenter recipe runs with null files with results count
-#### What's Changed DX
-* N/A
-
 
 ### CLI / DX v3.26.8 (2024/12/03)
 
 #### What's Changed
+
 * Record dependency resolution time for Gradle and Maven builds
 * Fallback to `python` when `python3` is not available
 * Enable completion from `install.sh` by default
 
-
 ### CLI / DX v3.26.7 (2024/11/29)
 
 #### What's Changed CLI
+
 * Pick up [OpenRewrite v8.41.1](https://github.com/openrewrite/rewrite/releases/tag/v8.41.1) and associated plugins
 
 ### CLI / DX v3.26.6 (2024/11/26)
 
 #### What's Changed CLI
+
 * Fix `NPE` in `mod study`
 * Correct logic error when detecting bazel version that required both bazel and bazelisk be installed
 * Continue to list projects through JSON despite partial failure
@@ -745,12 +767,13 @@
 * Register `JS` types for reflection in native image
 * Suggest a branch name related to recipe name
 #### What's Changed DX
-* Exclude older groovy
 
+* Exclude older groovy
 
 ### CLI / DX v3.26.6 (2024/11/26)
 
 #### What's Changed CLI
+
 * Fix `NPE` in `mod study`
 * Correct logic error when detecting bazel version that required both bazel and bazelisk be installed
 * Continue to list projects through JSON despite partial failure
@@ -758,22 +781,24 @@
 * Gradle 8.10 supports Java 23
 * Register `JS` types for reflection in native image
 * Suggest a branch name related to recipe name
-#### What's Changed DX
-* Exclude older groovy
 
+#### What's Changed DX
+
+* Exclude older groovy
 
 ### CLI / DX v3.26.5 (2024/11/20)
 
 #### What's Changed
+
 * Gitignore `buildSrc/.kotlin` over nebula release plugin complaints
 * Use `worker-large-ssd` for Linux native image build
 * Handle empty data table gracefully in `mod study`
 * Use OS-specific casing for PATH environment variable for CLI subprocesses
 
-
 ### CLI / DX v3.26.4 (2024/11/19)
 
 #### What's Changed CLI
+
 * Add option to install recipes from NPM
 * Add suggestion to install .NET SDK when failing to sync nuget recipes
 * Adding dependency resolution time to the generated excel file from "mod log runs"
@@ -781,112 +806,106 @@
 * Do not overwrite recipe sync log when installing nuget recipes
 * Stop updating CLI version in mass-ingest-example Dockerfile
 
-
 ### CLI / DX v3.26.3 (2024/11/18)
 
 #### What's Changed CLI
+
 * Fix error caused by `mod config recipes moderne sync` for NuPkg packages
 * Prevent NPE on unmatched arguments
 * Address performance degradation when running `mod config recipes moderne sync`
 * Log error details when unable to read from CSV
 * Improve performance of `mod study`
+
 #### What's Changed DX
+
 * Fix NPE when generating devcenter where no security results exist
 * Only display devcenter cards where data is available
-
 
 ### CLI / DX v3.26.2 (2024/11/14)
 
 #### What's Changed CLI
-* Handle preferred versions in TOML for Android version detection
 
+* Handle preferred versions in TOML for Android version detection
 
 ### CLI / DX v3.26.1 (2024/11/12)
 
 #### What's Changed CLI
-* Remove `rewrite-kotlin` dependency 
-#### What's Changed DX
-* N/A
 
+* Remove `rewrite-kotlin` dependency 
 
 ### CLI / DX v3.26.0 (2024/11/12)
 
 #### What's Changed
-- send notification to ops-alerts when native image build fails on a release.
+
+* send notification to ops-alerts when native image build fails on a release.
 * Allow deletion of YAML recipes using file name
 * Update with latest changes in JS/TS, Python, and C# parsers.
-
 
 ### CLI / DX v3.25.6 (2024/11/08)
 
 #### What's Changed CLI
-* Allow deletion of YAML recipes using file name
-#### What's Changed DX
-* N/A
 
+* Allow deletion of YAML recipes using file name
 
 ### CLI / DX v3.25.5 (2024/11/06)
 
 #### What's Changed CLI
-* Add missing `org.openrewrite.kotlin.style.Autodetect` class to CLI classpath
-#### What's Changed DX
-* N/A
 
+* Add missing `org.openrewrite.kotlin.style.Autodetect` class to CLI classpath
 
 ### CLI / DX v3.25.4 (2024/11/05)
 
 #### What's Changed CLI
+
 * `mod config organizations show` now shows all organizations. The query was setting after to "0" and was omitting the first organization listed.
 #### What's Changed DX
-* The `organizationsPages` query now shows counts correctly for all organizations.
 
+* The `organizationsPages` query now shows counts correctly for all organizations.
 
 ### CLI / DX v3.25.3 (2024/11/04)
 
-#### What's Changed CLI
-N/A
 #### What's Changed DX
-* Include child organizations when fetching organizations the user has access to.
 
+* Include child organizations when fetching organizations the user has access to.
 
 ### CLI / DX v3.25.2 (2024/11/01)
 
 #### What's Changed
+
 * Include gradle build tools that fail validation in order to record tool versions in build activity log
 * Latest OpenRewrite patch release to allow multiple `SearchResult`s on the same element.
-
 
 ### CLI / DX v3.25.1 (2024/11/01)
 
 #### What's Changed CLI
+
 * Consistently set a timeout per job, not step
 * Revert "Align ~/.rewrite/classpath to ~/.moderne/cli/rewrite-classpath in the CLI"
-#### What's Changed DX
-* N/A
-
 
 ### CLI / DX v3.25.0 (2024/10/31)
 
 #### What's Changed
+
 * Store a persistent copy of the organizations locally to avoid doing a full sync on restart
 * Align ~/.rewrite/classpath to ~/.moderne/cli/rewrite-classpath in the CLI
-
 
 ### CLI / DX v3.24.9 (2024/10/29)
 
 #### What's Changed
+
 * Recognize NO_COLOR environment variable to disable colored text output
 * adopt new remoting components
-
 
 ### CLI / DX v3.24.8 (2024/10/25)
 
 #### What's Changed CLI
-- Upgrade to rewrite-maven-plugin 5.34.1, which removes a limit on file traversal depth when parsing code in deeply-nested maven projects
+
+* Upgrade to rewrite-maven-plugin 5.34.1, which removes a limit on file traversal depth when parsing code in deeply-nested maven projects
+
 #### What's Changed DX
+
 * Update doc path for cli-dx changelog markdown
 * Add admin artifact diagnostics to DX
-
 
 ### CLI / DX v3.24.7 (2024/10/24)
 
@@ -995,6 +1014,7 @@ N/A
 ### CLI / DX v3.22.1 (2024/10/01)
 
 #### What's Changed CLI
+
 * Allow empty option displayname
 * Use paginated query for organizations if available when fetching organizations
 
@@ -1028,7 +1048,8 @@ When the CLI is configured with DX or the SaaS the `organizationPages` query wil
 Please ensure your organization service is updated to support this new `organizationPages` query. This query is designed to efficiently handle larger lists of organizations and repositories. We recommend planning for migration to this new query in your organization service, as the existing organizations query is deprecated and will be removed in the future. Sync your organization implementation with the latest [reference implementation](https://github.com/moderneinc/moderne-organizations). The pagination support was added in this [commit](https://github.com/moderneinc/moderne-organizations/commit/127600abe6cec60b51d06a63f9801b6c116b650d).
 
 #### What's Changed DX
-* We’ve introduced a new query `organizationsPages` for paginated organization data and deprecated the organizations query.
+
+* We've introduced a new query `organizationsPages` for paginated organization data and deprecated the organizations query.
 ```graphql
     @deprecated(reason: "use `organizationsPages` in stead")
     organizations(
@@ -1042,10 +1063,10 @@ Please ensure your organization service is updated to support this new `organiza
 ```
 
 Key Changes:
-- `organizations` query deprecated: This query is deprecated in favor of the new paginated query.
-- New `organizationsPages` query: Provides a paginated list of organizations with parameters:
-    - `after`: A cursor to fetch subsequent pages.
-    - `first`: The maximum number of organizations to return (default: 100).
+* `organizations` query deprecated: This query is deprecated in favor of the new paginated query.
+* New `organizationsPages` query: Provides a paginated list of organizations with parameters:
+    * `after`: A cursor to fetch subsequent pages.
+    * `first`: The maximum number of organizations to return (default: 100).
 
 Action Required:
 
@@ -1210,15 +1231,11 @@ When DX is integrated with the organization service, it will now utilize the new
 * Add support for parsing source sets defined using the Android Gradle plugin
 * Right align the number of recipes in `mod config recipes list` and show total
 
-#### What's Changed DX
-
-Nothing
-
 ### CLI / DX v3.19.2 (2024/09/04)
 
 #### What's Changed CLI
 
-* \--json option of mod study is parsed properly again
+* `--json` option of mod study is parsed properly again
 
 ### CLI / DX v3.19.1 (2024/09/04)
 
@@ -1325,10 +1342,6 @@ This requires a slight change to how `mod git sync moderne` is used. Previously 
 * Replace default compliant with N/A in DevCenter
 * Fix `link(path)` not working for relative paths not starting with `./`
 
-#### What's Changed in DX
-
-Nothing
-
 ### CLI / DX v3.17.2 (2024/08/19)
 
 #### What's Changed in CLI
@@ -1337,20 +1350,12 @@ Nothing
 * Idempotent publish of LSTs
 * Add `--last-recipe-run` to `mod run` for repeated runs
 
-#### What's Changed in DX
-
-Nothing
-
 ### CLI / DX v3.17.1 (2024/08/15)
 
 #### What's Changed in CLI
 
 * Update JacksonXML dependency to 2.17.2
 * Increase recipe run execution timeout
-
-#### What's Changed in DX
-
-Nothing
 
 ### CLI / DX v3.17.0 (2024/08/14)
 
@@ -1387,10 +1392,6 @@ Nothing
 
 * Use `DotNet` as LST provenance for C# projects
 
-#### What's Changed DX
-
-Nothing
-
 ### CLI / DX v3.16.2 (2024/08/08)
 
 #### What's Changed CLI
@@ -1403,10 +1404,6 @@ Nothing
 #### # Features
 
 * Permit cloning CSV with no branch
-
-#### What's Changed DX
-
-Nothing
 
 ### CLI / DX v3.16.1 (2024/08/08)
 
