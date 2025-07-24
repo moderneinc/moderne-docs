@@ -28,7 +28,7 @@ devcenter-demo
 You may find it useful to start by only cloning a small subset of your repositories locally so that you can test, build, and iterate quickly. Once you've confirmed everything is working as you want, you can then add more repositories as desired.
 :::
 
-We'd recommend using the [mod git clone command](../cli-reference.md#mod-git-clone) to create this shared directory. With it, you can clone repositories from a CSV file, a JSON file, or from an existing organization.
+We'd recommend using the [mod git sync command](../cli-reference.md#mod-git-sync) to create this shared directory. With it, you can clone repositories from a CSV file or from an existing organization.
 
 ## Step 2: Build the LSTs
 
@@ -40,7 +40,7 @@ mod build devcenter-demo
 
 ## Step 3: Install DevCenter starter recipes
 
-Starting with CLI 3.43.6, DevCenter dashboards are built using YAML declarative recipes composed with recipes provided by the [rewrite-devcenter](https://github.com/moderneinc/rewrite-devcenter) recipe artifact. To install the latest version of `rewrite-devcenter`, run the following command:
+Starting with CLI 3.44.3, DevCenter dashboards are built using YAML declarative recipes composed with recipes provided by the [rewrite-devcenter](https://github.com/moderneinc/rewrite-devcenter) recipe artifact. To install the latest version of `rewrite-devcenter`, run the following command:
 ```bash
 mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
 ```
@@ -49,7 +49,7 @@ mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
 
 `rewrite-devcenter` includes an example DevCenterStarter recipe which you can run as follows:
 ```bash
-mod run devcenter-demo --recipe io.moderne.devcenter.DevCenterStarter --parallel
+mod run devcenter-demo --recipe io.moderne.devcenter.DevCenterStarter
 ```
 
 This recipe will generate the data tables required to build the DevCenter dashboard using the command:
@@ -92,7 +92,7 @@ mod config recipes yaml install MyDevCenter.yml
 
 Next, run the recipe and generate the dashboard:
 ```bash
-mod run dashboard-demo --recipe com.acme.MyDevCenter --parallel
+mod run dashboard-demo --recipe com.acme.MyDevCenter
 mod devcenter dashboard-demo --last-recipe-run
 ```
 

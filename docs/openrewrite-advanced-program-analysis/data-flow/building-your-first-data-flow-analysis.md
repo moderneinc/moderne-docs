@@ -1,5 +1,5 @@
 ---
-description: Step-by-step guide to implementing a data flow analysis recipe using OpenRewrite's analysis framework
+description: Step-by-step guide to implementing a data flow analysis recipe using OpenRewrite's analysis framework.
 ---
 
 # Building Your First Data Flow Analysis
@@ -7,12 +7,13 @@ description: Step-by-step guide to implementing a data flow analysis recipe usin
 This tutorial walks you through creating a practical data flow analysis recipe that detects dead code in Java programs. We'll build a recipe that finds assignments to variables that are never used – a common code quality issue.
 
 :::info Prerequisites
-This tutorial assumes you've read the [Introduction to Data Flow Analysis](introduction.md) and understand basic concepts like forward vs. backward analysis, transfer functions, and the role of control flow graphs.
+This tutorial assumes you've read the [Introduction to Data Flow Analysis](./introduction.md) and understand basic concepts like forward vs. backward analysis, transfer functions, and the role of control flow graphs.
 :::
 
 ## The problem: dead assignments
 
 Dead assignments waste resources and clutter code. They often indicate bugs where a developer forgot to use a computed value.
+
 ```java
 public double calculateTotal(List<Item> items) {
     double total = 0;
@@ -33,6 +34,7 @@ We'll use liveness analysis (a backward data flow analysis) to find these dead a
 ## Step 1: create the recipe structure
 
 Let's start with the basic recipe structure.
+
 ```java
 package com.example.analysis;
 
@@ -72,6 +74,7 @@ public class FindDeadAssignments extends Recipe {
 ## Step 2: implement the visitor
 
 The visitor will examine each assignment and use liveness analysis to determine if it's dead.
+
 ```java
 private static class DeadAssignmentVisitor extends JavaIsoVisitor<ExecutionContext> {
     
@@ -122,6 +125,7 @@ private static class DeadAssignmentVisitor extends JavaIsoVisitor<ExecutionConte
 ## Step 3: handle variable declarations
 
 Dead assignments often occur in variable declarations with initializers.
+
 ```java
 @Override
 public J.VariableDeclarations.NamedVariable visitVariable(
@@ -155,6 +159,7 @@ public J.VariableDeclarations.NamedVariable visitVariable(
 ## Step 4: leverage the livevariables API
 
 The `LiveVariables` result type provides convenient methods beyond basic queries.
+
 ```java
 private void demonstrateAdvancedFeatures(LiveVariables liveVars) {
     // Find all dead assignments automatically
@@ -175,6 +180,7 @@ private void demonstrateAdvancedFeatures(LiveVariables liveVars) {
 ## Step 5: create a comprehensive dead code recipe
 
 Let's combine everything into a more complete recipe.
+
 ```java
 public class ComprehensiveDeadCodeFinder extends Recipe {
     
@@ -247,6 +253,7 @@ public class ComprehensiveDeadCodeFinder extends Recipe {
 ## Testing your recipe
 
 Here's how to test your dead code finder.
+
 ```java
 import org.junit.jupiter.api.Test;
 import org.openrewrite.test.RecipeSpec;
@@ -342,14 +349,17 @@ class FindDeadAssignmentsTest implements RewriteTest {
 When implementing data flow analyses, keep these tips in mind:
 
 ### CFG construction and caching
+
 Building CFGs is expensive. Always use `ControlFlowSupport` for automatic caching and lazy evaluation. See [Building Control Flow Graphs](../control-flow/building-cfgs.md) for detailed information about CFG caching strategies.
 
 ### Analyze at the right granularity
+
 * For spot checks (is this assignment dead?), analyze individual statements
 * For comprehensive analysis (find all dead code), analyze entire methods at once
 * Avoid analyzing the same method multiple times
 
 ### Leverage result type methods
+
 The specialized result types like `LiveVariables` provide optimized implementations of common queries. Use `findDeadAssignments()` instead of manually iterating through all assignments.
 
 ## Next steps
@@ -368,20 +378,25 @@ The pattern shown here works for any data flow analysis. Just swap `LivenessAnal
 ## Common pitfalls and solutions
 
 ### Field access complexity
+
 This example handles only simple field access. Real implementations need to consider:
 * Static vs. instance fields
 * Qualified field access (`this.field`, `super.field`)
 * Fields accessed through method calls
 
 ### Side effects
+
 Some "dead" assignments might have side effects.
+
 ```java
 int result = calculateAndLog();  // Method has side effects!
 // Even if result is unused, we can't remove this
 ```
 
 ### Exception paths
+
 Variables might be "live" only on exception paths.
+
 ```java
 String message = "Starting process";
 try {

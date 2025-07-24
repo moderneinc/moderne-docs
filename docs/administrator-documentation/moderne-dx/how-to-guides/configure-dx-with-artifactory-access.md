@@ -26,7 +26,7 @@ The following table contains all of the variables/arguments you need to add to y
 
 You can configure multiple Artifactory servers by including multiple entries, each with a different `{index}`. Within a given Artifactory server configuration, you can configure multiple LST query filters by including multiple entries, each with a different `{index}`.
 
-Also, by default, LST indexing has to happen on every new installation before `mod git clone moderne` can be used against Moderne DX. For 50,000 repositories, this can take hours and be very taxing on your Artifactory or your Maven repositories. By attaching and configuring persistent storage to Moderne DX, the LST index will be maintained between deployments and restarts of the application, leading to much quicker startup times. This can be configured with the `MODERNE_DX_STORAGE_ENABLED` and `MODERNE_DX_STORAGE_PATH` vars included in the table below.
+Also, by default, LST indexing has to happen on every new installation before `mod git sync moderne` can be used against Moderne DX. For 50,000 repositories, this can take hours and be very taxing on your Artifactory or your Maven repositories. By attaching and configuring persistent storage to Moderne DX, the LST index will be maintained between deployments and restarts of the application, leading to much quicker startup times. This can be configured with the `MODERNE_DX_STORAGE_ENABLED` and `MODERNE_DX_STORAGE_PATH` vars included in the table below.
 
 <Tabs groupId="dx-type">
 <TabItem value="oci-container" label="OCI Container">

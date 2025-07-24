@@ -1,5 +1,5 @@
 ---
-description: Detect and prevent LDAP injection vulnerabilities in directory service queries
+description: Detect and prevent LDAP injection vulnerabilities in directory service queries.
 ---
 
 # LDAP Injection Detection
@@ -153,6 +153,7 @@ public List<User> advancedSearch(SearchCriteria criteria) {
 ### Use parameterized filters
 
 The safest approach is using parameterized LDAP filters.
+
 ```java
 // SAFE - Using Spring LDAP Filter
 import org.springframework.ldap.filter.*;
@@ -513,8 +514,8 @@ public void validateAdQuery(String filter) {
 
 ## Next steps
 
-- [SQL Injection](sql-injection.md) - Similar injection pattern for databases
-- [Command Injection](command-injection.md) - OS command injection
+* [SQL Injection](./sql-injection.md) - Similar injection pattern for databases
+* [Command Injection](./command-injection.md) - OS command injection
 
 :::warning Security Best Practice
 Always use parameterized LDAP filters or proper encoding functions. Never concatenate user input directly into LDAP queries. Consider implementing query logging and monitoring for suspicious patterns.

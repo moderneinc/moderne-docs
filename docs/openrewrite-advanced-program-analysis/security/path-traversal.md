@@ -1,5 +1,5 @@
 ---
-description: Detect and prevent path traversal vulnerabilities in file system operations
+description: Detect and prevent path traversal vulnerabilities in file system operations.
 ---
 
 # Path Traversal Detection
@@ -549,8 +549,8 @@ public class UrlPathValidator {
 
 ## Next Steps
 
-- [Command Injection](command-injection.md) - OS command execution
-- [XXE Vulnerabilities](xxe.md) - XML external entity attacks
+* [Command Injection](./command-injection.md) - OS command execution
+* [XXE Vulnerabilities](./xxe.md) - XML external entity attacks
 
 :::danger Critical Security Issue
 Path traversal can lead to complete system compromise. Always validate and sanitize file paths, use canonical path checking, and implement defense in depth with OS-level restrictions where possible.

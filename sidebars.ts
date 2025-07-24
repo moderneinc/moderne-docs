@@ -296,9 +296,9 @@ const sidebars: SidebarsConfig = {
       items: [
         'openrewrite-advanced-program-analysis/control-flow/introduction',
         'openrewrite-advanced-program-analysis/control-flow/building-cfgs',
-        'openrewrite-advanced-program-analysis/control-flow/reachability-dominance',
-        'openrewrite-advanced-program-analysis/control-flow/loop-analysis',
         'openrewrite-advanced-program-analysis/control-flow/reachability-analysis',
+        'openrewrite-advanced-program-analysis/control-flow/dominance-analysis',
+        'openrewrite-advanced-program-analysis/control-flow/loop-analysis',
       ],
     },
     {

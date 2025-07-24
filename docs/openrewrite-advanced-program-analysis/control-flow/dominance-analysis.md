@@ -1,147 +1,57 @@
 ---
-description: Master graph algorithms for analyzing control flow relationships, reachability, and dominance
+description: Master dominance relationships and control dependencies in control flow graphs for advanced program analysis.
 ---
 
-# Reachability and Dominance Analysis
+# Dominance Analysis
 
-Reachability and dominance are fundamental relationships in control flow graphs that answer critical questions about program structure. These analyses form the foundation for many optimizations and program transformations.
+Dominance relationships are fundamental to understanding control dependencies in programs. Think of dominance as a "gatekeeper" relationship: block A dominates block B if A acts as a mandatory checkpoint that every execution path must pass through to reach B. 
 
-## Understanding reachability
+In simpler terms, if you want to execute block B, you have no choice but to execute block A first. This "must execute before" relationship forms the foundation for many advanced optimizations and program transformations.
 
-Reachability analysis determines which parts of a program can be executed from a given starting point. It's like exploring a cave system with a flashlight - you want to know which chambers you can reach from the entrance.
+## Overview
 
-### Basic reachability
-
-A basic block B is reachable from block A if there exists a path in the CFG from A to B. This is computed using a simple graph traversal.
-```java
-public class ReachabilityAnalysis {
-    private final ControlFlowGraph cfg;
-    
-    public Set<BasicBlock> computeReachable(BasicBlock start) {
-        Set<BasicBlock> reachable = new HashSet<>();
-        Queue<BasicBlock> worklist = new LinkedList<>();
-        
-        worklist.add(start);
-        reachable.add(start);
-        
-        while (!worklist.isEmpty()) {
-            BasicBlock current = worklist.poll();
-            
-            for (BasicBlock successor : cfg.getSuccessors(current)) {
-                if (reachable.add(successor)) {
-                    worklist.add(successor);
-                }
-            }
-        }
-        
-        return reachable;
-    }
-    
-    public boolean isReachable(BasicBlock from, BasicBlock to) {
-        return computeReachable(from).contains(to);
-    }
-}
-```
-
-### Finding unreachable code
-
-Unreachable code is code that cannot be executed under any circumstances.
-
-```java
-public class UnreachableCodeDetector extends Recipe {
-    @Override
-    public TreeVisitor<?, ExecutionContext> getVisitor() {
-        return new JavaIsoVisitor<ExecutionContext>() {
-            @Override
-            public J.MethodDeclaration visitMethodDeclaration(
-                    J.MethodDeclaration method, ExecutionContext ctx) {
-                
-                // First, analyze to find unreachable statements
-                Set<Tree> unreachableStatements = new HashSet<>();
-                
-                ControlFlowSupport.analyze(getCursor(), method,
-                    (cursor, cfg) -> {
-                        ReachabilityAnalysis reachability = new ReachabilityAnalysis(cfg);
-                        Set<BasicBlock> reachable = reachability.computeReachable(cfg.getEntryBlock());
-                        
-                        // Collect unreachable statements
-                        for (BasicBlock block : cfg.getBlocks()) {
-                            if (!reachable.contains(block) && !block.isEmpty()) {
-                                unreachableStatements.addAll(block.getStatements());
-                            }
-                        }
-                        
-                        return method;
-                    });
-                
-                // Then visit the method to mark unreachable statements
-                if (!unreachableStatements.isEmpty()) {
-                    return (J.MethodDeclaration) new JavaIsoVisitor<ExecutionContext>() {
-                        @Override
-                        public <T extends J> T visitStatement(Statement statement, ExecutionContext ctx) {
-                            T s = super.visitStatement(statement, ctx);
-                            if (unreachableStatements.contains(statement)) {
-                                return SearchResult.found(s, "This code is unreachable");
-                            }
-                            return s;
-                        }
-                    }.visit(method, ctx);
-                }
-                
-                return method;
-            }
-        };
-    }
-}
-```
-
-### Common patterns of unreachable code
-
-#### Code After Return
-
-```java
-public int calculate(int x) {
-    if (x > 0) {
-        return x * 2;
-    } else {
-        return x * 3;
-    }
-    System.out.println("Done");  // Unreachable!
-}
-```
-
-#### Impossible Conditions
-
-```java
-public void process(String s) {
-    if (s != null) {
-        if (s == null) {  // Unreachable!
-            throw new IllegalStateException();
-        }
-        // Process s...
-    }
-}
-```
-
-#### Break After Continue
-
-```java
-while (condition) {
-    if (something) {
-        continue;
-        break;  // Unreachable!
-    }
-    // ...
-}
-```
+While reachability analysis (covered in detail in [Reachability Analysis](./reachability-analysis.md)) determines what code can execute, dominance analysis determines what code **must** execute before reaching a given point. This relationship is crucial for understanding control dependencies and enabling sophisticated program optimizations.
 
 ## Understanding dominance
 
-Dominance relationships capture the "must pass through" structure of a program. Block A dominates block B if every path from the entry to B must pass through A.
+Dominance relationships capture the "must pass through" structure of a program. When we say "block A dominates block B," we mean that block A acts as a mandatory gateway - there's no way to reach B without first going through A.
+
+Imagine a building where block A is the main entrance and block B is a room deep inside. If the main entrance is the only way to get to that room, then the entrance "dominates" the room. No matter which route you take through the building, you must pass through the main entrance to reach that room.
+
+### A concrete example
+
+Consider this simple code:
+
+```java
+public int calculateDiscount(boolean isPremium, int orderTotal) {
+    int discount = 0;                    // Block 1 (entry)
+    
+    if (isPremium) {                     // Block 1 continues (condition check)
+        if (orderTotal > 100) {          // Block 2  
+            discount = 20;               // Block 3
+        } else {
+            discount = 10;               // Block 4
+        }
+    }
+    
+    return discount;                     // Block 5 (exit)
+}
+```
+
+In this example:
+
+* **Block 1 dominates all other blocks** - every execution path must start here
+* **Block 2 dominates blocks 3 and 4** - to reach either discount assignment, you must pass through the `orderTotal > 100` check
+* **Block 5 is dominated only by Block 1** - you can reach the return without going through the inner conditions if `isPremium` is false
+
+This dominance information tells us that Block 1 is a "gatekeeper" for the entire method, while Block 2 controls access to the premium discount logic.
 
 ### Immediate dominators
 
-Every block (except the entry) has exactly one immediate dominator - the closest dominator on all paths from the entry.
+Every block (except the entry) has exactly one immediate dominator - the closest dominator on all paths from the entry. Think of the immediate dominator as the "direct parent" in the dominance hierarchy. While a block might be dominated by several other blocks, its immediate dominator is the one that directly controls access to it.
+
+For example, if blocks A, B, and C all dominate block D, but B dominates C, then B is the immediate dominator of C, and C is the immediate dominator of D. The immediate dominator is always the "last checkpoint" you must pass through before reaching your destination.
+
 ```java
 public class DominatorAnalysis {
     private final ControlFlowGraph cfg;
@@ -204,7 +114,9 @@ public class DominatorAnalysis {
 
 ### Dominator trees
 
-The immediate dominator relationship forms a tree structure that's invaluable for many analyses.
+The immediate dominator relationship forms a tree structure that's invaluable for many analyses. This tree provides a clear hierarchical view of control dependencies - each node represents a block, and the parent-child relationships show which blocks directly control access to others.
+
+The dominator tree makes it easy to answer questions like "What blocks must execute before this one?" (follow the path to the root) and "What blocks does this one control?" (look at its subtree).
 
 ```java
 public class DominatorTree {
@@ -258,7 +170,9 @@ public class DominatorTree {
 
 ## Post-dominance analysis
 
-Post-dominance is the reverse relationship: block B post-dominates block A if B is on every path from A to the exit. This is computed on the reverse CFG.
+Post-dominance is the reverse relationship that answers the question "What must happen after?" Block B post-dominates block A if block B lies on every path from A to the program's exit.
+
+Think of post-dominance as a "mandatory destination." If you execute block A, you're guaranteed to eventually reach block B before the program ends. This relationship is particularly useful for understanding cleanup code, exception handling, and resource management - you can identify what code will definitely execute regardless of which path the program takes.
 
 ```java
 public class PostDominatorAnalysis extends DominatorAnalysis {
@@ -290,7 +204,9 @@ public class PostDominatorAnalysis extends DominatorAnalysis {
 
 ## Control dependence
 
-Control dependence combines dominance and post-dominance to determine which conditions control the execution of statements.
+Control dependence combines dominance and post-dominance to answer a crucial question: "Which conditions determine whether this code executes?" 
+
+A statement is control dependent on a conditional branch if the branch's outcome determines whether the statement executes. This relationship helps identify which parts of your program depend on specific decisions, making it invaluable for program slicing, debugging, and understanding program behavior.
 
 ```java
 public class ControlDependenceAnalysis {
@@ -340,7 +256,9 @@ public class ControlDependenceAnalysis {
 
 ### Dead code elimination
 
-Use dominance to safely remove code.
+Dominance relationships help us safely identify and remove dead code by understanding the "must execute" relationships between program points. If a variable assignment dominates all its uses, we can be confident about when it's safe to eliminate unused assignments.
+
+This analysis ensures we don't accidentally break the program by removing code that might be reachable through paths we didn't consider.
 
 ```java
 public class DeadCodeEliminator {
@@ -370,7 +288,9 @@ public class DeadCodeEliminator {
 
 ### Loop-invariant code motion
 
-Move code out of loops when safe.
+Dominance analysis enables us to safely move computations out of loops when they produce the same result on every iteration. By using dominance relationships, we can ensure that hoisted code will definitely execute and that it dominates all its uses within the loop.
+
+This optimization can dramatically improve performance by avoiding redundant calculations in tight loops, but it requires careful analysis to ensure correctness.
 
 ```java
 public class LoopInvariantCodeMotion {
@@ -396,7 +316,7 @@ public class LoopInvariantCodeMotion {
 
 ### Partial redundancy elimination
 
-Eliminate computations that are redundant on some paths.
+This optimization eliminates computations that are redundant on some (but not all) execution paths. Dominance analysis helps find the best places to move these computations so they can be reused across multiple paths.
 
 ```java
 public class PartialRedundancyElimination {
@@ -421,9 +341,8 @@ public class PartialRedundancyElimination {
 
 ## Next steps
 
-* [Loop Analysis Techniques](loop-analysis.md) - Deep dive into loop structure analysis
-* [Building Control Flow Graphs](building-cfgs.md) - Construct CFGs from source code
-* [Data Flow Analysis](../data-flow/introduction.md) - See how dominance enables optimizations
+* [Loop Analysis Techniques](./loop-analysis.md) - Detect and analyze loops in control flow graphs.
+* [Data Flow Analysis](../data-flow/introduction.md) - See how dominance relationships enable powerful data flow optimizations.
 
 :::tip
 Dominance relationships are fundamental to many compiler optimizations. Understanding them well will help you implement sophisticated program transformations and analyses.

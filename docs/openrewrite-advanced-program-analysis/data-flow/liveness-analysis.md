@@ -1,5 +1,5 @@
 ---
-description: Deep dive into liveness analysis - determining which variables are "live" at each program point
+description: Deep dive into liveness analysis - determining which variables are "live" at each program point.
 ---
 
 # Liveness Analysis
@@ -364,6 +364,7 @@ void testConditionalLiveness() {
 Liveness analysis combines well with other analyses:
 
 ### With reaching definitions
+
 ```java
 // Find uninitialized variable uses
 if (liveVars.isLive(var, point) && !reachingDefs.hasDefinition(var, point)) {
@@ -372,6 +373,7 @@ if (liveVars.isLive(var, point) && !reachingDefs.hasDefinition(var, point)) {
 ```
 
 ### With constant propagation
+
 ```java
 // Only propagate constants to live variables
 if (liveVars.isLive(var, point) && constants.isConstant(var)) {
@@ -381,5 +383,5 @@ if (liveVars.isLive(var, point) && constants.isConstant(var)) {
 
 ## Next steps
 
-* [Reaching Definitions Analysis](reaching-definitions.md) - The complementary forward analysis
-* [Building Your First Data Flow Analysis](building-your-first-data-flow-analysis.md) - Hands-on tutorial using liveness
+* [Reaching Definitions Analysis](./reaching-definitions.md) - The complementary forward analysis
+* [Building Your First Data Flow Analysis](./building-your-first-data-flow-analysis.md) - Hands-on tutorial using liveness

@@ -1,5 +1,5 @@
 ---
-description: Learn how to track data flow across method boundaries for whole-program analysis
+description: Learn how to track data flow across method boundaries for whole-program analysis.
 ---
 
 # Inter-procedural Analysis
@@ -218,6 +218,7 @@ When analyzing virtual method calls, use type hierarchy information to find all 
 ### Callbacks and lambdas
 
 Modern Java code often uses callbacks.
+
 ```java
 list.stream()
     .map(this::transform)  // Method reference
@@ -292,5 +293,5 @@ public class InterProceduralSecurityAnalysis extends Recipe {
 
 ## Next steps
 
-* [Method Summary Analysis](method-summary-analysis.md) - Deep dive into computing and using method summaries
+* [Method Summary Analysis](./method-summary-analysis.md) - Deep dive into computing and using method summaries
 * [Taint Analysis](../taint-analysis/comprehensive-guide.md) - Apply inter-procedural analysis to security

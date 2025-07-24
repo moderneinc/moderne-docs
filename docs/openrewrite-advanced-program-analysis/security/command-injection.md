@@ -1,5 +1,5 @@
 ---
-description: Detect and prevent command injection vulnerabilities in Java applications
+description: Detect and prevent command injection vulnerabilities in Java applications.
 ---
 
 # Command Injection Detection
@@ -406,9 +406,9 @@ Command injection is typically a **CRITICAL** severity vulnerability because:
 
 Several major vulnerabilities have been command injection:
 
-- **Shellshock (2014)**: Bash vulnerability allowing command injection via environment variables
-- **ImageMagick (2016)**: Command injection through image processing
-- **Log4Shell (2021)**: While primarily JNDI injection, often led to command execution
+* **Shellshock (2014)**: Bash vulnerability allowing command injection via environment variables
+* **ImageMagick (2016)**: Command injection through image processing
+* **Log4Shell (2021)**: While primarily JNDI injection, often led to command execution
 
 ## Integration with CI/CD
 
@@ -429,9 +429,9 @@ fi
 
 ## Next steps
 
-- [SQL Injection](sql-injection.md) - Similar pattern for database commands
-- [LDAP Injection](ldap-injection.md) - Directory service command injection
-- [Path Traversal](path-traversal.md) - File system access vulnerabilities
+* [SQL Injection](./sql-injection.md) - Similar pattern for database commands
+* [LDAP Injection](./ldap-injection.md) - Directory service command injection
+* [Path Traversal](./path-traversal.md) - File system access vulnerabilities
 
 :::danger Critical Security Issue
 Command injection is one of the most dangerous vulnerabilities. Always validate input, avoid shell invocation when possible, and use parameterized commands. Never trust user input in system commands.

@@ -180,7 +180,7 @@ mod config moderne edit --token=<token> --api=https://<moderne-dx-host>:8080 htt
 This command will ask Moderne DX for all repositories inside the organization you selected and clone them to `<path>`:
 
 ```bash
-mod git clone moderne <path> <organization-id>
+mod git sync moderne <path> <organization-id>
 ```
 
 Once these are both done, your developers can now start running recipes and committing the results!

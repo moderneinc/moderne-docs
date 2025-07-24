@@ -1,5 +1,35 @@
 # CLI / DX changelog
 
+### CLI / DX v3.44.3 (2025/07/23)
+
+#### What's Changed CLI
+* [OpenRewrite v8.59.1](https://github.com/openrewrite/rewrite/releases/tag/v8.59.1)
+* [rewrite-gradle-plugin v7.12.1](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.12.1)
+* [rewrite-maven-plugin v6.15.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.15.0)
+
+### CLI / DX v3.44.2 (2025/07/22)
+
+#### What's Changed CLI
+
+* Incorporates the latest versions of OpenRewrite ([v8.59.0](https://github.com/openrewrite/rewrite/releases/tag/v8.59.0)), rewrite-gradle-plugin ([v7.12.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.12.0)), and the rewrite-maven-plugin ([v6.14.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.14.0)) to improve code parsing accuracy and recipe execution reliability.
+
+### CLI / DX v3.44.1 (2025/07/22)
+
+#### What's Changed CLI
+* BuildSrc with Java plugin needs to add Gradle API dependency
+* Stop iteration on successful fetch in repository cloning
+#### What's Changed DX
+* Remove DX publishing to Azure Container Registry
+
+
+### CLI / DX v3.44.0 (2025/07/21)
+
+#### What's Changed
+* Update DevCenter visualization to match improvements in Moderne SaaS @zieka in https://github.com/moderneinc/moderne-cli/pull/2614
+* Parse `**/*.cfg` as `PlainText`
+* **Major overhaul of multi-repository commands to become organization aware**
+
+
 ### CLI / DX v3.43.6 (2025/07/15)
 
 #### What's Changed DX
@@ -486,7 +516,7 @@
 * Allow empty commits using `--allow-empty` and fix default behaviour to not allow these empty commits.
 
 
-### CLI 3.43.6 (2025/02/07)
+### CLI 3.44.3 (2025/02/07)
 
 #### What's Changed
 * Add duration to timeout exception message
