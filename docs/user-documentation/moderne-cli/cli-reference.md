@@ -3158,7 +3158,7 @@ mod config moderne show
 (INCUBATING) The organizational hierarchy of repository ownership.
 
 
-Each of these organizations are cloneable.
+Each of these organizations is cloneable.
 
 ### Usage
 
@@ -4776,7 +4776,7 @@ mod git [subcommands]
 * `add`: Performs the equivalent of **git add** on multiple repositories.
 * `apply`: Performs the equivalent of **git apply** on multiple repositories.
 * `checkout`: Performs the equivalent of **git checkout** on multiple repositories.
-* `clone`: (DEPRECATED) ist of repositories can be sourced from different places, like Moderne or a CSV. All clone operations ca be performed in parallel by opt in via |@bold --parallel=0 |@.
+* `clone`: (DEPRECATED) List of repositories can be sourced from different places, like Moderne or a CSV. All clone operations can be performed in parallel by opt in via **--parallel=0 **.
 * `commit`: Performs the equivalent of **git commit** on multiple repositories.
 * `pull`: Performs the equivalent of **git pull** on multiple repositories.
 * `push`: Performs the equivalent of **git push** on multiple repositories.
@@ -4890,7 +4890,7 @@ mod git checkout /path/to/project
 
 ## mod git clone (deprecated)
 
-(DEPRECATED) List of repositories can be sourced from different places, like Moderne or a CSV. All clone operations can be performed in parallel by opt in via **--parallel=0**.
+(DEPRECATED) List of repositories can be sourced from different places, like Moderne or a CSV. All clone operations can be performed in parallel by opt in via **--parallel=0 **.
 
 
 ### Usage
