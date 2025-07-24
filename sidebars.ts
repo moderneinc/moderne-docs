@@ -238,7 +238,6 @@ const sidebars: SidebarsConfig = {
       value: '<br/><strong>Hands-on Learning</strong>',
       defaultStyle: true,
     },
-    'hands-on-learning/moderne-ide-plugin',
     {
       type: 'category',
       label: 'Fundamentals of recipe development',
@@ -259,6 +258,24 @@ const sidebars: SidebarsConfig = {
         'hands-on-learning/fundamentals/module-6-testing-recipes',
         'hands-on-learning/fundamentals/module-7-refaster-recipes',
         'hands-on-learning/fundamentals/module-8-imperative-recipes',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Advanced recipe development',
+      link: {
+        type: 'generated-index',
+        title: 'Advanced recipe development workshop',
+        description: 'Learn to build advanced recipes that can extract insights and generate code.',
+        slug: '/hands-on-learning/advanced',
+        keywords: ['recipes'],
+      },
+      items: [
+        'hands-on-learning/advanced/workshop-overview',
+        'hands-on-learning/advanced/module-1-recipe-development-environment',
+        'hands-on-learning/advanced/module-2-scanning-recipes',
+        'hands-on-learning/advanced/module-3-traits',
+        'hands-on-learning/advanced/module-4-data-tables',
       ],
     },
     {
