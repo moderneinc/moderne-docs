@@ -127,7 +127,6 @@ const sidebars: SidebarsConfig = {
             'user-documentation/moderne-cli/how-to-guides/air-gapped-cli-install',
             'user-documentation/moderne-cli/how-to-guides/cli-upgrade',
             'user-documentation/moderne-cli/how-to-guides/cli-dev-center',
-            'user-documentation/moderne-cli/how-to-guides/clone-and-sync',
             'user-documentation/moderne-cli/how-to-guides/parallelism',
             'user-documentation/moderne-cli/how-to-guides/afterburner',
             'user-documentation/moderne-cli/how-to-guides/ssh-key',
