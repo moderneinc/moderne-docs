@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.78.0 (2025/07/24)
+
+- add confirmation when about to run on more than 3000 repos
+
 ### UI v11.77.0 (2025/07/23)
 
 - add copy command to install recipe to local Moderne CLI
