@@ -267,10 +267,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Control Flow',
+      label: 'Control flow',
       link: {
         type: 'generated-index',
-        title: 'Control Flow Analysis',
+        title: 'Control flow analysis',
         description: 'Learn about control flow analysis in OpenRewrite.',
         slug: '/openrewrite-advanced-program-analysis/control-flow',
         keywords: ['control-flow', 'cfg', 'analysis'],
@@ -285,10 +285,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Data Flow',
+      label: 'Data flow',
       link: {
         type: 'generated-index',
-        title: 'Data Flow Analysis',
+        title: 'Data flow analysis',
         description: 'Learn about data flow analysis in OpenRewrite.',
         slug: '/openrewrite-advanced-program-analysis/data-flow',
         keywords: ['data-flow', 'analysis'],
@@ -304,10 +304,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Taint Analysis',
+      label: 'Taint analysis',
       link: {
         type: 'generated-index',
-        title: 'Taint Analysis',
+        title: 'Taint analysis',
         description: 'Learn about taint analysis for security vulnerability detection.',
         slug: '/openrewrite-advanced-program-analysis/taint-analysis',
         keywords: ['taint', 'security', 'analysis'],
@@ -322,7 +322,7 @@ const sidebars: SidebarsConfig = {
       label: 'Security',
       link: {
         type: 'generated-index',
-        title: 'Security Analysis',
+        title: 'Security analysis',
         description: 'Find and fix security vulnerabilities using OpenRewrite.',
         slug: '/openrewrite-advanced-program-analysis/security',
         keywords: ['security', 'vulnerabilities', 'analysis'],

@@ -2,7 +2,7 @@
 description: Master dominance relationships and control dependencies in control flow graphs for advanced program analysis.
 ---
 
-# Dominance Analysis
+# Dominance analysis
 
 Dominance relationships are fundamental to understanding control dependencies in programs. Think of dominance as a "gatekeeper" relationship: block A dominates block B if A acts as a mandatory checkpoint that every execution path must pass through to reach B. 
 

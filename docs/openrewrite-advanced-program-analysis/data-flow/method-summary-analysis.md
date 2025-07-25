@@ -2,7 +2,7 @@
 description: Learn how to compute and use method summaries for efficient inter-procedural analysis.
 ---
 
-# Method Summary Analysis
+# Method summary analysis
 
 Method summaries are compact representations of what a method does, enabling efficient inter-procedural analysis without repeatedly analyzing method bodies. Think of them as "nutrition labels" for methods – they tell you what goes in, what comes out, and what effects occur, without needing to examine all the ingredients.
 

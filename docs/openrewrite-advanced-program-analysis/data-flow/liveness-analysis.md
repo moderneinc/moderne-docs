@@ -2,7 +2,7 @@
 description: Deep dive into liveness analysis - determining which variables are "live" at each program point.
 ---
 
-# Liveness Analysis
+# Liveness analysis
 
 Liveness analysis is a fundamental backward data flow analysis that determines which variables might be used in the future at each point in a program. A variable is "live" at a program point if its current value may be read before it's overwritten. This analysis is crucial for dead code elimination, register allocation, and understanding data dependencies.
 

@@ -2,7 +2,7 @@
 description: Master reaching definitions analysis - tracking where variable values come from.
 ---
 
-# Reaching Definitions Analysis
+# Reaching definitions analysis
 
 Reaching definitions analysis is a fundamental forward data flow analysis that tracks which assignments (definitions) of variables may reach each point in a program. It answers the critical question: "Where could this variable's value have come from?"
 

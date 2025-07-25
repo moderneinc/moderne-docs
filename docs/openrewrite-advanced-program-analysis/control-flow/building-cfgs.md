@@ -2,7 +2,7 @@
 description: Learn how to construct and work with Control Flow Graphs in OpenRewrite.
 ---
 
-# Building Control Flow Graphs
+# Building control flow graphs
 
 Control Flow Graphs (CFGs) are the foundation of program analysis. This guide covers how to construct CFGs efficiently using OpenRewrite's APIs, with a focus on the `ControlFlowSupport` utility that handles caching and lifecycle management.
 

@@ -2,7 +2,7 @@
 description: Detect, analyze, and understand loops in control flow graphs for optimization and analysis.
 ---
 
-# Loop Analysis Techniques
+# Loop analysis techniques
 
 Loops are where programs spend most of their execution time, making loop analysis crucial for performance optimization and program understanding. This guide explores how to detect loops, analyze their properties, and use that information for powerful transformations.
 

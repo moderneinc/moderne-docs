@@ -2,7 +2,7 @@
 description: Understanding control flow analysis and how it forms the foundation for advanced program analysis in OpenRewrite.
 ---
 
-# Introduction to Control Flow Analysis
+# Introduction to control flow analysis
 
 Control flow analysis is a fundamental technique in program analysis that examines the order in which individual statements, instructions, or function calls are executed in a program. Think of it as creating a map of all possible paths through your code.
 

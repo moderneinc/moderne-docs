@@ -2,7 +2,7 @@
 description: Learn how to track data flow across method boundaries for whole-program analysis.
 ---
 
-# Inter-procedural Analysis
+# Inter-procedural analysis
 
 Real-world bugs and vulnerabilities rarely stay within a single method. A SQL injection vulnerability might start with user input in a web controller, flow through several business logic methods, and finally reach a database query in a data access layer. Inter-procedural analysis tracks data as it flows across method boundaries, providing a complete picture of how information moves through your entire program.
 
