@@ -6,9 +6,9 @@ description: Step-by-step guide to implementing a data flow analysis recipe usin
 
 This tutorial walks you through creating a practical data flow analysis recipe that detects dead code in Java programs. We'll build a recipe that finds assignments to variables that are never used – a common code quality issue.
 
-:::info Prerequisites
+## Prerequisites
+
 This tutorial assumes you've read the [Introduction to data flow analysis](./introduction.md) and understand basic concepts like forward vs. backward analysis, transfer functions, and the role of control flow graphs.
-:::
 
 ## The problem: dead assignments
 
@@ -31,9 +31,9 @@ public double calculateTotal(List<Item> items) {
 
 We'll use liveness analysis (a backward data flow analysis) to find these dead assignments automatically.
 
-## Step 1: create the recipe structure
+## Step 1: Create the recipe structure
 
-Let's start with the basic recipe structure.
+Let's start by outlining a basic recipe:
 
 ```java
 package com.example.analysis;
@@ -71,16 +71,16 @@ public class FindDeadAssignments extends Recipe {
 }
 ```
 
-## Step 2: implement the visitor
+## Step 2: Implement the visitor
 
-The visitor will examine each assignment and use liveness analysis to determine if it's dead.
+With the recipe outlined, it's now time to create a visitor. Our visitor will need to examine each assignment and use liveness analysis to determine if it's dead.
 
 ```java
 private static class DeadAssignmentVisitor extends JavaIsoVisitor<ExecutionContext> {
     
     @Override
     public J.Assignment visitAssignment(J.Assignment assignment, ExecutionContext ctx) {
-        // Use ControlFlowSupport for automatic CFG caching and management
+        // Use ControlFlowSupport for automatic Control Flow Graph (CFG) caching and management
         Boolean isDead = ControlFlowSupport.analyze(getCursor(), false, 
             (cursor, cfg) -> {
                 // Run liveness analysis on the control flow graph
@@ -122,9 +122,9 @@ private static class DeadAssignmentVisitor extends JavaIsoVisitor<ExecutionConte
 }
 ```
 
-## Step 3: handle variable declarations
+## Step 3: Handle variable declarations
 
-Dead assignments often occur in variable declarations with initializers.
+Now let's tackle a common scenario - variables that get initialized but never actually used:
 
 ```java
 @Override
@@ -156,9 +156,9 @@ public J.VariableDeclarations.NamedVariable visitVariable(
 }
 ```
 
-## Step 4: leverage the livevariables API
+## Step 4: Leverage the `LiveVariables` API
 
-The `LiveVariables` result type provides convenient methods beyond basic queries.
+The `LiveVariables` API has some handy built-in methods that can save you a lot of manual work. Instead of writing complex queries yourself, you can use these convenient methods:
 
 ```java
 private void demonstrateAdvancedFeatures(LiveVariables liveVars) {
@@ -177,9 +177,9 @@ private void demonstrateAdvancedFeatures(LiveVariables liveVars) {
 }
 ```
 
-## Step 5: create a comprehensive dead code recipe
+## Step 5: Create a comprehensive dead code recipe
 
-Let's combine everything into a more complete recipe.
+Time to put it all together! Let's create a production-ready recipe that handles multiple types of dead code and provides clear, actionable feedback to developers:
 
 ```java
 public class ComprehensiveDeadCodeFinder extends Recipe {
@@ -252,7 +252,7 @@ public class ComprehensiveDeadCodeFinder extends Recipe {
 
 ## Testing your recipe
 
-Here's how to test your dead code finder.
+Below are some examples of what tests might look like for this recipe:
 
 ```java
 import org.junit.jupiter.api.Test;
@@ -346,7 +346,7 @@ class FindDeadAssignmentsTest implements RewriteTest {
 
 ## Performance considerations
 
-When implementing data flow analyses, keep these tips in mind:
+When implementing data flow analyses, there are several key areas to optimize.
 
 ### CFG construction and caching
 
@@ -379,14 +379,15 @@ The pattern shown here works for any data flow analysis. Just swap `LivenessAnal
 
 ### Field access complexity
 
-This example handles only simple field access. Real implementations need to consider:
+Our example handles only simple local variables, but real-world code is messier. When building production recipes, you'll need to consider:
+
 * Static vs. instance fields
 * Qualified field access (`this.field`, `super.field`)
 * Fields accessed through method calls
 
 ### Side effects
 
-Some "dead" assignments might have side effects.
+Here's a tricky case: what looks like a dead assignment might actually have important side effects that you don't want to remove.
 
 ```java
 int result = calculateAndLog();  // Method has side effects!
@@ -395,7 +396,7 @@ int result = calculateAndLog();  // Method has side effects!
 
 ### Exception paths
 
-Variables might be "live" only on exception paths.
+Another gotcha: variables that seem unused might actually be needed when exceptions occur. For example:
 
 ```java
 String message = "Starting process";
@@ -409,11 +410,11 @@ try {
 
 ## Conclusion
 
-You've successfully built a data flow analysis recipe that solves a real problem. The key takeaways:
+Congratulations! You've just built a data flow analysis recipe that can catch real bugs and improve code quality. Some key things to remember when building additional recipes:
 
 1. Use `ControlFlowSupport` for CFG management
-2. Leverage the convenient methods in result types like `LiveVariables`
+2. Leverage convenient methods in result types like `LiveVariables`
 3. Test thoroughly with various code patterns
 4. Consider performance and edge cases
 
-This same pattern applies to any data flow analysis – just choose the appropriate analysis type and use its result API to query the information you need.
+This same pattern works for any data flow analysis you want to build. Whether you're tracking tainted data, finding constant values, or detecting resource leaks, just swap in the appropriate analysis type and use its result API. You now have the foundation to tackle much more complex program analysis challenges!
