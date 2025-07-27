@@ -1,3 +1,3 @@
 import { Redirect } from '@docusaurus/router';
 
-<Redirect to="/user-documentation/recipes/recipe-authoring" />;
+<Redirect to="/hands-on-learning/fundamentals/" />;
