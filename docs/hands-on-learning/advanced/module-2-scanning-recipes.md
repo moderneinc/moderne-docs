@@ -36,7 +36,7 @@ In this exercise, you'll explore the [`AppendToReleaseNotes`](https://github.com
 
 * Scanning recipes enable inspection and generation across multiple files.
 * A custom class can be used as an accumulator to allow state to be shared among the phases of a scanning recipe.
-* Tests for scanning recipes can simulate creation or modification of files using null or empty strings.
+* Tests for scanning recipes can simulate creation or modification of files using `doesNotExist()` or empty strings.
 
 
 ## Exercise 2b: Write a scanning recipe
