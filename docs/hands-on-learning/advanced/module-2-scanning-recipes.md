@@ -30,7 +30,7 @@ In this exercise, you'll explore the [`AppendToReleaseNotes`](https://github.com
    * You can find them in [src/test/java/com/yourorg/AppendToReleaseNotesTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/AppendToReleaseNotesTest.java).
 4. Review the unit tests to see some of the specifics about testing a scanning recipe.
    * Notice how `@Test void createNewReleaseNotes() { ... }` uses `org.openrewrite.test.SourceSpecs.text(java.lang.String, java.lang.String, ...)` to provide a before and after text block, with the third parameter using `spec -> spec.path(Path.of("RELEASE.md")` to set the path where the source file either exists or should be created.
-   * The before text block is `null` to indicate that the file does not exist initially. Conversely, you can pass in `null` as the second argument to indicate that the file should be deleted.
+   * The before text block is `doesNotExist()` to indicate that the file does not exist initially. Conversely, you can pass in `doesNotExist()` as the second argument to indicate that the file should be deleted.
 
 ## Takeaways
 
@@ -53,6 +53,7 @@ In this exercise, you'll write a scanning recipe to find any comments in Java so
 
 1. Open the unit test [src/test/java/com/yourorg/TrackJavaTodosTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/TrackJavaTodosTest.java) in IntelliJ IDEA.
    * Read through the tests, to get a feel for the cases you should cover.
+   * One new concept you might notice is the addition of the `noTrim()` method on the [`SourceSpec`](https://docs.openrewrite.org/authoring-recipes/recipe-testing#sourcespec). This ensures that newlines are preserved in the test source strings so that end-of-file formatting will match in both the "before" and  "after" cases. 
    * Remove the `@Disabled` annotations, and run the tests to see that it fails. 
 2. Now open the scanning recipe template [src/main/java/com/yourorg/TrackJavaTodos.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/TrackJavaTodos.java).
    * Using the knowledge gained in Exercise 2a, and the requirements from the test, write a scanning recipe that collects all the `TODO` comments and copies them in to a file called `TODO.md`.   
