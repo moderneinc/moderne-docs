@@ -5,7 +5,7 @@ description: How to compose a recipe with recipe builder.
 
 # Module 2: Recipe builder
 
-Once you know what recipes are available and how to run them, you may want to customize what they do. You might want to change the order of steps, remove something you don’t need, or combine several small recipes into one. The [recipe builder](https://docs.openrewrite.org/running-recipes/customize-recipe) in Moderne lets you do this without writing any code.
+Once you know what recipes are available and how to run them, you may want to customize what they do. You might want to change the order of steps, remove something you don’t need, or combine several small recipes into one. The [recipe builder](https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides/new-recipe-builder) in Moderne lets you do this without writing any code.
 
 ## Exercise 2: Compose a recipe in Moderne with recipe builder
 
@@ -36,9 +36,9 @@ Let's use the recipe builder to create a custom recipe by combining existing ste
       * Click `Save` once you're done filling out the information.
 4.	Now you have the root node for the recipe, but you still need to add the recipes that you want to be a part of your new recipe. Mouse over the root node in the recipe list on the right and click the + button to add a recipe.
       * Search for and add the following recipes by repeating this step for each individual recipe you want to add:
-         - Format Java code (`org.openrewrite.java.format.AutoFormat`)
-         - Simplify compound statement (`org.openrewrite.staticanalysis.SimplifyCompoundStatement`)
-         - Simplify boolean return (`org.openrewrite.staticanalysis.SimplifyBooleanReturn`)
+         * Format Java code (`org.openrewrite.java.format.AutoFormat`)
+         * Simplify compound statement (`org.openrewrite.staticanalysis.SimplifyCompoundStatement`)
+         * Simplify boolean return (`org.openrewrite.staticanalysis.SimplifyBooleanReturn`)
       * Your recipe will autosave after each addition or change.
       * _(Optional)_ Add or explore other recipes.
 5.	Once you've added all the recipes you want, you can either run your recipe from the Moderne platform, or download it to run locally using the CLI. (We'll explore how to use the CLI to run recipes in the next module.)
