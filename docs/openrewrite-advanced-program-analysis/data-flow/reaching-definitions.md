@@ -6,6 +6,8 @@ description: Master reaching definitions analysis - tracking where variable valu
 
 Reaching definitions analysis is a fundamental forward data flow analysis that tracks which assignments (definitions) of variables may reach each point in a program. It answers the critical question: "Where could this variable's value have come from?"
 
+In this guide, we will walk you through the core concepts of reaching definitions analysis, show you how to implement and use it with OpenRewrite's APIs, and cover practical applications like constant propagation and uninitialized variable detection. We will also explore advanced patterns, performance optimization techniques, and how to integrate this analysis with other program analyses.
+
 ## Understanding reaching definitions
 
 Imagine tracking packages through a delivery network. When a package arrives at your door, you want to know all the possible distribution centers it might have passed through. Similarly, when you use a variable, reaching definitions tells you all the assignments that could have provided its current value.
@@ -21,36 +23,14 @@ if (condition) {
     x = 15;     // Definition D3
 }
 // At this point:
-// - D2 reaches (y = 10)
-// - Either D1 or D3 reaches (depending on condition)
+// * D2 reaches (y = 10)
+// * Either D1 or D3 reaches (depending on condition)
 print(x);       // x could be 5 or 15
 ```
 
-## The mathematics behind it
-
-### Formal definition
-
-For each program point, we track a set of definitions that reach it:
-
-* **GEN[B]**: Definitions generated in basic block B
-* **KILL[B]**: Definitions killed (overwritten) in B
-* **IN[B]**: Definitions reaching the entry of B
-* **OUT[B]**: Definitions reaching the exit of B
-
-### Data flow equations
-
-This is a forward analysis with these equations.
-
-```
-IN[B] = ∪ OUT[P] for all predecessors P of B
-OUT[B] = GEN[B] ∪ (IN[B] - KILL[B])
-```
-
-The analysis uses union because a definition reaches if it reaches along **any** path (may analysis).
-
 ## Implementation in OpenRewrite
 
-Here's how reaching definitions analysis is implemented.
+Here's a simple example of what this might look like in OpenRewrite:
 
 ```java
 public class ReachingDefinitionsAnalysis extends ForwardDataFlowAnalysis<Definition, ReachingDefinitions> {
@@ -92,9 +72,9 @@ public class ReachingDefinitionsAnalysis extends ForwardDataFlowAnalysis<Definit
 }
 ```
 
-## Working with reachingdefinitions results
+## Working with `ReachingDefinitions` results
 
-The `ReachingDefinitions` result type provides rich querying capabilities:
+Now that we've seen how reaching definitions analysis is implemented, let's explore how to use it in practice. The `ReachingDefinitions` result type provides rich querying capabilities that make it easy to answer questions about your code:
 
 ### Basic queries
 
@@ -132,6 +112,8 @@ boolean isKilled = reachingDefs.isDefinitionKilled(definition, programPoint);
 ```
 
 ## Common applications
+
+With these querying tools in hand, let's examine the most powerful applications of reaching definitions analysis:
 
 ### Uninitialized variable detection
 
@@ -221,6 +203,8 @@ public class DataDependencyAnalyzer {
 
 ## Advanced patterns
 
+Once you've mastered the basic applications, you can tackle more sophisticated optimization patterns. Here are some advanced techniques that build on reaching definitions:
+
 ### Copy propagation
 
 Eliminate unnecessary variable copies.
@@ -288,6 +272,8 @@ public class TypeRefinement {
 
 ## Performance optimization
 
+As your analyses scale to larger codebases, performance becomes critical. Here are key strategies for making reaching definitions analysis efficient:
+
 ### Sparse representations
 
 For large methods, use sparse representations.
@@ -336,6 +322,8 @@ public class IncrementalReachingDefs {
 ```
 
 ## Integration with other analyses
+
+While reaching definitions analysis is powerful on its own, it becomes even more valuable when combined with other program analyses. Here are some powerful combinations:
 
 ### With liveness analysis
 
@@ -406,6 +394,8 @@ public class TaintTracking {
 
 ## Common pitfalls
 
+Even with all these techniques, there are still traps that can catch you. Here are the most common pitfalls and how to avoid them:
+
 ### Aliasing
 
 Multiple variables can refer to the same memory.
@@ -448,7 +438,7 @@ if (checkCondition()) {
 
 ## Testing reaching definitions
 
-Always test with complex patterns.
+With all these edge cases and pitfalls, thorough testing becomes essential.
 
 ```java
 @Test
