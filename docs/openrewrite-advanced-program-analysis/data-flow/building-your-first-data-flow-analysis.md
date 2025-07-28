@@ -4,7 +4,7 @@ description: Step-by-step guide to implementing a data flow analysis recipe usin
 
 # Building your first data flow analysis
 
-This tutorial walks you through creating a practical data flow analysis recipe that detects dead code in Java programs. We'll build a recipe that finds assignments to variables that are never used – a common code quality issue.
+In this tutorial, we will walk through creating a practical data flow analysis recipe that detects dead code in Java program. By the end, you will have a recipe that finds assignments to variables that are never used so you can remove those from your code.
 
 ## Prerequisites
 
