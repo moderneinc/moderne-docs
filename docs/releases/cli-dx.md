@@ -1,5 +1,22 @@
 # CLI / DX changelog
 
+### CLI / DX v3.44.4 (2025/07/29)
+
+#### What's Changed CLI
+* `RepositoryActivityTable` and more default data going into activity tables
+* Do not render paths as OSC 8 hyperlinks in VSCode
+* Adjust `jvmTarget` matcher
+* Enable UTF-8 output on Windows only if `sun.stderr/out.encoding` properties specify it
+* Take toolchain usage into consideration when determining Gradle Java version constraint
+* Search all organization repositories for last build ID when executing `mod log builds add --last-build`
+* Process results in batches to prevent Out of Memory errors during patch writing
+* Update `mod log runs add` to be organizations-specific
+* Serialize JSON numbers without quotes when executing `mod study`
+* Merge repo-defined orgs with root when traversing organization hierarchies on disk
+#### What's Changed DX
+* Do not publish latest tag for DX docker to aws ecr
+
+
 ### CLI / DX v3.44.3 (2025/07/23)
 
 #### What's Changed CLI
