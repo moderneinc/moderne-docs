@@ -51,7 +51,7 @@ public void analyzeMethod(Cursor cursor) {
 
 ### Basic usage
 
-The most common pattern is analyzing a specific statement or expression within a visitor method. This approach is ideal when you're working with specific AST nodes and need to understand their context within the control flow. 
+The most common pattern is analyzing a specific statement or expression within a visitor method. This approach is ideal when you're working with specific LST nodes and need to understand their context within the control flow. 
 
 `ControlFlowSupport.analyze()` automatically finds the containing method and builds its CFG, making it perfect for spot checks and targeted analysis.
 
