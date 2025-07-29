@@ -5441,9 +5441,11 @@ mod log runs add [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `--last-run` |  Select whatever the last run was, whether the run ran fully to completion or terminated early. |
+| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--last-run` |  (DEPRECATED) use (DEPRECATED) use @|--last-recipe-run|@ instead. |
 | `--organization` |  Organization name to override the organization associated with each run. |
-| `--run` |  A run ID for a run that has completed previously. |
+| `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `--run` |  (DEPRECATED) use (DEPRECATED) use @|--recipe-run|@ instead. |
 
 
 ## mod list
