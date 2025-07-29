@@ -40,18 +40,11 @@ Click on the `Configure DevCenter` button. You will be taken to a page that list
   <figcaption></figcaption>
 </figure>
 
-You can click on the `More details` link to be taken to a recipe page that provides more details on what the DevCenter recipe will do.
-
 ### Step 3: Select which recipe should be associated with the organization
 
-When you've decided on which DevCenter recipe you want to use, you will need to decide if you want to apply it to all sub organizations **before** you press the `Use this` button. Applying the recipe to all sub organizations will result in DevCenters being generated for all of those organizations whenever you generate the current (parent) DevCenter.
+When you've decided on which DevCenter recipe you want to use, you will need to decide if you want to apply it to all sub organizations **before** you press the `Run DevCenter` button. Applying the recipe to all sub organizations will result in DevCenters being generated for all of those organizations whenever you generate the current (parent) DevCenter.
 
-Once you've decided which DevCenter recipe you want associated with your organization (or sub organizations), press the `Use this` button. Then, press the `Run DevCenter` button that becomes clickable.
-
-<figure>
-  ![](./assets/devcenter-order.png)
-  <figcaption></figcaption>
-</figure>
+Once you've decided which DevCenter recipe you want associated with your organization (or sub organizations), press the `Run DevCenter` button.
 
 This will take you to the new DevCenter page and begin running a recipe to populate the DevCenter with data.
 
