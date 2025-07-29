@@ -4,9 +4,11 @@ description: Learn how taint analysis tracks untrusted data through programs to 
 
 # Introduction to taint analysis
 
-Imagine tracking a drop of colored dye through a water system. Once you add the dye at any input point, you can see exactly where it flows through all the pipes and connections. You need to ensure the dyed water doesn't reach certain outlets (like drinking fountains) unless it first passes through a purification system. Taint analysis does exactly this for data in software systems, tracking potentially unsafe data as it flows through your code.
+Imagine tracking a drop of colored dye through a water system. Once you add the dye at any input point, you can see exactly where it flows through all the pipes and connections. You need to ensure the dyed water doesn't reach certain outlets (like drinking fountains) unless it first passes through a purification system. 
 
-Taint analysis is a specialized form of data flow analysis that tracks potentially dangerous or sensitive data as it flows through a program. It's one of the most powerful techniques for finding security vulnerabilities automatically.
+Taint analysis does exactly this for data in software systems, tracking potentially unsafe data as it flows through your code. It's one of the most powerful techniques for finding security vulnerabilities automatically.
+
+In this doc, we will explore the fundamental concepts of taint analysis, examine common vulnerability patterns like SQL injection and XSS, understand how data flows through programs, and gain practical knowledge for writing effective taint specifications to secure applications.
 
 ## The security challenge
 
@@ -14,7 +16,7 @@ Modern applications constantly handle untrusted data. Web applications process u
 
 The challenge is that dangerous data rarely causes problems immediately. Instead, it flows through the application, gets stored in variables, passes through method calls, and eventually reaches a sensitive operation. By then, it's hard to remember that the data was originally untrusted.
 
-Consider this seemingly innocent code.
+Consider this seemingly innocent code:
 
 ```java
 public void greetUser(HttpServletRequest request, HttpServletResponse response) {
@@ -34,7 +36,7 @@ Taint analysis tracks data through three key components: sources, sinks, and san
 
 Sources are program points where untrusted or sensitive data enters the system. Think of them as the input points where colored dye is added to the water system.
 
-Common sources of untrusted data include.
+Common sources of untrusted data include:
 
 ```java
 // Web parameters - could contain anything
@@ -53,7 +55,7 @@ String comment = resultSet.getString("user_comment");
 String apiResponse = httpClient.execute(request).getBody();
 ```
 
-Sources can also be sensitive data that shouldn't leak.
+Sources can also be sensitive data that shouldn't leak:
 
 ```java
 // Passwords and credentials
@@ -70,7 +72,7 @@ byte[] secretKey = keyStore.getKey("api-key");
 
 Sinks are sensitive operations where tainted data could cause problems. These are like critical water outlets (drinking fountains, medical equipment) where you absolutely don't want dyed water to flow unless it's been purified first.
 
-Common security-critical sinks include.
+Common security-critical sinks include:
 
 ```java
 // SQL injection sink
@@ -126,7 +128,6 @@ A common mistake is using the wrong sanitizer for the sink. HTML encoding preven
 :::
 
 ## How taint analysis works
-
 
 Taint analysis extends data flow analysis with the concept of "taintedness" - a property that flows with the data.
 
@@ -191,7 +192,7 @@ Understanding common patterns helps you recognize vulnerabilities in code review
 
 ### SQL injection
 
-The classic injection vulnerability occurs when untrusted data is concatenated into SQL queries.
+The classic injection vulnerability occurs when untrusted data is concatenated into SQL queries:
 
 ```java
 // Vulnerable
@@ -213,7 +214,7 @@ ResultSet rs = pstmt.executeQuery();
 
 ### Cross-site scripting (XSS)
 
-XSS occurs when untrusted data is included in HTML without proper encoding.
+XSS occurs when untrusted data is included in HTML without proper encoding:
 
 ```java
 // Vulnerable: Reflected XSS
@@ -237,7 +238,7 @@ response.getWriter().write(saved);  // XSS when displayed
 
 ### Command injection
 
-When untrusted data is used in system commands.
+When untrusted data is used in system commands:
 
 ```java
 // Vulnerable
