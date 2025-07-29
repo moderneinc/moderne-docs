@@ -35,7 +35,7 @@ The key insight: liveness analysis works **backward** - we start at the end and 
 
 ## Implementation in OpenRewrite
 
-Here's a simple example of what this might look like in OpenRewrite:
+Below is how we implemented the `LivenessAnalysis` class in OpenRewrite:
 
 ```java
 public class LivenessAnalysis extends BackwardDataFlowAnalysis<LiveVariable, LiveVariables> {

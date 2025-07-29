@@ -30,7 +30,7 @@ print(x);       // x could be 5 or 15
 
 ## Implementation in OpenRewrite
 
-Here's a simple example of what this might look like in OpenRewrite:
+Below is how we implemented the `ReachingDefinitionsAnalysis` class in OpenRewrite:
 
 ```java
 public class ReachingDefinitionsAnalysis extends ForwardDataFlowAnalysis<Definition, ReachingDefinitions> {
