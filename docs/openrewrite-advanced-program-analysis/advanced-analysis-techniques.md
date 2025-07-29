@@ -15,6 +15,7 @@ One of the most fundamental questions about a program is "who calls whom?" Call 
 ### Understanding call relationships
 
 In simple cases, determining call relationships seems straightforward.
+
 ```java
 public void processOrder(Order order) {
     validateOrder(order);          // Direct call - easy to track
@@ -24,6 +25,7 @@ public void processOrder(Order order) {
 ```
 
 But modern object-oriented programs make this challenging. Consider.
+
 ```java
 public void process(PaymentMethod payment, double amount) {
     payment.charge(amount);  // Which charge() method is called?
@@ -50,6 +52,7 @@ The actual method called depends on the runtime type of `payment`. Call graph an
 Call graphs enable powerful analyses and tools:
 
 **Dead Code Detection**: Methods that no one calls are likely dead code. By building a call graph from your main methods, you can find unreachable code.
+
 ```java
 public class OrderService {
     public void processOrder(Order order) {
@@ -63,6 +66,7 @@ public class OrderService {
 ```
 
 **Impact Analysis**: When you change a method, which parts of the system might be affected? The call graph shows all direct and transitive callers.
+
 ```java
 // If you modify this method...
 public void calculateTax(Order order) {
@@ -75,6 +79,7 @@ public void calculateTax(Order order) {
 ```
 
 **Security Auditing**: Track how untrusted data can reach sensitive operations through method calls.
+
 ```java
 public void webEndpoint(HttpRequest request) {
     String input = request.getParameter("data");
@@ -92,7 +97,7 @@ private void storeInDatabase(String data) {
 
 ### Call graph precision in OpenRewrite
 
-Traditional static analysis tools struggle with method resolution because they work with incomplete type information. OpenRewrite's fully type-attributed ASTs provide significant advantages, though some challenges remain.
+Traditional static analysis tools struggle with method resolution because they work with incomplete type information. OpenRewrite's fully type-attributed LSTs provide significant advantages, though some challenges remain.
 
 ```java
 public void process(PaymentMethod payment, double amount) {
@@ -110,17 +115,20 @@ public void processOrder(Order order) {
 ```
 
 OpenRewrite's advantages:
+
 * **Type-aware**: Every `J.MethodInvocation` has a `JavaType.Method` identifying the declared method
 * **No name confusion**: Methods with the same name on unrelated types are properly distinguished
 * **Precise overload resolution**: Knows exactly which overloaded method is called based on arguments
 * **Better than text-based tools**: No false matches from string similarity
 
 For virtual dispatch (interfaces/inheritance), OpenRewrite still needs to consider all possible implementations, but with key improvements:
+
 * Only considers implementations of the actual declared type (not all classes with a method of that name)
-* Can leverage additional type information from the AST context
+* Can leverage additional type information from the LST context
 * Integrates with type-use information when available
 
 Remaining challenges:
+
 * **Virtual dispatch**: Must still consider all implementations of an interface/superclass
 * **Reflection**: Dynamic method invocation requires conservative handling
 * **Dynamic class loading**: Runtime-loaded classes aren't visible to static analysis
@@ -136,6 +144,7 @@ Standard data flow analysis merges information at control flow join points, losi
 ### The precision problem
 
 Consider this null-checking code.
+
 ```java
 public void process(String input) {
     if (input != null) {
@@ -153,6 +162,7 @@ Standard analysis would warn about potential null pointer issues even in the saf
 ### Tracking path conditions
 
 Path-sensitive analysis tracks the conditions that must hold on each path.
+
 ```java
 public void validate(User user, Order order) {
     if (user != null && user.isActive()) {
@@ -171,6 +181,7 @@ public void validate(User user, Order order) {
 Path-sensitive analysis excels at finding subtle bugs:
 
 **Null Pointer Analysis**: Track when references are definitely null, definitely non-null, or unknown.
+
 ```java
 public void processFile(String filename) {
     File file = null;
@@ -185,6 +196,7 @@ public void processFile(String filename) {
 ```
 
 **Resource Leak Detection**: Ensure resources are released on all paths.
+
 ```java
 public void readFile(String path) throws IOException {
     FileInputStream stream = null;
@@ -205,6 +217,7 @@ public void readFile(String path) throws IOException {
 ```
 
 **Type State Analysis**: Track how object states change along different paths.
+
 ```java
 class Connection {
     enum State { CLOSED, OPEN, ERROR }
@@ -240,6 +253,7 @@ Programs don't just manipulate data – they acquire and release resources like 
 ### The resource lifecycle
 
 Every resource follows a lifecycle.
+
 ```java
 // 1. Acquisition
 FileOutputStream file = new FileOutputStream("data.txt");
@@ -258,6 +272,7 @@ Resource analysis tracks this lifecycle to find leaks, use-after-release bugs, a
 Modern Java provides several patterns for resource management:
 
 **Try-with-resources** (Recommended).
+
 ```java
 try (FileOutputStream file = new FileOutputStream("data.txt")) {
     file.write(data);
@@ -278,6 +293,7 @@ try {
 ```
 
 **Explicit management** (Error-prone).
+
 ```java
 FileOutputStream file = new FileOutputStream("data.txt");
 file.write(data);
@@ -287,6 +303,7 @@ file.close();  // What if write() throws an exception?
 ### Resource leak patterns
 
 Resource analysis identifies common leak patterns.
+
 ```java
 public void processFiles(List<String> filenames) {
     for (String name : filenames) {
@@ -316,6 +333,7 @@ public void handleRequest() {
 ### Custom resource types
 
 Resource analysis can handle application-specific resources.
+
 ```java
 class ResourcePool<T extends Poolable> {
     public T acquire() { /* ... */ }
@@ -338,6 +356,7 @@ The real power comes from combining different analyses. Each analysis provides a
 ### Taint + call graph
 
 Track security vulnerabilities across method boundaries.
+
 ```java
 // Call graph shows: userInput() → process() → store() → executeQuery()
 // Taint analysis tracks: untrusted data flows along this call chain
@@ -347,6 +366,7 @@ Track security vulnerabilities across method boundaries.
 ### Control flow + type analysis
 
 Improve precision by understanding both control flow and types.
+
 ```java
 if (obj instanceof String) {
     String str = (String) obj;  // Control flow + types = safe cast
@@ -357,6 +377,7 @@ if (obj instanceof String) {
 ### Resource + path-sensitive
 
 Ensure resources are released on all execution paths.
+
 ```java
 // Path-sensitive analysis tracks conditions
 // Resource analysis tracks acquire/release
@@ -377,6 +398,7 @@ These advanced techniques open doors to sophisticated analyses:
 ## Further reading
 
 For deeper exploration of these topics:
+
 * "Secure Programming with Static Analysis" by Chess and West - Excellent coverage of security-focused analyses
 * "Pointer Analysis" by Smaragdakis and Balatsouras - Deep dive into alias and call graph analysis
 * Research papers from conferences like PLDI, POPL, and ICSE for cutting-edge techniques
