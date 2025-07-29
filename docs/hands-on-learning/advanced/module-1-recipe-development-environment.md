@@ -66,7 +66,7 @@ In this exercise, you’ll learn how to debug recipes using both IDE breakpoints
 
 ### Steps
 
-1. Follow [our guide for how to debug a recipe with the Moderne plugin](../../user-documentation/moderne-ide-integration/how-to-guides/debugging-recipes#step-4-debug-your-recipe).
+1. Follow [our guide for how to debug a recipe with the Moderne plugin](/user-documentation/moderne-ide-integration/how-to-guides/debugging-recipes/#step-4-debug-your-recipe).
    * This will walk you through the necessary steps to set an active recipe, build LSTs to run it against, then run and debug your recipe.
    * You will also see how to use the Moderne CLI to attach a remote debugger with `mod run . --jvm-debug --active-recipe`.
 2. Open a test case for a recipe (e.g., `FindSpringBeansTest`), set breakpoints inside the `visit()` method or relevant visitor logic.
