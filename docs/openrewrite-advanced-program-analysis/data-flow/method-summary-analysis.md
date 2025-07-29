@@ -6,9 +6,13 @@ description: Learn how to compute and use method summaries for efficient inter-p
 
 Method summaries are compact representations of what a method does, enabling efficient inter-procedural analysis without repeatedly analyzing method bodies. Think of them as "nutrition labels" for methods – they tell you what goes in, what comes out, and what effects occur, without needing to examine all the ingredients.
 
+In this guide, we will walk you through the concepts behind method summaries, show you how to design different summary representations for various analysis needs, and demonstrate practical implementation techniques. We will cover everything from basic flow summaries to advanced compositional approaches, performance optimization strategies, and integration with OpenRewrite's analysis framework.
+
 ## Understanding method summaries
 
-A method summary captures the essential behavior of a method relevant to your analysis. For taint analysis, this might include.
+Before diving into implementation details, let's take a moment to talk through what method summaries are and why they're useful for scalable program analysis.
+
+A method summary captures the essential behavior of a method relevant to your analysis. For taint analysis, this might look like:
 
 ```java
 // Original method
@@ -21,19 +25,21 @@ public String processUser(String name, int id, boolean validate) {
 }
 
 // Summary:
-// - Parameter 0 (name) -> flows to return (conditionally sanitized)
-// - Parameter 1 (id) -> flows to log (potential information leak)
-// - Parameter 2 (validate) -> affects whether sanitization occurs
-// - Side effect: writes to log
+// * Parameter 0 (name) -> flows to return (conditionally sanitized)
+// * Parameter 1 (id) -> flows to log (potential information leak)
+// * Parameter 2 (validate) -> affects whether sanitization occurs
+// * Side effect: writes to log
 ```
 
 ## Designing summary representations
 
-The structure of your summaries depends on your analysis needs:
+Now that we have a high-level idea of what a method summary is, let's explore how to design data structures that efficiently represent this information.
+
+The structure of your summaries depends on your analysis needs.
 
 ### Basic flow summary
 
-For simple taint tracking.
+For simple taint tracking:
 
 ```java
 public class BasicFlowSummary {
@@ -54,7 +60,7 @@ public class BasicFlowSummary {
 
 ### Conditional flow summary
 
-For more precision with path-sensitive information.
+For more precision with path-sensitive information:
 
 ```java
 public class ConditionalFlowSummary {
@@ -88,7 +94,7 @@ public class ConditionalFlowSummary {
 
 ### Access path summary
 
-For field-sensitive analysis.
+For field-sensitive analysis:
 
 ```java
 public class AccessPathSummary {
@@ -111,9 +117,11 @@ public class AccessPathSummary {
 
 ## Computing summaries
 
+Next, let's explore the algorithms and strategies for actually computing these summaries from method bodies.
+
 ### Bottom-up analysis
 
-The standard approach computes summaries starting from leaf methods.
+The standard approach computes summaries starting from leaf methods:
 
 ```java
 public class SummaryComputer {
@@ -150,7 +158,7 @@ public class SummaryComputer {
 
 ### Incremental summary computation
 
-For large codebases, compute summaries incrementally.
+For large codebases, compute summaries incrementally:
 
 ```java
 public class IncrementalSummaryComputer {
@@ -178,9 +186,11 @@ public class IncrementalSummaryComputer {
 
 ## Advanced summary features
 
+Once you have the basic summary computation working, you can enhance your summaries with more sophisticated features to capture complex behaviors.
+
 ### Heap abstractions
 
-Track modifications to heap objects.
+Track modifications to heap objects:
 
 ```java
 public class HeapSummary {
@@ -200,7 +210,7 @@ public class HeapSummary {
 
 ### Effect summaries
 
-Capture side effects beyond data flow.
+Capture side effects beyond data flow:
 
 ```java
 public class EffectSummary {
@@ -223,7 +233,7 @@ public class EffectSummary {
 
 ### Compositional summaries
 
-Build complex summaries from simpler ones.
+Build complex summaries from simpler ones:
 
 ```java
 public class CompositionalSummary {
@@ -254,7 +264,7 @@ public class CompositionalSummary {
 
 ### Summary application
 
-Apply summaries at call sites.
+Apply summaries at call sites:
 
 ```java
 public class SummaryApplication {
@@ -292,7 +302,7 @@ public class SummaryApplication {
 
 ### Summary precision policies
 
-Different analyses need different precision levels.
+Different analyses need different precision levels:
 
 ```java
 public interface SummaryPrecisionPolicy {
@@ -316,7 +326,7 @@ public class SecurityFocusedPolicy implements SummaryPrecisionPolicy {
 
 ## Practical example: taint summary
 
-Here's a complete example of computing and using taint summaries.
+To bring all these concepts together, let's take a look at a complete example of implementing taint summaries for security analysis:
 
 ```java
 public class TaintSummaryExample {
@@ -384,9 +394,11 @@ public class TaintSummaryExample {
 
 ## Performance considerations
 
+As your analysis scales to larger codebases, performance becomes critical. Here are key strategies for keeping summaries efficient without sacrificing precision.
+
 ### Summary size management
 
-Keep summaries compact.
+Keep summaries compact:
 
 ```java
 public class CompactSummary {
@@ -407,7 +419,7 @@ public class CompactSummary {
 
 ### Caching strategies
 
-Effective caching is crucial.
+Ensure that you use caches effectively:
 
 ```java
 public class SummaryCache {
@@ -452,7 +464,7 @@ More precise summaries are larger and slower to compute. Find the right trade-of
 
 ### Validate summaries
 
-Test that summaries accurately represent method behavior.
+Test that summaries accurately represent method behavior:
 
 ```java
 @Test
@@ -470,7 +482,3 @@ void validateSummary() {
 ### Document summary format
 
 Clearly document what your summaries represent and how to interpret them.
-
-## Next steps
-
-* [Inter-procedural Analysis](./inter-procedural-analysis.md) - Using summaries in whole-program analysis
