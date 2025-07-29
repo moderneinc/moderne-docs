@@ -19,11 +19,11 @@ In this exercise, you’ll review the use of a data table to extract superclass 
 ### Steps
 
 1. With the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) still open in IntelliJ, open the `ClassHierarchy` recipe.
-   * You can find this recipe in [src/main/java/com/yourorg/ClassHierarchy.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/ClassHierarchy.java).
+   * You can find this recipe in [src/main/java/com/yourorg/ClassHierarchy.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/ClassHierarchy.java).
 2. Review the `ClassHierarchy` recipe to see how data tables are defined and populated.
    * Notice there is a `ClassHierarchyReport` member and that the `.insertRow(...)` method is called against it in the visitor.
    * This member is marked as `transient` to make sure it does not get serialized since it is only needed at runtime.
-3. Now open [src/main/java/com/yourorg/table/ClassHierarchyReport.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/table/ClassHierarchyReport.java).
+3. Now open [src/main/java/com/yourorg/table/ClassHierarchyReport.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/table/ClassHierarchyReport.java).
    * This is where the structure of the data table is defined. You can see that there is a `displayName` and `description` for each field, as well as a type.
    * In this case, there is also an `enum` defined. This can be a useful way to add more semantic meaning to the data instead of using arbitrary strings.
 3. Now open the unit tests for `ClassHierarchy`.
