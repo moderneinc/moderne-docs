@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.78.6 (2025/07/30)
+
+- Bug fixes and other improvements.
+
 ### UI v11.78.5 (2025/07/29)
 
 - Bug fixes and other improvements.
