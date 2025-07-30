@@ -13,6 +13,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Forking Camunda 7: Operaton's Java 17 upgrade and migration path (July 30th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=srpjbD1Yz0M' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### The missing piece in your observability puzzle (July 23rd, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=xqKN9R6LWZo' controls="true" />
