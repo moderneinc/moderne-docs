@@ -47,7 +47,7 @@ The next thing you'll want to configure is the list of [multi-repos](#multi-repo
 Once you've added the multi-repos you'd like the plugin to have access to, press `Apply`.
 
 :::info
-When you apply these settings, any Moderne Organization that you have selected will be cloned using [--metadata-only](../../moderne-cli/cli-reference.md#mod-git-clone-csv). Its LSTs will also be downloaded from your artifact repository. This process resembles dependency resolution of binary dependencies.
+When you apply these settings, any Moderne Organization that you have selected will be cloned using [--metadata-only](../../moderne-cli/cli-reference.md#mod-git-clone-csv-deprecated). Its LSTs will also be downloaded from your artifact repository. This process resembles dependency resolution of binary dependencies.
 :::
 
 After configuring the plugin, you will see the repositories belonging to the multi-repo(s) that you configured listed in the Moderne tool window (on the right side of the IDE). Click the refresh ![](./assets/refresh-icon.png) button if necessary. Repositories displayed with a blue icon have LSTs successfully built or downloaded on disk. Repositories with a gray icon do not.

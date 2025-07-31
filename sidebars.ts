@@ -110,7 +110,6 @@ const sidebars: SidebarsConfig = {
           items: [
             'user-documentation/moderne-cli/getting-started/cli-intro',
             'user-documentation/moderne-cli/getting-started/moderne-cli-license',
-            'user-documentation/moderne-cli/getting-started/moddy-desktop',
           ],
         },
         {
@@ -141,6 +140,20 @@ const sidebars: SidebarsConfig = {
         },
         'user-documentation/moderne-cli/cli-reference',
         'user-documentation/moderne-cli/faq',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Moddy',
+      link: {
+        type: 'generated-index',
+        title: 'Moddy',
+        description: 'Learn more about Moddy.',
+        slug: '/user-documentation/moddy',
+        keywords: ['guides'],
+      },
+      items: [
+        'user-documentation/moddy/moddy-desktop',
       ],
     },
     {
