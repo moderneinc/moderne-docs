@@ -59,7 +59,7 @@ Personal access tokens share the same permissions as your user. What this means 
 
 ### Expiration
 
-Personal access tokens do not expire. That being said, they **stop working** if you do not log in to the Moderne Platform for 14 days. Once you log in again after the 14 days, they will start working again.
+Personal access tokens do not expire.
 
 For instructions on how to revoke personal access tokens, please see our [managing personal access tokens doc](../how-to-guides/create-api-access-tokens.md#how-to-revoke-an-access-token)
 
