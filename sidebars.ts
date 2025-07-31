@@ -139,7 +139,21 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'user-documentation/moderne-cli/cli-reference',
-        'user-documentation/moderne-cli/faq',
+        {
+          type: 'category',
+          label: 'References',
+          link: {
+            type: 'generated-index',
+            title: 'References',
+            description: 'Reference documentation for Moderne CLI.',
+            slug: '/user-documentation/moderne-cli/references',
+            keywords: ['references'],
+          },
+          items: [
+            'user-documentation/moderne-cli/references/cli-3-44-0-changes',
+            'user-documentation/moderne-cli/references/faq',
+          ],
+        },
       ],
     },
     {
