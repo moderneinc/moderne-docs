@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.79.1 (2025/08/01)
+
+- Bug fixes and other improvements.
+
 ### UI v11.79.0 (2025/07/30)
 
 - persist file exclusions. File exclusions are now included when committing from the result tree
