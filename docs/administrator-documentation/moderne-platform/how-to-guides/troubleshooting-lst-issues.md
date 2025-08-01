@@ -119,16 +119,9 @@ query lostAndFoundRepositories {
 ```
 
 :::info
-**What the Lost and Found query returns:**
-
-1. **Organizationless repositories** - Repositories not part of any organization due to:
-   - Missing from your `repos.csv` file
-   - Mismatched `origin`, `path`, or `branch` values in your organizational hierarchy
-
-2. **Orphaned repositories** - Repositories from SCM tools with no connected agent due to:
-   - Agent was previously connected but is now disconnected
-   - SCM configuration doesn't match any connected agent
-   - URL mismatches between repository origin and agent configuration
+**What the Lost and Found query returns **Organizationless repositories** - Repositories not part of any organization due to:
+ - Missing from your `repos.csv` file
+ - Mismatched `origin`, `path`, or `branch` values in your organizational hierarchy
 
 Returns up to 100 results at a time by default.
 :::
