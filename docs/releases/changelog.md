@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.80.0 (2025/08/01)
+
+- add ability to set expiration on moderne token
+
 ### UI v11.79.1 (2025/08/01)
 
 - Bug fixes and other improvements.
