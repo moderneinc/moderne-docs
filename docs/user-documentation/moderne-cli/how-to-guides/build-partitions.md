@@ -2,7 +2,7 @@
 
 Partitions allow for splitting a large repository into multiple LSTs. They are designed for large monorepos for which building an LST could trigger tens of thousands of build steps and take hours to days to run. In these scenarios, we are able to divide the repository into multiple named partitions which each define their own set of [build steps](./build-steps.md).
 
-As an example, we can divide [moderneinc/bazel-examples](https://github.com/moderneinc/bazel-examples) repository into two build partitions, one of which contains the bazel-managed code and the other contains documentation code (the README).
+Please see our [example repository](https://github.com/moderneinc/partition-example) for a complete example of how to set up partitions.
 
 ## Defining build partitions
 
@@ -11,15 +11,28 @@ To add partitions, add or edit the `.moderne/moderne.yml` in the root of the rep
 ```yaml
 build:
   partitions:
-    - name: docs
+    - name: service
+      steps:
+        - type: gradle
+          inclusion: |-
+            modules/service/**
+        - type: resource
+          inclusion: |-
+            modules/service/**
+    - name: client
+      steps:
+        - type: gradle
+          inclusion: |-
+            modules/client/**
+        - type: resource
+          inclusion: |-
+            modules/client/**
+    - name: everything-else
       steps:
         - type: resource
           inclusion: |-
-            *.md
-    - name: bazel-java-maven
-      steps:
-        - type: bazel
-          targetExpression: //:java-maven-lib
+            *
+            !modules/**
 ```
 
 ## The effect of partitions when building
@@ -42,7 +55,15 @@ mod run . --recipe org.openrewrite.java.search.FindMethods \
 
 <figure>
   ![](./assets/mod-run-partition.png)
-  <figcaption>_`mod run` on a partitioned repository without specifying a partition_</figcaption>
+  <figcaption>_`mod run` on a partitioned repository_</figcaption>
 </figure>
 
-By specifying one or more partitions with `--partition` you can limit the partitions that the recipe runs on. The `--partition` options need to correspond to one of the partition names after the `!` in the repository path.
+## Frequently asked questions
+
+### Is there a way to see what's happening when we run `mod build`?
+
+Please see the `build.log` file
+
+### Can you run recipes on individual partitions?
+
+You can comment out the partitions you don't want to run on in your `moderne.yml` file. This is mainly useful for troubleshooting and shouldn't be something you commonly do.
