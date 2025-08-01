@@ -119,9 +119,7 @@ query lostAndFoundRepositories {
 ```
 
 :::info
-**What the Lost and Found query returns **Organizationless repositories** - Repositories not part of any organization due to:
- - Missing from your `repos.csv` file
- - Mismatched `origin`, `path`, or `branch` values in your organizational hierarchy
+The Lost and Found query returns **organizationless repositories**. These are repositories that are not part of any organization, either because they don't exist in your `repos.csv` file or because they have mismatched `origin`, `path`, or `branch` values in your organizational hierarchy.
 
 Returns up to 100 results at a time by default.
 :::
