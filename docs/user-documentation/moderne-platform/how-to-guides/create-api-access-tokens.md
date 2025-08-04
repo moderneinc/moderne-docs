@@ -7,10 +7,8 @@ description: How to create a personal access token to use the CLI or the Moderne
 
 In order to use the [Moderne GraphQL API](https://api.app.moderne.io/), you will need to create a Personal Access Token. These tokens have the same level of permissions as your account – meaning that if you are an admin, your tokens will have admin permissions.
 
-You **must** log in to the Moderne Platform every 14 days for your tokens to continue functioning.
-
 :::info
-If you want to learn how to use an access token, please go to the [Accessing the Moderne API doc](accessing-the-moderne-api.md).
+If you want to learn how to use an access token, please go to the [Accessing the Moderne API doc](./accessing-the-moderne-api.md).
 
 If you want to use this token with the Moderne CLI, please see the [CLI getting started guide](../../moderne-cli/getting-started/cli-intro.md#step-3-connect-the-cli-to-moderne) for instructions on how to do that.
 :::
@@ -46,7 +44,14 @@ In this doc, you can find out:
 
 4. In the text box that says `Enter token name`, enter a descriptive name for your token so that it can easily be distinguished from other tokens.
 
-5.  Press the `generate` button. You should see something that looks like:
+5. Set when the token should expire by clicking on the date selector next to the token name:
+
+<figure>
+  ![](./assets/access-token-expiration.png)
+  <figcaption></figcaption>
+</figure>
+
+6. Press the `generate` button. You should see something that looks like:
 
 <figure>
   ![](./assets/obfuscated-token.png)

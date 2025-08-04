@@ -9,7 +9,7 @@ Moderne offers a GraphQL API for customers to interact with through the usage of
 
 ## Prerequisites
 
-In order to access the GraphQL API, you will need to [create a Moderne personal access token](create-api-access-tokens.md).
+In order to access the GraphQL API, you will need to [create a Moderne personal access token](./create-api-access-tokens.md).
 
 ## GraphQL API Explorer
 

@@ -59,7 +59,11 @@ Personal access tokens share the same permissions as your user. What this means 
 
 ### Expiration
 
-Personal access tokens do not expire.
+You can choose how long a personal access token should last when you create it. By default, the token will last for 30 days.
+
+<figure>
+  ![](./assets/access-token-expiration.png)
+</figure>
 
 For instructions on how to revoke personal access tokens, please see our [managing personal access tokens doc](../how-to-guides/create-api-access-tokens.md#how-to-revoke-an-access-token)
 
