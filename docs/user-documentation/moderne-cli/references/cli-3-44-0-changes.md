@@ -157,14 +157,6 @@ You can still make a parallel supporting command operate sequentially by passing
 
 Explicitly passing the `--parallel` option with no value is still supported and has no effect since the command will run in parallel by default.
 
-## Activity reports
-
-All CLI commands now generate activity reports in the `.moderne` folder. These CSV files track the status of each operation per repository, providing audit trails and debugging information.
-
-### Run log aggregation
-
-`mod log runs` command publishes activity reports csv/excel files plus links to logs in a zip file. The csv/excel file has changed and contains the same data as activity reports.
-
 ## Workflows
 
 Here are some common workflows that demonstrate these new features:
