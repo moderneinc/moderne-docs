@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.81.0 (2025/08/04)
+
+- add secondary alphabetical sort to run results tree
+
 ### UI v11.80.1 (2025/08/02)
 
 - Bug fixes and other improvements.
