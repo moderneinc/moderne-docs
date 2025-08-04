@@ -27,7 +27,7 @@ If you have not configured the Moderne agent with Maven repository access before
 
 If you have already configured the Moderne agent with Maven repository access, then you need to ensure that only _one_ has the configuration of `MODERNE_AGENT_MAVEN_{index}_RECIPESOURCE` / `moderne.agent.maven[{index}].recipeSource` set to `true`.
 
-If you have multiple locations where recipes are stored, you will need to create a virtual repository that wraps all of the locations where recipes can be stored. You will also need to ensure that the virtual repository points to the following four repositories (alongside the other repositories where recipe artifacts are stored):
+If you have multiple locations where recipes are stored, you will need to create a virtual repository that wraps all of the locations where recipes can be stored. You will also need to ensure that the virtual repository points to the following three repositories (alongside the other repositories where recipe artifacts are stored):
 
 1. `https://central.sonatype.com/repository/maven-snapshots/`
 2. `https://repo.maven.apache.org/maven2`
