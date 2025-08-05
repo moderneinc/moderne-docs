@@ -119,7 +119,7 @@ query lostAndFoundRepositories {
 ```
 
 :::info
-The Lost and Found query returns a list of repositories that we've ingested into the platform, but that we can't find in your `repos.csv` file. This could because you've misspelled something, forgotten to put them in your `repos.csv` file, or because they have mismatched `origin`, `path`, or `branch` values in your organizational hierarchy.
+The Lost and Found query returns a list of repositories that we've ingested into the platform, but that we can't find in your `repos.csv` file. This could because you've misspelled something or you've forgotten to put them in your `repos.csv` file.
 
 Returns up to 100 results at a time by default.
 :::
