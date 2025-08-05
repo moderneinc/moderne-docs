@@ -9,6 +9,8 @@
 
 ### UI v11.80.0 (2025/08/01)
 
+- Removed Orphaned organization
+  - As part of the migration away from the organization service for managing organization hierarchy, the Orphaned organization (previously available to admins) has been removed. The purpose of the Orphaned organization was to find repositories that had LSTs built for them but were not correctly configured in the organization hierarchy. This functionality is now available through [Lost and Found repositories](../administrator-documentation/moderne-platform/how-to-guides/troubleshooting-lst-issues.md#using-the-lost-and-found-query).
 - add ability to set expiration on moderne token
 
 ### UI v11.79.1 (2025/08/01)
