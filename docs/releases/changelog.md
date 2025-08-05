@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.82.0 (2025/08/05)
+
+- cli download link override
+
 ### UI v11.81.0 (2025/08/04)
 
 - add secondary alphabetical sort to run results tree
