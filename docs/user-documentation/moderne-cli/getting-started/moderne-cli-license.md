@@ -13,7 +13,7 @@ In this doc, we will walk through everything you need to know about the Moderne 
 
 If you are a single-tenant Moderne customer, you don't need to configure a license as it will be automatically configured when you connect the CLI to Moderne.
 
-If you are a Moderne DX, multi-tenant Moderne or a CLI-only customer, you may contact [support@moderne.io](mailto:support@moderne.io) to request a license key and then jump to the [How to configure a license key section](#how-to-configure-a-license-key).
+If you are a Moderne DX or multi-tenant Moderne customer, you may contact [support@moderne.io](mailto:support@moderne.io) to request a license key and then jump to the [How to configure a license key section](#how-to-configure-a-license-key).
 
 If you are not a Moderne customer, but still want to use the Moderne IDE plugin, please fill out our [try the Moderne IDE plugin signup form](https://www.moderne.io/moderne-ide-plugin-signup) and we will coordinate with you.
 
@@ -35,7 +35,7 @@ A license lease will be automatically fetched by the CLI prior to running a reci
 mod config license moderne sync
 ```
 
-### CLI-only or multi-tenant Moderne customers
+### Multi-tenant Moderne customers
 
 Please run the following CLI command:
 
