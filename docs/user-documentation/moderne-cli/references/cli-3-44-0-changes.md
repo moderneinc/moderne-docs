@@ -39,7 +39,7 @@ Commands like `mod devcenter`, `mod study`, and `mod run` understand this hierar
 
 ## `mod git sync`
 
-`mod git sync` aligns your local directory structure with what's defined in [your repos.csv file](../../../administrator-documentation/references/repos-csv.md). This potentially descructive command will create, move, and delete directories as needed to match the specified organization structure. Since it modifies your filesystem, always verify you're in the correct directory before running it.
+`mod git sync` aligns your local directory structure with what's defined in [your repos.csv file](./repos-csv.md). This potentially descructive command will create, move, and delete directories as needed to match the specified organization structure. Since it modifies your filesystem, always verify you're in the correct directory before running it.
 
 <figure>
   ![](./assets/mod-git-sync.png)

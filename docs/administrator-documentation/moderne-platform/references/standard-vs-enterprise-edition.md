@@ -52,7 +52,7 @@ Standard edition users are required to log in to Moderne through an SCM such as 
 
 Moderne does not have direct access to your code. Permissions are governed by SSO/SCM/IdP. Moderne employees can only read or write to your code if you grant them access via your SCM.
 
-As part of setting up the Standard edition of Moderne, you will [create a repos.csv file](../../references/repos-csv.md) that you share with us so that we can create an organization in the Moderne Platform for you.
+As part of setting up the Standard edition of Moderne, you will [create a repos.csv file](../../../user-documentation/moderne-cli/references/repos-csv.md) that you share with us so that we can create an organization in the Moderne Platform for you.
 
 After that, you will then create and share with us a file that contains a list of emails that should have access to your repositories and organization. Note that these emails **must** match the emails you use to log in to your SCM.
 

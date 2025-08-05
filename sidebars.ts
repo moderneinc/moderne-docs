@@ -150,6 +150,7 @@ const sidebars: SidebarsConfig = {
             keywords: ['references'],
           },
           items: [
+            'user-documentation/moderne-cli/references/repos-csv',
             'user-documentation/moderne-cli/references/cli-3-44-0-changes',
             'user-documentation/moderne-cli/references/faq',
           ],
@@ -566,7 +567,6 @@ const sidebars: SidebarsConfig = {
         keywords: ['reference'],
       },
       items: [
-        'administrator-documentation/references/repos-csv',
         'administrator-documentation/references/faq',
       ],
     },

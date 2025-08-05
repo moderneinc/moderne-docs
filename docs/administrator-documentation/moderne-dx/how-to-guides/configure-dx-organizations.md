@@ -44,7 +44,7 @@ You should already have a `repos.csv` file that you created as part of [mass ing
 
 You also will need to update the `repos.csv` file to include a `branch` column if you didn't already include it.
 
-For specific details around this file and how to configure an organizational hierarchy, please check out our [creating a repos.csv doc](../../references/repos-csv.md).
+For specific details around this file and how to configure an organizational hierarchy, please check out our [creating a repos.csv doc](../../../user-documentation/moderne-cli/references/repos-csv.md).
 
 ## DX configuration
 

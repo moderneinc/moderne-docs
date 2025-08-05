@@ -23,7 +23,7 @@ At a high-level, the migration process is as follows:
 ### 1. Create the new files and put them somewhere DX can access
 
 1. Copy the `devcenter.json` file from your Organization service and put it somewhere where DX can access. This could mean putting this file on the same file system that DX has access to – or it could mean putting it behind an unauthenticated HTTP/S endpoint.
-2. Follow [our guide for creating a repos.csv file](../../references/repos-csv.md). Alternatively, if your Organization service already uses a `repos.csv`, you may copy that file directly and put it somewhere where DX can access (either by putting it on a file system DX has access to or by putting the file behind an unauthenticated HTTP/S endpoint that DX can call).
+2. Follow [our guide for creating a repos.csv file](../../../user-documentation/moderne-cli/references/repos-csv.md). Alternatively, if your Organization service already uses a `repos.csv`, you may copy that file directly and put it somewhere where DX can access (either by putting it on a file system DX has access to or by putting the file behind an unauthenticated HTTP/S endpoint that DX can call).
 
 ### 2. Configure DX to use the new variables 
 
