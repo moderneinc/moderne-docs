@@ -27,7 +27,11 @@ Coming soon!
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * [We've done a new release of OpenRewrite - 8.59.1](https://bsky.app/profile/openrewrite.github.io/post/3lupjgn72zc2l)
+    * There's a bunch of new recipes – including a bunch of new C# recipes.
+* **Main topic for the week**
+  * This week we welcomed Karsten Thoms and Tim Zöller from Operaton. They talked about their experience forking Camunda 7, modernizing it to Java 17, and significantly reducing Sonar issues.
 
 ### The missing piece in your observability puzzle (July 23rd, 2025)
 
