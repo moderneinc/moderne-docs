@@ -455,6 +455,7 @@ const sidebars: SidebarsConfig = {
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-client-ssl-certificates',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-a-moderne-tenant-ssl-certificate',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-to-connect-to-moderne-via-an-http-proxy',
+                'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-cli-download-instructions-override',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-variables',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/multi-tenant-private-recipes',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/org-service-migration',
