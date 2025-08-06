@@ -3,7 +3,7 @@ sidebar_label: Creating and sharing a repos-lock.csv file
 description: How to create and share a repos-lock.csv file that captures the exact state of your repositories for reproducible setups.
 ---
 
-# Creating a repos-lock.csv file
+# Creating and sharing a repos-lock.csv file
 
 The `repos-lock.csv` file is a snapshot of your entire repository setup. It captures the exact state of all your repositories including branches, commit SHAs, LST locations, and organizational hierarchy. Think of it as the `package-lock.json` of repository management – it ensures that anyone on your team can recreate your exact setup with a single command.
 
