@@ -733,6 +733,8 @@ You can configure multiple PyPI package indexes by including multiple entries, e
 | `MODERNE_AGENT_PYPI_{index}_USERNAME`           | `false`  | `null`  | The username used to access the index.                                                                                                                                    |
 | `MODERNE_AGENT_PYPI_{index}_PASSWORD`           | `false`  | `null`  | The password used to access the index.                                                                                                                                    |
 | `MODERNE_AGENT_PYPI_{index}_SKIPSSL`            | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the agent to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_LABEL` | `false`   | `null` | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platforms user interface. If populated the URL property must also be populated.
+| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_URL` | `false`   | `null` | The url of the instructions documentation
 
 **Example:**
 
