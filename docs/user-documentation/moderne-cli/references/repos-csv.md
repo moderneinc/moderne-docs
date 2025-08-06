@@ -12,6 +12,10 @@ Whether you are configuring mass ingestion of repositories into Moderne or you a
 
 This doc will provide you with everything you need to know about creating and using this file.
 
+:::tip
+After creating your `repos.csv` file and running initial setup commands, the Moderne CLI will generate a [`repos-lock.csv` file](../how-to-guides/repos-lock-csv.md) that captures the exact state of your repositories. This lock file can be shared with team members to ensure everyone has an identical setup.
+:::
+
 ## Supported columns
 
 
