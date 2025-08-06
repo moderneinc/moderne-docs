@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.82.1 (2025/08/06)
+
+- Bug fixes and other improvements.
+
 ### UI v11.82.0 (2025/08/05)
 
 - cli download link override
