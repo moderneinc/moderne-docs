@@ -35,7 +35,16 @@ Coming soon!
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * [We released a new blog post on post quantum cryptography and how you can use Moderne to help address that](https://www.moderne.ai/blog/post-quantum-cryptography-implementation-at-scale)
+  * [We've done a new release of OpenRewrite - 8.59.1](https://bsky.app/profile/openrewrite.github.io/post/3lupjgn72zc2l)
+  * [Notably, to go along with above, we've added YAML parser support for Helm Charts](https://github.com/openrewrite/rewrite/issues/3782)
+* **Main topic for the week**
+* This week we welcomed Mohammed Aboullaite to discuss continuous profiling. We covered topics including:
+  * **The benefits of continuous profiling** – identifying performance issues proactively, preventing incidents like memory leaks, and improving code performance
+  * **The challenges of continuous profiling** – managing large volumes of collected data, filtering out noise, and ensuring insights are actionable
+  * **Getting started advice** for engineers new to profiling
+  * **Helpful tools** for implementing continuous profiling
 
 ### Live Debug: Mapping release train dependencies with OpenRewrite (July 16th, 2025)
 
