@@ -25,16 +25,12 @@ https://github.com/openrewrite/rewrite
 https://github.com/openrewrite/rewrite-maven-plugin
 ```
 
-:::tip
-Similar to the `repos-lock.csv` file, only one person on your team needs to go through the process of creating a `repos.csv` file – which you can then share with others.
-:::
-
 ### 2. Clone the repositories
 
 Once you have that `repos.csv` file, the next step is to clone all of the repositories to your system by running the following command:
 
 ```bash
-mod git sync csv --with-sources .
+mod git sync csv --with-sources /path/to/your/repos /path/to/csv
 ```
 
 This creates the directory structure and clones the source code. As part of running this command, a basic `repos-lock.csv` file will also be created in the `.moderne` folder.
@@ -44,7 +40,7 @@ This creates the directory structure and clones the source code. As part of runn
 With the repositories cloned to your system, the next step is to run the `mod build` command.
 
 ```bash
-mod build .
+mod build /path/to/your/repos
 ```
 
 On top of creating the LSTs for all of your repositories, this command will also analyze your repositories and update the `repos-lock.csv` file with:
@@ -58,12 +54,12 @@ On top of creating the LSTs for all of your repositories, this command will also
 The last step you'll need to do is to run the `mod publish` command (presuming you have configured an artifact repository to publish to):
 
 ```bash
-mod publish .
+mod publish /path/to/your/repos
 ```
 
 This adds the `publishUri` column to your `repos-lock.csv` file, recording where each LST was published.
 
-At this point, your `repos-lock.csv` file contains everything needed to recreate your exact setup – repository locations, exact commits, and LST locations. You should then [share that with your team](#sharing-the-file).
+At this point, your `repos-lock.csv` file contains everything needed to recreate your exact setup – repository locations, exact commits, and LST locations. You should then [share that with your team](#sharing-and-using-the-file).
 
 ## Sharing and using the file
 
