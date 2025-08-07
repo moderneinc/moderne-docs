@@ -76,7 +76,7 @@ We recommend storing it somewhere that's easily accessible by people at your com
 Team members can recreate your exact setup by running this command:
 
 ```bash
-mod git sync csv . repos-lock.csv
+mod git sync csv /path/to/your/repos /path/to/repos-lock.csv
 ```
 
 This command will:
@@ -88,7 +88,7 @@ This command will:
 Note that by default, this won't clone the source code – just the LSTs, which is usually all that's needed for analysis and recipe execution. If source code is needed later, team members can run:
 
 ```bash
-mod git sync csv . repos-lock.csv --with-sources
+mod git sync csv /path/to/your/repos /path/to/repos-lock.csv --with-sources
 ```
 
 ### Key benefits
