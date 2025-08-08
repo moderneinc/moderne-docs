@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.83.0 (2025/08/08)
+
+- allow devCenter to be unset on an organization
+
 ### UI v11.82.1 (2025/08/06)
 
 - Bug fixes and other improvements.
