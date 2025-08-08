@@ -2,7 +2,7 @@
 description: Find and fix security vulnerabilities using OpenRewrite's advanced program analysis.
 ---
 
-# Security Analysis Overview
+# Security analysis overview
 
 OpenRewrite's security analysis recipes help you automatically find security vulnerabilities in Java applications. These recipes leverage advanced program analysis techniques including taint analysis, control flow analysis, and data flow analysis to identify security issues with high precision and low false positive rates.
 
@@ -31,18 +31,22 @@ Protecting sensitive data requires careful handling throughout its lifecycle. Pe
 Security analysis in OpenRewrite follows a systematic approach:
 
 ### 1. Source identification
-First, we identify where untrusted data enters the application.
+
+First, we identify where untrusted data enters the application:
+
 ```java
 // Common sources of untrusted data
 String userInput = request.getParameter("name");        // Web parameters
 String header = request.getHeader("User-Agent");        // HTTP headers
 String cookie = request.getCookies()[0].getValue();     // Cookies
-String envVar = System.getenv("USER_DATA");            // Environment
+String envVar = System.getenv("USER_DATA");             // Environment
 String fileContent = Files.readString(userPath);        // User files
 ```
 
 ### 2. Taint propagation
-We track how this untrusted data flows through the application.
+
+Next, we track how this untrusted data flows through the application:
+
 ```java
 String input = request.getParameter("id");     // TAINTED
 String copy = input;                           // TAINTED (assignment)
@@ -51,7 +55,9 @@ String upper = input.toUpperCase();            // TAINTED (method call)
 ```
 
 ### 3. Sink detection
-We identify dangerous operations where tainted data could cause vulnerabilities.
+
+After that, we identify dangerous operations where tainted data could cause vulnerabilities:
+
 ```java
 // SQL sink - could cause SQL injection
 statement.execute("SELECT * FROM users WHERE id = " + input);
@@ -64,7 +70,9 @@ new File("/data/" + input).delete();
 ```
 
 ### 4. Sanitizer recognition
-We recognize when data has been properly sanitized.
+
+Lastly, we recognize when data has been properly sanitized so we don't flag code unnecessarily:
+
 ```java
 // Input is sanitized, no longer dangerous
 String safe = ESAPI.encoder().encodeForSQL(input);
@@ -73,7 +81,8 @@ statement.execute("SELECT * FROM users WHERE id = '" + safe + "'");
 
 ## Understanding results
 
-Security recipes mark vulnerable code with detailed information.
+Security recipes mark vulnerable code with detailed information:
+
 ```java
 // Example marked SQL injection
 statement.execute("SELECT * FROM users WHERE id = " + userId);
@@ -83,6 +92,7 @@ statement.execute("SELECT * FROM users WHERE id = " + userId);
 ```
 
 Each finding includes:
+
 * **Location**: Where the vulnerability occurs
 * **Type**: The specific vulnerability (SQL injection, XSS, etc.)
 * **Source**: Where the tainted data originated
