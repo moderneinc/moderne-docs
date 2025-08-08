@@ -19,7 +19,10 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * [We have a new blog about myths around OpenRewrite](https://www.moderne.ai/blog/understanding-openrewrite-beyond-the-myths)
+* **Main topic for the week**
+  * This week Sam and Tim compared different approaches to recipe development. They discussed how they use Claude and what the pros/cons are for using it over manual coding.
 
 ### Forking Camunda 7: Operaton's Java 17 upgrade and migration path (July 30th, 2025)
 
