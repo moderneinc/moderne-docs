@@ -25,14 +25,14 @@ Let's look at an existing Refaster recipe in the starter project, and see how it
    * Note that we're only using a limited subset of Refaster's capabilities, as not everything is supported yet.
 2. Open the unit test [src/test/java/com/yourorg/SimplifyTernaryTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/SimplifyTernaryTest.java)
    * Read through the test, and see how each ternary is simplified, and wrapped as necessary.
-3. Click through on the `com.yourorg.SimplifyTernaryRecipes` class that is referenced in the `defaults` method of the test to see the _generated_ recipe.
-   * Note how the `SimplifyTernaryRecipes` extends `Recipe` and overrides `getRecipeList()` to return two recipes.
+3. Click through on the `com.yourorg.SimplifyTernary` class that is referenced in the `defaults` method of the test to see the _generated_ recipe.
+   * Note how the `SimplifyTernary` extends `Recipe` and overrides `getRecipeList()` to return two recipes.
    * Each inner recipe returns a visitor that extends `AbstractRefasterJavaVisitor`.
    * There are before and after `JavaTemplates` that are used to match and replace the ternary expressions.
    * The `visitTernary` method is overridden to match the ternary expressions, and replace them with the simplified version.
 4. Click through on the `org.openrewrite.java.template.internal.AbstractRefasterJavaVisitor`.
    * Notice the embedding options, and how those call out to subsequent visitors for cleanups and simplifications.
-   * Now look back at the visitors in `SimplifyTernaryRecipes` to see which embedding options are enabled there.
+   * Now look back at the visitors in `SimplifyTernary` to see which embedding options are enabled there.
 5. Open the build files `pom.xml` and `build.gradle` to see how the Refaster recipes are generated.
    * Notice the [`rewrite-templating`](https://github.com/openrewrite/rewrite-templating) dependency and annotation processor. This is what enables generating the Refaster template recipes.
 
