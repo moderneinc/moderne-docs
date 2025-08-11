@@ -61,7 +61,7 @@ Moderne is SOC 2 Type 2 certified.
 
 The Enterprise edition of Moderne is one where your company receives a dedicated, fully isolated instance of the Moderne Platform. The cloud provider and region for this instance can be configured based on your preferences.
 
-This isolated instance receives data from an on-prem agent that you configure and control the key for. If you delete the key, the Moderne instance will stop receiving data and won't be able to function anymore.
+This isolated instance receives data from an [on-prem agent](../how-to-guides/agent-configuration/agent-config.md) that you configure and control the key for. If you delete the key, the Moderne instance will stop receiving data and won't be able to function anymore.
 
 For further details about the Enterprise edition, please see the following docs:
 
