@@ -8,7 +8,12 @@ import TabItem from '@theme/TabItem';
 
 # Creating a repos.csv file
 
-Whether you are configuring mass ingestion of repositories into Moderne or you are defining an organizational hierarchy, you will need to create a `repos.csv` file that defines your repositories and configuration around them. 
+The `repos.csv` file is a central configuration file that defines your repositories and their organizational structure. This file is commonly used for:
+
+1. **Mass ingestion** - Where you create this file and then use it to build LSTs for all of your repositories and publish them to your artifact repository
+2. **Moderne Platform org hierarchy** - Where you provide this file to the Moderne agent that is then used to create organizations in the platform
+3. **Moderne DX org hierarchy** - Where you provide this file to Moderne DX to create an organizational hierarchy there
+4. **Local operations** - Where you provide the CLI with this file so you can clone repositories or their LSTs to your local machine for things like recipe running or creating a `repos-lock.csv` file to share with others
 
 This doc will provide you with everything you need to know about creating and using this file.
 
