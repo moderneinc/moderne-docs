@@ -70,3 +70,6 @@ For further details about the Enterprise edition, please see the following docs:
 * [How sensitive data flows through the Moderne Platform](./flow.md)
 * [What reports are available in the Moderne Platform](./reporting.md)
 
+## Learn more
+
+* [Moderne Platform editions product brief](https://info.moderne.ai/moderne-platform-editions) - A detailed comparison of the Standard and Enterprise editions
