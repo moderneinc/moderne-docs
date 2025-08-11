@@ -11,17 +11,6 @@ The editions are differentiated by their implementations, enabling you to choose
 
 In this doc, we'll walk through the differences between the two. By the end, you should have a clear idea of which one is suitable for your company.
 
-## Enterprise edition
-
-The Enterprise edition of Moderne is one where your company receives a dedicated, fully isolated instance of the Moderne Platform. The cloud provider and region for this instance can be configured based on your preferences.
-
-For details about the Enterprise edition, please see the following docs:
-
-* [Moderne Platform architecture](./architecture.md)
-* [Authentication in the Moderne Platform](./authentication.md)
-* [How sensitive data flows through the Moderne Platform](./flow.md)
-* [What reports are available in the Moderne Platform](./reporting.md)
-
 ## Standard edition
 
 The Standard edition of Moderne offers a more cost-effective operational footprint by leveraging shared infrastructure. In contrast, the Enterprise edition is typically more expensive, as it operates on dedicated resources and does not share infrastructure with other customers.
@@ -67,3 +56,17 @@ Moderne also maintains audit logs for all actions performed within the system un
 #### Compliance
 
 Moderne is SOC 2 Type 2 certified.
+
+## Enterprise edition
+
+The Enterprise edition of Moderne is one where your company receives a dedicated, fully isolated instance of the Moderne Platform. The cloud provider and region for this instance can be configured based on your preferences.
+
+This isolated instance receives data from an on-prem agent that you configure and control the key for. If you delete the key, the Moderne instance will stop receiving data and won't be able to function anymore.
+
+For further details about the Enterprise edition, please see the following docs:
+
+* [Moderne Platform architecture](./architecture.md)
+* [Authentication in the Moderne Platform](./authentication.md)
+* [How sensitive data flows through the Moderne Platform](./flow.md)
+* [What reports are available in the Moderne Platform](./reporting.md)
+
