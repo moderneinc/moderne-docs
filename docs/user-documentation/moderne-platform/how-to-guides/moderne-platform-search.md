@@ -31,6 +31,7 @@ If you know the exact name or ID of a recipe (because you're familiar with the r
 
 * Entering the full name or part of the recipe name in quotes such as, `"Find and fix"` or `"Find and fix vulnerable dependencies"`.
 * Typing `id:` and then entering the exact ID for the recipe such as: `id:org.openrewrite.java.dependencies.DependencyVulnerabilityCheck`.
+* **Entering tags for the recipe to search for** such as, `tags:"RSPEC-2204"` to find all recipes with the `RSPEC-2204` tag. Please note that the other fields mentioned in the [non-ai search tip](#non-ai-search-tips) will not work with AI enabled.
 
 ### How to enable or disable AI search
 
