@@ -195,61 +195,59 @@ Adjusted 1 organization directory. (1s)
 
 A sync log file will be written to /Users/mikesol/workshop/.moderne/sync.log
 
-▶ aws/amazon-documentdb-jdbc-driver@develop
-    ✓ Checked out fca7f5f on branch develop
 ▶ openrewrite/rewrite-recipe-bom@main
-    ✓ Checked out 4238a21 on branch main
+    ✓ Checked out 616ea9b on branch main
 ▶ finos/messageml-utils@main
     ✓ Checked out 3e0ba74 on branch main
 ▶ Netflix/ribbon@master
     ✓ Checked out 625e167 on branch master
 ▶ apache/maven-doxia@master
-    ✓ Checked out 851f8c1 on branch master
-▶ finos/symphony-wdk@master
-    ✓ Checked out e965749 on branch master
+    ✓ Checked out c15ab5c on branch master
+▶ finos/symphony-bdk-java@main
+    ✓ Checked out b3e8bdd on branch main
 ▶ finos/spring-bot@spring-bot-master
     ✓ Checked out 7280971 on branch spring-bot-master
-▶ finos/symphony-bdk-java@main
-    ✓ Checked out faab9ef on branch main
-▶ awslabs/aws-saas-boost@main
-    ✓ Checked out 452d7ca on branch main
+▶ finos/symphony-wdk@master
+    ✓ Checked out e965749 on branch master
 ▶ spring-projects/spring-petclinic@main
     ✓ Checked out 30aab0a on branch main
 ▶ spring-projects/spring-data-commons@main
-    ✓ Checked out ec792a2 on branch main
+    ✓ Checked out 370cb37 on branch main
+▶ awslabs/aws-saas-boost@main
+    ✓ Checked out 452d7ca on branch main
 ▶ Netflix/photon@master
     ✓ Checked out 2ee9afa on branch master
-Done (11s)
+Done (1m 35s)
 
 ⏺ Downloading LSTs for repositories
 
-▶ finos/messageml-utils@main
-    ✓ Downloaded messageml-utils-20250723145851654-ast.jar
-▶ spring-projects/spring-data-commons@main
-    ✓ Downloaded spring-data-commons-20250723152241873-ast.jar
-▶ spring-projects/spring-petclinic@main
-    ✓ Downloaded spring-petclinic-20250723152421690-ast.jar
-▶ Netflix/ribbon@master
-    ✓ Downloaded ribbon-20250723151801687-ast.jar
 ▶ openrewrite/rewrite-recipe-bom@main
-    ✓ Downloaded rewrite-recipe-bom-20250723152102910-ast.jar
-▶ apache/maven-doxia@master
-    ✓ Downloaded maven-doxia-20250723145631700-ast.jar
+    ✓ Downloaded rewrite-recipe-bom-20250811065644011-ast.jar
+▶ finos/messageml-utils@main
+    ✓ Downloaded messageml-utils-20250811063541958-ast.jar
 ▶ Netflix/photon@master
-    ✓ Downloaded photon-20250723151409886-ast.jar
+    ✓ Downloaded photon-20250811065054760-ast.jar
+▶ spring-projects/spring-petclinic@main
+    ✓ Downloaded spring-petclinic-20250811070048713-ast.jar
+▶ apache/maven-doxia@master
+    ✓ Downloaded maven-doxia-20250811063325005-ast.jar
+▶ Netflix/ribbon@master
+    ✓ Downloaded ribbon-20250811065420985-ast.jar
 ▶ finos/symphony-wdk@master
-    ✓ Downloaded symphony-wdk-20250723150928349-ast.jar
+    ✓ Downloaded symphony-wdk-20250811064658084-ast.jar
+▶ spring-projects/spring-data-commons@main
+    ✓ Downloaded spring-data-commons-20250811065920996-ast.jar
 ▶ finos/spring-bot@spring-bot-master
-    ✓ Downloaded spring-bot-20250723150005923-ast.jar
+    ✓ Downloaded spring-bot-20250811063701383-ast.jar
 ▶ finos/symphony-bdk-java@main
-    ✓ Downloaded symphony-bdk-java-20250723150711649-ast.jar
+    ✓ Downloaded symphony-bdk-java-20250811064446213-ast.jar
 ▶ awslabs/aws-saas-boost@main
-    ✓ Downloaded aws-saas-boost-20250723145823330-ast.jar
-Done (7s)
+    ✓ Downloaded aws-saas-boost-20250811063509832-ast.jar
+Done (55s)
 
-Synced 12 repositories.
+Synced 11 repositories.
 
-MOD SUCCEEDED in 20s
+MOD SUCCEEDED in 2m 31s
 ```
 
 </details>
@@ -266,7 +264,7 @@ dir .  # For Windows users
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-apache          aws             awslabs         finos           Netflix         openrewrite     spring-projects
+apache          awslabs         finos           Netflix         openrewrite     spring-projects
 ```
 
 </details>
@@ -280,6 +278,7 @@ Through [mod config build](../cli-reference.md#mod-config-build) and other confi
 :::
 
 ```bash
+# Only needed if LSTs failed to download in the previous step
 mod build .
 ```
 
@@ -292,75 +291,72 @@ Moderne CLI 3.44.4
 
 ⏺ Reading organization
 
-Found 1 organization containing 12 repositories (1s)
+Found 1 organization containing 11 repositories (1s)
 
 ⏺ Building LST(s)
 
 ▶ apache/maven-doxia@master
     Build output will be written to build.log
     > Download from Moderne
-        ✓ Downloaded maven-doxia-20250723145631700-ast.jar
+        ✓ Downloaded maven-doxia-20250811063325005-ast.jar
     Cleaned 1 older builds
-▶ aws/amazon-documentdb-jdbc-driver@develop
-    Build output will be written to build.log
-    ✗ Failed to build an LST.
 ▶ awslabs/aws-saas-boost@main
     Build output will be written to build.log
     > Download from Moderne
-        ✓ Downloaded aws-saas-boost-20250723145823330-ast.jar
+        ✓ Downloaded aws-saas-boost-20250811063509832-ast.jar
     Cleaned 1 older builds
 ▶ finos/messageml-utils@main
     Build output will be written to build.log
     > Download from Moderne
-        ✓ Downloaded messageml-utils-20250723145851654-ast.jar
+        ✓ Downloaded messageml-utils-20250811063541958-ast.jar
     Cleaned 1 older builds
 ▶ finos/spring-bot@spring-bot-master
     Build output will be written to build.log
     > Download from Moderne
-        ✓ Downloaded spring-bot-20250723150005923-ast.jar
+        ✓ Downloaded spring-bot-20250811063701383-ast.jar
     Cleaned 1 older builds
 ▶ finos/symphony-bdk-java@main
     Build output will be written to build.log
     > Download from Moderne
-        ✓ Downloaded symphony-bdk-java-20250723150711649-ast.jar
+        ✓ Downloaded symphony-bdk-java-20250811064446213-ast.jar
     Cleaned 1 older builds
 ▶ finos/symphony-wdk@master
     Build output will be written to build.log
     > Download from Moderne
-        ✓ Downloaded symphony-wdk-20250723150928349-ast.jar
+        ✓ Downloaded symphony-wdk-20250811064658084-ast.jar
     Cleaned 1 older builds
 ▶ Netflix/photon@master
     Build output will be written to build.log
     > Download from Moderne
-        ✓ Downloaded photon-20250723151409886-ast.jar
+        ✓ Downloaded photon-20250811065054760-ast.jar
     Cleaned 1 older builds
 ▶ Netflix/ribbon@master
     Build output will be written to build.log
     > Download from Moderne
-        ✓ Downloaded ribbon-20250723151801687-ast.jar
+        ✓ Downloaded ribbon-20250811065420985-ast.jar
     Cleaned 1 older builds
 ▶ openrewrite/rewrite-recipe-bom@main
     Build output will be written to build.log
     > Download from Moderne
-        ✓ Downloaded rewrite-recipe-bom-20250723152102910-ast.jar
+        ✓ Downloaded rewrite-recipe-bom-20250811065644011-ast.jar
     Cleaned 1 older builds
 ▶ spring-projects/spring-data-commons@main
     Build output will be written to build.log
     > Download from Moderne
-        ✓ Downloaded spring-data-commons-20250723152241873-ast.jar
+        ✓ Downloaded spring-data-commons-20250811065920996-ast.jar
     Cleaned 1 older builds
 ▶ spring-projects/spring-petclinic@main
     Build output will be written to build.log
     > Download from Moderne
-        ✓ Downloaded spring-petclinic-20250723152421690-ast.jar
+        ✓ Downloaded spring-petclinic-20250811070048713-ast.jar
     Cleaned 1 older builds
-Done (1m 26s)
+Done (1m 48s)
 
-24m 7s saved by using previously built LSTs
+23m 42s saved by using previously built LSTs
 
 Built 0 repositories.
 
-PARTIAL SUCCESS: mod partially succeeded with an exception
+MOD SUCCEEDED in 1m 49s
 ```
 
 </details>
@@ -382,58 +378,55 @@ mod run . --recipe DependencyVulnerabilityCheck
 ```bash
 Moderne CLI 3.44.4
 
-
 [1] Find and fix vulnerable Nuget dependencies (org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck)
 [2] Find and fix vulnerable dependencies (org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
 [3] Find and fix vulnerable npm dependencies (org.openrewrite.nodejs.DependencyVulnerabilityCheck)
 Select a recipe [1-3]: 2
 ⏺ Reading organization
 
-Found 1 organization containing 12 repositories (1s)
+Found 1 organization containing 11 repositories (1s)
 
 ⏺ Running recipe org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
 
 Run log
 
-▶ aws/amazon-documentdb-jdbc-driver@develop (no LST)
-    Skipped recipe run because no LST was found
-▶ openrewrite/rewrite-recipe-bom@main
-    No changes
-    ✓ Recipe run complete
-▶ finos/messageml-utils@main
-    No changes
-    ✓ Recipe run complete
 ▶ apache/maven-doxia@master
-    No changes
-    ✓ Recipe run complete
-▶ spring-projects/spring-petclinic@main
-    No changes
-    ✓ Recipe run complete
-▶ finos/symphony-wdk@master
     No changes
     ✓ Recipe run complete
 ▶ Netflix/photon@master
     ⚠ The latest LST is not up to date
     No changes
     ✓ Recipe run complete
-▶ Netflix/ribbon@master
-    ✓ Fix results
+▶ openrewrite/rewrite-recipe-bom@main
+    No changes
     ✓ Recipe run complete
-▶ spring-projects/spring-data-commons@main
+▶ finos/symphony-wdk@master
+    No changes
+    ✓ Recipe run complete
+▶ spring-projects/spring-petclinic@main
     No changes
     ✓ Recipe run complete
 ▶ finos/symphony-bdk-java@main
+    No changes
+    ✓ Recipe run complete
+▶ Netflix/ribbon@master
+    Fix results
+    ✓ Recipe run complete
+▶ finos/messageml-utils@main
+    No changes
+    ✓ Recipe run complete
+▶ spring-projects/spring-data-commons@main
     No changes
     ✓ Recipe run complete
 ▶ finos/spring-bot@spring-bot-master
     No changes
     ✓ Recipe run complete
 ▶ awslabs/aws-saas-boost@main
-    ✓ Fix results
+    Fix results
     ✓ Recipe run complete
-Done (1m 11s)
+Done (33s)
 
-24m 7s saved by using previously built LSTs
+23m 42s saved by using previously built LSTs
 45m saved by using recipes
 
 Produced results for 11 repositories.
@@ -449,10 +442,10 @@ Produced results for 11 repositories.
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
     > Run mod git checkout . -b refactor/DependencyVulnerabilityCheck --last-recipe-run to prepare a refactor/DependencyVulnerabilityCheck branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20250723102030-Fh6RT to apply the changes
-    > Run mod log runs add . logs.zip --last-run to aggregate run logs
+    > Run mod git apply . --recipe-run 20250811094641-N6e9F to apply the changes
+    > Run mod log runs add . logs.zip --last-recipe-run to aggregate run logs
 
-MOD SUCCEEDED in 1m 21s
+MOD SUCCEEDED in 39s
 ```
 
 </details>
@@ -481,8 +474,8 @@ If you've been following along, you'll know that we just ran the `DependencyVuln
     > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
     > Run mod git checkout . -b refactor/DependencyVulnerabilityCheck --last-recipe-run to prepare a refactor/DependencyVulnerabilityCheck branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20250723102030-Fh6RT to apply the changes
-    > Run mod log runs add . logs.zip --last-run to aggregate run logs
+    > Run mod git apply . --recipe-run 20250811094641-N6e9F to apply the changes
+    > Run mod log runs add . logs.zip --last-recipe-run to aggregate run logs
 ```
 
 You may notice that one of the suggestions on what to do next is the `mod study` command. This command allows you to examine the [data tables](../../moderne-platform/getting-started/data-tables.md) produced by the recipe run. Data tables are columnar data in a schema defined by the recipe.
@@ -511,8 +504,8 @@ Moderne CLI 3.44.4
 
 ⏺ Reading organization
 
-Found 1 organization containing 12 repositories (1s)
-Found recipe run 20250723102030-Fh6RT
+Found 1 organization containing 11 repositories (1s)
+Found recipe run 20250811094641-N6e9F
 
 
 ⏺ Building CSV output for each organization
