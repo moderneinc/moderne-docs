@@ -32,7 +32,7 @@ brew install --cask moderneinc/moderne/moddy-desktop
 <TabItem value="chocolatey" label="Chocolatey (Windows)">
 
 ```bash
-choco install moddy-desktop
+choco install moddy-desktop --prerelease
 ```
 </TabItem>
 </Tabs>
@@ -59,7 +59,7 @@ Once you've configured a key and working directory, you will be taken to a page 
 
 #### Thread history
 
-In the top-left corner, you will see an expansion icon. When clicked, this will let you see all previous conversations (if any exist). You can click on one to continue that conversation or you can delete them if you decide you no longer want them to exist.
+In the top-left corner, you will see a thread icon. When clicked, this will let you see all previous conversations (if any exist). You can click on one to continue that conversation or you can delete them if you decide you no longer want them to exist.
 
 <figure>
   ![](./assets/moddy-thread.gif)
@@ -68,7 +68,12 @@ In the top-left corner, you will see an expansion icon. When clicked, this will 
 
 #### Settings
 
-In the top-right corner, you will see a settings icon. When clicked, this will allow you to change the API key, select a different working directory, or point to a different location for the Moderne CLI.
+From the application menu, click on settings to be taken to a settings menu where you can change the API key, select a different working directory, or point to a different location for the Moderne CLI.
+
+<figure>
+  ![](./assets/moddy-settings-menu.png)
+  <figcaption></figcaption>
+</figure>
 
 <figure>
   ![](./assets/moddy-settings.png)
