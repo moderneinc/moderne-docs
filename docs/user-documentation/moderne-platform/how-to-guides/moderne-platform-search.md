@@ -50,8 +50,8 @@ When AI search is disabled, you can search for specific fields such as:
 * `shortName` - the last part of the id
   * Example: `shortName:"CommonStaticAnalysis"` (Requires quotes)
 * `description` - the recipe description
-  * Example: `description:Resolve common static analysis issues discovered through 3rd party tools.` (Requires no quotes)
+  * Example: `description:"Resolve common static analysis issues discovered through 3rd party tools"`
 * `category` - the category in the recipe marketplace
-  * Example: `category:Static analysis and remediation` (Requires no quotes)
+  * Example: `category:"Static analysis and remediation"` 
 
 Please note that in all of these cases you **cannot** have a space between the `:` and the start of the string you're looking for.
