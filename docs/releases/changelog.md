@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.85.0 (2025/08/13)
+
+- add search tag syntax hint
+
 ### UI v11.84.1 (2025/08/12)
 
 - Bug fixes and other improvements.
