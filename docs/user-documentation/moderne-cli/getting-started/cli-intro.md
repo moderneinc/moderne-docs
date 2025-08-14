@@ -147,7 +147,7 @@ This will grab _all_ of the recipes from the tenant you specified in `mod config
 </TabItem>
 <TabItem value="enterprise" label="Enterprise Edition">
 
-> If your organization is paying for the Enterprise Edition of Moderne with a private Moderne instance (e.g., `https://yourcompany.moderne.io`), please follow these instructions.
+> If your organization is paying for the Enterprise Edition of Moderne and you have a private Moderne instance (e.g., `https://yourcompany.moderne.io`), please follow these instructions.
 
 #### Step 1: Download the CLI
 
