@@ -19,9 +19,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="free" label="Free tier (app.moderne.io)" default>
+<TabItem value="standard-edition" label="Standard Edition" default>
 
-> Perfect for individuals and teams trying out Moderne's capabilities using the public [app.moderne.io](https://app.moderne.io/marketplace) instance.
+> If your organization is paying for the Standard Edition of Moderne, please follow these instructions. These instructions are also applicable to users who are trying out the public [app.moderne.io](https://app.moderne.io/marketplace) instance.
 
 #### Step 1: Download the CLI
 
