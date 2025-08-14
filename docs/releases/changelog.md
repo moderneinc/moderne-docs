@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.87.0 (2025/08/14)
+
+- add new custom 404 and 500 pages. Wire into to _error and Page-error-boundary
+
 ### UI v11.86.0 (2025/08/14)
 
 - add search syntax highlighting
