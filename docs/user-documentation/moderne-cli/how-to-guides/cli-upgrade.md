@@ -9,7 +9,7 @@ To update the CLI to a newer version, you will need to download the latest versi
 
 If you have access to the [Moderne Platform](https://app.moderne.io/) or a private tenant, please download the latest version by following the instructions in our [getting started guide](../getting-started/cli-intro.md#step-1-download-the-cli).
 
-If you don't have access to the Moderne Platform or a private tenant, please download the latest version by following the instructions in our [air-gapped environment guide](./air-gapped-cli-install.md#step-1-download-the-moderne-cli-jar).
+If you don't have access to the Moderne Platform or a private tenant, please download the latest version by following the instructions in our [air-gapped environment guide](../getting-started/dx-cli-install.md#step-1-download-the-moderne-cli-jar).
 
 Once downloaded, replace your old JAR with the new one and everything should continue working as expected. Note that the first time you run `mod` after a version update, it may take a little longer to respond.
 

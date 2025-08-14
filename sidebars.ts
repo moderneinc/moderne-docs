@@ -110,6 +110,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'user-documentation/moderne-cli/getting-started/cli-intro',
             'user-documentation/moderne-cli/getting-started/moderne-cli-license',
+            'user-documentation/moderne-cli/getting-started/dx-cli-install',
           ],
         },
         {
@@ -123,7 +124,6 @@ const sidebars: SidebarsConfig = {
             keywords: ['guides'],
           },
           items: [
-            'user-documentation/moderne-cli/how-to-guides/air-gapped-cli-install',
             'user-documentation/moderne-cli/how-to-guides/cli-upgrade',
             'user-documentation/moderne-cli/how-to-guides/cli-dev-center',
             'user-documentation/moderne-cli/how-to-guides/parallelism',
@@ -213,33 +213,6 @@ const sidebars: SidebarsConfig = {
           items: [
             'user-documentation/moderne-ide-integration/reference/code-search-actions',
             'user-documentation/moderne-ide-integration/reference/refactor-actions',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Moderne DX',
-      link: {
-        type: 'generated-index',
-        title: 'Moderne DX',
-        description: 'Learn how to use the Moderne DX.',
-        slug: '/user-documentation/moderne-dx',
-        keywords: ['guides'],
-      },
-      items: [
-        {
-          type: 'category',
-          label: 'How to guides',
-          link: {
-            type: 'generated-index',
-            title: 'How to guides',
-            description: 'How to guides.',
-            slug: '/user-documentation/moderne-dx/how-to-guides',
-            keywords: ['guides'],
-          },
-          items: [
-            'user-documentation/moderne-dx/how-to-guides/syncing-recipes-with-moderne-dx',
           ],
         },
       ],

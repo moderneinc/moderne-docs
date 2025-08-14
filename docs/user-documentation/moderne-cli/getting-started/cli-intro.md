@@ -11,18 +11,21 @@ The Moderne CLI is a command line tool that compliments the Moderne Platform and
 
 To ensure you can use the Moderne CLI successfully, in this guide, we will walk you through everything you need to get started – from installation, to configuration, to examples demonstrating how to use it.
 
-## Assumptions
-
-* You can access [app.moderne.io](https://app.moderne.io/marketplace) or a private Moderne tenant
-* You are familiar with running terminal commands
-
 ## Installation and configuration
 
-_If you are in an air-gapped environment, please follow the_ [_instructions for installing and configuring the CLI in an air-gapped environment_](../how-to-guides/air-gapped-cli-install.md) _instead._
+Choose the installation path that matches your setup:
 
-### Step 1: Download the CLI
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-1. Go to the [Moderne Platform](https://app.moderne.io/) (or your private tenant) and sign in.
+<Tabs>
+<TabItem value="free" label="Free tier (app.moderne.io)" default>
+
+> Perfect for individuals and teams trying out Moderne's capabilities using the public [app.moderne.io](https://app.moderne.io/marketplace) instance.
+
+#### Step 1: Download the CLI
+
+1. Go to [app.moderne.io](https://app.moderne.io/) and sign in.
 2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging).
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
@@ -85,7 +88,7 @@ Commands:
 
 </details>
 
-### Step 2: (Optional) Set up auto-completion in your terminal (Unix terminals only)
+#### Step 2: (Optional) Set up auto-completion in your terminal (Unix terminals only)
 
 The Moderne CLI offers a command which generates a completion script that can be used to set up auto-completion in your terminal. After initializing this script, you can type `mod config` and press tab and then your terminal will offer suggestions for the sub-commands or parameters:
 
@@ -104,7 +107,7 @@ Or, if you want to configure auto-completion so that it works for _every_ termin
 source <(mod generate-completion)
 ```
 
-### Step 3: Connect the CLI to Moderne
+#### Step 3: Connect the CLI to Moderne
 
 Connecting the CLI to Moderne is necessary to:
 
@@ -112,10 +115,9 @@ Connecting the CLI to Moderne is necessary to:
 * Download pre-built LSTs from Moderne so you can quickly run recipes locally
 * Receive organizational information, so you can clone/build/run groups of repositories more easily
 
-To set up this connection, you'll first need to create an access token for the CLI to use. Follow the below instructions to obtain a token and provide it to the CLI:
+To set up this connection, you'll first need to create an access token for the CLI to use:
 
 1. Navigate to [https://app.moderne.io/settings/access-token](https://app.moderne.io/settings/access-token)
-   * If you're in a private tenant, replace `app.moderne.io` with your tenant URL
 2. Enter a human-readable name for the token (e.g., cli-token)
 3. Press `Generate`
 4. Copy the `install on your workstation` command and paste it into your command line. This command should look something like:
@@ -128,7 +130,7 @@ mod config moderne edit https://app.moderne.io --token mat-YOUR_TOKEN_HERE
 
 ![](./assets/create-access-token.gif)
 
-### Step 4: Install recipes
+#### Step 4: Install recipes
 
 With the Moderne connection established, you can download recipes to your local machine by running the following command:
 
@@ -140,7 +142,140 @@ mod config recipes moderne sync
 Occasionally, a few of the recipes may fail to sync properly and return the message `! Failed to install`. If the majority of the recipes installed successfully, however, you will see the `MOD PARTIALLY SUCCEEDED` message when the command completes, and you can still continue on without a problem for the purposes of this tutorial.
 ::: 
 
-This will grab _all_ of the recipes from the tenant you specified in `mod config` – so please expect this command to take a few minutes to download the recipes. 
+This will grab _all_ of the recipes from the tenant you specified in `mod config` – so please expect this command to take a few minutes to download the recipes.
+
+</TabItem>
+<TabItem value="enterprise" label="Enterprise Edition">
+
+> If your organization is paying for the Enterprise Edition of Moderne with a private Moderne instance (e.g., `https://yourcompany.moderne.io`), please follow these instructions.
+
+#### Step 1: Download the CLI
+
+1. Go to your private tenant URL (e.g., `https://yourcompany.moderne.io`) and sign in.
+2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging).
+3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
+
+![](./assets/cli-download.gif)
+
+4. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location – or this could involve putting it in a directory that's already on your `PATH` (such as a `/user/bin` directory).
+   * Remember to refresh any open terminals if you modify the `PATH`.
+
+If everything was configured correctly, you should be able to type `mod` into your terminal and see a list of commands:
+
+<details>
+
+<summary>mod command results</summary>
+
+```bash
+➜ mod
+
+Moderne CLI 3.44.4
+
+Usage:
+
+mod [-h] [--version] [COMMAND]
+
+Description:
+
+Automated code remediation.
+
+Options:
+
+  -h, --help      Display this help message.
+      --version   Display version info.
+Commands:
+
+  afterburner          (INCUBATING) Indexes built LSTs to accelerate recipe
+                         execution.
+  audit                (INCUBATING) Perform an audit of recent activity.
+  batch                Add batch changes to the Moderne platform.
+  build                Generates LST artifacts for one or more repositories.
+  clean                Clean build and run artifacts produced by the CLI.
+  config               Global configuration options that are required by some
+                         CLI commands.
+  devcenter            Generate DevCenter dashboards.
+  exec                 Execute an arbitrary shell command recursively on
+                         selected repository roots.
+  generate-completion  Generate bash/zsh completion script for mod.
+  git                  Multi-repository git operations.
+  log                  Manages a log aggregate.
+  list                 Lists the repositories that can be built and published.
+  monitor              (INCUBATING) Launches an HTTP server used to monitor the
+                         CLI.
+  publish              Publishes the LST artifacts for one or more projects.
+  run                  Runs an OpenRewrite recipe locally on pre-built LSTs.
+  run-history          Get information about the most recent recipe runs. This
+                         will be transitioning to mod audit runs list
+                         eventually. A deprecation notice will be added here
+                         when we suggest adopting the alternative.
+  study                Produces studies from OpenRewrite recipe data tables
+                         locally.
+```
+
+</details>
+
+#### Step 2: (Optional) Set up auto-completion in your terminal (Unix terminals only)
+
+The Moderne CLI offers a command which generates a completion script that can be used to set up auto-completion in your terminal. After initializing this script, you can type `mod config` and press tab and then your terminal will offer suggestions for the sub-commands or parameters:
+
+![](./assets/cli-auto-complete.png)
+
+To configure this for the terminal you're using please enter the following command in your terminal:
+
+```bash
+source <(mod generate-completion)
+```
+
+Or, if you want to configure auto-completion so that it works for _every_ terminal instance you make, please update your `~/.zshrc` or `~/.bashrc` file and add this command to the bottom of it:
+
+```bash
+# The next line enables shell command completion for mod
+source <(mod generate-completion)
+```
+
+#### Step 3: Connect the CLI to your tenant
+
+Connecting the CLI to your Moderne tenant is necessary to:
+
+* Quickly sync the recipe catalog from your tenant to your local machine
+* Download pre-built LSTs from your tenant so you can quickly run recipes locally
+* Receive organizational information specific to your company, so you can clone/build/run groups of repositories more easily
+
+To set up this connection, you'll first need to create an access token for the CLI to use:
+
+1. Navigate to `https://yourcompany.moderne.io/settings/access-token` (replace `yourcompany` with your tenant name)
+2. Enter a human-readable name for the token (e.g., cli-token)
+3. Press `Generate`
+4. Copy the `install on your workstation` command and paste it into your command line. This command should look something like:
+
+```bash
+mod config moderne edit https://yourcompany.moderne.io --token mat-YOUR_TOKEN_HERE
+```
+
+5. If everything worked, you should see a `MOD SUCCEEDED` message
+
+![](./assets/create-access-token.gif)
+
+#### Step 4: Install recipes
+
+With the Moderne connection established, you can download recipes to your local machine by running the following command:
+
+```bash
+mod config recipes moderne sync
+```
+
+:::info
+Occasionally, a few of the recipes may fail to sync properly and return the message `! Failed to install`. If the majority of the recipes installed successfully, however, you will see the `MOD PARTIALLY SUCCEEDED` message when the command completes, and you can still continue on without a problem for the purposes of this tutorial.
+::: 
+
+This will grab _all_ of the recipes from your tenant – so please expect this command to take a few minutes to download the recipes.
+
+</TabItem>
+<TabItem value="dx" label="Moderne DX (Air-gapped)">
+
+> If your organization is paying for Moderne DX and you need to set up the CLI in an air-gapped or a restricted environment, please follow the instructions in our [installing and configuring the CLI for DX users guide](./dx-cli-install.md).
+</TabItem>
+</Tabs>
 
 ## Using the CLI
 
@@ -361,7 +496,7 @@ MOD SUCCEEDED in 1m 49s
 
 </details>
 
-#### Running
+#### Running {#running}
 
 With the LSTs built, you can now run recipes against them. Let's run the `DependencyVulnerabilityCheck` recipe to find and fix vulnerable dependencies. Unlike many other tools, this recipe can find and fix dependencies that are _many_ levels deep. For instance, if you depend on a library which depends on a library which depends on a library which contains a vulnerable dependency, this recipe can find that and offer suggestions on how to fix it.
 
