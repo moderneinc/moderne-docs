@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.86.0 (2025/08/14)
+
+- add search syntax highlighting
+
 ### UI v11.85.0 (2025/08/13)
 
 - add search tag syntax hint
