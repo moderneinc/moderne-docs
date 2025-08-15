@@ -13,7 +13,15 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
-### OpenRewrite Recipe Showdown: Tim and Claude vs. Sam
+### Moderne CLI Major Release (August 13th 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=SL7mCuhPfhs' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
+### OpenRewrite Recipe Showdown: Tim and Claude vs. Sam (August 6th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=bOk0lOuOkDA' controls="true" />
 
