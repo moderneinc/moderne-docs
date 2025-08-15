@@ -1,5 +1,22 @@
 # CLI / DX changelog
 
+### CLI / DX v3.44.5 (2025/08/15)
+
+#### What's Changed
+* Fixed a `mod build` bug where the wrong `gradleArgs` were applied causing some repository builds to fail
+* Fixed a `mod build` bug where a git repository using Gradle and an Ivy artifact repository couldn't be built
+* Fixed a `mod git sync` bug where a `git clone` operation wasn't respecting a timeout
+* Fixed a `mod git sync` bug where some git operations were executed while the repo isn't accessible leading to confusing error messages
+* Fixed a `mod git *` bug where `repos-lock.csv` columns weren't properly updated
+* Fixed a `mod *` bug where the trust-store configuration wasn't applied to every commands
+* Improved the CLI output by removing duplicated partition name for repository using partitions
+* Improved `mod git sync csv` by fully documenting its usage
+* Improved error and exception reporting for commands, especially in cases with limited context
+* Improved `mod exec` by adding `JAVA_HOME` to the process environment variables based on the detected/configured java home
+* Improved `mod build` by adding `Makefile`, `*.jelly`, `lombok.config`, `.env` and a few others filenames to be treated as text files by the parser
+* Improved `mod config build maven show` outputs by specifying if the default maven settings are used as a fallback
+
+
 ### CLI / DX v3.44.4 (2025/07/29)
 
 #### What's Changed CLI
