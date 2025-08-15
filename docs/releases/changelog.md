@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.88.0 (2025/08/15)
+
+- Bug fixes and other improvements.
+
 ### UI v11.87.0 (2025/08/14)
 
 - add new custom 404 and 500 pages. Wire into to _error and Page-error-boundary
