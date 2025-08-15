@@ -5236,11 +5236,15 @@ mod git sync [subcommands]
 
 ### Subcommands
 
-* `csv`
+* `csv`: Synchronizes the repositories and metadata of an organization from a local repos.csv file.
 * `moderne`: Synchronizes the repositories and metadata of an organization on Moderne.
 
 ## mod git sync csv
 
+Synchronizes the repositories and metadata of an organization from a local repos.csv file.
+
+
+Synchronize repositories and metadata to **<path>** using a local repos.csv **<csv>** file. The CSV must include a **cloneUrl** column. A flat directory structure is used unless one or more **orgN** columns are present. By default, repositories do not include source code. Use **--with-sources** to clone sources. If a **publishUri** column is present, associated LSTs will also be downloaded.
 
 ### Usage
 
