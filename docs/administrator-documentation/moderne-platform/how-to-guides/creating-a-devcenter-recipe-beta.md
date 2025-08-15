@@ -85,6 +85,10 @@ These recipes have some properties you probably haven't seen before. Specificall
   <figcaption>_An example of a DevCenter card._</figcaption>
 </figure>
 
+:::info
+Technically, these properties work like any other recipe configuration options. What’s different is that in DevCenter recipes, many of them are intentionally kept broad and adaptable. This means a single property, like upgradeRecipe, can trigger completely different behavior depending on the recipe you point it to. That flexibility is what allows DevCenter cards to cover a wide range of scenarios without you having to rewrite the recipes themselves.
+:::
+
 ### Security card
 
 It's also possible to create recipes in your `devcenter.yml` file. For instance, at the bottom of our example, you will find a recipe that is used to create a security card in the DevCenter:
