@@ -1,5 +1,17 @@
 # CLI / DX changelog
 
+### CLI / DX v3.44.6 (2025/08/18)
+
+#### What's Changed CLI
+* Address memory leak when downloading LSTs via `mod git sync`
+* Detect Java version properties in `gradle.properties`
+* Fix `mod git stashset push` support for existing `--include-untracked` option
+* Improve `mod exec` usage help documentation
+* Ensure `mod list` output appropriately indicates absence of an LST
+#### What's Changed DX
+* N/A
+
+
 ### CLI / DX v3.44.5 (2025/08/15)
 
 #### What's Changed
