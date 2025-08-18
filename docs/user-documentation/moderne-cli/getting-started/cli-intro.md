@@ -18,8 +18,8 @@ Choose the installation path that matches your setup:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-<TabItem value="standard-edition" label="Standard Edition" default>
+<Tabs queryString="edition">
+<TabItem value="standard" label="Standard Edition" default>
 
 > If your organization is paying for the Standard Edition of Moderne, please follow these instructions. These instructions are also applicable to users who are trying out the public [app.moderne.io](https://app.moderne.io/marketplace) instance.
 
