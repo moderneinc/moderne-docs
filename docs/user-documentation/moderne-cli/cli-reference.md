@@ -4702,13 +4702,21 @@ mod devcenter /path/to/organization
 Execute an arbitrary shell command recursively on selected repository roots.
 
 
-If you want to execute a command that contains positional parameters, please ensure that you use the end-of-options POSIX delimiter (**--**) before your command, such as in the following example: 
+If you want to execute a command that contains positional parameters, please ensure that you use the end-of-options POSIX delimiter (**--**) before your command.
 
-**mod exec /path/to/project -- gh pr create --title "Test PR" --body "Test PR"**.
+Commands can take advantage of a set of variables computed by **mod exec** specific to the repository the command is executed on. These precomputed variables are added to the environment which include **JAVA_HOME**, **MODERNE_JAVA_HOME**, **MODERNE_JAVA_VERSION**, **MODERNE_JAVA_JDK**, **MODERNE_BUILD_TOOL**, **MODERNE_BUILD_TOOL_COMPILE**, **MODERNE_BUILD_TOOL_CHECK**, and **MODERNE_BUILD_TOOL_DIR**.
 
-Commands can take advantage of a set of variables computed by **mod exec** specific to the repository the command is executed on. For example, **mod exec . MODERNE_BUILD_TOOL_CHECK** will substitute **MODERNE_BUILD_TOOL_CHECK** with the build tool command to execute verification tasks specific to the repository. This would expand to **gradle check** and **mvn verify** for Gradle and Maven projects, respectively. Additionally, each computed variable is added to the environment the command is run in.
+Open a GitHub Pull Request
+  **mod exec /path/to/project -- gh pr create --title "Test PR" --body "Test PR"**
 
-The list of computed variables include **MODERNE_JAVA_HOME**, **MODERNE_JAVA_VERSION**, **MODERNE_JAVA_JDK**, **MODERNE_BUILD_TOOL**, **MODERNE_BUILD_TOOL_COMPILE**, **MODERNE_BUILD_TOOL_CHECK**, and **MODERNE_BUILD_TOOL_DIR**
+Open a GitLab Merge Request
+  **mod exec /path/to/project -- glab mr create --title "Test PR" --description "Test PR"**
+
+Execute build tool compilation tasks
+  **mod exec /path/to/project MODERNE_BUILD_TOOL_COMPILE**
+
+Execute build tool verification tasks
+  **mod exec /path/to/project MODERNE_BUILD_TOOL_CHECK**
 
 ### Usage
 

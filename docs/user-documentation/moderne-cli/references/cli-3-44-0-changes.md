@@ -1,14 +1,14 @@
 ---
-sidebar_label: CLI 3.44.5 changes
-description: The major changes in Moderne CLI 3.44.5.
+sidebar_label: CLI 3.44.6 changes
+description: The major changes in Moderne CLI 3.44.6.
 ---
 
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
-# Moderne CLI 3.44.5 changes
+# Moderne CLI 3.44.6 changes
 
-Moderne CLI 3.44.5 introduces full support for **organizational structures**, matching how repositories have been organized in the Moderne Platform. This document covers what's changed, why we made these changes, and how they affect your workflow.
+Moderne CLI 3.44.6 introduces full support for **organizational structures**, matching how repositories have been organized in the Moderne Platform. This document covers what's changed, why we made these changes, and how they affect your workflow.
 
 While adding organizational support is a major feature enhancement, the existing command structure has been intentionally left unchanged. Instead of introducing new commands or changing existing syntax, familiar commands like `mod run`, `mod study`, and `mod devcenter` simply gain new organizational awareness. They work exactly as before on individual repositories, but now also understand and operate on organizational hierarchies.
 

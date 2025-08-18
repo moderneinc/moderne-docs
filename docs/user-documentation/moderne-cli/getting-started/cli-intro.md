@@ -43,7 +43,7 @@ If everything was configured correctly, you should be able to type `mod` into yo
 ```bash
 ➜ mod
 
-Moderne CLI 3.44.5
+Moderne CLI 3.44.6
 
 Usage:
 
@@ -169,7 +169,7 @@ If everything was configured correctly, you should be able to type `mod` into yo
 ```bash
 ➜ mod
 
-Moderne CLI 3.44.5
+Moderne CLI 3.44.6
 
 Usage:
 
@@ -314,7 +314,7 @@ If you need to enter an SSH passphrase to clone repositories, please see our [SS
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.44.5
+Moderne CLI 3.44.6
 
 ⏺ Retrieving organization from Moderne
 
@@ -422,7 +422,7 @@ mod build .
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.44.5
+Moderne CLI 3.44.6
 
 ⏺ Reading organization
 
@@ -511,7 +511,7 @@ mod run . --recipe DependencyVulnerabilityCheck
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.44.5
+Moderne CLI 3.44.6
 
 [1] Find and fix vulnerable Nuget dependencies (org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck)
 [2] Find and fix vulnerable dependencies (org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
@@ -635,7 +635,7 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.44.5
+Moderne CLI 3.44.6
 
 ⏺ Reading organization
 
@@ -707,7 +707,7 @@ mod run . --recipe CommonStaticAnalysis
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.44.5
+Moderne CLI 3.44.6
 
 ⏺ Reading organization
 
@@ -790,7 +790,7 @@ mod git checkout . -b workshop-changes --last-recipe-run
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 3.44.5
+Moderne CLI 3.44.6
 
 ⏺ Reading organization
 
