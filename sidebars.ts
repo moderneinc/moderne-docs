@@ -281,6 +281,12 @@ const sidebars: SidebarsConfig = {
     },
     'hands-on-learning/moderne-cli-workshop',
     {
+      type: 'link',
+      label: 'Live OpenRewrite training',
+      description: 'Hands-on sessions for both newcomers and advanced practitioners.',
+      href: 'https://www.moderne.ai/moderne-openrewrite-training-hub',
+    },
+    {
       type: 'html',
       value: '<br/><strong>OpenRewrite Advanced Program Analysis</strong>',
       defaultStyle: true,
