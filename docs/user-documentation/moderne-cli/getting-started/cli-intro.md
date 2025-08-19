@@ -290,7 +290,7 @@ The Moderne CLI was not designed to run multiple commands simultaneously. Please
 
 ### Setting up your workspace
 
-The most common (and recommended) way of using the Moderne CLI is to run recipes against pre-built LSTs that you download to your machine. For this path, you'll want to create a directory that you can clone the LSTs and code to:
+The most common (and **recommended**) way of using the Moderne CLI is to run recipes against pre-built LSTs that you download to your machine. For this path, you'll want to create a directory that you can clone the LSTs and code to:
 
 ```bash
 mkdir /path/to/your/moderne/workspace
