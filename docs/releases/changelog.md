@@ -1,7 +1,14 @@
 # Platform changelog
 ### UI v11.89.0 (2025/08/19)
 
-- updating command palette and keybindings
+We have made changes to the key bindings and command palette:
+- There is no longer a key bindings cheat sheet display when hitting `?`.
+  - Instead `?` will now open the command palette which will also display the keybinds available for the page you are on (similar to the cheat sheet)
+- The focus global search and command palette bindings are not longer customizable in the account menu
+  - `?` as mentioned will now open the command palette
+  - `/` will focus the global search
+  - Key bindings can still be disabled/enabled via the same place in the account menu
+- Many navigation shortcuts were one character key binds with no modifier.  We have changed this so many now require the `shift` modifier in efforts to prevent unintended navigation.
 
 ### UI v11.88.1 (2025/08/15)
 
