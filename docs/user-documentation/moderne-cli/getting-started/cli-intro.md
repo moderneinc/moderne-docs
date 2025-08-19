@@ -4,10 +4,12 @@ description: How to install, configure, and use the Moderne CLI. Includes real-w
 ---
 
 import ReactPlayer from 'react-player';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Getting started with the Moderne CLI
 
-The Moderne CLI is a command line tool that compliments the Moderne Platform and Moderne DX, enabling you to build [Lossless Semantic Tree](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) (LST) artifacts across many repositories and run recipes against all of them from your local machine. It also provides substantial benefits for creating and testing your own recipes.
+The Moderne CLI is a command line tool that complements the Moderne Platform and Moderne DX, enabling you to build [Lossless Semantic Tree](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) (LST) artifacts across many repositories and run recipes against all of them from your local machine. It also provides substantial benefits for creating and testing your own recipes.
 
 To ensure you can use the Moderne CLI successfully, in this guide, we will walk you through everything you need to get started – from installation, to configuration, to examples demonstrating how to use it.
 
@@ -15,13 +17,10 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will walk 
 
 Choose the installation path that matches your setup:
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+<Tabs groupId="moderne-edition" queryString="edition">
+<TabItem value="standard" label="Standard Edition" default>
 
-<Tabs>
-<TabItem value="standard-edition" label="Standard Edition" default>
-
-> If your organization is paying for the Standard Edition of Moderne, please follow these instructions. These instructions are also applicable to users who are trying out the public [app.moderne.io](https://app.moderne.io/marketplace) instance.
+> These instructions apply to Standard Edition customers and users of the public [app.moderne.io](https://app.moderne.io/marketplace) instance.
 
 #### Step 1: Download the CLI
 
@@ -94,7 +93,7 @@ The Moderne CLI offers a command which generates a completion script that can be
 
 ![](./assets/cli-auto-complete.png)
 
-To configure this for the terminal you're using please enter the following command in your terminal:
+To configure this for the terminal you're using, please enter the following command in your terminal:
 
 ```bash
 source <(mod generate-completion)
@@ -220,7 +219,7 @@ The Moderne CLI offers a command which generates a completion script that can be
 
 ![](./assets/cli-auto-complete.png)
 
-To configure this for the terminal you're using please enter the following command in your terminal:
+To configure this for the terminal you're using, please enter the following command in your terminal:
 
 ```bash
 source <(mod generate-completion)
@@ -271,7 +270,7 @@ Occasionally, a few of the recipes may fail to sync properly and return the mess
 This will grab _all_ of the recipes from your tenant – so please expect this command to take a few minutes to download the recipes.
 
 </TabItem>
-<TabItem value="dx" label="Moderne DX (Air-gapped)">
+<TabItem value="dx" label="Moderne DX">
 
 > If your organization is paying for Moderne DX and you need to set up the CLI in an air-gapped or a restricted environment, please follow the instructions in our [installing and configuring the CLI for DX users guide](./dx-cli-install.md).
 </TabItem>
@@ -279,628 +278,369 @@ This will grab _all_ of the recipes from your tenant – so please expect this c
 
 ## Using the CLI
 
-With installation and configuration done, you're now ready to use the CLI. Let's walk through some things you might do with it. We recommend you follow along on your own machine to get a feel for how to use the CLI.
+With installation and configuration complete, you're ready to use the CLI. This section will guide you through common workflows and commands.
 
-:::info
+:::tip
+For a hands-on tutorial using public repositories, check out our [Moderne CLI workshop](/hands-on-learning/moderne-cli-workshop).
+:::
+
+:::warning
 The Moderne CLI was not designed to run multiple commands simultaneously. Please only execute one command at a time.
-::: 
+:::
 
-### Run recipes against many repositories at once
+### Setting up your workspace
 
-
-#### Building
-
-In this example, we will use the Moderne CLI to run the `DependencyVulnerabilityCheck` recipe against a group of open-source repositories.
-
-1. From your terminal, create a directory to work in and `cd` into it:
+The most common (and recommended) way of using the Moderne CLI is to run recipes against pre-built LSTs that you download to your machine. For this path, you'll want to create a directory that you can clone the LSTs and code to:
 
 ```bash
-mkdir -p $HOME/workshop
-cd $HOME/workshop
+mkdir /path/to/your/moderne/workspace
+cd /path/to/your/moderne/workspace
 ```
 
-2. For this exercise, we've prepared a list of open-source repositories for you to use. These repositories have been added to the Moderne Platform and put inside the `Default` organization. Clone these repositories by running the following command from inside your `workshop` directory:
+It's also possible to run recipes on code you have already checked out on your machine – in which case you'll want to `cd` into that directory and then [build the LSTs](#building-lsts):
 
 ```bash
-mod git sync moderne . "Default" --with-sources
+cd /path/to/your/repos
+mod build .
 ```
+
+### Syncing Moderne organizations
+
+> _If you already have repositories you want to work with checked out locally, skip to the [building LSTs section](#building-lsts)._
+
+Rather than needing to manually clone every repository you want to run a recipe against, Moderne offers the ability to download LSTs and code for pre-defined groups of repositories.
+
+<Tabs groupId="moderne-edition" queryString="edition">
+<TabItem value="standard" label="Standard Edition" default>
+
+#### Viewing available organizations
+
+To see what organizations you have access to in `app.moderne.io`, run the following command:
+
+```bash
+mod config moderne organizations show
+```
+
+<details>
+<summary>You should see something like this:</summary>
+
+```bash
+Moderne CLI 3.44.4
+
+⏺ Retrieving the configured organizations
+
+  ALL (12345)
+    Default (11)
+    JetBrains (170)
+    Moderne (116)
+      Moderne - Public (8)
+      Moderne AI (8)
+      Moderne SaaS (26)
+        Moderne Libraries (10)
+        Moderne Microservices (15)
+        Moderne UI (1)
+      Recipes (28)
+      Smoke test (6)
+    Open Source (48316)
+      AirBnB (19)
+      Alibaba (363)
+      Amazon (95)
+      Android (129)
+      Antlr (10)
+      Atlassian (1)
+      BNY (3)
+      C# (459)
+      Cloud Foundry (7)
+      DataStax (124)
+      Eclipse Foundation (295)
+        Eclipse Platform (7)
+      Elastic Search (35)
+      Facebook (19)
+      FasterXML (48)
+      FINOS (29)
+      Forks (34)
+      Google (764)
+      Gradle (61)
+      Gradle Plugins (46)
+      Green Button Alliance (3)
+      ...
+```
+
+</details>
+
+#### Downloading LSTs and code
+
+Once you've decided what organization you want to clone, you can download the LSTs and code to your machine by running the following command:
+
+```bash
+mod git sync moderne /path/to/your/workspace "<organization-name>" --with-sources
+```
+
+Make sure to replace the path and organization with the one you want. If you don't want to download the code and just want to download the LSTs, you can remove the `--with-sources` flag.
 
 :::warning
 If you need to enter an SSH passphrase to clone repositories, please see our [SSH keys with passphrases guide](../how-to-guides/ssh-key.md) before continuing.
 :::
 
-<details>
+</TabItem>
+<TabItem value="enterprise" label="Enterprise Edition">
 
-<summary>You should see output similar to the following.</summary>
+#### Viewing available organizations
+
+To see what organizations you have access to in your Moderne tenant, run the following command:
+
+```bash
+mod config moderne organizations show
+```
+
+<details>
+<summary>You should see something that looks similar to this (it will have your organizations instead):</summary>
 
 ```bash
 Moderne CLI 3.44.6
 
-⏺ Retrieving organization from Moderne
+⏺ Retrieving the configured organizations
 
-Found organization ALL/Default
-Organization written to disk at /Users/mikesol/workshop/.moderne/repos.csv
-
-⏺ Synchronizing organization directory structure
-
-Adding organization Default
-Adjusted 1 organization directory. (1s)
-
-⏺ Performing Git operations on repositories
-
-A sync log file will be written to /Users/mikesol/workshop/.moderne/sync.log
-
-▶ openrewrite/rewrite-recipe-bom@main
-    ✓ Checked out 616ea9b on branch main
-▶ finos/messageml-utils@main
-    ✓ Checked out 3e0ba74 on branch main
-▶ Netflix/ribbon@master
-    ✓ Checked out 625e167 on branch master
-▶ apache/maven-doxia@master
-    ✓ Checked out c15ab5c on branch master
-▶ finos/symphony-bdk-java@main
-    ✓ Checked out b3e8bdd on branch main
-▶ finos/spring-bot@spring-bot-master
-    ✓ Checked out 7280971 on branch spring-bot-master
-▶ finos/symphony-wdk@master
-    ✓ Checked out e965749 on branch master
-▶ spring-projects/spring-petclinic@main
-    ✓ Checked out 30aab0a on branch main
-▶ spring-projects/spring-data-commons@main
-    ✓ Checked out 370cb37 on branch main
-▶ awslabs/aws-saas-boost@main
-    ✓ Checked out 452d7ca on branch main
-▶ Netflix/photon@master
-    ✓ Checked out 2ee9afa on branch master
-Done (1m 35s)
-
-⏺ Downloading LSTs for repositories
-
-▶ openrewrite/rewrite-recipe-bom@main
-    ✓ Downloaded rewrite-recipe-bom-20250811065644011-ast.jar
-▶ finos/messageml-utils@main
-    ✓ Downloaded messageml-utils-20250811063541958-ast.jar
-▶ Netflix/photon@master
-    ✓ Downloaded photon-20250811065054760-ast.jar
-▶ spring-projects/spring-petclinic@main
-    ✓ Downloaded spring-petclinic-20250811070048713-ast.jar
-▶ apache/maven-doxia@master
-    ✓ Downloaded maven-doxia-20250811063325005-ast.jar
-▶ Netflix/ribbon@master
-    ✓ Downloaded ribbon-20250811065420985-ast.jar
-▶ finos/symphony-wdk@master
-    ✓ Downloaded symphony-wdk-20250811064658084-ast.jar
-▶ spring-projects/spring-data-commons@main
-    ✓ Downloaded spring-data-commons-20250811065920996-ast.jar
-▶ finos/spring-bot@spring-bot-master
-    ✓ Downloaded spring-bot-20250811063701383-ast.jar
-▶ finos/symphony-bdk-java@main
-    ✓ Downloaded symphony-bdk-java-20250811064446213-ast.jar
-▶ awslabs/aws-saas-boost@main
-    ✓ Downloaded aws-saas-boost-20250811063509832-ast.jar
-Done (55s)
-
-Synced 11 repositories.
-
-MOD SUCCEEDED in 2m 31s
+  ALL (12345)
+    Default (11)
+    JetBrains (170)
+    Moderne (116)
+      Moderne - Public (8)
+      Moderne AI (8)
+      Moderne SaaS (26)
+        Moderne Libraries (10)
+        Moderne Microservices (15)
+        Moderne UI (1)
+      Recipes (28)
+      Smoke test (6)
+    Open Source (48316)
+      AirBnB (19)
+      Alibaba (363)
+      Amazon (95)
+      Android (129)
+      Antlr (10)
+      Atlassian (1)
+      BNY (3)
+      C# (459)
+      Cloud Foundry (7)
+      DataStax (124)
+      Eclipse Foundation (295)
+        Eclipse Platform (7)
+      Elastic Search (35)
+      Facebook (19)
+      FasterXML (48)
+      FINOS (29)
+      Forks (34)
+      Google (764)
+      Gradle (61)
+      Gradle Plugins (46)
+      Green Button Alliance (3)
+      ...
 ```
 
 </details>
 
-3. Confirm that your repositories were cloned correctly by running the following command:
+#### Downloading LSTs and code
+
+Once you've decided what organization you want to clone, you can download the LSTs and code to your machine by running the following command:
 
 ```bash
-ls  .  # For Mac/Unix users
-dir .  # For Windows users
+mod git sync moderne /path/to/your/workspace "<organization-name>" --with-sources
 ```
 
-<details>
+Make sure to replace the path and organization with the one you want. If you don't want to download the code and just want to download the LSTs, you can remove the `--with-sources` flag.
 
-<summary>You should see output similar to the following.</summary>
-
-```bash
-apache          awslabs         finos           Netflix         openrewrite     spring-projects
-```
-
-</details>
-
-4. If the [Lossless Semantic Trees](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) (LSTs) were available to download from Moderne, then they will have been downloaded with the `mod git sync moderne` command. If the LST(s) were unavailable for some reason, you can generate them locally by running the `mod build .` command.
-
-:::info
-By default, the CLI is able to build LSTs for well-formed projects (i.e. projects that build well with a plain `mvn verify` or `gradle build`). At times, however, you may encounter a project that fails to build. This could be because of a hidden dependency on certain tooling, like NPM, or because specific dependencies or repositories are not available without additional configuration.
-
-Through [mod config build](../cli-reference.md#mod-config-build) and other configuration options, you're typically able to get these LSTs built and ingested fairly quickly. For the purposes of this tutorial, however, let's ignore any projects that don't build and focus on running recipes against the ones that do.
+:::warning
+If you need to enter an SSH passphrase to clone repositories, please see our [SSH keys with passphrases guide](../how-to-guides/ssh-key.md) before continuing.
 :::
 
-```bash
-# Only needed if LSTs failed to download in the previous step
-mod build .
-```
+</TabItem>
+<TabItem value="dx" label="Moderne DX">
 
-<details>
+#### Working with organizations in DX
 
-<summary>You should see output similar to the following.</summary>
+For Moderne DX customers, organizations are defined in [your organization's repos.csv file](../references/repos-csv.md) (or in a `repos-lock.csv` file shared with you). It's up to your team to figure out the best way to distribute this file. That being said, we'd recommend having your [mass ingest pipeline](../../../administrator-documentation/moderne-dx/how-to-guides/mass-ingest-and-run-dx.md) publish this CSV to S3 (or something similar) so people can easily download this file to their machines.
 
-```bash
-Moderne CLI 3.44.6
+Once you have the CSV downloaded, you can either clone all of the repositories in that file and then `cd` into the organization (a specific directory) you care about – or you can filter the CSV file down to just the ones you care about and then clone those.
 
-⏺ Reading organization
-
-Found 1 organization containing 11 repositories (1s)
-
-⏺ Building LST(s)
-
-▶ apache/maven-doxia@master
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded maven-doxia-20250811063325005-ast.jar
-    Cleaned 1 older builds
-▶ awslabs/aws-saas-boost@main
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded aws-saas-boost-20250811063509832-ast.jar
-    Cleaned 1 older builds
-▶ finos/messageml-utils@main
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded messageml-utils-20250811063541958-ast.jar
-    Cleaned 1 older builds
-▶ finos/spring-bot@spring-bot-master
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded spring-bot-20250811063701383-ast.jar
-    Cleaned 1 older builds
-▶ finos/symphony-bdk-java@main
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded symphony-bdk-java-20250811064446213-ast.jar
-    Cleaned 1 older builds
-▶ finos/symphony-wdk@master
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded symphony-wdk-20250811064658084-ast.jar
-    Cleaned 1 older builds
-▶ Netflix/photon@master
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded photon-20250811065054760-ast.jar
-    Cleaned 1 older builds
-▶ Netflix/ribbon@master
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded ribbon-20250811065420985-ast.jar
-    Cleaned 1 older builds
-▶ openrewrite/rewrite-recipe-bom@main
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded rewrite-recipe-bom-20250811065644011-ast.jar
-    Cleaned 1 older builds
-▶ spring-projects/spring-data-commons@main
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded spring-data-commons-20250811065920996-ast.jar
-    Cleaned 1 older builds
-▶ spring-projects/spring-petclinic@main
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded spring-petclinic-20250811070048713-ast.jar
-    Cleaned 1 older builds
-Done (1m 48s)
-
-23m 42s saved by using previously built LSTs
-
-Built 0 repositories.
-
-MOD SUCCEEDED in 1m 49s
-```
-
-</details>
-
-#### Running {#running}
-
-With the LSTs built, you can now run recipes against them. Let's run the `DependencyVulnerabilityCheck` recipe to find and fix vulnerable dependencies. Unlike many other tools, this recipe can find and fix dependencies that are _many_ levels deep. For instance, if you depend on a library which depends on a library which depends on a library which contains a vulnerable dependency, this recipe can find that and offer suggestions on how to fix it.
-
-**Note**: Please make sure to pick the `org.openrewrite.java.dependencies.DependencyVulnerabilityCheck` recipe when you run the following command as multiple recipes with this title exist.
+In either case, the command you should run is:
 
 ```bash
-mod run . --recipe DependencyVulnerabilityCheck
+mod git sync csv /path/to/your/workspace repos.csv --with-sources
 ```
 
-<details>
+If you don't want to download the code and just want to download the LSTs, you can remove the `--with-sources` flag.
+</TabItem>
+</Tabs>
 
-<summary>You should see output similar to the following.</summary>
+### Building LSTs
+
+If you need to build the LSTs locally rather than downloading them, you can run the following command:
 
 ```bash
-Moderne CLI 3.44.6
-
-[1] Find and fix vulnerable Nuget dependencies (org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck)
-[2] Find and fix vulnerable dependencies (org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
-[3] Find and fix vulnerable npm dependencies (org.openrewrite.nodejs.DependencyVulnerabilityCheck)
-Select a recipe [1-3]: 2
-⏺ Reading organization
-
-Found 1 organization containing 11 repositories (1s)
-
-⏺ Running recipe org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
-
-Run log
-
-▶ apache/maven-doxia@master
-    No changes
-    ✓ Recipe run complete
-▶ Netflix/photon@master
-    ⚠ The latest LST is not up to date
-    No changes
-    ✓ Recipe run complete
-▶ openrewrite/rewrite-recipe-bom@main
-    No changes
-    ✓ Recipe run complete
-▶ finos/symphony-wdk@master
-    No changes
-    ✓ Recipe run complete
-▶ spring-projects/spring-petclinic@main
-    No changes
-    ✓ Recipe run complete
-▶ finos/symphony-bdk-java@main
-    No changes
-    ✓ Recipe run complete
-▶ Netflix/ribbon@master
-    Fix results
-    ✓ Recipe run complete
-▶ finos/messageml-utils@main
-    No changes
-    ✓ Recipe run complete
-▶ spring-projects/spring-data-commons@main
-    No changes
-    ✓ Recipe run complete
-▶ finos/spring-bot@spring-bot-master
-    No changes
-    ✓ Recipe run complete
-▶ awslabs/aws-saas-boost@main
-    Fix results
-    ✓ Recipe run complete
-Done (33s)
-
-23m 42s saved by using previously built LSTs
-45m saved by using recipes
-
-Produced results for 11 repositories.
-
-⏺ What to do next
-    > A repository's source code doesn't match its LST. Run mod build to update the LSTs.
-    > Click on one of the patch links above to view the changes on a particular repository
-    > Run mod study to examine the following data tables produced by this recipe:
-          > mod study . --last-recipe-run --data-table VulnerabilityReport
-          > mod study . --last-recipe-run --data-table MavenMetadataFailures
-          > mod study . --last-recipe-run --data-table RecipeRunStats
-          > mod study . --last-recipe-run --data-table SourcesFileResults
-    > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
-    > Run mod git checkout . -b refactor/DependencyVulnerabilityCheck --last-recipe-run to prepare a refactor/DependencyVulnerabilityCheck branch for applying the changes
-    > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20250811094641-N6e9F to apply the changes
-    > Run mod log runs add . logs.zip --last-recipe-run to aggregate run logs
-
-MOD SUCCEEDED in 39s
+mod build /path/to/your/workspace
 ```
-
-</details>
 
 :::info
-Some of the repositories may show `(no LST)` and return the message `Skipped recipe run because no LST was found`. This could be because we failed to download the LST from Moderne or because the LST failed to build locally.
-
-For the purposes of this tutorial, we will ignore this message and not worry about the repositories that don't have LSTs.
+If a project fails to build, it might require additional configuration. See [mod config build](../cli-reference.md#mod-config-build) for customization options. If an LST doesn't build, running a recipe will just skip that project rather than error on it.
 :::
 
-To learn more about what changed, you can command/ctrl click on the `Fix results` links generated in the above command. If you open one of these patch files up, you'll see that various dependencies in `pom.xml` or `build.gradle` files have been updated. While these updates to the dependencies are useful, they are only a minor part of what this recipe does. In the next section we'll take a look at the real power of this recipe – the data table that is produced.
+### Running recipes {#running}
 
-### Study the results of a recipe
+Once you have the LSTs downloaded or built, you can then run recipes against them.
 
-If you've been following along, you'll know that we just ran the `DependencyVulnerabilityCheck` recipe. Let's take another look at the `What to do next` section produced at the end of the recipe run:
+#### Basic recipe execution
 
-```bash
-⏺ What to do next
-    > A repository's source code doesn't match its LST. Run mod build to update the LSTs.
-    > Click on one of the patch links above to view the changes on a particular repository
-    > Run mod study to examine the following data tables produced by this recipe:
-          > mod study . --last-recipe-run --data-table VulnerabilityReport
-          > mod study . --last-recipe-run --data-table MavenMetadataFailures
-          > mod study . --last-recipe-run --data-table RecipeRunStats
-          > mod study . --last-recipe-run --data-table SourcesFileResults
-    > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
-    > Run mod git checkout . -b refactor/DependencyVulnerabilityCheck --last-recipe-run to prepare a refactor/DependencyVulnerabilityCheck branch for applying the changes
-    > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20250811094641-N6e9F to apply the changes
-    > Run mod log runs add . logs.zip --last-recipe-run to aggregate run logs
-```
-
-You may notice that one of the suggestions on what to do next is the `mod study` command. This command allows you to examine the [data tables](../../moderne-platform/getting-started/data-tables.md) produced by the recipe run. Data tables are columnar data in a schema defined by the recipe.
-
-In the above example, you'll see there are four data tables produced by this recipe:
-
-* VulnerabilityReport
-* MavenMetadataFailures
-* RecipeRunStats
-* SourcesFileResults
-
-The `VulnerabilityReport` contains detailed information about the vulnerabilities that exist in the repositories. For instance, it will tell you what CVE a particular repository is affected by, what the current version is, what the minimum fixed version is, a clear summary of what is wrong, and how many levels deep the dependency is.
-
-Let's generate this data table by running the following command:
+To run a recipe against all repositories in a specific directory:
 
 ```bash
-mod study . --last-recipe-run --data-table VulnerabilityReport
+mod run /path/to/your/workspace --recipe <RecipeName>
+
+## For example:
+mod run /path/to/your/workspace --recipe DependencyVulnerabilityCheck
 ```
 
-<details>
-
-<summary>You should see output similar to the following.</summary>
+:::tip
+If multiple recipes have similar names, you'll be prompted to select the specific one you want. You can avoid this by using the fully qualified recipe name such as in the following example:
 
 ```bash
-Moderne CLI 3.44.6
-
-⏺ Reading organization
-
-Found 1 organization containing 11 repositories (1s)
-Found recipe run 20250811094641-N6e9F
-
-
-⏺ Building CSV output for each organization
-
-▶ Default
-    ✓ Data table produced
-Done (1s)
-
-⏺ Converting to Excel for each organization
-
-▶ Default
-    ✓ Added 214 rows
-    ✓ Data table produced
-Done (3s)
-
-Data tables for each organization with rows are linked above
-
-MOD SUCCEEDED in 4s
+mod run . --recipe org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
 ```
-
-</details>
-
-:::info
-We used the short name for the data table (`VulnerabilityReport`) rather than the fully-qualified name. As long as the short name is distinct, you can do this to save some typing.
 :::
 
-Open up the Excel file that is produced. You will see that the recipe found hundreds of vulnerabilities. You can sort them by severity to see what the most important ones to start with are – or you could find the ones that can be fixed with a version update only to quickly address some of the problems. Having a table like this can help you and your organization track and prioritize security issues.
+#### Running recipes with parameters
 
-### Adjust the format of data tables
-
-Maybe you don't really want an Excel spreadsheet as the output, though. Fortunately, the Moderne CLI lets you customize what you get out of data tables with templates. Let's run a new recipe to demonstrate this. Let's run a recipe to find all locations where the `java.util.List add(..)` method is used (For more information on how to select a particular method, check out our [method patterns documentation](https://docs.openrewrite.org/reference/method-patterns)).
-
-**Note**: Please make sure to pick the `org.openrewrite.java.search.FindMethods` recipe when you run the following command as multiple recipes with this title may exist.
+Some recipes accept parameters to customize their behavior:
 
 ```bash
+mod run /path/to/your/workspace --recipe <RecipeName> -P<parameterName>=<value>
+
+## For example:
 mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
-
-# Select the following recipe: 
-#   * Find method usages (org.openrewrite.java.search.FindMethods)
 ```
 
-Once that's done running, we _could_ run a similar study command as before to get an Excel file that contains detailed information about all of the places this specific method was found. Let's say, however, that you don't care about all of the columns and that you'd like a markdown file to be produced instead of an Excel spreadsheet.
+#### Examining results
 
-We can filter the data table to only a couple columns we are interested in and then use a GoTemplate to produce a markdown file containing code samples for all of the matching methods we found:
+To learn more about what changed, you can command/ctrl click on the `Fix results` link in the output.
+
+### Working with data tables
+
+Many recipes produce [data tables](../../moderne-platform/getting-started/data-tables.md) on top of changing the code. Think of data tables as spreadsheets that recipes create to show you patterns and insights they discovered while analyzing your code.
+
+#### Viewing available data tables
+
+After running a recipe, the CLI will suggest data tables you can examine such as in the following example:
+
+```bash
+⏺ What to do next
+  > Run mod study to examine the following data tables produced by this recipe:
+    > mod study . --last-recipe-run --data-table VulnerabilityReport
+    > mod study . --last-recipe-run --data-table MavenMetadataFailures
+    > mod study . --last-recipe-run --data-table RecipeRunStats
+    > mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Generating data tables
+
+To generate a data table from the last recipe run, you can copy one of the commands listed after a recipe run. It should look something like this:
+
+```bash
+mod study /path/to/your/workspace --last-recipe-run --data-table <TableName>
+```
+
+This command will generate a CSV file that you can then analyze.
+
+#### Customizing output format
+
+You can use the Moderne CLI to output other types of data based on your needs. For instance, you may want it to create a markdown file or a JSON file instead. Below are some examples of how you can change the output format:
+
+**Export specific columns as JSON:**
+
+```bash
+mod study . --last-recipe-run --data-table <TableName> --json <column1>,<column2>
+```
+
+**Use templates for custom formatting:**
 
 ````bash
 mod study . --last-recipe-run --data-table MethodCalls --json sourceFile,method --template '{{"# Search results\n\n"}}{{range .}}{{"* "}}{{.sourceFile}}{{"\n```\n"}}{{.method}}{{"\n```\n"}}{{end}}' > methods.md
 ````
 
-As you can see, the output is extremely flexible to meet whatever needs you have.
+This flexibility allows you to create custom reports tailored to your organization's needs.
 
-### Commit changes and/or create PRs
+### Committing changes and creating PRs
 
-So far, everything we've done has remained local to your machine. In a real-world situation, though, you'd definitely want to commit the results, test the changes, and open a PR in each repository. Let's walk through how to do this.
+After running recipes, you'll typically want to review, test, and commit the changes. The CLI provides commands to help manage these changes across multiple repositories.
 
-To begin, make sure you're still in the `$HOME/workshop` directory with the `Default` organization cloned. Then, run the following recipe to resolve common static analysis issues in all of the repositories:
+#### Creating branches
+
+After running a recipe, the changes exist only as patches (so if you `cd` into any of the repos, you would see no changes). While you _could_ apply the patches to the branches you have checked out, it's generally preferable to make changes inside of a new branch and then submit a PR for said branch:
 
 ```bash
-mod run . --recipe CommonStaticAnalysis
+mod git checkout /path/to/your/workspace -b <branch-name> --last-recipe-run
 ```
 
-<details>
+This creates a new branch in each repository that has changes from the recipe run.
 
-<summary>You should see output similar to the following.</summary>
+#### Applying changes
+
+To apply the recipe changes to your repositories, run the following command:
 
 ```bash
-Moderne CLI 3.44.6
-
-⏺ Reading organization
-
-Found 1 organization containing 12 repositories (1s)
-
-⏺ Running recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
-
-Run log
-
-▶ aws/amazon-documentdb-jdbc-driver@develop (no LST)
-    Skipped recipe run because no LST was found
-▶ openrewrite/rewrite-recipe-bom@main
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ Netflix/ribbon@master
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ spring-projects/spring-petclinic@main
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ finos/spring-bot@spring-bot-master
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ finos/symphony-wdk@master
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ finos/messageml-utils@main
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ Netflix/photon@master
-    ⚠ The latest LST is not up to date
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ awslabs/aws-saas-boost@main
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ apache/maven-doxia@master
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ spring-projects/spring-data-commons@main
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ finos/symphony-bdk-java@main
-    ✓ Fix results
-    ✓ Recipe run complete
-Done (44s)
-
-24m 7s saved by using previously built LSTs
-182h 40m saved by using recipes
-
-Produced results for 11 repositories.
-
-⏺ What to do next
-    > A repository's source code doesn't match its LST. Run mod build to update the LSTs.
-    > Click on one of the patch links above to view the changes on a particular repository
-    > Run mod study to examine the following data tables produced by this recipe:
-          > mod study . --last-recipe-run --data-table RecipeRunStats
-          > mod study . --last-recipe-run --data-table SourcesFileResults
-    > Run npm install -g diff2html-cli to produce patch files on subsequent runs that are easier to view
-    > Run mod git checkout . -b refactor/CommonStaticAnalysis --last-recipe-run to prepare a refactor/CommonStaticAnalysis branch for applying the changes
-    > Run mod git apply . --last-recipe-run to apply the changes
-    > Run mod git apply . --recipe-run 20250723102607-DvrxN to apply the changes
-    > Run mod log runs add . logs.zip --last-run to aggregate run logs
-
-MOD SUCCEEDED in 45s
+mod git apply /path/to/your/workspace --last-recipe-run
 ```
 
-</details>
+After applying changes, you can navigate to individual repositories and run `git status` to see the uncommitted changes. This is a good time to run tests and verify the changes work as expected.
 
-Right now, if you `cd` to any of the repositories in the `workshop` directory, you won't see any of these changes. While you _could_ apply these changes to the branches you have checked out, it's generally preferable to make changes inside of a branch and then submit a PR for said branch.
+#### Staging and committing changes
 
-To begin, let's create a branch in each repository that has changes by running the following command:
+Once you've tested the changes and decided you want to commit them, you'll need to run the following command to stage the changes for commit:
 
 ```bash
-mod git checkout . -b workshop-changes --last-recipe-run
+mod git add /path/to/your/workspace --last-recipe-run
 ```
 
-<details>
-
-<summary>You should see output similar to the following.</summary>
+Then you can commit the changes:
 
 ```bash
-Moderne CLI 3.44.6
-
-⏺ Reading organization
-
-Found 1 organization containing 12 repositories (1s)
-Found recipe run 20250723102607-DvrxN
-
-
-⏺ Executing git checkout
-
-Command output will be written to log
-
-▶ apache/maven-doxia@master
-    ✓ Switched to branch workshop-changes
-▶ aws/amazon-documentdb-jdbc-driver@develop
-    Skipped because there are no results to commit
-▶ awslabs/aws-saas-boost@main
-    ✓ Switched to branch workshop-changes
-▶ finos/messageml-utils@main
-    ✓ Switched to branch workshop-changes
-▶ finos/spring-bot@spring-bot-master
-    ✓ Switched to branch workshop-changes
-▶ finos/symphony-bdk-java@main
-    ✓ Switched to branch workshop-changes
-▶ finos/symphony-wdk@master
-    ✓ Switched to branch workshop-changes
-▶ Netflix/photon@master
-    ✓ Switched to branch workshop-changes
-▶ Netflix/ribbon@master
-    ✓ Switched to branch workshop-changes
-▶ openrewrite/rewrite-recipe-bom@main
-    ✓ Switched to branch workshop-changes
-▶ spring-projects/spring-data-commons@main
-    ✓ Switched to branch workshop-changes
-▶ spring-projects/spring-petclinic@main
-    ✓ Switched to branch workshop-changes
-Done (1s)
-
-Checked out 11 repositories.
-
-⏺ What to do next
-    > Commit your changes using mod git commit . -m "commit message" io.moderne.cli.commands.RecipeRun$Selected@3e9aac24.
-
-MOD SUCCEEDED in 1s
-```
-
-</details>
-
-Next, let's apply the changes from the recipe to these branches:
-
-```bash
-mod git apply . --last-recipe-run
-```
-
-If you `cd` into the project directories and run `git status`, you will see that you have a bunch of uncommitted and unstaged changes. Normally this would be where you would run tests and confirm that everything still works. For the purposes of the workshop, though, let's just pretend everything worked perfectly and move to the next step of staging the files and committing the changes.
-
-To add the files to the list that should be committed, run the following command:
-
-```bash
-mod git add . --last-recipe-run
-```
-
-Then, to commit these changes, run the following command:
-
-```bash
-mod git commit . -m "Test common static analysis changes" --last-recipe-run
+mod git commit /path/to/your/workspace -m "<your commit message>" --last-recipe-run
 ```
 
 :::warning
-Right now, GPG signing is not supported by the `mod git commit` command. If you use GPG signing, you'll either need to disable that temporarily or manually commit the changes in each repository without using the CLI.
+GPG signing is not currently supported by the `mod git commit` command. If you use GPG signing, you'll need to disable it temporarily or manually commit the changes in each repository.
 :::
 
-Normally, the next step you would do would be to push the commit to a branch and open a PR for it. However, as we don't own these repositories and as we don't want to clutter them, **please refrain from running the following commands against the repositories above**.
+#### Creating pull requests
 
-There are a variety of ways to create PRs based on your goals. We'll provide a few of the most common examples below.
+After committing changes, you can push them and create pull requests:
 
-You could push commits to the repositories via:
-
-```bash
-# Please don't run this command during the workshop
-mod git push . --last-recipe-run
-```
-
-:::warning
-Depending on the branch you've checked out, you may need to specify an upstream branch when running `mod git push` such as in:
+**Push changes to remote:**
 
 ```bash
-mod git push . --last-recipe-run --set-upstream <MigrationBranchName>
+mod git push /path/to/your/workspace --last-recipe-run
 ```
-:::
 
-Or you could create a PR directly with the GitHub command line:
+**If needed, you can also specify an upstream branch:**
 
 ```bash
-# Please don't run this command during the workshop
-mod exec . --last-recipe-run -- gh pr create --title "refactor: Apply AssertJ best practices"
+mod git push /path/to/your/workspace --last-recipe-run --set-upstream <branch-name>
 ```
 
-Or you could [create PRs while filtering to only certain repositories, branches, origins, recipe runs, etc.](../cli-reference.md#mod-git-push):
+**You can also create PRs using the GitHub CLI:**
 
 ```bash
-mod git push . --recipe-run <id> --repository-branch main
+mod exec . --last-recipe-run -- gh pr create --title "<PR title>"
 ```
+
+For more options, see the [CLI reference documentation](../cli-reference.md#mod-git-push).
 
 ## Additional information
 
-If you want to learn more about the Moderne CLI, we'd encourage you to check out the follow docs:
+If you want to learn more about the Moderne CLI, we'd encourage you to check out the following docs:
 
-* [Learn more about how to configure the CLI to meet your needs](../how-to-guides/layer-config-cli.md)
-* [Learn more about how JDK selection works and how you might configure other locations for JDKs](../how-to-guides/jdk-selection-and-config.md)
-* [Learn how to use the Moderne IntelliJ plugin in combination with the CLI to test recipes](../../moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
+* [Layered configuration in the CLI](../how-to-guides/layer-config-cli.md)
+* [JDK selection and configuration](../how-to-guides/jdk-selection-and-config.md)
+* [Using the Moderne IntelliJ plugin with the CLI](../../moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
 
 Or watch the following videos:
 

@@ -279,6 +279,7 @@ const sidebars: SidebarsConfig = {
         'hands-on-learning/advanced/module-4-data-tables',
       ],
     },
+    'hands-on-learning/moderne-cli-workshop',
     {
       type: 'html',
       value: '<br/><strong>OpenRewrite Advanced Program Analysis</strong>',
