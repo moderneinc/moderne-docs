@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.90.0 (2025/08/19)
+
+- Bug fixes and other improvements.
+
 ### UI v11.89.0 (2025/08/19)
 
 We have made changes to the key bindings and command palette:
