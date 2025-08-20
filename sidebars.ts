@@ -239,6 +239,7 @@ const sidebars: SidebarsConfig = {
       value: '<br/><strong>Hands-on Learning</strong>',
       defaultStyle: true,
     },
+    'hands-on-learning/moderne-cli-workshop',
     {
       type: 'category',
       label: 'Fundamentals of recipe development',
@@ -279,7 +280,6 @@ const sidebars: SidebarsConfig = {
         'hands-on-learning/advanced/module-4-data-tables',
       ],
     },
-    'hands-on-learning/moderne-cli-workshop',
     {
       type: 'link',
       label: 'Live OpenRewrite training',
