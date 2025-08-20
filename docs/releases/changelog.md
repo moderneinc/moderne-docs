@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.91.0 (2025/08/20)
+
+- allow repository table's columns to be resized and persisted in url
+
 ### UI v11.90.0 (2025/08/19)
 
 - Bug fixes and other improvements.
