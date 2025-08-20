@@ -75,7 +75,7 @@ recipeList:
       upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
   - io.moderne.devcenter.SecurityStarter
 ```
-These recipes have some properties you probably haven't seen before. Specifically:
+DevCenter recipes have two notable properties worth calling out:
 
 * `cardName` is a property that allows you to customize what the name of the card should be. Not all recipes have a `cardName` property. For instance, the [LibaryUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java#L35-L38) has a `cardName` property – whereas the [JavaVersionUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/JavaVersionUpgrade.java) does not.
 * `upgradeRecipe` is a property that defines the recipe that should be run to upgrade your repositories. It is the recipe that will get executed when you press the `Upgrade` button on a card.
