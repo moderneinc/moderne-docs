@@ -583,7 +583,7 @@
 * Remove duplicated output on incorrect `indent()` and/or `unindent()` calls.
 * Allow empty commits using `--allow-empty` and fix default behaviour to not allow these empty commits.
 
-### CLI 3.44.6 (2025/02/07)
+### CLI 3.45.1 (2025/02/07)
 
 #### What's Changed
 

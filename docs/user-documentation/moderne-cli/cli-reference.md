@@ -251,6 +251,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod run**](#mod-run)
 * [**mod run-history**](#mod-run-history)
 * [**mod study**](#mod-study)
+* [**mod trace**](#mod-trace)
+* [**mod trace builds**](#mod-trace-builds)
+* [**mod trace builds analyze**](#mod-trace-builds-analyze)
 
 ## mod
 
@@ -288,6 +291,7 @@ mod [subcommands]
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTs.
 * `run-history`: Get information about the most recent recipe runs. This will be transitioning to **mod audit runs list** eventually. A deprecation notice will be added here when we suggest adopting the alternative.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
+* `trace`: Manages trace analysis tools.
 
 ## mod afterburner
 
@@ -5455,7 +5459,6 @@ mod log runs add [parameters]
 | ---- | ----------- |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `--last-run` |  (DEPRECATED) use (DEPRECATED) use @|--last-recipe-run|@ instead. |
-| `--organization` |  Organization name to override the organization associated with each run. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--run` |  (DEPRECATED) use (DEPRECATED) use @|--recipe-run|@ instead. |
 
@@ -5646,5 +5649,68 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 | `-o`, `--output-file` |  The location to output the data table. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--template` |  |
+
+
+## mod trace
+
+Manages trace analysis tools.
+
+
+Analyze build traces with failure classification using ML-powered techniques (not AI or LLM based) and interactive visualization.
+
+### Usage
+
+```
+mod trace [subcommands]
+```
+
+
+### Subcommands
+
+* `builds`: Build trace analysis tools.
+
+## mod trace builds
+
+Build trace analysis tools.
+
+
+Analyze build traces to understand common failure patterns and build health metrics.
+
+### Usage
+
+```
+mod trace builds [subcommands]
+```
+
+
+### Subcommands
+
+* `analyze`: Launch interactive build trace analyzer.
+
+## mod trace builds analyze
+
+Launch interactive build trace analyzer.
+
+
+Launches a web-based trace analyzer with ML-powered failure classification. The analyzer pre-processes all build failures, clusters similar issues, and provides an interactive interface to explore build patterns and failure root causes.
+
+### Usage
+
+```
+mod trace builds analyze [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--build` |  A build ID for a build that has completed previously. |
+| `--last-build` |  Select whatever the last build was, whether the build ran fully to completion or terminated early. |
 
 
