@@ -13,7 +13,15 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
-### Moderne CLI Major Release (August 13th 2025)
+### HCL Recipes: Making them work for you (August 21st, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=iRko8i6wX74' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
+### Moderne CLI major release (August 13th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=SL7mCuhPfhs' controls="true" />
 
