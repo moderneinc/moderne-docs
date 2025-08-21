@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.45.1 (2025/08/21)
+
+#### What's Changed
+* Fixed  to ensure no 404 response is saved as an LST jar file @knutwannheden in https://github.com/moderneinc/moderne-cli/pull/2713
+
+
 ### CLI / DX v3.44.6 (2025/08/18)
 
 #### What's Changed CLI
