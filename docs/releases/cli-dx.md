@@ -3,8 +3,17 @@
 ### CLI / DX v3.45.1 (2025/08/21)
 
 #### What's Changed
-* Fixed  to ensure no 404 response is saved as an LST jar file @knutwannheden in https://github.com/moderneinc/moderne-cli/pull/2713
+* Fixed to ensure no 404 response is saved as an LST jar file
 
+### CLI / DX v3.45.0 (2025/08/21)
+This release is not available due to publishing issues please use v3.45.1 instead.
+
+#### What's Changed
+* Fixed `.gitignore` rule evaluation for Windows OS
+* Fixed Avoid double counting of parse errors during `mod build`
+* Fixed partition printing at top of build.log
+* Improved Build Performance with Short-Lived Gradle Daemons
+* Improved Commands by adding command workflow telemetry for BI system integration
 
 ### CLI / DX v3.44.6 (2025/08/18)
 
