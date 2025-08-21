@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.45.2 (2025/08/21)
+
+#### What's Changed
+* Update with rewrite 8.60.2
+* When no maven settings are explicitly configured, recipe runs should read them from the default location.
+
+
 ### CLI / DX v3.45.1 (2025/08/21)
 
 #### What's Changed
