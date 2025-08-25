@@ -28,6 +28,12 @@ Choose the installation path that matches your setup:
 2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging).
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
+:::note
+
+The examples in this guide use Moderne CLI version 3.45.2.
+
+:::
+
 ![](./assets/cli-download.gif)
 
 4. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location – or this could involve putting it in a directory that's already on your `PATH` (such as a `/user/bin` directory).
