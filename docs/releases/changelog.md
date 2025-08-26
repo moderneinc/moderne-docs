@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.94.2 (2025/08/26)
+
+- Bug fixes and other improvements.
+
 ### UI v11.94.1 (2025/08/25)
 
 - centralize text/icon colors in builder color system
