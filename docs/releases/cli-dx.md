@@ -1,5 +1,17 @@
 # CLI / DX changelog
 
+### CLI / DX v3.45.3 (2025/08/26)
+
+#### What's Changed CLI
+* Record failed execution when `mod exec` command returns non-zero
+* Trace analysis - don't consider `Failed to download LST` as failure
+* Fixing the empty trace file placed in `~/.moderne/cli/trace/build`
+* Trace analysis - fix syntax hightlighting
+* Trace analysis - filtering out empty lines on CSV input
+* Trace analysis - Display "No data available" instead of missing chart
+* Fix case in `org.gradle.daemon.idletimeout` property
+
+
 ### CLI / DX v3.45.2 (2025/08/21)
 
 #### What's Changed
