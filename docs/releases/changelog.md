@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.95.0 (2025/08/27)
+
+- fetch and override more help if configured
+
 ### UI v11.94.3 (2025/08/26)
 
 - Bug fixes and other improvements.
