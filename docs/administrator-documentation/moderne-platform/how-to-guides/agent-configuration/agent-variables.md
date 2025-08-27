@@ -733,8 +733,6 @@ You can configure multiple PyPI package indexes by including multiple entries, e
 | `MODERNE_AGENT_PYPI_{index}_USERNAME`           | `false`  | `null`  | The username used to access the index.                                                                                                                                    |
 | `MODERNE_AGENT_PYPI_{index}_PASSWORD`           | `false`  | `null`  | The password used to access the index.                                                                                                                                    |
 | `MODERNE_AGENT_PYPI_{index}_SKIPSSL`            | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the agent to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_LABEL` | `false`   | `null` | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platforms user interface. If populated the URL property must also be populated.
-| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_URL` | `false`   | `null` | The url of the instructions documentation
 
 **Example:**
 
@@ -824,6 +822,72 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGateway.proxy.port=8179 \
 # ... Additional arguments
 ```
+</TabItem>
+</Tabs>
+
+## UI customization variables
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                              | Required | Default | Description                                                                                                                                                          |
+|--------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_UI_MOREHELP_0_LABEL`       | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported.       |
+| `MODERNE_AGENT_UI_MOREHELP_0_URL`         | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
+| `MODERNE_AGENT_UI_MOREHELP_1_LABEL`       | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                            |
+| `MODERNE_AGENT_UI_MOREHELP_1_URL`         | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                          |
+| `MODERNE_AGENT_UI_MOREHELP_2_LABEL`       | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                             |
+| `MODERNE_AGENT_UI_MOREHELP_2_URL`         | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
+| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_LABEL` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
+| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_URL`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                    |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_AGENT_UI_MOREHELP_0_LABEL="Getting started" \
+-e MODERNE_AGENT_UI_MOREHELP_0_URL="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
+-e MODERNE_AGENT_UI_MOREHELP_1_LABEL="How to guides" \
+-e MODERNE_AGENT_UI_MOREHELP_1_URL="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
+-e MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_LABEL="Download CLI Tools" \
+-e MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_URL="https://docs.example.com/moderne-cli-setup" \
+# ... Additional variables
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                 | Required | Default | Description                                                                                                                                                          |
+|-----------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.agent.ui.moreHelp[0].label`       | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported.       |
+| `--moderne.agent.ui.moreHelp[0].url`         | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
+| `--moderne.agent.ui.moreHelp[1].label`       | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                            |
+| `--moderne.agent.ui.moreHelp[1].url`         | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                          |
+| `--moderne.agent.ui.moreHelp[2].label`       | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                             |
+| `--moderne.agent.ui.moreHelp[2].url`         | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
+| `--moderne.agent.cli.downloadInstructions.label`  | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
+| `--moderne.agent.cli.downloadInstructions.url`    | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                    |
+
+**Example:**
+
+```bash
+java -jar moderne-agent-{version}.jar \
+# ... Existing arguments
+--moderne.agent.ui.moreHelp[0].label="Getting started" \
+--moderne.agent.ui.moreHelp[0].url="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
+--moderne.agent.ui.moreHelp[1].label="How to guides" \
+--moderne.agent.ui.moreHelp[1].url="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
+--moderne.agent.cli.downloadInstructions.label="Download CLI Tools" \
+--moderne.agent.cli.downloadInstructions.url="https://docs.example.com/moderne-cli-setup" \
+# ... Additional arguments
+```
+
 </TabItem>
 </Tabs>
 
