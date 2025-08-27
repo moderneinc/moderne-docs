@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.96.0 (2025/08/27)
+
+- add white background to buttons on DevCenter security cards
+
 ### UI v11.95.1 (2025/08/27)
 
 - Bug fixes and other improvements.
