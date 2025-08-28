@@ -16,7 +16,7 @@ description: A high-level overview of the Moderne DX architecture.
 
 ### Capabilities
 
-|                                      |      Moderne DX      | Moderne Platform Enterprise |
+|                                      |      Moderne DX      | Moderne Platform  |
 | ------------------------------------ | :------------------: | :-------------------------: |
 | SCA - auto search and remediation    |  :white_check_mark:  |     :white_check_mark:      |
 | SAST - auto search and remediation   |  :white_check_mark:  |     :white_check_mark:      |
@@ -27,7 +27,7 @@ description: A high-level overview of the Moderne DX architecture.
 
 ### Features
 
-|                                |      Moderne DX      | Moderne Platform Enterprise |
+|                                |      Moderne DX      | Moderne Platform  |
 | ------------------------------ | :------------------: | :-------------------------: |
 | Moderne CLI – multi-repo DevEx |  :white_check_mark:  |     :white_check_mark:      |
 | IDE plugin                     |  :white_check_mark:  |     :white_check_mark:      |
@@ -35,15 +35,15 @@ description: A high-level overview of the Moderne DX architecture.
 | Data tables (impact analysis)  |  :white_check_mark:  |     :white_check_mark:      |
 | Data visualizations            |                      |     :white_check_mark:      |
 | Code intel dashboards          |  :white_check_mark:  |     :white_check_mark:      |
-| AI integrations                |                      |     :white_check_mark:      |
-| Change campaigns               |                      |     :white_check_mark:      |
+| AI integrations                |  :white_check_mark:  |     :white_check_mark:      |
+| Change campaigns               |  :white_check_mark:  |     :white_check_mark:      |
 | Organizational hierarchy       |  :white_check_mark:  |     :white_check_mark:      |
 | Reporting                      |  :white_check_mark:  |     :white_check_mark:      |
 | Centralized LST management     |  :white_check_mark:  |     :white_check_mark:      |
 
 ### Implementation
 
-|                                                      |      Moderne DX      | Moderne Platform Enterprise |
+|                                                      |      Moderne DX      | Moderne Platform  |
 | ---------------------------------------------------- | :------------------: | :-------------------------: |
 | SSO integration for login                            |  :white_check_mark:  |     :white_check_mark:      |
 | VCS (GitHub, GitLab, Bitbucket) integration          |  :white_check_mark:  |     :white_check_mark:      |
