@@ -27,7 +27,7 @@ This opens a small menu which allows you to do three things:
 3. Generate an [imperative visitor-based recipe](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#imperative-recipes) that matches the API you've selected.
 
 :::info
-For more information about creating search recipes using the Moderne plugin, check out our [recipe creation guide](creating-recipes.md).
+For more information about creating search recipes using the Moderne plugin, check out our [recipe creation guide](./creating-recipes.md).
 :::
 
 <figure>

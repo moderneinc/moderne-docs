@@ -39,4 +39,4 @@ Press `Dry Run` to begin the recipe run. After this runs, if we take a look at t
 
 ## Next steps
 
-Congratulations on successfully updating transitive dependencies in your project! If you're looking for other security issues to solve, consider checking out [how to use Moderne to find personally identifiable information and secrets exposed by your APIs](find-pii.md).
+Congratulations on successfully updating transitive dependencies in your project! If you're looking for other security issues to solve, consider checking out [how to use Moderne to find personally identifiable information and secrets exposed by your APIs](./find-pii.md).

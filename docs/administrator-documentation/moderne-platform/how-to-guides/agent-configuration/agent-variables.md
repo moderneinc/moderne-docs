@@ -958,7 +958,7 @@ java -jar moderne-agent-{version}.jar \
 
 :::warning
 Only be used when your company is using the [app.moderne.io](https://app.moderne.io/getting-started) tenant AND you want to upload and deploy your own company-specific recipes.
-See [Multi-tenant private recipes](multi-tenant-private-recipes.md) for more information.
+See [Multi-tenant private recipes](./multi-tenant-private-recipes.md) for more information.
 :::
 
 **Example:**
@@ -981,7 +981,7 @@ docker run \
 
 :::warning
 Only be used when your company is using the [app.moderne.io](https://app.moderne.io/getting-started) tenant, and you want to upload and deploy your own company-specific recipes.
-See [Multi-tenant private recipes](multi-tenant-private-recipes.md) for more information.
+See [Multi-tenant private recipes](./multi-tenant-private-recipes.md) for more information.
 :::
 
 
