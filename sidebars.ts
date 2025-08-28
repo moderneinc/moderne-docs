@@ -240,7 +240,6 @@ const sidebars: SidebarsConfig = {
       value: '<br/><strong>Hands-on Learning</strong>',
       defaultStyle: true,
     },
-    'hands-on-learning/moderne-cli-workshop',
     {
       type: 'category',
       label: 'Fundamentals of recipe development',
