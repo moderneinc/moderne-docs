@@ -285,7 +285,7 @@ This will grab _all_ of the recipes from your tenant – so please expect this c
 With installation and configuration complete, you're ready to use the CLI. This section will guide you through common workflows and commands.
 
 :::tip
-For a hands-on tutorial using public repositories, check out our [Moderne CLI workshop](/hands-on-learning/moderne-cli-workshop).
+For a hands-on tutorial using public repositories, check out our [Moderne CLI workshop](./moderne-cli-workshop.md).
 :::
 
 :::warning
