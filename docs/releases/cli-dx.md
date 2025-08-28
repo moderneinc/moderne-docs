@@ -3,7 +3,7 @@
 ### CLI / DX v3.45.5 (2025/08/28)
 
 #### What's Changed DX
-* Correct obfuscation rules - solving potentialserialization issues intoduced in 3.45.4
+* Correct obfuscation rules - solving potential serialization issues intoduced in 3.45.4
 
 
 ### CLI / DX v3.45.4 (2025/08/28)
