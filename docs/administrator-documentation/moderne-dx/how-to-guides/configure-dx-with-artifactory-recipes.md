@@ -1,12 +1,12 @@
 ---
-sidebar_label: Artifactory recipe configuration
+sidebar_label: (Deprecated) Artifactory recipe configuration
 description: How to configure Moderne DX so that it can retrieve recipe artifacts from Artifactory.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configure Moderne DX with Artifactory access: recipes
+# (Deprecated) Configure Moderne DX with Artifactory access: recipes
 
 In order for Moderne DX to interact with your recipe artifacts from Artifactory, you will need to create a Maven formatted repository inside of Artifactory and point the Moderne DX service to said repository. This guide will walk you through how to configure the Moderne DX service to get the list of recipe artifacts from the repository you created in Artifactory.
 

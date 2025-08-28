@@ -1,12 +1,12 @@
 ---
-sidebar_label: All DX variables
+sidebar_label: (Deprecated) All DX variables
 description: A reference manual that contains all Moderne DX configuration variables.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# All DX configuration variables
+# (Deprecated) All DX configuration variables
 
 This document includes all of the variables you can configure the Moderne agent to run with. Your configuration will only use some of these.
 

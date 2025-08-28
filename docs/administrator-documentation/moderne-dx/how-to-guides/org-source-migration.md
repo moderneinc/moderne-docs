@@ -1,12 +1,12 @@
 ---
-sidebar_label: Organizations source migration guide
+sidebar_label: (Deprecated) Organizations source migration guide
 description: How to migrate repos.csv from an Organizations service to DX.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Organization source migration
+# (Deprecated) Organization source migration
 
 In order to simplify Moderne's operational complexity, we decided that configuring organizational hierarchies should only require creating a file and giving it to Moderne DX (either via direct access or via an unauthenticated HTTP/S endpoint), rather than running a dedicated endpoint for organizational hierarchy via an Organizations service.
 

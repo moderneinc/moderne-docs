@@ -1,12 +1,12 @@
 ---
-sidebar_label: Configuring Moderne DX
+sidebar_label: (Deprecated) Configuring Moderne DX
 description: Detailed instructions for configuring Moderne DX.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configuring Moderne DX
+# (Deprecated) Configuring Moderne DX
 
 Moderne DX is a secure, fully on-premises, enterprise-level automated code remediation solution. At its heart is a central service that must be configured for everything to work correctly. This guide will walk you through how to do that.
 

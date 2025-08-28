@@ -1,12 +1,12 @@
 ---
-sidebar_label: Maven repository configuration
+sidebar_label: (Deprecated) Maven repository configuration
 description: How to configure Moderne DX so that it can communicate with Maven repositories.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configure Moderne DX with Maven repository access
+# (Deprecated) Configure Moderne DX with Maven repository access
 
 In order for Moderne DX to get the list of your [Lossless Semantic Tree](../../moderne-platform/references/lossless-semantic-trees.md) (LST) and recipe artifacts, the service needs to be configured to talk to your Maven-formatted artifact repositories. There are a variety of services that support repositories in this format. Some examples include [JFrog Artifactory](https://jfrog.com/artifactory/), [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository), and [Azure Artifacts](https://azure.microsoft.com/en-us/services/devops/artifacts/).
 

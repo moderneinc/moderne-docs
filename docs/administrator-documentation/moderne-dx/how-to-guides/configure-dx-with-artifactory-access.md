@@ -1,12 +1,12 @@
 ---
-sidebar_label: Artifactory LST configuration
+sidebar_label: (Deprecated) Artifactory LST configuration
 description: How to configure Moderne DX so that it can retrieve LST artifacts from Artifactory.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configure Moderne DX with Artifactory access: LSTs
+# (Deprecated) Configure Moderne DX with Artifactory access: LSTs
 
 Artifactory serves as a source of LST artifacts. This integration uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to identify LST artifacts.
 

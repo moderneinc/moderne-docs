@@ -1,12 +1,12 @@
 ---
-sidebar_label: Organizational hierarchy configuration
+sidebar_label: (Deprecated) Organizational hierarchy configuration
 description: How to configure an organizational hierarchy in Moderne DX.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configure an organizational hierarchy with Moderne DX
+# (Deprecated) Configure an organizational hierarchy with Moderne DX
 
 In order for users to effectively access and run recipes against specific groups of repositories, Moderne DX admins will need to define an organizational structure for their company. This structure, defined via a `repos.csv` file, needs to either be deployed as a static file alongside DX or be accessible from DX via an unauthenticated URI.
 

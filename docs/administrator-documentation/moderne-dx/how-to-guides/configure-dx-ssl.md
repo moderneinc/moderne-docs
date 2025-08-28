@@ -1,12 +1,12 @@
 ---
-sidebar_label: Client SSL certificate configuration
+sidebar_label: (Deprecated) Client SSL certificate configuration
 description: How to configure Moderne DX to connect to a service with a self-signed certificate. 
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configure Moderne DX service with client SSL certificates
+# (Deprecated) Configure Moderne DX service with client SSL certificates
 
 If you are configuring the Moderne DX service to connect to a service that requires a self-signed certificate to perform an HTTPS request (e.g., Maven or Artifactory) you will need to:
 

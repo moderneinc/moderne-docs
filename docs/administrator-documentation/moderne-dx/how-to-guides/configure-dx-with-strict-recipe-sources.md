@@ -1,12 +1,12 @@
 ---
-sidebar_label: Strict recipe source configuration
+sidebar_label: (Deprecated) Strict recipe source configuration
 description: How to configure Moderne DX to have strict recipe sources.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configure Moderne DX with strict recipe sources
+# (Deprecated) Configure Moderne DX with strict recipe sources
 
 The Moderne CLI is configured to use the following Maven repositories to load recipe artifacts from in the event the Moderne DX service has not been configured with any recipe sources or if a recipe artifact cannot be sourced from what is configured.
 
