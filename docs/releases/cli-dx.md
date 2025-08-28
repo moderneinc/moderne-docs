@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.45.5 (2025/08/28)
+
+#### What's Changed DX
+* Correct obfuscation rules - solving potentialserialization issues
+
+
 ### CLI / DX v3.45.4 (2025/08/28)
 
 #### What's Changed CLI
