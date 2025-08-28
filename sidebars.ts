@@ -31,6 +31,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'user-documentation/moderne-platform/getting-started/running-your-first-recipe',
+            'user-documentation/moderne-platform/getting-started/proof-of-value',
             'user-documentation/moderne-platform/getting-started/code-quality',
             'user-documentation/moderne-platform/getting-started/data-tables',
             'user-documentation/moderne-platform/getting-started/visualizations',
@@ -392,7 +393,6 @@ const sidebars: SidebarsConfig = {
             keywords: ['guides'],
           },
           items: [
-            'administrator-documentation/moderne-platform/getting-started/proof-of-value',
             'administrator-documentation/moderne-platform/getting-started/admin-pages',
           ],
         },
