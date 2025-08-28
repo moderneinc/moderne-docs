@@ -1,5 +1,20 @@
 # CLI / DX changelog
 
+### CLI / DX v3.45.4 (2025/08/28)
+
+#### What's Changed CLI
+* Fix package-info.java headers misstating the license terms of CLI/DX.
+* Parse Containerfile as plain text
+* Don't log "Cleaned 0 older builds" messages
+* Parse additional container files
+* Adjust "visit sources" stage trace
+* Restore ability to set active recipe to recipe not yet installed
+* Record `moderne.cli.build` metrics
+#### What's Changed DX
+- Fix DX proguard issue possibly causing NPE on startup
+- and ensure jackson pinned to 2.17.2 - while without it it is implicitly set to 2.17.2 again now, by pinning it we ensure it.
+
+
 ### CLI / DX v3.45.3 (2025/08/26)
 
 #### What's Changed CLI
