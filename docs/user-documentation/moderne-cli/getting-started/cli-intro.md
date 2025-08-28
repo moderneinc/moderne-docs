@@ -13,6 +13,10 @@ The Moderne CLI is a command line tool that complements the Moderne Platform and
 
 To ensure you can use the Moderne CLI successfully, in this guide, we will walk you through everything you need to get started – from installation, to configuration, to examples demonstrating how to use it.
 
+:::note
+The examples in this guide use Moderne CLI version `3.45.5`.
+:::
+
 ## Installation and configuration
 
 Choose the installation path that matches your setup:
@@ -27,12 +31,6 @@ Choose the installation path that matches your setup:
 1. Go to [app.moderne.io](https://app.moderne.io/) and sign in.
 2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging).
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
-
-:::note
-
-The examples in this guide use Moderne CLI version 3.45.2.
-
-:::
 
 ![](./assets/cli-download.gif)
 
