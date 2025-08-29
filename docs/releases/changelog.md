@@ -1,7 +1,13 @@
 # Platform changelog
+
 ### UI v11.97.0 (2025/08/29)
 
-- update administrative Agents dashboard page
+#### Enhanced Administrative Agents Dashboard
+
+![Update Agent Integration dashboard](./assets/agent-integration-dashboard.png)
+
+The administrative Agents dashboard now uses a table-based layout that improves how administrators discover and view agent integrations. The new unified view allows filtering by tools,
+tenants, and agents, making it faster to locate specific configurations compared to the previous card-based interface.
 
 ### UI v11.96.2 (2025/08/28)
 
@@ -58,13 +64,14 @@
 ### UI v11.89.0 (2025/08/19)
 
 We have made changes to the key bindings and command palette:
+
 - There is no longer a key bindings cheat sheet display when hitting `?`.
   - Instead `?` will now open the command palette which will also display the keybinds available for the page you are on (similar to the cheat sheet)
 - The focus global search and command palette bindings are no longer customizable in the account menu
   - `?` as mentioned will now open the command palette
   - `/` will focus the global search
   - Key bindings can still be disabled/enabled via the same place in the account menu
-- Many navigation shortcuts were previously one character key binds with no modifier.  We have changed this so many now require the `shift` modifier in efforts to prevent unintended navigation.
+- Many navigation shortcuts were previously one character key binds with no modifier. We have changed this so many now require the `shift` modifier in efforts to prevent unintended navigation.
 
 ### UI v11.88.1 (2025/08/15)
 
@@ -76,7 +83,7 @@ We have made changes to the key bindings and command palette:
 
 ### UI v11.87.0 (2025/08/14)
 
-- add new custom 404 and 500 pages. Wire into to _error and Page-error-boundary
+- add new custom 404 and 500 pages. Wire into to \_error and Page-error-boundary
 
 ### UI v11.86.0 (2025/08/14)
 
@@ -602,7 +609,6 @@ We have made changes to the key bindings and command palette:
 
 As of Moderne Agent v0.210.0, the organizations service configuration has moved from `moderne.agent.organization` to `moderne.agent.organization.service`.
 
-
 #### Before
 
 ```properties
@@ -816,22 +822,25 @@ You can now export audit logs as a CSV file in addition to the existing CEF form
 Selecting a date range will also limit the results in the data table.
 
 #### Other
+
 - add status indicators to activity view
 
 ### UI v10.174.0 (2024/12/10)
 
 #### Usage report now available
 
-Usage reports are now available across the entire tenant for  administrators. In addition, team members can download usage reports for an organization through the DevCenter.
+Usage reports are now available across the entire tenant for administrators. In addition, team members can download usage reports for an organization through the DevCenter.
 
 ![usage reports](./assets/usage-devcenter.png)
 
 #### Other
+
 - add field syncing to add to builder dialog
 
 ### Artifact storage v0.251.0 (2024/12/10)
 
 #### Ingest changes
+
 The way origins are determined has changed. The SaaS now uses `GitRemote.Parser` to determine the origin which means we no longer remove `/scm` at the end of a (possible) origin. This can have impact if you use Bitbucket (DC/Server) and have not correctly configured the origin in the agent.
 
 Please make sure that, in case of Bitbucket, you have configured it as such:
@@ -839,7 +848,7 @@ Please make sure that, in case of Bitbucket, you have configured it as such:
 ```
 ...
 # note there is no `/scm` at the end, this is not part of the origin.
-moderne.agent.bitbucket[0].url=https://bitbucket.moderne.io/stash 
+moderne.agent.bitbucket[0].url=https://bitbucket.moderne.io/stash
 ...
 ```
 
@@ -849,7 +858,7 @@ moderne.agent.bitbucket[0].url=https://bitbucket.moderne.io/stash
 
 ### UI v10.173.0 (2024/12/06)
 
-- Sometimes a recipe run will have results where some repositories have changes but also are marked with status error indicating that the recipe left informational error markers.  You can now choose to commit these changes if you would like. When commiting these changes you will see an extra warning:
+- Sometimes a recipe run will have results where some repositories have changes but also are marked with status error indicating that the recipe left informational error markers. You can now choose to commit these changes if you would like. When commiting these changes you will see an extra warning:
 
 ![commit warning](./assets/commit-warning.png)
 
@@ -877,7 +886,6 @@ When searching the recipe tree partial and full matches of the recipe ID are now
 
 The header on a visualization page will now include the organization the visualization was run on.
 
-
 ### Agent 0.195.0 (2024/11/21)
 
 - As of Agent version 0.195.0 we are now **no longer publishing new versions to Azure Container Registry**. If you were using Azure Container Registry to pull a Docker image for Moderne Agent, you will need to follow the instructions [here](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md#step-2-determine-how-you-will-run-the-agent) to build a Dockerfile and publish your own Docker image for the Moderne Agent.
@@ -899,8 +907,8 @@ The header on a visualization page will now include the organization the visuali
 
 It's the end of the year and the holidays are right around the corner. Sales abound! To celebrate we've given the marketplace a fresh coat of paint. We hope you enjoy the new look and feel.
 
-
 #### GraphiQL update
+
 ![Updated GraphiQL](./assets/graphiql-2024.png)
 
 We have also updated our GraphiQL plugin to the latest version.
@@ -908,7 +916,6 @@ We have also updated our GraphiQL plugin to the latest version.
 ![Updated GraphiQL](./assets/graphiql-share.png)
 
 You can still share your queries with others by clicking the share button. This will give you the option to either copy the URL to view the query within the Moderne UI or copy to run via cURL.
-
 
 - Bug fixes and other improvements.
 
@@ -956,7 +963,6 @@ When selecting the layout (3D topology or the tree view in the main content pane
 
 - Bug fixes and other improvements.
 
-
 ### UI v10.162.0 (2024/10/23)
 
 - updated keyboard shortcuts for less collisions.  
@@ -980,7 +986,7 @@ We've updated our global navigation to help maximize the important content on yo
   </figcaption>
 </figure>
 
-* add undo button
+- add undo button
 
 ### UI v10.160.1 (2024/10/16)
 
@@ -1016,27 +1022,27 @@ Often times you may come across marketplace recipes or more often custom recipes
 
 ### UI v10.159.0 (2024/10/10)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.158.0 (2024/10/09)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.157.2 (2024/10/07)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.157.1 (2024/10/07)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.157.0 (2024/10/04)
 
-* allow repository removal from organization from the repositories table
+- allow repository removal from organization from the repositories table
 
 ### UI v10.156.0 (2024/09/30)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.155.0 (2024/09/27)
 
@@ -1044,11 +1050,11 @@ Often times you may come across marketplace recipes or more often custom recipes
 
 The builder is dead! Long live the new builder! - As many have known, we have built a new builder that has many advantages over the previous, some big examples include:
 
-* The ability to work on multiple recipes
-* The ability to work on recipes without having to navigate multiple pages.
-* 3D representation
-* An improved 2D tree representation
-* Search and filter abilities
+- The ability to work on multiple recipes
+- The ability to work on recipes without having to navigate multiple pages.
+- 3D representation
+- An improved 2D tree representation
+- Search and filter abilities
 
 During the beta we received lots of feedback from all different types of users that helped us get to this point so first off -- Thank you! As always we continue to welcome feedback as we refine and make improvements to ensure we are creating tools that are impactful for our users.
 
@@ -1098,28 +1104,28 @@ Regardless if you pick an existing recipe or create a new one, the marketplace r
 
 ### UI v10.154.0 (2024/09/26)
 
-* add logo support for android, dotnet, gitlab, reactor, scala
+- add logo support for android, dotnet, gitlab, reactor, scala
 
 ### UI v10.153.3 (2024/09/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.153.2 (2024/09/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.153.1 (2024/09/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.153.0 (2024/09/25)
 
-* add ability to download devcenter datatable
-* add missing lst message to devcenter
+- add ability to download devcenter datatable
+- add missing lst message to devcenter
 
 ### UI v10.152.0 (2024/09/23)
 
-* update activity view url
+- update activity view url
 
 ### DevCenter v0.253.0 (2024/09/23)
 
@@ -1127,7 +1133,7 @@ The method for calculating lines of code has changed slightly. We now count raw 
 
 ### UI v10.151.0 (2024/09/17)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### DevCenter v0.250.0 (2024/09/13)
 
@@ -1180,15 +1186,15 @@ We improved the performance of the recipe tree and dramatically improved the dra
 
 ### UI v10.147.0 (2024/09/09)
 
-* add category icons to quick search
+- add category icons to quick search
 
 ### UI v10.146.0 (2024/09/05)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.145.1 (2024/08/30)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.145.0 (2024/08/30)
 
@@ -1238,7 +1244,7 @@ Often a custom recipe will be composed of a few recipes that are used many times
 
 ### UI v10.141.0 (2024/08/16)
 
-* handle 401 errors where accessToken is still unexpired
+- handle 401 errors where accessToken is still unexpired
 
 ### UI v10.140.0 (2024/08/15)
 
@@ -1254,11 +1260,11 @@ We have improved recipe selector so that the recipe description is visible to gi
 
 ### UI v10.139.2 (2024/08/09)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.139.1 (2024/08/09)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.139.0 (2024/08/07)
 
@@ -1270,13 +1276,13 @@ This new mime type allows visualization notebook authors the ability to generate
 
 ### UI v10.138.0 (2024/08/07)
 
-* add new category logos for ff4j, OpenFeature, and Unleash to support the new feature flag recipes
+- add new category logos for ff4j, OpenFeature, and Unleash to support the new feature flag recipes
 
   ![](./assets/new-logos.png)
 
 ### UI v10.137.0 (2024/08/05)
 
-*  Visualizations that use the data tree grid output now have search highlighting built in
+- Visualizations that use the data tree grid output now have search highlighting built in
 
 <figure>
   ![](./assets/search-highlighting.png)
@@ -1285,131 +1291,132 @@ This new mime type allows visualization notebook authors the ability to generate
 
 ### UI v10.136.0 (2024/08/03)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.135.0 (2024/08/02)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.134.0 (2024/08/01)
 
-* add authorization support for Azure DevOps. See how to [setup your agent to connect to Azure DevOps](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services)
+- add authorization support for Azure DevOps. See how to [setup your agent to connect to Azure DevOps](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services)
 
 <figure>
   ![](./assets/azure-connection.png)
   <figcaption></figcaption>
 </figure>
 
-
 ### UI v10.133.0 (2024/07/29)
 
 We have added more quality of life improvements for the new builder:
 
-* add builder keyboard shortcuts
+- add builder keyboard shortcuts
 
   ![](./assets/more-keyboard-shortcuts.png)
 
-* the speed dial menu previously opened on hover but closed on click which made for a few variations of weird interactions. We have changed the menu so it must be clicked to open and clicked to close making the experience predictable and consistent. The speed dial menu also has a new icon:
+- the speed dial menu previously opened on hover but closed on click which made for a few variations of weird interactions. We have changed the menu so it must be clicked to open and clicked to close making the experience predictable and consistent. The speed dial menu also has a new icon:
 
   ![](./assets/changed-speed-dial.png)
 
-* improve builder options' readability and spacing on larger screens
-* Bug fixes and other improvements.
+- improve builder options' readability and spacing on larger screens
+- Bug fixes and other improvements.
 
 UI v10.132.1 (2024/07/25)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.132.0 (2024/07/25)
 
 In this release we have made various improvements to the new builder to increase clarity and productivity.
 
-* Since adding controls such as **add**, **edit**, **delete** to the tree view ([v10.124.0](#ui-v101240-20240620)) we found some users enjoy primarily using the tree view to compose recipes so we want to allow users to move this view to the main content window. There is now a new layout swap icon to swap the 3D topology view and the tree view:
+- Since adding controls such as **add**, **edit**, **delete** to the tree view ([v10.124.0](#ui-v101240-20240620)) we found some users enjoy primarily using the tree view to compose recipes so we want to allow users to move this view to the main content window. There is now a new layout swap icon to swap the 3D topology view and the tree view:
 
 <figure>
   ![](./assets/layout_swap.png)
   <figcaption></figcaption>
 </figure>
 
-* We received feedback that the options were hard to discover. We have begun to address this by making the options panel auto open when the selected recipe has options and also auto expand to fit more options before having to scroll. Note the options have moved to the lower right now:
+- We received feedback that the options were hard to discover. We have begun to address this by making the options panel auto open when the selected recipe has options and also auto expand to fit more options before having to scroll. Note the options have moved to the lower right now:
 
   ![](./assets/options-panel.png)
 
-* We found that some users were not aware of the recipe menu and the options available there so we have made the button more visible by adding a label:
+- We found that some users were not aware of the recipe menu and the options available there so we have made the button more visible by adding a label:
 
   ![](./assets/new-recipe-label.png)
 
 ### UI v10.131.0 (2024/07/22)
 
-* improve builder tree font on large displays
+- improve builder tree font on large displays
 
 ### UI v10.130.0 (2024/07/18)
 
-*   In the builder there is now a new menu item **Edit as YAML**
+- In the builder there is now a new menu item **Edit as YAML**
 
-    This will open a text editor with the current recipe's yaml to edit:
+  This will open a text editor with the current recipe's yaml to edit:
 
 <figure>
   ![](./assets/recipe-yaml.png)
   <figcaption></figcaption>
 </figure>
 
-* In the builder you can now edit nest recipe details
+- In the builder you can now edit nest recipe details
 
 ### UI v10.129.0 (2024/07/16)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.128.4 (2024/07/11)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.128.3 (2024/07/10)
 
-* Bug fixes and other improvements
-  * In combination with other backend changes we now expose more data tables when running composite recipes. Find more information on the latest visualization package [here](https://github.com/moderneinc/moderne-visualizations-misc/blob/main/CHANGELOG.md).
+- Bug fixes and other improvements
+  - In combination with other backend changes we now expose more data tables when running composite recipes. Find more information on the latest visualization package [here](https://github.com/moderneinc/moderne-visualizations-misc/blob/main/CHANGELOG.md).
 
 ### UI v10.128.2 (2024/07/09)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.128.1 (2024/07/07)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.128.0 (2024/07/03)
 
-* use animated icon for loading-like statuses
+- use animated icon for loading-like statuses
 
 ### UI v10.127.0 (2024/06/28)
 
-* Builder improvements:
-  * add expand/collapse all buttons:
+- Builder improvements:
+
+  - add expand/collapse all buttons:
 
     ![](./assets/recipe-expand-collapse.png)
 
 ### UI v10.126.1 (2024/06/28)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.126.0 (2024/06/27)
 
-* Builder improvements:
-  * To improve nested precondition clarity we have changed the color of the expanded dashed line when expanding a precondition:
+- Builder improvements:
+
+  - To improve nested precondition clarity we have changed the color of the expanded dashed line when expanding a precondition:
 
     ![](./assets/precondition-dashes.png)
 
 UI v10.125.2 (2024/06/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.125.1 (2024/06/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.125.0 (2024/06/26)
 
-* In order to demonstrate how complete an impact analysis or set of changes is, we have added results for all repositories to the recipe run results, this now includes repositories for which we have no LST ingested into the platform.
+- In order to demonstrate how complete an impact analysis or set of changes is, we have added results for all repositories to the recipe run results, this now includes repositories for which we have no LST ingested into the platform.
 
 <figure>
   ![](./assets/no-lst-results.png)
@@ -1418,11 +1425,11 @@ UI v10.125.2 (2024/06/26)
 
 ### UI v10.124.1 (2024/06/23)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.124.0 (2024/06/20)
 
-*   We have added dynamic controls to tree items in the tree view of the new builder. These controls will appear when interacting with the tree items:
+- We have added dynamic controls to tree items in the tree view of the new builder. These controls will appear when interacting with the tree items:
 
  <figure>
   ![](./assets/dynamic-controls.png)
@@ -1431,39 +1438,38 @@ UI v10.125.2 (2024/06/26)
 
 ### UI v10.123.0 (2024/06/17)
 
-* add empty state message to builder open dialog
+- add empty state message to builder open dialog
 
 ### UI v10.122.0 (2024/06/13)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.121.2 (2024/06/12)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.121.0 (2024/06/11)
 
-* In the new builder we have improved the default recipe ID only in private customer tenants. The new default ID will be based off the user's email. Example:
-  * `jsmith@superco.com` -> `com.superco.jsmith.Untitled`
-  * `j.smith@superco.ai` -> `ai.superco.j_smith.Untitled`
-*   The new builder now supports adding preconditions to any recipe node.
-    
-    Preconditions are recipes that run before the current list of recipes. When a recipe is used as a precondition, any file that it would make a change to is considered to meet the precondition. When more than one recipe is used as a precondition, all of them must make a change to the file for it to be considered to meet the precondition.
+- In the new builder we have improved the default recipe ID only in private customer tenants. The new default ID will be based off the user's email. Example:
+  - `jsmith@superco.com` -> `com.superco.jsmith.Untitled`
+  - `j.smith@superco.ai` -> `ai.superco.j_smith.Untitled`
+- The new builder now supports adding preconditions to any recipe node.
 
-    Only when all preconditions are met will the recipes in the recipe list be run.
+  Preconditions are recipes that run before the current list of recipes. When a recipe is used as a precondition, any file that it would make a change to is considered to meet the precondition. When more than one recipe is used as a precondition, all of them must make a change to the file for it to be considered to meet the precondition.
 
-    
-    _For more information, please see our_ [_preconditions documentation_](../user-documentation/moderne-platform/how-to-guides/preconditions.md)_._
-    
-    Preconditions can be added via a new button:
+  Only when all preconditions are met will the recipes in the recipe list be run.
 
-    ![](./assets/precondition-1.png)
+  _For more information, please see our_ [_preconditions documentation_](../user-documentation/moderne-platform/how-to-guides/preconditions.md)_._
 
-    or when adding a recipe by toggling this check box:
+  Preconditions can be added via a new button:
 
-    ![](./assets/precondition-2.png)
+  ![](./assets/precondition-1.png)
 
-    Preconditions show up as a different color node in the 3D scene and highlighted in the tree view:
+  or when adding a recipe by toggling this check box:
+
+  ![](./assets/precondition-2.png)
+
+  Preconditions show up as a different color node in the 3D scene and highlighted in the tree view:
 
 <figure>
   ![](./assets/precondition-3.png)
@@ -1472,11 +1478,11 @@ UI v10.125.2 (2024/06/26)
 
 ### UI v10.120.0 (2024/06/04)
 
-* include bearer token with share curl from graphql editor
+- include bearer token with share curl from graphql editor
 
 ### UI v10.119.0 (2024/06/03)
 
-*   When selecting subtrees in the new builder other nodes are now de-emphasized to improve visual clarity of the selection:
+- When selecting subtrees in the new builder other nodes are now de-emphasized to improve visual clarity of the selection:
 
 <figure>
   ![](./assets/deemphasized-recipes.png)
@@ -1485,25 +1491,25 @@ UI v10.125.2 (2024/06/26)
 
 ### UI v10.118.0 (2024/05/31)
 
-* add more visual improvements to builder
-* add support for quick filter + column filter on organizations repositories grid
+- add more visual improvements to builder
+- add support for quick filter + column filter on organizations repositories grid
 
 ### UI v10.117.0 (2024/05/30)
 
-* Grids will now show more context regarding pagination:
+- Grids will now show more context regarding pagination:
   ![](./assets/pagination-button.png)
-* In the new builder the tree view has been improved visually to increase clarity and now has a new auto scroll mechanic which should be more consistent than the previous:
+- In the new builder the tree view has been improved visually to increase clarity and now has a new auto scroll mechanic which should be more consistent than the previous:
   ![](./assets/improved-tree-view.png)
-* In the new builder the scene control buttons have been redesigned and relocated to the lower left of the scene:
+- In the new builder the scene control buttons have been redesigned and relocated to the lower left of the scene:
   ![](./assets/scene-control-buttons-moved.png)
 
 UI v10.116.0 (2024/05/23)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.115.0 (2024/05/21)
 
-* update various menu styles
+- update various menu styles
 
 ### UI v10.114.0 (2024/05/18)
 
@@ -1522,7 +1528,7 @@ The new recipe builder now has a new greeting card when no custom recipe is load
 
 ### UI v10.112.1 (2024/05/16)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.112.0 (2024/05/15)
 
@@ -1535,7 +1541,7 @@ The new recipe builder now auto saves progress and there is a new indicator to s
 
 ### UI v10.111.1 (2024/05/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.111.0 (2024/05/14)
 
@@ -1552,287 +1558,287 @@ Adding marketplace recipes all happens now within the new Builder experience. Th
 
 ### UI v10.110.0 (2024/05/09)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.109.0 (2024/05/08)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.108.0 (2024/05/07)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.107.0 (2024/05/03)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.106.0 (2024/05/02)
 
-* add create and retrieve organizations examples
-* allow creating user repositories from the repositories page
-* Draft not supported in Bitbucket Cloud helper text
+- add create and retrieve organizations examples
+- allow creating user repositories from the repositories page
+- Draft not supported in Bitbucket Cloud helper text
 
 ### UI v10.105.0 (2024/04/30)
 
-* Update text for upgrades and migrations
+- Update text for upgrades and migrations
 
 ### UI v10.104.0 (2024/04/24)
 
-* add QUEUED_RATE_LIMITED commit status
+- add QUEUED_RATE_LIMITED commit status
 
 ### UI v10.103.0 (2024/04/23)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.102.0 (2024/04/20)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.101.0 (2024/04/18)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.100.0 (2024/04/16)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.99.0 (2024/04/12)
 
-* admin users view
+- admin users view
 
 ### UI v10.98.0 (2024/04/11)
 
-* add Share curl button to graphql explorer to copy graphql request as curl
-* add csharp logo support
+- add Share curl button to graphql explorer to copy graphql request as curl
+- add csharp logo support
 
 ### UI v10.97.0 (2024/04/08)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.96.0 (2024/04/04)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.95.0 (2024/03/29)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.94.0 (2024/03/29)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.93.0 (2024/03/29)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.92.0 (2024/03/28)
 
-* organizations tile with refresh organizations button
+- organizations tile with refresh organizations button
 
 ### UI v10.91.0 (2024/03/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.90.0 (2024/03/22)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.89.0 (2024/03/21)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.88.0 (2024/03/20)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.87.0 (2024/03/20)
 
-* add more logo support
+- add more logo support
 
 ### UI v10.86.1 (2024/03/18)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.86.0 (2024/03/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.85.0 (2024/03/15)
 
-* add API example to search page
+- add API example to search page
 
 ### UI v10.84.1 (2024/03/14)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.84.0 (2024/03/12)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.83.2 (2024/03/12)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.83.1 (2024/03/12)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.83.0 (2024/03/12)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.82.0 (2024/03/11)
 
-* reporting issue to moderne is now an email template
+- reporting issue to moderne is now an email template
 
 ### UI v10.81.0 (2024/03/08)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.80.0 (2024/03/06)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.79.0 (2024/03/06)
 
-* display last updated timestamp on upgrade and migration cards
-* incorporate organization ids into dev center URL path
+- display last updated timestamp on upgrade and migration cards
+- incorporate organization ids into dev center URL path
 
 ### UI v10.78.1 (2024/03/06)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.78.0 (2024/03/05)
 
-* add api example with options for individual visualizations
+- add api example with options for individual visualizations
 
 ### UI v10.77.1 (2024/03/04)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.77.0 (2024/03/01)
 
-* add ability to download datatables as JSON
+- add ability to download datatables as JSON
 
 ### UI v10.76.0 (2024/03/01)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.75.0 (2024/02/28)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.74.0 (2024/02/27)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.73.0 (2024/02/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.72.0 (2024/02/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.71.0 (2024/02/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.70.0 (2024/02/24)
 
-* visualization width now adjusts when window is resized.
+- visualization width now adjusts when window is resized.
 
 ### UI v10.69.0 (2024/02/24)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.68.1 (2024/02/23)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.68.0 (2024/02/22)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.67.0 (2024/02/22)
 
-* add more logo support
-* add text editor form input
+- add more logo support
+- add text editor form input
 
 ### UI v10.66.0 (2024/02/20)
 
-* add storybook category
-* add support for picnic and refaster
+- add storybook category
+- add support for picnic and refaster
 
 ### UI v10.65.1 (2024/02/17)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.65.0 (2024/02/16)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.64.0 (2024/02/16)
 
-* add jest logo
-* add ng and lodash logos
+- add jest logo
+- add ng and lodash logos
 
 ### UI v10.63.0 (2024/02/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.62.0 (2024/02/14)
 
-* add more js catorgy logos
+- add more js catorgy logos
 
 ### UI v10.61.0 (2024/02/14)
 
-* add more logo support
+- add more logo support
 
 ### UI v10.60.1 (2024/02/13)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.60.0 (2024/02/09)
 
-* add user filter for recipe runs
+- add user filter for recipe runs
 
 ### UI v10.59.0 (2024/02/09)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.58.0 (2024/02/08)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.57.0 (2024/02/07)
 
-* add common filters
+- add common filters
 
 ### UI v10.56.0 (2024/02/06)
 
-* add download dismiss x
-* support date range filter
+- add download dismiss x
+- support date range filter
 
 ### UI v10.55.0 (2024/02/05)
 
-* add infinite scrolling to audit logs
+- add infinite scrolling to audit logs
 
 ### UI v10.54.0 (2024/02/04)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.53.0 (2024/02/02)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.52.1 (2024/02/02)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.52.0 (2024/02/01)
 
-* add date range filter
+- add date range filter
 
 ### Organizations GraphQL changes (2024/02/01)
 
@@ -1849,77 +1855,77 @@ Example hierarchy from our public tenant.
 
 ### UI v10.51.0 (2024/01/31)
 
-* preserve column size, order, and visibility to URL `state` hash on change
+- preserve column size, order, and visibility to URL `state` hash on change
 
 ### UI v10.50.0 (2024/01/30)
 
-* add copy mod cli command
-* add `notContains` operator to Audit Log event columns
+- add copy mod cli command
+- add `notContains` operator to Audit Log event columns
 
 ### UI v10.49.0 (2024/01/27)
 
-* recipe source and lst source information on agents feat/org dash mock 2
+- recipe source and lst source information on agents feat/org dash mock 2
 
 ### UI v10.48.0 (2024/01/26)
 
-* make infinite scroll
+- make infinite scroll
 
 ### UI v10.47.0 (2024/01/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.46.0 (2024/01/25)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.45.0 (2024/01/24)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.44.1 (2024/01/23)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.44.0 (2024/01/22)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.43.2 (2024/01/22)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.43.1 (2024/01/19)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.43.0 (2024/01/19)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.42.0 (2024/01/18)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.41.1 (2024/01/16)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.41.0 (2024/01/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.40.0 (2024/01/12)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.39.0 (2024/01/10)
 
-* add index url column to deploy table
-* add system theme aware login
+- add index url column to deploy table
+- add system theme aware login
 
 ### UI v10.38.0 (2024/01/09)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.37.0 (2024/01/08)
 
@@ -1943,44 +1949,44 @@ Here you can see **the most recent activities performed on the selected Organiza
 
 ### UI v10.36.0 (2024/01/06)
 
-* allow downloads to continue while navigating around the app.
+- allow downloads to continue while navigating around the app.
 
 ### UI v10.35.2 (2024/01/05)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.35.1 (2024/01/04)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.35.0 (2024/01/03)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.34.1 (2024/01/02)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.34.0 (2023/12/29)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.33.0 (2023/12/29)
 
-* expose git provenance and operating system information on repository details
+- expose git provenance and operating system information on repository details
 
 ### UI v10.32.1 (2023/12/28)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.32.0 (2023/12/27)
 
-* add search tips for ai search when enabled.
-* add reload current recipes with latest version to examples. Show caret with API examples
+- add search tips for ai search when enabled.
+- add reload current recipes with latest version to examples. Show caret with API examples
 
 ### UI v10.31.0 (2023/12/22)
 
-* remove need for keycloak logout screen
+- remove need for keycloak logout screen
 
 ### UI v10.30.0 (2023/12/20)
 
@@ -2002,37 +2008,37 @@ New:
 
 ### UI v10.29.0 (2023/12/18)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.28.1 (2023/12/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.28.0 (2023/12/15)
 
-* Add tile to agents page for PyPi configuration
-* add loading indication when paginating audit logs.
+- Add tile to agents page for PyPi configuration
+- add loading indication when paginating audit logs.
 
 ### UI v10.27.0 (2023/12/14)
 
-* user organizations
+- user organizations
 
 ### UI v10.26.0 (2023/12/14)
 
-* enable AI assisted search by default
-* add mergeability column to the commit job table
+- enable AI assisted search by default
+- add mergeability column to the commit job table
 
 ### UI v10.25.0 (2023/12/13)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.24.2 (2023/12/12)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.24.1 (2023/12/09)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.24.0 (2023/12/08)
 
@@ -2057,11 +2063,11 @@ On the heels of adding support for preconditions, it was time to give the _Recip
 
 ### UI v10.23.0 (2023/12/08)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.22.1 (2023/12/06)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.22.0 (2023/12/06)
 
@@ -2081,24 +2087,24 @@ Once a precondition has been added, it will appear as a new tab on the _Recipe B
   <figcaption></figcaption>
 </figure>
 
-* add icon support for processing status
+- add icon support for processing status
 
 ### UI v10.21.1 (2023/12/04)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.21.0 (2023/12/02)
 
-* preserve the recipe options used when navigating back
+- preserve the recipe options used when navigating back
 
 ### UI v10.20.0 (2023/12/01)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.19.0 (2023/11/30)
 
-* add visualization id for easy reference
-* add tooltip to queue position column cells to help understand the workers' queues
+- add visualization id for easy reference
+- add tooltip to queue position column cells to help understand the workers' queues
 
 ### UI v10.18.0 (2023/11/30)
 
@@ -2120,47 +2126,47 @@ We added a hint to the search results popover with the intention of increasing u
 
 ### UI v10.16.4 (2023/11/23)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.16.3 (2023/11/22)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.16.2 (2023/11/21)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.16.1 (2023/11/21)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.16.0 (2023/11/21)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.15.2 (2023/11/20)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.15.1 (2023/11/20)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.15.0 (2023/11/20)
 
-* add opt-in for AI search
+- add opt-in for AI search
 
 ### UI v10.14.0 (2023/11/18)
 
-* add for new line support
+- add for new line support
 
 ### UI v10.13.1 (2023/11/18)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.13.0 (2023/11/17)
 
-* use datatable name for download file
+- use datatable name for download file
 
 ### UI v10.12.0 (2023/11/16)
 
@@ -2173,32 +2179,32 @@ We have improved the organization and layout of recipe details to make better us
   <figcaption></figcaption>
 </figure>
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.11.0 (2023/11/16)
 
-* visualization marketplace
+- visualization marketplace
 
 ### UI v10.10.0 (2023/11/15)
 
-* add percentage of completion to actively running recipes
+- add percentage of completion to actively running recipes
 
 ### UI v10.9.2 (2023/11/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.9.1 (2023/11/13)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v10.9.0 (2023/11/10)
 
-* use radio control for organization selection
+- use radio control for organization selection
 
 ### UI v10.8.0 (2023/11/10)
 
-* link to recipe from recipe run results summary
-* async repo details
+- link to recipe from recipe run results summary
+- async repo details
 
 ### UI v10.0.0 (2023/11/02)
 
@@ -2211,8 +2217,8 @@ We have improved the organization and layout of recipe details to make better us
 
 We started to encounter pain points with our previous design:
 
-* Navigation was split across the top bar and sidebar
-* Long organization / repository group titles could be truncated
+- Navigation was split across the top bar and sidebar
+- Long organization / repository group titles could be truncated
 
 Unified Sidebar Navigation: All navigation elements are now consolidated into a single, intuitive sidebar, simplifying the user experience and reducing the cognitive load.
 
@@ -2220,11 +2226,11 @@ Elimination of Top Bar: Removing the top navigation bar frees up valuable screen
 
 ### UI v9.177.0 (2023/10/30)
 
-* determine ability to deploy artifacts based on new ACL
+- determine ability to deploy artifacts based on new ACL
 
 ### UI v9.176.1 (2023/10/24)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.176.0 (2023/10/24)
 
@@ -2232,7 +2238,7 @@ feat/add-yielded-state
 
 ### UI v9.175.0 (2023/10/20)
 
-* add support for showing skipped connectivity
+- add support for showing skipped connectivity
 
 ### UI v9.174.0 (2023/10/19)
 
@@ -2246,67 +2252,67 @@ This journey begins this version with a rework of the left navigation icons:
 
 ### UI v9.173.0 (2023/10/17)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.172.0 (2023/10/12)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.171.2 (2023/10/12)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.171.1 (2023/10/11)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### Agent v0.150.0 (2023/10/11)
 
-*   Tool connectivity validation on startup. Now when Agent starts it tests the connectivity of each tool configured (maven, artifactory, SCM provider). If connectivity fails for any configured tool, the Agent will fail to start and the logs will display which configuration failed to connect.
+- Tool connectivity validation on startup. Now when Agent starts it tests the connectivity of each tool configured (maven, artifactory, SCM provider). If connectivity fails for any configured tool, the Agent will fail to start and the logs will display which configuration failed to connect.
 
-    ```log
-    ***************************
-    APPLICATION FAILED TO START
-    ***************************
+  ```log
+  ***************************
+  APPLICATION FAILED TO START
+  ***************************
 
-    Description:
+  Description:
 
-    Binding to target org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'moderne.agent' to io.moderne.agent.config.AgentConfiguration failed:
+  Binding to target org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'moderne.agent' to io.moderne.agent.config.AgentConfiguration failed:
 
-        Property: moderne.agent.bitbucket[0]
-        Value: "BitbucketConfiguration(url=https://bitbucket.test/stash, alternateUrls=[ssh://bitbucket.moderne.nin:7999], ssh=null, skipSsl=false, valid=false)", 
-        Reason: Connection verification errored with connection timed out: bitbucket.test/143.244.220.150:443; 
-        nested exception is io.netty.channel.ConnectTimeoutException: connection timed out: bitbucket.test/143.244.220.150:443
-            Verify configuration url and credentials.
-    ```
+      Property: moderne.agent.bitbucket[0]
+      Value: "BitbucketConfiguration(url=https://bitbucket.test/stash, alternateUrls=[ssh://bitbucket.moderne.nin:7999], ssh=null, skipSsl=false, valid=false)",
+      Reason: Connection verification errored with connection timed out: bitbucket.test/143.244.220.150:443;
+      nested exception is io.netty.channel.ConnectTimeoutException: connection timed out: bitbucket.test/143.244.220.150:443
+          Verify configuration url and credentials.
+  ```
 
 ### UI v9.171.0 (2023/10/10)
 
-* show connection status of each tool in agents view
+- show connection status of each tool in agents view
 
 ### UI v9.170.3 (2023/10/07)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.170.2 (2023/10/07)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.170.1 (2023/10/06)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.170.0 (2023/10/05)
 
-* add `organizationId` to commit job tables
+- add `organizationId` to commit job tables
 
 ### UI v9.169.0 (2023/10/04)
 
-* add homebrew installation option for mod-cli
+- add homebrew installation option for mod-cli
 
 ### UI v9.168.0 (2023/10/04)
 
-* change marketplace banner
+- change marketplace banner
 
 #### Optimizing recipe results and commit jobs
 
@@ -2334,124 +2340,124 @@ To improve the number of recipe results and commit jobs that can be viewed on th
 
 ### UI v9.167.1 (2023/10/03)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.167.0 (2023/10/02)
 
-* add mass close pull requests
+- add mass close pull requests
 
 ### UI v9.166.0 (2023/09/27)
 
-* download patch with patch download task.
+- download patch with patch download task.
 
 ### UI v9.165.2 (2023/09/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.165.1 (2023/09/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.165.0 (2023/09/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.164.0 (2023/09/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.163.1 (2023/09/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.163.0 (2023/09/26)
 
-* download cli from staging
-* add recipe hover card to recent runs grid
+- download cli from staging
+- add recipe hover card to recent runs grid
 
 ### UI v9.162.0 (2023/09/23)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.159.0 (2023/09/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.158.3 (2023/09/14)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.158.2 (2023/09/14)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.158.1 (2023/09/14)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.158.0 (2023/09/13)
 
-* add tree data grid visualiztion support feat/merge commit
-* add categories api example
+- add tree data grid visualiztion support feat/merge commit
+- add categories api example
 
 ### UI v9.157.0 (2023/09/12)
 
-* add more notifications
+- add more notifications
 
 ### UI v9.156.0 (2023/09/11)
 
-* add approve to the row-level actions on commit jobs
-* add download notifications
-* pull request status on commit jobs
-* add notifications for artifact deploys
+- add approve to the row-level actions on commit jobs
+- add download notifications
+- pull request status on commit jobs
+- add notifications for artifact deploys
 
 ### UI v9.155.0 (2023/09/07)
 
-* toggling datetime elements now changes default user setting
+- toggling datetime elements now changes default user setting
 
 ### UI v9.154.0 (2023/09/06)
 
-* add recipe run priority to recent recipe run grid
-* approve pull requests
+- add recipe run priority to recent recipe run grid
+- approve pull requests
 
 ### UI v9.153.0 (2023/09/02)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.152.1 (2023/09/01)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.152.0 (2023/08/31)
 
-* replay visualizations with predefined prior options
-* add date selector support for recipe input options
+- replay visualizations with predefined prior options
+- add date selector support for recipe input options
 
 ### UI v9.151.2 (2023/08/29)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.151.1 (2023/08/29)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.151.0 (2023/08/28)
 
-* increase diff page size to `20` and selectively render large diffs
-* include api url in graph sharing
+- increase diff page size to `20` and selectively render large diffs
+- include api url in graph sharing
 
 ### UI v9.150.0 (2023/08/25)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.149.0 (2023/08/24)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.148.0 (2023/08/24)
 
-* add auto merge strategy option for github & gitlab
-* add Share query option for graphql operations
+- add auto merge strategy option for github & gitlab
+- add Share query option for graphql operations
 
 ### UI v9.147.0 (2023/08/23)
 
@@ -2472,7 +2478,7 @@ When sharing a recipe from the recipes details, you can now select whether or no
 
 ### UI v9.146.0 (2023/08/22)
 
-* add sharing option to visualizations that produce data tables
+- add sharing option to visualizations that produce data tables
 
 #### Organization ID to the recent runs table
 
@@ -2482,7 +2488,7 @@ Now you can see which Organization a visualization was run on from the _Recent v
 
 ### UI v9.145.0 (2023/08/22)
 
-* show options used
+- show options used
 
 ### UI v9.144.0 (2023/08/18)
 
@@ -2502,8 +2508,8 @@ Now you can see the latest version number of the CLI before downloading.
   <figcaption></figcaption>
 </figure>
 
-* Highlighted search terms
-* More flexible width and word wrapping when organization names are long.
+- Highlighted search terms
+- More flexible width and word wrapping when organization names are long.
 
 ### UI v9.143.0 (2023/08/16)
 
@@ -2518,388 +2524,388 @@ We now support dynamic form fields for `List` or `string[]` options. Recipes tha
 
 ### UI v9.142.0 (2023/08/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.141.0 (2023/08/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.140.0 (2023/08/15)
 
-* support visualization parameters
+- support visualization parameters
 
 ### UI v9.139.1 (2023/08/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.139.0 (2023/08/11)
 
 Pan/zoom controls and download options are now available for Visualizations.
 
-* ![](./assets/pan-zoom-controls.png)
+- ![](./assets/pan-zoom-controls.png)
 
 ### UI v9.138.0 (2023/08/10)
 
-* add pagination support to visualization run repositories
-* tooltip on results toolbar and disable commit option on Find only results.
+- add pagination support to visualization run repositories
+- tooltip on results toolbar and disable commit option on Find only results.
 
 ### UI v9.137.0 (2023/08/08)
 
-* recent visualizations
+- recent visualizations
 
 ### UI v9.136.1 (2023/08/08)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.136.0 (2023/08/08)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.135.0 (2023/08/04)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.134.0 (2023/08/04)
 
-* add back to top action
+- add back to top action
 
 ### UI v9.133.2 (2023/08/04)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.133.1 (2023/08/04)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.133.0 (2023/08/04)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.132.0 (2023/08/03)
 
-* add recent visualization screen
+- add recent visualization screen
 
 ### UI v9.131.0 (2023/08/02)
 
-* indicate when data is missing on visualization
+- indicate when data is missing on visualization
 
 ### UI v9.130.2 (2023/08/02)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.130.1 (2023/08/02)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.130.0 (2023/08/02)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.129.0 (2023/08/01)
 
-* cancel visualization run
+- cancel visualization run
 
 ### UI v9.128.0 (2023/08/01)
 
-* data grid for visualization repositories.
+- data grid for visualization repositories.
 
 ### UI v9.127.0 (2023/07/31)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.126.0 (2023/07/29)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.125.0 (2023/07/28)
 
-* add recipe run link in footer.
-* recipe run visualization
-* add available visualization for recipe runs
-* operationalize visualizations
+- add recipe run link in footer.
+- recipe run visualization
+- add available visualization for recipe runs
+- operationalize visualizations
 
 ### UI v9.124.1 (2023/07/27)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.124.0 (2023/07/27)
 
-* add share option to rerun recipe items
-* add support for multiple select recipe options
-* add export paginated data grid
+- add share option to rerun recipe items
+- add support for multiple select recipe options
+- add export paginated data grid
 
 ### UI v9.123.0 (2023/07/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.122.0 (2023/07/26)
 
-* add loading indicator for yaml from run id
+- add loading indicator for yaml from run id
 
 ### UI v9.121.0 (2023/07/24)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.120.0 (2023/07/18)
 
-* sort recipe results by worker
+- sort recipe results by worker
 
 ### UI v9.119.1 (2023/07/14)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.119.0 (2023/07/14)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.118.1 (2023/07/14)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.118.0 (2023/07/12)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.117.0 (2023/07/10)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.116.0 (2023/07/07)
 
-* add welcome banner to marketplace
+- add welcome banner to marketplace
 
 ### UI v9.115.0 (2023/07/07)
 
-* remove home page and strengths tab
+- remove home page and strengths tab
 
 ### UI v9.114.3 (2023/07/06)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.114.2 (2023/07/05)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.114.1 (2023/07/04)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.114.0 (2023/07/04)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.113.0 (2023/07/03)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.112.1 (2023/07/01)
 
-* add dependency resolution time and worker name to recipe run summary
+- add dependency resolution time and worker name to recipe run summary
 
 ### UI v9.112.0 (2023/06/29)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.111.1 (2023/06/29)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.111.0 (2023/06/28)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.110.0 (2023/06/28)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.109.0 (2023/06/27)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.108.0 (2023/06/22)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.107.1 (2023/06/21)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.107.0 (2023/06/20)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.106.5 (2023/06/20)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.106.4 (2023/06/19)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.106.3 (2023/06/19)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.106.2 (2023/06/19)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.106.1 (2023/06/19)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.106.0 (2023/06/18)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.105.2 (2023/06/17)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.105.1 (2023/06/17)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.105.0 (2023/06/16)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.104.1 (2023/06/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.104.0 (2023/06/15)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.103.0 (2023/06/12)
 
-* render skeleton when loading more results.
-* set sort model with default sorting so it is clear what sorting is being applied by default.
+- render skeleton when loading more results.
+- set sort model with default sorting so it is clear what sorting is being applied by default.
 
 ### UI v9.102.1 (2023/06/09)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.102.0 (2023/06/07)
 
-* add bitbucket cloud authentication option for `public.*`
+- add bitbucket cloud authentication option for `public.*`
 
 ### UI v9.101.0 (2023/06/06)
 
-* leverage notebook description provided by service
+- leverage notebook description provided by service
 
 ### UI v9.100.0 (2023/06/05)
 
-* add javascript logo
+- add javascript logo
 
 ### UI v9.99.1 (2023/06/02)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.99.0 (2023/06/01)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.98.0 (2023/05/30)
 
-* add support for multiple auth providers through keycloak on multitenant
+- add support for multiple auth providers through keycloak on multitenant
 
 ### UI v9.97.1 (2023/05/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.97.0 (2023/05/25)
 
-* prompt for confirmation when canceling recipe runs
+- prompt for confirmation when canceling recipe runs
 
 ### UI v9.96.2 (2023/05/25)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.96.1 (2023/05/23)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.96.0 (2023/05/19)
 
-* add in support for downloading data-tables from visualizations where available
+- add in support for downloading data-tables from visualizations where available
 
 ### UI v9.95.0 (2023/05/17)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.94.0 (2023/05/16)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.93.0 (2023/05/16)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.92.2 (2023/05/11)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.92.1 (2023/05/10)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.92.0 (2023/05/10)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.91.0 (2023/05/08)
 
-* add jupyter output cell renderer
+- add jupyter output cell renderer
 
 ### UI v9.90.0 (2023/05/05)
 
-* add support for `startAuth=true` QSP to initiate flow
+- add support for `startAuth=true` QSP to initiate flow
 
 ### UI v9.89.2 (2023/05/03)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.89.1 (2023/05/02)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.89.0 (2023/05/01)
 
-* Changes to how _Repository Groups_ are stored in your browser to resolve an issue where having multiple tabs open at the same time was causing newly created _Repository Groups_ to vanish as a result of a mismatch in state that was not synced between tabs.
+- Changes to how _Repository Groups_ are stored in your browser to resolve an issue where having multiple tabs open at the same time was causing newly created _Repository Groups_ to vanish as a result of a mismatch in state that was not synced between tabs.
 
 ### UI v9.88.2 (2023/05/01)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.88.1 (2023/04/30)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.88.0 (2023/04/28)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.87.1 (2023/04/28)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.87.0 (2023/04/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.86.1 (2023/04/26)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.86.0 (2023/04/25)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.85.0 (2023/04/24)
 
-* add progress bar to commit job summary
+- add progress bar to commit job summary
 
 ### UI v9.84.0 (2023/04/21)
 
@@ -2939,13 +2945,13 @@ Admin users will now see a notice that can be dismissed whenever there is a new 
 
 #### Additional changes
 
-* add link to replay recipe to commit message and PR body
-* display finished time for recipe runs and run history
-* add import repository group support
-* add axonframework logo
-* add python logo
-* adds api recipe run examples to yaml recipe builder
-* various visual improvements
+- add link to replay recipe to commit message and PR body
+- display finished time for recipe runs and run history
+- add import repository group support
+- add axonframework logo
+- add python logo
+- adds api recipe run examples to yaml recipe builder
+- various visual improvements
 
 ### UI v9.83.0 (2023/04/19)
 
@@ -2969,8 +2975,8 @@ Audit logs can now be filtered across multiple columns and/or values.
   <figcaption></figcaption>
 </figure>
 
-* Add confirmation before creating a new recipe builder
-* Add support for quarantining and un-quarantining multiple repositories at a time
+- Add confirmation before creating a new recipe builder
+- Add support for quarantining and un-quarantining multiple repositories at a time
 
 ### UI v9.82.0 (2023/04/17)
 
@@ -2983,62 +2989,62 @@ We've completed a change to move over queries for _Organizations_ and _Repositor
 
 ### UI v9.81.1 (2023/04/14)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.81.0 (2023/04/14)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.80.3 (2023/04/12)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.80.2 (2023/04/10)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.80.1 (2023/04/01)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.80.0 (2023/03/31)
 
-* add API examples for generating and downloading admin reports
+- add API examples for generating and downloading admin reports
 
 ### UI v9.79.0 (2023/03/31)
 
-* add support for downloading `.tar.gz` and `.zip` version of the cli
+- add support for downloading `.tar.gz` and `.zip` version of the cli
 
 ### UI v9.78.1 (2023/03/28)
 
-* Fix issue where associated Agents were not showing on the Artifactory integration details table in the administrative _Agents_ screen.
+- Fix issue where associated Agents were not showing on the Artifactory integration details table in the administrative _Agents_ screen.
 
 ### UI v9.78.0 (2023/03/28)
 
-* add copy resulting lines to hunks
-* Resolved bug that was setting all recipe runs from the UI to _Low_ priority. Recipe runs now use _Normal_ priority.
+- add copy resulting lines to hunks
+- Resolved bug that was setting all recipe runs from the UI to _Low_ priority. Recipe runs now use _Normal_ priority.
 
 ### UI v9.77.0 (2023/03/27)
 
-* add more confirmation dialogues
-* add ability to disable keyboard shortcuts
+- add more confirmation dialogues
+- add ability to disable keyboard shortcuts
 
 ### UI v9.76.1 (2023/03/24)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.76.0 (2023/03/24)
 
-* add option for running recipes with low priority
-* add filter to organzation and repository group selector menu
+- add option for running recipes with low priority
+- add filter to organzation and repository group selector menu
 
 ### UI v9.75.0 (2023/03/24)
 
-* add administrative reports page to download usage reports
+- add administrative reports page to download usage reports
 
 ### UI v9.74.1 (2023/03/23)
 
-* Bug fixes and other improvements.
+- Bug fixes and other improvements.
 
 ### UI v9.74.0 (2023/03/23)
 
@@ -3101,20 +3107,20 @@ Users will not be prompted for confirmation before removing repository.
 
 ### UI v9.73.0 (2023/03/20)
 
-* use totalRepositoriesInProgress from graphql
+- use totalRepositoriesInProgress from graphql
 
 ### UI v9.71.0 (2023/03/15)
 
-* We have changed the name "Catalog" to "Marketplace" and given it a new icon. We hope the use of the word "Marketplace" reflects the community aspect of "Recipe" development.
+- We have changed the name "Catalog" to "Marketplace" and given it a new icon. We hope the use of the word "Marketplace" reflects the community aspect of "Recipe" development.
   ![](./assets/marketplace-1.png)
-* Recipes can now have `maintainers` associated with them. This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:
-  
+- Recipes can now have `maintainers` associated with them. This has been added to the graphQL API and the UI will render them in a special contributor's section on the recipe details page if present:
+
   ![](./assets/contributors.png)
 
 ### UI v9.70.0 (2023/03/15)
 
-* We have added operating system detection to custom tailor the user experience. The first place to use this is the CLI download dialogue which now will default the instruction set selected based on your operating system. This should reduce the confusion on what instruction to use.
-* Various bug fixes and improvements
+- We have added operating system detection to custom tailor the user experience. The first place to use this is the CLI download dialogue which now will default the instruction set selected based on your operating system. This should reduce the confusion on what instruction to use.
+- Various bug fixes and improvements
 
 ### UI v9.69.0 (2023/03/13)
 
@@ -3129,14 +3135,14 @@ We improved how we surface GraphQL API examples to make it easier to include mul
 
 ### UI v9.68.0 (2023/03/09)
 
-* Try CLI `curl` example now uses URL from API Gateway
-* Various bug fixes
+- Try CLI `curl` example now uses URL from API Gateway
+- Various bug fixes
 
 ### UI v9.67.0 (2023/03/09)
 
-* Recipe results table now supports sorting by the four different marker count columns: info, debug, warn, and error.
-* Recipe artifacts can now only be updated by those with the administrative rights within the UI.
-* Various bug fixes.
+- Recipe results table now supports sorting by the four different marker count columns: info, debug, warn, and error.
+- Recipe artifacts can now only be updated by those with the administrative rights within the UI.
+- Various bug fixes.
 
 ### UI v9.66.0 (2023/03/08)
 
@@ -3222,8 +3228,8 @@ All file downloads have been standardized to use our async download manager for 
 
 Add more support for organization as we shift focus on the new organization service:
 
-* UI will now use commit options defined by the organization service
-* Recipe runs in the UI and GraphQL can now use organization ID
+- UI will now use commit options defined by the organization service
+- Recipe runs in the UI and GraphQL can now use organization ID
 
 We have also added recipe IDs to the list of recipes in the catalog to save time for those seeking them by preventing the need to drill down into each individual recipe details page.
 
@@ -3235,16 +3241,16 @@ Optimize the UI's use of GraphQL queries.
 
 Added more data table driven Jupyter lite notebooks. Currently supported:
 
-* org.openrewrite.maven.table.DependenciesInUse:
-  * dependency-usage-violin.ipynb
-  * dependency-usage.ipynb
-* org.openrewrite.table.ParseFailures:
-  * parse-failures.ipynb
-* org.openrewrite.table.RecipeRunStats:
-  * recipe-visit-all-performance.ipynb
-  * recipe-visitor-performance.ipynb
-* org.openrewrite.table.SourcesFileResults:
-  * composite-recipe-results.ipynb
+- org.openrewrite.maven.table.DependenciesInUse:
+  - dependency-usage-violin.ipynb
+  - dependency-usage.ipynb
+- org.openrewrite.table.ParseFailures:
+  - parse-failures.ipynb
+- org.openrewrite.table.RecipeRunStats:
+  - recipe-visit-all-performance.ipynb
+  - recipe-visitor-performance.ipynb
+- org.openrewrite.table.SourcesFileResults:
+  - composite-recipe-results.ipynb
 
 ### UI v9.56.0 (2023/02/14)
 
@@ -3370,8 +3376,8 @@ The "Add to builder" button now has an additional drop-down to support adding th
 
 These tests currently come in two variants:
 
-* `singleSource` - The custom recipe will _**only be run on those source files**_ that would have been changed by _**all**_ `singleSource` test recipes.
-* `anySource` - The custom recipe will run on _**all**_ _**source files**_ if there would have been a change from all `anySource` tests. Not all `anySource` tests have to change the _**same**_ file; as long as there would be one change from each test then the custom recipe would be run.
+- `singleSource` - The custom recipe will _**only be run on those source files**_ that would have been changed by _**all**_ `singleSource` test recipes.
+- `anySource` - The custom recipe will run on _**all**_ _**source files**_ if there would have been a change from all `anySource` tests. Not all `anySource` tests have to change the _**same**_ file; as long as there would be one change from each test then the custom recipe would be run.
 
 <figure>
   ![](./assets/recipe-builder-2.png)
@@ -3429,11 +3435,11 @@ An Error card shows the code where the error was discovered, the error message, 
 
 This has been added to the following pages:
 
-* recent commits
-* commit jobs
-* organizations
-* workers
-* quarantine
+- recent commits
+- commit jobs
+- organizations
+- workers
+- quarantine
 
 <figure>
   ![](./assets/more-graphql.png)
