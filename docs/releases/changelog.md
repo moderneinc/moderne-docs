@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.97.0 (2025/08/29)
+
+- update administrative Agents dashboard page
+
 ### UI v11.96.2 (2025/08/28)
 
 - Bug fixes and other improvements.
