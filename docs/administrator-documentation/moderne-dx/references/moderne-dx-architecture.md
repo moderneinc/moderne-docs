@@ -48,5 +48,5 @@ description: A high-level overview of the Moderne DX architecture.
 | SSO integration for login                            |  :white_check_mark:  |     :white_check_mark:      |
 | VCS (GitHub, GitLab, Bitbucket) integration          |  :white_check_mark:  |     :white_check_mark:      |
 | Artifact repository (Artifactory, Nexus) integration |  :white_check_mark:  |     :white_check_mark:      |
-| Single, private tenant SaaS                          |                      |     :white_check_mark:      |
+| Hybrid single tenant or multitenant                  |                      |     :white_check_mark:      |
 | Fully on premises                                    |  :white_check_mark:  |                             |
