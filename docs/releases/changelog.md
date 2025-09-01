@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.98.0 (2025/09/01)
+
+- Allow set-secret-env to work with IMDSv2 in AWS
+
 
 ### UI v11.97.0 (2025/08/29)
 
