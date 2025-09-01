@@ -2178,6 +2178,7 @@ mod config http proxy edit
 | Name | Description |
 | ---- | ----------- |
 | `--host`, `--proxy-host` |  |
+| `--non-proxy-hosts` |  A list of hosts that should be reached directly, bypassing the proxy. This is a list of patterns separated by '|'. The patterns may start or end with a '*' for wildcards. Any host matching one of these patterns will be reached through a direct connection instead of through a proxy. 'localhost' is always reached directly. <br/>Example: "*.company.com|10.30.2.4" |
 | `--port`, `--proxy-port` |  |
 
 
@@ -2803,11 +2804,6 @@ mod config license moderne sync
 mod config license moderne sync
 ```
 
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |
 
 
 ## mod config lsts
@@ -2884,7 +2880,7 @@ mod config lsts artifacts artifactory edit [parameters]
 ### Examples
 
 ```
-mod config lsts artifacts edit <artifact-repository-url> --user <user> --password <password>
+mod config lsts artifacts artifactory edit https://artifactory.company.com --user lstuser --password secret1
 ```
 
 ### Parameters
