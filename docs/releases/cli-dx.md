@@ -645,7 +645,7 @@ This release is not available due to publishing issues please use v3.45.1 instea
 * Remove duplicated output on incorrect `indent()` and/or `unindent()` calls.
 * Allow empty commits using `--allow-empty` and fix default behaviour to not allow these empty commits.
 
-### CLI 3.46.0 (2025/02/07)
+### CLI / DX v3.32.0 (2025/02/07)
 
 #### What's Changed
 
