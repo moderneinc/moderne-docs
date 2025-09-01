@@ -2,6 +2,19 @@
 
 ### CLI / DX v3.46.0 (2025/09/01)
 
+#### What's Changed CLI
+* Improved how HTTP(s) connections are managed internally, allowing for better configurability of proxy, credentials and trust-store options.
+* Fix repository-specific gradleArgs not to leak to other repositories
+* Correct handling of spaces present in executable path for `mod exec`
+* Bug fix - preventing NullPointerException being thrown by `mod log builds add`
+* Performance improvements
+* Added a new proxy configuration option `mod config http proxy edit --non-proxy-hosts` allowing you to specify hostnames that bypass a configured proxy and connect directly
+* Bug fix - `mod git pull` failure for one repository not to fail the whole command
+* Other minor fixes
+
+
+### CLI / DX v3.46.0 (2025/09/01)
+
 
 
 ### CLI / DX v3.45.5 (2025/08/28)
