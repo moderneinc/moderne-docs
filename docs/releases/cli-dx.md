@@ -13,10 +13,6 @@
 * Other minor fixes
 
 
-### CLI / DX v3.46.0 (2025/09/01)
-
-
-
 ### CLI / DX v3.45.5 (2025/08/28)
 
 #### What's Changed DX
