@@ -1,6 +1,6 @@
 ---
-sidebar_label: CLI 3.46.0 changes
-description: The major changes in Moderne CLI 3.46.0.
+sidebar_label: CLI 3.44.0 changes
+description: The major changes in Moderne CLI 3.44.0.
 ---
 
 import Zoom from 'react-medium-image-zoom';
