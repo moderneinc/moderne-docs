@@ -14,7 +14,7 @@ The Moderne CLI is a command line tool that complements the Moderne Platform and
 To ensure you can use the Moderne CLI successfully, in this guide, we will walk you through everything you need to get started – from installation, to configuration, to examples demonstrating how to use it.
 
 :::note
-The examples in this guide use Moderne CLI version `3.45.5`.
+The examples in this guide use the latest staging version of the Moderne CLI.
 :::
 
 ## Installation and configuration
