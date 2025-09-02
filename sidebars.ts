@@ -276,9 +276,9 @@ const sidebars: SidebarsConfig = {
       items: [
         'hands-on-learning/advanced/workshop-overview',
         'hands-on-learning/advanced/module-1-recipe-development-environment',
-        'hands-on-learning/advanced/module-2-scanning-recipes',
-        'hands-on-learning/advanced/module-3-traits',
-        'hands-on-learning/advanced/module-4-data-tables',
+        'hands-on-learning/advanced/module-2-data-tables',
+        'hands-on-learning/advanced/module-3-scanning-recipes',
+        'hands-on-learning/advanced/module-4-traits',
       ],
     },
     {
