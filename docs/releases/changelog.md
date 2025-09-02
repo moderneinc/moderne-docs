@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v11.99.0 (2025/09/02)
+
+- add copy as YAML to clipboard
+- add parliament chart to new devCenter
+
 ### UI v11.98.0 (2025/09/01)
 
 - Allow set-secret-env to work with IMDSv2 in AWS
