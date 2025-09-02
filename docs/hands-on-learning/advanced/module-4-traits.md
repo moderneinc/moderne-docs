@@ -1,15 +1,15 @@
 ---
-sidebar_label: "Module 3: Traits"
+sidebar_label: "Module 4: Traits"
 description: How to use traits to match semantically related elements.
 ---
 
-# Module 3: Traits
+# Module 4: Traits
 
 Traits are a powerful abstraction that allow you to define higher-level semantic groupings in OpenRewrite’s LSTs (Lossless Syntax Trees). They let you build reusable logic for elements that are semantically similar but structurally different. Instead of embedding utility logic in unrelated classes or expanding the core LST APIs, traits act as opt-in behavior layers. This keeps your recipes modular, discoverable, and semantically rich.
 
 For example, if you want to operate on all classes annotated with `@Bean`, regardless of their structure or placement, traits allow you to define a matcher that groups those together. We will look at this example in this module.
 
-## Exercise 3a: Explore a recipe that uses Traits
+## Exercise 4a: Explore a recipe that uses Traits
 
 In this exercise, you'll use the `Annotated.Matcher` trait that the [`FindSpringBeans`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/FindSpringBeans.java) recipe uses to identify classes annotated with `@Bean` and marks them using `SearchResult.found`.
 
@@ -38,11 +38,11 @@ In this exercise, you'll use the `Annotated.Matcher` trait that the [`FindSpring
 * Recipes that use traits can be more modular and maintainable.
 
 
-## Exercise 3b: Write a recipe using traits
+## Exercise 4b: Write a recipe using traits
 
 In the last exercise, you wrote a scanning recipe to track `TODO` comments in Java source files. What if you wanted to find these comments across not only Java, but also any XML and YAML files in your projects? It is possible to write different matching rules and then just expand your scanner and visitor methods to use those as they navigate the XML and YAML LSTs to find the comments. However, this is a good example of where using a trait can help simplify the recipe code and also create an opportunity for reuse in similar use cases.
 
-In this exercise, you will write the code for a `TodoComment` trait that defines how to match `TODO` comments across Java, YAML, and XML source files. Then you will write a recipe that builds upon your Java-only recipe but instead uses this new trait to collect the comments from across all three different file types.
+In this exercise, you will write the code for a `TodoComment` trait that defines how to match `TODO` comments across Java, YAML, and XML source files. Then you will write a recipe that builds upon your Java-only recipe but instead uses this new trait to collect the comments from across all three different file types and capture it both in a file and a data table.
 
 ### Goals for this exercise
 
@@ -53,7 +53,7 @@ In this exercise, you will write the code for a `TodoComment` trait that defines
 ### Steps
 
 1. Open the unit test [src/test/java/com/yourorg/TrackTodosTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/TrackTodosTest.java) in IntelliJ IDEA.
-   * The first two tests should look familiar since they are the same as the tests from your exercise in the last module.
+   * The first two tests should look familiar since they are the same as the tests from your exercise in the last modules.
    * Read through the additional tests, to get a feel for the new cases that need to be covered.
    * Notice how the `SourceSpecs` specify what kind of file is being tested (`java`, `yaml`, or `xml`).
    * Remove the `@Disabled` annotations, and run the tests to see that they fail. 
@@ -61,15 +61,15 @@ In this exercise, you will write the code for a `TodoComment` trait that defines
    * You will see some of the code has been started for you. The `TodoComment` class implements a `Trait` with `cursor` and `todos` members to use while searching for values in the `Matcher` class that extends `SimpleTraitMatcher`.
    * The `test(Cursor cursor)` method has been overridden and partially filled in to help get you started. It starts by getting the value of the cursor that is passed in and then checking to see what type the value is to determine how you will need to match a comment depending on what kind of file it is.
 3. Fill in the code for each section to match a `TODO` comment similarly to how you did in the last module, but for each different file type.
-   * For the Java type, you can borrow some code from `JavaIsoVisitor` in the `getScanner(...)` method from `TrackJavaTodos.java` that you wrote in the last module.  
+   * For the Java type, you can borrow some code from `JavaIsoVisitor` in the `getScanner(...)` method from `TrackJavaTodosFile.java` that you wrote in the last module.  
    * For the Xml and Yaml types, you'll have to explore the LST model a bit to determine how to match a comment.
       * The debugger or `TreeVisitingPrinter()` you learned about in the first module will help you understand more about the different LST models.
       * Hint: For Yaml, take a look at the `getPrefix(...)` method. For Xml, look at the `getMisc()` method in `Xml.Prolog` and the `getContent()` method in `Xml.Tag`.     
 4. Now open the recipe template [src/main/java/com/yourorg/TrackTodos.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/TrackTodos.java).
-   * Using the knowledge gained in Exercise 3a, and the requirements from the new tests, write a new version of a scanning recipe that collects all the `TODO` comments from all Java, XML, and YAML files and copies them in to the `TODO.md` file.
+   * Using the knowledge gained in Exercise 4a, and the requirements from the new tests, write a new version of a scanning recipe that collects all the `TODO` comments from all Java, XML, and YAML files and copies them in to the `TODO.md` file. For each comment found, also add it to a data table similarly to how you did in Module 2.
    * The code for the `getScanner()` method should be a lot simpler since you won't need to use two visitor types.
    * You'll stil have similar code for handling the `TODO.md` file, but now instead of using two visitors to traverse both Java and text files, you can use a single `TreeVisitor` that uses `TodoComment.Matcher()` to match `TODO` comments regardless of what kind the file type (as long as it's Java, XML, or YAML).
-   * Your `generate()` method will be the same as in your `TrackJavaTodos.java` file from the last module. Even `getVisitor()` should be almost identical. (The only difference is that you'll have a little bit of extra work to unravel your list of comments since it will now be a list of lists.)
+   * Your `generate()` method will be the same as in your `TrackJavaTodosFile.java` file from the last module. Even `getVisitor()` should be almost identical. (The only difference is that you'll have a little bit of extra work to unravel your list of comments since it will now be a list of lists.)
 5. Build your project and run the tests.
    * All tests should pass, and you should see a message that the project was successfully built.
    * If one or more of the tests fail, use the description of the failure to try to find where the problem is.
