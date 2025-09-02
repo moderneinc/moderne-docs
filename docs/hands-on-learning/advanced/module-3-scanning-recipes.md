@@ -1,15 +1,15 @@
 ---
-sidebar_label: "Module 2: Scanning recipes"
+sidebar_label: "Module 3: Scanning recipes"
 description: How to write recipes that analyze files before applying changes.
 ---
 
-# Module 2: Scanning recipes
+# Module 3: Scanning recipes
 
 [Scanning recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) are used when a recipe needs to generate new source files or inspect all source files before making any changes. This is especially useful when a transformation in one file depends on content or structure in another. For example, a scanning recipe may examine a Maven `pom.xml` to check for a particular dependency and, based on its presence, update a YAML configuration file. This cross-file reasoning is a powerful capability unique to scanning recipes.
 
 Before moving on to the following exercise, you should review the [OpenRewrite documentation](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) for more details about the different phases of scanning recipes work and how they work.
 
-## Exercise 2a: Explore a scanning recipe
+## Exercise 3a: Explore a scanning recipe
 
 In this exercise, you'll explore the [`AppendToReleaseNotes`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/AppendToReleaseNotes.java) recipe. This is a scanning recipe that appends release notes to a file based on a marker found elsewhere in the project. 
 
@@ -39,7 +39,7 @@ In this exercise, you'll explore the [`AppendToReleaseNotes`](https://github.com
 * Tests for scanning recipes can simulate creation or modification of files using `doesNotExist()` or empty strings.
 
 
-## Exercise 2b: Write a scanning recipe
+## Exercise 3b: Write a scanning recipe
 
 In this exercise, you'll write a scanning recipe to find any comments in Java source files that contain `TODO` and track them all together in a separate markdown file.
 
@@ -51,12 +51,12 @@ In this exercise, you'll write a scanning recipe to find any comments in Java so
 
 ### Steps
 
-1. Open the unit test [src/test/java/com/yourorg/TrackJavaTodosTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/TrackJavaTodosTest.java) in IntelliJ IDEA.
+1. Open the unit test [src/test/java/com/yourorg/TrackJavaTodosFileTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/TrackJavaTodosFileTest.java) in IntelliJ IDEA.
    * Read through the tests, to get a feel for the cases you should cover.
    * One new concept you might notice is the addition of the `noTrim()` method on the [`SourceSpec`](https://docs.openrewrite.org/authoring-recipes/recipe-testing#sourcespec). This ensures that newlines are preserved in the test source strings so that end-of-file formatting will match in both the "before" and  "after" cases. 
    * Remove the `@Disabled` annotations, and run the tests to see that it fails. 
-2. Now open the scanning recipe template [src/main/java/com/yourorg/TrackJavaTodos.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/TrackJavaTodos.java).
-   * Using the knowledge gained in Exercise 2a, and the requirements from the test, write a scanning recipe that collects all the `TODO` comments and copies them in to a file called `TODO.md`.   
+2. Now open the scanning recipe template [src/main/java/com/yourorg/TrackJavaTodosFile.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/TrackJavaTodosFile.java).
+   * Using the knowledge gained in Exercise 3a, and the requirements from the test, write a scanning recipe that collects all the `TODO` comments and copies them in to a file called `TODO.md`.   
    * Note that it extends `ScanningRecipe` rather than just `Recipe`, and that there is an `Accumulator` member defined to keep track of the data needed by the visitor.
    * You'll need to override three methods: `getVisitor()`, `generate()` and `getScanner()`. All three methods also define an accumulator parameter class called `TodoComments`. The accumulator and the `getInitialValue()` method have already been defined for you.
    * In this case, the accumulator class (`TodoComments`) has members for both a `boolean` value to maintain whether the `TODO.md` file exists or not (similar to the previous exercise), as well as a list of strings to collect the comments that are found.
@@ -76,7 +76,7 @@ In this exercise, you'll write a scanning recipe to find any comments in Java so
 6. Build your project and run the tests.
    * All tests should pass, and you should see a message that the project was successfully built.
    * If one or more of the tests fail, use the description of the failure to try to find where the problem is.
-7. In case you get completely stuck or just need a reference, [here's an example of a completed `TrackJavaTodos.java` file](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/TrackJavaTodos.java).
+7. In case you get completely stuck or just need a reference, [here's an example of a completed `TrackJavaTodosFile.java` file](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/TrackJavaTodosFile.java).
 
 ### Takeaways
 
