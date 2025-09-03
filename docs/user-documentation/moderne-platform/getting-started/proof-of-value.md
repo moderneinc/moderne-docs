@@ -7,104 +7,368 @@ import ReactPlayer from 'react-player';
 
 # Proof of value process
 
-With Moderne, you can automate maintenance processes such as framework migrations, security vulnerability fixes, and code quality standardization. Code refactoring work that used to take months and teams of developers can be done in minutes, closing vulnerabilities and saving millions of dollars in software maintenance costs while giving developers substantially more time to focus on delivering business value.
+Moderne automates code maintenance tasks like framework migrations, security vulnerability fixes, and code quality improvements. Work that traditionally takes months can be completed in minutes, freeing developers to focus on delivering business value.
 
-We are often asked how to introduce the power of Moderne to an organization in order to build confidence in the tooling and facilitate a successful paradigm shift for their teams. To start, it's best to focus on lower risk, lower effort, and lower complexity tasks for developers. This might include tasks such as cleaning up code quality issues or addressing isolated CVEs. Once success is shown in these areas, you can build up to more substantial updates, such as minor framework updates or patches, and eventually to more complex code migration work.
+This guide walks through a typical proof of value (POV) process to help you evaluate Moderne's capabilities. We recommend starting with lower-risk tasks like code quality improvements before moving to more complex migrations.
 
-The idea is for all of these types of updates to become a continuous process for your organization. Gradually phasing them in over time helps to achieve both technological and cultural change, which ultimately drives adoption.
+<figure>
+  ![](./assets/pov-example.png)
+  <figcaption>Progression from simple to complex automation tasks</figcaption>
+</figure>
 
-![](./assets/pov-example.png)
+## Proof of value (POV) steps
 
-## Proof of value (POV) Steps
+1. **Platform provisioning** - Moderne provisions an isolated platform in your chosen cloud provider and region (takes ~1 hour).
 
-1. The process kicks off by us provisioning an isolated Moderne Platform in the cloud provider and region of your choice. Deployment is fully automated and takes approximately one hour.
-2. After that, you'll need to set up the agent. Please follow the instructions in our [on-premise agent configuration doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md). The agent is a single docker image or JAR that can run on a Virtual Machine, Kubernetes, or Cloud Foundry. It controls the encryption key and connects to on-prem systems such as your source code manager (SCM) and artifact repository. To ensure the agent functions correctly, you will need to create a read-only service account for your artifact repository and your SCM. This will allow developers to authenticate with your SCM for access control and commits/PRs (if commits are enabled for your tenant). The installation process typically takes less than an hour once the service accounts and SCM configurations are in place.
-3. To enable SSO for Moderne, you will need to connect to your Identity Provider (IdP). This is done in a 30-minute meeting with Moderne to exchange metadata. If requested, a username/password can also be used during the POV process instead of SSO.
-4. Next, you'll need to [set up the ingestion pipeline](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md). This pipeline will build and publish LST artifacts for the repositories you specify to your artifact repository. From there, the Moderne agent will find these LST artifacts, encrypt them, and ship them to the Moderne cloud.
-   * The more repositories you add and the more diverse they are, the easier it is to demonstrate value. Customers typically start with 50-100 repositories.
-   * No changes are required to the repositories themselves (such as installing build plugins).
-5. With all of that done, you're now ready to run some recipes. Below, we'll provide some suggestions for recipes to run. The links will take you to the [Moderne SaaS](https://app.moderne.io) where you can run the recipes on a variety of open-source repositories. You will need to sign in to view and run recipes.
-6. After you run recipes, you'll generate some [data tables](./data-tables.md) and some [visualizations](./visualizations.md).
+2. **Agent setup** - Your team sets up the Moderne agent following our [on-premise agent configuration doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md). The agent runs as a Docker image or JAR and connects to your source code manager (SCM) and artifact repository using read-only service accounts (takes less than 1 hour with accounts ready).
 
-### Recipes to run
+3. **SSO configuration** - Work with us to connect to your Identity Provider in a 30-minute meeting where we exchange metadata. If requested, a username/password can be provided during this proof of value process rather than setting up SSO.
 
-_The recipes below are listed in order of increasing complexity. You can click the links to run them directly on the Moderne Platform. Alternatively, you can run the same recipes [using the CLI](#cli-command-reference)._
+4. **Ingestion pipeline** - Your team [sets up an ingestion pipeline](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) to build and publish LST artifacts for your repositories. You should start with 50-100 diverse repositories for best results. This step does not require you to make any changes to the repositories themselves (such as installing build plugins).
 
-* [Common static analysis fixes](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis)
-  * Improve code quality and readability
-  * Fix common mistakes
-  * Eliminate legacy patterns and minor performance issues
-* SLF4J Logging best practices
-  * [Improve performance](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging) by preferring parameterized logging to string concatenation
-  * [Improve error reporting](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.CompleteExceptionLogging) by using exception-specialized logging invocations where applicable
-* Maven dependency management
-  * [Upgrade Maven dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.UpgradeDependencyVersion) to keep dependencies patched and up-to-date
-  * [Exclude test dependencies](https://app.moderne.io/recipes/org.openrewrite.maven.ExcludeDependency) like JUnit from the compile scope
-  * [Remove redundant explicit dependency versions](https://app.moderne.io/recipes/org.openrewrite.maven.RemoveRedundantDependencyVersions) to clean up Maven POMs
-  * [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)
-    ![](./assets/dep-insight.png)
-* Gradle wrapper and plugin upgrades
-  * [Update Gradle Wrapper](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper) to keep Gradle itself up to date
-  * [Update Gradle Plugin](https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.UpgradePluginVersion) to keep build plugins up to date
-* Security enhancements and discovery
-  * [Find secrets](https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindSecrets) like passwords, encryption keys, access tokens
-  * [Use secure random number generation](https://app.moderne.io/recipes/org.openrewrite.java.security.SecureRandom)
-  * [Java security best practices](https://app.moderne.io/recipes/org.openrewrite.java.security.JavaSecurityBestPractices)
-  * [OWASP Top 10](https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspTopTen)
-  * [Find and fix vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
-    ![](./assets/vuln-dep.png)
-* Modernize test frameworks
-  * [JUnit 5 best practices](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit5BestPractices)
-  * [Mockito 1 to 5 migration](https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to5Migration)
-  * [Migrate JUnit assertions to AssertJ](https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.Assertj) improved readability and consistency over stock JUnit assertions
-* Major migrations
-  * [Java 8 to 11](https://app.moderne.io/recipes/org.openrewrite.java.migrate.Java8toJava11)
-  * [Java 11 to 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21)
-  * [Spring Boot 1 to 2](https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7)
-  * [Spring Boot 3.5 best practices](https://app.moderne.io/recipes/io.moderne.java.spring.boot3.SpringBoot3BestPractices)
+5. **Run recipes** - With everything set up, you can now run recipes against your code. We strongly recommend starting with simple code quality improvement recipes before progressing to complex migrations. You can find our recommended recipes to run and examples of what they do in the next section of this doc.
 
-* Custom migrations. Custom recipes can be developed to help with internal platform API management, EJB to Spring migrations, etc.
+6. **Study results** - After you've run a recipe, you should generate [data tables](./data-tables.md) and [visualizations](./visualizations.md) to learn more about what happened.
 
-Major migrations are complex transformations consisting of multiple individual recipes. At some point, these transformations represent one-off use cases and there are diminishing returns from trying to automate them fully. Mostly, they will lift your applications 80-90% of the way to completion with the remainder requiring some manual actions expected to be taken by developers.
+:::note
+The recipes below progress from simple to complex. Links go to the [public Moderne Platform](https://app.moderne.io) where you can test on open-source repositories. You can also run these recipes using the CLI commands provided in each section.
+:::
 
-#### CLI command reference
+## Code quality recipes
 
-| Recipe | CLI command |
-|-------------|-------------|
-| Common static analysis issues | `mod run . --recipe CommonStaticAnalysis` |
-| Parameterize SLF4J's logging statements | `mod run . --recipe org.openrewrite.java.logging.slf4j.ParameterizedLogging` |
-| Enhances logging of exceptions | `mod run . --recipe CompleteExceptionLogging` |
-| Upgrade Maven dependency version | `mod run . --recipe UpgradeDependencyVersion -P "groupId=com.fasterxml.jackson*" -P "artifactId=jackson-module*" -P "newVersion=29.X" -P "versionPattern='-jre'" -P "retainVersions=com.jcraft:jsch"` |
-| Exclude Maven dependency | `mod run . --recipe ExcludeDependency -P "groupId=org.junit.vintage" -P "junit-vintage-engine" -P "scope=compile"` |
-| Remove redundant explicit dependency and plugin versions | `mod run . --recipe RemoveRedundantDependencyVersions` |
-| Dependency insight for Gradle and Maven | `mod run . --recipe DependencyInsight -P groupIdPattern='com.fasterxml.jackson*' -P artifactIdPattern='jackson*'` |
-| Update Gradle wrapper | `mod run . --recipe UpdateGradleWrapper` |
-| Update a Gradle plugin by id | `mod run . --recipe UpgradePluginVersion -P "pluginIdPattern=com.jfrog.bintray" -P "newVersion=29.X" -P "versionPattern='-jre'"` |
-| Find secrets | `mod run . --recipe FindSecrets` |
-| Secure random | `mod run . --recipe SecureRandom` |
-| Java security best practices | `mod run . --recipe JavaSecurityBestPractices` |
-| Remediate vulnerabilities from the OWASP Top Ten | `mod run . --recipe OwaspTopTen` |
-| Find and fix vulnerable dependencies | `mod run . --recipe DependencyVulnerabilityCheck -P scope='runtime' -P overrideTransitive=true -P maximumUpgradeDelta='patch'` |
-| JUnit Jupiter best practices | `mod run . --recipe JUnit5BestPractices` |
-| Mockito 5.x upgrade | `mod run . --recipe Mockito1to5Migration` |
-| AssertJ best practices | `mod run . --recipe Assertj` |
-| Migrate to Java 11 | `mod run . --recipe Java8toJava11` |
-| Migrate to Java 21 | `mod run . --recipe UpgradeToJava21` |
-| Migrate to Spring Boot 2.7 | `mod run . --recipe UpgradeSpringBoot_2_7` |
-| Spring Boot 3.5 best practices | `mod run . --recipe SpringBoot3BestPractices` |
+### [Common static analysis issues](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis)
 
-### Impact analysis
+> Resolves common static analysis issues (SAST issues) to improve code quality, fix mistakes, eliminate legacy patterns, and resolve performance issues.
 
-Another substantial use case worth testing is impact analysis. When adding new functionality or fixing a bug, it's often times good to think about what the consequences would be. While you _could_ make a change and see who yells at you, it's generally better if you take the time to do your due diligence and figure out what's going to happen.
+#### CLI commands
 
-Below are some recipes that you can use to help you with impact analysis as well as a detailed video that will walk you through using these recipes.
+```bash
+mod run . --recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![](./assets/code-quality-saas.png)
+  <figcaption>_Static analysis fixes_</figcaption>
+</figure>
+
+## Logging improvements
+
+### [Parameterize SLF4J logging statements](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging)
+
+> Converts string concatenation in log statements to parameterized logging for significant performance boosts, especially when log levels are disabled.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.logging.slf4j.ParameterizedLogging
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![](./assets/parameterized-logging-saas.png)
+  <figcaption>_Logging improvements_</figcaption>
+</figure>
+
+### [Complete exception logging](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.CompleteExceptionLogging)
+
+> Ensures exceptions are logged with full stack traces rather than just messages. Many exception types lack useful messages, and stack traces are critical for debugging.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.logging.slf4j.CompleteExceptionLogging
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![](./assets/complete-exception-saas.png)
+  <figcaption>_Adding useful exceptions to logs_</figcaption>
+</figure>
+
+## Dependency management
+
+### [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)
+
+> Finds all dependencies (including transitive) across Gradle and Maven projects. Useful for identifying version inconsistencies that can cause runtime issues.
+
+#### CLI commands
+
+```bash
+# Example: Find all Jackson library versions
+mod run . --recipe org.openrewrite.java.dependencies.DependencyInsight \
+  -P "groupIdPattern=com.fasterxml.jackson.*" \
+  -P "artifactIdPattern=*" \
+  -P "scope=runtime"
+
+mod study . --last-recipe-run --data-table DependenciesInUse
+```
+
+#### Recipe results
+
+<figure>
+  ![](./assets/dependency-insight-dt.png)
+  <figcaption>_A data table that includes information about what repositories use the dependency we specified above._</figcaption>
+</figure>
+
+<figure style={{maxWidth: '400px', margin: '0 auto'}}>
+  ![](./assets/dep-insight-vis.png)
+  <figcaption>_A visualization generated from the recipe results that shows the different versions of the specified dependencies across the selected repositories._</figcaption>
+</figure>
+
+### [Update Gradle wrapper](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper)
+
+> Updates Gradle wrapper to the latest version, querying `services.gradle.org` for available releases while respecting your artifact repository configuration.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.gradle.UpdateGradleWrapper
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![](./assets/gradle-wrapper-update-saas.png)
+  <figcaption>_Updating the Gradle wrapper_</figcaption>
+</figure>
+
+### [Update Gradle plugins](https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.UpgradePluginVersion)
+
+> Updates Gradle plugins by ID to newer versions.
+
+#### CLI commands
+
+```bash
+# Update specific plugin - adjust parameters for your plugins
+mod run . --recipe org.openrewrite.gradle.plugins.UpgradePluginVersion \
+  --recipe-option "pluginIdPattern=org.springframework.boot" \
+  --recipe-option "newVersion=3.4.x"
+
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure>
+  ![](./assets/gradle-plugin-update.png)
+  <figcaption>_An example `build.gradle` change._</figcaption>
+</figure>
+
+## Security
+
+### [Find secrets](https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindSecrets)
+
+> Locates secrets like passwords, API keys, and tokens stored in plain text.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.security.secrets.FindSecrets
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure>
+  ![](./assets/find-secrets-example.png)
+  <figcaption>_Example of a secret being found in the code._</figcaption>
+</figure>
+
+### [Use secure random](https://app.moderne.io/recipes/org.openrewrite.java.security.SecureRandom)
+
+> Replaces `java.util.Random` with cryptographically secure `java.security.SecureRandom`.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.security.SecureRandom
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![](./assets/secure-random-example.png)
+  <figcaption>_Example demonstrating `Random` being replaced with `SecureRandom`._</figcaption>
+</figure>
+
+### [Java security best practices](https://app.moderne.io/recipes/org.openrewrite.java.security.JavaSecurityBestPractices)
+
+> Applies multiple security improvements including XML parser XXE vulnerability fixes, secure temporary file creation, Zip slip vulnerability remediation, file descriptor leak prevention, and loop condition safety checks.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.security.JavaSecurityBestPractices
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure>
+  ![](./assets/java-security-example.png)
+  <figcaption>_Example demonstrating how this recipe handles security issues such as the Zip slip vulnerability._</figcaption>
+</figure>
+
+### [OWASP Top Ten](https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspTopTen)
+
+> Identifies and remediates vulnerabilities from the OWASP Top Ten including broken access control, cryptographic failures, injection, security misconfiguration, vulnerable components, and data integrity failures.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.security.OwaspTopTen
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<div style={{display: 'flex'}}>
+  <figure style={{maxWidth: '400px'}}>
+    ![](./assets/owasp-top-ten-example.png)
+    <figcaption>_Example demonstrating how this recipe fixes security issues such as CSRF attacks._</figcaption>
+  </figure>
+
+  <figure style={{maxWidth: '400px'}}>
+    ![](./assets/owasp-data-table-example.png)
+    <figcaption>_A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs._</figcaption>
+  </figure>
+</div>
+
+<figure style={{maxWidth: '400px', margin: '0 auto'}}>
+  ![](./assets/vuln-report-depth.png)
+  <figcaption>_The vulnerablity report also shows the severity of the CVE and the depth (transitivity) of the dependency. ~80% of vulnerable dependencies are transitive._</figcaption>
+</figure>
+
+### [Find and fix vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
+
+> Software composition analysis (SCA) tool that detects and upgrades dependencies with known CVEs. Uses GitHub Security Advisory Database which aggregates multiple vulnerability databases including the National Vulnerability Database.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.dependencies.DependencyVulnerabilityCheck \
+  -P "scope=runtime" \
+  -P "overrideTransitive=True" \
+  -P "maximumUpgradeDelta=patch"
+
+mod study . --last-recipe-run --data-table VulnerabilityReport
+```
+
+#### Recipe results
+
+<div style={{display: 'flex'}}>
+  <figure style={{maxWidth: '400px'}}>
+    ![](./assets/vuln-report-example.png)
+    <figcaption>_Example demonstrating how this recipe updates minor versions to get critical security fixes._</figcaption>
+  </figure>
+
+  <figure style={{maxWidth: '400px'}}>
+    ![](./assets/owasp-data-table-example.png)
+    <figcaption>_A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs._</figcaption>
+  </figure>
+</div>
+
+<figure style={{maxWidth: '400px', margin: '0 auto'}}>
+  ![](./assets/vuln-report-depth.png)
+  <figcaption>_The vulnerablity report also shows the severity of the CVE and the depth (transitivity) of the dependency. ~80% of vulnerable dependencies are transitive._</figcaption>
+</figure>
+
+## Test modernization
+
+### [JUnit Jupiter best practices](https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnit5BestPractices)
+
+> Migrates to JUnit 5 and applies best practices to tests. This recipe will: migrate from JUnit 4.x to JUnit Jupiter, statically import JUnit Jupiter assertions, remove the test prefix and public visibility from JUnit 5 tests, add `@ParameterizedTest` annotations, and improve lifecycle methods – among other things.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.testing.junit5.JUnit5BestPractices
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '600px', margin: '0 auto'}}>
+  ![](./assets/junit-best-practices-example.png)
+  <figcaption>_Applying best practices to JUnit tests._</figcaption>
+</figure>
+
+### [AssertJ best practices](https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.Assertj)
+
+> Migrates assertions to AssertJ for better readability. Migrates from JUnit, Hamcrest, Fest, and TestNG assertions, statically imports `assertThat`, simplifies chained assertions, and adopts type-specific assertions.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.testing.assertj.Assertj
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '600px', margin: '0 auto'}}>
+  ![](./assets/assertj-best-practices-example.png)
+  <figcaption>_Applying AssertJ best practices to a test class._</figcaption>
+</figure>
+
+## Major migrations
+
+Major migrations are complex transformations that typically automate 80-90% of the work, with the remainder requiring manual developer intervention. They are typically composed of multiple, complex recipes.
+
+### [Migrate to Java 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21)
+
+> Comprehensive migration from Java 8/11 to Java 21. Updates build files for Java 21 target/source, replaces deprecated APIs, adopts new language features, upgrades plugins to Java 21 compatible versions, and updates GitHub Actions configurations.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.java.migrate.UpgradeToJava21
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<div style={{display: 'flex'}}>
+  <figure style={{maxWidth: '400px'}}>
+    ![](./assets/java-version-change.png)
+    <figcaption>_Updating the Java version_</figcaption>
+  </figure>
+
+  <figure style={{maxWidth: '400px'}}>
+    ![](./assets/java-deprecated-method.png)
+    <figcaption>_Fixing deprecated methods_</figcaption>
+  </figure>
+</div>
+
+### [Spring Boot 3.5 best practices](https://app.moderne.io/recipes/io.moderne.java.spring.boot3.SpringBoot3BestPractices)
+
+> Migrates to Spring Boot 3.5 and applies best practices. Includes upgrades from prior Spring Boot versions with configuration updates and dependency alignment.
+
+#### CLI commands
+
+```bash
+mod run . --recipe io.moderne.java.spring.boot3.SpringBoot3BestPractices
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '600px', margin: '0 auto'}}>
+  ![](./assets/spring-boot-best-practice-example.png)
+  <figcaption>_Applying Spring Boot best practices to a Java class._</figcaption>
+</figure>
+
+## Impact analysis
+
+Impact analysis helps you understand the consequences of changes before making them. Use these recipes to identify what will be affected:
 
 <ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
-
-#### Recipes to run
-
-* [Find method usages](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods)
-* [Find types](https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes)
-* [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)
-* [Update Gradle or Maven dependency versions](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.UpgradeDependencyVersion)
-* [Plan a Java version migration](https://app.moderne.io/recipes/org.openrewrite.java.migrate.search.PlanJavaMigration)
