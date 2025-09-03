@@ -280,6 +280,10 @@ This will grab _all_ of the recipes from your tenant – so please expect this c
 </TabItem>
 </Tabs>
 
+## Connecting to internal tools
+
+If you have an internal artifact repository for hosting LSTs or recipes, please follow along with our [configuring the CLI to work with internal tools guide](./cli-internal-tools.md).
+
 ## Using the CLI
 
 With installation and configuration complete, you're ready to use the CLI. This section will guide you through common workflows and commands.

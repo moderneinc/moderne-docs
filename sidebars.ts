@@ -112,7 +112,7 @@ const sidebars: SidebarsConfig = {
             'user-documentation/moderne-cli/getting-started/cli-intro',
             'user-documentation/moderne-cli/getting-started/moderne-cli-workshop',
             'user-documentation/moderne-cli/getting-started/moderne-cli-license',
-            'user-documentation/moderne-cli/getting-started/dx-cli-install',
+            'user-documentation/moderne-cli/getting-started/cli-internal-tools',
           ],
         },
         {
