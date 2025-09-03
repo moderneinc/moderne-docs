@@ -56,7 +56,7 @@ To get comfortable running recipes, let's walk through using the [Moderne Platfo
 
 ### Takeaways
 
-* There are over 3800 recipes already available to run that cover a wide range of use cases.
+* There are over 4700 recipes already available to run that cover a wide range of use cases.
 * Recipes can make changes to Java source files, properties files, XML files, build files and more.
 * It's not necessary to change your build to run recipes.
 * Any recipe page in the docs links to the source code of the recipe on GitHub, so you can see how it's implemented.
