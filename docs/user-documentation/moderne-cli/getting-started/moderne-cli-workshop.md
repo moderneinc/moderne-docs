@@ -26,6 +26,10 @@ This guide assumes that:
 * You have Git installed on your machine
 * You have a basic understanding of running terminal commands
 
+:::note
+The examples in this guide use the latest staging version of the Moderne CLI. We'd strongly recommend you use the same version.
+:::
+
 ## Part 1: Setting up your workspace
 
 Let's start by creating a dedicated workspace for this workshop. We'll clone repositories to it and run recipes on it.
