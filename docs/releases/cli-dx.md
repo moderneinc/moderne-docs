@@ -1,5 +1,15 @@
 # CLI / DX changelog
 
+### CLI / DX v3.46.1 (2025/09/04)
+
+#### What's Changed CLI
+* `mod log [builds|runs] add` now append in case zip file already exists
+* `mod config java options edit` command now properly saves global configuration
+* Lower memory footprint for `mod run`
+* Fix bug in `mod git sync` causing subsequent `mod build` to not find sources
+* Add rewrite-java-25 to `modmaven` and `modgradle`
+
+
 ### CLI / DX v3.46.0 (2025/09/01)
 
 #### What's Changed CLI
