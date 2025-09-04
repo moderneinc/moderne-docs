@@ -13,21 +13,21 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
-### HCL Recipes: Making them work for you (August 21st, 2025)
+### OpenRewrite power moves part 1: Using data tables (September 3rd, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=SuG97eQHYzQ' controls="true" />
+
+### Live Spring AI coding and real-world use cases (August 27th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FiMpvYntyxA' controls="true" />
+
+### HCL Recipes: Making them work for you (August 20th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=iRko8i6wX74' controls="true" />
-
-#### Summary and related links
-
-Coming soon!
 
 ### Moderne CLI major release (August 13th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=SL7mCuhPfhs' controls="true" />
-
-#### Summary and related links
-
-Coming soon!
 
 ### OpenRewrite Recipe Showdown: Tim and Claude vs. Sam (August 6th, 2025)
 
