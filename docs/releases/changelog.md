@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.99.4 (2025/09/04)
+
+- Bug fixes and other improvements.
+
 ### UI v11.99.3 (2025/09/03)
 
 - Bug fixes and other improvements.
