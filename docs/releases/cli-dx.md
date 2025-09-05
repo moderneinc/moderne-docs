@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.46.2 (2025/09/05)
+
+#### What's Changed CLI
+* `mod git sync csv` now correctly handles repos that appear in multiple orgs
+* `gradle` build step no longer uses Gradle daemon to prevent issues with zombie daemons
+
+
 ### CLI / DX v3.46.1 (2025/09/04)
 
 #### What's Changed CLI
