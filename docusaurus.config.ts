@@ -20,6 +20,12 @@ const config: Config = {
     locales: ['en'],
   },
 
+  scripts: [
+    {
+      src: 'reo.js',
+    }
+  ],
+
   headTags: [
     // <link rel="preconnect" href="https://fonts.googleapis.com">
     {
