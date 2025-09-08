@@ -50,7 +50,7 @@ This will take you to the new DevCenter page and begin running a recipe to popul
 
 Below is an example of what this might look like:
 
-<figure>
+<figure style={{maxWidth: '600px', margin: '0 auto'}}>
   ![](./assets/example-devcenter.png)
   <figcaption></figcaption>
 </figure>
