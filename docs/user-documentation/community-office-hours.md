@@ -13,9 +13,25 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### OpenRewrite power moves part 2: Scanning recipes (September 10th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=p62K0iRIzvA' controls="true" />
+
 ### OpenRewrite power moves part 1: Using data tables (September 3rd, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=SuG97eQHYzQ' controls="true" />
+
+#### Summary and related links
+
+* **Announcements for the week**
+  * [Olga wrote an article about why AI alone fails at large-scale code modernization](https://thenewstack.io/why-ai-alone-fails-at-large-scale-code-modernization/)
+  * [We are continuing to offer OpenRewrite training sessions to help people learn about using OpenRewrite effectively](https://www.moderne.ai/moderne-openrewrite-training-hub)
+  * The 2nd annual Code Remix Summit is happening May 11th-13th, 2025 in Florida. Please [submit your session proposals](https://sessionize.com/code-remix-summit-2026) by October 31st, 2025.
+* **Summary**
+  * This week we talked about how to create and use data tables with OpenRewrite recipes. We walked through extending the `DataTable` class and gave examples of various ways you can interact with it. We also talked through how you can test data tables in unit tests.
+  * A couple of important notes about data tables that were mentioned:
+    * You _do not_ need to create a scanning recipe to use a data table
+    * Data tables can be used to generate reports (e.g., class hierarchy or to-do lists). They also can be used to generate visualizations.
 
 ### Live Spring AI coding and real-world use cases (August 27th, 2025)
 
