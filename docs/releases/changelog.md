@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.102.0 (2025/09/09)
+
+- Bug fixes and other improvements.
+
 ### UI v11.101.0 (2025/09/04)
 
 - add hover emphasis of parliament chart tables
