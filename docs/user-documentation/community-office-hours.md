@@ -37,6 +37,21 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FiMpvYntyxA' controls="true" />
 
+#### Summary and related links
+
+* **Announcements for the week**
+  * [We'll be at Gartner APPS in London on September 8th-9th](https://www.gartner.com/en/conferences/emea/applications-uk)
+  * [We'll be at SwampUp in Napa, California on September 8th-10th](https://swampup.jfrog.com/#sponsors)
+  * [We are continuing to offer OpenRewrite training sessions to help people learn about using OpenRewrite effectively](https://www.moderne.ai/moderne-openrewrite-training-hub)
+* **Summary**
+  * This week we welcomed Mark Heckler. He spoke about Spring AI and how it provides a unified interface to interact with various AI models (similar to how Spring Data works with different backend stores). He then demonstrated practical use cases for Spring AI. These include:
+    * **Text generation** – Generating a summary or even a haiku based on a provided topic using an AI template.
+    * **Retrieval augmented generation (RAG)** – Enhancing AI responses by integrating internal documents with a vector store. This allows for specific, fact-based answers relevant to the user's data.
+    * **Conversational AI** – Maintining separate conversation contexts using a conversation AI to prevent data cross-pollination between different user interactions
+    * **MCP / Tool calling** – Integrating AI with deterministic external tools, like a weather service, to provide real-time, context-aware information.
+    * **Multimodal AI** – Explaining an image and extracting information from it. Often combined with RAG to provide contextually relevant results.
+  * While AI offers immense potential, it's crucial to understand that AI has weaknesses – especially regarding determinism vs. non-determinism. Mark advocated for combining AI's capabilities with deterministic options for best results.
+
 ### HCL Recipes: Making them work for you (August 20th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=iRko8i6wX74' controls="true" />
