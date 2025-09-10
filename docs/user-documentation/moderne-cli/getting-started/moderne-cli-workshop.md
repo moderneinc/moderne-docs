@@ -417,13 +417,8 @@ Open up the Excel file that is produced. You will see that the recipe found hund
 
 Maybe you don't really want an Excel spreadsheet as the output, though. Fortunately, the Moderne CLI lets you customize what you get out of data tables with templates. Let's run a new recipe to demonstrate this. Let's run a recipe to find all locations where the `java.util.List add(..)` method is used (For more information on how to select a particular method, check out our [method patterns documentation](https://docs.openrewrite.org/reference/method-patterns)).
 
-**Note**: Please make sure to pick the `org.openrewrite.java.search.FindMethods` recipe when you run the following command as multiple recipes with this title may exist.
-
 ```bash
-mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
-
-# Select the following recipe: 
-#   * Find method usages (org.openrewrite.java.search.FindMethods)
+mod run . --recipe org.openrewrite.java.search.FindMethods -PmethodPattern="java.util.List add(..)"
 ```
 
 Once that's done running, we _could_ run a similar study command as before to get an Excel file that contains detailed information about all of the places this specific method was found. Let's say, however, that you don't care about all of the columns and that you'd like a markdown file to be produced instead of an Excel spreadsheet.
