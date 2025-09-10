@@ -26,7 +26,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 * **Announcements for the week**
   * [Olga wrote an article about why AI alone fails at large-scale code modernization](https://thenewstack.io/why-ai-alone-fails-at-large-scale-code-modernization/)
   * [We are continuing to offer OpenRewrite training sessions to help people learn about using OpenRewrite effectively](https://www.moderne.ai/moderne-openrewrite-training-hub)
-  * The 2nd annual Code Remix Summit is happening May 11th-13th, 2025 in Florida. Please [submit your session proposals](https://sessionize.com/code-remix-summit-2026) by October 31st, 2025.
+  * The 2nd annual Code Remix Summit is happening May 11th-13th, 2026 in Florida. Please [submit your session proposals](https://sessionize.com/code-remix-summit-2026) by October 31st, 2025.
 * **Summary**
   * This week we talked about how to create and use data tables with OpenRewrite recipes. We walked through extending the `DataTable` class and gave examples of various ways you can interact with it. We also talked through how you can test data tables in unit tests.
   * A couple of important notes about data tables that were mentioned:
