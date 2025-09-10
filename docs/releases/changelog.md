@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.103.1 (2025/09/10)
+
+- Bug fixes and other improvements.
+
 ### UI v11.103.0 (2025/09/10)
 
 - enable prometheus
