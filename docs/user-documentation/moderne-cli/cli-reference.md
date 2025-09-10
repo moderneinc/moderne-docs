@@ -724,7 +724,7 @@ mod config build active-styles delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build active-styles edit
@@ -751,7 +751,7 @@ mod config build active-styles edit [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build active-styles show
@@ -770,7 +770,7 @@ mod config build active-styles show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel
@@ -829,7 +829,7 @@ mod config build bazel arguments delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel arguments edit
@@ -850,7 +850,7 @@ mod config build bazel arguments edit
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel arguments show
@@ -869,7 +869,7 @@ mod config build bazel arguments show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel executable
@@ -909,7 +909,7 @@ mod config build bazel executable delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel executable edit
@@ -936,7 +936,7 @@ mod config build bazel executable edit [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel executable show
@@ -957,7 +957,7 @@ mod config build bazel executable show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel timeout
@@ -996,7 +996,7 @@ mod config build bazel timeout delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel timeout edit
@@ -1023,7 +1023,7 @@ mod config build bazel timeout edit [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build bazel timeout show
@@ -1042,7 +1042,7 @@ mod config build bazel timeout show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build dotnet
@@ -1099,7 +1099,7 @@ mod config build dotnet timeout delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build dotnet timeout edit
@@ -1126,7 +1126,7 @@ mod config build dotnet timeout edit [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build dotnet timeout show
@@ -1145,7 +1145,7 @@ mod config build dotnet timeout show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle
@@ -1210,7 +1210,7 @@ mod config build gradle arguments delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle arguments edit
@@ -1231,7 +1231,7 @@ mod config build gradle arguments edit
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle arguments show
@@ -1250,7 +1250,7 @@ mod config build gradle arguments show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle root (deprecated)
@@ -1291,7 +1291,7 @@ mod config build gradle root delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle root edit (deprecated)
@@ -1318,7 +1318,7 @@ mod config build gradle root edit [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle root show (deprecated)
@@ -1339,7 +1339,7 @@ mod config build gradle root show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle timeout
@@ -1378,7 +1378,7 @@ mod config build gradle timeout delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle timeout edit
@@ -1405,7 +1405,7 @@ mod config build gradle timeout edit [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build gradle timeout show
@@ -1424,7 +1424,7 @@ mod config build gradle timeout show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven
@@ -1489,7 +1489,7 @@ mod config build maven arguments delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven arguments edit
@@ -1510,7 +1510,7 @@ mod config build maven arguments edit
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven arguments show
@@ -1529,7 +1529,7 @@ mod config build maven arguments show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven settings
@@ -1576,7 +1576,7 @@ mod config build maven settings delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven settings edit
@@ -1609,7 +1609,7 @@ mod config build maven settings edit <path-to-settings.xml>
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven settings show
@@ -1630,7 +1630,7 @@ mod config build maven settings show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven timeout
@@ -1669,7 +1669,7 @@ mod config build maven timeout delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven timeout edit
@@ -1696,7 +1696,7 @@ mod config build maven timeout edit [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config build maven timeout show
@@ -1715,7 +1715,7 @@ mod config build maven timeout show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config clone
@@ -2556,7 +2556,7 @@ mod config java options edit "\-Xmx4G"
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config java options delete
@@ -2575,7 +2575,7 @@ mod config java options delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config java options show
@@ -2594,7 +2594,7 @@ mod config java options show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config java version
@@ -2647,7 +2647,7 @@ mod config java version edit "17-tem"
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config java version delete
@@ -2666,7 +2666,7 @@ mod config java version delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config java version show
@@ -2685,7 +2685,7 @@ mod config java version show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config license
@@ -2997,7 +2997,7 @@ mod config lsts artifacts edit <artifact-repository-url> --user <user> --passwor
 | `--authorization` |  The authorization header value to use. | `Bearer XXXXX` |
 | `--local` |  Configuration relevant to a specific group of repositories. |  |
 | `--password` |  The password to authenticate with. |  |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--user` |  The user to authenticate with. |  |
 
@@ -3020,7 +3020,7 @@ mod config lsts artifacts maven delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config lsts artifacts maven show
@@ -3041,7 +3041,7 @@ mod config lsts artifacts maven show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config moderne
@@ -4172,7 +4172,7 @@ mod config run timeout delete
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config run timeout edit
@@ -4199,7 +4199,7 @@ mod config run timeout edit [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config run timeout show
@@ -4218,7 +4218,7 @@ mod config run timeout show
 | Name | Description |
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.modernecfg** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
 
 
 ## mod config scm (deprecated)
@@ -4947,7 +4947,7 @@ mod git clone csv [parameters]
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.modernecfg** which can be committed to source control. |
+| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
@@ -4980,7 +4980,7 @@ mod git clone moderne [parameters]
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.modernecfg** which can be committed to source control. |
+| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
@@ -5275,7 +5275,7 @@ mod git sync csv [parameters]
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.modernecfg** which can be committed to source control. |
+| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
@@ -5314,7 +5314,7 @@ mod git sync moderne /path/to/organization <ORG_NAME>
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.modernecfg** which can be committed to source control. |
+| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
