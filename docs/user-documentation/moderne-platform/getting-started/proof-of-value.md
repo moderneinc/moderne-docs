@@ -20,15 +20,13 @@ This guide walks through a typical proof of value (POV) process to help you eval
 
 1. **Platform provisioning** - Moderne provisions an isolated platform in your chosen cloud provider and region (takes ~1 hour).
 
-2. **Agent setup** - Your team sets up the Moderne agent following our [on-premise agent configuration doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md). The agent runs as a Docker image or JAR and connects to your source code manager (SCM) and artifact repository using read-only service accounts (takes less than 1 hour with accounts ready).
+2. **Mass Ingest** - Your team [sets up an ingestion pipeline](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) to build and publish LST artifacts for your repositories. You should start with 100 or more diverse repositories for best results. This step does not require you to make any changes to the repositories themselves (such as installing build plugins).
 
-3. **SSO configuration** - Work with us to connect to your Identity Provider in a 30-minute meeting where we exchange metadata. If requested, a username/password can be provided during this proof of value process rather than setting up SSO.
+3. **Agent setup** - Your team sets up the Moderne agent following our [on-premise agent configuration doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md). The agent runs as a Docker image or JAR and connects to your source code manager (SCM) and artifact repository using read-only service accounts (takes less than 1 hour with accounts ready).
 
-4. **Ingestion pipeline** - Your team [sets up an ingestion pipeline](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) to build and publish LST artifacts for your repositories. You should start with 50-100 diverse repositories for best results. This step does not require you to make any changes to the repositories themselves (such as installing build plugins).
+4. **Run recipes** - With everything set up, you can now run recipes against your code. We strongly recommend starting with simple code quality improvement recipes before progressing to complex migrations. You can find our recommended recipes to run and examples of what they do in the next section of this doc.
 
-5. **Run recipes** - With everything set up, you can now run recipes against your code. We strongly recommend starting with simple code quality improvement recipes before progressing to complex migrations. You can find our recommended recipes to run and examples of what they do in the next section of this doc.
-
-6. **Study results** - After you've run a recipe, you should generate [data tables](./data-tables.md) and [visualizations](./visualizations.md) to learn more about what happened.
+5. **Study results** - After you've run a recipe, you should generate [data tables](./data-tables.md) and [visualizations](./visualizations.md) to learn more about what happened.
 
 :::note
 The recipes below progress from simple to complex. Links go to the [public Moderne Platform](https://app.moderne.io) where you can test on open-source repositories. You can also run these recipes using the CLI commands provided in each section.
