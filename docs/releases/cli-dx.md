@@ -1,5 +1,19 @@
 # CLI / DX changelog
 
+### CLI / DX v3.47.0 (2025/09/09)
+
+#### What's Changed CLI
+* Handle odd Java versions like `1.17` in Maven detection
+* Parse `.csv` and `.tsv` files as plain text
+* Don't take Maven wrapperVersion as Maven version
+* Trace analysis - don't show links for build log files which don't exist
+* Trace analysis - prevent `Others #NaN`
+- Avoid creating temp files
+* Correct references to `.modernecfg` in command help
+* `LogUtils#createLogWriter()` must ensure directory exists
+* `LogUtils#logCommandInfo()` must ensure directory exists
+
+
 ### CLI / DX v3.46.2 (2025/09/05)
 
 #### What's Changed CLI
