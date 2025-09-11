@@ -17,6 +17,18 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=p62K0iRIzvA' controls="true" />
 
+#### Summary and related links
+
+* **Announcements for the week**
+  * [OpenRewrite 8.62.0 has been released](https://bsky.app/profile/openrewrite.github.io/post/3lyimp5uktk24)
+    * This includes the Java 25 parser and recipes, Spring Boot 3.5 and Spring Cloud 2025 recipes, and various parser fixes.
+  * [We have a new blog post about writing OpenRewrite recipes with Claude code](https://www.moderne.ai/blog/writing-openrewrite-recipes-with-ai)
+  * [We also have a new blog post that covers the latest release of the Moderne CLI and how to collaborate with it](https://www.moderne.ai/blog/moderne-cli-3-45-code-collaboration-telemetry)
+  * [We are continuing to offer OpenRewrite training sessions to help people learn about using OpenRewrite effectively](https://www.moderne.ai/moderne-openrewrite-training-hub)
+  * [We are hiring! Check out our new careers page](https://www.moderne.ai/careers)
+* **Summary**
+  Coming soon!
+
 ### OpenRewrite power moves part 1: Using data tables (September 3rd, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=SuG97eQHYzQ' controls="true" />
