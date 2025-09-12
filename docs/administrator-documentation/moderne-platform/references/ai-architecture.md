@@ -38,7 +38,7 @@ Deployed as part of the Moderne Platform. Moderne customers can choose whether o
 
 #### AI models
 
-Moddy does not include its own model. You configure your own. Right now we support Anthropic, but other models have been tested and performed relatively similarly. We plan to additional generative models via their APIs.
+Moddy does not include its own model. You configure your own. Right now we support Anthropic, but other models have been tested and performed relatively similarly. We plan to support additional generative models via their APIs.
 
 #### State management
 
