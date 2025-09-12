@@ -1,5 +1,21 @@
 # CLI / DX changelog
 
+### CLI / DX v3.47.1 (2025/09/12)
+
+#### What's Changed CLI
+* Use actual time savings estimate from shrink wrapped recipe
+- Fix CsvToExcel to preserve numeric formatting with empty cells
+- Optimize `RepositoryDirectory#isGitIgnored()` check
+* Redact sensitive Authorization header from the `/installRecipes` daemon logs
+* Configure the micrometer meters before registering them
+* Fix usage documentation saying recipe sync runs in parallel
+* Trace analysis - charts improvements
+* Adding constraint summary to `VersionConstraintException`
+- Use actual `mod config run timeout` value and report failure on timeout
+- Parse all non-binary files as PlainText
+* Suggest additional next steps from `git checkout`, `git commit` and `git push`
+
+
 ### CLI / DX v3.47.0 (2025/09/09)
 
 #### What's Changed CLI
