@@ -3967,7 +3967,7 @@ mod config recipes moderne push
 Synchronizes the local CLI recipe marketplace with Moderne.
 
 
-Destroys all recipes in the local CLI marketplace and replaces them with the latest recipes available in Moderne. The recipes defined by these artifacts will then be available to run. Downloads recipe artifacts in parallel by default.
+Destroys all recipes in the local CLI marketplace and replaces them with the latest recipes available in Moderne. The recipes defined by these artifacts will then be available to run.
 
 ### Usage
 
