@@ -23,9 +23,8 @@ In this exercise, you'll use the `Annotated.Matcher` trait that the [`FindSpring
 1. With the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) still open in IntelliJ, open the `FindSpringBeans` recipe.
    * You can find this recipe in [src/main/java/com/yourorg/FindSpringBeans.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/FindSpringBeans.java).
 2. Review the `FindSpringBeans` recipe and note the comments in the file that describe how traits are being used.
-   * Notice that the `getVisitor()` method returns an `Annotated.Matcher`. The `Annotated` trait provided by OpenRewrite allows for matching annotations or annotated elements. `SearchResult.found` is used to return a modified LST element with an added search result marker for matches.
-   * You may see that this code uses a data table to store the matches that it finds. You will learn more about data tables and how to use them in the next module.
-   * Notice how a `SearchResult` is returned. This will add a special marker comment to the code.
+   * Notice that the `getVisitor()` method returns an `Annotated.Matcher`. The `Annotated` trait provided by OpenRewrite allows for matching annotations or annotated elements. `SearchResult.found` is used to return a modified LST element with an added search result marker for matches. 
+   * Notice how a `SearchResult` is returned. This will add a special marker comment to the code. This code also uses a data table to store the matches that it finds.
 3. Now open the unit tests for `FindSpringBeans`.
    * You can find them in [src/test/java/com/yourorg/FindSpringBeansTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/FindSpringBeansTest.java).
    * See what the special comments that the `SearchResult` add look like in the expected after code: `/*~~(bean)~~>*/`.
