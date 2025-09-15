@@ -72,7 +72,7 @@ In this exercise, you will write the code for a `TodoComment` trait that defines
 5. Build your project and run the tests.
    * All tests should pass, and you should see a message that the project was successfully built.
    * If one or more of the tests fail, use the description of the failure to try to find where the problem is.
-6. In case you get completely stuck or just need a reference, [here's an example of a completed `TrackTodos.java` file](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/TrackTodos.java).
+6. In case you get completely stuck or just need a reference, here's an example of a [completed `TrackTodos.java` file](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/TrackTodos.java), and a [completed `TodoComment.java` traits file](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/trait/TodoComment.java).
 
 ### Takeaways
 
