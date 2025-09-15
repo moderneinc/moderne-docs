@@ -8,7 +8,7 @@ In order to download and deploy the [Moderne Agent](#user-content-fn-1)[^1] or [
 
 Your usage of the [Moderne CLI](#user-content-fn-3)[^3] is governed by the [Moderne CLI license](../user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
 
-In addition, there is a group of OpenRewrite recipes that are created by Moderne specifically for multi-repo code analysis and transformation on our platform, including those designed for large-scale impact analysis and security remediation, as well as those that leverage AI tool calling. These recipes are under the Moderne Proprietary License. 
+In addition, there is a [group of OpenRewrite recipes that are created by Moderne](https://docs.openrewrite.org/reference/moderne-recipes) specifically for multi-repo code analysis and transformation on our platform, including those designed for large-scale impact analysis and security remediation, as well as those that leverage AI tool calling. These recipes are under the Moderne Proprietary License. 
 
 [^1]: On-premise component (OCI container or executable jar) for the Moderne SaaS which connects the Moderne SaaS to internal systems.
 
