@@ -4,8 +4,10 @@ description: Describes what a typical proof of value process looks like.
 ---
 
 import ReactPlayer from 'react-player';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-# Proof of value process
+# Proof of value (POV) process
 
 Moderne automates code maintenance tasks like framework migrations, security vulnerability fixes, and code quality improvements. Work that traditionally takes months can be completed in minutes, freeing developers to focus on delivering business value.
 
@@ -16,7 +18,10 @@ This guide walks through a typical proof of value (POV) process to help you eval
   <figcaption>Progression from simple to complex automation tasks</figcaption>
 </figure>
 
-## Proof of value (POV) steps
+## Proof of value steps
+
+<Tabs>
+<TabItem value="platform" label="Moderne Platform">
 
 1. **Platform provisioning** - Moderne provisions an isolated platform in your chosen cloud provider and region (takes ~1 hour).
 
@@ -31,6 +36,56 @@ This guide walks through a typical proof of value (POV) process to help you eval
 :::note
 The recipes below progress from simple to complex. Links go to the [public Moderne Platform](https://app.moderne.io) where you can test on open-source repositories. You can also run these recipes using the CLI commands provided in each section.
 :::
+
+</TabItem>
+<TabItem value="cli" label="Moderne CLI">
+
+1. **Download the Moderne CLI** – Download the [latest JAR from Maven Central](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions).
+    * While not required, you are strongly encouraged to [set up an alias for running the JAR](../../moderne-cli/getting-started/cli-internal-tools.md#step-2-optional---but-recommended-create-an-alias-for-the-moderne-cli-jar).
+    * **Note:** You may experience a few speed bumps related to your internal nexus/scanners that block recipes JARs. For example, the Spring migrations recipes have migrations going back a few major versions. Those versions call out now vulnerable dependencies – but those calls may get blocked by your firewall as it doesn't recognize what the purpose of the recipe is. Ideally this is not an issue, but if it is, please let us know, and we'll work together with you to address it.
+
+2. **Clone repos to your local machine** – In order for the CLI to run recipes against your code, you will need to provide it with [a repos.csv file](../../moderne-cli/references/repos-csv.md).
+    * Once you've created the `repos.csv` file, create a directory somewhere on your machine and run the following command:
+        ```bash
+        mod git sync csv . repos.csv
+        ```
+
+3. **Build LSTs for the repos you cloned** – With all of the repositories cloned to your machine, you'll need to build the LSTs for them by running the following command:
+        ```bash
+        mod build .
+        ```
+    
+    * **Note**: All of your LSTs may not build successfully. This is a normal experience during initial ingestion as there are always unique configurations and environmental factors that need to be accounted for. We can work with you to investigate these issues on a call.
+      * The CLI stack trace will give some hints as to the issue. There is also a `build.log` file produced to every repo that will contain more context. You can also run the following command to aggregate the build logs:
+
+      ```bash
+      mod log builds add . logs.zip --last-build
+      ```
+      
+      * **Common reasons LSTs may fail to build:**
+        * Using Java versions older than Java 8
+        * Partially checked-in or outdated wrapper files that are not used in CI
+        * Builds that depend on system properties or environment variables that are set locally or in CI but not documented
+        * Using Gradle versions older than 4.10
+        * Non-standard locations for Maven's `settings.xml` or local repository
+        * Unusual Maven profile activation conditions
+
+4. **Add your CLI key** – By now, you should have received a CLI key for the purposes of this PoC. Run the following command to add the key, which will allow you to download and run recipes:
+
+    ```bash
+    mod config license edit <insert provided key here>
+    ```
+
+5. **Install the recipes** – Copy and run the [Moderne CLI command under CLI installation](https://docs.openrewrite.org/reference/latest-versions-of-every-openrewrite-module#cli-installation).
+
+6. **Try your first recipe** – Try a simple recipe to test that you can execute successfully against the LSTs you built in step 3. We recommend the "Find empty classes" recipe, which will search through your repos to find empty classes that do not implement an interface or extend a class. To run this recipe, run the following command:
+
+      ```bash
+      mod run . --recipe org.openrewrite.java.search.FindEmptyClasses
+      ```
+
+</TabItem>
+</Tabs>
 
 ## Code quality recipes
 
