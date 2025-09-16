@@ -23,44 +23,79 @@ After creating your `repos.csv` file and running initial setup commands, the Mod
 
 ## Supported columns
 
-| Column name       | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|-------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| cloneUrl          | `true`   | The URL of the repository that should be ingested. <br /><br />Example: `git@github.com:google/guava.git` or `https://github.com/openrewrite/rewrite`                                                                                                                                                                                                                                                                           |
-| branch            | `true`   | The branch of the repository that should be checked out.<br /><br />Example: `main`                                                      |
-| origin            | `true`   | The host domain of the repository including any context root used by the server.<br /><br />Example: `github.com`, `gitlab.com`, `bitbucket.org`, `mycompany.com/bitbucket`                        |
+| Column name       | Required | Description                                                                                                                                                                                                                                                                                                                                       |
+|-------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| cloneUrl          | `true`   | The URL of the repository that should be ingested. <br /><br />Example: `git@github.com:google/guava.git` or `https://github.com/openrewrite/rewrite`                                                                                                                                                                                             |
+| branch            | `true`   | The branch of the repository that should be checked out.<br /><br />Example: `main`                                                                                                                                                                                                                                                               |
+| origin            | `true`   | The host domain of the repository including any context root used by the server.<br /><br />Example: `github.com`, `gitlab.com`, `bitbucket.org`, `mycompany.com/bitbucket`                                                                                                                                                                       |
 | path              | `true`   | The organization and repository name portion of the clone URL. This is typically the remainder of the cloneUrl after `origin` minus any leading symbols and trailing `.git`. For SSH style URLs, the path is the portion after the `:`. <br /><br />Example: `moderne-inc/moderne-docs`, `openrewrite/rewrite`, `businessunit/teamA/subteamB/app` |
-| alternateCloneUrl | `false`  | If the `cloneUrl` doesn't work, then we will attempt to clone from this URL. This is commonly filled out if you want to provide both an HTTP link and an SSH link for a repository.                                                                                                                                                                                                                                             |
-| changeset         | `false`  | If provided, this will check out the repository at this specific commit SHA. <br /><br />Example: `aa5f25ac0031`                                                                                                                                                                                                                                                            |
-| gradleArgs        | `false`  | Build arguments that are added to the end of the Gradle command line when building LSTs.<br /><br />Example: `-Dmyprop=myvalue`                                                                                                                                                                                                                                                                                                 |
-| java              | `false`  | Configures the JDK to use during LST generation.<br /><br />Example: `17` or `17-tem` or `17.0.6-tem`                                                                                                                                                                                                                                                                                                                           |
-| jvmopts           | `false`  | JVM options added to tools building LSTs. Must be configured before you can run the build command if non-standard VM options are required.<br /><br />Example: `-Xmx4G`                                                                                                                                                                                                                                                         |
-| mavenArgs         | `false`  | Build arguments are added to the end of the Maven command line when building LSTs.<br /><br />Example: `-Pfast`                                                                                                                                                                                                                                                                                                                 |
-| org*              | `false`  | If you want to configure an organizational hierarchy, you can provide one or more organization columns. Each column will specify an organization the repository should be part of. The column name should be `org` plus a number such as: `org1,org2,org3`. There is no limit for how many orgs you can define.<br /><br />Example: `openrewrite`                                                                               |
+| alternateCloneUrl | `false`  | If the `cloneUrl` doesn't work, then we will attempt to clone from this URL. This is commonly filled out if you want to provide both an HTTP link and an SSH link for a repository.                                                                                                                                                               |
+| changeset         | `false`  | If provided, this will check out the repository at this specific commit SHA. <br /><br />Example: `aa5f25ac0031`                                                                                                                                                                                                                                  |
+| gradleArgs        | `false`  | Build arguments that are added to the end of the Gradle command line when building LSTs.<br /><br />Example: `-Dmyprop=myvalue`                                                                                                                                                                                                                   |
+| java              | `false`  | Configures the JDK to use during LST generation.<br /><br />Example: `17` or `17-tem` or `17.0.6-tem`                                                                                                                                                                                                                                             |
+| jvmopts           | `false`  | JVM options added to tools building LSTs. Must be configured before you can run the build command if non-standard VM options are required.<br /><br />Example: `-Xmx4G`                                                                                                                                                                           |
+| mavenArgs         | `false`  | Build arguments are added to the end of the Maven command line when building LSTs.<br /><br />Example: `-Pfast`                                                                                                                                                                                                                                   |
+| org*              | `false`  | If you want to configure an organizational hierarchy, you can provide one or more organization columns. Each column will specify an organization the repository should be part of. The column name should be `org` plus a number such as: `org1,org2,org3`. There is no limit for how many orgs you can define.<br /><br />Example: `openrewrite` |
 
-### A note on cloneUrl, origin, and path
+### Understanding origin and path values
 
-While the `cloneUrl` and `alternateCloneUrl` are used for specific operations like cloning the repository for LST builds or committing changes after a recipe run, the Moderne platform uses a combination of `origin`, `path` and `branch` to uniquely identify a specific repository.  In general, all repositoring coming from the same SCM server should have the same `origin`, and the `path` and `branch` will differ.  The combination of `origin`, `path`, and `branch` should uniquely identify a row in your `repos.csv`.
+The Moderne Platform uses a combination of `origin`, `path`, and `branch` to uniquely identify a specific repository. In general, all repositories coming from the same SCM server should have the same `origin` – whereas the `path` and `branch` will differ. The combination of `origin`, `path`, and `branch` must uniquely identify each row in your `repos.csv`.
 
-Different source control management (SCM) providers present these origin and path differently in their cloneUrls, so it's not possible to infer these values from the cloneUrl alone.  You might also be running your SCM behind a reverse proxy or context root that complicates this.  For this reason, we require that you explicitly provide all of these values for each row.  Here's a guide for finding the origin and path for common SCM providers:
+Different SCM providers format their clone URLs differently, making it impossible to automatically extract the correct `origin` and `path` values. You might also be running your SCM behind a reverse proxy or context root – which would further complicate this. Because of that, we require that you explicitly provide all of these values for each row. 
 
-| SCM Provider | Protocol | Example cloneUrl | Example Origin | Example Path | Notes |
-|--------------|----------|------------------|----------------|--------------|-------|
-| GitHub | HTTPS | `https://github.com/organization/repo.git` | `github.com` | `organization/repo` |  |
-| GitHub | SSH   | `git@github.com:organization/repo.git` | `github.com` | `organization/repo` |  |
-| GitLab | HTTPS | `https://gitlab.com/groupa/groupb/groupc/repo.git` | `gitlab.com` | `groupa/groupb/groupc/repo` | GitLab allows for deeply nested folders to organize your repositories.  The `path` should include the full set of folders. |
-| GitLab | SSH   | `git@gitlab.com:groupa/groupb/groupc/repo.git`    | `gitlab.com` | `groupa/groupb/groupc/repo` | GitLab allows for deeply nested folders to organize your repositories.  The `path` should include the full set of folders. |
-| Bitbucket Cloud | HTTPS | `https://bitbucket.org/organization/repo.git` | `bitbucket.org` | `organization/repo` |  |
-| Bitbucket Cloud | SSH   | `git@bitbucket.org:organization/repo.git` | `bitbucket.org` | `organization/repo` |  |
-| Bitbucket Server | HTTPS | `https://mycompany.com/bitbucket/scm/organization/repo.git` | `mycompany.com/bitbucket` | `organization/repo` | Bitbucket Server adds `/scm/` to HTTPS cloneUrls, but this shouldn't be included in the `path`. <br/><br/>As a self-hosted option, Bitbucket Server might be served with a context root that should be included as part of the `origin`. |
-| Bitbucket Server | SSH   | `ssh://mycompany.com:9999/bitbucket/organization/repo.git` | `mycompany.com/bitbucket` | `organization/repo` | As a self-hosted option, Bitbucket Server might be served with a context root and SSH cloneUrls can support this using the `ssh://` syntax. The protocol and port should not be included as part of the `origin` or `path`. |
-| Azure DevOps | HTTPS | `https://dev.azure.com/organization/project/_git/repo` | `dev.azure.com` | `organization/project/repo` | Azure DevOps adds `/_git/` to HTTPS cloneUrls which should be excluded from the `path`. |
-| Azure DevOps | SSH   | `git@ssh.dev.azure.com:v3/organization/project/repo` | `dev.azure.com` | `organization/project/repo` | Azure DevOps adds `:v3/` to SSH cloneUrls which should be excluded from the `path`. |
+Below you can find examples of what origin/path typically looks like for common SCM providers:
 
+#### GitHub
+
+| Protocol | Clone URL Pattern                     | Origin       | Path           |
+|----------|---------------------------------------|--------------|----------------|
+| HTTPS    | `https://github.com/{org}/{repo}.git` | `github.com` | `{org}/{repo}` |
+| SSH      | `git@github.com:{org}/{repo}.git`     | `github.com` | `{org}/{repo}` |
+
+#### GitLab
+
+| Protocol | Clone URL Pattern                        | Origin       | Path              |
+|----------|------------------------------------------|--------------|-------------------|
+| HTTPS    | `https://gitlab.com/{groups}/{repo}.git` | `gitlab.com` | `{groups}/{repo}` |
+| SSH      | `git@gitlab.com:{groups}/{repo}.git`     | `gitlab.com` | `{groups}/{repo}` |
+
+* GitLab allows deeply nested folders to organize repositories. The `path` field must include the complete hierarchy of all group and subgroup folders. For example, if your repository is organized as `groupa/groupb/groupc/repo`, the entire path including all intermediate groups must be specified in the `path` field.
+
+#### Bitbucket Cloud
+
+| Protocol | Clone URL Pattern                        | Origin          | Path           |
+|----------|------------------------------------------|-----------------|----------------|
+| HTTPS    | `https://bitbucket.org/{org}/{repo}.git` | `bitbucket.org` | `{org}/{repo}` |
+| SSH      | `git@bitbucket.org:{org}/{repo}.git`     | `bitbucket.org` | `{org}/{repo}` |
+
+#### Bitbucket Data Center
+
+| Protocol | Clone URL Pattern                               | Origin             | Path           |
+|----------|-------------------------------------------------|--------------------|----------------|
+| HTTPS    | `https://{host}/bitbucket/scm/{org}/{repo}.git` | `{host}/bitbucket` | `{org}/{repo}` |
+| SSH      | `ssh://{host}:9999/bitbucket/{org}/{repo}.git`  | `{host}/bitbucket` | `{org}/{repo}` |
+
+* Bitbucket Data Center adds `/scm/` to HTTPS clone URLs between the host/context and the project/repo path. This `/scm/` segment is part of Bitbucket's URL structure but must be excluded from the `path` field.
+* As a self-hosted option, Bitbucket Data Center is often deployed with a context root (e.g., `/bitbucket`). This context root should be included as part of the `origin` field, not the `path` field.
+* SSH clone URLs for Bitbucket Data Center use the `ssh://` protocol prefix and typically run on port 9999. Neither the protocol (`ssh://`) nor the port number (`:9999`) should be included in the `origin` or `path` fields.
+
+#### Azure DevOps
+
+| Protocol | Clone URL Pattern                                   | Origin          | Path                     |
+|----------|-----------------------------------------------------|-----------------|--------------------------|
+| HTTPS    | `https://dev.azure.com/{org}/{project}/_git/{repo}` | `dev.azure.com` | `{org}/{project}/{repo}` |
+| SSH      | `git@ssh.dev.azure.com:v3/{org}/{project}/{repo}`   | `dev.azure.com` | `{org}/{project}/{repo}` |
+
+* Azure DevOps inserts `/_git/` into HTTPS clone URLs to distinguish git repositories from other project resources. This `/_git/` segment must be excluded from the `path` field.
+* SSH clone URLs use a different host (`ssh.dev.azure.com` instead of `dev.azure.com`) and include `:v3/` as a version identifier. Despite the different host in the SSH URL, the `origin` should still be `dev.azure.com` for consistency across both protocols. The `:v3/` version identifier must be excluded from the `path` field.
+
+:::note
 For self-hosted providers or providers behind a custom domain, you'll need to identify any context root and include that in the `origin` and not the `path`.
+:::
 
-### Using alternateCloneUrl to support multiple protocols
+### Using `alternateCloneUrl` to support multiple protocols
 
-We encourage you to provide both `cloneUrl` and `alternateCloneUrl` to provide both your primary protocol (HTTPS or SSH) as well as the second protocol for maximum flexibility. In situations where your organization allows read access over one protocol but only allows commits through a different protocol, this will allow the Moderne platform to present a single repository but correctly support both workflows.
+We encourage you to provide both `cloneUrl` and `alternateCloneUrl` to support both your primary protocol (HTTPS or SSH) and a secondary protocol for maximum flexibility. In situations where your organization allows read access over one protocol but only allows commits through a different protocol, this enables the Moderne Platform to present a single repository while correctly supporting both workflows.
 
 ## Generating this file
 
