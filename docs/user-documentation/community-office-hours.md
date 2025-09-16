@@ -13,6 +13,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### OpenRewrite power moves part 3: Using traits (September 17th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=bt-zCrAWRAc' controls="true" />
+
+#### Summary and related links
+
+Coming soon!
+
 ### OpenRewrite power moves part 2: Scanning recipes (September 10th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=p62K0iRIzvA' controls="true" />
