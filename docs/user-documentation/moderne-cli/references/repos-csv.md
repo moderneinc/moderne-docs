@@ -75,8 +75,8 @@ Below you can find examples of what origin/path typically looks like for common 
 | HTTPS    | `https://{host}/bitbucket/scm/{org}/{repo}.git` | `{host}/bitbucket` | `{org}/{repo}` |
 | SSH      | `ssh://{host}:9999/bitbucket/{org}/{repo}.git`  | `{host}/bitbucket` | `{org}/{repo}` |
 
-* Bitbucket Data Center adds `/scm/` to HTTPS clone URLs between the host/context and the project/repo path. This `/scm/` segment is part of Bitbucket's URL structure but must be excluded from the `path` field.
-* As a self-hosted option, Bitbucket Data Center is often deployed with a context root (e.g., `/bitbucket`). This context root should be included as part of the `origin` field, not the `path` field.
+* As a self-hosted option, Bitbucket Data Center is often deployed with a context root (e.g., the `/bitbucket` in the above examples). This context root should be included as part of the `origin` field, not the `path` field.
+* HTTPS clone URLs for Bitbucket Data Center include `/scm/` between the host/context and the project/repo path. This `/scm/` segment is part of Bitbucket's URL structure but must be excluded from the `path` field.
 * SSH clone URLs for Bitbucket Data Center use the `ssh://` protocol prefix and typically run on port 9999. Neither the protocol (`ssh://`) nor the port number (`:9999`) should be included in the `origin` or `path` fields.
 
 #### Azure DevOps
