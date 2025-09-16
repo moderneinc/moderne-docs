@@ -96,7 +96,7 @@ Below you can find examples of what origin/path typically looks like for common 
 | HTTPS    | `https://{host}/{context}/{org}/{repo}` | `{host}` | `{org}/{repo}` |
 | SSH      | `git@{host}:{port}/{org}/{repo}`   | `{host}` | `{org}/{repo}` |
 
-For self-hosted providers such as GitHub Enterprise, Self-Managed GitLab, or Bitbucket Data Center or providers behind a custom domain, you'll need to identify any context root and include that in the `origin` and not the `path`.  Depending on the SCM provider, you may need to alter the host or path in similar ways as noted above to remove provider-specific parts of the URL.
+For self-hosted providers such as GitHub Enterprise, Self-Managed GitLab, or Bitbucket Data Center or providers behind a custom domain, you'll need to identify any context root and include that in the `origin` and not the `path`. Depending on the SCM provider, you may need to alter the host or path in similar ways as noted above to remove provider-specific parts of the URL.
 
 ### Using `alternateCloneUrl` to support multiple protocols
 
