@@ -89,7 +89,7 @@ Below you can find examples of what origin/path typically looks like for common 
 * Azure DevOps inserts `/_git/` into HTTPS clone URLs to distinguish git repositories from other project resources. This `/_git/` segment must be excluded from the `path` field.
 * SSH clone URLs use a different host (`ssh.dev.azure.com` instead of `dev.azure.com`) and include `:v3/` as a version identifier. Despite the different host in the SSH URL, the `origin` should still be `dev.azure.com` for consistency across both protocols. The `:v3/` version identifier must be excluded from the `path` field.
 
-#### On-Premises SCM Providers
+#### On-premises SCM providers
 
 | Protocol | Clone URL Pattern                                   | Origin          | Path                     |
 |----------|-----------------------------------------------------|-----------------|--------------------------|
