@@ -102,7 +102,7 @@ For self-hosted providers such as GitHub Enterprise, Self-Managed GitLab, or Bit
 
 You can provide both `cloneUrl` and `alternateCloneUrl` to support both your primary protocol (HTTPS or SSH) and a secondary protocol for maximum flexibility. In situations where your organization allows read access over one protocol but only allows commits through a different protocol, this enables the Moderne Platform to present a single repository while correctly supporting both workflows. This also allows matching when an LST is built manually from a git repository cloned with the secondary URL.
 
-If the `cloneUrl` and `alternateCloneUrl` differ in their domain (as is the case with Azure DevOps above), you should set `origin` based on the `cloneUrl` (not the `alternateCloneUrl`) in a consistent way across HTTPS and SSH repositories for that SCM provider so that Moderne can successfully identify the repository in both cases.
+If the `cloneUrl` and `alternateCloneUrl` differ in their domain (as is the case with Azure DevOps above), you should set `origin` based on the HTTPS URL (since origins are used to build URLs for SCM API calls such as creating PRs) in a consistent way across HTTPS and SSH repositories for that SCM provider so that Moderne can successfully identify the repository in both cases. The origin should always be the root of the service on HTTP(S) but without the protocol and can most easily be inferred from the HTTP(S) clone URL.
 
 ## Generating this file
 
