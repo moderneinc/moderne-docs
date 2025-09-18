@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.48.2 (2025/09/18)
+
+#### What's Changed CLI
+* Removing `.git` directory on failed clone
+- Don't load `libzstd-jni` in isolated classloader
+
+
 ### CLI / DX v3.48.1 (2025/09/18)
 
 #### What's Changed CLI
