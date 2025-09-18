@@ -28,8 +28,8 @@ After creating your `repos.csv` file and running initial setup commands, the Mod
 | cloneUrl          | `true`   | The URL of the repository that should be ingested. <br /><br />Example: `git@github.com:google/guava.git` or `https://github.com/openrewrite/rewrite`                                                                                                                                                                                             |
 | branch            | `true`   | The branch of the repository that should be checked out.<br /><br />Example: `main`                                                                                                                                                                                                                                                               |
 | origin            | `true`   | The host domain of the repository including any context root used by the server.<br /><br />Example: `github.com`, `gitlab.com`, `bitbucket.org`, `mycompany.com/bitbucket`                                                                                                                                                                       |
-| path              | `true`   | The organization and repository name portion of the clone URL. This is typically the remainder of the cloneUrl after `origin` minus any leading symbols and trailing `.git`. For SSH style URLs, the path is the portion after the `:`. <br /><br />Example: `moderne-inc/moderne-docs`, `openrewrite/rewrite`, `businessunit/teamA/subteamB/app` |
-| alternateCloneUrl | `false`  | If the `cloneUrl` doesn't work, then we will attempt to clone from this URL. This is commonly filled out if you want to provide both an HTTP link and an SSH link for a repository.                                                                                                                                                               |
+| path              | `true`   | The organization and repository name portion of the clone URL. This is typically the remainder of the cloneUrl after `origin` minus any leading symbols and trailing `.git`. For SCP-style URLs (like `git@github.com:moderneinc/moderne-docs`), the path is typically the portion after the `:`. <br /><br />Example: `moderne-inc/moderne-docs`, `openrewrite/rewrite`, `businessunit/teamA/subteamB/app` |
+| alternateCloneUrl | `false`  | If the `cloneUrl` doesn't work, then we will attempt to clone from this URL. This is commonly filled out if you want to provide both an HTTP link and an SSH link for a repository. Multiple columns with this name are supported for organizations that have additional clone URLs.                                                              |
 | changeset         | `false`  | If provided, this will check out the repository at this specific commit SHA. <br /><br />Example: `aa5f25ac0031`                                                                                                                                                                                                                                  |
 | gradleArgs        | `false`  | Build arguments that are added to the end of the Gradle command line when building LSTs.<br /><br />Example: `-Dmyprop=myvalue`                                                                                                                                                                                                                   |
 | java              | `false`  | Configures the JDK to use during LST generation.<br /><br />Example: `17` or `17-tem` or `17.0.6-tem`                                                                                                                                                                                                                                             |
@@ -73,11 +73,11 @@ Below you can find examples of what origin/path typically looks like for common 
 | Protocol | Clone URL Pattern                               | Origin             | Path           |
 |----------|-------------------------------------------------|--------------------|----------------|
 | HTTPS    | `https://{host}/bitbucket/scm/{org}/{repo}.git` | `{host}/bitbucket` | `{org}/{repo}` |
-| SSH      | `ssh://{host}:9999/bitbucket/{org}/{repo}.git`  | `{host}/bitbucket` | `{org}/{repo}` |
+| SSH      | `ssh://{host}:7999/bitbucket/{org}/{repo}.git`  | `{host}/bitbucket` | `{org}/{repo}` |
 
 * As a self-hosted option, Bitbucket Data Center is often deployed with a context root (e.g., the `/bitbucket` in the above examples). This context root should be included as part of the `origin` field, not the `path` field.
 * HTTPS clone URLs for Bitbucket Data Center include `/scm/` between the host/context and the project/repo path. This `/scm/` segment is part of Bitbucket's URL structure but must be excluded from the `path` field.
-* SSH clone URLs for Bitbucket Data Center use the `ssh://` protocol prefix and typically run on port 9999. Neither the protocol (`ssh://`) nor the port number (`:9999`) should be included in the `origin` or `path` fields.
+* SSH clone URLs for Bitbucket Data Center use the `ssh://` protocol prefix and typically run on port 7999 (the default port). Neither the protocol (`ssh://`) nor the port number (`:7999`) should be included in the `origin` or `path` fields.
 
 #### Azure DevOps
 
@@ -94,15 +94,15 @@ Below you can find examples of what origin/path typically looks like for common 
 | Protocol | Clone URL Pattern                                   | Origin          | Path                     |
 |----------|-----------------------------------------------------|-----------------|--------------------------|
 | HTTPS    | `https://{host}/{context}/{org}/{repo}` | `{host}` | `{org}/{repo}` |
-| SSH      | `git@{host}:{port}/{org}/{repo}`   | `{host}` | `{org}/{repo}` |
+| SSH      | `git@{host}:{org}/{repo}` or `ssh://{host}:{port}/{org}/{repo}`   | `{host}` | `{org}/{repo}` |
 
 For self-hosted providers such as GitHub Enterprise, Self-Managed GitLab, or Bitbucket Data Center or providers behind a custom domain, you'll need to identify any context root and include that in the `origin` and not the `path`. Depending on the SCM provider, you may need to alter the host or path in similar ways as noted above to remove provider-specific parts of the URL.
 
 ### Using `alternateCloneUrl` to support multiple protocols
 
-You can provide both `cloneUrl` and `alternateCloneUrl` to support both your primary protocol (HTTPS or SSH) and a secondary protocol for maximum flexibility. In situations where your organization allows read access over one protocol but only allows commits through a different protocol, this enables the Moderne Platform to present a single repository while correctly supporting both workflows.
+You can provide both `cloneUrl` and `alternateCloneUrl` to support both your primary protocol (HTTPS or SSH) and a secondary protocol for maximum flexibility. In situations where your organization allows read access over one protocol but only allows commits through a different protocol, this enables the Moderne Platform to present a single repository while correctly supporting both workflows. This also allows matching when an LST is built manually from a git repository cloned with the secondary URL.
 
-If the `cloneUrl` and `alternateCloneUrl` differ in their domain (as is the case with Azure DevOps above), you should set `origin` in a consistent way across HTTPS and SSH repositories for that SCM provider so that Moderne can successfully identify the repository in both cases.
+If the `cloneUrl` and `alternateCloneUrl` differ in their domain (as is the case with Azure DevOps above), you should set `origin` based on the HTTPS URL (since origins are used to build URLs for SCM API calls such as creating PRs) in a consistent way across HTTPS and SSH repositories for that SCM provider so that Moderne can successfully identify the repository in both cases. The origin should always be the root of the service on HTTP(S) but without the protocol and can most easily be inferred from the HTTP(S) clone URL.
 
 ## Generating this file
 
