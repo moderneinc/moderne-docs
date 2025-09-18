@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v11.105.0 (2025/09/18)
+
+- improve parliament seat size for smaller orgs
+- add tooltips to the parliament chart table
+
 ### UI v11.104.9 (2025/09/17)
 
 - Bug fixes and other improvements.
