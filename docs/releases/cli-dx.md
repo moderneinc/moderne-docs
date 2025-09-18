@@ -1,5 +1,29 @@
 # CLI / DX changelog
 
+### CLI / DX v3.48.0 (2025/09/17)
+
+#### What's Changed CLI
+* Setting `GIT_TERMINAL_PROMPT=0` environment variable for git operations
+* Handle the cases better when there's no dotnet installation
+* Support gradle.properties references in Java version detection for Gradle Groovy files
+* Deduplicate version ranges when presenting version constraint summary
+- Use `dependency:go-offline` rather than `dependency:resolve`
+* Start Bazel with idle timeout of 2 mins
+* Install native ZSTD library into `.moderne` for re-use
+* Add `--organization` and `--refresh-organization` options to `mod git sync` subcommands
+* Include a more useful message when recipe installation errors out
+* Fix DevCenter card ordering
+* Gradle ModernePlugin - copy configurations before iterating over them
+* Allow `mod trace builds analyze` to process log zip files from mass ingest
+* Apply KeyStore config
+* Fix recipe run timeout incorrectly reporting success
+* Links now render correctly on Windows Subsystem for Linux
+* Refactor how some config properties are applied as system properties
+* Clear `ThreadLocal`s in `DelegatingSerializingProjectParser`
+* Add additional support for `@Example` annotations
+* Add JavaScript support via Rewrite RPC
+
+
 ### CLI / DX v3.47.1 (2025/09/12)
 
 #### What's Changed CLI
