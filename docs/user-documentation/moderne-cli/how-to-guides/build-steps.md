@@ -98,3 +98,45 @@ build:
       inclusion: |-
         **/*
 ```
+
+When configuring resource steps with inclusion patterns, it's important to understand how glob patterns work:
+
+* `dir/subdir/*` - Matches only files directly within `dir/subdir/`, but not in its subdirectories
+* `dir/subdir/**` - Matches all files and folders recursively under `dir/subdir/`
+
+For example, if you have a repository structure containing multiple independent Gradle projects under a directory and want them all to be parsed as resource files instead of Gradle projects:
+
+```bash
+repo/
+  dir/
+    subdir/
+      project1/
+        settings.gradle
+        build.gradle
+        src/
+      project2/
+        settings.gradle
+        build.gradle
+        src/
+      project3/
+        settings.gradle
+        build.gradle
+        src/
+```
+
+Using `dir/subdir/*` would only match files directly in `subdir/` and would not include the Gradle projects in `project1/`, `project2/`, and `project3/`. To include all files in those subdirectories as resources, use `dir/subdir/**`:
+
+Example configuration:
+
+```yaml
+specs: specs.moderne.ai/v1/cli
+build:
+  steps:
+    - type: resource
+      inclusion: |-
+        dir/subdir/**
+    - type: gradle
+    - type: resource
+      inclusion: |-
+        **/*
+```
