@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.48.1 (2025/09/18)
+
+#### What's Changed CLI
+* Remove JS from `Autodetections#enableResources()`
+
+
 ### CLI / DX v3.48.0 (2025/09/17)
 
 #### What's Changed CLI
