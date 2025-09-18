@@ -176,9 +176,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes jar**](#mod-config-recipes-jar)
 * [**mod config recipes jar install**](#mod-config-recipes-jar-install)
 * [**mod config recipes jar delete**](#mod-config-recipes-jar-delete)
-* [**mod config recipes nupkg**](#mod-config-recipes-nupkg)
-* [**mod config recipes nupkg install**](#mod-config-recipes-nupkg-install)
-* [**mod config recipes nupkg delete**](#mod-config-recipes-nupkg-delete)
+* [**mod config recipes npm**](#mod-config-recipes-npm)
+* [**mod config recipes npm install**](#mod-config-recipes-npm-install)
+* [**mod config recipes npm delete**](#mod-config-recipes-npm-delete)
 * [**mod config recipes moderne**](#mod-config-recipes-moderne)
 * [**mod config recipes moderne install**](#mod-config-recipes-moderne-install)
 * [**mod config recipes moderne push**](#mod-config-recipes-moderne-push)
@@ -316,9 +316,9 @@ mod afterburner /path/to/project
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -379,9 +379,9 @@ mod audit builds list [parameters]
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -423,9 +423,9 @@ mod audit runs list [parameters]
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -479,11 +479,11 @@ mod batch publish --recipe com.acme.CollectionsSortToListSort --recipe-name "Pre
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| `cmd` |  The command used to generate a diff of changes between the working and target branches of the repository. |
-| `args` |  Arguments for the command, if any exist. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `cmd` |  The command used to generate a diff of changes between the working and target branches of the repository. |  |
+| `args` |  Arguments for the command, if any exist. |  |
 
 ### Options
 
@@ -524,9 +524,9 @@ mod build /path/to/project
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -585,9 +585,9 @@ mod clean builds /path/to/project --keep 1
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -617,9 +617,9 @@ mod clean runs /path/to/project --keep 1
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -742,9 +742,9 @@ mod config build active-styles edit [parameters]
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `activeStyles` |  Additional build arguments that are added to the end of the Gradle command line. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `activeStyles` |  Additional build arguments that are added to the end of the Gradle command line. | `an.example.Style0,an.example.Style1` |
 
 ### Options
 
@@ -2123,7 +2123,7 @@ mod config http [subcommands]
 
 * `proxy`: Configures HTTP proxy settings that will be used for every HTTP request.
 * `trust-store`: Configures truststore options that will be used throughout the CLI.
-* `key-store`: Configures keystore options that will be used throughout the CLI.
+* `key-store`: Configures keystore options that will be used throughout the CLI for mTLS.
 
 ## mod config http proxy
 
@@ -2286,7 +2286,7 @@ mod config http trust-store edit file [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `file` |  The path to the truststore file. |
+| `file` |  The absolute path to the truststore file. |
 
 ### Options
 
@@ -2327,10 +2327,10 @@ mod config http trust-store show
 
 ## mod config http key-store
 
-Configures keystore options that will be used throughout the CLI.
+Configures keystore options that will be used throughout the CLI for mTLS.
 
 
-All subsequent commands will use these settings.
+Configures a keystore containing client private key(s) and client certificate(s) for mutual TLS. All subsequent commands will use these settings.
 
 ### Usage
 
@@ -2342,7 +2342,7 @@ mod config http key-store [subcommands]
 ### Subcommands
 
 * `delete`: Removes keystore settings from global configuration.
-* `edit`: Configures keystore options that will be used throughout the CLI.
+* `edit`: Configures keystore options that will be used throughout the CLI for mTLS.
 * `show`: Displays the keystore setting from global configuration.
 
 ## mod config http key-store delete
@@ -2362,10 +2362,10 @@ mod config http key-store delete
 
 ## mod config http key-store edit
 
-Configures keystore options that will be used throughout the CLI.
+Configures keystore options that will be used throughout the CLI for mTLS.
 
 
-All subsequent commands will use these settings.
+Configures a keystore containing client private key(s) and client certificate(s) for mutual TLS. All subsequent commands will use these settings.
 
 ### Usage
 
@@ -2394,7 +2394,7 @@ mod config http key-store edit file [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `file` |  The path to the keystore file. |
+| `file` |  The absolute path to the keystore file. |
 
 ### Options
 
@@ -2885,9 +2885,9 @@ mod config lsts artifacts artifactory edit https://artifactory.company.com --use
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `url` |  The URL of the artifact repository that LSTs will be published to. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `url` |  The URL of the artifact repository that LSTs will be published to. | `https://artifactory.company-name.com/artifactory/moderne-ingest` |
 
 ### Options
 
@@ -2986,9 +2986,9 @@ mod config lsts artifacts edit <artifact-repository-url> --user <user> --passwor
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `url` |  The URL of the artifact repository that LSTs will be published to. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `url` |  The URL of the artifact repository that LSTs will be published to. | `https://repo.company-name.com/repository/moderne-ingest` |
 
 ### Options
 
@@ -3108,9 +3108,9 @@ mod config moderne edit <host> --token <token>
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `host` |  The URL of the Moderne UI. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `host` |  The URL of the Moderne UI. | `https://app.moderne.io` |
 
 ### Options
 
@@ -3306,7 +3306,7 @@ mod config recipes moderne sync
 * `artifacts`: Configures artifact repositories to resolve recipes from.
 * `export`: Export the recipe catalog for study by different tools.
 * `jar`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
-* `nupkg`: Adds or updates a package that contains recipes that should be added to the recipe marketplace in the CLI.
+* `npm`: Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
 * `moderne`: Configures which Moderne recipes should be installed and used in the local CLI marketplace.
 * `delete`: Clear the whole recipe marketplace.
 * `list`: List the artifacts that are contributing recipes to the marketplace.
@@ -3376,9 +3376,9 @@ mod config recipes artifacts edit <artifact-repository-url> --user <user> --pass
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `url` |  The URL of the artifact repository that recipes will be resolved from. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `url` |  The URL of the artifact repository that recipes will be resolved from. | `https://artifactory.company-name.com/artifactory/moderne-recipes` |
 
 ### Options
 
@@ -3536,9 +3536,9 @@ mod config recipes artifacts edit <artifact-repository-url> --user <user> --pass
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `url` |  The URL of the artifact repository that recipes will be resolved from. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `url` |  The URL of the artifact repository that recipes will be resolved from. | `https://artifactory.company-name.com/artifactory/moderne-recipes` |
 
 ### Options
 
@@ -3621,9 +3621,9 @@ mod config recipes nuget edit <artifact-repository-url> --user <user> --password
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `url` |  The URL of the artifact repository that recipes will be resolved from. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `url` |  The URL of the artifact repository that recipes will be resolved from. | `https://pkgs.company-name.com/<ORGANIZATION_NAME>/_packaging/<FEED_NAME>/nuget/v3/index.json` |
 
 ### Options
 
@@ -3800,89 +3800,82 @@ mod config recipes jar delete rewrite-java
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `artifact` |  An artifact name or group and artifact name. |
+| Name | Description | Examples |
+| ---- | ----------- | ---------- |
+| `artifact` |  An artifact name or group and artifact name. | • `rewrite-java`<br/>• `org.openrewrite:rewrite-java` |
 
 
 
-## mod config recipes nupkg
+## mod config recipes npm
 
-Adds or updates a package that contains recipes that should be added to the recipe marketplace in the CLI.
+Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
 
 
-The recipes defined by this package will then be available to run.
+Allows installing and deleting recipes from npm packages.
 
 ### Usage
 
 ```
-mod config recipes nupkg [subcommands]
-```
-
-### Examples
-
-```
-mod config recipes nupkg install rewrite.java:LATEST
+mod config recipes npm [subcommands]
 ```
 
 
 ### Subcommands
 
-* `install`: Adds or updates a package that contains recipes that should be added to the recipe marketplace in the CLI.
-* `delete`: Removes a package supplying recipes to the marketplace.
+* `install`: Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
+* `delete`: Removes an npm package supplying recipes from the marketplace.
 
-## mod config recipes nupkg install
+## mod config recipes npm install
 
-Adds or updates a package that contains recipes that should be added to the recipe marketplace in the CLI.
+Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
 
 
-The recipes defined by this package will then be available to run.
+The recipes defined by this npm package will then be available to run.
 
 ### Usage
 
 ```
-mod config recipes nupkg install [parameters]
+mod config recipes npm install [parameters]
 ```
 
 ### Examples
 
 ```
-mod config recipes nupkg install rewrite.java:LATEST
+mod config recipes npm install my-recipe-package@latest
 ```
 
 ### Parameters
 
 | Name | Description |
 | ---- | ----------- |
-| `PIV` |  The package id, and version of the package to install in the format packageId:version. The version may be a fixed version, LATEST, or RELEASE.
-The dependency will be resolved from the package source defined in **mod config lsts artifacts** |
+| `PACKAGE[@VERSION]` |  The npm package name with an optional version in the format package@version, where @version is optional. Alternatively,a path to a compiled recipe on disk that provides an OpenRewrite activate function. |
 
 
 
-## mod config recipes nupkg delete
+## mod config recipes npm delete
 
-Removes a package supplying recipes to the marketplace.
+Removes an npm package supplying recipes from the marketplace.
 
 
-The recipes defined by this package will then no longer be available to run.
+The recipes defined by this npm package will then no longer be available to run.
 
 ### Usage
 
 ```
-mod config recipes nupkg delete [parameters]
+mod config recipes npm delete [parameters]
 ```
 
 ### Examples
 
 ```
-mod config recipes nupkg delete rewrite.java
+mod config recipes npm delete my-recipe-package
 ```
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `artifact` |  An package id. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `packageName` |  An npm package name or a compiled JavaScript file containing an OpenRewrite activate function. | `my-recipe-package` |
 
 
 
@@ -3903,6 +3896,7 @@ mod config recipes moderne [subcommands]
 
 ```
 mod config recipes moderne install <SEARCH_TERM>
+
 mod config recipes moderne sync
 ```
 
@@ -3930,7 +3924,9 @@ mod config recipes moderne install [parameters]
 
 ```
 mod config recipes moderne install <SEARCH_TERM>
+
 mod config recipes moderne install FindTypes
+
 mod config recipes moderne install "Migrate Java"
 ```
 
@@ -4685,9 +4681,9 @@ mod devcenter /path/to/organization
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -4732,11 +4728,11 @@ mod exec /path/to/project rm *.hprof
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| `cmd` |  The shell command that you wish to run on the selected repository roots. |
-| `args` |  Arguments for the command, if any exist. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `cmd` |  The shell command that you wish to run on the selected repository roots. |  |
+| `args` |  Arguments for the command, if any exist. |  |
 
 ### Options
 
@@ -4816,9 +4812,9 @@ mod git add /path/to/project --recipe-run <recipe-run-id>
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -4849,9 +4845,9 @@ mod git apply /path/to/project --recipe-run 20230903164310-2qVRM
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -4882,10 +4878,10 @@ mod git checkout /path/to/project
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| `branch` |  The branch to checkout. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `branch` |  The branch to checkout. | `main` |
 
 ### Options
 
@@ -5006,15 +5002,15 @@ mod git commit /path/to/project -m "commit message"
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
 | Name | Description |
 | ---- | ----------- |
-| `--allow-empty` |  Weather or not to allow making empty commits. |
+| `--allow-empty` |  Whether or not to allow making empty commits. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `-m`, `--message` |  The commit message to use. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
@@ -5041,9 +5037,9 @@ mod git pull /path/to/project
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -5073,11 +5069,11 @@ mod git push /path/to/project -u origin feature-branch
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| `repository` |  |
-| `refspec` |  Specify what destination ref to update with what source object. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `repository` |  |  |
+| `refspec` |  Specify what destination ref to update with what source object. |  |
 
 ### Options
 
@@ -5109,9 +5105,9 @@ mod git reset /path/to/project
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -5141,10 +5137,10 @@ mod git rev-parse /path/to/project -- --show-toplevel
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| `args` |  |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `args` |  |  |
 
 
 
@@ -5190,10 +5186,10 @@ mod git stashset apply [parameters]
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| `ref` |  The stash ref to apply. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `ref` |  The stash ref to apply. |  |
 
 ### Options
 
@@ -5217,9 +5213,9 @@ mod git stashset push [parameters]
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -5262,10 +5258,10 @@ mod git sync csv [parameters]
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| `csv` |  The URI (local file or remote) to the CSV file to write the organization to. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `csv` |  The URI (local file or remote) to the CSV file to write the organization to. |  |
 
 ### Options
 
@@ -5274,7 +5270,9 @@ mod git sync csv [parameters]
 | `--depth` |  Equivalent to the **git clone --depth** option. |
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
+| `--organization` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
+| `--refresh-organization` |  Refresh the state of the currently selected organization. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
@@ -5296,15 +5294,15 @@ mod git sync moderne [parameters]
 ### Examples
 
 ```
-mod git sync moderne /path/to/organization <ORG_NAME>
+mod git sync moderne /path/to/organization --organization <ORG_NAME>
 ```
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| `organizationNameOrId` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `organizationNameOrId` |  (DEPRECATED) The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. Use **--organization** instead. |  |
 
 ### Options
 
@@ -5313,7 +5311,9 @@ mod git sync moderne /path/to/organization <ORG_NAME>
 | `--depth` |  Equivalent to the **git clone --depth** option. |
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
+| `--organization` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
+| `--refresh-organization` |  Refresh the state of the currently selected organization. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
@@ -5340,9 +5340,9 @@ mod git status /path/to/project
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 
 
@@ -5398,10 +5398,10 @@ mod log builds add [parameters]
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| `logPath` |  The absolute or relative path on disk to a log aggregate (a zip file). The file need not exist, though its containing directory is expected to exist. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `logPath` |  The absolute or relative path on disk to a log aggregate (a zip file). The file need not exist, though its containing directory is expected to exist. | `log.zip` |
 
 ### Options
 
@@ -5444,10 +5444,10 @@ mod log runs add [parameters]
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
-| `logPath` |  The absolute or relative path on disk to a log aggregate (a zip file). The file need not exist, though its containing directory is expected to exist. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `logPath` |  The absolute or relative path on disk to a log aggregate (a zip file). The file need not exist, though its containing directory is expected to exist. | `log.zip` |
 
 ### Options
 
@@ -5480,9 +5480,9 @@ mod list /path/to/project
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -5534,9 +5534,9 @@ mod publish /path/to/project
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 
 
@@ -5563,9 +5563,9 @@ mod run /path/to/project \
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -5597,9 +5597,9 @@ mod run-history [parameters]
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -5630,9 +5630,9 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
 ### Options
 
@@ -5698,9 +5698,9 @@ mod trace builds analyze [parameters]
 
 ### Parameters
 
-| Name | Description |
-| ---- | ----------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. |
+| Name | Description | Examples |
+| ---- | ----------- | ---------- |
+| `path` |  Path to a project directory or a log.zip file containing trace data. | • `/path/to/project`<br/>• `log.zip` |
 
 ### Options
 
