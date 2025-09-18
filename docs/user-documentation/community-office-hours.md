@@ -19,7 +19,16 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-Coming soon!
+* **Announcements for the week**
+  * [We are continuing to offer OpenRewrite training sessions to help people learn about using OpenRewrite effectively](https://www.moderne.ai/moderne-openrewrite-training-hub)
+  * [We have a new webinar coming up about doing code maintenance with AI](https://www.moderne.ai/content-library/code-maintenance-at-scale-with-ai)
+  * [We've released a new migrate to Java 25 recipe to help y'all get caught up with the latest Java versions](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava25)
+* **Summary**
+  * Traits are a way to build higher-level abstractions over LST elements. They allow you to define common characteristics or behaviors that might apply to different types of LST elements or involve more context than a single element can provide.
+  * They help consolidate shared logic that you might otherwise put in utility classes, avoiding the need to add extension methods to every LST element. This keeps the public-facing API simpler while maintaining extensibility.
+  * Some examples of traits include the annotation trait (which represents any LST element that has an annotation, regardless of whether it's a class, method, or variable declaration) and the Gradle dependency trait (which represents different ways dependencies can be declared in Gradle files and provides a common interface to access details like group ID, artifact ID, and version).
+  * Traits can be converted into a **visitor** (using `asVisotor())` which allows you to process only the LST elements that implement that specific trait, effectively filtering down to what you're interested in as a recipe author.
+  * We also demonstrated how to create a `TodoComment` trait with a `Matcher` to identify these comments across different file types.
 
 ### OpenRewrite power moves part 2: Scanning recipes (September 10th, 2025)
 
@@ -35,7 +44,7 @@ Coming soon!
   * [We are continuing to offer OpenRewrite training sessions to help people learn about using OpenRewrite effectively](https://www.moderne.ai/moderne-openrewrite-training-hub)
   * [We are hiring! Check out our new careers page](https://www.moderne.ai/careers)
 * **Summary**
-  Coming soon!
+  * Check out our [documentation on Scanning recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) for most of the information presented during this session. We did provide more real-world examples of building and using a scanning recipe, though.
 
 ### OpenRewrite power moves part 1: Using data tables (September 3rd, 2025)
 
