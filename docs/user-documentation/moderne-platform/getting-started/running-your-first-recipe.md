@@ -12,6 +12,8 @@ By the end of this quickstart guide, you'll understand how to run recipes agains
 
 ## Step 1: Sign in to the Moderne Platform
 
+<ReactPlayer className="reactPlayer" url='https://vimeo.com/1120235061' controls={true} />
+
 Go to [https://app.moderne.io](https://app.moderne.io) and sign in. We recommend signing in with GitHub as most of the open-source repositories in the Moderne Platform are in GitHub.
 
 <figure style={{maxWidth: '600px', margin: '0 auto'}}>
