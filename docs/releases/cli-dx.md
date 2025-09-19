@@ -1,5 +1,14 @@
 # CLI / DX changelog
 
+### CLI / DX v3.48.3 (2025/09/19)
+
+#### What's Changed CLI
+* GNU Screen doesn't support OSC8, UTF-8, or truecolor by default
+* Fixing confusing `Built 1 repository` output
+* Align Jackson version to 2.17.2 to avoid conflicts
+* Fix JavaScript support in native CLI
+
+
 ### CLI / DX v3.48.2 (2025/09/18)
 
 #### What's Changed CLI
