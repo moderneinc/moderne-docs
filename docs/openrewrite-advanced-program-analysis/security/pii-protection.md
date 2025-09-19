@@ -2,18 +2,20 @@
 description: Detect and prevent exposure of Personally Identifiable Information (PII) in applications.
 ---
 
-# PII Protection
+# PII protection
 
 Protecting Personally Identifiable Information (PII) is crucial for regulatory compliance (GDPR, CCPA, HIPAA) and user privacy. OpenRewrite provides recipes to detect PII exposure in URLs and unencrypted storage, helping prevent data breaches and privacy violations.
 
-## Understanding PII Risks
+## Understanding PII risks
 
 Think of PII like someone's house keys and ID card. If these fall into the wrong hands, the person's security and privacy are compromised. In applications, PII includes names, email addresses, social security numbers, credit card details, and health information. Exposing this data is like leaving copies of everyone's keys and IDs in public places.
 
-### Common PII Types
+### Common PII types
+
+Different types of PII require different levels of protection based on their sensitivity and the potential harm if exposed. Here's how PII is typically categorized:
 
 ```java
-// High Sensitivity PII
+// High Sensitivity PII - Requires encryption at rest and in transit
 * Social Security Numbers (SSN)
 * Credit card numbers
 * Bank account numbers
@@ -22,7 +24,7 @@ Think of PII like someone's house keys and ID card. If these fall into the wrong
 * Health records
 * Biometric data
 
-// Medium Sensitivity PII
+// Medium Sensitivity PII - Should be protected but may not require encryption
 * Full names
 * Email addresses
 * Phone numbers
@@ -30,18 +32,18 @@ Think of PII like someone's house keys and ID card. If these fall into the wrong
 * Home addresses
 * IP addresses
 
-// Context-Dependent PII
+// Context-Dependent PII - Sensitivity depends on combination with other data
 * User IDs (when linkable)
 * Device identifiers
 * Location data
 * Employment information
 ```
 
-## PII in URLs Detection
+## PII in URLs detection
 
 The `FindPiiInUrls` recipe detects when sensitive information is exposed in URLs, which can be logged, cached, or shared inadvertently.
 
-### Why URLs Are Dangerous for PII
+### Why URLs are dangerous for PII
 
 URLs are particularly risky because they:
 * Appear in server logs
@@ -51,9 +53,11 @@ URLs are particularly risky because they:
 * May be shared via copy/paste
 * Appear in analytics tools
 
-### Vulnerable Patterns
+### Vulnerable patterns
 
-#### Query Parameters with PII
+#### Query parameters with PII
+
+When sensitive data appears in query parameters, it becomes visible in server logs, browser history, and can be cached by proxies. Here are common antipatterns:
 
 ```java
 // VULNERABLE - SSN in URL
@@ -71,12 +75,14 @@ public Profile getProfile(@PathVariable String email) {
 // URL: /profile/john.doe@example.com - Email in URL
 ```
 
-#### Password Reset with Token in URL
+#### Password reset with token in URL
+
+Password reset tokens in URLs are particularly dangerous as they can be intercepted through browser history, referrer headers, or server logs:
 
 ```java
 // VULNERABLE - Sensitive token in URL
 @GetMapping("/reset-password")
-public String resetPassword(@RequestParam String token, 
+public String resetPassword(@RequestParam String token,
                           @RequestParam String email) {
     // Token and email exposed in URL
     return passwordService.resetWithToken(email, token);
@@ -86,20 +92,26 @@ public String resetPassword(@RequestParam String token,
 
 #### Building URLs with PII
 
+Dynamically constructing URLs with PII creates multiple exposure points and makes it harder to track where sensitive data flows:
+
 ```java
 // VULNERABLE - Constructing URLs with PII
 @PostMapping("/search")
 public String search(UserSearchRequest request) {
-    String redirectUrl = "/results?name=" + request.getFullName() + 
+    String redirectUrl = "/results?name=" + request.getFullName() +
                         "&dob=" + request.getDateOfBirth() +
                         "&ssn=" + request.getLastFourSSN();
     return "redirect:" + redirectUrl;
 }
 ```
 
-### Safe Patterns for URL Parameters
+### Safe patterns for URL parameters
 
-#### Use POST for Sensitive Data
+To protect PII from URL exposure, follow these secure patterns that keep sensitive data out of URLs entirely.
+
+#### Use POST for sensitive data
+
+POST requests keep sensitive data in the request body instead of the URL:
 
 ```java
 // SAFE - POST request with body
@@ -116,7 +128,9 @@ public class UserLookupRequest {
 }
 ```
 
-#### Use Session or Temporary Storage
+#### Use session or temporary storage
+
+Store sensitive data server-side and use non-sensitive identifiers in URLs:
 
 ```java
 // SAFE - Store sensitive data in session
@@ -137,7 +151,9 @@ public String showResults(@PathVariable String searchId,
 }
 ```
 
-#### Use Database-Backed Tokens
+#### Use database-backed tokens
+
+Replace PII with opaque tokens that have no meaning without database lookup:
 
 ```java
 // SAFE - Opaque tokens instead of PII
@@ -175,13 +191,17 @@ public String verifyEmail(@RequestParam String token) {
 }
 ```
 
-## Unencrypted PII Storage Detection
+## Unencrypted PII storage detection
 
 The `FindUnencryptedPiiStorage` recipe identifies when sensitive data is stored without proper encryption.
 
-### Vulnerable Storage Patterns
+### Vulnerable storage patterns
 
-#### Plain Text in Database
+These patterns show common mistakes where PII is stored without encryption, making it vulnerable to data breaches.
+
+#### Plain text in database
+
+Storing sensitive data directly in database fields without encryption exposes it to anyone with database access:
 
 ```java
 // VULNERABLE - Storing SSN in plain text
@@ -207,6 +227,8 @@ public void saveUser(UserDto dto) {
 
 #### Logging PII
 
+Log files are often backed up, shared, and retained for long periods, making PII exposure particularly dangerous:
+
 ```java
 // VULNERABLE - PII in logs
 @PostMapping("/payment")
@@ -219,7 +241,9 @@ public PaymentResult processPayment(PaymentRequest request) {
 }
 ```
 
-#### File Storage Without Encryption
+#### File storage without encryption
+
+Exporting PII to plain text files creates unprotected copies that can be easily accessed or accidentally shared:
 
 ```java
 // VULNERABLE - Writing PII to files
@@ -237,9 +261,13 @@ public void exportUserData(List<User> users) throws IOException {
 }
 ```
 
-### Safe PII Storage Patterns
+### Safe PII storage patterns
 
-#### Field-Level Encryption
+These patterns demonstrate how to properly protect PII at rest using encryption, masking, and tokenization.
+
+#### Field-level encryption
+
+Encrypt sensitive fields automatically when storing and decrypt when retrieving:
 
 ```java
 // SAFE - Encrypted PII storage
@@ -276,7 +304,9 @@ public class CryptoConverter implements AttributeConverter<String, String> {
 }
 ```
 
-#### Secure Crypto Service
+#### Secure crypto service
+
+A properly implemented encryption service using AES-GCM for authenticated encryption:
 
 ```java
 @Service
@@ -333,7 +363,9 @@ public class CryptoService {
 }
 ```
 
-#### Secure Logging
+#### Secure logging
+
+Mask PII before it enters log files to maintain audit trails without exposing sensitive data:
 
 ```java
 // SAFE - Masking PII in logs
@@ -371,7 +403,8 @@ public PaymentResult processPayment(PaymentRequest request) {
 
 #### Tokenization
 
-Replace PII with tokens.
+Tokenization replaces sensitive data with non-sensitive tokens that can only be mapped back to the original data through a secure vault. This keeps PII out of your main application database:
+
 ```java
 @Service
 public class TokenizationService {
@@ -402,9 +435,13 @@ public class TokenizationService {
 }
 ```
 
-## Comprehensive PII Protection Strategy
+## Comprehensive PII protection strategy
 
-### Data Classification
+A complete PII protection strategy involves multiple layers of defense, from classifying data sensitivity to automated detection and compliance enforcement.
+
+### Data classification
+
+Classify data fields by sensitivity level to apply appropriate protection measures automatically:
 
 ```java
 @Component
@@ -443,7 +480,9 @@ public class DataClassifier {
 }
 ```
 
-### Automated PII Detection
+### Automated PII detection
+
+Use pattern matching and validation to automatically identify PII in text, helping prevent accidental exposure:
 
 ```java
 @Component
@@ -503,9 +542,13 @@ public class PIIScanner {
 }
 ```
 
-## Testing PII Protection
+## Testing PII protection
 
-### Unit Tests
+Testing ensures your PII protection recipes correctly identify vulnerabilities and validate secure patterns.
+
+### Unit tests
+
+These tests verify that the recipes detect PII exposure and recognize properly protected implementations:
 
 ```java
 @Test
@@ -556,9 +599,13 @@ void allowsEncryptedPII() {
 }
 ```
 
-## Compliance Considerations
+## Compliance considerations
 
-### GDPR Requirements
+Regulatory compliance requires specific technical implementations to meet legal requirements for PII handling.
+
+### GDPR requirements
+
+Implement GDPR's technical requirements including the right to erasure and data portability:
 
 ```java
 @Component
@@ -592,7 +639,9 @@ public class GDPRCompliance {
 }
 ```
 
-### Audit Logging
+### Audit logging
+
+Track all access to PII for compliance and security monitoring without exposing the sensitive data in logs:
 
 ```java
 @Aspect
