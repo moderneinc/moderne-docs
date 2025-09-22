@@ -10,9 +10,9 @@ To help you understand the power of Moderne, let's walk through applying one of 
 
 By the end of this quickstart guide, you'll understand how to run recipes against any repository in Moderne.
 
-## Step 1: Sign in to the Moderne Platform
-
 <ReactPlayer className="reactPlayer" url='https://vimeo.com/1120235061' controls={true} />
+
+## Step 1: Sign in to the Moderne Platform
 
 Go to [https://app.moderne.io](https://app.moderne.io) and sign in. We recommend signing in with GitHub as most of the open-source repositories in the Moderne Platform are in GitHub.
 
