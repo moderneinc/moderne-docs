@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.48.5 (2025/09/23)
+
+#### What's Changed
+* Revert "System processor and network metrics"
+
+
 ### CLI / DX v3.48.4 (2025/09/23)
 
 #### What's Changed CLI
