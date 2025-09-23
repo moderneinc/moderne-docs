@@ -1,5 +1,27 @@
 # CLI / DX changelog
 
+### CLI / DX v3.48.4 (2025/09/23)
+
+#### What's Changed CLI
+* Prefer Java 25 as LTS version in JVM selection
+- `tycho-compiler-plugin` v2 requires Java 11
+- class reference fix for native CLI support
+* Use `rewrite-kotlin` and `rewrite-javascript` version from BOM
+* Non-binary trace outcomes for commands
+* Read LSTs without extracting jar
+- Allow Kotlin compiler daemon shutdown
+- Pass `--max_idle_secs` on each invocation
+* Add system memory metrics
+* Add system processor and network metrics
+* Update Gradle compatibility matrix for Gradle 9.1.0
+* Fix redundant mentions of recipe id in next-steps
+* Trace analysis - styling of outcomes in the table
+* Adding traces to git apply/commit/push commands
+* Add metric to track total build time by repository
+* Run `npm install` on JavaScript build step
+* Improvements to git clone operation
+
+
 ### CLI / DX v3.48.3 (2025/09/19)
 
 #### What's Changed CLI
