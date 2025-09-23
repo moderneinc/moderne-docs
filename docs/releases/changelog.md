@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v11.106.0 (2025/09/23)
+
+- enable repository table published column
+- adds support for OAuth 2.0 webflow for Bitbucket Server
+
 ### UI v11.105.0 (2025/09/18)
 
 - improve parliament seat size for smaller orgs
