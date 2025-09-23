@@ -132,6 +132,19 @@ CMD ["-XX:-OmitStackTraceInFastThrow", "-XX:MaxRAMPercentage=65.0", "-XX:MaxDire
 EXPOSE 8080
 ```
 
+:::info
+In some container environments with restricted user contexts, the agent may encounter `java.nio.file.AccessDeniedException: /.moderne` errors when attempting to create its working directories.
+
+As a workaround, you can pre-create these directories with the correct permissions in your Dockerfile:
+```docker
+ENV HOME=/home/app
+RUN groupadd -r app && useradd --no-log-init -r -m -g app -d /home/app app && \
+    chown -R app:app /app /home/app && \
+    mkdir -p /home/app/.moderne && chown app:app /home/app/.moderne
+USER app
+```
+:::
+
 **Example environment variables file**
 
 ```bash
