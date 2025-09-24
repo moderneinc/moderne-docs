@@ -13,6 +13,14 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Kotlin vs. Java: Has Java caught up? (September 24th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=EPNsg8uU8s4' controls="true" />
+
+#### Summary and related link
+
+Coming soon!
+
 ### OpenRewrite power moves part 3: Using traits (September 17th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=bt-zCrAWRAc' controls="true" />
