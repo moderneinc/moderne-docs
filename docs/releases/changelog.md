@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.107.0 (2025/09/25)
+
+- Promote new DevCenter out of beta
+
 ### UI v11.106.0 (2025/09/23)
 
 - enable repository table published column
