@@ -102,7 +102,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config http trust-store edit**](#mod-config-http-trust-store-edit)
 * [**mod config http trust-store edit system**](#mod-config-http-trust-store-edit-system)
 * [**mod config http trust-store edit file**](#mod-config-http-trust-store-edit-file)
-* [**mod config http trust-store edit java-home**](#mod-config-http-trust-store-edit-java-home)
+* ~~[**mod config http trust-store edit java-home**](#mod-config-http-trust-store-edit-java-home-deprecated)~~ (deprecated)
 * [**mod config http trust-store show**](#mod-config-http-trust-store-show)
 * [**mod config http key-store**](#mod-config-http-key-store)
 * [**mod config http key-store delete**](#mod-config-http-key-store-delete)
@@ -139,6 +139,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config lsts artifacts maven edit**](#mod-config-lsts-artifacts-maven-edit)
 * [**mod config lsts artifacts maven delete**](#mod-config-lsts-artifacts-maven-delete)
 * [**mod config lsts artifacts maven show**](#mod-config-lsts-artifacts-maven-show)
+* [**mod config lsts cache-dir**](#mod-config-lsts-cache-dir)
+* [**mod config lsts cache-dir edit**](#mod-config-lsts-cache-dir-edit)
+* [**mod config lsts cache-dir show**](#mod-config-lsts-cache-dir-show)
+* [**mod config lsts cache-dir delete**](#mod-config-lsts-cache-dir-delete)
 * [**mod config moderne**](#mod-config-moderne)
 * [**mod config moderne delete**](#mod-config-moderne-delete)
 * [**mod config moderne edit**](#mod-config-moderne-edit)
@@ -2247,13 +2251,19 @@ mod config http trust-store edit [subcommands]
 
 ### Subcommands
 
-* `system`: Configures truststore to use the Operating System specific default truststore. On Mac the system trust store is accessed via the Keychain Access app. On Windows the system trust store is accessed via the Microsoft Management Console. On Linux there is no standardized trust store, so the cacerts file under **`${JAVA_HOME}/lib/security/cacerts`** will be used.
+* `system`: Configures trust store to use the Operating System specific default trust store.
+On Mac the system trust store is accessed via the Keychain Access app.
+On Windows the system trust store is accessed via the Microsoft Management Console.
+On Linux, the default Java trust store location will typically be symlinked to the distribution's system trust store which is based on the system's cacerts IF using a JVM installed via the package manager, otherwise the trust store packaged with the JVM will be used.
 * `file`: Configures truststore to point to a file.
-* `java-home`: Configures truststore to use the cacerts file in **`${JAVA_HOME}/lib/security/cacerts`**.
+* `java-home`: (DEPRECATED) Configures truststore to use the cacerts file in **`${JAVA_HOME}/lib/security/cacerts`**.
 
 ## mod config http trust-store edit system
 
-Configures truststore to use the Operating System specific default truststore. On Mac the system trust store is accessed via the Keychain Access app. On Windows the system trust store is accessed via the Microsoft Management Console. On Linux there is no standardized trust store, so the cacerts file under **`${JAVA_HOME}/lib/security/cacerts`** will be used.
+Configures trust store to use the Operating System specific default trust store.
+On Mac the system trust store is accessed via the Keychain Access app.
+On Windows the system trust store is accessed via the Microsoft Management Console.
+On Linux, the default Java trust store location will typically be symlinked to the distribution's system trust store which is based on the system's cacerts IF using a JVM installed via the package manager, otherwise the trust store packaged with the JVM will be used.
 
 
 ### Usage
@@ -2297,10 +2307,12 @@ mod config http trust-store edit file [parameters]
 | `--type` |  The type of the truststore file. |
 
 
-## mod config http trust-store edit java-home
+## mod config http trust-store edit java-home (deprecated)
 
-Configures truststore to use the cacerts file in **`${JAVA_HOME}/lib/security/cacerts`**.
+(DEPRECATED) Configures truststore to use the cacerts file in **`${JAVA_HOME}/lib/security/cacerts`**.
 
+
+Instead, use the `file` subcommand to set the trust store to an arbitrary location.The $JAVA_HOME variable is resolved once at configuration time, the path won't be updated at runtime if JAVA_HOME has changed.
 
 ### Usage
 
@@ -2823,6 +2835,7 @@ mod config lsts [subcommands]
 ### Subcommands
 
 * `artifacts`: Configures the storage layer for LSTs to be published to and downloaded from. 
+* `cache-dir`: Configures the directory for caching LSTs on disk.
 
 ## mod config lsts artifacts
 
@@ -3042,6 +3055,77 @@ mod config lsts artifacts maven show
 | ---- | ----------- |
 | `--local` |  Configuration relevant to a specific group of repositories. |
 | `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+
+
+## mod config lsts cache-dir
+
+Configures the directory for caching LSTs on disk.
+
+
+When configured, LSTs will be downloaded to this cache directory and symlinked to organization directories.
+
+### Usage
+
+```
+mod config lsts cache-dir [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the LST cache directory.
+* `show`: Displays the LST cache directory configuration.
+* `delete`: Removes the LST cache directory configuration.
+
+## mod config lsts cache-dir edit
+
+Configures the LST cache directory.
+
+
+All subsequent operations will use this cache directory for storing LSTs.
+
+### Usage
+
+```
+mod config lsts cache-dir edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `cacheDir` |  The path to the directory where LSTs should be cached. Can be an absolute path or start with ~ for home directory. |
+
+
+
+## mod config lsts cache-dir show
+
+Displays the LST cache directory configuration.
+
+
+Shows the currently configured cache directory for LSTs.
+
+### Usage
+
+```
+mod config lsts cache-dir show
+```
+
+
+
+## mod config lsts cache-dir delete
+
+Removes the LST cache directory configuration.
+
+
+LSTs will be stored directly in repository build folders instead of being cached centrally.
+
+### Usage
+
+```
+mod config lsts cache-dir delete
+```
+
 
 
 ## mod config moderne
