@@ -1,5 +1,20 @@
 # CLI / DX changelog
 
+### CLI / DX v3.48.6 (2025/09/25)
+
+#### What's Changed CLI
+- Parent-classload ClassGraph in LST task
+* Deprecate superfluous trust-store java-home option
+* Add LST cache support
+* Fix `GradleJavaVersionDetector` not to catch digits after `JavaLanguageVersion.of`
+* Use origin and branch from `repos.csv` at LST build time instead of trying to determine them 
+* Correctly set build metrics' outcome based on success/failure of the build
+* Only add system metrics in main process
+* Add `Content-Length` header support for JAR uploads during `mod publish`
+- Better support for older plugin versions
+* URL encode spaces in path segments during `mod publish`
+
+
 ### CLI / DX v3.48.5 (2025/09/23)
 
 #### What's Changed
