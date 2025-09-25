@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.48.7 (2025/09/25)
+
+#### What's Changed CLI
+* Solve an issue where GraphQL requests fail when a content type is not set.
+
+
 ### CLI / DX v3.48.6 (2025/09/25)
 
 #### What's Changed CLI
