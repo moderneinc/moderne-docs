@@ -38,12 +38,12 @@ After creating your `repos.csv` file and running initial setup commands, the Mod
 | org*              | `false`  | String          | If you want to configure an organizational hierarchy, you can provide one or more organization columns. Each column will specify an organization the repository should be part of. The column name should be `org` plus a number such as: `org1,org2,org3`. There is no limit for how many orgs you can define.<br /><br />Example: `openrewrite`                                                           |
 
 
-### Column Types
-#### List of Strings
-A newline-separated list of strings. When more than one item are present, the whole field must be wrapped in double quotes and each item is expected to be on its own line.
-This is in accordance with [RFC4180](https://www.ietf.org/rfc/rfc4180.txt) and is supported by every major editors and tools.
+### Column type formatting
 
-##### Example
+For columns that accept a "List of Strings" (such as `jvmopts`, `gradleArgs`, and `mavenArgs`), multiple values should be formatted as a newline-separated list. When more than one item is present, the entire field must be wrapped in double quotes with each item on its own line. This formatting follows [RFC4180](https://www.ietf.org/rfc/rfc4180.txt) and is supported by all major CSV editors and tools.
+
+#### Example
+
 ```csv showLineNumbers
 cloneUrl,jvmopts,branch
 "https://github.com/apache/maven-doxia",-Dprop=value, "master"
@@ -54,7 +54,8 @@ cloneUrl,jvmopts,branch
 "https://github.com/apache/maven-doxia","-Dprop1=value1
 -Dprop2=value2", "master"
 ```
-This example contains four repositories, some of them having a `jvmopts` field value consisting of multiple items.
+
+This example contains four repositories. The third and fourth repositories have `jvmopts` fields containing multiple JVM options, each on its own line within double quotes.
 
 ### Understanding origin and path values
 
