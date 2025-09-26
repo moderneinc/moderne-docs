@@ -1,13 +1,13 @@
 ---
-sidebar_label: Creating a DevCenter recipe (Beta)
+sidebar_label: Creating a DevCenter recipe
 description: How to create a DevCenter recipe.
 ---
 
-# Creating a DevCenter recipe (Beta)
+# Creating a DevCenter recipe
 
 Moderne DevCenters can be defined and configured via a standard OpenRewrite recipe. This approach delivers significantly better performance and greater flexibility in the generation process compared to [defining a DevCenter via a JSON file](./dev-center.md).
 
-In this doc, we'll walk you through how to create a DevCenter recipe and deploy it to your tenant. By the end, you should be ready to [configure a recipe-based DevCenter in your tenant](./recipe-based-devcenter-beta.md).
+In this doc, we'll walk you through how to create a DevCenter recipe and deploy it to your tenant. By the end, you should be ready to [configure a recipe-based DevCenter in your tenant](./recipe-based-devcenter.md).
 
 ## Prerequisites
 
@@ -31,6 +31,11 @@ Once you've created your recipe repository, you will need to update your `build.
 We've provided a [devcenter-starter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml) that you can copy to your own repository to get started. You can also create your own if you desire. Check out the [understanding DevCenter recipes section](#understanding-devcenter-recipes) below for more information on how to create your own.
 
 The [rewrite-devcenter repository](https://github.com/moderneinc/rewrite-devcenter) contains common card recipe that you may want to use or modify such as the [LibraryUpgrade card recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java).
+
+Any recipe that meets the following requirements can be displayed as a DevCenter card:
+- Requires no input options
+- Outputs the `UpgradesAndMigrations` and/or `SecurityIssues` data tables (either or both)
+- Includes the correct columns for those tables (see [DevCenterStarter data table definitions](https://docs.openrewrite.org/recipes/devcenter/devcenterstarter#data-tables) for details)
 
 ### Step 4: Deploy the recipe artifact
 

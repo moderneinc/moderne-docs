@@ -15,7 +15,7 @@ In this getting started guide, we will walk you through each component of the Mo
 
 ## Navigating to the DevCenter
 
-DevCenters are created for specific organizations. Not all organizations will have a DevCenter. You can check if a specific organization has a DevCenter by selecting the organization you want to use and then clicking on the `DevCenter (Beta)` link in the left navigation bar.
+DevCenters are created for specific organizations. Not all organizations will have a DevCenter. You can check if a specific organization has a DevCenter by selecting the organization you want to use and then clicking on the `DevCenter` link in the left navigation bar.
 
 <figure>
   ![](./assets/devcenter-nav.png)
