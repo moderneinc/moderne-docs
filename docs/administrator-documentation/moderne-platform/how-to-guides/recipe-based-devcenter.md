@@ -10,8 +10,6 @@ import TabItem from '@theme/TabItem';
 
 The Moderne DevCenter is the mission-control dashboard of the Moderne Platform. It provides you with high-level details about the state of all of your repositories. Using it, you can track the progress of upgrades, migrations, and security vulnerabilities.
 
-While you can [still define a DevCenter via JSON](./dev-center.md), we'd encourage you to [generate DevCenters from recipes instead](./creating-a-devcenter-recipe.md). 
-
 In this doc, we'll walk you through how to configure a recipe-based DevCenter. By the end, you should know how to access this new UI and have a recipe-based DevCenter up and running.
 
 ## Prerequisites
