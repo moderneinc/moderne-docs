@@ -33,9 +33,10 @@ We've provided a [devcenter-starter recipe](https://github.com/moderneinc/rewrit
 The [rewrite-devcenter repository](https://github.com/moderneinc/rewrite-devcenter) contains common card recipe that you may want to use or modify such as the [LibraryUpgrade card recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java).
 
 Any recipe that meets the following requirements can be displayed as a DevCenter card:
-- Requires no input options
-- Outputs the `UpgradesAndMigrations` and/or `SecurityIssues` data tables (either or both)
-- Includes the correct columns for those tables (see [DevCenterStarter data table definitions](https://docs.openrewrite.org/recipes/devcenter/devcenterstarter#data-tables) for details)
+
+* Requires no input options
+* Outputs the `UpgradesAndMigrations` and/or `SecurityIssues` data tables (either or both)
+* Includes the correct columns for those tables (see [DevCenterStarter data table definitions](https://docs.openrewrite.org/recipes/devcenter/devcenterstarter#data-tables) for details)
 
 ### Step 4: Deploy the recipe artifact
 
