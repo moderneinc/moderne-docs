@@ -532,7 +532,7 @@ To do so, please follow the instructions in our [creating an Organizations servi
 
 ### Step 9: (Optionally) Configure a DevCenter
 
-The DevCenter is the mission-control dashboard of the Moderne Platform. If you wish to have DevCenters available inside of the Moderne Platform, you will need to [ensure you've defined an organizational hierarchy](./configure-organizations-hierarchy.md) and then [follow the instructions for configuring a DevCenter](../dev-center.md).
+The DevCenter is the mission-control dashboard of the Moderne Platform. If you wish to have DevCenters available inside of the Moderne Platform, you will need to [ensure you've defined an organizational hierarchy](./configure-organizations-hierarchy.md) and then [follow the instructions for configuring a DevCenter](../creating-a-devcenter-recipe.md).
 
 ### Step 10: (Optionally) Provide SSL client keystore
 

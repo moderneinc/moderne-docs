@@ -97,7 +97,7 @@ You can configure multiple Maven formatted repositories by including multiple en
 | `MODERNE_AGENT_MAVEN_{index}_SKIPSSL`         | `true` (If you use a self-signed SSL/TLS certificate) | `false`            | Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository.                                                                        |
 
 :::warning
-If you want to configure a [Moderne DevCenter](../dev-center.md), you will need to ensure that you have exactly one Maven repository configured with `RECIPESOURCE` set to `true`. (It is fine to have this same Maven repository configured in multiple agents.)
+If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `RECIPESOURCE` set to `true`. (It is fine to have this same Maven repository configured in multiple agents.)
 :::
 
 **Example:**
@@ -130,7 +130,7 @@ docker run \
 | `--moderne.agent.maven[{index}].skipSsl`         | `true` (If you use a self-signed SSL/TLS certificate) | `false`            | Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository.                                                                        |
 
 :::warning
-If you want to configure a [Moderne DevCenter](../dev-center.md), you will need to ensure that you have exactly one Maven repository configured with `recipeSource` set to `true`. (It is fine to have this same Maven repository configured in multiple agents.)
+If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `recipeSource` set to `true`. (It is fine to have this same Maven repository configured in multiple agents.)
 :::
 
 **Example:**
