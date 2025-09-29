@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.109.0 (2025/09/29)
+
+- add logos for apache, astgrep, azul, diffblue, elastic, joda, kafka, operaton, vulncheck
+
 ### UI v11.108.1 (2025/09/26)
 
 - Bug fixes and other improvements.
