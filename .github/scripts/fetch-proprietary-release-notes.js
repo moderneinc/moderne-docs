@@ -73,11 +73,38 @@ async function generateChangelog() {
   const allReleasesPromises = RECIPE_REPOS.map(repo => fetchReleases(repo));
   const repoReleases = await Promise.all(allReleasesPromises);
 
-  // Sort repos by most recent release date (newest first)
-  repoReleases.sort((a, b) => b.mostRecentDate - a.mostRecentDate);
-
   const totalReleases = repoReleases.reduce((sum, r) => sum + r.releases.length, 0);
   console.log(`Found ${totalReleases} total releases across ${RECIPE_REPOS.length} repositories`);
+
+  // Flatten all releases and add repo name to each
+  const allReleases = [];
+  for (const { repo, releases } of repoReleases) {
+    for (const release of releases) {
+      allReleases.push({
+        ...release,
+        repo: repo
+      });
+    }
+  }
+
+  // Group releases by date
+  const releasesByDate = new Map();
+  for (const release of allReleases) {
+    const dateKey = new Date(release.published_at).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    if (!releasesByDate.has(dateKey)) {
+      releasesByDate.set(dateKey, []);
+    }
+    releasesByDate.get(dateKey).push(release);
+  }
+
+  // Sort dates (newest first) and sort releases within each date by repo name
+  const sortedDates = Array.from(releasesByDate.keys()).sort((a, b) => {
+    return new Date(b) - new Date(a);
+  });
 
   // Generate markdown
   let markdown = `---
@@ -94,13 +121,14 @@ This changelog is automatically generated from GitHub releases. Last updated: ${
 
 `;
 
-  // Output each repo's releases
-  for (const { repo, releases } of repoReleases) {
-    if (releases.length === 0) {
-      continue;
-    }
+  // Output releases grouped by date
+  for (const date of sortedDates) {
+    const releases = releasesByDate.get(date);
 
-    markdown += `## ${repo}\n\n`;
+    // Sort releases within this date by repo name
+    releases.sort((a, b) => a.repo.localeCompare(b.repo));
+
+    markdown += `## ${date}\n\n`;
 
     for (const release of releases) {
       if (!release.body) {
@@ -146,9 +174,8 @@ This changelog is automatically generated from GitHub releases. Last updated: ${
       // 7. Clean up OpenRewrite version update lines to be more descriptive
       escapedBody = escapedBody.replace(/^\*?\s*OpenRewrite\s+(v[\d.]+):\s*$/gm, '* Updated repository to use OpenRewrite version $1');
 
-      // 8. Ensure **What's Changed** has exactly one blank line after it
-      // First normalize to remove any existing newlines after it, then add exactly 2
-      escapedBody = escapedBody.replace(/\*\*What's Changed\*\*\s*/gm, '**What\'s Changed**\n\n');
+      // 8. Remove **What's Changed** headers entirely (it's redundant)
+      escapedBody = escapedBody.replace(/\*\*What's Changed\*\*\s*/gm, '');
 
       // 10. Trim trailing whitespace
       escapedBody = escapedBody.trim();
@@ -161,12 +188,8 @@ This changelog is automatically generated from GitHub releases. Last updated: ${
         continue;
       }
 
-      const releaseDate = new Date(release.published_at).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-      markdown += `#### ${release.name} - *${releaseDate}*\n\n${escapedBody}\n\n`;
+      // Include repo name with the version (H4 so it doesn't appear in sidebar)
+      markdown += `#### ${release.repo} - ${release.name}\n\n${escapedBody}\n\n`;
     }
   }
 
