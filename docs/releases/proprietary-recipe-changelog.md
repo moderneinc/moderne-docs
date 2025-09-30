@@ -338,10 +338,6 @@ This changelog is automatically generated from GitHub releases. Last updated: 20
 
 * Updated repository to use OpenRewrite version v8.60.0
 
-## August 7, 2025
-
-## August 2, 2025
-
 ## July 23, 2025
 
 #### rewrite-ai-search - 0.29.1
@@ -637,8 +633,6 @@ This changelog is automatically generated from GitHub releases. Last updated: 20
 #### rewrite-spring - v0.7.1
 
 * Spring Boot 3.5 release & Spring Cloud 2025
-
-## May 22, 2025
 
 ## May 20, 2025
 
@@ -1349,12 +1343,6 @@ This changelog is automatically generated from GitHub releases. Last updated: 20
 * refactor: Delete `gradle_enterprise_access_key`
 * refactor: Remove Gradle Enterprise
 
-## January 3, 2025
-
-## December 31, 2024
-
-## December 26, 2024
-
 ## December 19, 2024
 
 #### rewrite-java-security - 2.17.1
@@ -1475,8 +1463,6 @@ This changelog is automatically generated from GitHub releases. Last updated: 20
 #### rewrite-codemods-ng - 0.5.2
 
 * Updated repository to use OpenRewrite version v8.41.0
-
-## November 21, 2024
 
 ## November 15, 2024
 

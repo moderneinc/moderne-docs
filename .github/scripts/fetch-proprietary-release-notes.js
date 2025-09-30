@@ -137,8 +137,8 @@ This changelog is automatically generated from GitHub releases. Last updated: ${
     // Sort releases within this date by repo name
     releases.sort((a, b) => a.repo.localeCompare(b.repo));
 
-    markdown += `## ${date}\n\n`;
-
+    // Collect releases with content for this date
+    let dateContent = '';
     for (const release of releases) {
       if (!release.body) {
         // Skip releases with no body at all
@@ -198,7 +198,12 @@ This changelog is automatically generated from GitHub releases. Last updated: ${
       }
 
       // Include repo name with the version (H4 so it doesn't appear in sidebar)
-      markdown += `#### ${release.repo} - ${release.name}\n\n${escapedBody}\n\n`;
+      dateContent += `#### ${release.repo} - ${release.name}\n\n${escapedBody}\n\n`;
+    }
+
+    // Only add the date header if there's content for this date
+    if (dateContent.length > 0) {
+      markdown += `## ${date}\n\n${dateContent}`;
     }
   }
 
