@@ -727,8 +727,8 @@ mod config build active-styles delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build active-styles edit
@@ -754,8 +754,8 @@ mod config build active-styles edit [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build active-styles show
@@ -773,8 +773,8 @@ mod config build active-styles show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build bazel
@@ -832,8 +832,8 @@ mod config build bazel arguments delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build bazel arguments edit
@@ -853,8 +853,8 @@ mod config build bazel arguments edit
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build bazel arguments show
@@ -872,8 +872,8 @@ mod config build bazel arguments show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build bazel executable
@@ -912,8 +912,8 @@ mod config build bazel executable delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build bazel executable edit
@@ -939,8 +939,8 @@ mod config build bazel executable edit [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build bazel executable show
@@ -960,8 +960,8 @@ mod config build bazel executable show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build bazel timeout
@@ -999,8 +999,8 @@ mod config build bazel timeout delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build bazel timeout edit
@@ -1026,8 +1026,8 @@ mod config build bazel timeout edit [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build bazel timeout show
@@ -1045,8 +1045,8 @@ mod config build bazel timeout show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build dotnet
@@ -1102,8 +1102,8 @@ mod config build dotnet timeout delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build dotnet timeout edit
@@ -1129,8 +1129,8 @@ mod config build dotnet timeout edit [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build dotnet timeout show
@@ -1148,8 +1148,8 @@ mod config build dotnet timeout show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build gradle
@@ -1213,8 +1213,8 @@ mod config build gradle arguments delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build gradle arguments edit
@@ -1234,8 +1234,8 @@ mod config build gradle arguments edit
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build gradle arguments show
@@ -1253,8 +1253,8 @@ mod config build gradle arguments show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build gradle root (deprecated)
@@ -1294,8 +1294,8 @@ mod config build gradle root delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build gradle root edit (deprecated)
@@ -1321,8 +1321,8 @@ mod config build gradle root edit [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build gradle root show (deprecated)
@@ -1342,8 +1342,8 @@ mod config build gradle root show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build gradle timeout
@@ -1381,8 +1381,8 @@ mod config build gradle timeout delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build gradle timeout edit
@@ -1408,8 +1408,8 @@ mod config build gradle timeout edit [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build gradle timeout show
@@ -1427,8 +1427,8 @@ mod config build gradle timeout show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build maven
@@ -1492,8 +1492,8 @@ mod config build maven arguments delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build maven arguments edit
@@ -1513,8 +1513,8 @@ mod config build maven arguments edit
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build maven arguments show
@@ -1532,8 +1532,8 @@ mod config build maven arguments show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build maven settings
@@ -1579,8 +1579,8 @@ mod config build maven settings delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build maven settings edit
@@ -1612,8 +1612,8 @@ mod config build maven settings edit <path-to-settings.xml>
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build maven settings show
@@ -1633,8 +1633,8 @@ mod config build maven settings show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build maven timeout
@@ -1672,8 +1672,8 @@ mod config build maven timeout delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build maven timeout edit
@@ -1699,8 +1699,8 @@ mod config build maven timeout edit [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config build maven timeout show
@@ -1718,8 +1718,8 @@ mod config build maven timeout show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config clone
@@ -2567,8 +2567,8 @@ mod config java options edit "\-Xmx4G"
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config java options delete
@@ -2586,8 +2586,8 @@ mod config java options delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config java options show
@@ -2605,8 +2605,8 @@ mod config java options show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config java version
@@ -2658,8 +2658,8 @@ mod config java version edit "17-tem"
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config java version delete
@@ -2677,8 +2677,8 @@ mod config java version delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config java version show
@@ -2696,8 +2696,8 @@ mod config java version show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config license
@@ -3008,9 +3008,9 @@ mod config lsts artifacts edit <artifact-repository-url> --user <user> --passwor
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `--authorization` |  The authorization header value to use. | `Bearer XXXXX` |
-| `--local` |  Configuration relevant to a specific group of repositories. |  |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |  |
 | `--password` |  The password to authenticate with. |  |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |  |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |  |
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--user` |  The user to authenticate with. |  |
 
@@ -3032,8 +3032,8 @@ mod config lsts artifacts maven delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config lsts artifacts maven show
@@ -3053,8 +3053,8 @@ mod config lsts artifacts maven show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config lsts cache-dir
@@ -4251,8 +4251,8 @@ mod config run timeout delete
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config run timeout edit
@@ -4278,8 +4278,8 @@ mod config run timeout edit [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config run timeout show
@@ -4297,8 +4297,8 @@ mod config run timeout show
 
 | Name | Description |
 | ---- | ----------- |
-| `--local` |  Configuration relevant to a specific group of repositories. |
-| `--save` |  When applied to a group of repositories, indicates that the configuration should be placed in a **.moderne/moderne.yml** which can be committed to source control. When applied to global configuration, this option has no effect. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config scm (deprecated)
