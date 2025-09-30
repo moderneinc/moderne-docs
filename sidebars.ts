@@ -562,6 +562,7 @@ const sidebars: SidebarsConfig = {
     'releases/cli-releases',
     'releases/changelog',
     'releases/cli-dx',
+    'releases/proprietary-recipe-changelog',
     {
       type: 'html',
       value: '<br/><strong>Licensing</strong>',
