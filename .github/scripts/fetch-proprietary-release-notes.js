@@ -77,15 +77,24 @@ async function generateChangelog() {
   console.log(`Found ${totalReleases} total releases across ${RECIPE_REPOS.length} repositories`);
 
   // Flatten all releases and add repo name to each
+  // Filter to only include releases from the last year
+  const oneYearAgo = new Date();
+  oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+
   const allReleases = [];
   for (const { repo, releases } of repoReleases) {
     for (const release of releases) {
-      allReleases.push({
-        ...release,
-        repo: repo
-      });
+      const releaseDate = new Date(release.published_at);
+      if (releaseDate >= oneYearAgo) {
+        allReleases.push({
+          ...release,
+          repo: repo
+        });
+      }
     }
   }
+
+  console.log(`Filtered to ${allReleases.length} releases from the last year`);
 
   // Group releases by date
   const releasesByDate = new Map();
@@ -177,7 +186,7 @@ This changelog is automatically generated from GitHub releases. Last updated: ${
       // 8. Remove **What's Changed** headers entirely (it's redundant)
       escapedBody = escapedBody.replace(/\*\*What's Changed\*\*\s*/gm, '');
 
-      // 10. Trim trailing whitespace
+      // 9. Trim trailing whitespace
       escapedBody = escapedBody.trim();
 
       // Check if the body has meaningful content after cleanup
