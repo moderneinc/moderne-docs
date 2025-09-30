@@ -146,8 +146,15 @@ This changelog is automatically generated from GitHub releases. Last updated: ${
       // 7. Clean up OpenRewrite version update lines to be more descriptive
       escapedBody = escapedBody.replace(/^\*?\s*OpenRewrite\s+(v[\d.]+):\s*$/gm, '* Updated repository to use OpenRewrite version $1');
 
+      // 8. Ensure **What's Changed** has exactly one blank line after it
+      // First normalize to remove any existing newlines after it, then add exactly 2
+      escapedBody = escapedBody.replace(/\*\*What's Changed\*\*\s*/gm, '**What\'s Changed**\n\n');
+
+      // 10. Trim trailing whitespace
+      escapedBody = escapedBody.trim();
+
       // Check if the body has meaningful content after cleanup
-      const hasContent = escapedBody.trim().length > 0;
+      const hasContent = escapedBody.length > 0;
 
       if (!hasContent) {
         // Skip this release entirely - no meaningful content
@@ -159,8 +166,7 @@ This changelog is automatically generated from GitHub releases. Last updated: ${
         month: 'long',
         day: 'numeric'
       });
-      markdown += `#### ${release.name} - *${releaseDate}*\n\n`;
-      markdown += `${escapedBody}\n\n`;
+      markdown += `#### ${release.name} - *${releaseDate}*\n\n${escapedBody}\n\n`;
     }
   }
 
