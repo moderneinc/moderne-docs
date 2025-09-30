@@ -1,5 +1,18 @@
 # CLI / DX changelog
 
+### CLI / DX v3.48.8 (2025/09/29)
+
+#### What's Changed CLI
+* Fix `--local` on 5 config commands
+* Fix race condition while checking for a daemon to be ready
+* Add CLI version as dimension to child process metrics
+* 'Selected the root organization' when the 'epsilon' org is selected
+* Add Ghostty support
+* Fixes for build trace analyzer
+* Make sure `trace.json` gets updated with `Skipped` outcome
+* Use origin and branch from repos(-lock).csv at LST build time instead of trying to determine them
+
+
 ### CLI / DX v3.48.7 (2025/09/25)
 
 #### What's Changed CLI
