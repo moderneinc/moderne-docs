@@ -2183,7 +2183,9 @@ mod config http proxy edit
 | ---- | ----------- |
 | `--host`, `--proxy-host` |  |
 | `--non-proxy-hosts` |  A list of hosts that should be reached directly, bypassing the proxy. This is a list of patterns separated by '|'. The patterns may start or end with a '*' for wildcards. Any host matching one of these patterns will be reached through a direct connection instead of through a proxy. 'localhost' is always reached directly. <br/>Example: "*.company.com|10.30.2.4" |
+| `--password` |  The password to authenticate with. |
 | `--port`, `--proxy-port` |  |
+| `--user` |  The user to authenticate with. |
 
 
 ## mod config http proxy show
@@ -2835,7 +2837,7 @@ mod config lsts [subcommands]
 ### Subcommands
 
 * `artifacts`: Configures the storage layer for LSTs to be published to and downloaded from. 
-* `cache-dir`: Configures the directory for caching LSTs on disk.
+* `cache-dir`: (INCUBATING) Configures the directory for caching LSTs on disk.
 
 ## mod config lsts artifacts
 
@@ -3059,7 +3061,7 @@ mod config lsts artifacts maven show
 
 ## mod config lsts cache-dir
 
-Configures the directory for caching LSTs on disk.
+(INCUBATING) Configures the directory for caching LSTs on disk.
 
 
 When configured, LSTs will be downloaded to this cache directory and symlinked to organization directories.
@@ -3073,13 +3075,13 @@ mod config lsts cache-dir [subcommands]
 
 ### Subcommands
 
-* `edit`: Configures the LST cache directory.
-* `show`: Displays the LST cache directory configuration.
-* `delete`: Removes the LST cache directory configuration.
+* `edit`: (INCUBATING) Configures the LST cache directory.
+* `show`: (INCUBATING) Displays the LST cache directory configuration.
+* `delete`: (INCUBATING) Removes the LST cache directory configuration.
 
 ## mod config lsts cache-dir edit
 
-Configures the LST cache directory.
+(INCUBATING) Configures the LST cache directory.
 
 
 All subsequent operations will use this cache directory for storing LSTs.
@@ -3100,7 +3102,7 @@ mod config lsts cache-dir edit [parameters]
 
 ## mod config lsts cache-dir show
 
-Displays the LST cache directory configuration.
+(INCUBATING) Displays the LST cache directory configuration.
 
 
 Shows the currently configured cache directory for LSTs.
@@ -3115,7 +3117,7 @@ mod config lsts cache-dir show
 
 ## mod config lsts cache-dir delete
 
-Removes the LST cache directory configuration.
+(INCUBATING) Removes the LST cache directory configuration.
 
 
 LSTs will be stored directly in repository build folders instead of being cached centrally.
@@ -4823,7 +4825,7 @@ mod exec /path/to/project rm *.hprof
 | Name | Description |
 | ---- | ----------- |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
-| `-o`, `--out`, `--output` |  The output type for the command. Accepts `Console` and `File`. If not specified, the output will be printed to the console. |
+| `-o`, `--out`, `--output` |  The output type for the command. Accepts `Console` and `File`. If not specified, the output will be printed to a file. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 
 
