@@ -7,7 +7,7 @@ description: Changelog for Moderne proprietary OpenRewrite recipes.
 This page contains release notes for [Moderne proprietary OpenRewrite recipes](https://docs.openrewrite.org/reference/moderne-recipes).
 
 :::info
-This changelog is automatically generated from GitHub releases. Last updated: 2025-09-30
+This changelog is automatically generated from GitHub releases. Last updated: 2025-10-02
 :::
 
 ## September 30, 2025
@@ -221,7 +221,7 @@ This changelog is automatically generated from GitHub releases. Last updated: 20
 
 * Updated repository to use OpenRewrite version v8.62.0
 
-## September 4, 2025
+## September 5, 2025
 
 #### rewrite-program-analysis - v0.5.0
 
@@ -1028,11 +1028,28 @@ This changelog is automatically generated from GitHub releases. Last updated: 20
 
 * Updated repository to use OpenRewrite version v8.48.0
 
-## February 26, 2025
+## February 27, 2025
 
 #### rewrite-spring - v0.3.1
 
 * Update with rewrite-logging-frameworks 3.3.0 which uses type tables so this shouldn't end up blocked by security scanners anymore
+* Add mybatis upgrade for SpringBoot 3.4
+* Upgrade spring-security-oauth2-authorization-server
+* Rename package for better categorization
+
+## February 21, 2025
+
+#### rewrite-java-security - 3.2.0
+
+* Support parsing of single quote strings in DTDs
+* Adopt TypeTable
+* Only apply CWE-611 fix upon XML parser instantiation
+* Fix Azure secret false positive and add support for properties
+* Improvement speedup dependency vulnerability check recipe
+* Upgrade GenerateWebSecurityConfigurerAdapter to use SecurityFilterChain
+
+#### rewrite-spring - 0.3.0
+
 * Add mybatis upgrade for SpringBoot 3.4
 * Upgrade spring-security-oauth2-authorization-server
 * Rename package for better categorization
@@ -1059,15 +1076,6 @@ This changelog is automatically generated from GitHub releases. Last updated: 20
 
 * Rename package for better categorization
 
-#### rewrite-java-security - 3.2.0
-
-* Support parsing of single quote strings in DTDs
-* Adopt TypeTable
-* Only apply CWE-611 fix upon XML parser instantiation
-* Fix Azure secret false positive and add support for properties
-* Improvement speedup dependency vulnerability check recipe
-* Upgrade GenerateWebSecurityConfigurerAdapter to use SecurityFilterChain
-
 #### rewrite-kubernetes - 3.2.1
 
 * Updated repository to use OpenRewrite version v8.47.1
@@ -1075,12 +1083,6 @@ This changelog is automatically generated from GitHub releases. Last updated: 20
 #### rewrite-reactive-streams - 0.10.0
 
 * Adopt TypeTable
-
-#### rewrite-spring - 0.3.0
-
-* Add mybatis upgrade for SpringBoot 3.4
-* Upgrade spring-security-oauth2-authorization-server
-* Rename package for better categorization
 
 #### rewrite-sql - 2.1.2
 
@@ -1633,12 +1635,4 @@ This changelog is automatically generated from GitHub releases. Last updated: 20
 #### rewrite-terraform - 2.4.1
 
 * Updated repository to use OpenRewrite version v8.37.0
-
-## October 1, 2024
-
-#### rewrite-dotnet - 0.3.0
-
-* Set DOTNET_UPGRADEASSISTANT_TELEMETRY_OPTOUT environment variable when exec'ing upgrade-assistant
-* Additional error handling
-* Set DOTNET_UPGRADEASSISTANT_SKIP_FIRST_TIME_EXPERIENCE environment variable for non-interactive execution with no console
 
