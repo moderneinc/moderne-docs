@@ -2404,7 +2404,7 @@
 
 "@octokit/rest@^22.0.0":
   version "22.0.0"
-  resolved "https://registry.npmjs.org/@octokit/rest/-/rest-22.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/@octokit/rest/-/rest-22.0.0.tgz#9026f47dacba9c605da3d43cce9432c4c532dc5a"
   integrity sha512-z6tmTu9BTnw51jYGulxrlernpsQYXpui1RK21vmXn8yF5bp6iX16yfTtJYGK5Mh1qDkvDOmp2n8sRMcQmR8jiA==
   dependencies:
     "@octokit/core" "^7.0.2"
