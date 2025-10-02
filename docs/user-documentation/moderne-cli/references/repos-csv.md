@@ -145,15 +145,15 @@ The following CSV file would represent this organizational structure:
 
 ```bash showLineNumbers
 cloneUrl,branch,org1,org2,org3
-"https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
-"https://github.com/Netflix/photon","main","Team 2","Director A","ALL"
-"https://github.com/Netflix/ribbon","master","Director A","ALL"
-"https://github.com/apache/maven-doxia","master","Director B","ALL"
+"https://github.com/apache/maven-doxia","master","Team 1","Director A","All"
+"https://github.com/Netflix/photon","main","Team 2","Director A","All"
+"https://github.com/Netflix/ribbon","master","Director A","All"
+"https://github.com/apache/maven-doxia","master","Director B","Al"
 ```
 
-In the above file, we define 5 organizations (ALL, Director A, Director B, Team 1, and Team 2) and 3 repositories. Notice that one repository can be defined multiple times if you want two distinct organizations to have access to it.
+In the above file, we define 5 organizations (All, Director A, Director B, Team 1, and Team 2) and 3 repositories. Notice that one repository can be defined multiple times if you want two distinct organizations to have access to it.
 
-Also note that organizations on the left are children of organizations on the right. For instance, `Team 1` is a child of `Director A` which is a child of `ALL`.
+Also note that organizations on the left are children of organizations on the right. For instance, `Team 1` is a child of `Director A` which is a child of `All`.
 
 :::tip
 Comma-separated files (CSV) are best manipulated using a dedicated editor such as Microsoft Excel, Google Sheets, or Apple Numbers. Here is what the above CSV would look like on Apple Numbers:
