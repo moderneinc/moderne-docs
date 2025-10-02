@@ -54,7 +54,7 @@ jobs:
             rewrite-terraform
 
       - name: Install dependencies
-        run: npm install @octokit/rest
+        run: yarn add @octokit/rest --ignore-workspace-root-check
 
       - name: Fetch release notes
         env:

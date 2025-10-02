@@ -96,13 +96,15 @@ async function generateChangelog() {
 
   console.log(`Filtered to ${allReleases.length} releases from the last year`);
 
-  // Group releases by date
+  // Group releases by date (using UTC to avoid timezone issues)
   const releasesByDate = new Map();
   for (const release of allReleases) {
-    const dateKey = new Date(release.published_at).toLocaleDateString('en-US', {
+    const date = new Date(release.published_at);
+    const dateKey = date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
+      timeZone: 'UTC'
     });
     if (!releasesByDate.has(dateKey)) {
       releasesByDate.set(dateKey, []);
