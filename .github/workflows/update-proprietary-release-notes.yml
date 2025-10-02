@@ -30,6 +30,28 @@ jobs:
         with:
           app-id: ${{ secrets.PROPRIETARY_RELEASE_NOTES_APP_ID }}
           private-key: ${{ secrets.PROPRIETARY_RELEASE_NOTES_PRIVATE_KEY }}
+          owner: moderneinc
+          repositories: |
+            rewrite-ai-search
+            rewrite-android
+            rewrite-azul
+            rewrite-circleci
+            rewrite-codemods-ng
+            rewrite-compiled-analysis
+            rewrite-comprehension
+            rewrite-concourse
+            rewrite-dotnet
+            rewrite-elastic
+            rewrite-hibernate
+            rewrite-java-security
+            rewrite-kafka
+            rewrite-kubernetes
+            rewrite-nodejs
+            rewrite-program-analysis
+            rewrite-reactive-streams
+            rewrite-spring
+            rewrite-sql
+            rewrite-terraform
 
       - name: Install dependencies
         run: npm install @octokit/rest
