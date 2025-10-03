@@ -66,6 +66,18 @@ async function fetchReleases(repo) {
   }
 }
 
+async function getLastUpdateDate() {
+  const outputPath = path.join(__dirname, '../../docs/releases/proprietary-recipe-changelog.md');
+
+  if (!fs.existsSync(outputPath)) {
+    return null;
+  }
+
+  const content = fs.readFileSync(outputPath, 'utf-8');
+  const match = content.match(/Last updated: (\d{4}-\d{2}-\d{2})/);
+  return match ? match[1] : null;
+}
+
 async function generateChangelog() {
   console.log('Fetching releases from proprietary recipe repositories...');
 
@@ -75,6 +87,10 @@ async function generateChangelog() {
 
   const totalReleases = repoReleases.reduce((sum, r) => sum + r.releases.length, 0);
   console.log(`Found ${totalReleases} total releases across ${RECIPE_REPOS.length} repositories`);
+
+  // Get the last update date from the existing file
+  const lastUpdateDate = await getLastUpdateDate();
+  console.log(`Last update date: ${lastUpdateDate || 'none (new file)'}`);
 
   // Flatten all releases and add repo name to each
   // Filter to only include releases from the last year
@@ -95,6 +111,20 @@ async function generateChangelog() {
   }
 
   console.log(`Filtered to ${allReleases.length} releases from the last year`);
+
+  // Check if there are any new releases since last update
+  const lastUpdateDateObj = lastUpdateDate ? new Date(lastUpdateDate + 'T00:00:00Z') : new Date(0);
+  const hasNewReleases = allReleases.some(release => {
+    const releaseDate = new Date(release.published_at);
+    return releaseDate > lastUpdateDateObj;
+  });
+
+  if (!hasNewReleases && lastUpdateDate) {
+    console.log('No new releases since last update. Keeping existing file.');
+    return;
+  }
+
+  console.log(`Found ${hasNewReleases ? 'new' : 'initial'} releases to process`);
 
   // Group releases by date (using UTC to avoid timezone issues)
   const releasesByDate = new Map();
