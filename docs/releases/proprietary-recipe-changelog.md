@@ -7,7 +7,7 @@ description: Changelog for Moderne proprietary OpenRewrite recipes.
 This page contains release notes for [Moderne proprietary OpenRewrite recipes](https://docs.openrewrite.org/reference/moderne-recipes).
 
 :::info
-This changelog is automatically generated from GitHub releases. Last updated: 2025-10-02
+This changelog is automatically generated from GitHub releases. Last updated: 2025-10-03
 :::
 
 ## September 30, 2025
