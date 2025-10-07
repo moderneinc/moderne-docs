@@ -434,8 +434,6 @@ main "$@"
 
 </details>
 
-For a complete example with additional features, see the [moderne-cli-wrapper](https://github.com/moderneinc/moderne-cli-wrapper) repository. It includes pre- and post-command hooks and custom commands for your organization.
-
 ### Valuable metrics to monitor
 
 Here are some key metrics that have proven valuable across many organizations, including Moderne itself. Note that this is not an exhaustive list - your organization may have additional metrics specific to your initiatives:
