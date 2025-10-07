@@ -1,5 +1,5 @@
 ---
-sidebar_label: Understanding CLI usage
+sidebar_label: Measuring CLI usage
 description: How to monitor and analyze CLI operations across your organization.
 toc_min_heading_level: 2
 toc_max_heading_level: 4
@@ -253,21 +253,6 @@ repo3/.moderne/build/trace.json ─┘
 ```
 
 Note that these centralized CSV files **do not** include `log` field paths, as those are specific to your local environment.
-
-## Analyzing results locally
-
-When building LSTs for many repositories, some may fail due to unique build requirements. The Moderne CLI includes a built-in analytics dashboard for visualizing build failures. Launch it with:
-
-```bash
-mod trace builds analyze . --last-build
-```
-
-<figure>
-  ![](./assets/mod-trace-analyze-build.png)
-  <figcaption>_Build telemetry dashboard view_</figcaption>
-</figure>
-
-The dashboard displays build metadata and lets you drill into individual repositories to view logs and troubleshooting suggestions.
 
 ## Collecting results in a central location
 
