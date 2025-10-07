@@ -244,7 +244,7 @@ This aggregate `trace.csv` is also copied into your user's `$MODERNE_HOME/cli/tr
 
 ## Analyzing results locally
 
-As part of a mass-ingestion process that prebuilds LSTs for many repositories, you often find some repositories that are configured with unqiue build requirements that cause `mod build` to fail. The Moderne CLI contains a built-in analytics dashboard for visualizing and understanding LST build results.
+As part of a mass-ingestion process that prebuilds LSTs for many repositories, you often find some repositories that are configured with unqiue build requirements that cause `mod build` to fail. The Moderne CLI contains a built-in analytics dashboard for visualizing and understanding LST build results that can be launched with `mod trace analyze build . --last-build`
 
 <figure>
   ![](./assets/mod-trace-analyze-build.png)
@@ -256,6 +256,8 @@ This allows you to see common metadata from the build command's telemetry and cl
 ## Collecting results in a central location
 
 Many organizations have centralized observability and business intelligence (BI) tools that they use to collect and radiate information across teams. This function becomes increasingly important as organizations enable individual developers and teams to use the Moderne CLI to improve their codebases. The decentralized nature of a local CLI tool makes it hard to see which parts of your organization are getting value from specific recipes or having trouble. The Moderne CLI automatically collects the aggregated organization-level telemetry CSV files into your home directory so that you can process these, whether you do publish them with  every CLI command or on a regular cadence as a scheduled job.
+
+### Wrapping the CLI to publish telemetry
 
 There are many different potential shapes and implementations for a BI system to process and report on the key metadata captured in this telemetry, and your organization will know how best to transform and analyze this data. To do this, we recommend that you wrap the Moderne CLI in your own script that runs and pre- and post-processing steps around passing through commands to the underlying Moderne CLI.
 
@@ -421,4 +423,29 @@ main "$@"
 
 </details>
 
-For a flexible example wrapper script that you can fork and extend for your own use cases, see the [moderne-cli-wrapper](https://github.com/moderneinc/moderne-cli-wrapper) repository. This example allows you to add pre- and post-command hooks as well as additional commands to help your teams make use of the Moderne CLI within your organization.
+For a more full-featured example wrapper script that you can fork and extend for your own use cases, see the [moderne-cli-wrapper](https://github.com/moderneinc/moderne-cli-wrapper) repository. This example allows you to add pre- and post-command hooks as well as additional commands to help your teams make use of the Moderne CLI within your organization.
+
+### Valuable metrics to monitor
+
+This section is intended to help guide you toward some key metrics that have proven valuable across many organizations including Moderne itself.  These are not an exhaustive list and you'll probably have metrics that map to your own initiatives, but the following metrics support viewing Moderne CLI usage within your organization as an internal product and people running and writing recipes as your users.
+
+**Build Metrics:**
+- Build success rate
+- Build duration over time
+- Builds by tool
+- Builds over time
+- Weight vs build time
+
+**Run Metrics:**
+- Total recipes run
+- Recipe run success rate
+- Top recipes executed
+- Recipe runs over time
+- Total potential time saved by recipe, user, & teams
+
+**Commit Metrics:**
+- Top recipes committed
+- Top users/teams committing recipe results
+- Top users/teams running recipes but _not_ committing results
+- Most valuable recipes (Total time saved for recipes that end up in a commit)
+- Time from first run of a recipe to first commit on a repository
