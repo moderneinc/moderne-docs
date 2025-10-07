@@ -7,34 +7,34 @@ toc_max_heading_level: 4
 
 # Understanding CLI usage across your organization
 
-The Moderne CLI allows you to perform platform multi-repository activities in your local environment - activities like loading prebuilt LSTs, building new LSTs, running recipes across organizations, visualizing results, and pushing suggested changes back into your SCM. When you and other developers work with your codebase using the CLI, it can become harder to know who's using the tool, what activity has been most useful, and identify issues that are making it hard for developers to get value from recipes.
+As developers across your organization adopt the Moderne CLI, understanding usage patterns becomes critical for maximizing value. Without visibility into who's using the tool, which recipes are being run and committed, and where developers encounter friction, you can't identify adoption gaps, measure impact, or provide targeted support.
 
-To help you gather this information, the Moderne CLI automatically generates telemetry data as you run through various workflows. This telemetry is captured in JSON and CSV files that record detailed information about builds, recipe executions, and git operations. These files can help you better understand activities driven by the Moderne CLI locally, and you can collect and analyze them in a central location to monitor the decentralized usage of the CLI across your organization.
+To help you gather this information, the Moderne CLI automatically generates telemetry in JSON and CSV files, capturing details about builds, recipe runs, and git operations. You can then analyze these files locally or aggregate them centrally to monitor CLI usage across your organization.
 
-## Overview
+In this guide, we'll walk you through how these telemetry files work and how you can collect and analyze them.
 
-The general workflow for using the Moderne CLI looks like the following:
+## How telemetry is generated
+
+The Moderne CLI generates telemetry files whenever you run commands (e.g., `mod build`, `mod run`, etc.). These files will be created in the `.moderne` directory in each repository.
+
+Here's a typical workflow where each step will generate telemetry data:
 
 ```mermaid
 flowchart LR
-  sync["Sync your organization's repositories to your local environment"]
-  build["`Download the latest prebuilt LSTs
-  _or_
-  Build LSTs from your local source`"]
-  run["`Run a recipe on your repositories`"]
-  commit["Commit suggested changed to your repositories`"]
+  sync["`Sync your organization's repositories to your local environment<br/><br/>(**mod git sync**)`"]
+  build["`Download the latest prebuilt LSTs<br/>_or_<br/>Build LSTs from your local source<br/><br/>(**mod build**)`"]
+  run["`Run a recipe on your repositories<br/><br/>(**mod run**)`"]
+  commit["`Commit suggested changes to your repositories<br/><br/>(**mod git apply/commit/push**)`"]
   sync --> build
   build --> run
   run --> commit
 ```
 
-At each of these steps, the CLI captures telemetry and useful metadata about the result of the command being run. 
+## Repository-level telemetry
 
-Telemetry files are automatically created in the `.moderne` directory whenever you run commands like `mod build`, `mod run`, or `mod git apply/commit/push`.
+When you run a CLI command, telemetry is captured in each repository's `.moderne/<command>/trace.json` file. 
 
-## Repository-level telemetry with the `trace.json` file
-
-When you run a Moderne CLI command across a directory containing one or more repositories, it will capture telemetry specific to each repository in that repository directory's `.moderne/<command>/trace.json` file. For the `sync` command, this JSON file looks like the following:
+For the `sync` command, this file looks like:
 
 ```json
 {
@@ -57,7 +57,7 @@ When you run a Moderne CLI command across a directory containing one or more rep
 }
 ```
 
-For subsequent commands in the overall workflow, the JSON fields from prior stages in the workflow are included as well. This allows you to trace failures back to their source throughout the process.
+As you run subsequent commands, each `trace.json` file will include telemetry from the previous steps. This lets you trace failures back to their source.
 
 <details>
 
@@ -126,144 +126,170 @@ For subsequent commands in the overall workflow, the JSON fields from prior stag
   }
 }
 ```
-Notice that the `trace.json` for a run command includes the telemetry for the clone and build that this recipe was run against.
+
+:::note
+The `run` command's `trace.json` includes telemetry for the `clone` and `build` blocks from earlier steps.
+:::
 
 </details>
 
 ### `trace.json` schema
 
-The following tables show the fields included in the `trace.json` for each phase.
+The following tables describe the `trace.json` schema, including metadata common to all commands and fields specific to each command type:
 
 #### Repository and organization metadata
 
-Every `trace.json` file includes metadata about the repository and organization used to uniquely attribute actions to a specific repository whether locally or within the Moderne platform.
+Every `trace.json` file includes repository and organization metadata to identify where actions occurred.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `org` | string | Organizational hierarchy (e.g., "ALL/Default") |
-| `repository.origin` | string | Source control platform (e.g., "github.com") |
-| `repository.path` | string | Repository path (e.g., "apache/maven-doxia") |
-| `repository.branch` | string | Branch name (e.g., "master", "main") |
+| Field                  | Type        | Description                                        |
+|------------------------|-------------|----------------------------------------------------|
+| `org`                  | string      | Organizational hierarchy (e.g., `ALL/Default`)     |
+| `repository.origin`    | string      | Source control platform (e.g., `github.com`)       |
+| `repository.path`      | string      | Repository path (e.g., `apache/maven-doxia`)       |
+| `repository.branch`    | string      | Branch name (e.g., `master`, `main`)               |
 | `repository.partition` | string/null | Repository partition if applicable, null otherwise |
 
 #### Common metadata
 
-All phases contain the following metadata for that specific command's run:
+All commands contain the following metadata for that specific command's run:
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `outcome` | string | Build outcome (e.g., "Succeeded", "Failed") |
-| `startTime` | string | ISO 8601 timestamp when the build started |
-| `endTime` | string | ISO 8601 timestamp when the build completed |
-| `log` | string | File URI to the log file for the output of this specific command run |
-| `elapsedTimeMs` | number | Duration of the build operation in milliseconds |
+| Field           | Type   | Description                                                          |
+|-----------------|--------|----------------------------------------------------------------------|
+| `outcome`       | string | Command outcome (e.g., `Succeeded`, `Failed`)                        |
+| `startTime`     | string | ISO 8601 timestamp when the command started                          |
+| `endTime`       | string | ISO 8601 timestamp when the command completed                        |
+| `log`           | string | File URI to the log file for the output of this specific command run |
+| `elapsedTimeMs` | number | Duration of the command in milliseconds                              |
 
-Additionally, all phases _except clone_ can be run multiple times on the same repository, and these will include a unique identifier so that you can trace later phases back to telemetry for an earlier phase:
+All commands except `mod git sync` include a unique identifier for tracking multiple runs:
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | string | Unique identifier for this build |
+| Field | Type   | Description                            |
+|-------|--------|----------------------------------------|
+| `id`  | string | Unique identifier for this command run |
 
-#### Clone phase fields
+#### Clone command fields
 
-When a repository has been cloned with `mod git sync`, it will include the following fields inside a `clone` block:
+When you sync repositories with `mod git sync`, a `clone` block is created with these fields:
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `success` | boolean | Whether the clone operation succeeded |
-| `cloneUri` | string | The URI used to clone the repository |
-| `changeset` | string | The git commit SHA that was checked out |
+| Field       | Type    | Description                             |
+|-------------|---------|-----------------------------------------|
+| `success`   | boolean | Whether the clone operation succeeded   |
+| `cloneUri`  | string  | The URI used to clone the repository    |
+| `changeset` | string  | The git commit SHA that was checked out |
 
-#### Build phase fields
+#### Build command fields
 
-When an LST has been built for a repository with `mod build`, it will include the following fields inside a `build` block:
+When you build LSTs with `mod build`, a `build` block is created with these fields:
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `changeset` | string | The git commit SHA that was built |
-| `dependencyResolutionTimeMs` | number | Time spent resolving dependencies in milliseconds |
-| `mavenVersion` | string/null | Maven version if Maven project, null otherwise |
-| `gradleVersion` | string/null | Gradle version if Gradle project, null otherwise |
-| `bazelVersion` | string/null | Bazel version if Bazel project, null otherwise |
-| `dotnetVersion` | string/null | .NET version if .NET project, null otherwise |
-| `pythonVersion` | string/null | Python version if Python project, null otherwise |
-| `nodeVersion` | string/null | Node version if Node project, null otherwise |
-| `sourceFileCount` | number | Total number of source files parsed |
-| `lineCount` | number | Total lines of code across all source files |
-| `parseErrorCount` | number | Number of files that failed to parse |
-| `weight` | number | Combined weight of all source files |
-| `maxWeight` | number | Weight of the largest source file |
-| `maxWeightSourceFile` | string | Path to the largest source file |
+| Field                        | Type        | Description                                       |
+|------------------------------|-------------|---------------------------------------------------|
+| `changeset`                  | string      | The git commit SHA that was built                 |
+| `dependencyResolutionTimeMs` | number      | Time spent resolving dependencies in milliseconds |
+| `mavenVersion`               | string/null | Maven version if Maven project, null otherwise    |
+| `gradleVersion`              | string/null | Gradle version if Gradle project, null otherwise  |
+| `bazelVersion`               | string/null | Bazel version if Bazel project, null otherwise    |
+| `dotnetVersion`              | string/null | .NET version if .NET project, null otherwise      |
+| `pythonVersion`              | string/null | Python version if Python project, null otherwise  |
+| `nodeVersion`                | string/null | Node version if Node project, null otherwise      |
+| `sourceFileCount`            | number      | Total number of source files parsed               |
+| `lineCount`                  | number      | Total lines of code across all source files       |
+| `parseErrorCount`            | number      | Number of files that failed to parse              |
+| `weight`                     | number      | Combined weight of all source files               |
+| `maxWeight`                  | number      | Weight of the largest source file                 |
+| `maxWeightSourceFile`        | string      | Path to the largest source file                   |
 
-#### Run phase fields
+#### Run command fields
 
-When a recipe has been run against a repository with `mod run`, it will include the following fields inside a `run` block:
+When you run recipes with `mod run`, a `run` block is created with these fields:
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `unlicensedAttempt` | boolean | Whether this was run without a license |
-| `streaming` | boolean | Whether streaming mode was used |
-| `recipeId` | string | Fully qualified ID of the recipe that was run |
-| `recipeInstanceName` | string | Human-readable name of the recipe |
-| `recipeOptions` | object | Map of recipe options/parameters used |
-| `recipeArtifact` | string | Maven coordinates of the recipe artifact |
-| `estimatedEffortTimeSavingsMs` | number | Estimated developer time saved in milliseconds |
-| `dependencyResolutionTimeMs` | number | Time spent resolving dependencies in milliseconds |
-| `filesWithFixResults` | number | Number of files with changes applied |
-| `filesWithSearchResults` | number | Number of files matching search criteria |
-| `filesWithErrors` | number | Number of files that encountered errors |
-| `filesSearched` | number | Total number of files searched |
-| `dataTables` | number | Number of data tables generated |
+| Field                          | Type    | Description                                       |
+|--------------------------------|---------|---------------------------------------------------|
+| `unlicensedAttempt`            | boolean | Whether this was run without a license            |
+| `streaming`                    | boolean | Whether streaming mode was used                   |
+| `recipeId`                     | string  | Fully qualified ID of the recipe that was run     |
+| `recipeInstanceName`           | string  | Human-readable name of the recipe                 |
+| `recipeOptions`                | object  | Map of recipe options/parameters used             |
+| `recipeArtifact`               | string  | Maven coordinates of the recipe artifact          |
+| `estimatedEffortTimeSavingsMs` | number  | Estimated developer time saved in milliseconds    |
+| `dependencyResolutionTimeMs`   | number  | Time spent resolving dependencies in milliseconds |
+| `filesWithFixResults`          | number  | Number of files with changes applied              |
+| `filesWithSearchResults`       | number  | Number of files matching search criteria          |
+| `filesWithErrors`              | number  | Number of files that encountered errors           |
+| `filesSearched`                | number  | Total number of files searched                    |
+| `dataTables`                   | number  | Number of data tables generated                   |
 
-#### Apply phase fields
+#### Apply command fields
 
-When you apply the suggested changes from a recipe to your local repository with `mod git apply`, it will include the common metadata fields inside a `apply` block. There are currently no additional telemetry fields for this command.
+When you apply changes with `mod git apply`, an `apply` block is created with the common metadata fields. There are currently no additional telemetry fields for this command.
 
-#### Commit phase fields
+#### Commit command fields
 
-When you use the Moderne CLI to commit suggested changes to your local repository with `mod git commit`, it will include the following fields inside a `commit` block:
+When you commit changes with `mod git commit`, a `commit` block is created with these fields:
 
-| Field | Type | Description |
-|-------|------|-------------|
+| Field    | Type   | Description                                        |
+|----------|--------|----------------------------------------------------|
 | `branch` | string | The branch into which these changes were committed |
 
-#### Push phase fields
+#### Push command fields
 
-When you push changes from your local repository to a remote with `mod git push`, it will include the following fields inside a `push` block:
+When you push changes with `mod git push`, a `push` block is created with these fields:
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `remoteBranch` | string | The remote branch into which changes are pushed |
-| `setUpstream` | boolean | True if you set a specific upstream during this push, false otherwise |
+| Field          | Type    | Description                                                           |
+|----------------|---------|-----------------------------------------------------------------------|
+| `remoteBranch` | string  | The remote branch into which changes are pushed                       |
+| `setUpstream`  | boolean | True if you set a specific upstream during this push, false otherwise |
 
-## Organization-level telemetry in the `trace.csv` file
+## Organization-level telemetry
 
-The Moderne CLI is built to operate against many repositories at the same time. While it produces repository-specific telemetry files in JSON format, it will also collect all of this data from all impacted repositories for a particular command and put that information into a `trace.csv` file located in `.moderne/<command>` directory where you ran the command. This CSV file contains the same data held in each JSON file, with each row representing a repository and each field represented as a column.
+The Moderne CLI is designed to operate against many repositories simultaneously. Because of this, in addition to creating repository-specific `trace.json` files, it generates an aggregate `trace.csv` file in the `.moderne/<command>` directory. This CSV contains the same data as the individual JSON files, with each row representing a repository and each column representing a field.
 
-This aggregate `trace.csv` is also copied into your user's `$MODERNE_HOME/cli/trace` folder to make it easy to examine and share all telemetry across runs in a single location regardless of the directories/repositories you've analyzed. This centralized set of CSV files _do not_ include the `log` fields that point to specific execution log files - these files only exist in your local runtime environment and these paths aren't useful to share outside of your machine.
+This CSV is also copied to `$MODERNE_HOME/cli/trace`, making it easy to examine and share telemetry across all runs in a centralized location:
+
+```
+Per-Repository Files:          Aggregate File:
+repo1/.moderne/build/trace.json ─┐
+repo2/.moderne/build/trace.json ─┼─> .moderne/build/trace.csv ─> $MODERNE_HOME/cli/trace/
+repo3/.moderne/build/trace.json ─┘
+```
+
+Note that these centralized CSV files **do not** include `log` field paths, as those are specific to your local environment.
 
 ## Analyzing results locally
 
-As part of a mass-ingestion process that prebuilds LSTs for many repositories, you often find some repositories that are configured with unqiue build requirements that cause `mod build` to fail. The Moderne CLI contains a built-in analytics dashboard for visualizing and understanding LST build results that can be launched with `mod trace analyze build . --last-build`
+When building LSTs for many repositories, some may fail due to unique build requirements. The Moderne CLI includes a built-in analytics dashboard for visualizing build failures. Launch it with:
+
+```bash
+mod trace builds analyze . --last-build
+```
 
 <figure>
   ![](./assets/mod-trace-analyze-build.png)
   <figcaption>_Build telemetry dashboard view_</figcaption>
 </figure>
 
-This allows you to see common metadata from the build command's telemetry and click into individual repositories to see their build logs along with some suggestions to get your LST building successfully.
+The dashboard displays build metadata and lets you drill into individual repositories to view logs and troubleshooting suggestions.
 
 ## Collecting results in a central location
 
-Many organizations have centralized observability and business intelligence (BI) tools that they use to collect and radiate information across teams. This function becomes increasingly important as organizations enable individual developers and teams to use the Moderne CLI to improve their codebases. The decentralized nature of a local CLI tool makes it hard to see which parts of your organization are getting value from specific recipes or having trouble. The Moderne CLI automatically collects the aggregated organization-level telemetry CSV files into your home directory so that you can process these, whether you do publish them with  every CLI command or on a regular cadence as a scheduled job.
+Many organizations use centralized observability and business intelligence (BI) tools to monitor developer workflows and measure productivity initiatives. The Moderne CLI's telemetry is designed to integrate seamlessly with these systems.
+
+As mentioned earlier, the CLI automatically aggregates CSV files to the `$MODERNE_HOME/cli/trace` directory. These files are ready to be ingested by your existing BI tools - allowing you to track CLI usage, recipe adoption, and impact across your entire organization.
+
+You can publish these files with every command run, or you can collect them on a scheduled cadence.
 
 ### Wrapping the CLI to publish telemetry
 
-There are many different potential shapes and implementations for a BI system to process and report on the key metadata captured in this telemetry, and your organization will know how best to transform and analyze this data. To do this, we recommend that you wrap the Moderne CLI in your own script that runs and pre- and post-processing steps around passing through commands to the underlying Moderne CLI.
+Due to the fact every organization's BI system is different, we strongly recommend that you wrap the Moderne CLI in a script that handles telemetry publishing and any necessary data transformation.
 
-A simple `mod.sh` wrapper script might look like the following:
+A wrapper script allows you to:
 
-```bash
+* Run pre- and post-processing steps
+* Publish telemetry to your BI endpoint
+* Transform data to match your system's requirements
+
+Here's a basic wrapper script template:
+
+```bash title="mod.sh"
 # Main execution
 main() {
     # Extract the first command argument (e.g., "build" from "mod.sh build .")
@@ -300,7 +326,7 @@ main "$@"
 
 <summary>Example of a `mod.sh` that publishes telemetry to an API endpoint</summary>
 
-```bash
+```bash title="mod.sh"
 # Function to publish telemetry data
 publish_telemetry() {
     local command_name="$1"
@@ -423,29 +449,32 @@ main "$@"
 
 </details>
 
-For a more full-featured example wrapper script that you can fork and extend for your own use cases, see the [moderne-cli-wrapper](https://github.com/moderneinc/moderne-cli-wrapper) repository. This example allows you to add pre- and post-command hooks as well as additional commands to help your teams make use of the Moderne CLI within your organization.
+For a complete example with additional features, see the [moderne-cli-wrapper](https://github.com/moderneinc/moderne-cli-wrapper) repository. It includes pre- and post-command hooks and custom commands for your organization.
 
 ### Valuable metrics to monitor
 
-This section is intended to help guide you toward some key metrics that have proven valuable across many organizations including Moderne itself.  These are not an exhaustive list and you'll probably have metrics that map to your own initiatives, but the following metrics support viewing Moderne CLI usage within your organization as an internal product and people running and writing recipes as your users.
+Here are some key metrics that have proven valuable across many organizations, including Moderne itself. Note that this is not an exhaustive list - your organization may have additional metrics specific to your initiatives:
 
 **Build Metrics:**
-- Build success rate
-- Build duration over time
-- Builds by tool
-- Builds over time
-- Weight vs build time
+
+* Build success rate
+* Build duration over time
+* Builds by tool
+* Builds over time
+* Weight vs build time
 
 **Run Metrics:**
-- Total recipes run
-- Recipe run success rate
-- Top recipes executed
-- Recipe runs over time
-- Total potential time saved by recipe, user, & teams
+
+* Total recipes run
+* Recipe run success rate
+* Top recipes executed
+* Recipe runs over time
+* Total potential time saved by recipe, user, and teams
 
 **Commit Metrics:**
-- Top recipes committed
-- Top users/teams committing recipe results
-- Top users/teams running recipes but _not_ committing results
-- Most valuable recipes (Total time saved for recipes that end up in a commit)
-- Time from first run of a recipe to first commit on a repository
+
+* Top recipes committed
+* Top users/teams committing recipe results
+* Top users/teams running recipes but _not_ committing results
+* Most valuable recipes (Total time saved for recipes that end up in a commit)
+* Time from first run of a recipe to first commit on a repository
