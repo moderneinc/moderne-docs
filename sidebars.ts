@@ -139,6 +139,7 @@ const sidebars: SidebarsConfig = {
             'user-documentation/moderne-cli/how-to-guides/build-partitions',
             'user-documentation/moderne-cli/how-to-guides/batch-changes',
             'user-documentation/moderne-cli/how-to-guides/repos-lock-csv',
+            'user-documentation/moderne-cli/how-to-guides/cli-telemetry'
           ],
         },
         'user-documentation/moderne-cli/cli-reference',
