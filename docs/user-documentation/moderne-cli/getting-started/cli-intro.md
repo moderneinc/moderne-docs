@@ -488,6 +488,21 @@ mod build /path/to/your/workspace
 If a project fails to build, it might require additional configuration. See [mod config build](../cli-reference.md#mod-config-build) for customization options. If an LST doesn't build, running a recipe will just skip that project rather than error on it.
 :::
 
+### Analyzing build results locally
+
+When building LSTs for many repositories, some may fail due to unique build requirements. The Moderne CLI includes a built-in analytics dashboard for visualizing build failures. Launch it with:
+
+```bash
+mod trace builds analyze . --last-build
+```
+
+<figure>
+  ![](./assets/mod-trace-analyze-build.png)
+  <figcaption>_Build telemetry dashboard view_</figcaption>
+</figure>
+
+The dashboard displays build metadata and lets you drill into individual repositories to view logs and troubleshooting suggestions.
+
 ### Running recipes {#running}
 
 Once you have the LSTs downloaded or built, you can then run recipes against them.
