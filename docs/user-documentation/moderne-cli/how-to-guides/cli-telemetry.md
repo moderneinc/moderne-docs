@@ -139,7 +139,7 @@ The following tables describe the `trace.json` schema, including metadata common
 
 #### Repository and organization metadata
 
-Every `trace.json` file includes repository and organization metadata to identify where actions occurred.
+Every `trace.json` file includes repository and organization metadata to identify where actions occurred:
 
 | Field                  | Type        | Description                                        |
 |------------------------|-------------|----------------------------------------------------|
