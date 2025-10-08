@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.111.1 (2025/10/08)
+
+- Bug fixes and other improvements.
+
 ### UI v11.111.0 (2025/10/07)
 
 - add moddy beta when agent llm configuration present
