@@ -1,5 +1,9 @@
 # CLI / DX changelog
 
+### CLI / DX v3.49.0 (2025/10/09)
+
+
+
 ### CLI / DX v3.48.8 (2025/09/29)
 
 #### What's Changed CLI
