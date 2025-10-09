@@ -2,6 +2,26 @@
 
 ### CLI / DX v3.49.0 (2025/10/09)
 
+#### What's Changed
+* Fix space handling when issuing shell commands
+* Mark `mod config lsts cache-dir` as incubating
+* Add proxy username:password configuration support
+* Validate all trust store and key store properties at configuration and startup time
+* Fix recipe options being reset + fix study cell limit converting to Excel
+* `mod git sync csv` performance improvement
+* Pass license key into recipe run so that licensed recipe modules can work seamlessly
+* Add parliament chart to CLI DevCenter
+* Ensure that repos-lock.csv contains changeset even when re-syncing a directory
+* Clean older builds on sync
+* Add support for file inclusions to Maven
+* Fix glob expansion handling when issuing shell commands
+* Adding support for configuring build environment variables
+* Fix artifact and org name extraction from repository path
+* Adopt plain text parsing from OpenRewrite
+
+
+### CLI / DX v3.49.0 (2025/10/09)
+
 
 
 ### CLI / DX v3.48.8 (2025/09/29)
