@@ -44,6 +44,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build dotnet timeout delete**](#mod-config-build-dotnet-timeout-delete)
 * [**mod config build dotnet timeout edit**](#mod-config-build-dotnet-timeout-edit)
 * [**mod config build dotnet timeout show**](#mod-config-build-dotnet-timeout-show)
+* [**mod config build environment**](#mod-config-build-environment)
+* [**mod config build environment delete**](#mod-config-build-environment-delete)
+* [**mod config build environment edit**](#mod-config-build-environment-edit)
+* [**mod config build environment show**](#mod-config-build-environment-show)
 * [**mod config build gradle**](#mod-config-build-gradle)
 * [**mod config build gradle arguments**](#mod-config-build-gradle-arguments)
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
@@ -689,6 +693,7 @@ mod config build [subcommands]
 * `active-styles`: Configure the active styles to use when building LSTs.
 * `bazel`: Configures Bazel as it is used for LST production.
 * `dotnet`: Configures dotnet as it is used for LST production.
+* `environment`: Configure environment variables to apply to build tool when building LSTs.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
 
@@ -1142,6 +1147,91 @@ Displays the configured build timeout.
 
 ```
 mod config build dotnet timeout show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build environment
+
+Configure environment variables to apply to build tool when building LSTs.
+
+
+Manages environment variables applied to build tool's execution environment.
+
+### Usage
+
+```
+mod config build environment [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes configured build environment variables.
+* `edit`: Configure environment variables to use when building LSTs.
+* `show`: Displays the configured build environment variables.
+
+## mod config build environment delete
+
+Removes configured build environment variables.
+
+
+### Usage
+
+```
+mod config build environment delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build environment edit
+
+Configure environment variables to use when building LSTs.
+
+
+Edits environment variables applied to build tool's execution environment.
+
+### Usage
+
+```
+mod config build environment edit [parameters]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `environmentKeyPairs` |  Environment variables in KEY=VALUE format. | `MAVEN_OPTS=-Xmx2g NPM_TOKEN=secret123` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build environment show
+
+Displays the configured build environment variables.
+
+
+### Usage
+
+```
+mod config build environment show
 ```
 
 ### Options
@@ -2279,6 +2369,7 @@ mod config http trust-store edit system
 | Name | Description |
 | ---- | ----------- |
 | `--password` |  The password used to access the truststore. |
+| `--stacktrace` |  Print the full stack trace on validation error |
 
 
 ## mod config http trust-store edit file
@@ -2306,6 +2397,7 @@ mod config http trust-store edit file [parameters]
 | ---- | ----------- |
 | `--password` |  The password used to access the truststore. |
 | `--provider` |  The provider of the truststore. |
+| `--stacktrace` |  Print the full stack trace on validation error |
 | `--type` |  The type of the truststore file. |
 
 
@@ -2322,6 +2414,11 @@ Instead, use the `file` subcommand to set the trust store to an arbitrary locati
 mod config http trust-store edit java-home
 ```
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--stacktrace` |  Print the full stack trace on validation error |
 
 
 ## mod config http trust-store show
@@ -2337,6 +2434,11 @@ Shows the currently configured truststore setting, if any.
 mod config http trust-store show
 ```
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--stacktrace` |  Print the full stack trace on validation error |
 
 
 ## mod config http key-store
@@ -2416,6 +2518,7 @@ mod config http key-store edit file [parameters]
 | ---- | ----------- |
 | `--password` |  The password used to access the keystore. |
 | `--provider` |  The provider of the keystore. |
+| `--stacktrace` |  Print the full stack trace on validation error |
 | `--type` |  The type of the keystore file. |
 
 
@@ -2432,6 +2535,11 @@ Shows the currently configured keystore setting, if any.
 mod config http key-store show
 ```
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--stacktrace` |  Print the full stack trace on validation error |
 
 
 ## mod config java
