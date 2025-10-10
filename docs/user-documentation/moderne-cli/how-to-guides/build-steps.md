@@ -60,7 +60,7 @@ In the default build steps, the resource build step runs after all external buil
 
 ## Configuring build steps explicitly
 
-Build steps can be configured explicitly in [Moderne CLI configuration](./layer-config-cli.md). The out-of-the-box behavior described above can also be explicitly defined in the `.moderne/moderne.yml` file:
+Build steps can be configured explicitly in [Moderne CLI configuration](./layer-config-cli.md). The out-of-the-box behavior described above can also be explicitly defined in the `.moderne/cli/moderne.yml` file:
 
 ```yaml
 specs: specs.moderne.ai/v1/cli
