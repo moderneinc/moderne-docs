@@ -7,8 +7,19 @@ description: Changelog for Moderne proprietary OpenRewrite recipes.
 This page contains release notes for [Moderne proprietary OpenRewrite recipes](https://docs.openrewrite.org/reference/moderne-recipes).
 
 :::info
-This changelog is automatically generated from GitHub releases. Last updated: 2025-10-03
+This changelog is automatically generated from GitHub releases. Last updated: 2025-10-10
 :::
+
+## October 9, 2025
+
+#### rewrite-java-security - 3.19.1
+
+* Application properties detection
+* Try to skip errors on resolving versions and only throw when no direct was able to bump the vulnerability.
+* Add a data table to RemoveUnusedDependencies which cites evidence of a dependency use
+* Update recipe documentation examples
+* Add new documentation examples
+* Avoid stackoverflow exception
 
 ## September 30, 2025
 
@@ -1587,52 +1598,4 @@ This changelog is automatically generated from GitHub releases. Last updated: 20
 #### rewrite-terraform - 2.4.2
 
 * Updated repository to use OpenRewrite version v8.38.0
-
-## October 10, 2024
-
-#### rewrite-java-security - 2.14.0
-
-* update suppressions for 09-25-2024 vulnerability report
-
-## October 9, 2024
-
-#### rewrite-ai-search - 0.18.0
-
-* Feat/switch gen model to qwencoder
-
-#### rewrite-android - 0.1.1
-
-* Updated repository to use OpenRewrite version v8.37.0
-
-#### rewrite-circleci - 2.7.1
-
-* Updated repository to use OpenRewrite version v8.37.0
-
-#### rewrite-codemods-ng - 0.4.1
-
-* Updated repository to use OpenRewrite version v8.37.0
-
-#### rewrite-concourse - 2.7.1
-
-* Updated repository to use OpenRewrite version v8.37.0
-
-#### rewrite-dotnet - 0.3.1
-
-* Updated repository to use OpenRewrite version v8.37.0
-
-#### rewrite-kubernetes - 2.9.1
-
-* Updated repository to use OpenRewrite version v8.37.0
-
-#### rewrite-reactive-streams - 0.3.0
-
-* update to latest error prone to remove protobuf-java@3.19.2 vulnerability
-
-#### rewrite-sql - 1.10.1
-
-* Updated repository to use OpenRewrite version v8.37.0
-
-#### rewrite-terraform - 2.4.1
-
-* Updated repository to use OpenRewrite version v8.37.0
 
