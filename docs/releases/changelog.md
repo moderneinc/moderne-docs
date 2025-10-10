@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v11.112.0 (2025/10/10)
+
+- add global search input
+- add global organization selector and updated organization toolbar
+- add help menu popover for global navigation
+
 ### UI v11.111.1 (2025/10/08)
 
 - Bug fixes and other improvements.
