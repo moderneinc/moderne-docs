@@ -1,4 +1,9 @@
-# JavaScript configuration
+---
+sidebar_label: JavaScript configuration
+description: How to set up and use JavaScript LSTs with the Moderne CLI.
+---
+
+# How to set up and use JavaScript LSTs with the Moderne CLI
 
 Moderne recently announced support for JavaScript and TypeScript LSTs. With this, JavaScript refactoring changes from being _syntax-bound_ to _semantically-aware_ – where recipes can distinguish between lookalike methods, resolve types, and understand dependency graphs.
 
