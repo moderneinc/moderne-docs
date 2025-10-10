@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.113.0 (2025/10/10)
+
+- Bug fixes and other improvements.
+
 ### UI v11.112.0 (2025/10/10)
 
 - add global search input
