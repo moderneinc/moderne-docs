@@ -128,6 +128,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'user-documentation/moderne-cli/how-to-guides/cli-upgrade',
             'user-documentation/moderne-cli/how-to-guides/cli-dev-center',
+            'user-documentation/moderne-cli/how-to-guides/javascript',
             'user-documentation/moderne-cli/how-to-guides/parallelism',
             'user-documentation/moderne-cli/how-to-guides/afterburner',
             'user-documentation/moderne-cli/how-to-guides/ssh-key',
