@@ -56,7 +56,7 @@ The next thing you'll need to do is build each of the repositories by running `m
 
 ## Step 3: Run recipes
 
-With the LST built, you can now run recipes against your JavaScript repositories. While the JavaScript recipe library is being built out, keep in mind that Java recipes can be used to run against your JavaScript code.
+With the LST built, you can now run recipes against your JavaScript repositories. While the JavaScript recipe library is being built out, keep in mind that some Java recipes can be used to run against your JavaScript code.
 
 Below are some examples of Java recipes that work well with JavaScript repositories:
 
