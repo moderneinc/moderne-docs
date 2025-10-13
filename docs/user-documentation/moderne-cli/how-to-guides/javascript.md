@@ -13,7 +13,7 @@ In this guide, we'll walk you through how to configure the Moderne CLI to take a
 
 This guide assumes that:
 
-* You have [installed and configured the Moderne CLI](../getting-started/cli-intro.md)
+* You have [installed and configured the Moderne CLI](../getting-started/cli-intro.md) (version `3.49.0` or higher)
 * You are familiar with running Moderne CLI commands (if not, work through our [CLI workshop](../getting-started/moderne-cli-workshop.md))
 
 ## Step 1: Update your `moderne.yml` file
@@ -34,6 +34,9 @@ tenant:
 // highlight-start
 build:
   steps:
+    - type: maven
+    - type: gradle
+    - type: bazel
     - type: javascript
 // highlight-end
 ```
