@@ -7,8 +7,104 @@ description: Changelog for Moderne proprietary OpenRewrite recipes.
 This page contains release notes for [Moderne proprietary OpenRewrite recipes](https://docs.openrewrite.org/reference/moderne-recipes).
 
 :::info
-This changelog is automatically generated from GitHub releases. Last updated: 2025-10-10
+This changelog is automatically generated from GitHub releases. Last updated: 2025-10-12
 :::
+
+## October 10, 2025
+
+#### rewrite-ai-search - 0.31.0
+
+* Update recipe documentation examples
+
+#### rewrite-android - 0.13.0
+
+* Update recipe documentation examples
+
+#### rewrite-azul - 0.7.0
+
+* Update recipe documentation examples
+
+#### rewrite-circleci - 3.8.0
+
+* Update recipe documentation examples
+
+#### rewrite-codemods-ng - 0.14.3
+
+* Updated repository to use OpenRewrite version v8.63.0
+
+#### rewrite-compiled-analysis - 0.9.0
+
+* Add new documentation examples
+* Update recipe documentation examples
+
+#### rewrite-comprehension - 0.8.0
+
+* Updating Gemini to gemini-2.5-flash
+* Update recipe documentation examples
+
+#### rewrite-concourse - 3.8.0
+
+* Update recipe documentation examples
+
+#### rewrite-dotnet - 0.13.4
+
+* Updated repository to use OpenRewrite version v8.63.0
+
+#### rewrite-elastic - 0.3.0
+
+* Update recipe documentation examples
+* Update junit-platform.properties
+
+#### rewrite-hibernate - 0.13.0
+
+* Remove hibernate-commons-annotations in favor of hibernate-core
+* Add OpenRewrite recipe for Hibernate 7 JFR API migration
+* `Configurable::configure` now takes `GeneratorCreationContext`
+* Add `MigrateIntegratorMethod` recipe for Hibernate 7 migration
+* Migrate query `FlushModeType` to `QueryFlushMode`
+* MetamodelImplementor was removed in favor of MappingMetamodel or JpaMetamodel
+* Added UnboxingTransactionTimeoutTest recipe
+* Update recipe documentation examples
+
+#### rewrite-java-security - 3.19.2
+
+* Updated repository to use OpenRewrite version v8.63.0
+
+#### rewrite-kafka - 0.3.0
+
+* Update recipe documentation examples
+
+#### rewrite-kubernetes - 3.11.0
+
+* Update recipe documentation examples
+
+#### rewrite-nodejs - 0.30.0
+
+* Update recipe documentation examples
+
+#### rewrite-program-analysis - 0.5.5
+
+* Updated repository to use OpenRewrite version v8.63.0
+
+#### rewrite-reactive-streams - 0.17.0
+
+* Update recipe documentation examples
+
+#### rewrite-spring - 0.14.0
+
+* Adopt `gradle/actions/setup-gradle@v5`
+* Update recipe documentation examples
+
+#### rewrite-sql - 2.7.0
+
+* Switch to jsqlparser-4.9
+* JSQLParser 5.3
+* Add Oracle and MSFT SQL Server to PostgreSQL migration recipes
+* Update recipe documentation examples
+
+#### rewrite-terraform - 3.9.0
+
+* Update recipe documentation examples
 
 ## October 9, 2025
 
