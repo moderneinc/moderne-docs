@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v11.114.0 (2025/10/14)
+
+- actions buttons for global nav
+
 ### UI v11.113.0 (2025/10/10)
 
 - Bug fixes and other improvements.
