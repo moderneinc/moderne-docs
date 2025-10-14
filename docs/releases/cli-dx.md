@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.49.1 (2025/10/13)
+
+#### What's Changed CLI
+* Fix native build npm recipe installation
+* Ensure JVM options are quoted when they contain a space or a vertical pipe
+* Prevent logging of proxy password into the build log
+
+
 ### CLI / DX v3.49.0 (2025/10/09)
 
 #### What's Changed
