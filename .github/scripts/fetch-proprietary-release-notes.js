@@ -113,7 +113,8 @@ async function generateChangelog() {
   console.log(`Filtered to ${allReleases.length} releases from the last year`);
 
   // Check if there are any new releases since last update
-  const lastUpdateDateObj = lastUpdateDate ? new Date(lastUpdateDate + 'T00:00:00Z') : new Date(0);
+  // Use end of day (23:59:59) for the last update date to avoid re-processing releases from the same day
+  const lastUpdateDateObj = lastUpdateDate ? new Date(lastUpdateDate + 'T23:59:59Z') : new Date(0);
   const hasNewReleases = allReleases.some(release => {
     const releaseDate = new Date(release.published_at);
     return releaseDate > lastUpdateDateObj;
