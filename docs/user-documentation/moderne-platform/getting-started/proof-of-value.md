@@ -377,14 +377,14 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 Major migrations are complex transformations that typically automate 80-90% of the work, with the remainder requiring manual developer intervention. They are typically composed of multiple, complex recipes.
 
-### [Migrate to Java 21](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava21)
+### [Migrate to Java 25](https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava25)
 
-> Comprehensive migration from Java 8/11 to Java 21. Updates build files for Java 21 target/source, replaces deprecated APIs, adopts new language features, upgrades plugins to Java 21 compatible versions, and updates GitHub Actions configurations.
+> Comprehensive migration from Java 8/11 to Java 25. Updates build files for Java 25 target/source, replaces deprecated APIs, adopts new language features, upgrades plugins to Java 25 compatible versions, and updates GitHub Actions configurations.
 
 #### CLI commands
 
 ```bash
-mod run . --recipe org.openrewrite.java.migrate.UpgradeToJava21
+mod run . --recipe org.openrewrite.java.migrate.UpgradeToJava25
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
 
