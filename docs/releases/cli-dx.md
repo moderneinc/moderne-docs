@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.49.2 (2025/10/14)
+
+#### What's Changed
+* Ensure JavaScript recipes can correctly call Java recipes
+* Mask sensitive values in environment variables when logging what command is being run
+
+
 ### CLI / DX v3.49.1 (2025/10/13)
 
 #### What's Changed CLI
