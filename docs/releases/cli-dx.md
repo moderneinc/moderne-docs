@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.49.3 (2025/10/16)
+
+#### What's Changed CLI
+* Fix audit output so that the Moderne IntelliJ plugin can show the organization view again
+* Fix recipe installation `ArrayIndexOutOfBoundsException`
+
+
 ### CLI / DX v3.49.2 (2025/10/14)
 
 #### What's Changed
