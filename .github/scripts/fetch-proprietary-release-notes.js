@@ -219,8 +219,20 @@ This changelog is automatically generated from GitHub releases.
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
-  fs.writeFileSync(outputPath, markdown);
-  console.log(`Changelog written to ${outputPath}`);
+  // Check if the file exists and compare content
+  let existingContent = '';
+  if (fs.existsSync(outputPath)) {
+    existingContent = fs.readFileSync(outputPath, 'utf8');
+  }
+
+  // Only write if content has changed
+  if (existingContent !== markdown) {
+    fs.writeFileSync(outputPath, markdown);
+    console.log(`Changelog updated at ${outputPath}`);
+    console.log(`Content changed: ${existingContent.length} bytes -> ${markdown.length} bytes`);
+  } else {
+    console.log(`No changes detected, skipping write to ${outputPath}`);
+  }
 }
 
 generateChangelog().catch(error => {

@@ -65,7 +65,17 @@ jobs:
       - name: Check for changes
         id: git-check
         run: |
-          git diff --exit-code docs/releases/proprietary-recipe-changelog.md || echo "changed=true" >> $GITHUB_OUTPUT
+          # Check if there are any changes
+          if git diff --quiet docs/releases/proprietary-recipe-changelog.md; then
+            echo "No changes detected"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected"
+            echo "changed=true" >> $GITHUB_OUTPUT
+            # Show a summary of changes for debugging
+            echo "Change summary:"
+            git diff --stat docs/releases/proprietary-recipe-changelog.md
+          fi
 
       - name: Create Pull Request
         if: steps.git-check.outputs.changed == 'true'
