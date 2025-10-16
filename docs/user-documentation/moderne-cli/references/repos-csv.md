@@ -118,7 +118,7 @@ All
 |       └── Team 1
 |       └── Team 2
 ├── Director B
-
+|       └── apache
 ```
 
 The following CSV file would represent this organizational structure:
