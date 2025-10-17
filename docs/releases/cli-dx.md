@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.49.4 (2025/10/17)
+
+#### What's Changed CLI
+* Fix reporting of number of parallel tasks in progress bar
+- Fix error when running with `--parallel 1`
+
+
 ### CLI / DX v3.49.3 (2025/10/16)
 
 #### What's Changed CLI
