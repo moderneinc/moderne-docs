@@ -10,6 +10,12 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases.
 :::
 
+## October 18, 2025
+
+#### rewrite-nodejs - 0.32.1
+
+* Handle negations of the `util.is` calls too
+
 ## October 10, 2025
 
 #### rewrite-ai-search - 0.31.0
