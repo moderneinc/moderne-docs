@@ -35,7 +35,7 @@ Once that's done, configure the callback URL to point at your Moderne tenant:
 The consumer should have these permissions:
 
 <figure>
-  ![](./assets/bitbucket-permissions.png)
+  ![](./assets/bitbucket-cloud-permissions.png)
   <figcaption></figcaption>
 </figure>
 
