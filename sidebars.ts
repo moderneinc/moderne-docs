@@ -110,6 +110,11 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'user-documentation/moderne-cli/getting-started/cli-intro',
+            {
+              type: 'link',
+              label: 'Proof of value process',
+              href: '/user-documentation/moderne-platform/getting-started/proof-of-value',
+            },
             'user-documentation/moderne-cli/getting-started/moderne-cli-workshop',
             'user-documentation/moderne-cli/getting-started/moderne-cli-license',
             'user-documentation/moderne-cli/getting-started/cli-internal-tools',
