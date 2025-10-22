@@ -1,5 +1,17 @@
 # CLI / DX changelog
 
+### CLI / DX v3.50.0 (2025/10/22)
+
+#### What's Changed CLI
+* Add support for `-f | --force` flag in `mod git push`
+* Enable fully qualified Windows path as CSV argument for `mod git sync csv`
+* Fixing `which` to `where` commands for checking Node installations.
+* Add operating system provenance to build trace
+* Use localhost instead of * for `jvm-debug` in `mod run`
+- Check for `npm install` failure
+* Fix concurrency issue running JavaScript recipes
+
+
 ### CLI / DX v3.49.4 (2025/10/17)
 
 #### What's Changed CLI
