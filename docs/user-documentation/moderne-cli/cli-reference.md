@@ -5273,6 +5273,7 @@ mod git push /path/to/project -u origin feature-branch
 
 | Name | Description |
 | ---- | ----------- |
+| `-f`, `--force` |  Same as corresponding flag in `git`. Overwrites the remote branch with your local branch, even if it would result in losing commits that exist on the remote. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `-u`, `--set-upstream` |  For every branch that is up to date or successfully pushed, add upstream (tracking) reference. |
