@@ -1,6 +1,7 @@
 ---
 sidebar_label: JavaScript configuration
 description: How to set up and use JavaScript LSTs with the Moderne CLI.
+keywords: [javascript, js, typescript, ts, javascript lsts, javascript refactoring, javascript recipes]
 ---
 
 # How to set up and use JavaScript LSTs with the Moderne CLI
