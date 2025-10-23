@@ -29,7 +29,7 @@ Choose the installation path that matches your setup:
 #### Step 1: Download the CLI
 
 1. Go to [app.moderne.io](https://app.moderne.io/) and sign in.
-2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging). In general, you should use _staging_ when working with the CLI locally, and you should use _stable_ for crucial mass-ingest process runs.
+2. Click on `?` in the top right-hand corner and select the version of the CLI you want to download (Stable or Staging). In general, you should use _staging_ when working with the CLI locally, and you should use _stable_ for crucial mass-ingest process runs.
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
 ![](./assets/cli-download.gif)
@@ -125,8 +125,6 @@ mod config moderne edit https://app.moderne.io --token mat-YOUR_TOKEN_HERE
 ```
 
 If everything worked, you should see a `MOD SUCCEEDED` message
-
-![](./assets/create-access-token.gif)
 
 #### Step 4: Install recipes
 
@@ -251,8 +249,6 @@ mod config moderne edit https://yourcompany.moderne.io --token mat-YOUR_TOKEN_HE
 ```
 
 5. If everything worked, you should see a `MOD SUCCEEDED` message
-
-![](./assets/create-access-token.gif)
 
 #### Step 4: Install recipes
 

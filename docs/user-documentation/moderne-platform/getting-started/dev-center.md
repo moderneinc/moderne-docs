@@ -24,7 +24,7 @@ DevCenters are created for specific organizations. Not all organizations will ha
 
 If the organization has a DevCenter, will see a page like this:
 
-<figure style={{maxWidth: '600px', margin: '0 auto'}}>
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
   ![](./assets/large-devcenter.png)
   <figcaption>_Example DevCenter_</figcaption>
 </figure>
@@ -40,14 +40,14 @@ The organization ownership section gives you a high-level view of your organizat
   <figcaption>_Example organizational ownership section_</figcaption>
 </figure>
 
-### Upgrades and migrations
+### Change campaigns
 
-The upgrades and migration section is useful for tracking how your organization is doing at keeping your code up-to-date with the latest versions. These cards are configured by the organizational administrator and specifically chosen to align with that organization's needs.
+The change campaigns section is useful for tracking how your organization is doing at keeping your code up-to-date with the latest versions. These cards are configured by the organizational administrator and specifically chosen to align with that organization's needs.
 
 You can press the `Upgrade` button on each card to run a recipe that will attempt to get the repositories to the specified version. If the recipe has been recently run and the results are still valid, you will be taken to the latest results rather than needing to wait for the recipe to run again.
 
 <figure>
-  ![](./assets/upgrades-and-migrations.png)
+  ![](./assets/change-campaigns.png)
   <figcaption>_Example upgrades and migration cards_</figcaption>
 </figure>
 

@@ -64,15 +64,27 @@ From there, you can make intelligent decisions about the code. For instance, may
 
 To discover all of the type-aware search recipes, please follow these steps:
 
-*   From the [Moderne Marketplace](https://app.moderne.io/marketplace), click on a category that relates to your needs such as `Java`:
+* From the [Moderne Marketplace](https://app.moderne.io/marketplace), click on a category that relates to your needs such as `Java`:
 
-    ![](./assets/java-category.png)
-*   Click on `Search`:
+<figure>
+  ![](./assets/java-category.png)
+  <figcaption></figcaption>
+</figure>
 
-    ![](./assets/search-recipe-group.png)
-*   You will then arrive on a page that includes recipes for all of the different ways you can search for code:
+* Click on `Search`:
 
-    ![](./assets/search-recipe-examples.png)
+<figure>
+  ![](./assets/search-recipe-group.png)
+  <figcaption></figcaption>
+</figure>
+
+* You will then arrive on a page that includes recipes for all of the different ways you can search for code:
+
+<figure>
+  ![](./assets/search-recipe-examples.png)
+  <figcaption></figcaption>
+</figure>
+
 * Click on whichever one you are interested in exploring.
 
 ## Using regex in searches

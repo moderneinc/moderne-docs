@@ -9,14 +9,7 @@ As an administrator (admin) in the Moderne Platform, you have access to a variet
 
 ## Navigating to the admin pages
 
-All of the admin pages can be found by clicking on the `Admin` link in the Moderne nav sidebar: 
-
-<figure>
-  ![](./assets/admin-sidebar.png)
-  <figcaption>_Admin link in the sidebar_</figcaption>
-</figure>
-
-Clicking on that will open up a modal that contains all of the admin pages:
+All of the admin pages can be found by clicking on the gear icon in the top-right corner of the navbar. Clicking on that icon will open up a modal that contains all of the admin pages:
 
 <figure>
   ![](./assets/admin-page-modal.png)

@@ -21,7 +21,7 @@ In this doc, you can find out:
 
 ## How to make an access token
 
-1. In the bottom left-hand corner of the app, click on your profile avatar and select _Account settings:_
+1. In the bottom top-right corner of the app, click on your profile picture and select _Account settings:_
 
 <figure>
   ![](./assets/account-settings.png)

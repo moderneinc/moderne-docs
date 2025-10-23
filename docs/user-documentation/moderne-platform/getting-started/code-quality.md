@@ -23,10 +23,10 @@ Moderne's [common static analysis recipe](https://app.moderne.io/recipes/org.ope
 To get to this recipe:
 
 * Ensure that you are at the [recipe marketplace](https://app.moderne.io/marketplace).
-* From there, click on `Static analysis and remediation` and then `Core`. Click on the `Common static analysis issues` recipe and then click on `See details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
+* Type in `common static` into the search bar and select the first recipe. Then press `See details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
 
 <figure>
-  ![](./assets/CommonStaticAnalysis.gif)
+  ![](./assets/RecipeSearch.gif)
   <figcaption></figcaption>
 </figure>
 
@@ -35,10 +35,9 @@ To get to this recipe:
 The bottom half of the page lists all of the recipes that will be run as part of this analysis. You can click on any of the recipes to get more information about that specific recipe or to just run that one.
 
 <figure>
-  ![](./assets/CommonStaticAnalysis.gif)
+  ![](./assets/static-recipe-list.png)
   <figcaption></figcaption>
 </figure>
-![](./assets/static-recipe-list.png)
 
 When you're ready to run the recipe, press the `Dry Run` button at the top of your screen. You will then be redirected to a page that looks like this:
 
