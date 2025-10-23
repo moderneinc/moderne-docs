@@ -1757,39 +1757,15 @@ This changelog is automatically generated from GitHub releases.
 
 ## October 23, 2024
 
-#### rewrite-ai-search - 0.18.1
-
-* Updated repository to use OpenRewrite version v8.38.0
-
 #### rewrite-android - 0.2.0
 
 * Upgrade Android Gradle Plugin version
-
-#### rewrite-circleci - 2.7.2
-
-* Updated repository to use OpenRewrite version v8.38.0
 
 #### rewrite-codemods-ng - 0.4.2
 
 * Updated repository to use OpenRewrite version v8.38.0
 
-#### rewrite-concourse - 2.7.2
-
-* Updated repository to use OpenRewrite version v8.38.0
-
-#### rewrite-kubernetes - 2.9.2
-
-* Updated repository to use OpenRewrite version v8.38.0
-
 #### rewrite-reactive-streams - 0.3.1
-
-* Updated repository to use OpenRewrite version v8.38.0
-
-#### rewrite-sql - 1.10.2
-
-* Updated repository to use OpenRewrite version v8.38.0
-
-#### rewrite-terraform - 2.4.2
 
 * Updated repository to use OpenRewrite version v8.38.0
 
