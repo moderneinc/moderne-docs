@@ -1,4 +1,15 @@
 # Platform changelog
+### UI v12.0.0 (2025/10/23)
+
+- standardize modal height for add recipe to builder dialog
+- implement centralized popover management system
+- add neo-design CSS token imports
+- add logo support for toml recipes
+- apply button state styles to navigation buttons. add white ring to user avatar. fix left nav selection color
+- new global nav layout
+- add separate buttons to override recipe dialog
+- Consolidate Add to Builder Modal UX
+
 ### UI v11.114.0 (2025/10/14)
 
 - actions buttons for global nav
