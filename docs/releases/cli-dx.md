@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.50.1 (2025/10/24)
+
+#### What's Changed
+- Support `pnpm` and `yarn`
+* Use configured Maven settings' `localRepository` when installing recipes
+
+
 ### CLI / DX v3.50.0 (2025/10/22)
 
 #### What's Changed CLI
