@@ -15,28 +15,28 @@ To help you get started with user-configured organizations, in this guide you wi
 
 ## How to create a user-configured organization
 
-<figure>
+<figure style={{maxWidth: '800px'}}>
   ![](./assets/CreateUserOrg.gif)
   <figcaption>_A gif showing the whole process described below._</figcaption>
 </figure>
 
-1. In the top left corner of the Moderne home page, you will see an `Organization` icon:
+1. In the top nav bar, you will see an organization selector:
 
-<figure>
+<figure style={{maxWidth: '800px'}}>
   ![](./assets/org-selector.png)
   <figcaption></figcaption>
 </figure>
 
-2. If you click on that, the Organizations modal will appear. Press the `Create User Organization` button in the top-right corner.
+2. If you click on that, the Organizations modal will appear. Press the `Create User Organization` button in the bottom-left corner:
 
-<figure>
-  ![](./assets/organizations.png)
+<figure style={{maxWidth: '800px'}}>
+  ![](./assets/create-org-button.png)
   <figcaption></figcaption>
 </figure>
 
 3. You will be taken to the user-configured organization creation page:
 
-<figure>
+<figure style={{maxWidth: '800px'}}>
   ![](./assets/create-org.png)
   <figcaption></figcaption>
 </figure>
@@ -75,12 +75,7 @@ To help you get started with user-configured organizations, in this guide you wi
   <figcaption></figcaption>
 </figure>
 
-4. You will be redirected to a page that allows you to select repositories:
-
-<figure>
-  ![](./assets/org-modal.png)
-  <figcaption></figcaption>
-</figure>
+4. You will be redirected to a page that allows you to select repositories.
 
 5. To remove a user-configured organization, select `Delete user organization` instead of `Update organization`.
 

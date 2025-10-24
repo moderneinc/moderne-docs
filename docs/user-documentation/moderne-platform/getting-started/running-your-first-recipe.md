@@ -38,19 +38,12 @@ For a better understanding of the permissions requested, please see [GitHub Perm
 
 By default, recipes will run against the `Default` organization in Moderne. This organization is composed of a diverse set of open-source repositories that can help demonstrate the power of many recipes.
 
-If you'd prefer to run against a different group of repositories, you can do so by clicking on the `Organization` button and then selecting the organization you'd like:
+If you'd prefer to run against a different group of repositories, you can do so by clicking on the `Organization` selector at the top of your screen and then selecting the organization you'd like:
 
-<div style={{display: 'flex'}}>
-  <figure style={{maxWidth: '400px'}}>
-    ![](./assets/org-button.png)
-    <figcaption>_Organization button_</figcaption>
-  </figure>
-
-  <figure style={{maxWidth: '600px'}}>
-    ![](./assets/org-list.png)
-    <figcaption>_List of organizations_</figcaption>
-  </figure>
-</div>
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
+  ![](./assets/OrgSelector.gif)
+  <figcaption>_Choosing an organization._</figcaption>
+</figure>
 
 :::tip
 It's also possible to [create your own organization](../how-to-guides/managing-user-configured-organizations.md) that contains just the repositories you care about.
@@ -58,10 +51,10 @@ It's also possible to [create your own organization](../how-to-guides/managing-u
 
 ## Step 4: Select the recipe to run
 
-There are over 4700 recipes available in the Moderne Platform. While you are welcome to try out any of them, let's start by running the common static analysis recipe. To do so, click on the search bar and type `common static`. Then click on the first recipe that appears:
+There are over 4700 recipes available in the Moderne Platform. While you are welcome to try out any of them, let's start by running the common static analysis recipe. To do so, click on the search bar in the marketplace and type `common static`. Then click on the first recipe that appears:
 
-<figure style={{maxWidth: '600px', margin: '0 auto'}}>
-  ![](./assets/common-static-select.gif)
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
+  ![](./assets/RecipeSearch.gif)
   <figcaption>_Finding the common static analysis recipe._</figcaption>
 </figure>
 

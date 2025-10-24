@@ -15,7 +15,7 @@ In order to access the GraphQL API, you will need to [create a Moderne personal 
 
 To assist with the development of tools that access the Moderne APIs, Moderne offers an API explorer where you can manually create and run queries.
 
-To access this explorer, either click on the API Explorer link GraphQL link in the top bottom left corner of the UI or go directly to [https://app.moderne.io/graphql](https://app.moderne.io/graphql).
+To access this explorer, you can either go to [https://app.moderne.io/graphql](https://app.moderne.io/graphql) or click on the `?` in the top right corner and select `API explorer` under the `Tools` section:
 
 :::warning
 Please note that when you make actual API requests, you'll want to make them against `https://api.app.moderne.io/` instead of `https://app.moderne.io/graphql`.
