@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.1.0 (2025/10/24)
+
+- Bug fixes and other improvements.
+
 ### UI v12.0.0 (2025/10/23)
 
 - standardize modal height for add recipe to builder dialog
