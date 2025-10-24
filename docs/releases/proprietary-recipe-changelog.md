@@ -10,6 +10,18 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases.
 :::
 
+## October 24, 2025
+
+#### rewrite-nodejs - 0.32.5
+
+* OpenRewrite recipe best practices
+
+## October 23, 2025
+
+#### rewrite-nodejs - 0.32.4
+
+* Also remove `util` module import if possible
+
 ## October 22, 2025
 
 #### rewrite-ai-search - 0.31.1
@@ -1754,18 +1766,4 @@ This changelog is automatically generated from GitHub releases.
 #### rewrite-nodejs - 0.12.0
 
 * refactor: Annotate methods which may return `null` with `@Nullable`
-
-## October 23, 2024
-
-#### rewrite-android - 0.2.0
-
-* Upgrade Android Gradle Plugin version
-
-#### rewrite-codemods-ng - 0.4.2
-
-* Updated repository to use OpenRewrite version v8.38.0
-
-#### rewrite-reactive-streams - 0.3.1
-
-* Updated repository to use OpenRewrite version v8.38.0
 
