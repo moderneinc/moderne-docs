@@ -10,11 +10,42 @@ import TabItem from '@theme/TabItem';
 
 When implementing code changes across repositories, effective commit and PR management is crucial for maintaining visibility and control over your codebase. Fortunately, Moderne provides powerful tools to help you create, track, and manage commits and PRs at scale.
 
-In this guide, we'll walk you through the fundamentals of working with commits and PRs in Moderne. You'll learn about the extensive commit options we offer, how you can track the status of your changes, and some important caveats to consider when creating commits/PR. 
+In this guide, we'll walk you through the fundamentals of working with commits and PRs in Moderne. You'll learn about the extensive commit options we offer, how you can track the status of your changes, and the critical distinction between tracking PR operations and measuring actual migration progress in your codebase.
+
+## Understanding migration progress vs. PR tracking
+
+Before we look at how to work with commits and PRs in Moderne, it's important to understand the distinction between two different types of tracking:
+
+* **Operational tracking**: Where you monitor the status of PR creation jobs, see which PRs are open/merged/closed, and manage the mechanics of getting changes into your SCM.
+* **Migration progress tracking**: Where you measure how much of your codebase has actually been migrated or remediated.
+
+### Why PR metrics don't reflect actual migration progress
+
+While it's tempting to use PR metrics (merge rates, approval percentages, CI status) to measure migration progress, **PR status is not a reliable indicator of whether code has actually been changed in your repositories.**
+
+There are several reasons for this:
+
+1. **A PR might show as closed, but the code changes could still make it into your codebase.** For example, a developer might pull down a PR into a different branch, make additional updates, and merge that branch instead. The original PR shows as "closed" in your metrics, but the migration was actually completed.
+
+2. **A PR might be merged, but developers could modify or undo those changes afterwards.** Someone might merge a PR but then make follow-up commits that partially undo the fix or introduce new issues.
+
+3. **PR workflows could vary significantly across organizations.** Some teams squash commits, others rebase, and some use alternative merging strategies that make it difficult to track what actually landed in the codebase.
+
+### The accurate way to track migration progress
+
+**The only reliable way to measure actual migration progress is to rerun recipes or DevCenters on a cadence.** By periodically scanning your actual codebase, you can see what's truly in the code – regardless of how it got there.
+
+This approach gives you:
+
+* **Accurate measurement**: You're measuring the actual state of the code, not the state of PRs.
+* **Validation**: You can confirm that fixes haven't been undone or modified.
+* **True completion status**: You know a migration is complete when the recipe returns no results.
+
+The operational tracking features described below are valuable for managing the PR creation process, but should not be used as a substitute for measuring actual code migration progress.
 
 ## Committing
 
-After you've run a recipe and reviewed its results, the next step is to either commit it or create a pull request. 
+Now that you understand the distinction between operational and migration tracking, let's look at how to create commits and PRs. After you've run a recipe and reviewed its results, the next step is to either commit it or create a pull request. 
 
 Moderne supports five different commit strategies:
 
@@ -83,7 +114,7 @@ Moderne will create a commit job for each commit. This job will attempt to creat
 
 ## Tracking commits
 
-Without proper tracking of mass-created PRs and commits, it's easy to lose sight of pending changes. Fortunately, Moderne offers a commit view to help you track all commits/PRs in one place.
+Once you've created commits or PRs, you'll want to monitor their status. Without proper tracking of mass-created PRs and commits, it's easy to lose sight of pending changes. Fortunately, Moderne offers a commit view to help you track all commits and PRs in one place.
 
 ### How to get to the commit view
 
@@ -109,13 +140,13 @@ From the commit view, you can take various actions depending on whether or not y
   <figcaption>_What the commit view looks like if you've opened PRs._</figcaption>
 </figure>
 
-From this view, you can approve, merge, or close PRs. You can perform these actions by clicking on the triple vertical dots and selecting approve/merge/close. Or, if you want to take action on multiple repositories at once, you can click the checkboxes next to the repositories you want and then press the buttons at the top.
+From this view, you can approve, merge, or close PRs by clicking on the triple vertical dots and selecting the action you want. Or, if you want to take action on multiple repositories at once, you can click the checkboxes next to the repositories you want and then press the buttons at the top.
 
 To navigate to the open PRs themselves, you can either click on the repository name or you can click on the arrow under `Actions`.
 
 If opening a PR failed for some reason, you can see the details of why on this screen. You can also press the `Re-run failed` button to try and open them again.
 
-You may also see a PR status of `Blocked` if a review is required, but the PR hasn't been reviewed. Likewise, you might see `Blocked` if the CI pipeline needs to complete prior to a merge, but it hasn't. If you mouse over the `Blocked` status, you'll get more information about it:
+You might also see a PR status of `Blocked` if a review is required but the PR hasn't been reviewed yet. Likewise, you might see `Blocked` if the CI pipeline needs to complete before merging but it hasn't finished yet. If you mouse over the `Blocked` status, you'll get more information about it:
 
 <figure>
   ![](./assets/blocked.png)
@@ -139,8 +170,6 @@ Lastly, you can download all of this information as a data table by clicking on 
 
 ## Important considerations
 
-**Take care when running recipes against existing PRs**. Once you open a PR, you can continue pushing changes to that PR as long as they don't conflict with the current state of the branch. If you change a recipe and push again to the branch, or if you push changes manually to the branch, it is unlikely that Moderne will be able to push any further changes to that branch.
+**Be careful when running recipes against existing PRs.** Once you open a PR, you can continue pushing changes to that PR as long as they don't conflict with the current state of the branch. If you change a recipe and push again to the branch, or if you push changes manually to the branch, Moderne likely won't be able to push any further changes to that branch.
 
-On a related note, it's important to realize that merging in a PR generated from a recipe **is not good enough to say that an issue has been resolved**. As Moderne does not know what happens on a PR after it's been opened, it's quite possible for a developer to come and change something and partially undo a fix. 
-
-To confirm that an issue has been resolved or that a vulnerability is actually gone, you will need to re-run the recipe again on the merged in code. If no results appear, then you can be confident the issue has been fixed.
+**Remember: Merging a PR doesn't mean the issue is resolved.** As explained in the [Understanding migration progress vs. PR tracking](#understanding-migration-progress-vs-pr-tracking) section above, you must rerun the recipe on your codebase to confirm that issues have actually been fixed and haven't been modified or undone. If no results appear when you rerun the recipe, then you can be confident the issue has been resolved.
