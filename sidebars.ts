@@ -370,6 +370,7 @@ const sidebars: SidebarsConfig = {
         'openrewrite-advanced-program-analysis/security/path-traversal',
         'openrewrite-advanced-program-analysis/security/xxe',
         'openrewrite-advanced-program-analysis/security/pii-protection',
+        'openrewrite-advanced-program-analysis/security/post-quantum-cryptography',
       ],
     },
     'openrewrite-advanced-program-analysis/advanced-analysis-techniques',

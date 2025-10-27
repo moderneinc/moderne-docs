@@ -26,6 +26,10 @@ Web applications face unique challenges because they interact directly with untr
 
 Protecting sensitive data requires careful handling throughout its lifecycle. Personal Identifiable Information (PII) can leak through URLs that get logged, cached, or shared inadvertently. Storing sensitive data like social security numbers or credit card information without encryption violates both security best practices and regulatory requirements. Information disclosure through verbose error messages or debug logs can provide attackers with valuable reconnaissance data about your system's internals.
 
+### Cryptographic vulnerabilities
+
+Cryptographic weaknesses can undermine your entire security architecture. With the advent of quantum computing, many current encryption algorithms like RSA and Elliptic Curve Cryptography will become vulnerable to attack. Organizations must identify and migrate quantum-vulnerable cryptographic implementations to post-quantum algorithms. Beyond quantum threats, improper use of cryptography such as weak key generation, insecure random number generation, or use of deprecated algorithms can expose sensitive data to compromise.
+
 ## How security analysis works
 
 Security analysis in OpenRewrite follows a systematic approach:
@@ -110,6 +114,7 @@ Explore specific security recipes in detail:
 * [LDAP Injection Finding](./ldap-injection.md)
 * [XXE Vulnerability Detection](./xxe.md)
 * [PII Protection](./pii-protection.md)
+* [Post-Quantum Cryptography Readiness](./post-quantum-cryptography.md)
 
 :::tip
 Start with `FindSecurityVulnerabilities` to run all security checks, then dive into specific categories based on your application's risk profile.

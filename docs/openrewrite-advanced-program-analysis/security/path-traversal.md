@@ -2,7 +2,7 @@
 description: Detect and prevent path traversal vulnerabilities in file system operations.
 ---
 
-# Path Traversal Detection
+# Path traversal detection
 
 Path traversal (also known as directory traversal) vulnerabilities allow attackers to access files and directories outside of the intended directory. By manipulating file paths with sequences like `../`, attackers can read sensitive files, overwrite critical system files, or execute unauthorized code.
 

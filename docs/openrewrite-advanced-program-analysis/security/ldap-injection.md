@@ -2,7 +2,7 @@
 description: Detect and prevent LDAP injection vulnerabilities in directory service queries.
 ---
 
-# LDAP Injection Detection
+# LDAP injection detection
 
 LDAP (Lightweight Directory Access Protocol) injection vulnerabilities occur when untrusted data is incorporated into LDAP queries without proper sanitization. Attackers can modify query logic to bypass authentication, extract sensitive directory information, or modify directory entries.
 

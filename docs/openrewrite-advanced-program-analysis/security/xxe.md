@@ -2,7 +2,7 @@
 description: Detect and prevent XML External Entity (XXE) vulnerabilities in XML processing.
 ---
 
-# XXE Vulnerability Detection
+# XXE vulnerability detection
 
 XML External Entity (XXE) vulnerabilities occur when XML parsers process untrusted XML input containing external entity references. Attackers can exploit XXE to read local files, perform server-side request forgery (SSRF), cause denial of service, or even achieve remote code execution in some cases.
 
