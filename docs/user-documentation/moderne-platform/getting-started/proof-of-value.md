@@ -109,7 +109,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 ## Impact analysis: Understanding your code with search recipes
 
-Moderne is a data warehouse for your code, and the platform's power comes not only from the ability to make changes across your entire codebase, but also taking advantage of type awareness to answer difficult questions across hundreds or thousands of repositories. Think of these recipes like being able to run a database query across your code.
+Moderne is a data warehouse for your code, and the platform's power comes not only from the ability to make changes across your entire codebase, but also from taking advantage of type awareness to answer difficult questions across hundreds or thousands of repositories. Think of these recipes as running a database query across your code.
 
 Many developers use Moderne daily for code search, such as finding API usage patterns, understanding dependencies, and analyzing the impact of potential changes. The following sections intersperse search recipes with transformation recipes to demonstrate the natural progression from understanding to action.
 
@@ -266,18 +266,6 @@ mod study . --last-recipe-run --data-table SourcesFileResults
   <figcaption>_An example `build.gradle` change._</figcaption>
 </figure>
 
-#### Recipe results
-
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![find-sensitive-api-endpoints-1.png](./assets/find-sensitive-api-endpoints-1.png)
-  <figcaption>_Identifying sensitive API endpoints for security review_</figcaption>
-</figure>
-
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![find-sensitive-api-endpoints-2.png](assets/find-sensitive-api-endpoints-2.png)
-  <figcaption>_Sensitive values can be found on super classes of types used in API endpoints_</figcaption>
-</figure>
-
 ## Security
 
 ### [Find secrets](https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindSecrets)
@@ -313,6 +301,18 @@ mod run . --recipe org.openrewrite.java.security.search.FindSensitiveApiEndpoint
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
 
+#### Recipe results
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![find-sensitive-api-endpoints-1.png](./assets/find-sensitive-api-endpoints-1.png)
+  <figcaption>_Identifying sensitive API endpoints for security review_</figcaption>
+</figure>
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![find-sensitive-api-endpoints-2.png](./assets/find-sensitive-api-endpoints-2.png)
+  <figcaption>_Sensitive values can be found on super classes of types used in API endpoints_</figcaption>
+</figure>
+
 ### [Find SQL statements](https://app.moderne.io/recipes/org.openrewrite.sql.FindSql)
 
 > Identifies SQL statements in your codebase, including those constructed through string concatenation. Essential for finding potential SQL injection vulnerabilities before applying security fixes.
@@ -329,7 +329,7 @@ mod study . --last-recipe-run --data-table DatabaseColumnsUsed
 #### Recipe results
 
 <figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![find-sql-example.png](assets/find-sql-example.png)
+  ![find-sql-example.png](./assets/find-sql-example.png)
   <figcaption>_Discovering SQL statements across the codebase_</figcaption>
 </figure>
 
@@ -522,10 +522,10 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 Impact analysis helps you understand the consequences of changes before making them. Throughout this document, we've demonstrated how search recipes form the foundation of successful transformations:
 
-* **Find methods** - Understand API usage patterns before refactoring
-* **Find types** - Determine all the ways a given type (including types that inherit from it) are used before refactoring
-* **Find sensitive API endpoints** - Uncover data that might be exposed externally via APIs
-* **Find SQL statements** - Determine usage of tables and columns before making database schema changes
+* **Find methods** - Understand API usage patterns before refactoring.
+* **Find types** - Determine all the ways a given type (including types that inherit from it) is used before refactoring.
+* **Find sensitive API endpoints** - Uncover data that might be exposed externally via APIs.
+* **Find SQL statements** - Determine usage of tables and columns before making database schema changes.
 
 These search capabilities enable developers to make informed decisions about the scope and impact of changes. Unlike simple text searches, Moderne's type-aware recipes understand your code's structure and semantics, providing accurate results even across hundreds or thousands of repositories.
 
