@@ -107,6 +107,57 @@ mod study . --last-recipe-run --data-table SourcesFileResults
   <figcaption>_Static analysis fixes_</figcaption>
 </figure>
 
+## Impact analysis: Understanding your code with search recipes
+
+Moderne is a data warehouse for your code, and the platform's power comes not only from the ability to make changes across your entire codebase, but also taking advantage of type awareness to answer difficult questions across hundreds or thousands of repositories. Think of these recipes like being able to run a database query across your code.
+
+Many developers use Moderne daily for code search, such as finding API usage patterns, understanding dependencies, and analyzing the impact of potential changes. The following sections intersperse search recipes with transformation recipes to demonstrate the natural progression from understanding to action.
+
+
+### [Find types](https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes#defaults=W3sibmFtZSI6ImZ1bGx5UXVhbGlmaWVkVHlwZU5hbWUiLCJ2YWx1ZSI6Im9yZy5hcGFjaGUuY29tbW9ucy5sYW5nMy5TdHJpbmdVdGlscyJ9LHsibmFtZSI6ImNoZWNrQXNzaWduYWJpbGl0eSIsInZhbHVlIjp0cnVlfV0=)
+
+> Identifies classes, interfaces, or enums matching a type pattern. Crucial for understanding class usage and inheritance hierarchies before performing refactoring or migrations.
+
+#### CLI commands
+
+```bash
+# Example: Find all uses of Apache Commons StringUtils across your codebase
+mod run . --recipe org.openrewrite.java.search.FindTypes \
+    -P "fullyQualifiedTypeName=org.apache.commons.lang3.StringUtils" \
+    -P "checkAssignability=true"
+
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![find-types-example.png](./assets/find-types-example.png)
+  <figcaption>_Discovering type usage patterns across repositories_</figcaption>
+</figure>
+
+### [Find methods](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods#defaults=W3sibmFtZSI6Im1ldGhvZFBhdHRlcm4iLCJ2YWx1ZSI6Im9yZy5hcGFjaGUuY29tbW9ucy4uKiMqKC4uKSJ9LHsibmFtZSI6Im1hdGNoT3ZlcnJpZGVzIiwidmFsdWUiOnRydWV9XQ==)
+
+> Locates method invocations matching a method pattern, even when methods are imported in different ways or invoked on subclasses. Essential for understanding API usage before refactoring.
+
+#### CLI commands
+
+```bash
+# Example: Find all uses of methods in org.apache.commons
+mod run . --recipe org.openrewrite.java.search.FindMethods \
+    -P "methodPattern=org.apache.commons..*#*(..)" \
+    -P "matchOverrides=true"
+
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![](./assets/find-methods-example.png)
+  <figcaption>_Finding method usage across repositories_</figcaption>
+</figure>
+
 ## Logging improvements
 
 ### [Parameterize SLF4J logging statements](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging)
@@ -215,6 +266,18 @@ mod study . --last-recipe-run --data-table SourcesFileResults
   <figcaption>_An example `build.gradle` change._</figcaption>
 </figure>
 
+#### Recipe results
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![find-sensitive-api-endpoints-1.png](./assets/find-sensitive-api-endpoints-1.png)
+  <figcaption>_Identifying sensitive API endpoints for security review_</figcaption>
+</figure>
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![find-sensitive-api-endpoints-2.png](assets/find-sensitive-api-endpoints-2.png)
+  <figcaption>_Sensitive values can be found on super classes of types used in API endpoints_</figcaption>
+</figure>
+
 ## Security
 
 ### [Find secrets](https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindSecrets)
@@ -233,6 +296,41 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 <figure>
   ![](./assets/find-secrets-example.png)
   <figcaption>_Example of a secret being found in the code._</figcaption>
+</figure>
+
+### [Find sensitive API endpoints](https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindSensitiveApiEndpoints#defaults=W3sibmFtZSI6ImZpZWxkTmFtZXMiLCJ2YWx1ZSI6WyJmaXJzdE5hbWUiLCJsYXN0TmFtZSIsImVtYWlsIiwiZW1haWxBZGRyZXNzIl19LHsibmFtZSI6InRyYW5zaXRpdmUiLCJ2YWx1ZSI6dHJ1ZX1d)
+
+> Discovers REST API endpoints that handle sensitive data. Critical for security audits and understanding the attack surface before implementing security improvements.
+
+#### CLI commands
+
+```bash
+# Find endpoints handling personal data fields like names and emails
+mod run . --recipe org.openrewrite.java.security.search.FindSensitiveApiEndpoints \
+    -P "fieldNames=firstName,lastName,email,emailAddress" \
+    -P "transitive=true"
+
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+### [Find SQL statements](https://app.moderne.io/recipes/org.openrewrite.sql.FindSql)
+
+> Identifies SQL statements in your codebase, including those constructed through string concatenation. Essential for finding potential SQL injection vulnerabilities before applying security fixes.
+
+#### CLI commands
+
+```bash
+# Find all SQL statements, particularly useful for identifying dynamic SQL construction
+mod run . --recipe org.openrewrite.sql.FindSql
+
+mod study . --last-recipe-run --data-table DatabaseColumnsUsed
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![find-sql-example.png](assets/find-sql-example.png)
+  <figcaption>_Discovering SQL statements across the codebase_</figcaption>
 </figure>
 
 ### [Use secure random](https://app.moderne.io/recipes/org.openrewrite.java.security.SecureRandom)
@@ -422,6 +520,15 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 ## Impact analysis
 
-Impact analysis helps you understand the consequences of changes before making them. Use these recipes to identify what will be affected:
+Impact analysis helps you understand the consequences of changes before making them. Throughout this document, we've demonstrated how search recipes form the foundation of successful transformations:
+
+* **Find methods** - Understand API usage patterns before refactoring
+* **Find types** - Map class hierarchies and dependencies
+* **Find sensitive API endpoints** - Identify security-critical code
+* **Find SQL statements** - Locate potential injection points
+
+These search capabilities enable developers to make informed decisions about the scope and impact of changes. Unlike simple text searches, Moderne's type-aware recipes understand your code's structure and semantics, providing accurate results even across hundreds or thousands of repositories.
+
+The following video demonstrates how to perform comprehensive impact analysis:
 
 <ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
