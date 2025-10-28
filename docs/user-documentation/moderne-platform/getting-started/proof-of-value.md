@@ -523,9 +523,9 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 Impact analysis helps you understand the consequences of changes before making them. Throughout this document, we've demonstrated how search recipes form the foundation of successful transformations:
 
 * **Find methods** - Understand API usage patterns before refactoring
-* **Find types** - Map class hierarchies and dependencies
-* **Find sensitive API endpoints** - Identify security-critical code
-* **Find SQL statements** - Locate potential injection points
+* **Find types** - Determine all the ways a given type (including types that inherit from it) are used before refactoring
+* **Find sensitive API endpoints** - Uncover data that might be exposed externally via APIs
+* **Find SQL statements** - Determine usage of tables and columns before making database schema changes
 
 These search capabilities enable developers to make informed decisions about the scope and impact of changes. Unlike simple text searches, Moderne's type-aware recipes understand your code's structure and semantics, providing accurate results even across hundreds or thousands of repositories.
 
