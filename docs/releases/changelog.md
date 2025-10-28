@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v12.2.0 (2025/10/28)
+
+- expandable search input in global navigation
+- add topology auto-rotation prototype storybook
+
 ### UI v12.1.1 (2025/10/27)
 
 - Bug fixes and other improvements.
