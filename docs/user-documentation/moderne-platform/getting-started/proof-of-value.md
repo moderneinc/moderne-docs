@@ -102,9 +102,120 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 #### Recipe results
 
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![](./assets/code-quality-saas.png)
   <figcaption>_Static analysis fixes_</figcaption>
+</figure>
+
+## Code search and impact analysis
+
+Many developers use Moderne every day for code search. Need to plan a refactor? Want to understand how an API is used? Trying to assess security concerns? All of these questions can be answered by running search recipes across your repositories.
+
+This is possible because Moderne treats your code like a data warehouse. Our type-aware search capabilities go far beyond simple text searches. They understand your code's structure, inheritance hierarchies, and semantic relationships. It's effectively like running a database query across your entire codebase.
+
+One of the most powerful applications of search is **impact analysis** – understanding what will be affected before you make changes. The search recipes below help you assess the scope and impact of potential transformations, giving you confidence before running large-scale refactors or migrations.
+
+To see learn more about impact analysis and how to automate it, check out this video:
+
+<ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
+
+### [Find types](https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes#defaults=W3sibmFtZSI6ImZ1bGx5UXVhbGlmaWVkVHlwZU5hbWUiLCJ2YWx1ZSI6Im9yZy5hcGFjaGUuY29tbW9ucy5sYW5nMy5TdHJpbmdVdGlscyJ9LHsibmFtZSI6ImNoZWNrQXNzaWduYWJpbGl0eSIsInZhbHVlIjp0cnVlfV0=)
+
+> Identifies classes, interfaces, or enums matching a type pattern. Crucial for understanding class usage and inheritance hierarchies before performing refactoring or migrations.
+
+:::tip
+If you don't remember the exact type, try replacing parts of the expression with `*` as a wildcard and go from there.
+:::
+
+#### CLI commands
+
+```bash
+# Example: Find all uses of Apache Commons StringUtils across your codebase
+mod run . --recipe org.openrewrite.java.search.FindTypes \
+    -P "fullyQualifiedTypeName=org.apache.commons.lang3.StringUtils" \
+    -P "checkAssignability=true"
+
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![find-types-example.png](./assets/find-types-example.png)
+  <figcaption>_Discovering type usage patterns across repositories_</figcaption>
+</figure>
+
+### [Find methods](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods#defaults=W3sibmFtZSI6Im1ldGhvZFBhdHRlcm4iLCJ2YWx1ZSI6Im9yZy5hcGFjaGUuY29tbW9ucy4uKiMqKC4uKSJ9LHsibmFtZSI6Im1hdGNoT3ZlcnJpZGVzIiwidmFsdWUiOnRydWV9XQ==)
+
+> Locates method invocations matching a method pattern, even when methods are imported in different ways or invoked on subclasses. Essential for understanding API usage before refactoring.
+
+:::tip
+Unsure how to accurately identify methods? Check out our [documentation on method patterns](https://docs.openrewrite.org/reference/method-patterns#anatomy-of-a-method-pattern).
+:::
+
+#### CLI commands
+
+```bash
+# Example: Find all uses of methods in org.apache.commons
+mod run . --recipe org.openrewrite.java.search.FindMethods \
+    -P "methodPattern=org.apache.commons..*#*(..)" \
+    -P "matchOverrides=true"
+
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![](./assets/find-methods-example.png)
+  <figcaption>_Finding method usage across repositories_</figcaption>
+</figure>
+
+### [Find sensitive API endpoints](https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindSensitiveApiEndpoints#defaults=W3sibmFtZSI6ImZpZWxkTmFtZXMiLCJ2YWx1ZSI6WyJmaXJzdE5hbWUiLCJsYXN0TmFtZSIsImVtYWlsIiwiZW1haWxBZGRyZXNzIl19LHsibmFtZSI6InRyYW5zaXRpdmUiLCJ2YWx1ZSI6dHJ1ZX1d)
+
+> Discovers REST API endpoints that handle sensitive data. Essential for security audits, understanding data exposure, and planning privacy improvements.
+
+#### CLI commands
+
+```bash
+# Find endpoints handling personal data fields like names and emails
+mod run . --recipe org.openrewrite.java.security.search.FindSensitiveApiEndpoints \
+    -P "fieldNames=firstName,lastName,email,emailAddress" \
+    -P "transitive=true"
+
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![find-sensitive-api-endpoints-1.png](./assets/find-sensitive-api-endpoints-1.png)
+  <figcaption>_Identifying sensitive API endpoints for security review_</figcaption>
+</figure>
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![find-sensitive-api-endpoints-2.png](./assets/find-sensitive-api-endpoints-2.png)
+  <figcaption>_Sensitive values can be found on super classes of types used in API endpoints_</figcaption>
+</figure>
+
+### [Find SQL statements](https://app.moderne.io/recipes/org.openrewrite.sql.FindSql)
+
+> Identifies SQL statements in your codebase, including those constructed through string concatenation. Useful for understanding database dependencies, finding potential SQL injection vulnerabilities, and planning schema changes.
+
+#### CLI commands
+
+```bash
+# Find all SQL statements, particularly useful for identifying dynamic SQL construction
+mod run . --recipe org.openrewrite.sql.FindSql
+
+mod study . --last-recipe-run --data-table DatabaseColumnsUsed
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![find-sql-example.png](./assets/find-sql-example.png)
+  <figcaption>_Discovering SQL statements across the codebase_</figcaption>
 </figure>
 
 ## Logging improvements
@@ -419,9 +530,3 @@ mod study . --last-recipe-run --data-table SourcesFileResults
   ![](./assets/spring-boot-best-practice-example.png)
   <figcaption>_Applying Spring Boot best practices to a Java class._</figcaption>
 </figure>
-
-## Impact analysis
-
-Impact analysis helps you understand the consequences of changes before making them. Use these recipes to identify what will be affected:
-
-<ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
