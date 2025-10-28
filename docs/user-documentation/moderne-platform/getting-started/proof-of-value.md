@@ -107,12 +107,17 @@ mod study . --last-recipe-run --data-table SourcesFileResults
   <figcaption>_Static analysis fixes_</figcaption>
 </figure>
 
-## Impact analysis: Understanding your code with search recipes
+## Code search and impact analysis
 
-Moderne is a data warehouse for your code, and the platform's power comes not only from the ability to make changes across your entire codebase, but also from taking advantage of type awareness to answer difficult questions across hundreds or thousands of repositories. Think of these recipes as running a database query across your code.
+Many developers use Moderne every day for code search. Need to plan a refactor? Want to understand how an API is used? Trying to assess security concerns? All of these questions can be answered by running search recipes across your repositories.
 
-Many developers use Moderne daily for code search, such as finding API usage patterns, understanding dependencies, and analyzing the impact of potential changes. The following sections intersperse search recipes with transformation recipes to demonstrate the natural progression from understanding to action.
+This is possible because Moderne treats your code like a data warehouse. Our type-aware search capabilities go far beyond simple text searches. They understand your code's structure, inheritance hierarchies, and semantic relationships. It's effectively like running a database query across your entire codebase.
 
+One of the most powerful applications of search is **impact analysis** – understanding what will be affected before you make changes. The search recipes below help you assess the scope and impact of potential transformations, giving you confidence before running large-scale refactors or migrations.
+
+To see learn more about impact analysis and how to automate it, check out this video:
+
+<ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
 
 ### [Find types](https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes#defaults=W3sibmFtZSI6ImZ1bGx5UXVhbGlmaWVkVHlwZU5hbWUiLCJ2YWx1ZSI6Im9yZy5hcGFjaGUuY29tbW9ucy5sYW5nMy5TdHJpbmdVdGlscyJ9LHsibmFtZSI6ImNoZWNrQXNzaWduYWJpbGl0eSIsInZhbHVlIjp0cnVlfV0=)
 
@@ -164,6 +169,53 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![](./assets/find-methods-example.png)
   <figcaption>_Finding method usage across repositories_</figcaption>
+</figure>
+
+### [Find sensitive API endpoints](https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindSensitiveApiEndpoints#defaults=W3sibmFtZSI6ImZpZWxkTmFtZXMiLCJ2YWx1ZSI6WyJmaXJzdE5hbWUiLCJsYXN0TmFtZSIsImVtYWlsIiwiZW1haWxBZGRyZXNzIl19LHsibmFtZSI6InRyYW5zaXRpdmUiLCJ2YWx1ZSI6dHJ1ZX1d)
+
+> Discovers REST API endpoints that handle sensitive data. Essential for security audits, understanding data exposure, and planning privacy improvements.
+
+#### CLI commands
+
+```bash
+# Find endpoints handling personal data fields like names and emails
+mod run . --recipe org.openrewrite.java.security.search.FindSensitiveApiEndpoints \
+    -P "fieldNames=firstName,lastName,email,emailAddress" \
+    -P "transitive=true"
+
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![find-sensitive-api-endpoints-1.png](./assets/find-sensitive-api-endpoints-1.png)
+  <figcaption>_Identifying sensitive API endpoints for security review_</figcaption>
+</figure>
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![find-sensitive-api-endpoints-2.png](./assets/find-sensitive-api-endpoints-2.png)
+  <figcaption>_Sensitive values can be found on super classes of types used in API endpoints_</figcaption>
+</figure>
+
+### [Find SQL statements](https://app.moderne.io/recipes/org.openrewrite.sql.FindSql)
+
+> Identifies SQL statements in your codebase, including those constructed through string concatenation. Useful for understanding database dependencies, finding potential SQL injection vulnerabilities, and planning schema changes.
+
+#### CLI commands
+
+```bash
+# Find all SQL statements, particularly useful for identifying dynamic SQL construction
+mod run . --recipe org.openrewrite.sql.FindSql
+
+mod study . --last-recipe-run --data-table DatabaseColumnsUsed
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![find-sql-example.png](./assets/find-sql-example.png)
+  <figcaption>_Discovering SQL statements across the codebase_</figcaption>
 </figure>
 
 ## Logging improvements
@@ -292,53 +344,6 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 <figure>
   ![](./assets/find-secrets-example.png)
   <figcaption>_Example of a secret being found in the code._</figcaption>
-</figure>
-
-### [Find sensitive API endpoints](https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindSensitiveApiEndpoints#defaults=W3sibmFtZSI6ImZpZWxkTmFtZXMiLCJ2YWx1ZSI6WyJmaXJzdE5hbWUiLCJsYXN0TmFtZSIsImVtYWlsIiwiZW1haWxBZGRyZXNzIl19LHsibmFtZSI6InRyYW5zaXRpdmUiLCJ2YWx1ZSI6dHJ1ZX1d)
-
-> Discovers REST API endpoints that handle sensitive data. Critical for security audits and understanding the attack surface before implementing security improvements.
-
-#### CLI commands
-
-```bash
-# Find endpoints handling personal data fields like names and emails
-mod run . --recipe org.openrewrite.java.security.search.FindSensitiveApiEndpoints \
-    -P "fieldNames=firstName,lastName,email,emailAddress" \
-    -P "transitive=true"
-
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![find-sensitive-api-endpoints-1.png](./assets/find-sensitive-api-endpoints-1.png)
-  <figcaption>_Identifying sensitive API endpoints for security review_</figcaption>
-</figure>
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![find-sensitive-api-endpoints-2.png](./assets/find-sensitive-api-endpoints-2.png)
-  <figcaption>_Sensitive values can be found on super classes of types used in API endpoints_</figcaption>
-</figure>
-
-### [Find SQL statements](https://app.moderne.io/recipes/org.openrewrite.sql.FindSql)
-
-> Identifies SQL statements in your codebase, including those constructed through string concatenation. Essential for finding potential SQL injection vulnerabilities before applying security fixes.
-
-#### CLI commands
-
-```bash
-# Find all SQL statements, particularly useful for identifying dynamic SQL construction
-mod run . --recipe org.openrewrite.sql.FindSql
-
-mod study . --last-recipe-run --data-table DatabaseColumnsUsed
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![find-sql-example.png](./assets/find-sql-example.png)
-  <figcaption>_Discovering SQL statements across the codebase_</figcaption>
 </figure>
 
 ### [Use secure random](https://app.moderne.io/recipes/org.openrewrite.java.security.SecureRandom)
@@ -525,18 +530,3 @@ mod study . --last-recipe-run --data-table SourcesFileResults
   ![](./assets/spring-boot-best-practice-example.png)
   <figcaption>_Applying Spring Boot best practices to a Java class._</figcaption>
 </figure>
-
-## Impact analysis
-
-Impact analysis is about understanding what you're getting into before making changes. Throughout this guide, we've shown you search recipes that help you assess the real impact of transformations:
-
-* **Find methods** - "Where is this method being called?" - Get the answer before you refactor it.
-* **Find types** - "Who's using this class?" - Find out everywhere it appears, including inherited usages.
-* **Find sensitive API endpoints** - "Are we accidentally exposing user data?" - Spot potential privacy issues.
-* **Find SQL statements** - "Which code touches this database table?" - Map dependencies before schema changes.
-
-These search capabilities enable developers to make informed decisions about the scope and impact of changes. Unlike simple text searches, Moderne's type-aware recipes understand your code's structure and semantics, providing accurate results even across hundreds or thousands of repositories.
-
-To learn more, check out this video on how to perform comprehensive impact analysis:
-
-<ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
