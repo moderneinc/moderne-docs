@@ -102,7 +102,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 #### Recipe results
 
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![](./assets/code-quality-saas.png)
   <figcaption>_Static analysis fixes_</figcaption>
 </figure>
@@ -118,6 +118,10 @@ Many developers use Moderne daily for code search, such as finding API usage pat
 
 > Identifies classes, interfaces, or enums matching a type pattern. Crucial for understanding class usage and inheritance hierarchies before performing refactoring or migrations.
 
+:::tip
+If you don't remember the exact type, try replacing parts of the expression with `*` as a wildcard and go from there.
+:::
+
 #### CLI commands
 
 ```bash
@@ -131,7 +135,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 #### Recipe results
 
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![find-types-example.png](./assets/find-types-example.png)
   <figcaption>_Discovering type usage patterns across repositories_</figcaption>
 </figure>
@@ -139,6 +143,10 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 ### [Find methods](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods#defaults=W3sibmFtZSI6Im1ldGhvZFBhdHRlcm4iLCJ2YWx1ZSI6Im9yZy5hcGFjaGUuY29tbW9ucy4uKiMqKC4uKSJ9LHsibmFtZSI6Im1hdGNoT3ZlcnJpZGVzIiwidmFsdWUiOnRydWV9XQ==)
 
 > Locates method invocations matching a method pattern, even when methods are imported in different ways or invoked on subclasses. Essential for understanding API usage before refactoring.
+
+:::tip
+Unsure how to accurately identify methods? Check out our [documentation on method patterns](https://docs.openrewrite.org/reference/method-patterns#anatomy-of-a-method-pattern).
+:::
 
 #### CLI commands
 
@@ -153,7 +161,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 #### Recipe results
 
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![](./assets/find-methods-example.png)
   <figcaption>_Finding method usage across repositories_</figcaption>
 </figure>
@@ -303,12 +311,12 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 #### Recipe results
 
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![find-sensitive-api-endpoints-1.png](./assets/find-sensitive-api-endpoints-1.png)
   <figcaption>_Identifying sensitive API endpoints for security review_</figcaption>
 </figure>
 
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![find-sensitive-api-endpoints-2.png](./assets/find-sensitive-api-endpoints-2.png)
   <figcaption>_Sensitive values can be found on super classes of types used in API endpoints_</figcaption>
 </figure>
@@ -328,7 +336,7 @@ mod study . --last-recipe-run --data-table DatabaseColumnsUsed
 
 #### Recipe results
 
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![find-sql-example.png](./assets/find-sql-example.png)
   <figcaption>_Discovering SQL statements across the codebase_</figcaption>
 </figure>
@@ -520,15 +528,15 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 ## Impact analysis
 
-Impact analysis helps you understand the consequences of changes before making them. Throughout this document, we've demonstrated how search recipes form the foundation of successful transformations:
+Impact analysis is about understanding what you're getting into before making changes. Throughout this guide, we've shown you search recipes that help you assess the real impact of transformations:
 
-* **Find methods** - Understand API usage patterns before refactoring.
-* **Find types** - Determine all the ways a given type (including types that inherit from it) is used before refactoring.
-* **Find sensitive API endpoints** - Uncover data that might be exposed externally via APIs.
-* **Find SQL statements** - Determine usage of tables and columns before making database schema changes.
+* **Find methods** - "Where is this method being called?" - Get the answer before you refactor it.
+* **Find types** - "Who's using this class?" - Find out everywhere it appears, including inherited usages.
+* **Find sensitive API endpoints** - "Are we accidentally exposing user data?" - Spot potential privacy issues.
+* **Find SQL statements** - "Which code touches this database table?" - Map dependencies before schema changes.
 
 These search capabilities enable developers to make informed decisions about the scope and impact of changes. Unlike simple text searches, Moderne's type-aware recipes understand your code's structure and semantics, providing accurate results even across hundreds or thousands of repositories.
 
-The following video demonstrates how to perform comprehensive impact analysis:
+To learn more, check out this video on how to perform comprehensive impact analysis:
 
 <ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
