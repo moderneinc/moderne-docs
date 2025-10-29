@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.4.0 (2025/10/29)
+
+- implement new light theme login UI
+
 ### UI v12.3.0 (2025/10/29)
 
 - auto-focus and scroll new string array inputs
