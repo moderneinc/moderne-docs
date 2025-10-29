@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v12.3.0 (2025/10/29)
+
+- auto-focus and scroll new string array inputs
+- add auto-rotation to topology visualization
+
 ### UI v12.2.0 (2025/10/28)
 
 - expandable search input in global navigation
