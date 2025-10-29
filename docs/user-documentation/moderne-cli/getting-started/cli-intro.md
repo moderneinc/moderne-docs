@@ -17,6 +17,8 @@ To ensure you can use the Moderne CLI successfully, in this guide, we will walk 
 The examples in this guide use the latest staging version of the Moderne CLI.
 :::
 
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=fdPX9e2vsFw' controls={true} />
+
 ## Installation and configuration
 
 Choose the installation path that matches your setup:
