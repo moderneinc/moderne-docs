@@ -3565,7 +3565,7 @@ mod config recipes artifacts artifactory edit [parameters]
 ### Examples
 
 ```
-mod config recipes artifacts edit <artifact-repository-url> --user <user> --password <password>
+mod config recipes artifacts artifactory edit <artifact-repository-url> --user <user> --password <password>
 ```
 
 ### Parameters
@@ -3725,7 +3725,7 @@ mod config recipes artifacts maven edit [parameters]
 ### Examples
 
 ```
-mod config recipes artifacts edit <artifact-repository-url> --user <user> --password <password>
+mod config recipes artifacts maven edit <artifact-repository-url> --user <user> --password <password>
 ```
 
 ### Parameters
