@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.5.1 (2025/10/30)
+
+- Bug fixes and other improvements.
+
 ### UI v12.5.0 (2025/10/30)
 
 - remove icons from account settings tabs
