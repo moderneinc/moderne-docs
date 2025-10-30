@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v12.5.0 (2025/10/30)
+
+- remove icons from account settings tabs
+- add convention-based tenant branding with backward compatibility
+
 ### UI v12.4.0 (2025/10/29)
 
 - implement new light theme login UI
