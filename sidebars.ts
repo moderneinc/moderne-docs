@@ -437,6 +437,7 @@ const sidebars: SidebarsConfig = {
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configuring-artifactory-with-recipes',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-pypi-access-visualizations',
+                'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-llm-for-moddy',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-organizations-hierarchy',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-generic-http-tools-for-use-in-recipes',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-strict-recipe-sources',
