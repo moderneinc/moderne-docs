@@ -517,11 +517,15 @@ java -jar moderne-agent-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 7: (Optional but recommended) Configure organizational hierarchy
+### Step 7: (Optionally) Configure LLM support for Moddy
+
+If you want to enable Moddy (Moderne's AI agent) in your platform, you'll need to configure LLM support. Moddy allows users to interact with their codebase using natural language. Please follow the [Moddy configuration instructions](./configure-an-agent-with-llm-for-moddy.md) to set this up.
+
+### Step 8: (Optional but recommended) Configure organizational hierarchy
 
 If you would like to have an organizational hierarchy available inside of the Moderne Platform, you will need to [configure an organizational hierarchy](./configure-organizations-hierarchy.md) and [let the agent know about it](./configure-organizations-hierarchy.md#agent-configuration).
 
-### Step 8: (Optionally) Create an Organizations service
+### Step 9: (Optionally) Create an Organizations service
 
 You should create an Organizations service if you want to:
 
@@ -530,15 +534,15 @@ You should create an Organizations service if you want to:
 
 To do so, please follow the instructions in our [creating an Organizations service guide](../org-service.md) and then [let the agent know about it](../org-service.md#agent-variables).
 
-### Step 9: (Optionally) Configure a DevCenter
+### Step 10: (Optionally) Configure a DevCenter
 
 The DevCenter is the mission-control dashboard of the Moderne Platform. If you wish to have DevCenters available inside of the Moderne Platform, you will need to [ensure you've defined an organizational hierarchy](./configure-organizations-hierarchy.md) and then [follow the instructions for configuring a DevCenter](../creating-a-devcenter-recipe.md).
 
-### Step 10: (Optionally) Provide SSL client keystore
+### Step 11: (Optionally) Provide SSL client keystore
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](./configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
 
-### Step 11: Run the agent
+### Step 12: Run the agent
 
 At this point, you should have configured everything needed to run the Moderne agent. If you run into issues running the command, please don't hesitate to reach out.
 
