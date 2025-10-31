@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Configure an agent with Moddy support
 
-This guide will walk you through how to configure the Moderne agent to enable support for [Moddy](https://www.moderne.ai/blog/introducing-moderne-multi-repo-ai-agent-for-transforming-code-at-scale), Moderne's multi-repo AI agent. Moddy employes a bring-your-own model (BYOM) approach, which allows you to connect whichever large language model (LLM) you have approved for use within your company. 
+This guide will walk you through how to configure the Moderne agent to enable support for [Moddy](https://www.moderne.ai/blog/introducing-moderne-multi-repo-ai-agent-for-transforming-code-at-scale), Moderne's multi-repo AI agent. Moddy employs a bring-your-own model (BYOM) approach, which allows you to connect whichever large language model (LLM) you have approved for use within your company. 
 
 #### Prerequisites
 
