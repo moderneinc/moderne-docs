@@ -15,6 +15,10 @@ In order to securely communicate with the Moderne SaaS, you will need to set up 
 * [Provide step-by-step instructions for configuring the agent](#agent-setup-instructions)
 * [Teach you how to update the agent later on](#updating-your-agent)
 
+:::tip
+Looking for a complete, working example? Check out the [moderne-agent-example repository](https://github.com/moderneinc/moderne-agent-example) which contains all the configuration files and setup code in one place for deploying the Moderne agent.
+:::
+
 ## High-level agent information
 
 ### What does the agent do?
@@ -105,6 +109,7 @@ ENV MODERNE_AGENT_VERSION=${MODERNE_AGENT_VERSION}
 
 WORKDIR /app
 USER root
+
 # If necessary, download the Moderne tenant SSL certificate and add it to the default Java TrustStore.
 # RUN openssl s_client -showcerts -connect <tenant_name>.moderne.io:443 </dev/null 2>/dev/null | openssl x509 -outform DER > moderne_cert.der
 # RUN /opt/java/openjdk/bin/keytool -import -trustcacerts -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt -alias moderne-cert -file moderne_cert.der
@@ -120,7 +125,7 @@ RUN  if [ -n "${MODERNE_AGENT_VERSION}" ]; then \
      else \
           LATEST_VERSION=$(curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/maven-metadata.xml" | xmllint --xpath 'string(/metadata/versioning/latest)' -); \
           if [ -z "${LATEST_VERSION}" ]; then \
-               echo "Failed to get latest version"; \
+               echo "Failed to retrieve the latest version"; \
                exit 1; \
           fi; \
           echo "Downloading latest version: ${LATEST_VERSION}"; \
@@ -128,8 +133,12 @@ RUN  if [ -n "${MODERNE_AGENT_VERSION}" ]; then \
      fi
 
 ENTRYPOINT ["java"]
-CMD ["-XX:-OmitStackTraceInFastThrow", "-XX:MaxRAMPercentage=65.0", "-XX:MaxDirectMemorySize=2G", "-XX:+HeapDumpOnOutOfMemoryError", "-XX:+UseStringDeduplication", "-jar", "/app/agent.jar"]
-EXPOSE 8080
+CMD ["-XX:-OmitStackTraceInFastThrow", \
+     "-XX:MaxRAMPercentage=65.0", \
+     "-XX:MaxDirectMemorySize=2G", \
+     "-XX:+HeapDumpOnOutOfMemoryError", \
+     "-XX:+UseStringDeduplication", \
+     "-jar", "/app/agent.jar"]
 ```
 
 **Example environment variables file**
@@ -523,7 +532,93 @@ If you want to enable Moddy (Moderne's AI agent) in your platform, you'll need t
 
 ### Step 8: (Optional but recommended) Configure organizational hierarchy
 
-If you would like to have an organizational hierarchy available inside of the Moderne Platform, you will need to [configure an organizational hierarchy](./configure-organizations-hierarchy.md) and [let the agent know about it](./configure-organizations-hierarchy.md#agent-configuration).
+If you would like to have an organizational hierarchy available inside of the Moderne Platform, you can provide this information using a `repos.csv` file.
+
+#### Using a repos.csv file
+
+A `repos.csv` file defines your repositories and their organizational structure. The agent can load this file to create organizations in the Moderne Platform.
+
+**Required columns:**
+
+* `cloneUrl` - The URL of the repository
+* `branch` - The branch to check out
+* `origin` - The host domain of the repository
+* `path` - The organization and repository name portion of the clone URL
+
+**Optional hierarchy columns:**
+
+* `org1`, `org2`, `org3`, ... - Define parent-child organizational relationships
+
+Organizations on the left are children of organizations on the right. For example, if you have `org1=Team1`, `org2=DirectorA`, `org3=All`, then `Team1` is a child of `DirectorA`, which is a child of `All`.
+
+**Example repos.csv:**
+
+```csv
+cloneUrl,branch,origin,path,org1,org2,org3
+https://github.com/apache/maven-doxia,master,github.com,apache/maven-doxia,Team 1,Director A,ALL
+https://github.com/Netflix/photon,main,github.com,Netflix/photon,Team 2,Director A,ALL
+https://github.com/Netflix/ribbon,master,github.com,Netflix/ribbon,Director A,ALL
+```
+
+**Loading the repos.csv file:**
+
+You can provide the file to the agent in two ways:
+
+1. **Remote URL:** Set the environment variable to point to a hosted CSV file
+2. **Local file:** Mount the file into the container and configure the path
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Option 1: Remote URL**
+
+```bash
+docker run \
+  -e MODERNE_AGENT_ORGANIZATION_REPOSCSV=https://example.com/repos.csv \
+  # ... other environment variables
+  moderne-agent:latest
+```
+
+**Option 2: Local file mount**
+
+```bash
+docker run \
+  -v /path/to/repos.csv:/app/repos.csv \
+  -e MODERNE_AGENT_ORGANIZATION_REPOSCSV=/app/repos.csv \
+  # ... other environment variables
+  moderne-agent:latest
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Option 1: Remote URL**
+
+```bash
+java -jar moderne-agent-{version}.jar \
+  --moderne.agent.organization.reposCsv=https://example.com/repos.csv \
+  # ... other arguments
+```
+
+**Option 2: Local file path**
+
+```bash
+java -jar moderne-agent-{version}.jar \
+  --moderne.agent.organization.reposCsv=/path/to/repos.csv \
+  # ... other arguments
+```
+
+</TabItem>
+</Tabs>
+
+:::tip
+For detailed information about creating and formatting a `repos.csv` file, including how to handle different SCM providers and define complex organizational hierarchies, see the [creating a repos.csv file](../../../../user-documentation/moderne-cli/references/repos-csv.md) guide.
+:::
+
+**Alternative configuration:**
+
+If you need more advanced organizational configuration options, you can also [configure an organizational hierarchy](./configure-organizations-hierarchy.md) using other methods and [let the agent know about it](./configure-organizations-hierarchy.md#agent-configuration).
 
 ### Step 9: (Optionally) Create an Organizations service
 
@@ -635,6 +730,171 @@ java -jar moderne-agent-{version}.jar \
 * Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}`.
 </TabItem>
 </Tabs>
+
+## Health endpoints
+
+Once the agent is running, you can verify its health and readiness using the following endpoints:
+
+* `/actuator/health` - Returns the overall health status of the agent
+* `/actuator/health/liveness` - Kubernetes liveness probe endpoint
+* `/actuator/health/readiness` - Kubernetes readiness probe endpoint
+
+**Example health check:**
+
+```bash
+curl http://localhost:8080/actuator/health
+```
+
+**Expected response:**
+
+```json
+{"status":"UP"}
+```
+
+These endpoints are particularly useful for:
+
+* Kubernetes/Docker health checks and readiness probes
+* Load balancer health checks
+* Monitoring system integration
+* Automated deployment verification
+
+## Monitoring
+
+The Moderne agent exposes Prometheus-compatible metrics that can be used for monitoring and observability.
+
+### Prometheus metrics endpoint
+
+The agent exposes metrics at `/actuator/prometheus` on port 8080.
+
+**Example Prometheus scrape configuration:**
+
+```yaml
+scrape_configs:
+  - job_name: 'moderne-agent'
+    static_configs:
+      - targets: ['localhost:8080']
+    metrics_path: '/actuator/prometheus'
+```
+
+### Grafana dashboard
+
+A pre-built Grafana dashboard is available in the [moderne-agent-example repository](https://github.com/moderneinc/moderne-agent-example/tree/main/grafana). The dashboard provides visualizations for:
+
+* Agent connectivity status
+* LST indexing performance
+* Artifact download metrics
+* Resource utilization
+* Error rates
+
+To use the dashboard:
+
+1. Import `moderne-agent-dashboard-v1.json` into your Grafana instance
+2. Select your Prometheus datasource when prompted
+3. The dashboard will automatically populate with metrics from your agent(s)
+
+## Scaling considerations
+
+For high availability and increased throughput, you can run multiple Moderne agent instances concurrently.
+
+**Key requirements for multi-instance deployment:**
+
+* Each agent instance must have a unique `MODERNE_AGENT_NICKNAME`
+* Each instance requires its own port mapping (e.g., 8080, 8081, 8082)
+* All instances should use the same `MODERNE_AGENT_CRYPTO_SYMMETRICKEY`
+* All instances should connect to the same `MODERNE_AGENT_APIGATEWAYRSOCKETURI`
+
+**Example multi-instance deployment:**
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+```bash
+# First agent instance
+docker run -d \
+  --name moderne-agent-1 \
+  -p 8080:8080 \
+  -e MODERNE_AGENT_NICKNAME=prod-agent-1 \
+  -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+  # ... other environment variables
+  moderne-agent:latest
+
+# Second agent instance
+docker run -d \
+  --name moderne-agent-2 \
+  -p 8081:8080 \
+  -e MODERNE_AGENT_NICKNAME=prod-agent-2 \
+  -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+  # ... other environment variables
+  moderne-agent:latest
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+```bash
+# First agent instance
+java -jar moderne-agent-{version}.jar \
+  --moderne.agent.nickname=prod-agent-1 \
+  --server.port=8080 \
+  # ... other arguments
+
+# Second agent instance
+java -jar moderne-agent-{version}.jar \
+  --moderne.agent.nickname=prod-agent-2 \
+  --server.port=8081 \
+  # ... other arguments
+```
+
+</TabItem>
+</Tabs>
+
+Multiple agent instances will automatically distribute the workload and provide redundancy in case of individual agent failures.
+
+## Troubleshooting
+
+### Connection failures
+
+**Symptoms:** Agent fails to connect to Moderne API or shows connection errors in logs.
+
+**Common causes and solutions:**
+
+* **Invalid API endpoint:** Verify the `MODERNE_AGENT_APIGATEWAYRSOCKETURI` matches the URI provided by Moderne
+* **Invalid authentication token:** Confirm the `MODERNE_AGENT_TOKEN` is correct and has not expired
+* **Network connectivity:** Ensure the agent can reach the Moderne API endpoint (check firewalls, proxies, and outbound HTTPS access)
+* **SSL/TLS issues:** If using custom certificates, verify they are properly configured in the Java truststore
+
+### Missing repositories
+
+**Symptoms:** Expected repositories do not appear in the Moderne Platform.
+
+**Common causes and solutions:**
+
+* **SCM OAuth configuration:** Verify OAuth credentials (`MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID`, `MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET`, etc.) are correct
+* **Organization allowlists:** Check that `MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_*` includes all necessary organizations
+* **OAuth app permissions:** Ensure the OAuth application has been granted access to the repositories (may require organization admin approval)
+* **Private repository access:** Verify `MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true` is set if accessing private repositories
+
+### Absent LSTs
+
+**Symptoms:** Repositories appear in Moderne but LST artifacts are not available for running recipes.
+
+**Common causes and solutions:**
+
+* **Artifact repository configuration:** Verify Maven or Artifactory repository settings (URLs, credentials)
+* **AQL filters (Artifactory):** Check that `MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_*` correctly matches your LST artifacts
+* **Maven indexing:** If using Maven repository configuration, ensure the Maven index is being published and updated regularly
+* **Artifact publication:** Confirm LST artifacts are actually being published to the configured repository
+* **Network access:** Verify the agent can reach the artifact repository from its network location
+
+### Checking agent logs
+
+Most issues can be diagnosed by examining the agent logs. Look for:
+
+* Connection errors or authentication failures
+* Repository discovery issues
+* Artifact indexing errors
+* Network timeouts or connectivity problems
 
 ## Updating your agent
 
