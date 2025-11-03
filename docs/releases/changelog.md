@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.7.0 (2025/11/03)
+
+- respect prefers-reduced-motion for topology rotation
+
 ### UI v12.6.0 (2025/11/03)
 
 - add new chat button to moddy to start a new chat
