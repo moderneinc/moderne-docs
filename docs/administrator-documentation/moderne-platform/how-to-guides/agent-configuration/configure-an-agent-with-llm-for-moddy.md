@@ -8,9 +8,9 @@ import TabItem from '@theme/TabItem';
 
 # Configure an agent with Moddy support
 
-This guide will walk you through how to configure the Moderne agent to enable support for [Moddy](https://www.moderne.ai/blog/introducing-moderne-multi-repo-ai-agent-for-transforming-code-at-scale), Moderne's multi-repo AI agent. Moddy employs a bring-your-own model (BYOM) approach, which allows you to connect whichever large language model (LLM) you have approved for use within your company. 
+This guide will walk you through how to configure the Moderne agent to enable support for [Moddy](https://www.moderne.ai/blog/introducing-moderne-multi-repo-ai-agent-for-transforming-code-at-scale), Moderne's multi-repo AI agent. Moddy employs a bring-your-own model (BYOM) approach, which allows you to connect any large language model (LLM) that has been approved for use within your company.
 
-#### Prerequisites
+## Prerequisites
 
 * You will need an API key from your chosen LLM provider (OpenAI, Anthropic, Google, or Mistral)
 
@@ -18,12 +18,12 @@ This guide will walk you through how to configure the Moderne agent to enable su
 
 The Moderne agent currently supports the following LLM providers:
 
-| Provider | Model Used | API Endpoint |
-| -------- | ---------- | ------------ |
-| OpenAI | gpt-4o | `https://api.openai.com/v1` |
-| Anthropic | Claude 3.5 Sonnet | `https://api.anthropic.com/v1` |
-| Google Gemini | Gemini 2.5 Flash Lite | `https://generativelanguage.googleapis.com/v1beta` |
-| Mistral | Mistral Small Latest | `https://api.mistral.ai/v1` |
+| Provider      | Model Used            | API Endpoint                                       |
+|---------------|-----------------------|----------------------------------------------------|
+| OpenAI        | gpt-4o                | `https://api.openai.com/v1`                        |
+| Anthropic     | Claude 3.5 Sonnet     | `https://api.anthropic.com/v1`                     |
+| Google Gemini | Gemini 2.5 Flash-Lite | `https://generativelanguage.googleapis.com/v1beta` |
+| Mistral       | Mistral Small Latest  | `https://api.mistral.ai/v1`                        |
 
 If you need a model or LLM provider that isn't listed here, please contact Moderne support.
 
@@ -36,13 +36,13 @@ The following table contains all of the variables/arguments you need to add to y
 
 **Environment variables:**
 
-| Variable Name | Required | Default | Description |
-| ------------- | -------- | ------- | ----------- |
-| `MODERNE_AGENT_LLM_PROVIDER` | `true` | | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL` |
-| `MODERNE_AGENT_LLM_APIKEY` | `true` | | The API key for the specified LLM provider |
-| `MODERNE_AGENT_LLM_PROXY_URL` | `false` | | Proxy URL if the LLM API needs to be accessed through a proxy |
-| `MODERNE_AGENT_LLM_PROXY_USERNAME` | `false` | | Username for proxy authentication |
-| `MODERNE_AGENT_LLM_PROXY_PASSWORD` | `false` | | Password for proxy authentication |
+| Variable Name                      | Required | Description                                                                   |
+|------------------------------------|----------|-------------------------------------------------------------------------------|
+| `MODERNE_AGENT_LLM_PROVIDER`       | `true`   | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL` |
+| `MODERNE_AGENT_LLM_APIKEY`         | `true`   | The API key for the specified LLM provider                                    |
+| `MODERNE_AGENT_LLM_PROXY_URL`      | `false`  | Proxy URL if the LLM API needs to be accessed through a proxy                 |
+| `MODERNE_AGENT_LLM_PROXY_USERNAME` | `false`  | Username for proxy authentication                                             |
+| `MODERNE_AGENT_LLM_PROXY_PASSWORD` | `false`  | Password for proxy authentication                                             |
 
 **Example:**
 
@@ -63,13 +63,13 @@ moderne-agent:latest
 
 **Arguments:**
 
-| Argument Name | Required | Default | Description |
-| ------------- | -------- | ------- | ----------- |
-| `--moderne.agent.llm.provider` | `true` | | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL` |
-| `--moderne.agent.llm.apiKey` | `true` | | The API key for the specified LLM provider |
-| `--moderne.agent.llm.proxy.url` | `false` | | Proxy URL if the LLM API needs to be accessed through a proxy |
-| `--moderne.agent.llm.proxy.username` | `false` | | Username for proxy authentication |
-| `--moderne.agent.llm.proxy.password` | `false` | | Password for proxy authentication |
+| Argument Name                        | Required | Description                                                                   |
+|--------------------------------------|----------|-------------------------------------------------------------------------------|
+| `--moderne.agent.llm.provider`       | `true`   | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL` |
+| `--moderne.agent.llm.apiKey`         | `true`   | The API key for the specified LLM provider                                    |
+| `--moderne.agent.llm.proxy.url`      | `false`  | Proxy URL if the LLM API needs to be accessed through a proxy                 |
+| `--moderne.agent.llm.proxy.username` | `false`  | Username for proxy authentication                                             |
+| `--moderne.agent.llm.proxy.password` | `false`  | Password for proxy authentication                                             |
 
 **Example:**
 
@@ -79,6 +79,7 @@ export MODERNE_AGENT_LLM_APIKEY=...
 java -jar moderne-agent-{version}.jar \
 # ... other configuration ...
 --moderne.agent.llm.provider=ANTHROPIC \
+--moderne.agent.llm.apiKey=$MODERNE_AGENT_LLM_APIKEY \
 # ... rest of configuration ...
 ```
 
@@ -112,6 +113,7 @@ export MODERNE_AGENT_LLM_APIKEY=...
 java -jar moderne-agent-{version}.jar \
 # ... other required agent configuration ...
 --moderne.agent.llm.provider=OPEN_AI \
+--moderne.agent.llm.apiKey=$MODERNE_AGENT_LLM_APIKEY \
 # ... rest of configuration ...
 ```
 
@@ -143,6 +145,7 @@ export MODERNE_AGENT_LLM_APIKEY=...
 java -jar moderne-agent-{version}.jar \
 # ... other required agent configuration ...
 --moderne.agent.llm.provider=ANTHROPIC \
+--moderne.agent.llm.apiKey=$MODERNE_AGENT_LLM_APIKEY \
 # ... rest of configuration ...
 ```
 
@@ -174,6 +177,7 @@ export MODERNE_AGENT_LLM_APIKEY=...
 java -jar moderne-agent-{version}.jar \
 # ... other required agent configuration ...
 --moderne.agent.llm.provider=GEMINI \
+--moderne.agent.llm.apiKey=$MODERNE_AGENT_LLM_APIKEY \
 # ... rest of configuration ...
 ```
 
@@ -205,6 +209,7 @@ export MODERNE_AGENT_LLM_APIKEY=...
 java -jar moderne-agent-{version}.jar \
 # ... other required agent configuration ...
 --moderne.agent.llm.provider=MISTRAL \
+--moderne.agent.llm.apiKey=$MODERNE_AGENT_LLM_APIKEY \
 # ... rest of configuration ...
 ```
 
@@ -243,8 +248,10 @@ export MODERNE_AGENT_LLM_PROXY_PASSWORD=...
 java -jar moderne-agent-{version}.jar \
 # ... other required agent configuration ...
 --moderne.agent.llm.provider=ANTHROPIC \
+--moderne.agent.llm.apiKey=$MODERNE_AGENT_LLM_APIKEY \
 --moderne.agent.llm.proxy.url=http://proxy.company.com:8080 \
 --moderne.agent.llm.proxy.username=proxyuser \
+--moderne.agent.llm.proxy.password=$MODERNE_AGENT_LLM_PROXY_PASSWORD \
 # ... rest of configuration ...
 ```
 
@@ -307,7 +314,8 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.github[0].oauth.includePrivateRepos=true \
 --moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.agent.llm.provider=ANTHROPIC
+--moderne.agent.llm.provider=ANTHROPIC \
+--moderne.agent.llm.apiKey=$MODERNE_AGENT_LLM_APIKEY
 ```
 
 </TabItem>
@@ -315,11 +323,11 @@ java -jar moderne-agent-{version}.jar \
 
 ## Verifying the configuration
 
-After starting the agent with the new configuration, "Moddy" will be displayed in the navigation bar in the SaaS:
+After starting the agent with the new configuration, "Moddy" will be displayed in the navigation bar in the Moderne SaaS UI:
 
 <figure>
   ![moddy-nav-bar.png](assets/moddy-nav-bar.png)
   <figcaption>"Moddy" displayed in the nav bar</figcaption>
 </figure>
 
-You can then click "Moddy" and begin asking it questions about your code base.
+You can then click "Moddy" and begin asking it questions about your codebase.
