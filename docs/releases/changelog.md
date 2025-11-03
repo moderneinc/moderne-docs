@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.6.0 (2025/11/03)
+
+- add new chat button to moddy to start a new chat
+
 ### UI v12.5.1 (2025/10/30)
 
 - Bug fixes and other improvements.
