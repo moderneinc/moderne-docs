@@ -10,6 +10,61 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases.
 :::
 
+## November 4, 2025
+
+#### rewrite-ai-search - 0.32.0
+
+* Gradle 9.2.0
+
+#### rewrite-android - 0.14.0
+
+* Gradle 9.2.0
+
+#### rewrite-azul - 0.8.0
+
+* Gradle 9.2.0
+
+#### rewrite-circleci - 3.9.0
+
+* Gradle 9.2.0
+
+#### rewrite-compiled-analysis - 0.10.0
+
+* Gradle 9.2.0
+
+#### rewrite-concourse - 3.9.0
+
+* Gradle 9.2.0
+
+#### rewrite-dotnet - 0.14.0
+
+* Gradle 9.2.0
+
+#### rewrite-kubernetes - 3.13.0
+
+* Common static analysis issues
+* Gradle 9.2.0
+
+#### rewrite-nodejs - 0.33.0
+
+* Dropping usage of `immer`'s `castDraft(..)` as it was causing a leak of binary expressions across test executions
+* Add `ReplaceDeprecatedBufferSlice` recipe
+* Gradle 9.2.0
+* Add JUnit platform launcher
+
+#### rewrite-program-analysis - 0.6.0
+
+* Gradle 9.2.0
+
+#### rewrite-sql - 2.8.0
+
+* Common static analysis issues
+* Gradle 9.2.0
+
+#### rewrite-terraform - 3.11.0
+
+* Gradle 9.2.0
+
 ## October 24, 2025
 
 #### rewrite-nodejs - 0.32.5
