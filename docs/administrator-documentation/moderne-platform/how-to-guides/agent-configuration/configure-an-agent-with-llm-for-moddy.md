@@ -36,13 +36,14 @@ The following table contains all of the variables/arguments you need to add to y
 
 **Environment variables:**
 
-| Variable Name                      | Required | Description                                                                   |
-|------------------------------------|----------|-------------------------------------------------------------------------------|
-| `MODERNE_AGENT_LLM_PROVIDER`       | `true`   | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL` |
-| `MODERNE_AGENT_LLM_APIKEY`         | `true`   | The API key for the specified LLM provider                                    |
-| `MODERNE_AGENT_LLM_PROXY_URL`      | `false`  | Proxy URL if the LLM API needs to be accessed through a proxy                 |
-| `MODERNE_AGENT_LLM_PROXY_USERNAME` | `false`  | Username for proxy authentication                                             |
-| `MODERNE_AGENT_LLM_PROXY_PASSWORD` | `false`  | Password for proxy authentication                                             |
+| Variable Name                      | Required | Default | Description                                                                     |
+|------------------------------------|----------|-------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_LLM_PROVIDER`       | `true`   |         | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL`   |
+| `MODERNE_AGENT_LLM_APIKEY`         | `true`   |         | The API key for the specified LLM provider                                      |
+| `MODERNE_AGENT_LLM_PROXY_URL`      | `false`  |         | Proxy URL if the LLM API needs to be accessed through a proxy                   |
+| `MODERNE_AGENT_LLM_PROXY_USERNAME` | `false`  |         | Username for proxy authentication                                               |
+| `MODERNE_AGENT_LLM_PROXY_PASSWORD` | `false`  |         | Password for proxy authentication                                               |
+| `MODERNE_AGENT_LLM_ADMINONLY`      | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy. | 
 
 **Example:**
 
@@ -63,13 +64,14 @@ moderne-agent:latest
 
 **Arguments:**
 
-| Argument Name                        | Required | Description                                                                   |
-|--------------------------------------|----------|-------------------------------------------------------------------------------|
-| `--moderne.agent.llm.provider`       | `true`   | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL` |
-| `--moderne.agent.llm.apiKey`         | `true`   | The API key for the specified LLM provider                                    |
-| `--moderne.agent.llm.proxy.url`      | `false`  | Proxy URL if the LLM API needs to be accessed through a proxy                 |
-| `--moderne.agent.llm.proxy.username` | `false`  | Username for proxy authentication                                             |
-| `--moderne.agent.llm.proxy.password` | `false`  | Password for proxy authentication                                             |
+| Argument Name                        | Required | Default | Description                                                                     |
+|--------------------------------------|----------|-------------------------------------------------------------------------------------------|
+| `--moderne.agent.llm.provider`       | `true`   |         | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL`   |
+| `--moderne.agent.llm.apiKey`         | `true`   |         | The API key for the specified LLM provider                                      |
+| `--moderne.agent.llm.proxy.url`      | `false`  |         | Proxy URL if the LLM API needs to be accessed through a proxy                   |
+| `--moderne.agent.llm.proxy.username` | `false`  |         | Username for proxy authentication                                               |
+| `--moderne.agent.llm.proxy.password` | `false`  |         | Password for proxy authentication                                               |
+| `--moderne.agent.llm.adminOnly`      | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy. |
 
 **Example:**
 
