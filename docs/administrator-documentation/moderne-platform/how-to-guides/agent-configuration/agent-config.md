@@ -549,7 +549,7 @@ A `repos.csv` file defines your repositories and their organizational structure.
 
 * `org1`, `org2`, `org3`, ... - Define parent-child organizational relationships
 
-Organizations on the left are children of organizations on the right. For example, if you have `org1=Team1`, `org2=DirectorA`, `org3=All`, then `Team1` is a child of `DirectorA`, which is a child of `All`.
+Organizations on the left are children of organizations on the right. For example, if you have `org1=Team1`, `org2=DirectorA`, `org3=ALL`, then `Team1` is a child of `DirectorA`, which is a child of `ALL`.
 
 **Example repos.csv:**
 
