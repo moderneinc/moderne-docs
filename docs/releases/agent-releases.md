@@ -16,12 +16,17 @@ description: The current version of the Moderne Agent and where to download it.
 
 ## Changelog
 
+### v0.239.0 - 2025-11-04
+
+* Add `moderne.agent.llm.adminOnly` to be able to limit Moddy usage to only admins
+
 ### v0.238.0 - 2025-10-30
 
 * Use `actions/setup-node@v6`
 * Update Gradle wrapper
 * Expose health probes and set agent nickname as display name in metrics
 * Revert "Update Gradle wrapper"
+* 
 ### v0.237.0 - 2025-10-15
 
 * Allow relative URL redirects in ProxyController - Fixes an issue with GAR redirects
