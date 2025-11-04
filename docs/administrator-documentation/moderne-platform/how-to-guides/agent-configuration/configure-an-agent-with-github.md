@@ -45,7 +45,7 @@ To assist with that, this guide will:
      ![](./assets/gh-secrets.png)
      <figcaption></figcaption>
    </figure>
-6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#step-2-configure-the-moderne-agent).
+6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#configure-the-moderne-agent).
 
 #### Example values
 
@@ -74,7 +74,7 @@ To assist with that, this guide will:
      ![](./assets/gh-secrets.png)
      <figcaption></figcaption>
    </figure>
-6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#step-2-configure-the-moderne-agent).
+6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#configure-the-moderne-agent).
 
 #### Example values
 
