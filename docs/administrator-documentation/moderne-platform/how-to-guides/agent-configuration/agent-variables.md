@@ -185,7 +185,9 @@ You can configure multiple Bitbucket instances by including multiple entries, ea
 
 | Variable Name                                           | Required                                     | Default | Description                                                                                                                                                               |
 |---------------------------------------------------------|----------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY`            | `true`                                       |         | The private key you configured for this Bitbucket instance.                                                                                                               |
+| `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY`            | `conditional`                                |         | (OAuth1.0a only) The private key you configured for this Bitbucket instance.                                                                                              |
+| `MODERNE_AGENT_BITBUCKET_{index}_OAUTH_KEY`             | `conditional`                                |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
+| `MODERNE_AGENT_BITBUCKET_{index}_OAUTH_SECRET`          | `conditional`                                |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
 | `MODERNE_AGENT_BITBUCKET_{index}_URL`                   | `true`                                       |         | The fully-qualified URL of the running Bitbucket instance. For example:  `https://bitbucket.myorg.com`.                                                                   |
 | `MODERNE_AGENT_BITBUCKET_{index}_ALTERNATEURLS_{index}` | `false`                                      |         | The list of alternative fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`.                                                |
 | `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL`               | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
@@ -200,7 +202,8 @@ You can configure multiple Bitbucket instances by including multiple entries, ea
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_BITBUCKET_0_PRIVATEKEY=yourPrivateKey \
+-e MODERNE_AGENT_BITBUCKET_0_OAUTH_KEY=yourClientId \
+-e MODERNE_AGENT_BITBUCKET_0_OAUTH_SECRET=yourClientSecret \
 -e MODERNE_AGENT_BITBUCKET_0_URL=https://bitbucket.myorg.com \
 # ... Additional variables
 ```
@@ -212,7 +215,9 @@ docker run \
 
 | Argument Name                                               | Required                                     | Default | Description                                                                                                                                                               |
 |-------------------------------------------------------------|----------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.bitbucket[{index}].privateKey`             | `true`                                       |         | The private key you configured for this Bitbucket instance.                                                                                                               |
+| `--moderne.agent.bitbucket[{index}].privateKey`             | `conditional`                                |         | (OAuth1.0a only) The private key you configured for this Bitbucket.                                                                                                       |
+| `--moderne.agent.bitbucket[{index}].oauth.key`              | `conditional`                                |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
+| `--moderne.agent.bitbucket[{index}].oauth.secret`           | `conditional`                                |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
 | `--moderne.agent.bitbucket[{index}].url`                    | `true`                                       |         | The fully-qualified URL of the running Bitbucket instance. For example:  `https://bitbucket.myorg.com`.                                                                   |
 | `--moderne.agent.bitbucket[{index}].alternateUrls[{index}]` | `false`                                      |         | The list of alternative fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`.                                                |
 | `--moderne.agent.bitbucket[{index}].skipSsl`                | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
@@ -228,7 +233,8 @@ docker run \
 ```bash
 java -jar moderne-agent-{version}.jar \
 # ... Existing arguments
---moderne.agent.bitbucket[0].privateKey=yourPrivateKey \
+--moderne.agent.bitbucket[0].oauth.key=yourClientId \
+--moderne.agent.bitbucket[0].oauth.secret=yourClientSecret \
 --moderne.agent.bitbucket[0].url=https://bitbucket.myorg.com \
 # ... Additional arguments
 ```
