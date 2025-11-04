@@ -12,6 +12,32 @@ When editing any documentation in this repository, ALWAYS follow the rules in ST
 
 Please read the full STYLE_GUIDE.md for all formatting rules.
 
+## Critical: Pre-commit Validation
+
+**IMPERATIVE**: Before committing any changes or opening a pull request, you MUST:
+
+1. Run `yarn start` to build and start the Docusaurus site
+2. Verify there are no build errors, warnings, or broken links
+3. Fix any issues before proceeding with the commit
+
+This validation step is non-negotiable and ensures documentation quality.
+
+## Claude Instructions: Quality Assurance
+
+After making ANY changes to documentation files, you MUST:
+
+1. Run a thorough spelling check on all modified content
+2. Review grammar and sentence structure
+3. Assess clarity and readability
+4. Verify the changes follow the STYLE_GUIDE.md rules
+
+Use your language processing capabilities to identify and fix:
+* Spelling errors and typos
+* Grammatical mistakes
+* Awkward phrasing or unclear explanations
+* Inconsistent terminology
+* Style guide violations
+
 ## Important Context
 
 ### Language and Terminology
