@@ -26,7 +26,7 @@ Go to [https://app.moderne.io](https://app.moderne.io) and sign in. We recommend
 The first time you sign in to Moderne, you will be presented with an authorization prompt for a few permissions to help enhance your experience. This authorization screen will depend on which source code manager you signed in with.
 
 :::info
-For a better understanding of the permissions requested, please see [GitHub Permissions](../../../administrator-documentation/moderne-platform/references/github-permissions.md#oauth-permission).
+For a better understanding of the permissions requested, please see [GitHub Permissions](../../../administrator-documentation/moderne-platform/references/github-permissions.md#github-oauth-app-permission).
 :::
 
 <figure style={{maxWidth: '300px', margin: '0 auto'}}>

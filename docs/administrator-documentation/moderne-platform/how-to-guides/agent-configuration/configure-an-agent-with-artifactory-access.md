@@ -16,7 +16,7 @@ This guide will walk you through how to configure the Moderne agent to connect t
 If you're wanting to configure Artifactory to support recipe artifacts, please see [this guide](./configuring-artifactory-with-recipes.md) instead.
 :::
 
-#### Prerequisites
+## Prerequisites
 
 * You will need a username and password for an Artifactory user that is allowed to issue the relevant AQL queries that will be configured
 

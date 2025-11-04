@@ -8,24 +8,54 @@ import TabItem from '@theme/TabItem';
 
 # Configure an agent with GitHub
 
-In order to view recipe results and commit changes from a recipe back to GitHub, you'll need to create a GitHub OAuth app and configure the Moderne agent with the appropriate variables.
+In order to view recipe results and commit changes from a recipe back to GitHub, you'll need to create a GitHub app (preferred) or a GitHub OAuth app and configure the Moderne agent with the appropriate variables.
 
 To assist with that, this guide will:
 
-* [Walk you through how to create a GitHub OAuth application](#step-1-create-an-oauth-application)
-* [Provide you with a list of necessary variables the agent needs to communicate with your GitHub instance](#step-2-configure-the-moderne-agent)
+* Walk you through how to create a [GitHub application](#github-application-configuration-preferred) or [GitHub OAuth application](#github-oauth-application-configuration-alternative)
+* [Provide you with a list of necessary variables the agent needs to communicate with your GitHub instance](#configure-the-moderne-agent)
 
-:::info
-[Why an OAuth app and not a GitHub app?](../../references/github-permissions.md#github-oauth-applications-vs-github-applications)
-:::
-
-#### Prerequisites
+## Prerequisites
 
 * You will need administrator access to your organization's GitHub account
 
-## GitHub configuration
+## GitHub application configuration (preferred)
 
-### Step 1: Create an OAuth application
+1. Navigate to the settings page for your organization: `https://github.com/organizations/<YOUR_ORG>/settings/applications`
+2. Expand `Developer settings` on the bottom left of the page:
+   <figure>
+     ![](./assets/dev-settings-github.png)
+     <figcaption></figcaption>
+   </figure>
+3. Click the `New GitHub App` button in the upper right of your screen.
+4. Supply the required fields and register the application:
+
+    | Field                                   | Example                                                                                                   |
+    | --------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+    | Application Name                        | `Moderne SaaS`                                                                                            |
+    | Homepage URL                            | `https://myorg.moderne.io`                                                                                |
+    | Authorization callback URL              | `https://myorg.moderne.io`                                                                                |
+    | Webhook Active                          | Disable                                                                                                   |
+    | Repository Permissions                  | Contents - read/write<br/> Pull Requests - read/write<br/> Workflows - read/write                           |
+    | Account Permissions                     | Email Address - read-only                                                                                 |
+    | Where can this GitHub App be installed? | You can choose either option based upon your specific needs:<br/> * Only on this account<br/> * Any account |
+
+5. On your newly created application click the `Generate a new client secret` button:
+   <figure>
+     ![](./assets/gh-secrets.png)
+     <figcaption></figcaption>
+   </figure>
+6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#configure-the-moderne-agent).
+
+#### Example values
+
+| Field                      | Example                    |
+| -------------------------- | -------------------------- |
+| Application Name           | `Moderne SaaS`             |
+| Homepage URL               | `https://myorg.moderne.io` |
+| Authorization callback URL | `https://myorg.moderne.io` |
+
+## GitHub OAuth application configuration (alternative)
 
 1. Navigate to the settings page for your organization: `https://github.com/organizations/<YOUR_ORG>/settings/applications`
 2. Expand `Developer settings` on the bottom left of the page:
@@ -44,7 +74,7 @@ To assist with that, this guide will:
      ![](./assets/gh-secrets.png)
      <figcaption></figcaption>
    </figure>
-6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#step-2-configure-the-moderne-agent).
+6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#configure-the-moderne-agent).
 
 #### Example values
 
@@ -54,9 +84,7 @@ To assist with that, this guide will:
 | Homepage URL               | `https://myorg.moderne.io` |
 | Authorization callback URL | `https://myorg.moderne.io` |
 
-## Agent configuration
-
-### Step 2: Configure the Moderne Agent
+## Configure the Moderne Agent
 
 The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your GitHub instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
 

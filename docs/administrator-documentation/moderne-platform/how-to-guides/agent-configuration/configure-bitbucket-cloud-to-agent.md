@@ -15,7 +15,7 @@ To assist with that, this guide will:
 * [Walk you through how to configure your Bitbucket Cloud instance to support the agent](#step-1-create-a-bitbucket-oauth-consumer)
 * [Provide you with a list of necessary variables the agent needs to communicate with your Bitbucket instance](#step-2-configure-the-moderne-agent)
 
-#### Prerequisites
+## Prerequisites
 
 * You will need access to create a Bitbucket OAuth Consumer
 
