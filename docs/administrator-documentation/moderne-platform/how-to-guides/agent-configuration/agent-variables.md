@@ -185,10 +185,10 @@ You can configure multiple Bitbucket instances by including multiple entries, ea
 
 | Variable Name                                           | Required                                     | Default | Description                                                                                                                                                               |
 |---------------------------------------------------------|----------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_BITBUCKET_{index}_URL`                   | `true`                                       |         | The fully-qualified URL of the running Bitbucket instance. For example:  `https://bitbucket.myorg.com`.                                                                   |
 | `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY`            | `conditional`                                |         | (OAuth1.0a only) The private key you configured for this Bitbucket instance.                                                                                              |
 | `MODERNE_AGENT_BITBUCKET_{index}_OAUTH_KEY`             | `conditional`                                |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
 | `MODERNE_AGENT_BITBUCKET_{index}_OAUTH_SECRET`          | `conditional`                                |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
-| `MODERNE_AGENT_BITBUCKET_{index}_URL`                   | `true`                                       |         | The fully-qualified URL of the running Bitbucket instance. For example:  `https://bitbucket.myorg.com`.                                                                   |
 | `MODERNE_AGENT_BITBUCKET_{index}_ALTERNATEURLS_{index}` | `false`                                      |         | The list of alternative fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`.                                                |
 | `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL`               | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 | `MODERNE_AGENT_BITBUCKET_{index}_SSH_PRIVATEKEY`        | `false`                                      |         | The SSH private key used to establish a SSH connection with Bitbucket.                                                                                                    |
@@ -388,11 +388,11 @@ java -jar moderne-agent-{version}.jar \
 
 **Environment variables:**
 
-| Environment Variable                               | Required | Default | Description                                                                                                                                                                               |
-|----------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`              | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`.                 |
+| Environment Variable                               | Required | Default | Description                                                                                                                                                                                      |
+|----------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`              | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`.               |
 | `MODERNE_AGENT_ORGANIZATION_DEVCENTER`             | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/devcenter.json`. |
-| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                                 |
+| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                                        |
 
 **Example:**
 
@@ -410,11 +410,11 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                        | Required | Default | Description                                                                                                                                                                               |
-|------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.reposCsv`              | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`.                 |
+| Argument Name                                        | Required | Default | Description                                                                                                                                                                                      |
+|------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.agent.organization.reposCsv`              | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`.               |
 | `--moderne.agent.organization.devCenter`             | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/devcenter.json`. |
-| `--moderne.agent.organization.updateIntervalSeconds` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                                 |
+| `--moderne.agent.organization.updateIntervalSeconds` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                                        |
 
 **Example:**
 
@@ -838,16 +838,16 @@ java -jar moderne-agent-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                              | Required | Default | Description                                                                                                                                                          |
-|--------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_UI_MOREHELP_0_LABEL`       | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported.       |
-| `MODERNE_AGENT_UI_MOREHELP_0_URL`         | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
-| `MODERNE_AGENT_UI_MOREHELP_1_LABEL`       | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                            |
-| `MODERNE_AGENT_UI_MOREHELP_1_URL`         | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                          |
-| `MODERNE_AGENT_UI_MOREHELP_2_LABEL`       | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                             |
-| `MODERNE_AGENT_UI_MOREHELP_2_URL`         | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
+| Variable Name                                  | Required | Default | Description                                                                                                                                                                                                                |
+|------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_AGENT_UI_MOREHELP_0_LABEL`            | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported.                                                                    |
+| `MODERNE_AGENT_UI_MOREHELP_0_URL`              | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                     |
+| `MODERNE_AGENT_UI_MOREHELP_1_LABEL`            | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                                                                                      |
+| `MODERNE_AGENT_UI_MOREHELP_1_URL`              | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                    |
+| `MODERNE_AGENT_UI_MOREHELP_2_LABEL`            | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                                                                                       |
+| `MODERNE_AGENT_UI_MOREHELP_2_URL`              | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                     |
 | `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_LABEL` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
-| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_URL`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                    |
+| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_URL`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                      |
 
 **Example:**
 
@@ -869,16 +869,16 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                 | Required | Default | Description                                                                                                                                                          |
-|-----------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.ui.moreHelp[0].label`       | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported.       |
-| `--moderne.agent.ui.moreHelp[0].url`         | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
-| `--moderne.agent.ui.moreHelp[1].label`       | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                            |
-| `--moderne.agent.ui.moreHelp[1].url`         | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                          |
-| `--moderne.agent.ui.moreHelp[2].label`       | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                             |
-| `--moderne.agent.ui.moreHelp[2].url`         | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
-| `--moderne.agent.cli.downloadInstructions.label`  | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
-| `--moderne.agent.cli.downloadInstructions.url`    | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                    |
+| Argument Name                                    | Required | Default | Description                                                                                                                                                                                                                |
+|--------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.agent.ui.moreHelp[0].label`           | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported.                                                                    |
+| `--moderne.agent.ui.moreHelp[0].url`             | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                     |
+| `--moderne.agent.ui.moreHelp[1].label`           | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                                                                                      |
+| `--moderne.agent.ui.moreHelp[1].url`             | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                    |
+| `--moderne.agent.ui.moreHelp[2].label`           | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                                                                                       |
+| `--moderne.agent.ui.moreHelp[2].url`             | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                     |
+| `--moderne.agent.cli.downloadInstructions.label` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
+| `--moderne.agent.cli.downloadInstructions.url`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                      |
 
 **Example:**
 

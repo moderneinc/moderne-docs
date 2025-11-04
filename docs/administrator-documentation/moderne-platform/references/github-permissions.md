@@ -9,7 +9,7 @@ Moderne uses a GitHub OAuth application (GitHub OAuth Apps or GitHub Apps) to pe
 
 ## GitHub App permission (preferred)
 
-For GitHub Apps, Modenre requires a select number of OAuth scopes necessary to help you transform your code. The GitHub application can be installed into your personal, organization, or enterprise accounts as desirable.
+For GitHub Apps, Moderne requires a select number of OAuth scopes necessary to help you transform your code. The GitHub application can be installed into your personal, organization, or enterprise accounts as desired.
 
 | Permission                            | Access     | Description                                                                                      |
 | ------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------ |
@@ -18,8 +18,14 @@ For GitHub Apps, Modenre requires a select number of OAuth scopes necessary to h
 | Repositories - Workflows              | Read/write | Recipes that alter GitHub Action workflow files require this permission to make commits to them. |
 | Account Permissions - Email addresses | Read-only  | Recognize your account as a new or returning user.                                               |
 
-> [!NOTE]
-> The GitHub application must be installed into all contexts where write actions are desired. To allow personal forks, the application must be installed into the personal account. To allow write to an organization, it must be available within that organization either by being installed directly in the organization or within an enterprise account containing said organization. Failing to install the application will result in write actions being rejected by GitHub.
+:::note
+You'll need to install the GitHub application wherever you want to make code changes:
+
+* **For personal forks**: Install it in your personal account.
+* **For organization repositories**: Install it directly in the organization, or in your enterprise account (which automatically covers all member organizations).
+
+Without the application installed, GitHub will reject any attempts to commit changes.
+:::
 
 ## GitHub OAuth App permission
 
@@ -39,9 +45,13 @@ Moderne requires a select number of OAuth scopes necessary to help you transform
 
 ## GitHub applications vs. GitHub OAuth applications
 
-We advise in following GitHub's own recommendation to utilize GitHub applications. If for your organization installing the application in all contexts required is not acceptable, then you may choose to utilize a GitHub OAuth application. Some things may guide you to make this choice are:
+We recommend using GitHub Apps, which aligns with GitHub's best practices. This is because GitHub Apps offer more granular permissions and better security through short-lived tokens. That being said, GitHub Apps require installation by an admin/owner in every context where they'll be used. This can create problematic administrative overhead in certain scenarios. 
 
-* If you allow personal user forks of repositories, the individual user must install the GitHub app into their personal account (not just an organization they belong to).
-* A GitHub administrative user must make the GitHub application available to all contexts that will accept modifications from the Moderne Platform.
-    * Installing a GitHub application into a GitHub enterprise account will make that application available to all member organizations.
-* If you have many independent GitHub organizations and it is too much administrative setup.
+For example, you might prefer a GitHub OAuth application instead if:
+
+* **You support personal forks**: This is because each individual user would need to install the GitHub App in their personal account (not just in organizations they belong to).
+* **You have many independent organizations**: This is because an admin would need to install the GitHub App in every organization where Moderne will make changes.
+    * Pro tip: Installing the GitHub App at the enterprise level automatically makes it available to all member organizations.
+* **Installation overhead is too high**: This is because the administrative burden of installing across multiple contexts may not be practical for your setup.
+
+OAuth Apps require only user authorization (no installation), but they have broader permissions and access all repositories a user can reach.

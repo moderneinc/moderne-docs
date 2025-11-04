@@ -15,7 +15,7 @@ To assist with that, this guide will:
 * [Walk you through how to create a GitLab OAuth application](#step-1-create-an-oauth-application)
 * [Provide you with a list of necessary variables the agent needs to communicate with your GitLab instance](#step-2-configure-the-moderne-agent)
 
-#### Prerequisites
+## Prerequisites
 
 * You will need administrator access to your organization's GitLab account
 
