@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.8.1 (2025/11/05)
+
+- Bug fixes and other improvements.
+
 ### UI v12.8.0 (2025/11/05)
 
 - add admin check to the determination to show moddy
