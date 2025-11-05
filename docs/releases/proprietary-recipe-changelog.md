@@ -10,6 +10,38 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases.
 :::
 
+## November 5, 2025
+
+#### rewrite-comprehension - 0.9.0
+
+* Gradle 9.2.0
+
+#### rewrite-hibernate - 0.14.0
+
+* Common static analysis issues
+* OpenRewrite recipe best practices
+* Gradle 9.2.0
+* Fixing usage of `J.VariableDeclarations.NamedVariable` to use `.getName()` call instead of raw `NamedVariable` when providing arguments to `.apply(..)`, as it couldn't cast `NamedVariable` to `Expression`.
+
+#### rewrite-java-security - 3.21.0
+
+* Added an option to skip fixes when they are not severe enough to allow for focussing on higher severity cases first.
+* OpenRewrite recipe best practices
+* Gradle 9.2.0
+* Reuse dependency graph functionality from core
+* Update expected Jersey versions to 4.0.0
+
+#### rewrite-spring - 0.16.0
+
+* Remove duplicate security recipes
+* Add Spring Boot 4.0 base
+* Common static analysis issues
+* OpenRewrite recipe best practices
+* Include Elastic 9, Hibernate 7, Kafka 4.1, Jakarta EE11 and JSpecify with Spring Boot 4 upgrade
+* Annotate nullable web parameters with JSpecify, and remove `required = false`
+* Run `licenseFormat` after generating property migrations
+* Gradle 9.2.0
+
 ## November 4, 2025
 
 #### rewrite-ai-search - 0.32.0
@@ -28,6 +60,10 @@ This changelog is automatically generated from GitHub releases.
 
 * Gradle 9.2.0
 
+#### rewrite-codemods-ng - 0.15.0
+
+* Gradle 9.2.0
+
 #### rewrite-compiled-analysis - 0.10.0
 
 * Gradle 9.2.0
@@ -37,6 +73,15 @@ This changelog is automatically generated from GitHub releases.
 * Gradle 9.2.0
 
 #### rewrite-dotnet - 0.14.0
+
+* Gradle 9.2.0
+
+#### rewrite-elastic - 0.4.0
+
+* Common static analysis issues
+* Gradle 9.2.0
+
+#### rewrite-kafka - 0.4.0
 
 * Gradle 9.2.0
 
@@ -53,6 +98,10 @@ This changelog is automatically generated from GitHub releases.
 * Add JUnit platform launcher
 
 #### rewrite-program-analysis - 0.6.0
+
+* Gradle 9.2.0
+
+#### rewrite-reactive-streams - 0.18.0
 
 * Gradle 9.2.0
 
