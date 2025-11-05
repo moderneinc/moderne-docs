@@ -13,29 +13,33 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Quantum-ready cryptography with Moderne (November 12th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=bljPgyPj6k4' controls="true" />
+
+### No type left behind: type attribution in OpenRewrite (November 5th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=vPZyUjvPdS4' controls="true" />
+
+### Refactoring horror stories (October 29th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=Ut_yyT-mgso' controls="true" />
+
+### GitHub actions hardening tipes & recipes (October 15th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=JMUW97Whw-0' controls="true" />
+
 ### Live long and code: What's new in Java 25 and Beyond (October 8th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=9pLcn8-wJuA' controls="true" />
-
-#### Summary and related link
-
-Coming soon!
 
 ### If you had to modernize a legacy app today... (October 1st, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=E0irZLtp9Cs' controls="true" />
 
-#### Summary and related link
-
-Coming soon!
-
 ### Kotlin vs. Java: Has Java caught up? (September 24th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=EPNsg8uU8s4' controls="true" />
-
-#### Summary and related link
-
-Coming soon!
 
 ### OpenRewrite power moves part 3: Using traits (September 17th, 2025)
 
