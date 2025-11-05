@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.8.0 (2025/11/05)
+
+- add admin check to the determination to show moddy
+
 ### UI v12.7.0 (2025/11/03)
 
 - respect prefers-reduced-motion for topology rotation
