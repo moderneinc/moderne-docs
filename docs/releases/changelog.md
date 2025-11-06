@@ -5,7 +5,7 @@
 
 ### UI v12.8.0 (2025/11/05)
 
-- add admin check to the determination to show moddy
+- add an admin flag on whether or not to show moddy
 
 ### UI v12.7.0 (2025/11/03)
 
