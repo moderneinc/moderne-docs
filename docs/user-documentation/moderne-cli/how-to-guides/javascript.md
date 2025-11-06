@@ -4,6 +4,8 @@ description: How to set up and use JavaScript LSTs with the Moderne CLI.
 keywords: [javascript, js, typescript, ts, javascript lsts, javascript refactoring, javascript recipes]
 ---
 
+import ReactPlayer from 'react-player';
+
 # How to set up and use JavaScript LSTs with the Moderne CLI
 
 Moderne recently announced support for JavaScript and TypeScript LSTs. With this, JavaScript refactoring changes from being _syntax-bound_ to _semantically-aware_ – where recipes can distinguish between lookalike methods, resolve types, and understand dependency graphs.
@@ -106,3 +108,5 @@ Done (9s)
 
 Data tables for each organization with rows are linked above
 ```
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=b-IJNsozsnA' controls={true} />
