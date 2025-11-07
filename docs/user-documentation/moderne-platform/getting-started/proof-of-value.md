@@ -218,6 +218,87 @@ mod study . --last-recipe-run --data-table DatabaseColumnsUsed
   <figcaption>_Discovering SQL statements across the codebase_</figcaption>
 </figure>
 
+### [Find call graph](https://app.moderne.io/recipes/org.openrewrite.FindCallGraph)
+
+> Produces a data table where each row represents a method call.
+
+#### CLI commands
+
+```bash
+# Generates a data table where each row represents a method call.
+mod run . --recipe org.openrewrite.FindCallGraph
+
+mod study . --last-recipe-run --data-table CallGraph
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![](./assets/call-graph.png)
+  <figcaption>_Example call graph._</figcaption>
+</figure>
+
+### [Find Spring API endpoints](https://app.moderne.io/recipes/org.openrewrite.java.spring.search.FindApiEndpoints)
+
+> Find all HTTP API endpoints exposed by Spring applications. More specifically, this marks method declarations annotated with `@RequestMapping`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` as search results.
+
+#### CLI commands
+
+```bash
+# Finds all HTTP API endpoints exposed by Spring applications.
+mod run . --recipe org.openrewrite.java.spring.search.FindApiEndpoints
+
+mod study . --last-recipe-run --data-table DatabaseColumnsUsed
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![](./assets/spring-api-endpoints.png)
+  <figcaption>_Finding Spring API endpoints._</figcaption>
+</figure>
+
+### [Software bill of materials](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.SoftwareBillOfMaterials)
+
+> Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the CycloneDX XML format. Supports Gradle and Maven. Places a file named `sbom.xml` adjacent to the Gradle or Maven build file.
+
+#### CLI commands
+
+```bash
+# Produces a SBOM for the project
+mod run . --recipe org.openrewrite.java.dependencies.SoftwareBillOfMaterials
+
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![](./assets/sbom-example.png)
+  <figcaption>_Example of a SBOM file created from the recipe._</figcaption>
+</figure>
+
+### [Post quantum cryptography](https://app.moderne.io/recipes/io.moderne.cryptography.PostQuantumCryptography)
+
+> This recipe searches for instances in code that may be impacted by post quantum cryptography. Applications may need to support larger key sizes, different algorithms, or use crypto agility to handle the migration. The recipe includes detection of hardcoded values that affect behavior in a post-quantum world, programmatic configuration that may prevent algorithm changes, and general cryptographic usage patterns that should be reviewed.
+
+#### CLI commands
+
+```bash
+# Searches for code that may be impacted by post quantum cryptography.
+mod run . --recipe io.moderne.cryptography.PostQuantumCryptography
+
+mod study . --last-recipe-run --data-table SecurityIssues
+mod study . --last-recipe-run --data-table TaintFlowTable
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![](./assets/post-quantum.png)
+  <figcaption>_Identifying code that will be affected by post quantum crypytography._</figcaption>
+</figure>
+
 ## Logging improvements
 
 ### [Parameterize SLF4J logging statements](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging)
