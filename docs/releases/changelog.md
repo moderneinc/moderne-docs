@@ -5,11 +5,11 @@
 
 ### UI v12.8.0 (2025/11/05)
 
-- add an admin flag on whether or not to show moddy
+- Tenant administrators can now configure their Modern Agent so the Moddy navigation item is only visible to tenant administrators.
 
 ### UI v12.7.0 (2025/11/03)
 
-- respect prefers-reduced-motion for topology rotation
+- The Builder _recipe topology_ will now no longer auto-start the rotation animation if a user has _reduced motion_ enabled on their workstation.
 
 ### UI v12.6.0 (2025/11/03)
 
