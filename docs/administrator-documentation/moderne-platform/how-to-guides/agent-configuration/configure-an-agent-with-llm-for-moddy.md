@@ -37,7 +37,7 @@ The following table contains all of the variables/arguments you need to add to y
 **Environment variables:**
 
 | Variable Name                      | Required | Default | Description                                                                     |
-|------------------------------------|----------|-------------------------------------------------------------------------------------------|
+|------------------------------------|----------|---------|---------------------------------------------------------------------------------|
 | `MODERNE_AGENT_LLM_PROVIDER`       | `true`   |         | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL`   |
 | `MODERNE_AGENT_LLM_APIKEY`         | `true`   |         | The API key for the specified LLM provider                                      |
 | `MODERNE_AGENT_LLM_PROXY_URL`      | `false`  |         | Proxy URL if the LLM API needs to be accessed through a proxy                   |
@@ -65,7 +65,7 @@ moderne-agent:latest
 **Arguments:**
 
 | Argument Name                        | Required | Default | Description                                                                     |
-|--------------------------------------|----------|-------------------------------------------------------------------------------------------|
+|--------------------------------------|----------|---------|---------------------------------------------------------------------------------|
 | `--moderne.agent.llm.provider`       | `true`   |         | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL`   |
 | `--moderne.agent.llm.apiKey`         | `true`   |         | The API key for the specified LLM provider                                      |
 | `--moderne.agent.llm.proxy.url`      | `false`  |         | Proxy URL if the LLM API needs to be accessed through a proxy                   |
