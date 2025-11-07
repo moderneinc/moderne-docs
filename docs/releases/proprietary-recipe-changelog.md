@@ -1853,21 +1853,3 @@ This changelog is automatically generated from GitHub releases.
 
 * Updated repository to use OpenRewrite version v8.40.0
 
-## November 6, 2024
-
-#### rewrite-ai-search - 0.19.0
-
-* refactor: Annotate methods which may return `null` with `@Nullable`
-
-#### rewrite-concourse - 2.8.0
-
-* refactor: Annotate methods which may return `null` with `@Nullable`
-
-#### rewrite-kubernetes - 2.10.0
-
-* Add deprecated API migrations for Kubernetes
-
-#### rewrite-nodejs - 0.12.0
-
-* refactor: Annotate methods which may return `null` with `@Nullable`
-
