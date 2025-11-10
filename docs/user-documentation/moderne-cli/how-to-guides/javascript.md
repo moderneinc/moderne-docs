@@ -12,6 +12,8 @@ Moderne recently announced support for JavaScript and TypeScript LSTs. With this
 
 In this guide, we'll walk you through how to configure the Moderne CLI to take advantage of this new JavaScript functionality.
 
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=b-IJNsozsnA' controls={true} />
+
 ## Prerequisites
 
 This guide assumes that:
@@ -44,9 +46,41 @@ build:
 // highlight-end
 ```
 
-## Step 2: Build your JavaScript repositories
+## Step 2: (Optionally) Clone a custom list of repositories
 
-The next thing you'll need to do is build each of the repositories by running `mod build`. If JavaScript has been set up correctly, you should see output similar to:
+If you don't have the repositories you want to work with cloned locally already, you can clone a group of them by defining a `repos.csv` file that lists them out such as in the following example:
+
+```csv title="repos.csv"
+cloneUrl,branch,origin,path
+git@github.com:form-data/form-data.git,master,github.com,form-data/form-data
+git@github.com:antoniopresto/react-native-local-mongodb.git,master,github.com,antoniopresto/react-native-local-mongodb
+git@github.com:microsoft/android-app-size-diff.git,main,github.com,microsoft/android-app-size-diff
+git@github.com:github0null/eide.git,master,github.com,github0null/eide
+git@github.com:simoebenhida/laravel-intellisense.git,master,github.com,simoebenhida/laravel-intellisense
+git@github.com:RechInformatica/rech-editor-cobol.git,master,github.com,RechInformatica/rech-editor-cobol
+git@github.com:microsoftgraph/msgraph-ifttt-sample.git,master,github.com,microsoftgraph/msgraph-ifttt-sample
+git@github.com:Zoro-6191/discOD.git,master,github.com,Zoro-6191/discOD
+```
+
+:::tip
+Check out our documentation on [creating a repos.csv file](../references/repos-csv.md) for more detailed information about what's expected in this file.
+:::
+
+After creating the CSV, clone the repositories by running the following command:
+
+```bash
+mod git sync csv . repos.csv --with-sources
+```
+
+## Step 3: Build your JavaScript repositories
+
+The next thing you'll need to do is build LSTs for each of your repositories. To build the LSTs, run:
+
+```bash
+mod build /path/to/your/repos
+```
+
+Presuming everything has been set up correctly, you should see output similar to:
 
 ```bash
 ▶ axios/axios@v1.x
@@ -60,11 +94,46 @@ The next thing you'll need to do is build each of the repositories by running `m
     Cleaned 1 older builds
 ```
 
-## Step 3: Run recipes
+## Step 4: Install recipes
 
-With the LST built, you can now run recipes against your JavaScript repositories. While the JavaScript recipe library is being built out, keep in mind that some Java recipes can be used to run against your JavaScript code.
+In order to run recipes, you'll need to make sure the recipes are installed on your local machine.
 
-Below are some examples of Java recipes that work well with JavaScript repositories:
+You can install a specific JavaScript recipe module by running a command like:
+
+```bash
+mod config recipes npm install @openrewrite/recipes-nodejs
+```
+
+## Step 5: Run recipes
+
+With the LSTs built and recipes installed, you can now run recipes against your JavaScript repositories. You can either specify the full recipe path for running such as in:
+
+```bash
+mod run . --recipe=org.openrewrite.node.migrate.util.use-native-type-checking-methods
+```
+
+Or, you can search for a specific recipe and set it as the active recipe to run:
+
+```bash
+➜ mod config recipes search util.isX
+
+Replace deprecated `util.isX()` methods with native JavaScript
+The `util` module's type-checking methods have been removed in Node 22.
+
+Options
+ -
+
+Set as active recipe [Yn]? Y
+```
+
+Then you can run the active recipe by:
+
+```bash
+mod run . --active-recipe
+```
+
+:::tip
+While the JavaScript recipe library is being built out, keep in mind that some Java recipes can be used to run against your JavaScript code. Below are some examples of Java recipes that work well with JavaScript repositories:
 
 ```bash
 # Find all method calls to React hooks
@@ -76,8 +145,9 @@ mod run . --recipe org.openrewrite.java.search.FindTypes -PfullyQualifiedTypeNam
 # Change a method name to something else
 mod run . --recipe org.openrewrite.java.ChangeMethodName -PmethodPattern="* test(..)" -PnewMethodName="customTest"
 ```
+:::
 
-## Step 4: View data tables
+## Step 6: View data tables
 
 Many recipes will also produce useful data tables that you can access via the `mod study` command such as in:
 
@@ -108,5 +178,3 @@ Done (9s)
 
 Data tables for each organization with rows are linked above
 ```
-
-<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=b-IJNsozsnA' controls={true} />
