@@ -1843,13 +1843,3 @@ This changelog is automatically generated from GitHub releases.
 
 * Updated repository to use OpenRewrite version v8.40.2
 
-## November 8, 2024
-
-#### rewrite-codemods-ng - 0.5.0
-
-* swap @Nullable to jspecify
-
-#### rewrite-nodejs - 0.12.1
-
-* Updated repository to use OpenRewrite version v8.40.0
-
