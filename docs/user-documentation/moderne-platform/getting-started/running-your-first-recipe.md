@@ -51,7 +51,7 @@ It's also possible to [create your own organization](../how-to-guides/managing-u
 
 ## Step 4: Select the recipe to run
 
-There are over 4700 recipes available in the Moderne Platform. While you are welcome to try out any of them, let's start by running the common static analysis recipe. To do so, click on the search bar in the marketplace and type `common static`. Then click on the first recipe that appears:
+There are over 5000 recipes available in the Moderne Platform. While you are welcome to try out any of them, let's start by running the common static analysis recipe. To do so, click on the search bar in the marketplace and type `common static`. Then click on the first recipe that appears:
 
 <figure style={{maxWidth: '800px', margin: '0 auto'}}>
   ![](./assets/RecipeSearch.gif)
