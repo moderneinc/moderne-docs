@@ -143,6 +143,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config lsts artifacts maven edit**](#mod-config-lsts-artifacts-maven-edit)
 * [**mod config lsts artifacts maven delete**](#mod-config-lsts-artifacts-maven-delete)
 * [**mod config lsts artifacts maven show**](#mod-config-lsts-artifacts-maven-show)
+* [**mod config lsts artifacts s3**](#mod-config-lsts-artifacts-s3)
+* [**mod config lsts artifacts s3 edit**](#mod-config-lsts-artifacts-s3-edit)
+* [**mod config lsts artifacts s3 delete**](#mod-config-lsts-artifacts-s3-delete)
+* [**mod config lsts artifacts s3 show**](#mod-config-lsts-artifacts-s3-show)
 * [**mod config lsts cache-dir**](#mod-config-lsts-cache-dir)
 * [**mod config lsts cache-dir edit**](#mod-config-lsts-cache-dir-edit)
 * [**mod config lsts cache-dir show**](#mod-config-lsts-cache-dir-show)
@@ -151,6 +155,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config moderne delete**](#mod-config-moderne-delete)
 * [**mod config moderne edit**](#mod-config-moderne-edit)
 * [**mod config moderne local**](#mod-config-moderne-local)
+* [**mod config moderne login**](#mod-config-moderne-login)
 * [**mod config moderne show**](#mod-config-moderne-show)
 * [**mod config moderne organizations**](#mod-config-moderne-organizations)
 * [**mod config moderne organizations show**](#mod-config-moderne-organizations-show)
@@ -2966,6 +2971,7 @@ mod config lsts artifacts [subcommands]
 * `artifactory`: Configures the Artifactory repository that LSTs will be published to and downloaded from.
 * `show`: Displays the LST artifacts repository configuration.
 * `maven`: Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
+* `s3`: Configures the S3 repository that LSTs will be published to and downloaded from.
 
 ## mod config lsts artifacts artifactory
 
@@ -3167,6 +3173,91 @@ mod config lsts artifacts maven show
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
+## mod config lsts artifacts s3
+
+Configures the S3 repository that LSTs will be published to and downloaded from.
+
+
+All subsequent publish and download commands will use this S3 repository.
+
+### Usage
+
+```
+mod config lsts artifacts s3 [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `delete`: Removes the S3 repository configuration. The publish command will no longer function until another artifact source is configured.
+* `show`: Displays the S3 repository configuration.
+
+## mod config lsts artifacts s3 edit
+
+Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+
+
+All subsequent publish and download commands will use this artifactory repository.
+
+### Usage
+
+```
+mod config lsts artifacts s3 edit [parameters]
+```
+
+### Examples
+
+```
+mod config lsts artifacts s3 edit s3://bucket
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `uri` |  The URL of the artifact repository that LSTs will be published to. | `s3://bucket` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--endpoint-url` |  Override command's default URL with the given URL. |
+| `--profile` |  Use a specific profile from your credential file. |
+| `--region` |  The region to use. Overrides config/env settings. |
+| `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |
+
+
+## mod config lsts artifacts s3 delete
+
+Removes the S3 repository configuration. The publish command will no longer function until another artifact source is configured.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts s3 delete
+```
+
+
+
+## mod config lsts artifacts s3 show
+
+Displays the S3 repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts s3 show
+```
+
+
+
 ## mod config lsts cache-dir
 
 (INCUBATING) Configures the directory for caching LSTs on disk.
@@ -3263,6 +3354,7 @@ mod config moderne edit <host> --token <token>
 * `delete`: Removes the configured Moderne tenant.
 * `edit`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `local`: Configures a connection to a Moderne DX instance running locally on the same machine.
+* `login`: Logs the CLI into Moderne
 * `show`: Displays the Moderne tenant configuration.
 * `organizations`: (INCUBATING) The organizational hierarchy of repository ownership.
 
@@ -3311,6 +3403,7 @@ mod config moderne edit <host> --token <token>
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `--api` |  The URL of the tenant API gateway. | `https://api.app.moderne.io` |
+| `--auth-server-url` |  The base URL of the auth server. Required only if the main Moderne host URL is not following the standard `tenant.moderne.io` domain. |  |
 | `--password` |  The password to authenticate with. |  |
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--token` |  The Moderne personal access token to use. |  |
@@ -3330,6 +3423,29 @@ All subsequent commands will use this instance.
 mod config moderne local
 ```
 
+
+
+## mod config moderne login
+
+Logs the CLI into Moderne
+
+
+The default authorization mode is a web-based browser flow. After login and consent, a PAT (personal access token) will be created and stored in the configuration file.
+
+Alternatively, use **--with-token** to pass in an existing token on standard input.
+
+### Usage
+
+```
+mod config moderne login
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Example: P180D for 180 days. |
+| `--with-token` |  Specify an existing PAT or JWT on the command line or via standard input. |
 
 
 ## mod config moderne show
@@ -3565,7 +3681,7 @@ mod config recipes artifacts artifactory edit [parameters]
 ### Examples
 
 ```
-mod config recipes artifacts edit <artifact-repository-url> --user <user> --password <password>
+mod config recipes artifacts artifactory edit <artifact-repository-url> --user <user> --password <password>
 ```
 
 ### Parameters
@@ -3725,7 +3841,7 @@ mod config recipes artifacts maven edit [parameters]
 ### Examples
 
 ```
-mod config recipes artifacts edit <artifact-repository-url> --user <user> --password <password>
+mod config recipes artifacts maven edit <artifact-repository-url> --user <user> --password <password>
 ```
 
 ### Parameters
@@ -3810,7 +3926,7 @@ mod config recipes artifacts nuget edit [parameters]
 ### Examples
 
 ```
-mod config recipes nuget edit <artifact-repository-url> --user <user> --password <password>
+mod config recipes artifacts nuget edit <artifact-repository-url> --user <user> --password <password>
 ```
 
 ### Parameters
