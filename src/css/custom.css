@@ -81,17 +81,22 @@ html[data-theme=light] {
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme='dark'] {
   --ifm-background-color: #041834;
-  --ifm-color-primary: #7e9bd2;
-  --ifm-color-primary-dark: #6588c9;
-  --ifm-color-primary-darker: #597ec5;
-  --ifm-color-primary-darkest: #3d64ae;
-  --ifm-color-primary-light: #97aedb;
-  --ifm-color-primary-lighter: #a3b8df;
-  --ifm-color-primary-lightest: #c9d5ec;
+
+  /* Neo-design: Primary colors for dark mode */
+  --ifm-color-primary: var(--neo-digital-blue-300, #7e9bd2);
+  --ifm-color-primary-dark: var(--neo-digital-blue-400, #6588c9);
+  --ifm-color-primary-darker: var(--neo-digital-blue-500, #597ec5);
+  --ifm-color-primary-darkest: var(--neo-digital-blue-600, #3d64ae);
+  --ifm-color-primary-light: var(--neo-digital-blue-200, #97aedb);
+  --ifm-color-primary-lighter: var(--neo-digital-blue-100, #a3b8df);
+  --ifm-color-primary-lightest: var(--neo-digital-blue-50, #c9d5ec);
+
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-color-base: #fff;
   --ifm-heading-color: #fff;
   --ifm-menu-color: #fff;
+
+  /* BRAND: Preserve mint accent for dark mode links */
   --ifm-link-color: #85fe99;
   --ifm-toc-border-color: transparent;
   --ifm-section-divider-color: #d9d9d9;
