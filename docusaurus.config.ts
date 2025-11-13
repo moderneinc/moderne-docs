@@ -26,8 +26,8 @@ const config: Config = {
   ],
 
   stylesheets: [
-    '@moderneinc/neo-design/dist/colors.css',
-    '@moderneinc/neo-design/dist/semantic-colors.css',
+    '/css/colors.css',
+    '/css/semantic-colors.css',
   ],
 
   headTags: [

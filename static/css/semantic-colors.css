@@ -1,0 +1,174 @@
+:root {  --neo-activity-recipe-run: #992fb9;
+  --neo-activity-commit-job: #2f42ff;
+  --neo-activity-visualization: activity/visualization;
+/* Scopes: Stroke Color */
+  --neo-border-primary: #d1d5db;
+/* Scopes: Stroke Color */
+  --neo-border-input: #d1d5db;
+/* Scopes: Stroke Color */
+  --neo-border-tab-active: #2f42ff;
+/* Scopes: Stroke Color */
+  --neo-border-code-dashed: #9ca3af;
+  --neo-border-card: #d1d5db;
+  --neo-border-card-header: #d1d5db;
+  --neo-border-nav-top-containers: #f3f4f6;
+  --neo-border-secondary: #e5e7eb;
+/* Scopes: All Fills, Effect Color */
+  --neo-buttons-destructive: #cb3446;
+  --neo-buttons-navigation-active: #ffffff;
+/* Scopes: All Fills, Effect Color */
+  --neo-buttons-primary-pressed: #131e7a;
+/* Scopes: All Fills, Effect Color */
+  --neo-buttons-primary-default: #2f42ff;
+/* Scopes: All Fills, Effect Color */
+  --neo-buttons-primary-hover: #1e2ec2;
+/* Scopes: All Fills, Effect Color */
+  --neo-buttons-primary-disabled: #f3f4f6;
+/* Scopes: All Fills, Effect Color */
+  --neo-buttons-primary-focus: #2f42ff;
+  --neo-buttons-primary-disabled-border: #e5e7eb;
+/* Scopes: Stroke Color, Effect Color */
+  --neo-buttons-secondary-default-border: #b6bfff;
+/* Scopes: All Fills, Effect Color */
+  --neo-buttons-secondary-hover-background: #f2f3ff;
+/* Scopes: All Fills, Effect Color */
+  --neo-buttons-secondary-pressed-background: #dce0ff;
+/* Scopes: Stroke Color, Effect Color */
+  --neo-buttons-secondary-disabled-border: #e5e7eb;
+  --neo-buttons-secondary-disabled-background: #f9fafb;
+  --neo-buttons-secondary-default-background: #ffffff;
+/* Scopes: Stroke Color, Effect Color */
+  --neo-buttons-secondary-focus: #2f42ff;
+  --neo-buttons-secondary-default: #1f2937;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-buttons-tertiary-default: #2f42ff;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-buttons-tertiary-hover: #1e2ec2;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-buttons-tertiary-pressed: #131e7a;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-buttons-tertiary-focus: #2f42ff;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-buttons-tertiary-disabled: #9ca3af;
+/* Scopes: Stroke Color, Effect Color */
+  --neo-buttons-navigation-default-border: #b6bfff;
+/* Scopes: All Fills, Effect Color */
+  --neo-buttons-navigation-hover-background: #f3f4f6;
+/* Scopes: All Fills, Effect Color */
+  --neo-buttons-navigation-pressed-background: #e5e7eb;
+/* Scopes: Stroke Color, Effect Color */
+  --neo-buttons-navigation-active-border: #2f42ff;
+  --neo-data-green: #4ca75a;
+  --neo-data-yellow: #fdda04;
+  --neo-data-orange1: #ffc008;
+  --neo-data-orange2: #ff9800;
+  --neo-data-orange3: #f9a91b;
+  --neo-data-red1: #ff5c24;
+  --neo-data-red2: #ed4134;
+  --neo-data-red3: #cb3446;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-icons-default: #1f2937;
+  --neo-icons-pressed: #131e7a;
+  --neo-icons-utility: #9ca3af;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-icons-active: #2f42ff;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-icons-hover: #1e2ec2;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-icons-hover-background: #e5e7eb;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-icons-disabled: #d1d5db;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-icons-placeholder: #9ca3af;
+/* Scopes: All Fills, Stroke Color, Effect Color */
+  --neo-input-checkbox: #d1d5db;
+  --neo-input-background: #ffffff;
+  --neo-input-disabled-background: #f9fafb;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-input-hover-background: #f3f4f6;
+  --neo-status-success-dark: #2c6c36;
+  --neo-status-success-medium: #4ca75a;
+  --neo-status-success-light: #f3fff5;
+  --neo-status-success-transparent: #4ca75a;
+  --neo-status-warning-dark: #856000;
+  --neo-status-warning-medium: #ffb800;
+  --neo-status-warning-light: #fff8e5;
+  --neo-status-warning-transparent: #ffb800;
+  --neo-status-error-dark: #a92232;
+  --neo-status-error-light: #ffedef;
+  --neo-status-error-medium: #ed4a5d;
+  --neo-status-error-transparent: #ed4a5d;
+  --neo-status-info-dark: #1e2ec2;
+  --neo-status-info-medium: #2f42ff;
+  --neo-status-info-light: #f2f3ff;
+  --neo-status-info-transparent: #2f42ff;
+  --neo-status-neutral-dark: #374151;
+  --neo-status-neutral-medium: #6b7280;
+  --neo-status-neutral-light: #f3f4f6;
+  --neo-status-neutral-transparent: #6b7280;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-black: #000000;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-white: #ffffff;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-page: #f4f4f4;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-card: #ffffff;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-card-header: #f3f4f6;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-tab-active: #f3f4f6;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-list-hover: #f9fafb;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-table-disabled-row: #f3f4f6;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-table-background: #ffffff;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-tab-secondary-background: #e5e7eb;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-shadow-neutral: #1f2937;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-scrim: #1f2937;
+/* Scopes: Frame Fill, Shape Fill, Effect Color */
+  --neo-surfaces-shadow-primary: #2f42ff;
+  --neo-surfaces-tooltip: #4b5563;
+  --neo-surfaces-snackbar-dark-mode: #ffffff;
+  --neo-surfaces-snackbar-light-mode: #4b5563;
+  --neo-surfaces-snackbar-brand: #131e7a;
+/* Scopes: Text Fill */
+  --neo-typography-button-disabled: #9ca3af;
+/* Scopes: Text Fill */
+  --neo-typography-input-placeholder: #9ca3af;
+/* Scopes: Text Fill */
+  --neo-typography-input-default: #1f2937;
+  --neo-typography-input-label: #1f2937;
+  --neo-typography-input-helper: #4b5563;
+/* Scopes: Text Fill */
+  --neo-typography-code-primary: #1f2937;
+/* Scopes: Text Fill */
+  --neo-typography-code-secondary: #9ca3af;
+/* Scopes: Text Fill */
+  --neo-typography-tab-inactive: #4b5563;
+/* Scopes: Text Fill */
+  --neo-typography-tab-active: #2f42ff;
+/* Scopes: Text Fill */
+  --neo-typography-link-primary: #2f42ff;
+/* Scopes: Text Fill */
+  --neo-typography-link-disabled: #b6bfff;
+/* Scopes: Text Fill */
+  --neo-typography-link-default: #f9fafb;
+/* Scopes: Text Fill */
+  --neo-typography-error: #cb3446;
+/* Scopes: Text Fill */
+  --neo-typography-success: #4ca75a;
+/* Scopes: Text Fill */
+  --neo-typography-warning: #1f2937;
+  --neo-typography-tooltip: #ffffff;
+  --neo-typography-legal: #9ca3af;
+  --neo-typography-body-secondary: #6b7280;
+/* Scopes: Text Fill */
+  --neo-typography-navigation-default: #1f2937;
+  --neo-tab-secondary-background: #e5e7eb;
+  --neo-code-background: #e5e7eb;
+  --neo-brand: #2f42ff;}
