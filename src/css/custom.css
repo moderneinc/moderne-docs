@@ -60,7 +60,9 @@
   --ifm-navbar-link-color: var(--ifm-heading-color);
   --ifm-navbar-shadow: none;
   --ifm-toc-border-color: transparent;
-  --ifm-section-divider-color: rgba(4, 24, 52, 0.3);
+
+  /* Neo-design: Section dividers */
+  --ifm-section-divider-color: var(--neo-border-secondary, rgba(4, 24, 52, 0.3));
 }
 
 /* Use selector for specificity */
