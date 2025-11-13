@@ -2,18 +2,19 @@
 
 ### CLI / DX v3.51.0 (2025/11/12)
 
-#### What's Changed
-- Add Git metadata, Autocrlf and Eol, to build trace by [@Jammy-Louie](https://github.com/Jammy-Louie) in [#2962](https://github.com/moderneinc/moderne-cli/pull/2962)
-- `mod config moderne login` streamlines the CLI authentication process by launching the browser for consent and automatically configuring the token by [@pdelagrave](https://github.com/pdelagrave) in [#2930](https://github.com/moderneinc/moderne-cli/pull/2930)
-- Capture the correct run end time in `trace.csv` on failure by [@knutwannheden](https://github.com/knutwannheden) in [#2977](https://github.com/moderneinc/moderne-cli/pull/2977)
-- New Lombok version compatibilities for Maven Java version detection by [@timtebeek](https://github.com/timtebeek) in [#2984](https://github.com/moderneinc/moderne-cli/pull/2984)
-- Add support for publishing and downloading LSTs from S3. S3 can be set as publish and download location via `mod config lsts artifacts s3 edit`. by [@shanman190](https://github.com/shanman190) in [#2975](https://github.com/moderneinc/moderne-cli/pull/2975)
-- Ensure that ConEmu terminal, which does not support OSC8 hyperlinks, does not attempt to show OSC8 hyperlinks by [@shanman190](https://github.com/shanman190) in [#2974](https://github.com/moderneinc/moderne-cli/pull/2974)
-- Invalidate cache entry for recipe upon new version installation to prevent stale recipes after successful installation by [@bmuschko](https://github.com/bmuschko) in [#2986](https://github.com/moderneinc/moderne-cli/pull/2986)
-- Fixed a bug where the LSTs artifact repository configuration would interfere with `mod build` and make it fail. by [@pdelagrave](https://github.com/pdelagrave) in [#2983](https://github.com/moderneinc/moderne-cli/pull/2983)
-- Adding missing entries in `~/.moderne/cli/trace` for Apply, Commit, Push commands by [@greg-at-moderne](https://github.com/greg-at-moderne) in [#2978](https://github.com/moderneinc/moderne-cli/pull/2978)
-- Fix examples in `mod config recipes` command by [@Jenson3210](https://github.com/Jenson3210) in [#2968](https://github.com/moderneinc/moderne-cli/pull/2968)
-- Enable JavaTemplate to correctly generate code for repos that use Java 21 or 25 by [@Jenson3210](https://github.com/Jenson3210) in [#2957](https://github.com/moderneinc/moderne-cli/pull/2957)
+#### What's Changed CLI
+- Add Git metadata, Autocrlf and Eol, to build trace
+- `mod config moderne login` streamlines the CLI authentication process by launching the browser for consent and automatically configuring the token
+- Capture the correct run end time in `trace.csv` on failure
+- New Lombok version compatibilities for Maven Java version detection
+- Add support for publishing and downloading LSTs from S3. S3 can be set as publish and download location via `mod config lsts artifacts s3 edit`.
+- Ensure that ConEmu terminal, which does not support OSC8 hyperlinks, does not attempt to show OSC8 hyperlinks
+- Invalidate cache entry for recipe upon new version installation to prevent stale recipes after successful installation
+- Fixed a bug where the LSTs artifact repository configuration would interfere with `mod build` and make it fail.
+- Adding missing entries in `~/.moderne/cli/trace` for Apply, Commit, Push commands
+- Fix examples in `mod config recipes` command
+- Enable JavaTemplate to correctly generate code for repos that use Java 21 or 25
+- Skip resolving Scala plugin-internal Gradle configurations, which eliminates unnecessary warning messages
 
 
 ### CLI / DX v3.50.1 (2025/10/24)
