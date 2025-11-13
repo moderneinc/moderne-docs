@@ -10,11 +10,58 @@ import TabItem from '@theme/TabItem';
 
 Moddy is a multi-repo AI agent (**currently in a restricted beta**) that combines natural language with the accuracy and scalability of Moderne and OpenRewrite. With it, you can analyze and modify large and complex codebases. For instance, you could ask it questions like, "How do I use Apache Commons?" or "Help me upgrade to Spring Boot 3.5," and it would search for the appropriate OpenRewrite recipes and then execute them for you.
 
-In this guide, we'll walk you through everything you need to know about Moddy Desktop – from installation instructions to architecture design.
+In this guide, we'll walk you through everything you need to get started with Moddy Desktop – from installation to your first conversation.
 
 ## Prerequisites
 
-In order for Moddy Desktop to function, you will need to have already [setup and configured the Moderne CLI](../moderne-cli/getting-started/cli-intro.md).
+Moddy Desktop requires the Moderne CLI to be installed and configured with at least one repository with LSTs built.
+
+### Quick start
+
+Follow these steps to set up your environment:
+
+1. **Install the Moderne CLI**: See the [CLI installation guide](../moderne-cli/getting-started/cli-intro.md) for instructions.
+
+2. **Sync repositories**: Choose one approach to sync your repositories:
+
+   From Moderne platform:
+
+   ```bash
+   mod git sync moderne /path/to/workdir --organization <ORG_NAME>
+   ```
+
+   From CSV file:
+
+   ```bash
+   mod git sync csv /path/to/workdir /path/to/repos.csv
+   ```
+
+   See the [git sync documentation](../moderne-cli/cli-reference.md#mod-git-sync) for more details.
+
+3. **Build LSTs**: Run the following command in your working directory to create LSTs for your repositories:
+
+   ```bash
+   mod build
+   ```
+
+   See the [build documentation](../moderne-cli/cli-reference.md#mod-build) for more details.
+
+4. **Sync recipe catalog**: Run the following command to download available recipes:
+
+   ```bash
+   mod config recipes moderne sync
+   ```
+
+   See the [recipes documentation](../moderne-cli/cli-reference.md#mod-config-recipes-moderne-sync) for more details.
+
+5. **Get an API key**: You will need an API key from one of the supported model providers during Moddy Desktop's initial setup:
+   * [Anthropic](https://console.anthropic.com/)
+   * [OpenAI](https://platform.openai.com/api-keys)
+   * [Google AI Studio (Gemini)](https://aistudio.google.com/app/apikey)
+
+:::tip
+Use the same directory for CLI operations and as Moddy Desktop's working directory to ensure Moddy can access your LSTs and repositories.
+:::
 
 ## Installation
 
@@ -41,7 +88,7 @@ choco install moddy-desktop --prerelease
 
 ### Initial configuration
 
-When you first launch Moddy, you will be prompted to fill in an Anthropic API key and to provide a working directory. The working directory should be the directory that contains all of the repositories you wish to ask questions about or run recipes against. You can change this after the fact as desired.
+When you first launch Moddy, you will be prompted to fill in an API key from your chosen model provider (Anthropic, OpenAI, or Gemini) and to provide a working directory. The working directory should be the directory that contains all of the repositories you wish to ask questions about or run recipes against. You can change this after the fact as desired.
 
 <figure>
   ![](./assets/initial-moddy-config.png)
@@ -80,71 +127,12 @@ From the application menu, click on settings to be taken to a settings menu wher
   <figcaption></figcaption>
 </figure>
 
-## Connecting to Moddy via MCP
+## Advanced features
 
-Moddy Desktop includes an MCP (Model Context Protocol) server that allows MCP clients to connect and interact with your codebase through Moddy. This enables you to use MCP-compatible tools alongside Moddy's multi-repo analysis and modification features.
+Once you're comfortable using Moddy Desktop, you can explore advanced integration options.
 
-The MCP server runs at `http://localhost:4848/mcp`.
+### MCP integration
 
-### Prerequisites
+Connect Moddy to MCP-compatible tools like Claude Code to interact with your codebase through external AI agents.
 
-* Moddy Desktop must be running for the MCP connection to work
-
-### Adding Moddy as an MCP server
-
-The exact commands will vary depending on your MCP client. Here are examples using Claude Code:
-
-#### Add to all sessions (user-level)
-
-```bash
-claude mcp add moddy -s user -t http http://localhost:4848/mcp
-```
-
-#### Add to current session only
-
-```bash
-claude mcp add moddy -t http http://localhost:4848/mcp
-```
-
-### Removing the MCP connection
-
-To disconnect from Moddy (Claude Code example):
-
-```bash
-claude mcp remove moddy
-```
-
-### Important notes
-
-* Moddy Desktop must remain open for the MCP connection to function
-* Check your MCP client's documentation for specific connection instructions
-
-## How data flows
-
-The AI model is chosen by the customer. All traffic to the model is routed via an on-prem agent (not to be confused with an AI agent). The deployment is BYOM and any generative model is supported.
-
-<figure>
-  ![](./assets/data-flow.png)
-  <figcaption>_The flow of data from you to the LLM to an OpenRewrite recipe._</figcaption>
-</figure>
-
-<figure>
-  ![](./assets/air-gapped-moddy.png)
-  <figcaption>_What an air-gapped environment might look like._</figcaption>
-</figure>
-
-## Frequently asked questions
-
-### What models do you use and how are they trained?
-
-Moddy Desktop does not include its own model. You configure your own. Right now we support Anthropic, but other models have been tested and performed relatively similarly. We plan to support all generative models via their APIs.
-
-Models deployed to your on-prem environment can also be supported.
-
-### What data does Moddy desktop send to the models?
-
-Recipe results and data tables.
-
-### What data is sent to Moderne?
-
-None. We employ a bring-your-own-model (BYOM) configuration. Moddy Desktop reaches out to your model and no data is passed to Moderne.
+Learn more about [connecting to Moddy via MCP](./moddy-mcp-integration.md).
