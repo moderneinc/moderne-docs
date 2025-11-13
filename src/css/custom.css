@@ -4,6 +4,8 @@
  * work well for content-centric websites.
  */
 
+/* Neo-design CSS variables are loaded via docusaurus.config.ts stylesheets configuration */
+
 @font-face {
     font-family: 'Beausite';
     src: url('https://cdn.prod.website-files.com/664e62fe66f5b31edc6c3aeb/664e7a833d9ad9fa2febd048_BeausiteSlickWeb-Light.woff2') format('woff2'), url('https://cdn.prod.website-files.com/664e62fe66f5b31edc6c3aeb/664e7a830c62d5d188a8f45a_BeausiteSlickWeb-Light.woff') format('woff');
@@ -15,14 +17,18 @@
 /* You can override the default Infima variables here. */
 :root {
   --ifm-background-color: #F8F8FF;
+
+  /* Preserve brand mint accent - no neo-design mapping */
   --ifm-color-mint: #85FE99;
-  --ifm-color-primary: #4169e1;
-  --ifm-color-primary-dark: #2855dd;
-  --ifm-color-primary-darker: #224ed5;
-  --ifm-color-primary-darkest: #1c41af;
-  --ifm-color-primary-light: #5a7de5;
-  --ifm-color-primary-lighter: #6787e7;
-  --ifm-color-primary-lightest: #8ca4ed;
+
+  /* Neo-design: Primary blue scale */
+  --ifm-color-primary: var(--neo-digital-blue-500, #4169e1);
+  --ifm-color-primary-dark: var(--neo-digital-blue-700, #2855dd);
+  --ifm-color-primary-darker: var(--neo-digital-blue-800, #224ed5);
+  --ifm-color-primary-darkest: var(--neo-digital-blue-900, #1c41af);
+  --ifm-color-primary-light: var(--neo-digital-blue-300, #5a7de5);
+  --ifm-color-primary-lighter: var(--neo-digital-blue-200, #6787e7);
+  --ifm-color-primary-lightest: var(--neo-digital-blue-100, #8ca4ed);
 
   /* Neo-design: Border colors */
   --ifm-color-border: var(--neo-border-primary, #D9D9D9);
