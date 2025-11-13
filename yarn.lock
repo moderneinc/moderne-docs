@@ -2252,14 +2252,10 @@
   dependencies:
     langium "3.3.1"
 
-"@moderneinc/neo-design@1.6.1-next.3ccccb":
-  version "1.6.1-next.3ccccb"
-  resolved "https://registry.yarnpkg.com/@moderneinc/neo-design/-/neo-design-1.6.1-next.3ccccb.tgz#455bc691d32247e545884572691ff5debe607ca4"
-  integrity sha512-D4p8Ho7oRD2U61agKSPu4NXWMEPDX1gQ2Ru9hnLLNEOtaSB/mpXCE/EXNqQLBwLP4TqWlkvSkkQVm+QyG4HwUA==
-  optionalDependencies:
-    "@rollup/rollup-darwin-arm64" "4.52.0"
-    "@rollup/rollup-linux-x64-gnu" "4.52.0"
-    "@rollup/rollup-win32-x64-msvc" "4.52.0"
+"@moderneinc/neo-design@1.6.1-next.225674":
+  version "1.6.1-next.225674"
+  resolved "https://registry.yarnpkg.com/@moderneinc/neo-design/-/neo-design-1.6.1-next.225674.tgz#aafacfe1f78aa279fd464d6671001f1b690aaef4"
+  integrity sha512-S5DZ5EegSCG8leQANZrue3sj5KiFoY+T5BpUxWzj2w+qT8xigB91f1c6ArzOYtvtlfZrF80E+Qcfu95prQ17rA==
 
 "@module-federation/error-codes@0.18.0":
   version "0.18.0"
@@ -2458,21 +2454,6 @@
   version "1.0.0-next.28"
   resolved "https://registry.npmjs.org/@polka/url/-/url-1.0.0-next.28.tgz"
   integrity sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==
-
-"@rollup/rollup-darwin-arm64@4.52.0":
-  version "4.52.0"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-darwin-arm64/-/rollup-darwin-arm64-4.52.0.tgz#fda8701d38d9888039c1a0e040c026daec908a3f"
-  integrity sha512-YCdWlY/8ltN6H78HnMsRHYlPiKvqKagBP1r+D7SSylxX+HnsgXGCmLiV3Y4nSyY9hW8qr8U9LDUx/Lo7M6MfmQ==
-
-"@rollup/rollup-linux-x64-gnu@4.52.0":
-  version "4.52.0"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.52.0.tgz#214b534701614c7502603e2a083bb9f072ae8500"
-  integrity sha512-nmSVN+F2i1yKZ7rJNKO3G7ZzmxJgoQBQZ/6c4MuS553Grmr7WqR7LLDcYG53Z2m9409z3JLt4sCOhLdbKQ3HmA==
-
-"@rollup/rollup-win32-x64-msvc@4.52.0":
-  version "4.52.0"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.52.0.tgz#79bc6c361bd80134402274e7c4a6bb36c88d50c2"
-  integrity sha512-6iKDCVSIUQ8jPMoIV0OytRKniaYyy5EbY/RRydmLW8ZR3cEBhxbWl5ro0rkUNe0ef6sScvhbY79HrjRm8i3vDQ==
 
 "@rspack/binding-darwin-arm64@1.5.8":
   version "1.5.8"

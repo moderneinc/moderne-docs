@@ -7,24 +7,32 @@
 /* Neo-design CSS variables are loaded via docusaurus.config.ts stylesheets configuration */
 
 /*
- * Neo-design Integration
+ * Neo-Design Integration
  *
  * This file integrates Moderne's product design system (@moderneinc/neo-design)
  * with Docusaurus theme variables. We use CSS fallback syntax to gradually adopt
- * neo-design tokens while maintaining stability.
+ * Neo-Design tokens while maintaining stability.
  *
  * Pattern: var(--neo-token-name, fallback-value)
  *
  * Brand preservation:
  * - Beausite font for h1 headings (see .markdown h1)
  * - Mint green accent (#85FE99) for dark mode links and announcements
+ * - Custom dark background (#041834)
  * - Current logos and icons
  *
- * Mapped tokens:
+ * Mapped tokens (Phases A-D):
  * - Colors: neo-digital-blue scale, neo-border-primary/secondary
- * - Typography: neo-typography-input-default, neo-typography-link-primary
+ * - Typography: neo-typography-input-default, neo-typography-link-primary, neo-typography-navigation-default
+ * - Typography family/weights: neo-font-family-body, neo-font-weight-regular, neo-font-weight-semi-bold
  *
- * Future: Consider spacing, typography scale, component tokens
+ * Not mapped (brand-specific):
+ * - Surface colors (custom light blue/lavender #F8F8FF background vs Neo's grey #f4f4f4)
+ * - Menu hover states (transparent vs Neo's visible backgrounds)
+ * - Spacing values (preserving existing pixel/rem values)
+ * - Custom navbar height and padding
+ *
+ * Future: Consider spacing scale when appropriate
  */
 
 @font-face {
@@ -37,9 +45,10 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  /* BRAND: Custom light blue/lavender background */
   --ifm-background-color: #F8F8FF;
 
-  /* BRAND: Preserve mint accent - no neo-design mapping */
+  /* BRAND: Preserve mint accent - no Neo-Design mapping */
   --ifm-color-mint: #85FE99;
 
   /* Neo-design: Primary blue scale */
@@ -54,6 +63,9 @@
   /* Neo-design: Border colors */
   --ifm-color-border: var(--neo-border-primary, #D9D9D9);
 
+  /* Override neo-border-secondary to match production */
+  --neo-border-secondary: rgba(4, 24, 52, 0.3) !important;
+
   --ifm-code-font-size: 95%;
 
   /* Neo-design: Typography colors */
@@ -61,19 +73,24 @@
   --ifm-color-content: var(--ifm-color-base);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-color-announcement-bar-bg: var(--ifm-color-mint);
-  --ifm-color-announcement-bar-text: #041834;
+
+  /* Neo-Design: Announcement bar text */
+  --ifm-color-announcement-bar-text: var(--neo-typography-input-default, #041834);
+
   --ifm-navbar-background-color: var(--ifm-background-color);
   --ifm-navbar-padding-vertical: 36px;
   --ifm-navbar-item-padding-horizontal: 1.4rem;
   --ifm-navbar-height: 116px;
-  --ifm-font-family-base: "Inter", sans-serif;
-  --ifm-heading-font-weight: 400;
+
+  /* Neo-Design: Typography family and weights */
+  --ifm-font-family-base: var(--neo-font-family-body, "Inter"), sans-serif;
+  --ifm-heading-font-weight: var(--neo-font-weight-regular, 400);
   --ifm-heading-line-height: 1.25;
 
-  /* Neo-design: Heading color */
+  /* Neo-Design: Heading color */
   --ifm-heading-color: var(--neo-typography-input-default, #041834);
 
-  --ifm-font-weight-bold: 600;
+  --ifm-font-weight-bold: var(--neo-font-weight-semi-bold, 600);
   --ifm-footer-padding-vertical: 2.375rem;
   --ifm-footer-background-color: transparent;
   --ifm-breadcrumb-separator: url("data:image/svg+xml, %3Csvg%20width=%228%22%20height=%2213%22%20viewBox=%220%200%208%2013%22%20fill=%22none%22%20xmlns=%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d=%22M1%2012L7%206.5L1%201%22%20stroke=%22%23415067%22%20stroke-width=%221.25%22%2F%3E%0A%3C%2Fsvg%3E%0A");
@@ -82,11 +99,13 @@
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
 
-  /* Neo-design: Link color */
+  /* Neo-Design: Link color */
   --ifm-link-color: var(--neo-typography-link-primary, #283AF7);
 
   --ifm-link-hover-color: var(--ifm-color-content);
-  --ifm-menu-color: rgba(4, 24, 52);
+
+  /* Neo-Design: Menu/navigation text */
+  --ifm-menu-color: var(--neo-typography-navigation-default, #1f2937);
 
   /* Neo-design: Active menu items */
   --ifm-menu-color-active: var(--neo-typography-link-primary, var(--ifm-link-color));
@@ -112,9 +131,10 @@ html[data-theme=light] {
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme='dark'] {
+  /* BRAND: Custom dark background */
   --ifm-background-color: #041834;
 
-  /* Neo-design: Primary colors for dark mode */
+  /* Neo-Design: Primary colors for dark mode */
   --ifm-color-primary: var(--neo-digital-blue-300, #7e9bd2);
   --ifm-color-primary-dark: var(--neo-digital-blue-400, #6588c9);
   --ifm-color-primary-darker: var(--neo-digital-blue-500, #597ec5);
@@ -130,8 +150,12 @@ html[data-theme='dark'] {
 
   /* BRAND: Preserve mint accent for dark mode links */
   --ifm-link-color: #85fe99;
+
   --ifm-toc-border-color: transparent;
-  --ifm-section-divider-color: #d9d9d9;
+
+  /* Neo-Design: Dark mode borders */
+  --ifm-section-divider-color: var(--neo-border-primary, #d9d9d9);
+
   --ifm-card-background-color: #fff;
   --ifm-heading-line-height: 1.25;
   .theme-code-block {
