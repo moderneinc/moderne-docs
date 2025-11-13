@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.51.2 (2025/11/12)
+
+#### What's Changed
+* Fix maven-cache.cache being created as a folder, not a file, if it is first created by a recipe run. This bug affected only CLI 3.51.1
+
+
 ### CLI / DX v3.51.1 (2025/11/12)
 
 #### What's Changed
