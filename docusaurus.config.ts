@@ -25,9 +25,8 @@ const config: Config = {
     }
   ],
 
-  stylesheets: [
-    '/css/colors.css',
-    '/css/semantic-colors.css',
+  clientModules: [
+    require.resolve('./src/client/loadNeoDesign.js'),
   ],
 
   headTags: [
