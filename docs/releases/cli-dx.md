@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.51.1 (2025/11/12)
+
+#### What's Changed
+* Use a persistent POM cache to accelerate dependency resolution in recipe runs
+
+
 ### CLI / DX v3.51.0 (2025/11/12)
 
 #### What's Changed CLI
