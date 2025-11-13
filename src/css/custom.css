@@ -34,7 +34,9 @@
   --ifm-color-border: var(--neo-border-primary, #D9D9D9);
 
   --ifm-code-font-size: 95%;
-  --ifm-color-base: rgba(4, 24, 52);
+
+  /* Neo-design: Typography colors */
+  --ifm-color-base: var(--neo-typography-input-default, rgba(4, 24, 52));
   --ifm-color-content: var(--ifm-color-base);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-color-announcement-bar-bg: var(--ifm-color-mint);
@@ -46,7 +48,10 @@
   --ifm-font-family-base: "Inter", sans-serif;
   --ifm-heading-font-weight: 400;
   --ifm-heading-line-height: 1.25;
-  --ifm-heading-color: #041834;
+
+  /* Neo-design: Heading color */
+  --ifm-heading-color: var(--neo-typography-input-default, #041834);
+
   --ifm-font-weight-bold: 600;
   --ifm-footer-padding-vertical: 2.375rem;
   --ifm-footer-background-color: transparent;
@@ -55,10 +60,16 @@
   --ifm-breadcrumb-spacing: 0.875rem;
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
-  --ifm-link-color: #283AF7;
+
+  /* Neo-design: Link color */
+  --ifm-link-color: var(--neo-typography-link-primary, #283AF7);
+
   --ifm-link-hover-color: var(--ifm-color-content);
   --ifm-menu-color: rgba(4, 24, 52);
-  --ifm-menu-color-active: var(--ifm-link-color);
+
+  /* Neo-design: Active menu items */
+  --ifm-menu-color-active: var(--neo-typography-link-primary, var(--ifm-link-color));
+
   --ifm-navbar-link-color: var(--ifm-heading-color);
   --ifm-navbar-shadow: none;
   --ifm-toc-border-color: transparent;
