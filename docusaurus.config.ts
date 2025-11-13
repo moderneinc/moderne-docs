@@ -25,6 +25,11 @@ const config: Config = {
     }
   ],
 
+  stylesheets: [
+    '@moderneinc/neo-design/dist/colors.css',
+    '@moderneinc/neo-design/dist/semantic-colors.css',
+  ],
+
   headTags: [
     // <link rel="preconnect" href="https://fonts.googleapis.com">
     {

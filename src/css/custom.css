@@ -4,10 +4,6 @@
  * work well for content-centric websites.
  */
 
-/* Neo-design foundation - CSS variable tokens */
-@import '@moderneinc/neo-design/dist/colors.css';
-@import '@moderneinc/neo-design/dist/semantic-colors.css';
-
 @font-face {
     font-family: 'Beausite';
     src: url('https://cdn.prod.website-files.com/664e62fe66f5b31edc6c3aeb/664e7a833d9ad9fa2febd048_BeausiteSlickWeb-Light.woff2') format('woff2'), url('https://cdn.prod.website-files.com/664e62fe66f5b31edc6c3aeb/664e7a830c62d5d188a8f45a_BeausiteSlickWeb-Light.woff') format('woff');
