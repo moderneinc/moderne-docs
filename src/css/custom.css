@@ -6,6 +6,27 @@
 
 /* Neo-design CSS variables are loaded via docusaurus.config.ts stylesheets configuration */
 
+/*
+ * Neo-design Integration
+ *
+ * This file integrates Moderne's product design system (@moderneinc/neo-design)
+ * with Docusaurus theme variables. We use CSS fallback syntax to gradually adopt
+ * neo-design tokens while maintaining stability.
+ *
+ * Pattern: var(--neo-token-name, fallback-value)
+ *
+ * Brand preservation:
+ * - Beausite font for h1 headings (see .markdown h1)
+ * - Mint green accent (#85FE99) for dark mode links and announcements
+ * - Current logos and icons
+ *
+ * Mapped tokens:
+ * - Colors: neo-digital-blue scale, neo-border-primary/secondary
+ * - Typography: neo-typography-input-default, neo-typography-link-primary
+ *
+ * Future: Consider spacing, typography scale, component tokens
+ */
+
 @font-face {
     font-family: 'Beausite';
     src: url('https://cdn.prod.website-files.com/664e62fe66f5b31edc6c3aeb/664e7a833d9ad9fa2febd048_BeausiteSlickWeb-Light.woff2') format('woff2'), url('https://cdn.prod.website-files.com/664e62fe66f5b31edc6c3aeb/664e7a830c62d5d188a8f45a_BeausiteSlickWeb-Light.woff') format('woff');
@@ -18,7 +39,7 @@
 :root {
   --ifm-background-color: #F8F8FF;
 
-  /* Preserve brand mint accent - no neo-design mapping */
+  /* BRAND: Preserve mint accent - no neo-design mapping */
   --ifm-color-mint: #85FE99;
 
   /* Neo-design: Primary blue scale */
