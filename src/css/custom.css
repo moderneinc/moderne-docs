@@ -108,7 +108,7 @@
   --ifm-menu-color: var(--neo-typography-navigation-default, #1f2937);
 
   /* Neo-design: Active menu items */
-  --ifm-menu-color-active: var(--neo-typography-link-primary, var(--ifm-link-color));
+  --ifm-menu-color-active: var(--ifm-link-color);
 
   --ifm-navbar-link-color: var(--ifm-heading-color);
   --ifm-navbar-shadow: none;
