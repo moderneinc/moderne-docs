@@ -21,6 +21,7 @@
     "@docusaurus/theme-mermaid": "^3.9.1",
     "@mdx-js/react": "^3.0.0",
     "@mermaid-js/layout-elk": "^0.1.9",
+    "@moderneinc/neo-design": "1.6.1-next.225674",
     "@octokit/rest": "^22.0.1",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",

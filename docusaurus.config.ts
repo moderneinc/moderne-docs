@@ -25,6 +25,10 @@ const config: Config = {
     }
   ],
 
+  clientModules: [
+    require.resolve('./src/client/loadNeoDesign.js'),
+  ],
+
   headTags: [
     // <link rel="preconnect" href="https://fonts.googleapis.com">
     {

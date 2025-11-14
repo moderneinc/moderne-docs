@@ -2252,6 +2252,11 @@
   dependencies:
     langium "3.3.1"
 
+"@moderneinc/neo-design@1.6.1-next.225674":
+  version "1.6.1-next.225674"
+  resolved "https://registry.yarnpkg.com/@moderneinc/neo-design/-/neo-design-1.6.1-next.225674.tgz#aafacfe1f78aa279fd464d6671001f1b690aaef4"
+  integrity sha512-S5DZ5EegSCG8leQANZrue3sj5KiFoY+T5BpUxWzj2w+qT8xigB91f1c6ArzOYtvtlfZrF80E+Qcfu95prQ17rA==
+
 "@module-federation/error-codes@0.18.0":
   version "0.18.0"
   resolved "https://registry.npmjs.org/@module-federation/error-codes/-/error-codes-0.18.0.tgz"
