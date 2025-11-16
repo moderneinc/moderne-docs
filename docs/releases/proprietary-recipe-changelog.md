@@ -1787,9 +1787,3 @@ This changelog is automatically generated from GitHub releases.
 
 * Updated repository to use OpenRewrite version v8.41.0
 
-## November 15, 2024
-
-#### rewrite-reactive-streams - 0.5.0
-
-* Migrate `doAfterSuccessOrError` to `tap` & @jevanlingen
-
