@@ -109,6 +109,45 @@ const config: Config = {
     '@docusaurus/theme-mermaid',
   ],
 
+  plugins: [
+    [
+      'docusaurus-plugin-llms',
+      {
+        generateLLMsTxt: true,
+        generateLLMsFullTxt: false,
+        generateMarkdownFiles: true,
+        docsDir: 'docs',
+        title: 'Moderne Documentation',
+        description: 'Large-scale automated source code refactoring',
+        excludeImports: true,
+        removeDuplicateHeadings: true,
+        customLLMFiles: [
+          {
+            filename: 'llms-platform.txt',
+            includePatterns: ['**/moderne-platform/**/*'],
+            fullContent: false,
+            title: 'Moderne Platform Documentation',
+            description: 'Enterprise SaaS solution for automated code remediation',
+          },
+          {
+            filename: 'llms-cli.txt',
+            includePatterns: ['**/moderne-cli/**/*'],
+            fullContent: false,
+            title: 'Moderne CLI Documentation',
+            description: 'Command-line interface for running recipes locally',
+          },
+          {
+            filename: 'llms-dx.txt',
+            includePatterns: ['**/moderne-dx/**/*'],
+            fullContent: false,
+            title: 'Moderne DX Documentation',
+            description: 'On-premise deployment solution',
+          },
+        ],
+      },
+    ],
+  ],
+
   future: {
     experimental_faster: true,
     v4: true,
