@@ -181,7 +181,7 @@ const config: Config = {
         },
         {
           href: "https://docs.openrewrite.org/",
-          label: "OpenRewrite",
+          label: "OpenRewrite docs",
           position: "right",
         },
         {
