@@ -7,15 +7,22 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.240.0         |
+| Agent (recommended to use **latest**) | 0.240.2         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.240.0/moderne-agent-0.240.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.240.2/moderne-agent-0.240.2.jar)
 
 
 ## Changelog
 
+### v0.240.2 - 2025-11-18
+
+## Changes
+
+- Fix Azure ACR authentication in publish workflow (#596)
+
+This patch release fixes the publish workflow failure caused by gradle-docker-plugin v10.0.0 upgrade, which changed how registry credentials are handled.
 ### v0.240.0 - 2025-11-18
 
 * Use `actions/setup-node@v6`
