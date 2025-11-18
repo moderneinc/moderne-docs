@@ -6,16 +6,10 @@
 * Upgrade `org.graalvm.buildtools.native` gradle plugin to version 0.11.3
 * Clean build/runs to clean organization folders too
 * Fix specific cases of organization and repository discovery on disk
-- Use `typesync` for enhanced type attribution
+* Use `typesync` for enhanced type attribution
 * Display a warning on auth failure only if a token was set when running `mod config moderne edit` 
 * Fallback to in-memory H2MvStore
-Dependency maintenance and other project technical improvements
-* Fix test priorResourceStepTakesPreventsGradleParsing
-* Use a faster gh action windows runner to build the windows native image
-* Migrate from Gradle plugin `com.github.johnrengelman.shadow:8.1.1` to `com.gradleup.shadow:9.0.+`
-* Gradle wrapper 9.2.0
-* CLI to depend on the latest version of OpenRewrite
-- https://github.com/moderneinc/moderne-cli/compare/v3.51.2...v3.51.3
+- Dependency maintenance and other project technical improvements
 
 
 ### CLI / DX v3.51.2 (2025/11/12)
