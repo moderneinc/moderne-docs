@@ -53,7 +53,6 @@ In this exercise, you'll write a scanning recipe to find any comments in Java so
 
 1. Open the unit test [src/test/java/com/yourorg/TrackJavaTodosFileTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/TrackJavaTodosFileTest.java) in IntelliJ IDEA.
    * Read through the tests, to get a feel for the cases you should cover.
-   * One new concept you might notice is the addition of the `noTrim()` method on the [`SourceSpec`](https://docs.openrewrite.org/authoring-recipes/recipe-testing#sourcespec). This ensures that newlines are preserved in the test source strings so that end-of-file formatting will match in both the "before" and  "after" cases. 
    * Remove the `@Disabled` annotations, and run the tests to see that it fails. 
 2. Now open the scanning recipe template [src/main/java/com/yourorg/TrackJavaTodosFile.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/TrackJavaTodosFile.java).
    * Using the knowledge gained in Exercise 3a, and the requirements from the test, write a scanning recipe that collects all the `TODO` comments and copies them in to a file called `TODO.md`.   
