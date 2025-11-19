@@ -7,15 +7,19 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.240.2         |
+| Agent (recommended to use **latest**) | 0.240.1         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.240.2/moderne-agent-0.240.2.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.240.1/moderne-agent-0.240.1.jar)
 
 
 ## Changelog
 
+### v0.240.1 - 2025-11-19
+
+* Fix doc location for crypto symmetric key instructions
+* Fix Azure ACR authentication for gradle-docker-plugin v10.0.0
 ### v0.240.2 - 2025-11-18
 
 ## Changes
