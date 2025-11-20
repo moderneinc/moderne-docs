@@ -10,6 +10,106 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 20, 2025
+
+#### rewrite-ai-search - 0.32.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-android - 0.15.0
+
+* Fix recipe references
+
+#### rewrite-azul - 0.8.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-circleci - 3.9.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-codemods-ng - 0.15.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-compiled-analysis - 0.11.0
+
+* Common static analysis issues
+
+#### rewrite-comprehension - 0.10.0
+
+* Common static analysis issues
+
+#### rewrite-concourse - 3.9.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-dotnet - 0.14.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-elastic - 0.4.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-hibernate - 0.15.0
+
+* Do not duplicate the Java 17 migration when included in Spring Boot 4
+
+#### rewrite-java-security - 3.22.0
+
+* Separate Maven and Gradle tests for better maintability and understandability
+* Introduce CVE pattern filtering option
+* Reuse fixture to remove code duplication
+* Fixed expectations + recipe for snakeyaml recipe
+
+#### rewrite-kafka - 0.4.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-kubernetes - 3.13.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-nodejs - 0.34.0
+
+* Bumping OpenRewrite to 8.66.2
+* `RemoveUsageOfProcessFeaturesTlsConstants` recipe
+* Adding ReplaceCryptoHashConstructor recipe
+* Amend the `ReplaceCryptoConstructors` recipe to handle DEP0181 too.
+* Bump js-yaml from 3.14.1 to 3.14.2 in /recipes-nodejs[bot]
+* Add tags to the `UseNativeTypeCheckingMethods` recipe
+* `ReplaceUtilLog` recipe
+* `ReplaceUtilExtend` recipe
+* Update to new OpenRewrite
+
+#### rewrite-program-analysis - 0.6.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-reactive-streams - 0.18.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-spring - 0.17.0
+
+* Spring Boot 3.3 Deprecations
+* Add recipe to replace deprecated RequestMatcherProvider
+* Adopt classic starters in Spring Boot 4 migration
+* Spring Boot 4.0 Quickwins
+* Modularize Starters
+* Modularize Legacy and Classic starters
+* Spring Boot 3.4 Deprecations
+* Pin Spring Retry version
+
+#### rewrite-sql - 2.8.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
+#### rewrite-terraform - 3.11.1
+
+* Updated repository to use OpenRewrite version v8.67.0
+
 ## November 5, 2025
 
 #### rewrite-comprehension - 0.9.0
