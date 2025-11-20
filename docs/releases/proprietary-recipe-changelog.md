@@ -77,7 +77,7 @@ This changelog is automatically generated from GitHub releases and only contains
 * `RemoveUsageOfProcessFeaturesTlsConstants` recipe
 * Adding ReplaceCryptoHashConstructor recipe
 * Amend the `ReplaceCryptoConstructors` recipe to handle DEP0181 too.
-* Bump js-yaml from 3.14.1 to 3.14.2 in /recipes-nodejs[bot]
+* Bump js-yaml from 3.14.1 to 3.14.2 in `/recipes-nodejs[bot]`
 * Add tags to the `UseNativeTypeCheckingMethods` recipe
 * `ReplaceUtilLog` recipe
 * `ReplaceUtilExtend` recipe
