@@ -10,6 +10,8 @@ import TabItem from '@theme/TabItem';
 
 Moddy is a multi-repo AI agent (**currently in a restricted beta**) that combines natural language with the accuracy and scalability of Moderne and OpenRewrite. With it, you can analyze and modify large and complex codebases. For instance, you could ask it questions like, "How do I use Apache Commons?" or "Help me upgrade to Spring Boot 3.5," and it would search for the appropriate OpenRewrite recipes and then execute them for you.
 
+Moddy Desktop is a standalone version of Moddy that runs on your local machine. This allows you to quickly run it against your local repositories or connect to other tools such as Claude code through an MCP connection. We also offer [Moddy Platform](./moddy-platform.md) which runs inside the Moderne Platform – allowing you to run Moddy requests at scale across thousands of repositories.
+
 In this guide, we'll walk you through everything you need to get started with Moddy Desktop – from installation to your first conversation.
 
 ## Prerequisites
@@ -129,7 +131,7 @@ From the application menu, click on settings to be taken to a settings menu wher
 
 ## Advanced features
 
-Once you're comfortable using Moddy Desktop, you can explore advanced integration options.
+Once you're comfortable using Moddy Desktop, you can explore advanced integration options such as:
 
 ### MCP integration
 

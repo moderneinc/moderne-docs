@@ -47,36 +47,6 @@ claude mcp remove moddy
 * Moddy Desktop must remain open for the MCP connection to function.
 * Check your MCP client's documentation for specific connection instructions.
 
-## How data flows
+## Data privacy and models
 
-The AI model is chosen by the customer. All traffic to the model is routed via an on-prem agent (not to be confused with an AI agent). The deployment is BYOM and any generative model is supported.
-
-<figure>
-  ![](./assets/data-flow.png)
-  <figcaption>_The flow of data from you to the LLM to an OpenRewrite recipe._</figcaption>
-</figure>
-
-<figure>
-  ![](./assets/air-gapped-moddy.png)
-  <figcaption>_What an air-gapped environment might look like._</figcaption>
-</figure>
-
-## Frequently asked questions
-
-### What models do you use and how are they trained?
-
-Moddy Desktop does not include its own model. You configure your own. We currently support:
-
-* Anthropic (Claude)
-* OpenAI (GPT)
-* Google (Gemini)
-
-Models deployed to your on-prem environment can also be supported.
-
-### What data does Moddy desktop send to the models?
-
-Recipe results and data tables.
-
-### What data is sent to Moderne?
-
-None. We employ a bring-your-own-model (BYOM) configuration. Moddy Desktop reaches out to your model and no data is passed to Moderne.
+For information about how data flows in Moddy and what models are used, see the [Moddy data privacy and models](./moddy-data-privacy.md) documentation.
