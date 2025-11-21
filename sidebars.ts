@@ -179,7 +179,9 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'user-documentation/moddy/moddy-desktop',
+        'user-documentation/moddy/moddy-platform',
         'user-documentation/moddy/moddy-mcp-integration',
+        'user-documentation/moddy/moddy-data-privacy',
       ],
     },
     {
