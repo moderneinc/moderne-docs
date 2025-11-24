@@ -5,7 +5,7 @@ description: Understanding data privacy in Moddy.
 
 # Moddy data privacy and models
 
-To help you understand how Moddy handles security and privacy, this doc will explain how data flows when you use Moddy Desktop or Moddy Platform. We will also answer common questions about which models are used and how your data is handled.
+To help you understand how Moddy handles security and privacy, this doc will explain how data flows when you use Moddy Desktop or Moddy in the Moderne Platform. We will also answer common questions about which models are used and how your data is handled.
 
 ## How data flows
 
