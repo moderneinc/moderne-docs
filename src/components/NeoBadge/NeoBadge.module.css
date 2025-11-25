@@ -1,0 +1,159 @@
+/**
+ * Badge Component Styles
+ * Based on Figma design using Neo Design CSS variables
+ */
+
+/* Base badge styles */
+.badge {
+  /* Typography - compact and readable */
+  font-family: var(--neo-font-family-body, 'Inter', sans-serif);
+  font-size: var(--neo-font-size-xs, 12px);
+  font-weight: var(--neo-font-weight-medium, 500);
+  line-height: 1;
+
+  /* Shape - pill/capsule shape (more compact than buttons) */
+  border-radius: var(--neo-border-radius-badge, 999px);
+  border: 1px solid transparent;
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  /* Remove default button/span styles */
+  outline: none;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+
+  /* Non-interactive by default */
+  cursor: default;
+}
+
+/* Interactive badges (when onClick is provided) */
+.badge--interactive {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background: none;
+  color: inherit;
+}
+
+.badge--interactive:hover {
+  opacity: 0.9;
+}
+
+.badge--interactive:active {
+  opacity: 0.8;
+}
+
+.badge--interactive:focus-visible {
+  outline: 2px solid var(--neo-digital-blue-500);
+  outline-offset: 2px;
+}
+
+/* Default variant - neutral gray */
+.badge--default {
+  background-color: var(--neo-badge-default-bg, rgba(0, 0, 0, 0.05));
+  color: var(--neo-badge-default-text, var(--neo-grey-700));
+  border-color: var(--neo-badge-default-border, rgba(0, 0, 0, 0.1));
+}
+
+/* Primary variant - blue */
+.badge--primary {
+  background-color: var(--neo-badge-primary-bg, rgba(56, 97, 251, 0.1));
+  color: var(--neo-badge-primary-text, var(--neo-digital-blue-600));
+  border-color: var(--neo-badge-primary-border, rgba(56, 97, 251, 0.2));
+}
+
+/* Success variant - green */
+.badge--success {
+  background-color: var(--neo-badge-success-bg, rgba(16, 185, 129, 0.1));
+  color: var(--neo-badge-success-text, #059669);
+  border-color: var(--neo-badge-success-border, rgba(16, 185, 129, 0.2));
+}
+
+/* Warning variant - yellow/orange */
+.badge--warning {
+  background-color: var(--neo-badge-warning-bg, rgba(245, 158, 11, 0.1));
+  color: var(--neo-badge-warning-text, #d97706);
+  border-color: var(--neo-badge-warning-border, rgba(245, 158, 11, 0.2));
+}
+
+/* Error variant - red */
+.badge--error {
+  background-color: var(--neo-badge-error-bg, rgba(239, 68, 68, 0.1));
+  color: var(--neo-badge-error-text, #dc2626);
+  border-color: var(--neo-badge-error-border, rgba(239, 68, 68, 0.2));
+}
+
+/* Size variants */
+.badge--small {
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.badge--medium {
+  padding: 6px 12px;
+  font-size: var(--neo-font-size-xs, 12px);
+}
+
+/* Icon styling */
+.badge__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+}
+
+.badge--small .badge__icon {
+  width: 10px;
+  height: 10px;
+}
+
+.badge__text {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Icon-only badge (no text) */
+.badge--icon-only {
+  aspect-ratio: 1;
+  padding: 6px;
+}
+
+.badge--icon-only.badge--small {
+  padding: 4px;
+}
+
+/* Dark mode adjustments */
+html[data-theme='dark'] .badge--default {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--neo-grey-300);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+html[data-theme='dark'] .badge--primary {
+  background-color: rgba(56, 97, 251, 0.2);
+  color: var(--neo-digital-blue-400);
+  border-color: rgba(56, 97, 251, 0.3);
+}
+
+html[data-theme='dark'] .badge--success {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+html[data-theme='dark'] .badge--warning {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+html[data-theme='dark'] .badge--error {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}

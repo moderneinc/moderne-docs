@@ -1,0 +1,115 @@
+/**
+ * PersonaSwitcher - Dropdown component for switching between documentation personas
+ * Uses NeoBadge component for the trigger button
+ */
+
+.personaSwitcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Dropdown arrow icon animation */
+.icon {
+  display: flex;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 160px;
+  background: var(--neo-surfaces-white, #fff);
+  border: 1px solid var(--neo-border-primary, #D9D9D9);
+  border-radius: 8px;
+  box-shadow: var(--neo-shadow-neutral-small, 0px 2px 8px rgba(0, 0, 0, 0.1));
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+}
+
+.menuItem {
+  margin: 0;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  font-size: var(--neo-font-size-sm, 14px);
+  font-weight: var(--neo-font-weight-regular, 400);
+  color: var(--neo-typography-input-default, #041834);
+  text-align: left;
+}
+
+.menuButton:hover:not(:disabled) {
+  background: var(--neo-input-hover-background, rgba(65, 105, 225, 0.04));
+}
+
+.menuButton:focus {
+  outline: none;
+  background: var(--neo-input-hover-background, rgba(65, 105, 225, 0.04));
+}
+
+.menuButton:disabled {
+  cursor: default;
+}
+
+.currentPersona {
+  font-weight: var(--neo-font-weight-medium, 500);
+  color: var(--neo-digital-blue-500, #4169e1);
+}
+
+.menuLabel {
+  flex: 1;
+}
+
+.checkmark {
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .dropdown {
+  background: var(--neo-surfaces-card-header, #1a1a1a);
+  border-color: var(--neo-border-primary, rgba(255, 255, 255, 0.2));
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .menuButton {
+  color: var(--neo-typography-input-default, rgba(255, 255, 255, 0.9));
+}
+
+[data-theme='dark'] .menuButton:hover:not(:disabled) {
+  background: rgba(90, 125, 229, 0.08);
+}
+
+[data-theme='dark'] .currentPersona {
+  color: var(--neo-digital-blue-300, #5a7de5);
+}
+
+/* Responsive: adjust for mobile */
+@media (max-width: 996px) {
+  .dropdown {
+    right: 0;
+    left: auto;
+  }
+}

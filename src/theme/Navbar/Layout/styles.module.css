@@ -1,0 +1,55 @@
+/**
+ * Navbar Layout Component Styles
+ * Migrated from custom.css lines 305-331
+ */
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--navbar-border-color);
+  box-shadow: none;
+}
+
+/* Dark mode frosted glass effect */
+:global(html[data-theme='dark']) .navbar {
+  background-color: rgba(12, 17, 43, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@media (min-width: 997px) {
+  .navbar {
+    padding-left: var(--ifm-navbar-padding-horizontal, 2.5rem);
+    padding-right: var(--ifm-navbar-padding-horizontal, 2.5rem);
+  }
+}
+
+/* Navbar logo sizing to match Figma design */
+.navbar :global(.navbar__brand) {
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  /* Prevent clipping of logo text */
+  overflow: visible;
+}
+
+.navbar :global(.navbar__logo) {
+  height: 24px;
+}
+
+.navbar :global(.navbar__logo img) {
+  height: 24px;
+  width: auto;
+}
+
+.navbar :global(.navbar__link) {
+  font-weight: 400;
+  color: var(--navbar-link-color);
+}
+
+/* Hide dropdown SVG icons */
+.navbar :global(.navbar__link svg) {
+  display: none;
+}

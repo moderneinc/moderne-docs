@@ -1,0 +1,56 @@
+import React, {type ReactNode, useMemo} from 'react';
+import DocSidebarItems from '@theme-original/DocSidebarItems';
+import type DocSidebarItemsType from '@theme/DocSidebarItems';
+import type {WrapperProps} from '@docusaurus/types';
+import {
+  filterSidebarItemsByContext,
+  useContextualSidebarDepth,
+} from './filterUtils';
+
+type Props = WrapperProps<typeof DocSidebarItemsType>;
+
+/**
+ * Wrapper for DocSidebarItems that implements contextual sidebar filtering.
+ *
+ * Filtering behavior:
+ * - Depth 0-1 (/, /introduction): Show all sections with dividers
+ * - Depth 2+ (product level and deeper): Show only current product with all its children
+ *   - /user-documentation/moderne-platform -> Show Platform section
+ *   - /user-documentation/moderne-platform/getting-started -> Show Platform section
+ *   - /user-documentation/moderne-platform/getting-started/doc -> Show Platform section
+ *
+ * This provides focused navigation by showing only the relevant product tree
+ * at any depth, reducing cognitive load while maintaining context.
+ */
+export default function DocSidebarItemsWrapper(props: Props): ReactNode {
+  const {depth, pathSegments, currentPath} = useContextualSidebarDepth();
+
+  // Get the current sidebar category from Docusaurus context
+  // This is more stable than path matching
+  let currentCategory;
+  try {
+    currentCategory = require('@docusaurus/plugin-content-docs/client').useCurrentSidebarCategory();
+  } catch (e) {
+    // Not in a category context (e.g., on homepage)
+    currentCategory = null;
+  }
+
+  // Apply contextual filtering with memoization for performance
+  const filteredItems = useMemo(() => {
+    return filterSidebarItemsByContext(
+      props.items,
+      currentPath,
+      depth,
+      pathSegments,
+      currentCategory,
+    );
+  }, [props.items, currentPath, depth, pathSegments, currentCategory]);
+
+  // Use Fragment to preserve HTML structure (DocSidebarItems is rendered inside <ul>)
+  // Key by currentPath to force re-render and reset collapse/expand state on navigation
+  return (
+    <>
+      <DocSidebarItems {...props} items={filteredItems} key={currentPath} />
+    </>
+  );
+}

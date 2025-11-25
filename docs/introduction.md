@@ -1,6 +1,5 @@
 ---
 description: Large-scale automated source code refactoring
-slug: /
 ---
 
 import ReactPlayer from 'react-player'

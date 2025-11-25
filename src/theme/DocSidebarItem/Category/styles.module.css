@@ -1,0 +1,73 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.categoryLink {
+  overflow: hidden;
+}
+
+/*
+NOTE: Disable Infima/Docusaurus CSS-generated carets since we use Lucide React icons
+Original Docusaurus uses CSS pseudo-elements, but we render actual SVG icons
+via the CollapseButton component for better control and accessibility.
+ */
+
+/* Disable the menu link ::after caret (for non-href categories) */
+:global(.menu__link--sublist-caret)::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Disable the Infima ::before caret on the button */
+:global(.menu__caret)::before {
+  content: none !important;
+  display: none !important;
+}
+
+.categoryLinkLabel {
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Caret icon styling using Lucide icons */
+.caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neo-grey-800, #1f2937);
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* High specificity to override default Lucide/Infima styles without !important */
+button.caret :global(svg.lucide) {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.caretActive {
+  color: var(--brand-digital-blue, #283af7);
+}
+
+html[data-theme='dark'] .caret {
+  color: var(--neo-grey-200, #e5e7eb);
+}
+
+html[data-theme='dark'] .caretActive {
+  color: var(--brand-digital-green, #85fe99);
+}
