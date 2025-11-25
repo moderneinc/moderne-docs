@@ -299,6 +299,34 @@ mod study . --last-recipe-run --data-table TaintFlowTable
   <figcaption>_Identifying code that will be affected by post quantum crypytography._</figcaption>
 </figure>
 
+### [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)
+
+> Finds all dependencies (including transitive) across Gradle and Maven projects. Useful for identifying version inconsistencies that can cause runtime issues.
+
+#### CLI commands
+
+```bash
+# Example: Find all Jackson library versions
+mod run . --recipe org.openrewrite.java.dependencies.DependencyInsight \
+  -P "groupIdPattern=com.fasterxml.jackson.*" \
+  -P "artifactIdPattern=*" \
+  -P "scope=runtime"
+
+mod study . --last-recipe-run --data-table DependenciesInUse
+```
+
+#### Recipe results
+
+<figure>
+  ![](./assets/dependency-insight-dt.png)
+  <figcaption>_A data table that includes information about what repositories use the dependency we specified above._</figcaption>
+</figure>
+
+<figure style={{maxWidth: '400px', margin: '0 auto'}}>
+  ![](./assets/dep-insight-vis.png)
+  <figcaption>_A visualization generated from the recipe results that shows the different versions of the specified dependencies across the selected repositories._</figcaption>
+</figure>
+
 ## Logging improvements
 
 ### [Parameterize SLF4J logging statements](https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging)
@@ -338,34 +366,6 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 </figure>
 
 ## Dependency management
-
-### [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)
-
-> Finds all dependencies (including transitive) across Gradle and Maven projects. Useful for identifying version inconsistencies that can cause runtime issues.
-
-#### CLI commands
-
-```bash
-# Example: Find all Jackson library versions
-mod run . --recipe org.openrewrite.java.dependencies.DependencyInsight \
-  -P "groupIdPattern=com.fasterxml.jackson.*" \
-  -P "artifactIdPattern=*" \
-  -P "scope=runtime"
-
-mod study . --last-recipe-run --data-table DependenciesInUse
-```
-
-#### Recipe results
-
-<figure>
-  ![](./assets/dependency-insight-dt.png)
-  <figcaption>_A data table that includes information about what repositories use the dependency we specified above._</figcaption>
-</figure>
-
-<figure style={{maxWidth: '400px', margin: '0 auto'}}>
-  ![](./assets/dep-insight-vis.png)
-  <figcaption>_A visualization generated from the recipe results that shows the different versions of the specified dependencies across the selected repositories._</figcaption>
-</figure>
 
 ### [Update Gradle wrapper](https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper)
 
