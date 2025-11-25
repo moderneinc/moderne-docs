@@ -349,20 +349,23 @@ The Moderne agent needs to connect to your artifact repositories for two reasons
 
 Your company might have many artifact repositories, potentially in different products, that you wish to connect the Moderne agent to. Each of these artifact repositories could contain LST artifacts, recipe artifacts, or a combination of both. The setup instructions differ based on what product you use to store your artifact repositories and what artifacts you wish to send to Moderne.
 
+Moderne offers several options for connecting to your artifact storage:
+
+* **[Artifactory](./configure-an-agent-with-artifactory-access.md)**: Uses AQL (Artifact Query Language) to be able to see your repos in the platform within two minutes after publishing. **(recommended for Artifactory users)**
+* **[Maven repository](./configure-an-agent-with-maven-repository-access.md)**: A generic connection that works with any Maven-formatted repository (Artifactory, Nexus, etc.). Serves both LST and recipe artifacts.
+* **[Amazon S3](./configure-an-agent-with-s3-access.md)**: Store and retrieve LST artifacts directly from S3 or S3-compatible storage (e.g., MinIO).
+
 :::info
-The Moderne agent can only talk to _Maven formatted_ artifact repositories. There are a variety of open-source and commercial products that exist that can serve artifacts in this format (such as [Artifactory](https://jfrog.com/artifactory/) and [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository)). A single instance of one of these products may contain multiple Maven repositories.
+For Maven and Artifactory configurations, the Moderne agent connects to _Maven formatted_ artifact repositories. There are a variety of open-source and commercial products that exist that can serve artifacts in this format (such as [Artifactory](https://jfrog.com/artifactory/) and [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository)).
 :::
 
-Moderne offers two options for connecting to your artifact repository: a generic Maven connection that can connect to any Maven formatted repository regardless of vendor and an Artifactory-specific connection that is optimized to serve LST artifacts more quickly.
+**Choosing your artifact source:**
 
-If you _do not_ plan on using Artifactory to store LST or recipe artifacts, please follow the [Maven repository configuration instructions](./configure-an-agent-with-maven-repository-access.md) and then jump to [Step 6](#step-6-optionally-use-strict-recipe-sources).
+* If you use **Artifactory**, use the [Artifactory LST configuration](./configure-an-agent-with-artifactory-access.md). Then, if you plan on creating custom recipes, follow the [Artifactory recipe configuration](./configuring-artifactory-with-recipes.md) to serve recipe artifacts.
+* If you use **Amazon S3** or S3-compatible storage, use the [S3 configuration](./configure-an-agent-with-s3-access.md).
+* If you use a **different Maven repository** (Nexus, etc.) or cannot use AQL queries, use the [Maven repository configuration](./configure-an-agent-with-maven-repository-access.md).
 
-If you _do_ plan on using Artifactory to store artifacts, you have two options:
-
-1. Use the [Artifactory LST configuration instructions](./configure-an-agent-with-artifactory-access.md) to set up a connection that serves LST artifacts to Moderne. Then, if you plan on creating custom recipes, you would follow the [Artifactory recipe configuration instructions](./configuring-artifactory-with-recipes.md) to set up a connection in Artifactory to serve recipe artifacts. **(recommended)**
-2. Use the [Maven repository configuration instructions](./configure-an-agent-with-maven-repository-access.md) to set up a connection that serves both LST artifacts and recipe artifacts to Moderne. This is not recommended as LST artifacts will have a considerable delay between being published and showing up in Moderne. However, if for some reason you can not use AQL queries, this approach is necessary.
-
-The below table shows the key differences between the two types of configuration:
+The below table shows the key differences between the Maven and Artifactory configurations:
 
 | **Maven repository configuration**                                                                                                                                                                                                                                                                                                                                                                                                                      | **Artifactory repository configuration**                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
