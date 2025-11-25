@@ -21,7 +21,7 @@ To assist with that, this guide will:
 
 ## GitHub application configuration (preferred)
 
-1. Navigate to the settings page for your organization: `https://github.com/organizations/<YOUR_ORG>/settings/applications`
+1. Navigate to the settings page for your organization: `https://github.com/organizations/<YOUR_GITHUB_ORG>/settings/applications`
 2. Expand `Developer settings` on the bottom left of the page:
    <figure>
      ![](./assets/dev-settings-github.png)
@@ -30,14 +30,14 @@ To assist with that, this guide will:
 3. Click the `New GitHub App` button in the upper right of your screen.
 4. Supply the required fields and register the application:
 
-    | Field                                   | Example                                                                                                   |
-    | --------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-    | Application Name                        | `Moderne SaaS`                                                                                            |
-    | Homepage URL                            | `https://myorg.moderne.io`                                                                                |
-    | Authorization callback URL              | `https://myorg.moderne.io`                                                                                |
-    | Webhook Active                          | Disable                                                                                                   |
+    | Field                                   | Example                                                                                                     |
+    | --------------------------------------- |-------------------------------------------------------------------------------------------------------------|
+    | Application Name                        | `Moderne SaaS`                                                                                              |
+    | Homepage URL                            | `https://<TENANT>.moderne.io`                                                                               |
+    | Authorization callback URL              | `https://<TENANT>.moderne.io`                                                                                  |
+    | Webhook Active                          | Disable                                                                                                     |
     | Repository Permissions                  | Contents - read/write<br/> Pull Requests - read/write<br/> Workflows - read/write                           |
-    | Account Permissions                     | Email Address - read-only                                                                                 |
+    | Account Permissions                     | Email Address - read-only                                                                                   |
     | Where can this GitHub App be installed? | You can choose either option based upon your specific needs:<br/> * Only on this account<br/> * Any account |
 
 5. On your newly created application click the `Generate a new client secret` button:
@@ -49,11 +49,11 @@ To assist with that, this guide will:
 
 #### Example values
 
-| Field                      | Example                    |
-| -------------------------- | -------------------------- |
-| Application Name           | `Moderne SaaS`             |
-| Homepage URL               | `https://myorg.moderne.io` |
-| Authorization callback URL | `https://myorg.moderne.io` |
+| Field                      | Example                          |
+| -------------------------- |----------------------------------|
+| Application Name           | `Moderne SaaS`                   |
+| Homepage URL               | `https://companyname.moderne.io` |
+| Authorization callback URL | `https://companyname.moderne.io` |
 
 ## GitHub OAuth application configuration (alternative)
 
