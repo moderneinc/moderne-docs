@@ -120,13 +120,36 @@ Connecting the CLI to Moderne is necessary to:
 * Download pre-built LSTs from Moderne so you can quickly run recipes locally
 * Receive organizational information, so you can clone/build/run groups of repositories more easily
 
-To set up this connection, you'll first need to receive an access token from us to use in your CLI. After you receive it, you should run the following command:
+To set up this connection:
+
+1. Direct the CLI to the Moderne Platform:
 
 ```bash
-mod config moderne edit https://app.moderne.io --token mat-YOUR_TOKEN_HERE
+mod config moderne edit https://app.moderne.io
 ```
 
-If everything worked, you should see a `MOD SUCCEEDED` message
+2. Authenticate with Moderne:
+
+```bash
+mod config moderne login
+```
+
+This command will open up a web page where you'll grant the CLI access to things like:
+
+* Your email address
+* Your user profile
+* Your user roles
+* The ability to create Personal Access Tokens (PAT)
+
+After granting access, the CLI will automatically configure and store your token locally. You should see a success message indicating your token is valid for 360 days.
+
+:::info
+The token is valid for 360 days by default. When it expires, simply run `mod config moderne login` again to renew it. If you need a different expiration period, you can use the `--expiration` option (e.g., `mod config moderne login --expiration P180D` for 180 days).
+:::
+
+:::note
+If your organization uses username/password authentication instead of OAuth, use `mod config moderne edit` with the `--user` and `--password` options instead of the `mod config moderne login` command.
+:::
 
 #### Step 4: Install recipes
 
@@ -239,18 +262,53 @@ Connecting the CLI to your Moderne tenant is necessary to:
 * Download pre-built LSTs from your tenant so you can quickly run recipes locally
 * Receive organizational information specific to your company, so you can clone/build/run groups of repositories more easily
 
-To set up this connection, you'll first need to create an access token for the CLI to use:
+To set up this connection:
 
-1. Navigate to `https://yourcompany.moderne.io/settings/access-token` (replace `yourcompany` with your tenant name)
-2. Enter a human-readable name for the token (e.g., cli-token)
-3. Press `Generate`
-4. Copy the `install on your workstation` command and paste it into your command line. This command should look something like:
+1. Direct the CLI to your Moderne tenant:
 
 ```bash
-mod config moderne edit https://yourcompany.moderne.io --token mat-YOUR_TOKEN_HERE
+mod config moderne edit https://<TENANT>.moderne.io
 ```
 
-5. If everything worked, you should see a `MOD SUCCEEDED` message
+Replace `<TENANT>` with your actual tenant name.
+
+2. Authenticate with Moderne (recommended method):
+
+```bash
+mod config moderne login
+```
+
+This command will open up a web page where you'll grant the CLI access to things like:
+
+* Your email address
+* Your user profile
+* Your user roles
+* The ability to create Personal Access Tokens (PAT)
+
+After granting access, the CLI will automatically configure and store your token locally. You should see a success message indicating your token is valid for 360 days.
+
+:::info
+The token is valid for 360 days by default. When it expires, simply run `mod config moderne login` again to renew it. If you need a different expiration period, you can use the `--expiration` option (e.g., `mod config moderne login --expiration P180D` for 180 days).
+:::
+
+:::note
+If your organization uses username/password authentication instead of OAuth, use `mod config moderne edit` with the `--user` and `--password` options instead of the `mod config moderne login` command.
+:::
+
+<details>
+<summary>Alternative: Manual token configuration for automation/CI scenarios</summary>
+
+If you're configuring the CLI in a non-interactive environment (such as CI/CD pipelines), you can manually provide a token:
+
+1. Navigate to `https://<TENANT>.moderne.io/settings/access-token` (replace `<TENANT>` with your tenant name)
+2. Enter a human-readable name for the token (e.g., cli-token)
+3. Press `Generate`
+4. Copy the generated token and use it with the login command:
+
+```bash
+mod config moderne login --with-token mat-YOUR_TOKEN_HERE
+```
+</details>
 
 #### Step 4: Install recipes
 
