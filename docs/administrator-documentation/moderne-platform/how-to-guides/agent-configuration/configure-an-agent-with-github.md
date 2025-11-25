@@ -34,7 +34,7 @@ To assist with that, this guide will:
     | --------------------------------------- |-------------------------------------------------------------------------------------------------------------|
     | Application Name                        | `Moderne SaaS`                                                                                              |
     | Homepage URL                            | `https://<TENANT>.moderne.io`                                                                               |
-    | Authorization callback URL              | `https://<TENANT>.moderne.io`                                                                                  |
+    | Authorization callback URL              | `https://<TENANT>.moderne.io`                                                                               |
     | Webhook Active                          | Disable                                                                                                     |
     | Repository Permissions                  | Contents - read/write<br/> Pull Requests - read/write<br/> Workflows - read/write                           |
     | Account Permissions                     | Email Address - read-only                                                                                   |
@@ -57,7 +57,7 @@ To assist with that, this guide will:
 
 ## GitHub OAuth application configuration (alternative)
 
-1. Navigate to the settings page for your organization: `https://github.com/organizations/<YOUR_ORG>/settings/applications`
+1. Navigate to the settings page for your organization: `https://github.com/organizations/<YOUR_GITHUB_ORG>/settings/applications`
 2. Expand `Developer settings` on the bottom left of the page:
    <figure>
      ![](./assets/dev-settings.png)
@@ -78,11 +78,11 @@ To assist with that, this guide will:
 
 #### Example values
 
-| Field                      | Example                    |
-| -------------------------- | -------------------------- |
-| Application Name           | `Moderne SaaS`             |
-| Homepage URL               | `https://myorg.moderne.io` |
-| Authorization callback URL | `https://myorg.moderne.io` |
+| Field                      | Example                          |
+| -------------------------- |----------------------------------|
+| Application Name           | `Moderne SaaS`                   |
+| Homepage URL               | `https://<TENANT>.moderne.io`    |
+| Authorization callback URL | `https://<TENANT>.moderne.io` |
 
 ## Configure the Moderne Agent
 
