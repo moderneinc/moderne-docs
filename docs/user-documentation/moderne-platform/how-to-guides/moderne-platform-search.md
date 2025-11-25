@@ -33,14 +33,6 @@ If you know the exact name or ID of a recipe (because you're familiar with the r
 * Typing `id:` and then entering the exact ID for the recipe such as: `id:org.openrewrite.java.dependencies.DependencyVulnerabilityCheck`.
 * **Entering tags for the recipe to search for** such as, `tags:"RSPEC-2204"` to find all recipes with the `RSPEC-2204` tag. Please note that the other fields mentioned in the [non-ai search tip](#non-ai-search-tips) will not work with AI enabled.
 
-### How to enable or disable AI search
-
-To toggle AI search, log in to Moderne, click on your profile in the bottom-left, and click on the AI assisted search button in the modal that appears:
-
-<figure>
-  ![](./assets/ai-search-enable.gif)
-</figure>
-
 ## Non-AI search tips
 
 When AI search is disabled, you can search for specific fields such as:
