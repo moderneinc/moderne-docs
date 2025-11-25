@@ -1,5 +1,18 @@
 # CLI / DX changelog
 
+### CLI / DX v3.51.4 (2025/11/25)
+
+#### What's Changed
+* Improve recipe dependency download logging to distinguish cache hits from actual downloads
+- Fix `typesync` failures in `pnpm` projects
+* Fixing sync command when the same repository exists twice in the organization hierarchy
+* preserve DevCenter recipe ordering in dashboard panels
+* Fixed `mod git add` to also stage removed files to be included in commits
+* Fixing discovery of repositories on disk when they are placed in a subdirectory on `mod build`
+* Mask moderne.license.key in run.log
+* `mod git sync` now generates an aggregated build trace.csv file usable by `mod trace builds analyze`
+
+
 ### CLI / DX v3.51.3 (2025/11/18)
 
 #### What's Changed
