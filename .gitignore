@@ -29,3 +29,13 @@ rewrite-docs/
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# Local development files
+.local/
+.worktrees/
+.vercel
+
+*storybook.log
+storybook-static
+.env
+.env*.local

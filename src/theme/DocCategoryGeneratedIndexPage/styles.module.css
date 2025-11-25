@@ -1,0 +1,85 @@
+/* Base layout for generated index pages */
+.generatedIndexPage {
+  --ifm-spacing-horizontal: var(--neo-spacing_3_1_4);
+  position: relative;
+
+  /* Override Infima row margins to align cards with heading */
+  :global(.row[class*='list_']) {
+    margin-left: 0;
+    margin-right: 0;
+
+    > :global(.col) {
+      display: flex;
+    }
+  }
+
+  /* Hide gem icons on auto-generated category index pages */
+  :global([class*='cardIcon']) {
+    display: none;
+  }
+}
+
+@media (min-width: 997px) {
+  .generatedIndexPage {
+    /* Override Docusaurus container max-width */
+    max-width: 83%;
+  }
+}
+
+/* Flexbox layout with 32px gaps between sections */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_4);
+}
+
+/* Header group (title + description) */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+
+  /* Page header typography - matching Figma design (node 478:5567)
+     Nested for higher specificity to override Docusaurus h1 defaults */
+  .title {
+    font-size: var(--neo-font-size-h3);
+    font-weight: var(--neo-font-weight-medium);
+    line-height: 1.4;
+    color: var(--neo-typography-input-default);
+    margin: 0;
+  }
+
+  /* Description paragraph styling */
+  p {
+    font-size: var(--neo-font-size-sm);
+    font-weight: var(--neo-font-weight-regular);
+    line-height: 1.4;
+    margin: 0;
+  }
+}
+
+[data-theme='dark'] .header {
+  .title {
+    color: var(--neo-surfaces-white);
+  }
+
+  p {
+    color: #d4d3e4;
+  }
+}
+
+/* Force single-column layout for card list to match Figma design */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+
+  /* Make list items full width and remove Infima col padding */
+  > * {
+    width: 100%;
+    max-width: none;
+    flex: 0 0 auto;
+    padding: 0;
+    margin-bottom: 0;
+  }
+}

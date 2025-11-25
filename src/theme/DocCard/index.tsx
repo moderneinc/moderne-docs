@@ -6,7 +6,7 @@ import {
 import { usePluralForm } from "@docusaurus/theme-common";
 import { translate } from "@docusaurus/Translate";
 import clsx from "clsx";
-import { type ReactNode } from "react";
+import { FunctionComponent, type ReactNode } from "react";
 
 import type {
   PropSidebarItemCategory,
@@ -16,6 +16,17 @@ import type { Props } from "@theme/DocCard";
 import Heading from "@theme/Heading";
 
 import styles from "./styles.module.css";
+
+/**
+ * Extended customProps interface for sidebar items with gem icon support.
+ * Used by both category and link items to specify which gem icon to display.
+ */
+interface GemIconCustomProps {
+  /** Gem icon filename (without extension) from /img/gems/ */
+  gemIcon?: string;
+  /** Whether this item should appear in the MegaMenu */
+  megaMenu?: boolean;
+}
 
 function useCategoryItemsPlural() {
   const { selectMessage } = usePluralForm();
@@ -34,58 +45,70 @@ function useCategoryItemsPlural() {
     );
 }
 
-function CardContainer({
-  href,
-  children,
-}: {
+interface CardContainerProps {
   href: string;
   children: ReactNode;
-}): JSX.Element {
+}
+
+const CardContainer: FunctionComponent<CardContainerProps> = ({ href, children }) => {
   return (
     <Link
       href={href}
-      className={clsx("card padding--lg", styles.cardContainer)}
+      className={clsx("card", styles.cardContainer)}
     >
       {children}
     </Link>
   );
-}
+};
 
-function CardLayout({
-  href,
-  title,
-  description,
-}: {
+CardContainer.displayName = 'CardContainer';
+
+interface CardLayoutProps {
   href: string;
   title: string;
   description?: string;
-}): JSX.Element {
-  return (
-    <CardContainer href={href}>
-      <Heading
-        as="h2"
-        className={clsx(styles.cardTitle)}
-        title={title}
-      >
-        {title}
-      </Heading>
-      {description && (
-        <p
-          className={clsx("text--truncate", styles.cardDescription)}
-          title={description}
-        >
-          {description}
-        </p>
-      )}
-    </CardContainer>
-  );
+  gemIcon?: string;
 }
 
-function CardCategory({
-  item,
-}: {
+const CardLayout: FunctionComponent<CardLayoutProps> = ({ href, title, description, gemIcon }) => {
+  // Default to pink gem if no icon specified
+  const iconSrc = gemIcon
+    ? `/img/gems/${gemIcon}.png`
+    : '/img/gems/pink.png';
+
+  return (
+    <CardContainer href={href}>
+      <div className={styles.cardIcon}>
+        <img src={iconSrc} alt="" role="presentation" />
+      </div>
+      <div className={styles.cardContent}>
+        <Heading
+          as="h2"
+          className={clsx(styles.cardTitle, 'doc-card-title')}
+          title={title}
+        >
+          {title}
+        </Heading>
+        {description && (
+          <p
+            className={clsx(styles.cardDescription)}
+            title={description}
+          >
+            {description}
+          </p>
+        )}
+      </div>
+    </CardContainer>
+  );
+};
+
+CardLayout.displayName = 'CardLayout';
+
+interface CardCategoryProps {
   item: PropSidebarItemCategory;
-}): JSX.Element | null {
+}
+
+const CardCategory: FunctionComponent<CardCategoryProps> = ({ item }) => {
   const href = findFirstSidebarItemLink(item);
   const categoryItemsPlural = useCategoryItemsPlural();
 
@@ -94,27 +117,46 @@ function CardCategory({
     return null;
   }
 
+  // Extract gem icon from customProps if available
+  const customProps = item.customProps as GemIconCustomProps | undefined;
+  const gemIcon = customProps?.gemIcon;
+
   return (
     <CardLayout
       href={href}
       title={item.label}
       description={item.description ?? categoryItemsPlural(item.items.length)}
+      gemIcon={gemIcon}
     />
   );
+};
+
+CardCategory.displayName = 'CardCategory';
+
+interface CardLinkProps {
+  item: PropSidebarItemLink;
 }
 
-function CardLink({ item }: { item: PropSidebarItemLink }): JSX.Element {
+const CardLink: FunctionComponent<CardLinkProps> = ({ item }) => {
   const doc = useDocById(item.docId ?? undefined);
+
+  // Extract gem icon from customProps only (frontMatter not available on PropVersionDoc)
+  const customProps = item.customProps as GemIconCustomProps | undefined;
+  const gemIcon = customProps?.gemIcon;
+
   return (
     <CardLayout
       href={item.href}
       title={item.label}
       description={item.description ?? doc?.description}
+      gemIcon={gemIcon}
     />
   );
-}
+};
 
-export default function DocCard({ item }: Props): JSX.Element {
+CardLink.displayName = 'CardLink';
+
+const DocCard: FunctionComponent<Props> = ({ item }) => {
   switch (item.type) {
     case "link":
       return <CardLink item={item} />;
@@ -123,4 +165,8 @@ export default function DocCard({ item }: Props): JSX.Element {
     default:
       throw new Error(`unknown item type ${JSON.stringify(item)}`);
   }
-}
+};
+
+DocCard.displayName = 'DocCard';
+
+export default DocCard;

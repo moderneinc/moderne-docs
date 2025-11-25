@@ -1,0 +1,65 @@
+/**
+ * DocPaginator styles from Figma design
+ * Design reference: node-id=752:3329, 752:3330, 752:3331
+ *
+ * Figma spec:
+ * - Simple text links with inline arrows
+ * - Typography: Misc/button (Inter Medium, 14px, weight 500, line-height 1)
+ * - Color: typography/body-secondary (#6B7280)
+ * - Layout: justify-between with no backgrounds or borders
+ */
+
+.paginationNav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--neo-spacing_4);
+  padding: 0;
+  margin: 0;
+  margin-top: var(--neo-spacing_4); /* Add spacing above pagination nav */
+}
+
+.paginationLink {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  line-height: 1;
+  color: var(--neo-grey-500);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.paginationLink:hover {
+  opacity: 0.7;
+  text-decoration: none;
+  color: var(--neo-grey-500);
+}
+
+.paginationLinkPrev {
+  text-align: left;
+}
+
+.paginationLinkNext {
+  text-align: right;
+}
+
+.arrow {
+  color: var(--neo-grey-500);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+}
+
+/* Dark mode - lighter gray for visibility */
+html[data-theme='dark'] .paginationLink {
+  color: var(--neo-grey-400);
+}
+
+html[data-theme='dark'] .paginationLink:hover {
+  color: var(--neo-grey-400);
+}
+
+html[data-theme='dark'] .arrow {
+  color: var(--neo-grey-400);
+}

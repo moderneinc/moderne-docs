@@ -1,0 +1,115 @@
+/**
+ * Sidebar Navigation Component Styles
+ * Migrated from custom.css lines 333-416
+ *
+ * Note: This CSS module extends the default Docusaurus sidebar styles
+ * with NeoDesign tokens for typography, spacing, and colors.
+ */
+
+@media (min-width: 997px) {
+  /* Override default menu padding with NeoDesign spacing */
+  .menu {
+    flex-grow: 1;
+    padding: var(--neo-spacing_3) var(--neo-spacing_3) var(--neo-spacing_1) var(--neo-spacing_3);
+  }
+
+  @supports (scrollbar-gutter: stable) {
+    .menu {
+      scrollbar-gutter: stable;
+    }
+  }
+
+  .menuWithAnnouncementBar {
+    margin-bottom: var(--docusaurus-announcement-bar-height);
+  }
+}
+
+/**
+ * Global sidebar typography and link styles
+ * Applied via global selectors targeting the theme class
+ * Aligned with Figma design specifications
+ */
+:global(.theme-doc-sidebar-menu) {
+  font-size: var(--neo-font-size-default);
+  font-weight: var(--neo-font-weight-regular);
+  line-height: 1.5;
+}
+
+/* Top-level section headers - Semi Bold */
+:global(.theme-doc-sidebar-menu > .menu__list-item > .menu__link-wrapper > .menu__link),
+:global(.theme-doc-sidebar-menu > .menu__list-item > .menu__link),
+:global(.theme-doc-sidebar-menu > .menu__list-item > .menu__list-item-collapsible > .menu__link) {
+  font-weight: var(--neo-font-weight-semi-bold);
+}
+
+/* Sidebar link spacing */
+:global(.theme-doc-sidebar-menu .menu__link) {
+  padding: var(--neo-spacing_1_1_2);
+}
+
+/* Hover states - brand lavender tint (not in NeoDesign) + selected color */
+:global(.theme-doc-sidebar-menu .menu__link:hover) {
+  background-color: rgba(212, 211, 228, 0.2);
+  color: var(--brand-digital-blue);
+}
+
+:global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link:hover) {
+  background-color: rgba(212, 211, 228, 0.1);
+  color: var(--brand-digital-green);
+}
+
+/* Category item hover - applies to the full row including caret */
+:global(.theme-doc-sidebar-menu .menu__list-item-collapsible:hover) {
+  background-color: rgba(212, 211, 228, 0.2);
+}
+
+:global(.theme-doc-sidebar-menu .menu__list-item-collapsible:hover .menu__link) {
+  color: var(--brand-digital-blue);
+  background-color: transparent;
+}
+
+:global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__list-item-collapsible:hover) {
+  background-color: rgba(212, 211, 228, 0.1);
+}
+
+:global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__list-item-collapsible:hover .menu__link) {
+  color: var(--brand-digital-green);
+  background-color: transparent;
+}
+
+/* Active state colors - brand digital blue (light) / digital green (dark) */
+:global(.theme-doc-sidebar-menu .menu__link--active) {
+  color: var(--brand-digital-blue);
+}
+
+:global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link--active) {
+  color: var(--brand-digital-green);
+}
+
+/* Border styling between top-level sections - brand lavender */
+:global(.theme-doc-sidebar-menu > .menu__list > .menu__list-item) {
+  border-top: 0.5px solid var(--brand-dark-lavender);
+}
+
+/* Remove border from first item to avoid double border at top */
+:global(.theme-doc-sidebar-menu > .menu__list > .menu__list-item:first-child) {
+  border-top: none;
+}
+
+/* Sidebar section headers (HTML dividers in sidebar) */
+:global(.theme-doc-sidebar-item-link > strong) {
+  text-transform: uppercase;
+  color: var(--neo-grey-700);
+  font-size: var(--neo-font-size-sm);
+  line-height: 1.4;
+  font-weight: var(--neo-font-weight-semi-bold);
+}
+
+:global(html[data-theme='dark'] .theme-doc-sidebar-item-link > strong) {
+  color: var(--brand-digital-green);
+}
+
+/* Note: Caret icons are now rendered using Lucide React icons
+ * See src/theme/DocSidebarItem/Category/index.tsx and styles.module.css
+ * for the Lucide icon implementation
+ */

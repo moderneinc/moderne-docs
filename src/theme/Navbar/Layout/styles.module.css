@@ -1,0 +1,80 @@
+/**
+ * Navbar Layout Component Styles
+ * Migrated from custom.css for frosted glass effect
+ *
+ * This file contains:
+ * - Navbar wrapper for fixed positioning (contains primary + secondary nav)
+ * - Frosted glass background and blur effects (light/dark modes)
+ * - Hide-on-scroll animation classes
+ * - Logo sizing and navbar link styling
+ */
+
+/* Wrapper for both primary navbar and secondary nav */
+.navbarWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--ifm-z-index-fixed);
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* Frosted glass navbar styling */
+.navbar {
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  /* backdrop-filter: blur(10px); */
+  border-bottom: none;
+  box-shadow: none;
+}
+
+/* Hide-on-scroll animation (from Docusaurus original) */
+.navbarHideable {
+  transition: transform var(--ifm-transition-fast) ease;
+}
+
+.navbarHidden {
+  transform: translate3d(0, calc(-100% - 2px), 0);
+}
+
+/* Dark mode frosted glass effect */
+:global(html[data-theme='dark']) .navbar {
+  background-color: rgba(12, 17, 43, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+@media (min-width: 997px) {
+  .navbar {
+    padding-left: var(--ifm-navbar-padding-horizontal, 2.5rem);
+    padding-right: var(--ifm-navbar-padding-horizontal, 2.5rem);
+  }
+}
+
+/* Navbar logo sizing to match Figma design */
+.navbar :global(.navbar__brand) {
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  /* Prevent clipping of logo text */
+  overflow: visible;
+}
+
+.navbar :global(.navbar__logo) {
+  height: 24px;
+}
+
+.navbar :global(.navbar__logo img) {
+  height: 24px;
+  width: auto;
+}
+
+.navbar :global(.navbar__link) {
+  font-weight: 400;
+  color: var(--ifm-heading-color);
+}
+
+/* Hide dropdown SVG icons */
+.navbar :global(.navbar__link svg) {
+  display: none;
+}
