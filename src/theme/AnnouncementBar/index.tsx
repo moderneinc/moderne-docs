@@ -1,4 +1,4 @@
-import React from 'react';
+import {type FunctionComponent} from 'react';
 import {useThemeConfig} from '@docusaurus/theme-common';
 import {useAnnouncementBar} from '@docusaurus/theme-common/internal';
 import AnnouncementBarCloseButton from '@theme/AnnouncementBar/CloseButton';
@@ -6,7 +6,7 @@ import AnnouncementBarContent from '@theme/AnnouncementBar/Content';
 
 import styles from './styles.module.css';
 
-export default function AnnouncementBar(): JSX.Element | null {
+const AnnouncementBar: FunctionComponent = () => {
   const {announcementBar} = useThemeConfig();
   const {isActive, close} = useAnnouncementBar();
   if (!isActive) {
@@ -27,4 +27,8 @@ export default function AnnouncementBar(): JSX.Element | null {
       )}
     </div>
   );
-}
+};
+
+AnnouncementBar.displayName = 'AnnouncementBar';
+
+export default AnnouncementBar;

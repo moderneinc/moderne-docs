@@ -1,6 +1,7 @@
 ---
 sidebar_label: Code Remix
 description: Links to every Code Remix session and summaries of what took place in each.
+displayed_sidebar: null
 ---
 
 import ReactPlayer from 'react-player';
