@@ -72,3 +72,58 @@ This is the primary documentation repository for Moderne (https://docs.moderne.i
   * `releases/`: Changelogs and release notes
   * `hands-on-learning/`: Workshops and tutorials
 * Built with Docusaurus, deployed automatically on merge
+
+### Contextual Sidebar Navigation
+
+The documentation uses dynamic sidebar filtering to provide focused navigation based on the current page. This helps users stay oriented within their current section without being overwhelmed by the full site structure.
+
+**How it works:**
+
+* **Top-level pages** (/, /introduction): Display all documentation sections
+* **Within any major section**: Display only that section's content tree
+  * Example: When in "Hands-on Learning", only workshop content is shown
+  * Example: When in "User Documentation", only user-facing guides are shown
+
+**Implementation:**
+
+* Component: `src/theme/DocSidebarItems/index.tsx` (swizzled from Docusaurus theme)
+* Filtering logic: `src/theme/DocSidebarItems/filterUtils.ts`
+* Sidebar definition: `sidebars.ts` (single source of truth)
+
+**Section boundaries:**
+
+Sections are automatically detected using HTML divider elements in `sidebars.ts`:
+* `{ type: 'html', value: '<br/><strong>Section Name</strong>' }`
+
+**Maintenance:**
+
+* All sidebar content is managed in `sidebars.ts`
+* No frontmatter changes needed for new documents
+* Filtering is automatic based on URL path
+* Cache clearing (`rm -rf .docusaurus`) required after swizzle changes
+
+### Swizzled Components and Docusaurus Compatibility
+
+This project uses **Docusaurus 3.9.1** and has customized several theme components through swizzling. When upgrading Docusaurus, carefully review the migration guide for potential breaking changes to these components.
+
+**Swizzled components:**
+
+* `DocBreadcrumbs` - Custom breadcrumb component using Neo Design system
+* `DocCard` - Enhanced with gem icon support via `customProps.gemIcon`
+* `DocCategoryGeneratedIndexPage` - Custom layout for category index pages
+* `DocPaginator` - Styled pagination for documentation pages
+* `DocSidebar/Desktop/Content` - Custom sidebar layout and styling
+* `DocSidebarItems` - Implements contextual filtering (see above)
+* `Footer` - Custom footer with Moderne branding
+* `Navbar/Layout` - Custom navbar layout with MegaMenu integration
+* `Navbar/Logo` - Custom logo component with dark mode support
+
+**Important upgrade considerations:**
+
+* Before upgrading Docusaurus, check the [Docusaurus migration guide](https://docusaurus.io/docs/migration) for changes to swizzled components
+* Test all swizzled components thoroughly after upgrade, especially:
+  * Sidebar filtering logic (`DocSidebarItems`)
+  * Navbar and MegaMenu functionality
+  * Gem icon display on DocCards
+* Clear the Docusaurus cache after any swizzle changes: `rm -rf .docusaurus`
+* If a swizzled component has breaking changes, consider re-swizzling or migrating to a safer wrapper approach

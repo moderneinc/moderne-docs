@@ -173,23 +173,7 @@ const config: Config = {
         src: 'img/logo.svg',
         srcDark: 'img/darkLogo.svg',
       },
-      items: [
-        {
-          href: "https://www.moderne.ai/",
-          label: "Moderne website",
-          position: "right",
-        },
-        {
-          href: "https://docs.openrewrite.org/",
-          label: "OpenRewrite docs",
-          position: "right",
-        },
-        {
-          href: "https://app.moderne.io/",
-          label: "Go to app",
-          position: "right",
-        },
-      ],
+      // Navigation handled by MegaMenu in swizzled Navbar/Layout component
     },
     footer: {
       copyright: `© Moderne, ${new Date().getFullYear()}`,

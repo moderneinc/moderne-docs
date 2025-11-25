@@ -44,7 +44,7 @@ function CardContainer({
   return (
     <Link
       href={href}
-      className={clsx("card padding--lg", styles.cardContainer)}
+      className={clsx("card", styles.cardContainer)}
     >
       {children}
     </Link>
@@ -55,28 +55,40 @@ function CardLayout({
   href,
   title,
   description,
+  gemIcon,
 }: {
   href: string;
   title: string;
   description?: string;
+  gemIcon?: string;
 }): JSX.Element {
+  // Default to pink gem if no icon specified
+  const iconSrc = gemIcon
+    ? `/img/gems/${gemIcon}.png`
+    : '/img/gems/pink.png';
+
   return (
     <CardContainer href={href}>
-      <Heading
-        as="h2"
-        className={clsx(styles.cardTitle)}
-        title={title}
-      >
-        {title}
-      </Heading>
-      {description && (
-        <p
-          className={clsx("text--truncate", styles.cardDescription)}
-          title={description}
+      <div className={styles.cardIcon}>
+        <img src={iconSrc} alt="" role="presentation" />
+      </div>
+      <div className={styles.cardContent}>
+        <Heading
+          as="h2"
+          className={clsx(styles.cardTitle, 'doc-card-title')}
+          title={title}
         >
-          {description}
-        </p>
-      )}
+          {title}
+        </Heading>
+        {description && (
+          <p
+            className={clsx(styles.cardDescription)}
+            title={description}
+          >
+            {description}
+          </p>
+        )}
+      </div>
     </CardContainer>
   );
 }
@@ -94,22 +106,31 @@ function CardCategory({
     return null;
   }
 
+  // Extract gem icon from customProps if available
+  const gemIcon = (item.customProps as any)?.gemIcon as string | undefined;
+
   return (
     <CardLayout
       href={href}
       title={item.label}
       description={item.description ?? categoryItemsPlural(item.items.length)}
+      gemIcon={gemIcon}
     />
   );
 }
 
 function CardLink({ item }: { item: PropSidebarItemLink }): JSX.Element {
   const doc = useDocById(item.docId ?? undefined);
+
+  // Extract gem icon from customProps only (frontMatter not available on PropVersionDoc)
+  const gemIcon = (item.customProps as any)?.gemIcon as string | undefined;
+
   return (
     <CardLayout
       href={item.href}
       title={item.label}
       description={item.description ?? doc?.description}
+      gemIcon={gemIcon}
     />
   );
 }

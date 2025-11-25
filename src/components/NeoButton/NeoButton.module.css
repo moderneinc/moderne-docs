@@ -1,0 +1,188 @@
+/**
+ * Button Component Styles
+ * Based on Figma design using Neo Design CSS variables
+ */
+
+/* Base button styles */
+.button {
+  /* Typography - matches Figma: Inter Medium 14px */
+  font-family: var(--neo-font-family-body, 'Inter', sans-serif);
+  font-size: var(--neo-font-size-sm, 14px);
+  font-weight: var(--neo-font-weight-medium, 500);
+  line-height: 1;
+
+  /* Shape - pill/capsule shape */
+  border-radius: var(--neo-border-radius-button, 999px);
+  border: none;
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  /* Interaction */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  /* Remove default button/link styles */
+  outline: none;
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Ensure links don't inherit link colors */
+  color: inherit;
+}
+
+/* Override link hover styles when button is a link */
+.button:hover {
+  text-decoration: none;
+}
+
+/* Primary variant - blue button from Figma */
+.button--primary {
+  background-color: var(--neo-buttons-primary-default, var(--neo-digital-blue-500));
+  color: var(--neo-grey-50);
+}
+
+.button--primary:hover:not(:disabled) {
+  background-color: var(--neo-buttons-primary-hover, var(--neo-digital-blue-600));
+}
+
+.button--primary:active:not(:disabled) {
+  background-color: var(--neo-buttons-primary-pressed, var(--neo-digital-blue-800));
+}
+
+.button--primary:focus-visible {
+  outline: 2px solid var(--neo-buttons-primary-focus, var(--neo-digital-blue-500));
+  outline-offset: 2px;
+}
+
+/* Secondary variant */
+.button--secondary {
+  background-color: var(--neo-buttons-secondary-default-background, var(--neo-surfaces-white));
+  color: var(--neo-buttons-secondary-default, var(--neo-grey-800));
+  border: 1px solid var(--neo-buttons-secondary-default-border, #b6bfff);
+}
+
+.button--secondary:hover:not(:disabled) {
+  background-color: var(--neo-buttons-secondary-hover-background, #f2f3ff);
+}
+
+.button--secondary:active:not(:disabled) {
+  background-color: var(--neo-buttons-secondary-pressed-background, #dce0ff);
+}
+
+.button--secondary:focus-visible {
+  outline: 2px solid var(--neo-buttons-secondary-focus, var(--neo-digital-blue-500));
+  outline-offset: 2px;
+}
+
+/* Outline variant (tertiary) */
+.button--outline {
+  background-color: transparent;
+  color: var(--neo-buttons-tertiary-default, var(--neo-digital-blue-500));
+  border: 1px solid var(--neo-buttons-tertiary-default, var(--neo-digital-blue-500));
+}
+
+.button--outline:hover:not(:disabled) {
+  color: var(--neo-buttons-tertiary-hover, var(--neo-digital-blue-600));
+  border-color: var(--neo-buttons-tertiary-hover, var(--neo-digital-blue-600));
+}
+
+.button--outline:active:not(:disabled) {
+  color: var(--neo-buttons-tertiary-pressed, var(--neo-digital-blue-800));
+  border-color: var(--neo-buttons-tertiary-pressed, var(--neo-digital-blue-800));
+}
+
+.button--outline:focus-visible {
+  outline: 2px solid var(--neo-buttons-tertiary-focus, var(--neo-digital-blue-500));
+  outline-offset: 2px;
+}
+
+/* Size variants */
+.button--small {
+  padding: 8px 16px;
+  font-size: var(--neo-font-size-xs, 12px);
+}
+
+.button--medium {
+  padding: 12px 24px;
+  font-size: var(--neo-font-size-sm, 14px);
+}
+
+.button--large {
+  padding: 16px 32px;
+  font-size: var(--neo-font-size-default, 16px);
+}
+
+/* Disabled state */
+.button--disabled,
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.button--primary:disabled {
+  background-color: var(--neo-buttons-primary-disabled, var(--neo-grey-100));
+  color: var(--neo-typography-button-disabled, var(--neo-grey-400));
+}
+
+.button--secondary:disabled {
+  background-color: var(--neo-buttons-secondary-disabled-background, var(--neo-grey-50));
+  border-color: var(--neo-buttons-secondary-disabled-border, var(--neo-grey-200));
+  color: var(--neo-typography-button-disabled, var(--neo-grey-400));
+}
+
+.button--outline:disabled {
+  color: var(--neo-buttons-tertiary-disabled, var(--neo-grey-400));
+  border-color: var(--neo-buttons-tertiary-disabled, var(--neo-grey-400));
+}
+
+/* Icon styling */
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.button__text {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Icon-only button (no text) */
+.button--icon-only {
+  aspect-ratio: 1;
+  padding: 12px;
+}
+
+.button--icon-only.button--small {
+  padding: 8px;
+}
+
+.button--icon-only.button--large {
+  padding: 16px;
+}
+
+/* Dark mode adjustments */
+html[data-theme='dark'] .button--primary {
+  background-color: var(--neo-digital-blue-400);
+}
+
+html[data-theme='dark'] .button--primary:hover:not(:disabled) {
+  background-color: var(--neo-digital-blue-500);
+}
+
+html[data-theme='dark'] .button--secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--neo-surfaces-white);
+}
+
+html[data-theme='dark'] .button--secondary:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.15);
+}
