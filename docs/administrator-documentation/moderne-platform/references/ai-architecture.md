@@ -62,7 +62,7 @@ Moderne offers users the ability to search for recipes with AI. This can help if
 
 #### Deployment
 
-Deployed as part of the Moderne Platform. You can [choose whether or not to enable this](../../../user-documentation/moderne-platform/how-to-guides/moderne-platform-search.md#how-to-enable-or-disable-ai-search), though.
+Deployed as part of the Moderne Platform.
 
 #### AI models
 
