@@ -29,7 +29,7 @@ This guide will walk you through everything you need to know to get started with
     | Field                   | Value                                         |
     |-------------------------|-----------------------------------------------|
     | Name                    | `Moderne`                                     |
-    | Redirect URL            | `https://your-domain.moderne.io`              |
+    | Redirect URL            | `https://<TENANT>.moderne.io`              |
     | Application Permissions | Repositories - Read<br/> Repositories - Write |
     
 8. Click _Save_ to complete the Application Link creation
@@ -70,9 +70,9 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
     | Application Type      | Generic Application              |
     | Service Provider Name | `moderne`                        |
     | Consumer key          | `OauthKey`                       |
-    | Request token URL     | `https://your-domain.moderne.io` |
-    | Access token URL      | `https://your-domain.moderne.io` |
-    | Authorize URL         | `https://your-domain.moderne.io` |
+    | Request token URL     | `https://<TENANT>.moderne.io` |
+    | Access token URL      | `https://<TENANT>.moderne.io` |
+    | Authorize URL         | `https://<TENANT>.moderne.io` |
     | Create incoming link  | ✅                               |
 8. Click _Continue_
 9.  Complete the Incoming Link configuration:
