@@ -353,7 +353,7 @@ Moderne offers several options for connecting to your artifact storage:
 
 * **[Artifactory](./configure-an-agent-with-artifactory-access.md)**: Uses AQL (Artifact Query Language) to be able to see your repos in the platform within two minutes after publishing. **(recommended for Artifactory users)**
 * **[Maven repository](./configure-an-agent-with-maven-repository-access.md)**: A generic connection that works with any Maven-formatted repository (Artifactory, Nexus, etc.). Serves both LST and recipe artifacts.
-* **[Amazon S3](./configure-an-agent-with-s3-access.md)**: Store and retrieve LST artifacts directly from S3 or S3-compatible storage (e.g. MinIO).
+* **[Amazon S3](./configure-an-agent-with-s3-access.md)**: Store and retrieve LST artifacts directly from S3 or S3-compatible storage (e.g., MinIO).
 
 :::info
 For Maven and Artifactory configurations, the Moderne agent connects to _Maven formatted_ artifact repositories. There are a variety of open-source and commercial products that exist that can serve artifacts in this format (such as [Artifactory](https://jfrog.com/artifactory/) and [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository)).

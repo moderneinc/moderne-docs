@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Configure an agent with S3 access: LSTs
 
-Amazon S3 and S3-compatible storages (e.g. MinIO) can serve as a source of LST artifacts for Moderne. This integration allows you to store your LST artifacts in object storage for the Moderne Platform to be able to index them.
+Amazon S3 and S3-compatible storage systems (e.g., MinIO) can serve as a source of LST artifacts for Moderne. This integration allows you to store your LST artifacts in object storage for the Moderne Platform to be able to index them.
 
 This guide will walk you through how to configure the Moderne agent to connect to your S3 bucket to retrieve LST artifacts.
 
@@ -20,7 +20,7 @@ This guide will walk you through how to configure the Moderne agent to connect t
   * IAM role (when running on AWS infrastructure)
   * An AWS profile configured on the machine running the agent
   * AWS access key ID and secret access key
-* If using a custom S3-compatible endpoint (e.g. MinIO), you'll need the endpoint URL as well.
+* If using a custom S3-compatible endpoint (e.g., MinIO), you'll need the endpoint URL as well.
 * The credentials used must have the following permissions on your S3 bucket:
 
 ```json
@@ -65,13 +65,13 @@ You can configure multiple S3 buckets by including multiple entries, each with a
 |-----------------------------------------|-----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `MODERNE_AGENT_S3_{index}_BUCKETURI`    | `true`                                                    |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                              |
 | `MODERNE_AGENT_S3_{index}_ENDPOINTURL`  | `false`                                                   |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3.             |
-| `MODERNE_AGENT_S3_{index}_REGION`       | `false`                                                   |         | The AWS region where the bucket is located (e.g., `us-east-1`). Can be excluded if deploying to AWS infrastructure in the same region. |
+| `MODERNE_AGENT_S3_{index}_REGION`       | `false`                                                   |         | The AWS region where the bucket is located (e.g., `us-east-1`). Can be excluded if the agent is deployed on AWS infrastructure in the same region as the bucket. |
 | `MODERNE_AGENT_S3_{index}_ACCESSKEY`    | `false` (Required if not using profile or IAM role)       |         | The AWS access key ID for authentication.                                                                                              |
 | `MODERNE_AGENT_S3_{index}_SECRETKEY`    | `false` (Required if using access key)                    |         | The AWS secret access key for authentication.                                                                                          |
 | `MODERNE_AGENT_S3_{index}_PROFILE`      | `false` (Alternative to access key/secret key)            |         | The AWS profile name from your credentials file.                                                                                       |
-| `MODERNE_AGENT_S3_{index}_SKIPSSL`      | `true` (If using self-signed cert or non-HTTPS endpoint)  | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint if using `endpointUrl`.                                    |
+| `MODERNE_AGENT_S3_{index}_SKIPSSL`      | `true` (If using self-signed cert or non-HTTPS endpoint)  | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                                           |
 
-**Example with provided credentials (e.g. IAM role) when running on AWS infrastructure:**
+**Example using IAM role authentication on AWS infrastructure:**
 
 ```bash
 docker run \
@@ -129,13 +129,13 @@ docker run \
 |--------------------------------------------|-----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `--moderne.agent.s3[{index}].bucketUri`    | `true`                                                    |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                              |
 | `--moderne.agent.s3[{index}].endpointUrl`  | `false`                                                   |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3.             |
-| `--moderne.agent.s3[{index}].region`       | `false`                                                   |         | The AWS region where the bucket is located (e.g., `us-east-1`). Can be excluded if deploying to AWS infrastructure in the same region. |
+| `--moderne.agent.s3[{index}].region`       | `false`                                                   |         | The AWS region where the bucket is located (e.g., `us-east-1`). Can be excluded if the agent is deployed on AWS infrastructure in the same region as the bucket. |
 | `--moderne.agent.s3[{index}].accessKey`    | `false` (Required if not using profile or IAM role)       |         | The AWS access key ID for authentication.                                                                                              |
 | `--moderne.agent.s3[{index}].secretKey`    | `false` (Required if using access key)                    |         | The AWS secret access key for authentication.                                                                                          |
 | `--moderne.agent.s3[{index}].profile`      | `false` (Alternative to access key/secret key)            |         | The AWS profile name from your credentials file.                                                                                       |
-| `--moderne.agent.s3[{index}].skipSsl`      | `true` (If using self-signed cert or non-HTTPS endpoint)  | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint if using `endpointUrl`.                                  |
+| `--moderne.agent.s3[{index}].skipSsl`      | `true` (If using self-signed cert or non-HTTPS endpoint)  | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                                         |
 
-**Example with provided credentials (e.g. IAM role) when running on AWS infrastructure:**
+**Example using IAM role authentication on AWS infrastructure:**
 
 ```bash
 java -jar moderne-agent-{version}.jar \
