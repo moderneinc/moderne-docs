@@ -407,6 +407,40 @@ mod study . --last-recipe-run --data-table SourcesFileResults
   <figcaption>_An example `build.gradle` change._</figcaption>
 </figure>
 
+### [Update Maven wrapper](https://app.moderne.io/recipes/org.openrewrite.maven.UpdateMavenWrapper)
+
+> Update the version of Maven used in an existing Maven wrapper.
+
+#### CLI commands
+
+```bash
+mod run . --recipe org.openrewrite.maven.UpdateMavenWrapper
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
+  ![](./assets/maven-wrapper-update.png)
+  <figcaption>_Updating the Maven wrapper_</figcaption>
+</figure>
+
+### [Update Maven plugins](https://app.moderne.io/recipes/org.openrewrite.maven.UpgradePluginVersion)
+
+> Upgrade the version of a plugin using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases.
+
+#### CLI commands
+
+```bash
+# Update specific plugin - adjust parameters for your plugins
+mod run . --recipe org.openrewrite.maven.UpgradePluginVersion \
+  --recipe-option "groupId=org.openrewrite.maven" \
+  --recipe-option "artifactId=rewrite-maven-plugin" \
+  --recipe-option "newVersion=29.X"
+
+mod study . --last-recipe-run --data-table SourcesFileResults
+```
+
 ## Security
 
 ### [Find secrets](https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindSecrets)
