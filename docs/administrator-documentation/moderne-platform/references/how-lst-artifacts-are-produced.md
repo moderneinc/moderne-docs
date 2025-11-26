@@ -7,7 +7,7 @@ description: High-level information on how LST artifacts are created and used.
 
 Moderne operates on a format-preserving and type-attributed Lossless Semantic Tree (LST) which is an intermediate, compiler-produced representation of the code. This LST can be projected losslessly back to the original source code (including all of its original formatting) but contains far more information than the text of the original code.
 
-This LST artifact is built and published to a dedicated Maven repository by the [Moderne CLI](../../../user-documentation/moderne-cli/getting-started/cli-intro.md). For information on how to set that up, please see our [mass ingestion guide](../how-to-guides/mass-ingest.md).
+This LST artifact is built and published to your artifact storage (such as a Maven repository or S3 bucket) by the [Moderne CLI](../../../user-documentation/moderne-cli/getting-started/cli-intro.md). For information on how to set that up, please see our [mass ingestion guide](../how-to-guides/mass-ingest.md).
 
 ## Moderne CLI flow
 
