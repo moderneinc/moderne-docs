@@ -14,7 +14,9 @@ For GitHub Apps, Moderne requires a select number of OAuth scopes necessary to h
 | Permission                            | Access     | Description                                                                                      |
 | ------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------ |
 | Repositories - Contents               | Read/write | Create branches and push changesets on your behalf.                                              |
-| Repositories - Pull Requests          | Read/write | Create, close, monitor status, and merge pull requests on your behalf.                           |
+| Repositories - Pull Requests          | Read/write | Create, close, and merge pull requests on your behalf.                                           |
+| Repositories - Commit statuses        | Read-only  | View CI status from the legacy commit status API.                                                |
+| Repositories - Checks                 | Read-only  | View CI status from GitHub Actions and other check providers.                                    |
 | Repositories - Workflows              | Read/write | Recipes that alter GitHub Action workflow files require this permission to make commits to them. |
 | Account Permissions - Email addresses | Read-only  | Recognize your account as a new or returning user.                                               |
 
