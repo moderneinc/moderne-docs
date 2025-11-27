@@ -54,21 +54,6 @@ During installation, you can choose which repositories the GitHub App can access
 * **All repositories**: The app will have access to all current and future repositories in the organization.
 * **Only select repositories**: Limit the app to specific repositories. This is optional and provides tighter control, but requires updating the installation when new repositories need access.
 
-### Configuring IP allow lists
-
-If your organization uses an IP allow list, you can configure the GitHub App to work within those restrictions. In the GitHub App settings under **General**, scroll to the bottom to find the **IP allow list** section:
-
-<figure>
-  ![GitHub App IP allow list configuration](./assets/github-apps-ip-allow.png)
-  <figcaption>_Add IP addresses for your Moderne agent to ensure it can access the GitHub API even when IP restrictions are enabled._</figcaption>
-</figure>
-
-Add the IP addresses of your Moderne agent deployment. Organizations with IP allow lists enabled can then choose to inherit these addresses, allowing the agent to access the GitHub API while still blocking unauthorized traffic.
-
-:::tip
-When configuring IP allow lists, add both IPv4 and IPv6 addresses if your infrastructure uses both. GitHub is gradually rolling out IPv6 support, and having both configured prevents access interruptions.
-:::
-
 ## GitHub OAuth App permission
 
 Moderne requires a select number of OAuth scopes necessary to help you transform your code.
@@ -92,7 +77,7 @@ We recommend using GitHub Apps, which aligns with GitHub's best practices. GitHu
 * **Explicit installation scope**: GitHub Apps must be explicitly installed on an Enterprise account or organization, limiting access to only the contexts where they've been approved. OAuth Apps, by contrast, inherit access to all repositories a user can reach once authorized.
 * **Fine-grained permissions**: GitHub Apps allow you to request only the specific permissions needed (e.g., read/write to repository contents, pull requests). OAuth Apps require broader permission scopes that often grant more access than necessary.
 * **Short-lived tokens**: GitHub Apps use user access tokens that expire after 8 hours and are automatically refreshed. OAuth Apps use long-lived tokens that remain valid until explicitly revoked (which Moderne does after 90 days).
-* **IP allow list support**: GitHub Apps can define an IP allow list, restricting which IP addresses can make requests on behalf of the app. This allows organizations to permit the Moderne agent while blocking general internet access. OAuth Apps do not support this feature.
+* **IP allow list compatibility**: For organizations that already use [IP restrictions](#configuring-ip-allow-lists), GitHub Apps can declare their IP addresses to avoid being blocked. OAuth Apps do not support this.
 * **Improved rate limiting**: GitHub Apps receive more generous API rate limits. Installation access tokens start at 5,000 requests per hour and scale up based on the number of repositories—installations with more than 20 repositories receive an additional 50 requests per hour per repository, up to a maximum of 12,500 requests per hour. OAuth Apps are limited to 5,000 requests per hour regardless of installation size. See [GitHub's rate limits documentation](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api) for details.
 
 That being said, GitHub Apps require installation by an admin/owner in every context where they'll be used. This can create administrative overhead in certain scenarios.
@@ -105,3 +90,31 @@ For example, you might prefer a GitHub OAuth application instead if:
 * **Installation overhead is too high**: The administrative burden of installing across multiple contexts may not be practical for your setup.
 
 OAuth Apps require only user authorization (no installation), but they have broader permissions and access all repositories a user can reach.
+
+## Configuring IP allow lists
+
+If your organization uses an [IP allow list](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization), you can configure the GitHub App to work within those restrictions.
+
+:::note
+GitHub App IP allow lists only work when your organization has IP restrictions enabled. This feature allows GitHub Apps to bypass org-wide IP restrictions by declaring trusted IPs—it does not restrict the GitHub App independently. If your organization doesn't use IP allow lists, this configuration has no effect.
+:::
+
+**Step 1: Configure the GitHub App's IP allow list**
+
+In the GitHub App settings under **General**, scroll to the bottom to find the **IP allow list** section:
+
+<figure>
+  ![GitHub App IP allow list configuration](./assets/github-apps-ip-allow.png)
+  <figcaption>_Add IP addresses for your Moderne agent to ensure it can access the GitHub API even when IP restrictions are enabled._</figcaption>
+</figure>
+
+Add the IP addresses of your Moderne agent deployment. Include both IPv4 and IPv6 addresses if your infrastructure uses both, as GitHub is gradually rolling out IPv6 support.
+
+**Step 2: Enable IP allow list inheritance in your organization**
+
+In your GitHub organization settings, navigate to **Security > Authentication security** and ensure both options are enabled:
+
+* **Enable IP allow list** - Activates IP restrictions for your organization
+* **Enable IP allow list configuration for installed GitHub Apps** - Allows your organization to automatically trust the IP addresses configured by installed GitHub Apps
+
+Both settings are required for the GitHub App's IP configuration to take effect.
