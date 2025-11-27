@@ -27,6 +27,48 @@ You'll need to install the GitHub application wherever you want to make code cha
 Without the application installed, GitHub will reject any attempts to commit changes.
 :::
 
+## Installing a GitHub App
+
+After creating your GitHub App, you need to install it in the organizations or accounts where you want Moderne to operate. This section walks through the installation process.
+
+### Starting the installation
+
+Navigate to your GitHub App's settings and select **Install App** from the left sidebar. You'll see a list of accounts where you can install the app:
+
+<figure>
+  ![GitHub App install page showing available accounts](./assets/github-app-install.png)
+  <figcaption>_Select the organization or account where you want to install the GitHub App._</figcaption>
+</figure>
+
+Click **Install** next to the account where you want to enable the app.
+
+### Selecting repository access
+
+During installation, you can choose which repositories the GitHub App can access:
+
+<figure>
+  ![GitHub App installation showing repository selection options](./assets/github-apps-install-selected-repos.png)
+  <figcaption>_Choose between all repositories or select specific repositories for the app to access._</figcaption>
+</figure>
+
+* **All repositories**: The app will have access to all current and future repositories in the organization.
+* **Only select repositories**: Limit the app to specific repositories. This is optional and provides tighter control, but requires updating the installation when new repositories need access.
+
+### Configuring IP allow lists
+
+If your organization uses an IP allow list, you can configure the GitHub App to work within those restrictions. In the GitHub App settings under **General**, scroll to the bottom to find the **IP allow list** section:
+
+<figure>
+  ![GitHub App IP allow list configuration](./assets/github-apps-ip-allow.png)
+  <figcaption>_Add IP addresses for your Moderne agent to ensure it can access the GitHub API even when IP restrictions are enabled._</figcaption>
+</figure>
+
+Add the IP addresses of your Moderne agent deployment. Organizations with IP allow lists enabled can then choose to inherit these addresses, allowing the agent to access the GitHub API while still blocking unauthorized traffic.
+
+:::tip
+When configuring IP allow lists, add both IPv4 and IPv6 addresses if your infrastructure uses both. GitHub is gradually rolling out IPv6 support, and having both configured prevents access interruptions.
+:::
+
 ## GitHub OAuth App permission
 
 Moderne requires a select number of OAuth scopes necessary to help you transform your code.
@@ -45,13 +87,21 @@ Moderne requires a select number of OAuth scopes necessary to help you transform
 
 ## GitHub applications vs. GitHub OAuth applications
 
-We recommend using GitHub Apps, which aligns with GitHub's best practices. This is because GitHub Apps offer more granular permissions and better security through short-lived tokens. That being said, GitHub Apps require installation by an admin/owner in every context where they'll be used. This can create problematic administrative overhead in certain scenarios. 
+We recommend using GitHub Apps, which aligns with GitHub's best practices. GitHub Apps provide several significant security advantages over OAuth Apps:
+
+* **Explicit installation scope**: GitHub Apps must be explicitly installed on an Enterprise account or organization, limiting access to only the contexts where they've been approved. OAuth Apps, by contrast, inherit access to all repositories a user can reach once authorized.
+* **Fine-grained permissions**: GitHub Apps allow you to request only the specific permissions needed (e.g., read/write to repository contents, pull requests). OAuth Apps require broader permission scopes that often grant more access than necessary.
+* **Short-lived tokens**: GitHub Apps use user access tokens that expire after 8 hours and are automatically refreshed. OAuth Apps use long-lived tokens that remain valid until explicitly revoked (which Moderne does after 90 days).
+* **IP allow list support**: GitHub Apps can define an IP allow list, restricting which IP addresses can make requests on behalf of the app. This allows organizations to permit the Moderne agent while blocking general internet access. OAuth Apps do not support this feature.
+* **Improved rate limiting**: GitHub Apps receive more generous API rate limits. Installation access tokens start at 5,000 requests per hour and scale up based on the number of repositories—installations with more than 20 repositories receive an additional 50 requests per hour per repository, up to a maximum of 12,500 requests per hour. OAuth Apps are limited to 5,000 requests per hour regardless of installation size. See [GitHub's rate limits documentation](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api) for details.
+
+That being said, GitHub Apps require installation by an admin/owner in every context where they'll be used. This can create administrative overhead in certain scenarios.
 
 For example, you might prefer a GitHub OAuth application instead if:
 
-* **You support personal forks**: This is because each individual user would need to install the GitHub App in their personal account (not just in organizations they belong to).
-* **You have many independent organizations**: This is because an admin would need to install the GitHub App in every organization where Moderne will make changes.
+* **You support personal forks**: Each individual user would need to install the GitHub App in their personal account (not just in organizations they belong to).
+* **You have many independent organizations**: An admin would need to install the GitHub App in every organization where Moderne will make changes.
     * Pro tip: Installing the GitHub App at the enterprise level automatically makes it available to all member organizations.
-* **Installation overhead is too high**: This is because the administrative burden of installing across multiple contexts may not be practical for your setup.
+* **Installation overhead is too high**: The administrative burden of installing across multiple contexts may not be practical for your setup.
 
 OAuth Apps require only user authorization (no installation), but they have broader permissions and access all repositories a user can reach.
