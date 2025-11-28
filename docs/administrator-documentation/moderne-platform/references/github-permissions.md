@@ -80,7 +80,6 @@ We recommend using GitHub Apps, which aligns with GitHub's best practices. GitHu
 * **Fine-grained permissions**: GitHub Apps allow you to request only the specific permissions needed (e.g., read/write to repository contents, pull requests). OAuth Apps require broader permission scopes that often grant more access than necessary.
 * **Short-lived tokens**: GitHub Apps use user access tokens that expire after 8 hours and are automatically refreshed. OAuth Apps use long-lived tokens that remain valid until explicitly revoked (which Moderne does after 90 days).
 * **IP allow list compatibility**: For organizations that already use [IP restrictions](#configuring-ip-allow-lists), GitHub Apps can declare their IP addresses to avoid being blocked. OAuth Apps do not support this.
-* **Improved rate limiting**: GitHub Apps receive more generous API rate limits. Installation access tokens start at 5,000 requests per hour and scale up based on the number of repositories—installations with more than 20 repositories receive an additional 50 requests per hour per repository, up to a maximum of 12,500 requests per hour. OAuth Apps are limited to 5,000 requests per hour regardless of installation size. See [GitHub's rate limits documentation](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api) for details.
 
 That being said, GitHub Apps require installation by an admin/owner in every context where they'll be used. This can create administrative overhead in certain scenarios.
 
