@@ -36,6 +36,8 @@ After creating your `repos.csv` file and running initial setup commands, the Mod
 | jvmopts           | `false`  | JVM options added to tools building LSTs. Must be configured before you can run the build command if non-standard VM options are required.<br /><br />Example: `-Xmx4G`                                                                                                                                                                           |
 | mavenArgs         | `false`  | Build arguments are added to the end of the Maven command line when building LSTs.<br /><br />Example: `-Pfast`                                                                                                                                                                                                                                   |
 | org*              | `false`  | If you want to configure an organizational hierarchy, you can provide one or more organization columns. Each column will specify an organization the repository should be part of. The column name should be `org` plus a number such as: `org1,org2,org3`. There is no limit for how many orgs you can define.<br /><br />Example: `openrewrite` |
+| publishUri        | `false`  | A URL pointing to a pre-built LST artifact (typically hosted in Artifactory). When this column is present, `mod git sync csv` will download the LST directly from this URL instead of requiring you to clone sources and run `mod build`. This is useful for sharing pre-built LSTs with team members.<br /><br />Example: `https://artifactory.example.com/artifactory/moderne-lsts/myorg/myrepo/20251120044534864/myrepo-20251120044534864-ast.jar` |
+| alternatePublishUri* | `false`  | Fallback URLs for LST downloads if the primary `publishUri` is unavailable. Multiple columns are supported using incrementing numbers (e.g., `alternatePublishUri1`, `alternatePublishUri2`). These can point to different artifact repositories or use custom URI schemes.<br /><br />Example: `https://backup-artifactory.example.com/moderne-lsts/myorg/myrepo/ast.jar` |
 
 ### Understanding origin and path values
 
@@ -103,6 +105,25 @@ For self-hosted providers such as GitHub Enterprise, Self-Managed GitLab, or Bit
 You can provide both `cloneUrl` and `alternateCloneUrl` to support both your primary protocol (HTTPS or SSH) and a secondary protocol for maximum flexibility. In situations where your organization allows read access over one protocol but only allows commits through a different protocol, this enables the Moderne Platform to present a single repository while correctly supporting both workflows. This also allows matching when an LST is built manually from a git repository cloned with the secondary URL.
 
 If the `cloneUrl` and `alternateCloneUrl` differ in their domain (as is the case with Azure DevOps above), you should set `origin` based on the HTTPS URL (since origins are used to build URLs for SCM API calls such as creating PRs) in a consistent way across HTTPS and SSH repositories for that SCM provider so that Moderne can successfully identify the repository in both cases. The origin should always be the root of the service on HTTP(S) but without the protocol and can most easily be inferred from the HTTP(S) clone URL.
+
+### Using `publishUri` to share pre-built LSTs
+
+When you have pre-built LST artifacts stored in an artifact repository (such as Artifactory), you can include the `publishUri` column in your `repos.csv` to enable direct LST downloads. This is particularly useful for:
+
+1. **Sharing LSTs with team members** - Instead of everyone building LSTs locally, one person (or CI) can build and publish them, then share a `repos.csv` with `publishUri` values
+2. **Faster onboarding** - New team members can download pre-built LSTs immediately without cloning sources or running builds
+3. **Offline/air-gapped environments** - Pre-built LSTs can be distributed via artifact repositories
+
+When `mod git sync csv` encounters a row with a `publishUri`:
+
+* It downloads the LST artifact from that URL
+* Source code is **not** cloned unless you also specify `--with-sources`
+
+If you need both the LST and source code, use:
+
+```bash
+mod git sync csv /path/to/repos ./repos.csv --with-sources
+```
 
 ## Generating this file
 
