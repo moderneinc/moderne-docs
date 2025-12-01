@@ -7,7 +7,7 @@ description: A look into the GitHub OAuth permissions needed for Moderne to work
 
 Moderne uses a GitHub OAuth application (GitHub OAuth Apps or GitHub Apps) to perform various actions on your behalf. Below is an explanation of each type, their permissions, and how they're used by Moderne.
 
-## GitHub App permission (preferred)
+## GitHub App permissions (preferred)
 
 For GitHub Apps, Moderne requires a select number of OAuth scopes necessary to help you transform your code. The GitHub application can be installed into your personal, organization, or enterprise accounts as desired.
 
@@ -56,7 +56,7 @@ During installation, you can choose which repositories the GitHub App can access
 * **All repositories**: The app will have access to all current and future repositories in the organization.
 * **Only select repositories**: Limit the app to specific repositories. This is optional and provides tighter control, but requires updating the installation when new repositories need access.
 
-## GitHub OAuth App permission
+## GitHub OAuth App permissions
 
 Moderne requires a select number of OAuth scopes necessary to help you transform your code.
 
@@ -74,7 +74,7 @@ Moderne requires a select number of OAuth scopes necessary to help you transform
 
 ## GitHub applications vs. GitHub OAuth applications
 
-We recommend using GitHub Apps, which aligns with GitHub's best practices. GitHub Apps provide several significant security advantages over OAuth Apps:
+We recommend using GitHub Apps, which align with GitHub's best practices. GitHub Apps provide several significant security advantages over OAuth Apps:
 
 * **Explicit installation scope**: GitHub Apps must be explicitly installed on an Enterprise account or organization, limiting access to only the contexts where they've been approved. OAuth Apps, by contrast, inherit access to all repositories a user can reach once authorized.
 * **Fine-grained permissions**: GitHub Apps allow you to request only the specific permissions needed (e.g., read/write to repository contents, pull requests). OAuth Apps require broader permission scopes that often grant more access than necessary.
@@ -87,7 +87,7 @@ For example, you might prefer a GitHub OAuth application instead if:
 
 * **You support personal forks**: Each individual user would need to install the GitHub App in their personal account (not just in organizations they belong to).
 * **You have many independent organizations**: An admin would need to install the GitHub App in every organization where Moderne will make changes.
-    * Pro tip: Installing the GitHub App at the enterprise level automatically makes it available to all member organizations.
+    * **Pro-tip**: Installing the GitHub App at the enterprise level automatically makes it available to all member organizations.
 * **Installation overhead is too high**: The administrative burden of installing across multiple contexts may not be practical for your setup.
 
 OAuth Apps require only user authorization (no installation), but they have broader permissions and access all repositories a user can reach.
