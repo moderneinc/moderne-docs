@@ -110,7 +110,7 @@ If the `cloneUrl` and `alternateCloneUrl` differ in their domain (as is the case
 
 When you have pre-built LST artifacts stored in an artifact repository (such as Artifactory), you can include the `publishUri` column in your `repos.csv` to enable direct LST downloads. This is particularly useful for:
 
-1. **Sharing LSTs with team members** - Instead of everyone building LSTs locally, one person (or CI) can build and publish them, then share a `repos.csv` with `publishUri` values
+1. **Sharing LSTs with team members** - Instead of everyone building LSTs locally, one person (or mass-ingest) can build and publish them, then share a `repos.csv` with `publishUri` values
 2. **Faster onboarding** - New team members can download pre-built LSTs immediately without cloning sources or running builds
 3. **Offline/air-gapped environments** - Pre-built LSTs can be distributed via artifact repositories
 
