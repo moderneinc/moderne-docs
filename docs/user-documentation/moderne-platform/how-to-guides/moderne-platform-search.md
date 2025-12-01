@@ -1,49 +1,71 @@
 ---
 sidebar_label: Moderne Recipe catalog search
-description: A short guide on how to effectively find recipes in the Moderne Platform.
+description: A comprehensive guide on how to effectively find recipes in the Moderne Platform.
 ---
 
 # Moderne Recipe catalog search
 
-In order to get the most out of the Moderne Platform, it's a good idea to understand how you can effectively search for recipes.
+The Moderne Platform provides a powerful unified search experience that combines natural language with precise field-based searching. This allows you to quickly find or discover recipes that are important to you.
 
-Let's walk through some tips and tricks you might not be aware of when searching for recipes in Moderne.
+Let's walk through the different ways you can search for recipes to get the most out of the Moderne Platform.
 
-## AI search
+## Natural language search
 
-:::warning
-Recipes that use AI may produce incorrect or incomplete results. Please ensure that you thoroughly review any results for clarity and accuracy before sharing or using.
-:::
+The recipe search understands natural language queries, making it easy to discover recipes even when you don't know their exact names. You can approach searching in several intuitive ways:
 
-Traditionally, recipe searches in Moderne required exact word matches. For example, searching for `Common static analysis issues` required `common` or `static`. If you tried entering, `common stat`, you wouldn't get any results. This could be especially problematic if you didn't already know the exact name of the recipe or you wanted to discover new ones.
+### Ask questions
 
-To help improve the user experience of finding and discovering recipes, Moderne **now offers AI search capabilities**.
+Frame your search as a question to discover recipes that address your needs:
 
-### How to use AI search effectively
+* "How can I make my code more secure?"
+* "What can help me upgrade Spring?"
+* "How do I find vulnerable dependencies?"
 
-To get the most value out of AI search, you'll want to approach searching for recipes differently than you normally would. Instead of trying to enter an exact recipe name (which you can still do), you might consider:
+### Use keywords
 
-* **Asking questions** such as, "How can I make my code more secure?"
-* **Entering keywords** such as, "JUnit" or "Jakarta".
-* **Expressing something you want to do** such as, "I want to upgrade Spring".
+Enter relevant keywords to find recipes related to specific technologies or concepts:
 
-If you know the exact name or ID of a recipe (because you're familiar with the recipe or you're coming from the docs or the code), you can find the recipe by:
+* "JUnit"
+* "Jakarta"
+* "Security"
+* "Performance"
 
-* Entering the full name or part of the recipe name in quotes such as, `"Find and fix"` or `"Find and fix vulnerable dependencies"`.
-* Typing `id:` and then entering the exact ID for the recipe such as: `id:org.openrewrite.java.dependencies.DependencyVulnerabilityCheck`.
-* **Entering tags for the recipe to search for** such as, `tags:"RSPEC-2204"` to find all recipes with the `RSPEC-2204` tag. Please note that the other fields mentioned in the [non-ai search tip](#non-ai-search-tips) will not work with AI enabled.
+### Express intent
 
-## Non-AI search tips
+Describe what you want to accomplish:
 
-When AI search is disabled, you can search for specific fields such as:
+* "I want to upgrade Spring"
+* "Migrate from JUnit 4 to JUnit 5"
+* "Fix common code issues"
 
-* `id` - the recipe id
-  * Example: `id:"org.openrewrite.staticanalysis.CommonStaticAnalysis"` (Requires quotes)
-* `shortName` - the last part of the id
-  * Example: `shortName:"CommonStaticAnalysis"` (Requires quotes)
-* `description` - the recipe description
-  * Example: `description:"Resolve common static analysis issues discovered through 3rd party tools"`
-* `category` - the category in the recipe marketplace
-  * Example: `category:"Static analysis and remediation"` 
+## Precise search techniques
 
-Please note that in all of these cases you **cannot** have a space between the `:` and the start of the string you're looking for.
+When you know exactly what you're looking for or want to filter results more precisely, you can use do the following:
+
+### Search by recipe ID
+
+Use the `id:` prefix to search by the exact recipe identifier:
+
+* `id:org.openrewrite.java.dependencies.DependencyVulnerabilityCheck`
+* `id:org.openrewrite.staticanalysis.CommonStaticAnalysis`
+
+Note: When using the `id:` prefix, wrap the ID in quotes if it contains special characters.
+
+### Search by tags
+
+Find recipes with specific tags:
+
+* `tags:"RSPEC-2204"` - finds all recipes with this specific tag
+* `tags:"CVE"` - finds recipes related to CVE fixes
+
+## Search tips and best practices
+
+* **Combine approaches**: You can mix natural language with precise search techniques. For example, start with a natural language query to explore, then refine with specific fields.
+
+* **Quote multi-word phrases**: When searching for exact matches with spaces, always use quotes: `"Find and fix"` rather than `Find and fix`.
+
+* **No spaces after colons**: When using field searches (id:, tags:, etc.), don't put a space between the colon and the search term.
+
+* **Start broad, then narrow**: If you're not finding what you need, start with broader keywords and then add more specific terms to refine your results.
+
+* **Use autocomplete suggestions**: The search interface provides suggestions as you type, which can help you discover related recipes and refine your search.

@@ -53,7 +53,7 @@ Conversation history is stored locally in the browser (e.g., cookies/local stora
 
 ## AI recipe search
 
-Moderne offers users the ability to search for recipes with AI. This can help if you don't remember the name of a recipe or if you don't even know if a recipe exists or not. For more details about AI search, check out our [guide on how to use AI to search for recipe](../../../user-documentation/moderne-platform/how-to-guides/moderne-platform-search.md#ai-search).
+The Moderne Platform search uses AI capabilities to help you find recipes using natural language. This makes it easy to discover recipes even when you don't know their exact names. For more details, check out our [guide on how to search for recipes](../../../user-documentation/moderne-platform/how-to-guides/moderne-platform-search.md).
 
 <figure>
   ![](./assets/ai-search-example.png)
