@@ -141,14 +141,10 @@ This command will open up a web page where you'll grant the CLI access to things
 * Your user roles
 * The ability to create Personal Access Tokens (PAT)
 
-After granting access, the CLI will automatically configure and store your token locally. You should see a success message indicating your token is valid for 360 days.
+After granting access, the CLI will automatically configure and store your token locally. You should see a success message indicating your token is valid for 365 days.
 
 :::info
-The token is valid for 360 days by default. When it expires, simply run `mod config moderne login` again to renew it. If you need a different expiration period, you can use the `--expiration` option (e.g., `mod config moderne login --expiration P180D` for 180 days).
-:::
-
-:::note
-If your organization uses username/password authentication instead of OAuth, use `mod config moderne edit` with the `--user` and `--password` options instead of the `mod config moderne login` command.
+The token is valid for 365 days by default. When it expires, simply run `mod config moderne login` again to renew it. If you need a different expiration period, you can use the `--expiration` option (e.g., `mod config moderne login --expiration P180D` for 180 days).
 :::
 
 #### Step 4: Install recipes
@@ -285,14 +281,10 @@ This command will open up a web page where you'll grant the CLI access to things
 * Your user roles
 * The ability to create Personal Access Tokens (PAT)
 
-After granting access, the CLI will automatically configure and store your token locally. You should see a success message indicating your token is valid for 360 days.
+After granting access, the CLI will automatically configure and store your token locally. You should see a success message indicating your token is valid for 365 days.
 
 :::info
-The token is valid for 360 days by default. When it expires, simply run `mod config moderne login` again to renew it. If you need a different expiration period, you can use the `--expiration` option (e.g., `mod config moderne login --expiration P180D` for 180 days).
-:::
-
-:::note
-If your organization uses username/password authentication instead of OAuth, use `mod config moderne edit` with the `--user` and `--password` options instead of the `mod config moderne login` command.
+The token is valid for 365 days by default. When it expires, simply run `mod config moderne login` again to renew it. If you need a different expiration period, you can use the `--expiration` option (e.g., `mod config moderne login --expiration P180D` for 180 days).
 :::
 
 <details>
