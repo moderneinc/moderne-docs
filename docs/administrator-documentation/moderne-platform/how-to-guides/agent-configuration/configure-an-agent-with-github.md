@@ -36,7 +36,7 @@ To assist with that, this guide will:
     | Homepage URL                            | `https://<TENANT>.moderne.io`                                                                               |
     | Authorization callback URL              | `https://<TENANT>.moderne.io`                                                                               |
     | Webhook Active                          | Disable                                                                                                     |
-    | Repository Permissions                  | Contents - read/write<br/> Pull Requests - read/write<br/> Workflows - read/write                           |
+    | Repository Permissions                  | Contents - read/write<br/> Pull Requests - read/write<br/> Commit statuses - read-only<br/> Checks - read-only<br/> Workflows - read/write |
     | Account Permissions                     | Email Address - read-only                                                                                   |
     | Where can this GitHub App be installed? | You can choose either option based upon your specific needs:<br/> * Only on this account<br/> * Any account |
 
@@ -46,6 +46,11 @@ To assist with that, this guide will:
      <figcaption></figcaption>
    </figure>
 6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#configure-the-moderne-agent).
+7. Install the GitHub App in your organization(s). See the [GitHub permissions documentation](../../references/github-permissions.md#installing-a-github-app) for detailed installation instructions.
+
+:::note
+After creating a GitHub App, you must install it in each organization or account where you want Moderne to operate. Without installation, GitHub will reject any attempts to commit changes.
+:::
 
 #### Example values
 
