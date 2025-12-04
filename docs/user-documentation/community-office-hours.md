@@ -13,6 +13,10 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Spring Boot 4 Awakens with DaShaun Carter (December 3rd, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=eTQJifMo6iw' controls="true" />
+
 ### Automating adoption and optimization with Timefold (November 19th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=Cx0e8oQVXnw' controls="true" />
