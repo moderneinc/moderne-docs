@@ -10,6 +10,118 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## December 5, 2025
+
+#### rewrite-ai-search - 0.32.2
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-android - 0.15.1
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-azul - 0.8.2
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-circleci - 3.9.2
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-codemods-ng - 0.16.0
+
+* chore(deps): bump glob from 10.3.10 to 10.5.0 in /src/main/resources/codemods[bot]
+
+#### rewrite-compiled-analysis - 0.11.1
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-comprehension - 0.10.1
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-concourse - 3.9.2
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-dotnet - 0.14.2
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-elastic - 0.4.2
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-hibernate - 0.15.1
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-java-security - 3.23.0
+
+* Update DependencyInsight for spring-security-config
+* Align test cases to better reason about Maven vs. Gradle behavior
+* Proper ordering of Maven comments required test fixes
+* Add documentation for customizing vulnerabilities in DependencyVulnerabilityCheck recipe
+* Update for compatibility with rework of DependencyGraph
+
+#### rewrite-kafka - 0.4.2
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-kubernetes - 3.14.0
+
+* AssertJ best practices
+
+#### rewrite-nodejs - 0.35.0
+
+* `ReplaceCryptoFips` recipe
+* `ReplaceSlowBuffer` recipe
+* `ReplaceFsAccessConstants` recipe
+* `RemovePromisifyOnPromise` recipe
+* `AvoidImplicitCoercionOfExitCode` recipe
+* `ReplaceDirentPath` recipe
+* AssertJ best practices
+* `ReplaceIsWebAssemblyCompiledModule` recipe
+* `ReplaceZlibBytesRead` recipe
+* Composite recipes for Node22 and Node24 upgrades
+* `ReplaceFsTruncateWithFd` recipe
+* `ReplaceOutgoingMessageHeaders` recipe
+* `ReplaceFsStatsConstructor` recipe
+
+#### rewrite-program-analysis - 0.7.0
+
+* AssertJ best practices
+* JSpecify best practices
+
+#### rewrite-reactive-streams - 0.18.2
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-spring - 0.18.0
+
+* Add `spring-boot-jackson` dependencies
+* Recipe for deprecated StandardMongoClientSettingsBuilderCustomizer ctor
+* Add ReplaceDeprecatedThreadPoolTaskSchedulerBuilderApi
+* Replace deprecated org.springframework.boot.buildpack.platform.docker API
+* Missing Migration from Spring Pet Clinic
+* Drop milestone repositories now that RCs are in Maven Central
+* AssertJ best practices
+* Recipes to upgrade to `org.springframework.orm.hibernate5`
+* Add additional guards
+* Add MongoDB representation properties
+* Use separate properties workflows for Spring Boot vs Spring Cloud[bot]
+* Migrate spring-retry to Spring Framework's Resilience where possible
+* Remove Classic Uber-Jar class loader
+* Add `@SpringBootApplication` to projects that do not have one yet
+
+#### rewrite-sql - 2.8.2
+
+* Updated repository to use OpenRewrite version v8.68.1
+
+#### rewrite-terraform - 3.11.2
+
+* Updated repository to use OpenRewrite version v8.68.1
+
 ## November 20, 2025
 
 #### rewrite-ai-search - 0.32.1
