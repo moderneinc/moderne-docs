@@ -3345,7 +3345,7 @@ mod config moderne [subcommands]
 ### Examples
 
 ```
-mod config moderne edit <host> --token <token>
+mod config moderne edit <host>
 ```
 
 
@@ -3403,11 +3403,10 @@ mod config moderne edit <host> --token <token>
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `--api` |  The URL of the tenant API gateway. | `https://api.app.moderne.io` |
-| `--auth-server-url` |  The base URL of the auth server. Required only if the main Moderne host URL is not following the standard `tenant.moderne.io` domain. |  |
-| `--password` |  The password to authenticate with. |  |
+| `--password` |  (DEPRECATED) The password to authenticate with. Use the web-based flow or with-token with the login sub-command instead. |  |
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
-| `--token` |  The Moderne personal access token to use. |  |
-| `--user` |  The user to authenticate with. |  |
+| `--token` |  (DEPRECATED) The Moderne personal access token to use. Use 'login --with-token' instead. |  |
+| `--user` |  (DEPRECATED) The user to authenticate with. Use the web-based flow or with-token with the login sub-command instead. |  |
 
 
 ## mod config moderne local
@@ -3444,8 +3443,8 @@ mod config moderne login
 
 | Name | Description |
 | ---- | ----------- |
-| `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Example: P180D for 180 days. |
-| `--with-token` |  Specify an existing PAT or JWT on the command line or via standard input. |
+| `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Can only be used with **--login** Example: P180D for 180 days. |
+| `--with-token` |  The Moderne personal access token to use. |
 
 
 ## mod config moderne show
