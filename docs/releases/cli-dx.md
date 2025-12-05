@@ -1,5 +1,10 @@
 # CLI / DX changelog
 
+### CLI / DX v3.53.0 (2025/12/05)
+
+#### What's Changed
+* Update `mod publish` to publish and update a centrally-hosted effective repos.csv (repos-lock.csv)
+
 ### CLI / DX v3.52.0 (2025/12/04)
 
 #### What's Changed
