@@ -1,5 +1,23 @@
 # CLI / DX changelog
 
+### CLI / DX v3.52.0 (2025/12/04)
+
+#### What's Changed
+* Using OpenRewrite v8.68.1
+- `typesync` needs to support workspaces
+* Collects CommitMessage markers and writes a commit-messages.txt for the recipe run
+- Options `--user` and `--password` of the `mod config moderne edit` command. They were part of a deprecated DX feature
+- Option `--token` of the `mod config moderne edit` command. The same feature can now be found at `mod config moderne login --with-token`
+* Fix HTML title in `fix.html` output from `mod run`
+* Added support for Java 25 for running the Moderne CLI
+* Fixing the "What to do next" suggestions for `mod git checkout`
+* Improve license error message
+- `.moderne/sync/{commandId}/`
+* Make sure the `modjava` daemon is stopped when the CLI main process exits
+* When reading HTTP response headers for downloading LSTs, treat them as case-insensitive
+- Fix processing of JSON source files
+
+
 ### CLI / DX v3.51.4 (2025/11/25)
 
 #### What's Changed
