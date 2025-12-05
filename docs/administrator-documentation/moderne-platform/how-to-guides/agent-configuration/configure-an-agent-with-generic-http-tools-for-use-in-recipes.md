@@ -41,6 +41,8 @@ You can configure multiple generic HTTP tools by including multiple entries, eac
 | `MODERNE_AGENT_HTTPTOOL_{index}_BEARERTOKEN`              | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
 | `MODERNE_AGENT_HTTPTOOL_{index}_SKIPSSL`                  | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                        |
 | `MODERNE_AGENT_HTTPTOOL_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on agent startup, we will validate that we can connect to this HTTP tool, and fail to start up the agent if we cannot. Set this to `true` to skip this validation.                                          |
+| `MODERNE_AGENT_HTTPTOOL_{index}_CONNECTTIMEOUT`           | `false`  | `10s`   | Timeout for establishing a connection to the HTTP tool. Specified as a duration (e.g., `10s`, `1m`).                                                                                                                     |
+| `MODERNE_AGENT_HTTPTOOL_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the HTTP tool. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                   |
 
 **Example:**
 
@@ -66,6 +68,8 @@ docker run \
 | `--moderne.agent.httpTool[{index}].bearerToken`              | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
 | `--moderne.agent.httpTool[{index}].skipSsl`                  | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                        |
 | `--moderne.agent.httpTool[{index}].skipValidateConnectivity` | `false`  | `false` | By default, on agent startup, we will validate that we can connect to this HTTP tool, and fail to start up the agent if we cannot. Set this to `true` to skip this validation.                                          |
+| `--moderne.agent.httpTool[{index}].connectTimeout`           | `false`  | `10s`   | Timeout for establishing a connection to the HTTP tool. Specified as a duration (e.g., `10s`, `1m`).                                                                                                                     |
+| `--moderne.agent.httpTool[{index}].readTimeout`              | `false`  | `60s`   | Timeout for reading the response body from the HTTP tool. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                   |
 
 **Example:**
 
