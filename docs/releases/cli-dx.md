@@ -1,5 +1,10 @@
 # CLI / DX changelog
 
+### CLI / DX v3.53.1 (2025/12/05)
+
+#### What's Changed
+* Fix native image publishing on moderneinc/moderne-cli-releases
+
 ### CLI / DX v3.53.0 (2025/12/05)
 
 #### What's Changed
