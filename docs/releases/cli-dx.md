@@ -12,7 +12,7 @@
 * Added support for Java 25 for running the Moderne CLI
 * Fixing the "What to do next" suggestions for `mod git checkout`
 * Improve license error message
-- `.moderne/sync/{commandId}/`
+* Fix: `mod git sync` write its trace and log files at the expected location: `.moderne/sync/{commandId}/`
 * Make sure the `modjava` daemon is stopped when the CLI main process exits
 * When reading HTTP response headers for downloading LSTs, treat them as case-insensitive
 - Fix processing of JSON source files
