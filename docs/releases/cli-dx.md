@@ -4,10 +4,10 @@
 
 #### What's Changed
 * Using OpenRewrite v8.68.1
-- `typesync` needs to support workspaces
+* JavaScript: `typesync` needs to support workspaces
 * Collects CommitMessage markers and writes a commit-messages.txt for the recipe run
-- Options `--user` and `--password` of the `mod config moderne edit` command. They were part of a deprecated DX feature
-- Option `--token` of the `mod config moderne edit` command. The same feature can now be found at `mod config moderne login --with-token`
+* Deprecated: Options `--user` and `--password` of the `mod config moderne edit` command. They were part of a deprecated DX feature
+* Deprecated: Option `--token` of the `mod config moderne edit` command. The same feature can now be found at `mod config moderne login --with-token`
 * Fix HTML title in `fix.html` output from `mod run`
 * Added support for Java 25 for running the Moderne CLI
 * Fixing the "What to do next" suggestions for `mod git checkout`
@@ -15,14 +15,14 @@
 * Fix: `mod git sync` write its trace and log files at the expected location: `.moderne/sync/{commandId}/`
 * Make sure the `modjava` daemon is stopped when the CLI main process exits
 * When reading HTTP response headers for downloading LSTs, treat them as case-insensitive
-- Fix processing of JSON source files
+* JavaScript: Fix processing of JSON source files
 
 
 ### CLI / DX v3.51.4 (2025/11/25)
 
 #### What's Changed
 * Improve recipe dependency download logging to distinguish cache hits from actual downloads
-- Fix `typesync` failures in `pnpm` projects
+* JavaScript: Fix `typesync` failures in `pnpm` projects
 * Fixing sync command when the same repository exists twice in the organization hierarchy
 * preserve DevCenter recipe ordering in dashboard panels
 * Fixed `mod git add` to also stage removed files to be included in commits
@@ -37,10 +37,15 @@
 * Upgrade `org.graalvm.buildtools.native` gradle plugin to version 0.11.3
 * Clean build/runs to clean organization folders too
 * Fix specific cases of organization and repository discovery on disk
-* Use `typesync` for enhanced type attribution
+* JavaScript: Use `typesync` for enhanced type attribution
 * Display a warning on auth failure only if a token was set when running `mod config moderne edit` 
 * Fallback to in-memory H2MvStore
-- Dependency maintenance and other project technical improvements
+* Dependency maintenance and other project technical improvements
+* Fix test priorResourceStepTakesPreventsGradleParsing
+* Use a faster gh action windows runner to build the windows native image
+* Migrate from Gradle plugin `com.github.johnrengelman.shadow:8.1.1` to `com.gradleup.shadow:9.0.+`
+* Gradle wrapper 9.2.0
+* CLI to depend on the latest version of OpenRewrite
 
 
 ### CLI / DX v3.51.2 (2025/11/12)
@@ -59,7 +64,7 @@
 
 #### What's Changed CLI
 - Add Git metadata, Autocrlf and Eol, to build trace
-- `mod config moderne login` streamlines the CLI authentication process by launching the browser for consent and automatically configuring the token
+- New command: `mod config moderne login` streamlines the CLI authentication process by launching the browser for consent and automatically configuring the token
 - Capture the correct run end time in `trace.csv` on failure
 - New Lombok version compatibilities for Maven Java version detection
 - Add support for publishing and downloading LSTs from S3. S3 can be set as publish and download location via `mod config lsts artifacts s3 edit`.
@@ -75,7 +80,7 @@
 ### CLI / DX v3.50.1 (2025/10/24)
 
 #### What's Changed
-- Support `pnpm` and `yarn`
+* JavaScript: Support `pnpm` and `yarn`
 * Use configured Maven settings' `localRepository` when installing recipes
 
 
@@ -87,7 +92,7 @@
 * Fixing `which` to `where` commands for checking Node installations.
 * Add operating system provenance to build trace
 * Use localhost instead of * for `jvm-debug` in `mod run`
-- Check for `npm install` failure
+* JavaScript: Check for `npm install` failure
 * Fix concurrency issue running JavaScript recipes
 
 
@@ -95,7 +100,7 @@
 
 #### What's Changed CLI
 * Fix reporting of number of parallel tasks in progress bar
-- Fix error when running with `--parallel 1`
+* `mod run`: Fix error when running with `--parallel 1`
 
 
 ### CLI / DX v3.49.3 (2025/10/16)
@@ -140,26 +145,6 @@
 * Adopt plain text parsing from OpenRewrite
 
 
-### CLI / DX v3.49.0 (2025/10/09)
-
-#### What's Changed
-* Fix space handling when issuing shell commands
-* Mark `mod config lsts cache-dir` as incubating
-* Add proxy username:password configuration support
-* Validate all trust store and key store properties at configuration and startup time
-* Fix recipe options being reset + fix study cell limit converting to Excel
-* `mod git sync csv` performance improvement
-* Pass license key into recipe run so that licensed recipe modules can work seamlessly
-* Add parliament chart to CLI DevCenter
-* Ensure that repos-lock.csv contains changeset even when re-syncing a directory
-* Clean older builds on sync
-* Add support for file inclusions to Maven
-* Fix glob expansion handling when issuing shell commands
-* Adding support for configuring build environment variables
-* Fix artifact and org name extraction from repository path
-* Adopt plain text parsing from OpenRewrite
-
-
 ### CLI / DX v3.48.8 (2025/09/29)
 
 #### What's Changed CLI
@@ -170,7 +155,7 @@
 * Add Ghostty support
 * Fixes for build trace analyzer
 * Make sure `trace.json` gets updated with `Skipped` outcome
-* Use origin and branch from repos(-lock).csv at LST build time instead of trying to determine them
+* Use origin and branch from repos(-lock).csv at LST build time (if available) instead of trying to determine them
 
 
 ### CLI / DX v3.48.7 (2025/09/25)
@@ -182,16 +167,16 @@
 ### CLI / DX v3.48.6 (2025/09/25)
 
 #### What's Changed CLI
-- Parent-classload ClassGraph in LST task
+* Gradle: Parent-classload ClassGraph in LST task
 * Deprecate superfluous trust-store java-home option
 * Add LST cache support
 * Fix `GradleJavaVersionDetector` not to catch digits after `JavaLanguageVersion.of`
-* Use origin and branch from `repos.csv` at LST build time instead of trying to determine them 
+* Use origin and branch from `repos.csv` at LST build time (if available) instead of trying to determine them 
 * Correctly set build metrics' outcome based on success/failure of the build
 * Only add system metrics in main process
 * Add `Content-Length` header support for JAR uploads during `mod publish`
-- Better support for older plugin versions
-* URL encode spaces in path segments during `mod publish`
+* Maven: Better support for older plugin versions
+* URL encode spaces (and other special chars) in path segments during `mod publish`
 
 
 ### CLI / DX v3.48.5 (2025/09/23)
@@ -204,13 +189,13 @@
 
 #### What's Changed CLI
 * Prefer Java 25 as LTS version in JVM selection
-- `tycho-compiler-plugin` v2 requires Java 11
-- class reference fix for native CLI support
+* Maven: `tycho-compiler-plugin` v2 requires Java 11
+* JavaScript: class reference fix for native CLI support
 * Use `rewrite-kotlin` and `rewrite-javascript` version from BOM
 * Non-binary trace outcomes for commands
 * Read LSTs without extracting jar
-- Allow Kotlin compiler daemon shutdown
-- Pass `--max_idle_secs` on each invocation
+* Gradle: Allow Kotlin compiler daemon shutdown
+* Bazel: Pass `--max_idle_secs` on each invocation
 * Add system memory metrics
 * Add system processor and network metrics
 * Update Gradle compatibility matrix for Gradle 9.1.0
@@ -219,7 +204,7 @@
 * Adding traces to git apply/commit/push commands
 * Add metric to track total build time by repository
 * Run `npm install` on JavaScript build step
-* Improvements to git clone operation
+* Improvements to git clone operation (only perform a single `git fetch` operation)
 
 
 ### CLI / DX v3.48.3 (2025/09/19)
@@ -235,7 +220,7 @@
 
 #### What's Changed CLI
 * Removing `.git` directory on failed clone
-- Don't load `libzstd-jni` in isolated classloader
+* `modgradle`: Don't load `libzstd-jni` in isolated classloader
 
 
 ### CLI / DX v3.48.1 (2025/09/18)
@@ -251,7 +236,7 @@
 * Handle the cases better when there's no dotnet installation
 * Support gradle.properties references in Java version detection for Gradle Groovy files
 * Deduplicate version ranges when presenting version constraint summary
-- Use `dependency:go-offline` rather than `dependency:resolve`
+* Maven: Use `dependency:go-offline` rather than `dependency:resolve`
 * Start Bazel with idle timeout of 2 mins
 * Install native ZSTD library into `.moderne` for re-use
 * Add `--organization` and `--refresh-organization` options to `mod git sync` subcommands
@@ -261,7 +246,7 @@
 * Allow `mod trace builds analyze` to process log zip files from mass ingest
 * Apply KeyStore config
 * Fix recipe run timeout incorrectly reporting success
-* Links now render correctly on Windows Subsystem for Linux
+* Links now render correctly on Windows Subsystem for Linux (WSL)
 * Refactor how some config properties are applied as system properties
 * Clear `ThreadLocal`s in `DelegatingSerializingProjectParser`
 * Add additional support for `@Example` annotations
@@ -272,15 +257,15 @@
 
 #### What's Changed CLI
 * Use actual time savings estimate from shrink wrapped recipe
-- Fix CsvToExcel to preserve numeric formatting with empty cells
-- Optimize `RepositoryDirectory#isGitIgnored()` check
+* `mod study`: Fix CsvToExcel to preserve numeric formatting with empty cells
+* `mod build` performance: Optimize `RepositoryDirectory#isGitIgnored()` check
 * Redact sensitive Authorization header from the `/installRecipes` daemon logs
 * Configure the micrometer meters before registering them
 * Fix usage documentation saying recipe sync runs in parallel
 * Trace analysis - charts improvements
 * Adding constraint summary to `VersionConstraintException`
-- Use actual `mod config run timeout` value and report failure on timeout
-- Parse all non-binary files as PlainText
+* `mod run`: Use actual `mod config run timeout` value and report failure on timeout
+* `mod build`: Parse all non-binary files as PlainText
 * Suggest additional next steps from `git checkout`, `git commit` and `git push`
 
 
@@ -292,10 +277,9 @@
 * Don't take Maven wrapperVersion as Maven version
 * Trace analysis - don't show links for build log files which don't exist
 * Trace analysis - prevent `Others #NaN`
-- Avoid creating temp files
+* `mod monitor`: Avoid creating temp files
 * Correct references to `.modernecfg` in command help
-* `LogUtils#createLogWriter()` must ensure directory exists
-* `LogUtils#logCommandInfo()` must ensure directory exists
+* Fix `mod run` performance regression introduced in 3.46
 
 
 ### CLI / DX v3.46.2 (2025/09/05)
@@ -323,7 +307,7 @@
 * Correct handling of spaces present in executable path for `mod exec`
 * Bug fix - preventing NullPointerException being thrown by `mod log builds add`
 * Performance improvements
-* Added a new proxy configuration option `mod config http proxy edit --non-proxy-hosts` allowing you to specify hostnames that bypass a configured proxy and connect directly
+* Added a new proxy configuration option `mod config http proxy edit --non-proxy-hosts` allowing you to specify hostnames (including optional wildcards) that bypass a configured proxy and connect directly
 * Bug fix - `mod git pull` failure for one repository not to fail the whole command
 * Other minor fixes
 
