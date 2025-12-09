@@ -1,5 +1,10 @@
 # CLI / DX changelog
 
+### CLI / DX v3.53.2 (2025/12/09)
+
+#### What's Changed
+* Fix `mod publish` merging of repos-lock.csv to always include new repos
+
 ### CLI / DX v3.53.1 (2025/12/05)
 
 #### What's Changed
