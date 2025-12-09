@@ -40,6 +40,7 @@ The following table contains all of the variables/arguments you need to add to y
 |------------------------------------|----------|---------|---------------------------------------------------------------------------------|
 | `MODERNE_AGENT_LLM_PROVIDER`       | `true`   |         | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL`   |
 | `MODERNE_AGENT_LLM_APIKEY`         | `true`   |         | The API key for the specified LLM provider                                      |
+| `MODERNE_AGENT_LLM_URL`            | `false`  |         | Optional URL override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). Useful for routing requests through a custom API gateway. |
 | `MODERNE_AGENT_LLM_PROXY_URL`      | `false`  |         | Proxy URL if the LLM API needs to be accessed through a proxy                   |
 | `MODERNE_AGENT_LLM_PROXY_USERNAME` | `false`  |         | Username for proxy authentication                                               |
 | `MODERNE_AGENT_LLM_PROXY_PASSWORD` | `false`  |         | Password for proxy authentication                                               |
@@ -68,6 +69,7 @@ moderne-agent:latest
 |--------------------------------------|----------|---------|---------------------------------------------------------------------------------|
 | `--moderne.agent.llm.provider`       | `true`   |         | The LLM provider to use. Options: `OPEN_AI`, `ANTHROPIC`, `GEMINI`, `MISTRAL`   |
 | `--moderne.agent.llm.apiKey`         | `true`   |         | The API key for the specified LLM provider                                      |
+| `--moderne.agent.llm.url`            | `false`  |         | Optional URL override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). Useful for routing requests through a custom API gateway. |
 | `--moderne.agent.llm.proxy.url`      | `false`  |         | Proxy URL if the LLM API needs to be accessed through a proxy                   |
 | `--moderne.agent.llm.proxy.username` | `false`  |         | Username for proxy authentication                                               |
 | `--moderne.agent.llm.proxy.password` | `false`  |         | Password for proxy authentication                                               |
