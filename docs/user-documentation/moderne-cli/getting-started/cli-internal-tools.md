@@ -67,7 +67,7 @@ If everything was configured correctly, you should be able to type `mod` into yo
 ```bash
 ➜ mod
 
-Moderne CLI 3.53.1
+Moderne CLI 3.53.2
 
 Usage:
 
