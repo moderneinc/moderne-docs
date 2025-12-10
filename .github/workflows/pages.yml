@@ -29,7 +29,9 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build website
-        run: yarn build
+        run: |
+          set -o pipefail
+          yarn build 2>&1 | { grep -v "^Generated markdown file:" || true; }
         env:
           NODE_OPTIONS: --max-old-space-size=8192
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
