@@ -13,6 +13,10 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Taint Tracking & Data Flow Analysis (December 10th, 2025)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=vKya9Z6kb38' controls="true" />
+
 ### Spring Boot 4 Awakens with DaShaun Carter (December 3rd, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=eTQJifMo6iw' controls="true" />
