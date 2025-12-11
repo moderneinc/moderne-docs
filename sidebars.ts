@@ -523,16 +523,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'administrator-documentation/moderne-dx/how-to-guides/mass-ingest-and-run-dx',
-            'administrator-documentation/moderne-dx/how-to-guides/dx-configuration',
-            'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-maven-repository-access',
-            'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-artifactory-access',
-            'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-artifactory-recipes',
-            'administrator-documentation/moderne-dx/how-to-guides/configure-dx-organizations',
-            'administrator-documentation/moderne-dx/how-to-guides/org-source-migration',
-            'administrator-documentation/moderne-dx/how-to-guides/configure-dx-with-strict-recipe-sources',
-            'administrator-documentation/moderne-dx/how-to-guides/deploying-recipe-artifacts-in-moderne-dx',
-            'administrator-documentation/moderne-dx/how-to-guides/configure-dx-ssl',
-            'administrator-documentation/moderne-dx/how-to-guides/dx-variables',
           ],
         },
         {
