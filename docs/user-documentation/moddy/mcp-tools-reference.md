@@ -1,191 +1,192 @@
 ---
-sidebar_label: MCP Tools Reference
+sidebar_label: MCP tools reference
 description: Complete reference for Moddy Desktop MCP tools available through the Model Context Protocol.
 ---
 
-# Moddy Desktop MCP Tools Reference
+# Moddy Desktop MCP tools reference
 
-This reference documents all available tools exposed by the Moddy Desktop MCP server. These tools enable Claude and other MCP-compatible clients to perform semantic code analysis and modifications across multiple repositories.
+When you connect an AI assistant (e.g., Claude) to Moddy Desktop, it can do more than just answer questions - it can actually analyze and modify your code.
 
-## Overview
+This happens through the Model Context Protocol (MCP). Moddy Desktop exposes 8 tools that let AI assistants search through Moderne's recipe catalog, execute recipes across multiple repositories, query the data tables that recipes generate, and apply the resulting code changes - all through natural conversation.
 
-The Moddy Desktop MCP server provides 8 tools for interacting with your codebase through OpenRewrite recipes and data analysis.
+To help you get the results you want when querying AI tools, this doc will contain specific reference details for every MCP tool we offer.
 
-**Server Information:**
+## Server information
+
+If you're configuring an MCP client or troubleshooting connection issues, here are the server details you'll need:
 
 * **Name:** MCP Moderne
-* **Version:** 1.0.0
+* **Version:** `1.0.0`
 * **Endpoint:** http://localhost:4848/mcp
 * **Protocol:** MCP over HTTP with Server-Sent Events (SSE)
 
 ## Available tools
 
+:::note **About Moddy Thread Id**
+Every tool requires a `moddyThreadId` parameter. This is a UUID that identifies your conversation. The same UUID should be used across all tool calls in a session. If different thread IDs are used, Moddy Desktop will treat them as separate conversations in your chat history.
+:::
+
 ### 1. findRecipes
 
-**Summary:** Search Moderne's catalog of OpenRewrite recipes to find analysis or modification tools for your codebase. This is the primary entry point for discovering recipes that can analyze code patterns, dependencies, vulnerabilities, or perform automated refactoring across multiple repositories.
+When you ask for help finding a recipe, this is the tool your AI assistant reaches for. It searches Moderne's recipe catalog and returns matching recipes for code analysis, security scanning, refactoring, and more.
 
-**Example prompt:**
+**Parameters:**
+
+| Parameter       | Type   | Required | Description                                                                                            |
+|-----------------|--------|----------|--------------------------------------------------------------------------------------------------------|
+| `query`         | string | Yes      | Describe what recipes you're looking for. Starting with "find" or "change" often gives better results. |
+| `moddyThreadId` | string | Yes      | Conversation thread ID.                                                                                |
+
+**Try asking:**
 
 ```
 Find me recipes that can detect Spring Boot usage across my repositories.
 ```
 
-**Parameters:**
-
-* `query` (string, required): Search query for recipes. Phrase queries beginning with "find" or "change" for best results.
-* `moddyThreadId` (string, required): UUID v4 format thread identifier that must be reused throughout the conversation.
-
 ### 2. describeRecipeDataTables
 
-**Summary:** Get detailed information about the data tables that a specific recipe can produce, including column descriptions and structure. Use this tool to understand what analysis data you can extract from a recipe before running it.
+When you want to know what data a recipe can produce before running it, your AI assistant uses this tool. It returns detailed information about the recipe's data tables, including column descriptions and structure.
 
-**Example prompt:**
+**Parameters:**
+
+| Parameter       | Type   | Required | Description                |
+|-----------------|--------|----------|----------------------------|
+| `recipeId`      | string | Yes      | The recipe ID to describe. |
+| `moddyThreadId` | string | Yes      | Conversation thread ID.    |
+
+**Try asking:**
+
+```
+Show me what data tables the org.openrewrite.java.search.FindTypes recipe can generate.
+```
+
+Or you could also make a more generic request - which would theoretically invoke the `findRecipes` tool in combination with this one:
 
 ```
 Show me what data tables the "Find Types" recipe can generate.
 ```
 
-**Parameters:**
-
-* `recipeId` (string, required): The ID of the recipe to describe (e.g., "org.openrewrite.java.search.FindTypes").
-* `moddyThreadId` (string, required): UUID v4 format thread identifier.
-
 ### 3. runRecipe
 
-**Summary:** Execute an OpenRewrite recipe across all repositories in your target directory to collect code analysis data or apply automated changes. The tool runs recipes in parallel across your codebase and generates results that can be further analyzed.
-
-**Example prompt:**
-
-```
-Run the FindTypes recipe with the fullyQualifiedTypeName option set to "org.springframework.boot.SpringApplication" on my repositories in /Users/myname/repos.
-```
+When you want to run a recipe, your AI assistant uses this tool. It runs the recipe across every repository in the target directory in parallel. It also will collect analysis data that can be accessed in the future to tell what happened.
 
 **Parameters:**
 
-* `targetDirectory` (string, required): Path to the directory containing all your codebases/repositories.
-* `recipeId` (string, required): The ID of the recipe to execute.
-* `options` (array, optional): Array of option name-value pairs to configure the recipe.
-* `moddyThreadId` (string, required): UUID v4 format thread identifier.
+| Parameter         | Type   | Required | Description                                                                                                       |
+|-------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------|
+| `targetDirectory` | string | Yes      | The fully qualified path to the directory containing your repositories.                                           |
+| `recipeId`        | string | Yes      | The recipe ID to execute.                                                                                         |
+| `moddyThreadId`   | string | Yes      | Conversation thread ID.                                                                                           |
+| `options`         | array  | No       | Some recipes have options to let you customize the output. Provide them with a name-value pair to configure this. |
+
+**Try asking:**
+
+```
+Run the org.openrewrite.java.search.FindTypes recipe with the fullyQualifiedTypeName option 
+set to org.apache.commons.lang3.StringUtils and the checkAssignability option set to 
+true on my repositories in /Users/myname/repos.
+```
 
 ### 4. generateCsv
 
-**Summary:** Convert recipe execution results into structured CSV data tables with file paths, line numbers, and code context for detailed analysis. This transforms raw recipe outputs into queryable datasets that can be used for SQL analysis or visualization.
-
-**Example prompt:**
-
-```
-Generate the TypeUses data table as CSV from the last recipe run.
-```
+After running a recipe, your AI assistant can use this tool to convert the results into a structured CSV file. The CSV includes file paths, line numbers, and code context - making it easy to query with SQL or visualize the data.
 
 **Parameters:**
 
-* `targetDirectory` (string, required): Path to the directory containing your codebases.
-* `dataTable` (string, required): The name of the data table to generate from the last recipe run.
-* `moddyThreadId` (string, required): UUID v4 format thread identifier.
+| Parameter         | Type   | Required | Description                                                             |
+|-------------------|--------|----------|-------------------------------------------------------------------------|
+| `targetDirectory` | string | Yes      | The fully qualified path to the directory containing your repositories. |
+| `dataTable`       | string | Yes      | The name of the data table to generate from the recipe run.             |
+| `moddyThreadId`   | string | Yes      | Conversation thread ID.                                                 |
+
+**Try asking:**
+
+```
+Generate the TypeUses data table as a CSV from the last recipe run.
+```
 
 ### 5. analyzeCsv
 
-**Summary:** Execute SQL queries against CSV data tables to answer complex questions about code patterns across repositories. This tool uses SQLite syntax to query and analyze the structured data generated by recipes.
-
-**Example prompt:**
-
-```
-Run a SQL query on the data table to count occurrences by repository: SELECT repository, COUNT(*) as count FROM csv_data GROUP BY repository ORDER BY count DESC.
-```
+Once you have a CSV data table, your AI assistant can use this tool to run SQL queries against it. This lets you answer complex questions about code patterns across repositories using SQLite syntax.
 
 **Parameters:**
 
-* `dataTablePath` (string, required): Path to the CSV data table file.
-* `sqlQuery` (string, required): SQL query to execute. Use 'csv_data' as the table name.
-* `moddyThreadId` (string, required): UUID v4 format thread identifier.
+| Parameter       | Type   | Required | Description                                                                     |
+|-----------------|--------|----------|---------------------------------------------------------------------------------|
+| `dataTablePath` | string | Yes      | The fully qualified path to the CSV data table file.                            |
+| `sqlQuery`      | string | Yes      | The SQL query to execute. Please make sure to use `csv_data` as the table name. |
+| `moddyThreadId` | string | Yes      | Conversation thread ID.                                                         |
+
+**Try asking:**
+
+```
+Run a SQL query on the /Users/myname/repos/data-table.csv data table to count occurrences by repository: SELECT repository, COUNT(*) as count FROM csv_data GROUP BY repository ORDER BY count DESC.
+```
 
 ### 6. createBarChart
 
-**Summary:** Generate interactive bar charts and histograms to visualize code analysis data distributions, such as repository rankings, code pattern frequencies, or technical debt hotspots. Charts are displayed in the Moddy Desktop application.
-
-**Example prompt:**
-
-```
-Create a bar chart showing the top 10 files with the most occurrences, using the repository names as labels.
-```
+Your AI assistant can use this tool to generate interactive bar charts and histograms to visually analyze your code. These charts are displayed directly in the Moddy Desktop application and they're great for spotting patterns like technical debt hotspots.
 
 **Parameters:**
 
-* `data` (array of numbers, required): The numeric data to plot.
-* `bins` (number, optional): Number of bins for the histogram.
-* `binLabels` (array of strings, optional): Labels for each bin.
-* `title` (string, optional): Chart title.
-* `xAxisLabel` (string, optional): X-axis label.
-* `yAxisLabel` (string, optional): Y-axis label.
-* `moddyThreadId` (string, required): UUID v4 format thread identifier.
+| Parameter       | Type             | Required | Description                           |
+|-----------------|------------------|----------|---------------------------------------|
+| `data`          | array of numbers | Yes      | The numeric data to plot.             |
+| `moddyThreadId` | string           | Yes      | Conversation thread ID.               |
+| `bins`          | number           | No       | The number of bins for the histogram. |
+| `binLabels`     | array of strings | No       | The labels for each bin.              |
+| `title`         | string           | No       | The chart title.                      |
+| `xAxisLabel`    | string           | No       | The X-axis label.                     |
+| `yAxisLabel`    | string           | No       | The Y-axis label.                     |
+
+**Try asking:**
+
+```
+Create a bar chart that shows the top 10 files with the most occurrences, using the repository names as labels.
+```
 
 ### 7. getRemoteFile
 
-**Summary:** Clone a specific file from a git repository using sparse checkout, allowing you to read files from remote repositories without cloning the entire repo. Useful for accessing files referenced in recipe data tables.
+When you need to look at a specific file from a remote repository, your AI assistant can use this tool to fetch it without cloning the entire repo. It uses sparse checkout to grab just the file you need. This is particularly useful when you want to examine files referenced in recipe data tables.
 
-**Example prompt:**
+**Parameters:**
+
+| Parameter          | Type   | Required | Description                                       |
+|--------------------|--------|----------|---------------------------------------------------|
+| `workingDirectory` | string | Yes      | The local directory where the file will be saved. |
+| `repositoryOrigin` | string | Yes      | The Git repository origin (e.g., `github.com`).   |
+| `repositoryPath`   | string | Yes      | The repository path (e.g., `neo4j/neo4j`).        |
+| `repositoryBranch` | string | Yes      | The branch to checkout (e.g., `release/5.26.0`).  |
+| `sourceFile`       | string | Yes      | The file path relative to the repository root.    |
+| `moddyThreadId`    | string | Yes      | Conversation thread ID.                           |
+
+**Try asking:**
 
 ```
 Get the file at path community/collections/test.yml from the github.com/neo4j/neo4j repository on the release/5.26.0 branch.
 ```
 
-**Parameters:**
-
-* `workingDirectory` (string, required): Local directory where the file will be saved.
-* `repositoryOrigin` (string, required): Git repository origin URL (e.g., "github.com").
-* `repositoryPath` (string, required): Path within the repository (e.g., "neo4j/neo4j").
-* `repositoryBranch` (string, required): Branch to checkout (e.g., "release/5.26.0").
-* `sourceFile` (string, required): File path relative to the repository root.
-* `moddyThreadId` (string, required): UUID v4 format thread identifier.
-
 ### 8. applyPatch
 
-**Summary:** Apply code changes from a recipe execution to files in your project directory. This tool applies the modifications generated by recipes that produce fix patches, allowing you to implement automated refactoring changes.
+When a recipe generates code changes, your AI assistant can use this tool to apply the changes to your project. Without applying a patch, your code wouldn't actually be changed when a recipe is run.
 
-**Example prompt:**
+:::warning
+This is a destructive operation that modifies files in your project. Make sure you have a clean git state or backups before applying patches.
+:::
+
+**Parameters:**
+
+| Parameter       | Type   | Required | Description                                                        |
+|-----------------|--------|----------|--------------------------------------------------------------------|
+| `directoryPath` | string | Yes      | The path to the project directory where changes should be applied. |
+| `recipeRunId`   | string | Yes      | The ID of the recipe run containing the changes.                   |
+| `moddyThreadId` | string | Yes      | Conversation thread ID.                                            |
+
+**Try asking:**
 
 ```
 Apply the changes from recipe run ID 20250710121622-dibSY to my project at /Users/myname/myproject.
 ```
-
-**Parameters:**
-
-* `directoryPath` (string, required): Path to the project directory where changes should be applied.
-* `recipeRunId` (string, required): The ID of the recipe run containing the changes.
-* `moddyThreadId` (string, required): UUID v4 format thread identifier.
-
-**Warning:** This is a destructive operation. Always prompt the user for confirmation before applying patches.
-
-## Common workflows
-
-### Finding and analyzing code patterns
-
-1. Use `findRecipes` to search for analysis recipes (e.g., "find Spring Boot annotations")
-2. Use `describeRecipeDataTables` to preview available data structures
-3. Use `runRecipe` to execute the recipe across repositories
-4. Use `generateCsv` to create structured data tables
-5. Use `analyzeCsv` to query the data with SQL
-6. Optionally use `createBarChart` to visualize results
-
-### Applying automated code changes
-
-1. Use `findRecipes` to find a refactoring recipe (e.g., "upgrade Spring Boot")
-2. Use `runRecipe` to execute and generate a fix patch
-3. Use `applyPatch` to apply the changes to your codebase
-
-### Exploring remote code
-
-1. Run a recipe that identifies files of interest
-2. Use `generateCsv` to get file paths in CSV format
-3. Use `getRemoteFile` to retrieve and examine specific files
-
-## Important notes
-
-* **Thread ID:** All tools require a `moddyThreadId` parameter. Generate a UUID v4 at the start of the conversation and reuse it for all subsequent tool calls.
-* **Target Directory:** Most tools require a `targetDirectory` parameter pointing to the parent directory containing all your repositories.
-* **Moddy Desktop:** The MCP server requires Moddy Desktop to be running. If tools return errors, verify Moddy Desktop is open and accessible.
-* **Recipe Execution:** Recipes execute across ALL repositories in the target directory simultaneously.
-* **Patch Types:** Recipe runs create either `search.patch` (read-only findings) or `fix.patch` (code changes). Only fix patches can be applied.
 
 ## Additional resources
 
