@@ -1,5 +1,5 @@
 ---
-sidebar_label: MCP Integration
+sidebar_label: Connecting to Moddy via MCP
 description: Connect Moddy Desktop to MCP-compatible tools.
 ---
 
