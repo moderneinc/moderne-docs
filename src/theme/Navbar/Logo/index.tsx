@@ -2,18 +2,25 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import MegaMenu from '@site/src/components/MegaMenu';
 import ModerneSymbol from '@site/static/img/moderne-symbol.svg';
+import ModerneWordmark from '@site/static/img/moderne-wordmark.svg';
 import { ChevronDown } from 'lucide-react';
 import { type ReactNode, useState } from 'react';
 import styles from './styles.module.css';
 
-export default function DocsLogo(): ReactNode {
+export default function LogoWrapper(): ReactNode {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSpinning, setIsSpinning] = useState(false);
   const {
     siteConfig: {baseUrl},
   } = useDocusaurusContext();
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
+    // Trigger spin animation on user click
+    setIsSpinning(true);
+    setTimeout(() => {
+      setIsSpinning(false);
+    }, 600); // Match animation duration
   };
 
   const closeMenu = () => {
@@ -24,13 +31,10 @@ export default function DocsLogo(): ReactNode {
     <div className={styles.container}>
       <div className={styles.logoWrapper}>
         <Link to={baseUrl} className={styles.logoLink} aria-label="Moderne Documentation">
-          <div className={styles.logoContainer}>
+          <div className={`${styles.logoContainer} ${isSpinning ? styles.spinning : ''}`}>
             <ModerneSymbol className={styles.symbolImage} />
           </div>
-          <div className={styles.wordmarkContainer}>
-            <span className={styles.wordmarkText}>Moderne</span>
-            <sup className={styles.registeredMark}>®</sup>
-          </div>
+          <ModerneWordmark className={styles.wordmarkImage} />
         </Link>
         <button
           className={styles.docsButton}

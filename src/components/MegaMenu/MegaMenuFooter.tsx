@@ -1,4 +1,3 @@
-import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { footerLinks } from '../../config/megaMenuData';
 import styles from './MegaMenu.module.css';
@@ -21,9 +20,7 @@ export default function MegaMenuFooter({ onClose }: { onClose: () => void }) {
             onClick={onClose}
           >
             {link.name}
-            {link.name === 'OpenRewrite Docs' && (
               <ExternalLink className={styles.externalIcon} size={12} />
-            )}
           </a>
         ))}
       </div>

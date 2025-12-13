@@ -128,11 +128,14 @@ export default function NavbarContent(): ReactNode {
     <NavbarContentLayout
       left={
         <>
-          {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
-          <NavbarLogo />
-          {personaSwitcherMetadata && (
-            <PersonaSwitcher metadata={personaSwitcherMetadata} />
-          )}
+          {/* Hide mobile sidebar toggle - sidebar filtering causes issues on mobile */}
+          {/* {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />} */}
+          <div className={styles.logoGroup}>
+            <NavbarLogo />
+            {personaSwitcherMetadata && (
+              <PersonaSwitcher metadata={personaSwitcherMetadata} />
+            )}
+          </div>
           <NavbarItems items={leftItems} />
         </>
       }

@@ -4,10 +4,9 @@
  */
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--navbar-border-color);
+  border-bottom: 0.5px solid var(--brand-dark-lavender, #d4d3e4);
   box-shadow: none;
 }
 
@@ -15,7 +14,6 @@
 :global(html[data-theme='dark']) .navbar {
   background-color: rgba(12, 17, 43, 0.8);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 @media (min-width: 997px) {

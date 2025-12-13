@@ -5,7 +5,7 @@
 
   /* New design specifications */
   min-height: 70px;
-  padding: var(--neo-spacing_2) var(--neo-spacing_1);
+  padding: 16px;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
   border: none;

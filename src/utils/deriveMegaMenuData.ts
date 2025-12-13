@@ -2,7 +2,7 @@
  * Utility for deriving MegaMenu data from sidebars.ts
  *
  * This implements a hybrid approach where:
- * - Product items are derived from sidebar categories marked with megaMenu: true
+ * - Product items are derived from sidebar categories marked with featured: true
  * - Learning items and footer links remain static in megaMenuData.ts
  *
  * Benefits:
@@ -30,7 +30,7 @@ interface CategoryWithLink {
     [key: string]: any;
   };
   customProps?: {
-    megaMenu?: boolean;
+    featured?: boolean;
     gemIcon?: string;
     [key: string]: any;
   };
@@ -51,7 +51,7 @@ function isCategoryWithLink(item: PropSidebarItem): item is CategoryWithLink {
 /**
  * Derives product items from sidebars.ts top-level categories
  *
- * Looks for categories with customProps.megaMenu === true
+ * Looks for categories with customProps.featured === true
  * and extracts their label, description, gem icon, and slug.
  *
  * @returns Array of ProductItem objects for the MegaMenu
@@ -67,10 +67,10 @@ export function deriveProductsFromSidebars(): ProductItem[] {
 
   // Iterate through all sidebar items
   sidebarDocs.forEach((item: PropSidebarItem) => {
-    // Check if this is a category with megaMenu flag
+    // Check if this is a category with featured flag
     if (
       isCategoryWithLink(item) &&
-      item.customProps?.megaMenu === true
+      item.customProps?.featured === true
     ) {
       const gemIcon = item.customProps.gemIcon || 'pink'; // Default to pink if not specified
 

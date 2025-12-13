@@ -1,4 +1,4 @@
-import React, {type ReactNode, useMemo} from 'react';
+import React, {type ReactNode} from 'react';
 import DocSidebarItems from '@theme-original/DocSidebarItems';
 import type DocSidebarItemsType from '@theme/DocSidebarItems';
 import type {WrapperProps} from '@docusaurus/types';
@@ -35,16 +35,27 @@ export default function DocSidebarItemsWrapper(props: Props): ReactNode {
     currentCategory = null;
   }
 
-  // Apply contextual filtering with memoization for performance
-  const filteredItems = useMemo(() => {
-    return filterSidebarItemsByContext(
+  // Detect if we're rendering nested items (children of a category)
+  // Docusaurus passes level 1 for the top-level sidebar, level 2+ for nested items
+  // @ts-ignore - level might not be in the type but is passed by Docusaurus
+  const level = props.level ?? 0;
+  const isNestedRendering = level > 1;
+
+  // Apply contextual filtering
+  // Only filter at the top level (level 0-1), not for nested items (level 2+)
+  let filteredItems;
+  if (isNestedRendering) {
+    // Don't filter nested items - pass them through unchanged
+    filteredItems = props.items as any[];
+  } else {
+    filteredItems = filterSidebarItemsByContext(
       props.items,
       currentPath,
       depth,
       pathSegments,
       currentCategory,
     );
-  }, [props.items, currentPath, depth, pathSegments, currentCategory]);
+  }
 
   // Use Fragment to preserve HTML structure (DocSidebarItems is rendered inside <ul>)
   // Key by currentPath to force re-render and reset collapse/expand state on navigation

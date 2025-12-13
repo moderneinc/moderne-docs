@@ -1,7 +1,13 @@
 /**
  * Navbar Content styles
- * Positions the persona switcher in the navbar
+ * Logo and PersonaSwitcher group with 16px gap
  */
+
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 
 .personaSwitcherWrapper {
   display: flex;

@@ -51,6 +51,7 @@
 .list {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   list-style: none;
   margin: 0;
@@ -75,6 +76,7 @@
   text-decoration: none;
   transition: opacity 0.2s ease;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .link:hover {
@@ -94,6 +96,7 @@
   font-weight: var(--breadcrumb-font-weight);
   line-height: var(--breadcrumb-line-height);
   color: var(--breadcrumb-current-color);
+  white-space: nowrap;
 }
 
 .separator {
