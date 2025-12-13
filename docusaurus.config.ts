@@ -1,6 +1,6 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type { Config } from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
   title: 'Moderne Docs',
@@ -86,6 +86,12 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           editUrl:
             'https://github.com/moderneinc/moderne-docs/edit/main',
+          exclude: [
+            '**/*.stories.tsx',
+            '**/*.stories.ts',
+            '**/*.stories.jsx',
+            '**/*.stories.js',
+          ],
         },
         gtag: {
           trackingID: "G-Q1CMC219Y5",
@@ -192,6 +198,9 @@ const config: Config = {
         "csv",
       ],
     },
+    sidebar: {
+      hideable: true,
+    }
   } satisfies Preset.ThemeConfig,
 };
 

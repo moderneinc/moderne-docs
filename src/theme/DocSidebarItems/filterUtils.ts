@@ -21,215 +21,58 @@ export function useContextualSidebarDepth() {
   };
 }
 
-/**
- * Check if a sidebar item is a section boundary (HTML divider with <strong> tag)
- * @param item - Sidebar item to check
- * @returns True if item is a section boundary
- */
-function isSectionBoundary(item: PropSidebarItem): boolean {
-  return item.type === 'html' &&
-         (item as any).value?.includes('<strong>');
-}
-
-/**
- * Extract the section name from an HTML divider item
- * @param item - Sidebar item with HTML content
- * @returns Extracted section name or empty string
- */
-function extractSectionName(item: PropSidebarItem): string {
-  const value = (item as any).value || '';
-  const match = value.match(/<strong>(.*?)<\/strong>/);
-  return match?.[1] || '';
-}
-
-/**
- * Find the current major section based on path segments
- * Detects which HTML-separated section the current path belongs to
- *
- * @param items - All sidebar items
- * @param pathSegments - Current path segments
- * @returns Object containing section name and items, or null if not found
- */
-function findCurrentSection(
-  items: readonly PropSidebarItem[],
-  pathSegments: string[]
-): { section: string; sectionItems: PropSidebarItem[] } | null {
-  if (pathSegments.length === 0) {
-    return null; // Top-level, show everything
-  }
-
-  let currentSection = '';
-  let sectionItems: PropSidebarItem[] = [];
-  let inMatchingSection = false;
-
-  // First path segment helps identify the major section
-  const majorPath = pathSegments[0];
-
-  for (const item of items) {
-    if (isSectionBoundary(item)) {
-      if (inMatchingSection) {
-        // We found the next section boundary, stop collecting
-        break;
-      }
-      currentSection = extractSectionName(item);
-      sectionItems = [];
-    } else if (currentSection) {
-      // Collect items in this section
-      sectionItems.push(item);
-
-      // Check if this item's path matches our current path
-      if (!inMatchingSection && itemMatchesPath(item, majorPath, pathSegments)) {
-        inMatchingSection = true;
-      }
-    }
-  }
-
-  return inMatchingSection ? { section: currentSection, sectionItems } : null;
-}
-
-/**
- * Check if a sidebar item matches the given path
- * Handles different item types (category, doc, link)
- *
- * @param item - Sidebar item to check
- * @param pathSegment - Primary path segment to match
- * @param allSegments - All path segments for deeper matching
- * @returns True if item matches the path
- */
-function itemMatchesPath(
-  item: PropSidebarItem,
-  pathSegment: string,
-  allSegments: string[]
-): boolean {
-  if (item.type === 'category') {
-    const category = item as PropSidebarItemCategory;
-
-    // Check if category href starts with the full path we're looking for
-    const categoryPath = category.href || '';
-    const targetPath = '/' + allSegments.join('/');
-
-    // Must match from the start of the path, not just contain the segment
-    if (categoryPath === targetPath || categoryPath.startsWith(targetPath + '/')) {
-      return true;
-    }
-
-    // Recursively check child items
-    if (category.items && allSegments.length > 1) {
-      return category.items.some(child =>
-        itemMatchesPath(child, allSegments[1], allSegments.slice(1))
-      );
-    }
-  }
-
-  if (item.type === 'link') {
-    const linkItem = item as any;
-    const linkPath = linkItem.href || '';
-    const targetPath = '/' + allSegments.join('/');
-    return linkPath === targetPath || linkPath.startsWith(targetPath + '/');
-  }
-
-  return false;
-}
-
-/**
- * Find the parent category that directly contains the current path
- * This is used for progressive disclosure to show only the current category tree
- *
- * @param items - Sidebar items to search
- * @param pathSegments - Current path segments
- * @param depth - How deep to search (tracks recursion level)
- * @returns The parent category or null if not found
- */
-function findParentCategory(
-  items: readonly PropSidebarItem[],
-  pathSegments: string[],
-  depth: number = 0
-): PropSidebarItemCategory | null {
-  for (const item of items) {
-    if (item.type === 'category') {
-      const category = item as PropSidebarItemCategory;
-
-      // Check if this category's href matches our path
-      const categoryPath = category.href || '';
-      const categorySegments = categoryPath.split('/').filter(s => s);
-
-      // Check if this category is in the current path
-      const isInPath = categorySegments.length > 0 &&
-                       categorySegments.every((seg, idx) => pathSegments[idx] === seg);
-
-      if (isInPath) {
-        // If we have child items, search deeper
-        if (category.items && category.items.length > 0 && pathSegments.length > categorySegments.length) {
-          const childCategory = findParentCategory(category.items, pathSegments, depth + 1);
-          if (childCategory) {
-            return childCategory;
-          }
-        }
-
-        // This category is the parent of our current path
-        return category;
-      }
-    }
-  }
-
-  return null;
-}
 
 /**
  * Main filtering function to apply contextual sidebar logic
  *
  * Rules:
- * - Depth 0-1 (top-level /,/introduction): Show all sections with dividers
- * - Depth 2+ (product level and deeper): Show all product categories
- *   - /user-documentation/moderne-platform: Show Platform section
- *   - /user-documentation/moderne-platform/getting-started: Still show Platform section
- *   - /user-documentation/moderne-platform/getting-started/doc: Still show Platform section
+ * - Depth 0: No sidebar (empty array)
+ * - Depth 1+: Show only the matching category's tree, drilling down to nested product categories
  *
  * Path depth examples:
- * - / = 0 segments
- * - /introduction = 1 segment
- * - /user-documentation/moderne-platform = 2 segments (product level)
- * - /user-documentation/moderne-platform/getting-started = 3 segments (category level)
- * - /user-documentation/moderne-platform/getting-started/doc = 4+ segments (doc level)
+ * - / = 0 segments → no sidebar
+ * - /administrator-documentation = 1 segment → show Administrator Documentation with expanded subsections
+ * - /administrator-documentation/moderne-platform = 2 segments → show only Moderne Platform tree
+ * - /administrator-documentation/moderne-platform/getting-started = 3 segments → show only Moderne Platform tree
  *
  * @param items - All sidebar items
  * @param currentPath - Current page path
  * @param depth - Current navigation depth (number of path segments)
  * @param pathSegments - Path segments array
+ * @param currentCategory - Current category from Docusaurus context
  * @returns Filtered sidebar items
  */
 export function filterSidebarItemsByContext(
   items: readonly PropSidebarItem[],
   currentPath: string,
   depth: number,
-  pathSegments: string[],
+  _pathSegments: string[],
   currentCategory?: any
 ): PropSidebarItem[] {
-  // Depth 0-1: Show everything (home/introduction pages)
-  if (depth <= 1) {
-    return [...items];
+  // Depth 0: No sidebar at all
+  if (depth === 0) {
+    return [];
   }
 
-  // If we have a current category from Docusaurus context, use it
-  // This is more stable than path matching
-  if (currentCategory) {
-    // Find the top-level product category that contains this category
-    const productCategory = findTopLevelProductCategory(items, currentCategory);
+  // Depth 1+: Find the matching category and show its tree
+  // For nested structures (like Administrator Documentation), drill down to the actual product category
 
-    if (productCategory && productCategory.items) {
-      return addCategoryHeader(productCategory, currentPath);
+  // If we have a current category from Docusaurus context, use it (more reliable)
+  if (currentCategory) {
+    const category = findDeepestMatchingCategory(items, currentCategory);
+    if (category && category.items) {
+      return addCategoryHeader(category, currentPath);
     }
   }
 
-  // Fallback to path matching if no category context available
-  const matchingCategory = findMatchingCategory(items, currentPath);
-
+  // Fallback to path matching
+  const matchingCategory = findDeepestMatchingCategoryByPath(items, currentPath);
   if (matchingCategory && matchingCategory.items) {
     return addCategoryHeader(matchingCategory, currentPath);
   }
 
-  // If no match found, show everything as fallback
-  return [...items];
+  // If no match found, return empty (no sidebar)
+  return [];
 }
 
 /**
@@ -250,18 +93,20 @@ function addCategoryHeader(
     value: `<br/><strong>${category.label}</strong>`,
   };
 
-  // Return header followed by the category's items with proper expand state
+  // Return header followed by the category's items with path-based expand state
+  // Only expand categories that are in the current path, not all children
   return [
     header,
-    ...setAutoExpandState(category.items || [], currentPath),
+    ...setAutoExpandState(category.items || [], currentPath, false),
   ];
 }
 
 /**
- * Find the top-level product category that contains the given category
- * Uses the permalink from the category context which is unique and stable
+ * Find the deepest matching category that contains the given category
+ * For nested structures, this drills down to the actual product category
+ * rather than stopping at the top-level parent
  */
-function findTopLevelProductCategory(
+function findDeepestMatchingCategory(
   items: readonly PropSidebarItem[],
   targetCategory: any
 ): PropSidebarItemCategory | null {
@@ -272,14 +117,105 @@ function findTopLevelProductCategory(
     return null;
   }
 
-  // Find the top-level category whose tree contains this permalink
+  // Find the deepest category that either matches the permalink or contains it
   for (const item of items) {
     if (item.type === 'category') {
       const category = item as PropSidebarItemCategory;
 
-      // Check if this category is the target or contains it by permalink
+      // Check if this category contains the target permalink
       if (categoryContainsPermalink(category, targetPermalink)) {
-        return category;
+        // Try to find a deeper match within this category's children
+        const deeperMatch = findDeepestCategoryInTree(category, targetPermalink);
+        return deeperMatch || category;
+      }
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Check if a category is a "product category" - the level at which we want to show the sidebar
+ * Product categories are marked with featured: true OR contain standard subsections
+ * BUT are NOT standard subsections themselves
+ */
+function isProductCategory(category: PropSidebarItemCategory): boolean {
+  const label = category.label?.toLowerCase() || '';
+
+  // Exact match standard subsections (not partial match with includes())
+  const isStandardSubsection =
+    label === 'getting started' ||
+    label === 'how to guides' ||
+    label === 'references' ||
+    label === 'reference' ||
+    label === 'shared references';
+
+  if (isStandardSubsection) {
+    return false;
+  }
+
+  // Categories with featured flag are product-level
+  if (category.customProps?.featured === true) {
+    return true;
+  }
+
+  // For nested structures (like Administrator Platform), detect product categories
+  // by checking if they contain the standard subsection pattern
+  if (category.items && category.items.length > 0) {
+    const hasStandardSubsections = category.items.some(item => {
+      if (item.type === 'category') {
+        const itemLabel = item.label?.toLowerCase() || '';
+        return itemLabel === 'getting started' ||
+               itemLabel === 'how to guides' ||
+               itemLabel === 'references' ||
+               itemLabel === 'reference';
+      }
+      return false;
+    });
+
+    if (hasStandardSubsections) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+/**
+ * Recursively find the deepest PRODUCT category in a tree that contains the target permalink
+ * This stops at product-level categories (Platform, CLI, DX) rather than drilling to subsections
+ */
+function findDeepestCategoryInTree(
+  category: PropSidebarItemCategory,
+  targetPermalink: string
+): PropSidebarItemCategory | null {
+  // If this category's href matches exactly and it's a product category, return it
+  if (category.href === targetPermalink && isProductCategory(category)) {
+    return category;
+  }
+
+  // Check if any child category contains the permalink
+  if (category.items) {
+    for (const item of category.items) {
+      if (item.type === 'category') {
+        const childCategory = item as PropSidebarItemCategory;
+
+        // If this child contains the permalink
+        if (categoryContainsPermalink(childCategory, targetPermalink)) {
+          // If this child is a product category, return it (don't go deeper)
+          if (isProductCategory(childCategory)) {
+            return childCategory;
+          }
+
+          // Otherwise, try to go deeper to find a product category
+          const deeperMatch = findDeepestCategoryInTree(childCategory, targetPermalink);
+          if (deeperMatch) {
+            return deeperMatch;
+          }
+
+          // If no product category found deeper, return this child
+          return childCategory;
+        }
       }
     }
   }
@@ -323,10 +259,15 @@ function categoryContainsPermalink(
 /**
  * Set the collapsed state for categories based on whether they're in the current path
  * Categories that are in the path or contain the current page should be expanded
+ *
+ * @param items - Items to process
+ * @param currentPath - Current page path
+ * @param expandAll - If true, expand all immediate children (used when at parent level)
  */
 function setAutoExpandState(
   items: readonly PropSidebarItem[],
-  currentPath: string
+  currentPath: string,
+  expandAll: boolean = false
 ): PropSidebarItem[] {
   return items.map(item => {
     if (item.type === 'category') {
@@ -344,14 +285,16 @@ function setAutoExpandState(
       const hasActiveChild = category.items ?
         containsPath(category.items, currentPath) : false;
 
-      // Expand if in path or has active child, otherwise collapse
-      const shouldExpand = isInPath || hasActiveChild;
+      // Expand if in path, has active child, OR expandAll flag is set
+      const shouldExpand = isInPath || hasActiveChild || expandAll;
 
       return {
         ...category,
         collapsed: !shouldExpand,
-        items: category.items ? setAutoExpandState(category.items, currentPath) : category.items,
-      };
+        items: category.items ?
+          setAutoExpandState(category.items, currentPath, false) :
+          category.items,
+      } as PropSidebarItemCategory;
     }
     return item;
   });
@@ -391,24 +334,103 @@ function containsPath(
 }
 
 /**
- * Find the TOP-LEVEL (product) category that contains the current path
- * This ensures we show all siblings (like "How to guides", "References", etc.)
- * rather than drilling down too deep
+ * Find the deepest category that contains the current path
+ * For nested structures, this drills down to the actual product category
  */
-function findMatchingCategory(
+function findDeepestMatchingCategoryByPath(
   items: readonly PropSidebarItem[],
   currentPath: string
 ): PropSidebarItemCategory | null {
-  // First pass: find top-level categories that contain the current path
+  // First pass: Look for exact href matches (higher priority)
+  for (const item of items) {
+    if (item.type === 'category') {
+      const category = item as PropSidebarItemCategory;
+      const categoryPath = category.href || '';
+
+      // Exact match for this category's href
+      if (categoryPath && (
+        currentPath === categoryPath ||
+        currentPath === categoryPath + '/'
+      )) {
+        // Try to find a deeper match within this category's children
+        const deeperMatch = findDeepestCategoryInTreeByPath(category, currentPath);
+        return deeperMatch || category;
+      }
+    }
+  }
+
+  // Second pass: Look for categories that contain the path (via children)
   for (const item of items) {
     if (item.type === 'category') {
       const category = item as PropSidebarItemCategory;
 
-      // Check if this top-level category or any of its descendants contain the current path
+      // Check if this category contains the current path
       if (categoryContainsPath(category, currentPath)) {
-        return category;
+        // Try to find a deeper match within this category's children
+        const deeperMatch = findDeepestCategoryInTreeByPath(category, currentPath);
+        return deeperMatch || category;
       }
     }
+  }
+
+  return null;
+}
+
+/**
+ * Recursively find the deepest PRODUCT category in a tree that contains the current path
+ * This stops at product-level categories rather than drilling to subsections
+ */
+function findDeepestCategoryInTreeByPath(
+  category: PropSidebarItemCategory,
+  currentPath: string
+): PropSidebarItemCategory | null {
+  const categoryPath = category.href || '';
+
+  // If this category's path matches the current path
+  if (categoryPath && (
+      currentPath === categoryPath ||
+      currentPath === categoryPath + '/' ||
+      currentPath.startsWith(categoryPath + '/')
+  )) {
+    // Check if any child category also contains this path
+    if (category.items) {
+      for (const item of category.items) {
+        if (item.type === 'category') {
+          const childCategory = item as PropSidebarItemCategory;
+
+          // If this child contains the path
+          if (categoryContainsPath(childCategory, currentPath)) {
+            // If this child is a product category, return it (don't go deeper)
+            if (isProductCategory(childCategory)) {
+              return childCategory;
+            }
+
+            // Otherwise, try to go deeper to find a product category
+            const deeperMatch = findDeepestCategoryInTreeByPath(childCategory, currentPath);
+            if (deeperMatch) {
+              return deeperMatch;
+            }
+
+            // If no product category found deeper and child is not a product category,
+            // don't return the child. Continue to check if current category is a product category.
+          }
+        }
+      }
+    }
+
+    // If this is a product category, return it
+    if (isProductCategory(category)) {
+      return category;
+    }
+
+    // Special case: if we're at the exact path of this category (not deeper),
+    // return it even if it's not a product category (e.g., Administrator Documentation)
+    if (currentPath === categoryPath || currentPath === categoryPath + '/') {
+      return category;
+    }
+
+    // If we're deeper than this category and it's not a product category, don't return it
+    return null;
   }
 
   return null;
@@ -451,260 +473,3 @@ function categoryContainsPath(
   return false;
 }
 
-/**
- * Filter sidebar items to show only a specific section
- * Includes the section boundary (HTML header) and all items within that section
- *
- * @param items - All sidebar items
- * @param currentSection - The section to display
- * @returns Filtered items containing only the specified section
- */
-function filterToSection(
-  items: readonly PropSidebarItem[],
-  currentSection: { section: string; sectionItems: PropSidebarItem[] }
-): PropSidebarItem[] {
-  const filtered: PropSidebarItem[] = [];
-  let inSection = false;
-
-  for (const item of items) {
-    if (isSectionBoundary(item)) {
-      const sectionName = extractSectionName(item);
-      if (sectionName === currentSection.section) {
-        // Include the section boundary (header)
-        filtered.push(item);
-        inSection = true;
-      } else if (inSection) {
-        // Hit the next section boundary, stop
-        break;
-      }
-    } else if (inSection) {
-      // Include all items within the current section
-      filtered.push(item);
-    }
-  }
-
-  return filtered;
-}
-
-/**
- * Filter sidebar to show product-level view
- * At depth 2+ (e.g., /user-documentation/moderne-platform or deeper), shows:
- * - Product name as header (e.g., "Platform")
- * - Product's children promoted to root level (Getting started, How to guides, etc.)
- * - Hides sibling products
- *
- * This applies to both product-level pages and all pages deeper in the tree.
- * The entire product tree remains visible regardless of how deep you navigate.
- *
- * @param items - All sidebar items
- * @param currentSection - The section containing the products
- * @param pathSegments - Current path segments to identify the product
- * @returns Filtered items with product header and promoted children
- */
-function filterToProductLevel(
-  items: readonly PropSidebarItem[],
-  currentSection: { section: string; sectionItems: PropSidebarItem[] },
-  pathSegments: string[]
-): PropSidebarItem[] {
-  // Find the product category that matches the current path
-  // For /user-documentation/moderne-platform, we're looking for the "Platform" category
-  const productCategory = findProductCategory(currentSection.sectionItems, pathSegments);
-
-  if (!productCategory) {
-    // Fallback: show the whole section if we can't find the product
-    return filterToSection(items, currentSection);
-  }
-
-  // Create a header using the product name
-  const productHeader: PropSidebarItem = {
-    type: 'html',
-    value: `<br/><strong>${productCategory.label}</strong>`,
-  };
-
-  // Return the header followed by the product's children (promoted to root)
-  return [
-    productHeader,
-    ...(productCategory.items || []),
-  ];
-}
-
-/**
- * Find the product category that matches the current path
- * For /user-documentation/moderne-platform or any path under it, finds the "Platform" category
- *
- * @param sectionItems - Items within the current section
- * @param pathSegments - Current path segments
- * @returns The matching product category or null
- */
-function findProductCategory(
-  sectionItems: readonly PropSidebarItem[],
-  pathSegments: string[]
-): PropSidebarItemCategory | null {
-  // We need to find the category whose href is a prefix of the current path
-  // For example, if we're at /user-documentation/moderne-platform/getting-started/doc
-  // we should match the category with href /user-documentation/moderne-platform
-  const currentPath = '/' + pathSegments.join('/');
-
-  for (const item of sectionItems) {
-    if (item.type === 'category') {
-      const category = item as PropSidebarItemCategory;
-      const categoryPath = category.href || '';
-
-      // Check if the current path starts with this category's path
-      // This allows matching at any depth under the category
-      if (currentPath === categoryPath ||
-          currentPath === categoryPath + '/' ||
-          currentPath.startsWith(categoryPath + '/')) {
-        return category;
-      }
-    }
-  }
-
-  return null;
-}
-
-/**
- * Filter sidebar to show only the current category tree
- * This implements progressive disclosure by showing only the relevant category
- *
- * @param items - All sidebar items
- * @param currentSection - The section containing the category
- * @param targetCategory - The category to display
- * @returns Filtered items containing section header + only the target category
- */
-function filterToCategoryTree(
-  items: readonly PropSidebarItem[],
-  currentSection: { section: string; sectionItems: PropSidebarItem[] },
-  targetCategory: PropSidebarItemCategory
-): PropSidebarItem[] {
-  const filtered: PropSidebarItem[] = [];
-  let inSection = false;
-
-  // First, add the section boundary
-  for (const item of items) {
-    if (isSectionBoundary(item)) {
-      const sectionName = extractSectionName(item);
-      if (sectionName === currentSection.section) {
-        filtered.push(item);
-        inSection = true;
-        break;
-      }
-    }
-  }
-
-  // Then, find and add only the target category from the section items
-  // We need to find the top-level product category that contains our target
-  const topLevelCategory = findTopLevelCategoryContaining(
-    currentSection.sectionItems,
-    targetCategory
-  );
-
-  if (topLevelCategory) {
-    // Clone the category and filter its children to show only the path to target
-    const filteredCategory = filterCategoryToPath(topLevelCategory, targetCategory);
-    if (filteredCategory) {
-      filtered.push(filteredCategory);
-    }
-  }
-
-  return filtered;
-}
-
-/**
- * Find the top-level category that contains the target category
- * @param items - Items to search
- * @param targetCategory - Category we're looking for
- * @returns The top-level category or null
- */
-function findTopLevelCategoryContaining(
-  items: readonly PropSidebarItem[],
-  targetCategory: PropSidebarItemCategory
-): PropSidebarItemCategory | null {
-  for (const item of items) {
-    if (item.type === 'category') {
-      const category = item as PropSidebarItemCategory;
-
-      // Check if this is the target or contains it
-      if (category === targetCategory || categoryContains(category, targetCategory)) {
-        return category;
-      }
-    }
-  }
-  return null;
-}
-
-/**
- * Check if a category contains the target category
- * @param category - Category to search
- * @param target - Target category to find
- * @returns True if category contains target
- */
-function categoryContains(
-  category: PropSidebarItemCategory,
-  target: PropSidebarItemCategory
-): boolean {
-  if (category === target) {
-    return true;
-  }
-
-  if (category.items) {
-    for (const item of category.items) {
-      if (item.type === 'category') {
-        if (categoryContains(item as PropSidebarItemCategory, target)) {
-          return true;
-        }
-      }
-    }
-  }
-
-  return false;
-}
-
-/**
- * Filter a category to show only the path to the target category
- * This creates a new category object with only the relevant children
- *
- * @param category - Category to filter
- * @param targetCategory - Target category to show
- * @returns Filtered category showing only path to target
- */
-function filterCategoryToPath(
-  category: PropSidebarItemCategory,
-  targetCategory: PropSidebarItemCategory
-): PropSidebarItemCategory | null {
-  // If this is the target category, return it with all its children
-  if (category === targetCategory) {
-    return { ...category };
-  }
-
-  // If this category contains the target, filter its children
-  if (categoryContains(category, targetCategory)) {
-    const filteredItems: PropSidebarItem[] = [];
-
-    if (category.items) {
-      for (const item of category.items) {
-        if (item.type === 'category') {
-          const childCategory = item as PropSidebarItemCategory;
-
-          // If this child is or contains the target, include it (filtered)
-          if (childCategory === targetCategory || categoryContains(childCategory, targetCategory)) {
-            const filtered = filterCategoryToPath(childCategory, targetCategory);
-            if (filtered) {
-              filteredItems.push(filtered);
-            }
-          }
-          // Don't include sibling categories that don't contain the target
-        }
-        // Don't include doc items when we're above the target category
-        // (they'll be included when we reach the target via the spread at line 423)
-      }
-    }
-
-    return {
-      ...category,
-      items: filteredItems,
-    };
-  }
-
-  return null;
-}

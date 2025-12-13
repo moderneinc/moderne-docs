@@ -1,18 +1,20 @@
 /**
  * Badge Component Styles
- * Based on Figma design using Neo Design CSS variables
+ * Matches Figma design: https://www.figma.com/design/uV0jrpyaEkb92biJyRiZ5A/Docs-Working-File---11-2025---Current?node-id=436-1675
+ * Uses Misc/chip typography specs from design system
  */
 
 /* Base badge styles */
 .badge {
-  /* Typography - compact and readable */
-  font-family: var(--neo-font-family-body, 'Inter', sans-serif);
-  font-size: var(--neo-font-size-xs, 12px);
-  font-weight: var(--neo-font-weight-medium, 500);
+  /* Typography - Misc/chip from Figma */
+  font-family: var(--chip-family, 'Inter', sans-serif);
+  font-size: var(--chip-size, 12px);
+  font-weight: var(--chip-weight, 500);
   line-height: 1;
+  letter-spacing: 0;
 
-  /* Shape - pill/capsule shape (more compact than buttons) */
-  border-radius: var(--neo-border-radius-badge, 999px);
+  /* Shape - pill/capsule with full border radius */
+  border-radius: var(--border-radius-full, 999px);
   border: 1px solid transparent;
 
   /* Layout */
@@ -52,11 +54,11 @@
   outline-offset: 2px;
 }
 
-/* Default variant - neutral gray */
+/* Default variant - transparent with border */
 .badge--default {
-  background-color: var(--neo-badge-default-bg, rgba(0, 0, 0, 0.05));
-  color: var(--neo-badge-default-text, var(--neo-grey-700));
-  border-color: var(--neo-badge-default-border, rgba(0, 0, 0, 0.1));
+  background-color: transparent;
+  color: var(--neo-badge-default-text, var(--ifm-navbar-link-color, #1f2937));
+  border-color: var(--neo-badge-default-border, rgba(0, 0, 0, 0.2));
 }
 
 /* Primary variant - blue */
@@ -129,9 +131,9 @@
 
 /* Dark mode adjustments */
 html[data-theme='dark'] .badge--default {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--neo-grey-300);
-  border-color: rgba(255, 255, 255, 0.15);
+  background-color: transparent;
+  color: var(--ifm-navbar-link-color, var(--neo-grey-300));
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 html[data-theme='dark'] .badge--primary {

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import DocsLogo from './index';
+import LogoWrapper from './index';
 
 /**
  * Navbar Logo - Swizzled Docusaurus component
  *
  * Custom logo with:
- * - Moderne symbol (15x15px, vertically flipped)
- * - "Moderne®" text in Beausite Fit Light font
+ * - Moderne symbol (with spin animation on click)
+ * - Moderne wordmark
  * - "Docs" text label
  * - Chevron dropdown button
  * - Integrated MegaMenu
@@ -15,17 +15,18 @@ import DocsLogo from './index';
  *
  * Features:
  * - Click chevron to open/close mega menu
+ * - Logo spins on menu toggle
  * - Click outside or press Escape to close menu
  */
-const meta: Meta<typeof DocsLogo> = {
+const meta: Meta<typeof LogoWrapper> = {
   title: 'Theme/Navbar/Logo',
-  component: DocsLogo,
+  component: LogoWrapper,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
         component:
-          'Swizzled Docusaurus Navbar Logo component with MegaMenu integration. Uses Beausite Fit font for "Moderne®" text.',
+          'Swizzled Docusaurus Navbar Logo component with MegaMenu integration and spin animation.',
       },
     },
   },
@@ -51,14 +52,14 @@ export const Default: Story = {
           padding: '0 var(--ifm-navbar-padding-horizontal)',
         }}
       >
-        <DocsLogo />
+        <LogoWrapper />
       </div>
       <div style={{ padding: '20px' }}>
         <p style={{ color: 'var(--ifm-color-emphasis-600)' }}>
           Click the chevron next to "Docs" to open the MegaMenu.
         </p>
         <ul style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          <li>Click chevron → menu opens</li>
+          <li>Click chevron → menu opens, logo spins</li>
           <li>Click outside or press Escape → menu closes</li>
           <li>Click chevron again → menu closes</li>
         </ul>

@@ -45,13 +45,17 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* BRAND: Custom light blue/lavender background */
-  --ifm-background-color: #F8F8FF;
+  /* BRAND: Custom light blue/lavender background from Figma */
+  --ifm-background-color: #f7f7fe;
+  --background: #f7f7fe; /* Figma design token */
 
   /* BRAND: Preserve mint accent - no Neo-Design mapping */
   --ifm-color-mint: #85FE99;
   --brand-mint-green: #85fe99; /* Legacy - use --brand-digital-green */
   --brand-digital-green: #85fe98; /* Primary green from Figma design */
+  --brand-digital-blue: var(--neo-brand, #2f42ff); /* Primary blue from Neo Design */
+  --brand-midnight: #041834; /* Midnight color from Figma design */
+  --brand-dark-lavender: #d4d3e4; /* Dark lavender border color from Figma design */
 
   /* Neo-design: Primary blue scale */
   --ifm-color-primary: var(--neo-digital-blue-500, #4169e1);
@@ -79,10 +83,11 @@
   /* Neo-Design: Announcement bar text */
   --ifm-color-announcement-bar-text: var(--neo-typography-input-default, #041834);
 
-  --ifm-navbar-background-color: var(--ifm-background-color);
-  --ifm-navbar-padding-vertical: 36px;
+  --ifm-navbar-background-color: transparent;
+  --ifm-navbar-padding-vertical: 24px;
+  --ifm-navbar-padding-horizontal: 32px;
   --ifm-navbar-item-padding-horizontal: 1.4rem;
-  --ifm-navbar-height: 116px;
+  --ifm-navbar-height: 92px;
 
   /* Neo-Design: Typography family and weights */
   --ifm-font-family-base: var(--neo-font-family-body, "Inter"), sans-serif;
@@ -460,4 +465,15 @@ html[data-theme='dark'] {
 .step-indicator.active {
   background-color: var(--ifm-color-primary);
   color: white;
+}
+
+/* Frosted glass navbar */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-bottom: 0.5px solid var(--brand-dark-lavender, #d4d3e4);
+}
+
+html[data-theme='dark'] .navbar {
+  background-color: rgba(12, 17, 43, 0.8);
 }

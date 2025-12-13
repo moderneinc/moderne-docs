@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 export interface NeoButtonProps {
   /** Button text content */
-  children: React.ReactNode;
+  children?: React.ReactNode;
 
   /** Visual style variant */
   variant?: 'primary' | 'secondary' | 'outline' | 'text';

@@ -34,9 +34,24 @@ export interface NeoCardProps {
   state?: 'default' | 'active' | 'focused' | 'disabled';
 
   /**
-   * Click handler - makes the card interactive
+   * Click handler - makes the card interactive (use href for links)
    */
   onClick?: () => void;
+
+  /**
+   * If provided, renders as an <a> tag instead of <button>/<div>
+   */
+  href?: string;
+
+  /**
+   * Link target (only used with href)
+   */
+  target?: '_blank' | '_self' | '_parent' | '_top';
+
+  /**
+   * Link rel attribute (only used with href)
+   */
+  rel?: string;
 
   /**
    * Disabled state - prevents interaction
@@ -82,12 +97,15 @@ export const NeoCard: React.FC<NeoCardProps> = ({
   buttons,
   state = 'default',
   onClick,
+  href,
+  target,
+  rel,
   disabled = false,
   className,
   'data-testid': testId,
 }) => {
   // Determine if card should be interactive
-  const isInteractive = !disabled && !!onClick;
+  const isInteractive = !disabled && (!!onClick || !!href);
   const effectiveState = disabled ? 'disabled' : state;
 
   // Build class names
@@ -101,13 +119,13 @@ export const NeoCard: React.FC<NeoCardProps> = ({
     .join(' ');
 
   // Handle click with disabled check
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
     if (!disabled && onClick) {
       onClick();
     }
   };
 
-  // Handle keyboard interaction
+  // Handle keyboard interaction for button
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (!disabled && onClick && (e.key === 'Enter' || e.key === ' ')) {
       e.preventDefault();
@@ -116,16 +134,30 @@ export const NeoCard: React.FC<NeoCardProps> = ({
   };
 
   // Determine the element type and props
-  const ElementType = isInteractive ? 'button' : 'div';
-  const interactiveProps = isInteractive
-    ? {
-        onClick: handleClick,
-        onKeyDown: handleKeyDown,
-        tabIndex: 0,
-        role: 'button',
-        'aria-disabled': disabled,
-      }
-    : {};
+  let ElementType: 'a' | 'button' | 'div';
+  let interactiveProps: any = {};
+
+  if (href && !disabled) {
+    ElementType = 'a';
+    interactiveProps = {
+      href,
+      onClick: handleClick,
+      target,
+      rel,
+      'aria-disabled': disabled,
+    };
+  } else if (onClick && !disabled) {
+    ElementType = 'button';
+    interactiveProps = {
+      onClick: handleClick,
+      onKeyDown: handleKeyDown,
+      tabIndex: 0,
+      role: 'button',
+      'aria-disabled': disabled,
+    };
+  } else {
+    ElementType = 'div';
+  }
 
   return (
     <ElementType

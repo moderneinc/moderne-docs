@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 export interface NeoBadgeProps {
   /** Badge text content */
-  children: React.ReactNode;
+  children?: React.ReactNode;
 
   /** Visual style variant */
   variant?: 'default' | 'primary' | 'success' | 'warning' | 'error';

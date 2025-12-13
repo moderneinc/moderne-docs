@@ -10,7 +10,7 @@
 /* Overlay backdrop - must be above navbar (z-index 200) */
 .overlay {
   position: fixed;
-  top: 0;
+  top: var(--ifm-navbar-height, 92px);
   left: 0;
   right: 0;
   bottom: 0;
@@ -18,18 +18,18 @@
   z-index: 400;
 }
 
-/* Main menu container - positioned below navbar when portaled to body */
+/* Main menu container - anchored below logo/chevron */
 .menu {
-  position: fixed;
-  top: var(--ifm-navbar-height, 92px);
-  left: var(--ifm-navbar-padding-horizontal, 2.5rem);
+  position: absolute;
+  top: 100%;
+  left: 0;
   margin-top: 8px;
   width: 750px;
   max-width: calc(100vw - 2 * var(--ifm-navbar-padding-horizontal, 2.5rem));
   max-height: calc(100vh - var(--ifm-navbar-height, 92px) - 24px);
   overflow-y: auto;
-  background: var(--neo-surfaces-white, #ffffff);
-  border: 1px solid var(--neo-border-card, #d1d5db);
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-border);
   border-radius: 4px;
   box-shadow: var(--neo-shadow-dropdown);
   z-index: 401;
@@ -61,32 +61,20 @@
 }
 
 /* Section headers */
-.sectionHeader{
+.sectionHeader,
+.content h3 {
   font-size: 14px;
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: 0;
-  color: var(--neo-typography-input-default, #1f2937);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ifm-color-emphasis-600);
   margin: 0 0 16px 0;
-}
-
-/* Learning section needs larger gap after header */
-.learningSection .sectionHeader,
-.learningSection h3 {
-  margin-bottom: 32px;
-}
-
-/* Right column wrapper */
-.rightColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
 }
 
 /* Footer separator styling */
 .footer {
-  border-top: 1px solid var(--brand-dark-lavender, #d4d3e4);
-  padding: 24px 32px;
+  border-top: 1px solid var(--ifm-color-border);
+  padding: 16px 32px;
 }
 
 .footerLinks {
@@ -114,7 +102,7 @@
   gap: 6px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--neo-typography-body-secondary, #6b7280);
+  color: var(--ifm-heading-color);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -130,51 +118,88 @@
   flex-shrink: 0;
 }
 
-/* Card Container - Used by Product and Business sections */
-.cardContainer {
+/* Product Documentation Section */
+.productList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
-.cardLink {
+.productItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 4px;
   text-decoration: none;
   color: inherit;
+  transition: background-color 0.2s ease;
 }
 
-.cardLink:hover {
+.productItem:hover {
+  background-color: var(--ifm-hover-overlay);
   text-decoration: none;
 }
 
-/* Section wrappers - semantic only, no special styling */
-.productSection,
-.businessSection,
-.learningSection {
-  /* Styling handled by child elements */
+.productIcon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.productName {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ifm-heading-color);
+}
+
+.productDescription {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ifm-color-emphasis-600);
 }
 
 /* Learning & Resources Section */
 .learningList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  align-items: flex-start;
+  gap: 8px;
 }
 
-/* Override button styling to match Figma disabled appearance (but keep functional) */
-.learningList a,
-.learningList button {
-  background-color: var(--neo-buttons-secondary-disabled-background, #f9fafb) !important;
-  border-color: var(--neo-buttons-secondary-disabled-border, #e5e7eb) !important;
-  color: var(--neo-typography-input-default, #1f2937) !important;
-  cursor: pointer !important;
-  pointer-events: auto !important;
+.learningItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--ifm-heading-color);
+  font-size: 14px;
+  transition: background-color 0.2s ease;
 }
 
-.learningList a:hover,
-.learningList button:hover {
-  background-color: #f3f4f6 !important;
-  border-color: #d1d5db !important;
+.learningItem:hover {
+  background-color: var(--ifm-hover-overlay);
+  text-decoration: none;
+  color: var(--ifm-heading-color);
+}
+
+.learningArrow {
+  flex-shrink: 0;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.learningName {
+  flex: 1;
 }
 
 /* Dark mode styles */
@@ -195,28 +220,38 @@
 }
 
 :global(html[data-theme='dark']) .footer {
-  border-top-color: rgba(212, 211, 228, 0.3);
+  border-top-color: rgba(255, 255, 255, 0.2);
 }
 
 :global(html[data-theme='dark']) .footerLink {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--neo-surfaces-white);
 }
 
 :global(html[data-theme='dark']) .footerLink:hover {
   color: var(--brand-digital-green);
 }
 
-/* Dark mode for learning list buttons */
-:global(html[data-theme='dark']) .learningList a,
-:global(html[data-theme='dark']) .learningList button {
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--neo-surfaces-white, #ffffff) !important;
+:global(html[data-theme='dark']) .productItem:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
-:global(html[data-theme='dark']) .learningList a:hover,
-:global(html[data-theme='dark']) .learningList button:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+:global(html[data-theme='dark']) .productName {
+  color: var(--neo-surfaces-white);
 }
 
+:global(html[data-theme='dark']) .productDescription {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+:global(html[data-theme='dark']) .learningItem {
+  color: var(--neo-surfaces-white);
+}
+
+:global(html[data-theme='dark']) .learningItem:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--brand-digital-green);
+}
+
+:global(html[data-theme='dark']) .learningArrow {
+  color: rgba(255, 255, 255, 0.6);
+}

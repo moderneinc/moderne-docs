@@ -7,11 +7,11 @@
   position: relative;
 }
 
-/* Main wrapper with 5px gap between logo link and docs button */
+/* Main wrapper with 6px gap between logo link and docs button */
 .logoWrapper {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   overflow: visible;
   min-width: fit-content;
 }
@@ -20,7 +20,8 @@
 .logoLink {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  height: 20px;
   text-decoration: none;
   cursor: pointer;
   overflow: visible;
@@ -31,15 +32,28 @@
   outline: none;
 }
 
-/* Symbol container - 15x15px */
+/* Symbol container - 20x20px */
 .logoContainer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
   color: var(--ifm-navbar-link-color);
+}
+
+.logoContainer.spinning {
+  animation: spin 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .symbolImage {
@@ -48,34 +62,21 @@
   display: block;
 }
 
-/* Wordmark container - wraps text and ® symbol */
-.wordmarkContainer {
-  display: flex;
-  align-items: flex-start;
-  gap: 4px;
+/* Wordmark - 93x20px (from SVG) */
+.wordmarkImage {
+  width: auto;
+  height: auto;
+  display: block;
   flex-shrink: 0;
-}
-
-/* Wordmark text - "Moderne" in Beausite Light */
-.wordmarkText {
-  font-family: 'Beausite Fit','Beausite', sans-serif;
-  font-size: 21px;
-  letter-spacing: -0.42px;
   color: var(--ifm-navbar-link-color);
-}
-
-/* Registered mark symbol */
-.registeredMark {
-  font-family: 'Beausite Fit','Beausite', sans-serif;
-  color: var(--ifm-navbar-link-color);
-  padding-top: 8px;
 }
 
 /* Docs button (text + chevron) - megamenu-button in Figma */
 .docsButton {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 2px;
+  height: 30px;
   background: none;
   border: none;
   padding: 0;
@@ -85,6 +86,9 @@
   flex-shrink: 0;
 }
 
+.docsButton:hover {
+  background-color: var(--ifm-color-emphasis-200);
+}
 
 .docsButton:focus {
   outline: none;
@@ -93,16 +97,18 @@
 /* Docs text - 21px font size, 1.4 line height */
 .docsText {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 21px;
+  line-height: 1.4;
   color: var(--ifm-navbar-link-color);
   user-select: none;
 }
 
-/* Chevron - 24x24px bottom-aligned with text */
+/* Chevron - 24x24px with 6px top padding for bottom alignment */
 .chevron {
   transition: transform 0.3s ease;
   color: var(--ifm-navbar-link-color);
+  margin-top: 6px;
 }
 
 .chevronOpen {
@@ -135,10 +141,6 @@
   color: var(--neo-surfaces-white);
 }
 
-:global(html[data-theme='dark']) .wordmarkText {
-  color: var(--neo-surfaces-white);
-}
-
-:global(html[data-theme='dark']) .registeredMark {
+:global(html[data-theme='dark']) .wordmarkImage {
   color: var(--neo-surfaces-white);
 }

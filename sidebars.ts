@@ -14,7 +14,7 @@ const platform = {
     type: 'category' as const,
     label: 'Platform',
     customProps: {
-      gemIcon: 'gray',
+      gemIcon: 'clear-block',
       megaMenu: true,
       personaSwitcher: PERSONA_CONFIGS['/user-documentation/moderne-platform']
     },
@@ -221,7 +221,7 @@ const dx = {
   type: 'category' as const,
   label: 'DX',
   customProps: {
-    gemIcon: 'pink',
+    gemIcon: 'red-triangle',
     megaMenu: true,
   },
   link: {
@@ -267,7 +267,7 @@ const cli = {
   type: 'category' as const,
   label: 'CLI',
   customProps: {
-    gemIcon: 'blue',
+    gemIcon: 'blue-block',
     megaMenu: true,
   },
   link: {
@@ -353,7 +353,7 @@ const moddy = {
   type: 'category' as const,
   label: 'Moddy',
   customProps: {
-    gemIcon: 'green',
+    gemIcon: 'green-triangle',
     megaMenu: true,
   },
   link: {
@@ -376,7 +376,7 @@ const recipes = {
   type: 'category' as const,
   label: 'Recipes',
   customProps: {
-    gemIcon: 'yellow',
+    gemIcon: 'yellow-block',
     megaMenu: true,
   },
   link: {
@@ -611,21 +611,10 @@ const releases = [
   'releases/proprietary-recipe-changelog',
 ];
 
-const licensing = {
-  type: 'category' as const,
-  label: 'Licensing',
-  link: {
-    type: 'generated-index' as const,
-    title: 'Licensing',
-    description: 'Licensing information for Moderne products.',
-    slug: '/licensing',
-    keywords: ['license', 'licensing'],
-  },
-  items: [
-    'licensing/overview',
-    'licensing/moderne-source-available-license',
-  ],
-};
+const licensing = [
+  'licensing/overview',
+  'licensing/moderne-source-available-license',
+];
 
 const sharedReferences = {
   type: 'category' as const,
@@ -664,7 +653,7 @@ const sidebars: SidebarsConfig = {
     sectionDivider('Releases'),
     ...releases,
     sectionDivider('Licensing'),
-    licensing,
+    ...licensing,
   ]
 };
 
