@@ -1,5 +1,10 @@
 # CLI / DX changelog
 
+### CLI / DX v3.54.1 (2025/12/16)
+
+#### What's Changed
+* Improve network error messages for `mod config moderne login`
+
 ### CLI / DX v3.54.0 (2025/12/16)
 
 #### What's Changed
