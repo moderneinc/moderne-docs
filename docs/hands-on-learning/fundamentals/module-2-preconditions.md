@@ -1,9 +1,9 @@
 ---
-sidebar_label: "Module 1: Preconditions"
+sidebar_label: "Module 2: Preconditions"
 description: Adding preconditions to a recipe.
 ---
 
-# Module 1: Preconditions
+# Module 2: Preconditions
 
 [Preconditions](https://docs.openrewrite.org/reference/yaml-format-reference#preconditions) are recipes that run before other recipes to limit which source files the recipe will run on. Preconditions are often used to ensure a recipe only runs against certain files or directories.
 
@@ -11,7 +11,7 @@ When a recipe is used as a precondition, any file it would make a change to is c
 
 One substantial benefit of preconditions is that other recipes don't need to individually support options to limit themselves to a particular path.
 
-## Exercise 1: Adding preconditions to a recipe
+## Exercise 2: Adding preconditions to a recipe
 
 Let's update the `stringutils.yml` recipe to only run on sources that are likely tests, by adding a precondition that uses [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://docs.openrewrite.org/recipes/java/search/islikelytest).
 
