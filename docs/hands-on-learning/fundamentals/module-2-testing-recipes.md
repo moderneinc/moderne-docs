@@ -1,9 +1,9 @@
 ---
-sidebar_label: "Module 6: Testing recipes"
+sidebar_label: "Module 2: Testing recipes"
 description: Explore how to unit test recipes.
 ---
 
-# Module 6: Testing recipes
+# Module 2: Testing recipes
 
 When developing recipes, it's very important to test them to ensure that they not only make the expected changes but that they also don't make unnecessary changes.
 
@@ -15,7 +15,7 @@ There are various ways to provide a [recipe specification](https://docs.openrewr
 
 Similarly, there are various ways to pass in [source specifications](https://docs.openrewrite.org/authoring-recipes/recipe-testing#sourcespec). Each parser has an `Assertions` class to provide test source files of a specific type. Source specifications can take in a single text block to assert no changes are made to a file, or a pair of text blocks to assert that a file is changed from one state to another as you also saw in the previous module. An optional final argument can consume a [`SourceSpec`](https://github.com/openrewrite/rewrite/blob/main/rewrite-test/src/main/java/org/openrewrite/test/SourceSpec.java) to provide additional configuration, or make assertions before or after the recipe is run.
 
-## Exercise 6: Explore the various unit tests in the starter project
+## Exercise 2: Explore the various unit tests in the starter project
 
 Let's explore the unit tests in the starter project, to see what elements you can take from each for your own tests.
 
@@ -43,7 +43,7 @@ Let's explore the unit tests in the starter project, to see what elements you ca
    * Note how each `rewriteRun` consumes a `RecipeSpec` to assert the `dataTable` rows produced in the recipe run.
    * Correlate this to the `insertRow` calls in the recipe, to see how the recipe produces the expected output.
 5. Open [src/test/java/com/yourorg/SimplifyTernaryTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/SimplifyTernaryTest.java).
-   * Note how the instantiated recipe is a generated class, not the Refaster template class itself. We'll take a closer look at Refaster templates in the [next module](./module-7-refaster-recipes).
+   * Note how the instantiated recipe is a generated class, not the Refaster template class itself. We'll take a closer look at Refaster templates in the [next module](./module-3-refaster-recipes).
    * See how `@Test void unchanged() { ... }` asserts no changes are made where those would be unsafe to make.
 
 ### Takeaways

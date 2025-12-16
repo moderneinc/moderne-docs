@@ -1,15 +1,15 @@
 ---
-sidebar_label: "Module 7: Refaster recipes"
+sidebar_label: "Module 3: Refaster recipes"
 description: Exploring and writing Refaster recipes.
 ---
 
-# Module 7: Refaster recipes
+# Module 3: Refaster recipes
 
 OpenRewrite has support for [writing Refaster recipes](https://docs.openrewrite.org/authoring-recipes/refaster-recipes), which are a way to write code transformations in Java and have them run as recipes.
 
 Refaster recipes are an easy step-up to writing imperative recipes, as they are written in Java and can be run as recipes. Refaster template recipes can be used to replace one expression with another, or one statement with another, but only if the expression or statement can fit inside the body of a method. Your compiler will help you catch syntax errors, and you can use your IDE to navigate to definitions and references. The generated recipes can also be used as a starting point for more complex recipe implementations. 
 
-## Exercise 7a: Explore Refaster recipe support
+## Exercise 3a: Explore Refaster recipe support
 
 Let's look at an existing Refaster recipe in the starter project, and see how it's implemented.
 
@@ -42,7 +42,7 @@ Let's look at an existing Refaster recipe in the starter project, and see how it
 * Common base classes, and embedding options lighten the load in implementing Refaster templates.
 * Some 400+ recipes from [Picnic's ErrorProne Support](https://error-prone.picnic.tech/) have made it into [rewrite-third-party](https://github.com/openrewrite/rewrite-third-party) and [the app.moderne.io marketplace](https://app.moderne.io/marketplace/tech.picnic.errorprone.refasterrules).
 
-## Exercise 7b: Create a Refaster recipe
+## Exercise 3b: Create a Refaster recipe
 
 Let's create a Refaster recipe that standardizes various ways to check if a String is empty or not.
 
@@ -62,7 +62,7 @@ Let's create a Refaster recipe that standardizes various ways to check if a Stri
 2. If you have [the Moderne plugin](https://plugins.jetbrains.com/plugin/17565-moderne) for IntelliJ IDEA installed, you can [generate Refaster recipes directly from the IDE](../../user-documentation/moderne-ide-integration/how-to-guides/creating-recipes.md).
    * A scratch file will be created that you can customize, and add to your recipe module.
 3. Open the Refaster template [src/main/java/com/yourorg/StringIsEmpty.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/StringIsEmpty.java)
-   * Using the knowledge gained in Exercise 7a, and the requirements from the test, write a Refaster recipe that matches various ways to check if a String is empty.
+   * Using the knowledge gained in Exercise 3a, and the requirements from the test, write a Refaster recipe that matches various ways to check if a String is empty.
    * Think about if your methods should take in any argument, and what the type of that argument should be.
    * Add your first `@BeforeTemplate` and `@AfterTemplate` annotated methods to match and replace the first way to check for an empty string.
 4. Trigger an explicit build of your project to generate the Recipe class with Ctrl + F9 or equivalent.
