@@ -7,7 +7,7 @@ description: A high-level overview of what this workshop will entail.
 
 This workshop is designed to help you build the skills needed to discover, run, and compose [OpenRewrite](https://docs.openrewrite.org/) recipes. [OpenRewrite](https://docs.openrewrite.org/) is a framework for writing and running code transformations and [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) are the unit of work in OpenRewrite.
 
-Throughout this workshop, you'll explore all three approaches to writing recipes, as well as how to test and validate recipe behavior so you can gain confidence developing recipes that apply safe, scalable changes across your codebase. This workshop is designed to be hands-on, so you can follow along with the examples in your own environment. The workshop consists of a series of modules that highlight key concepts, each with one or more exercises to help you practice what you've learned.
+You will understand how OpenRewrite works and gain experience composing recipes using the Moderne recipe builder and using declarative YAML. You will also set up and configure your IDE for recipe development. This workshop is designed to be hands-on, so you can follow along with the examples in your own environment. The workshop consists of a series of modules that highlight key concepts, each with one or more exercises to help you practice what you've learned.
 
 Be sure to also follow the links to the [OpenRewrite documentation](https://docs.openrewrite.org/) for more in-depth information. Feel free to skip around to the sections that interest you most, based on your needs and experience level.
 
