@@ -94,22 +94,56 @@ LST cleanup will look different depending on your artifact storage solution. Sel
 
 For most S3 users, we recommend using [AWS S3 Lifecycle Rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) to automatically delete old LST versions. This approach requires no custom scripting.
 
-### Recommended configuration
+Due to how S3 handles different object types, we recommend creating three lifecycle rules:
 
-Create a lifecycle rule that deletes noncurrent object versions (or objects) after a specified number of days. The retention period should match how often you build LSTs:
+#### Rule 1: current-versions
+
+This rule handles all LST artifacts and build logs. Each of these is uploaded with a new object key, which means from an S3 standpoint they are all "current" versions.
+
+| Setting                        | Value                                        |
+|--------------------------------|----------------------------------------------|
+| **Rule name**                  | `current-versions`                           |
+| **Rule scope**                 | Apply to all objects in the bucket           |
+| **Lifecycle rule actions**     | Expire current versions of objects           |
+| **Days after object creation** | 3 (adjust based on your ingestion frequency) |
+
+#### Rule 2: noncurrent-versions
+
+This rule handles old versions of `repos.csv` and `repos-lock.csv`. These files will get overwritten when:
+
+* You store a new version directly on top of them
+* `mod publish` writes new changes into the `repos-lock.csv` file
+
+:::note
+This rule only applies if S3 versioning is enabled on your bucket. If versioning is not enabled, S3 will allow you to create the rule - but it will be skipped at evaluation time.
+:::
+
+| Setting                                  | Value                                                                                   |
+|------------------------------------------|-----------------------------------------------------------------------------------------|
+| **Rule name**                            | `noncurrent-versions`                                                                   |
+| **Rule scope**                           | Apply to all objects in the bucket                                                      |
+| **Lifecycle rule actions**               | * Permanently delete noncurrent versions of objects <br/> * Delete expired object delete markers |
+| **Days after objects become noncurrent** | 3 (adjust based on your ingestion frequency)                                            |
+
+#### Rule 3: cleanup
+
+This rule handles incomplete uploads from mass-ingest - which would occur if a node is terminated in the middle of uploading. This _should_ be rare, but it serves as a catch-all to prevent orphaned partial uploads from accumulating.
+
+| Setting                                 | Value                                                                |
+|-----------------------------------------|----------------------------------------------------------------------|
+| **Rule name**                           | `cleanup`                                                            |
+| **Rule scope**                          | Apply to all objects in the bucket                                   |
+| **Lifecycle rule actions**              | Delete expired object delete markers or incomplete multipart uploads |
+| **Delete incomplete multipart uploads** | Yes                                                                  |
+| **Number of days**                      | 1                                                                    |
+
+#### Retention period guidance
+
+The retention period (days) should at least match how often you build LSTs:
 
 * **Daily ingestion**: 3 days retention
 * **Weekly ingestion**: 10 days retention
 * **Less frequent ingestion**: Adjust accordingly, but ensure retention exceeds your build frequency
-
-### Setting up an S3 Lifecycle Rule
-
-1. Navigate to your S3 bucket in the AWS Console
-2. Go to **Management** → **Lifecycle rules**
-3. Create a new lifecycle rule with these settings:
-   * **Rule scope**: Apply to all objects or filter by prefix (e.g., your LST path)
-   * **Lifecycle rule actions**: Select "Permanently delete noncurrent versions of objects" or "Expire current versions of objects"
-   * **Days**: Set to your desired retention period (e.g., 3 days for daily ingestion)
 
 :::tip
 If you need more complex cleanup logic (e.g., keeping LSTs for specific branches longer), you may need to implement a custom script using the AWS SDK instead of lifecycle rules.
@@ -120,7 +154,7 @@ If you need more complex cleanup logic (e.g., keeping LSTs for specific branches
 
 For Artifactory, you can use AQL (Artifactory Query Language) queries to find and clean up old LSTs. Below are example queries to help you get started.
 
-### Example AQL queries for finding old LSTs
+#### Example AQL queries for finding old LSTs
 
 ```aql
 items.find({
