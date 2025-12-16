@@ -8,7 +8,7 @@
 * Fix build logs being overwritten with one download success log line when downloading LST
 * Fix `mod run-history` not listing past run ids
 * Fix concurrent FileSystemAlreadyExistsException when processing cached LST files
-* Extend the H2MvStorePomCache in-memory cache fallback to handle cache locked error @greg-at-moderne in https://github.com/moderneinc/moderne-cli/pull/3057
+* Extend the H2MvStorePomCache in-memory cache fallback to handle cache locked error
 
 ### CLI / DX v3.53.2 (2025/12/09)
 
