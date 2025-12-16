@@ -21,7 +21,7 @@ While those two scenarios are similar, the behavior in Moderne and the cleanup p
 
 In this scenario, when you go to run a recipe in Moderne, you will be able to run recipes against the repository + branch combination that no longer exists – which is a waste of time as you won't be able to merge in the results.
 
-To fix this, you will **first** need to remove the old LSTs from your artifact repository. We strongly recommend setting up some form of automation for this.[ You could potentially write a simple script that removes LSTs that haven't been updated in more than one week](#example-aql-queries-for-finding-old-lsts).
+To fix this, you will **first** need to remove the old LSTs from your artifact repository. [We strongly recommend setting up some form of automation for this](#automating-lst-cleanup-in-your-artifact-repository).
 
 **After the LSTs have been removed from your artifact repository**, you will need to perform some action to let Moderne know about these changes. This is because Moderne **does not** poll for artifacts being deleted. Once Moderne has downloaded an LST, it will continue to allow you to run recipes on it – even if those artifacts no longer exist in your artifact repository.
 
@@ -81,11 +81,46 @@ You could then run this custom script once a week or so.
 
 In this scenario, you won't notice any issues in Moderne. You will still be able to run recipes against the latest LSTs and commit the results from said recipes. However, your artifact repository will begin to fill up with old LSTs that are no longer needed.
 
-To fix this issue, we encourage you to write some form of automation that removes old LSTs from your artifact repository (perhaps by deleting all LSTs that haven't been updated in over a week). See [our example below](#example-aql-queries-for-finding-old-lsts) for what this might look like.
+To fix this issue, we encourage you to write some form of automation that removes old LSTs from your artifact repository (perhaps by deleting all LSTs that haven't been updated in over a week). See [our examples below](#automating-lst-cleanup-in-your-artifact-repository) for what this might look like.
 
 Unlike the scenario where a branch is deleted, you **do not need to make any API calls to Moderne**.
 
-## Example AQL queries for finding old LSTs
+## Automating LST cleanup in your artifact repository
+
+LST cleanup will look different depending on your artifact storage solution. Select the appropriate tab below for guidance based on your environment.
+
+<Tabs>
+<TabItem value="s3" label="Amazon S3">
+
+For most S3 users, we recommend using [AWS S3 Lifecycle Rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) to automatically delete old LST versions. This approach requires no custom scripting.
+
+### Recommended configuration
+
+Create a lifecycle rule that deletes noncurrent object versions (or objects) after a specified number of days. The retention period should match how often you build LSTs:
+
+* **Daily ingestion**: 3 days retention
+* **Weekly ingestion**: 10 days retention
+* **Less frequent ingestion**: Adjust accordingly, but ensure retention exceeds your build frequency
+
+### Setting up an S3 Lifecycle Rule
+
+1. Navigate to your S3 bucket in the AWS Console
+2. Go to **Management** → **Lifecycle rules**
+3. Create a new lifecycle rule with these settings:
+   * **Rule scope**: Apply to all objects or filter by prefix (e.g., your LST path)
+   * **Lifecycle rule actions**: Select "Permanently delete noncurrent versions of objects" or "Expire current versions of objects"
+   * **Days**: Set to your desired retention period (e.g., 3 days for daily ingestion)
+
+:::tip
+If you need more complex cleanup logic (e.g., keeping LSTs for specific branches longer), you may need to implement a custom script using the AWS SDK instead of lifecycle rules.
+:::
+
+</TabItem>
+<TabItem value="artifactory" label="Artifactory">
+
+For Artifactory, you can use AQL (Artifactory Query Language) queries to find and clean up old LSTs. Below are example queries to help you get started.
+
+### Example AQL queries for finding old LSTs
 
 ```aql
 items.find({
@@ -95,8 +130,10 @@ items.find({
 }).limit(10000)
 ```
 
-
 ```bash
 curl -X POST -H 'Content-Type: text/plain' -u user:password <artifactory url>/api/search/aql -d 'items.find({"repo":{"$match":"ingest-repo"},"modified":{"$gt":"2023-06-16T18:00:00.000000-04:00"}  ,"modified":{"$gt":"2024-04-17T16:48:50.00860443Z"}}).include("name","repo","path","modified").limit(100)'
 ```
+
+</TabItem>
+</Tabs>
 
