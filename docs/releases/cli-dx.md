@@ -1,5 +1,15 @@
 # CLI / DX changelog
 
+### CLI / DX v3.54.0 (2025/12/16)
+
+#### What's Changed
+* uses OpenRewrite 8.69.0
+* Do not build orphaned Gradle subprojects
+* Fix build logs being overwritten with one download success log line when downloading LST
+* Fix `mod run-history` not listing past run ids
+* Fix concurrent FileSystemAlreadyExistsException when processing cached LST files
+* Extend the H2MvStorePomCache in-memory cache fallback to handle cache locked error @greg-at-moderne in https://github.com/moderneinc/moderne-cli/pull/3057
+
 ### CLI / DX v3.53.2 (2025/12/09)
 
 #### What's Changed
