@@ -92,7 +92,7 @@ Click on the `Data tables` tab at the top of the recipe results page and then do
 The downloaded data table provides the following columns:
 
 * `repositoryOrigin`
-* `repoistoryPath`
+* `repositoryPath`
 * `repositoryBranch`
 * `scmType`
 * `repositoryLink`
