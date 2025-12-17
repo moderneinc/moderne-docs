@@ -21,7 +21,7 @@ While those two scenarios are similar, the behavior in Moderne and the cleanup p
 
 In this scenario, when you go to run a recipe in Moderne, you will be able to run recipes against the repository + branch combination that no longer exists – which is a waste of time as you won't be able to merge in the results.
 
-To fix this, you will **first** need to remove the old LSTs from your artifact repository. We strongly recommend setting up some form of automation for this.[ You could potentially write a simple script that removes LSTs that haven't been updated in more than one week](#example-aql-queries-for-finding-old-lsts).
+To fix this, you will **first** need to remove the old LSTs from your artifact repository. [We strongly recommend setting up some form of automation for this](#automating-lst-cleanup-in-your-artifact-repository).
 
 **After the LSTs have been removed from your artifact repository**, you will need to perform some action to let Moderne know about these changes. This is because Moderne **does not** poll for artifacts being deleted. Once Moderne has downloaded an LST, it will continue to allow you to run recipes on it – even if those artifacts no longer exist in your artifact repository.
 
@@ -81,11 +81,80 @@ You could then run this custom script once a week or so.
 
 In this scenario, you won't notice any issues in Moderne. You will still be able to run recipes against the latest LSTs and commit the results from said recipes. However, your artifact repository will begin to fill up with old LSTs that are no longer needed.
 
-To fix this issue, we encourage you to write some form of automation that removes old LSTs from your artifact repository (perhaps by deleting all LSTs that haven't been updated in over a week). See [our example below](#example-aql-queries-for-finding-old-lsts) for what this might look like.
+To fix this issue, we encourage you to write some form of automation that removes old LSTs from your artifact repository (perhaps by deleting all LSTs that haven't been updated in over a week). See [our examples below](#automating-lst-cleanup-in-your-artifact-repository) for what this might look like.
 
 Unlike the scenario where a branch is deleted, you **do not need to make any API calls to Moderne**.
 
-## Example AQL queries for finding old LSTs
+## Automating LST cleanup in your artifact repository
+
+LST cleanup will look different depending on your artifact storage solution. Select the appropriate tab below for guidance based on your environment.
+
+<Tabs>
+<TabItem value="s3" label="Amazon S3">
+
+For most S3 users, we recommend using [AWS S3 Lifecycle Rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) to automatically delete old LST versions. This approach requires no custom scripting.
+
+Due to how S3 handles different object types, we recommend creating three lifecycle rules:
+
+#### Rule 1: current-versions
+
+This rule handles all LST artifacts and build logs. Each of these is uploaded with a new object key, which means from an S3 standpoint they are all "current" versions.
+
+| Setting                        | Value                                        |
+|--------------------------------|----------------------------------------------|
+| **Rule name**                  | `current-versions`                           |
+| **Rule scope**                 | Apply to all objects in the bucket           |
+| **Lifecycle rule actions**     | Expire current versions of objects           |
+| **Days after object creation** | 3 (adjust based on your ingestion frequency) |
+
+#### Rule 2: noncurrent-versions
+
+This rule handles old versions of `repos.csv` and `repos-lock.csv`. These files will get overwritten when:
+
+* You store a new version directly on top of them
+* `mod publish` writes new changes into the `repos-lock.csv` file
+
+:::note
+This rule only applies if S3 versioning is enabled on your bucket. If versioning is not enabled, S3 will allow you to create the rule - but it will be skipped at evaluation time.
+:::
+
+| Setting                                  | Value                                                                                   |
+|------------------------------------------|-----------------------------------------------------------------------------------------|
+| **Rule name**                            | `noncurrent-versions`                                                                   |
+| **Rule scope**                           | Apply to all objects in the bucket                                                      |
+| **Lifecycle rule actions**               | * Permanently delete noncurrent versions of objects <br/> * Delete expired object delete markers |
+| **Days after objects become noncurrent** | 3 (adjust based on your ingestion frequency)                                            |
+
+#### Rule 3: cleanup
+
+This rule handles incomplete uploads from mass-ingest - which would occur if a node is terminated in the middle of uploading. This _should_ be rare, but it serves as a catch-all to prevent orphaned partial uploads from accumulating.
+
+| Setting                                 | Value                                                                |
+|-----------------------------------------|----------------------------------------------------------------------|
+| **Rule name**                           | `cleanup`                                                            |
+| **Rule scope**                          | Apply to all objects in the bucket                                   |
+| **Lifecycle rule actions**              | Delete expired object delete markers or incomplete multipart uploads |
+| **Delete incomplete multipart uploads** | Yes                                                                  |
+| **Number of days**                      | 1                                                                    |
+
+#### Retention period guidance
+
+The retention period (days) should at least match how often you build LSTs:
+
+* **Daily ingestion**: 3 days retention
+* **Weekly ingestion**: 10 days retention
+* **Less frequent ingestion**: Adjust accordingly, but ensure retention exceeds your build frequency
+
+:::tip
+If you need more complex cleanup logic (e.g., keeping LSTs for specific branches longer), you may need to implement a custom script using the AWS SDK instead of lifecycle rules.
+:::
+
+</TabItem>
+<TabItem value="artifactory" label="Artifactory">
+
+For Artifactory, you can use AQL (Artifactory Query Language) queries to find and clean up old LSTs. Below are example queries to help you get started.
+
+#### Example AQL queries for finding old LSTs
 
 ```aql
 items.find({
@@ -95,8 +164,10 @@ items.find({
 }).limit(10000)
 ```
 
-
 ```bash
 curl -X POST -H 'Content-Type: text/plain' -u user:password <artifactory url>/api/search/aql -d 'items.find({"repo":{"$match":"ingest-repo"},"modified":{"$gt":"2023-06-16T18:00:00.000000-04:00"}  ,"modified":{"$gt":"2024-04-17T16:48:50.00860443Z"}}).include("name","repo","path","modified").limit(100)'
 ```
+
+</TabItem>
+</Tabs>
 
