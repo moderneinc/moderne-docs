@@ -867,6 +867,24 @@ Multiple agent instances will automatically distribute the workload and provide 
 * **Network connectivity:** Ensure the agent can reach the Moderne API endpoint (check firewalls, proxies, and outbound HTTPS access)
 * **SSL/TLS issues:** If using custom certificates, verify they are properly configured in the Java truststore
 
+### DNS resolution failures in Podman containers
+
+**Symptoms:** Agent fails to start with errors like:
+
+```
+WebClientRequestException: Failed to resolve 'hostname' [A(1)] and search domain query for configured domains failed as well: [dns.podman]
+```
+
+**Cause:** The agent uses Netty's async DNS resolver, which directly queries DNS servers via UDP. In Podman's bridged networking mode, this can bypass Podman's DNS forwarding mechanism.
+
+**Solution:** Use host networking mode when running the agent container:
+
+```bash
+podman run --network host ...
+```
+
+This allows the agent to use the host's network stack directly, including its DNS resolution.
+
 ### Missing repositories
 
 **Symptoms:** Expected repositories do not appear in the Moderne Platform.
