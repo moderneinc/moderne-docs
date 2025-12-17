@@ -282,9 +282,9 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'hands-on-learning/fundamentals/workshop-overview',
-        'hands-on-learning/fundamentals/module-1-preconditions',
-        'hands-on-learning/fundamentals/module-2-testing-recipes',
-        'hands-on-learning/fundamentals/module-3-refaster-recipes',
+        'hands-on-learning/fundamentals/module-1-refaster-recipes',
+        'hands-on-learning/fundamentals/module-2-preconditions',
+        'hands-on-learning/fundamentals/module-3-testing-recipes',
         'hands-on-learning/fundamentals/module-4-imperative-recipes',
       ],
     },
