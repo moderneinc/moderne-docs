@@ -524,7 +524,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 <figure style={{maxWidth: '400px', margin: '0 auto'}}>
   ![](./assets/vuln-report-depth.png)
-  <figcaption>_The vulnerablity report also shows the severity of the CVE and the depth (transitivity) of the dependency. ~80% of vulnerable dependencies are transitive._</figcaption>
+  <figcaption>_The vulnerability report also shows the severity of the CVE and the depth (transitivity) of the dependency. ~80% of vulnerable dependencies are transitive._</figcaption>
 </figure>
 
 ### [Find and fix vulnerable dependencies](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
@@ -558,7 +558,7 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 
 <figure style={{maxWidth: '400px', margin: '0 auto'}}>
   ![](./assets/vuln-report-depth.png)
-  <figcaption>_The vulnerablity report also shows the severity of the CVE and the depth (transitivity) of the dependency. ~80% of vulnerable dependencies are transitive._</figcaption>
+  <figcaption>_The vulnerability report also shows the severity of the CVE and the depth (transitivity) of the dependency. ~80% of vulnerable dependencies are transitive._</figcaption>
 </figure>
 
 ## Test modernization

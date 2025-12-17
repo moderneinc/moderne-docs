@@ -83,7 +83,7 @@ recipeList:
 ```
 DevCenter recipes have two notable properties worth calling out:
 
-* `cardName` is a property that allows you to customize what the name of the card should be. Not all recipes have a `cardName` property. For instance, the [LibaryUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java#L35-L38) has a `cardName` property – whereas the [JavaVersionUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/JavaVersionUpgrade.java) does not.
+* `cardName` is a property that allows you to customize what the name of the card should be. Not all recipes have a `cardName` property. For instance, the [LibraryUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java#L35-L38) has a `cardName` property – whereas the [JavaVersionUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/JavaVersionUpgrade.java) does not.
 * `upgradeRecipe` is a property that defines the recipe that should be run to upgrade your repositories. It is the recipe that will get executed when you press the `Upgrade` button on a card.
 
 <figure>
@@ -119,7 +119,7 @@ recipeList:
       fixRecipe: org.openrewrite.java.security.OwaspTopTen
 ```
 
-This security recipe differs slightly from a traditional YAML recipe. In the recipe list, there is a specical recipe called `io.moderne.devcenter.ReportAsSecurityIssues`. By adding that recipe to the list, it will detect the number of issues found in the above recipes and generate a card that display them all.
+This security recipe differs slightly from a traditional YAML recipe. In the recipe list, there is a special recipe called `io.moderne.devcenter.ReportAsSecurityIssues`. By adding that recipe to the list, it will detect the number of issues found in the above recipes and generate a card that display them all.
 
 This recipe takes in a `fixRecipe` property that defines the recipe that can be run to fix the issues reported by the above security recipes.
 
@@ -136,7 +136,7 @@ To help you get a better idea of how you can customize this to meet your own nee
 
 In the following example, you will see that we:
 
-* Adjusted the `LibaryUpgrade` recipe to target `io.quarkus` dependencies instead of `org.springframework.boot`.
+* Adjusted the `LibraryUpgrade` recipe to target `io.quarkus` dependencies instead of `org.springframework.boot`.
 * Created a new `UpgradeQuarkus` recipe (as a generic one doesn't exist) to upgrade all Quarkus dependencies to the latest version.
 
 ```yaml

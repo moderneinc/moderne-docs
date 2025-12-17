@@ -18,7 +18,7 @@ Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth an
 
 ### Step 1: Create a Microsoft Entra ID OAuth App registration
 
-1. Natigate to https://portal.azure.com
+1. Navigate to https://portal.azure.com
 2. Under Azure services, click on **Microsoft Entra ID**
     <figure>
       ![](./assets/azure_services_entra_id.png)
@@ -44,7 +44,7 @@ Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth an
       ![](./assets/azure_oauth_add_client_secret.png)
       <figcaption></figcaption>
     </figure>
-8. Click **New client sercret**
+8. Click **New client secret**
 9. In the Add a client secret form:
     1. Enter "Moderne client OAuth app client secret" or similar in the **Description** field
     2. Optionally set a non-default secret expiration in the **Expires** field
