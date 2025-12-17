@@ -14,7 +14,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Moderne Platform',
-        description: 'Learn how to use the Moderne Platform.',
+        description: 'A secure platform and toolchain for fast, enterprise-wide code modernization.',
         slug: '/user-documentation/moderne-platform',
         keywords: ['guides'],
       },
@@ -25,7 +25,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'Getting started',
-            description: 'Getting started guides.',
+            description: 'Learn how to get started with the Moderne Platform.',
             slug: '/user-documentation/moderne-platform/getting-started',
             keywords: ['guides'],
           },
@@ -46,7 +46,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'How to guides',
-            description: 'How to guides.',
+            description: 'Learn how to work with the Moderne Platform.',
             slug: '/user-documentation/moderne-platform/how-to-guides',
             keywords: ['guides'],
           },
@@ -75,7 +75,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'References',
-            description: 'Reference docs.',
+            description: 'Moderne Platform reference documentation.',
             slug: '/user-documentation/moderne-platform/references',
             keywords: ['references'],
           },
@@ -92,7 +92,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Moderne CLI',
-        description: 'Learn how to use the Moderne CLI.',
+        description: 'A command-line tool for building LSTs and running recipes locally across multiple repositories.',
         slug: '/user-documentation/moderne-cli',
         keywords: ['guides'],
       },
@@ -103,7 +103,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'Getting started',
-            description: 'Getting started guides.',
+            description: 'Learn how to get started with the Moderne CLI.',
             slug: '/user-documentation/moderne-cli/getting-started',
             keywords: ['guides'],
           },
@@ -125,7 +125,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'How to guides',
-            description: 'How to guides.',
+            description: 'Learn how to use the Moderne CLI.',
             slug: '/user-documentation/moderne-cli/how-to-guides',
             keywords: ['guides'],
           },
@@ -150,11 +150,11 @@ const sidebars: SidebarsConfig = {
         'user-documentation/moderne-cli/cli-reference',
         {
           type: 'category',
-          label: 'References',
+          label: 'Moderne CLI reference documentation.',
           link: {
             type: 'generated-index',
             title: 'References',
-            description: 'Reference documentation for Moderne CLI.',
+            description: 'Reference documentation for the Moderne CLI.',
             slug: '/user-documentation/moderne-cli/references',
             keywords: ['references'],
           },
@@ -173,7 +173,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Moddy',
-        description: 'Learn more about Moddy.',
+        description: 'A multi-repository AI agent that combines natural language with the accuracy and scalability of Moderne and OpenRewrite.',
         slug: '/user-documentation/moddy',
         keywords: ['guides'],
       },
@@ -191,7 +191,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Moderne Plugin for JetBrains IDEs',
-        description: 'Learn how to use the Moderne Plugin for JetBrains IDES.',
+        description: 'An IntelliJ IDEA plugin for multi-repository code search and recipe development.',
         slug: '/user-documentation/moderne-ide-integration',
         keywords: ['guides'],
       },
@@ -202,7 +202,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'How to guides',
-            description: 'How to guides.',
+            description: 'Learn how to work with the Moderne IntelliJ IDEA plugin.',
             slug: '/user-documentation/moderne-ide-integration/how-to-guides',
             keywords: ['guides'],
           },
@@ -219,7 +219,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'Reference',
-            description: 'Reference docs for Moderne IDE integrations.',
+            description: 'Reference documentation for Moderne IDE integrations.',
             slug: '/user-documentation/moderne-ide-integration/reference',
             keywords: ['reference'],
           },
@@ -236,7 +236,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Recipes',
-        description: 'Documentation related to recipes.',
+        description: 'Best practices and patterns for customizing and contributing recipes.',
         slug: '/user-documentation/recipes',
         keywords: ['recipes'],
       },
@@ -361,7 +361,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Security analysis',
-        description: 'Find and fix security vulnerabilities using OpenRewrite.',
+        description: 'Learn how to find and fix security vulnerabilities using OpenRewrite.',
         slug: '/openrewrite-advanced-program-analysis/security',
         keywords: ['security', 'vulnerabilities', 'analysis'],
       },
@@ -389,7 +389,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Moderne Platform',
-        description: 'Learn how to use the Moderne Platform.',
+        description: 'Moderne Platform administrator documentation. Includes information on configuring and setting up the Moderne Agent among other things.',
         slug: '/administrator-documentation/moderne-platform',
         keywords: ['guides'],
       },
@@ -400,7 +400,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'Getting started',
-            description: 'Getting started guides.',
+            description: 'Learn how to get started with the Moderne Platform as an administrator.',
             slug: '/administrator-documentation/moderne-platform/getting-started',
             keywords: ['guides'],
           },
@@ -414,7 +414,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'How to guides',
-            description: 'How to guides.',
+            description: 'Administrator setup and configuration documentation.',
             slug: '/administrator-documentation/moderne-platform/how-to-guides',
             keywords: ['guides'],
           },
@@ -426,7 +426,7 @@ const sidebars: SidebarsConfig = {
               link: {
                 type: 'generated-index',
                 title: 'Moderne Agent',
-                description: 'Moderne Agent configuration docs.',
+                description: 'Moderne Agent configuration documentation.',
                 slug: '/administrator-documentation/moderne-platform/agent-configuration',
                 keywords: ['guides'],
               },
@@ -472,7 +472,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'References',
-            description: 'Reference docs.',
+            description: 'Administrator reference documentation for the Moderne Platform.',
             slug: '/administrator-documentation/moderne-platform/references',
             keywords: ['reference'],
           },
@@ -507,7 +507,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Moderne DX',
-        description: 'Learn how to use the Moderne DX.',
+        description: 'An air-gapped, on-prem unified refactoring CLI/IDE solution with recipes and reporting.',
         slug: '/administrator-documentation/moderne-DX',
         keywords: ['guides'],
       },
@@ -518,7 +518,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'How to guides',
-            description: 'How to guides',
+            description: 'How to configure and use Moderne DX.',
             slug: '/administrator-documentation/moderne-dx/how-to-guides',
             keywords: ['guides'],
           },
@@ -532,7 +532,7 @@ const sidebars: SidebarsConfig = {
           link: {
             type: 'generated-index',
             title: 'References',
-            description: 'Reference docs.',
+            description: 'Moderne DX reference docs.',
             slug: '/administrator-documentation/moderne-dx/references',
             keywords: ['reference'],
           },
@@ -548,7 +548,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Shared references',
-        description: 'Reference docs.',
+        description: 'Shared administrative reference documentation.',
         slug: '/administrator-documentation/references',
         keywords: ['reference'],
       },
