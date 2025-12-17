@@ -38,6 +38,8 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 | `MODERNE_AGENT_ARTIFACTORY_{index}_PASSWORD`                | `true`                                         |         | The password used to connect to your Artifactory instance.                                                                                   |
 | `MODERNE_AGENT_ARTIFACTORY_{index}_ASTQUERYFILTERS_{index}` | `true`                                         |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`. |
 | `MODERNE_AGENT_ARTIFACTORY_{index}_SKIPSSL`                 | `true` (If you use a self-signed SSL/TLS cert) | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance.                          |
+| `MODERNE_AGENT_ARTIFACTORY_{index}_CONNECTTIMEOUT`          | `false`                                        | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                     |
+| `MODERNE_AGENT_ARTIFACTORY_{index}_READTIMEOUT`             | `false`                                        | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                            |
 
 **Example:**
 
@@ -64,6 +66,8 @@ docker run \
 | `--moderne.agent.artifactory[{index}].password`                 | `true`                                         |         | The password used to connect to your Artifactory instance.                                                                                   |
 | `--moderne.agent.artifactory[{index}].astQueryFilters[{index}]` | `true`                                         |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`. |
 | `--moderne.agent.artifactory[{index}].skipSsl`                  | `true` (If you use a self-signed SSL/TLS cert) | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance.                          |
+| `--moderne.agent.artifactory[{index}].connectTimeout`           | `false`                                        | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                     |
+| `--moderne.agent.artifactory[{index}].readTimeout`              | `false`                                        | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                            |
 
 **Example:**
 

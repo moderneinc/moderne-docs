@@ -34,6 +34,8 @@ You can configure multiple PyPI indexes by including multiple entries, each with
 | `MODERNE_AGENT_PYPI_{index}_USERNAME`            | `false`  | `null`  | The username used to access the index.                                                                                                                                    |
 | `MODERNE_AGENT_PYPI_{index}_PASSWORD`            | `false`  | `null`  | The password used to access the index.                                                                                                                                    |
 | `MODERNE_AGENT_PYPI_{index}_SKIPSSL`             | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the agent to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_AGENT_PYPI_{index}_CONNECTTIMEOUT`      | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                   |
+| `MODERNE_AGENT_PYPI_{index}_READTIMEOUT`         | `false`  | `60s`   | Timeout for reading the response body from the PyPI package index. Specified as a duration (e.g., `60s`, `5m`).                                                            |
 
 **Example:**
 
@@ -59,6 +61,8 @@ docker run \
 | `--moderne.agent.pypi[{index}].username`            | `false`  | `null`  | The username used to access the index.                                                                                                                                    |
 | `--moderne.agent.pypi[{index}].password`            | `false`  | `null`  | The password used to access the index.                                                                                                                                    |
 | `--moderne.agent.pypi[{index}].skipSsl`             | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the agent to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `--moderne.agent.pypi[{index}].connectTimeout`      | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                   |
+| `--moderne.agent.pypi[{index}].readTimeout`         | `false`  | `60s`   | Timeout for reading the response body from the PyPI package index. Specified as a duration (e.g., `60s`, `5m`).                                                            |
 
 **Example:**
 
