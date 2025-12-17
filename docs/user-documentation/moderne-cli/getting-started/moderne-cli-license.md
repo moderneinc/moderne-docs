@@ -57,5 +57,5 @@ Some important details about the license check:
 
 * The license check **does NOT make any call home requests to Moderne** (the public key packaged inside of the CLI is enough to verify the integrity of the signature).
 * Verification of the Moderne tenant configuration only makes a call to the Moderne tenant. If you are using DX, this is a call to inside of your private network. If you are using the Moderne Platform, this is a call to your isolated tenant (and not Moderne as a whole).
-* If you have configured a license key, no network calls will ever be made to an SCM vendor, such at GitHub, to check to see if a repository is public.
+* If you have configured a license key, no network calls will ever be made to an SCM vendor, such as GitHub, to check to see if a repository is public.
 :::
