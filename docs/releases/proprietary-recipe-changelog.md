@@ -10,6 +10,105 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## December 16, 2025
+
+#### rewrite-ai-search - 0.32.3
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-android - 0.15.2
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-azul - 0.8.3
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-circleci - 3.9.3
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-codemods-ng - 0.16.1
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-compiled-analysis - 0.11.2
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-comprehension - 0.10.2
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-concourse - 3.9.3
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-dotnet - 0.14.3
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-elastic - 0.4.3
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-hibernate - 0.15.2
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-java-security - 3.24.0
+
+* org.apache.tomcat.embed:tomcat-embed-core:9.0.113
+* Updates to address removed dependencyGraph column from `DependenciesInUse` data table
+* Update data table usage to align with new column definition
+* Added recipe for finding vulnerabilities without fixing them
+* Improved the DependencyVulnerabilityCheck recipe to better match vulnerabilities and resolve transitive vulnerable dependencies
+* Fixing one broken test - adding project name
+* Prevent bumping minor when max delta is patch
+* Reorder `maybeRemoveImport` before `maybeAddImport`
+
+#### rewrite-kafka - 0.4.3
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-kubernetes - 3.14.1
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-nodejs - 0.36.0
+
+* `ReplaceTlsInternalModules` recipe
+* ReplaceTlsServerSetOptions recipe
+* `ReplaceTimersEnroll` recipe
+* Add `DependencyVulnerabilityCheck` recipe for npm security scanning
+
+#### rewrite-program-analysis - 0.8.0
+
+* Do not detect dead stores in unqualified field assignments
+
+#### rewrite-reactive-streams - 0.18.3
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-spring - 0.19.0
+
+* Modularize `org.springframework:spring`
+* Expand the recipe to move from Spring Framework to Spring Boot
+* Add AutoConfigureMockMvc annotation
+* Additional Spring Boot 4 coverage
+* Remove duplicate eager `RequestMatcherProvider` change type
+* Convert JAX-RS annotations to Spring Web annotations
+* Add package changes for modular starters
+* Fix incorrect package declarations
+
+#### rewrite-sql - 2.8.3
+
+* Updated repository to use OpenRewrite version v8.69.0
+
+#### rewrite-terraform - 3.11.3
+
+* Updated repository to use OpenRewrite version v8.69.0
+
 ## December 5, 2025
 
 #### rewrite-ai-search - 0.32.2
