@@ -27,6 +27,15 @@ This guide walks you through configuring the Moderne CLI to work in environments
 
 [Download the latest version of the Moderne CLI from Maven Central](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions). Once downloaded, please add it to your internal mirror so that it's accessible for all users in your environment.
 
+Alternatively, if your internal artifact repository mirrors Maven Central, you can download the CLI JAR using Maven:
+
+```bash
+mvn dependency:copy -Dartifact=io.moderne:moderne-cli:LATEST \
+    -DoutputDirectory=/path/to/
+```
+
+Replace `LATEST` with a specific version (e.g., `3.54.1`) if needed, and update the output directory to your desired location.
+
 ### Step 2: (Optional - but recommended) Create an alias for the Moderne CLI JAR
 
 While not required, you are **strongly encouraged** to set up an alias for running the CLI JAR. Below are some ways you might configure this depending on your OS and terminal:
