@@ -453,7 +453,6 @@ const sidebars: SidebarsConfig = {
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-ui-customizations',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-variables',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/multi-tenant-private-recipes',
-                'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/org-service-migration',
                 'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/experimental-builder',
               ],
             },
