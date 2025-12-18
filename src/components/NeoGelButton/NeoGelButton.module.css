@@ -1,0 +1,120 @@
+/**
+ * NeoGelButton Component Styles
+ * Based on Figma Gel Button design using Neo Design CSS variables
+ */
+
+/* Base neo gel button styles */
+.neoGelButton {
+  /* Typography - matches Figma: Inter Medium 14px */
+  font-family: var(--neo-font-family-body, 'Inter', sans-serif);
+  font-size: var(--neo-font-size-sm, 14px);
+  font-weight: var(--neo-font-weight-medium, 500);
+  line-height: 1;
+  letter-spacing: 0;
+
+  /* Shape - pill/capsule shape */
+  border-radius: var(--neo-border-radius-button, 999px);
+
+  /* Border - matches Figma secondary button border */
+  border: 1px solid var(--neo-buttons-secondary-default-border, #b6bfff);
+
+  /* Colors - Light mode */
+  background-color: var(--neo-surfaces-white, #ffffff);
+  color: var(--neo-typography-button-secondary, #1f2937);
+
+  /* Layout - fixed height, compact padding */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 40px;
+  padding: 12px 16px;
+
+  /* Interaction */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  /* Remove default button/link styles */
+  outline: none;
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Ensure links don't inherit link colors */
+  color: inherit;
+}
+
+/* Override link hover styles when button is a link */
+.neoGelButton:hover {
+  text-decoration: none;
+}
+
+/* Hover state - light mode */
+.neoGelButton:hover:not(:disabled) {
+  background-color: var(--neo-buttons-secondary-hover-background, #f2f3ff);
+}
+
+/* Active/pressed state - light mode */
+.neoGelButton:active:not(:disabled) {
+  background-color: var(--neo-buttons-secondary-pressed-background, #dce0ff);
+}
+
+/* Focus state */
+.neoGelButton:focus-visible {
+  outline: 2px solid var(--neo-buttons-secondary-focus, var(--neo-digital-blue-500));
+  outline-offset: 2px;
+}
+
+/* Disabled state */
+.neoGelButton--disabled,
+.neoGelButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.neoGelButton:disabled {
+  background-color: var(--neo-buttons-secondary-disabled-background, var(--neo-grey-50));
+  border-color: var(--neo-buttons-secondary-disabled-border, var(--neo-grey-200));
+  color: var(--neo-typography-button-disabled, var(--neo-grey-400));
+}
+
+/* Icon container styling */
+.neoGelButton__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Gem image styling */
+.neoGelButton__gem {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Text container styling */
+.neoGelButton__text {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Dark mode adjustments */
+html[data-theme='dark'] .neoGelButton {
+  background-color: #1f2937;
+  border-color: rgba(182, 191, 255, 0.5);
+  color: var(--neo-surfaces-white, #ffffff);
+}
+
+/* Dark mode hover - no background change per Figma */
+html[data-theme='dark'] .neoGelButton:hover:not(:disabled) {
+  background-color: #1f2937;
+}
+
+/* Dark mode active/pressed */
+html[data-theme='dark'] .neoGelButton:active:not(:disabled) {
+  background-color: rgba(31, 41, 55, 0.9);
+}

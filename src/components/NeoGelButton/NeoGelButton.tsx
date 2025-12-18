@@ -1,22 +1,13 @@
 import React from 'react';
-import styles from './NeoButton.module.css';
+import styles from './NeoGelButton.module.css';
 import clsx from 'clsx';
 
-export interface NeoButtonProps {
+export interface NeoGelButtonProps {
+  /** Product type determines which gem icon to display */
+  product: 'dx' | 'cli' | 'platform' | 'recipes' | 'moddy';
+
   /** Button text content */
   children: React.ReactNode;
-
-  /** Visual style variant */
-  variant?: 'primary' | 'secondary' | 'outline' | 'text';
-
-  /** Size variant */
-  size?: 'small' | 'medium' | 'large';
-
-  /** Optional icon element */
-  icon?: React.ReactNode;
-
-  /** Icon position relative to text */
-  iconPosition?: 'left' | 'right';
 
   /** Click handler */
   onClick?: (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
@@ -44,15 +35,24 @@ export interface NeoButtonProps {
 }
 
 /**
- * NeoButton component following Moderne's Neo Design system
- * Based on Figma design with Neo Design CSS variables
+ * Gem color mapping for products
  */
-export const NeoButton: React.FC<NeoButtonProps> = ({
+const GEM_COLORS: Record<NeoGelButtonProps['product'], string> = {
+  platform: 'red',
+  dx: 'pink',
+  cli: 'blue',
+  moddy: 'green',
+  recipes: 'yellow',
+};
+
+/**
+ * NeoGelButton component for product branding
+ * Always displays a product-specific gem icon alongside text
+ * Based on Figma Gel Button design from Neo Design System
+ */
+export const NeoGelButton: React.FC<NeoGelButtonProps> = ({
+  product,
   children,
-  variant = 'primary',
-  size = 'medium',
-  icon,
-  iconPosition = 'left',
   onClick,
   disabled = false,
   className,
@@ -63,25 +63,22 @@ export const NeoButton: React.FC<NeoButtonProps> = ({
   rel,
 }) => {
   const buttonClasses = clsx(
-    styles.button,
-    styles[`button--${variant}`],
-    styles[`button--${size}`],
+    styles.neoGelButton,
     {
-      [styles['button--disabled']]: disabled,
-      [styles['button--icon-only']]: icon && !children,
+      [styles['neoGelButton--disabled']]: disabled,
     },
     className
   );
 
+  const gemColor = GEM_COLORS[product];
+  const gemSrc = `/img/gems/${gemColor}.png`;
+
   const content = (
     <>
-      {icon && iconPosition === 'left' && (
-        <span className={styles.button__icon}>{icon}</span>
-      )}
-      {children && <span className={styles.button__text}>{children}</span>}
-      {icon && iconPosition === 'right' && (
-        <span className={styles.button__icon}>{icon}</span>
-      )}
+      <span className={styles.neoGelButton__icon}>
+        <img src={gemSrc} alt="" className={styles.neoGelButton__gem} />
+      </span>
+      <span className={styles.neoGelButton__text}>{children}</span>
     </>
   );
 
@@ -116,4 +113,4 @@ export const NeoButton: React.FC<NeoButtonProps> = ({
   );
 };
 
-export default NeoButton;
+export default NeoGelButton;

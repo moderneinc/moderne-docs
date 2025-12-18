@@ -1,5 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import ProductDocsSection from './ProductDocsSection';
+import ForBusinessSection from './ForBusinessSection';
 import LearningSection from './LearningSection';
 import MegaMenuFooter from './MegaMenuFooter';
 import type { MegaMenuProps } from './types';
@@ -48,16 +50,23 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
   // Don't render if menu is closed
   if (!isOpen) return null;
 
-  return (
+  const menuContent = (
     <>
       <div className={styles.overlay} onClick={onClose} />
       <div className={styles.menu} onClick={(e) => e.stopPropagation()}>
         <div className={styles.content}>
           <ProductDocsSection onClose={onClose} />
-          <LearningSection onClose={onClose} />
+          <div className={styles.rightColumn}>
+            <ForBusinessSection onClose={onClose} />
+            <LearningSection onClose={onClose} />
+          </div>
         </div>
         <MegaMenuFooter onClose={onClose} />
       </div>
     </>
   );
+
+  // Render overlay using portal to ensure it's at document root level
+  // This fixes the click-away listener by ensuring the overlay isn't affected by parent positioning
+  return createPortal(menuContent, document.body);
 }

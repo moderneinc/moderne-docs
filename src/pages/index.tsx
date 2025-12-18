@@ -2,53 +2,52 @@ import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { NeoButton } from '@site/src/components/NeoButton';
+import { NeoCard } from '@site/src/components/NeoCard';
+import { NeoGelButton } from '@site/src/components/NeoGelButton';
+import CodeRemixLogo from '@site/static/img/coderemix.svg';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import {
   ArrowRight,
   BookOpen,
+  ExternalLink,
   MessageSquareCode,
   Server,
   Sparkles,
   Terminal,
 } from 'lucide-react';
-import CodeRemixLogo from '@site/static/img/coderemix.svg';
+import ReactPlayer from 'react-player';
 import styles from './index.module.css';
 
-const PRODUCTS = [
+export const PRODUCTS = [
   {
+    product: 'platform' as const,
     label: 'Platform',
-    icon: BookOpen,
     href: '/user-documentation/moderne-platform',
-    gemIcon: 'red.png',
   },
   {
+    product: 'dx' as const,
     label: 'DX',
-    icon: Server,
     href: '/administrator-documentation/moderne-DX',
-    gemIcon: 'pink.png',
   },
   {
+    product: 'cli' as const,
     label: 'CLI',
-    icon: Terminal,
     href: '/user-documentation/moderne-cli',
-    gemIcon: 'blue.png',
   },
   {
+    product: 'moddy' as const,
     label: 'Moddy',
-    icon: MessageSquareCode,
     href: '/user-documentation/moddy',
-    gemIcon: 'green.png',
   },
   {
+    product: 'recipes' as const,
     label: 'Recipes',
-    icon: Sparkles,
-    href: 'https://docs.openrewrite.org/recipes',
-    gemIcon: 'yellow.png',
+    href: '/user-documentation/recipes',
   },
 ];
 
-function HeroSection(): JSX.Element {
+export function HeroSection(): JSX.Element {
   return (
     <section className={styles.hero}>
       <div className={styles.heroContent}>
@@ -61,155 +60,221 @@ function HeroSection(): JSX.Element {
           Discover how to fix vulnerabilities, standardize code quality, and
           accelerate large-scale refactoring.
         </p>
-        <div>
-          <NeoButton
-            variant="primary"
-            size="medium"
-            href="/introduction"
-            icon={<ArrowRight size={16} />}
-            iconPosition="right"
-          >
-            What's Moderne?
-          </NeoButton>
-        </div>
       </div>
     </section>
   );
 }
 
-function ProductPill({ product }): JSX.Element {
-  const Icon = product.icon;
-
-  return (
-    <Link
-      href={product.href}
-      className={styles.productPill}
-      aria-label={`Go to ${product.label} documentation`}
-    >
-      <div className={styles.productPillInner}>
-        <div className={styles.productIcon}>
-          <img
-            src={`/img/gems/${product.gemIcon}`}
-            alt=""
-            className={styles.productIconImg}
-          />
-        </div>
-        <span className={styles.productLabel}>{product.label}</span>
-      </div>
-    </Link>
-  );
-}
-
-function ProductNavigation(): JSX.Element {
+export function ProductNavigation(): JSX.Element {
   return (
     <section className={styles.productNav}>
-      {PRODUCTS.map((product) => (
-        <ProductPill key={product.label} product={product} />
+      {PRODUCTS.map((item) => (
+        <NeoGelButton
+          key={item.label}
+          product={item.product}
+          href={item.href}
+          ariaLabel={`Go to ${item.label} documentation`}
+        >
+          {item.label}
+        </NeoGelButton>
       ))}
     </section>
   );
 }
 
-function CodeRemixCard(): JSX.Element {
+export function TryItOutCard(): JSX.Element {
   return (
-    <div className={styles.resourceCard}>
-      <div className={styles.resourceCardInner}>
-        <div className={styles.resourceCardHeader}>
-          <span className={styles.codeRemixText}>Join</span>
-          <CodeRemixLogo className={styles.codeRemixLogo} />
-          <span className={styles.codeRemixText}>to learn weekly</span>
+    <NeoCard
+      title="Try it out"
+      description="Try our public instance or request a private team instance for a proof of value."
+      buttons={
+        <div className={styles.cardButtons}>
+          <NeoButton
+            variant="text"
+            size="small"
+            href="https://app.moderne.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            icon={<ExternalLink size={16} />}
+            iconPosition="right"
+          >
+            Free public instance
+          </NeoButton>
+          <NeoButton
+            variant="text"
+            size="small"
+            href="/user-documentation/moderne-platform/getting-started/running-your-first-recipe"
+            icon={<ArrowRight size={16} />}
+            iconPosition="right"
+          >
+            Quickstart guide
+          </NeoButton>
         </div>
-        <div className={styles.resourceLinks}>
-          <Link href="https://www.youtube.com/@moderne-auto-remediation" className={styles.resourceLink}>
-            <span>YouTube channel</span>
-            <ArrowRight size={16} />
-          </Link>
-          <Link href="https://www.moderne.io/code-remix" className={styles.resourceLink}>
-            <span>Past sessions & recaps</span>
-            <ArrowRight size={16} />
-          </Link>
-        </div>
-      </div>
-    </div>
+      }
+    />
   );
 }
 
-function LearningResourcesCard(): JSX.Element {
-  const resources = [
-    {
-      label: 'Plugin for JetBrains',
-      href: '/user-documentation/moderne-ide-integration',
-    },
-    {
-      label: 'Hands on Learning',
-      href: '/hands-on-learning/fundamentals',
-    },
-    {
-      label: 'Releases',
-      href: '/releases/agent-releases',
-    },
-  ];
-
+export function WeeklyCodeRemixCard(): JSX.Element {
   return (
-    <div className={styles.resourceCard}>
-      <div className={styles.resourceCardInner}>
-        <h2 className={styles.resourceCardTitle}>Guides</h2>
-        <div className={styles.resourceLinks}>
-          {resources.map((resource) => (
-            <Link key={resource.label} href={resource.href} className={styles.resourceLink}>
-              <BookOpen size={16} />
-              <span>{resource.label}</span>
-              <ArrowRight size={16} />
-            </Link>
-          ))}
+    <NeoCard
+      title="Weekly Code Remix"
+      description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
+      buttons={
+        <div className={styles.cardButtons}>
+          <NeoButton
+            variant="text"
+            size="small"
+            href="https://www.youtube.com/@moderne-and-openrewrite"
+            target="_blank"
+            rel="noopener noreferrer"
+            icon={<ExternalLink size={16} />}
+            iconPosition="right"
+          >
+            YouTube channel
+          </NeoButton>
+          <NeoButton
+            variant="text"
+            size="small"
+            href="https://www.youtube.com/@Moderne-and-OpenRewrite/streams"
+            target="_blank"
+            rel="noopener noreferrer"
+            icon={<ArrowRight size={16} />}
+            iconPosition="right"
+          >
+            Past sessions & recaps
+          </NeoButton>
         </div>
-      </div>
-    </div>
+      }
+    />
   );
 }
 
-function ResourceSection(): JSX.Element {
+export function LearningResourcesCard(): JSX.Element {
+  return (
+    <NeoCard
+      title="Learning & resources"
+      description="Here are some helpful resources to keep you moving."
+      buttons={
+        <div className={styles.cardButtons}>
+          <NeoButton
+            variant="text"
+            size="small"
+            href="/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install"
+            icon={<ArrowRight size={16} />}
+            iconPosition="right"
+          >
+            Plugin for JetBrains
+          </NeoButton>
+          <NeoButton
+            variant="text"
+            size="small"
+            href="/hands-on-learning"
+            icon={<ArrowRight size={16} />}
+            iconPosition="right"
+          >
+            Hands on learning
+          </NeoButton>
+        </div>
+      }
+    />
+  );
+}
+
+export function ResourceSection(): JSX.Element {
   return (
     <section className={styles.resourceSection}>
-      <CodeRemixCard />
+      <TryItOutCard />
+      <WeeklyCodeRemixCard />
       <LearningResourcesCard />
     </section>
   );
 }
 
-function GemDecorations(): JSX.Element {
+export function WhatIsModerneCard(): JSX.Element {
+  return (
+    <div id="what-is-moderne" className={styles.whatIsSection}>
+      <h2 className={styles.sectionTitle}>What is Moderne?</h2>
+      <p className={styles.sectionText}>
+        With Moderne, you can fix security vulnerabilities, standardize code quality, and
+        automate maintenance processes such as framework migrations. Code refactoring work
+        and security vulnerability remediations that used to take months and teams of
+        developers can be done in minutes. This can not only save your company millions of
+        dollars in software maintenance costs, but it can also give developers substantially
+        more time to focus on delivering business value.
+      </p>
+      <div className={styles.videoGrid}>
+        <div className={styles.videoThumbnail}>
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=LgvqAzTxkEU"
+            controls
+            width="100%"
+            height="100%"
+          />
+        </div>
+        <div className={styles.videoThumbnail}>
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=Q-ej2lCJHRs"
+            controls
+            width="100%"
+            height="100%"
+          />
+        </div>
+        <div className={styles.videoThumbnail}>
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=KRXDMGt7DRE"
+            controls
+            width="100%"
+            height="100%"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ModernePlatformCard(): JSX.Element {
+  return (
+    <div className={styles.platformSection}>
+      <h2 className={styles.sectionTitle}>More about our platform</h2>
+      <div className={styles.platformText}>
+        <p>
+          The Moderne Platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale. The platform asynchronously ingests detailed artifacts of your codebase (<Link href="https://docs.openrewrite.org/concepts-explanations/lossless-semantic-trees">Lossless Semantic Trees</Link>) that can be quickly and precisely searched. Then, your organization's source code can be transformed by running "<Link href="/user-documentation/recipes">recipes</Link>" across repositories of your choosing. These recipes can be created by your team, or you can take advantage of the hundreds of recipes already defined in <Link href="https://docs.openrewrite.org">OpenRewrite</Link> – an open-source project managed by Moderne.
+        </p>
+        <p>
+          The platform offers a clean UI that enables anyone in your organization to run recipes, create PRs, or generate detailed reports about your codebase – all without writing a line of code. It also provides a recommendation engine to help you discover new recipes based on an analysis of your code.
+        </p>
+        <p>
+          Moderne is SOC 2 Type 2 compliant, so you can be confident that your code is secure. Furthermore, a private SaaS can be created for your team in any major cloud provider or region of your choice.
+        </p>
+        <p>
+          Moderne currently supports numerous languages, data formats, build tools, and frameworks – with more being routinely added over time. Moderne also currently supports <Link href="/administrator-documentation/moderne-dx/how-to-guides/configure-an-agent-with-organizations#scm-configuration">most Git-based source code management tools</Link>.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export function ContentSection(): JSX.Element {
+  return (
+    <section className={styles.contentSection}>
+      <WhatIsModerneCard />
+      <ModernePlatformCard />
+    </section>
+  );
+}
+
+export function GemDecorations(): JSX.Element {
   return (
     <div className={styles.gemDecorations}>
-      {/* Small gems around hero */}
-      <img
-        src="/img/gems/green-small.png"
-        alt=""
-        className={clsx(styles.gem, styles.gemTopRight)}
-      />
-      <img
-        src="/img/gems/purple-small.png"
-        alt=""
-        className={clsx(styles.gem, styles.gemMidLeft)}
-      />
-      <img
-        src="/img/gems/pink-small.png"
-        alt=""
-        className={clsx(styles.gem, styles.gemMidRight)}
-      />
-      <img
-        src="/img/gems/gray-small.png"
-        alt=""
-        className={clsx(styles.gem, styles.gemBottomRight)}
-      />
-
-      {/* Large gems on edges (dark mode) */}
+      {/* Large background gems */}
       <img
         src="/img/gems/pink-large.png"
         alt=""
         className={clsx(styles.gem, styles.gemLargeRight)}
       />
       <img
-        src="/img/gems/pink-large.png"
+        src="/img/gems/pink.png"
         alt=""
         className={clsx(styles.gem, styles.gemLargeLeft)}
       />
@@ -236,6 +301,7 @@ export default function Home(): JSX.Element {
             <HeroSection />
             <ProductNavigation />
             <ResourceSection />
+            <ContentSection />
           </div>
         </main>
       </Layout>

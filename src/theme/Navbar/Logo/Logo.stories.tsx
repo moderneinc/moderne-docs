@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import LogoWrapper from './index';
+import DocsLogo from './index';
 
 /**
  * Navbar Logo - Swizzled Docusaurus component
@@ -17,9 +17,9 @@ import LogoWrapper from './index';
  * - Click chevron to open/close mega menu
  * - Click outside or press Escape to close menu
  */
-const meta: Meta<typeof LogoWrapper> = {
+const meta: Meta<typeof DocsLogo> = {
   title: 'Theme/Navbar/Logo',
-  component: LogoWrapper,
+  component: DocsLogo,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -51,7 +51,7 @@ export const Default: Story = {
           padding: '0 var(--ifm-navbar-padding-horizontal)',
         }}
       >
-        <LogoWrapper />
+        <DocsLogo />
       </div>
       <div style={{ padding: '20px' }}>
         <p style={{ color: 'var(--ifm-color-emphasis-600)' }}>

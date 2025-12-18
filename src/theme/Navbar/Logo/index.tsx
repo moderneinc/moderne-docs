@@ -6,7 +6,7 @@ import { ChevronDown } from 'lucide-react';
 import { type ReactNode, useState } from 'react';
 import styles from './styles.module.css';
 
-export default function LogoWrapper(): ReactNode {
+export default function DocsLogo(): ReactNode {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {
     siteConfig: {baseUrl},

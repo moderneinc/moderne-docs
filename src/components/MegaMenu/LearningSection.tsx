@@ -1,51 +1,33 @@
-import Link from '@docusaurus/Link';
+import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { NeoButton } from '../NeoButton';
 import { learningItems } from '../../config/megaMenuData';
 import styles from './MegaMenu.module.css';
 
 /**
- * LearningSection - Right column of the mega menu
- * Displays learning resources and documentation links with arrow icons
+ * LearningSection - Part of right column in mega menu
+ * Displays learning resources as secondary buttons with arrow icons
  */
 export default function LearningSection({ onClose }: { onClose: () => void }) {
   return (
-    <div>
-      <h3>Learning & resources</h3>
+    <div className={styles.learningSection}>
+      <h3 className={styles.sectionHeader}>Learning & resources</h3>
       <div className={styles.learningList}>
-        {learningItems.map((item) => {
-          const content = (
-            <>
-              <ArrowRight className={styles.learningArrow} size={16} />
-              <span className={styles.learningName}>{item.name}</span>
-            </>
-          );
-
-          if (item.external) {
-            return (
-              <a
-                key={item.name}
-                href={item.href}
-                className={styles.learningItem}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={onClose}
-              >
-                {content}
-              </a>
-            );
-          }
-
-          return (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={styles.learningItem}
-              onClick={onClose}
-            >
-              {content}
-            </Link>
-          );
-        })}
+        {learningItems.map((item) => (
+          <NeoButton
+            key={item.name}
+            variant="secondary"
+            size="small"
+            href={item.href}
+            target={item.external ? '_blank' : undefined}
+            rel={item.external ? 'noopener noreferrer' : undefined}
+            onClick={onClose}
+            icon={<ArrowRight size={16} />}
+            iconPosition="right"
+          >
+            {item.name}
+          </NeoButton>
+        ))}
       </div>
     </div>
   );
