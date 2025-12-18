@@ -1,0 +1,14 @@
+{
+  "codeConnect": {
+    "include": [
+      "src/components/**/*.figma.tsx",
+      "src/components/**/*.tsx",
+      "src/theme/**/*.figma.tsx",
+      "src/theme/**/*.tsx"
+    ],
+    "exclude": [
+      "**/node_modules/**",
+      "**/*.stories.tsx"
+    ]
+  }
+}

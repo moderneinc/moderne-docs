@@ -11,7 +11,7 @@
  * - Type-safe derivation from sidebar configuration
  */
 
-import type { FooterLink, LearningItem } from '../components/MegaMenu/types';
+import type { FooterLink, LearningItem, ProductItem } from '../components/MegaMenu/types';
 import { deriveProductsFromSidebars } from '../utils/deriveMegaMenuData';
 
 /**
@@ -25,15 +25,23 @@ import { deriveProductsFromSidebars } from '../utils/deriveMegaMenuData';
 export const products = deriveProductsFromSidebars()
 
 /**
+ * Business-focused items
+ * Displayed in the "For Business" section of the mega menu
+ */
+export const businessItems: ProductItem[] = [
+  {
+    name: 'Admin',
+    icon: '/img/gems/clear-block.png',
+    description: 'Admin specific docs for Platform, DX, & Shared References',
+    href: '/administrator-documentation/moderne-platform',
+  },
+];
+
+/**
  * Learning and resource items
  * Displayed in the right column of the mega menu
  */
 export const learningItems: LearningItem[] = [
-  {
-    name: 'What is Moderne?',
-    href: '/introduction',
-    external: false,
-  },
   {
     name: 'Plugin for JetBrains',
     href: '/user-documentation/moderne-ide-integration',

@@ -15,7 +15,9 @@
     "typecheck": "tsc",
     "validate:css": "node scripts/validate-css-vars.js",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "validate:figma": "npx --yes dotenv-cli -e .env -- npx figma connect publish --dry-run",
+    "publish:figma": "npx --yes dotenv-cli -e .env -- npx figma connect publish"
   },
   "dependencies": {
     "@docusaurus/core": "^3.9.1",

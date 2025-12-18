@@ -100,6 +100,41 @@
   outline-offset: 2px;
 }
 
+/* Text/Link variant - no background, no border, just text with icon */
+.button--text {
+  background-color: transparent;
+  border: none;
+  color: var(--neo-typography-body, #1f2937);
+  padding: 0;
+  border-radius: 0;
+}
+
+.button--text:hover:not(:disabled) {
+  opacity: 0.7;
+}
+
+.button--text:active:not(:disabled) {
+  opacity: 0.5;
+}
+
+.button--text:focus-visible {
+  outline: 2px solid var(--neo-buttons-primary-focus, #2f42ff);
+  outline-offset: 2px;
+}
+
+/* Dark mode */
+html[data-theme='dark'] .button--text {
+  color: var(--neo-surfaces-white, #ffffff);
+}
+
+html[data-theme='dark'] .button--text:hover:not(:disabled) {
+  opacity: 0.7;
+}
+
+html[data-theme='dark'] .button--text:active:not(:disabled) {
+  opacity: 0.5;
+}
+
 /* Size variants */
 .button--small {
   padding: 8px 16px;
@@ -114,6 +149,13 @@
 .button--large {
   padding: 16px 32px;
   font-size: var(--neo-font-size-default, 16px);
+}
+
+/* Text variant overrides size padding */
+.button--text.button--small,
+.button--text.button--medium,
+.button--text.button--large {
+  padding: 0;
 }
 
 /* Disabled state */
@@ -138,6 +180,10 @@
 .button--outline:disabled {
   color: var(--neo-buttons-tertiary-disabled, var(--neo-grey-400));
   border-color: var(--neo-buttons-tertiary-disabled, var(--neo-grey-400));
+}
+
+.button--text:disabled {
+  color: var(--neo-buttons-tertiary-disabled, #9ca3af);
 }
 
 /* Icon styling */

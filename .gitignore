@@ -34,3 +34,7 @@ rewrite-docs/
 .local/
 .worktrees/
 .vercel
+
+*storybook.log
+storybook-static
+.env

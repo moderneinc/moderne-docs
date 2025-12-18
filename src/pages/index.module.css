@@ -145,7 +145,6 @@
 .productPillInner {
   background: white;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border: 1px solid #8d99ff;
   border-radius: 24px;
   padding: var(--neo-spacing_1_2, 4px) var(--neo-spacing_2, 16px) var(--neo-spacing_1_2, 4px) var(--neo-spacing_1, 8px);
@@ -157,7 +156,6 @@
 [data-theme='dark'] .productPillInner {
   background: rgba(4, 24, 52, 0.75); /* --brand-midnight with opacity */
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border: 1px solid #8d99ff;
 }
 
@@ -194,6 +192,7 @@
   gap: var(--neo-spacing_5, 40px);
   width: 100%;
   align-items: stretch;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 996px) {
@@ -202,8 +201,17 @@
   }
 }
 
+.cardButtons {
+  display: flex;
+  flex-direction: row;
+  gap: var(--neo-spacing_2, 16px);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
 .resourceCard {
   background: rgba(248, 248, 248, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: 20px;
   padding: var(--neo-spacing_1, 8px);
   flex: 1;
@@ -219,7 +227,6 @@
 .resourceCardInner {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: var(--neo-spacing_2_1_2, 20px);
   display: flex;
@@ -231,7 +238,6 @@
 [data-theme='dark'] .resourceCardInner {
   background: rgba(4, 24, 52, 0.75); /* --brand-midnight with opacity */
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .resourceCardHeader {
@@ -320,66 +326,30 @@
   transition: opacity 0.3s ease;
 }
 
-/* Small decorative gems (light mode prominent) */
-.gemTopRight {
-  top: 50px;
-  right: 350px;
-  width: 90px;
-  height: auto;
-  transform: rotate(308deg) scaleY(-1);
-}
-
-.gemMidLeft {
-  top: 180px;
-  right: 500px;
-  width: 80px;
-  height: auto;
-  transform: rotate(281deg) scaleY(-1);
-}
-
-.gemMidRight {
-  top: 300px;
-  right: 400px;
-  width: 70px;
-  height: auto;
-  transform: rotate(298deg) scaleY(-1);
-}
-
-.gemBottomRight {
-  bottom: 200px;
-  right: 200px;
-  width: 100px;
-  height: auto;
-  transform: rotate(128deg) scaleY(-1);
-}
-
-/* Large edge gems (dark mode prominent) */
+/* Large background gems */
 .gemLargeRight {
-  top: 50px;
-  right: -50px;
-  width: 250px;
+  top: -35px;
+  right: -70px;
+  width: 410px;
   height: auto;
-  opacity: 0;
+  opacity: 0.9;
+  transform: rotate(30deg);
 }
 
 .gemLargeLeft {
-  bottom: -50px;
-  left: -50px;
-  width: 300px;
+  top: 49px;
+  left: -469px;
+  width: 780px;
   height: auto;
-  opacity: 0;
-  transform: scaleY(-1);
+  opacity: 0.9;
+  transform: rotate(342.44deg);
 }
 
-/* Dark mode: show large gems, dim small ones */
-[data-theme='dark'] .gemTopRight,
-[data-theme='dark'] .gemMidLeft,
-[data-theme='dark'] .gemMidRight,
-[data-theme='dark'] .gemBottomRight {
-  opacity: 0.3;
+/* Dark mode */
+[data-theme='dark'] .gemLargeRight {
+  opacity: 0.6;
 }
 
-[data-theme='dark'] .gemLargeRight,
 [data-theme='dark'] .gemLargeLeft {
   opacity: 0.6;
 }
@@ -403,93 +373,107 @@
   }
 }
 
-/* Content cards */
+/* Content sections */
 .contentSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_5, 40px);
+  width: 100%;
+}
+
+.whatIsSection,
+.platformSection {
   display: flex;
   flex-direction: column;
   gap: var(--neo-spacing_3, 24px);
   width: 100%;
 }
 
-.contentCard {
-  width: 100%;
-}
-
-.contentCardTitle {
+.sectionTitle {
   font-family: var(--ifm-font-family-base);
-  font-size: var(--neo-font-size-default, 16px);
-  font-weight: var(--neo-font-weight-semi-bold, 600);
+  font-size: 24px;
+  font-weight: var(--neo-font-weight-bold, 700);
   line-height: 1.4;
   color: var(--brand-midnight);
   margin: 0;
 }
 
-[data-theme='dark'] .contentCardTitle {
+[data-theme='dark'] .sectionTitle {
   color: var(--neo-surfaces-white);
 }
 
-.contentCardBody {
+.sectionText {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--neo-font-size-sm, 14px);
+  font-weight: var(--neo-font-weight-regular, 400);
+  line-height: 1.4;
+  color: var(--brand-midnight);
+  margin: 0;
+  max-width: 1440px;
+}
+
+[data-theme='dark'] .sectionText {
+  color: var(--neo-surfaces-white);
+}
+
+.platformText {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--neo-font-size-sm, 14px);
+  font-weight: var(--neo-font-weight-regular, 400);
+  line-height: 1.5;
+  color: var(--brand-midnight);
+  max-width: 1440px;
+}
+
+.platformText p {
+  margin: 0 0 var(--neo-spacing_2, 16px) 0;
+  line-height: 1.4;
+}
+
+.platformText p:last-child {
+  margin-bottom: 0;
+}
+
+.platformText a {
+  color: var(--typography-link-primary, #2f42ff);
+  text-decoration: none;
+}
+
+.platformText a:hover {
+  text-decoration: underline;
+}
+
+[data-theme='dark'] .platformText {
+  color: var(--neo-surfaces-white);
+}
+
+[data-theme='dark'] .platformText a {
+  color: var(--brand-digital-green);
+}
+
+.videoGrid {
   display: flex;
   gap: var(--neo-spacing_5, 40px);
-  align-items: center;
-  width: 100%;
+  flex-wrap: wrap;
 }
 
-.contentCardBodyReverse {
-  flex-direction: row-reverse;
-}
-
-.contentCardText {
-  font-family: var(--ifm-font-family-base);
-  font-size: var(--neo-font-size-h5, 18px);
-  font-weight: var(--neo-font-weight-medium, 500);
-  line-height: 1.4;
-  color: var(--brand-midnight);
-  margin: 0;
-  flex: 1;
-  min-width: 0;
-}
-
-[data-theme='dark'] .contentCardText {
-  color: var(--neo-surfaces-white);
-}
-
-.contentCardImage {
-  width: 264px;
-  height: 150px;
-  border-radius: 12px;
-  object-fit: cover;
+.videoThumbnail {
+  width: 300px;
+  height: 169px;
+  border-radius: 8px;
+  overflow: hidden;
   flex-shrink: 0;
-}
-
-.contentCardImages {
-  display: flex;
-  gap: var(--neo-spacing_2, 16px);
-  flex-shrink: 0;
-}
-
-.contentCardImages .contentCardImage {
-  width: 267px;
 }
 
 @media (max-width: 996px) {
-  .contentCardBody {
-    flex-direction: column;
-    gap: var(--neo-spacing_3, 24px);
-  }
-
-  .contentCardBodyReverse {
+  .videoGrid {
     flex-direction: column;
   }
 
-  .contentCardImage,
-  .contentCardImages .contentCardImage {
+  .videoThumbnail {
     width: 100%;
     max-width: 400px;
-  }
-
-  .contentCardImages {
-    flex-direction: column;
-    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 }
