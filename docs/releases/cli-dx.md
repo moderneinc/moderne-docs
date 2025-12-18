@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.54.2 (2025-12-18)
+
+#### What's Changed
+* When installing plugins extracting temporary files to the same directory as target
+* Improve GraphqlRequest http client error reporting
+* `publish` operation to perform exponential backoff on concurrent operations
+* Propagate proxy and trust store config when calling external tools
+
 ### CLI / DX v3.54.1 (2025-12-16)
 
 #### What's Changed
