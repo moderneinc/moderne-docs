@@ -513,6 +513,20 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'category',
+          label: 'Getting started',
+          link: {
+            type: 'generated-index',
+            title: 'Getting started',
+            description: 'Learn how to get started with Moderne DX as an administrator.',
+            slug: '/administrator-documentation/moderne-dx/getting-started',
+            keywords: ['guides'],
+          },
+          items: [
+            'administrator-documentation/moderne-dx/getting-started/overview',
+          ],
+        },
+        {
+          type: 'category',
           label: 'How to guides',
           link: {
             type: 'generated-index',
