@@ -7,15 +7,19 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.242.0         |
+| Agent (recommended to use **latest**) | 0.243.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.242.0/moderne-agent-0.242.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.243.0/moderne-agent-0.243.0.jar)
 
 
 ## Changelog
 
+### v0.243.0 - 2025-12-20
+
+* Expose better exception when tool is not found
+* Add support for loading `repos.csv` from S3 directly
 ### v0.242.0 - 2025-12-05
 
 * Use "builder" pattern for configuration classes in tests
