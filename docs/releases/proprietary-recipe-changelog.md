@@ -1977,9 +1977,3 @@ This changelog is automatically generated from GitHub releases and only contains
 * refactor: Delete `gradle_enterprise_access_key`
 * refactor: Remove Gradle Enterprise
 
-## December 19, 2024
-
-#### rewrite-java-security - 2.17.1
-
-* Replace snakeyaml Parser dependency with type definitions to address critical CVE
-
