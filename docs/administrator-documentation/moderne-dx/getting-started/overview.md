@@ -30,7 +30,7 @@ Moderne DX can also serve as a stepping stone towards a hybrid SaaS offering. Th
 
 ## Components
 
-Now that you understand DX at a high level, let's talk about the various components that make it up. Below you'll find diagrams for both the central team and individual business units.
+Now that you understand DX at a high level, let's talk about the various components that make it up. Below you'll find diagrams for both the central team and individual business units (BUs).
 
 <figure>
   ![](./assets/dx-central-team.png)
