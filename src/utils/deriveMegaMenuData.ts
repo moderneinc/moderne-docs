@@ -11,8 +11,8 @@
  * - Type-safe derivation
  */
 
-import sidebars from '../../sidebars';
-import type { ProductItem } from '../components/MegaMenu/types';
+import sidebars from '../../sidebars-next';
+import type { ProductItem } from '../components/NeoMegaMenu/types';
 import type { PropSidebarItem } from '@docusaurus/plugin-content-docs';
 
 /**
@@ -30,7 +30,7 @@ interface CategoryWithLink {
     [key: string]: any;
   };
   customProps?: {
-    featured?: boolean;
+    megaMenu?: boolean;
     gemIcon?: string;
     [key: string]: any;
   };
@@ -51,7 +51,7 @@ function isCategoryWithLink(item: PropSidebarItem): item is CategoryWithLink {
 /**
  * Derives product items from sidebars.ts top-level categories
  *
- * Looks for categories with customProps.featured === true
+ * Looks for categories with customProps.megaMenu === true
  * and extracts their label, description, gem icon, and slug.
  *
  * @returns Array of ProductItem objects for the MegaMenu
@@ -67,10 +67,10 @@ export function deriveProductsFromSidebars(): ProductItem[] {
 
   // Iterate through all sidebar items
   sidebarDocs.forEach((item: PropSidebarItem) => {
-    // Check if this is a category with featured flag
+    // Check if this is a category with megaMenu flag
     if (
       isCategoryWithLink(item) &&
-      item.customProps?.featured === true
+      item.customProps?.megaMenu === true
     ) {
       const gemIcon = item.customProps.gemIcon || 'pink'; // Default to pink if not specified
 

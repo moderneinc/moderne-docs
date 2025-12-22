@@ -1,30 +1,9 @@
 /**
  * Navbar Content styles
- * Logo and PersonaSwitcher group with 16px gap
  */
 
 .logoGroup {
   display: flex;
   align-items: center;
   gap: 16px;
-}
-
-.personaSwitcherWrapper {
-  display: flex;
-  align-items: center;
-  margin-left: 16px;
-  padding-left: 16px;
-  border-left: 1px solid var(--neo-border-primary, #D9D9D9);
-}
-
-/* Dark mode support */
-[data-theme='dark'] .personaSwitcherWrapper {
-  border-left-color: var(--neo-border-primary, rgba(255, 255, 255, 0.2));
-}
-
-/* Responsive: hide on mobile to avoid navbar overflow */
-@media (max-width: 996px) {
-  .personaSwitcherWrapper {
-    display: none;
-  }
 }

@@ -97,17 +97,19 @@ function useCategoryHrefWithSSRFallback(
   }, [item, isBrowser]);
 }
 
-function CollapseButton({
-  collapsed,
-  categoryLabel,
-  onClick,
-  isActive,
-}: {
+interface CollapseButtonProps {
   collapsed: boolean;
   categoryLabel: string;
   onClick: ComponentProps<'button'>['onClick'];
   isActive?: boolean;
-}) {
+}
+
+const CollapseButton: React.FunctionComponent<CollapseButtonProps> = ({
+  collapsed,
+  categoryLabel,
+  onClick,
+  isActive,
+}) => {
   const Icon = collapsed ? ChevronRight : ChevronDown;
 
   return (
@@ -140,17 +142,25 @@ function CollapseButton({
       <Icon size={16} strokeWidth={1.25} absoluteStrokeWidth />
     </button>
   );
+};
+
+CollapseButton.displayName = 'CollapseButton';
+
+interface CategoryLinkLabelProps {
+  label: string;
 }
 
-function CategoryLinkLabel({label}: {label: string}) {
+const CategoryLinkLabel: React.FunctionComponent<CategoryLinkLabelProps> = ({label}) => {
   return (
     <span title={label} className={styles.categoryLinkLabel}>
       {label}
     </span>
   );
-}
+};
 
-export default function DocSidebarItemCategory(props: Props): ReactNode {
+CategoryLinkLabel.displayName = 'CategoryLinkLabel';
+
+const DocSidebarItemCategory: React.FunctionComponent<Props> = (props) => {
   const visibleChildren = useVisibleSidebarItems(
     props.item.items,
     props.activePath,
@@ -160,7 +170,11 @@ export default function DocSidebarItemCategory(props: Props): ReactNode {
   } else {
     return <DocSidebarItemCategoryCollapsible {...props} />;
   }
-}
+};
+
+DocSidebarItemCategory.displayName = 'DocSidebarItemCategory';
+
+export default DocSidebarItemCategory;
 
 function isCategoryWithHref(
   category: PropSidebarItemCategory,
@@ -169,7 +183,7 @@ function isCategoryWithHref(
 }
 
 // If a category doesn't have any visible children, we render it as a link
-function DocSidebarItemCategoryEmpty({item, ...props}: Props): ReactNode {
+const DocSidebarItemCategoryEmpty: React.FunctionComponent<Props> = ({item, ...props}) => {
   // If the category has no link, we don't render anything
   // It's not super useful to render a category you can't open nor click
   if (!isCategoryWithHref(item)) {
@@ -189,16 +203,18 @@ function DocSidebarItemCategoryEmpty({item, ...props}: Props): ReactNode {
     ...forwardableProps,
   };
   return <DocSidebarItemLink item={linkItem} {...props} />;
-}
+};
 
-function DocSidebarItemCategoryCollapsible({
+DocSidebarItemCategoryEmpty.displayName = 'DocSidebarItemCategoryEmpty';
+
+const DocSidebarItemCategoryCollapsible: React.FunctionComponent<Props> = ({
   item,
   onItemClick,
   activePath,
   level,
   index,
   ...props
-}: Props): ReactNode {
+}) => {
   const {items, label, collapsible, className, href} = item;
   const {
     docs: {
@@ -321,4 +337,6 @@ function DocSidebarItemCategoryCollapsible({
       </Collapsible>
     </li>
   );
-}
+};
+
+DocSidebarItemCategoryCollapsible.displayName = 'DocSidebarItemCategoryCollapsible';

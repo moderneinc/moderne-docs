@@ -42,6 +42,15 @@ const config: StorybookConfig = {
       '@docusaurus/useDocusaurusContext': path.resolve(__dirname, '../src/__mocks__/docusaurus/useDocusaurusContext.ts'),
       '@docusaurus/router': path.resolve(__dirname, '../src/__mocks__/docusaurus/router.ts'),
       '@docusaurus/Translate': path.resolve(__dirname, '../src/__mocks__/docusaurus/Translate.tsx'),
+      '@docusaurus/renderRoutes': path.resolve(__dirname, '../src/__mocks__/docusaurus/renderRoutes.ts'),
+      '@docusaurus/useGlobalData': path.resolve(__dirname, '../src/__mocks__/docusaurus/useGlobalData.ts'),
+      '@docusaurus/ExecutionEnvironment': path.resolve(__dirname, '../src/__mocks__/docusaurus/ExecutionEnvironment.ts'),
+      '@docusaurus/useIsomorphicLayoutEffect': path.resolve(__dirname, '../src/__mocks__/docusaurus/useIsomorphicLayoutEffect.ts'),
+      '@docusaurus/constants': path.resolve(__dirname, '../src/__mocks__/docusaurus/constants.ts'),
+      '@docusaurus/useIsBrowser': path.resolve(__dirname, '../src/__mocks__/docusaurus/useIsBrowser.ts'),
+      '@docusaurus/useRouteContext': path.resolve(__dirname, '../src/__mocks__/docusaurus/useRouteContext.ts'),
+      '@generated/routes': path.resolve(__dirname, '../src/__mocks__/generated/routes.ts'),
+      '@generated/site-storage': path.resolve(__dirname, '../src/__mocks__/generated/site-storage.ts'),
       '@theme/Heading': path.resolve(__dirname, '../src/__mocks__/theme/Heading.tsx'),
       '@theme/Layout': path.resolve(__dirname, '../src/__mocks__/theme/Layout.tsx'),
       '@theme': path.resolve(__dirname, '../src/theme'),
@@ -52,6 +61,30 @@ const config: StorybookConfig = {
       ...(config.resolve.modules || []),
       path.resolve(__dirname, '../node_modules'),
     ];
+
+    // Add SWC loader for Docusaurus internal files (they contain JSX in .js files)
+    config.module?.rules?.push({
+      test: /\.js$/,
+      include: [
+        path.resolve(__dirname, '../node_modules/@docusaurus'),
+      ],
+      use: {
+        loader: 'swc-loader',
+        options: {
+          jsc: {
+            parser: {
+              syntax: 'ecmascript',
+              jsx: true,
+            },
+            transform: {
+              react: {
+                runtime: 'automatic',
+              },
+            },
+          },
+        },
+      },
+    });
 
     // IMPORTANT: CSS Modules Configuration for Docusaurus Compatibility
     //

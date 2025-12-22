@@ -48,167 +48,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * All Products - Shows all product types with their respective gem icons
- */
-export const AllProducts: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-      <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>
-          Product Gel Buttons
-        </h3>
-        <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-          <NeoGelButton product="platform">Platform</NeoGelButton>
-          <NeoGelButton product="dx">DX</NeoGelButton>
-          <NeoGelButton product="cli">CLI</NeoGelButton>
-          <NeoGelButton product="moddy">Moddy</NeoGelButton>
-          <NeoGelButton product="recipes">Recipes</NeoGelButton>
-        </div>
-      </div>
-
-      <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>
-          Disabled State
-        </h3>
-        <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-          <NeoGelButton product="platform" disabled>
-            Platform
-          </NeoGelButton>
-          <NeoGelButton product="dx" disabled>
-            DX
-          </NeoGelButton>
-          <NeoGelButton product="cli" disabled>
-            CLI
-          </NeoGelButton>
-          <NeoGelButton product="moddy" disabled>
-            Moddy
-          </NeoGelButton>
-          <NeoGelButton product="recipes" disabled>
-            Recipes
-          </NeoGelButton>
-        </div>
-      </div>
-
-      <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>
-          As Links (with href)
-        </h3>
-        <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-          <NeoGelButton product="platform" href="https://moderne.io" target="_blank" rel="noopener noreferrer">
-            Platform
-          </NeoGelButton>
-          <NeoGelButton product="dx" href="/docs/dx">
-            DX
-          </NeoGelButton>
-          <NeoGelButton product="cli" href="/docs/cli">
-            CLI
-          </NeoGelButton>
-        </div>
-      </div>
-    </div>
-  ),
-  parameters: {
-    layout: 'padded',
-  },
-};
-
-/**
- * Platform - Red gem icon
- */
-export const Platform: Story = {
-  args: {
-    product: 'platform',
-    children: 'Platform',
-  },
-};
-
-/**
- * DX - Pink gem icon
- */
-export const DX: Story = {
-  args: {
-    product: 'dx',
-    children: 'DX',
-  },
-};
-
-/**
- * CLI - Blue gem icon
- */
-export const CLI: Story = {
-  args: {
-    product: 'cli',
-    children: 'CLI',
-  },
-};
-
-/**
- * Moddy - Green gem icon
- */
-export const Moddy: Story = {
-  args: {
-    product: 'moddy',
-    children: 'Moddy',
-  },
-};
-
-/**
- * Recipes - Yellow gem icon
- */
-export const Recipes: Story = {
-  args: {
-    product: 'recipes',
-    children: 'Recipes',
-  },
-};
-
-/**
- * Dark Mode - Shows how buttons appear in dark mode
- */
-export const DarkMode: Story = {
-  render: () => (
-    <div data-theme="dark" style={{ background: '#111827', padding: '32px', borderRadius: '8px' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-        <div>
-          <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600, color: 'white' }}>
-            Dark Mode - All Products
-          </h3>
-          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <NeoGelButton product="platform">Platform</NeoGelButton>
-            <NeoGelButton product="dx">DX</NeoGelButton>
-            <NeoGelButton product="cli">CLI</NeoGelButton>
-            <NeoGelButton product="moddy">Moddy</NeoGelButton>
-            <NeoGelButton product="recipes">Recipes</NeoGelButton>
-          </div>
-        </div>
-
-        <div>
-          <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600, color: 'white' }}>
-            Dark Mode - Disabled
-          </h3>
-          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <NeoGelButton product="platform" disabled>
-              Platform
-            </NeoGelButton>
-            <NeoGelButton product="dx" disabled>
-              DX
-            </NeoGelButton>
-            <NeoGelButton product="cli" disabled>
-              CLI
-            </NeoGelButton>
-          </div>
-        </div>
-      </div>
-    </div>
-  ),
-  parameters: {
-    layout: 'fullscreen',
-    backgrounds: { disable: true },
-  },
-};
-
-/**
- * Interactive - Test click interactions
+ * Interactive story with controls
  */
 export const Interactive: Story = {
   args: {
@@ -234,5 +74,121 @@ export const Interactive: Story = {
         </div>
       </div>
     );
+  },
+};
+
+/**
+ * All Variations - Comprehensive view of all product types, states, and themes
+ */
+export const AllVariations: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '48px', padding: '24px' }}>
+      {/* Light Mode */}
+      <div>
+        <h2 style={{ marginBottom: '24px', fontSize: '18px', fontWeight: 600 }}>
+          Light Mode
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {/* All Products */}
+          <div>
+            <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
+              All Products
+            </h3>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+              <NeoGelButton product="platform">Platform</NeoGelButton>
+              <NeoGelButton product="dx">DX</NeoGelButton>
+              <NeoGelButton product="cli">CLI</NeoGelButton>
+              <NeoGelButton product="moddy">Moddy</NeoGelButton>
+              <NeoGelButton product="recipes">Recipes</NeoGelButton>
+            </div>
+          </div>
+
+          {/* Disabled State */}
+          <div>
+            <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
+              Disabled State
+            </h3>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+              <NeoGelButton product="platform" disabled>
+                Platform
+              </NeoGelButton>
+              <NeoGelButton product="dx" disabled>
+                DX
+              </NeoGelButton>
+              <NeoGelButton product="cli" disabled>
+                CLI
+              </NeoGelButton>
+              <NeoGelButton product="moddy" disabled>
+                Moddy
+              </NeoGelButton>
+              <NeoGelButton product="recipes" disabled>
+                Recipes
+              </NeoGelButton>
+            </div>
+          </div>
+
+          {/* As Links */}
+          <div>
+            <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
+              As Links (with href)
+            </h3>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+              <NeoGelButton product="platform" href="https://moderne.io" target="_blank" rel="noopener noreferrer">
+                Platform
+              </NeoGelButton>
+              <NeoGelButton product="dx" href="/docs/dx">
+                DX
+              </NeoGelButton>
+              <NeoGelButton product="cli" href="/docs/cli">
+                CLI
+              </NeoGelButton>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Dark Mode */}
+      <div data-theme="dark" style={{ background: '#041834', padding: '24px', borderRadius: '8px' }}>
+        <h2 style={{ marginBottom: '24px', fontSize: '18px', fontWeight: 600, color: '#fff' }}>
+          Dark Mode
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {/* All Products */}
+          <div>
+            <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#fff' }}>
+              All Products
+            </h3>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+              <NeoGelButton product="platform">Platform</NeoGelButton>
+              <NeoGelButton product="dx">DX</NeoGelButton>
+              <NeoGelButton product="cli">CLI</NeoGelButton>
+              <NeoGelButton product="moddy">Moddy</NeoGelButton>
+              <NeoGelButton product="recipes">Recipes</NeoGelButton>
+            </div>
+          </div>
+
+          {/* Disabled State */}
+          <div>
+            <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#fff' }}>
+              Disabled State
+            </h3>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+              <NeoGelButton product="platform" disabled>
+                Platform
+              </NeoGelButton>
+              <NeoGelButton product="dx" disabled>
+                DX
+              </NeoGelButton>
+              <NeoGelButton product="cli" disabled>
+                CLI
+              </NeoGelButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
+  parameters: {
+    layout: 'fullscreen',
   },
 };

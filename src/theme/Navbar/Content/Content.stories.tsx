@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { type ReactNode } from 'react';
 import clsx from 'clsx';
 import NavbarLogo from '@theme/Navbar/Logo';
-import PersonaSwitcher, { type PersonaSwitcherMetadata } from '@site/src/components/PersonaSwitcher';
 import { Search, Moon, Sun } from 'lucide-react';
 
 /**
@@ -159,7 +158,6 @@ function NavbarContentLayout({
  *
  * The main navbar content component that handles:
  * - Logo with MegaMenu integration
- * - Persona switcher (context-aware based on current path)
  * - Left and right navbar items
  * - Color mode toggle
  * - Search bar
@@ -167,8 +165,6 @@ function NavbarContentLayout({
  * - Responsive layout
  *
  * Features:
- * - Persona switcher appears when viewing Platform documentation (Practitioner ↔ Admin)
- * - Auto-detects current documentation section based on URL path
  * - Integrates all navbar components into a cohesive layout
  * - Dark mode support
  * - Mobile-responsive behavior
@@ -191,41 +187,13 @@ const meta: Meta<typeof NavbarContentLayout> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Sample persona metadata for Practitioner
-const practitionerMetadata: PersonaSwitcherMetadata = {
-  current: 'practitioner',
-  currentLabel: 'Practitioner',
-  alternates: [
-    {
-      label: 'Admin',
-      path: '/administrator-documentation/moderne-platform',
-      sidebarCategory: 'platform.admin',
-    },
-  ],
-};
-
-// Sample persona metadata for Admin
-const adminMetadata: PersonaSwitcherMetadata = {
-  current: 'admin',
-  currentLabel: 'Admin',
-  alternates: [
-    {
-      label: 'Practitioner',
-      path: '/user-documentation/moderne-platform',
-      sidebarCategory: 'platform.practitioner',
-    },
-  ],
-};
-
 /**
- * Default Navbar Content
+ * Interactive
  *
- * Shows the complete navbar content with all default features:
- * - Logo with MegaMenu
- * - Color mode toggle
- * - Search bar
+ * Interactive navbar content showing the default configuration.
+ * The navbar renders as-is without controls since it's composed of multiple sub-components.
  */
-export const Default: Story = {
+export const Interactive: Story = {
   render: () => (
     <div style={{ position: 'relative', minHeight: '800px' }}>
       <nav
@@ -268,456 +236,12 @@ export const Default: Story = {
 };
 
 /**
- * With Persona Switcher (Practitioner)
+ * All Variations
  *
- * Shows navbar with persona switcher for Practitioner documentation.
- * Appears when viewing user-documentation/moderne-platform pages.
+ * Shows the navbar in different configurations and viewport widths.
+ * Demonstrates responsive behavior and component composition variations.
  */
-export const WithPersonaSwitcherPractitioner: Story = {
-  render: () => (
-    <div style={{ position: 'relative', minHeight: '800px' }}>
-      <nav
-        style={{
-          background: 'var(--ifm-navbar-background-color)',
-          borderBottom: '1px solid var(--ifm-color-border)',
-          padding: '0 var(--ifm-navbar-padding-horizontal)',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}
-      >
-        <NavbarContentLayout
-          left={
-            <>
-              <MockMobileSidebarToggle />
-              <NavbarLogo />
-              <PersonaSwitcher metadata={practitionerMetadata} />
-            </>
-          }
-          right={
-            <>
-              <MockColorModeToggle />
-              <MockSearchBar />
-            </>
-          }
-        />
-      </nav>
-      <div style={{ padding: '20px' }}>
-        <p style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          Navbar content with Practitioner persona switcher.
-        </p>
-        <ul style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          <li>Persona switcher appears after the logo</li>
-          <li>Shows "Practitioner" badge with option to switch to "Admin"</li>
-          <li>Context-aware based on current documentation section</li>
-        </ul>
-      </div>
-    </div>
-  ),
-};
-
-/**
- * With Persona Switcher (Admin)
- *
- * Shows navbar with persona switcher for Admin documentation.
- * Appears when viewing administrator-documentation/moderne-platform pages.
- */
-export const WithPersonaSwitcherAdmin: Story = {
-  render: () => (
-    <div style={{ position: 'relative', minHeight: '800px' }}>
-      <nav
-        style={{
-          background: 'var(--ifm-navbar-background-color)',
-          borderBottom: '1px solid var(--ifm-color-border)',
-          padding: '0 var(--ifm-navbar-padding-horizontal)',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}
-      >
-        <NavbarContentLayout
-          left={
-            <>
-              <MockMobileSidebarToggle />
-              <NavbarLogo />
-              <PersonaSwitcher metadata={adminMetadata} />
-            </>
-          }
-          right={
-            <>
-              <MockColorModeToggle />
-              <MockSearchBar />
-            </>
-          }
-        />
-      </nav>
-      <div style={{ padding: '20px' }}>
-        <p style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          Navbar content with Admin persona switcher.
-        </p>
-        <ul style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          <li>Persona switcher appears after the logo</li>
-          <li>Shows "Admin" badge with option to switch to "Practitioner"</li>
-          <li>Demonstrates the Admin perspective</li>
-        </ul>
-      </div>
-    </div>
-  ),
-};
-
-/**
- * With Navbar Items
- *
- * Shows navbar with custom navigation items on left and right.
- * Demonstrates how navbar items are split between left and right containers.
- */
-export const WithNavbarItems: Story = {
-  render: () => (
-    <div style={{ position: 'relative', minHeight: '800px' }}>
-      <nav
-        style={{
-          background: 'var(--ifm-navbar-background-color)',
-          borderBottom: '1px solid var(--ifm-color-border)',
-          padding: '0 var(--ifm-navbar-padding-horizontal)',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}
-      >
-        <NavbarContentLayout
-          left={
-            <>
-              <MockMobileSidebarToggle />
-              <NavbarLogo />
-              <MockNavbarItem label="Guides" to="/guides" />
-              <MockNavbarItem label="Tutorials" to="/tutorials" />
-            </>
-          }
-          right={
-            <>
-              <MockNavbarItem label="GitHub" to="https://github.com" />
-              <MockNavbarItem label="Support" to="/support" />
-              <MockColorModeToggle />
-              <MockSearchBar />
-            </>
-          }
-        />
-      </nav>
-      <div style={{ padding: '20px' }}>
-        <p style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          Navbar content with custom navigation items.
-        </p>
-        <ul style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          <li>Left items: Guides, Tutorials (after logo)</li>
-          <li>Right items: GitHub, Support (before color mode toggle and search)</li>
-          <li>Demonstrates left/right item distribution</li>
-        </ul>
-      </div>
-    </div>
-  ),
-};
-
-/**
- * Full Featured Navbar
- *
- * Shows navbar with all features combined:
- * - Logo with MegaMenu
- * - Persona switcher
- * - Navigation items (left and right)
- * - Color mode toggle
- * - Search bar
- */
-export const FullFeatured: Story = {
-  render: () => (
-    <div style={{ position: 'relative', minHeight: '800px' }}>
-      <nav
-        style={{
-          background: 'var(--ifm-navbar-background-color)',
-          borderBottom: '1px solid var(--ifm-color-border)',
-          padding: '0 var(--ifm-navbar-padding-horizontal)',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}
-      >
-        <NavbarContentLayout
-          left={
-            <>
-              <MockMobileSidebarToggle />
-              <NavbarLogo />
-              <PersonaSwitcher metadata={practitionerMetadata} />
-              <MockNavbarItem label="Guides" to="/guides" />
-            </>
-          }
-          right={
-            <>
-              <MockNavbarItem label="GitHub" to="https://github.com" />
-              <MockNavbarItem label="Support" to="/support" />
-              <MockColorModeToggle />
-              <MockSearchBar />
-            </>
-          }
-        />
-      </nav>
-      <div style={{ padding: '20px' }}>
-        <p style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          Fully featured navbar with all components combined.
-        </p>
-        <ul style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          <li>Logo with MegaMenu (click chevron to open)</li>
-          <li>Persona switcher (Practitioner)</li>
-          <li>Custom navigation items (left and right)</li>
-          <li>Color mode toggle</li>
-          <li>Search bar</li>
-        </ul>
-      </div>
-    </div>
-  ),
-};
-
-/**
- * Without Search Bar
- *
- * Shows navbar without the search bar.
- * Useful when search is handled elsewhere or disabled.
- */
-export const WithoutSearchBar: Story = {
-  render: () => (
-    <div style={{ position: 'relative', minHeight: '800px' }}>
-      <nav
-        style={{
-          background: 'var(--ifm-navbar-background-color)',
-          borderBottom: '1px solid var(--ifm-color-border)',
-          padding: '0 var(--ifm-navbar-padding-horizontal)',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}
-      >
-        <NavbarContentLayout
-          left={
-            <>
-              <MockMobileSidebarToggle />
-              <NavbarLogo />
-              <PersonaSwitcher metadata={practitionerMetadata} />
-            </>
-          }
-          right={
-            <>
-              <MockColorModeToggle />
-            </>
-          }
-        />
-      </nav>
-      <div style={{ padding: '20px' }}>
-        <p style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          Navbar content without search bar.
-        </p>
-        <ul style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          <li>Logo with MegaMenu</li>
-          <li>Persona switcher</li>
-          <li>Color mode toggle</li>
-          <li>No search bar</li>
-        </ul>
-      </div>
-    </div>
-  ),
-};
-
-/**
- * Without Color Mode Toggle
- *
- * Shows navbar without the color mode toggle.
- * Useful when color mode switching is disabled.
- */
-export const WithoutColorModeToggle: Story = {
-  render: () => (
-    <div style={{ position: 'relative', minHeight: '800px' }}>
-      <nav
-        style={{
-          background: 'var(--ifm-navbar-background-color)',
-          borderBottom: '1px solid var(--ifm-color-border)',
-          padding: '0 var(--ifm-navbar-padding-horizontal)',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}
-      >
-        <NavbarContentLayout
-          left={
-            <>
-              <MockMobileSidebarToggle />
-              <NavbarLogo />
-              <PersonaSwitcher metadata={practitionerMetadata} />
-            </>
-          }
-          right={
-            <>
-              <MockSearchBar />
-            </>
-          }
-        />
-      </nav>
-      <div style={{ padding: '20px' }}>
-        <p style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          Navbar content without color mode toggle.
-        </p>
-        <ul style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          <li>Logo with MegaMenu</li>
-          <li>Persona switcher</li>
-          <li>Search bar</li>
-          <li>No color mode toggle</li>
-        </ul>
-      </div>
-    </div>
-  ),
-};
-
-/**
- * Minimal Navbar
- *
- * Shows navbar with minimal configuration - just logo and color mode toggle.
- * Simplest possible navbar layout.
- */
-export const Minimal: Story = {
-  render: () => (
-    <div style={{ position: 'relative', minHeight: '800px' }}>
-      <nav
-        style={{
-          background: 'var(--ifm-navbar-background-color)',
-          borderBottom: '1px solid var(--ifm-color-border)',
-          padding: '0 var(--ifm-navbar-padding-horizontal)',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}
-      >
-        <NavbarContentLayout
-          left={
-            <>
-              <MockMobileSidebarToggle />
-              <NavbarLogo />
-            </>
-          }
-          right={
-            <>
-              <MockColorModeToggle />
-            </>
-          }
-        />
-      </nav>
-      <div style={{ padding: '20px' }}>
-        <p style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          Minimal navbar content - logo and color mode toggle only.
-        </p>
-        <ul style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          <li>Logo with MegaMenu</li>
-          <li>Color mode toggle</li>
-          <li>No search bar, no persona switcher, no navigation items</li>
-        </ul>
-      </div>
-    </div>
-  ),
-};
-
-/**
- * Interactive Persona Switching
- *
- * Demonstrates interactive persona switching behavior.
- * Shows how the persona switcher updates when switching between roles.
- */
-export const InteractivePersonaSwitching: Story = {
-  render: () => {
-    const [currentPersona, setCurrentPersona] = useState<'practitioner' | 'admin'>('practitioner');
-
-    const metadata: PersonaSwitcherMetadata =
-      currentPersona === 'practitioner' ? practitionerMetadata : adminMetadata;
-
-    return (
-      <div style={{ position: 'relative', minHeight: '800px' }}>
-        <nav
-          style={{
-            background: 'var(--ifm-navbar-background-color)',
-            borderBottom: '1px solid var(--ifm-color-border)',
-            padding: '0 var(--ifm-navbar-padding-horizontal)',
-            position: 'sticky',
-            top: 0,
-            zIndex: 100,
-          }}
-        >
-          <NavbarContentLayout
-            left={
-              <>
-                <MockMobileSidebarToggle />
-                <NavbarLogo />
-                <PersonaSwitcher metadata={metadata} />
-              </>
-            }
-            right={
-              <>
-                <MockColorModeToggle />
-                <MockSearchBar />
-              </>
-            }
-          />
-        </nav>
-        <div style={{ padding: '20px' }}>
-          <p style={{ color: 'var(--ifm-color-emphasis-600)', marginBottom: '16px' }}>
-            <strong>Current Persona:</strong> {metadata.currentLabel}
-          </p>
-          <div style={{ display: 'flex', gap: '12px', marginBottom: '16px' }}>
-            <button
-              onClick={() => setCurrentPersona('practitioner')}
-              style={{
-                padding: '8px 16px',
-                background: currentPersona === 'practitioner' ? 'var(--ifm-color-primary)' : 'var(--ifm-color-emphasis-300)',
-                color: currentPersona === 'practitioner' ? 'white' : 'var(--ifm-color-emphasis-800)',
-                border: 'none',
-                borderRadius: '4px',
-                cursor: 'pointer',
-              }}
-            >
-              Switch to Practitioner
-            </button>
-            <button
-              onClick={() => setCurrentPersona('admin')}
-              style={{
-                padding: '8px 16px',
-                background: currentPersona === 'admin' ? 'var(--ifm-color-primary)' : 'var(--ifm-color-emphasis-300)',
-                color: currentPersona === 'admin' ? 'white' : 'var(--ifm-color-emphasis-800)',
-                border: 'none',
-                borderRadius: '4px',
-                cursor: 'pointer',
-              }}
-            >
-              Switch to Admin
-            </button>
-          </div>
-          <p style={{ fontSize: '12px', color: 'var(--ifm-color-emphasis-600)' }}>
-            Click the buttons above to simulate navigating between Practitioner and Admin documentation.
-            The persona switcher in the navbar updates accordingly.
-          </p>
-        </div>
-      </div>
-    );
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Interactive demonstration of persona switching. Click the buttons to switch between Practitioner and Admin personas and see the navbar update.',
-      },
-    },
-  },
-};
-
-/**
- * Responsive Layout Preview
- *
- * Shows the navbar at different viewport widths side-by-side.
- * Demonstrates responsive behavior and mobile sidebar toggle visibility.
- */
-export const ResponsiveLayoutPreview: Story = {
+export const AllVariations: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       {/* Desktop */}
@@ -737,7 +261,6 @@ export const ResponsiveLayoutPreview: Story = {
               left={
                 <>
                   <NavbarLogo />
-                  <PersonaSwitcher metadata={practitionerMetadata} />
                   <MockNavbarItem label="Guides" to="/guides" />
                 </>
               }
@@ -782,7 +305,7 @@ export const ResponsiveLayoutPreview: Story = {
           </nav>
         </div>
         <p style={{ fontSize: '12px', color: 'var(--ifm-color-emphasis-600)', marginTop: '8px' }}>
-          On mobile, persona switcher and navigation items are hidden. Mobile sidebar toggle appears on the left.
+          On mobile, navigation items are hidden. Mobile sidebar toggle appears on the left.
         </p>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import styles from './NeoCard.module.css';
 
 export interface NeoCardProps {
@@ -70,6 +70,28 @@ export interface NeoCardProps {
   'data-testid'?: string;
 }
 
+// Discriminated union type for element configurations
+type InteractiveProps =
+  | {
+      elementType: 'a';
+      href: string;
+      onClick: (e: React.MouseEvent) => void;
+      target?: string;
+      rel?: string;
+      'aria-disabled': boolean;
+    }
+  | {
+      elementType: 'button';
+      onClick: (e: React.MouseEvent) => void;
+      onKeyDown: (e: React.KeyboardEvent) => void;
+      tabIndex: number;
+      role: string;
+      'aria-disabled': boolean;
+    }
+  | {
+      elementType: 'div';
+    };
+
 /**
  * NeoCard - Large Card Component
  *
@@ -89,7 +111,7 @@ export interface NeoCardProps {
  * />
  * ```
  */
-export const NeoCard: React.FC<NeoCardProps> = ({
+export const NeoCard: FunctionComponent<NeoCardProps> = ({
   title,
   description,
   icon,
@@ -127,37 +149,43 @@ export const NeoCard: React.FC<NeoCardProps> = ({
 
   // Handle keyboard interaction for button
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!disabled && onClick && (e.key === 'Enter' || e.key === ' ')) {
+    if (disabled || !onClick) return;
+
+    if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       onClick();
     }
   };
 
   // Determine the element type and props
-  let ElementType: 'a' | 'button' | 'div';
-  let interactiveProps: any = {};
+  let elementConfig: InteractiveProps;
 
   if (href && !disabled) {
-    ElementType = 'a';
-    interactiveProps = {
+    elementConfig = {
+      elementType: 'a',
       href,
       onClick: handleClick,
       target,
       rel,
       'aria-disabled': disabled,
     };
-  } else if (onClick && !disabled) {
-    ElementType = 'button';
-    interactiveProps = {
+  } else if (onClick) {
+    elementConfig = {
+      elementType: 'button',
       onClick: handleClick,
       onKeyDown: handleKeyDown,
-      tabIndex: 0,
+      tabIndex: disabled ? -1 : 0,
       role: 'button',
       'aria-disabled': disabled,
     };
   } else {
-    ElementType = 'div';
+    elementConfig = {
+      elementType: 'div',
+    };
   }
+
+  const ElementType = elementConfig.elementType;
+  const { elementType, ...interactiveProps } = elementConfig;
 
   return (
     <ElementType

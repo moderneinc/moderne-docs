@@ -140,120 +140,222 @@ export const Interactive: Story = {
 };
 
 /**
- * All States - Shows all state variations in both light and dark mode
+ * All Variations - Comprehensive view of all states, element combinations, and themes
  */
-export const AllStates: Story = {
+export const AllVariations: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '48px', padding: '24px' }}>
-      {/* Light Mode */}
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '48px', padding: '24px' }}>
+      {/* States - Light and Dark Mode */}
       <div>
-        <h3 style={{ marginBottom: '24px', fontSize: '16px', fontWeight: 600 }}>
-          Light Mode
-        </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        <h2 style={{ marginBottom: '24px', fontSize: '18px', fontWeight: 600 }}>
+          States
+        </h2>
+        <div style={{ display: 'flex', gap: '48px' }}>
+          {/* Light Mode States */}
           <div>
-            <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontWeight: 500 }}>
-              Default
+            <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
+              Light Mode
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div>
+                <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Default
+                </div>
+                <NeoCard
+                  title="Code Remix"
+                  description="Weekly live sessions to cover updates and key topics"
+                  state="default"
+                  icon={<DemoIcon />}
+                  gem={<DemoGem />}
+                />
+              </div>
+              <div>
+                <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Active
+                </div>
+                <NeoCard
+                  title="Code Remix"
+                  description="Weekly live sessions to cover updates and key topics"
+                  state="active"
+                  icon={<DemoIcon />}
+                  gem={<DemoGem />}
+                />
+              </div>
+              <div>
+                <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Focused
+                </div>
+                <NeoCard
+                  title="Code Remix"
+                  description="Weekly live sessions to cover updates and key topics"
+                  state="focused"
+                  icon={<DemoIcon />}
+                  gem={<DemoGem />}
+                />
+              </div>
+              <div>
+                <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Disabled
+                </div>
+                <NeoCard
+                  title="Code Remix"
+                  description="Weekly live sessions to cover updates and key topics"
+                  disabled
+                  icon={<DemoIcon />}
+                  gem={<DemoGem />}
+                />
+              </div>
             </div>
-            <NeoCard
-              title="Code Remix"
-              description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-              state="default"
-              icon={<DemoIcon />}
-              gem={<DemoGem />}
-            />
           </div>
-          <div>
-            <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontWeight: 500 }}>
-              Active
+
+          {/* Dark Mode States */}
+          <div data-theme="dark" style={{ padding: '24px', background: '#041834', borderRadius: '8px' }}>
+            <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600, color: '#fff' }}>
+              Dark Mode
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div>
+                <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Default
+                </div>
+                <NeoCard
+                  title="Code Remix"
+                  description="Weekly live sessions to cover updates and key topics"
+                  state="default"
+                  icon={<DemoIcon />}
+                  gem={<DemoGem />}
+                />
+              </div>
+              <div>
+                <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Active
+                </div>
+                <NeoCard
+                  title="Code Remix"
+                  description="Weekly live sessions to cover updates and key topics"
+                  state="active"
+                  icon={<DemoIcon />}
+                  gem={<DemoGem />}
+                />
+              </div>
+              <div>
+                <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Focused
+                </div>
+                <NeoCard
+                  title="Code Remix"
+                  description="Weekly live sessions to cover updates and key topics"
+                  state="focused"
+                  icon={<DemoIcon />}
+                  gem={<DemoGem />}
+                />
+              </div>
+              <div>
+                <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Disabled
+                </div>
+                <NeoCard
+                  title="Code Remix"
+                  description="Weekly live sessions to cover updates and key topics"
+                  disabled
+                  icon={<DemoIcon />}
+                  gem={<DemoGem />}
+                />
+              </div>
             </div>
-            <NeoCard
-              title="Code Remix"
-              description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-              state="active"
-              icon={<DemoIcon />}
-              gem={<DemoGem />}
-            />
-          </div>
-          <div>
-            <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontWeight: 500 }}>
-              Focused
-            </div>
-            <NeoCard
-              title="Code Remix"
-              description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-              state="focused"
-              icon={<DemoIcon />}
-              gem={<DemoGem />}
-            />
-          </div>
-          <div>
-            <div style={{ fontSize: '12px', color: '#666', marginBottom: '8px', fontWeight: 500 }}>
-              Disabled
-            </div>
-            <NeoCard
-              title="Code Remix"
-              description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-              disabled
-              icon={<DemoIcon />}
-              gem={<DemoGem />}
-            />
           </div>
         </div>
       </div>
 
-      {/* Dark Mode */}
-      <div data-theme="dark" style={{ padding: '24px', background: '#041834', borderRadius: '8px' }}>
-        <h3 style={{ marginBottom: '24px', fontSize: '16px', fontWeight: 600, color: 'white' }}>
-          Dark Mode
-        </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      {/* Element Combinations */}
+      <div>
+        <h2 style={{ marginBottom: '24px', fontSize: '18px', fontWeight: 600 }}>
+          Element Combinations
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }}>
           <div>
-            <div style={{ fontSize: '12px', color: '#999', marginBottom: '8px', fontWeight: 500 }}>
-              Default
+            <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Full: Icon + Gem + Buttons
             </div>
             <NeoCard
               title="Code Remix"
-              description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-              state="default"
+              description="Weekly live sessions to cover updates and key topics"
+              icon={<DemoIcon />}
+              gem={<DemoGem />}
+              buttons={
+                <>
+                  <NeoButton variant="primary" size="small">
+                    Join
+                  </NeoButton>
+                  <NeoButton variant="secondary" size="small">
+                    Learn
+                  </NeoButton>
+                </>
+              }
+            />
+          </div>
+
+          <div>
+            <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Icon + Gem
+            </div>
+            <NeoCard
+              title="Code Remix"
+              description="Weekly live sessions to cover updates and key topics"
               icon={<DemoIcon />}
               gem={<DemoGem />}
             />
           </div>
+
           <div>
-            <div style={{ fontSize: '12px', color: '#999', marginBottom: '8px', fontWeight: 500 }}>
-              Active
+            <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Icon Only
             </div>
             <NeoCard
               title="Code Remix"
-              description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-              state="active"
+              description="Weekly live sessions to cover updates and key topics"
               icon={<DemoIcon />}
+            />
+          </div>
+
+          <div>
+            <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Gem Only
+            </div>
+            <NeoCard
+              title="Code Remix"
+              description="Weekly live sessions to cover updates and key topics"
               gem={<DemoGem />}
             />
           </div>
+
           <div>
-            <div style={{ fontSize: '12px', color: '#999', marginBottom: '8px', fontWeight: 500 }}>
-              Focused
+            <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Buttons Only
             </div>
             <NeoCard
               title="Code Remix"
-              description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-              state="focused"
-              icon={<DemoIcon />}
-              gem={<DemoGem />}
+              description="Weekly live sessions to cover updates and key topics"
+              buttons={
+                <>
+                  <NeoButton variant="primary" size="small">
+                    Primary
+                  </NeoButton>
+                  <NeoButton variant="outline" size="small">
+                    Secondary
+                  </NeoButton>
+                </>
+              }
             />
           </div>
+
           <div>
-            <div style={{ fontSize: '12px', color: '#999', marginBottom: '8px', fontWeight: 500 }}>
-              Disabled
+            <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Text Only (Minimal)
             </div>
             <NeoCard
               title="Code Remix"
-              description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-              disabled
-              icon={<DemoIcon />}
-              gem={<DemoGem />}
+              description="Weekly live sessions to cover updates and key topics"
             />
           </div>
         </div>
@@ -262,166 +364,5 @@ export const AllStates: Story = {
   ),
   parameters: {
     layout: 'fullscreen',
-  },
-};
-
-/**
- * With All Elements - Shows card with icon, gem, and action buttons
- */
-export const WithAllElements: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', padding: '24px' }}>
-      <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>
-          With Action Buttons
-        </h3>
-        <NeoCard
-          title="Code Remix"
-          description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-          icon={<DemoIcon />}
-          gem={<DemoGem />}
-          buttons={
-            <>
-              <NeoButton variant="primary" size="small">
-                Join Session
-              </NeoButton>
-              <NeoButton variant="secondary" size="small">
-                Learn More
-              </NeoButton>
-            </>
-          }
-        />
-      </div>
-
-      <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>
-          Minimal (No Icon/Gem)
-        </h3>
-        <NeoCard
-          title="Code Remix"
-          description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-          buttons={
-            <>
-              <NeoButton variant="primary" size="small">
-                Primary CTA
-              </NeoButton>
-              <NeoButton variant="outline" size="small">
-                Secondary
-              </NeoButton>
-            </>
-          }
-        />
-      </div>
-
-      <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>
-          Icon Only (No Gem)
-        </h3>
-        <NeoCard
-          title="Code Remix"
-          description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-          icon={<DemoIcon />}
-        />
-      </div>
-
-      <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>
-          Gem Only (No Icon)
-        </h3>
-        <NeoCard
-          title="Code Remix"
-          description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-          gem={<DemoGem />}
-        />
-      </div>
-
-      <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '14px', fontWeight: 600 }}>
-          Text Only (No Icon/Gem/Buttons)
-        </h3>
-        <NeoCard
-          title="Code Remix"
-          description="Weekly live Code Remix sessions to cover updates, answer questions, and dive into key topics."
-        />
-      </div>
-    </div>
-  ),
-  parameters: {
-    layout: 'padded',
-  },
-};
-
-/**
- * Interactive Grid - Shows multiple clickable cards
- */
-export const InteractiveGrid: Story = {
-  render: () => {
-    const [selectedCard, setSelectedCard] = React.useState<number | null>(null);
-
-    const cards = [
-      {
-        title: 'Code Remix',
-        description: 'Weekly live sessions covering updates and key topics',
-        color: 'linear-gradient(135deg, #2f42ff 0%, #88fe9b 100%)',
-      },
-      {
-        title: 'Platform Docs',
-        description: 'Comprehensive guides for the Moderne Platform',
-        color: 'linear-gradient(135deg, #992fb9 0%, #2f42ff 100%)',
-      },
-      {
-        title: 'CLI Guide',
-        description: 'Command-line tools and automation workflows',
-        color: 'linear-gradient(135deg, #88fe9b 0%, #3bcca6 100%)',
-      },
-      {
-        title: 'API Reference',
-        description: 'Complete API documentation and examples',
-        color: 'linear-gradient(135deg, #ffc52e 0%, #ff9800 100%)',
-      },
-    ];
-
-    return (
-      <div>
-        <div style={{ marginBottom: '24px', fontSize: '14px', color: '#666' }}>
-          Click a card to select it
-          {selectedCard !== null && (
-            <span style={{ marginLeft: '8px', fontWeight: 600 }}>
-              (Selected: {cards[selectedCard].title})
-            </span>
-          )}
-        </div>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 340px)',
-            gap: '24px',
-          }}
-        >
-          {cards.map((card, index) => (
-            <NeoCard
-              key={index}
-              title={card.title}
-              description={card.description}
-              state={selectedCard === index ? 'active' : 'default'}
-              onClick={() => setSelectedCard(index)}
-              gem={
-                <div
-                  style={{
-                    width: '20px',
-                    height: '20px',
-                    borderRadius: '4px',
-                    background: card.color,
-                  }}
-                />
-              }
-            />
-          ))}
-        </div>
-      </div>
-    );
-  },
-  parameters: {
-    layout: 'padded',
   },
 };

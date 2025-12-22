@@ -1,13 +1,28 @@
 /**
  * Navbar Layout Component Styles
- * Migrated from custom.css lines 305-331
+ * Migrated from custom.css for frosted glass effect
+ *
+ * This file contains:
+ * - Frosted glass background and blur effects (light/dark modes)
+ * - Hide-on-scroll animation classes
+ * - Logo sizing and navbar link styling
  */
 
+/* Frosted glass navbar styling */
 .navbar {
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-bottom: 0.5px solid var(--brand-dark-lavender, #d4d3e4);
   box-shadow: none;
+}
+
+/* Hide-on-scroll animation (from Docusaurus original) */
+.navbarHideable {
+  transition: transform var(--ifm-transition-fast) ease;
+}
+
+.navbarHidden {
+  transform: translate3d(0, calc(-100% - 2px), 0);
 }
 
 /* Dark mode frosted glass effect */

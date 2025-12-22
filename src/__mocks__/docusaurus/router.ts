@@ -1,7 +1,7 @@
 /**
  * Mock implementation of @docusaurus/router for Storybook
  *
- * This mock provides a basic implementation of useHistory hook
+ * This mock provides basic implementations of routing utilities
  * to prevent errors when components using router are rendered in Storybook.
  */
 
@@ -33,4 +33,11 @@ export function useLocation() {
     hash: '',
     state: undefined,
   };
+}
+
+export function matchPath(pattern: string, pathname: string) {
+  console.log('[Storybook Mock] matchPath:', pattern, pathname);
+  // Simple mock implementation - always returns null (no match)
+  // Can be enhanced if needed for specific story requirements
+  return null;
 }

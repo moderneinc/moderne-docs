@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import styles from './NeoGelButton.module.css';
 import clsx from 'clsx';
 
@@ -22,7 +22,7 @@ export interface NeoGelButtonProps {
   type?: 'button' | 'submit' | 'reset';
 
   /** Aria label for accessibility */
-  ariaLabel?: string;
+  'aria-label'?: string;
 
   /** If provided, renders as an <a> tag instead of <button> */
   href?: string;
@@ -50,14 +50,14 @@ const GEM_COLORS: Record<NeoGelButtonProps['product'], string> = {
  * Always displays a product-specific gem icon alongside text
  * Based on Figma Gel Button design from Neo Design System
  */
-export const NeoGelButton: React.FC<NeoGelButtonProps> = ({
+export const NeoGelButton: FunctionComponent<NeoGelButtonProps> = ({
   product,
   children,
   onClick,
   disabled = false,
   className,
   type = 'button',
-  ariaLabel,
+  'aria-label': ariaLabel,
   href,
   target,
   rel,
@@ -84,6 +84,13 @@ export const NeoGelButton: React.FC<NeoGelButtonProps> = ({
 
   // Render as link if href is provided
   if (href) {
+    // Add security attributes for target="_blank" to prevent tabnapping
+    const secureRel = target === '_blank'
+      ? rel
+        ? `${rel} noopener noreferrer`
+        : 'noopener noreferrer'
+      : rel;
+
     return (
       <a
         href={href}
@@ -91,7 +98,7 @@ export const NeoGelButton: React.FC<NeoGelButtonProps> = ({
         onClick={onClick}
         aria-label={ariaLabel}
         target={target}
-        rel={rel}
+        rel={secureRel}
         aria-disabled={disabled}
       >
         {content}
@@ -112,5 +119,7 @@ export const NeoGelButton: React.FC<NeoGelButtonProps> = ({
     </button>
   );
 };
+
+NeoGelButton.displayName = 'NeoGelButton';
 
 export default NeoGelButton;

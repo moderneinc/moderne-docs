@@ -1,4 +1,4 @@
-import React from 'react';
+import {type FunctionComponent, type ReactNode} from 'react';
 import clsx from 'clsx';
 import type {Props} from '@theme/MDXComponents/Img';
 import Zoom from 'react-medium-image-zoom'
@@ -10,7 +10,7 @@ function transformImgClassName(className?: string): string {
   return clsx(className, styles.img);
 }
 
-export default function ZoomableImage(props: Props) {
+const ZoomableImage: FunctionComponent<Props> = (props) => {
   return (
     <Zoom>
       <img
@@ -20,5 +20,9 @@ export default function ZoomableImage(props: Props) {
         className={transformImgClassName(props.className)}
       />
     </Zoom>
-  )
-} 
+  );
+};
+
+ZoomableImage.displayName = 'ZoomableImage';
+
+export default ZoomableImage; 

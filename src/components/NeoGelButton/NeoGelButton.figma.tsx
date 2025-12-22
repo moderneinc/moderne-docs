@@ -19,7 +19,6 @@ figma.connect(
   NeoGelButton,
   'https://www.figma.com/design/fQTkGSFbYyE7LiHuQJsENC?node-id=5920-3874',
   {
-    language: 'React - Docusaurus',
     props: {
       product: figma.enum('Property 1', {
         dx: 'dx',

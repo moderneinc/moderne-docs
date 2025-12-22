@@ -65,9 +65,9 @@ const DemoIcon = () => (
 );
 
 /**
- * Variants story showing all button styles
+ * All Variations - Comprehensive view of all button styles
  */
-export const Variants: Story = {
+export const AllVariations: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       {/* Primary Buttons */}
@@ -160,10 +160,10 @@ export const Variants: Story = {
           Icon Only
         </h3>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <NeoButton variant="primary" icon={<DemoIcon />} ariaLabel="Star" size="small" />
-          <NeoButton variant="primary" icon={<DemoIcon />} ariaLabel="Star" />
-          <NeoButton variant="secondary" icon={<DemoIcon />} ariaLabel="Star" />
-          <NeoButton variant="outline" icon={<DemoIcon />} ariaLabel="Star" />
+          <NeoButton variant="primary" icon={<DemoIcon />} aria-label="Star" size="small" />
+          <NeoButton variant="primary" icon={<DemoIcon />} aria-label="Star" />
+          <NeoButton variant="secondary" icon={<DemoIcon />} aria-label="Star" />
+          <NeoButton variant="outline" icon={<DemoIcon />} aria-label="Star" />
         </div>
       </div>
 
@@ -205,39 +205,6 @@ export const Interactive: Story = {
     variant: 'primary',
     size: 'medium',
     disabled: false,
-    iconPosition: 'left',
-  },
-  render: (args) => {
-    const [clickCount, setClickCount] = React.useState(0);
-
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-      setClickCount(clickCount + 1);
-      if (args.onClick) {
-        args.onClick(e);
-      }
-    };
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
-        <NeoButton {...args} onClick={handleClick} />
-        <div style={{ fontSize: '12px', color: '#666' }}>
-          Button clicked {clickCount} times
-        </div>
-      </div>
-    );
-  },
-};
-
-/**
- * Interactive story with icon
- */
-export const InteractiveWithIcon: Story = {
-  args: {
-    children: 'Star this',
-    variant: 'primary',
-    size: 'medium',
-    disabled: false,
-    icon: <DemoIcon />,
     iconPosition: 'left',
   },
   render: (args) => {

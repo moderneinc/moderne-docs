@@ -5,8 +5,8 @@
 
   /* New design specifications */
   min-height: 70px;
-  padding: 16px;
-  border-radius: 20px;
+  padding: var(--neo-spacing_2);
+  border-radius: var(--neo-border-radius-l);
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
   box-shadow: none;
@@ -38,7 +38,7 @@
   justify-content: center;
   flex: 1;
   min-width: 0;
-  padding-bottom: 2px;
+  padding-bottom: var(--neo-spacing_1_4);
 }
 
 /* Card titles use both module class (cardTitle) and global class (doc-card-title)
@@ -49,7 +49,7 @@
   font-size: var(--neo-font-size-sm);
   font-weight: var(--neo-font-weight-semi-bold);
   line-height: 1.4;
-  color: var(--neo-typography-input-default, #1f2937);
+  color: var(--neo-typography-input-default);
   margin-bottom: var(--neo-spacing_1_2);
 }
 

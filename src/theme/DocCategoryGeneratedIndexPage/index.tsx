@@ -8,13 +8,13 @@ import DocPaginator from '@theme/DocPaginator';
 import DocVersionBadge from '@theme/DocVersionBadge';
 import DocVersionBanner from '@theme/DocVersionBanner';
 import Heading from '@theme/Heading';
-import { type ReactNode } from 'react';
+import { type FunctionComponent, type ReactNode } from 'react';
 
 import styles from './styles.module.css';
 
-function DocCategoryGeneratedIndexPageMetadata({
+const DocCategoryGeneratedIndexPageMetadata: FunctionComponent<Props> = ({
   categoryGeneratedIndex,
-}: Props): ReactNode {
+}) => {
   return (
     <PageMetadata
       title={categoryGeneratedIndex.title}
@@ -24,11 +24,13 @@ function DocCategoryGeneratedIndexPageMetadata({
       image={useBaseUrl(categoryGeneratedIndex.image)}
     />
   );
-}
+};
 
-function DocCategoryGeneratedIndexPageContent({
+DocCategoryGeneratedIndexPageMetadata.displayName = 'DocCategoryGeneratedIndexPageMetadata';
+
+const DocCategoryGeneratedIndexPageContent: FunctionComponent<Props> = ({
   categoryGeneratedIndex,
-}: Props): ReactNode {
+}) => {
   const category = useCurrentSidebarCategory();
   return (
     <div className={styles.generatedIndexPage}>
@@ -56,13 +58,19 @@ function DocCategoryGeneratedIndexPageContent({
       </div>
     </div>
   );
-}
+};
 
-export default function DocCategoryGeneratedIndexPage(props: Props): ReactNode {
+DocCategoryGeneratedIndexPageContent.displayName = 'DocCategoryGeneratedIndexPageContent';
+
+const DocCategoryGeneratedIndexPage: FunctionComponent<Props> = (props) => {
   return (
     <>
       <DocCategoryGeneratedIndexPageMetadata {...props} />
       <DocCategoryGeneratedIndexPageContent {...props} />
     </>
   );
-}
+};
+
+DocCategoryGeneratedIndexPage.displayName = 'DocCategoryGeneratedIndexPage';
+
+export default DocCategoryGeneratedIndexPage;

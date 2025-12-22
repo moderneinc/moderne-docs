@@ -19,7 +19,6 @@ figma.connect(
   Footer,
   'https://www.figma.com/design/uV0jrpyaEkb92biJyRiZ5A?node-id=634-2110',
   {
-    language: 'React - Docusaurus',
     example: () => (
       <Footer />
     ),
