@@ -156,5 +156,5 @@ For more guidance on choosing between these approaches, see [our blog post on la
 
 ## Next steps
 
-* [Set up mass ingest](../how-to-guides/mass-ingest-and-run-dx.md) to begin building LSTs for your repositories
+* [Set up mass ingest](../how-to-guides/mass-ingest-dx.md) to begin building LSTs for your repositories
 * [Learn about the architecture](../references/moderne-dx-architecture.md) and how Moderne DX compares to Moderne Platform
