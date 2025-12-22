@@ -35,11 +35,21 @@ function getAllDefinedVariables() {
     }
   });
 
-  // Add Infima variables (Docusaurus framework)
-  const infimaPrefixes = ['--ifm-'];
-  infimaPrefixes.forEach(prefix => {
-    // Add common Infima variables pattern
-    allVariables.add(`${prefix}*`); // Wildcard for any --ifm- variable
+  // Add Docusaurus theme CSS variables
+  const docusaurusThemePath = 'node_modules/@docusaurus/theme-classic/lib/theme';
+  if (fs.existsSync(docusaurusThemePath)) {
+    const docusaurusFiles = glob.sync(`${docusaurusThemePath}/**/*.css`);
+    docusaurusFiles.forEach(file => {
+      const content = fs.readFileSync(file, 'utf-8');
+      const variables = extractVariables(content);
+      variables.forEach(v => allVariables.add(v));
+    });
+  }
+
+  // Add framework variables as wildcards
+  const frameworkPrefixes = ['--ifm-', '--docusaurus-'];
+  frameworkPrefixes.forEach(prefix => {
+    allVariables.add(`${prefix}*`); // Wildcard for framework variables
   });
 
   return allVariables;
@@ -83,8 +93,8 @@ async function validateCSSVariables() {
     totalVarUsages += usages.length;
 
     usages.forEach(({ variable, fullMatch }) => {
-      const isInfimaVar = variable.startsWith('--ifm-');
-      const isDefined = definedVars.has(variable) || isInfimaVar;
+      const isFrameworkVar = variable.startsWith('--ifm-') || variable.startsWith('--docusaurus-');
+      const isDefined = definedVars.has(variable) || isFrameworkVar;
 
       if (!isDefined) {
         undefinedVars.push({ file, variable, fullMatch });

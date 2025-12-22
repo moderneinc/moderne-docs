@@ -10,7 +10,7 @@
   /* Override default menu padding with NeoDesign spacing */
   .menu {
     flex-grow: 1;
-    padding: 0.5rem var(--neo-spacing_3, 24px) 0.5rem var(--neo-spacing_3, 24px);
+    padding: var(--neo-spacing_1) var(--neo-spacing_3) var(--neo-spacing_1) var(--neo-spacing_3);
   }
 
   @supports (scrollbar-gutter: stable) {
@@ -30,8 +30,8 @@
  * Aligned with Figma design specifications
  */
 :global(.theme-doc-sidebar-menu) {
-  font-size: var(--sidebar-item-font-size, 16px);
-  font-weight: var(--neo-font-weight-regular, 400);
+  font-size: var(--sidebar-item-font-size, var(--neo-font-size-default));
+  font-weight: var(--neo-font-weight-regular);
   line-height: var(--sidebar-item-line-height, 1.5);
 }
 
@@ -39,12 +39,12 @@
 :global(.theme-doc-sidebar-menu > .menu__list-item > .menu__link-wrapper > .menu__link),
 :global(.theme-doc-sidebar-menu > .menu__list-item > .menu__link),
 :global(.theme-doc-sidebar-menu > .menu__list-item > .menu__list-item-collapsible > .menu__link) {
-  font-weight: var(--neo-font-weight-semi-bold, 600);
+  font-weight: var(--neo-font-weight-semi-bold);
 }
 
 /* Sidebar link spacing */
 :global(.theme-doc-sidebar-menu .menu__link) {
-  padding: var(--sidebar-item-padding, 12px);
+  padding: var(--sidebar-item-padding, var(--neo-spacing_1_1_2));
 }
 
 /* Hover states - brand lavender tint (not in NeoDesign) */
@@ -73,6 +73,19 @@
 /* Remove border from first item to avoid double border at top */
 :global(.theme-doc-sidebar-menu > .menu__list > .menu__list-item:first-child) {
   border-top: none;
+}
+
+/* Sidebar section headers (HTML dividers in sidebar) */
+:global(.theme-doc-sidebar-item-link > strong) {
+  text-transform: uppercase;
+  color: var(--sidebar-section-header-color, var(--neo-grey-700));
+  font-size: var(--sidebar-section-header-size, var(--neo-font-size-sm));
+  line-height: var(--sidebar-section-header-line-height, 1.4);
+  font-weight: var(--neo-font-weight-semi-bold);
+}
+
+:global(html[data-theme='dark'] .theme-doc-sidebar-item-link > strong) {
+  color: var(--brand-digital-green, #85fe99);
 }
 
 /* Note: Caret icons are now rendered using Lucide React icons

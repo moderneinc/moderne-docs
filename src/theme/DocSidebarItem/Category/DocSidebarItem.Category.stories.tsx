@@ -191,28 +191,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Collapsed Category
+ * Interactive
  *
- * Default state with ChevronRight icon indicating the category can be expanded.
+ * Interactive category item with controls to adjust all props.
+ * Use controls to toggle collapsed/expanded state, active state, and modify the label.
  */
-export const Collapsed: Story = {
+export const Interactive: Story = {
   args: {
     label: 'Getting Started',
     collapsed: true,
-    href: '/getting-started',
-  },
-};
-
-/**
- * Expanded Category
- *
- * Expanded state with ChevronDown icon showing the category is open.
- * Children are visible.
- */
-export const Expanded: Story = {
-  args: {
-    label: 'Getting Started',
-    collapsed: false,
+    isActive: false,
     href: '/getting-started',
     children: (
       <>
@@ -225,106 +213,9 @@ export const Expanded: Story = {
 };
 
 /**
- * Active Collapsed
+ * All States
  *
- * Active category in collapsed state.
- * Shows brand digital blue color (#283af7) for both text and icon.
- */
-export const ActiveCollapsed: Story = {
-  args: {
-    label: 'Getting Started',
-    collapsed: true,
-    isActive: true,
-    href: '/getting-started',
-  },
-};
-
-/**
- * Active Expanded
- *
- * Active category in expanded state with children visible.
- * Icon and text use brand digital blue.
- */
-export const ActiveExpanded: Story = {
-  args: {
-    label: 'Getting Started',
-    collapsed: false,
-    isActive: true,
-    href: '/getting-started',
-    children: (
-      <>
-        <SimplifiedSidebarLink label="Quick Start" href="/getting-started/quick-start" isActive />
-        <SimplifiedSidebarLink label="Installation" href="/getting-started/installation" />
-        <SimplifiedSidebarLink label="Configuration" href="/getting-started/configuration" />
-      </>
-    ),
-  },
-};
-
-/**
- * Nested Categories
- *
- * Demonstrates multi-level category nesting with proper indentation.
- */
-export const NestedCategories: Story = {
-  args: {
-    label: 'User Documentation',
-    collapsed: false,
-    href: '/user-documentation',
-    children: (
-      <>
-        <SimplifiedCategoryItem label="Platform" collapsed={false} href="/user-documentation/platform">
-          <SimplifiedSidebarLink label="Overview" href="/user-documentation/platform/overview" />
-          <SimplifiedSidebarLink
-            label="Getting Started"
-            href="/user-documentation/platform/getting-started"
-            isActive
-          />
-          <SimplifiedCategoryItem
-            label="How-to Guides"
-            collapsed={true}
-            href="/user-documentation/platform/how-to"
-          />
-        </SimplifiedCategoryItem>
-        <SimplifiedCategoryItem label="CLI" collapsed={true} href="/user-documentation/cli" />
-      </>
-    ),
-  },
-};
-
-/**
- * Dark Mode
- *
- * Toggle between light and dark modes to see color transitions.
- * Dark mode uses mint green (#85fe99) for active states.
- */
-export const DarkMode: Story = {
-  args: {
-    label: 'Getting Started',
-    collapsed: false,
-    isActive: true,
-    href: '/getting-started',
-    children: (
-      <>
-        <SimplifiedSidebarLink label="Quick Start" href="/getting-started/quick-start" />
-        <SimplifiedSidebarLink label="Installation" href="/getting-started/installation" isActive />
-      </>
-    ),
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Toggle between light and dark modes. Active states change from brand digital blue to mint green.',
-      },
-    },
-  },
-};
-
-/**
- * All States Comparison
- *
- * Side-by-side comparison of different category states.
+ * Side-by-side comparison of all category states and variations.
  */
 export const AllStates: Story = {
   render: () => (

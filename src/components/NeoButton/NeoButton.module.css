@@ -1,25 +1,26 @@
 /**
  * Button Component Styles
  * Based on Figma design using Neo Design CSS variables
+ * Refactored with CSS nesting for improved specificity and maintainability
  */
 
 /* Base button styles */
 .button {
   /* Typography - matches Figma: Inter Medium 14px */
-  font-family: var(--neo-font-family-body, 'Inter', sans-serif);
-  font-size: var(--neo-font-size-sm, 14px);
-  font-weight: var(--neo-font-weight-medium, 500);
+  font-family: var(--neo-font-family-body);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
   line-height: 1;
 
   /* Shape - pill/capsule shape */
-  border-radius: var(--neo-border-radius-button, 999px);
+  border-radius: var(--neo-border-radius-button);
   border: none;
 
   /* Layout */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--neo-spacing_1);
 
   /* Interaction */
   cursor: pointer;
@@ -32,158 +33,145 @@
 
   /* Ensure links don't inherit link colors */
   color: inherit;
-}
 
-/* Override link hover styles when button is a link */
-.button:hover {
-  text-decoration: none;
+  /* Override link hover styles when button is a link */
+  &:hover {
+    text-decoration: none;
+  }
+
+  /* Disabled state */
+  &--disabled,
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
 /* Primary variant - blue button from Figma */
 .button--primary {
-  background-color: var(--neo-buttons-primary-default, var(--neo-digital-blue-500));
+  background-color: var(--neo-buttons-primary-default);
   color: var(--neo-grey-50);
-}
 
-.button--primary:hover:not(:disabled) {
-  background-color: var(--neo-buttons-primary-hover, var(--neo-digital-blue-600));
-}
+  &:hover:not(:disabled) {
+    background-color: var(--neo-buttons-primary-hover);
+  }
 
-.button--primary:active:not(:disabled) {
-  background-color: var(--neo-buttons-primary-pressed, var(--neo-digital-blue-800));
-}
+  &:active:not(:disabled) {
+    background-color: var(--neo-buttons-primary-pressed);
+  }
 
-.button--primary:focus-visible {
-  outline: 2px solid var(--neo-buttons-primary-focus, var(--neo-digital-blue-500));
-  outline-offset: 2px;
+  &:focus-visible {
+    outline: 2px solid var(--neo-buttons-primary-focus);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    background-color: var(--neo-buttons-primary-disabled);
+    color: var(--neo-typography-button-disabled);
+  }
 }
 
 /* Secondary variant */
 .button--secondary {
-  background-color: var(--neo-buttons-secondary-default-background, var(--neo-surfaces-white));
-  color: var(--neo-buttons-secondary-default, var(--neo-grey-800));
-  border: 1px solid var(--neo-buttons-secondary-default-border, #b6bfff);
-}
+  background-color: var(--neo-buttons-secondary-default-background);
+  color: var(--neo-buttons-secondary-default);
+  border: 1px solid var(--neo-buttons-secondary-default-border);
 
-.button--secondary:hover:not(:disabled) {
-  background-color: var(--neo-buttons-secondary-hover-background, #f2f3ff);
-}
+  &:hover:not(:disabled) {
+    background-color: var(--neo-buttons-secondary-hover-background);
+  }
 
-.button--secondary:active:not(:disabled) {
-  background-color: var(--neo-buttons-secondary-pressed-background, #dce0ff);
-}
+  &:active:not(:disabled) {
+    background-color: var(--neo-buttons-secondary-pressed-background);
+  }
 
-.button--secondary:focus-visible {
-  outline: 2px solid var(--neo-buttons-secondary-focus, var(--neo-digital-blue-500));
-  outline-offset: 2px;
+  &:focus-visible {
+    outline: 2px solid var(--neo-buttons-secondary-focus);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    background-color: var(--neo-buttons-secondary-disabled-background);
+    border-color: var(--neo-buttons-secondary-disabled-border);
+    color: var(--neo-typography-button-disabled);
+  }
 }
 
 /* Outline variant (tertiary) */
 .button--outline {
   background-color: transparent;
-  color: var(--neo-buttons-tertiary-default, var(--neo-digital-blue-500));
-  border: 1px solid var(--neo-buttons-tertiary-default, var(--neo-digital-blue-500));
-}
+  color: var(--neo-buttons-tertiary-default);
+  border: 1px solid var(--neo-buttons-tertiary-default);
 
-.button--outline:hover:not(:disabled) {
-  color: var(--neo-buttons-tertiary-hover, var(--neo-digital-blue-600));
-  border-color: var(--neo-buttons-tertiary-hover, var(--neo-digital-blue-600));
-}
+  &:hover:not(:disabled) {
+    color: var(--neo-buttons-tertiary-hover);
+    border-color: var(--neo-buttons-tertiary-hover);
+  }
 
-.button--outline:active:not(:disabled) {
-  color: var(--neo-buttons-tertiary-pressed, var(--neo-digital-blue-800));
-  border-color: var(--neo-buttons-tertiary-pressed, var(--neo-digital-blue-800));
-}
+  &:active:not(:disabled) {
+    color: var(--neo-buttons-tertiary-pressed);
+    border-color: var(--neo-buttons-tertiary-pressed);
+  }
 
-.button--outline:focus-visible {
-  outline: 2px solid var(--neo-buttons-tertiary-focus, var(--neo-digital-blue-500));
-  outline-offset: 2px;
+  &:focus-visible {
+    outline: 2px solid var(--neo-buttons-tertiary-focus);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    color: var(--neo-buttons-tertiary-disabled);
+    border-color: var(--neo-buttons-tertiary-disabled);
+  }
 }
 
 /* Text/Link variant - no background, no border, just text with icon */
 .button--text {
   background-color: transparent;
   border: none;
-  color: var(--neo-typography-body, #1f2937);
+  color: var(--neo-typography-input-default);
   padding: 0;
   border-radius: 0;
-}
 
-.button--text:hover:not(:disabled) {
-  opacity: 0.7;
-}
+  &:hover:not(:disabled) {
+    opacity: 0.7;
+  }
 
-.button--text:active:not(:disabled) {
-  opacity: 0.5;
-}
+  &:active:not(:disabled) {
+    opacity: 0.5;
+  }
 
-.button--text:focus-visible {
-  outline: 2px solid var(--neo-buttons-primary-focus, #2f42ff);
-  outline-offset: 2px;
-}
+  &:focus-visible {
+    outline: 2px solid var(--neo-buttons-primary-focus);
+    outline-offset: 2px;
+  }
 
-/* Dark mode */
-html[data-theme='dark'] .button--text {
-  color: var(--neo-surfaces-white, #ffffff);
-}
+  &:disabled {
+    color: var(--neo-buttons-tertiary-disabled);
+  }
 
-html[data-theme='dark'] .button--text:hover:not(:disabled) {
-  opacity: 0.7;
-}
-
-html[data-theme='dark'] .button--text:active:not(:disabled) {
-  opacity: 0.5;
+  /* Text variant overrides size padding */
+  &.button--small,
+  &.button--medium,
+  &.button--large {
+    padding: 0;
+  }
 }
 
 /* Size variants */
 .button--small {
-  padding: 8px 16px;
-  font-size: var(--neo-font-size-xs, 12px);
+  padding: var(--neo-spacing_1) var(--neo-spacing_2);
+  font-size: var(--neo-font-size-xs);
 }
 
 .button--medium {
-  padding: 12px 24px;
-  font-size: var(--neo-font-size-sm, 14px);
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_3);
+  font-size: var(--neo-font-size-sm);
 }
 
 .button--large {
-  padding: 16px 32px;
-  font-size: var(--neo-font-size-default, 16px);
-}
-
-/* Text variant overrides size padding */
-.button--text.button--small,
-.button--text.button--medium,
-.button--text.button--large {
-  padding: 0;
-}
-
-/* Disabled state */
-.button--disabled,
-.button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.button--primary:disabled {
-  background-color: var(--neo-buttons-primary-disabled, var(--neo-grey-100));
-  color: var(--neo-typography-button-disabled, var(--neo-grey-400));
-}
-
-.button--secondary:disabled {
-  background-color: var(--neo-buttons-secondary-disabled-background, var(--neo-grey-50));
-  border-color: var(--neo-buttons-secondary-disabled-border, var(--neo-grey-200));
-  color: var(--neo-typography-button-disabled, var(--neo-grey-400));
-}
-
-.button--outline:disabled {
-  color: var(--neo-buttons-tertiary-disabled, var(--neo-grey-400));
-  border-color: var(--neo-buttons-tertiary-disabled, var(--neo-grey-400));
-}
-
-.button--text:disabled {
-  color: var(--neo-buttons-tertiary-disabled, #9ca3af);
+  padding: var(--neo-spacing_2) var(--neo-spacing_4);
+  font-size: var(--neo-font-size-default);
 }
 
 /* Icon styling */
@@ -203,32 +191,46 @@ html[data-theme='dark'] .button--text:active:not(:disabled) {
 /* Icon-only button (no text) */
 .button--icon-only {
   aspect-ratio: 1;
-  padding: 12px;
-}
+  padding: var(--neo-spacing_1_1_2);
 
-.button--icon-only.button--small {
-  padding: 8px;
-}
+  &.button--small {
+    padding: var(--neo-spacing_1);
+  }
 
-.button--icon-only.button--large {
-  padding: 16px;
+  &.button--large {
+    padding: var(--neo-spacing_2);
+  }
 }
 
 /* Dark mode adjustments */
-html[data-theme='dark'] .button--primary {
-  background-color: var(--neo-digital-blue-400);
-}
+html[data-theme='dark'] {
+  .button--primary {
+    background-color: var(--neo-digital-blue-400);
 
-html[data-theme='dark'] .button--primary:hover:not(:disabled) {
-  background-color: var(--neo-digital-blue-500);
-}
+    &:hover:not(:disabled) {
+      background-color: var(--neo-digital-blue-500);
+    }
+  }
 
-html[data-theme='dark'] .button--secondary {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--neo-surfaces-white);
-}
+  .button--secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--neo-surfaces-white);
 
-html[data-theme='dark'] .button--secondary:hover:not(:disabled) {
-  background-color: rgba(255, 255, 255, 0.15);
+    &:hover:not(:disabled) {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .button--text {
+    color: var(--neo-surfaces-white);
+
+    &:hover:not(:disabled) {
+      opacity: 0.7;
+    }
+
+    &:active:not(:disabled) {
+      opacity: 0.5;
+    }
+  }
 }

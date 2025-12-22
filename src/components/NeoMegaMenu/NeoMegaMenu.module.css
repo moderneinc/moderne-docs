@@ -1,0 +1,270 @@
+/**
+ * MegaMenu Component Styles - Responsive
+ * Refactored with CSS nesting for improved specificity and maintainability
+ *
+ * Breakpoints:
+ * - Mobile: < 768px (single column, vertical footer)
+ * - Tablet: 768px - 1023px (two columns, narrower)
+ * - Desktop: ≥ 1024px (two columns, full width)
+ */
+
+/* Overlay backdrop - must be above navbar (z-index 200) */
+.overlay {
+  position: fixed;
+  top: var(--ifm-navbar-height, 92px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 400;
+}
+
+/* Main menu container - anchored below logo/chevron */
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: var(--neo-spacing_1);
+  width: 750px;
+  max-width: calc(100vw - 2 * var(--ifm-navbar-padding-horizontal, 2.5rem));
+  max-height: calc(100vh - var(--ifm-navbar-height, 92px) - var(--neo-spacing_3));
+  overflow-y: auto;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-border);
+  border-radius: var(--neo-border-radius-x-s);
+  box-shadow: var(--neo-shadow-dropdown);
+  z-index: 401;
+}
+
+/* Content area (two-column layout on tablet+) */
+.content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--neo-spacing_4);
+  padding: var(--neo-spacing_4) var(--neo-spacing_4) var(--neo-spacing_3);
+
+  /* Tablet: Adjust spacing */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    gap: var(--neo-spacing_3);
+    padding: var(--neo-spacing_3_1_2) var(--neo-spacing_3) var(--neo-spacing_2_1_2);
+  }
+
+  /* Mobile: Single column layout */
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    gap: var(--neo-spacing_3);
+    padding: var(--neo-spacing_3) var(--neo-spacing_2_1_2) var(--neo-spacing_2_1_2);
+  }
+}
+
+/* Right column - contains For Business and Learning sections */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_4);
+}
+
+/* Section headers */
+.sectionHeader,
+.content h3 {
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-semi-bold);
+  letter-spacing: 0.5px;
+  color: var(--neo-grey-700);
+}
+
+/* Footer separator styling */
+.footer {
+  border-top: 1px solid var(--ifm-color-border);
+  padding: var(--neo-spacing_2) var(--neo-spacing_4);
+
+  /* Mobile: Adjust padding */
+  @media (max-width: 767px) {
+    padding: var(--neo-spacing_2) var(--neo-spacing_2_1_2);
+  }
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Mobile: Vertical footer links */
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--neo-spacing_2);
+  }
+}
+
+.footerLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_3_4);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--ifm-heading-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--ifm-color-primary);
+    text-decoration: none;
+  }
+}
+
+.externalIcon {
+  width: var(--neo-spacing_1_1_2);
+  height: var(--neo-spacing_1_1_2);
+  flex-shrink: 0;
+}
+
+/* Product Documentation Section */
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+}
+
+.productItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--neo-spacing_1_1_2);
+  padding: var(--neo-spacing_1_1_2);
+  border-radius: var(--neo-border-radius-x-s);
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--ifm-hover-overlay);
+    text-decoration: none;
+  }
+}
+
+.productIcon {
+  width: var(--neo-spacing_4);
+  height: var(--neo-spacing_4);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1_2);
+}
+
+.productName {
+  font-weight: var(--neo-font-weight-semi-bold);
+  font-size: var(--neo-font-size-h6);
+  color: var(--ifm-heading-color);
+}
+
+.productDescription {
+  font-size: var(--neo-font-size-xs);
+  line-height: 1.5;
+  color: var(--neo-typography-input-default);
+}
+
+/* Learning & Resources Section */
+.learningSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.learningList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+  align-items: flex-start;
+}
+
+.learningItem {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  padding: var(--neo-spacing_1) var(--neo-spacing_1_1_2);
+  border-radius: var(--neo-border-radius-x-s);
+  text-decoration: none;
+  color: var(--ifm-heading-color);
+  font-size: var(--neo-font-size-sm);
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--ifm-hover-overlay);
+    text-decoration: none;
+    color: var(--ifm-heading-color);
+  }
+}
+
+.learningArrow {
+  flex-shrink: 0;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.learningName {
+  flex: 1;
+}
+
+/* Dark mode styles */
+:global(html[data-theme='dark']) {
+  .overlay {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .menu {
+    background: rgba(12, 17, 43, 0.9);
+    backdrop-filter: blur(10px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .sectionHeader,
+  .content h3 {
+    color: var(--neo-surfaces-snackbar-dark-mode);
+    opacity: 0.7;
+  }
+
+  .footer {
+    border-top-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .footerLink {
+    color: var(--neo-surfaces-white);
+
+    &:hover {
+      color: var(--brand-digital-green);
+    }
+  }
+
+  .productItem {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  .productName {
+    color: var(--neo-surfaces-white);
+  }
+
+  .productDescription {
+    color: var(--neo-surfaces-snackbar-dark-mode);
+    opacity: 0.7;
+  }
+
+  .learningItem {
+    color: var(--neo-surfaces-white);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--brand-digital-green);
+    }
+  }
+
+  .learningArrow {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}

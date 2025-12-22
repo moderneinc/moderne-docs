@@ -83,7 +83,7 @@ const config: Config = {
         docs: {
           routeBasePath: "/",
           sidebarCollapsible: true,
-          sidebarPath: './sidebars.ts',
+          sidebarPath: './sidebars-next.ts',
           editUrl:
             'https://github.com/moderneinc/moderne-docs/edit/main',
           exclude: [

@@ -59,14 +59,14 @@ export function filterSidebarItemsByContext(
 
   // If we have a current category from Docusaurus context, use it (more reliable)
   if (currentCategory) {
-    const category = findDeepestMatchingCategory(items, currentCategory);
+    const category = findShallowestProductCategory(items, currentCategory);
     if (category && category.items) {
       return addCategoryHeader(category, currentPath);
     }
   }
 
   // Fallback to path matching
-  const matchingCategory = findDeepestMatchingCategoryByPath(items, currentPath);
+  const matchingCategory = findShallowestProductCategoryByPath(items, currentPath);
   if (matchingCategory && matchingCategory.items) {
     return addCategoryHeader(matchingCategory, currentPath);
   }
@@ -102,11 +102,10 @@ function addCategoryHeader(
 }
 
 /**
- * Find the deepest matching category that contains the given category
- * For nested structures, this drills down to the actual product category
- * rather than stopping at the top-level parent
+ * Find the shallowest product category that contains the given category
+ * Returns the first product-level category encountered, not drilling into subsections
  */
-function findDeepestMatchingCategory(
+function findShallowestProductCategory(
   items: readonly PropSidebarItem[],
   targetCategory: any
 ): PropSidebarItemCategory | null {
@@ -117,16 +116,21 @@ function findDeepestMatchingCategory(
     return null;
   }
 
-  // Find the deepest category that either matches the permalink or contains it
+  // Find the shallowest product category that contains the permalink
   for (const item of items) {
     if (item.type === 'category') {
       const category = item as PropSidebarItemCategory;
 
       // Check if this category contains the target permalink
       if (categoryContainsPermalink(category, targetPermalink)) {
-        // Try to find a deeper match within this category's children
-        const deeperMatch = findDeepestCategoryInTree(category, targetPermalink);
-        return deeperMatch || category;
+        // If this category is a product category, return it immediately (don't go deeper)
+        if (isProductCategory(category)) {
+          return category;
+        }
+
+        // Otherwise, search within children for a product category
+        const productCategoryInTree = findShallowestProductCategoryInTree(category, targetPermalink);
+        return productCategoryInTree || category;
       }
     }
   }
@@ -182,42 +186,45 @@ function isProductCategory(category: PropSidebarItemCategory): boolean {
 }
 
 /**
- * Recursively find the deepest PRODUCT category in a tree that contains the target permalink
- * This stops at product-level categories (Platform, CLI, DX) rather than drilling to subsections
+ * Recursively find the shallowest PRODUCT category in a tree that contains the target permalink
+ * Stops at the first product-level category found, not drilling into subsections
  */
-function findDeepestCategoryInTree(
+function findShallowestProductCategoryInTree(
   category: PropSidebarItemCategory,
   targetPermalink: string
 ): PropSidebarItemCategory | null {
-  // If this category's href matches exactly and it's a product category, return it
-  if (category.href === targetPermalink && isProductCategory(category)) {
+  // CRITICAL: If this category IS a product category and contains the permalink, return it immediately
+  // Don't go deeper into children
+  if (isProductCategory(category) && categoryContainsPermalink(category, targetPermalink)) {
     return category;
   }
 
-  // Check if any child category contains the permalink
+  // Only search children if this category is NOT a product category
   if (category.items) {
     for (const item of category.items) {
       if (item.type === 'category') {
         const childCategory = item as PropSidebarItemCategory;
 
-        // If this child contains the permalink
+        // If this child contains the permalink and is a product category, return it
         if (categoryContainsPermalink(childCategory, targetPermalink)) {
-          // If this child is a product category, return it (don't go deeper)
           if (isProductCategory(childCategory)) {
             return childCategory;
           }
 
-          // Otherwise, try to go deeper to find a product category
-          const deeperMatch = findDeepestCategoryInTree(childCategory, targetPermalink);
-          if (deeperMatch) {
-            return deeperMatch;
+          // Otherwise, search deeper
+          const productInChild = findShallowestProductCategoryInTree(childCategory, targetPermalink);
+          if (productInChild) {
+            return productInChild;
           }
-
-          // If no product category found deeper, return this child
-          return childCategory;
         }
       }
     }
+  }
+
+  // Special case: if we're at the exact permalink of this category (not deeper),
+  // return it even if it's not a product category (e.g., Administrator Documentation parent)
+  if (category.href === targetPermalink) {
+    return category;
   }
 
   return null;
@@ -334,10 +341,10 @@ function containsPath(
 }
 
 /**
- * Find the deepest category that contains the current path
- * For nested structures, this drills down to the actual product category
+ * Find the shallowest product category that contains the current path
+ * Returns the first product-level category found, not drilling into subsections
  */
-function findDeepestMatchingCategoryByPath(
+function findShallowestProductCategoryByPath(
   items: readonly PropSidebarItem[],
   currentPath: string
 ): PropSidebarItemCategory | null {
@@ -352,9 +359,14 @@ function findDeepestMatchingCategoryByPath(
         currentPath === categoryPath ||
         currentPath === categoryPath + '/'
       )) {
-        // Try to find a deeper match within this category's children
-        const deeperMatch = findDeepestCategoryInTreeByPath(category, currentPath);
-        return deeperMatch || category;
+        // If this is a product category, return it immediately (don't go deeper)
+        if (isProductCategory(category)) {
+          return category;
+        }
+
+        // Otherwise, search within children for a product category
+        const productInTree = findShallowestProductCategoryInTreeByPath(category, currentPath);
+        return productInTree || category;
       }
     }
   }
@@ -366,9 +378,14 @@ function findDeepestMatchingCategoryByPath(
 
       // Check if this category contains the current path
       if (categoryContainsPath(category, currentPath)) {
-        // Try to find a deeper match within this category's children
-        const deeperMatch = findDeepestCategoryInTreeByPath(category, currentPath);
-        return deeperMatch || category;
+        // If this is a product category, return it immediately (don't go deeper)
+        if (isProductCategory(category)) {
+          return category;
+        }
+
+        // Otherwise, search within children for a product category
+        const productInTree = findShallowestProductCategoryInTreeByPath(category, currentPath);
+        return productInTree || category;
       }
     }
   }
@@ -377,10 +394,10 @@ function findDeepestMatchingCategoryByPath(
 }
 
 /**
- * Recursively find the deepest PRODUCT category in a tree that contains the current path
- * This stops at product-level categories rather than drilling to subsections
+ * Recursively find the shallowest PRODUCT category in a tree that contains the current path
+ * Stops at the first product-level category found, not drilling into subsections
  */
-function findDeepestCategoryInTreeByPath(
+function findShallowestProductCategoryInTreeByPath(
   category: PropSidebarItemCategory,
   currentPath: string
 ): PropSidebarItemCategory | null {
@@ -392,7 +409,12 @@ function findDeepestCategoryInTreeByPath(
       currentPath === categoryPath + '/' ||
       currentPath.startsWith(categoryPath + '/')
   )) {
-    // Check if any child category also contains this path
+    // CRITICAL: If this category IS a product category, return it immediately (don't go deeper)
+    if (isProductCategory(category)) {
+      return category;
+    }
+
+    // Only search children if this category is NOT a product category
     if (category.items) {
       for (const item of category.items) {
         if (item.type === 'category') {
@@ -400,27 +422,19 @@ function findDeepestCategoryInTreeByPath(
 
           // If this child contains the path
           if (categoryContainsPath(childCategory, currentPath)) {
-            // If this child is a product category, return it (don't go deeper)
+            // If this child is a product category, return it
             if (isProductCategory(childCategory)) {
               return childCategory;
             }
 
-            // Otherwise, try to go deeper to find a product category
-            const deeperMatch = findDeepestCategoryInTreeByPath(childCategory, currentPath);
-            if (deeperMatch) {
-              return deeperMatch;
+            // Otherwise, search deeper
+            const productInChild = findShallowestProductCategoryInTreeByPath(childCategory, currentPath);
+            if (productInChild) {
+              return productInChild;
             }
-
-            // If no product category found deeper and child is not a product category,
-            // don't return the child. Continue to check if current category is a product category.
           }
         }
       }
-    }
-
-    // If this is a product category, return it
-    if (isProductCategory(category)) {
-      return category;
     }
 
     // Special case: if we're at the exact path of this category (not deeper),

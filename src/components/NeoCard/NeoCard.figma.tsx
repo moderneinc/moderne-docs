@@ -10,6 +10,14 @@
 
 import figma from '@figma/code-connect';
 import { NeoCard } from './NeoCard';
+import { NeoButton } from '../NeoButton';
+
+/**
+ * Placeholder components for Figma Code Connect examples
+ * These represent the types of elements that can be passed to NeoCard
+ */
+const Icon = () => <svg width="20" height="20"><circle cx="10" cy="10" r="8" /></svg>;
+const ProductLogo = () => <svg width="20" height="20"><rect width="20" height="20" /></svg>;
 
 /**
  * Connect the Figma component to the React component
@@ -19,7 +27,6 @@ figma.connect(
   NeoCard,
   'https://www.figma.com/design/fQTkGSFbYyE7LiHuQJsENC?node-id=5925-11',
   {
-    language: 'React - Docusaurus',
     example: () => (
       <NeoCard
         title="Code Remix"

@@ -38,6 +38,44 @@ Use your language processing capabilities to identify and fix:
 * Inconsistent terminology
 * Style guide violations
 
+## Working with CSS Modules and Neo Design Variables
+
+When modifying any CSS module (`.module.css` files), you MUST follow this workflow:
+
+1. **Search for available variables** before using any Neo Design CSS variable:
+   * Use `yarn neo:search <keyword>` to find variables (e.g., `yarn neo:search spacing`, `yarn neo:search button`)
+   * Use `yarn neo:list <category>` to browse all variables in a category (e.g., `yarn neo:list buttons`)
+   * Add `--json` flag for JSON output that's easier to parse programmatically (e.g., `yarn neo:search spacing --json`)
+
+2. **Never use fallback values** with Neo Design variables:
+   * ❌ Bad: `var(--neo-spacing_1, 8px)`
+   * ✅ Good: `var(--neo-spacing_1)`
+   * Rationale: We want missing variables to surface immediately, not fail silently with fallback values
+
+3. **Validate before committing**:
+   * Run `yarn validate:css` to verify no undefined variables are used
+   * Fix any issues before proceeding with the commit
+
+**Available Neo Design Categories:**
+
+* `colors` - Primitive color scales (blue, green, gold, grey, orange, red, teal, violet)
+* `buttons` - Button state colors (primary, secondary, tertiary, navigation)
+* `icons` - Icon colors (default, hover, pressed, active, disabled)
+* `surfaces` - Surface colors (page, card, table, tooltip, snackbar, shadows)
+* `status` - Status colors (success, warning, error, info)
+* `borders` - Border colors (primary, secondary, input, card)
+* `typography` - Typography colors (input, link, code, tab, body, navigation)
+* `spacing` - Spacing scale using fractional notation (_1_4, _1_2, _1, _1_1_2, etc.)
+* `shadows` - Shadow variants (card, dropdown, modal, neutral, primary)
+* `border-radius` - Border radius presets (button, card, input)
+
+**Common Variable Naming Patterns:**
+
+* Colors: `--neo-{color}-{shade}` (e.g., `--neo-digital-blue-500`)
+* Buttons: `--neo-buttons-{variant}-{state}` (e.g., `--neo-buttons-primary-hover`)
+* Spacing: `--neo-spacing_{number}` (e.g., `--neo-spacing_1` = 8px, `--neo-spacing_1_1_2` = 12px)
+* Typography: `--neo-font-{property}-{value}` (e.g., `--neo-font-size-sm`, `--neo-font-weight-medium`)
+
 ## Important Context
 
 ### Language and Terminology

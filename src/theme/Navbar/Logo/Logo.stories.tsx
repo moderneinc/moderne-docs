@@ -37,12 +37,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Interactive Logo with MegaMenu
+ * Interactive
  *
- * Shows the complete logo implementation with MegaMenu.
- * Click the chevron to open the menu.
+ * Interactive logo with MegaMenu integration.
+ * Click the chevron to open the menu and see the logo spin animation.
  */
-export const Default: Story = {
+export const Interactive: Story = {
   render: () => (
     <div style={{ position: 'relative', minHeight: '800px' }}>
       <div
@@ -63,6 +63,47 @@ export const Default: Story = {
           <li>Click outside or press Escape → menu closes</li>
           <li>Click chevron again → menu closes</li>
         </ul>
+      </div>
+    </div>
+  ),
+};
+
+/**
+ * All Variations
+ *
+ * Shows the logo in different contexts and states.
+ * Toggle dark mode to see color scheme adaptation.
+ */
+export const AllVariations: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      <div>
+        <h3 style={{ fontSize: '14px', marginBottom: '12px', color: 'var(--ifm-color-emphasis-600)' }}>
+          Default State (Closed MegaMenu)
+        </h3>
+        <div
+          style={{
+            background: 'var(--ifm-navbar-background-color)',
+            borderBottom: '1px solid var(--ifm-color-border)',
+            padding: '16px',
+          }}
+        >
+          <LogoWrapper />
+        </div>
+      </div>
+      <div>
+        <h3 style={{ fontSize: '14px', marginBottom: '12px', color: 'var(--ifm-color-emphasis-600)' }}>
+          With Different Background
+        </h3>
+        <div
+          style={{
+            background: 'var(--ifm-background-surface-color)',
+            borderBottom: '1px solid var(--ifm-color-border)',
+            padding: '16px',
+          }}
+        >
+          <LogoWrapper />
+        </div>
       </div>
     </div>
   ),

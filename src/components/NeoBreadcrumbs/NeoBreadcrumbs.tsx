@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Home, ChevronRight } from 'lucide-react';
 import styles from './NeoBreadcrumbs.module.css';
 
@@ -12,7 +12,7 @@ export interface NeoBreadcrumbsProps {
   showHomeIcon?: boolean;
 }
 
-export default function NeoBreadcrumbs({ items, showHomeIcon = true }: NeoBreadcrumbsProps) {
+export const NeoBreadcrumbs: FunctionComponent<NeoBreadcrumbsProps> = ({ items, showHomeIcon = true }) => {
   return (
     <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
       <ol className={styles.list}>
@@ -31,11 +31,11 @@ export default function NeoBreadcrumbs({ items, showHomeIcon = true }: NeoBreadc
           </>
         )}
 
-        {items.map((item, index) => {
-          const isLast = index === items.length - 1;
+        {items.map((item) => {
+          const isLast = items.indexOf(item) === items.length - 1;
 
           return (
-            <React.Fragment key={index}>
+            <React.Fragment key={item.href || item.label}>
               <li className={styles.item}>
                 {isLast || !item.href ? (
                   <span className={styles.current} aria-current={isLast ? 'page' : undefined}>
@@ -59,4 +59,8 @@ export default function NeoBreadcrumbs({ items, showHomeIcon = true }: NeoBreadc
       </ol>
     </nav>
   );
-}
+};
+
+NeoBreadcrumbs.displayName = 'NeoBreadcrumbs';
+
+export default NeoBreadcrumbs;

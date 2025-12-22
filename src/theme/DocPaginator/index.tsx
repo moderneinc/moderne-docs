@@ -9,11 +9,11 @@ import Link from '@docusaurus/Link';
 import { translate } from '@docusaurus/Translate';
 import type { Props } from '@theme/DocPaginator';
 import clsx from 'clsx';
-import { type ReactNode } from 'react';
+import { type FunctionComponent, type ReactNode } from 'react';
 
 import styles from './styles.module.css';
 
-export default function DocPaginator(props: Props): ReactNode {
+const DocPaginator: FunctionComponent<Props> = (props) => {
   const { previous, next, className } = props;
 
   return (
@@ -40,4 +40,8 @@ export default function DocPaginator(props: Props): ReactNode {
       )}
     </nav>
   );
-}
+};
+
+DocPaginator.displayName = 'DocPaginator';
+
+export default DocPaginator;

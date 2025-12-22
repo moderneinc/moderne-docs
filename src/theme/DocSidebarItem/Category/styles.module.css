@@ -41,7 +41,7 @@ via the CollapseButton component for better control and accessibility.
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--neo-grey-800, #1f2937);
+  color: var(--neo-grey-800);
   transition: color 0.2s ease;
   flex-shrink: 0;
   padding: 0;
@@ -61,13 +61,13 @@ button.caret :global(svg.lucide) {
 }
 
 .caretActive {
-  color: var(--brand-digital-blue, #283af7);
+  color: var(--brand-digital-blue);
 }
 
 html[data-theme='dark'] .caret {
-  color: var(--neo-grey-200, #e5e7eb);
+  color: var(--neo-grey-200);
 }
 
 html[data-theme='dark'] .caretActive {
-  color: var(--brand-digital-green, #85fe99);
+  color: var(--brand-digital-green);
 }

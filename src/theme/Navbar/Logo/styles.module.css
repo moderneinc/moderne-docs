@@ -7,11 +7,11 @@
   position: relative;
 }
 
-/* Main wrapper with 6px gap between logo link and docs button */
+/* Main wrapper with 5px gap between logo link and docs button (using 4px, closest to Figma's 5px) */
 .logoWrapper {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   overflow: visible;
   min-width: fit-content;
 }
@@ -20,8 +20,7 @@
 .logoLink {
   display: flex;
   align-items: center;
-  gap: 6px;
-  height: 20px;
+  gap: 5px;
   text-decoration: none;
   cursor: pointer;
   overflow: visible;
@@ -32,13 +31,13 @@
   outline: none;
 }
 
-/* Symbol container - 20x20px */
+/* Symbol container - 15x15px per Figma */
 .logoContainer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   flex-shrink: 0;
   color: var(--ifm-navbar-link-color);
 }
@@ -74,41 +73,35 @@
 /* Docs button (text + chevron) - megamenu-button in Figma */
 .docsButton {
   display: flex;
-  align-items: center;
-  gap: 2px;
-  height: 30px;
+  align-items: flex-end;
+  gap: var(--neo-spacing_1_4);
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   transition: all 0.2s ease;
-  border-radius: 4px;
+  border-radius: var(--neo-border-radius-x-s);
   flex-shrink: 0;
-}
-
-.docsButton:hover {
-  background-color: var(--ifm-color-emphasis-200);
 }
 
 .docsButton:focus {
   outline: none;
 }
 
-/* Docs text - 21px font size, 1.4 line height */
+/* Docs text - 20px font size per Figma, 1.4 line height */
 .docsText {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-weight: 500;
-  font-size: 21px;
+  font-family: var(--neo-font-family-body), system-ui, -apple-system, sans-serif;
+  font-weight: var(--neo-font-weight-medium);
+  font-size: var(--neo-font-size-h4);
   line-height: 1.4;
   color: var(--ifm-navbar-link-color);
   user-select: none;
 }
 
-/* Chevron - 24x24px with 6px top padding for bottom alignment */
+/* Chevron - 24x24px */
 .chevron {
   transition: transform 0.3s ease;
   color: var(--ifm-navbar-link-color);
-  margin-top: 6px;
 }
 
 .chevronOpen {
@@ -122,10 +115,6 @@
 
 :global(html[data-theme='dark']) .docsButton {
   color: var(--neo-surfaces-white);
-}
-
-:global(html[data-theme='dark']) .docsButton:hover {
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
 :global(html[data-theme='dark']) .docsButton:focus {

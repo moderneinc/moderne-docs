@@ -11,7 +11,7 @@
  * - Type-safe derivation from sidebar configuration
  */
 
-import type { FooterLink, LearningItem, ProductItem } from '../components/MegaMenu/types';
+import type { FooterLink, LearningItem, ProductItem } from '../components/NeoMegaMenu/types';
 import { deriveProductsFromSidebars } from '../utils/deriveMegaMenuData';
 
 /**

@@ -344,19 +344,6 @@ figure figcaption {
   overflow: clip;
 }
 
-/* Sidebar section headers (HTML dividers in sidebar) */
-.theme-doc-sidebar-item-link > strong {
-  text-transform: uppercase;
-  color: var(--sidebar-section-header-color, #374151);
-  font-size: var(--sidebar-section-header-size, 14px);
-  line-height: var(--sidebar-section-header-line-height, 1.4);
-  font-weight: var(--neo-font-weight-semi-bold, 600);
-}
-
-html[data-theme='dark'] .theme-doc-sidebar-item-link > strong {
-  color: var(--brand-digital-green, #85fe99);
-}
-
 .reactPlayer + p {
   margin-top: 1.25rem;
 }
@@ -440,40 +427,4 @@ html[data-theme='dark'] {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 calc(var(--ifm-pre-padding) - 3px) 0 var(--ifm-pre-padding);
-}
-
-
-/* Agent builder CSS */
-.steps-progress {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.step-indicator {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: var(--ifm-color-emphasis-200);
-  color: var(--ifm-color-emphasis-900);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 8px;
-}
-
-.step-indicator.active {
-  background-color: var(--ifm-color-primary);
-  color: white;
-}
-
-/* Frosted glass navbar */
-.navbar {
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border-bottom: 0.5px solid var(--brand-dark-lavender, #d4d3e4);
-}
-
-html[data-theme='dark'] .navbar {
-  background-color: rgba(12, 17, 43, 0.8);
 }

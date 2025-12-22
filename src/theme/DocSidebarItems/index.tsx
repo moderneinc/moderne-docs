@@ -1,4 +1,4 @@
-import React, {type ReactNode} from 'react';
+import React, {type FunctionComponent} from 'react';
 import DocSidebarItems from '@theme-original/DocSidebarItems';
 import type DocSidebarItemsType from '@theme/DocSidebarItems';
 import type {WrapperProps} from '@docusaurus/types';
@@ -22,7 +22,7 @@ type Props = WrapperProps<typeof DocSidebarItemsType>;
  * This provides focused navigation by showing only the relevant product tree
  * at any depth, reducing cognitive load while maintaining context.
  */
-export default function DocSidebarItemsWrapper(props: Props): ReactNode {
+const DocSidebarItemsWrapper: FunctionComponent<Props> = (props) => {
   const {depth, pathSegments, currentPath} = useContextualSidebarDepth();
 
   // Get the current sidebar category from Docusaurus context
@@ -64,4 +64,8 @@ export default function DocSidebarItemsWrapper(props: Props): ReactNode {
       <DocSidebarItems {...props} items={filteredItems} key={currentPath} />
     </>
   );
-}
+};
+
+DocSidebarItemsWrapper.displayName = 'DocSidebarItemsWrapper';
+
+export default DocSidebarItemsWrapper;

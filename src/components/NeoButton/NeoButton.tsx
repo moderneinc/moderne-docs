@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import styles from './NeoButton.module.css';
 import clsx from 'clsx';
 
@@ -31,7 +31,7 @@ export interface NeoButtonProps {
   type?: 'button' | 'submit' | 'reset';
 
   /** Aria label for accessibility */
-  ariaLabel?: string;
+  'aria-label'?: string;
 
   /** If provided, renders as an <a> tag instead of <button> */
   href?: string;
@@ -47,7 +47,7 @@ export interface NeoButtonProps {
  * NeoButton component following Moderne's Neo Design system
  * Based on Figma design with Neo Design CSS variables
  */
-export const NeoButton: React.FC<NeoButtonProps> = ({
+export const NeoButton: FunctionComponent<NeoButtonProps> = ({
   children,
   variant = 'primary',
   size = 'medium',
@@ -57,7 +57,7 @@ export const NeoButton: React.FC<NeoButtonProps> = ({
   disabled = false,
   className,
   type = 'button',
-  ariaLabel,
+  'aria-label': ariaLabel,
   href,
   target,
   rel,
@@ -87,6 +87,13 @@ export const NeoButton: React.FC<NeoButtonProps> = ({
 
   // Render as link if href is provided
   if (href) {
+    // Add security attributes for target="_blank" to prevent tabnapping
+    const secureRel = target === '_blank'
+      ? rel
+        ? `${rel} noopener noreferrer`
+        : 'noopener noreferrer'
+      : rel;
+
     return (
       <a
         href={href}
@@ -94,7 +101,7 @@ export const NeoButton: React.FC<NeoButtonProps> = ({
         onClick={onClick}
         aria-label={ariaLabel}
         target={target}
-        rel={rel}
+        rel={secureRel}
         aria-disabled={disabled}
       >
         {content}
@@ -115,5 +122,7 @@ export const NeoButton: React.FC<NeoButtonProps> = ({
     </button>
   );
 };
+
+NeoButton.displayName = 'NeoButton';
 
 export default NeoButton;

@@ -29,10 +29,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Simple breadcrumb path with 2-3 items showing basic navigation hierarchy.
- * The last item is always rendered as the current page (no link).
+ * Interactive story with full control over breadcrumb properties.
+ * Use the controls panel to customize the breadcrumb path and toggle the home icon.
  */
-export const SimplePath: Story = {
+export const Interactive: Story = {
   args: {
     items: [
       { label: 'Documentation', href: '/docs' },
@@ -44,71 +44,135 @@ export const SimplePath: Story = {
 };
 
 /**
- * Long breadcrumb path with many items to test overflow behavior and readability.
- * Demonstrates how the component handles deep navigation hierarchies.
+ * All Variations - Comprehensive view of different breadcrumb configurations
  */
-export const LongPath: Story = {
-  args: {
-    items: [
-      { label: 'Documentation', href: '/docs' },
-      { label: 'Administrator Documentation', href: '/docs/admin' },
-      { label: 'Moderne Platform', href: '/docs/admin/platform' },
-      { label: 'Configuration', href: '/docs/admin/platform/config' },
-      { label: 'Organizations', href: '/docs/admin/platform/config/orgs' },
-      { label: 'Settings', href: '/docs/admin/platform/config/orgs/settings' },
-      { label: 'Advanced Options' },
-    ],
-    showHomeIcon: true,
-  },
-};
+export const AllVariations: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '48px', padding: '24px', maxWidth: '800px' }}>
+      {/* Path Lengths */}
+      <div>
+        <h2 style={{ marginBottom: '24px', fontSize: '18px', fontWeight: 600 }}>
+          Path Lengths
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {/* Simple Path */}
+          <div>
+            <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
+              Simple Path (2-3 items)
+            </h3>
+            <NeoBreadcrumbs
+              items={[
+                { label: 'Documentation', href: '/docs' },
+                { label: 'User Guide', href: '/docs/user-guide' },
+                { label: 'Getting Started' },
+              ]}
+              showHomeIcon={true}
+            />
+          </div>
 
-/**
- * Breadcrumbs without the home icon, showing only the path items.
- * Useful for secondary navigation or when home icon is not needed.
- */
-export const WithoutHomeIcon: Story = {
-  args: {
-    items: [
-      { label: 'User Documentation', href: '/user-docs' },
-      { label: 'CLI', href: '/user-docs/cli' },
-      { label: 'Commands' },
-    ],
-    showHomeIcon: false,
-  },
-};
+          {/* Long Path */}
+          <div>
+            <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
+              Long Path (Deep Hierarchy)
+            </h3>
+            <NeoBreadcrumbs
+              items={[
+                { label: 'Documentation', href: '/docs' },
+                { label: 'Administrator Documentation', href: '/docs/admin' },
+                { label: 'Moderne Platform', href: '/docs/admin/platform' },
+                { label: 'Configuration', href: '/docs/admin/platform/config' },
+                { label: 'Organizations', href: '/docs/admin/platform/config/orgs' },
+                { label: 'Settings', href: '/docs/admin/platform/config/orgs/settings' },
+                { label: 'Advanced Options' },
+              ]}
+              showHomeIcon={true}
+            />
+          </div>
 
-/**
- * Single breadcrumb item showing the simplest possible navigation.
- * Only displays home icon and current page.
- */
-export const SingleItem: Story = {
-  args: {
-    items: [
-      { label: 'Introduction' },
-    ],
-    showHomeIcon: true,
-  },
-};
+          {/* Single Item */}
+          <div>
+            <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
+              Single Item (Minimal)
+            </h3>
+            <NeoBreadcrumbs
+              items={[{ label: 'Introduction' }]}
+              showHomeIcon={true}
+            />
+          </div>
+        </div>
+      </div>
 
-/**
- * Breadcrumbs with very long labels to test text wrapping and overflow.
- * Tests edge case of unusually long navigation labels.
- */
-export const LongLabels: Story = {
-  args: {
-    items: [
-      {
-        label: 'Advanced Program Analysis and Control Flow Documentation',
-        href: '/docs/advanced'
-      },
-      {
-        label: 'Comprehensive Guide to Data Flow and Taint Analysis Techniques',
-        href: '/docs/advanced/dataflow'
-      },
-      {
-        label: 'Implementation Examples and Best Practices'
-      },
-    ],
-    showHomeIcon: true,
+      {/* Home Icon Variations */}
+      <div>
+        <h2 style={{ marginBottom: '24px', fontSize: '18px', fontWeight: 600 }}>
+          Home Icon Variations
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {/* With Home Icon */}
+          <div>
+            <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
+              With Home Icon
+            </h3>
+            <NeoBreadcrumbs
+              items={[
+                { label: 'User Documentation', href: '/user-docs' },
+                { label: 'CLI', href: '/user-docs/cli' },
+                { label: 'Commands' },
+              ]}
+              showHomeIcon={true}
+            />
+          </div>
+
+          {/* Without Home Icon */}
+          <div>
+            <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
+              Without Home Icon
+            </h3>
+            <NeoBreadcrumbs
+              items={[
+                { label: 'User Documentation', href: '/user-docs' },
+                { label: 'CLI', href: '/user-docs/cli' },
+                { label: 'Commands' },
+              ]}
+              showHomeIcon={false}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Edge Cases */}
+      <div>
+        <h2 style={{ marginBottom: '24px', fontSize: '18px', fontWeight: 600 }}>
+          Edge Cases
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {/* Long Labels */}
+          <div>
+            <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
+              Long Labels (Text Wrapping)
+            </h3>
+            <NeoBreadcrumbs
+              items={[
+                {
+                  label: 'Advanced Program Analysis and Control Flow Documentation',
+                  href: '/docs/advanced',
+                },
+                {
+                  label: 'Comprehensive Guide to Data Flow and Taint Analysis Techniques',
+                  href: '/docs/advanced/dataflow',
+                },
+                {
+                  label: 'Implementation Examples and Best Practices',
+                },
+              ]}
+              showHomeIcon={true}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
+  parameters: {
+    layout: 'fullscreen',
   },
 };

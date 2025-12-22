@@ -1,6 +1,6 @@
 /* Base layout for generated index pages */
 .generatedIndexPage {
-  --ifm-spacing-horizontal: 1.625rem;
+  --ifm-spacing-horizontal: var(--neo-spacing_3_1_4);
   position: relative;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .generatedIndexPage :global(.margin-bottom--lg) {
-  margin-bottom: 2.5rem !important;
+  margin-bottom: var(--neo-spacing_5) !important;
 }
 
 @media (min-width: 997px) {
@@ -32,22 +32,22 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_4, 32px);
+  gap: var(--neo-spacing_4);
 }
 
 /* Header group (title + description) */
 .header {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_1, 8px);
+  gap: var(--neo-spacing_1);
 }
 
 /* Page header typography - matching Figma design (node 478:5567) */
 .title {
-  font-size: var(--neo-font-size-h3, 21px);
-  font-weight: var(--neo-font-weight-medium, 500);
+  font-size: var(--neo-font-size-h3);
+  font-weight: var(--neo-font-weight-medium);
   line-height: 1.4;
-  color: var(--neo-typography-input-default, var(--brand-midnight)) !important;
+  color: var(--neo-typography-input-default) !important;
   margin: 0 !important;
 }
 
@@ -57,8 +57,8 @@
 
 /* Description paragraph styling */
 .header p {
-  font-size: var(--neo-font-size-sm, 14px);
-  font-weight: var(--neo-font-weight-regular, 400);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-regular);
   line-height: 1.4;
   margin: 0;
 }

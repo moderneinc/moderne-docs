@@ -19,7 +19,6 @@ figma.connect(
   DocsLogo,
   'https://www.figma.com/design/uV0jrpyaEkb92biJyRiZ5A?node-id=145-701',
   {
-    language: 'React - Docusaurus',
     example: () => (
       <DocsLogo />
     ),

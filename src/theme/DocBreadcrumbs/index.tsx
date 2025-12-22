@@ -1,10 +1,10 @@
-import React, {type ReactNode} from 'react';
+import {type FunctionComponent, type ReactNode} from 'react';
 import {useSidebarBreadcrumbs} from '@docusaurus/plugin-content-docs/client';
 import {useHomePageRoute} from '@docusaurus/theme-common/internal';
 import DocBreadcrumbsStructuredData from '@theme/DocBreadcrumbs/StructuredData';
 import NeoBreadcrumbs from '@site/src/components/NeoBreadcrumbs';
 
-export default function DocBreadcrumbsWrapper(): ReactNode {
+const DocBreadcrumbsWrapper: FunctionComponent = () => {
   const breadcrumbs = useSidebarBreadcrumbs();
   const homePageRoute = useHomePageRoute();
 
@@ -31,4 +31,8 @@ export default function DocBreadcrumbsWrapper(): ReactNode {
       <NeoBreadcrumbs items={items} showHomeIcon={!!homePageRoute} />
     </>
   );
-}
+};
+
+DocBreadcrumbsWrapper.displayName = 'DocBreadcrumbsWrapper';
+
+export default DocBreadcrumbsWrapper;

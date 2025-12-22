@@ -1,6 +1,5 @@
-import React, {type ReactNode} from 'react';
+import React, {type ReactNode, FunctionComponent} from 'react';
 import clsx from 'clsx';
-import {useLocation} from '@docusaurus/router';
 import {
   useThemeConfig,
   ErrorCauseBoundary,
@@ -16,8 +15,6 @@ import SearchBar from '@theme/SearchBar';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
-import PersonaSwitcher, {type PersonaSwitcherMetadata} from '@site/src/components/PersonaSwitcher';
-import {PERSONA_CONFIGS} from '@site/src/config/personaConfig';
 import styles from './styles.module.css';
 
 function useNavbarItems() {
@@ -25,7 +22,11 @@ function useNavbarItems() {
   return useThemeConfig().navbar.items as NavbarItemConfig[];
 }
 
-function NavbarItems({items}: {items: NavbarItemConfig[]}): ReactNode {
+interface NavbarItemsProps {
+  items: NavbarItemConfig[];
+}
+
+const NavbarItems: FunctionComponent<NavbarItemsProps> = ({items}) => {
   return (
     <>
       {items.map((item, i) => (
@@ -44,15 +45,16 @@ ${JSON.stringify(item, null, 2)}`,
       ))}
     </>
   );
-}
+};
 
-function NavbarContentLayout({
-  left,
-  right,
-}: {
+NavbarItems.displayName = 'NavbarItems';
+
+interface NavbarContentLayoutProps {
   left: ReactNode;
   right: ReactNode;
-}) {
+}
+
+const NavbarContentLayout: FunctionComponent<NavbarContentLayoutProps> = ({left, right}) => {
   return (
     <div className="navbar__inner">
       <div
@@ -71,58 +73,22 @@ function NavbarContentLayout({
       </div>
     </div>
   );
-}
+};
+
+NavbarContentLayout.displayName = 'NavbarContentLayout';
 
 /**
- * Checks if a pathname matches a base path exactly or is a sub-path
+ * Navbar Content
  *
- * This prevents false positives like:
- * - '/user-documentation/moderne-platform-new' matching '/user-documentation/moderne-platform'
- *
- * A match occurs when:
- * - pathname === basePath (exact match)
- * - pathname starts with basePath and the next character is '/' (proper sub-path)
+ * Renders the main navbar with logo, navigation items, color mode toggle, and search.
  */
-function isPathMatch(pathname: string, basePath: string): boolean {
-  if (pathname === basePath) {
-    return true;
-  }
-  if (pathname.startsWith(basePath)) {
-    const nextChar = pathname[basePath.length];
-    return nextChar === '/' || nextChar === undefined;
-  }
-  return false;
-}
-
-/**
- * Navbar Content with integrated persona switcher
- *
- * Detects the current documentation section based on the URL path
- * and renders a dropdown in the navbar to switch between personas (e.g., Practitioner ↔ Admin)
- *
- * The PersonaSwitcher is injected after the MegaMenu (which is in NavbarLogo)
- * and before the ColorModeToggle on the right side of the navbar.
- */
-export default function NavbarContent(): ReactNode {
-  const location = useLocation();
+const NavbarContent: FunctionComponent = () => {
   const mobileSidebar = useNavbarMobileSidebar();
 
   const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
 
   const searchBarItem = items.find((item) => item.type === 'search');
-
-  // Determine which persona configuration to use based on the current path
-  let personaSwitcherMetadata: PersonaSwitcherMetadata | undefined;
-
-  // Check if the current path matches any persona configuration
-  // Uses proper path boundary detection to avoid false positives
-  for (const [pathPrefix, config] of Object.entries(PERSONA_CONFIGS)) {
-    if (isPathMatch(location.pathname, pathPrefix)) {
-      personaSwitcherMetadata = config;
-      break;
-    }
-  }
 
   return (
     <NavbarContentLayout
@@ -132,9 +98,6 @@ export default function NavbarContent(): ReactNode {
           {/* {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />} */}
           <div className={styles.logoGroup}>
             <NavbarLogo />
-            {personaSwitcherMetadata && (
-              <PersonaSwitcher metadata={personaSwitcherMetadata} />
-            )}
           </div>
           <NavbarItems items={leftItems} />
         </>
@@ -152,4 +115,8 @@ export default function NavbarContent(): ReactNode {
       }
     />
   );
-}
+};
+
+NavbarContent.displayName = 'NavbarContent';
+
+export default NavbarContent;
