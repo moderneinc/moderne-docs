@@ -30,16 +30,21 @@ Moderne DX can also serve as a stepping stone towards a hybrid SaaS offering. Th
 
 ## Components
 
-Now that you understand DX at a high level, let's talk about the various components that make it up.
+Now that you understand DX at a high level, let's talk about the various components that make it up. Below you'll find diagrams for both the central team and individual business units.
 
 <figure>
-  ![](./assets/dx-reposcsv-overview.png)
-  <figcaption>_An overview of the Moderne DX components._</figcaption>
+  ![](./assets/dx-central-team.png)
+  <figcaption>_Central team components._</figcaption>
 </figure>
 
-### Mass ingest pipeline
+<figure>
+  ![](./assets/dx-business-unit.png)
+  <figcaption>_Business unit components._</figcaption>
+</figure>
 
-The mass ingest pipeline serves two purposes:
+### Mass ingest
+
+Mass ingest serves two purposes:
 
 * It clones all of the repositories specified across the `repos.csv` files your business units have created. It then builds the LSTs for each of these repositories - which the Moderne CLI will use to run recipes against.
 * It produces an effective `repos.csv` - which includes the published URI of all built LSTs. This can then easily be shared with others to let them quickly download the LSTs and run recipes.
@@ -51,8 +56,22 @@ It is very important that a central team owns mass ingest. This is because, when
 Mass ingest is deployed to servers such as EC2 or Azure VMs, and can be scaled out to tens or hundreds of thousands of repositories by deploying to AWS/Azure Batch (or similar services).
 
 :::tip
-We recommend running mass ingest daily and ingesting every repository. The most important reason for this is that transitive dependencies can change from day to day - which could cause problems if a user attempts to run a recipe on an out-of-date LST.
+We recommend running mass ingest daily and ingesting every repository. The most important reason for this is that source code, CLI versions, and transitive dependencies can change from day to day - which could cause problems if a user attempts to run a recipe on an out-of-date LST.
 :::
+
+For more details on setting up and configuring mass ingest, please see our [mass ingest documentation](../how-to-guides/mass-ingest-dx.md).
+
+### Mass run
+
+Mass run is a central worker (or set of workers) that uses the Moderne CLI to run recipes across all of your repositories at scale.
+
+With mass run, central teams and business unit leaders can do things like:
+
+* Run search recipes to extract org-wide insights
+* Push critical security fixes out to teams across the organization
+* Generate reports and DevCenter dashboards
+
+For more details on setting up and configuring mass run, please see our [mass run documentation](../how-to-guides/mass-run-dx.md).
 
 ### Effective repos.csv
 

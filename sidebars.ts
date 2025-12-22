@@ -536,7 +536,8 @@ const sidebars: SidebarsConfig = {
             keywords: ['guides'],
           },
           items: [
-            'administrator-documentation/moderne-dx/how-to-guides/mass-ingest-and-run-dx',
+            'administrator-documentation/moderne-dx/how-to-guides/mass-ingest-dx',
+            'administrator-documentation/moderne-dx/how-to-guides/mass-run-dx',
           ],
         },
         {
