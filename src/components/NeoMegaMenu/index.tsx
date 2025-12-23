@@ -17,10 +17,7 @@ import styles from './NeoMegaMenu.module.css';
  * Features:
  * - Click-outside-to-close behavior
  * - Keyboard navigation (Escape to close)
- *
- * TODO: Implement in subsequent tasks
- * - Animations
- * - Mobile responsive behavior
+ * - Responsive layout (single column on mobile, two columns on desktop)
  *
  * @param props.isOpen - Whether the mega menu is currently visible
  * @param props.onClose - Callback to close the mega menu

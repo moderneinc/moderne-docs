@@ -152,7 +152,7 @@
 html[data-theme='dark'] {
   .card {
     background: var(--neo-icons-default);
-    border-color: rgba(209, 213, 219, 0.5);
+    border-color: color-mix(in srgb, var(--neo-border-card) 50%, transparent);
     color: var(--neo-surfaces-snackbar-dark-mode);
 
     /* Nested dark mode: Active state */
