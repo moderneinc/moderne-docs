@@ -1,6 +1,14 @@
 import { useLocation } from '@docusaurus/router';
 import { useCurrentSidebarCategory } from '@docusaurus/plugin-content-docs/client';
-import type { PropSidebarItem, PropSidebarItemCategory } from '@docusaurus/plugin-content-docs';
+import type { PropSidebarItem, PropSidebarItemCategory, PropSidebarItemLink } from '@docusaurus/plugin-content-docs';
+
+/**
+ * Type for the category context returned by useCurrentSidebarCategory()
+ * Contains the permalink of the current category for navigation purposes
+ */
+interface CategoryContext {
+  permalink?: string;
+}
 
 /**
  * Hook to detect current route depth and path segments
@@ -47,7 +55,7 @@ export function filterSidebarItemsByContext(
   currentPath: string,
   depth: number,
   _pathSegments: string[],
-  currentCategory?: any
+  currentCategory?: CategoryContext
 ): PropSidebarItem[] {
   // Depth 0: No sidebar at all
   if (depth === 0) {
@@ -107,7 +115,7 @@ function addCategoryHeader(
  */
 function findShallowestProductCategory(
   items: readonly PropSidebarItem[],
-  targetCategory: any
+  targetCategory: CategoryContext
 ): PropSidebarItemCategory | null {
   // Get the permalink from the current category context
   const targetPermalink = targetCategory?.permalink;
@@ -252,7 +260,7 @@ function categoryContainsPermalink(
           return true;
         }
       } else if (item.type === 'link') {
-        const link = item as any;
+        const link = item as PropSidebarItemLink;
         if (link.href === targetPermalink) {
           return true;
         }
@@ -331,7 +339,7 @@ function containsPath(
         return true;
       }
     } else if (item.type === 'link') {
-      const link = item as any;
+      const link = item as PropSidebarItemLink;
       if (link.href === currentPath) {
         return true;
       }
@@ -476,7 +484,7 @@ function categoryContainsPath(
           return true;
         }
       } else if (item.type === 'link') {
-        const link = item as any;
+        const link = item as PropSidebarItemLink;
         if (link.href === currentPath) {
           return true;
         }

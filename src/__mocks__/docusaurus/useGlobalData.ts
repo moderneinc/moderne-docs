@@ -6,13 +6,11 @@ export function useGlobalData() {
   return {};
 }
 
-export function useAllPluginInstancesData(pluginName: string) {
-  console.log('[Storybook Mock] useAllPluginInstancesData:', pluginName);
+export function useAllPluginInstancesData(_pluginName: string) {
   return {};
 }
 
-export function usePluginData(pluginName: string, pluginId?: string) {
-  console.log('[Storybook Mock] usePluginData:', pluginName, pluginId);
+export function usePluginData(_pluginName: string, _pluginId?: string) {
   return {};
 }
 

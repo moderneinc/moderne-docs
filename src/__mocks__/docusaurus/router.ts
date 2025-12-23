@@ -7,21 +7,20 @@
 
 export function useHistory() {
   return {
-    push: (path: string) => {
-      console.log('[Storybook Mock] Navigation to:', path);
-      // In Storybook, we just log navigation instead of actually navigating
+    push: (_path: string) => {
+      // No-op in Storybook - navigation is mocked
     },
-    replace: (path: string) => {
-      console.log('[Storybook Mock] Replace to:', path);
+    replace: (_path: string) => {
+      // No-op in Storybook
     },
-    go: (n: number) => {
-      console.log('[Storybook Mock] Go:', n);
+    go: (_n: number) => {
+      // No-op in Storybook
     },
     goBack: () => {
-      console.log('[Storybook Mock] Go back');
+      // No-op in Storybook
     },
     goForward: () => {
-      console.log('[Storybook Mock] Go forward');
+      // No-op in Storybook
     },
   };
 }
@@ -35,8 +34,7 @@ export function useLocation() {
   };
 }
 
-export function matchPath(pattern: string, pathname: string) {
-  console.log('[Storybook Mock] matchPath:', pattern, pathname);
+export function matchPath(_pattern: string, _pathname: string) {
   // Simple mock implementation - always returns null (no match)
   // Can be enhanced if needed for specific story requirements
   return null;
