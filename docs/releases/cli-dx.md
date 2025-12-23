@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.54.3 (2025-12-23)
+
+#### What's Changed CLI
+* Include `Remote` binary source files in Git patch files
+* Improve HTTP timeout error messages with URL and timeout type
+
 ### CLI / DX v3.54.2 (2025-12-18)
 
 #### What's Changed
