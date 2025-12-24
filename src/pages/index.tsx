@@ -205,7 +205,7 @@ export function ResourceSection(): JSX.Element {
               Plugin for JetBrains
               <ArrowRight size={16} />
             </Link>
-            <Link href="/hands-on-learning" className={styles.cardLink}>
+            <Link href="/hands-on-learning/fundamentals" className={styles.cardLink}>
               Hands on learning
               <ArrowRight size={16} />
             </Link>

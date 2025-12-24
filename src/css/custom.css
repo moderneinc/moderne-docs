@@ -33,6 +33,23 @@
  * - Custom navbar height and padding
  *
  * Future: Consider spacing scale when appropriate
+ *
+ * !important Usage Documentation
+ * ==============================
+ * This file uses !important sparingly to override Neo Design defaults or
+ * Docusaurus theme inheritance where CSS variable cascading doesn't work.
+ *
+ * - Line ~90: --neo-border-secondary - Override Neo Design's default border color
+ *   to match production design (the imported package has a different default)
+ *
+ * - Line ~394: h1 dark mode color - Override heading color inheritance in dark mode
+ *   The h1 inherits from --ifm-heading-color which doesn't update in dark mode
+ *   for dynamically-generated content areas
+ *
+ * Before adding new !important rules:
+ * 1. Try using CSS custom property overrides in :root or [data-theme='dark']
+ * 2. Check if specificity can be increased with attribute selectors
+ * 3. Document the reason in this comment block if !important is truly necessary
  */
 
 @font-face {
