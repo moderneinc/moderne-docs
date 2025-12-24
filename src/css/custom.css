@@ -50,6 +50,22 @@
  * 1. Try using CSS custom property overrides in :root or [data-theme='dark']
  * 2. Check if specificity can be increased with attribute selectors
  * 3. Document the reason in this comment block if !important is truly necessary
+ *
+ * color-mix() Browser Compatibility Pattern
+ * =========================================
+ * When using color-mix() for transparency effects with CSS variables, always
+ * provide a fallback for browsers that don't support it (Safari <15, older browsers).
+ *
+ * Pattern:
+ *   property: rgba(r, g, b, alpha);                              [Fallback]
+ *   property: color-mix(in srgb, var(--token) percent, transparent);  [Modern]
+ *
+ * Example from NeoCard.module.css:
+ *   border-color: rgba(209, 213, 219, 0.5);
+ *   border-color: color-mix(in srgb, var(--neo-border-card) 50%, transparent);
+ *
+ * The second declaration overrides the first in supporting browsers.
+ * Use this pattern when you need transparency with design system variables.
  */
 
 @font-face {

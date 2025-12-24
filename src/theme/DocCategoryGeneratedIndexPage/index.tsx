@@ -20,6 +20,7 @@ const DocCategoryGeneratedIndexPageMetadata: FunctionComponent<Props> = ({
       title={categoryGeneratedIndex.title}
       description={categoryGeneratedIndex.description}
       keywords={categoryGeneratedIndex.keywords}
+      // NOTE: TODO below is from upstream Docusaurus theme-classic, copied during swizzling
       // TODO `require` this?
       image={useBaseUrl(categoryGeneratedIndex.image)}
     />
