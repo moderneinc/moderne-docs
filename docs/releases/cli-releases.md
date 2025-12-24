@@ -10,7 +10,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 | Component             | Current version |
 | --------------------- | --------------- |
 | CLI version (Stable)  | 3.53.2          |
-| CLI version (Staging) | 3.54.3          |
+| CLI version (Staging) | 3.54.4          |
 
 ## Understanding stable and staging releases
 
