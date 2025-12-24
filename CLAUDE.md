@@ -52,7 +52,12 @@ When modifying any CSS module (`.module.css` files), you MUST follow this workfl
    * ✅ Good: `var(--neo-spacing_1)`
    * Rationale: We want missing variables to surface immediately, not fail silently with fallback values
 
-3. **Validate before committing**:
+3. **Use class selectors, not element selectors**:
+   * ❌ Bad: `.content h3 { ... }` or `.menu p { ... }`
+   * ✅ Good: `.sectionHeader { ... }` or `.description { ... }`
+   * Rationale: Element selectors create implicit coupling between CSS and HTML structure. Class selectors are explicit, more maintainable, and provide clearer specificity control.
+
+4. **Validate before committing**:
    * Run `yarn validate:css` to verify no undefined variables are used
    * Fix any issues before proceeding with the commit
 

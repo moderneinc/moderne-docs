@@ -5,23 +5,28 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/**
+ * !important Usage
+ *
+ * This file uses !important to disable Infima's CSS-generated caret pseudo-element
+ * on the .menu__caret button. We replace it with Lucide React icons for better
+ * control and accessibility (see CollapseButton component in index.tsx).
+ *
+ * Why this is needed:
+ * - We still use the `menu__caret` class for Infima layout/behavior
+ * - Infima generates a caret icon via ::before with background-image
+ * - We render our own Lucide icon inside the button instead
+ *
+ * Note: Line 57 shows how we avoided !important for Lucide icon sizing by using
+ * high-specificity selectors (button.caret :global(svg.lucide)).
+ */
+
 .categoryLink {
   overflow: hidden;
 }
 
-/*
-NOTE: Disable Infima/Docusaurus CSS-generated carets since we use Lucide React icons
-Original Docusaurus uses CSS pseudo-elements, but we render actual SVG icons
-via the CollapseButton component for better control and accessibility.
- */
-
-/* Disable the menu link ::after caret (for non-href categories) */
-:global(.menu__link--sublist-caret)::after {
-  content: none !important;
-  display: none !important;
-}
-
-/* Disable the Infima ::before caret on the button */
+/* Disable Infima's ::before caret on the button - we use Lucide React icons instead */
+/* See CollapseButton component in index.tsx for the Lucide icon implementation */
 :global(.menu__caret)::before {
   content: none !important;
   display: none !important;

@@ -10,7 +10,7 @@
  * - Applied styles.navbar from module CSS for frosted glass effect
  * - Removed mobile sidebar components (disabled in our implementation)
  */
-import React, {type ReactNode} from 'react';
+import {type FunctionComponent} from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames, useThemeConfig} from '@docusaurus/theme-common';
 import {useHideableNavbar} from '@docusaurus/theme-common/internal';
@@ -22,10 +22,10 @@ export interface NavbarLayoutProps extends Props {
   readonly className?: string;
 }
 
-export default function NavbarLayout({
+const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
   children,
   className,
-}: NavbarLayoutProps): ReactNode {
+}) => {
   const {
     navbar: {hideOnScroll, style},
   } = useThemeConfig();
@@ -57,4 +57,8 @@ export default function NavbarLayout({
       {children}
     </nav>
   );
-}
+};
+
+NavbarLayout.displayName = 'NavbarLayout';
+
+export default NavbarLayout;

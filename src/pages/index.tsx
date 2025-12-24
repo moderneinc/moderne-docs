@@ -1,51 +1,23 @@
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { NeoButton } from '@site/src/components/NeoButton';
 import { NeoCard } from '@site/src/components/NeoCard';
 import { NeoGelButton } from '@site/src/components/NeoGelButton';
-import CodeRemixLogo from '@site/static/img/coderemix.svg';
+import { deriveProductsFromSidebars } from '@site/src/utils/deriveMegaMenuData';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
-import {
-  ArrowRight,
-  BookOpen,
-  MessageSquareCode,
-  Server,
-  Sparkles,
-  Terminal,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import type { FunctionComponent } from 'react';
+import ReactPlayer from 'react-player';
 import styles from './index.module.css';
 
-export const PRODUCTS = [
-  {
-    label: 'Platform',
-    product: 'platform' as const,
-    href: '/user-documentation/moderne-platform',
-  },
-  {
-    label: 'DX',
-    product: 'dx' as const,
-    href: '/administrator-documentation/moderne-DX',
-  },
-  {
-    label: 'CLI',
-    product: 'cli' as const,
-    href: '/user-documentation/moderne-cli',
-  },
-  {
-    label: 'Moddy',
-    product: 'moddy' as const,
-    href: '/user-documentation/moddy',
-  },
-  {
-    label: 'Recipes',
-    product: 'recipes' as const,
-    href: '/user-documentation/recipes',
-  },
-];
+/**
+ * Products derived from sidebar configuration (single source of truth)
+ * Each product has: name, icon (gem path), description, href
+ */
+const products = deriveProductsFromSidebars();
 
-export function HeroSection(): JSX.Element {
+export const HeroSection: FunctionComponent = () => {
   return (
     <section className={styles.hero}>
       <div className={styles.heroContent}>
@@ -62,7 +34,7 @@ export function HeroSection(): JSX.Element {
           <NeoButton
             variant="primary"
             size="medium"
-            href="/introduction"
+            href="#what-is-moderne"
             icon={<ArrowRight size={16} />}
             iconPosition="right"
           >
@@ -74,24 +46,24 @@ export function HeroSection(): JSX.Element {
   );
 }
 
-export function ProductNavigation(): JSX.Element {
+export const ProductNavigation: FunctionComponent = () => {
   return (
     <section className={styles.productNav}>
-      {PRODUCTS.map((prod) => (
+      {products.map((prod) => (
         <NeoGelButton
-          key={prod.label}
-          product={prod.product}
+          key={prod.name}
+          gemIcon={prod.icon}
           href={prod.href}
-          aria-label={`Go to ${prod.label} documentation`}
+          aria-label={`Go to ${prod.name} documentation`}
         >
-          {prod.label}
+          {prod.name}
         </NeoGelButton>
       ))}
     </section>
   );
 }
 
-export function WhatIsModerneSection(): JSX.Element {
+export const WhatIsModerneSection: FunctionComponent = () => {
   const videos = [
     {
       id: 'LgvqAzTxkEU',
@@ -116,52 +88,45 @@ export function WhatIsModerneSection(): JSX.Element {
   return (
     <section className={styles.whatIsSection}>
       <div className={styles.sectionHeader}>
-        <h2 className={styles.sectionTitle}>What is Moderne?</h2>
+        <h2 className={styles.sectionTitle} id='what-is-moderne'>What is Moderne?</h2>
         <p className={styles.sectionDescription}>
           With Moderne, you can fix security vulnerabilities, standardize code quality, and automate maintenance processes such as framework migrations. Code refactoring work and security vulnerability remediations that used to take months and teams of developers can be done in minutes. This can not only save your company millions of dollars in software maintenance costs, but it can also give developers substantially more time to focus on delivering business value.
         </p>
       </div>
       <div className={styles.videoGrid}>
         {videos.map((video) => (
-          <a
-            key={video.id}
-            href={video.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.videoThumbnail}
-            aria-label={`Watch: ${video.title}`}
-          >
-            <img src={video.thumbnail} alt={video.title} />
-          </a>
+          <ReactPlayer className={styles.videoThumbnail} url={video.url} controls={true} key={video.id}
+          width={300} height={168}
+          />
         ))}
       </div>
     </section>
   );
 }
 
-export function PlatformDetailsSection(): JSX.Element {
+export const PlatformDetailsSection: FunctionComponent = () => {
   return (
     <section className={styles.platformSection}>
       <h2 className={styles.sectionTitle}>More about our platform</h2>
       <div className={styles.platformContent}>
         <p>
-          The Moderne Platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale. The platform asynchronously ingests detailed artifacts of your codebase (<Link href="/administrator-documentation/moderne-platform/references/lossless-semantic-trees">Lossless Semantic Trees</Link>) that can be quickly and precisely searched. Then, your organization's source code can be transformed by running "<Link href="https://docs.openrewrite.org/concepts-and-explanations/recipes">recipes</Link>" across repositories of your choosing. These recipes can be created by your team, or you can take advantage of the hundreds of recipes already defined in <Link href="https://docs.openrewrite.org/">OpenRewrite</Link> – an open-source project managed by Moderne.
+          The Moderne Platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale. The platform asynchronously ingests detailed artifacts of your codebase (<Link href="/administrator-documentation/moderne-platform/references/lossless-semantic-trees">Lossless Semantic Trees</Link>) that can be quickly and precisely searched. Then, your organization's source code can be transformed by running "<Link href="https://docs.openrewrite.org/concepts-and-explanations/recipes">recipes</Link>" across repositories of your choosing. These recipes can be created by your team, or you can take advantage of the hundreds of recipes already defined in <Link href="https://docs.openrewrite.org/">OpenRewrite</Link> - an open-source project managed by Moderne.
         </p>
         <p>
-          The platform offers a clean UI that enables anyone in your organization to run recipes, create PRs, or generate detailed reports about your codebase – all without writing a line of code. It also provides a recommendation engine to help you discover new recipes based on an analysis of your code.
+          The platform offers a clean UI that enables anyone in your organization to run recipes, create PRs, or generate detailed reports about your codebase - all without writing a line of code. It also provides a recommendation engine to help you discover new recipes based on an analysis of your code.
         </p>
         <p>
           Moderne is SOC 2 Type 2 compliant, so you can be confident that your code is secure. Furthermore, a private SaaS can be created for your team in any major cloud provider or region of your choice.
         </p>
         <p>
-          Moderne currently supports numerous languages, data formats, build tools, and frameworks – with more being routinely added over time. Moderne also currently supports <Link href="/administrator-documentation/moderne-platform/references/supported-scms">most Git-based source code management tools</Link>.
+          Moderne currently supports numerous languages, data formats, build tools, and frameworks - with more being routinely added over time. Moderne also currently supports <Link href="/administrator-documentation/moderne-platform/references/supported-scms">most Git-based source code management tools</Link>.
         </p>
       </div>
     </section>
   );
 }
 
-export function ResourceSection(): JSX.Element {
+export const ResourceSection: FunctionComponent = () => {
   return (
     <section className={styles.resourceSection}>
       <NeoCard
@@ -201,11 +166,11 @@ export function ResourceSection(): JSX.Element {
         description="Here are some helpful resources to keep you moving."
         buttons={
           <>
-            <Link href="/user-documentation/moderne-ide-integration" className={styles.cardLink}>
+            <Link href="/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install" className={styles.cardLink}>
               Plugin for JetBrains
               <ArrowRight size={16} />
             </Link>
-            <Link href="/hands-on-learning" className={styles.cardLink}>
+            <Link href="/hands-on-learning/fundamentals/workshop-overview" className={styles.cardLink}>
               Hands on learning
               <ArrowRight size={16} />
             </Link>
@@ -216,7 +181,7 @@ export function ResourceSection(): JSX.Element {
   );
 }
 
-export function GemDecorations(): JSX.Element {
+export const GemDecorations: FunctionComponent = () => {
   return (
     <div className={styles.gemDecorations}>
       {/* Large gems on edges */}
@@ -234,9 +199,7 @@ export function GemDecorations(): JSX.Element {
   );
 }
 
-export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
-
+const Home: FunctionComponent = () => {
   return (
     <>
       <Head>
@@ -260,4 +223,6 @@ export default function Home(): JSX.Element {
       </Layout>
     </>
   );
-}
+};
+
+export default Home;

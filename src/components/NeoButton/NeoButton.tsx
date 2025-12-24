@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styles from './NeoButton.module.css';
 import clsx from 'clsx';
 
-export interface NeoButtonProps {
+export type NeoButtonProps = {
   /** Button text content */
   children?: React.ReactNode;
 
@@ -41,7 +41,7 @@ export interface NeoButtonProps {
 
   /** Link rel attribute (only used with href) */
   rel?: string;
-}
+};
 
 /**
  * NeoButton component following Moderne's Neo Design system
@@ -124,5 +124,3 @@ export const NeoButton: FunctionComponent<NeoButtonProps> = ({
 };
 
 NeoButton.displayName = 'NeoButton';
-
-export default NeoButton;

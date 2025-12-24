@@ -59,7 +59,7 @@
 
 .navbar :global(.navbar__link) {
   font-weight: 400;
-  color: var(--navbar-link-color);
+  color: var(--ifm-heading-color);
 }
 
 /* Hide dropdown SVG icons */

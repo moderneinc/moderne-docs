@@ -34,7 +34,6 @@
   /* Remove default button styles when card is interactive */
   outline: none;
   text-align: left;
-  cursor: default;
 
   /* Nested: Interactive variant */
   &--interactive {
@@ -78,73 +77,73 @@
     cursor: not-allowed;
     pointer-events: none;
   }
-}
 
-/* Content Section */
-.card__content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--neo-spacing_2);
-}
+  /* Content Section */
+  .card__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--neo-spacing_2);
+  }
 
-/* Header with Icon, Gem, and Title */
-.card__header {
-  display: flex;
-  align-items: center;
-  gap: var(--neo-spacing_1);
-}
+  /* Header with Icon, Gem, and Title */
+  .card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--neo-spacing_1);
+  }
 
-/* Icon Container */
-.card__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--neo-spacing_2_1_2);
-  height: var(--neo-spacing_2_1_2);
-  flex-shrink: 0;
-  color: var(--neo-icons-utility);
-}
+  /* Icon Container */
+  .card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--neo-spacing_2_1_2);
+    height: var(--neo-spacing_2_1_2);
+    flex-shrink: 0;
+    color: var(--neo-icons-utility);
+  }
 
-/* Gem/Logo Container */
-.card__gem {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--neo-spacing_2_1_2);
-  height: var(--neo-spacing_2_1_2);
-  flex-shrink: 0;
-}
+  /* Gem/Logo Container */
+  .card__gem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--neo-spacing_2_1_2);
+    height: var(--neo-spacing_2_1_2);
+    flex-shrink: 0;
+  }
 
-/* Title */
-.card__title {
-  font-family: var(--neo-font-family-heading);
-  font-size: var(--neo-font-size-h6);
-  font-weight: var(--neo-font-weight-semi-bold);
-  line-height: 1.4;
-  color: var(--neo-typography-input-default);
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex: 1;
-}
+  /* Title */
+  .card__title {
+    font-family: var(--neo-font-family-heading);
+    font-size: var(--neo-font-size-h6);
+    font-weight: var(--neo-font-weight-semi-bold);
+    line-height: 1.4;
+    color: var(--neo-typography-input-default);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+  }
 
-/* Description */
-.card__description {
-  font-family: var(--neo-font-family-body);
-  font-size: var(--neo-font-size-xs);
-  font-weight: var(--neo-font-weight-regular);
-  line-height: 1.5;
-  color: var(--neo-typography-input-default);
-  margin: 0;
-  width: 100%;
-}
+  /* Description */
+  .card__description {
+    font-family: var(--neo-font-family-body);
+    font-size: var(--neo-font-size-xs);
+    font-weight: var(--neo-font-weight-regular);
+    line-height: 1.5;
+    color: var(--neo-typography-input-default);
+    margin: 0;
+    width: 100%;
+  }
 
-/* Action Buttons Container */
-.card__buttons {
-  display: flex;
-  gap: var(--neo-spacing_3);
-  align-items: center;
+  /* Action Buttons Container */
+  .card__buttons {
+    display: flex;
+    gap: var(--neo-spacing_3);
+    align-items: center;
+  }
 }
 
 /* ===== DARK MODE ===== */
@@ -152,6 +151,9 @@
 html[data-theme='dark'] {
   .card {
     background: var(--neo-icons-default);
+    /* Fallback for browsers that don't support color-mix() */
+    border-color: rgba(209, 213, 219, 0.5);
+    /* Modern browsers: 50% transparent border */
     border-color: color-mix(in srgb, var(--neo-border-card) 50%, transparent);
     color: var(--neo-surfaces-snackbar-dark-mode);
 
@@ -179,13 +181,13 @@ html[data-theme='dark'] {
       outline: 2px solid var(--neo-buttons-primary-focus);
       outline-offset: 2px;
     }
-  }
 
-  .card__title {
-    color: var(--neo-surfaces-snackbar-dark-mode);
-  }
+    .card__title {
+      color: var(--neo-surfaces-snackbar-dark-mode);
+    }
 
-  .card__description {
-    color: var(--neo-surfaces-snackbar-dark-mode);
+    .card__description {
+      color: var(--neo-surfaces-snackbar-dark-mode);
+    }
   }
 }

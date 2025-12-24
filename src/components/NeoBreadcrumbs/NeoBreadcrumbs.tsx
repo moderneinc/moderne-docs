@@ -2,15 +2,15 @@ import React, { FunctionComponent } from 'react';
 import { Home, ChevronRight } from 'lucide-react';
 import styles from './NeoBreadcrumbs.module.css';
 
-export interface NeoBreadcrumbItem {
+export type NeoBreadcrumbItem = {
   label: string;
   href?: string;
-}
+};
 
-export interface NeoBreadcrumbsProps {
+export type NeoBreadcrumbsProps = {
   items: NeoBreadcrumbItem[];
   showHomeIcon?: boolean;
-}
+};
 
 export const NeoBreadcrumbs: FunctionComponent<NeoBreadcrumbsProps> = ({ items, showHomeIcon = true }) => {
   return (
@@ -62,5 +62,3 @@ export const NeoBreadcrumbs: FunctionComponent<NeoBreadcrumbsProps> = ({ items, 
 };
 
 NeoBreadcrumbs.displayName = 'NeoBreadcrumbs';
-
-export default NeoBreadcrumbs;

@@ -2,7 +2,7 @@ import {type FunctionComponent, type ReactNode} from 'react';
 import {useSidebarBreadcrumbs} from '@docusaurus/plugin-content-docs/client';
 import {useHomePageRoute} from '@docusaurus/theme-common/internal';
 import DocBreadcrumbsStructuredData from '@theme/DocBreadcrumbs/StructuredData';
-import NeoBreadcrumbs from '@site/src/components/NeoBreadcrumbs';
+import { NeoBreadcrumbs } from '@site/src/components/NeoBreadcrumbs';
 
 const DocBreadcrumbsWrapper: FunctionComponent = () => {
   const breadcrumbs = useSidebarBreadcrumbs();

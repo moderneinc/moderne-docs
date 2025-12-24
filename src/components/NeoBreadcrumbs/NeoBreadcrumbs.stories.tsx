@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import NeoBreadcrumbs from './NeoBreadcrumbs';
+import { NeoBreadcrumbs } from './NeoBreadcrumbs';
 
 const meta: Meta<typeof NeoBreadcrumbs> = {
   title: 'Components/NeoBreadcrumbs',

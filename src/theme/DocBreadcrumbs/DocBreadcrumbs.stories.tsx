@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import NeoBreadcrumbs from '@site/src/components/NeoBreadcrumbs';
+import { NeoBreadcrumbs } from '@site/src/components/NeoBreadcrumbs';
 
 /**
  * BreadcrumbsLayout Component

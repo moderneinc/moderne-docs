@@ -46,7 +46,6 @@ export function useContextualSidebarDepth() {
  * @param items - All sidebar items
  * @param currentPath - Current page path
  * @param depth - Current navigation depth (number of path segments)
- * @param pathSegments - Path segments array
  * @param currentCategory - Current category from Docusaurus context
  * @returns Filtered sidebar items
  */
@@ -54,7 +53,6 @@ export function filterSidebarItemsByContext(
   items: readonly PropSidebarItem[],
   currentPath: string,
   depth: number,
-  _pathSegments: string[],
   currentCategory?: CategoryContext
 ): PropSidebarItem[] {
   // Depth 0: No sidebar at all

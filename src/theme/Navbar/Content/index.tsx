@@ -18,6 +18,7 @@ import NavbarSearch from '@theme/Navbar/Search';
 import styles from './styles.module.css';
 
 function useNavbarItems() {
+  // NOTE: TODO below is from upstream Docusaurus theme-classic, copied during swizzling
   // TODO temporary casting until ThemeConfig type is improved
   return useThemeConfig().navbar.items as NavbarItemConfig[];
 }

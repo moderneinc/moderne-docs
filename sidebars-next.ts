@@ -599,18 +599,46 @@ const openRewriteAdvanced = [
   'openrewrite-advanced-program-analysis/advanced-analysis-techniques',
 ];
 
-const releases = [
-  'releases/agent-releases',
-  'releases/cli-releases',
-  'releases/changelog',
-  'releases/cli-dx',
-  'releases/proprietary-recipe-changelog',
-];
+const releases = {
+  type: 'category' as const,
+  label: 'Releases',
+  customProps: {
+    gemIcon: 'gray',
+  },
+  link: {
+    type: 'generated-index' as const,
+    title: 'Releases',
+    description: 'Release notes and changelogs for Moderne products including the Agent, CLI, DX, and recipes.',
+    slug: '/releases',
+    keywords: ['releases', 'changelog'],
+  },
+  items: [
+    'releases/agent-releases',
+    'releases/cli-releases',
+    'releases/changelog',
+    'releases/cli-dx',
+    'releases/proprietary-recipe-changelog',
+  ],
+};
 
-const licensing = [
-  'licensing/overview',
-  'licensing/moderne-source-available-license',
-];
+const licensing = {
+  type: 'category' as const,
+  label: 'Licensing',
+  customProps: {
+    gemIcon: 'orange',
+  },
+  link: {
+    type: 'generated-index' as const,
+    title: 'Licensing',
+    description: 'Licensing information for Moderne products and the Moderne Source Available License.',
+    slug: '/licensing',
+    keywords: ['licensing', 'license'],
+  },
+  items: [
+    'licensing/overview',
+    'licensing/moderne-source-available-license',
+  ],
+};
 
 const sharedReferences = {
   type: 'category' as const,
@@ -641,8 +669,8 @@ const sidebars: SidebarsConfig = {
     platform.admin,
     dx,
     sharedReferences,
-    ...releases,
-    ...licensing,
+    releases,
+    licensing,
   ]
 };
 
