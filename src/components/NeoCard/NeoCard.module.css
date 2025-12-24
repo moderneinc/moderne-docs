@@ -152,6 +152,9 @@
 html[data-theme='dark'] {
   .card {
     background: var(--neo-icons-default);
+    /* Fallback for browsers that don't support color-mix() */
+    border-color: rgba(209, 213, 219, 0.5);
+    /* Modern browsers: 50% transparent border */
     border-color: color-mix(in srgb, var(--neo-border-card) 50%, transparent);
     color: var(--neo-surfaces-snackbar-dark-mode);
 

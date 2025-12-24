@@ -12,25 +12,36 @@ import figma from '@figma/code-connect';
 import { NeoGelButton } from './NeoGelButton';
 
 /**
+ * Gem icon paths for each product (matching sidebar configuration)
+ */
+const GEM_ICONS = {
+  platform: '/img/gems/clear-block.png',
+  dx: '/img/gems/red-triangle.png',
+  cli: '/img/gems/blue-block.png',
+  moddy: '/img/gems/green-triangle.png',
+  recipes: '/img/gems/yellow-block.png',
+};
+
+/**
  * Connect the Figma component to the React component
- * Maps Property 1 (product type) to the product prop
+ * Maps Property 1 (product type) to the gemIcon prop
  */
 figma.connect(
   NeoGelButton,
   'https://www.figma.com/design/fQTkGSFbYyE7LiHuQJsENC?node-id=5920-3874',
   {
     props: {
-      product: figma.enum('Property 1', {
-        dx: 'dx',
-        cli: 'cli',
-        platform: 'platform',
-        recipes: 'recipes',
-        moddy: 'moddy',
+      gemIcon: figma.enum('Property 1', {
+        dx: GEM_ICONS.dx,
+        cli: GEM_ICONS.cli,
+        platform: GEM_ICONS.platform,
+        recipes: GEM_ICONS.recipes,
+        moddy: GEM_ICONS.moddy,
       }),
     },
-    example: ({ product }) => (
-      <NeoGelButton product={product}>
-        {product.toUpperCase()}
+    example: ({ gemIcon }) => (
+      <NeoGelButton gemIcon={gemIcon}>
+        Product Name
       </NeoGelButton>
     ),
   }
@@ -48,9 +59,8 @@ figma.connect(
  * 3. The onClick handler is not mapped from Figma as it's interaction logic
  *    that should be defined in the implementation.
  *
- * 4. The gem icon is automatically selected based on the product prop using
- *    the GEM_COLORS mapping in NeoGelButton.tsx.
+ * 4. The gemIcon prop accepts the path to the gem image. In production,
+ *    this is derived from the sidebar configuration (customProps.gemIcon).
  *
- * 5. Product-specific text should be provided as children, typically the
- *    product name in uppercase (DX, CLI, Platform, Recipes, Moddy).
+ * 5. Product-specific text should be provided as children.
  */

@@ -4,46 +4,17 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { NeoButton } from '@site/src/components/NeoButton';
 import { NeoCard } from '@site/src/components/NeoCard';
 import { NeoGelButton } from '@site/src/components/NeoGelButton';
-import CodeRemixLogo from '@site/static/img/coderemix.svg';
+import { deriveProductsFromSidebars } from '@site/src/utils/deriveMegaMenuData';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
-import {
-  ArrowRight,
-  BookOpen,
-  MessageSquareCode,
-  Server,
-  Sparkles,
-  Terminal,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import styles from './index.module.css';
 
-export const PRODUCTS = [
-  {
-    label: 'Platform',
-    product: 'platform' as const,
-    href: '/user-documentation/moderne-platform',
-  },
-  {
-    label: 'DX',
-    product: 'dx' as const,
-    href: '/administrator-documentation/moderne-DX',
-  },
-  {
-    label: 'CLI',
-    product: 'cli' as const,
-    href: '/user-documentation/moderne-cli',
-  },
-  {
-    label: 'Moddy',
-    product: 'moddy' as const,
-    href: '/user-documentation/moddy',
-  },
-  {
-    label: 'Recipes',
-    product: 'recipes' as const,
-    href: '/user-documentation/recipes',
-  },
-];
+/**
+ * Products derived from sidebar configuration (single source of truth)
+ * Each product has: name, icon (gem path), description, href
+ */
+const products = deriveProductsFromSidebars();
 
 export function HeroSection(): JSX.Element {
   return (
@@ -77,14 +48,14 @@ export function HeroSection(): JSX.Element {
 export function ProductNavigation(): JSX.Element {
   return (
     <section className={styles.productNav}>
-      {PRODUCTS.map((prod) => (
+      {products.map((prod) => (
         <NeoGelButton
-          key={prod.label}
-          product={prod.product}
+          key={prod.name}
+          gemIcon={prod.icon}
           href={prod.href}
-          aria-label={`Go to ${prod.label} documentation`}
+          aria-label={`Go to ${prod.name} documentation`}
         >
-          {prod.label}
+          {prod.name}
         </NeoGelButton>
       ))}
     </section>

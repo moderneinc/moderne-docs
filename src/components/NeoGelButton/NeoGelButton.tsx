@@ -3,8 +3,8 @@ import styles from './NeoGelButton.module.css';
 import clsx from 'clsx';
 
 export interface NeoGelButtonProps {
-  /** Product type determines which gem icon to display */
-  product: 'dx' | 'cli' | 'platform' | 'recipes' | 'moddy';
+  /** Path to gem icon image (e.g., '/img/gems/clear-block.png') */
+  gemIcon: string;
 
   /** Button text content */
   children: React.ReactNode;
@@ -35,23 +35,15 @@ export interface NeoGelButtonProps {
 }
 
 /**
- * Gem color mapping for products
- */
-const GEM_COLORS: Record<NeoGelButtonProps['product'], string> = {
-  platform: 'red',
-  dx: 'pink',
-  cli: 'blue',
-  moddy: 'green',
-  recipes: 'yellow',
-};
-
-/**
  * NeoGelButton component for product branding
- * Always displays a product-specific gem icon alongside text
+ * Displays a gem icon alongside text, styled as a pill-shaped button
  * Based on Figma Gel Button design from Neo Design System
+ *
+ * The gemIcon prop should be the path to the gem image, typically derived
+ * from the sidebar configuration (customProps.gemIcon).
  */
 export const NeoGelButton: FunctionComponent<NeoGelButtonProps> = ({
-  product,
+  gemIcon,
   children,
   onClick,
   disabled = false,
@@ -70,13 +62,10 @@ export const NeoGelButton: FunctionComponent<NeoGelButtonProps> = ({
     className
   );
 
-  const gemColor = GEM_COLORS[product];
-  const gemSrc = `/img/gems/${gemColor}.png`;
-
   const content = (
     <>
       <span className={styles.neoGelButton__icon}>
-        <img src={gemSrc} alt="" className={styles.neoGelButton__gem} />
+        <img src={gemIcon} alt="" className={styles.neoGelButton__gem} />
       </span>
       <span className={styles.neoGelButton__text}>{children}</span>
     </>

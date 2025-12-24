@@ -23,7 +23,7 @@ type Props = WrapperProps<typeof DocSidebarItemsType>;
  * at any depth, reducing cognitive load while maintaining context.
  */
 const DocSidebarItemsWrapper: FunctionComponent<Props> = (props) => {
-  const {depth, pathSegments, currentPath} = useContextualSidebarDepth();
+  const {depth, currentPath} = useContextualSidebarDepth();
 
   // Get the current sidebar category from Docusaurus context
   // This is more stable than path matching
@@ -52,7 +52,6 @@ const DocSidebarItemsWrapper: FunctionComponent<Props> = (props) => {
       props.items,
       currentPath,
       depth,
-      pathSegments,
       currentCategory,
     );
   }

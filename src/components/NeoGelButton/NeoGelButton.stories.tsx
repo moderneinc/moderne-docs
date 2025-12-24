@@ -2,6 +2,17 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { NeoGelButton } from './NeoGelButton';
 import React from 'react';
 
+/**
+ * Gem icons available in the design system (from sidebar configuration)
+ */
+const GEM_ICONS = {
+  platform: '/img/gems/clear-block.png',
+  dx: '/img/gems/red-triangle.png',
+  cli: '/img/gems/blue-block.png',
+  moddy: '/img/gems/green-triangle.png',
+  recipes: '/img/gems/yellow-block.png',
+};
+
 const meta: Meta<typeof NeoGelButton> = {
   title: 'Components/NeoGelButton',
   component: NeoGelButton,
@@ -10,10 +21,10 @@ const meta: Meta<typeof NeoGelButton> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    product: {
+    gemIcon: {
       control: 'select',
-      options: ['dx', 'cli', 'platform', 'recipes', 'moddy'],
-      description: 'Product type determines which gem icon to display',
+      options: Object.values(GEM_ICONS),
+      description: 'Path to gem icon image',
     },
     children: {
       control: 'text',
@@ -52,7 +63,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Interactive: Story = {
   args: {
-    product: 'dx',
+    gemIcon: GEM_ICONS.platform,
     children: 'Click me',
     disabled: false,
   },
@@ -95,11 +106,11 @@ export const AllVariations: Story = {
               All Products
             </h3>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
-              <NeoGelButton product="platform">Platform</NeoGelButton>
-              <NeoGelButton product="dx">DX</NeoGelButton>
-              <NeoGelButton product="cli">CLI</NeoGelButton>
-              <NeoGelButton product="moddy">Moddy</NeoGelButton>
-              <NeoGelButton product="recipes">Recipes</NeoGelButton>
+              <NeoGelButton gemIcon={GEM_ICONS.platform}>Platform</NeoGelButton>
+              <NeoGelButton gemIcon={GEM_ICONS.dx}>DX</NeoGelButton>
+              <NeoGelButton gemIcon={GEM_ICONS.cli}>CLI</NeoGelButton>
+              <NeoGelButton gemIcon={GEM_ICONS.moddy}>Moddy</NeoGelButton>
+              <NeoGelButton gemIcon={GEM_ICONS.recipes}>Recipes</NeoGelButton>
             </div>
           </div>
 
@@ -109,19 +120,19 @@ export const AllVariations: Story = {
               Disabled State
             </h3>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
-              <NeoGelButton product="platform" disabled>
+              <NeoGelButton gemIcon={GEM_ICONS.platform} disabled>
                 Platform
               </NeoGelButton>
-              <NeoGelButton product="dx" disabled>
+              <NeoGelButton gemIcon={GEM_ICONS.dx} disabled>
                 DX
               </NeoGelButton>
-              <NeoGelButton product="cli" disabled>
+              <NeoGelButton gemIcon={GEM_ICONS.cli} disabled>
                 CLI
               </NeoGelButton>
-              <NeoGelButton product="moddy" disabled>
+              <NeoGelButton gemIcon={GEM_ICONS.moddy} disabled>
                 Moddy
               </NeoGelButton>
-              <NeoGelButton product="recipes" disabled>
+              <NeoGelButton gemIcon={GEM_ICONS.recipes} disabled>
                 Recipes
               </NeoGelButton>
             </div>
@@ -133,13 +144,13 @@ export const AllVariations: Story = {
               As Links (with href)
             </h3>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
-              <NeoGelButton product="platform" href="https://moderne.io" target="_blank" rel="noopener noreferrer">
+              <NeoGelButton gemIcon={GEM_ICONS.platform} href="https://moderne.io" target="_blank" rel="noopener noreferrer">
                 Platform
               </NeoGelButton>
-              <NeoGelButton product="dx" href="/docs/dx">
+              <NeoGelButton gemIcon={GEM_ICONS.dx} href="/docs/dx">
                 DX
               </NeoGelButton>
-              <NeoGelButton product="cli" href="/docs/cli">
+              <NeoGelButton gemIcon={GEM_ICONS.cli} href="/docs/cli">
                 CLI
               </NeoGelButton>
             </div>
@@ -159,11 +170,11 @@ export const AllVariations: Story = {
               All Products
             </h3>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
-              <NeoGelButton product="platform">Platform</NeoGelButton>
-              <NeoGelButton product="dx">DX</NeoGelButton>
-              <NeoGelButton product="cli">CLI</NeoGelButton>
-              <NeoGelButton product="moddy">Moddy</NeoGelButton>
-              <NeoGelButton product="recipes">Recipes</NeoGelButton>
+              <NeoGelButton gemIcon={GEM_ICONS.platform}>Platform</NeoGelButton>
+              <NeoGelButton gemIcon={GEM_ICONS.dx}>DX</NeoGelButton>
+              <NeoGelButton gemIcon={GEM_ICONS.cli}>CLI</NeoGelButton>
+              <NeoGelButton gemIcon={GEM_ICONS.moddy}>Moddy</NeoGelButton>
+              <NeoGelButton gemIcon={GEM_ICONS.recipes}>Recipes</NeoGelButton>
             </div>
           </div>
 
@@ -173,13 +184,13 @@ export const AllVariations: Story = {
               Disabled State
             </h3>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
-              <NeoGelButton product="platform" disabled>
+              <NeoGelButton gemIcon={GEM_ICONS.platform} disabled>
                 Platform
               </NeoGelButton>
-              <NeoGelButton product="dx" disabled>
+              <NeoGelButton gemIcon={GEM_ICONS.dx} disabled>
                 DX
               </NeoGelButton>
-              <NeoGelButton product="cli" disabled>
+              <NeoGelButton gemIcon={GEM_ICONS.cli} disabled>
                 CLI
               </NeoGelButton>
             </div>

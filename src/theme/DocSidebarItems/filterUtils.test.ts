@@ -215,7 +215,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/',
         0,
-        [],
         null
       );
 
@@ -229,7 +228,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/administrator-documentation',
         1,
-        ['administrator-documentation'],
         null
       );
 
@@ -260,7 +258,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/user-documentation/moderne-platform',
         2,
-        ['user-documentation', 'moderne-platform'],
         null
       );
 
@@ -279,7 +276,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/user-documentation/moderne-platform/getting-started/running-your-first-recipe',
         4,
-        ['user-documentation', 'moderne-platform', 'getting-started', 'running-your-first-recipe'],
         null
       );
 
@@ -292,7 +288,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/user-documentation/moderne-cli',
         2,
-        ['user-documentation', 'moderne-cli'],
         null
       );
 
@@ -307,7 +302,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/administrator-documentation',
         1,
-        ['administrator-documentation'],
         null
       );
 
@@ -330,7 +324,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/administrator-documentation/moderne-platform',
         2,
-        ['administrator-documentation', 'moderne-platform'],
         null
       );
 
@@ -361,7 +354,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/administrator-documentation/moderne-platform/getting-started/admin-pages',
         4,
-        ['administrator-documentation', 'moderne-platform', 'getting-started', 'admin-pages'],
         null
       );
 
@@ -375,7 +367,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/administrator-documentation/moderne-dx',
         2,
-        ['administrator-documentation', 'moderne-dx'],
         null
       );
 
@@ -395,7 +386,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/user-documentation/moderne-platform/getting-started/running-your-first-recipe',
         4,
-        ['user-documentation', 'moderne-platform', 'getting-started', 'running-your-first-recipe'],
         null
       );
 
@@ -412,7 +402,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/user-documentation/moderne-platform/getting-started/running-your-first-recipe',
         4,
-        ['user-documentation', 'moderne-platform', 'getting-started', 'running-your-first-recipe'],
         null
       );
 
@@ -431,7 +420,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/user-documentation/moderne-platform',
         2,
-        ['user-documentation', 'moderne-platform'],
         null
       );
 
@@ -439,7 +427,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/user-documentation/moderne-platform/',
         2,
-        ['user-documentation', 'moderne-platform'],
         null
       );
 
@@ -454,7 +441,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/nonexistent-path',
         1,
-        ['nonexistent-path'],
         null
       );
 
@@ -469,7 +455,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/administrator-documentation',
         1,
-        ['administrator-documentation'],
         null
       );
 
@@ -495,7 +480,6 @@ describe('filterSidebarItemsByContext', () => {
         mockSidebarItems,
         '/user-documentation/moderne-platform/getting-started',
         3,
-        ['user-documentation', 'moderne-platform', 'getting-started'],
         null
       );
 
