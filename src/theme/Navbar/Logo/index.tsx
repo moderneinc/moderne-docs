@@ -4,10 +4,10 @@ import NeoMegaMenu from '@site/src/components/NeoMegaMenu';
 import ModerneSymbol from '@site/static/img/moderne-symbol.svg';
 import ModerneWordmark from '@site/static/img/moderne-wordmark.svg';
 import { ChevronDown } from 'lucide-react';
-import { type ReactNode, useState } from 'react';
+import { type FunctionComponent, useState } from 'react';
 import styles from './styles.module.css';
 
-export default function LogoWrapper(): ReactNode {
+const LogoWrapper: FunctionComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {
     siteConfig: {baseUrl},
@@ -46,4 +46,8 @@ export default function LogoWrapper(): ReactNode {
       <NeoMegaMenu isOpen={isMenuOpen} onClose={closeMenu} />
     </div>
   );
-}
+};
+
+LogoWrapper.displayName = 'LogoWrapper';
+
+export default LogoWrapper;

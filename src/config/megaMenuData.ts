@@ -44,22 +44,22 @@ export const businessItems: ProductItem[] = [
 export const learningItems: LearningItem[] = [
   {
     name: 'Plugin for JetBrains',
-    href: '/user-documentation/moderne-ide-integration',
+    href: '/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install',
     external: false,
   },
   {
     name: 'Code Remix',
-    href: 'https://www.moderne.io/code-remix',
+    href: 'https://coderemix.ai/',
     external: true,
   },
   {
     name: 'Hands on Learning',
-    href: '/hands-on-learning/fundamentals',
+    href: '/hands-on-learning/fundamentals/workshop-overview',
     external: false,
   },
   {
     name: 'OpenRewrite Advanced Program Analysis',
-    href: '/openrewrite-advanced-program-analysis/control-flow',
+    href: '/openrewrite-advanced-program-analysis/control-flow/introduction',
     external: false,
   },
   {

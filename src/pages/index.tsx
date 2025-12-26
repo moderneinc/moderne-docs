@@ -1,6 +1,5 @@
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { NeoButton } from '@site/src/components/NeoButton';
 import { NeoCard } from '@site/src/components/NeoCard';
 import { NeoGelButton } from '@site/src/components/NeoGelButton';
@@ -8,6 +7,7 @@ import { deriveProductsFromSidebars } from '@site/src/utils/deriveMegaMenuData';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import { ArrowRight } from 'lucide-react';
+import type { FunctionComponent } from 'react';
 import styles from './index.module.css';
 
 /**
@@ -16,7 +16,7 @@ import styles from './index.module.css';
  */
 const products = deriveProductsFromSidebars();
 
-export function HeroSection(): JSX.Element {
+export const HeroSection: FunctionComponent = () => {
   return (
     <section className={styles.hero}>
       <div className={styles.heroContent}>
@@ -33,7 +33,7 @@ export function HeroSection(): JSX.Element {
           <NeoButton
             variant="primary"
             size="medium"
-            href="/introduction"
+            href="#what-is-moderne"
             icon={<ArrowRight size={16} />}
             iconPosition="right"
           >
@@ -45,7 +45,7 @@ export function HeroSection(): JSX.Element {
   );
 }
 
-export function ProductNavigation(): JSX.Element {
+export const ProductNavigation: FunctionComponent = () => {
   return (
     <section className={styles.productNav}>
       {products.map((prod) => (
@@ -62,7 +62,7 @@ export function ProductNavigation(): JSX.Element {
   );
 }
 
-export function WhatIsModerneSection(): JSX.Element {
+export const WhatIsModerneSection: FunctionComponent = () => {
   const videos = [
     {
       id: 'LgvqAzTxkEU',
@@ -87,7 +87,7 @@ export function WhatIsModerneSection(): JSX.Element {
   return (
     <section className={styles.whatIsSection}>
       <div className={styles.sectionHeader}>
-        <h2 className={styles.sectionTitle}>What is Moderne?</h2>
+        <h2 className={styles.sectionTitle} id='what-is-moderne'>What is Moderne?</h2>
         <p className={styles.sectionDescription}>
           With Moderne, you can fix security vulnerabilities, standardize code quality, and automate maintenance processes such as framework migrations. Code refactoring work and security vulnerability remediations that used to take months and teams of developers can be done in minutes. This can not only save your company millions of dollars in software maintenance costs, but it can also give developers substantially more time to focus on delivering business value.
         </p>
@@ -110,7 +110,7 @@ export function WhatIsModerneSection(): JSX.Element {
   );
 }
 
-export function PlatformDetailsSection(): JSX.Element {
+export const PlatformDetailsSection: FunctionComponent = () => {
   return (
     <section className={styles.platformSection}>
       <h2 className={styles.sectionTitle}>More about our platform</h2>
@@ -132,7 +132,7 @@ export function PlatformDetailsSection(): JSX.Element {
   );
 }
 
-export function ResourceSection(): JSX.Element {
+export const ResourceSection: FunctionComponent = () => {
   return (
     <section className={styles.resourceSection}>
       <NeoCard
@@ -172,11 +172,11 @@ export function ResourceSection(): JSX.Element {
         description="Here are some helpful resources to keep you moving."
         buttons={
           <>
-            <Link href="/user-documentation/moderne-ide-integration" className={styles.cardLink}>
+            <Link href="/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install" className={styles.cardLink}>
               Plugin for JetBrains
               <ArrowRight size={16} />
             </Link>
-            <Link href="/hands-on-learning/fundamentals" className={styles.cardLink}>
+            <Link href="/hands-on-learning/fundamentals/workshop-overview" className={styles.cardLink}>
               Hands on learning
               <ArrowRight size={16} />
             </Link>
@@ -187,7 +187,7 @@ export function ResourceSection(): JSX.Element {
   );
 }
 
-export function GemDecorations(): JSX.Element {
+export const GemDecorations: FunctionComponent = () => {
   return (
     <div className={styles.gemDecorations}>
       {/* Large gems on edges */}
@@ -205,9 +205,7 @@ export function GemDecorations(): JSX.Element {
   );
 }
 
-export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
-
+const Home: FunctionComponent = () => {
   return (
     <>
       <Head>
@@ -231,4 +229,6 @@ export default function Home(): JSX.Element {
       </Layout>
     </>
   );
-}
+};
+
+export default Home;

@@ -11,7 +11,7 @@ import styles from './NeoMegaMenu.module.css';
 const ProductDocsSection: FunctionComponent<SectionProps> = ({ onClose }) => {
   return (
     <div>
-      <h3>Product Docs</h3>
+      <h3 className={styles.sectionHeader}>Product Docs</h3>
       <div className={styles.productList}>
         {products.map((product) => (
           <NeoCard
