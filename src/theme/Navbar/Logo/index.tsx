@@ -1,6 +1,6 @@
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import NeoMegaMenu from '@site/src/components/NeoMegaMenu';
+import { NeoMegaMenu } from '@site/src/components/NeoMegaMenu';
 import ModerneSymbol from '@site/static/img/moderne-symbol.svg';
 import ModerneWordmark from '@site/static/img/moderne-wordmark.svg';
 import { ChevronDown } from 'lucide-react';

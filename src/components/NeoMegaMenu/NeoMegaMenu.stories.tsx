@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import NeoMegaMenu from './index';
+import { NeoMegaMenu } from './index';
 
 /**
  * NeoMegaMenu - Dropdown navigation menu

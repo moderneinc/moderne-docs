@@ -9,7 +9,7 @@
  */
 
 import figma from '@figma/code-connect';
-import NeoBreadcrumbs from './NeoBreadcrumbs';
+import { NeoBreadcrumbs } from './NeoBreadcrumbs';
 
 /**
  * Connect the Figma component to the React component

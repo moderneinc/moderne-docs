@@ -62,5 +62,3 @@ export const NeoBreadcrumbs: FunctionComponent<NeoBreadcrumbsProps> = ({ items, 
 };
 
 NeoBreadcrumbs.displayName = 'NeoBreadcrumbs';
-
-export default NeoBreadcrumbs;

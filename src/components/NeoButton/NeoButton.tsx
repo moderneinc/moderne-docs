@@ -124,5 +124,3 @@ export const NeoButton: FunctionComponent<NeoButtonProps> = ({
 };
 
 NeoButton.displayName = 'NeoButton';
-
-export default NeoButton;

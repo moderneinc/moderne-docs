@@ -70,4 +70,3 @@ const NeoMegaMenu: FunctionComponent<NeoMegaMenuProps> = ({ isOpen, onClose }) =
 NeoMegaMenu.displayName = 'NeoMegaMenu';
 
 export { NeoMegaMenu };
-export default NeoMegaMenu;

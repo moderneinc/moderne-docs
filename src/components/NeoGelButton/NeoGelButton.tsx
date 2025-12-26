@@ -110,5 +110,3 @@ export const NeoGelButton: FunctionComponent<NeoGelButtonProps> = ({
 };
 
 NeoGelButton.displayName = 'NeoGelButton';
-
-export default NeoGelButton;
