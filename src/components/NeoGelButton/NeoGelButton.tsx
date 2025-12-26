@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styles from './NeoGelButton.module.css';
 import clsx from 'clsx';
 
-export interface NeoGelButtonProps {
+export type NeoGelButtonProps = {
   /** Path to gem icon image (e.g., '/img/gems/clear-block.png') */
   gemIcon: string;
 
@@ -32,7 +32,7 @@ export interface NeoGelButtonProps {
 
   /** Link rel attribute (only used with href) */
   rel?: string;
-}
+};
 
 /**
  * NeoGelButton component for product branding

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styles from './NeoCard.module.css';
 
-export interface NeoCardProps {
+export type NeoCardProps = {
   /**
    * Card title text
    */
@@ -68,7 +68,7 @@ export interface NeoCardProps {
    * Test ID for automated testing
    */
   'data-testid'?: string;
-}
+};
 
 // Discriminated union type for element configurations
 type InteractiveProps =
