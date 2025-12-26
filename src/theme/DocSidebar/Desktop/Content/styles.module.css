@@ -30,9 +30,9 @@
  * Aligned with Figma design specifications
  */
 :global(.theme-doc-sidebar-menu) {
-  font-size: var(--sidebar-item-font-size, var(--neo-font-size-default));
+  font-size: var(--neo-font-size-default);
   font-weight: var(--neo-font-weight-regular);
-  line-height: var(--sidebar-item-line-height, 1.5);
+  line-height: 1.5;
 }
 
 /* Top-level section headers - Semi Bold */
@@ -44,7 +44,7 @@
 
 /* Sidebar link spacing */
 :global(.theme-doc-sidebar-menu .menu__link) {
-  padding: var(--sidebar-item-padding, var(--neo-spacing_1_1_2));
+  padding: var(--neo-spacing_1_1_2);
 }
 
 /* Hover states - brand lavender tint (not in NeoDesign) */
@@ -56,18 +56,18 @@
   background-color: rgba(212, 211, 228, 0.1);
 }
 
-/* Active state colors - using brand digital blue */
+/* Active state colors - brand digital blue (light) / digital green (dark) */
 :global(.theme-doc-sidebar-menu .menu__link--active) {
-  color: var(--sidebar-link-active-color, #283af7);
+  color: var(--brand-digital-blue);
 }
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link--active) {
-  color: var(--brand-digital-green, #85fe99);
+  color: var(--brand-digital-green);
 }
 
 /* Border styling between top-level sections - brand lavender */
 :global(.theme-doc-sidebar-menu > .menu__list > .menu__list-item) {
-  border-top: 0.5px solid var(--sidebar-border-color, #d4d3e4);
+  border-top: 0.5px solid var(--brand-dark-lavender);
 }
 
 /* Remove border from first item to avoid double border at top */
@@ -78,14 +78,14 @@
 /* Sidebar section headers (HTML dividers in sidebar) */
 :global(.theme-doc-sidebar-item-link > strong) {
   text-transform: uppercase;
-  color: var(--sidebar-section-header-color, var(--neo-grey-700));
-  font-size: var(--sidebar-section-header-size, var(--neo-font-size-sm));
-  line-height: var(--sidebar-section-header-line-height, 1.4);
+  color: var(--neo-grey-700);
+  font-size: var(--neo-font-size-sm);
+  line-height: 1.4;
   font-weight: var(--neo-font-weight-semi-bold);
 }
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-item-link > strong) {
-  color: var(--brand-digital-green, #85fe99);
+  color: var(--brand-digital-green);
 }
 
 /* Note: Caret icons are now rendered using Lucide React icons
