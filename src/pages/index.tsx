@@ -8,6 +8,7 @@ import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import { ArrowRight } from 'lucide-react';
 import type { FunctionComponent } from 'react';
+import ReactPlayer from 'react-player';
 import styles from './index.module.css';
 
 /**
@@ -94,16 +95,9 @@ export const WhatIsModerneSection: FunctionComponent = () => {
       </div>
       <div className={styles.videoGrid}>
         {videos.map((video) => (
-          <a
-            key={video.id}
-            href={video.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.videoThumbnail}
-            aria-label={`Watch: ${video.title}`}
-          >
-            <img src={video.thumbnail} alt={video.title} />
-          </a>
+          <ReactPlayer className={styles.videoThumbnail} url={video.url} controls={true} key={video.id}
+          width={300} height={168}
+          />
         ))}
       </div>
     </section>
@@ -116,16 +110,16 @@ export const PlatformDetailsSection: FunctionComponent = () => {
       <h2 className={styles.sectionTitle}>More about our platform</h2>
       <div className={styles.platformContent}>
         <p>
-          The Moderne Platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale. The platform asynchronously ingests detailed artifacts of your codebase (<Link href="/administrator-documentation/moderne-platform/references/lossless-semantic-trees">Lossless Semantic Trees</Link>) that can be quickly and precisely searched. Then, your organization's source code can be transformed by running "<Link href="https://docs.openrewrite.org/concepts-and-explanations/recipes">recipes</Link>" across repositories of your choosing. These recipes can be created by your team, or you can take advantage of the hundreds of recipes already defined in <Link href="https://docs.openrewrite.org/">OpenRewrite</Link> – an open-source project managed by Moderne.
+          The Moderne Platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale. The platform asynchronously ingests detailed artifacts of your codebase (<Link href="/administrator-documentation/moderne-platform/references/lossless-semantic-trees">Lossless Semantic Trees</Link>) that can be quickly and precisely searched. Then, your organization's source code can be transformed by running "<Link href="https://docs.openrewrite.org/concepts-and-explanations/recipes">recipes</Link>" across repositories of your choosing. These recipes can be created by your team, or you can take advantage of the hundreds of recipes already defined in <Link href="https://docs.openrewrite.org/">OpenRewrite</Link> - an open-source project managed by Moderne.
         </p>
         <p>
-          The platform offers a clean UI that enables anyone in your organization to run recipes, create PRs, or generate detailed reports about your codebase – all without writing a line of code. It also provides a recommendation engine to help you discover new recipes based on an analysis of your code.
+          The platform offers a clean UI that enables anyone in your organization to run recipes, create PRs, or generate detailed reports about your codebase - all without writing a line of code. It also provides a recommendation engine to help you discover new recipes based on an analysis of your code.
         </p>
         <p>
           Moderne is SOC 2 Type 2 compliant, so you can be confident that your code is secure. Furthermore, a private SaaS can be created for your team in any major cloud provider or region of your choice.
         </p>
         <p>
-          Moderne currently supports numerous languages, data formats, build tools, and frameworks – with more being routinely added over time. Moderne also currently supports <Link href="/administrator-documentation/moderne-platform/references/supported-scms">most Git-based source code management tools</Link>.
+          Moderne currently supports numerous languages, data formats, build tools, and frameworks - with more being routinely added over time. Moderne also currently supports <Link href="/administrator-documentation/moderne-platform/references/supported-scms">most Git-based source code management tools</Link>.
         </p>
       </div>
     </section>

@@ -171,6 +171,24 @@ html[data-theme=light] {
   width: auto;
 }
 
+/* Mobile: Collapse search to icon only */
+@media (max-width: 996px) {
+  .DocSearch-Button {
+    width: 44px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .DocSearch-Button-Placeholder,
+  .DocSearch-Button-Keys {
+    display: none;
+  }
+
+  .DocSearch-Button-Container {
+    gap: 0;
+  }
+}
+
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme='dark'] {
   /* BRAND: Custom dark background */
