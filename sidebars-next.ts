@@ -163,7 +163,6 @@ const platform = {
               'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-ui-customizations',
               'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-variables',
               'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/multi-tenant-private-recipes',
-              'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/org-service-migration',
               'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/experimental-builder',
             ],
           },
@@ -230,6 +229,20 @@ const dx = {
   items: [
     {
       type: 'category' as const,
+      label: 'Getting started',
+      link: {
+        type: 'generated-index' as const,
+        title: 'Getting started',
+        description: 'Learn how to get started with Moderne DX as an administrator.',
+        slug: '/administrator-documentation/moderne-dx/getting-started',
+        keywords: ['guides'],
+      },
+      items: [
+        'administrator-documentation/moderne-dx/getting-started/overview',
+      ],
+    },
+    {
+      type: 'category' as const,
       label: 'How to guides',
       link: {
         type: 'generated-index' as const,
@@ -239,7 +252,8 @@ const dx = {
         keywords: ['guides'],
       },
       items: [
-        'administrator-documentation/moderne-dx/how-to-guides/mass-ingest-and-run-dx',
+        'administrator-documentation/moderne-dx/how-to-guides/mass-ingest-dx',
+        'administrator-documentation/moderne-dx/how-to-guides/mass-run-dx',
       ],
     },
     {
@@ -362,8 +376,8 @@ const moddy = {
   items: [
     'user-documentation/moddy/moddy-platform',
     'user-documentation/moddy/moddy-desktop',
-    'user-documentation/moddy/mcp-tools-reference',
     'user-documentation/moddy/moddy-mcp-integration',
+    'user-documentation/moddy/mcp-tools-reference',
     'user-documentation/moddy/moddy-data-privacy',
   ],
 };
