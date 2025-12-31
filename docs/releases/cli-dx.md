@@ -6,6 +6,12 @@
 * add takes CVE suppression and extend expired dates
 * Failing to publish `repos-lock.csv` updates is not a critical failure
 
+### CLI / DX v3.54.4 (2025-12-24)
+
+#### What's Changed
+* add takes CVE suppression and extend expired dates
+* Failing to publish `repos-lock.csv` updates is not a critical failure
+
 ### CLI / DX v3.54.3 (2025-12-23)
 
 #### What's Changed CLI
