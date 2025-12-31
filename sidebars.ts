@@ -254,11 +254,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Introduction to OpenRewrite',
+      label: "Introduction to Moderne's OpenRewrite",
       link: {
         type: 'generated-index',
-        title: 'Introduction to OpenRewrite',
-        description: 'Learn how OpenRewrite works and how to compose declarative recipes.',
+        title: "Introduction to Moderne's OpenRewrite",
+        description: 'Learn how OpenRewrite works and get hands-on experience running recipes.',
         slug: '/hands-on-learning/introduction',
         keywords: ['recipes'],
       },
@@ -266,28 +266,30 @@ const sidebars: SidebarsConfig = {
         'hands-on-learning/introduction/workshop-overview',
         'hands-on-learning/introduction/module-1-running-recipes',
         'hands-on-learning/introduction/module-2-recipe-builder',
-        'hands-on-learning/introduction/module-3-recipe-development-environment',
-        'hands-on-learning/introduction/module-4-declarative-yaml-recipes',
+        'hands-on-learning/introduction/module-3-data-tables-visualizations',
+        'hands-on-learning/introduction/module-4-devcenter',
       ],
     },
-    {
+/* Commenting these out for now until they're ready
+   {
       type: 'category',
       label: 'Fundamentals of recipe development',
       link: {
         type: 'generated-index',
-        title: 'Fundamentals of recipe development workshop',
+        title: 'Fundamentals of OpenRewrite recipe development',
         description: 'Get hands-on experience developing OpenRewrite recipes.',
         slug: '/hands-on-learning/fundamentals',
         keywords: ['training','recipes'],
       },
       items: [
         'hands-on-learning/fundamentals/workshop-overview',
-        'hands-on-learning/fundamentals/module-1-refaster-recipes',
-        'hands-on-learning/fundamentals/module-2-preconditions',
-        'hands-on-learning/fundamentals/module-3-testing-recipes',
+        'hands-on-learning/fundamentals/module-1-environment-setup',
+        'hands-on-learning/fundamentals/module-2-declarative-recipes',
+        'hands-on-learning/fundamentals/module-3-refaster-recipes',
         'hands-on-learning/fundamentals/module-4-imperative-recipes',
       ],
     },
+*/
     {
       type: 'category',
       label: 'Advanced recipe development',
