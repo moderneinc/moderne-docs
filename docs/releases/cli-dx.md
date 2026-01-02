@@ -1,16 +1,9 @@
 # CLI / DX changelog
 
-### CLI / DX v3.54.4 (2025-12-24)
+### CLI / DX v3.54.5 (2025-12-31)
 
 #### What's Changed
-* add takes CVE suppression and extend expired dates
-* Failing to publish `repos-lock.csv` updates is not a critical failure
-
-### CLI / DX v3.54.4 (2025-12-24)
-
-#### What's Changed
-* add takes CVE suppression and extend expired dates
-* Failing to publish `repos-lock.csv` updates is not a critical failure
+* Failing to update the `repos-lock.csv` is no longer considered an error
 
 ### CLI / DX v3.54.4 (2025-12-24)
 
