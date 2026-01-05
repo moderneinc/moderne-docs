@@ -136,7 +136,9 @@ mod git sync moderne . "Default" --with-sources
 ```
 
 :::info
-If you don't include the `--with-sources` flag, the CLI only downloads any pre-built LSTs from the platform for a given organization, not the source code itself. With the LSTs, you will still be able to run recipes, but once you're ready to apply changes to the code, you'll need to sync the source as well. You'll also need the source if there are no pre-existing LSTs to download. In this case, you will need to explicitly build LSTs with the CLI. We will see how to do this in a later module.
+If you don't include the `--with-sources` flag, the CLI will only download pre-built LSTs from the platform for a given organization, not the source code itself. With the LSTs, you will still be able to run recipes, but once you're ready to apply changes to the code, you'll need to sync the source as well. 
+
+You'll also need the source if there are no pre-existing LSTs to download. In this case, you will need to explicitly build LSTs with the CLI. We will see how to do this in a later module.
 :::
 
 3. To confirm the repositories were synced, list the contents of your workspace directory:
@@ -145,7 +147,7 @@ If you don't include the `--with-sources` flag, the CLI only downloads any pre-b
 ls
 ```
 
-You'll see one or more top-level directories. Each directory corresponds to a Git hosting organization (for example, `spring-projects`), and inside each org directory you'll find one or more repositories. If you have the `tree` utility installed, you can use it to get a more complete view of the directory structure:
+You'll see one or more top-level directories. Each directory corresponds to an organization on the Git host (for example, `spring-projects` on GitHub), and inside each org directory you'll find one or more repositories. If you have the `tree` utility installed, you can use it to get a more complete view of the directory structure:
 
 ```bash
 tree -L 2
@@ -183,7 +185,7 @@ mod git checkout . -b refactor/common-static-analysis --last-recipe-run
 mod git apply . --last-recipe-run
 ```
 
-3. Now you can navigate to any of the repository folders and run `git status` to confirm that there are local unstaged, uncommitted modifications. Before committing, you would normally make sure the changes didn't break the build and that all tests still pass successfully. In this exercise, we'll assume that is the case and move on to adding and commiting the changes in each repository:
+3. Now you can navigate to any of the repository folders and run `git status` to confirm that there are local unstaged, uncommitted modifications. Before committing, you would normally make sure the changes didn't break the build and that all tests still pass successfully. In this exercise, we'll assume that is the case and move on to adding and committing the changes in each repository:
 
 ```bash
 mod git add . --last-recipe-run
@@ -192,7 +194,7 @@ mod git commit . -m "Test common static analysis changes" --last-recipe-run
 
 #### Wrap-up: Pushing changes at scale
 
-If this code were in repositories that you own or have the right access to, you could now push the changes and submit PRs if you wanted to. However, since these are public open-source repositories that we are working with, we don't want to go any further than this. The following section is for reference only.
+If this code were in repositories that you own or have write access to, you could now push the changes and submit PRs if you wanted to. However, since these are public open-source repositories that we are working with, we don't want to go any further than this. The following section is for reference only.
 
 :::warning
 **Do not run any of the following commands on these example repositories. They are for reference only.**

@@ -7,7 +7,7 @@ description: A high-level overview of what this workshop will entail.
 
 [OpenRewrite](https://docs.openrewrite.org/) is a framework for writing and running code transformations and [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) are the unit of work in OpenRewrite. This workshop is designed to help you understand how [OpenRewrite](https://docs.openrewrite.org/) works and gain hands-on experience running recipes using the Moderne CLI and the Moderne Platform.
 
-You will learn about fundamental concepts like the [Lossless Semantic Tree (LST)](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees), [data tables](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/data-tables/), [visualizations](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/visualizations), and [DevCenter](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/dev-center). This workshop is designed to be hands-on, so you can follow along with the examples in your own environment. The workshop consists of a series of modules that highlight key concepts, each with one or more exercises to help you practice what you've learned.
+You will learn about fundamental concepts like the [Lossless Semantic Tree (LST)](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees), as well as key platform features including [data tables](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/data-tables/), [visualizations](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/visualizations), and [DevCenters](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/dev-center).
 
 Be sure to also follow the links to the [OpenRewrite documentation](https://docs.openrewrite.org/) for more in-depth information. Feel free to skip around to the sections that interest you most, based on your needs and experience level.
 
@@ -15,7 +15,7 @@ If you get stuck or have questions, feel free to ask in the [OpenRewrite Slack](
 
 ## What you'll learn
 
-* Key concepts of OpenRewrite: LST, visitors, and recipes
+* Key concepts of OpenRewrite: LSTs, visitors, and recipes
 * How to set up and run recipes using the Moderne CLI
 * Using the Moderne recipe builder to compose and customize declarative YAML recipes
 * Understanding search markers, data tables, and visualizations
@@ -23,14 +23,14 @@ If you get stuck or have questions, feel free to ask in the [OpenRewrite Slack](
 
 ## Prerequisites
 
-To get the most out of this workshop, you should at least be familiar with:
+To get the most out of this workshop, you should have:
 
 * Basic Java knowledge
-* Command line/terminal basics
+* A basic understanding of how to work with the command line/terminal
 
-You will also need at least the following configured on your system:
+You will also need the following installed on your system:
 
-* Installed JDK (Java 17 or higher recommended)
+* JDK (Java 17 or higher recommended)
 
 ## Workshop modules
 

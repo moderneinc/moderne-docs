@@ -137,7 +137,7 @@ Spring's `StringUtils` has some methods with different names than Apache's versi
 3. Click `Add recipe` in the lower right of the screen as before. 
 4. Configure the options:
    * **Method pattern:** `org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)`
-   * **New method name:**: `strip`
+   * **New method name:** `strip`
 5. Click `Update` to add this recipe.
 
 :::info

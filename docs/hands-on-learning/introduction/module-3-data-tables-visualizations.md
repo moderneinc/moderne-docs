@@ -5,7 +5,7 @@ description: Understanding search markers, data tables, and visualizations.
 
 # Module 3: Data tables, search markers, and visualizations
 
-In this module, you'll learn that recipes aren't just about transforming code. They can also search for patterns, extract insights, and produce rich data outputs. One of the most powerful ideas in OpenRewrite is that these “searches” are **semantic**. Recipes operate on the Lossless Semantic Tree (LST), so searches aren’t limited to text or regex matching. They can match based on types, method signatures, and relationships in the code, even if that information is buried levels deep.
+In this module, you'll explore how recipes can do more than transform code. They can also search for patterns, extract insights, and produce rich data outputs. One of the most powerful ideas in OpenRewrite is that these “searches” are **semantic**. Recipes operate on the Lossless Semantic Tree (LST), so searches aren’t limited to text or regex matching. They can match based on types, method signatures, and relationships in the code, even if that information is buried levels deep.
 
 ## Key concepts
 
@@ -67,13 +67,15 @@ In this exercise, you'll run search-oriented recipes with the CLI and learn how 
 cd ~/moderne-workshop
 ```
 
-2. You've already synced the source code from the Default organization in the first module, but you also applied changes from a recipe run. That means your LSTs no longer accurately reflect the current code state. To make sure you have the most up-to-date LSTs, run the following command to build them locally:
+2. In the first module, you synced the source code from the `Default` organization and applied some changes to it from a recipe run. Because of that, your LSTs no longer accurately reflect the current code state. To make sure you have the most up-to-date LSTs, run the following command to build them locally:
 
 ```bash
 mod build .
 ```
 
-(This may take several minutes to complete. You may want to move on to the next exercise while you wait for this command to complete and come back to this step when it's done.)
+:::info
+This may take several minutes to complete. You may want to move on to the next exercise while you wait for this command to complete and come back to this step when it's done.
+:::
 
 If you later see a `The latest LST is not up to date` message when running recipes, rebuild your LSTs after updating or changing source code. (Also, if you see that `mod build .` only partially succeeded, that just means that some of the repos failed. You can still move on and complete the exercise since recipes will work fine on the repos that _did_ build successfully.)
 
@@ -123,7 +125,7 @@ This creates both a CSV and Excel file that lists the method calls found by the 
 mod study . --last-recipe-run --data-table SearchResults
 ```
 
-This will have similar output to the `MethodCalls` table, but this is a table that is provided whenever search markers are added to the code, regardless of whether the results are also including in another different table (like `MethodCalls`). Open the generated CSV file(s) and compare the search marker highlights in the diff view from the previous step with rows in the exported `SearchResults` file.
+This will have similar output to the `MethodCalls` table, but this is a table that is provided whenever search markers are added to the code, regardless of whether the results are also included in a different table (like `MethodCalls`). Open the generated CSV file(s) and compare the search marker highlights in the diff view from the previous step with rows in the exported `SearchResults` file.
 
 ### Takeaways
 

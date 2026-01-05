@@ -52,7 +52,7 @@ Cards that highlight security issues show vulnerability counts by severity and i
 
 #### Data tables
 
-Each component of DevCenter also offers the ability to download that sections corresponding data table.
+Each component of DevCenter also offers the ability to download that section's corresponding data table.
 
 ### DevCenter in the CLI
 
@@ -109,7 +109,7 @@ Look at the change campaign cards in the middle:
 2. The card shows the current status:
    * Percentage of repositories that meet the target
    * Number of repositories that need updates, by category (e.g. version)
-   * Parliament chart showing a visual representation of those numbers, with varying degree os colors from green, to yellow, to red depending on how far back from the target each code repository is
+   * Parliament chart showing a visual representation of those numbers, with colors ranging from green to yellow to red based on how far each repository is from meeting the target
 3. Mouseover the chart or table to highlight specific categories.
 4. Click the `Dry Run` button on a card to run the associated recipe
 
@@ -121,7 +121,7 @@ If the recipe was recently run, clicking `Dry Run` will take you to the latest r
 
 Look at the security section at the bottom:
 
-1. Security card shows a list of vulnerabilities identified in the DevCenter recipe along with a radar chart indicating how many occurrences of each of these vulnerabilities appear in the codebase.
+1. Security cards show a list of vulnerabilities identified in the DevCenter recipe along with a radar chart indicating how many occurrences of each of these vulnerabilities appear in the codebase.
 2. Click on a vulnerability in the list or on a section of the radar chart to get more information about the vulnerability and the number of occurrences.
 3. Now click `Dry Run` to run the security recipe that was identified in the DevCenter recipe to fix the vulnerabilities.
 4. Review the results to see what vulnerabilities were found/fixed.
@@ -218,7 +218,7 @@ cd ~/moderne-workshop
 mod build .
 ```
 
-3. Run your custom DevCenter recipe to generate the required data tables:
+2. Run your custom DevCenter recipe to generate the required data tables:
 
 ```bash
 mod run . --recipe com.yourorg.DevCenterWorkshop
@@ -251,7 +251,7 @@ MOD SUCCEEDED in 27s
 
 </details>
 
-Notice there is no `Dry Run` buttons on the local DevCenter dashboard. However, you can still run ugprade recipes individually through the CLI. For example:
+Notice there are no `Dry Run` buttons on the local DevCenter dashboard. However, you can still run upgrade recipes individually through the CLI. For example:
 
 ```bash
 mod run . --recipe UpgradeToJava25
