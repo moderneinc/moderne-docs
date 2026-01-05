@@ -20,7 +20,7 @@ The [Lossless Semantic Tree (LST)](https://docs.openrewrite.org/concepts-and-exp
 Key characteristics of the LST:
 
 * **Lossless**: Every part of the original source is preserved, including whitespace and comments, so it can be reproduced exactly.
-* **Format-preserving**: Changes made to the LST will result in code that matches its local formatting style.
+* **Format-preserving**: Changes made to the LST will result in code that matches the original formatting style.
 * **Type-aware**: The tree is type-attributed, meaning it understands the specific types of each variable and method.
 
 ### Visitors
