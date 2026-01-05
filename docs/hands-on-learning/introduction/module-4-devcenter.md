@@ -5,24 +5,24 @@ description: Using DevCenter to track migrations and upgrades at scale.
 
 # Module 4: DevCenter
 
-In this module, you'll learn about DevCenter, the mission-control dashboard for tracking migrations, upgrades, and security issues across your organization's repositories.
+In this module, you'll learn about DevCenter — the mission-control capability for tracking migrations, upgrades, and security issues across an organization's repositories.
 
 ## Key concepts
 
-### What is DevCenter?
+### What is a DevCenter dashboard?
 
-The [DevCenter](../../user-documentation/moderne-platform/getting-started/dev-center.md) is a dashboard in the Moderne Platform that provides a high-level view of the state of all your repositories. It allows you to:
+DevCenter is a Moderne capability for generating mission-control dashboards. In the Platform, a DevCenter dashboard may be configured for each organization. In the CLI, you can generate a DevCenter dashboard locally for an organization or whatever set of repositories you have checked out. A DevCenter dashboard provides a high-level view of repository state and allows you to:
 
 * Track progress on upgrades and migrations
 * Monitor security vulnerabilities
 * See organizational metrics at a glance
 * Quickly run recipes to address issues
 
-DevCenter is also **recipe-based**. The cards you see (upgrades, security fixes, etc.) are backed by recipes, and organizations can configure a DevCenter by selecting an existing DevCenter recipe to run for that org or [customizing their own](../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md).
+DevCenter dashboards are also **recipe-based**. The cards you see (upgrades, security fixes, etc.) are backed by recipes, and organizations can configure a DevCenter dashboard by selecting an existing DevCenter recipe to run for that org or [customizing their own](../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md).
 
-### Components of DevCenter
+### Components of a DevCenter dashboard
 
-DevCenter consists of several key sections:
+A DevCenter dashboard consists of several key sections:
 
 #### Organizational ownership
 
@@ -52,31 +52,31 @@ Cards that highlight security issues show vulnerability counts by severity and i
 
 #### Data tables
 
-Each component of DevCenter also offers the ability to download that section's corresponding data table.
+Each DevCenter dashboard component also offers the ability to download that section's corresponding data table.
 
 ### DevCenter in the CLI
 
 The Moderne CLI also supports DevCenter functionality, allowing you to:
 
-* Generate DevCenter reports locally
+* Generate DevCenter dashboards locally
 * Run DevCenter recipes against your repositories
 * Export results for further analysis
 
-## Exercise 4-1: Explore DevCenter
+## Exercise 4-1: Explore a DevCenter dashboard
 
-In this exercise, you'll explore DevCenter in the Moderne Platform.
+In this exercise, you'll explore a DevCenter dashboard in the Moderne Platform.
 
 ### Goals for this exercise
 
-* Navigate the DevCenter dashboard
+* Navigate a DevCenter dashboard
 * Understand DevCenter components
 
 ### Steps
 
-#### Step 1: Explore DevCenter in the Platform
+#### Step 1: Explore a DevCenter dashboard in the Platform
 
 1. Navigate to [app.moderne.io](https://app.moderne.io/) and sign in if you need to.
-2. You can stick with the `Default` organization, or pick another one from the dropdown. (Not all organizations have DevCenter configured.)
+2. You can stick with the `Default` organization, or pick another one from the dropdown. (Not all organizations have a DevCenter dashboard configured.)
 3. Click on `DevCenter` in the left navigation.
 
 <figure>
@@ -84,7 +84,7 @@ In this exercise, you'll explore DevCenter in the Moderne Platform.
   <figcaption>_DevCenter navigation link_</figcaption>
 </figure>
 
-4. If the organization has a DevCenter configured, you'll see the dashboard with organizational metrics, change campaign cards, and security information.
+4. If the organization has a DevCenter dashboard configured, you'll see organizational metrics, change campaign cards, and security information.
 
 <figure>
   ![](./assets/devcenter-example-default.png)
@@ -121,26 +121,26 @@ If the recipe was recently run, clicking `Dry Run` will take you to the latest r
 
 Look at the security section at the bottom:
 
-1. Security cards show a list of vulnerabilities identified in the DevCenter recipe along with a radar chart indicating how many occurrences of each of these vulnerabilities appear in the codebase.
+1. The security card shows a list of vulnerabilities identified in the DevCenter recipe along with a radar chart indicating how many occurrences of each vulnerability appear in the codebase.
 2. Click on a vulnerability in the list or on a section of the radar chart to get more information about the vulnerability and the number of occurrences.
-3. Now click `Dry Run` to run the security recipe that was identified in the DevCenter recipe to fix the vulnerabilities.
+3. Click `Dry Run` to run the security recipe identified in the DevCenter recipe to fix the vulnerabilities.
 4. Review the results to see what vulnerabilities were found/fixed.
 
 ### Takeaways
 
-* DevCenter provides a mission-control view of your organization's code health
+* The DevCenter dashboard provides a mission-control view of your organization's code health
 * Change campaign cards track progress on upgrades and migrations
 * Security cards highlight vulnerabilities that need attention
 
-## Exercise 4-2: Run DevCenter from the CLI
+## Exercise 4-2: Generate a DevCenter dashboard with the CLI
 
-In this exercise, you'll customize a DevCenter report and generate it locally.
+In this exercise, you'll customize a DevCenter recipe and generate a DevCenter dashboard locally.
 
 ### Goals for this exercise
 
 * Customize a DevCenter recipe
 * Understand what DevCenter recipes do
-* Generate a local DevCenter report with the CLI
+* Generate a local DevCenter dashboard with the CLI
 
 ### Steps
 
@@ -259,7 +259,7 @@ mod run . --recipe UpgradeToJava25
 
 ### Takeaways
 
-* The CLI can generate DevCenter reports locally
+* The CLI can generate DevCenter dashboards locally
 * DevCenter is powered by recipes that can search, report, and fix issues
 
 ## Take home lab
@@ -278,6 +278,9 @@ Now that you've completed this workshop, try using what you've learned. If you g
 * [DevCenter configuration guide](../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md)
 * [Moderne CLI reference](../../user-documentation/moderne-cli/cli-reference.md)
 
+
+<!-- commented out until next module is ready
 ## Next steps
 
 If you're interested in learning how to write your own recipes, check out the [Fundamentals of OpenRewrite recipe development](../fundamentals/workshop-overview.md) workshop.
+-->

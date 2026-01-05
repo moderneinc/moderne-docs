@@ -73,11 +73,11 @@ cd ~/moderne-workshop
 mod build .
 ```
 
-:::info
-This may take several minutes to complete. You may want to move on to the next exercise while you wait for this command to complete and come back to this step when it's done.
-:::
+This may take several minutes. Feel free to continue to the next exercise and come back once it finishes.
 
-If you later see a `The latest LST is not up to date` message when running recipes, rebuild your LSTs after updating or changing source code. (Also, if you see that `mod build .` only partially succeeded, that just means that some of the repos failed. You can still move on and complete the exercise since recipes will work fine on the repos that _did_ build successfully.)
+:::warning
+You might still see `The latest LST is not up to date` for some repositories even after running `mod build .` (for example, if a repo failed to build, the checkout changed after the build, or the CLI used a downloaded LST that doesn’t match your local sources). If that happens, you can still continue the exercise with the repositories that have LSTs available.
+:::
 
 :::tip
 By default, `mod build` may try to download LSTs from Moderne if they’re available. To force a local build, use `mod build . --no-download`.
@@ -90,6 +90,10 @@ By default, `mod build` may try to download LSTs from Moderne if they’re avail
 ```bash
 mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
 ```
+
+:::tip
+The `-P` flag sets a recipe option at runtime, similarly to how you set options under a recipe in YAML in Module 2. Here, we’re setting the `methodPattern` option for `FindMethods` to target a specific method signature. For more detail on the pattern syntax, see the OpenRewrite [method patterns reference](https://docs.openrewrite.org/reference/method-patterns).
+:::
 
 This is a search-only recipe and should not modify source code.
 

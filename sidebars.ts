@@ -254,10 +254,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: "Introduction to Moderne's OpenRewrite",
+      label: "Introduction to OpenRewrite",
       link: {
         type: 'generated-index',
-        title: "Introduction to Moderne's OpenRewrite",
+        title: "Introduction to OpenRewrite",
         description: 'Learn how OpenRewrite works and get hands-on experience running recipes.',
         slug: '/hands-on-learning/introduction',
         keywords: ['recipes'],

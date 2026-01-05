@@ -3,7 +3,7 @@ sidebar_label: Workshop overview
 description: A high-level overview of what this workshop will entail.
 ---
 
-# Overview: Introduction to Moderne's OpenRewrite
+# Overview: Introduction to OpenRewrite
 
 [OpenRewrite](https://docs.openrewrite.org/) is a framework for writing and running code transformations and [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) are the unit of work in OpenRewrite. This workshop is designed to help you understand how [OpenRewrite](https://docs.openrewrite.org/) works and gain hands-on experience running recipes using the Moderne CLI and the Moderne Platform.
 
@@ -17,9 +17,9 @@ If you get stuck or have questions, feel free to ask in the [OpenRewrite Slack](
 
 * Key concepts of OpenRewrite: LSTs, visitors, and recipes
 * How to set up and run recipes using the Moderne CLI
-* Using the Moderne recipe builder to compose and customize declarative YAML recipes
-* Understanding search markers, data tables, and visualizations
-* Using DevCenter to track migrations and upgrades
+* How to use the Moderne recipe builder to compose and customize declarative YAML recipes
+* What search markers, data tables, and visualizations and how to use them
+* How to use DevCenter to track migrations and upgrades
 
 ## Prerequisites
 

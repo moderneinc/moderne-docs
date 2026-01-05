@@ -23,10 +23,6 @@ Key characteristics of the LST:
 * **Format-preserving**: Changes made to the LST will result in code that matches the original formatting style.
 * **Type-aware**: The tree is type-attributed, meaning it understands the specific types of each variable and method.
 
-### Visitors
-
-[Visitors](https://docs.openrewrite.org/concepts-and-explanations/visitors) are the mechanism by which recipes traverse and modify the LST. They implement the visitor pattern to walk through tree elements and make targeted changes.
-
 ### Recipes
 
 [Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) are the unit of work in OpenRewrite. A recipe can:
@@ -44,9 +40,11 @@ OpenRewrite recipes produce **deterministic** code changes. This means that runn
 
 There are several ways to run OpenRewrite recipes:
 
-* **Maven and Gradle plugins**: Run recipes directly in your build by configuring the OpenRewrite plugin. Used for running recipes on a single project at a time.
-* **Moderne CLI**: Run recipes across multiple repositories locally. Serializes the LST to disk for faster subsequent runs.
+* **Maven and Gradle plugins**: Run recipes directly in your build by configuring the OpenRewrite plugin. This works well for a single project, but running on many repositories typically means adding/configuring the plugin in each repo individually.
+* **Moderne CLI**: Run recipes across one or more repositories locally without having to modify each repository to add a build plugin first. Serializes the LST to disk for faster subsequent runs.
 * **Moderne Platform (SaaS)**: Run recipes at scale through a web UI with some additional capabilities like a recipe builder and data visualizations.
+
+You can find more details about the [differences between the Moderne CLI and the OpenRewrite build plugins in the documentation](../../user-documentation/moderne-cli/getting-started/cli-intro.md#differences-between-the-moderne-cli-and-the-openrewrite-build-plugins).
 
 For this workshop, you'll start by using the **Moderne CLI**, and then try the **Moderne Platform** as a comparison.
 
@@ -113,6 +111,10 @@ mod config recipes jar install \
   org.openrewrite.recipe:rewrite-java-dependencies \
   org.openrewrite.recipe:rewrite-static-analysis
 ```
+
+:::note
+If you are on a corporate network that blocks access to Maven Central, this step may fail. See [Using the CLI with internal tools and artifact repositories](../../user-documentation/moderne-cli/getting-started/cli-internal-tools.md) for how to configure the CLI to use your organization's internal Maven Central mirror (Artifactory/Nexus/etc.).
+:::
 
 Each JAR includes a collection of related recipes, so these four artifacts cover everything we need for now.
 
@@ -237,7 +239,7 @@ In addition to the CLI, you can run recipes using the Moderne Platform.
 </figure>
 
 3. Click on `Marketplace` in the left navigation if you're not already there.
-4. Search for `CommonStaticAnalysis` and click on the recipe.
+4. Search for `CommonStaticAnalysis` and click on the recip to see available actions.
 
 <figure>
 ![](./assets/marketplace-search-csa.png)
@@ -247,13 +249,16 @@ In addition to the CLI, you can run recipes using the Moderne Platform.
 
 #### Step 2: Run a dry run and review results
 
-1. Click on the recipe to see the available actions.
+1. Click `Dry Run` to run the recipe against the Default organization's repositories.
 
 ![](./assets/csa-dry-run.png)
 
-2. Click `Dry Run` to run the recipe against the Default organization's repositories.
-3. Wait for the recipe to complete. As it runs, notice the summary of results on the left side and the diff viewer on the right.
-4. Explore the results and the code changes in the diff viewer.
+:::note
+In the Moderne Platform, `Dry Run` is conceptually similar to what you did with the CLI earlier: it computes results and shows you diffs, but it does not commit changes. In both cases, you review the patch first and then explicitly choose to apply/commit via a separate action.
+:::
+
+2. Wait for the recipe to complete. As it runs, notice the summary of results on the left side and the diff viewer on the right.
+3. Explore the results and the code changes in the diff viewer.
 
 #### Step 3: Preview the commit/PR workflow (do not submit)
 
@@ -263,8 +268,6 @@ In addition to the CLI, you can run recipes using the Moderne Platform.
 ![](./assets/commit-strategy-dropdown.png)
 
 3. Since these are open-source repositories and we don't want to commit any changes, click `Cancel` to get out of the workflow.
-
-<!-- Screenshot placeholder: Commit / PR flow entry point button -->
 
 :::warning
 **Do not create commits or open pull requests against these public example repositories. This step is only to show you what the workflow looks like.**

@@ -153,13 +153,9 @@ Notice that the method pattern uses `org.apache.commons.lang3.StringUtils` even 
 <figcaption>_Recipe builder with configured recipes_</figcaption>
 </figure>
 
-
-:::info
-If you wanted to run your recipe directly from the builder instead, you could click `Dry Run` at the top of the screen and it would run against the currently selected organization in the platform.
-:::
-
-2. Click on the recipe name in the upper left corner.
-3. Select `Download YAML` to save the recipe file. Alternatively, you can use `Copy as YAML to clipboard` and paste into a new YAML document on your computer.
+2. From the recipe builder, click `Dry Run` at the top of the screen to quickly test your custom recipe against the currently selected organization.
+3. Once the recipe run completes, return to the recipe builder and click on the recipe name in the upper left corner.
+4. Select `Download YAML` to save the recipe file. Alternatively, you can use `Copy as YAML to clipboard` and paste into a new YAML document on your computer.
 
 <figure>
 ![](./assets/recipe-builder-download-yaml.png)
