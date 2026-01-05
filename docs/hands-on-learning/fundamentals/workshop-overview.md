@@ -27,4 +27,4 @@ To get the most out of this workshop, you should at least be familiar with:
 * Writing Java code
 * Using build tools like Maven or Gradle
 
-If you haven’t been through the [Introduction to OpenRewrite](../introductioni/workshop-overview) workshop yet, we recommend completing it first before returning here.
+If you haven’t been through the [Introduction to OpenRewrite](../introduction/workshop-overview) workshop yet, we recommend completing it first before returning here.
