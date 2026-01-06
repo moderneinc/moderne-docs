@@ -201,6 +201,31 @@ cp ~/Downloads/Use\ Apache\ StringUtils.yml ~/moderne-workshop/stringutils.yml
 mod config recipes yaml install ~/moderne-workshop/stringutils.yml
 ```
 
+<details>
+<summary>Reference output</summary>
+
+```text
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 3.54.5
+
+⏺ Installing recipes from YAML files
+
+▶ /Users/somebody/moderne-workshop/stringutils.yml
+    Found 1 recipes
+    ✓ Installed recipes.
+Done (1s)
+
+Installed 1 YAML file.
+
+MOD SUCCEEDED in 1s
+```
+
+</details>
+
 3. Run the recipe against your workspace:
 
 ```bash
@@ -208,9 +233,93 @@ mod config recipes yaml install ~/moderne-workshop/stringutils.yml
 mod run ~/moderne-workshop --recipe com.yourorg.UseApacheStringUtils
 ```
 
+:::warning
+Again, you may see `The latest LST is not up to date` messages for some repositories because you applied changes from a recipe in the last module but didn't rebuild the LSTs. You'll see how to do rebuild LSTs in the next module, but for now you can ignore these warnings since you won't be applying these changes anyway.
+:::
+
+<details>
+<summary>Reference output</summary>
+
+```text
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 3.54.5
+
+⏺ Reading organization
+
+Found 1 organization containing 11 repositories (1s)
+
+⏺ Running recipe com.yourorg.UseApacheStringUtils
+
+▶ openrewrite/rewrite-recipe-bom@main (no LST)
+    Skipped recipe run because no LST was found
+▶ awslabs/aws-saas-boost@main (no LST)
+    Skipped recipe run because no LST was found
+▶ apache/maven-doxia@master (no LST)
+    Skipped recipe run because no LST was found
+▶ finos/messageml-utils@refactor/common-static-analysis
+    ⚠ The latest LST is not up to date
+    No changes
+    ✓ Recipe run complete
+▶ spring-projects/spring-petclinic@refactor/common-static-analysis
+    ⚠ The latest LST is not up to date
+    Fix results
+    ✓ Recipe run complete
+▶ Netflix/photon@refactor/common-static-analysis
+    ⚠ The latest LST is not up to date
+    No changes
+    ✓ Recipe run complete
+▶ Netflix/ribbon@refactor/common-static-analysis
+    ⚠ The latest LST is not up to date
+    No changes
+    ✓ Recipe run complete
+▶ finos/symphony-wdk@refactor/common-static-analysis
+    ⚠ The latest LST is not up to date
+    No changes
+    ✓ Recipe run complete
+▶ finos/symphony-bdk-java@refactor/common-static-analysis
+    ⚠ The latest LST is not up to date
+    No changes
+    ✓ Recipe run complete
+▶ finos/spring-bot@refactor/common-static-analysis
+    ⚠ The latest LST is not up to date
+    Fix results
+    ✓ Recipe run complete
+▶ spring-projects/spring-data-commons@refactor/common-static-analysis
+    ⚠ The latest LST is not up to date
+    Fix results
+    ✓ Recipe run complete
+Done (16s)
+
+21m 32s saved by using previously built LSTs
+6h 25m saved by using recipes
+
+Produced results for 8 repositories.
+
+⏺ What to do next
+    > A repository's source code doesn't match its LST. Run mod build to update the LSTs.
+    > Click on one of the patch links above to view the changes on a particular repository
+    > Run mod study to examine the following data tables produced by this recipe:
+          > mod study /Users/somebody/moderne-workshop --last-recipe-run --data-table RecipeRunStats
+          > mod study /Users/somebody/moderne-workshop --last-recipe-run --data-table SourcesFileResults
+    > Run mod git checkout /Users/somebody/moderne-workshop -b refactor/UseApacheStringUtils --last-recipe-run to prepare a refactor/UseApacheStringUtils branch for applying the changes
+    > Run mod git apply /Users/somebody/moderne-workshop --last-recipe-run to apply the changes
+    > Run mod git apply /Users/somebody/moderne-workshop --recipe-run 20260105160406-B7BQB to apply the changes
+    > Run mod log runs add /Users/somebody/moderne-workshop logs.zip --last-recipe-run to aggregate run logs
+    > Examine run telemetry
+
+MOD SUCCEEDED in 17s
+```
+</details>
+
 :::tip
 You also need the recipes referenced in your YAML to be available. If you've already synced recipes with `mod config recipes moderne sync`, they should be available.
 :::
+
+Once again, you can open any of the `Fix results` links and review the diffs to see exactly what would change in each repository from this recipe if you were to apply the patch.
 
 ### Takeaways
 

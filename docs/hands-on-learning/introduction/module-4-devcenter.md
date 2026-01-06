@@ -236,19 +236,46 @@ The CLI will output a path to an HTML file. Open it in your browser to view the 
 
 <details>
 
-<summary>Example output</summary>
+<summary>Reference output</summary>
 
 ```bash
-> Generating DevCenter
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 3.54.5
 
-Done (26s)
+⏺ Reading organization
 
-* What to do next
-    > Open /path/to/your/workspace/devcenter.html
+Found 1 organization containing 11 repositories (1s)
+Found recipe run 20260105162438-sMM9s
 
-MOD SUCCEEDED in 27s
+
+⏺ Building CSV for upgrades and migrations
+
+▶ Default
+    ✓ Data table produced
+Done (1s)
+
+⏺ Building CSV for security issues
+
+▶ Default
+    ✓ Data table produced
+Done (1s)
+
+⏺ Generate DevCenter dashboard
+
+Full DevCenter log
+
+▶ Default
+    ✓ Generated dashboard
+Done (4s)
+
+DevCenter generated
+
+MOD SUCCEEDED in 5s
 ```
-
 </details>
 
 Notice there are no `Dry Run` buttons on the local DevCenter dashboard. However, you can still run upgrade recipes individually through the CLI. For example:

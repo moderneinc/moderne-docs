@@ -73,10 +73,128 @@ cd ~/moderne-workshop
 mod build .
 ```
 
+:::info
+Building LSTs requires a local JDK installation because the CLI uses your build tooling to parse and type-attribute the code. If you run into JDK-related errors, verify `java -version` works and that your environment is using a supported JDK (Java 17+ recommended for this workshop).
+:::
+
+<details>
+<summary>Reference output</summary>
+
+```text
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 3.54.5
+
+⏺ Reading organization
+
+Found 1 organization containing 11 repositories (1s)
+
+⏺ Building LST(s)
+
+▶ apache/maven-doxia@master
+    Build output will be written to build.log
+    > Download from Moderne
+        ⚠ Failed to download the LST from Moderne. Proceeding to build the LST locally
+    > Step 1 - build with Maven
+        Selected the 1.8.0_462-zulu JDK for maven-doxia
+    > Step 2 - build resources
+        Selected the 25.0.1-tem JDK for maven-doxia
+    ✓ Built maven-doxia-20260105160736327-ast.jar
+    Cleaned 1 older builds
+▶ awslabs/aws-saas-boost@main
+    Build output will be written to build.log
+    > Download from Moderne
+        ⚠ Failed to download the LST from Moderne. Proceeding to build the LST locally
+    > Step 1 - build with Maven
+        Selected the 25.0.1-tem JDK for aws-saas-boost
+    > Step 2 - build resources
+        ⚠ 18 sources produced parse errors
+    ✓ Built aws-saas-boost-20260105160812125-ast.jar
+    Cleaned 1 older builds
+▶ finos/messageml-utils@refactor/common-static-analysis
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 1.8.0_462-zulu JDK for messageml-utils
+        ⚠ 1 source produced parse errors
+    > Step 2 - build resources
+    ✓ Built messageml-utils-20260105160823563-ast.jar
+    Cleaned 1 older builds
+▶ finos/spring-bot@refactor/common-static-analysis
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for spring-bot
+    > Step 2 - build resources
+    ✓ Built spring-bot-20260105160848195-ast.jar
+    Cleaned 1 older builds
+▶ finos/symphony-bdk-java@refactor/common-static-analysis
+    Build output will be written to build.log
+    > Step 1 - build with Gradle
+        Selected the 17.0.12-tem JDK for symphony-bdk-java
+    ✗ Failed to build an LST.
+▶ finos/symphony-wdk@refactor/common-static-analysis
+    Build output will be written to build.log
+    > Step 1 - build with Gradle
+        Selected the 17.0.12-tem JDK for symphony-wdk
+        ⚠ 2 sources produced parse errors
+    > Step 2 - build resources
+    ✓ Built symphony-wdk-20260105161010794-ast.jar
+    Cleaned 1 older builds
+▶ Netflix/photon@refactor/common-static-analysis
+    Build output will be written to build.log
+    > Step 1 - build with Gradle
+        Selected the 21.0.7-tem JDK for photon
+    > Step 2 - build resources
+    ✓ Built photon-20260105161032281-ast.jar
+    Cleaned 1 older builds
+▶ Netflix/ribbon@refactor/common-static-analysis
+    Build output will be written to build.log
+    > Step 1 - build with Gradle
+        Selected the 1.8.0_462-zulu JDK for ribbon
+    ✗ Failed to build an LST.
+▶ openrewrite/rewrite-recipe-bom@main
+    Build output will be written to build.log
+    > Download from Moderne
+        ⚠ Failed to download the LST from Moderne. Proceeding to build the LST locally
+    > Step 1 - build with Gradle
+        Selected the 21.0.7-tem JDK for rewrite-recipe-bom
+    > Step 2 - build resources
+    ✓ Built rewrite-recipe-bom-20260105161316582-ast.jar
+    Cleaned 1 older builds
+▶ spring-projects/spring-data-commons@refactor/common-static-analysis
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 25.0.1-tem JDK for spring-data-commons
+    ✗ Failed to build an LST.
+▶ spring-projects/spring-petclinic@refactor/common-static-analysis
+    Build output will be written to build.log
+    > Step 1 - build with Gradle
+        Selected the 17.0.12-tem JDK for spring-petclinic
+    > Step 2 - build resources
+    ✓ Built spring-petclinic-20260105161438545-ast.jar
+    Cleaned 1 older builds
+Done (7m 33s)
+
+Built 8 repositories.
+
+⏺ What to do next
+    > Run mod run . --recipe FindParseFailures to analyze the parse errors
+    > Run mod run . --recipe=<RecipeName>
+    > Run mod afterburner . to speed up recipe runs
+    > Analyze build results with mod trace builds analyze . --last-build
+    > Run mod log builds add . logs.zip --last-build to aggregate build logs
+
+MOD PARTIALLY SUCCEEDED in (7m 33s)
+```
+
+</details>
+
 This may take several minutes. Feel free to continue to the next exercise and come back once it finishes.
 
 :::warning
-You might still see `The latest LST is not up to date` for some repositories even after running `mod build .` (for example, if a repo failed to build, the checkout changed after the build, or the CLI used a downloaded LST that doesn’t match your local sources). If that happens, you can still continue the exercise with the repositories that have LSTs available.
+You might still see `The latest LST is not up to date` for some repositories even after running `mod build .` (for example, if a repo failed to build, the checkout changed after the build, or the CLI used a downloaded LST that doesn’t match your local sources). You may also see some repositories to fail to build the LST. In either case, recipes can still run on repos with LSTs, so you can safely continue the exercise.
 :::
 
 :::tip
@@ -120,6 +238,43 @@ After running a recipe, the CLI will suggest commands to view data tables:
 ```bash
 mod study . --last-recipe-run --data-table MethodCalls
 ```
+
+<details>
+<summary>Reference output</summary>
+
+```text
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 3.54.5
+
+⏺ Reading organization
+
+Found 1 organization containing 11 repositories (1s)
+Found recipe run 20260105161657-MFFqf
+
+
+⏺ Building CSV output for each organization
+
+▶ Default
+    ✓ Data table produced
+Done (1s)
+
+⏺ Converting to Excel for each organization
+
+▶ Default
+    ✓ Added 662 rows
+    ✓ Data table produced
+Done (3s)
+
+Data tables for each organization with rows are linked above
+
+MOD SUCCEEDED in 3s
+```
+
+</details>
 
 This creates both a CSV and Excel file that lists the method calls found by the recipe. Open and explore either one (or both) for one of the repositories by using ctrl-click (Windows), command-click (Mac), or copying the path. You can use whatever spreadsheet application you prefer (Excel, Google Sheets, etc.).
 
