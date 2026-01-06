@@ -75,7 +75,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * [Traits](https://docs.openrewrite.org/concepts-and-explanations/traits) are a way to build higher-level abstractions over LST elements. They allow you to define common characteristics or behaviors that might apply to different types of LST elements or involve more context than a single element can provide.
   * They help consolidate shared logic that you might otherwise put in utility classes, avoiding the need to add extension methods to every LST element. This keeps the public-facing API simpler while maintaining extensibility.
   * Some examples of traits include the annotation trait (which represents any LST element that has an annotation, regardless of whether it's a class, method, or variable declaration) and the Gradle dependency trait (which represents different ways dependencies can be declared in Gradle files and provides a common interface to access details like group ID, artifact ID, and version).
-  * Traits can be converted into a **visitor** (using `asVisotor())` which allows you to process only the LST elements that implement that specific trait, effectively filtering down to what you're interested in as a recipe author.
+  * Traits can be converted into a **visitor** (using `asVisitor())` which allows you to process only the LST elements that implement that specific trait, effectively filtering down to what you're interested in as a recipe author.
   * We also demonstrated how to create a `TodoComment` trait with a `Matcher` to identify these comments across different file types.
 
 ### OpenRewrite power moves part 2: Scanning recipes (September 10th, 2025)
