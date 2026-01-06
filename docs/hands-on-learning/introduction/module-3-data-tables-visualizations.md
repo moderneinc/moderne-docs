@@ -310,8 +310,8 @@ In this exercise, you'll run recipes in the Moderne Platform and use the `Data T
 2. Make sure the Default organization is still selected.
 3. From the Marketplace, search for and select `Dependency insight for Gradle and Maven`.
 4. Configure the options using a broad pattern to get results across many repositories:
-   * **Group pattern:** `com.fasterxml.jackson.*`
-   * **Artifact pattern:** `*`
+   * **Group pattern:** `*`
+   * **Artifact pattern:** `jackson*`
    * You can leave all of the other options blank/default.
 
 <figure>
