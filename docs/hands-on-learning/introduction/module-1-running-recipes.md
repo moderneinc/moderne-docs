@@ -398,48 +398,47 @@ It's okay if some LSTs fail to download. As long as you have a few repositories 
 :::
 
 
-3. To confirm the repositories were synced, list the contents of your workspace directory:
+3. To confirm the repositories were synced, list the repositories and their LST status:
 
 ```bash
-ls
+mod list .
 ```
 
 <details>
 <summary>Reference output</summary>
 ```text
-apache          awslabs         finos           Netflix         openrewrite     spring-projects
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 3.54.5
+
+⏺ Reading organization
+
+Found 1 organization containing 11 repositories (1s)
+
+⏺ Listing repositories
+
+▶ apache/maven-doxia@master
+▶ awslabs/aws-saas-boost@main
+▶ finos/messageml-utils@refactor/common-static-analysis
+▶ finos/spring-bot@refactor/common-static-analysis
+▶ finos/symphony-bdk-java@refactor/common-static-analysis
+▶ finos/symphony-wdk@refactor/common-static-analysis
+▶ Netflix/photon@refactor/common-static-analysis
+▶ Netflix/ribbon@refactor/common-static-analysis
+▶ openrewrite/rewrite-recipe-bom@main
+▶ spring-projects/spring-data-commons@refactor/common-static-analysis
+▶ spring-projects/spring-petclinic@refactor/common-static-analysis
+Done (1s)
+
+Listed 11 repositories.
+
 ```
 </details>
 
-You'll see one or more top-level directories. Each directory corresponds to a Git hosting organization (for example, `spring-projects`), and inside each org directory you'll find one or more repositories. If you have the `tree` utility installed, you can use it to get a more complete view of the directory structure:
-
-```bash
-tree -L 2
-```
-
-<details>
-<summary>Reference output</summary>
-```text
-.
-├── apache
-│   └── maven-doxia
-├── awslabs
-│   └── aws-saas-boost
-├── finos
-│   ├── messageml-utils
-│   ├── spring-bot
-│   ├── symphony-bdk-java
-│   └── symphony-wdk
-├── Netflix
-│   ├── photon
-│   └── ribbon
-├── openrewrite
-│   └── rewrite-recipe-bom
-└── spring-projects
-    ├── spring-data-commons
-    └── spring-petclinic
-```
-</details>
+This command mirrors how other Moderne CLI commands discover repositories and makes it clear which repos have LSTs available for recipe runs. If a repository does not have an LST built, it will let you know with a `(no LST)` message for that repo. 
 
 #### Step 5: Run a recipe
 
@@ -664,7 +663,11 @@ MOD SUCCEEDED in 2s
 
 </details>
 
-3. Now you can navigate to any of the repository folders and run `git status` to confirm that there are local unstaged, uncommitted modifications. Before committing, you would normally make sure the changes didn't break the build and that all tests still pass successfully. In this exercise, we'll assume that is the case and move on to adding and commiting the changes in each repository:
+3. Now you can navigate to any repository folder and run `git status`, or use `mod git status .` to check all repositories at once, to confirm there are local unstaged, uncommitted modifications. Before committing, you would normally make sure the changes didn't break the build and that all tests still pass successfully. In this exercise, we'll assume that is the case and move on to adding and commiting the changes in each repository:
+
+:::tip
+ If you want to verify the builds locally you can use `mod exec . --last-recipe-run MODERNE_BUILD_TOOL_CHECK` to trigger the same Gradle/Maven checks CI would run across all the affected repositories.
+:::
 
 ```bash
 mod git add . --last-recipe-run
