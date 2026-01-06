@@ -821,7 +821,7 @@ In addition to the CLI, you can run recipes using the Moderne Platform.
 </figure>
 
 3. Click on `Marketplace` in the left navigation if you're not already there.
-4. Search for `CommonStaticAnalysis` and click on the recip to see available actions.
+4. Search for `CommonStaticAnalysis` and click on the recipe to see available actions.
 
 <figure>
 ![](./assets/marketplace-search-csa.png)
