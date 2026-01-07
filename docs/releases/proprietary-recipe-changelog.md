@@ -10,6 +10,102 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## January 7, 2026
+
+#### rewrite-ai-search - 0.32.4
+
+* Updated repository to use OpenRewrite version v8.71.0
+
+#### rewrite-android - 0.15.3
+
+* Updated repository to use OpenRewrite version v8.71.0
+
+#### rewrite-azul - 0.8.4
+
+* Updated repository to use OpenRewrite version v8.71.0
+
+#### rewrite-circleci - 3.9.4
+
+* Updated repository to use OpenRewrite version v8.71.0
+
+#### rewrite-codemods-ng - 0.16.2
+
+* Updated repository to use OpenRewrite version v8.71.0
+
+#### rewrite-compiled-analysis - 0.11.3
+
+* Updated repository to use OpenRewrite version v8.71.0
+
+#### rewrite-concourse - 3.9.4
+
+* Updated repository to use OpenRewrite version v8.71.0
+
+#### rewrite-dotnet - 0.14.4
+
+* Updated repository to use OpenRewrite version v8.71.0
+
+#### rewrite-elastic - 0.5.0
+
+* Add or update recipe category descriptors
+* End recipe description with dot to fix validation
+
+#### rewrite-hibernate - 0.16.0
+
+* Add Hibernate 7.2 migration recipe
+
+#### rewrite-java-security - 3.25.0
+
+* DependencyVulnerabilityCheck recipes offer uniform filtering options
+* Remove out-of-date OWASP suppressions
+* Upgrade direct dependency instead of adding a constraint for a transitive dependency
+
+#### rewrite-kafka - 0.4.4
+
+* Updated repository to use OpenRewrite version v8.71.0
+
+#### rewrite-kubernetes - 3.15.0
+
+* Add `ChangeApiVersion` migrations for v1.33-35
+
+#### rewrite-nodejs - 0.37.0
+
+* `RemoveNetSetSimultaneousAccepts` recipe
+* `ReplaceStreamInternalModules` recipe
+* Adopt `InstallRecipesResponse` in `UtilNativeTypeCheckingMethodsIntegTest`
+* Introduce vulnerability filtering options
+
+#### rewrite-program-analysis - 0.9.0
+
+* Fix memory leak in `FlowModelIndex`
+* Use bounded size in `ControlFlowCache`
+* OpenRewrite recipe best practices
+
+#### rewrite-reactive-streams - 0.18.4
+
+* Updated repository to use OpenRewrite version v8.71.0
+
+#### rewrite-spring - 0.20.0
+
+* Modularize Spring Securtiy 7
+* Migrate `HibernateDaoSupport#getSession(boolean)`
+* Migrate Spring Cloud `webflux.metrics.tags.path.enabled` property[bot]
+* Spring Framework to Spring Boot should add modular starters
+* Add or update recipe category descriptors
+* Ensure `spring-boot-jackson` is added to Maven submodules too
+* Include `MigrateToHibernate72` with `UpgradeSpringBoot_4_0`
+* Remove `spring-boot-starter-reactor`
+* Corrected the order of the recipe stack so 3.5 no longer overwrites 4.0
+* Improve precondition for `MigrateDefaultResponseErrorHandler`
+* Add Spring Cloud 2025.1 recipes to Spring Boot 4 migration
+
+#### rewrite-sql - 2.9.0
+
+* Preserve trailing content when parsing SQL
+
+#### rewrite-terraform - 3.11.4
+
+* Updated repository to use OpenRewrite version v8.71.0
+
 ## December 16, 2025
 
 #### rewrite-ai-search - 0.32.3
