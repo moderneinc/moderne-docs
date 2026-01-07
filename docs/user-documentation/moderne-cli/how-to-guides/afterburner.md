@@ -5,7 +5,7 @@ description: How to improve recipe run times with mod afterburner.
 
 # How to improve recipe run times with mod afterburner
 
-By default, every time you run a recipe against an LST, the full LST much be parsed and checked – even if no changes have been made against it. This results in recipes taking a decent amount of time to execute – regardless of how many times you've run recipes against the same LST or how complex those recipes are.
+By default, every time you run a recipe against an LST, the full LST must be parsed and checked – even if no changes have been made against it. This results in recipes taking a decent amount of time to execute – regardless of how many times you've run recipes against the same LST or how complex those recipes are.
 
 Fortunately, we've recently added a new command that can significantly speed up repeated recipe runs against the same LST(s): [mod afterburner](../cli-reference.md#mod-afterburner).
 

@@ -22,7 +22,7 @@ DevCenters are created for specific organizations. Not all organizations will ha
   <figcaption>_DevCenter navigation link_</figcaption>
 </figure>
 
-If the organization has a DevCenter, will see a page like this:
+If the organization has a DevCenter, you will see a page like this:
 
 <figure style={{maxWidth: '800px', margin: '0 auto'}}>
   ![](./assets/large-devcenter.png)

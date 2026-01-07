@@ -24,7 +24,7 @@ public void processOrder(Order order) {
 }
 ```
 
-But modern object-oriented programs make this challenging. Consider.
+But modern object-oriented programs make this challenging. Consider the following:
 
 ```java
 public void process(PaymentMethod payment, double amount) {
