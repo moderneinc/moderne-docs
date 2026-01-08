@@ -1,15 +1,15 @@
 ---
-sidebar_label: "Module 4: Declarative recipes"
+sidebar_label: "Module 2: Declarative recipes"
 description: How to write a declarative YAML recipe.
 ---
 
-# Module 4: Declarative YAML recipes
+# Module 2: Declarative YAML recipes
 
 As a best practice, if your recipe can be declarative (meaning it can be built out of other recipes), then you should make it declarative. You can make some truly powerful migration recipes by combining many tiny recipes together (which have been vetted to handle specific tasks correctly, such as only adding dependencies as needed).
 
-You've actually already built a declarative recipe in [Module 2](./module-2-recipe-builder.md) when you used the Recipe Builder to combine existing recipes using Moderne. The YAML file you downloaded is a declarative recipe. Now you'll learn how to write or modify one yourself.
+If you completed the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop, you've already built a declarative recipe in [Module 2](../introduction/module-2-recipe-builder.md) when you used the Recipe Builder to combine existing recipes using Moderne. The YAML file you downloaded is a declarative recipe. Now you'll learn how to write or modify one yourself.
 
-## Exercise 4: Write a declarative YAML recipe
+## Exercise 2: Write a declarative YAML recipe
 
 Let's have a look at a simple declarative YAML recipe, and expand that to cover an additional use case.
 
