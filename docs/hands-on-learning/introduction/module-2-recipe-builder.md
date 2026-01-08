@@ -141,7 +141,7 @@ Spring's `StringUtils` has some methods with different names than Apache's versi
 5. Click `Update` to add this recipe.
 
 :::info
-Notice that the method pattern uses `org.apache.commons.lang3.StringUtils` even though we're changing from Spring's method. This is because recipes run in order, so by the time this recipe runs, the `ChangeType` recipe has already changed the import.
+Notice that the method pattern uses `org.apache.commons.lang3.StringUtils` even though we're changing from Spring's method. This is because recipes run in order, so by the time this recipe runs, the `ChangeType` recipe has already changed the import and type references.
 :::
 
 #### Step 6: Preview and download the YAML
@@ -154,7 +154,7 @@ Notice that the method pattern uses `org.apache.commons.lang3.StringUtils` even 
 </figure>
 
 2. From the recipe builder, click `Dry Run` at the top of the screen to quickly test your custom recipe against the currently selected organization.
-3. Once the recipe run completes, return to the recipe builder and click on the recipe name in the upper left corner.
+3. Once the recipe run completes you can verify the results. Then return to the recipe builder and click on the recipe name in the upper left corner.
 4. Select `Download YAML` to save the recipe file. Alternatively, you can use `Copy as YAML to clipboard` and paste into a new YAML document on your computer.
 
 <figure>
