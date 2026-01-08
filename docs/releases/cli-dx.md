@@ -1,5 +1,20 @@
 # CLI / DX changelog
 
+### CLI / DX v3.55.0 (2026-01-08)
+
+#### What's Changed CLI
+* Introduce a CSV-based recipe marketplace
+* Fix CSV column alignment when stages are null in `trace.csv` files
+* Claude Code does not support line erasure in task output so use a plain progress bar
+* Use dedicated `package.json` parser for JavaScript sources
+* Add `mod git sync moderne --with-lsts=false` to create org folder structure on disk
+* Correct regression which skipped escaping JSON data table values
+* Continue Maven Java version detection when `RawPom.parse` fails on POM
+* Correct invalid paths in zip archive when built from Windows
+* Properly handle org hierarchies with multiple roots during `mod build` @bryceatmoderne in https://github.com/moderneinc/moderne-cli/pull/3084
+#### What's Changed DX
+* N/A
+
 ### CLI / DX v3.54.5 (2025-12-31)
 
 #### What's Changed
