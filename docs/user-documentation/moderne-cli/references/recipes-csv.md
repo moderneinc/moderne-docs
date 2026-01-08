@@ -116,7 +116,7 @@ The following approach is not recommended and is not something we will help you 
 
 In some cases, organizations may want to bootstrap CLI installations with a pre-computed marketplace file rather than installing individual JARs. You can do this by placing a `recipes-v5.csv` file directly in `~/.moderne/cli/`.
 
-When `mod run` executes a recipe, it downloads any missing JARs at runtime based on the `ecosystem` and `packageName` columns in the CSV. This means you can have a marketplace file that references JARs you haven't explicitly installed - they will be fetched on demand.
+When `mod run` executes a recipe, it downloads any missing JARs at runtime based on the `ecosystem`, `packageName`, and `version` columns in the CSV. This means you can have a marketplace file that references JARs you haven't explicitly installed - they will be fetched on demand.
 
 However, this approach has significant drawbacks:
 
