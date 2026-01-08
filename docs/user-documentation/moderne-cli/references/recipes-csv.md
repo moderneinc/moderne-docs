@@ -105,26 +105,8 @@ If validation fails, the build will fail with detailed error messages.
 For more details, see the [Recipe Marketplace CSV Gradle Tasks ADR](https://github.com/openrewrite/rewrite-build-gradle-plugin/blob/main/adr/0001-recipe-marketplace-csv-gradle-tasks.md).
 
 :::note
-There is currently no Maven plugin equivalent. Organizations not using the Gradle plugin will need to implement similar functionality themselves or rely on the CLI's fallback classpath scanning.
+There is currently no Maven plugin equivalent. Organizations not using the Gradle plugin will need to implement similar functionality themselves, manually create and maintain a `recipes.csv` file, or rely on the CLI's fallback classpath scanning.
 :::
-
-## Advanced: manually managing the recipe marketplace
-
-:::warning
-The following approach is not recommended and is not something we will help you set up.
-:::
-
-In some cases, organizations may want to bootstrap CLI installations with a pre-computed marketplace file rather than installing individual JARs. You can do this by placing a `recipes-v5.csv` file directly in `~/.moderne/cli/`.
-
-When `mod run` executes a recipe, it downloads any missing JARs at runtime based on the `ecosystem`, `packageName`, and `version` columns in the CSV. This means you can have a marketplace file that references JARs you haven't explicitly installed - they will be fetched on demand.
-
-However, this approach has significant drawbacks:
-
-* The CSV must be kept in sync with available artifact versions manually.
-* Debugging issues become more difficult without standard installation paths.
-* You lose the validation that occurs during normal `jar install` operations.
-
-For most use cases, the standard `mod config recipes jar install` workflow is strongly recommended.
 
 ## Additional resources
 
