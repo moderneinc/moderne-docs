@@ -35,7 +35,7 @@ For search recipes, in addition to (or instead of) a data table, recipes may add
 * Allow other recipes to act on the marked elements
 * Provide context about why something was marked
 
-In code views, search markers typically appear as `~~>` indicators near the matched code, and the corresponding matches are also listed in the `SearchResults` data table.
+In code views, search markers typically appear in comments as `~~>` indicators near the matched code, and the corresponding matches are also listed in the `SearchResults` data table.
 
 ### Visualizations
 
