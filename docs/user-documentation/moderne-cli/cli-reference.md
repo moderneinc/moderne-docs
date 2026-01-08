@@ -22,10 +22,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod clean runs**](#mod-clean-runs)
 * [**mod config**](#mod-config)
 * [**mod config build**](#mod-config-build)
-* [**mod config build active-styles**](#mod-config-build-active-styles)
-* [**mod config build active-styles delete**](#mod-config-build-active-styles-delete)
-* [**mod config build active-styles edit**](#mod-config-build-active-styles-edit)
-* [**mod config build active-styles show**](#mod-config-build-active-styles-show)
 * [**mod config build bazel**](#mod-config-build-bazel)
 * [**mod config build bazel arguments**](#mod-config-build-bazel-arguments)
 * [**mod config build bazel arguments delete**](#mod-config-build-bazel-arguments-delete)
@@ -93,9 +89,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config features**](#mod-config-features)
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
 * [**mod config features no-maven-central**](#mod-config-features-no-maven-central)
-* [**mod config features rich-terminal**](#mod-config-features-rich-terminal)
-* [**mod config features rich-terminal enable**](#mod-config-features-rich-terminal-enable)
-* [**mod config features rich-terminal disable**](#mod-config-features-rich-terminal-disable)
 * [**mod config http**](#mod-config-http)
 * [**mod config http proxy**](#mod-config-http-proxy)
 * [**mod config http proxy delete**](#mod-config-http-proxy-delete)
@@ -179,10 +172,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit)
 * [**mod config recipes artifacts maven delete**](#mod-config-recipes-artifacts-maven-delete)
 * [**mod config recipes artifacts maven show**](#mod-config-recipes-artifacts-maven-show)
-* [**mod config recipes artifacts nuget**](#mod-config-recipes-artifacts-nuget)
-* [**mod config recipes artifacts nuget edit**](#mod-config-recipes-artifacts-nuget-edit)
-* [**mod config recipes artifacts nuget delete**](#mod-config-recipes-artifacts-nuget-delete)
-* [**mod config recipes artifacts nuget show**](#mod-config-recipes-artifacts-nuget-show)
 * [**mod config recipes export**](#mod-config-recipes-export)
 * [**mod config recipes export json**](#mod-config-recipes-export-json)
 * [**mod config recipes export csv**](#mod-config-recipes-export-csv)
@@ -194,7 +183,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes npm delete**](#mod-config-recipes-npm-delete)
 * [**mod config recipes moderne**](#mod-config-recipes-moderne)
 * [**mod config recipes moderne install**](#mod-config-recipes-moderne-install)
-* [**mod config recipes moderne push**](#mod-config-recipes-moderne-push)
 * [**mod config recipes moderne sync**](#mod-config-recipes-moderne-sync)
 * [**mod config recipes delete**](#mod-config-recipes-delete)
 * [**mod config recipes list**](#mod-config-recipes-list)
@@ -227,10 +215,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * ~~[**mod config scm add**](#mod-config-scm-add-deprecated)~~ (deprecated)
 * ~~[**mod config scm remove**](#mod-config-scm-remove-deprecated)~~ (deprecated)
 * ~~[**mod config scm show**](#mod-config-scm-show-deprecated)~~ (deprecated)
-* [**mod config user**](#mod-config-user)
-* [**mod config user delete**](#mod-config-user-delete)
-* [**mod config user edit**](#mod-config-user-edit)
-* [**mod config user show**](#mod-config-user-show)
 * [**mod devcenter**](#mod-devcenter)
 * [**mod exec**](#mod-exec)
 * [**mod generate-completion**](#mod-generate-completion)
@@ -677,7 +661,6 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `run`: Configures recipe run behavior.
 * `scm`: (DEPRECATED) Configures source code management.
-* `user`: Configure the active user.
 
 ## mod config build
 
@@ -695,97 +678,11 @@ mod config build [subcommands]
 
 ### Subcommands
 
-* `active-styles`: Configure the active styles to use when building LSTs.
 * `bazel`: Configures Bazel as it is used for LST production.
 * `dotnet`: Configures dotnet as it is used for LST production.
 * `environment`: Configure environment variables to apply to build tool when building LSTs.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
-
-## mod config build active-styles
-
-Configure the active styles to use when building LSTs.
-
-
-Overriding active styles circumvents auto-detection of styles in the production of LSTs.
-
-### Usage
-
-```
-mod config build active-styles [subcommands]
-```
-
-
-### Subcommands
-
-* `delete`: Removes overriding active styles.
-* `edit`: Configure the active styles to use when building LSTs.
-* `show`: Displays the configured overriding active styles.
-
-## mod config build active-styles delete
-
-Removes overriding active styles.
-
-
-### Usage
-
-```
-mod config build active-styles delete
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
-| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
-
-
-## mod config build active-styles edit
-
-Configure the active styles to use when building LSTs.
-
-
-Overriding active styles circumvents auto-detection of styles in the production of LSTs.
-
-### Usage
-
-```
-mod config build active-styles edit [parameters]
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `activeStyles` |  Additional build arguments that are added to the end of the Gradle command line. | `an.example.Style0,an.example.Style1` |
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
-| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
-
-
-## mod config build active-styles show
-
-Displays the configured overriding active styles.
-
-
-### Usage
-
-```
-mod config build active-styles show
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
-| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
-
 
 ## mod config build bazel
 
@@ -2119,12 +2016,11 @@ mod config features [subcommands]
 
 * `index-recipes`
 * `no-maven-central`: (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
-* `rich-terminal`: Configure rich terminal features.
 
 ## mod config features index-recipes
 
 
-Index recipes to avoid classloading expense on every repository. This experimental feature does not change the command line for running a recipe, but since recipes are instantiated differently, is considered experimental initially.
+(DEPRECATED) Index recipes to avoid classloading expense on every repository. This experimental feature does not change the command line for running a recipe, but since recipes are instantiated differently, is considered experimental initially.
 
 ### Usage
 
@@ -2157,51 +2053,6 @@ mod config features no-maven-central
 | Name | Description |
 | ---- | ----------- |
 | `--enabled` |  |
-
-
-## mod config features rich-terminal
-
-Configure rich terminal features.
-
-
-Rich terminal features include OSC8 hyperlinks and extended UTF-8 characters for enhanced visual output. When enabled, terminals that support these features will display clickable links and use special characters for drawing boxes and other UI elements. The default value is automatically detected based on your terminal capabilities.
-
-### Usage
-
-```
-mod config features rich-terminal [subcommands]
-```
-
-
-### Subcommands
-
-* `enable`
-* `disable`
-
-## mod config features rich-terminal enable
-
-
-Enable rich terminal features (OSC8 hyperlinks and extended UTF-8 characters).
-
-### Usage
-
-```
-mod config features rich-terminal enable
-```
-
-
-
-## mod config features rich-terminal disable
-
-
-Disable rich terminal features.
-
-### Usage
-
-```
-mod config features rich-terminal disable
-```
-
 
 
 ## mod config http
@@ -3353,7 +3204,7 @@ mod config moderne edit <host>
 
 * `delete`: Removes the configured Moderne tenant.
 * `edit`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
-* `local`: Configures a connection to a Moderne DX instance running locally on the same machine.
+* `local`: (DEPRECATED) Configures a connection to a Moderne DX instance running locally on the same machine.
 * `login`: Logs the CLI into Moderne
 * `show`: Displays the Moderne tenant configuration.
 * `organizations`: (INCUBATING) The organizational hierarchy of repository ownership.
@@ -3411,7 +3262,7 @@ mod config moderne edit <host> --token <token>
 
 ## mod config moderne local
 
-Configures a connection to a Moderne DX instance running locally on the same machine.
+(DEPRECATED) Configures a connection to a Moderne DX instance running locally on the same machine.
 
 
 All subsequent commands will use this instance.
@@ -3452,7 +3303,7 @@ mod config moderne login
 Displays the Moderne tenant configuration.
 
 
-
+Shows where requests to Moderne e.g., for recipe and organization information, will be directed.
 
 ### Usage
 
@@ -3595,7 +3446,7 @@ mod config node installation list
 Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 
 
-You must run the _mod config moderne_ command before running this command so that the CLI knows where to download recipes from.
+You must run the **mod config moderne** command before running this command so that the CLI knows where to download recipes from.
 
 ### Usage
 
@@ -3640,9 +3491,8 @@ mod config recipes artifacts [subcommands]
 
 * `artifactory`: Configures the artifact repository to resolve recipes from.
 * `show`: Displays the recipe artifacts repository configuration.
-* `default-repositories`: Configure the availability of maven central repositories.
+* `default-repositories`: (DEPRECATED) Configure the availability of maven central repositories.
 * `maven`: Configures a Maven-formatted artifact repository that recipes will be resolved from.
-* `nuget`: Configures a Nuget-formatted artifact repository that recipes will be resolved from.
 
 ## mod config recipes artifacts artifactory
 
@@ -3747,7 +3597,7 @@ mod config recipes artifacts show
 
 ## mod config recipes artifacts default-repositories (deprecated)
 
-Configure the availability of maven central repositories.
+(DEPRECATED) Configure the availability of maven central repositories.
 
 
 Use `mod config features no-maven-central` to disable/enable Maven Central and OSS Sonatype Snapshots.
@@ -3889,91 +3739,6 @@ mod config recipes artifacts maven show
 
 
 
-## mod config recipes artifacts nuget
-
-Configures a Nuget-formatted artifact repository that recipes will be resolved from.
-
-
-All subsequent recipe installation commands will use this Nuget repository.
-
-### Usage
-
-```
-mod config recipes artifacts nuget [subcommands]
-```
-
-
-### Subcommands
-
-* `edit`: Configures the repository that recipes will be resolved from.
-* `delete`: Removes the Nuget artifact repository repository configuration.
-* `show`: Displays the Nuget artifact repository repository configuration.
-
-## mod config recipes artifacts nuget edit
-
-Configures the repository that recipes will be resolved from.
-
-
-All subsequent recipe installation commands will use this artifact repository.
-
-### Usage
-
-```
-mod config recipes artifacts nuget edit [parameters]
-```
-
-### Examples
-
-```
-mod config recipes artifacts nuget edit <artifact-repository-url> --user <user> --password <password>
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `url` |  The URL of the artifact repository that recipes will be resolved from. | `https://pkgs.company-name.com/<ORGANIZATION_NAME>/_packaging/<FEED_NAME>/nuget/v3/index.json` |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `--authorization` |  The authorization header value to use. | `Bearer XXXXX` |
-| `--password` |  The password to authenticate with. |  |
-| `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
-| `--user` |  The user to authenticate with. |  |
-
-
-## mod config recipes artifacts nuget delete
-
-Removes the Nuget artifact repository repository configuration.
-
-
-
-
-### Usage
-
-```
-mod config recipes artifacts nuget delete
-```
-
-
-
-## mod config recipes artifacts nuget show
-
-Displays the Nuget artifact repository repository configuration.
-
-
-
-
-### Usage
-
-```
-mod config recipes artifacts nuget show
-```
-
-
-
 ## mod config recipes export
 
 Export the recipe catalog for study by different tools.
@@ -3990,15 +3755,15 @@ mod config recipes export [subcommands]
 
 ### Subcommands
 
-* `json`: Export recipe details as JSON.
-* `csv`: Export recipe details as CSV.
+* `json`: (DEPRECATED) Export recipe details as JSON.
+* `csv`: (DEPRECATED) Export recipe details as CSV.
 
 ## mod config recipes export json
 
-Export recipe details as JSON.
+(DEPRECATED) Export recipe details as JSON.
 
 
-
+This format has been superseded by the standard Recipe Marketplace CSV format.
 
 ### Usage
 
@@ -4016,10 +3781,10 @@ mod config recipes export json [parameters]
 
 ## mod config recipes export csv
 
-Export recipe details as CSV.
+(DEPRECATED) Export recipe details as CSV.
 
 
-
+This format has been superseded by the standard Recipe Marketplace CSV format.
 
 ### Usage
 
@@ -4184,7 +3949,7 @@ mod config recipes npm delete my-recipe-package
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `packageName` |  An npm package name or a compiled JavaScript file containing an OpenRewrite activate function. | `my-recipe-package` |
+| `packageName` |  An npm package name or a compiled JavaScript file containing an OpenRewrite activate function. | `@openrewrite/recipes-nodejs` |
 
 
 
@@ -4213,7 +3978,6 @@ mod config recipes moderne sync
 ### Subcommands
 
 * `install`: Allows you to find and install recipes from Moderne.
-* `push`: Pushes local CLI marketplace recipes to Moderne.
 * `sync`: Synchronizes the local CLI recipe marketplace with Moderne.
 
 ## mod config recipes moderne install
@@ -4245,26 +4009,6 @@ mod config recipes moderne install "Migrate Java"
 | ---- | ----------- |
 | `searchTerm` |  The search term to use to find recipes to install. |
 
-
-
-## mod config recipes moderne push
-
-Pushes local CLI marketplace recipes to Moderne.
-
-
-Adds or replaces recipes in the Moderne tenant with the recipes installed in the local marketplace.
-
-### Usage
-
-```
-mod config recipes moderne push
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `-f`, `--force` |  Force the push of the local CLI recipe marketplace to Moderne, replacing all installed recipe artifacts with the contents of the local marketplace. |
 
 
 ## mod config recipes moderne sync
@@ -4392,7 +4136,7 @@ mod config recipes yaml install /path/to/yaml
 
 | Name | Description |
 | ---- | ----------- |
-| `paths` |  The path to the YAML file to install. The YAML file will be copied, so if further modifications to it are made, make sure to reinstall it. |
+| `paths` |  The path(s) to the YAML file to install. Each YAML file will be copied, so if further modifications to them are made, make sure to reinstall. |
 
 
 
@@ -4902,73 +4646,6 @@ mod config scm show
 
 
 
-## mod config user
-
-Configure the active user.
-
-
-The active user is reported for activity metrics in Moderne DX environments. If not explicitly set in **mod config**, the active user is inferred from global git configuration.
-
-### Usage
-
-```
-mod config user [subcommands]
-```
-
-
-### Subcommands
-
-* `delete`: Removes the configured active user.
-* `edit`: Configure the active user.
-* `show`: Displays the configured active user.
-
-## mod config user delete
-
-Removes the configured active user.
-
-
-### Usage
-
-```
-mod config user delete
-```
-
-
-
-## mod config user edit
-
-Configure the active user.
-
-
-The active user is reported for activity metrics in Moderne DX environments.
-
-### Usage
-
-```
-mod config user edit
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--email` |  The email of the active user. |
-| `--name` |  The name of the active user. |
-
-
-## mod config user show
-
-Displays the configured active user.
-
-
-### Usage
-
-```
-mod config user show
-```
-
-
-
 ## mod devcenter
 
 Generate DevCenter dashboards.
@@ -5097,7 +4774,7 @@ mod git [subcommands]
 * `rev-parse`: Performs the equivalent of **git rev-parse** on multiple repositories.
 * `stashset`: Performs the equivalent of **git stash** on multiple repositories.
 * `stashset`: Performs the equivalent of **git stash** on multiple repositories.
-* `sync`: Synchronizing with Moderne.
+* `sync`: Synchronizing the state of an organization on disk.
 * `status`: Performs the equivalent of **git status** on multiple repositories.
 
 ## mod git add
@@ -5254,6 +4931,7 @@ mod git clone csv [parameters]
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
+| `--with-lsts` |  Whether to download LSTs for the repositories. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
 
@@ -5287,6 +4965,7 @@ mod git clone moderne [parameters]
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
+| `--with-lsts` |  Whether to download LSTs for the repositories. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
 
@@ -5536,7 +5215,7 @@ mod git stashset push [parameters]
 
 ## mod git sync
 
-Synchronizing with Moderne.
+Synchronizing the state of an organization on disk.
 
 
 Synchronizes the set of repositories on disk to a source of repositories and at what branch and changeset they should be.
@@ -5551,7 +5230,7 @@ mod git sync [subcommands]
 ### Subcommands
 
 * `csv`: Synchronizes the repositories and metadata of an organization from a local repos.csv file.
-* `moderne`: Synchronizes the repositories and metadata of an organization on Moderne.
+* `moderne`: Synchronizes the state of an organization with Moderne.
 
 ## mod git sync csv
 
@@ -5585,12 +5264,13 @@ mod git sync csv [parameters]
 | `--refresh-organization` |  Refresh the state of the currently selected organization. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
+| `--with-lsts` |  Whether to download LSTs for the repositories. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
 
 ## mod git sync moderne
 
-Synchronizes the repositories and metadata of an organization on Moderne.
+Synchronizes the state of an organization with Moderne.
 
 
 The repositories are cloned or pulled at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne. If the repository has local changes or is on a different branch no changes will be made.
@@ -5626,6 +5306,7 @@ mod git sync moderne /path/to/organization --organization <ORG_NAME>
 | `--refresh-organization` |  Refresh the state of the currently selected organization. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
+| `--with-lsts` |  Whether to download LSTs for the repositories. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
 
