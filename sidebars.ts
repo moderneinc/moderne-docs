@@ -270,6 +270,28 @@ const sidebars: SidebarsConfig = {
         'hands-on-learning/introduction/module-4-devcenter',
       ],
     },
+    {
+      type: 'category',
+      label: 'Fundamentals of recipe development',
+      link: {
+        type: 'generated-index',
+        title: 'Fundamentals of recipe development workshop',
+        description: 'Learn how OpenRewrite works and get hands-on experience developing recipes.',
+        slug: '/hands-on-learning/fundamentals',
+        keywords: ['recipes'],
+      },
+      items: [
+        'hands-on-learning/fundamentals/workshop-overview',
+        'hands-on-learning/fundamentals/module-1-running-recipes',
+        'hands-on-learning/fundamentals/module-2-recipe-builder',
+        'hands-on-learning/fundamentals/module-3-recipe-development-environment',
+        'hands-on-learning/fundamentals/module-4-declarative-yaml-recipes',
+        'hands-on-learning/fundamentals/module-5-preconditions',
+        'hands-on-learning/fundamentals/module-6-testing-recipes',
+        'hands-on-learning/fundamentals/module-7-refaster-recipes',
+        'hands-on-learning/fundamentals/module-8-imperative-recipes',
+      ],
+    },
 /* Commenting these out for now until they're ready
    {
       type: 'category',
