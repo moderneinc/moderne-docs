@@ -74,7 +74,7 @@ mod build .
 ```
 
 :::info
-Building LSTs requires a local JDK installation because the CLI uses your build tooling to parse and type-attribute the code. If you run into JDK-related errors, verify `java -version` works and that your environment is using a supported JDK (Java 17+ recommended for this workshop).
+Building LSTs may take a few minutes to complete. It also requires a local JDK installation because the CLI uses your build tooling to parse and type-attribute the code. If you run into JDK-related errors, verify `java -version` works and that your environment is using a supported JDK (Java 17+ recommended for this workshop).
 :::
 
 <details>
