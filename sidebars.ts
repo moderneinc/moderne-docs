@@ -150,7 +150,7 @@ const sidebars: SidebarsConfig = {
         'user-documentation/moderne-cli/cli-reference',
         {
           type: 'category',
-          label: 'Moderne CLI reference documentation.',
+          label: 'Moderne CLI reference documentation',
           link: {
             type: 'generated-index',
             title: 'References',
@@ -160,6 +160,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'user-documentation/moderne-cli/references/repos-csv',
+            'user-documentation/moderne-cli/references/recipes-csv',
             'user-documentation/moderne-cli/references/cli-3-44-0-changes',
             'user-documentation/moderne-cli/references/cli-3-45-0-changes',
             'user-documentation/moderne-cli/references/faq',
