@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Module 3: Environment setup"
+sidebar_label: "Module 1: Environment setup"
 description: How to set up your IDE to write custom recipes.
 ---
 
-# Module 3: Recipe development environment
+# Module 1: Recipe development environment
 
-Now that you've seen how to run recipes and built one in Moderne using the recipe builder, let's look at how to write your own recipes.
+If you completed the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop, you are familiar with how to run recipes and build them in Moderne using the recipe builder. Now let's look at how to write your own recipes. 
 
 You'll want to have the following installed:
 
@@ -17,7 +17,7 @@ You'll want to have the following installed:
 * [The Moderne plugin](../../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md), for faster recipe development and to help debug recipes.
 * [The Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs.
 
-## Exercise 3: Create and test your own recipe module
+## Exercise 1: Create and test your own recipe module
 
 ### Goals for this exercise
 
@@ -69,5 +69,3 @@ It's important to note there are different types of recipes, each with their own
 3. [Imperative recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#imperative-recipes) are the most powerful, and allow you to write Java code to implement your recipe. By [using the `JavaTemplate` builder](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate), you can keep complexity down, as you define arbitrary code changes.
 
 No matter which method of recipe development you choose, you can (and should) always [write unit tests for your recipe](https://docs.openrewrite.org/authoring-recipes/recipe-testing). Beyond that, there are [best practices for writing recipes](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices), such as ensuring idempotence, and avoiding harmful changes. The remaining modules will explore in more detail how to write and test all three of these types of recipes.
-
-

@@ -255,6 +255,24 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: "Introduction to OpenRewrite",
+      link: {
+        type: 'generated-index',
+        title: "Introduction to OpenRewrite",
+        description: 'Learn how OpenRewrite works and get hands-on experience running recipes.',
+        slug: '/hands-on-learning/introduction',
+        keywords: ['recipes'],
+      },
+      items: [
+        'hands-on-learning/introduction/workshop-overview',
+        'hands-on-learning/introduction/module-1-running-recipes',
+        'hands-on-learning/introduction/module-2-recipe-builder',
+        'hands-on-learning/introduction/module-3-data-tables-visualizations',
+        'hands-on-learning/introduction/module-4-devcenter',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Fundamentals of recipe development',
       link: {
         type: 'generated-index',
@@ -265,16 +283,34 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'hands-on-learning/fundamentals/workshop-overview',
-        'hands-on-learning/fundamentals/module-1-running-recipes',
-        'hands-on-learning/fundamentals/module-2-recipe-builder',
-        'hands-on-learning/fundamentals/module-3-recipe-development-environment',
-        'hands-on-learning/fundamentals/module-4-declarative-yaml-recipes',
-        'hands-on-learning/fundamentals/module-5-preconditions',
-        'hands-on-learning/fundamentals/module-6-testing-recipes',
-        'hands-on-learning/fundamentals/module-7-refaster-recipes',
-        'hands-on-learning/fundamentals/module-8-imperative-recipes',
+        'hands-on-learning/fundamentals/module-1-recipe-development-environment',
+        'hands-on-learning/fundamentals/module-2-declarative-yaml-recipes',
+        'hands-on-learning/fundamentals/module-3-preconditions',
+        'hands-on-learning/fundamentals/module-4-testing-recipes',
+        'hands-on-learning/fundamentals/module-5-refaster-recipes',
+        'hands-on-learning/fundamentals/module-6-imperative-recipes',
       ],
     },
+/* Commenting these out for now until they're ready
+   {
+      type: 'category',
+      label: 'Fundamentals of recipe development',
+      link: {
+        type: 'generated-index',
+        title: 'Fundamentals of OpenRewrite recipe development',
+        description: 'Get hands-on experience developing OpenRewrite recipes.',
+        slug: '/hands-on-learning/fundamentals',
+        keywords: ['training','recipes'],
+      },
+      items: [
+        'hands-on-learning/fundamentals/workshop-overview',
+        'hands-on-learning/fundamentals/module-1-environment-setup',
+        'hands-on-learning/fundamentals/module-2-declarative-recipes',
+        'hands-on-learning/fundamentals/module-3-refaster-recipes',
+        'hands-on-learning/fundamentals/module-4-imperative-recipes',
+      ],
+    },
+*/
     {
       type: 'category',
       label: 'Advanced recipe development',
@@ -283,7 +319,7 @@ const sidebars: SidebarsConfig = {
         title: 'Advanced recipe development workshop',
         description: 'Learn to build advanced recipes that can extract insights and generate code.',
         slug: '/hands-on-learning/advanced',
-        keywords: ['recipes'],
+        keywords: ['training','recipes'],
       },
       items: [
         'hands-on-learning/advanced/workshop-overview',
