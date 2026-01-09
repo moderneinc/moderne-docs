@@ -11,7 +11,8 @@
 * Correct regression which skipped escaping JSON data table values
 * Continue Maven Java version detection when `RawPom.parse` fails on POM
 * Correct invalid paths in zip archive when built from Windows
-* Properly handle org hierarchies with multiple roots during `mod build` @bryceatmoderne in https://github.com/moderneinc/moderne-cli/pull/3084
+* Properly handle org hierarchies with multiple roots during `mod build`
+
 #### What's Changed DX
 * N/A
 
