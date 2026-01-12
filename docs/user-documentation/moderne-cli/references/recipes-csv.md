@@ -38,21 +38,21 @@ For new CLI installations, this file starts empty and grows as you install recip
 
 The `recipes-v5.csv` file contains one row per recipe with the following columns:
 
-| Column                                                                 | Required | Description                                                                            |
-|------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------|
-| `ecosystem`                                                            | Yes      | The package ecosystem identifier (e.g., `maven`, `npm`, `yaml`).                       |
-| `packageName`                                                          | Yes      | The package coordinates (e.g., `org.openrewrite.recipe:rewrite-java-dependencies`).    |
-| `name`                                                                 | Yes      | The fully qualified recipe name (e.g., `org.openrewrite.java.dependencies.AddDependency`). |
-| `displayName`                                                          | No       | A human-readable recipe title.                                                         |
-| `description`                                                          | No       | A brief explanation of what the recipe does.                                           |
-| `recipeCount`                                                          | No       | The number of recipes (direct + transitive) if this is a composite recipe.             |
-| `category1`, `category2`, ... `categoryN`                              | No       | Hierarchical category columns. `category1` is the deepest (most specific) level; higher numbers represent broader parent categories. |
-| `category1Description`, `category2Description`, ... `categoryNDescription` | No       | Optional descriptions for each corresponding category level.                           |
-| `options`                                                              | No       | A JSON array of recipe options and their metadata.                                     |
-| `dataTables`                                                           | No       | A JSON array of data tables the recipe produces.                                       |
-| `version`                                                              | No       | The resolved package version.                                                          |
-| `requestedVersion`                                                     | No       | The version constraint used when installing (e.g., `LATEST`).                          |
-| `team`                                                                 | No       | A team identifier for marketplace partitioning.                                        |
+| Column                                                                     | Required | Description                                                                                                                                                                                                                 |
+|----------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ecosystem`                                                                | Yes      | The package ecosystem identifier (e.g., `maven`, `npm`, `yaml`).                                                                                                                                                            |
+| `packageName`                                                              | Yes      | The package coordinates (e.g., `org.openrewrite.recipe:rewrite-java-dependencies`).                                                                                                                                         |
+| `name`                                                                     | Yes      | The fully qualified recipe name (e.g., `org.openrewrite.java.dependencies.AddDependency`).                                                                                                                                  |
+| `displayName`                                                              | No       | A human-readable recipe title.                                                                                                                                                                                              |
+| `description`                                                              | No       | A brief explanation of what the recipe does.                                                                                                                                                                                |
+| `recipeCount`                                                              | No       | The number of recipes (direct + transitive) if this is a composite recipe.                                                                                                                                                  |
+| `category1`, `category2`, ... `categoryN`                                  | No       | Hierarchical category columns. `category1` is the deepest (most specific) level; higher numbers represent broader parent categories.                                                                                        |
+| `category1Description`, `category2Description`, ... `categoryNDescription` | No       | Optional descriptions for each corresponding category level.                                                                                                                                                                |
+| `options`                                                                  | No       | A JSON array of the recipe's configurable options and their metadata. Must match the options defined in the recipe class. Empty if the recipe defines no options.                                                           |
+| `dataTables`                                                               | No       | A JSON array of data tables defined by the recipe. Must match the data tables the recipe explicitly produces. Empty if the recipe defines no additional data tables beyond the [default data tables](#default-data-tables). |
+| `version`                                                                  | No       | The resolved package version.                                                                                                                                                                                               |
+| `requestedVersion`                                                         | No       | The version constraint used when installing (e.g., `LATEST`).                                                                                                                                                               |
+| `team`                                                                     | No       | A team identifier for marketplace partitioning.                                                                                                                                                                             |
 
 ### Example entries
 
@@ -78,6 +78,20 @@ maven,org.openrewrite.recipe:rewrite-java-dependencies,org.openrewrite.java.depe
 ```
 
 For more examples, see the [Recipe Marketplace CSV Format ADR](https://github.com/openrewrite/rewrite/blob/main/doc/adr/0006-recipe-marketplace-csv-format.md#examples).
+
+### Default data tables
+
+All OpenRewrite recipes automatically produce the following data tables, which do not need to be listed in the `dataTables` column:
+
+| Data table                                 | Description                                           |
+|--------------------------------------------|-------------------------------------------------------|
+| `org.openrewrite.table.SourcesFileResults` | Source files that were modified by the recipe.        |
+| `org.openrewrite.table.SourcesFileErrors`  | Source files that had errors during recipe execution. |
+| `org.openrewrite.table.RecipeRunStats`     | Statistics about the recipe run.                      |
+| `org.openrewrite.table.ParseFailures`      | Files that failed to parse.                           |
+| `org.openrewrite.table.SearchResults`      | Source files that matched a search recipe.            |
+
+The `dataTables` column should only include data tables that the recipe explicitly defines beyond these defaults.
 
 ## For recipe authors
 
