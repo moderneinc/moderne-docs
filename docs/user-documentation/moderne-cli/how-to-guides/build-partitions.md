@@ -6,7 +6,7 @@ Please see our [example repository](https://github.com/moderneinc/partition-exam
 
 ## Defining build partitions
 
-To add partitions, add or edit the `.moderne/cli/moderne.yml` in the root of the repository:
+To add partitions, add or edit the `.moderne/moderne.yml` in the root of the repository:
 
 ```yaml
 build:
