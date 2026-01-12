@@ -52,7 +52,7 @@ The `recipes-v5.csv` file contains one row per recipe with the following columns
 | `dataTables`                                                               | No       | A JSON array of data tables defined by the recipe. Must match the data tables the recipe explicitly produces. Empty if the recipe defines no additional data tables beyond the [default data tables](#default-data-tables). |
 | `version`                                                                  | No       | The resolved package version. Populated by the CLI during installation. Should not be included in JAR-embedded CSVs.                                                                                                        |
 | `requestedVersion`                                                         | No       | The version constraint used when installing (e.g., `LATEST`). Populated by the CLI during installation. Should not be included in JAR-embedded CSVs.                                                                        |
-| `team`                                                                     | No       | A team identifier for marketplace partitioning.                                                                                                                                                                             |
+| `team`                                                                     | No       | An organization identifier for multi-tenancy. When set, recipes are only visible when working within that organization's context.                                                                                           |
 
 ### Example entries
 
