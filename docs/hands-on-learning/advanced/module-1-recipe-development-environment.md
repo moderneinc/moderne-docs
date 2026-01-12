@@ -10,7 +10,7 @@ This module introduces the primary tools you'll use to author, run, and debug ad
 We’ll build on what you may have seen in the fundamentals course and take a deeper dive into real-world development and troubleshooting workflows.
 
 :::info
-If you have not already run through [Fundamentals of recipe development](../fundamentals/workshop-overview), you will want to at least complete [Module 3: Recipe development environment](../fundamentals/module-3-recipe-development-environment) to validate your development environment and ensure you have all the necessary tools and setup to develop and run advanced OpenRewrite recipes. This includes making sure you have cloned the [`rewrite-recipe-starter` repository](https://github.com/moderneinc/rewrite-recipe-starter).)
+If you have not already run through [Fundamentals of recipe development](../fundamentals/workshop-overview), you will want to at least complete [Module 1: Recipe development environment](../fundamentals/module-1-recipe-development-environment) to validate your development environment and ensure you have all the necessary tools and setup to develop and run advanced OpenRewrite recipes. This includes making sure you have cloned the [`rewrite-recipe-starter` repository](https://github.com/moderneinc/rewrite-recipe-starter).)
 :::
 
 ## Exercise 1a: Using the Moderne plugin for IntelliJ
