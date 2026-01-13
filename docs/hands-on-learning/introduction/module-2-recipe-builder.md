@@ -210,7 +210,7 @@ mod config recipes yaml install ~/moderne-workshop/stringutils.yml
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.0
+Moderne CLI 3.55.1
 
 ⏺ Installing recipes from YAML files
 
@@ -246,7 +246,7 @@ Again, you may see `The latest LST is not up to date` messages for some reposito
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.0
+Moderne CLI 3.55.1
 
 ⏺ Reading organization
 

@@ -48,7 +48,7 @@ If everything was configured correctly, you should be able to type `mod` into yo
 ```bash
 ➜ mod
 
-Moderne CLI 3.55.0
+Moderne CLI 3.55.1
 
 Usage:
 
@@ -186,7 +186,7 @@ If everything was configured correctly, you should be able to type `mod` into yo
 ```bash
 ➜ mod
 
-Moderne CLI 3.55.0
+Moderne CLI 3.55.1
 
 Usage:
 
@@ -376,7 +376,7 @@ mod config moderne organizations show
 <summary>You should see something like this:</summary>
 
 ```bash
-Moderne CLI 3.55.0
+Moderne CLI 3.55.1
 
 ⏺ Retrieving the configured organizations
 
@@ -448,7 +448,7 @@ mod config moderne organizations show
 <summary>You should see something that looks similar to this (it will have your organizations instead):</summary>
 
 ```bash
-Moderne CLI 3.55.0
+Moderne CLI 3.55.1
 
 ⏺ Retrieving the configured organizations
 

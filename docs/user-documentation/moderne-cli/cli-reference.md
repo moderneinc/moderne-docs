@@ -2451,6 +2451,12 @@ Must be configured before you can run the build command if JDKs are in non-stand
 mod config java jdk edit [parameters]
 ```
 
+### Examples
+
+```
+mod config java jdk edit /path/to/jdk1 /path/to/jdk2
+```
+
 ### Parameters
 
 | Name | Description |
