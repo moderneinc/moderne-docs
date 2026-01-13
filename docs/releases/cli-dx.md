@@ -1,5 +1,15 @@
 # CLI / DX changelog
 
+### CLI / DX v3.55.1 (2026-01-13)
+
+#### What's Changed CLI
+* Add `mod config java jdk edit` documentation example
+* Set recipe marketplace resolvers prior to validating recipes during DevCenter dashboard generation
+* Introduce Cobol build step
+* Remove `node` installation dependency when running recipes
+#### What's Changed DX
+* N/A
+
 ### CLI / DX v3.55.0 (2026-01-08)
 
 #### What's Changed CLI
