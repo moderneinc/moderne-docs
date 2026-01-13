@@ -9,7 +9,7 @@ description: Instructions for downloading reports.
 
 Moderne offers a variety of reports for administrators:
 
-* **Audit logs** - every action a user attempts to take in the platform, either via the UI or the API, is recorded along with the user who took the action, a description of the action, the time that action took place, and whether that action was successful. You can access audit logs via the UI or download them via the API in CEF or CSV format.
+* **Audit logs** - every action a user attempts to take in the platform, either via the UI or the API, is recorded along with the user who took the action, a description of the action, the time that action took place, and whether that action was successful. You can access audit logs via the UI or download them via the API in either CEF or CSV format.
 * **Recipes run** - every recipe run by every user in your system. Includes the recipe name, time saved, user that ran it, recipe, as well as various statistics of the recipe run.
 * **Commits made** - every commit made by every user in your system. Includes the recipe run id (to be able to link the reports together), the type of commit, status of the commit job, as well as other statistics of the commit job.
 * **Usage** - every recipe run and associated commit by every user in your system. The generated report combines the commit and recipe run reports. This report includes 
@@ -18,7 +18,7 @@ of the commit are included (e.g., the type of commit or the status of the commit
 
 ## Audit logs
 
-Audit logs are accessible from `https://<TENANT>.moderne.io/admin/audit-logs`, and can be viewed in the UI, accessed via the API, or downloaded in file format.
+Audit logs are accessible from `https://<TENANT>.moderne.io/admin/audit-logs`, and can be viewed in the UI, accessed via the API, or downloaded in CEF or CSV format.
 
 ### Export formats
 
@@ -37,8 +37,8 @@ Audit logs can be exported in two formats:
 To download audit logs from the UI:
 
 1. Navigate to `https://<TENANT>.moderne.io/admin/audit-logs`.
-2. (Optional) Use the date range picker to limit the export to a specific time period.
-3. Click either "Export to CEF" or "Export to CSV" depending on your desired format.
+2. (Optionally) Use the date range picker to limit the export to a specific time period.
+3. Click on "Export to CEF" or "Export to CSV" depending on your desired format.
 
 ![](./assets/audit-log-download.png)
 
@@ -68,12 +68,12 @@ mutation {
 
 **Arguments:**
 
-| Argument | Required | Description |
-| -------- | -------- | ----------- |
-| `format` | Yes | The export format. Must be either `CEF` or `CSV`. |
-| `first` | No | Limit the number of records to export. Use `0` or `null` to export all records. |
-| `since` | No | Start date filter in ISO 8601 format (e.g., `"2024-01-01T00:00:00+00:00"`). |
-| `until` | No | End date filter in ISO 8601 format (e.g., `"2024-12-31T23:59:59+00:00"`). |
+| Argument | Required | Description                                                                     |
+|----------|----------|---------------------------------------------------------------------------------|
+| `format` | Yes      | The export format. Must be either `CEF` or `CSV`.                               |
+| `first`  | No       | Limit the number of records to export. Use `0` or `null` to export all records. |
+| `since`  | No       | Start date filter in ISO 8601 format (e.g., `"2024-01-01T00:00:00+00:00"`).     |
+| `until`  | No       | End date filter in ISO 8601 format (e.g., `"2024-12-31T23:59:59+00:00"`).       |
 
 **Step 2: Check the download status**
 
@@ -92,12 +92,12 @@ query {
 
 **Response fields:**
 
-| Field | Description |
-| ----- | ----------- |
-| `id` | The unique identifier for this download request. |
-| `state` | The current state: `QUEUED`, `SUCCESSFUL`, or `FAILED`. |
-| `stateMessage` | An error message if the state is `FAILED`. |
-| `url` | The download URL, available only when state is `SUCCESSFUL`. |
+| Field          | Description                                                      |
+|----------------|------------------------------------------------------------------|
+| `id`           | The unique identifier for this download request.                 |
+| `state`        | The current state: `QUEUED`, `SUCCESSFUL`, or `FAILED`.          |
+| `stateMessage` | An error message if the state is `FAILED`.                       |
+| `url`          | The download URL, available only when the state is `SUCCESSFUL`. |
 
 **Step 3: Download the file**
 
