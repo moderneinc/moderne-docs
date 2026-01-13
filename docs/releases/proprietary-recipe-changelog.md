@@ -10,6 +10,15 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## January 13, 2026
+
+#### rewrite-spring - v0.20.1
+
+* Do not remove `spring-boot-starter-test` just yet
+* Bump spring ws when moving to spring boot 4
+* Fixing tests to consistently use the same line endings, as it was mixing `CRLF` and `LF` on Windows previously and failing the tests
+* Downstream fixes in `org.openrewrite:rewrite-spring`
+
 ## January 7, 2026
 
 #### rewrite-ai-search - 0.32.4
