@@ -245,6 +245,7 @@ const sidebars: SidebarsConfig = {
         'user-documentation/recipes/common-custom-recipes',
         'user-documentation/recipes/contributing-to-openrewrite',
         'user-documentation/recipes/conventions-and-best-practices',
+        'user-documentation/recipes/faq',
       ],
     },
     'user-documentation/community-office-hours',
@@ -591,20 +592,6 @@ const sidebars: SidebarsConfig = {
             'administrator-documentation/moderne-dx/references/moderne-dx-architecture',
           ],
         },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Shared references',
-      link: {
-        type: 'generated-index',
-        title: 'Shared references',
-        description: 'Shared administrative reference documentation.',
-        slug: '/administrator-documentation/references',
-        keywords: ['reference'],
-      },
-      items: [
-        'administrator-documentation/references/faq',
       ],
     },
     {
