@@ -15,6 +15,10 @@ To assist with that, this guide will:
 * Walk you through how to create a [GitHub application](#github-application-configuration-preferred) or [GitHub OAuth application](#github-oauth-application-configuration-alternative)
 * [Provide you with a list of necessary variables the agent needs to communicate with your GitHub instance](#configure-the-moderne-agent)
 
+:::tip Which should I choose?
+GitHub Apps are recommended for their fine-grained permissions, short-lived tokens, and IP allow list support. OAuth Apps may be simpler if you support personal forks or have many independent organizations. See the [full comparison](../../references/github-permissions.md#github-applications-vs-github-oauth-applications) for details.
+:::
+
 ## Prerequisites
 
 * You will need administrator access to your organization's GitHub account
