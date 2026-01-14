@@ -1,4 +1,122 @@
 # Platform changelog
+
+### UI v12.24.1 (2026/01/13)
+
+* Bug fixes and other improvements.
+
+### UI v12.24.0 (2026/01/13)
+
+* Bug fixes and other improvements.
+
+### UI v12.23.0 (2026/01/07)
+
+* Add Jasper Reports category support.
+* Add recipe queue.
+* Add Apollo @defer incremental handler.
+
+### UI v12.22.5 (2025/12/31)
+
+* Bug fixes and other improvements.
+
+### UI v12.22.4 (2025/12/29)
+
+* Bug fixes and other improvements.
+
+### UI v12.22.3 (2025/12/23)
+
+* Bug fixes and other improvements.
+
+### UI v12.22.2 (2025/12/22)
+
+* Bug fixes and other improvements.
+
+### UI v12.22.1 (2025/12/19)
+
+* Bug fixes and other improvements.
+
+### UI v12.22.0 (2025/12/18)
+
+* Add chrono DevCenter page prototype.
+
+### UI v12.21.0 (2025/12/18)
+
+* Converted navigation to new Neo design system.
+
+### UI v12.20.1 (2025/12/15)
+
+* Bug fixes and other improvements.
+
+### UI v12.20.0 (2025/12/15)
+
+* Converted batch activity page to new Neo design system.
+
+### UI v12.19.0 (2025/12/10)
+
+* Update admin menu icons to Lucide.
+* Add status link to admin menu.
+* Add toggle to disable font ligatures in diff view.
+* Better download error messages.
+
+### UI v12.18.2 (2025/12/05)
+
+* Bug fixes and other improvements.
+
+### UI v12.18.1 (2025/12/05)
+
+* Bug fixes and other improvements.
+
+### UI v12.18.0 (2025/12/04)
+
+* Converted deploy pages to new Neo design system.
+
+### UI v12.17.0 (2025/12/04)
+
+* Add Poolside category support.
+
+### UI v12.16.0 (2025/12/03)
+
+* Converted repositories page to new Neo design system.
+
+### UI v12.15.0 (2025/12/01)
+
+* Converted user settings pages to new Neo design system.
+
+### UI v12.14.0 (2025/12/01)
+
+* Converted admin pages to new Neo design system.
+
+### UI v12.13.3 (2025/11/27)
+
+* Bug fixes and other improvements.
+
+### UI v12.13.2 (2025/11/25)
+
+* Bug fixes and other improvements.
+
+### UI v12.13.1 (2025/11/24)
+
+* Bug fixes and other improvements.
+
+### UI v12.13.0 (2025/11/20)
+
+* Bug fixes and other improvements.
+
+### UI v12.12.0 (2025/11/13)
+
+* Bug fixes and other improvements.
+
+### UI v12.11.0 (2025/11/12)
+
+* Add CSS Highlights API for improved syntax highlighting performance.
+
+### UI v12.10.0 (2025/11/07)
+
+* Bug fixes and other improvements.
+
+### UI v12.9.0 (2025/11/07)
+
+* Use recipe instance names in activity views and results.
+
 ### UI v12.8.1 (2025/11/05)
 
 - Bug fixes and other improvements.
