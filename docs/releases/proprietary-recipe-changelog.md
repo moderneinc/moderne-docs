@@ -10,7 +10,19 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## January 14, 2026
+
+#### rewrite-java-security - v3.25.2
+
+* Allow debug tracing to explain why custom `DependencyVulnerabilityCheck` selects a particular dependency version
+
 ## January 13, 2026
+
+#### rewrite-java-security - v3.25.1
+
+* Skip unnecessary maven resolution when `UpgradeDelta.none` is used
+* Fixes an issue where vulnerabilities from the built-in database could not always be overridden by supplemental vulnerabilties
+*  Fixed a long-standing issue where chains of version upgrades could not be accomplished in a single cycle
 
 #### rewrite-spring - v0.20.1
 
