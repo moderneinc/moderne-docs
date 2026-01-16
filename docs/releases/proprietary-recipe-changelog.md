@@ -10,6 +10,15 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## January 15, 2026
+
+#### rewrite-java-security - v3.25.3
+
+* OpenRewrite recipe best practices
+* Expect vertx-5.0.7 in tests going forward
+* Add ignoredDependencies option to RemoveUnusedDependencies
+* Remove debug tracing from DependencyVulnerabilityCheckBase
+
 ## January 14, 2026
 
 #### rewrite-java-security - v3.25.2
