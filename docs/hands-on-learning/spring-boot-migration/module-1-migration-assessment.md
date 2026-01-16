@@ -62,7 +62,7 @@ In this module, you will run the Spring Boot 4 migration recipe in the Moderne P
 </figure>
 
 
-5. Mouse over the root node in the recipe list and click the `+` button. and now search for `Migrate to Spring Boot 4.0` (`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`) and select it.
+5. Search for `Migrate to Spring Boot 4.0` (`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`) and select it.
 6. Click `Add recipe`.
 
 <figure>
