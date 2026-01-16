@@ -49,7 +49,7 @@ Additionally, since you will be upgrading in waves to ensure that custom library
 This is an example of a migration recipe _freight train_. You'll often build a custom recipe that runs the out-of-the-box recipes and then applies some additional ones that are needed in your particular environment. In this workshop, the composite recipe upgrades internal dependencies, applies the Spring Boot 4 recipe, and then runs the QueryDSL upgrade.
 :::
 
-1. Create a local YAML recipe file:
+1. Create a local YAML recipe file. This composite recipe is named [`org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/querydsl/customupgradespringboot_4_0) and combines [`org.openrewrite.java.dependencies.UpgradeDependencyVersion`](https://docs.openrewrite.org/recipes/java/dependencies/upgradedependencyversion), [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0), and [`org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`](https://docs.openrewrite.org/recipes/querydsl/upgradetoquerydsl5).
 
 ```bash
 cat <<'EOF' > CustomUpgradeSpringBoot_4_0.yml
@@ -74,7 +74,7 @@ Take a look at each recipe in the recipe list of this YAML file so you understan
 You can't use recipe builder in this case since you are referring to a custom recipe that is not available in the platform.
 :::
 
-2. Install this custom recipe locally with the CLI:
+2. Install [`org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/querydsl/customupgradespringboot_4_0) locally with the CLI:
 
 ```bash
 mod config recipes yaml install CustomUpgradeSpringBoot_4_0.yml
@@ -91,7 +91,7 @@ mod config recipes yaml install CustomUpgradeSpringBoot_4_0.yml
 
 Now that the custom upgrade recipe is ready, it's time to upgrade each wave! 
 
-1. Start by upgrading Wave 0 using the following commands. 
+1. Start by upgrading Wave 0 using [`org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/querydsl/customupgradespringboot_4_0) with the following commands. 
 
 ```bash
 mod run $WORKSPACE/Wave0 --recipe org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0
@@ -102,13 +102,11 @@ mod git apply $WORKSPACE/Wave0 --last-recipe-run
 Notice you are referencing the `Wave0` directory for each of the `mod` commands. This is taking advantage of the organizational directory structure to target only the wave you want to apply changes to so you can do each wave individually.
 :::
 
-2. Now that the changes have been applied, verify the build and then release:
+2. Now that the changes have been applied, verify the build and release:
 
 ```bash
-$WORKSHOP/build.sh 0
 $WORKSHOP/release.sh 0
 ```
-<!-- TODO: Could we potentially skip the build step here if we're confident that it works? The release does the build as well, no? -->
 
 This isn't surprising since you saw Wave 0 successfully build earlier. It was Wave 1 that failed last time, so the real test will be upgrading Wave 1.
 
@@ -121,7 +119,7 @@ This isn't surprising since you saw Wave 0 successfully build earlier. It was Wa
 
 ### Steps
 
-1. Once again, run the recipe, but this time, targeting the `Wave1` directory:
+1. Once again, run [`org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/querydsl/customupgradespringboot_4_0), but this time, targeting the `Wave1` directory:
 
 ```bash
 mod run $WORKSPACE/Wave1 --recipe org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0
@@ -152,7 +150,7 @@ At the end of Module 1, you used an organizational DevCenter to see the status o
 mod build $WORKSPACE
 ```
 
-2. With the LSTs up-to-date, you can run the DevCenter recipe and then the `mod devcenter` command to generate the dashboard:
+2. With the LSTs up-to-date, you can run the DevCenter recipe ([`io.moderne.devcenter.DevCenterStarter`](https://docs.openrewrite.org/recipes/devcenter/devcenterstarter)) and then the `mod devcenter` command to generate the dashboard:
 
 ```bash
 mod run $WORKSPACE --recipe io.moderne.devcenter.DevCenterStarter

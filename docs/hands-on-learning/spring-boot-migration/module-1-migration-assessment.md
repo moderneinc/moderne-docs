@@ -7,7 +7,25 @@ description: Run an initial migration and gather code insight data in the Modern
 
 In this module, you will run the Spring Boot 4 migration recipe in the Moderne Platform, then use code insight recipes to find the biggest risks and blockers. The idea is to see what breaks before investing time in fixes.
 
-## Exercise 1-1: Run the full migration recipe in the Moderne Platform
+## Exercise 1-1: Capture a DevCenter baseline
+
+### Goals for this exercise
+
+* Get an idea of the starting point for Java and Spring Boot versions
+
+### Steps
+
+1. Ensure `Moderne - Training` is still selected in the org dropdown.
+2. Click `DevCenter` in the left nav.
+3. Note the current status of Java and Spring Boot versions.
+4. Keep this page handy so you can compare after upgrading each group of repositories.
+
+<figure>
+  ![](./assets/dev-center-baseline.png)
+  <figcaption>_DevCenter baseline_</figcaption>
+</figure>
+
+## Exercise 1-2: Run the full migration recipe in the Moderne Platform
 
 ### Goals for this exercise
 
@@ -62,15 +80,15 @@ In this module, you will run the Spring Boot 4 migration recipe in the Moderne P
 </figure>
 
 
-5. Search for `Migrate to Spring Boot 4.0` (`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`) and select it.
+5. Search for `Migrate to Spring Boot 4.0` ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition)) and select it.
 6. Click `Add recipe`.
 
 <figure>
-  ![](./assets/try-spring-boot-4.png)
+  ![](./assets/add-spring-boot-4-recipe.png)
   <figcaption>_Add 'Migrate to Spring Boot 4.0' recipe_</figcaption>
 </figure>
 
-7. Click the `+` next to the root node in the recipe list again and search for `Verify compilation` (`io.moderne.compiled.verification.VerifyCompilation`) this time. Click `Add recipe` to add it.
+7. Click the `+` next to the root node in the recipe list again and search for `Verify compilation` ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) this time. Click `Add recipe` to add it.
 
 <figure>
   ![](./assets/try-spring-boot-4-custom-recipe.png)
@@ -104,10 +122,10 @@ These are common migration speed bumps. The rest of the workshop is structured t
 </figure>
 
 :::tip
-A migration dry run plus the `Verify compilation` recipe gives you a quick picture of what will break before you start the real work.
+A migration dry run plus the `Verify compilation` recipe ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) gives you a quick picture of what will break before you start the real work.
 :::
 
-## Exercise 1-2: Run code insight recipes
+## Exercise 1-3: Run code insight recipes
 
 ### Goals for this exercise
 
@@ -117,9 +135,9 @@ A migration dry run plus the `Verify compilation` recipe gives you a quick pictu
 
 ### Steps
 
-#### Step 1: Plan a Java migration
+#### Step 1: Understand your Java adoption
 
-1. From the Marketplace, search for and select `Plan a Java version migration` (`org.openrewrite.java.migrate.search.PlanJavaMigration`).
+1. From the Marketplace, search for and select `Plan a Java version migration` ([`org.openrewrite.java.migrate.search.PlanJavaMigration`](https://docs.openrewrite.org/recipes/java/migrate/search/planjavamigration)).
 2. Make sure `Moderne - Training` is still selected and click `Dry run` to run the recipe against the org.
 3. After the recipe run, click on the `Data tables` tab. Then download and open the `Java version migration plan` data table as a CSV or Excel file.
 
@@ -136,16 +154,16 @@ This helps you confirm the baseline Java versions and build tooling in use so yo
 
 #### Step 2: Inspect Spring Boot versions
 
-1. From the Marketplace, search for and select `Dependency insight for Gradle and Maven` (`org.openrewrite.java.dependencies.DependencyInsight`).
+1. From the Marketplace, search for and select `Dependency insight for Gradle and Maven` ([`org.openrewrite.java.dependencies.DependencyInsight`](https://docs.openrewrite.org/recipes/java/dependencies/dependencyinsight)).
 2. Configure the options:
    - **Group pattern:** `org.springframework.boot`
-   - **Artifact pattern:** `spring-boot`
+   - **Artifact pattern:** `*`
    - **Scope:** `runtime`
 3. Click `Dry run` and wait for the recipe run to complete. Now open the `Dependencies in use` data table and download the CSV.
 4. On the `Visualizations` tab, run the `Dependency usage visualization`.
 
 <figure>
-  ![](./assets/java-version-migration-plan-data-table.png)
+  ![](./assets/dependency-usage-visualization.png)
   <figcaption>_'Dependency usage' visualization_</figcaption>
 </figure>
 
@@ -155,7 +173,7 @@ The data table and visualization give you a distribution view of current Spring 
 
 While you can run libraries compiled with an older version of Java in newer versions of JVM, the Java runtime has deprecated specific APIs and ultimately removed or refactored those as it has evolved. Perhaps the most prominent example of this is the many `javax.*` internal APIs (including the Java EE APIs) that were ultimately moved out of the JVM and into the Jakarta namespace. When you see high `javax.*` usage, expect more work to move to `jakarta.*` during the Spring Boot 4 upgrade. 
 
-1. From the Marketplace, search for and select `Find types` (`org.openrewrite.java.search.FindTypes`).
+1. From the Marketplace, search for and select `Find types` ([`org.openrewrite.java.search.FindTypes`](https://docs.openrewrite.org/recipes/java/search/findtypes)).
 2. Configure the option:
    - **Fully qualified type name:** `javax..*`
 3. Click `Dry run`.
@@ -167,36 +185,18 @@ You can see that some of these projects use the validation and persistence APIs.
 
 Code generators like QueryDSL are often the hardest blockers because they can emit code that is tightly coupled to older Java and Spring APIs.
 
-1. From the Marketplace, search for and select `Find Maven plugins` (`org.openrewrite.maven.search.FindPlugin`).
+1. From the Marketplace, search for and select `Find Maven plugins` ([`org.openrewrite.maven.search.FindPlugin`](https://docs.openrewrite.org/recipes/maven/search/findplugin)).
 2. Configure the options:
    - **Group ID:** `com.mysema.maven`
    - **Artifact ID:** `apt-maven-plugin`
 3. Click `Dry run`.
-4. Open the `SourcesFileResults` data table and note which repos use QueryDSL.
+4. Open the `SearchResults` data table and note which repos use QueryDSL.
 
 You should see four services that are using QueryDSL as part of their persistence layer.
 
 :::tip
-Other useful code insight recipes you may want to explore later: [`FindInternalJavaxApis`](https://docs.openrewrite.org/recipes/java/migrate/search/findinternaljavaxapis), [`FindDeprecatedUses`](https://docs.openrewrite.org/recipes/java/search/finddeprecateduses), and [`RelocatedDependencyCheck`](https://docs.openrewrite.org/recipes/java/dependencies/relocateddependencycheck).
+Other useful code insight recipes you may want to explore later: `FindInternalJavaxApis` ([`org.openrewrite.java.migrate.search.FindInternalJavaxApis`](https://docs.openrewrite.org/recipes/java/migrate/search/findinternaljavaxapis)), `FindDeprecatedUses` ([`org.openrewrite.java.search.FindDeprecatedUses`](https://docs.openrewrite.org/recipes/java/search/finddeprecateduses)), and `RelocatedDependencyCheck` ([`org.openrewrite.java.dependencies.RelocatedDependencyCheck`](https://docs.openrewrite.org/recipes/java/dependencies/relocateddependencycheck)).
 :::
-
-## Exercise 1-3: Capture a DevCenter baseline
-
-### Goals for this exercise
-
-* Record the starting point for Java and Spring Boot versions
-
-### Steps
-
-1. Ensure `Moderne - Training` is still selected in the org dropdown.
-2. Click `DevCenter` in the left nav.
-3. Note the current status of Java and Spring Boot versions.
-4. Keep this page handy so you can compare after upgrading each group of repositories.
-
-<figure>
-  ![](./assets/dev-center-baseline.png)
-  <figcaption>_DevCenter baseline_</figcaption>
-</figure>
 
 ## Takeaways
 

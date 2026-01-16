@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 In this module, you'll move from SaaS-only assessment to CLI-driven analysis so you can map dependencies and pick a safe upgrade order. You will group repositories into “waves” based on those dependencies and upgrade them in order.
 
-For this workshop, each repository is treated as independently released. That constraint mirrors how large organizations manage shared libraries and it forces us to think about sequencing instead of upgrading everything at once. Dependencies matter because downstream repos can only move once their upstream libraries are upgraded and released. 
+For this workshop, each repository is treated as independently released. That constraint mirrors how large organizations manage shared libraries and it forces you to think about sequencing instead of upgrading everything at once. Dependencies matter because downstream repos can only move once their upstream libraries are upgraded and released. 
 
 ## Exercise 2-1: Set up your workspace and build LSTs
 
@@ -18,7 +18,7 @@ For this workshop, each repository is treated as independently released. That co
 
 * Create a workspace and sync repositories
 * Build LSTs for local analysis
-* Install a deterministic set of recipes
+* Install the set of recipes required for this workshop
 
 ### Steps
 
@@ -36,7 +36,7 @@ export PROJECTS=~/projects
 You might want to keep two shells open: one in `$WORKSHOP` for scripts and one in `$WORKSPACE` for `mod` commands.
 :::
 
-#### Step 2: Sync repos and LSTs
+#### Step 2: Sync repos and prepare 
 
 1. First, clone the Moderne Migration Practice workshop which contains some helper scripts and metadata about the example projects.
 
@@ -60,7 +60,7 @@ mod git sync csv $WORKSPACE $WORKSHOP/repos.csv --with-sources
 
 <!-- TODO: If we don't download LSTs from the platform, here's where we need to add a `mod build` step. -->
 
-#### Step 3: Install a deterministic recipe set
+#### Step 3: Install the recipe set
 
 Use the following command to install the necessary OpenRewrite recipe modules for this workshop:
 
@@ -219,7 +219,7 @@ Open the notebook in Jupyter (or a Jupyter editor like VS Code), then update the
 </TabItem>
 </Tabs>
 
-:::warning
+:::note
 If neither option works right now, don't worry. You can skip the rest of this exercise and still continue with the workshop using the wave list shown in the next exercise.
 :::
 

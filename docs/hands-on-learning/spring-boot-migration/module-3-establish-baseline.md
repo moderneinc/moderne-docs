@@ -21,7 +21,7 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
 1. In the Moderne Platform, open the recipe builder and create a new recipe.
 2. Toggle off the `Auto-generate ID from name` setting so you can manually enter an ID, then fill in the fields as follows:
    - **Name:** `Spring Boot Migration Workshop Baseline`
-   - **ID:** `com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline`
+   - **ID:** [`com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline`](https://docs.openrewrite.org/recipes/com/example/ecom/recipe/springbootmigrationworkshopbaseline)
 
 <figure>
   ![](./assets/workshop-baseline-name-id.png)
@@ -29,10 +29,10 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
 </figure>
 
 3. Add the following recipes in order:
-   - **`Apache Maven best practices`** (`org.openrewrite.maven.BestPractices`)
-   - **`Migrate to Java 8`** (`org.openrewrite.java.migrate.UpgradeToJava8`)
-   - **`Migrate to Spring Boot 2.7`** (`org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7`)
-   - **`Change Maven managed dependency groupId, artifactId and optionally the version`** (`org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId`)
+   - **`Apache Maven best practices`** ([`org.openrewrite.maven.BestPractices`](https://docs.openrewrite.org/recipes/maven/bestpractices))
+   - **`Migrate to Java 8`** ([`org.openrewrite.java.migrate.UpgradeToJava8`](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava8))
+   - **`Migrate to Spring Boot 2.7`** ([`org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7`](https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7))
+   - **`Change Maven managed dependency groupId, artifactId and optionally the version`** ([`org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId`](https://docs.openrewrite.org/recipes/maven/changedependencygroupidandartifactid))
 4. Configure the dependency change:
    - **Old groupId:** `org.springframework.cloud`
    - **Old artifactId:** `spring-cloud-starter-zipkin`
@@ -75,7 +75,7 @@ mod config recipes yaml install $WORKSHOP/WorkshopBaseline.yml
 
 #### Step 2: Run the recipe and apply changes
 
-When you run a recipe from the CLI that makes changes, it stores recipe results as a patch without changing your working tree until you're ready to explicitly apply it. In this step, you'll run the recipe and then use `mod git apply` to write the recipe changes into the repos so you can review, test, and commit them.
+When you run a recipe from the CLI that makes changes, it stores recipe results as a patch without changing your working tree until you're ready to explicitly apply it. In this step, you'll run the [`com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline`](https://docs.openrewrite.org/recipes/com/example/ecom/recipe/springbootmigrationworkshopbaseline) recipe and then use `mod git apply` to write the recipe changes into the repos so you can review, test, and commit them.
 
 <!-- TODO: Confirm we don't need to run `mod build` since we should have updated LSTs from the last module. If not, add `mod build` here along with an explanation along the lines of: "Now we can build our first Lossless Semantic Trees (LSTs) so we can run OpenRewrite recipes on the synced repositories. This command may take a few minutes to run as it compiles the projects and builds the LSTs for each project:" --->
 
