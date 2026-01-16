@@ -5,13 +5,13 @@ description: Run an initial migration and gather code insight data in the Modern
 
 # Module 1: Migration assessment in the Moderne Platform
 
-In this module, you will run a full migration in the Moderne Platform, then use code insight recipes to learn where the biggest risks and blockers are likely to appear. The goal is to start with the end in mind: run the Spring Boot 4 recipe first so you can see the failure modes before investing time in fixes.
+In this module, you will run the Spring Boot 4 migration recipe in the Moderne Platform, then use code insight recipes to find the biggest risks and blockers. The idea is to see what breaks before investing time in fixes.
 
 ## Exercise 1-1: Run the full migration recipe in the Moderne Platform
 
 ### Goals for this exercise
 
-* Run the Spring Boot 4 migration recipe across the org
+* Run the Spring Boot 4 migration recipe across an organization
 * Inspect failures and identify migration blockers
 
 ### Steps
@@ -77,10 +77,10 @@ In this module, you will run a full migration in the Moderne Platform, then use 
   <figcaption>_Custom recipe to run Spring Boot migration and then verify compilation_</figcaption>
 </figure>
 
-#### Step 3: Run and review the migration
+#### Step 3: Run the recipe and review the migration
 
-1. Run the recipe against the org by clicking the `Dry Run` button above the recipe list.
-2. Open the change tree and click into a few files to review. Notice in particular the failures highlighted in the diffs by yellow squiggly lines.
+1. Run the recipe against the organization by clicking the `Dry Run` button above the recipe list.
+2. Open the change tree and click into a few files to review. Look for failures highlighted in the diffs by yellow squiggly lines.
 3. Take a few minutes to review the failures and note missing or incompatible classes and dependencies. 
 
 Common blockers include:
@@ -88,23 +88,23 @@ Common blockers include:
    * Incompatible build tool versions, plugins, or inconsistent configuration
    * Third-party dependencies that are incompatible, no longer exist, or have moved
    * Generated code that is tied to older Java or Spring APIs
-   * Dependencies between repositories in this set that need to be built in order
+   * Inter-repository dependencies that need to be built in a specific order
 
-You will likely see a few recurring failure patterns:
+In this workshop, you will likely see:
 
 * Missing "Q" classes from QueryDSL code generation (for example, `QOrder`, `QInventory`)
-* Test compile errors caused by changes in the Spring Boot test API or older JUnit versions
+* Test compile errors from Spring Boot test API changes or older JUnit versions
 * Missing managed dependency versions caused by a Spring Boot starter being moved, replaced, or some particular functionality being deprecated or removed (for example, `spring-cloud-starter-zipkin` no longer managed by Spring Boot 4)
 
 These are common migration speed bumps. The rest of the workshop is structured to handle them methodically.
 
 <figure>
   ![](./assets/build-failure-querydsl.png)
-  <figcaption>_One example of an compilation error is caused by the QueryDSL code generator._</figcaption>
+  <figcaption>_One example of a compilation error is caused by the QueryDSL code generator._</figcaption>
 </figure>
 
 :::tip
-Doing a migration dry run followed by the `Verify compilation` recipe can be a useful assessment step to give you a fast map of likely obstacles and risk areas before you invest in the actual upgrade. 
+A migration dry run plus the `Verify compilation` recipe gives you a quick picture of what will break before you start the real work.
 :::
 
 ## Exercise 1-2: Run code insight recipes
@@ -112,7 +112,7 @@ Doing a migration dry run followed by the `Verify compilation` recipe can be a u
 ### Goals for this exercise
 
 * Identify Java versions and build tooling in use
-* Discover current Spring Boot versions across the portfolio
+* Discover current Spring Boot versions across your repositories
 * Find `javax.*` usage hotspots and code generators
 
 ### Steps
@@ -142,7 +142,7 @@ This helps you confirm the baseline Java versions and build tooling in use so yo
    - **Artifact pattern:** `spring-boot`
    - **Scope:** `runtime`
 3. Click `Dry run` and wait for the recipe run to complete. Now open the `Dependencies in use` data table and download the CSV.
-4. On the `Visualizations` tab, run the `Dependency usage visualization.
+4. On the `Visualizations` tab, run the `Dependency usage visualization`.
 
 <figure>
   ![](./assets/java-version-migration-plan-data-table.png)
@@ -198,7 +198,7 @@ Other useful code insight recipes you may want to explore later: [`FindInternalJ
   <figcaption>_DevCenter baseline_</figcaption>
 </figure>
 
-### Takeaways
+## Takeaways
 
 * A full migration dry run surfaces real blockers before you start making changes
 * Code insight recipes help you quantify Java, Spring Boot, and `javax.*` usage hotspots

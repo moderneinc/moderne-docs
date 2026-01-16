@@ -331,10 +331,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Preparing for Spring Boot Migration',
+      label: 'Preparing for a Spring Boot Migration',
       link: {
         type: 'generated-index',
-        title: 'Preparing for Spring Boot Migration',
+        title: 'Preparing for a Spring Boot Migration',
         description: 'Plan and execute a Spring Boot 4 migration with wave-based upgrades.',
         slug: '/hands-on-learning/spring-boot-migration',
         keywords: ['training', 'recipes'],

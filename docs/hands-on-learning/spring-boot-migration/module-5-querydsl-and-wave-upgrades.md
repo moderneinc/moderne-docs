@@ -144,7 +144,7 @@ $WORKSHOP/release.sh 1
 
 ### Steps
 
-At the end of Module 1, you used an organizational DevCenter to see the status of the migration across repositories. Now that you've successfully upgrade a handful of repositories, you can generate a new DevCenter dashboard locally to compare and track your progress.
+At the end of Module 1, you used an organizational DevCenter to see the status of the migration across repositories. Now that you've successfully upgraded a handful of repositories, you can generate a new DevCenter dashboard locally to compare and track your progress.
 
 1. First, you'll need to rebuild your LSTs since the code has been changed since the last LSTs were built:
 
@@ -286,7 +286,7 @@ MOD SUCCEEDED in 4s
   * Wave 0 and Wave 1 now show Spring Boot 4.0
   * Remaining waves are still pending
 
-5. You can now continue upgrading waves until the entire portfolio is on Spring Boot 4. Use the commands as in exercise 5-4, each time targeting the next wave:
+5. You can now continue upgrading waves until every repository is on Spring Boot 4. Use the commands as in exercise 5-4, each time targeting the next wave:
 
 ```bash
 mod run $WORKSPACE/Wave2 --recipe org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0
@@ -297,7 +297,7 @@ $WORKSHOP/release.sh 2
 # ...and so on
 ```
 
-### Takeaways
+## Takeaways
 
 * Composite “freight train” recipes bundle prerequisite upgrades with the main migration step
 * Wave-by-wave upgrades keep dependency releases aligned and reduce downstream breakage

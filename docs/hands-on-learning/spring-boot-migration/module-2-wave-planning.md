@@ -46,7 +46,7 @@ cd $PROJECTS
 git clone https://github.com/modernetraining/moderne-migration-practice
 ```
 
-2. Now you're ready to use the Moderne CLI to clone all of the example projects to your local machine. The `repos.csv` file in the workshop repository has a listing of these example repositories, [as described in the Moderne CLI documentation](../../user-documentation/moderne-cli/references/repos-csv). Feel free to inspect this file to better understand what it contains. The following command will clone all of the listed repositories into your `$WORKSPACE` directory:
+2. Now you're ready to use the Moderne CLI to clone all of the example projects to your local machine. The workshop repository includes a `repos.csv` file that lists the example repositories. For more information on this file, [check out our repos.csv documentation](../../user-documentation/moderne-cli/references/repos-csv). Feel free to inspect this file to better understand what it contains. The following command will clone all of the listed repositories into your `$WORKSPACE` directory:
 
 ```bash
 mkdir -p $WORKSPACE
@@ -254,12 +254,12 @@ You will use the third option in this workshop so you can run both org-wide reci
 mod git sync csv $WORKSPACE $WORKSHOP/repos-waves.csv --with-sources
 ```
 
-2. If prompted to replace the existing organization, type `Y`.
-3. Inspect the new structure (using `cd` and `ls` or `tree -d . -L 3` if you have it).
+3. If prompted to replace the existing organization, type `Y`.
+4. Inspect the new structure (using `cd` and `ls` or `tree -d . -L 3` if you have it).
 
 You can now run `mod` commands across the entire workspace or target a specific wave directory like `$WORKSPACE/Wave0`.
 
-### Takeaways
+## Takeaways
 
 * Dependency data from LSTs helps you define a safe upgrade order
 * The Release-Train-Metro-Plan workflow turns data tables into a wave map

@@ -5,19 +5,19 @@ description: Upgrade to Java 17 and run a Spring Boot 4 smoke test.
 
 # Module 4: Java 17 upgrade and Spring Boot 4 smoke test
 
-In this module, you will raise the Java baseline to 17 and run a controlled Spring Boot 4 upgrade to identify any remaining blockers before you start wave-by-wave upgrades. The earlier dry run made it clear that Java 17 is a large portion of the change surface, so you will isolate it first by reviewing the failed run and then raising the water line across the org.
+In this module, you will raise the Java baseline to 17 and run a controlled Spring Boot 4 upgrade to identify any remaining blockers before you start wave-by-wave upgrades. The earlier dry run made it clear that Java 17 is a large portion of the change surface, so you will isolate it first by reviewing the failed run and then raising the floor across the org.
 
 ## Exercise 4-1: Review the failed Spring Boot 4 run in the Moderne Platform
 
 ### Goals for this exercise
 
-* Inspect the failed Spring Boot 4 run in the SaaS
+* Inspect the failed Spring Boot 4 run in the Moderne Platform
 * Use the Composite recipe results visualization to see where the work is concentrated
 * Confirm that Java 17 is the largest part of the change surface
 
 ### Steps
 
-1. Back in the Moderne Platform, relogin if needed, then click `Activity` in the left navigation.
+1. Back in the [Moderne Platform](https://app.moderne.io), relogin if needed, then click `Activity` in the left navigation.
 2. Open the failed run of your custom `Try Spring Boot 4 Upgrade` recipe from Module 1 that included `io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0` and `io.moderne.compiled.verification.VerifyCompilation`.
 3. Click the `Visualizations` tab and run the `Composite recipe results` visualization.
 
@@ -53,7 +53,7 @@ mod git apply $WORKSPACE --last-recipe-run
 <!-- TODO: Confirm this step with a clean runthrough. I got no changes here but I think that's because it was using the older code that had the updated Java versions. -->
 
 :::note
-Spring Boot 2.7 predates Java 25. If you try `org.openrewrite.java.migrate.UpgradeToJava25` at this stage, you will likely hit class file compatibility issues. That is expected and a useful reminder to step through intermediate baselines.
+Spring Boot 2.7 doesn't support Java 25. If you try `UpgradeToJava25` at this stage, you'll hit compatibility issues. That is expected and a useful reminder to step through intermediate baselines.
 :::
 
 #### Step 2: Build and commit
@@ -84,11 +84,13 @@ mod build $WORKSPACE
 
 ### Steps
 
-Now that the portfolio is on Java 17, you can run another quick smoke test to see how far the Spring Boot 4 upgrade gets after the baselining work. You still aren't trying to finish the upgrade yet, just looking for the narrower set of specific failures so you can plan the fixes and build the right composite recipe.
+Now that your repositories are upgraded to on Java 17, you can run another quick smoke test to see how far the Spring Boot 4 upgrade gets after the baselining work. You still aren't trying to finish the upgrade yet, just looking for the narrower set of specific failures so you can plan the fixes and build the right composite recipe.
 
 #### Step 1: Run the upgrade recipe
 
-In Module 1, you ran the recipe in the platform and used the `Verify compilation` recipe to check for build failures. Now, you can run the Spring Boot 4 Upgrade recipe by itself with the CLI and verify the build directly to isolate any remaining obstacles that may require custom fixes. First, run the recipe and apply the changes:
+In Module 1, you ran the recipe in the platform and used the `Verify compilation` recipe to check for build failures. Now, you can run the Spring Boot 4 Upgrade recipe by itself with the CLI and verify the build directly to isolate any remaining obstacles that may require custom fixes. 
+
+First, run the recipe and apply the changes:
 
 ```bash
 mod run $WORKSPACE --recipe io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0
@@ -245,8 +247,8 @@ mod build $WORKSPACE
 
 This restores all uncommitted changes from the smoke test and returns to the Java 17 baseline.
 
-### Takeaways
+## Takeaways
 
 * The composite visualization shows why Java 17 is a prerequisite for Spring Boot 4
-* A Java 17 upgrade raises the baseline across the portfolio before framework changes
+* A Java 17 upgrade raises the baseline across the organization before framework changes
 * The Spring Boot 4 smoke test exposes blockers without committing to a full upgrade
