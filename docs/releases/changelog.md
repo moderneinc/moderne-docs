@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v12.25.0 (2026/01/16)
+
+- add refresh organizations button to agents page
+- update marketplace pages with Neo components
+
 
 ### UI v12.24.1 (2026/01/13)
 
