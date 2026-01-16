@@ -1,0 +1,112 @@
+/**
+ * Breadcrumbs Component - Design System Integration
+ * Refactored with CSS nesting for improved specificity and maintainability
+ *
+ * This component uses @moderneinc/neo-design and Infima (Docusaurus) CSS variables
+ * with fallbacks to ensure consistent theming across light and dark modes.
+ *
+ * Variable Mappings:
+ *
+ * LIGHT MODE:
+ * - Icons/Chevrons: --neo-icons-utility (#9CA3AF / grey-400)
+ * - Link text: --neo-typography-link-primary (#2F42FF / blue-500)
+ * - Body text: --neo-typography-body-secondary (#6B7280 / grey-500)
+ * - Current page: --neo-typography-link-primary (#2F42FF / blue-500)
+ *
+ * DARK MODE:
+ * - Icons/Links: --neo-grey-400 (#9CA3AF)
+ * - Current page: --brand-digital-green (#85fe98 / mint green)
+ *
+ * TYPOGRAPHY:
+ * - Font family: --ifm-font-family-base → --neo-font-family-body (Inter)
+ * - Font size: --neo-font-size-sm (14px)
+ * - Font weight: --neo-font-weight-medium (500)
+ */
+.breadcrumbs {
+  /* Light mode tokens - mapped to neo-design */
+  --breadcrumb-icon-color: var(--neo-icons-utility);
+  --breadcrumb-text-color: var(--neo-typography-body-secondary);
+  --breadcrumb-link-color: var(--neo-typography-link-primary);
+  --breadcrumb-current-color: var(--neo-typography-link-primary);
+
+  /* Typography - using neo-design variables */
+  --breadcrumb-font-family: var(--ifm-font-family-base);
+  --breadcrumb-font-size: var(--neo-font-size-sm);
+  --breadcrumb-font-weight: var(--neo-font-weight-medium);
+  --breadcrumb-line-height: 1;
+
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Dark mode tokens - using brand variables from custom.css */
+[data-theme='dark'] .breadcrumbs {
+  --breadcrumb-icon-color: var(--neo-grey-400);
+  --breadcrumb-text-color: var(--neo-grey-400);
+  --breadcrumb-link-color: var(--neo-grey-400);
+  --breadcrumb-current-color: var(--brand-digital-green);
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--neo-spacing_1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  font-family: var(--breadcrumb-font-family);
+  font-size: var(--breadcrumb-font-size);
+  font-weight: var(--breadcrumb-font-weight);
+  line-height: var(--breadcrumb-line-height);
+  color: var(--breadcrumb-link-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--breadcrumb-link-color);
+    outline-offset: var(--neo-spacing_1_4);
+    border-radius: var(--neo-border-radius-x-xs);
+  }
+}
+
+.current {
+  font-family: var(--breadcrumb-font-family);
+  font-size: var(--breadcrumb-font-size);
+  font-weight: var(--breadcrumb-font-weight);
+  line-height: var(--breadcrumb-line-height);
+  color: var(--breadcrumb-current-color);
+  white-space: nowrap;
+}
+
+.separator {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  color: var(--breadcrumb-icon-color);
+  user-select: none;
+}
+
+.homeIcon {
+  color: var(--breadcrumb-icon-color);
+  display: block;
+}

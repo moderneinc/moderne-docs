@@ -1,0 +1,76 @@
+/**
+ * Platform Toggle Component Styles
+ * Segmented control for switching between Practitioner and Admin views
+ */
+
+.toggle {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid var(--neo-border-input);
+  border-radius: var(--neo-border-radius-button);
+  overflow: hidden;
+  background: var(--neo-surfaces-white);
+}
+
+.segment {
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_2);
+  font-family: var(--neo-font-family-body);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  line-height: 1.4;
+  text-decoration: none;
+  color: var(--neo-grey-600);
+  background: transparent;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  border-right: 1px solid var(--neo-border-input);
+}
+
+.segment:last-child {
+  border-right: none;
+}
+
+.segment:hover {
+  text-decoration: none;
+  color: var(--neo-grey-700);
+}
+
+.segment:focus-visible {
+  outline: 2px solid var(--neo-buttons-primary-focus);
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+.active {
+  background: var(--neo-surfaces-card);
+  color: var(--neo-buttons-primary-default);
+  cursor: default;
+}
+
+.active:hover {
+  color: var(--neo-buttons-primary-default);
+}
+
+/* Dark mode */
+html[data-theme='dark'] .toggle {
+  background: var(--neo-grey-900);
+  border-color: var(--neo-grey-700);
+}
+
+html[data-theme='dark'] .segment {
+  color: var(--neo-grey-400);
+  border-right-color: var(--neo-grey-700);
+}
+
+html[data-theme='dark'] .segment:hover {
+  color: var(--neo-grey-300);
+}
+
+html[data-theme='dark'] .active {
+  background: var(--neo-grey-800);
+  color: var(--brand-digital-green);
+}
+
+html[data-theme='dark'] .active:hover {
+  color: var(--brand-digital-green);
+}

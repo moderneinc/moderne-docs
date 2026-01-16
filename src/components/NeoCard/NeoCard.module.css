@@ -1,0 +1,193 @@
+/**
+ * NeoCard Component Styles
+ * Based on Figma Neo Design System 2025 - Large Card component
+ * Using NeoDesign CSS variables for 100% design system alignment
+ * Refactored with CSS nesting for improved specificity and maintainability
+ */
+
+/* Base Card Styles */
+.card {
+  /* Layout & Sizing */
+  width: 100%;
+  max-width: 375px;
+  min-height: 106px;
+  padding: var(--neo-spacing_2);
+  border-radius: var(--neo-border-radius-x-s);
+
+  /* Flexbox Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_2);
+  justify-content: space-between;
+
+  /* Colors - Light Mode Default */
+  background: var(--neo-surfaces-card);
+  border: 1px solid var(--neo-border-card);
+  color: var(--neo-typography-input-default);
+
+  /* Typography */
+  font-family: var(--neo-font-family-body);
+
+  /* Transitions */
+  transition: all 0.2s ease-in-out;
+
+  /* Remove default button styles when card is interactive */
+  outline: none;
+  text-align: left;
+
+  /* Nested: Interactive variant */
+  &--interactive {
+    cursor: pointer;
+
+    &:hover:not(.card--disabled) {
+      border-color: var(--neo-border-tab-active);
+    }
+
+    &:focus-visible {
+      border-color: var(--neo-border-tab-active);
+      outline: 2px solid var(--neo-buttons-primary-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  /* Nested: Active state */
+  &--active {
+    border-color: var(--neo-border-tab-active);
+    box-shadow: var(--neo-shadow-card);
+  }
+
+  /* Nested: Focused state */
+  &--focused {
+    border-color: var(--neo-border-tab-active);
+    outline: 2px solid var(--neo-buttons-primary-focus);
+    outline-offset: 2px;
+  }
+
+  /* Nested: Alternative focus style using box-shadow */
+  &--focused-shadow {
+    border-color: var(--neo-border-tab-active);
+    box-shadow:
+      var(--neo-shadow-focus-white1),
+      var(--neo-shadow-focus-blue2);
+  }
+
+  /* Nested: Disabled state */
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Content Section */
+  .card__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--neo-spacing_2);
+  }
+
+  /* Header with Icon, Gem, and Title */
+  .card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--neo-spacing_1);
+  }
+
+  /* Icon Container */
+  .card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--neo-spacing_2_1_2);
+    height: var(--neo-spacing_2_1_2);
+    flex-shrink: 0;
+    color: var(--neo-icons-utility);
+  }
+
+  /* Gem/Logo Container */
+  .card__gem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--neo-spacing_2_1_2);
+    height: var(--neo-spacing_2_1_2);
+    flex-shrink: 0;
+  }
+
+  /* Title */
+  .card__title {
+    font-family: var(--neo-font-family-heading);
+    font-size: var(--neo-font-size-h6);
+    font-weight: var(--neo-font-weight-semi-bold);
+    line-height: 1.4;
+    color: var(--neo-typography-input-default);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+  }
+
+  /* Description */
+  .card__description {
+    font-family: var(--neo-font-family-body);
+    font-size: var(--neo-font-size-xs);
+    font-weight: var(--neo-font-weight-regular);
+    line-height: 1.5;
+    color: var(--neo-typography-input-default);
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Action Buttons Container */
+  .card__buttons {
+    display: flex;
+    gap: var(--neo-spacing_3);
+    align-items: center;
+  }
+}
+
+/* ===== DARK MODE ===== */
+
+html[data-theme='dark'] {
+  .card {
+    background: var(--neo-icons-default);
+    /* Fallback for browsers that don't support color-mix() */
+    border-color: rgba(209, 213, 219, 0.5);
+    /* Modern browsers: 50% transparent border */
+    border-color: color-mix(in srgb, var(--neo-border-card) 50%, transparent);
+    color: var(--neo-surfaces-snackbar-dark-mode);
+
+    /* Nested dark mode: Active state */
+    &--active {
+      border-color: var(--neo-digital-green-300);
+      box-shadow: var(--neo-shadow-card);
+    }
+
+    /* Nested dark mode: Focused state */
+    &--focused {
+      border-color: var(--neo-digital-green-300);
+      outline: 2px solid var(--neo-buttons-primary-focus);
+      outline-offset: 2px;
+    }
+
+    /* Nested dark mode: Interactive hover */
+    &--interactive:hover:not(.card--disabled) {
+      border-color: var(--neo-digital-green-300);
+    }
+
+    /* Nested dark mode: Interactive focus */
+    &--interactive:focus-visible {
+      border-color: var(--neo-digital-green-300);
+      outline: 2px solid var(--neo-buttons-primary-focus);
+      outline-offset: 2px;
+    }
+
+    .card__title {
+      color: var(--neo-surfaces-snackbar-dark-mode);
+    }
+
+    .card__description {
+      color: var(--neo-surfaces-snackbar-dark-mode);
+    }
+  }
+}

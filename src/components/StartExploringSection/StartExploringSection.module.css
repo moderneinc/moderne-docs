@@ -1,0 +1,75 @@
+/**
+ * StartExploringSection - 3-column layout for resource links
+ */
+
+.startExploring {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_2);
+}
+
+.sectionTitle {
+  font-size: var(--neo-font-size-default);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--ifm-heading-color);
+  margin: 0;
+}
+
+.columnsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--neo-spacing_5);
+}
+
+@media (max-width: 768px) {
+  .columnsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--neo-spacing_4);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1_1_2);
+}
+
+.columnTitle {
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--ifm-heading-color);
+  margin: 0;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+}
+
+.linkItem {
+  margin: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  font-size: var(--neo-font-size-sm);
+  color: var(--ifm-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--ifm-link-hover-color);
+  text-decoration: underline;
+}
+
+.externalIcon {
+  opacity: 0.7;
+  flex-shrink: 0;
+}

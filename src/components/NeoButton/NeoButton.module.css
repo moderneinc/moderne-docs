@@ -1,0 +1,236 @@
+/**
+ * Button Component Styles
+ * Based on Figma design using Neo Design CSS variables
+ * Refactored with CSS nesting for improved specificity and maintainability
+ */
+
+/* Base button styles */
+.button {
+  /* Typography - matches Figma: Inter Medium 14px */
+  font-family: var(--neo-font-family-body);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  line-height: 1;
+
+  /* Shape - pill/capsule shape */
+  border-radius: var(--neo-border-radius-button);
+  border: none;
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--neo-spacing_1);
+
+  /* Interaction */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  /* Remove default button/link styles */
+  outline: none;
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Ensure links don't inherit link colors */
+  color: inherit;
+
+  /* Override link hover styles when button is a link */
+  &:hover {
+    text-decoration: none;
+  }
+
+  /* Disabled state */
+  &--disabled,
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+/* Primary variant - blue button from Figma */
+.button--primary {
+  background-color: var(--neo-buttons-primary-default);
+  color: var(--neo-grey-50);
+
+  &:hover:not(:disabled) {
+    background-color: var(--neo-buttons-primary-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--neo-buttons-primary-pressed);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--neo-buttons-primary-focus);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    background-color: var(--neo-buttons-primary-disabled);
+    color: var(--neo-typography-button-disabled);
+  }
+}
+
+/* Secondary variant */
+.button--secondary {
+  background-color: var(--neo-buttons-secondary-default-background);
+  color: var(--neo-buttons-secondary-default);
+  border: 1px solid var(--neo-buttons-secondary-default-border);
+
+  &:hover:not(:disabled) {
+    background-color: var(--neo-buttons-secondary-hover-background);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--neo-buttons-secondary-pressed-background);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--neo-buttons-secondary-focus);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    background-color: var(--neo-buttons-secondary-disabled-background);
+    border-color: var(--neo-buttons-secondary-disabled-border);
+    color: var(--neo-typography-button-disabled);
+  }
+}
+
+/* Outline variant (tertiary) */
+.button--outline {
+  background-color: transparent;
+  color: var(--neo-buttons-tertiary-default);
+  border: 1px solid var(--neo-buttons-tertiary-default);
+
+  &:hover:not(:disabled) {
+    color: var(--neo-buttons-tertiary-hover);
+    border-color: var(--neo-buttons-tertiary-hover);
+  }
+
+  &:active:not(:disabled) {
+    color: var(--neo-buttons-tertiary-pressed);
+    border-color: var(--neo-buttons-tertiary-pressed);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--neo-buttons-tertiary-focus);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    color: var(--neo-buttons-tertiary-disabled);
+    border-color: var(--neo-buttons-tertiary-disabled);
+  }
+}
+
+/* Text/Link variant - no background, no border, just text with icon */
+.button--text {
+  background-color: transparent;
+  border: none;
+  color: var(--neo-typography-input-default);
+  padding: 0;
+  border-radius: 0;
+
+  &:hover:not(:disabled) {
+    opacity: 0.7;
+  }
+
+  &:active:not(:disabled) {
+    opacity: 0.5;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--neo-buttons-primary-focus);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    color: var(--neo-buttons-tertiary-disabled);
+  }
+
+  /* Text variant overrides size padding */
+  &.button--small,
+  &.button--medium,
+  &.button--large {
+    padding: 0;
+  }
+}
+
+/* Size variants */
+.button--small {
+  padding: var(--neo-spacing_1) var(--neo-spacing_2);
+  font-size: var(--neo-font-size-xs);
+}
+
+.button--medium {
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_3);
+  font-size: var(--neo-font-size-sm);
+}
+
+.button--large {
+  padding: var(--neo-spacing_2) var(--neo-spacing_4);
+  font-size: var(--neo-font-size-default);
+}
+
+/* Icon styling */
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.button__text {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Icon-only button (no text) */
+.button--icon-only {
+  aspect-ratio: 1;
+  padding: var(--neo-spacing_1_1_2);
+
+  &.button--small {
+    padding: var(--neo-spacing_1);
+  }
+
+  &.button--large {
+    padding: var(--neo-spacing_2);
+  }
+}
+
+/* Dark mode adjustments */
+html[data-theme='dark'] {
+  .button--primary {
+    background-color: var(--neo-digital-blue-400);
+
+    &:hover:not(:disabled) {
+      background-color: var(--neo-digital-blue-500);
+    }
+  }
+
+  .button--secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--neo-surfaces-white);
+
+    &:hover:not(:disabled) {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .button--text {
+    color: var(--neo-surfaces-white);
+
+    &:hover:not(:disabled) {
+      opacity: 0.7;
+    }
+
+    &:active:not(:disabled) {
+      opacity: 0.5;
+    }
+  }
+}

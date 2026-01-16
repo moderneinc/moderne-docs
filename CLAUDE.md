@@ -38,6 +38,49 @@ Use your language processing capabilities to identify and fix:
 * Inconsistent terminology
 * Style guide violations
 
+## Working with CSS Modules and Neo Design Variables
+
+When modifying any CSS module (`.module.css` files), you MUST follow this workflow:
+
+1. **Search for available variables** before using any Neo Design CSS variable:
+   * Use `yarn neo:search <keyword>` to find variables (e.g., `yarn neo:search spacing`, `yarn neo:search button`)
+   * Use `yarn neo:list <category>` to browse all variables in a category (e.g., `yarn neo:list buttons`)
+   * Add `--json` flag for JSON output that's easier to parse programmatically (e.g., `yarn neo:search spacing --json`)
+
+2. **Never use fallback values** with Neo Design variables:
+   * ❌ Bad: `var(--neo-spacing_1, 8px)`
+   * ✅ Good: `var(--neo-spacing_1)`
+   * Rationale: We want missing variables to surface immediately, not fail silently with fallback values
+
+3. **Use class selectors, not element selectors**:
+   * ❌ Bad: `.content h3 { ... }` or `.menu p { ... }`
+   * ✅ Good: `.sectionHeader { ... }` or `.description { ... }`
+   * Rationale: Element selectors create implicit coupling between CSS and HTML structure. Class selectors are explicit, more maintainable, and provide clearer specificity control.
+
+4. **Validate before committing**:
+   * Run `yarn validate:css` to verify no undefined variables are used
+   * Fix any issues before proceeding with the commit
+
+**Available Neo Design Categories:**
+
+* `colors` - Primitive color scales (blue, green, gold, grey, orange, red, teal, violet)
+* `buttons` - Button state colors (primary, secondary, tertiary, navigation)
+* `icons` - Icon colors (default, hover, pressed, active, disabled)
+* `surfaces` - Surface colors (page, card, table, tooltip, snackbar, shadows)
+* `status` - Status colors (success, warning, error, info)
+* `borders` - Border colors (primary, secondary, input, card)
+* `typography` - Typography colors (input, link, code, tab, body, navigation)
+* `spacing` - Spacing scale using fractional notation (_1_4, _1_2, _1, _1_1_2, etc.)
+* `shadows` - Shadow variants (card, dropdown, modal, neutral, primary)
+* `border-radius` - Border radius presets (button, card, input)
+
+**Common Variable Naming Patterns:**
+
+* Colors: `--neo-{color}-{shade}` (e.g., `--neo-digital-blue-500`)
+* Buttons: `--neo-buttons-{variant}-{state}` (e.g., `--neo-buttons-primary-hover`)
+* Spacing: `--neo-spacing_{number}` (e.g., `--neo-spacing_1` = 8px, `--neo-spacing_1_1_2` = 12px)
+* Typography: `--neo-font-{property}-{value}` (e.g., `--neo-font-size-sm`, `--neo-font-weight-medium`)
+
 ## Important Context
 
 ### Language and Terminology
@@ -72,3 +115,58 @@ This is the primary documentation repository for Moderne (https://docs.moderne.i
   * `releases/`: Changelogs and release notes
   * `hands-on-learning/`: Workshops and tutorials
 * Built with Docusaurus, deployed automatically on merge
+
+### Contextual Sidebar Navigation
+
+The documentation uses dynamic sidebar filtering to provide focused navigation based on the current page. This helps users stay oriented within their current section without being overwhelmed by the full site structure.
+
+**How it works:**
+
+* **Top-level pages** (/, /introduction): Display all documentation sections
+* **Within any major section**: Display only that section's content tree
+  * Example: When in "Hands-on Learning", only workshop content is shown
+  * Example: When in "User Documentation", only user-facing guides are shown
+
+**Implementation:**
+
+* Component: `src/theme/DocSidebarItems/index.tsx` (swizzled from Docusaurus theme)
+* Filtering logic: `src/theme/DocSidebarItems/filterUtils.ts`
+* Sidebar definition: `sidebars.ts` (single source of truth)
+
+**Section boundaries:**
+
+Sections are automatically detected using HTML divider elements in `sidebars.ts`:
+* `{ type: 'html', value: '<br/><strong>Section Name</strong>' }`
+
+**Maintenance:**
+
+* All sidebar content is managed in `sidebars.ts`
+* No frontmatter changes needed for new documents
+* Filtering is automatic based on URL path
+* Cache clearing (`rm -rf .docusaurus`) required after swizzle changes
+
+### Swizzled Components and Docusaurus Compatibility
+
+This project uses **Docusaurus 3.9.1** and has customized several theme components through swizzling. When upgrading Docusaurus, carefully review the migration guide for potential breaking changes to these components.
+
+**Swizzled components:**
+
+* `DocBreadcrumbs` - Custom breadcrumb component using Neo Design system
+* `DocCard` - Enhanced with gem icon support via `customProps.gemIcon`
+* `DocCategoryGeneratedIndexPage` - Custom layout for category index pages
+* `DocPaginator` - Styled pagination for documentation pages
+* `DocSidebar/Desktop/Content` - Custom sidebar layout and styling
+* `DocSidebarItems` - Implements contextual filtering (see above)
+* `Footer` - Custom footer with Moderne branding
+* `Navbar/Layout` - Custom navbar layout with MegaMenu integration
+* `Navbar/Logo` - Custom logo component with dark mode support
+
+**Important upgrade considerations:**
+
+* Before upgrading Docusaurus, check the [Docusaurus migration guide](https://docusaurus.io/docs/migration) for changes to swizzled components
+* Test all swizzled components thoroughly after upgrade, especially:
+  * Sidebar filtering logic (`DocSidebarItems`)
+  * Navbar and MegaMenu functionality
+  * Gem icon display on DocCards
+* Clear the Docusaurus cache after any swizzle changes: `rm -rf .docusaurus`
+* If a swizzled component has breaking changes, consider re-swizzling or migrating to a safer wrapper approach

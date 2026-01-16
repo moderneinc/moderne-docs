@@ -1,0 +1,250 @@
+.homePage {
+  background-color: var(--background, #f7f7fe);
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .homePage {
+  background-color: var(--brand-midnight);
+}
+
+.pageBody {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 100px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_5, 40px);
+  position: relative;
+  z-index: 1;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 996px) {
+  .pageBody {
+    padding: var(--neo-spacing_4, 32px) var(--neo-spacing_3, 24px);
+    gap: var(--neo-spacing_4, 32px);
+  }
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_3, 24px);
+  max-width: 600px;
+}
+
+.heroHeading {
+  font-family: var(--ifm-font-family-base);
+  font-size: 42px;
+  font-weight: var(--neo-font-weight-bold, 700);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.heroHeadingBlue {
+  color: var(--brand-digital-blue);
+}
+
+.heroHeadingDark {
+  color: var(--brand-midnight);
+}
+
+[data-theme='dark'] .heroHeadingBlue {
+  color: var(--brand-digital-green);
+}
+
+[data-theme='dark'] .heroHeadingDark {
+  color: var(--neo-surfaces-white);
+}
+
+.heroSubheading {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--neo-font-size-h5, 18px);
+  font-weight: var(--neo-font-weight-medium, 500);
+  line-height: 1.4;
+  color: var(--brand-midnight);
+  margin: 0;
+}
+
+[data-theme='dark'] .heroSubheading {
+  color: var(--neo-surfaces-white);
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  .heroHeading {
+    font-size: 32px;
+  }
+
+  .heroSubheading {
+    font-size: var(--neo-font-size-default, 16px);
+  }
+
+  .pageBody {
+    padding: var(--neo-spacing_3, 24px) var(--neo-spacing_2, 16px);
+  }
+}
+
+/* What is Moderne Section */
+.whatIsSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_5, 40px);
+  width: 100%;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_3, 24px);
+  width: 100%;
+}
+
+.sectionTitle {
+  font-family: var(--ifm-font-family-base);
+  font-size: 24px;
+  font-weight: var(--neo-font-weight-bold, 700);
+  line-height: 1.4;
+  color: var(--brand-midnight);
+  margin: 0;
+}
+
+[data-theme='dark'] .sectionTitle {
+  color: var(--neo-surfaces-white);
+}
+
+.sectionDescription {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--neo-font-size-sm, 14px);
+  font-weight: var(--neo-font-weight-regular, 400);
+  line-height: 1.4;
+  color: var(--brand-midnight);
+  max-width: 1440px;
+  margin: 0;
+}
+
+[data-theme='dark'] .sectionDescription {
+  color: var(--neo-surfaces-white);
+}
+
+.videoGrid {
+  display: flex;
+  gap: var(--neo-spacing_5, 40px);
+  flex-wrap: wrap;
+}
+
+
+@media (max-width: 996px) {
+  .videoGrid {
+    gap: var(--neo-spacing_3, 24px);
+  }
+
+}
+
+/* Platform Details Section */
+.platformSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_3, 24px);
+  width: 100%;
+}
+
+.platformContent {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--neo-font-size-sm, 14px);
+  font-weight: var(--neo-font-weight-regular, 400);
+  line-height: 1.4;
+  color: var(--brand-midnight);
+  max-width: 1440px;
+}
+
+[data-theme='dark'] .platformContent {
+  color: var(--neo-surfaces-white);
+}
+
+.platformContent p {
+  margin: 0 0 var(--neo-spacing_2, 16px) 0;
+}
+
+.platformContent p:last-child {
+  margin-bottom: 0;
+}
+
+.platformContent a {
+  color: var(--brand-digital-blue);
+  text-decoration: none;
+}
+
+.platformContent a:hover {
+  text-decoration: underline;
+}
+
+[data-theme='dark'] .platformContent a {
+  color: var(--brand-digital-green);
+}
+
+.gemDecorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gem {
+  position: absolute;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+/* Large edge gems */
+.gemLargeRight {
+  top: -10px;
+  right: -140px;
+  width: 410px;
+  height: auto;
+  opacity: 0.9;
+  transform: rotate(30deg);
+}
+
+.gemLargeLeft {
+  top: 155px;
+  left: -414px;
+  width: 780px;
+  height: auto;
+  opacity: 0.9;
+  transform: rotate(342.44deg);
+}
+
+/* Dark mode: show large gems */
+[data-theme='dark'] .gemLargeRight {
+  opacity: 0.6;
+}
+
+[data-theme='dark'] .gemLargeLeft {
+  opacity: 0.6;
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .heroHeading {
+    font-size: 28px;
+  }
+}
+
+/* Hide gems on mobile */
+@media (max-width: 996px) {
+  .gemDecorations {
+    display: none;
+  }
+}

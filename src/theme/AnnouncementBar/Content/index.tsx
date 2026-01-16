@@ -1,12 +1,10 @@
-import React from 'react';
+import {type FunctionComponent} from 'react';
 import clsx from 'clsx';
 import {useThemeConfig} from '@docusaurus/theme-common';
 import type {Props} from '@theme/AnnouncementBar/Content';
 import styles from './styles.module.css';
 
-export default function AnnouncementBarContent(
-  props: Props,
-): JSX.Element | null {
+const AnnouncementBarContent: FunctionComponent<Props> = (props) => {
   const {announcementBar} = useThemeConfig();
   const {content} = announcementBar!;
   return (
@@ -18,4 +16,8 @@ export default function AnnouncementBarContent(
       dangerouslySetInnerHTML={{__html: content}}
     />
   );
-}
+};
+
+AnnouncementBarContent.displayName = 'AnnouncementBarContent';
+
+export default AnnouncementBarContent;
