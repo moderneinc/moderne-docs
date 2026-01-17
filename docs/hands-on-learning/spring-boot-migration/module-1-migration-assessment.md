@@ -171,7 +171,7 @@ The data table and visualization give you a distribution view of current Spring 
 
 #### Step 3: Find `javax.*` usage
 
-While you can run libraries compiled with an older version of Java in newer versions of JVM, the Java runtime has deprecated specific APIs and ultimately removed or refactored those as it has evolved. Perhaps the most prominent example of this is the many `javax.*` internal APIs (including the Java EE APIs) that were ultimately moved out of the JVM and into the Jakarta namespace. When you see high `javax.*` usage, expect more work to move to `jakarta.*` during the Spring Boot 4 upgrade. 
+While you can run libraries compiled with an older version of Java in newer versions of JVM, the Java runtime has deprecated specific APIs and ultimately removed or refactored those as it has evolved. Perhaps the most prominent example of this is the many `javax.*` APIs that were moved out of the JVM and into the Jakarta namespace. When you see high `javax.*` usage, expect more work to move to `jakarta.*` during the Spring Boot 4 upgrade. 
 
 1. From the Marketplace, search for and select `Find types` ([`org.openrewrite.java.search.FindTypes`](https://docs.openrewrite.org/recipes/java/search/findtypes)).
 2. Configure the option:

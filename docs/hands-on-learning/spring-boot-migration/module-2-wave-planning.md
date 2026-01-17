@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Module 2: Wave planning"
-description: Build LSTs, analyze dependencies, and organize upgrade waves with the Moderne CLI.
+description: Analyze dependencies and organize upgrade waves with the Moderne CLI.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,12 +12,11 @@ In this module, you'll move from SaaS-only assessment to CLI-driven analysis so 
 
 For this workshop, each repository is treated as independently released. That constraint mirrors how large organizations manage shared libraries and it forces you to think about sequencing instead of upgrading everything at once. Dependencies matter because downstream repos can only move once their upstream libraries are upgraded and released. 
 
-## Exercise 2-1: Set up your workspace and build LSTs
+## Exercise 2-1: Set up your workspace
 
 ### Goals for this exercise
 
 * Create a workspace and sync repositories
-* Build LSTs for local analysis
 * Install the set of recipes required for this workshop
 
 ### Steps
@@ -36,7 +35,7 @@ export PROJECTS=~/projects
 You might want to keep two shells open: one in `$WORKSHOP` for scripts and one in `$WORKSPACE` for `mod` commands.
 :::
 
-#### Step 2: Sync repos and prepare 
+#### Step 2: Sync repos
 
 1. First, clone the Moderne Migration Practice workshop which contains some helper scripts and metadata about the example projects.
 
@@ -54,11 +53,11 @@ cd $WORKSPACE
 mod git sync csv $WORKSPACE $WORKSHOP/repos.csv --with-sources
 ```
 
-<!-- TODO: Determine if we want to change this command to be  `mod git sync moderne $WORKSPACE --organization "Moderne - Training" --with-sources` instead in order to download the LSTs from the platform. Alternatively, I think we could add the publishUri to our repos.csv file? -->
+<!-- TODO: Add publishUri to repos.csv file so the LSTs will be downloaded in this step as well. -->
 
 3. Take a look at the contents of your `$WORKSPACE` folder now. (You can walk through and inspect the directories with `cd` and `ls`, or if you have `tree`, you can see the full structure with `tree -d $WORKSPACE -L 3`.) You should see that you have a directory for the GitHub org (or user) with the repositories inside.
 
-<!-- TODO: If we don't download LSTs from the platform, here's where we need to add a `mod build` step. -->
+<!-- TODO: If we don't download LSTs from the platform, here's where we need to add a `mod build` step and explain LSTs. -->
 
 #### Step 3: Install the recipe set
 
@@ -82,7 +81,7 @@ Installing recipes locally can sometimes take a few minutes, so this list of rec
 
 ## Exercise 2-2: Generate a dependency-based wave plan
 
-Now that your local environment is ready, it's time to use the rich dependency data from the LSTs to determine a safe upgrade order. The goal is to identify repos with no internal dependencies ("Wave 0"), release them, then move downstream in order.
+Now that your local environment is ready, it's time to use OpenRewrite's rich dependency data to determine a safe upgrade order. The goal is to identify repos with no internal dependencies ("Wave 0"), release them, then move downstream in order.
 
 ### Goals for this exercise
 
@@ -96,16 +95,14 @@ Now that your local environment is ready, it's time to use the rich dependency d
 
 [Merlin’s Release-Train-Metro-Plan project](https://github.com/MBoegers/Release-Train-Metro-Plan) analyzes direct and transitive dependencies to generate a wave map (using a [Jupyter notebook](https://jupyter.org/)). You will use this method to produce a concrete upgrade plan you can follow.
 
-Use the following commands to clone the project (somewhere outside of `$WORKSPACE` such as `$PROJECTS`), build it, and install the recipe artifact locally:
+Use the following commands to clone the project (somewhere outside of `$WORKSPACE` such as `$PROJECTS`) and install the recipe artifact locally:
 
 <!-- TODO: Make sure we merge Matt's updates to the Release-Train-Metro-Plan repo that add `pyproject.toml`, etc. -->
 
 ```bash
 cd $PROJECTS
 git clone https://github.com/MBoegers/Release-Train-Metro-Plan.git
-cd Release-Train-Metro-Plan
-./gradlew clean publishToMavenLocal
-mod config recipes jar install dev.mboegie.rewrite:release-train-metro-plan:0.1.0-SNAPSHOT
+mod config recipes jar install dev.mboegie.rewrite:release-train-metro-plan:RELEASE
 ```
 
 #### Step 2: Extract data from dependency analysis
@@ -187,7 +184,7 @@ mod study $WORKSPACE --last-recipe-run --data-table org.openrewrite.maven.table.
 
 #### Step 3: Generate the wave map
 
-Choose one of the two options below to generate the wave map, depending on what's available in your environment. 
+Choose one of the two options below to generate the wave map, depending on what's available in your environment. The notebook uses Python, so you'll at least need Python installed to run it. If you pick the CLI option, you'll also need `uv`, which is a fast Python package manager and virtual environment tool.
 
 <Tabs groupId="wave-map">
 <TabItem value="cli" label="CLI (uv)" default>
@@ -245,7 +242,6 @@ You will use the third option in this workshop so you can run both org-wide reci
 
 ### Steps
 
-<!-- TODO: If we used `sync moderne` instead of the CSV, we need to change the way this is written -->
 1. In the root of your `$WORKSHOP`, compare the wave-aware CSV file (`repos-waves.csv`) to the original CSV you used to sync the repositories (`repos.csv`). Note the addition of the organization fields and the grouping of repositories based on the wave plan from the previous exercise.
 
 2. Sync the repos again, this time using the wave-aware CSV file:
@@ -261,6 +257,6 @@ You can now run `mod` commands across the entire workspace or target a specific 
 
 ## Takeaways
 
-* Dependency data from LSTs helps you define a safe upgrade order
+* Dependency data helps you define a safe upgrade order
 * The Release-Train-Metro-Plan workflow turns data tables into a wave map
 * Organizing repos by wave lets you run recipes and releases in controlled batches

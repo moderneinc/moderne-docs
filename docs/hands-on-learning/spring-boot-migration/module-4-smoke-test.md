@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Module 4: Java 17 and smoke test"
+sidebar_label: "Module 4: Raise baseline and smoke test"
 description: Upgrade to Java 17 and run a Spring Boot 4 smoke test.
 ---
 
@@ -26,11 +26,7 @@ In this module, you will raise the Java baseline to 17 and run a controlled Spri
   <figcaption>_Click `Run visualization` to view_</figcaption>
 </figure>
 
-4. Once it renders, notice how much of the change set is attributed to the Java 17 upgrade portion of the composite recipe. 
-
-<!-- TODO: Can we do a better job here of explaining what this visualization shows and why Java 17 is the right target? It looks like the biggest chunks are actually from the Spring Boot migration recipes? -->
-
-This view makes the migration composition explicit and shows why you should raise the water line across the org before attempting Spring Boot 4 in waves.
+The `Composite recipe results` view breaks the run down by recipe so you can see which parts of the composite generated changes. The Spring Boot and Spring Framework recipes may still show larger chunks, but Java 17 is the biggest independent migration you can complete (Spring Boot 3 and 4 require Java 17, but a Java 17 upgrade does not require Spring Boot). That makes Java 17 the right first target because it removes a cross-cutting prerequisite and establishes a consistent baseline before tackling Spring Boot fixes in waves.
 
 ## Exercise 4-2: Upgrade to Java 17
 

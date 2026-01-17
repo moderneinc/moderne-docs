@@ -35,8 +35,8 @@ You will also need:
 
 ## Workshop modules
 
-* [Module 1: Migration assessment in the Moderne Platform](./module-1-migration-assessment.md) - Run an initial migration and gather code insight data
-* [Module 2: Wave planning with the Moderne CLI](./module-2-wave-planning.md) - Build LSTs, analyze dependencies, and organize upgrade waves
+* [Module 1: Migration assessment](./module-1-migration-assessment.md) - Run an initial migration and gather code insight data
+* [Module 2: Wave planning](./module-2-wave-planning.md) - Build LSTs, analyze dependencies, and organize upgrade waves
 * [Module 3: Establish a baseline](./module-3-establish-baseline.md) - Normalize Maven, Java, and Spring Boot versions across the portfolio
-* [Module 4: Java 17 upgrade and Spring Boot 4 smoke test](./module-4-java17-and-smoke-test.md) - Raise the baseline and validate readiness
-* [Module 5: QueryDSL and Spring Boot 4 wave upgrades](./module-5-querydsl-and-wave-upgrades.md) - Use a custom recipe to complete the migration in waves
+* [Module 4: Java 17 and smoke test](./module-4-smoke-test.md) - Raise the baseline and validate readiness
+* [Module 5: Wave migration](./module-5-wave-migration.md) - Use a custom recipe to complete the migration in waves

@@ -344,8 +344,8 @@ const sidebars: SidebarsConfig = {
         'hands-on-learning/spring-boot-migration/module-1-migration-assessment',
         'hands-on-learning/spring-boot-migration/module-2-wave-planning',
         'hands-on-learning/spring-boot-migration/module-3-establish-baseline',
-        'hands-on-learning/spring-boot-migration/module-4-java17-and-smoke-test',
-        'hands-on-learning/spring-boot-migration/module-5-querydsl-and-wave-upgrades',
+        'hands-on-learning/spring-boot-migration/module-4-smoke-test',
+        'hands-on-learning/spring-boot-migration/module-5-wave-migration',
       ],
     },
     {
