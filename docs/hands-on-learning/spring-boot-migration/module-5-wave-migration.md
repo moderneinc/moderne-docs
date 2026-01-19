@@ -221,18 +221,18 @@ Produced results for 11 repositories.
 ⏺ What to do next
     > Click on one of the patch links above to view the changes on a particular repository
     > Run mod study to examine the following data tables produced by this recipe:
-          > mod study /Users/somebody/workspaces/migration_workshop --last-recipe-run --data-table SecurityIssues
-          > mod study /Users/somebody/workspaces/migration_workshop --last-recipe-run --data-table UpgradesAndMigrations
-          > mod study /Users/somebody/workspaces/migration_workshop --last-recipe-run --data-table DependenciesInUse
-          > mod study /Users/somebody/workspaces/migration_workshop --last-recipe-run --data-table ExplainDependenciesInUse
-          > mod study /Users/somebody/workspaces/migration_workshop --last-recipe-run --data-table RecipeRunStats
-          > mod study /Users/somebody/workspaces/migration_workshop --last-recipe-run --data-table SearchResults
-          > mod study /Users/somebody/workspaces/migration_workshop --last-recipe-run --data-table SourcesFileResults
-    > Run mod devcenter /Users/somebody/workspaces/migration_workshop --last-recipe-run to generate a DevCenter dashboard.
-    > Run mod git checkout /Users/somebody/workspaces/migration_workshop -b refactor/DevCenterStarter --last-recipe-run to prepare a refactor/DevCenterStarter branch for applying the changes
-    > Run mod git apply /Users/somebody/workspaces/migration_workshop --last-recipe-run to apply the changes
-    > Run mod git apply /Users/somebody/workspaces/migration_workshop --recipe-run 20260115175824-jLfJP to apply the changes
-    > Run mod log runs add /Users/somebody/workspaces/migration_workshop logs.zip --last-recipe-run to aggregate run logs
+          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table SecurityIssues
+          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table UpgradesAndMigrations
+          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table DependenciesInUse
+          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table ExplainDependenciesInUse
+          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table RecipeRunStats
+          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table SearchResults
+          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table SourcesFileResults
+    > Run mod devcenter /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run to generate a DevCenter dashboard.
+    > Run mod git checkout /Users/somebody/workspaces/migration-practice-workspace -b refactor/DevCenterStarter --last-recipe-run to prepare a refactor/DevCenterStarter branch for applying the changes
+    > Run mod git apply /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run to apply the changes
+    > Run mod git apply /Users/somebody/workspaces/migration-practice-workspace --recipe-run 20260115175824-jLfJP to apply the changes
+    > Run mod log runs add /Users/somebody/workspaces/migration-practice-workspace logs.zip --last-recipe-run to aggregate run logs
     > Examine run telemetry
 
 MOD SUCCEEDED in 9s

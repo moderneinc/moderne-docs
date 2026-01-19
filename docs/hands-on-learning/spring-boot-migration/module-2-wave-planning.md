@@ -27,7 +27,7 @@ Choose paths for your workshop and workspace and set the following environment v
 
 ```bash
 export WORKSHOP=~/projects/moderne-migration-practice
-export WORKSPACE=~/workspaces/migration_workshop
+export WORKSPACE=~/workspaces/migration-practice-workspace
 export PROJECTS=~/projects
 ```
 
@@ -65,14 +65,14 @@ Use the following command to install the necessary OpenRewrite recipe modules fo
 
 ```bash
 mod config recipes jar install \
-  io.moderne.recipe:rewrite-spring:0.19.0 \
-  org.openrewrite.recipe:rewrite-migrate-java:3.24.0 \
-  org.openrewrite.recipe:rewrite-java-dependencies:1.48.0 \
-  org.openrewrite:rewrite-java:8.69.0 \
-  org.openrewrite:rewrite-maven:8.69.0 \
-  io.moderne.recipe:rewrite-devcenter:1.13.1 \
-  org.openrewrite.recipe:rewrite-spring:6.21.0 \
-  org.openrewrite.recipe:rewrite-testing-frameworks:3.24.0
+  io.moderne.recipe:rewrite-spring \
+  org.openrewrite.recipe:rewrite-migrate-java \
+  org.openrewrite.recipe:rewrite-java-dependencies \
+  org.openrewrite:rewrite-java \
+  org.openrewrite:rewrite-maven \
+  io.moderne.recipe:rewrite-devcenter \
+  org.openrewrite.recipe:rewrite-spring \
+  org.openrewrite.recipe:rewrite-testing-frameworks
 ```
 
 :::info
@@ -96,8 +96,6 @@ Now that your local environment is ready, it's time to use OpenRewrite's rich de
 [Merlin’s Release-Train-Metro-Plan project](https://github.com/MBoegers/Release-Train-Metro-Plan) analyzes direct and transitive dependencies to generate a wave map (using a [Jupyter notebook](https://jupyter.org/)). You will use this method to produce a concrete upgrade plan you can follow.
 
 Use the following commands to clone the project (somewhere outside of `$WORKSPACE` such as `$PROJECTS`) and install the recipe artifact locally:
-
-<!-- TODO: Make sure we merge Matt's updates to the Release-Train-Metro-Plan repo that add `pyproject.toml`, etc. -->
 
 ```bash
 cd $PROJECTS
@@ -169,7 +167,7 @@ Done (1s)
 Found results for 1 recipe run.
 
 ⏺ What to do next
-    > Run mod study /Users/somebody/workspaces/migration_workshop --recipe-run <RUN-ID> --data-table <DATA-TABLE> to examine the data tables produced by the recipe run.
+    > Run mod study /Users/somebody/workspaces/migration-practice-workspace --recipe-run <RUN-ID> --data-table <DATA-TABLE> to examine the data tables produced by the recipe run.
 ```
 </details>
 

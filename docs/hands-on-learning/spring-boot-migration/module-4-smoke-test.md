@@ -153,14 +153,14 @@ Produced results for 11 repositories.
 ⏺ What to do next
     > Click on one of the patch links above to view the changes on a particular repository
     > Run mod study to examine the following data tables produced by this recipe:
-          > mod study /Users/somebody/workspaces/migration_workshop --last-recipe-run --data-table DependenciesInUse
-          > mod study /Users/somebody/workspaces/migration_workshop --last-recipe-run --data-table ExplainDependenciesInUse
-          > mod study /Users/somebody/workspaces/migration_workshop --last-recipe-run --data-table RecipeRunStats
-          > mod study /Users/somebody/workspaces/migration_workshop --last-recipe-run --data-table SourcesFileResults
-    > Run mod git checkout /Users/somebody/workspaces/migration_workshop -b refactor/UpgradeSpringBoot_4_0 --last-recipe-run to prepare a refactor/UpgradeSpringBoot_4_0 branch for applying the changes
-    > Run mod git apply /Users/somebody/workspaces/migration_workshop --last-recipe-run to apply the changes
-    > Run mod git apply /Users/somebody/workspaces/migration_workshop --recipe-run 20260115171844-15VYV to apply the changes
-    > Run mod log runs add /Users/somebody/workspaces/migration_workshop logs.zip --last-recipe-run to aggregate run logs
+          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table DependenciesInUse
+          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table ExplainDependenciesInUse
+          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table RecipeRunStats
+          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table SourcesFileResults
+    > Run mod git checkout /Users/somebody/workspaces/migration-practice-workspace -b refactor/UpgradeSpringBoot_4_0 --last-recipe-run to prepare a refactor/UpgradeSpringBoot_4_0 branch for applying the changes
+    > Run mod git apply /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run to apply the changes
+    > Run mod git apply /Users/somebody/workspaces/migration-practice-workspace --recipe-run 20260115171844-15VYV to apply the changes
+    > Run mod log runs add /Users/somebody/workspaces/migration-practice-workspace logs.zip --last-recipe-run to aggregate run logs
     > Examine run telemetry
 
 MOD SUCCEEDED in 26s
@@ -208,8 +208,8 @@ Done (1s)
 Applied patches to 11 repositories.
 
 ⏺ What to do next
-    > Run mod git add /Users/somebody/workspaces/migration_workshop --last-recipe-run to add the changes to the index
-    > Run mod exec /Users/somebody/workspaces/migration_workshop --last-recipe-run MODERNE_BUILD_TOOL_CHECK to verify the changes locally
+    > Run mod git add /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run to add the changes to the index
+    > Run mod exec /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run MODERNE_BUILD_TOOL_CHECK to verify the changes locally
 
 MOD SUCCEEDED in 1s
 ```

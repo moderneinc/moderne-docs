@@ -231,7 +231,7 @@ Done (1s)
 Added files for 11 repositories.
 
 ⏺ What to do next
-    > Run mod git checkout /Users/somebody/workspaces/migration_workshop <branch-name> -b --last-recipe-run to create a new branch for your changes
+    > Run mod git checkout /Users/somebody/workspaces/migration-practice-workspace <branch-name> -b --last-recipe-run to create a new branch for your changes
     > Run mod git commit <path> --last-recipe-run to commit your changes to the current branch
 
 MOD SUCCEEDED in 1s
@@ -279,8 +279,8 @@ Done (1s)
 Committed changes for 11 repositories.
 
 ⏺ What to do next
-    > Run mod git push /Users/somebody/workspaces/migration_workshop --last-recipe-run to push the changes to your remote repository
-    > Run mod git push /Users/somebody/workspaces/migration_workshop --last-recipe-run --set-upstream to push and track the changes to your remote repository
+    > Run mod git push /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run to push the changes to your remote repository
+    > Run mod git push /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --set-upstream to push and track the changes to your remote repository
 
 MOD SUCCEEDED in 1s
 ```
@@ -502,10 +502,10 @@ Done (1m 16s)
 Built 11 repositories.
 
 ⏺ What to do next
-    > Run mod run /Users/somebody/workspaces/migration_workshop --recipe=<RecipeName>
-    > Run mod afterburner /Users/somebody/workspaces/migration_workshop to speed up recipe runs
-    > Analyze build results with mod trace builds analyze /Users/somebody/workspaces/migration_workshop --last-build
-    > Run mod log builds add /Users/somebody/workspaces/migration_workshop logs.zip --last-build to aggregate build logs
+    > Run mod run /Users/somebody/workspaces/migration-practice-workspace --recipe=<RecipeName>
+    > Run mod afterburner /Users/somebody/workspaces/migration-practice-workspace to speed up recipe runs
+    > Analyze build results with mod trace builds analyze /Users/somebody/workspaces/migration-practice-workspace --last-build
+    > Run mod log builds add /Users/somebody/workspaces/migration-practice-workspace logs.zip --last-build to aggregate build logs
 
 MOD SUCCEEDED in 1m 18s
 ```
