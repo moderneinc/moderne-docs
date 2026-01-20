@@ -27,7 +27,7 @@ To get the most out of this workshop, you should:
 
 You will also need:
 
-* [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) (version 3.55.x or higher recommended)
+* [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) (version 3.55.3 or higher recommended)
 * A JDK installed locally (Java 17 or higher recommended)
 
 ## Workshop modules
@@ -35,5 +35,5 @@ You will also need:
 * [Module 1: Migration assessment](./module-1-migration-assessment.md) - Run an initial migration and gather code insight data
 * [Module 2: Wave planning](./module-2-wave-planning.md) - Build LSTs, analyze dependencies, and organize upgrade waves
 * [Module 3: Establish a baseline](./module-3-establish-baseline.md) - Normalize Maven, Java, and Spring Boot versions across the portfolio
-* [Module 4: Java 17 and smoke test](./module-4-smoke-test.md) - Raise the baseline and validate readiness
-* [Module 5: Wave migration](./module-5-wave-migration.md) - Use a custom recipe to complete the migration in waves
+* [Module 4: Raise baseline and smoke test](./module-4-smoke-test.md) - Raise the baseline and validate readiness
+* [Module 5: Finish migration in waves](./module-5-wave-migration.md) - Use a custom recipe to complete the migration in waves

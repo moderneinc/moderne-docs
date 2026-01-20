@@ -69,7 +69,7 @@ mod git sync moderne $WORKSPACE --organization "Moderne - Training" --with-sourc
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.1
+Moderne CLI 3.55.3
 
 ⏺ Retrieving organization from Moderne
 
@@ -219,7 +219,7 @@ mod run-history $WORKSPACE
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.1
+Moderne CLI 3.55.3
 
 ⏺ Reading organization
 
@@ -285,6 +285,7 @@ mod study $WORKSPACE --last-recipe-run --data-table org.openrewrite.maven.table.
 Run these commands once to create the virtual environment and install the notebook dependencies:
 
 ```bash
+cd $PROJECTS/Release-Train-Metro-Plan
 uv venv
 source .venv/bin/activate
 uv sync
@@ -295,7 +296,7 @@ uv sync
 <Tabs groupId="wave-map">
 <TabItem value="cli" label="CLI (papermill)" default>
 
-This is the easiest option if you want to run the notebook end-to-end from the CLI. Make sure you replace `<recipe_run_id>` with the ID you retrieved in the previous step.
+This is the easiest option if you want to run the notebook end-to-end from the CLI. _Make sure you replace `<recipe_run_id>` with the ID you retrieved in the previous step._
 
 ```bash
 papermill $PROJECTS/Release-Train-Metro-Plan/src/main/python/ArchitecturalAnalysis.ipynb \

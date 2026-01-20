@@ -46,15 +46,13 @@ mod run $WORKSPACE --recipe org.openrewrite.java.migrate.UpgradeToJava17
 mod git apply $WORKSPACE --last-recipe-run
 ```
 
-<!-- TODO: Confirm this step with a clean runthrough. I got no changes here but I think that's because it was using the older code that had the updated Java versions. -->
-
 :::note
 Spring Boot 2.7 doesn't support Java 25. If you try `UpgradeToJava25` ([`org.openrewrite.java.migrate.UpgradeToJava25`](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava25)) at this stage, you'll hit compatibility issues. That is expected and a useful reminder to step through intermediate baselines.
 :::
 
 #### Step 2: Build and commit
 
-Now that the changes have been applied, commit the code and rebuild your LSTs:
+Now that the changes have been applied, confirm the build still works, then commit the code and rebuild your LSTs:
 
 ```bash
 $WORKSHOP/build.sh
@@ -66,7 +64,222 @@ mod build $WORKSPACE
 <details>
 <summary>Reference output</summary>
 
-<!-- TODO: Paste reference output -->
+```
+Starting build process...
+Running Wave 0...
+ecom-common built successfully
+Running Wave 1...
+ecom-security built successfully
+inventory-service built successfully
+kyc-service built successfully
+notification-service built successfully
+risk-score-service built successfully
+Running Wave 2...
+ecom-rest-client built successfully
+customer-service built successfully
+product-service built successfully
+Running Wave 3...
+fraud-detection-service built successfully
+order-service built successfully
+Build complete!
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 3.53.2
+
+⏺ Reading organization
+
+Found 5 organizations containing 11 repositories (1s)
+Found recipe run 20260120132507-FOhoR
+
+
+⏺ Executing git add
+
+Command output will be written to log
+
+▶ modernetraining/example-ecom-common@main
+    ✓ Added 1 files to index
+▶ modernetraining/example-ecom-inventory-service@main
+    ✓ Added 1 files to index
+▶ modernetraining/example-ecom-kyc-service@main
+    ✓ Added 1 files to index
+▶ modernetraining/example-ecom-notification-service@main
+    ✓ Added 1 files to index
+▶ modernetraining/example-ecom-risk-score-service@main
+    ✓ Added 1 files to index
+▶ modernetraining/example-ecom-security@main
+    ✓ Added 1 files to index
+▶ modernetraining/example-ecom-customer-service@main
+    ✓ Added 1 files to index
+▶ modernetraining/example-ecom-product-service@main
+    ✓ Added 1 files to index
+▶ modernetraining/example-ecom-rest-client@main
+    ✓ Added 2 files to index
+▶ modernetraining/example-ecom-fraud-detection-service@main
+    ✓ Added 1 files to index
+▶ modernetraining/example-ecom-order-service@main
+    ✓ Added 1 files to index
+Done (1s)
+
+Added files for 11 repositories.
+
+⏺ What to do next
+    > Run mod git checkout /Users/somebody/workspaces/migration-practice-workspace <branch-name> -b --last-recipe-run to create a new branch for your changes
+    > Run mod git commit <path> --last-recipe-run to commit your changes to the current branch
+
+MOD SUCCEEDED in 1s
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 3.53.2
+
+⏺ Reading organization
+
+Found 5 organizations containing 11 repositories (1s)
+Found recipe run 20260120132507-FOhoR
+
+
+⏺ Executing git commit
+
+Command output will be written to log
+
+▶ modernetraining/example-ecom-common@main
+    ✓ Committed changes.
+▶ modernetraining/example-ecom-inventory-service@main
+    ✓ Committed changes.
+▶ modernetraining/example-ecom-kyc-service@main
+    ✓ Committed changes.
+▶ modernetraining/example-ecom-notification-service@main
+    ✓ Committed changes.
+▶ modernetraining/example-ecom-risk-score-service@main
+    ✓ Committed changes.
+▶ modernetraining/example-ecom-security@main
+    ✓ Committed changes.
+▶ modernetraining/example-ecom-customer-service@main
+    ✓ Committed changes.
+▶ modernetraining/example-ecom-product-service@main
+    ✓ Committed changes.
+▶ modernetraining/example-ecom-rest-client@main
+    ✓ Committed changes.
+▶ modernetraining/example-ecom-fraud-detection-service@main
+    ✓ Committed changes.
+▶ modernetraining/example-ecom-order-service@main
+    ✓ Committed changes.
+Done (1s)
+
+Committed changes for 11 repositories.
+
+⏺ What to do next
+    > Run mod git push /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run to push the changes to your remote repository
+    > Run mod git push /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --set-upstream to push and track the changes to your remote repository
+
+MOD SUCCEEDED in 1s
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 3.53.2
+
+⏺ Reading organization
+
+Found 5 organizations containing 11 repositories (1s)
+
+⏺ Building LST(s)
+
+▶ modernetraining/example-ecom-common@main
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for example-ecom-common
+    > Step 2 - build resources
+    ✓ Built example-ecom-common-20260120140217520-ast.jar
+    Cleaned 1 older builds
+▶ modernetraining/example-ecom-inventory-service@main
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for example-ecom-inventory-service
+    > Step 2 - build resources
+    ✓ Built example-ecom-inventory-service-20260120140224927-ast.jar
+    Cleaned 1 older builds
+▶ modernetraining/example-ecom-kyc-service@main
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for example-ecom-kyc-service
+    > Step 2 - build resources
+    ✓ Built example-ecom-kyc-service-20260120140231478-ast.jar
+    Cleaned 1 older builds
+▶ modernetraining/example-ecom-notification-service@main
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for example-ecom-notification-service
+    > Step 2 - build resources
+    ✓ Built example-ecom-notification-service-20260120140237645-ast.jar
+    Cleaned 1 older builds
+▶ modernetraining/example-ecom-risk-score-service@main
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for example-ecom-risk-score-service
+    > Step 2 - build resources
+    ✓ Built example-ecom-risk-score-service-20260120140243778-ast.jar
+    Cleaned 1 older builds
+▶ modernetraining/example-ecom-security@main
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for example-ecom-security
+    > Step 2 - build resources
+    ✓ Built example-ecom-security-20260120140249025-ast.jar
+    Cleaned 1 older builds
+▶ modernetraining/example-ecom-customer-service@main
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for example-ecom-customer-service
+    > Step 2 - build resources
+    ✓ Built example-ecom-customer-service-20260120140256139-ast.jar
+    Cleaned 1 older builds
+▶ modernetraining/example-ecom-product-service@main
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for example-ecom-product-service
+    > Step 2 - build resources
+    ✓ Built example-ecom-product-service-20260120140303753-ast.jar
+    Cleaned 1 older builds
+▶ modernetraining/example-ecom-rest-client@main
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for example-ecom-rest-client
+    > Step 2 - build resources
+    ✓ Built example-ecom-rest-client-20260120140309769-ast.jar
+    Cleaned 1 older builds
+▶ modernetraining/example-ecom-fraud-detection-service@main
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for example-ecom-fraud-detection-service
+    > Step 2 - build resources
+    ✓ Built example-ecom-fraud-detection-service-20260120140316315-ast.jar
+    Cleaned 1 older builds
+▶ modernetraining/example-ecom-order-service@main
+    Build output will be written to build.log
+    > Step 1 - build with Maven
+        Selected the 17.0.12-tem JDK for example-ecom-order-service
+    > Step 2 - build resources
+    ✓ Built example-ecom-order-service-20260120140324334-ast.jar
+    Cleaned 1 older builds
+Done (1m 14s)
+
+Built 11 repositories.
+
+⏺ What to do next
+    > Run mod run /Users/somebody/workspaces/migration-practice-workspace --recipe=<RecipeName&rt;
+    > Run mod afterburner /Users/somebody/workspaces/migration-practice-workspace to speed up recipe runs
+    > Analyze build results with mod trace builds analyze /Users/somebody/workspaces/migration-practice-workspace --last-build
+    > Run mod log builds add /Users/somebody/workspaces/migration-practice-workspace logs.zip --last-build to aggregate build logs
+
+MOD SUCCEEDED in 1m 15s
+```
 
 </details>
 
@@ -84,7 +297,7 @@ Now that your repositories are upgraded to on Java 17, you can run another quick
 
 #### Step 1: Run the upgrade recipe
 
-In Module 1, you ran the recipe in the platform and used the `Verify compilation` recipe ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) to check for build failures. Now, you can run the Spring Boot 4 Upgrade recipe ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0)) by itself with the CLI and verify the build directly to isolate any remaining obstacles that may require custom fixes. 
+In Module 1, you ran the recipe in the platform and used the `Verify compilation` recipe ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) to check for build failures. Now, you can run the Spring Boot 4 Upgrade recipe ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition)) by itself with the CLI and verify the build directly to isolate any remaining obstacles that may require custom fixes. 
 
 First, run the recipe and apply the changes:
 
@@ -92,129 +305,9 @@ First, run the recipe and apply the changes:
 mod run $WORKSPACE --recipe io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0
 mod git apply $WORKSPACE --last-recipe-run
 ```
-
-<details>
-<summary>Reference output</summary>
-
-```text
-   ▛▀▀▚▖  ▗▄▟▜
-   ▌   ▜▄▟▀  ▐
-   ▛▀▀█▀▛▀▀▀▀▜
-   ▌▟▀  ▛▀▀▀▀▜
-   ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.1
-
-⏺ Reading organization
-
-Found 1 organization containing 11 repositories (1s)
-
-⏺ Running recipe io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0
-
-▶ modernetraining/example-ecom-rest-client@main
-    Fix results
-    ✓ Recipe run complete
-▶ modernetraining/example-ecom-common@main
-    Fix results
-    ✓ Recipe run complete
-▶ modernetraining/example-ecom-security@main
-    Fix results
-    ✓ Recipe run complete
-▶ modernetraining/example-ecom-notification-service@main
-    Fix results
-    ✓ Recipe run complete
-▶ modernetraining/example-ecom-kyc-service@main
-    Fix results
-    ✓ Recipe run complete
-▶ modernetraining/example-ecom-risk-score-service@main
-    Fix results
-    ✓ Recipe run complete
-▶ modernetraining/example-ecom-inventory-service@main
-    Fix results
-    ✓ Recipe run complete
-▶ modernetraining/example-ecom-customer-service@main
-    Fix results
-    ✓ Recipe run complete
-▶ modernetraining/example-ecom-fraud-detection-service@main
-    Fix results
-    ✓ Recipe run complete
-▶ modernetraining/example-ecom-product-service@main
-    Fix results
-    ✓ Recipe run complete
-▶ modernetraining/example-ecom-order-service@main
-    Fix results
-    ✓ Recipe run complete
-Done (25s)
-
-1m 8s saved by using previously built LSTs
-3h saved by using recipes
-
-Produced results for 11 repositories.
-
-⏺ What to do next
-    > Click on one of the patch links above to view the changes on a particular repository
-    > Run mod study to examine the following data tables produced by this recipe:
-          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table DependenciesInUse
-          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table ExplainDependenciesInUse
-          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table RecipeRunStats
-          > mod study /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run --data-table SourcesFileResults
-    > Run mod git checkout /Users/somebody/workspaces/migration-practice-workspace -b refactor/UpgradeSpringBoot_4_0 --last-recipe-run to prepare a refactor/UpgradeSpringBoot_4_0 branch for applying the changes
-    > Run mod git apply /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run to apply the changes
-    > Run mod git apply /Users/somebody/workspaces/migration-practice-workspace --recipe-run 20260115171844-15VYV to apply the changes
-    > Run mod log runs add /Users/somebody/workspaces/migration-practice-workspace logs.zip --last-recipe-run to aggregate run logs
-    > Examine run telemetry
-
-MOD SUCCEEDED in 26s
-   ▛▀▀▚▖  ▗▄▟▜
-   ▌   ▜▄▟▀  ▐
-   ▛▀▀█▀▛▀▀▀▀▜
-   ▌▟▀  ▛▀▀▀▀▜
-   ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.1
-
-⏺ Reading organization
-
-Found 1 organization containing 11 repositories (1s)
-Found recipe run 20260115171844-15VYV
-
-
-⏺ Executing git apply
-
-Command output will be written to log
-
-▶ modernetraining/example-ecom-common@main
-    ✓ Applied patch
-▶ modernetraining/example-ecom-customer-service@main
-    ✓ Applied patch
-▶ modernetraining/example-ecom-fraud-detection-service@main
-    ✓ Applied patch
-▶ modernetraining/example-ecom-inventory-service@main
-    ✓ Applied patch
-▶ modernetraining/example-ecom-kyc-service@main
-    ✓ Applied patch
-▶ modernetraining/example-ecom-notification-service@main
-    ✓ Applied patch
-▶ modernetraining/example-ecom-order-service@main
-    ✓ Applied patch
-▶ modernetraining/example-ecom-product-service@main
-    ✓ Applied patch
-▶ modernetraining/example-ecom-rest-client@main
-    ✓ Applied patch
-▶ modernetraining/example-ecom-risk-score-service@main
-    ✓ Applied patch
-▶ modernetraining/example-ecom-security@main
-    ✓ Applied patch
-Done (1s)
-
-Applied patches to 11 repositories.
-
-⏺ What to do next
-    > Run mod git add /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run to add the changes to the index
-    > Run mod exec /Users/somebody/workspaces/migration-practice-workspace --last-recipe-run MODERNE_BUILD_TOOL_CHECK to verify the changes locally
-
-MOD SUCCEEDED in 1s
-```
-
-</details>
+:::note
+Don't worry if you see warnings about "errors while running the recipe." You'll still be able to move on to the remaining steps.
+:::
 
 :::tip
 You may wish to open the diffs to inspect the changes before applying them. Use ctrl-click (Windows) or cmd-click (Mac) on the `Fix results` links to preview the changes after running the recipe.

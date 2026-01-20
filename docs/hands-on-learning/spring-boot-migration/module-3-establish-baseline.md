@@ -21,7 +21,7 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
 1. In the Moderne Platform, open the recipe builder and create a new recipe.
 2. Toggle off the `Auto-generate ID from name` setting so you can manually enter an ID, then fill in the fields as follows:
    - **Name:** `Spring Boot Migration Workshop Baseline`
-   - **ID:** [`com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline`](https://docs.openrewrite.org/recipes/com/example/ecom/recipe/springbootmigrationworkshopbaseline)
+   - **ID:** `com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline`
 
 <figure>
   ![](./assets/workshop-baseline-name-id.png)
@@ -32,12 +32,12 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
    - **`Apache Maven best practices`** ([`org.openrewrite.maven.BestPractices`](https://docs.openrewrite.org/recipes/maven/bestpractices))
    - **`Migrate to Java 8`** ([`org.openrewrite.java.migrate.UpgradeToJava8`](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava8))
    - **`Migrate to Spring Boot 2.7`** ([`org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7`](https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7))
-   - **`Change Maven managed dependency groupId, artifactId and optionally the version`** ([`org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId`](https://docs.openrewrite.org/recipes/maven/changedependencygroupidandartifactid))
+   - **`Change Maven dependency`** ([`org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId`](https://docs.openrewrite.org/recipes/maven/changedependencygroupidandartifactid))
 4. Configure the dependency change:
    - **Old groupId:** `org.springframework.cloud`
    - **Old artifactId:** `spring-cloud-starter-zipkin`
    - **New groupId:** `org.springframework.cloud`
-   - **New artifactId:** `spring-cloud-sleuth-zipkin
+   - **New artifactId:** `spring-cloud-sleuth-zipkin`
 
 <figure>
   ![](./assets/migration-baseline-recipe.png)
@@ -83,23 +83,14 @@ mod build $WORKSPACE
 This command may take a couple of minutes to run as it builds LSTs for each repository.
 :::
 
-2. When you run a recipe from the CLI, Moderne writes any changes to a patch file and leaves your working tree untouched until you're ready to explicitly apply it. In this step, you'll run the [`com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline`](https://docs.openrewrite.org/recipes/com/example/ecom/recipe/springbootmigrationworkshopbaseline) recipe and then use `mod git apply` to write the recipe changes into the repos so you can review, test, and commit them:
+2. In this step, you'll run the `com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline` recipe that you just created in the platform and downloaded. When you run a recipe from the CLI, Moderne writes any changes to a patch file and leaves your working tree untouched until you're ready to explicitly apply it. So after you run the recipe, you use `mod git apply` to write the changes into the repos so you can review, test, and commit them:
 
 ```bash
 mod run $WORKSPACE --recipe com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline
 mod git apply $WORKSPACE --last-recipe-run
 ```
 
-<details>
-<summary>Reference output</summary>
-
-<!-- TODO: Paste reference output -->
-
-</details>
-
 #### Step 3: Build and release
-
-<!-- TODO: Confirm we don't need to do an initial release run since we have the published artifacts? If not, we'll need to add an initial run of `release.sh` and update this explanation. -->
 
 This repository includes some helper scripts to run commands like building, testing, and releasing. Use the `build.sh` script to build and run tests for all the projects, and the `release.sh` script to release your code for downstream dependencies to consume. To publish a release, the script automatically installs the current non-SNAPSHOT version of each repository into your local Maven cache. It will then bump the project's version to the next available minor SNAPSHOT version, ready for you to make more changes. Both scripts build or release all repositories, but they each accept an argument representing a target wave number. So `build.sh 1` will only build the repositories in Wave 1.
 
@@ -121,7 +112,7 @@ mod git status $WORKSPACE
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.1
+Moderne CLI 3.55.3
 
 ⏺ Reading organization
 
@@ -194,7 +185,7 @@ Build complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.1
+Moderne CLI 3.55.3
 
 ⏺ Reading organization
 
@@ -242,7 +233,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.1
+Moderne CLI 3.55.3
 
 ⏺ Reading organization
 
@@ -297,7 +288,7 @@ mod build $WORKSPACE
 ```
 
 :::tip
-If you see some build failures, continue anyway. You can still run recipes on the repos that do have valid LSTs.
+If you see some LST build failures, continue anyway. You can still run recipes on the repos that do have valid LSTs.
 :::
 
 <details>
@@ -414,7 +405,7 @@ Mass Release Complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.1
+Moderne CLI 3.55.3
 
 ⏺ Reading organization
 

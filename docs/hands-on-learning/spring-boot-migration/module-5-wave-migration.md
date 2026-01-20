@@ -47,7 +47,7 @@ Additionally, since you will be upgrading in waves to ensure that custom library
 This is an example of a migration recipe _freight train_. You'll often build a custom recipe that runs the out-of-the-box recipes and then applies some additional ones that are needed in your particular environment. In this workshop, the composite recipe upgrades internal dependencies, applies the Spring Boot 4 recipe, and then runs the QueryDSL upgrade.
 :::
 
-1. Create a local YAML recipe file. This composite recipe is named [`org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/querydsl/customupgradespringboot_4_0) and combines [`org.openrewrite.java.dependencies.UpgradeDependencyVersion`](https://docs.openrewrite.org/recipes/java/dependencies/upgradedependencyversion), [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0), and [`org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`](https://docs.openrewrite.org/recipes/querydsl/upgradetoquerydsl5). If you prefer, you can copy and paste the YAML directly into a new file named `CustomUpgradeSpringBoot_4_0.yml` instead of using the command.
+1. Create a local YAML recipe file. This composite recipe is named `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` and combines [`org.openrewrite.java.dependencies.UpgradeDependencyVersion`](https://docs.openrewrite.org/recipes/java/dependencies/upgradedependencyversion), [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0), and `org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`. If you prefer, you can copy and paste the YAML directly into a new file named `CustomUpgradeSpringBoot_4_0.yml` instead of using the command.
 
 ```bash
 cat <<'EOF' > CustomUpgradeSpringBoot_4_0.yml
@@ -72,7 +72,7 @@ Take a look at each recipe in the recipe list of this YAML file so you understan
 You can't use recipe builder in this case since you are referring to a custom recipe that is not available in the platform.
 :::
 
-2. Install [`org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/querydsl/customupgradespringboot_4_0) locally with the CLI:
+2. Install `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` locally with the CLI:
 
 ```bash
 mod config recipes yaml install CustomUpgradeSpringBoot_4_0.yml
@@ -89,7 +89,7 @@ mod config recipes yaml install CustomUpgradeSpringBoot_4_0.yml
 
 Now that the custom upgrade recipe is ready, it's time to upgrade each wave! 
 
-1. Start by upgrading Wave 0 using [`org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/querydsl/customupgradespringboot_4_0) with the following commands. 
+1. Start by upgrading Wave 0 using `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` with the following commands. 
 
 ```bash
 mod run $WORKSPACE/Wave0 --recipe org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0
@@ -100,7 +100,7 @@ mod git apply $WORKSPACE/Wave0 --last-recipe-run
 Notice you are referencing the `Wave0` directory for each of the `mod` commands. This is taking advantage of the organizational directory structure to target only the wave you want to apply changes to so you can do each wave individually.
 :::
 
-2. Now that the changes have been applied, verify the build and release:
+2. Now that the changes have been applied, verify the build and release for the wave:
 
 ```bash
 $WORKSHOP/release.sh 0
@@ -117,7 +117,7 @@ This isn't surprising since you saw Wave 0 successfully build earlier. It was Wa
 
 ### Steps
 
-1. Once again, run [`org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/querydsl/customupgradespringboot_4_0), but this time, targeting the `Wave1` directory:
+1. Once again, run `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` and apply the changes, but this time, targeting the `Wave1` directory:
 
 ```bash
 mod run $WORKSPACE/Wave1 --recipe org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0
@@ -164,7 +164,7 @@ mod devcenter $WORKSPACE --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.1
+Moderne CLI 3.55.3
 
 ⏺ Reading organization
 
@@ -239,7 +239,7 @@ MOD SUCCEEDED in 9s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.55.1
+Moderne CLI 3.55.3
 
 ⏺ Reading organization
 
