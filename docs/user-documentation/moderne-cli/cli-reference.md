@@ -88,6 +88,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config environment show**](#mod-config-environment-show)
 * [**mod config features**](#mod-config-features)
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
+* [**mod config features inline-diff**](#mod-config-features-inline-diff)
 * [**mod config features no-maven-central**](#mod-config-features-no-maven-central)
 * [**mod config http**](#mod-config-http)
 * [**mod config http proxy**](#mod-config-http-proxy)
@@ -2015,6 +2016,7 @@ mod config features [subcommands]
 ### Subcommands
 
 * `index-recipes`
+* `inline-diff`: Configure inline diff rendering in the terminal.
 * `no-maven-central`: (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
 
 ## mod config features index-recipes
@@ -2026,6 +2028,26 @@ mod config features [subcommands]
 
 ```
 mod config features index-recipes
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--enabled` |  |
+
+
+## mod config features inline-diff
+
+Configure inline diff rendering in the terminal.
+
+
+When enabled, diffs are rendered inline in the terminal during recipe runs when the terminal supports UTF-8 extended characters. Inline diffs are enabled by default.
+
+### Usage
+
+```
+mod config features inline-diff
 ```
 
 ### Options
