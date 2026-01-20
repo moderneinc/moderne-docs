@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.55.2 (2026-01-19)
+
+#### What's Changed CLI
+* `mod run`: Optimize diff generation
+* Trace Analysis - fix for not being able to search for `e`
+* Trace to store build tool version even if the build fails during validate
+* Create trace file for add command
+* Add inline diff viewer for mod run output
+* Trace analysis - various fixes 
+* Write a build trace with outcome if LST download step is skipped
+
 ### CLI / DX v3.55.1 (2026-01-13)
 
 #### What's Changed CLI
