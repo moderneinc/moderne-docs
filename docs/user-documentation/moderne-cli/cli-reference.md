@@ -252,6 +252,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod trace**](#mod-trace)
 * [**mod trace builds**](#mod-trace-builds)
 * [**mod trace builds analyze**](#mod-trace-builds-analyze)
+* [**mod trace runs**](#mod-trace-runs)
+* [**mod trace runs analyze**](#mod-trace-runs-analyze)
 
 ## mod
 
@@ -5671,7 +5673,7 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 Manages trace analysis tools.
 
 
-Analyze build traces with failure classification using ML-powered techniques (not AI or LLM based) and interactive visualization.
+Analyze build and run traces with failure classification using ML-powered techniques (not AI or LLM based) and interactive visualization.
 
 ### Usage
 
@@ -5683,6 +5685,7 @@ mod trace [subcommands]
 ### Subcommands
 
 * `builds`: Build trace analysis tools.
+* `runs`: Run trace analysis tools.
 
 ## mod trace builds
 
@@ -5727,5 +5730,50 @@ mod trace builds analyze [parameters]
 | ---- | ----------- |
 | `--build` |  A build ID for a build that has completed previously. |
 | `--last-build` |  Select whatever the last build was, whether the build ran fully to completion or terminated early. |
+
+
+## mod trace runs
+
+Run trace analysis tools.
+
+
+Analyze run traces to understand recipe execution patterns and results.
+
+### Usage
+
+```
+mod trace runs [subcommands]
+```
+
+
+### Subcommands
+
+* `analyze`: Launch interactive run trace analyzer.
+
+## mod trace runs analyze
+
+Launch interactive run trace analyzer.
+
+
+Launches a web-based trace analyzer for recipe run results. The analyzer provides an interactive interface to explore run patterns, recipe distributions, and execution metrics.
+
+### Usage
+
+```
+mod trace runs analyze [parameters]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  Path to a project directory containing run trace data. | `/path/to/project` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--last-run` |  Select whatever the last run was, whether the run completed fully or terminated early. |
+| `--run` |  A run ID for a run that has completed previously. |
 
 
