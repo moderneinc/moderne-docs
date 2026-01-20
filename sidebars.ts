@@ -332,6 +332,25 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
+      type: 'category',
+      label: 'Preparing for a Spring Boot Migration',
+      link: {
+        type: 'generated-index',
+        title: 'Preparing for a Spring Boot Migration',
+        description: 'Plan and execute a Spring Boot 4 migration with wave-based upgrades.',
+        slug: '/hands-on-learning/spring-boot-migration',
+        keywords: ['training', 'recipes'],
+      },
+      items: [
+        'hands-on-learning/spring-boot-migration/workshop-overview',
+        'hands-on-learning/spring-boot-migration/module-1-migration-assessment',
+        'hands-on-learning/spring-boot-migration/module-2-wave-planning',
+        'hands-on-learning/spring-boot-migration/module-3-establish-baseline',
+        'hands-on-learning/spring-boot-migration/module-4-smoke-test',
+        'hands-on-learning/spring-boot-migration/module-5-wave-migration',
+      ],
+    },
+    {
       type: 'link',
       label: 'Live OpenRewrite training',
       description: 'Hands-on sessions for both newcomers and advanced practitioners.',
