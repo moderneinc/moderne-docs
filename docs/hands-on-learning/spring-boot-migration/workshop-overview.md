@@ -27,11 +27,8 @@ To get the most out of this workshop, you should:
 
 You will also need:
 
-* The Moderne CLI (v3.55.x or higher recommended)
+* [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) (version 3.55.x or higher recommended)
 * A JDK installed locally (Java 17 or higher recommended)
-* [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) version `3.45.5` or higher
-* JDK 17 or later
-* Access to [app.moderne.io](https://app.moderne.io/)
 
 ## Workshop modules
 
