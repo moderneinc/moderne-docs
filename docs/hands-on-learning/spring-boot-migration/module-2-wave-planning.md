@@ -45,19 +45,112 @@ cd $PROJECTS
 git clone https://github.com/modernetraining/moderne-migration-practice
 ```
 
-2. Now you're ready to use the Moderne CLI to clone all of the example projects to your local machine. The workshop repository includes a `repos.csv` file that lists the example repositories. For more information on this file, [check out our repos.csv documentation](../../user-documentation/moderne-cli/references/repos-csv). Feel free to inspect this file to better understand what it contains. The following command will clone all of the listed repositories into your `$WORKSPACE` directory:
+2. Now we'll create a workspace directory to house our code repositories:
 
 ```bash
 mkdir -p $WORKSPACE
 cd $WORKSPACE
-mod git sync csv $WORKSPACE $WORKSHOP/repos.csv --with-sources
 ```
 
-<!-- TODO: Add publishUri to repos.csv file so the LSTs will be downloaded in this step as well. -->
+3. There are two ways to pull repositories with the Moderne CLI: sync directly from a Moderne Platform organization or sync from a local `repos.csv` file. We'll start by pulling from the platform organization, which downloads both the source code and the LSTs (Lossless Semantic Trees). The LST is OpenRewrite's rich code model that recipes use to make accurate, safe changes. Use the following command to sync the repositories:
 
-3. Take a look at the contents of your `$WORKSPACE` folder now. (You can walk through and inspect the directories with `cd` and `ls`, or if you have `tree`, you can see the full structure with `tree -d $WORKSPACE -L 3`.) You should see that you have a directory for the GitHub org (or user) with the repositories inside.
+```bash
+mod git sync moderne $WORKSPACE --organization "Moderne - Training" --with-sources
+```
 
-<!-- TODO: If we don't download LSTs from the platform, here's where we need to add a `mod build` step and explain LSTs. -->
+
+<details>
+<summary>Reference output</summary>
+
+
+```text
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 3.55.1
+
+⏺ Retrieving organization from Moderne
+
+Found organization ALL/Moderne/Moderne - Training
+Organization written to disk at file:///Users/somebody/workspaces/migration-practice-workspace/.moderne/repos.csv
+
+⏺ Analyzing organization structure
+
+Done (1s)
+
+Selected organization ALL/Moderne/Moderne - Training
+
+⏺ Synchronizing organization directory structure
+
+Found 1 organization containing 11 repositories
+
+Adding organization Moderne - Training
+Adjusted 1 organization directory. (1s)
+
+⏺ Performing Git operations on repositories
+
+▶ modernetraining/example-ecom-common@main
+    ✓ Checked out 8c1d5d4 on branch main
+▶ modernetraining/example-ecom-notification-service@main
+    ✓ Checked out 0d3b871 on branch main
+▶ modernetraining/example-ecom-security@main
+    ✓ Checked out 1c0ff16 on branch main
+▶ modernetraining/example-ecom-customer-service@main
+    ✓ Checked out e36017c on branch main
+▶ modernetraining/example-ecom-kyc-service@main
+    ✓ Checked out 82a20e5 on branch main
+▶ modernetraining/example-ecom-fraud-detection-service@main
+    ✓ Checked out 82fccd5 on branch main
+▶ modernetraining/example-ecom-risk-score-service@main
+    ✓ Checked out e96348f on branch main
+▶ modernetraining/example-ecom-product-service@main
+    ✓ Checked out 2e37d7d on branch main
+▶ modernetraining/example-ecom-rest-client@main
+    ✓ Checked out 0d58140 on branch main
+▶ modernetraining/example-ecom-inventory-service@main
+    ✓ Checked out ceb0b19 on branch main
+▶ modernetraining/example-ecom-order-service@main
+    ✓ Checked out 9e75f2d on branch main
+Done (3s)
+
+⏺ Downloading LSTs for repositories
+
+▶ modernetraining/example-ecom-rest-client@main
+    ✓ Downloaded example-ecom-rest-client-20260119194611806-ast.jar
+▶ modernetraining/example-ecom-common@main
+    ✓ Downloaded example-ecom-common-20260119194356726-ast.jar
+▶ modernetraining/example-ecom-security@main
+    ✓ Downloaded example-ecom-security-20260119194637743-ast.jar
+▶ modernetraining/example-ecom-risk-score-service@main
+    ✓ Downloaded example-ecom-risk-score-service-20260119194625433-ast.jar
+▶ modernetraining/example-ecom-notification-service@main
+    ✓ Downloaded example-ecom-notification-service-20260119194526158-ast.jar
+▶ modernetraining/example-ecom-fraud-detection-service@main
+    ✓ Downloaded example-ecom-fraud-detection-service-20260119194438286-ast.jar
+▶ modernetraining/example-ecom-kyc-service@main
+    ✓ Downloaded example-ecom-kyc-service-20260119194510367-ast.jar
+▶ modernetraining/example-ecom-inventory-service@main
+    ✓ Downloaded example-ecom-inventory-service-20260119194457543-ast.jar
+▶ modernetraining/example-ecom-product-service@main
+    ✓ Downloaded example-ecom-product-service-20260119194559625-ast.jar
+▶ modernetraining/example-ecom-customer-service@main
+    ✓ Downloaded example-ecom-customer-service-20260119194422140-ast.jar
+▶ modernetraining/example-ecom-order-service@main
+    ✓ Downloaded example-ecom-order-service-20260119194543744-ast.jar
+Done (1s)
+
+Synced 11 repositories.
+
+⏺ What to do next
+    > Examine clone telemetry
+
+MOD SUCCEEDED in 5s
+```
+</details>
+
+4. Take a look at the contents of your `$WORKSPACE` folder now. (You can walk through and inspect the directories with `cd` and `ls`, or if you have `tree`, you can see the full structure with `tree -d $WORKSPACE -L 3`.) You should see that you have a directory for the GitHub org (or user) with the repositories inside.
 
 #### Step 3: Install the recipe set
 
@@ -107,8 +200,6 @@ mod config recipes jar install dev.mboegie.rewrite:release-train-metro-plan:RELE
 
 1. Run the newly-installed recipe on the collection of repositories in your workspace:
 
-<!-- TODO: If the LSTs didn't download from the platform, this is the first place we'd need to make sure we did a `mod build` manually -->
-
 ```bash
 mod run $WORKSPACE --recipe dev.mboegie.rewrite.releasemetro.ReleaseMetroPlan --parallel
 ```
@@ -123,6 +214,13 @@ mod run-history $WORKSPACE
 <summary>Reference output</summary>
 
 ```text
+   ▛▀▀▚▖  ▗▄▟▜
+   ▌   ▜▄▟▀  ▐
+   ▛▀▀█▀▛▀▀▀▀▜
+   ▌▟▀  ▛▀▀▀▀▜
+   ▀▀▀▀▀▀▀▀▀▀▀
+Moderne CLI 3.55.1
+
 ⏺ Reading organization
 
 Found 1 organization containing 11 repositories (1s)
@@ -182,17 +280,24 @@ mod study $WORKSPACE --last-recipe-run --data-table org.openrewrite.maven.table.
 
 #### Step 3: Generate the wave map
 
-Choose one of the two options below to generate the wave map, depending on what's available in your environment. The notebook uses Python, so you'll at least need Python installed to run it. If you pick the CLI option, you'll also need `uv`, which is a fast Python package manager and virtual environment tool.
+1. To run the Jupyter notebook, you will need Python and a small virtual environment setup. It is recommended to use `uv`, a [fast Python package manager and virtual environment tool](https://github.com/astral-sh/uv). If you do not have it installed, follow the install steps in the [uv documentation](https://docs.astral.sh/uv/#installation).
 
-<Tabs groupId="wave-map">
-<TabItem value="cli" label="CLI (uv)" default>
-
-This is the easiest option if you have Python 3+ installed and the `uv` CLI available (or can set it up quickly). Make sure you replace `<recipe_run_id>` with the ID you retrieved in the previous step.
+Run these commands once to create the virtual environment and install the notebook dependencies:
 
 ```bash
 uv venv
 source .venv/bin/activate
 uv sync
+```
+
+2. You can run the notebook using the command line tool `papermill` CLI tool, or use a Jupyter notebook UI. Choose one of these two options:
+
+<Tabs groupId="wave-map">
+<TabItem value="cli" label="CLI (papermill)" default>
+
+This is the easiest option if you want to run the notebook end-to-end from the CLI. Make sure you replace `<recipe_run_id>` with the ID you retrieved in the previous step.
+
+```bash
 papermill $PROJECTS/Release-Train-Metro-Plan/src/main/python/ArchitecturalAnalysis.ipynb \
   $PROJECTS/Release-Train-Metro-Plan/src/main/python/ArchitecturalAnalysis_out.ipynb \
   -p workspace $WORKSPACE \
@@ -215,19 +320,19 @@ Open the notebook in Jupyter (or a Jupyter editor like VS Code), then update the
 </Tabs>
 
 :::note
-If neither option works right now, don't worry. You can skip the rest of this exercise and still continue with the workshop using the wave list shown in the next exercise.
+If neither option works for you or you don't have a Python environment, don't worry. You can skip the rest of this exercise and still continue with the workshop using the wave list shown in the next exercise.
 :::
 
-Open the generated output HTML file to view the wave diagram and note the repository order:
+3. Open the generated output HTML file to view the wave diagram and note the repository order:
 
 ```bash
 open $PROJECTS/Release-Train-Metro-Plan/src/main/static/metro-plan.html
 ```
 
-Now that you have a wave plan, you need a way to target a specific wave with recipe runs and releases. There are a few ways to do that:
+4. Now that you have a wave plan, you need a way to target a specific wave with recipe runs and releases. Instead of syncing with the organization in the platform as you did before, you will now use the `repos.csv` method to group repositories by wave. There are a few ways could do that:
 
-* Create separate `repos.csv` files per wave and sync each into its own workspace
 * Run `mod` commands inside each repository manually (fine for a few repos, painful at scale)
+* Create separate `repos.csv` files per wave and sync each into its own workspace
 * Use the `repos.csv` organization columns to group repos by wave in a single workspace
 
 You will use the third option in this workshop so you can run both org-wide recipes and wave-specific recipes in a single wave directory from the root folder.
@@ -240,7 +345,11 @@ You will use the third option in this workshop so you can run both org-wide reci
 
 ### Steps
 
-1. In the root of your `$WORKSHOP`, compare the wave-aware CSV file (`repos-waves.csv`) to the original CSV you used to sync the repositories (`repos.csv`). Note the addition of the organization fields and the grouping of repositories based on the wave plan from the previous exercise.
+1. In the root of your `$WORKSHOP`, review the wave-aware CSV file (`repos-waves.csv`) and note the addition of the organization fields and the grouping of repositories based on the wave plan from the previous exercise.
+
+:::note
+There is a `repos.csv` file in the root of the workshop as well, which represents the flat structure that is reflected in the platform and in the local directory after syncing with the platform earlier in this module. The `repos-waves.csv` is the one that includes the addition of organization fields that group the repositories by wave, in order, as determined in the previous exercise. For more information, [check out our repos.csv documentation](../../user-documentation/moderne-cli/references/repos-csv).
+:::
 
 2. Sync the repos again, this time using the wave-aware CSV file:
 

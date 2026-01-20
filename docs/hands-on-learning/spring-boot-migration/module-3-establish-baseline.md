@@ -61,8 +61,6 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
 
 ### Steps
 
-You'll use two helper scripts throughout the workshop: `build.sh` to validate that a wave still builds after changes, and `release.sh` to publish a local release so downstream repos can move to the new versions. We'll start using both of these in this exercise.
-
 #### Step 1: Save and install the recipe
 
 Copy the recipe to your `$WORKSHOP` directory and install it locally:
@@ -73,11 +71,19 @@ cp ~/Downloads/Spring\ Boot\ Migration\ Workshop\ Baseline.yml $WORKSHOP/Worksho
 mod config recipes yaml install $WORKSHOP/WorkshopBaseline.yml
 ```
 
-#### Step 2: Run the recipe and apply changes
+#### Step 2: Build LSTs, then run the recipe and apply changes
 
-When you run a recipe from the CLI that makes changes, it stores recipe results as a patch without changing your working tree until you're ready to explicitly apply it. In this step, you'll run the [`com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline`](https://docs.openrewrite.org/recipes/com/example/ecom/recipe/springbootmigrationworkshopbaseline) recipe and then use `mod git apply` to write the recipe changes into the repos so you can review, test, and commit them.
+1. Since you synced repositories from the wave-specific CSV file instead of the platform, the LSTs aren't available for download, so you'll need to build them before running recipes:
 
-<!-- TODO: Confirm we don't need to run `mod build` since we should have updated LSTs from the last module. If not, add `mod build` here along with an explanation along the lines of: "Now we can build our first Lossless Semantic Trees (LSTs) so we can run OpenRewrite recipes on the synced repositories. This command may take a few minutes to run as it compiles the projects and builds the LSTs for each project:" --->
+```bash
+mod build $WORKSPACE
+```
+
+:::note
+This command may take a couple of minutes to run as it builds LSTs for each repository.
+:::
+
+2. When you run a recipe from the CLI, Moderne writes any changes to a patch file and leaves your working tree untouched until you're ready to explicitly apply it. In this step, you'll run the [`com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline`](https://docs.openrewrite.org/recipes/com/example/ecom/recipe/springbootmigrationworkshopbaseline) recipe and then use `mod git apply` to write the recipe changes into the repos so you can review, test, and commit them:
 
 ```bash
 mod run $WORKSPACE --recipe com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline
@@ -87,13 +93,9 @@ mod git apply $WORKSPACE --last-recipe-run
 <details>
 <summary>Reference output</summary>
 
+<!-- TODO: Paste reference output -->
+
 </details>
-
-### Takeaways
-
-* A baseline recipe reduces variance across repositories before major upgrades
-* Landing on Spring Boot 2.7 creates a stable stepping stone for Java 17 and Spring Boot 4
-* `mod git apply` turns recipe output into working-tree changes you can review and commit
 
 #### Step 3: Build and release
 
@@ -119,7 +121,7 @@ mod git status $WORKSPACE
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.54.5
+Moderne CLI 3.55.1
 
 ⏺ Reading organization
 
@@ -192,7 +194,7 @@ Build complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.54.5
+Moderne CLI 3.55.1
 
 ⏺ Reading organization
 
@@ -240,7 +242,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.54.5
+Moderne CLI 3.55.1
 
 ⏺ Reading organization
 
@@ -412,7 +414,7 @@ Mass Release Complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.54.5
+Moderne CLI 3.55.1
 
 ⏺ Reading organization
 
@@ -511,3 +513,10 @@ MOD SUCCEEDED in 1m 18s
 ```
 
 </details>
+
+## Takeaways
+
+* Establishing a shared baseline reduces variance so later upgrades focus on fewer, clearer changes.
+* Build → run recipe → apply → review → commit becomes the repeatable flow for every wave.
+* LSTs are required for reliable recipe runs, so each new workspace needs a build step first.
+* Build and release steps keep downstream repositories in sync as you move through the waves.

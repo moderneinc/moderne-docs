@@ -21,8 +21,6 @@ You will need a custom recipe to rename packages, update dependencies, and adjus
 Check out the [Fundamentals of Recipe Authorship](../fundamentals/workshop-overview.md) if you are interested in learning about writing custom recipes.
 :::
 
-<!-- TODO: Should we update the README on the rewrite-querydsl repository? -->
-
 To build and install the custom recipe, run the following commands:
 
 ```bash
@@ -166,7 +164,7 @@ mod devcenter $WORKSPACE --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.54.5
+Moderne CLI 3.55.1
 
 ⏺ Reading organization
 
@@ -241,7 +239,7 @@ MOD SUCCEEDED in 9s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.54.5
+Moderne CLI 3.55.1
 
 ⏺ Reading organization
 

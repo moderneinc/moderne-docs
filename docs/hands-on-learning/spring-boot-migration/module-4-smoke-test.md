@@ -102,7 +102,7 @@ mod git apply $WORKSPACE --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.54.5
+Moderne CLI 3.55.1
 
 ⏺ Reading organization
 
@@ -169,7 +169,7 @@ MOD SUCCEEDED in 26s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.54.5
+Moderne CLI 3.55.1
 
 ⏺ Reading organization
 
