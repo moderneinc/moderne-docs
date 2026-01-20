@@ -43,7 +43,7 @@ For the purposes of this guide, however, let's use the [Dependency insight for G
 
 Navigate to the [Dependency insight for Gradle and Maven recipe](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight?defaults=W3sibmFtZSI6Imdyb3VwSWRQYXR0ZXJuIiwidmFsdWUiOiJjb20uZmFzdGVyeG1sLmphY2tzb24qIn0seyJuYW1lIjoiYXJ0aWZhY3RJZFBhdHRlcm4iLCJ2YWx1ZSI6ImphY2tzb24qIn0seyJuYW1lIjoidmVyc2lvbiIsInZhbHVlIjoiIn1d) and configure it to find all Jackson dependencies:
 
-* **Group pattern**: `com.fasterxml.jackson*`
+* **Group pattern**: `*.jackson*`
 * **Artifact pattern**: `jackson*`
 
 <figure style={{maxWidth: '600px', margin: '0 auto'}}>
