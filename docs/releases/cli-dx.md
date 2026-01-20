@@ -1,5 +1,15 @@
 # CLI / DX changelog
 
+### CLI / DX v3.55.3 (2026-01-20)
+
+#### What's Changed
+* Fix issue where yaml recipes are not runnable
+* Trace Analysis for runs
+* Detect Java version from `maven.compiler.testRelease`
+* Adopt updated recipe marketplace api
+* Add cliVersion to BuildTrace
+* Fix installation of YAML recipes
+
 ### CLI / DX v3.55.2 (2026-01-19)
 
 #### What's Changed CLI
