@@ -10,6 +10,94 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## January 20, 2026
+
+#### rewrite-ai-search - 0.32.5
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-android - 0.15.4
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-azul - 0.8.5
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-circleci - 3.9.5
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-codemods-ng - 0.17.0
+
+* chore(deps): bump tmp and @angular/cli in /src/main/resources/codemods[bot]
+* Add Angular v20 and v21 upgrade recipes
+
+#### rewrite-compiled-analysis - 0.11.4
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-concourse - 3.9.5
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-dotnet - 0.14.5
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-elastic - 0.5.1
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-hibernate - 0.17.0
+
+* Remove hibernate-proxool and hibernate-vibur dependencies for Hibernate 7
+
+#### rewrite-java-security - 3.26.0
+
+* Mark VulnerabilityReport columns as nullable for use in DevCenter
+* Enrich Maven advisories with optional EPSS scores
+* Resolve fixedVersion from Maven Central for lastAffectedVersion vulnerabilities
+
+#### rewrite-kafka - 0.4.5
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-kubernetes - 3.15.1
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-nodejs - 0.37.1
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-program-analysis - 0.9.1
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-reactive-streams - 0.18.5
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-spring - 0.21.0
+
+* JSF 2.3 Migration base
+* Migrating Spring Kafka error handlers that were deprecated in `2.8.x` and fully removed by `3.3.x` to non-deprecated versions
+* RichFace 4 migration
+* Handle drop-in replacement of OAuth2AccessTokenResponseClient API
+* Add io.moderne.java.spring.framework.MigrateDeprecatedBeanXmlProperties
+* Fix relocations for `MultipartConfigFactory` and `AutoConfigureMetrics`
+* Acegi to Spring Security 2
+* Revert "Acegi to Spring Security 2"
+
+#### rewrite-sql - 2.10.0
+
+* SQL format should not change spacing around `:userid`
+
+#### rewrite-terraform - 3.11.5
+
+* Updated repository to use OpenRewrite version v8.72.0
+
 ## January 15, 2026
 
 #### rewrite-java-security - v3.25.3
