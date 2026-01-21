@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.25.1 (2026/01/21)
+
+- Bug fixes and other improvements.
+
 ### UI v12.25.0 (2026/01/16)
 
 - add refresh organizations button to agents page
