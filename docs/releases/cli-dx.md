@@ -1,5 +1,10 @@
 # CLI / DX changelog
 
+### CLI / DX v3.56.0 (2026-01-21)
+
+#### What's Changed CLI
+* Batch partitions together by build tool
+
 ### CLI / DX v3.55.3 (2026-01-20)
 
 #### What's Changed
