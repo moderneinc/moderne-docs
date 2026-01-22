@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.26.0 (2026/01/22)
+
+- neo dev center polish
+
 ### UI v12.25.1 (2026/01/21)
 
 - Bug fixes and other improvements.
