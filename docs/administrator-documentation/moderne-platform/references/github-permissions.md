@@ -13,6 +13,7 @@ For GitHub Apps, Moderne requires a select number of OAuth scopes necessary to h
 
 | Permission                            | Access     | Description                                                                                      |
 | ------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------ |
+| Repositories - Administration **(optional)** | Read/write | Required only for the fork or fork-and-pull-request commit flows to create personal forks.       |
 | Repositories - Contents               | Read/write | Create branches and push changesets on your behalf.                                              |
 | Repositories - Pull Requests          | Read/write | Create, close, and merge pull requests on your behalf.                                           |
 | Repositories - Commit statuses        | Read-only  | View CI status from the legacy commit status API.                                                |
