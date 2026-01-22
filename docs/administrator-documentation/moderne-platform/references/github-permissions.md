@@ -13,7 +13,7 @@ For GitHub Apps, Moderne requires a select number of OAuth scopes necessary to h
 
 | Permission                            | Access     | Description                                                                                      |
 | ------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------ |
-| Repositories - Administration **(optional)** | Read/write | Required only for the fork or fork-and-pull-request commit flows to create personal forks.       |
+| Repositories - Administration **(optional)** | Read/write | Required only for the `Fork` and `ForkAndPullRequest` commit options to create personal forks.   |
 | Repositories - Contents               | Read/write | Create branches and push changesets on your behalf.                                              |
 | Repositories - Pull Requests          | Read/write | Create, close, and merge pull requests on your behalf.                                           |
 | Repositories - Commit statuses        | Read-only  | View CI status from the legacy commit status API.                                                |
@@ -24,7 +24,7 @@ For GitHub Apps, Moderne requires a select number of OAuth scopes necessary to h
 :::note
 You'll need to install the GitHub application wherever you want to make code changes:
 
-* **For personal forks**: Install it in your personal account.
+* **For personal forks**: Install it in your personal account and ensure the Repositories - Administration permission is enabled.
 * **For organization repositories**: Install it directly in the organization, or in your enterprise account (which automatically covers all member organizations).
 
 Without the application installed, GitHub will reject any attempts to commit changes.
