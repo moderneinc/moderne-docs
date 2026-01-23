@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.56.1 (2026-01-23)
+
+#### What's Changed
+* Fix issue with reading of organizations
+* Fix running of YAML recipes that depend upon external recipes that must be retrieved
+* Enable running a recipe across all partitions in a partitioned repository
+* Report `Mainframe` build step after `mod build`
+* Do not attempt to download if no tenant is configured
+* Fixing passing arguments to `mod run` subprocess calls in the JAR variant of `mod`
+* Fix `mod run` wrt Maven POM cache statistics
+
 ### CLI / DX v3.56.0 (2026-01-21)
 
 #### What's Changed CLI
