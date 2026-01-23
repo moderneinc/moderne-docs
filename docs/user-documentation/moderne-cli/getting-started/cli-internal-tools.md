@@ -172,22 +172,7 @@ https://github.com/openrewrite/rewrite-docs
 https://github.com/openrewrite/rewrite
 ```
 
-<details>
-
-<summary>Columns you can provide in your `repos.csv` file:</summary>
-
-| Column name | Required | Description                                                                                                                                                                                                                                            | Examples                                                                      |
-|-------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| cloneUrl    | `true`   | The URL of the repository that should be ingested.                                                                                                                                                                                                     | `git@github.com:google/guava.git` or `https://github.com/openrewrite/rewrite` |
-| branch      | `false`  | The branch of the above repository that should be ingested.                                                                                                                                                                                            | `main`                                                                        |
-| changeset   | `false`  | If provided, this will check out the repository at this specific commit SHA.                                                                                                                                                                           | `aa5f25ac0031`                                                                |
-| java        | `false`  | Configures the JDK to use.                                                                                                                                                                                                                             | `17` or `17-tem` or `17.0.6-tem`                                              |
-| jvmopts     | `false`  | JVM options added to tools building LSTs. Must be configured before you can run the build command if non-standard VM options are required.                                                                                                             | `-Xmx4G`                                                                      |
-| mavenargs   | `false`  | Build arguments are added to the end of the Maven command line when building LSTs.                                                                                                                                                                     | `-P fast`                                                                     |
-| gradleargs  | `false`  | Build arguments that are added to the end of the Gradle command line when building LSTs.                                                                                                                                                               | `-Dmyprop=myvalue`                                                            |
-| org*        | `false`  | If you want to configure an organizational hierarchy, you can provide one or more organization columns. Each column will specify an organization the repository should be part of. The column name should be `org` plus a number such as: `org1,org2,org3`. There is no limit for how many orgs you can define.  | `openrewrite`                                                                 |
-
-</details>
+For a complete list of all supported columns and their descriptions, please see the [repos.csv reference documentation](../references/repos-csv.md#supported-columns).
 
 To assist with creating a `repos.csv` file, we've written some bash scripts that will generate a simple CSV file for you:
 
