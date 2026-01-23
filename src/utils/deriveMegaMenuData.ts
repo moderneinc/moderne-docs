@@ -11,7 +11,7 @@
  * - Type-safe derivation
  */
 
-import sidebars from '../../sidebars-next';
+import sidebars from '../../sidebars';
 import type { ProductItem } from '../components/NeoMegaMenu/types';
 import type { PropSidebarItem } from '@docusaurus/plugin-content-docs';
 
