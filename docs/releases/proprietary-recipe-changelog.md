@@ -2092,10 +2092,3 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Create a LICENSE folder
 
-## January 21, 2025
-
-#### rewrite-ai-search - v0.23.0
-
-* Create a LICENSE folder
-* Fix French comments in properties
-
