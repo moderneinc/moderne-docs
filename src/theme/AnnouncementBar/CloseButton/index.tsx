@@ -1,13 +1,11 @@
-import React from 'react';
+import {type FunctionComponent} from 'react';
 import clsx from 'clsx';
 import {translate} from '@docusaurus/Translate';
 import IconClose from '@theme/Icon/Close';
 import type {Props} from '@theme/AnnouncementBar/CloseButton';
 import styles from './styles.module.css';
 
-export default function AnnouncementBarCloseButton(
-  props: Props,
-): JSX.Element | null {
+const AnnouncementBarCloseButton: FunctionComponent<Props> = (props) => {
   return (
     <button
       type="button"
@@ -21,4 +19,8 @@ export default function AnnouncementBarCloseButton(
       <IconClose width={14} height={14} strokeWidth={3.1} />
     </button>
   );
-}
+};
+
+AnnouncementBarCloseButton.displayName = 'AnnouncementBarCloseButton';
+
+export default AnnouncementBarCloseButton;

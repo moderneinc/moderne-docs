@@ -1,6 +1,6 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type { Config } from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
   title: 'Moderne Docs',
@@ -83,9 +83,15 @@ const config: Config = {
         docs: {
           routeBasePath: "/",
           sidebarCollapsible: true,
-          sidebarPath: './sidebars.ts',
+          sidebarPath: './sidebars-next.ts',
           editUrl:
             'https://github.com/moderneinc/moderne-docs/edit/main',
+          exclude: [
+            '**/*.stories.tsx',
+            '**/*.stories.ts',
+            '**/*.stories.jsx',
+            '**/*.stories.js',
+          ],
         },
         gtag: {
           trackingID: "G-Q1CMC219Y5",
@@ -173,23 +179,7 @@ const config: Config = {
         src: 'img/logo.svg',
         srcDark: 'img/darkLogo.svg',
       },
-      items: [
-        {
-          href: "https://www.moderne.ai/",
-          label: "Moderne website",
-          position: "right",
-        },
-        {
-          href: "https://docs.openrewrite.org/",
-          label: "OpenRewrite docs",
-          position: "right",
-        },
-        {
-          href: "https://app.moderne.io/",
-          label: "Go to app",
-          position: "right",
-        },
-      ],
+      // Navigation handled by MegaMenu in swizzled Navbar/Layout component
     },
     footer: {
       copyright: `© Moderne, ${new Date().getFullYear()}`,
@@ -208,6 +198,9 @@ const config: Config = {
         "csv",
       ],
     },
+    sidebar: {
+      hideable: true,
+    }
   } satisfies Preset.ThemeConfig,
 };
 

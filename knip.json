@@ -1,0 +1,32 @@
+{
+  "$schema": "https://unpkg.com/knip@latest/schema.json",
+  "entry": [
+    "src/pages/**/*.tsx",
+    "src/client/loadNeoDesign.js",
+    "sidebars.ts",
+    "docs/**/*.{md,mdx}"
+  ],
+  "project": ["src/**/*.{ts,tsx,js,jsx}", "scripts/**/*.js"],
+  "ignore": [
+    "**/__mocks__/**",
+    ".docusaurus/**",
+    "src/theme/**",
+    "src/components/AgentWizard/**"
+  ],
+  "ignoreFiles": ["**/*.stories.tsx", "**/*.figma.tsx"],
+  "ignoreDependencies": [
+    "@docusaurus/faster",
+    "@docusaurus/plugin-content-docs",
+    "@figma/code-connect",
+    "@storybook/react",
+    "@svgr/webpack",
+    "@testing-library/jest-dom",
+    "@testing-library/react",
+    "css-loader",
+    "infima",
+    "react-player",
+    "style-loader",
+    "stylelint",
+    "stylelint-config-standard"
+  ]
+}

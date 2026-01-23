@@ -1,0 +1,144 @@
+/**
+ * Navbar Content styles
+ */
+
+/* Three-section navbar layout */
+.navbarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.navbarLeft {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.navbarCenter {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+/* Desktop: Center search bar absolutely */
+@media (min-width: 997px) {
+  .navbarCenter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile: Hide entire center section */
+@media (max-width: 996px) {
+  .navbarCenter {
+    display: none;
+  }
+}
+
+/* Mobile controls - search + theme toggle, shown on right */
+.mobileControls {
+  display: none;
+}
+
+@media (max-width: 996px) {
+  .mobileControls {
+    display: flex;
+    align-items: center;
+    gap: var(--neo-spacing_2);
+  }
+}
+
+.navbarRight {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* External links - hidden on mobile, visible on desktop */
+.externalLinks {
+  display: none;
+}
+
+@media (min-width: 997px) {
+  .externalLinks {
+    display: flex;
+    align-items: center;
+    gap: var(--neo-spacing_3);
+    margin-left: var(--neo-spacing_2);
+  }
+}
+
+/* Prevent collision with centered search at narrow desktop widths */
+@media (min-width: 997px) and (max-width: 1050px) {
+  .externalLinks {
+    margin-left: var(--neo-spacing_6);
+  }
+}
+
+.externalLink {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--ifm-navbar-link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.externalLink:hover {
+  color: var(--ifm-navbar-link-hover-color);
+  text-decoration: none;
+}
+
+.externalLinkIcon {
+  opacity: 0.7;
+}
+
+.colorModeToggle {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.colorModeToggle button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.colorModeToggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Remove margin/padding from NavbarSearch wrapper */
+.navbarCenter :global(.navbar__search) {
+  margin: 0;
+  padding: 0;
+}
+
+.navbarCenter :global([class*='navbarSearchContainer']) {
+  padding: 0 var(--neo-spacing_1_2);
+}
+
+.navbarCenter :global(.DocSearch-Button) {
+  margin: 0;
+}

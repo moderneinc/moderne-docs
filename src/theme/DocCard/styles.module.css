@@ -3,37 +3,82 @@
   --ifm-link-hover-color: var(--ifm-color-emphasis-700);
   --ifm-link-hover-decoration: none;
 
+  padding: var(--neo-spacing_3);
+  border-radius: var(--neo-border-radius-x-s);
+  background-color: var(--neo-surfaces-white);
+  border: 1px solid var(--neo-border-card);
   box-shadow: none;
-  border: 1px solid var(--ifm-color-divider);
-  transition: all var(--ifm-transition-fast) ease;
-  transition-property: border, box-shadow;
+  display: flex;
+  flex-direction: row;
+  gap: var(--neo-spacing_2);
+  transition: background-color var(--ifm-transition-fast) ease;
   width: 100%;
+  align-items: flex-start;
 }
 
 .cardContainer:hover {
-  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.15);
-  background-color: var(--ifm-color-mint);
+  background-color: var(--neo-grey-50);
+  box-shadow: none;
 }
 
-.cardContainer *:last-child {
-  margin-bottom: 0;
+/* Dark mode styles */
+[data-theme='dark'] .cardContainer {
+  background-color: var(--neo-grey-800);
+  border-color: var(--neo-grey-600);
 }
 
+[data-theme='dark'] .cardContainer:hover {
+  background-color: var(--neo-grey-700);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  min-width: 0;
+  gap: var(--neo-spacing_1);
+}
+
+/* Card titles use both module class (cardTitle) and global class (doc-card-title)
+   to allow global CSS to exclude them from document heading sizing */
 .cardTitle {
-  --ifm-heading-margin-bottom: 8px;
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.666;
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-h6);
+  font-weight: var(--neo-font-weight-semi-bold);
+  line-height: 1.4;
+  color: var(--neo-typography-input-default);
+  margin: 0;
+}
+
+[data-theme='dark'] .cardTitle {
+  color: var(--neo-surfaces-white);
 }
 
 .cardDescription {
-  color: var(--ifm-heading-color);
-  font-size: 1rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: unset;
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-regular);
+  line-height: 1.5;
+  color: var(--neo-typography-body-secondary);
+  margin: 0;
+}
+
+[data-theme='dark'] .cardDescription {
+  color: var(--neo-grey-300);
+}
+
+.cardIcon {
+  flex-shrink: 0;
+  width: 31px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

@@ -1,0 +1,89 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * !important Usage
+ *
+ * This file uses !important to disable Infima's CSS-generated caret pseudo-element
+ * on the .menu__caret button. We replace it with Lucide React icons for better
+ * control and accessibility (see CollapseButton component in index.tsx).
+ *
+ * Why this is needed:
+ * - We still use the `menu__caret` class for Infima layout/behavior
+ * - Infima generates a caret icon via ::before with background-image
+ * - We render our own Lucide icon inside the button instead
+ *
+ * Note: Line 57 shows how we avoided !important for Lucide icon sizing by using
+ * high-specificity selectors (button.caret :global(svg.lucide)).
+ */
+
+.categoryLink {
+  overflow: hidden;
+}
+
+/* Disable Infima's ::before caret on the button - we use Lucide React icons instead */
+/* See CollapseButton component in index.tsx for the Lucide icon implementation */
+:global(.menu__caret)::before {
+  content: none !important;
+  display: none !important;
+}
+
+.categoryLinkLabel {
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Caret icon styling using Lucide icons */
+.caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neo-grey-800);
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Rotate chevron to point down when expanded */
+.caret :global(svg.lucide) {
+  transform: rotate(90deg);
+  transition: transform 0.2s ease;
+}
+
+/* Point right when collapsed */
+.caretCollapsed :global(svg.lucide) {
+  transform: rotate(0deg);
+}
+
+/* High specificity to override default Lucide/Infima styles without !important */
+button.caret :global(svg.lucide) {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.caretActive {
+  color: var(--brand-digital-blue);
+}
+
+html[data-theme='dark'] .caret {
+  color: var(--neo-grey-200);
+}
+
+html[data-theme='dark'] .caretActive {
+  color: var(--brand-digital-green);
+}

@@ -1,0 +1,9 @@
+/**
+ * DocSidebarItems custom styles
+ */
+
+.platformToggleRow {
+  display: flex;
+  margin-top: var(--neo-spacing_2);
+  list-style: none;
+}
