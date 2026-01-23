@@ -86,6 +86,8 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           editUrl:
             'https://github.com/moderneinc/moderne-docs/edit/main',
+          showLastUpdateTime: true,
+          // showLastUpdateAuthor: true,
           exclude: [
             '**/*.stories.tsx',
             '**/*.stories.ts',
