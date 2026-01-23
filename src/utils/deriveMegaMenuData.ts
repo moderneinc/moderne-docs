@@ -32,6 +32,7 @@ interface CategoryWithLink {
   customProps?: {
     megaMenu?: boolean;
     gemIcon?: string;
+    homepageHref?: string;
     [key: string]: any;
   };
   [key: string]: any;
@@ -78,7 +79,7 @@ export function deriveProductsFromSidebars(): ProductItem[] {
         name: item.label,
         icon: `/img/gems/${gemIcon}.png`,
         description: item.link.description || '',
-        href: item.link.slug || `/${item.label.toLowerCase()}`,
+        href: item.customProps.homepageHref || item.link.slug || `/${item.label.toLowerCase()}`,
       });
     }
   });
