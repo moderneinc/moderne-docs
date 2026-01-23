@@ -1,5 +1,10 @@
 # CLI / DX changelog
 
+### CLI / DX v3.56.2 (2026-01-23)
+
+#### What's Changed
+* Refactor diff rendering to use fenced markers for search results
+
 ### CLI / DX v3.56.1 (2026-01-23)
 
 #### What's Changed
