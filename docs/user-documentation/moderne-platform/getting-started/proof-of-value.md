@@ -11,12 +11,23 @@ import TabItem from '@theme/TabItem';
 
 Moderne automates code maintenance tasks like framework migrations, security vulnerability fixes, and code quality improvements. Work that traditionally takes months can be completed in minutes, freeing developers to focus on delivering business value.
 
-This guide walks through a typical proof of value (POV) process to help you evaluate Moderne's capabilities. We recommend starting with lower-risk tasks like code quality improvements before moving to more complex migrations.
+This guide walks through a typical proof of value (POV) process to help you evaluate Moderne's capabilities. To demonstrate Moderne's value, we start with lower-complexity tasks like code quality improvements and then explore what happens with more complex migrations. It's important to note that we won't try to complete an entire migration during the proof of value phase. The goal is to demonstrate to you and your leadership that your developers, armed with the Moderne toolset (the Moderne CLI and Platform), _can_ get you all the way over the line, not just for a specific migration, but for all future security and modernization efforts.
+
+Moderne's value lies in working horizontally across all of your repositories simultaneously. Consider a modernization task that needs to happen across 125 repositories:
 
 <figure>
-  ![](./assets/pov-example.png)
-  <figcaption>Progression from simple to complex automation tasks</figcaption>
+  ![](./assets/horizontal-moderne-way.png)
+  <figcaption>**The Moderne approach**: Even if you only complete 80% of the work on each repository, that's 80% progress business-wide (100 of 125 tasks done).</figcaption>
 </figure>
+
+<figure>
+  ![](./assets/horizontal-traditional-way.png)
+  <figcaption>**The traditional approach**: If you fully complete one repository before moving to the next, you achieve 100% on that single repo, but that's only 4% progress across the organization (5 of 125 tasks).</figcaption>
+</figure>
+
+This is why we focus on Moderne's multi-repo capabilities during the proof of value process. Rather than trying to get any single repository perfectly over the line, demonstrate the power of applying changes across your entire codebase at once.
+
+During the proof of value process, we will teach you how to use building block recipes as well as develop your own custom recipes that will start to bridge the remaining 20% gap. After the proof of value process, we will continue to work with you to get that last 20% over the line.
 
 ## Proof of value steps
 
