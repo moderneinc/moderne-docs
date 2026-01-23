@@ -6,6 +6,7 @@ export type ProductItem = {
   href: string;
   icon: string;
   description: string;
+  homepageHref?: string;
 };
 
 /**

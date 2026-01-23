@@ -23,7 +23,7 @@ export const ProductCardsGrid: FunctionComponent<ProductCardsGridProps> = ({
         {products.map((product) => (
           <Link
             key={product.name}
-            href={product.href}
+            href={product.homepageHref || product.href}
             className={styles.productCard}
           >
             <div className={styles.productCardIcon}>
