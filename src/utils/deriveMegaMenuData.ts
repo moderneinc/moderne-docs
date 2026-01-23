@@ -79,7 +79,8 @@ export function deriveProductsFromSidebars(): ProductItem[] {
         name: item.label,
         icon: `/img/gems/${gemIcon}.png`,
         description: item.link.description || '',
-        href: item.customProps.homepageHref || item.link.slug || `/${item.label.toLowerCase()}`,
+        href: item.link.slug || `/${item.label.toLowerCase()}`,
+        homepageHref: item.customProps.homepageHref,
       });
     }
   });
