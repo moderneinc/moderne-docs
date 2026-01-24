@@ -8,18 +8,28 @@
  * Changes from original:
  * - Added className parameter to function signature for module CSS styling
  * - Applied styles.navbar from module CSS for frosted glass effect
- * - Removed mobile sidebar components (disabled in our implementation)
  * - Added SecondaryNav component below primary navbar (desktop only)
  */
-import {type FunctionComponent} from 'react';
+import {type FunctionComponent, type ComponentProps} from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames, useThemeConfig} from '@docusaurus/theme-common';
-import {useHideableNavbar} from '@docusaurus/theme-common/internal';
+import {useHideableNavbar, useNavbarMobileSidebar} from '@docusaurus/theme-common/internal';
 import {translate} from '@docusaurus/Translate';
+import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar';
 import type {Props} from '@theme/Navbar/Layout';
 import { SecondaryNav } from '@site/src/components/SecondaryNav';
 import { products, releasesItems, trainingItems } from '@site/src/config/megaMenuData';
 import styles from './styles.module.css';
+
+function NavbarBackdrop(props: ComponentProps<'div'>) {
+  return (
+    <div
+      role="presentation"
+      {...props}
+      className={clsx('navbar-sidebar__backdrop', props.className)}
+    />
+  );
+}
 
 export interface NavbarLayoutProps extends Props {
   readonly className?: string;
@@ -32,6 +42,7 @@ const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
   const {
     navbar: {hideOnScroll, style},
   } = useThemeConfig();
+  const mobileSidebar = useNavbarMobileSidebar();
   const {navbarRef, isNavbarVisible} = useHideableNavbar(hideOnScroll);
 
   return (
@@ -55,10 +66,13 @@ const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
           {
             'navbar--dark': style === 'dark',
             'navbar--primary': style === 'primary',
+            'navbar-sidebar--show': mobileSidebar.shown,
           },
           className,
         )}>
         {children}
+        <NavbarBackdrop onClick={mobileSidebar.toggle} />
+        <NavbarMobileSidebar />
       </nav>
       <SecondaryNav products={products} trainingItems={trainingItems} releasesItems={releasesItems} />
     </div>

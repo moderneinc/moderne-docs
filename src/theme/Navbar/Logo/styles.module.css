@@ -70,86 +70,16 @@
   color: var(--ifm-navbar-link-color);
 }
 
-/* Docs label - visible on desktop next to wordmark */
+/* Docs label - visible next to wordmark */
 .docsLabel {
   height: 1.7rem; /* fine tune to align with wordmark height */
-  display: none;
+  display: inline;
   font-family: var(--neo-font-family-body), system-ui, -apple-system, sans-serif;
   font-weight: var(--neo-font-weight-light);
   font-size: var(--neo-font-size-h4);
   line-height: 1.4;
   color: var(--ifm-navbar-link-color);
   user-select: none;
-}
-
-@media (min-width: 997px) {
-  .docsLabel {
-    display: inline;
-  }
-}
-
-/* Docs button (text + chevron) - megamenu-button in Figma
-   Hidden on desktop where SecondaryNav handles navigation */
-.docsButton {
-  height: 1.8rem; /* fine tune to align with wordmark height */
-  display: flex;
-  align-items: flex-end;
-  gap: var(--neo-spacing_1_4);
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: var(--neo-border-radius-x-s);
-  flex-shrink: 0;
-}
-
-/* Hide MegaMenu trigger on desktop - secondary nav handles navigation */
-@media (min-width: 997px) {
-  .docsButton {
-    display: none;
-  }
-}
-
-.docsButton:focus {
-  outline: none;
-}
-
-/* Docs text - 20px font size per Figma, 1.4 line height */
-.docsText {
-  font-family: var(--neo-font-family-body), system-ui, -apple-system, sans-serif;
-  font-weight: var(--neo-font-weight-light);
-  font-size: var(--neo-font-size-h4);
-  line-height: 1.4;
-  color: var(--ifm-navbar-link-color);
-  user-select: none;
-}
-
-/* Chevron - 24x24px */
-.chevron {
-  transition: transform 0.3s ease;
-  color: var(--ifm-navbar-link-color);
-}
-
-.chevronOpen {
-  transform: rotate(180deg);
-}
-
-/* Dark mode adjustments */
-:global(html[data-theme='dark']) .docsText {
-  color: var(--neo-surfaces-white);
-}
-
-:global(html[data-theme='dark']) .docsButton {
-  color: var(--neo-surfaces-white);
-}
-
-:global(html[data-theme='dark']) .docsButton:focus {
-  outline: none;
-}
-
-:global(html[data-theme='dark']) .chevron {
-  color: var(--neo-surfaces-white);
 }
 
 /* Dark mode logo colors */

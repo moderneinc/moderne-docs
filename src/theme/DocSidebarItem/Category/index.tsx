@@ -32,7 +32,7 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 import DocSidebarItems from '@theme/DocSidebarItems';
 import DocSidebarItemLink from '@theme/DocSidebarItem/Link';
 import type {Props} from '@theme/DocSidebarItem/Category';
-import {ChevronRight} from 'lucide-react';
+import {ChevronDown} from 'lucide-react';
 
 import type {
   PropSidebarItemCategory,
@@ -138,7 +138,7 @@ const CollapseButton: React.FunctionComponent<CollapseButtonProps> = ({
         [styles.caretCollapsed]: collapsed,
       })}
       onClick={onClick}>
-      <ChevronRight size={16} strokeWidth={1.25} absoluteStrokeWidth />
+      <ChevronDown size={16} strokeWidth={1.25} absoluteStrokeWidth />
     </button>
   );
 };

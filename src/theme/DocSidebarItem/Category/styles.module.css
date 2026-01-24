@@ -53,13 +53,13 @@
   margin: 0;
 }
 
-/* Rotate chevron to point down when expanded */
+/* Chevron points up when expanded (content can collapse) */
 .caret :global(svg.lucide) {
-  transform: rotate(90deg);
+  transform: rotate(-180deg);
   transition: transform 0.2s ease;
 }
 
-/* Point right when collapsed */
+/* Chevron points down when collapsed (content will expand downward) */
 .caretCollapsed :global(svg.lucide) {
   transform: rotate(0deg);
 }

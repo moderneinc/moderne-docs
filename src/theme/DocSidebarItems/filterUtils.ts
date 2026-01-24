@@ -77,8 +77,9 @@ export function filterSidebarItemsByContext(
     return addCategoryHeader(matchingCategory, currentPath);
   }
 
-  // If no match found, return empty (no sidebar)
-  return [];
+  // If no match found, return all items unfiltered as fallback
+  // This ensures mobile users always see navigation content
+  return items as PropSidebarItem[];
 }
 
 /**
