@@ -1,0 +1,42 @@
+/**
+ * MobileSidebar styles
+ * Includes the back button for returning to main menu
+ */
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  width: 100%;
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  color: var(--ifm-link-color);
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s ease;
+}
+
+.backButton:hover {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.backButton:active {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+/* Dark mode */
+:global(html[data-theme='dark']) .backButton {
+  border-bottom-color: var(--ifm-color-emphasis-300);
+}
+
+:global(html[data-theme='dark']) .backButton:hover {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+:global(html[data-theme='dark']) .backButton:active {
+  background-color: var(--ifm-color-emphasis-300);
+}
