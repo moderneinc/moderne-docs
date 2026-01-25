@@ -42,6 +42,7 @@ const platform = {
           'user-documentation/moderne-platform/getting-started/data-tables',
           'user-documentation/moderne-platform/getting-started/visualizations',
           'user-documentation/moderne-platform/getting-started/dev-center',
+          'user-documentation/moderne-platform/getting-started/prethink',
           'user-documentation/moderne-platform/getting-started/activity-view',
           'user-documentation/moderne-platform/getting-started/code-mods',
         ],
@@ -170,6 +171,7 @@ const platform = {
           },
           'administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe',
           'administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter',
+          'administrator-documentation/moderne-platform/how-to-guides/creating-a-prethink-recipe',
           'administrator-documentation/moderne-platform/how-to-guides/org-service',
           'administrator-documentation/moderne-platform/how-to-guides/create-visualization',
           'administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes',
@@ -327,6 +329,7 @@ const cli = {
       items: [
         'user-documentation/moderne-cli/how-to-guides/cli-upgrade',
         'user-documentation/moderne-cli/how-to-guides/cli-dev-center',
+        'user-documentation/moderne-cli/how-to-guides/cli-prethink',
         'user-documentation/moderne-cli/how-to-guides/javascript',
         'user-documentation/moderne-cli/how-to-guides/parallelism',
         'user-documentation/moderne-cli/how-to-guides/afterburner',
