@@ -81,6 +81,13 @@ Use this module when you want ready-to-run recipes that work with standard Java 
 
 The context export component saves structured data tables as files in your repository. This allows any AI agent to access resolved knowledge about your codebase without needing to parse and understand the code itself.
 
+Each exported context file is accompanied by a markdown file that describes what the data contains and how to interpret it. This helps AI agents understand the schema and meaning of the data without additional prompting.
+
+<figure>
+  ![](./assets/prethink-context-markdown.png)
+  <figcaption>_A markdown file describing the CALM architecture context_</figcaption>
+</figure>
+
 ### Code comprehension
 
 The optional code comprehension component uses Moderne's LST analysis combined with your bring-your-own LLM to build a knowledge graph. This graph captures how software components, dependencies, and behaviors relate at a system level.
@@ -88,6 +95,22 @@ The optional code comprehension component uses Moderne's LST analysis combined w
 ### Architecture visualization
 
 Prethink can export architecture information in CALM format, providing nodes and relationships that describe your system's structure. These can be visualized with CALM-compatible tools or consumed directly by AI agents for architectural reasoning.
+
+<figure>
+  ![](./assets/prethink-calm-architecture.png)
+  <figcaption>_A generated CALM architecture diagram showing services and their relationships_</figcaption>
+</figure>
+
+## How agents discover Prethink context
+
+When Prethink runs, it updates the agent configuration files in your repository (such as `CLAUDE.md`, `.cursorrules`, or `.github/copilot-instructions.md`) to point AI agents to the generated context. This enables progressive discovery—agents learn about the available context and can read the relevant files as needed.
+
+<figure>
+  ![](./assets/prethink-claude-md.png)
+  <figcaption>_An updated CLAUDE.md file pointing agents to Prethink context_</figcaption>
+</figure>
+
+The agent configuration includes a table of available context types with descriptions and file paths, along with instructions on how to use the context effectively. This means agents can immediately start reasoning over pre-resolved facts about your codebase.
 
 ## Getting started
 
