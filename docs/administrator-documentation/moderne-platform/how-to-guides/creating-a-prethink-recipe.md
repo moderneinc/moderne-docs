@@ -7,7 +7,7 @@ description: How to create and customize a Prethink recipe for your organization
 
 Moderne Prethink recipes generate structured context for AI coding agents by analyzing your codebase and extracting architectural information, dependencies, test coverage, and more. This approach delivers comprehensive, accurate context that AI agents can reason over directly.
 
-In this doc, we'll walk you through how to create a Prethink recipe and deploy it to your tenant. By the end, you should be ready to generate Prethink context for your organization's repositories.
+In this guide, we'll walk you through how to create a Prethink recipe and deploy it to your tenant. By the end, you should be ready to generate Prethink context for your organization's repositories.
 
 ## Prerequisites
 
@@ -24,13 +24,16 @@ Prethink is distributed as two complementary recipe modules. Choose the one that
 
 The open-source foundation that provides the building blocks for generating Prethink context:
 
-* `ExportContext`: Exports data tables as CSV files to your repository
-* `UpdateAgentConfig`: Updates AI agent configuration files with context references
-* `UpdatePrethinkContext`: Orchestrates context generation from pre-populated data tables
+* **ExportContext**: Exports data tables as CSV files to your repository
+* **UpdateAgentConfig**: Updates AI agent configuration files with context references
+* **UpdatePrethinkContext**: Orchestrates context generation from pre-populated data tables
+* **CALM architecture generation**: Produces [CALM](https://calm.finos.org/)-formatted architecture diagrams
 
-This module provides the infrastructure but expects you to supply your own recipes for discovering [CALM](https://calm.finos.org/) entities and producing the context you want to save. Use this when you have custom frameworks, proprietary patterns, or want full control over what context is generated.
+This module provides the infrastructure but expects you to supply your own recipes for discovering CALM entities and producing the context you want to save.
 
-If you only want to export data tables and descriptive text about them as Prethink context and not include any CALM-related entities you may do that as well. The `GenerateCalmArchitecture` recipe will simply do nothing if no CALM entities are discovered by other recipes in the composite.
+**Use this when you have custom frameworks, proprietary patterns, or want full control over what context is generated.**
+
+If you only want to export data tables and descriptive text about them as Prethink context and not include any CALM-related entities, you may do that as well. The `GenerateCalmArchitecture` recipe will simply do nothing if no CALM entities are discovered by other recipes in the composite.
 
 ### `io.moderne.recipe:rewrite-prethink`
 
@@ -41,9 +44,11 @@ The batteries-included module that provides out-of-the-box discovery for common 
 * **External service call discovery**: RestTemplate, WebClient, Feign, Apache HttpClient
 * **Messaging pattern discovery**: Kafka, RabbitMQ, JMS, Spring Cloud Stream
 * **Security configuration discovery**: Spring Security, CORS, OAuth2
-* **LLM integrations**: Code comprehension at the method and class level, as well as test summary generation
+* **LLM integrations**: Code comprehension at the method and class level, test summary generation
 
-Use this module when you want ready-to-run recipes that work with standard Java frameworks. You can still use this module and add additional recipes to the recipe list on top of the provided ones if you want your customizations to be strictly additive.
+**Use this module when you want ready-to-run recipes that work with standard Java frameworks without additional configuration.**
+
+You can still use this module and add additional recipes to the recipe list on top of the provided ones if you want your customizations to be strictly additive.
 
 ## Creating and deploying a Prethink recipe
 
@@ -75,7 +80,7 @@ The Moderne module (`io.moderne.recipe`) includes all recipes from the OpenRewri
 
 ### Step 3: Create a declarative Prethink recipe
 
-We've provided a starter recipe that you can copy to your own repository to get started. You can also create your own if you desire. Check out the [understanding Prethink recipes section](#understanding-prethink-recipes) below for more information.
+We've provided a starter recipe that you can copy to your own repository to get started. You can also create your own. Check out the [understanding Prethink recipes section](#understanding-prethink-recipes) below for more information.
 
 Any recipe that generates context for AI agents should:
 
@@ -92,7 +97,7 @@ Once you're satisfied with your recipe(s), you will need to [deploy them to your
 
 To help you get a better understanding of how Prethink recipes work, let's walk through the key components and how they fit together.
 
-### Core recipes (org.openrewrite.recipe:rewrite-prethink)
+### Core recipes (`org.openrewrite.recipe:rewrite-prethink`)
 
 These recipes are available in both modules and provide the foundation for context generation:
 
@@ -100,7 +105,7 @@ These recipes are available in both modules and provide the foundation for conte
 * **UpdateAgentConfig**: Updates agent configuration files (CLAUDE.md, .cursorrules, etc.)
 * **UpdatePrethinkContext**: Orchestrates context generation and CALM architecture creation
 
-### Framework discovery recipes (io.moderne.recipe:rewrite-prethink)
+### Framework discovery recipes (`io.moderne.recipe:rewrite-prethink`)
 
 These recipes are only available in the Moderne module and discover architectural elements in common frameworks:
 
@@ -282,13 +287,13 @@ The CSV files contain structured data that AI agents can parse directly. The mar
 
 Prethink recipes populate several data tables that capture different aspects of your codebase:
 
-| Data table | Description |
-|------------|-------------|
-| `ServiceEndpoints` | REST/HTTP endpoints with HTTP methods, paths, and framework info |
-| `DatabaseConnections` | JPA entities, repositories, and JDBC connections |
-| `ExternalServiceCalls` | Outbound HTTP calls to external services |
-| `MessagingConnections` | Kafka, RabbitMQ, JMS, and other messaging patterns |
-| `TestMapping` | Mapping of test methods to implementation methods |
-| `SecurityConfiguration` | Spring Security, CORS, and OAuth2 configurations |
-| `DeploymentArtifacts` | Dockerfile, Kubernetes, and docker-compose files |
-| `ProjectMetadata` | Artifact ID, group ID, and project name |
+| Data table              | Description                                                      |
+|-------------------------|------------------------------------------------------------------|
+| `ServiceEndpoints`      | REST/HTTP endpoints with HTTP methods, paths, and framework info |
+| `DatabaseConnections`   | JPA entities, repositories, and JDBC connections                 |
+| `ExternalServiceCalls`  | Outbound HTTP calls to external services                         |
+| `MessagingConnections`  | Kafka, RabbitMQ, JMS, and other messaging patterns               |
+| `TestMapping`           | Mapping of test methods to implementation methods                |
+| `SecurityConfiguration` | Spring Security, CORS, and OAuth2 configurations                 |
+| `DeploymentArtifacts`   | Dockerfile, Kubernetes, and docker-compose files                 |
+| `ProjectMetadata`       | Artifact ID, group ID, and project name                          |

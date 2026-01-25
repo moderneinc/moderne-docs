@@ -5,7 +5,7 @@ description: Learn how Moderne Prethink provides AI agents with structured knowl
 
 # Getting started with Moderne Prethink
 
-Moderne Prethink is a structured knowledge layer that gives AI agents a clear, accurate understanding of your entire codebase. It enables autonomous reasoning by providing pre-resolved knowledge about your architecture, dependencies, vulnerabilities, and migration goals—so AI agents don't have to figure it out themselves.
+Moderne Prethink is a structured knowledge layer that gives AI agents a clear, accurate understanding of your entire codebase. It gives AI agents a clear picture of your architecture, dependencies, vulnerabilities, and migration goals - so they don't have to piece it together themselves.
 
 ## Why Prethink matters
 
@@ -22,19 +22,19 @@ These aren't necessarily faults of the models themselves. They're data problems.
 Moderne Prethink delivers pre-resolved, verified knowledge that AI agents can reason over directly:
 
 * **Architectural patterns**: Service endpoints, database connections, external service calls, and messaging patterns
-* **Resolved dependency graphs**: Including transitive dependencies to understand libraries used and avoid conflicts
+* **Resolved dependency graphs**: Complete dependency trees, including transitive dependencies
 * **Known vulnerabilities**: Security issues identified across your repositories
 * **Declared migration targets**: Your organization's upgrade and modernization goals
 * **Deterministic recipes**: Structured transformations that can be applied reliably
 
 With Prethink:
 
-* Semantics are explicit, not inferred
-* Relationships are resolved ahead of time
-* Intent and constraints are first-class inputs
-* LLMs reason instead of reconstruct
+* Code structure is documented, not guessed
+* Relationships between services are already mapped
+* Your goals and constraints are part of the context
+* AI reasons over facts instead of reconstructing them
 
-This means AI agents consume fewer tokens, reason over facts rather than guesses, make more informed decisions, and act with greater fidelity at enterprise scale.
+This means AI agents work faster, cost less, and deliver more accurate results at scale.
 
 ## How Prethink works
 
@@ -42,10 +42,10 @@ Prethink is delivered as a set of OpenRewrite recipes that generate multi-repo, 
 
 * **Code data tables**: Deep insights only discoverable using Moderne's Lossless Semantic Tree (LST) code model
 * **Dependency inventory**: Complete picture of libraries including transitive dependencies
-* **Knowledge graph** (optional): A verified, system-level model capturing how software components, dependencies, and behaviors relate
+* **Knowledge graph** (optional): System-level map of how components, dependencies, and behaviors connect
 * **CALM-formatted artifacts**: Architecture diagrams with nodes and relationships that can be visualized with [CALM](https://calm.finos.org/)-compatible tools
 
-These outputs can be continuously updated as your codebase evolves by re-running Prethink recipes—ensuring your AI agents always have current, accurate context.
+These outputs can be continuously updated as your codebase evolves by re-running Prethink recipes. This ensures your AI agents always have current, accurate context.
 
 ## Prethink recipe modules
 
@@ -60,7 +60,9 @@ The open-source foundation that provides the building blocks for generating Pret
 * **UpdatePrethinkContext**: Orchestrates context generation from pre-populated data tables
 * **CALM architecture generation**: Produces [CALM](https://calm.finos.org/)-formatted architecture diagrams
 
-This module provides the infrastructure but expects you to supply your own recipes for discovering CALM entities and producing the context you want to save. Use this when you have custom frameworks or want full control over what context is generated.
+This module provides the infrastructure but expects you to supply your own recipes for discovering CALM entities and producing the context you want to save. 
+
+**Use this when you have custom frameworks or want full control over what context is generated.**
 
 ### `io.moderne.recipe:rewrite-prethink`
 
@@ -73,7 +75,7 @@ The batteries-included module that provides out-of-the-box discovery for common 
 * **Security configuration discovery**: Spring Security, CORS, OAuth2
 * **LLM integrations**: Code comprehension at the method and class level, test summary generation
 
-Use this module when you want ready-to-run recipes that work with standard Java frameworks without additional configuration.
+**Use this module when you want ready-to-run recipes that work with standard Java frameworks without additional configuration.**
 
 ## Components of Prethink
 
@@ -103,7 +105,7 @@ Prethink can export architecture information in CALM format, providing nodes and
 
 ## How agents discover Prethink context
 
-When Prethink runs, it updates the agent configuration files in your repository (such as `CLAUDE.md`, `.cursorrules`, or `.github/copilot-instructions.md`) to point AI agents to the generated context. This enables progressive discovery—agents learn about the available context and can read the relevant files as needed.
+When Prethink runs, it updates the agent configuration files in your repository (such as `CLAUDE.md`, `.cursorrules`, or `.github/copilot-instructions.md`) to point AI agents to the generated context. This enables progressive discovery where agents first learn about the available context and, then, they can read the relevant files as needed.
 
 <figure>
   ![](./assets/prethink-claude-md.png)
@@ -112,9 +114,9 @@ When Prethink runs, it updates the agent configuration files in your repository 
 
 The agent configuration includes a table of available context types with descriptions and file paths, along with instructions on how to use the context effectively. This means agents can immediately start reasoning over pre-resolved facts about your codebase.
 
-## Getting started
+## Additional documentation
 
-To start using Prethink, see:
+To start using Prethink, check out the following docs:
 
 * [Creating a Prethink recipe](../../../administrator-documentation/moderne-platform/how-to-guides/creating-a-prethink-recipe.md) for administrators who want to configure Prethink for their organization
 * [Running Prethink with the CLI](../../moderne-cli/how-to-guides/cli-prethink.md) for developers who want to run Prethink locally

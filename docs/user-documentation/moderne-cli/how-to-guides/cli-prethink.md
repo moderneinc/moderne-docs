@@ -40,13 +40,13 @@ mod build prethink-demo
 
 ## Step 3: Install Prethink recipes
 
-Prethink is distributed as two modules. For most users, we recommend the Moderne module which includes batteries-included discovery for common frameworks:
+Prethink is distributed as two modules. For most users, we recommend using the Moderne Prethink module. Install if via the following command:
 
 ```bash
 mod config recipes jar install io.moderne.recipe:rewrite-prethink:LATEST
 ```
 
-This module provides out-of-the-box discovery for Spring MVC, JAX-RS, Micronaut, Quarkus, JPA, Kafka, RabbitMQ, and more—plus LLM integrations for code comprehension and test summary generation.
+This module provides out-of-the-box discovery for Spring MVC, JAX-RS, Micronaut, Quarkus, JPA, Kafka, RabbitMQ, and more. Additionally, it integrates well with LLMs for code comprehension and test summaries.
 
 Alternatively, if you have custom frameworks or want to build your own discovery recipes, install the OpenRewrite module which provides just the core building blocks:
 
@@ -135,11 +135,11 @@ The `UpdateAgentConfig` recipe in Prethink automatically updates these configura
 
 ## Keeping context up to date
 
-Prethink context should be regenerated as your codebase evolves. Consider:
+Prethink context should be regenerated as your codebase evolves. You should consider:
 
 * Running Prethink as part of your CI pipeline
 * Scheduling periodic regeneration (e.g., weekly)
-* Regenerating after major refactoring or dependency updates
+* Regenerating the context after every major refactor or dependency update
 
 ```bash
 # Regenerate context for all repositories
@@ -148,8 +148,8 @@ mod run prethink-demo --recipe io.moderne.prethink.UpdatePrethinkContextNoAiStar
 
 ## Next steps
 
-Once you've arrived at a Prethink configuration that works for your organization, consider:
+Once you've arrived at a Prethink configuration that works for your organization, you should:
 
-* Publishing the recipe to your Moderne recipe marketplace
-* Adding Prethink generation to your CI/CD pipeline
-* Exploring AI-enhanced summaries by configuring an LLM provider
+* Publish the recipe to your Moderne recipe marketplace
+* Add Prethink generation to your CI/CD pipeline
+* Explore AI-enhanced summaries by configuring an LLM provider
