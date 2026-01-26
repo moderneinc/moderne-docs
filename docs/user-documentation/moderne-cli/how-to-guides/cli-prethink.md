@@ -69,6 +69,12 @@ This recipe will:
 * Generate a CALM architecture diagram
 * Update agent configuration files
 
+Now, apply the changes so that newly added files appear in your working tree:
+
+```bash
+mod git apply prethink-demo --last-recipe-run
+```
+
 Once complete, you'll find the generated context in each repository's `.moderne/context/` directory:
 
 ```bash
