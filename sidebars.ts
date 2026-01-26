@@ -416,7 +416,7 @@ const recipes = {
 
 const jetbrainsPlugin = {
   type: 'category' as const,
-  label: 'Plugin for JetBrains',
+  label: 'IDE plugins',
   customProps: {
     gemIcon: 'pink-large',
     megaMenu: true,
@@ -424,7 +424,7 @@ const jetbrainsPlugin = {
   },
   link: {
     type: 'generated-index' as const,
-    title: 'Moderne Plugin for JetBrains IDEs',
+    title: 'Moderne IDE plugins',
     description: 'An IntelliJ IDE plugin for multi-repository code search and recipe development.',
     slug: '/user-documentation/moderne-ide-integration',
     keywords: ['guides'],

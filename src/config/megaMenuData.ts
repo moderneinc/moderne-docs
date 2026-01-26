@@ -49,7 +49,7 @@ const secondaryNavOrder = [
   'Recipes',
   'DX',
   'Moddy',
-  'Plugin for JetBrains',
+  'IDE plugins',
 ];
 
 /**
@@ -61,7 +61,7 @@ const homepageCardOrder = [
   'CLI',
   'Moddy',
   'Recipes',
-  'Plugin for JetBrains',
+  'IDE plugins',
 ];
 
 /**
@@ -106,7 +106,7 @@ export const businessItems: ProductItem[] = [
  */
 export const learningItems: LearningItem[] = [
   {
-    name: 'Plugin for JetBrains',
+    name: 'IDE plugins',
     href: '/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install',
     external: false,
   },
