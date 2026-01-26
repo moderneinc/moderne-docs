@@ -20,8 +20,8 @@ export const HeroSection: FunctionComponent = () => {
           <span className={styles.heroHeadingDark}>and tutorials to go further</span>
         </h1>
         <p className={styles.heroSubheading}>
-          Discover how to fix vulnerabilities, standardize code quality, and
-          accelerate large-scale refactoring.
+          Discover how to fix vulnerabilities, standardize code quality, 
+          perform type-aware code searches, and accelerate refactoring at enterprise scale.
         </p>
         <div>
           <NeoButton
@@ -131,7 +131,7 @@ const Home: FunctionComponent = () => {
       </Head>
       <Layout
         title="Moderne Documentation"
-        description="Explore documentation and tutorials for automated code remediation. Fix vulnerabilities, standardize code quality, and accelerate large-scale refactoring with Moderne Platform, CLI, DX, and more."
+        description="Explore documentation and tutorials for automated code remediation. Fix vulnerabilities, standardize code quality, perform type-aware code searches, and accelerate refactoring at enterprise scale with Moderne Platform, CLI, DX, and more."
       >
         <main className={styles.homePage}>
           <GemDecorations />
