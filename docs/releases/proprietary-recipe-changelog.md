@@ -10,6 +10,13 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## January 23, 2026
+
+#### rewrite-spring - v0.22.0
+
+* Acegi to Spring Security 5.0 migration recipe
+* Add Spring Kafka search recipes
+
 ## January 20, 2026
 
 #### rewrite-ai-search - 0.32.5
@@ -2015,80 +2022,4 @@ This changelog is automatically generated from GitHub releases and only contains
 * move declarative recipes to namespace io.moderne
 * Add `io.moderne.recipe.hibernate.MigrateToHibernate66`
 * add Spring Cloud 2024 upgrade
-
-## January 24, 2025
-
-#### rewrite-ai-search - 0.24.1
-
-* Updated repository to use OpenRewrite version v8.44.1
-
-#### rewrite-android - 0.7.1
-
-* Updated repository to use OpenRewrite version v8.44.1
-
-#### rewrite-android - 0.7.0
-
-* Create a LICENSE folder
-
-#### rewrite-circleci - 3.1.1
-
-* Updated repository to use OpenRewrite version v8.44.1
-
-#### rewrite-circleci - 3.1.0
-
-* Create a LICENSE folder
-
-#### rewrite-codemods-ng - 0.7.1
-
-* Create a LICENSE folder
-
-#### rewrite-compiled-analysis - 0.2.3
-
-* Updated repository to use OpenRewrite version v8.44.1
-
-#### rewrite-compiled-analysis - 0.2.2
-
-* Updated repository to use OpenRewrite version v8.44.0
-
-#### rewrite-comprehension - 0.2.0
-
-* feat-LSTInsights
-* Unpin OpenRewrite version after adjusting cursor validation
-
-#### rewrite-concourse - 3.1.0
-
-* Create a LICENSE folder
-
-#### rewrite-dotnet - 0.7.0
-
-* Create a LICENSE folder
-
-#### rewrite-java-security - 3.0.1
-
-* chore: update suppressions
-* Create a LICENSE folder
-
-#### rewrite-kubernetes - 3.1.0
-
-* Create a LICENSE folder
-
-#### rewrite-nodejs - v0.16.1
-
-* Increment version after publish failures
-
-#### rewrite-nodejs - 0.16.0
-
-* Create a LICENSE folder
-
-#### rewrite-reactive-streams - 0.9.0
-
-* Create a LICENSE folder
-
-#### rewrite-sql - 2.1.0
-
-* Create a LICENSE folder
-
-#### rewrite-terraform - 3.1.0
-
-* Create a LICENSE folder
 
