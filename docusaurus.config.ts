@@ -86,7 +86,9 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           editUrl:
             'https://github.com/moderneinc/moderne-docs/edit/main',
-          showLastUpdateTime: true,
+          // Disabled on Vercel to allow manual preview deployments via `npx vercel`
+          // (CLI deployments don't include .git directory, breaking git-based timestamps)
+          showLastUpdateTime: !process.env.VERCEL,
           // showLastUpdateAuthor: true,
           exclude: [
             '**/*.stories.tsx',
