@@ -397,7 +397,7 @@ const recipes = {
   customProps: {
     gemIcon: 'yellow-block',
     megaMenu: true,
-    homepageHref: '/user-documentation/recipes/common-custom-recipes',
+    homepageHref: '/user-documentation/recipes/coordinating-parent-pom-migrations',
   },
   link: {
     type: 'generated-index' as const,
@@ -407,10 +407,22 @@ const recipes = {
     keywords: ['recipes'],
   },
   items: [
-    'user-documentation/recipes/common-custom-recipes',
-    'user-documentation/recipes/contributing-to-openrewrite',
-    'user-documentation/recipes/conventions-and-best-practices',
-    'user-documentation/recipes/faq',
+    {
+      type: 'category' as const,
+      label: 'How-to guides',
+      link: {
+        type: 'generated-index' as const,
+        title: 'How-to guides',
+        description: 'Practical guides for working with recipes.',
+        slug: '/user-documentation/recipes/how-to-guides',
+        keywords: ['guides', 'recipes'],
+      },
+      items: [
+        'user-documentation/recipes/coordinating-parent-pom-migrations',
+        'user-documentation/recipes/contributing-to-openrewrite',
+        'user-documentation/recipes/managing-gradle-lock-files',
+      ],
+    },
   ],
 };
 

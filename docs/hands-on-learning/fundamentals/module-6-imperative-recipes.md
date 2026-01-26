@@ -106,6 +106,6 @@ Let's write an imperative recipe in Java that replaces uses of `new Integer(x)` 
 
 Now that you've learned all the basics of building recipes, you may:
 
-* Review [conventions and best practices](../../user-documentation/recipes/conventions-and-best-practices) for writing OpenRewrite recipes. 
+* Review [conventions and best practices](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices) for writing OpenRewrite recipes. 
 * See how you can [contribute to the OpenRewrite community](../../user-documentation/recipes/contributing-to-openrewrite).
 * Learn about some of the more complex and powerful features of OpenRewrite in the [advanced workshop](../advanced/).
