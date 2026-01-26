@@ -312,14 +312,14 @@ figure figcaption {
 @media (min-width: 997px) {
   .theme-doc-sidebar-container {
     border-right: none !important;
-    position: relative;
+    /* Note: position must remain sticky (set above) for sidebar to stay fixed while scrolling */
   }
 
   .theme-doc-sidebar-container::after {
     content: '';
     position: absolute;
     right: 0;
-    top: var(--ifm-navbar-height);
+    top: 0;
     bottom: 0;
     width: 1px;
     background-color: var(--ifm-toc-border-color);
