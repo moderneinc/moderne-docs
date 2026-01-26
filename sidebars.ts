@@ -419,7 +419,6 @@ const recipes = {
       },
       items: [
         'user-documentation/recipes/coordinating-parent-pom-migrations',
-        'user-documentation/recipes/contributing-to-openrewrite',
         'user-documentation/recipes/managing-gradle-lock-files',
       ],
     },
