@@ -42,7 +42,6 @@ const platform = {
           'user-documentation/moderne-platform/getting-started/data-tables',
           'user-documentation/moderne-platform/getting-started/visualizations',
           'user-documentation/moderne-platform/getting-started/dev-center',
-          'user-documentation/moderne-platform/getting-started/prethink',
           'user-documentation/moderne-platform/getting-started/activity-view',
           'user-documentation/moderne-platform/getting-started/code-mods',
         ],
@@ -422,6 +421,7 @@ const recipes = {
         'user-documentation/recipes/managing-gradle-lock-files',
       ],
     },
+    'user-documentation/recipes/prethink',
   ],
 };
 
