@@ -11,9 +11,9 @@ Prethink recipes generate structured context that gives AI coding agents a clear
 
 AI coding agents like Claude Code, Cursor, and GitHub Copilot struggle with enterprise codebases due to:
 
-* **Token limits** that prevent them from seeing your entire codebase
+* **Token limits** that prevent them from fitting your entire codebase into context
+* **Shallow code understanding** that forces them to infer types, dependencies, and cross-repository relationships from raw text (often resulting in hallucinations)
 * **Repetitive context building** that wastes tokens re-describing code structure on every interaction
-* **Missing semantic context** that leads to inference and hallucination
 
 These aren't faults of the models themselves - they're data problems. When working with vast enterprise codebases, AI models don't have the semantic context needed to be comprehensive, accurate, and efficient.
 
@@ -126,6 +126,155 @@ The OpenRewrite module also provides these building blocks:
 | `org.openrewrite.prethink.ExportContext`     | Exports data tables to CSV files in `.moderne/context/` with markdown documentation describing the schema.                         |
 | `org.openrewrite.prethink.UpdateAgentConfig` | Updates agent configuration files (`CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md`) to reference generated context. |
 
+## Creating custom Prethink recipes
+
+If the built-in recipes don't meet your needs, you can create custom Prethink recipes. This is useful when you have custom frameworks, proprietary patterns, or want full control over what context is generated.
+
+### Setting up a recipe repository
+
+1. Create a new recipe repository using either the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) or your own internal recipe starter template.
+
+2. Add a dependency on the Prethink modules in your `build.gradle`:
+
+```groovy
+dependencies {
+    // For pre-configured discovery (recommended)
+    implementation("io.moderne.recipe:rewrite-prethink:latest.release")
+
+    // Or for building blocks only
+    implementation("org.openrewrite.recipe:rewrite-prethink:latest.release")
+}
+```
+
+The Moderne module includes all recipes from the OpenRewrite module plus framework-specific discovery and LLM integrations.
+
+### Recipe examples
+
+#### Complete Prethink configuration
+
+This example runs all discovery phases and generates comprehensive context:
+
+```yaml
+type: specs.openrewrite.org/v1beta/recipe
+name: com.example.prethink.UpdatePrethinkContext
+displayName: Update Prethink context
+description: >-
+  Generates comprehensive Prethink context for AI agents including
+  service endpoints, dependencies, test coverage, and architecture.
+recipeList:
+  # Phase 1: Architectural Discovery
+  - io.moderne.prethink.calm.FindProjectMetadata
+  - io.moderne.prethink.calm.FindServiceEndpoints
+  - io.moderne.prethink.calm.FindDatabaseConnections
+  - io.moderne.prethink.calm.FindExternalServiceCalls
+  - io.moderne.prethink.calm.FindMessagingConnections
+  - io.moderne.prethink.calm.FindServerConfiguration
+  - io.moderne.prethink.calm.FindSecurityConfiguration
+  - io.moderne.prethink.calm.FindDeploymentArtifacts
+  - io.moderne.prethink.calm.FindDataAssets
+
+  # Phase 2: Test Coverage
+  - io.moderne.prethink.FindTestCoverage
+
+  # Phase 3: Context Generation
+  - io.moderne.prethink.calm.GenerateCalmArchitecture
+  - org.openrewrite.prethink.UpdateAgentConfig
+```
+
+#### Minimal Prethink configuration
+
+If you only need basic service endpoint discovery:
+
+```yaml
+type: specs.openrewrite.org/v1beta/recipe
+name: com.example.prethink.MinimalPrethink
+displayName: Minimal Prethink context
+description: >-
+  Generates basic Prethink context with service endpoints only.
+recipeList:
+  - io.moderne.prethink.calm.FindProjectMetadata
+  - io.moderne.prethink.calm.FindServiceEndpoints
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Service Endpoints
+      shortDescription: REST and HTTP endpoints
+      dataTables:
+        - io.moderne.prethink.table.ServiceEndpoints
+  - org.openrewrite.prethink.UpdateAgentConfig
+```
+
+#### Prethink with AI summaries
+
+To enable AI-generated summaries, configure the LLM provider:
+
+```yaml
+type: specs.openrewrite.org/v1beta/recipe
+name: com.example.prethink.PrethinkWithAI
+displayName: Prethink context with AI summaries
+description: >-
+  Generates Prethink context with AI-enhanced test summaries.
+recipeList:
+  - io.moderne.prethink.calm.FindProjectMetadata
+  - io.moderne.prethink.calm.FindServiceEndpoints
+  - io.moderne.prethink.FindTestCoverage:
+      provider: poolside
+  - io.moderne.prethink.calm.GenerateCalmArchitecture
+  - org.openrewrite.prethink.UpdateAgentConfig
+```
+
+#### Custom discovery with OpenRewrite module
+
+When using the OpenRewrite module, you provide your own discovery recipes:
+
+```yaml
+type: specs.openrewrite.org/v1beta/recipe
+name: com.example.prethink.CustomPrethink
+displayName: Custom Prethink context
+description: >-
+  Generates Prethink context using custom discovery recipes.
+recipeList:
+  # Your custom discovery recipe that populates a data table
+  - com.example.discovery.FindCustomEndpoints
+
+  # Export the custom data table to CSV
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Custom Endpoints
+      shortDescription: Custom framework endpoints
+      longDescription: >-
+        Endpoints discovered from our internal framework.
+      dataTables:
+        - com.example.table.CustomEndpoints
+
+  # Update agent configuration files
+  - org.openrewrite.prethink.UpdateAgentConfig
+```
+
+Your custom discovery recipe would implement the logic to find architectural elements specific to your frameworks and populate a data table. See the [OpenRewrite recipe development documentation](https://docs.openrewrite.org/authoring-recipes) for guidance on creating custom recipes.
+
+:::tip
+Recipes do not have to be in the same file or even the same module. You can compose Prethink recipes by referencing recipes from other modules.
+:::
+
+### Data tables
+
+Prethink recipes populate several data tables that capture different aspects of your codebase:
+
+| Data table              | Description                                                      |
+|-------------------------|------------------------------------------------------------------|
+| `ServiceEndpoints`      | REST/HTTP endpoints with HTTP methods, paths, and framework info |
+| `DatabaseConnections`   | JPA entities, repositories, and JDBC connections                 |
+| `ExternalServiceCalls`  | Outbound HTTP calls to external services                         |
+| `MessagingConnections`  | Kafka, RabbitMQ, JMS, and other messaging patterns               |
+| `TestMapping`           | Mapping of test methods to implementation methods                |
+| `SecurityConfiguration` | Spring Security, CORS, and OAuth2 configurations                 |
+| `ServerConfiguration`   | Port, SSL, and context path settings                             |
+| `DeploymentArtifacts`   | Dockerfile, Kubernetes, and docker-compose files                 |
+| `DataAssets`            | Entities, records, and DTOs                                      |
+| `ProjectMetadata`       | Artifact ID, group ID, and project name                          |
+| `ClassDescriptions`     | AI-generated class descriptions (with AI recipe)                 |
+| `MethodDescriptions`    | AI-generated method descriptions (with AI recipe)                |
+
+For the full schema definitions, see the [data table source code](https://github.com/openrewrite/rewrite-prethink/tree/main/src/main/java/org/openrewrite/prethink/table).
+
 ## What Prethink generates
 
 After running a Prethink recipe, you'll find generated files in the `.moderne/context/` directory (there will be a `.moderne` directory created inside of each repository):
@@ -184,5 +333,5 @@ The agent configuration includes a table of available context types with descrip
 
 ## Next steps
 
-* [Generating Prethink context with the CLI](../moderne-cli/how-to-guides/cli-prethink.md) - Run Prethink recipes locally
-* [Creating a Prethink recipe](../../administrator-documentation/moderne-platform/how-to-guides/creating-a-prethink-recipe.md) - Build custom Prethink configurations for your organization
+* [Run Prethink recipes on the Moderne Platform](../moderne-platform/getting-started/prethink.md)
+* [Generate Prethink context with the CLI](../moderne-cli/how-to-guides/cli-prethink.md)
