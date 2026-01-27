@@ -396,7 +396,7 @@ const recipes = {
   customProps: {
     gemIcon: 'yellow-block',
     megaMenu: true,
-    homepageHref: '/user-documentation/recipes/coordinating-parent-pom-migrations',
+    homepageHref: '/user-documentation/recipes/prethink',
   },
   link: {
     type: 'generated-index' as const,
