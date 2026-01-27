@@ -18,6 +18,43 @@
   justify-content: flex-start;
 }
 
+/* Mobile hamburger menu button - only shown on mobile */
+.mobileMenuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: var(--neo-spacing_1_2);
+  margin-right: var(--neo-spacing_1);
+  cursor: pointer;
+  color: var(--ifm-navbar-link-color);
+  border-radius: var(--neo-border-radius-x-s);
+  transition: background-color 0.2s ease;
+}
+
+.mobileMenuButton:hover {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+.mobileMenuButton:focus {
+  outline: none;
+}
+
+@media (max-width: 996px) {
+  .mobileMenuButton {
+    display: flex;
+  }
+}
+
+:global(html[data-theme='dark']) .mobileMenuButton {
+  color: var(--neo-surfaces-white);
+}
+
+:global(html[data-theme='dark']) .mobileMenuButton:hover {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
 .navbarCenter {
   flex: 0 0 auto;
   display: flex;
