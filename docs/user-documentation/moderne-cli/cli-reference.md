@@ -70,6 +70,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build maven timeout delete**](#mod-config-build-maven-timeout-delete)
 * [**mod config build maven timeout edit**](#mod-config-build-maven-timeout-edit)
 * [**mod config build maven timeout show**](#mod-config-build-maven-timeout-show)
+* [**mod config claude**](#mod-config-claude)
+* [**mod config claude plugin**](#mod-config-claude-plugin)
+* [**mod config claude plugin update**](#mod-config-claude-plugin-update)
 * [**mod config clone**](#mod-config-clone)
 * ~~[**mod config clone protocol**](#mod-config-clone-protocol-deprecated)~~ (deprecated)
 * ~~[**mod config clone protocol delete**](#mod-config-clone-protocol-delete-deprecated)~~ (deprecated)
@@ -159,6 +162,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config node installation delete**](#mod-config-node-installation-delete)
 * [**mod config node installation list**](#mod-config-node-installation-list)
 * [**mod config recipes**](#mod-config-recipes)
+* [**mod config recipes active**](#mod-config-recipes-active)
+* [**mod config recipes active set**](#mod-config-recipes-active-set)
+* [**mod config recipes active show**](#mod-config-recipes-active-show)
+* [**mod config recipes active delete**](#mod-config-recipes-active-delete)
 * [**mod config recipes artifacts**](#mod-config-recipes-artifacts)
 * [**mod config recipes artifacts artifactory**](#mod-config-recipes-artifacts-artifactory)
 * [**mod config recipes artifacts artifactory edit**](#mod-config-recipes-artifacts-artifactory-edit)
@@ -651,6 +658,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 ### Subcommands
 
 * `build`: Configures build tools used to produce LSTs.
+* `claude`: Configure Claude AI integration.
 * `clone`: Configures cloning behavior.
 * `dotnet`: Configures DotNet options used for building LSTs and running recipes.
 * `environment`: The build environment that the CLI is running in.
@@ -1715,6 +1723,69 @@ mod config build maven timeout show
 | ---- | ----------- |
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config claude
+
+Configure Claude AI integration.
+
+
+Manage the Moderne plugin for Claude Code.
+
+### Usage
+
+```
+mod config claude [subcommands]
+```
+
+### Examples
+
+```
+mod config claude plugin update
+```
+
+
+### Subcommands
+
+* `plugin`: Manage the Moderne plugin for Claude Code.
+
+## mod config claude plugin
+
+Manage the Moderne plugin for Claude Code.
+
+
+The Moderne plugin provides skills for recipe development, testing, and impact analysis.
+
+### Usage
+
+```
+mod config claude plugin [subcommands]
+```
+
+
+### Subcommands
+
+* `update`: Creates or updates the Moderne plugin for Claude Code.
+
+## mod config claude plugin update
+
+Creates or updates the Moderne plugin for Claude Code.
+
+
+Installs the Moderne plugin as a Claude marketplace at ~/.claude/marketplaces/moderne/
+
+### Usage
+
+```
+mod config claude plugin update
+```
+
+### Examples
+
+```
+mod config claude plugin update
+```
+
 
 
 ## mod config clone
@@ -3493,6 +3564,7 @@ mod config recipes moderne sync
 
 ### Subcommands
 
+* `active`: Manage the active recipe configuration.
 * `artifacts`: Configures artifact repositories to resolve recipes from.
 * `export`: Export the recipe catalog for study by different tools.
 * `jar`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -3502,6 +3574,89 @@ mod config recipes moderne sync
 * `list`: List the artifacts that are contributing recipes to the marketplace.
 * `search`: Finds recipes based on free form text search.
 * `yaml`: Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
+
+## mod config recipes active
+
+Manage the active recipe configuration.
+
+
+The active recipe is a recipe under development that can be run with `mod run --active-recipe`.
+
+### Usage
+
+```
+mod config recipes active [subcommands]
+```
+
+### Examples
+
+```
+mod config recipes active set src/main/java/com/example/MyRecipe.java
+```
+
+
+### Subcommands
+
+* `set`: Sets a recipe Java source file as the active recipe.
+* `show`: Shows the current active recipe configuration.
+* `delete`: Clears the active recipe configuration.
+
+## mod config recipes active set
+
+Sets a recipe Java source file as the active recipe.
+
+
+Detects the build tool (Gradle or Maven), extracts the classpath, and configures the recipe to be run with `mod run --active-recipe`.
+
+### Usage
+
+```
+mod config recipes active set [parameters]
+```
+
+### Examples
+
+```
+mod config recipes active set src/main/java/com/example/MyRecipe.java
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `recipeSourceFile` |  Path to a recipe Java source file |
+
+
+
+## mod config recipes active show
+
+Shows the current active recipe configuration.
+
+
+Displays the recipe ID and classpath from the active.recipe file.
+
+### Usage
+
+```
+mod config recipes active show
+```
+
+
+
+## mod config recipes active delete
+
+Clears the active recipe configuration.
+
+
+Removes the active.recipe file.
+
+### Usage
+
+```
+mod config recipes active delete
+```
+
+
 
 ## mod config recipes artifacts
 
