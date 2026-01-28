@@ -9,9 +9,32 @@ One big challenge that comes with building [LSTs](../../../administrator-documen
 
 To meet all of these needs, the Moderne CLI offers a few options for how you can include global or project-specific build arguments. In this guide, we'll walk through each of them and explain when you should use one over another.
 
+* [Configuration precedence](#configuration-precedence)
 * [Global configuration](#global-configuration)
 * [Local configuration (user-specific)](#local-configuration-user-specific)
 * [Local configuration (shared)](#local-configuration-shared)
+
+## Configuration precedence
+
+Build arguments can come from multiple sources. The CLI uses a **precedence-based** approach where the first non-null value wins. Arguments from different sources are **not merged or concatenated**.
+
+The precedence order during build (highest to lowest):
+
+1. **Repository-local transient** (`.moderne/moderne-uncommitted.yml`) – user-specific, not committed
+2. **Repository-local saved** (`.moderne/moderne.yml`) – shared, can be committed
+3. **Global config** (`~/.moderne/cli/moderne.yml`) – applies to all repositories
+
+:::info
+**repos.csv and configuration**: When you run `mod git sync csv`, build arguments from repos.csv are written directly into each repository's `.moderne` directory—with `--save` they go to `moderne.yml`, without it they go to `moderne-uncommitted.yml`. This means repos.csv values end up in a high-priority location and will **overwrite** any existing values for those settings on every sync—including any `.moderne/moderne.yml` files that repository owners may have committed to their repositories.
+
+**Limitation**: This behavior means you cannot use repos.csv for organization-wide defaults while allowing individual repositories to override with their own `.moderne/moderne.yml`. For example, if you want to:
+* Skip certain build steps organization-wide via repos.csv (e.g., `-DskipTests`)
+* Allow specific repository owners to add their own arguments (e.g., `-Pspecial-profile`)
+
+This is currently not possible—the repos.csv values will overwrite any committed `.moderne/moderne.yml` on every sync.
+
+If you need per-repository overrides, you must omit the `mavenArgs`/`gradleArgs` columns from repos.csv entirely and manage all configuration through committed `.moderne/moderne.yml` files in each repository.
+:::
 
 :::warning
 By default, the Moderne CLI will write configuration files to `~/.moderne/cli`. If your company has a home directory that is not local (such as a network share), you can set the `MODERNE_CLI_HOME` environment variable to point to a local directory. This can drastically increase the speed of the Moderne CLI.
