@@ -1,5 +1,18 @@
 # CLI / DX changelog
 
+### CLI / DX v3.56.4 (2026-01-28)
+
+#### What's Changed
+* Fix yaml recipe installation
+* Allow targeted building of partitions
+* Render search results in native mode
+* Skip .moderne directories when reading organization
+* Allow local recipe marketplace without a global one
+* A recipe should not be executed when it has validation errors
+* Improve error handling for Windows path not found errors
+* Add DockerParser and ability to run related recipes
+* Sanitize build arguments for Gradle, Maven, and Bazel
+
 ### CLI / DX v3.56.3 (2026-01-26)
 
 #### What's Changed
