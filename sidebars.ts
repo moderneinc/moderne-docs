@@ -517,41 +517,11 @@ const handsOnLearning = {
         keywords: ['recipes'],
       },
       items: [
-        {
-          type: 'doc' as const,
-          id: 'hands-on-learning/fundamentals/workshop-overview',
-          customProps: { gemIcon: 'pink' }
-        },
-        {
-          type: 'doc' as const,
-          id: 'hands-on-learning/fundamentals/module-1-recipe-development-environment',
-          customProps: { gemIcon: 'green' }
-        },
-        {
-          type: 'doc' as const,
-          id: 'hands-on-learning/fundamentals/module-2-declarative-yaml-recipes',
-          customProps: { gemIcon: 'orange' }
-        },
-        {
-          type: 'doc' as const,
-          id: 'hands-on-learning/fundamentals/module-3-preconditions',
-          customProps: { gemIcon: 'gray' }
-        },
-        {
-          type: 'doc' as const,
-          id: 'hands-on-learning/fundamentals/module-4-testing-recipes',
-          customProps: { gemIcon: 'pink' }
-        },
-        {
-          type: 'doc' as const,
-          id: 'hands-on-learning/fundamentals/module-5-refaster-recipes',
-          customProps: { gemIcon: 'green' }
-        },
-        {
-          type: 'doc' as const,
-          id: 'hands-on-learning/fundamentals/module-6-imperative-recipes',
-          customProps: { gemIcon: 'orange' }
-        },
+        'hands-on-learning/fundamentals/workshop-overview',
+        'hands-on-learning/fundamentals/module-1-recipe-development-environment',
+        'hands-on-learning/fundamentals/module-2-declarative-yaml-recipes',
+        'hands-on-learning/fundamentals/module-3-refaster-recipes',
+        'hands-on-learning/fundamentals/module-4-imperative-recipes',
       ],
     },
     {
