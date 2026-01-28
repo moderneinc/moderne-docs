@@ -4323,6 +4323,11 @@ mod config recipes yaml install /path/to/yaml
 | ---- | ----------- |
 | `paths` |  The path(s) to the YAML file to install. Each YAML file will be copied, so if further modifications to them are made, make sure to reinstall. |
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--category` |  The name of the category to install these recipes into. |
 
 
 ## mod config recipes yaml delete
