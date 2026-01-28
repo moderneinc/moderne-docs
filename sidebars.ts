@@ -42,7 +42,6 @@ const platform = {
           'user-documentation/moderne-platform/getting-started/data-tables',
           'user-documentation/moderne-platform/getting-started/visualizations',
           'user-documentation/moderne-platform/getting-started/dev-center',
-          'user-documentation/moderne-platform/getting-started/prethink',
           'user-documentation/moderne-platform/getting-started/activity-view',
           'user-documentation/moderne-platform/getting-started/code-mods',
         ],
@@ -397,7 +396,7 @@ const recipes = {
   customProps: {
     gemIcon: 'yellow-block',
     megaMenu: true,
-    homepageHref: '/user-documentation/recipes/coordinating-parent-pom-migrations',
+    homepageHref: '/user-documentation/recipes/prethink',
   },
   link: {
     type: 'generated-index' as const,
@@ -422,6 +421,7 @@ const recipes = {
         'user-documentation/recipes/managing-gradle-lock-files',
       ],
     },
+    'user-documentation/recipes/prethink',
   ],
 };
 

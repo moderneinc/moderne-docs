@@ -5,15 +5,15 @@ description: How to generate Prethink context for AI agents using the Moderne CL
 
 # How to generate Prethink context with the CLI
 
-Moderne Prethink generates structured context that gives AI coding agents a clear, accurate understanding of your codebase. While you can run Prethink recipes on the Moderne Platform, you can also generate Prethink context locally via the CLI.
+This guide walks you through generating Prethink context locally using the Moderne CLI.
 
-In this guide, we'll walk you through how to do that.
+For background on what Prethink is and the available recipes, please check out our [Prethink recipes documentation](../../recipes/prethink.md).
 
 ## Prerequisites
 
-This guide assumes that you have already [installed and configured the CLI](../getting-started/cli-intro.md#installation-and-configuration).
+This guide assumes that you have already [installed and configured the CLI](../getting-started/cli-intro.md#installation-and-configuration) and you are aware of [what Moderne Prethink is](../../recipes/prethink.md).
 
-## Step 1: Checkout the repositories you want to generate context for
+## Step 1: Clone the repositories
 
 The first thing you'll need to do is come up with the list of repositories that you want to generate Prethink context for. Once you have that list, please ensure they are cloned to a shared directory locally. For instance, this might look like:
 
@@ -25,14 +25,14 @@ prethink-demo
 ```
 
 :::tip
-You may find it useful to start by only cloning a small subset of your repositories locally so that you can test, build, and iterate quickly. Once you've confirmed everything is working as you want, you can then add more repositories as desired.
+Start with a small subset of repositories to test and iterate quickly. Once everything works, add more repositories as needed.
 :::
 
-We'd recommend using the [mod git sync command](../cli-reference.md#mod-git-sync) to create this shared directory. With it, you can clone repositories from a CSV file or from an existing organization.
+We recommend using the [mod git sync command](../cli-reference.md#mod-git-sync) to create this shared directory. It can clone repositories from a CSV file or from an existing organization.
 
 ## Step 2: Build the LSTs
 
-With the repositories cloned, you now need to build or download LSTs to run Prethink recipes on:
+With the repositories cloned, build or download LSTs to run Prethink recipes on:
 
 ```bash
 mod build prethink-demo
@@ -40,23 +40,18 @@ mod build prethink-demo
 
 ## Step 3: Install Prethink recipes
 
-Prethink is distributed as two modules. For most users, we recommend using the Moderne Prethink module. Install if via the following command:
-
-```bash
-mod config recipes jar install io.moderne.recipe:rewrite-prethink:LATEST
-```
-
-This module provides out-of-the-box discovery for Spring MVC, JAX-RS, Micronaut, Quarkus, JPA, Kafka, RabbitMQ, and more. Additionally, it integrates well with LLMs for code comprehension and test summaries.
-
-Alternatively, if you have custom frameworks or want to build your own discovery recipes, install the OpenRewrite module which provides just the core building blocks:
+The Moderne module depends on the OpenRewrite module, so install both:
 
 ```bash
 mod config recipes jar install org.openrewrite.recipe:rewrite-prethink:LATEST
+mod config recipes jar install io.moderne.recipe:rewrite-prethink:LATEST
 ```
+
+If you only need the core building blocks for custom discovery recipes, you can install just the OpenRewrite module.
 
 ## Step 4: Run the Prethink recipe
 
-`rewrite-prethink` includes a starter recipe which you can run as follows:
+Run the starter recipe:
 
 ```bash
 mod run prethink-demo --recipe io.moderne.prethink.UpdatePrethinkContextNoAiStarter
@@ -69,24 +64,15 @@ This recipe will:
 * Generate a CALM architecture diagram
 * Update agent configuration files
 
-Once complete, you'll find the generated context in each repository's `.moderne/context/` directory:
+After you've run the recipe, make sure to apply the changes so the generated files appear in your working tree:
 
 ```bash
-service-a/
-└── .moderne/
-    └── context/
-        ├── service-endpoints.csv
-        ├── service-endpoints.md
-        ├── database-connections.csv
-        ├── database-connections.md
-        ├── test-mapping.csv
-        ├── test-mapping.md
-        └── calm-architecture.json
+mod git apply prethink-demo --last-recipe-run
 ```
 
-The CSV files contain structured data that AI agents can parse directly. The markdown files provide human-readable descriptions. The CALM architecture JSON can be visualized with [CALM](https://calm.finos.org/)-compatible tools.
+You'll find the generated context in each repository's `.moderne/context/` directory. For details on what files are generated, see our documentation on [what Prethink generates](../../recipes/prethink.md#what-prethink-generates).
 
-## Step 5: Create a custom Prethink recipe
+## Step 5: Create a custom Prethink recipe (optional)
 
 You can customize which context is generated by creating your own Prethink recipe. Here's an example that focuses only on service endpoints:
 
@@ -108,30 +94,17 @@ recipeList:
 ```
 
 :::warning
-Make sure to give your recipes unique names so as not to conflict with installed starter recipes.
+You must give your recipes unique names to avoid conflicts with the installed starter recipes.
 :::
 
-Once complete, you can install the recipe to the local recipe marketplace with the command:
+Once you have your custom recipe defined, install and run it:
 
 ```bash
 mod config recipes yaml install MyPrethink.yml
-```
-
-Next, run your custom recipe:
-
-```bash
 mod run prethink-demo --recipe com.acme.MinimalPrethink
 ```
 
-## Using Prethink with AI agents
-
-After generating Prethink context, your AI coding agents can consume it directly. The generated files are placed in locations that common agents automatically discover:
-
-* **Claude Code**: References added to `CLAUDE.md`
-* **Cursor**: References added to `.cursorrules`
-* **GitHub Copilot**: References added to `.github/copilot-instructions.md`
-
-The `UpdateAgentConfig` recipe in Prethink automatically updates these configuration files to reference the generated context.
+For more recipe examples, please see our [creating a Prethink recipe documentation](../../../administrator-documentation/moderne-platform/how-to-guides/creating-a-prethink-recipe.md).
 
 ## Keeping context up to date
 
@@ -142,14 +115,11 @@ Prethink context should be regenerated as your codebase evolves. You should cons
 * Regenerating the context after every major refactor or dependency update
 
 ```bash
-# Regenerate context for all repositories
 mod run prethink-demo --recipe io.moderne.prethink.UpdatePrethinkContextNoAiStarter
 ```
 
 ## Next steps
 
-Once you've arrived at a Prethink configuration that works for your organization, you should:
-
-* Publish the recipe to your Moderne recipe marketplace
+* Publish your recipe to your Moderne recipe marketplace
 * Add Prethink generation to your CI/CD pipeline
 * Explore AI-enhanced summaries by configuring an LLM provider

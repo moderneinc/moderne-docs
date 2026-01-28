@@ -1,5 +1,13 @@
 # CLI / DX changelog
 
+### CLI / DX v3.56.3 (2026-01-26)
+
+#### What's Changed
+* Run `mod exec` `CHECK` and `COMPILE` tools in the tool directory
+* Allow recipes to run more than one cycle
+* Add Moderne plugin for Claude Code with recipe development skills
+* Fix missing space between JVM args in command logging
+
 ### CLI / DX v3.56.2 (2026-01-23)
 
 #### What's Changed
