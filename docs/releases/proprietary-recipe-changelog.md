@@ -15,7 +15,7 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-spring - v0.23.0
 
 * Add recipe to migrate Filter to OncePerRequestFilter
-* Address Spring Boot 4 recipe feedback (#1758)
+* Address Fidelity Spring Boot 4 recipe feedback (#1758)
 * Add AddSetUseSuffixPatternMatch recipe for Spring 5.3 migration
 * Fix SpringBootVersionUpgradeTest.upgradeVersionGradle flaky test
 * Add landing page controller generation for welcome-file-list
