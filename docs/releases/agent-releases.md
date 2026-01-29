@@ -7,15 +7,21 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.243.0         |
+| Agent (recommended to use **latest**) | 0.244.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.243.0/moderne-agent-0.243.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.244.0/moderne-agent-0.244.0.jar)
 
 
 ## Changelog
 
+### v0.244.0 - 2026-01-29
+
+* Fix logback configuration with nested if elements
+* Fix ByteBuf memory leak in GitSshController and GitSshClient
+* Don't follow redirects when request body has been consumed
+* Add proxy HTTP request metrics
 ### v0.243.0 - 2025-12-20
 
 * Expose better exception when tool is not found
