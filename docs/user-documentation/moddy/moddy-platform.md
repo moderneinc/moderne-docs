@@ -8,7 +8,7 @@ import ReactPlayer from 'react-player';
 
 Moddy is a multi-repo AI agent (**currently in a restricted beta**) that combines natural language with the accuracy and scalability of Moderne and OpenRewrite. With it, you can analyze and modify large and complex codebases. For instance, you could ask it questions like, "How do I use Apache Commons?" or "Help me upgrade to Spring Boot 3.5," and it would search for the appropriate OpenRewrite recipes and then execute them for you.
 
-Moddy runs inside the Moderne Platform, allowing you to run Moddy requests at scale across thousands of repositories and organizations. We also offer [Moddy Desktop](./moddy-desktop.md) which is a standalone version that runs on your local machine – allowing you to quickly run it against your local repositories or connect to other tools such as Claude Code through an MCP connection.
+Moddy runs inside the Moderne Platform, allowing you to run Moddy requests at scale across thousands of repositories and organizations.
 
 In this guide, we'll walk you through everything you need to know to get started with Moddy in the Moderne Platform.
 

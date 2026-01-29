@@ -48,7 +48,7 @@ Commands like `mod devcenter`, `mod study`, and `mod run` understand this hierar
 
 ### Downloading LSTs
 
-`mod git sync` will also now download Lossless Semantic Trees (LSTs) to each directory by default rather than source code. This is because many tools and operations only need LSTs to function (e.g., Moddy Desktop, impact analysis, and AI tooling integrations) and we wanted it to be easier and quicker to get started.
+`mod git sync` will also now download Lossless Semantic Trees (LSTs) to each directory by default rather than source code. This is because many tools and operations only need LSTs to function (e.g., impact analysis, and AI tooling integrations) and we wanted it to be easier and quicker to get started.
 
 To pull the latest LSTs in a directory that has been previously created, simply run `mod git sync` again.
 

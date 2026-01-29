@@ -21,7 +21,7 @@ All AI tools and features may produce incorrect or incomplete results. Please en
 
 ## Moddy (AI agent) - SaaS restricted beta
 
-Moddy is a multi-repo AI agent that developers can optionally interact with in the Moderne Platform. It uses a BYOM (bring-your-own-model) approach to support its work, but leverages OpenRewrite recipes to do the heavy lifting of code search and transformation. There is also a [standalone version of Moddy](../../../user-documentation/moderne-cli/getting-started/moddy-desktop.md) available in restricted beta.
+Moddy is a multi-repo AI agent that developers can optionally interact with in the Moderne Platform. It uses a BYOM (bring-your-own-model) approach to support its work, but leverages OpenRewrite recipes to do the heavy lifting of code search and transformation.
 
 Moddy integrates with your AI LLMs to interpret natural language queries, search for recipes, summarize recipe options, run recipes to transform code and generate data tables, summarize recipe runs, and summarize data from data tables while making suggestions.
 
@@ -128,12 +128,3 @@ Moderne customers can choose what AI features they want to enable or disable. Fo
 
 Furthermore, many of our AI features offer you the flexibility of bringing your own model so that you can ensure that the model you use meets your safety and security standards.
 
-### What models do you use and how are they trained?
-
-Moddy Desktop does not include its own model. You configure your own. Right now we support Anthropic, but other models have been tested and performed relatively similarly. We plan to support all generative models via their APIs.
-
-Third party AI integrations use whatever model you connect to.
-
-### What data does Moddy desktop send to the models?
-
-Recipe results and data tables.
