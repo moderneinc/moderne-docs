@@ -16,11 +16,6 @@ Moddy uses a bring-your-own-model (BYOM) approach, which means you choose the AI
   <figcaption>_The flow of data from you to the LLM to an OpenRewrite recipe._</figcaption>
 </figure>
 
-<figure>
-  ![](./assets/air-gapped-moddy.png)
-  <figcaption>_What an air-gapped environment might look like._</figcaption>
-</figure>
-
 ## Frequently asked questions
 
 ### What models do you use and how are they trained?
