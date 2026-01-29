@@ -78,3 +78,32 @@
 .navbar :global(.navbar__link svg) {
   display: none;
 }
+
+/* Mobile sidebar styling */
+.navbar :global(.navbar-sidebar) {
+  height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  background-color: white;
+}
+
+:global(html[data-theme='dark']) .navbar :global(.navbar-sidebar) {
+  background-color: black;
+}
+
+/* Mobile sidebar header (logo + close button) */
+.navbar :global(.navbar-sidebar__brand) {
+  padding-top: var(--neo-spacing_2);
+}
+
+/* Show "Docs" label next to logo in mobile sidebar */
+.navbar :global(.navbar-sidebar__brand) :global([class*="docsLabel"]) {
+  display: inline;
+}
+
+/* Mobile sidebar content area */
+.navbar :global(.navbar-sidebar__content) {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+}

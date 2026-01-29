@@ -479,6 +479,7 @@ const handsOnLearning = {
   label: 'Hands-on learning',
   customProps: {
     gemIcon: 'pink',
+    featured: true,
   },
   link: {
     type: 'doc' as const,

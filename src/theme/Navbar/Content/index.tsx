@@ -10,14 +10,14 @@ import {
   splitNavbarItems,
   useNavbarMobileSidebar,
 } from '@docusaurus/theme-common/internal';
+import {translate} from '@docusaurus/Translate';
 import NavbarItem, {type Props as NavbarItemConfig} from '@theme/NavbarItem';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 import SearchBar from '@theme/SearchBar';
-import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 import { externalNavLinks } from '@site/src/config/megaMenuData';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Menu, X } from 'lucide-react';
 import styles from './styles.module.css';
 
 /**
@@ -43,6 +43,32 @@ const ExternalNavLinks: FunctionComponent = () => {
 };
 
 ExternalNavLinks.displayName = 'ExternalNavLinks';
+
+/**
+ * Mobile hamburger menu button - shown only on mobile
+ * Toggles the mobile sidebar
+ */
+const MobileMenuButton: FunctionComponent = () => {
+  const {toggle, shown} = useNavbarMobileSidebar();
+
+  return (
+    <button
+      onClick={toggle}
+      aria-label={translate({
+        id: 'theme.docs.sidebar.toggleSidebarButtonAriaLabel',
+        message: 'Toggle navigation bar',
+        description: 'The ARIA label for hamburger menu button',
+      })}
+      aria-expanded={shown}
+      className={styles.mobileMenuButton}
+      type="button"
+    >
+      {shown ? <X size={24} /> : <Menu size={24} />}
+    </button>
+  );
+};
+
+MobileMenuButton.displayName = 'MobileMenuButton';
 
 function useNavbarItems() {
   // NOTE: TODO below is from upstream Docusaurus theme-classic, copied during swizzling
@@ -117,8 +143,6 @@ NavbarContentLayout.displayName = 'NavbarContentLayout';
  * Renders the main navbar with logo, navigation items, color mode toggle, and search.
  */
 const NavbarContent: FunctionComponent = () => {
-  const mobileSidebar = useNavbarMobileSidebar();
-
   const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
 
@@ -128,8 +152,7 @@ const NavbarContent: FunctionComponent = () => {
     <NavbarContentLayout
       left={
         <>
-          {/* Hide mobile sidebar toggle - sidebar filtering causes issues on mobile */}
-          {/* {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />} */}
+          <MobileMenuButton />
           <div className={styles.logoGroup}>
             <NavbarLogo />
           </div>
