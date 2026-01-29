@@ -10,6 +10,42 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## January 28, 2026
+
+#### rewrite-spring - v0.23.0
+
+* Add recipe to migrate Filter to OncePerRequestFilter
+* Address Spring Boot 4 recipe feedback (#1758)
+* Add AddSetUseSuffixPatternMatch recipe for Spring 5.3 migration
+* Fix SpringBootVersionUpgradeTest.upgradeVersionGradle flaky test
+* Add landing page controller generation for welcome-file-list
+* Add Spring WS Axiom to SAAJ migration recipe
+* Fix classpath resolution and transitive dependency detection
+* Add recipes for Spring Framework 7.0 GraalVM native hint changes
+* Add `AddValidationStarterDependency`
+* Add `RemoveContentNegotiationFavorPathExtension`
+* Migrate OAuth2 token response client from `RestOperations` to `RestClient`
+* Auto-detect javax vs jakarta in WebXmlToWebApplicationInitializer
+* Migrate `HandleError` method invocations
+* Remove deprecated PathMatcher configuration in Spring Framework 7
+* Migrate Spring `variable-resolver` in JSF config
+* Add Spring Boot 3.5 webclient deprecation migrations
+* Add recipe to remove spring-jcl dependency for Spring Framework 7.0
+* Migrate MvcRequestMatcher to PathPatternRequestMatcher for Spring Security 7
+* Add recipes for deprecated API removal in Spring Framework 7.0
+* Add recipe to preserve SpringExtension test-class scoped context for nested tests
+* Add recipe to find removed servlet view support in Spring Framework 7.0
+* Replace JUnit 4 Spring test base classes with JUnit Jupiter annotations
+* Rename RequestContext.jstPresent to JSTL_PRESENT for Spring Framework 7.0
+* Migrate EnvironmentPostProcessor to new package in Spring Boot 4.0
+* Detect Kafka Streams and raw Apache Kafka client usage
+* Add recipe to preserve DynamicDestinationResolver for JmsTemplate in Spring 7
+* Migrate HttpHeaders methods removed in Spring Framework 7.0
+* Replace Spring Framework dependencies with Boot starters during migration
+* Expand Spring to Boot starter dependency mappings
+* Migrate Spring Session Hazelcast to Hazelcast Spring Session
+* Add recipe to migrate HttpStatus to RFC 9110 names
+
 ## January 23, 2026
 
 #### rewrite-spring - v0.22.0
