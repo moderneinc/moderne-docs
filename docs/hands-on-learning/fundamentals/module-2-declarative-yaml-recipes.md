@@ -9,6 +9,8 @@ As a best practice, if your recipe can be declarative (meaning it can be built o
 
 If you completed the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop, you've already built a declarative recipe in [Module 2](../introduction/module-2-recipe-builder.md) when you used the Recipe Builder to combine existing recipes using Moderne. The YAML file you downloaded is a declarative recipe. Now you'll learn how to write or modify one yourself, and then scope it with preconditions.
 
+If you get stuck, you can reference the [workshop-solutions branch](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/) of the starter repo for completed examples (and you’ll also see code embedded inline throughout the steps).
+
 ## Exercise 2-1: Write a declarative YAML recipe
 
 In this exercise, you'll build upon a custom migration recipe that replaces Spring's `StringUtils` with Apache Commons `StringUtils`.
@@ -77,6 +79,7 @@ Even for declarative recipes, you should always write tests. Make sure you expan
      * This class implements `RewriteTest`, overrides `defaults(RecipeSpec)` to run the recipe, and configures a classpath that includes `spring-core`.
      * The tests only need dependencies required to compile the "before" code, so `spring-core` is enough and `commons-lang3` is not needed in the test classpath.
      * The existing `replacesStringEquals` test uses `rewriteRun(SourceSpecs...)` with a single `java(String, String)` before/after text block, which asserts the recipe transforms the "before" code into the "after" code.
+     * The `noChangeWhenAlreadyUsingCommonsLang3` test only includes a before block, which as the comment mentions, indicates that the after code block should be the same as the before code block.
      * The `//language=java` injection on the text blocks enables IntelliJ syntax highlighting and code completion.
 2. Now run the existing `replacesStringEquals` test (use the green play icon to the left of the test method) to confirm it passes. This takes care of that particular case, but now you need to cover the method name change that you just implemented.
 3. Add a unit test that validates `trimWhitespace` is converted to `strip`.
@@ -85,7 +88,7 @@ Even for declarative recipes, you should always write tests. Make sure you expan
 
 ```java
 @Test
-void trimWhitespace() {
+void useTrimWhitespace() {
     rewriteRun(
       //language=java
       java(

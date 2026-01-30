@@ -9,6 +9,8 @@ OpenRewrite has support for [writing Refaster recipes](https://docs.openrewrite.
 
 Refaster recipes are an easy step-up to writing imperative recipes, as they are written in Java and can be run as recipes. Refaster template recipes can be used to replace one expression with another, or one statement with another, but only if the expression or statement can fit inside the body of a method. Your compiler will help you catch syntax errors, and you can use your IDE to navigate to definitions and references. The generated recipes can also be used as a starting point for more complex recipe implementations.
 
+If you get stuck, you can reference the [workshop-solutions branch](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/) of the starter repo for completed examples (and you’ll also see code embedded inline throughout the steps).
+
 ## Exercise 3-1: Build and run a Refaster recipe
 
 In this exercise, you will generate a recipe from an existing Refaster template recipe then inspect and run to validate it.
