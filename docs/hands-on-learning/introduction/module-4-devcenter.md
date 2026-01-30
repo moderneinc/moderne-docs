@@ -305,9 +305,6 @@ Now that you've completed this workshop, try using what you've learned. If you g
 * [DevCenter configuration guide](../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md)
 * [Moderne CLI reference](../../user-documentation/moderne-cli/cli-reference.md)
 
-
-<!-- commented out until next module is ready
 ## Next steps
 
 If you're interested in learning how to write your own recipes, check out the [Fundamentals of OpenRewrite recipe development](../fundamentals/workshop-overview.md) workshop.
--->
