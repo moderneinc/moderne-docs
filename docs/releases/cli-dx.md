@@ -1,5 +1,23 @@
 # CLI / DX changelog
 
+### CLI / DX v3.56.5 (2026-02-02)
+
+#### What's Changed
+* Remove requirement for system-installed mvn in tests
+* Wait and retry the apple notarization process for as long as it takes
+* Include claude-skills resources in GraalVM native image
+* `mod config recipes active` now supports YAML recipes
+* Show friendly error when Node.js is missing for trace analysis
+* Fix NPE when using --last-recipe-run option
+* Add trace support for `mod exec`
+* Fix errors when building LSTs that container Docker and TOML types
+* Enable syncing of partitions
+* Workflow to notify issues their fix is released
+* Made the `MainframeBuildStep` also print the file it's parsing in the same way as other build steps.
+* Fix shell special character quoting in ExecShell
+* Adding basic-mod-commands-check CI step
+* Add Sourcegraph/Zoekt-compatible trigram search
+
 ### CLI / DX v3.56.4 (2026-01-28)
 
 #### What's Changed
