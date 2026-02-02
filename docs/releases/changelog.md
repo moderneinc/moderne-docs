@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v12.27.0 (2026/02/02)
+
+- add beta for timeline view of devCenter
+- add toggle on devCenter to not include N/A for change campaigns
+- add ability to run a recipe node in builder
+
 ### UI v12.26.0 (2026/01/22)
 
 - neo dev center polish
