@@ -93,6 +93,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
 * [**mod config features inline-diff**](#mod-config-features-inline-diff)
 * [**mod config features no-maven-central**](#mod-config-features-no-maven-central)
+* [**mod config features search**](#mod-config-features-search)
 * [**mod config http**](#mod-config-http)
 * [**mod config http proxy**](#mod-config-http-proxy)
 * [**mod config http proxy delete**](#mod-config-http-proxy-delete)
@@ -252,9 +253,13 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod log runs add**](#mod-log-runs-add)
 * [**mod list**](#mod-list)
 * [**mod monitor**](#mod-monitor)
+* [**mod postbuild**](#mod-postbuild)
+* [**mod postbuild zoekt**](#mod-postbuild-zoekt)
+* [**mod postbuild zoekt update**](#mod-postbuild-zoekt-update)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
 * [**mod run-history**](#mod-run-history)
+* [**mod search**](#mod-search)
 * [**mod study**](#mod-study)
 * [**mod trace**](#mod-trace)
 * [**mod trace builds**](#mod-trace-builds)
@@ -294,9 +299,11 @@ mod [subcommands]
 * `log`: Manages a log aggregate.
 * `list`: Lists the repositories that can be built and published.
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
+* `postbuild`: Post-build operations on LST artifacts.
 * `publish`: Publishes the LST artifacts for one or more projects.
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTs.
 * `run-history`: Get information about the most recent recipe runs. This will be transitioning to **mod audit runs list** eventually. A deprecation notice will be added here when we suggest adopting the alternative.
+* `search`: Search repositories using trigram indexes.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
 * `trace`: Manages trace analysis tools.
 
@@ -2091,6 +2098,7 @@ mod config features [subcommands]
 * `index-recipes`
 * `inline-diff`: Configure inline diff rendering in the terminal.
 * `no-maven-central`: (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
+* `search`: (DEPRECATED) Configure trigram-based code search.
 
 ## mod config features index-recipes
 
@@ -2141,6 +2149,26 @@ Maven Central and OSS Sonatype Snapshots are considered as valid recipe and depe
 
 ```
 mod config features no-maven-central
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--enabled` |  |
+
+
+## mod config features search
+
+(DEPRECATED) Configure trigram-based code search.
+
+
+This command is deprecated. Search indexes are now generated using **mod postbuild zoekt update** and do not require a feature flag.
+
+### Usage
+
+```
+mod config features search
 ```
 
 ### Options
@@ -3597,16 +3625,16 @@ mod config recipes active set src/main/java/com/example/MyRecipe.java
 
 ### Subcommands
 
-* `set`: Sets a recipe Java source file as the active recipe.
+* `set`: Sets a recipe source file as the active recipe.
 * `show`: Shows the current active recipe configuration.
 * `delete`: Clears the active recipe configuration.
 
 ## mod config recipes active set
 
-Sets a recipe Java source file as the active recipe.
+Sets a recipe source file as the active recipe.
 
 
-Detects the build tool (Gradle or Maven), extracts the classpath, and configures the recipe to be run with `mod run --active-recipe`.
+Accepts a Java source file (.java) or a YAML recipe file (.yml/.yaml). Detects the build tool (Gradle or Maven), extracts the classpath, and configures the recipe to be run with `mod run --active-recipe`.
 
 ### Usage
 
@@ -3624,8 +3652,13 @@ mod config recipes active set src/main/java/com/example/MyRecipe.java
 
 | Name | Description |
 | ---- | ----------- |
-| `recipeSourceFile` |  Path to a recipe Java source file |
+| `recipeSourceFile` |  Path to a recipe source file (.java, .yml, or .yaml) |
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--recipe` |  Recipe name to select (useful for multi-document YAML files or nested Java classes) |
 
 
 ## mod config recipes active show
@@ -5692,6 +5725,74 @@ mod monitor
 | `--port` |  The port to listen on. Default is 8080. |
 
 
+## mod postbuild
+
+Post-build operations on LST artifacts.
+
+
+Operations that can be performed on already-built LST artifacts, such as generating search indexes from downloaded LSTs.
+
+### Usage
+
+```
+mod postbuild [subcommands]
+```
+
+
+### Subcommands
+
+* `zoekt`: Zoekt search index operations.
+
+## mod postbuild zoekt
+
+Zoekt search index operations.
+
+
+Manage Zoekt-compatible trigram search indexes for repositories.
+
+### Usage
+
+```
+mod postbuild zoekt [subcommands]
+```
+
+
+### Subcommands
+
+* `update`: Generate search indexes from existing LSTs.
+
+## mod postbuild zoekt update
+
+Generate search indexes from existing LSTs.
+
+
+Generates Zoekt-compatible trigram search indexes for repositories that have LST artifacts but were built without search indexing enabled. The indexes are written to **.moderne/search/** in each repository.
+
+### Usage
+
+```
+mod postbuild zoekt update [parameters]
+```
+
+### Examples
+
+```
+mod postbuild zoekt update /path/to/organization
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--force`, `-f` |  Regenerate index even if one already exists |
+
+
 ## mod publish
 
 Publishes the LST artifacts for one or more projects.
@@ -5788,6 +5889,40 @@ mod run-history [parameters]
 | ---- | ----------- |
 | `--json` |  (INCUBATING) Output the run history in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
 | `--most-recent` |  Only show the most recent run of each recipe. |
+
+
+## mod search
+
+Search repositories using trigram indexes.
+
+
+Searches pre-built trigram indexes for each repository in the working set. You must enable search indexing with **mod config features search --enabled** and run **mod build** to generate the indexes.
+
+### Usage
+
+```
+mod search [parameters]
+```
+
+### Examples
+
+```
+mod search /path/to/working-set "@Autowired"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `queryParts` |  Search query (supports Sourcegraph syntax) |  |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `-m`, `--max` |  Maximum number of results per repository (default: 100) |
+| `--output` |  Output mode: rich (default, highlighted diffs with run directory) or plain (fast text output) |
 
 
 ## mod study
