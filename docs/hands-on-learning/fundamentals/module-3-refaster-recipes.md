@@ -51,7 +51,7 @@ Refaster generation is wired through the `rewrite-templating` dependency and ann
 
 Now that you've seen how Refaster template recipes work, you can create your own.
 
-## Goals for this exercise
+### Goals for this exercise
 
 * Write a Refaster template recipe that matches various ways to check if a `String` is empty.
 * Customize the generated recipe, using the tests to cover the various aspects.

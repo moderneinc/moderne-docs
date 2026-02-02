@@ -20,7 +20,7 @@ You'll want to have the following installed:
 * [The Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs.
 
 :::warning
-If you have not already completed the [Introduction to OpenRewrite course](../introduction/workshop-overview.md), go there first and complete at least Module 1 before continuing. The exercises in this workshop assume that module has been completed meaning that the Moderne CLI is working and that you have a `~/moderne-workshop` directory with the Default org synced.
+If you have not already completed the [Introduction to OpenRewrite course](../introduction/workshop-overview.md), go there first and complete at least Module 1 before continuing. The exercises in this workshop assume that module has been completed - meaning that the Moderne CLI is working and that you have a `~/moderne-workshop` directory with the `Default` org synced.
 :::
 
 ## Exercise 1-1: Create and test your own recipe module
