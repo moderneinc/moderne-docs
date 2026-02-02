@@ -1,9 +1,22 @@
 # Platform changelog
 ### UI v12.27.0 (2026/02/02)
 
-- add beta for timeline view of devCenter
-- add toggle on devCenter to not include N/A for change campaigns
-- add ability to run a recipe node in builder
+#### DevCenter
+
+DevCenter now includes a Timeline View that users can toggle to track change campaign progress over time.
+
+![Update Agent Integration dashboard](./assets/devcenter.png)
+
+**What's new**:
+- A timeline displays all DevCenter recipe runs for a given organization and provides controls to zoom into a specific timeframe.
+- Area charts allow users to analyze change campaign trends over time, complementing the existing "snapshot" parliament charts in DevCenter.
+- At-a-glance metrics now include sparklines highlighting trends in repository counts, LST status, and organizational ownership.
+- The Security card has been updated to align with the new timeline view and to show security vulnerability resolution progress.
+
+#### Builder
+Builder nodes can now be individually run from the tree view. This allows users to test specific parts of their recipes without executing the entire workflow.
+
+![Update Agent Integration dashboard](./assets/builder-node-run.png)
 
 ### UI v12.26.0 (2026/01/22)
 
