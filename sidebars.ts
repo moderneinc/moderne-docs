@@ -419,6 +419,7 @@ const recipes = {
       ],
     },
     'user-documentation/recipes/prethink',
+    'user-documentation/recipes/code-search',
   ],
 };
 
