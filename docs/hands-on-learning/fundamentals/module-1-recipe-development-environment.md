@@ -5,7 +5,7 @@ description: How to set up your IDE to write custom recipes.
 
 # Module 1: Recipe development environment
 
-If you completed the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop, you are familiar with how to run recipes and build them in Moderne using the recipe builder. Now you can look at how to write your own recipes.
+If you completed the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop, you are familiar with how to run recipes and build them in Moderne using the recipe builder. In this module, you will learn how to write your own recipes.
 
 If you get stuck, you can reference the [workshop-solutions branch](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/) of the starter repo for completed examples (and you’ll also see code embedded inline throughout the steps).
 
