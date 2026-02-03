@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.27.1 (2026/02/03)
+
+- Bug fixes and other improvements.
+
 ### UI v12.27.0 (2026/02/02)
 
 #### DevCenter
