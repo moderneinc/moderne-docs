@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.56.6 (2026-02-02)
+
+#### What's Changed
+* Logging parse errors for copybooks upfront before we try to relativize the path, as there's insufficient information to tell which file failed to parse otherwise.
+* `mod exec` to properly handle repositories with partitions
+* Wrap special characters into double quotes for Windows invocations
+
 ### CLI / DX v3.56.5 (2026-02-02)
 
 #### What's Changed
