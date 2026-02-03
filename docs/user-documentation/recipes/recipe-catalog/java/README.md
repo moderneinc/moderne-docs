@@ -1,0 +1,83 @@
+---
+description: Java OpenRewrite recipes.
+---
+
+# Java
+
+_Basic building blocks for transforming Java code._
+
+## Categories
+
+* [Ai](/user-documentation/recipes/recipe-catalog/java/ai)
+* [Camel](/user-documentation/recipes/recipe-catalog/java/camel)
+* [Dependencies](/user-documentation/recipes/recipe-catalog/java/dependencies)
+* [Dropwizard](/user-documentation/recipes/recipe-catalog/java/dropwizard)
+* [Flyway](/user-documentation/recipes/recipe-catalog/java/flyway)
+* [Format](/user-documentation/recipes/recipe-catalog/java/format)
+* [JSpecify](/user-documentation/recipes/recipe-catalog/java/jspecify)
+* [Jackson](/user-documentation/recipes/recipe-catalog/java/jackson)
+* [Joda](/user-documentation/recipes/recipe-catalog/java/joda)
+* [Jsf](/user-documentation/recipes/recipe-catalog/java/jsf)
+* [Liberty](/user-documentation/recipes/recipe-catalog/java/liberty)
+* [Logging](/user-documentation/recipes/recipe-catalog/java/logging)
+* [Micronaut](/user-documentation/recipes/recipe-catalog/java/micronaut)
+* [Modernize](/user-documentation/recipes/recipe-catalog/java/migrate)
+* [Netty](/user-documentation/recipes/recipe-catalog/java/netty)
+* [Recipes](/user-documentation/recipes/recipe-catalog/java/recipes)
+* [Search](/user-documentation/recipes/recipe-catalog/java/search)
+* [Security](/user-documentation/recipes/recipe-catalog/java/security)
+* [Spring](/user-documentation/recipes/recipe-catalog/java/spring)
+* [Springdoc](/user-documentation/recipes/recipe-catalog/java/springdoc)
+* [Struts](/user-documentation/recipes/recipe-catalog/java/struts)
+* [Testing](/user-documentation/recipes/recipe-catalog/java/testing)
+
+## Recipes
+
+* [Add ASLv2 license header](./addapache2licenseheader.md)
+* [Add a literal method argument](./addliteralmethodargument.md)
+* [Add a `null` method argument](./addnullmethodargument.md)
+* [Add comment to import statement](./addcommenttoimport.md)
+* [Add comment to method declarations](./addcommenttomethod.md)
+* [Add comment to method invocations](./addcommenttomethodinvocations.md)
+* [Add imports for fully qualified references to types](./shortenfullyqualifiedtypereferences.md)
+* [Add license header](./addlicenseheader.md)
+* [Add method parameter to a method declaration](./addmethodparameter.md)
+* [Add or update annotation attribute](./addorupdateannotationattribute.md)
+* [Change annotation attribute name](./changeannotationattributename.md)
+* [Change method access level](./changemethodaccesslevel.md)
+* [Change method invocation return type](./changemethodinvocationreturntype.md)
+* [Change method name](./changemethodname.md)
+* [Change method target to static](./changemethodtargettostatic.md)
+* [Change method target to variable](./changemethodtargettovariable.md)
+* [Change static field access to static method access](./changestaticfieldtomethod.md)
+* [Change type](./changetype.md)
+* [Change type in String literals](./changetypeinstringliteral.md)
+* [Create Java class](./createemptyjavaclass.md)
+* [Delete method argument](./deletemethodargument.md)
+* [Demonstrate rendering of `Markup` markers](./recipemarkupdemonstration.md)
+* [Inline method calls](./inlinemethodcalls.md)
+* [Order imports](./orderimports.md)
+* [Randomize tree IDs](./randomizeid.md)
+* [Remove annotation](./removeannotation.md)
+* [Remove annotation attribute](./removeannotationattribute.md)
+* [Remove elements from a method declaration `throws` clause](./removemethodthrows.md)
+* [Remove interface implementations](./removeimplements.md)
+* [Remove method invocations](./removemethodinvocations.md)
+* [Remove static import](./nostaticimport.md)
+* [Remove unused imports](./removeunusedimports.md)
+* [Rename package name](./changepackage.md)
+* [Rename package name in String literals](./changepackageinstringliteral.md)
+* [Reorder method arguments](./reordermethodarguments.md)
+* [Replace `String` literal](./replacestringliteralvalue.md)
+* [Replace String literal with constant](./replacestringliteralwithconstant.md)
+* [Replace annotation](./replaceannotation.md)
+* [Replace constant with another constant](./replaceconstantwithanotherconstant.md)
+* [Replace constant with literal value](./replaceconstant.md)
+* [Replace method invocation with constant](./replacemethodinvocationwithconstant.md)
+* [Simplify a call chain](./simplifymethodchain.md)
+* [Simplify single-element annotation](./simplifysingleelementannotation.md)
+* [Transform calls to `Objects.isNull(..)` and `Objects.nonNull(..)`](./removeobjectsisnull.md)
+* [Update source positions](./updatesourcepositions.md)
+* [Use static import](./usestaticimport.md)
+
+

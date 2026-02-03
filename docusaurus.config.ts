@@ -1,6 +1,8 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
+import remarkTokenReplacer from "./src/plugins/replace-tokens";
+import latestVersions from "./src/plugins/latest-versions";
 
 const config: Config = {
   title: 'Moderne Docs',
@@ -95,6 +97,14 @@ const config: Config = {
             '**/*.stories.ts',
             '**/*.stories.jsx',
             '**/*.stories.js',
+          ],
+          remarkPlugins: [
+            [
+              remarkTokenReplacer,
+              {
+                replacements: latestVersions,
+              },
+            ],
           ],
         },
         gtag: {
