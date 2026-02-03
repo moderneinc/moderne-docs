@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.28.0 (2026/02/03)
+
+- respect configured max expiration date
+
 ### UI v12.27.1 (2026/02/03)
 
 - Bug fixes and other improvements.
