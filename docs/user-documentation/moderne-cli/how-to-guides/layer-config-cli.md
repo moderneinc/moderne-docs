@@ -25,15 +25,20 @@ The precedence order during build (highest to lowest):
 3. **Global config** (`~/.moderne/cli/moderne.yml`) – applies to all repositories
 
 :::info
-**repos.csv and configuration**: When you run `mod git sync csv`, build arguments from repos.csv are written directly into each repository's `.moderne` directory—with `--save` they go to `moderne.yml`, without it they go to `moderne-uncommitted.yml`. This means repos.csv values end up in a high-priority location and will **overwrite** any existing values for those settings on every sync—including any `.moderne/moderne.yml` files that repository owners may have committed to their repositories.
+**`repos.csv` and configuration**: When you run `mod git sync csv`, build arguments from `repos.csv` are written directly into each repository's `.moderne` directory. 
 
-**Limitation**: This behavior means you cannot use repos.csv for organization-wide defaults while allowing individual repositories to override with their own `.moderne/moderne.yml`. For example, if you want to:
-* Skip certain build steps organization-wide via repos.csv (e.g., `-DskipTests`)
-* Allow specific repository owners to add their own arguments (e.g., `-Pspecial-profile`)
+If you provide a `--save` flag they will go to `moderne.yml`. If you don't provide one, they will go to `moderne-uncommitted.yml`. 
 
-This is currently not possible—the repos.csv values will overwrite any committed `.moderne/moderne.yml` on every sync.
+This means `repos.csv` values end up in a high-priority location and will **overwrite** any existing values for those settings on every sync, including any `.moderne/moderne.yml` files that repository owners may have committed to their repositories.
 
-If you need per-repository overrides, you must omit the `mavenArgs`/`gradleArgs` columns from repos.csv entirely and manage all configuration through committed `.moderne/moderne.yml` files in each repository.
+**Limitation**: You cannot use `repos.csv` for organization-wide defaults while also allowing individual repositories to override those defaults with their own `.moderne/moderne.yml`. The `repos.csv` values will overwrite any committed `.moderne/moderne.yml` on every sync.
+
+For example, you cannot:
+
+* Skip certain build steps organization-wide via `repos.csv` (e.g., `-DskipTests`)
+* And also allow specific repository owners to add their own arguments (e.g., `-Pspecial-profile`)
+
+If you need per-repository overrides, you must omit the `mavenArgs`/`gradleArgs` columns from `repos.csv` entirely and manage all configuration through committed `.moderne/moderne.yml` files in each repository.
 :::
 
 :::warning
