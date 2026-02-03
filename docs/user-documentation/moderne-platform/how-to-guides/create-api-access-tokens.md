@@ -44,7 +44,7 @@ In this doc, you can find out:
 
 4. In the text box that says `Enter token name`, enter a descriptive name for your token so that it can easily be distinguished from other tokens.
 
-5. Set when the token should expire by clicking on the date selector next to the token name:
+5. Set when the token should expire by clicking on the date selector next to the token name. Note that your organization's administrator may have configured a maximum expiry limit, which will restrict the available date range.
 
 <figure>
   ![](./assets/access-token-expiration.png)

@@ -25,7 +25,8 @@ This document includes all of the variables you can configure the Moderne agent 
 | `MODERNE_AGENT_TOKEN`                        | `true`   |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                      |
 | `MODERNE_AGENT_DOWNLOADPARALLELISM`          | `false`  | 2 threads              | How many threads are used to download LSTs.                                                                                                        |
 | `MODERNE_AGENT_ARTIFACTINDEXINTERVALSECONDS` | `false`  | 120 seconds            | How frequently LSTs will be indexed.                                                                                                               |
-| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}`          | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `MODERNE_AGENT_PERSONALACCESSTOKENS_MAXEXPIRYDAYS`    | `false`  |                        | The maximum number of days a personal access token can be configured to expire in. When set, users cannot create tokens with an expiry date beyond this limit. |
 
 **Example:**
 
@@ -53,7 +54,8 @@ docker run \
 | `--moderne.agent.token`                         | `true`   |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                      |
 | `--moderne.agent.downloadParallelism`           | `false`  | 2 threads              | How many threads are used to download LSTs.                                                                                                        |
 | `--moderne.agent.artifactIndexIntervalSeconds`  | `false`  | 120 seconds            | How frequently LSTs will be indexed.                                                                                                               |
-| `--moderne.agent.defaultCommitOptions[{index}]` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `--moderne.agent.defaultCommitOptions[{index}]`      | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `--moderne.agent.personalAccessTokens.maxExpiryDays` | `false`  |                        | The maximum number of days a personal access token can be configured to expire in. When set, users cannot create tokens with an expiry date beyond this limit. |
 
 **Example:**
 
