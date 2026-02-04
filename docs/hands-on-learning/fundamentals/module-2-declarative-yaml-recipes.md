@@ -24,7 +24,7 @@ In this exercise, you'll build upon a custom migration recipe that replaces Spri
 ### Steps
 
 :::warning
-If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor support for writing and running recipes. Some of the below steps will not work for you without this.
+If you don't have IntelliJ IDEA Ultimate, you'll lack bundled editor support for writing and running recipes. Some of the below steps will not work for you without this.
 :::
 
 #### Step 1: Add the `ChangeMethodName` recipe
@@ -279,56 +279,6 @@ You may be interested in exploring other Find recipes in the OpenRewrite recipe 
 * [org.openrewrite.FindSourceFiles](https://docs.openrewrite.org/recipes/core/findsourcefiles), to match specific files or directories.
 * [org.openrewrite.java.migrate.search.FindJavaVersion](https://docs.openrewrite.org/recipes/java/migrate/search/findjavaversion), to match specific Java versions.
 * [org.openrewrite.java.search.FindTypes](https://docs.openrewrite.org/recipes/java/search/findtypes), to find type references by name.
-
-## Exercise 2b: Add preconditions to the declarative recipe
-
-Let's update the `stringutils.yml` recipe to only run on sources that are likely tests, by adding a precondition that uses [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://docs.openrewrite.org/recipes/java/search/islikelytest).
-
-### Goals for this exercise
-
-* Discover common preconditions, and learn how to combine those with recipes.
-
-### Steps
-
-1. Open the `UseApacheStringUtils` YAML file (`src/main/resources/META-INF/rewrite/stringutils.yml`) once again.
-2. Add a `preconditions` field to the recipe between the `description` and `recipeList` fields. 
-   * Add a single `org.openrewrite.java.search.IsLikelyTest` recipe to the list of preconditions, with no options.
-   * [Here's an example of what this recipe looks like with the precondition added](https://gist.github.com/mike-solomon/04287b874e335a5e1b40c529d6f3eab9).
-3. Open the unit test `src/test/java/com/yourorg/UseApacheStringUtilsTest.java`.
-   * Run the tests. They should fail and not make any changes. This is because the precondition has not been met since the sources are not identified as tests. We can fix that with the following steps:
-      * Add a static import on `org.openrewrite.java.Assertions.srcTestJava`.
-      * Wrap the `java(String, String)` methods with `srcTestJava()` to indicate that the sources are tests. Make sure to do this in all three tests.
-   * [Here's an example of what this should look like](https://gist.github.com/mike-solomon/84b85e62825e671ff27a5de96c520218).
-   * Run the tests again, and verify that they now pass.
-4. You may be interested in exploring other `Find` recipes in the OpenRewrite recipe catalog. These are often used as preconditions for recipes:
-   * [org.openrewrite.FindSourceFiles](https://docs.openrewrite.org/recipes/core/findsourcefiles), to match specific files or directories.
-   * [org.openrewrite.java.migrate.search.FindJavaVersion](https://docs.openrewrite.org/recipes/java/migrate/search/findjavaversion), to match specific Java versions.
-   * [org.openrewrite.java.search.FindTypes](https://docs.openrewrite.org/recipes/java/search/findtypes), to find type references by name.
-
-## Exercise 2b: Add preconditions to the declarative recipe
-
-Let's update the `stringutils.yml` recipe to only run on sources that are likely tests, by adding a precondition that uses [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://docs.openrewrite.org/recipes/java/search/islikelytest).
-
-### Goals for this exercise
-
-* Discover common preconditions, and learn how to combine those with recipes.
-
-### Steps
-
-1. Open the `UseApacheStringUtils` YAML file (`src/main/resources/META-INF/rewrite/stringutils.yml`) once again.
-2. Add a `preconditions` field to the recipe between the `description` and `recipeList` fields. 
-   * Add a single `org.openrewrite.java.search.IsLikelyTest` recipe to the list of preconditions, with no options.
-   * [Here's an example of what this recipe looks like with the precondition added](https://gist.github.com/mike-solomon/04287b874e335a5e1b40c529d6f3eab9).
-3. Open the unit test `src/test/java/com/yourorg/UseApacheStringUtilsTest.java`.
-   * Run the tests. They should fail and not make any changes. This is because the precondition has not been met since the sources are not identified as tests. We can fix that with the following steps:
-      * Add a static import on `org.openrewrite.java.Assertions.srcTestJava`.
-      * Wrap the `java(String, String)` methods with `srcTestJava()` to indicate that the sources are tests. Make sure to do this in all three tests.
-   * [Here's an example of what this should look like](https://gist.github.com/mike-solomon/84b85e62825e671ff27a5de96c520218).
-   * Run the tests again, and verify that they now pass.
-4. You may be interested in exploring other `Find` recipes in the OpenRewrite recipe catalog. These are often used as preconditions for recipes:
-   * [org.openrewrite.FindSourceFiles](https://docs.openrewrite.org/recipes/core/findsourcefiles), to match specific files or directories.
-   * [org.openrewrite.java.migrate.search.FindJavaVersion](https://docs.openrewrite.org/recipes/java/migrate/search/findjavaversion), to match specific Java versions.
-   * [org.openrewrite.java.search.FindTypes](https://docs.openrewrite.org/recipes/java/search/findtypes), to find type references by name.
 
 ### Takeaways
 
