@@ -9,9 +9,32 @@ One big challenge that comes with building [LSTs](../../../administrator-documen
 
 To meet all of these needs, the Moderne CLI offers a few options for how you can include global or project-specific build arguments. In this guide, we'll walk through each of them and explain when you should use one over another.
 
+* [Configuration precedence](#configuration-precedence)
 * [Global configuration](#global-configuration)
 * [Local configuration (user-specific)](#local-configuration-user-specific)
 * [Local configuration (shared)](#local-configuration-shared)
+
+## Configuration precedence
+
+Build arguments can come from multiple sources. The CLI uses a **precedence-based** approach where the first non-null value wins. Arguments from different sources are **not merged or concatenated**.
+
+The precedence order during build (highest to lowest):
+
+1. **Repository-local transient** (`.moderne/moderne-uncommitted.yml`) – user-specific, not committed
+2. **Repository-local saved** (`.moderne/moderne.yml`) – shared, can be committed
+3. **Global config** (`~/.moderne/cli/moderne.yml`) – applies to all repositories
+
+:::info
+**`repos.csv` and configuration**: When you run `mod git sync csv`, build arguments from `repos.csv` are written directly into each repository's `.moderne` directory.
+
+If you provide a `--save` flag they will go to `moderne.yml`. If you don't provide one, they will go to `moderne-uncommitted.yml`.
+
+This means `repos.csv` values will **overwrite** any existing values for those settings on every sync.
+
+**Recommendation**: We recommend managing all build argument overrides centrally in your `repos.csv` file rather than in individual repositories. The `.moderne` directory in each repository serves as a delivery mechanism for centrally-configured overrides from `repos.csv`, not as a place for individual repository customization (with the exception of [build partitions](./build-partitions.md), which are repo-specific by nature).
+
+If a specific repository needs different build arguments than what's defined organization-wide, update that repository's row in `repos.csv` with the appropriate `mavenArgs` or `gradleArgs` values.
+:::
 
 :::warning
 By default, the Moderne CLI will write configuration files to `~/.moderne/cli`. If your company has a home directory that is not local (such as a network share), you can set the `MODERNE_CLI_HOME` environment variable to point to a local directory. This can drastically increase the speed of the Moderne CLI.
@@ -107,6 +130,10 @@ mod config build gradle arguments delete --local ./path/to/your/project
 ```
 
 ## Local configuration (shared)
+
+:::tip
+If you're using `repos.csv` for mass ingest, we recommend managing build arguments centrally in `repos.csv` using the `mavenArgs` and `gradleArgs` columns rather than committing `.moderne/moderne.yml` files to individual repositories. See [configuration precedence](#configuration-precedence) for details.
+:::
 
 In order to build some projects, you may find that there are certain arguments that need to be added or included. Rather than having to tell every person to add these specific arguments and running into issues when they don't, you can save the specific build arguments you need by including the `--save` parameter at the end of your commands such as in the following example:
 
