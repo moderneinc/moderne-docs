@@ -421,10 +421,10 @@ const recipes = {
     'user-documentation/recipes/prethink',
     {
       type: 'category' as const,
-      label: 'Recipe catalog',
+      label: 'Catalog',
       link: {
         type: 'generated-index' as const,
-        title: 'Recipe catalog',
+        title: 'Catalog',
         description: 'Browse all available OpenRewrite and Moderne recipes.',
         slug: '/user-documentation/recipes/recipe-catalog',
         keywords: ['recipes', 'catalog'],
