@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v12.29.0 (2026/02/04)
+
+- make Recipe ID and Rerun CTAs more discoverable
+- wrap category titles in ModerneMarkdown
+
 ### UI v12.28.0 (2026/02/03)
 
 - respect configured max expiration date
