@@ -183,7 +183,7 @@ A precondition is considered "met" for a file if it would make a change to that 
 
 #### Step 2: Mark sources as test code
 
-To make sure the precondition is met and changes are made to the source files, you'll need to mark them as tests:
+To satisfy the test-only precondition, you need to explicitly mark the test inputs in your `RewriteTest` sources as test code:
 
 1. In [src/test/java/com/yourorg/UseApacheStringUtilsTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/UseApacheStringUtilsTest.java), add a static import for `org.openrewrite.java.Assertions.srcTestJava`.
 2. Now, wrap all `java(String, String)` sources with `srcTestJava()`. This explicitly identifies them as tests.

@@ -5,7 +5,7 @@ description: Exploring and writing Refaster recipes.
 
 # Module 3: Refaster recipes
 
-OpenRewrite has support for [writing Refaster recipes](https://docs.openrewrite.org/authoring-recipes/refaster-recipes), which are a way to write code transformations in Java and have them run as recipes.
+[Refaster](https://errorprone.info/docs/refaster) is a code refactoring technology open sourced by Google, and [OpenRewrite supports Refaster's syntax](https://docs.openrewrite.org/authoring-recipes/refaster-recipes) to make these easy-to-write, easy-to-read transformations available to OpenRewrite users.
 
 Refaster recipes are an easy step-up to writing imperative recipes, as they are written in Java and can be run as recipes. Refaster template recipes can be used to replace one expression with another, or one statement with another, but only if the expression or statement can fit inside the body of a method. Your compiler will help you catch syntax errors, and you can use your IDE to navigate to definitions and references. The generated recipes can also be used as a starting point for more complex recipe implementations.
 
@@ -98,21 +98,6 @@ If you have the Moderne plugin installed, you can generate a Refaster template f
 <summary>Reference example: Completed StringIsEmpty.java</summary>
 
 ```java
-/*
- * Copyright 2024 the original author or authors.
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * https://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.yourorg;
 
 import com.google.errorprone.refaster.annotation.AfterTemplate;
