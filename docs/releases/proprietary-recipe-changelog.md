@@ -2028,34 +2028,3 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.45.0
 
-## February 3, 2025
-
-#### rewrite-hibernate - v0.1.0
-
-* Add Hibernate 6.6 migration
-* Fix conflicting class type annotations in Hibernate 6.6
-* Add `io.moderne.hibernate.update66.RemoveTableFromInheritedEntity` recipe
-* Find JPQL definitions
-
-#### rewrite-spring - v0.1.0
-
-* Add Spring Boot 3.4 migration recipes
-* Drop Gradle Enterprise
-* Publish using alternate credentials
-* Add `@Valid` annotation to fields in `@ConfigurationProperties @Validated` classes as needed
-* Add `@Valid` annotations for extended nested properties
-* chore: updating suppressions
-* update Selenium HTML Unit driver for Spring Boot 3.4
-* Add recipe to migrate `@AutoConfigureTestDatabase(replace=Replace.NONE)`
-* Explicitly redeclare transitive runtime dependencies
-* Migrate management endpoint security configuration for Spring 3.4
-* Migrate `@Endpoint` default access settings
-* Polish Spring recipes
-* ConditionalOnAvailableEndpoint
-* Hint at `MockBean` and `MockSpyBean` migration, other deprecations and upgrade Gradle
-* Rework comment
-* Add `UpgradeReactor_3_5` to Spring Boot 3.4 recipe
-* move declarative recipes to namespace io.moderne
-* Add `io.moderne.recipe.hibernate.MigrateToHibernate66`
-* add Spring Cloud 2024 upgrade
-
