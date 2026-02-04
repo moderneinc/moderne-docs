@@ -131,7 +131,7 @@ mod run . --recipe=com.yourorg.UseApacheStringUtils
 
 ## Exercise 2-2: Add preconditions to the declarative recipe
 
-You may not necessarily always want recipes to affect every file in a codebase. For example, a recipe intended for test code should only run on files that are tests, and a recipe that updates `ArrayList` usage should only run where `ArrayList` appears. Preconditions are recipes themselves, used to describe when another recipe should apply so it only runs where it makes sense. This keeps runs focused and fast while also making the recipe easier to understand, debug, and maintain. For additional guidance, see [Use preconditions](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-preconditions).
+You may not necessarily always want recipes to affect every file in a codebase. For example, a recipe intended for test code should only run on files that are tests, and a recipe that updates `ArrayList` usage should only run where `ArrayList` appears. Preconditions are recipes themselves, used to narrow the scope of another recipe so it only runs where it makes sense. This keeps runs focused and fast while also making the recipe easier to understand, debug, and maintain. For additional guidance, see [Use preconditions](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-preconditions).
 
 In this exercise, you will update the `stringutils.yml` recipe to only run on sources that are likely tests by adding a precondition that uses [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://docs.openrewrite.org/recipes/java/search/islikelytest).
 
@@ -193,21 +193,6 @@ To make sure the precondition is met and changes are made to the source files, y
 <summary>Reference example: UseApacheStringUtilsTest.java</summary>
 
 ```java
-/*
- * Copyright 2024 the original author or authors.
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * https://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.yourorg;
 
 import org.junit.jupiter.api.Test;
