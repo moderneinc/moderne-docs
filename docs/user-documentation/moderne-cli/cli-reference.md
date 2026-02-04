@@ -162,6 +162,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config node installation edit**](#mod-config-node-installation-edit)
 * [**mod config node installation delete**](#mod-config-node-installation-delete)
 * [**mod config node installation list**](#mod-config-node-installation-list)
+* [**mod config python**](#mod-config-python)
+* [**mod config python installation**](#mod-config-python-installation)
+* [**mod config python installation edit**](#mod-config-python-installation-edit)
+* [**mod config python installation delete**](#mod-config-python-installation-delete)
+* [**mod config python installation list**](#mod-config-python-installation-list)
 * [**mod config recipes**](#mod-config-recipes)
 * [**mod config recipes active**](#mod-config-recipes-active)
 * [**mod config recipes active set**](#mod-config-recipes-active-set)
@@ -190,6 +195,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes npm**](#mod-config-recipes-npm)
 * [**mod config recipes npm install**](#mod-config-recipes-npm-install)
 * [**mod config recipes npm delete**](#mod-config-recipes-npm-delete)
+* [**mod config recipes pip**](#mod-config-recipes-pip)
+* [**mod config recipes pip install**](#mod-config-recipes-pip-install)
+* [**mod config recipes pip delete**](#mod-config-recipes-pip-delete)
 * [**mod config recipes moderne**](#mod-config-recipes-moderne)
 * [**mod config recipes moderne install**](#mod-config-recipes-moderne-install)
 * [**mod config recipes moderne sync**](#mod-config-recipes-moderne-sync)
@@ -251,6 +259,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod log builds add**](#mod-log-builds-add)
 * [**mod log runs**](#mod-log-runs)
 * [**mod log runs add**](#mod-log-runs-add)
+* [**mod log syncs**](#mod-log-syncs)
+* [**mod log syncs add**](#mod-log-syncs-add)
 * [**mod list**](#mod-list)
 * [**mod monitor**](#mod-monitor)
 * [**mod postbuild**](#mod-postbuild)
@@ -266,6 +276,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod trace builds analyze**](#mod-trace-builds-analyze)
 * [**mod trace runs**](#mod-trace-runs)
 * [**mod trace runs analyze**](#mod-trace-runs-analyze)
+* [**mod trace syncs**](#mod-trace-syncs)
+* [**mod trace syncs analyze**](#mod-trace-syncs-analyze)
 
 ## mod
 
@@ -676,6 +688,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `lsts`: Configures LSTs production and publishing. 
 * `moderne`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `node`: Configures Node options used for building LSTs and running recipes.
+* `python`: Configures Python options used for building LSTs and running recipes.
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `run`: Configures recipe run behavior.
 * `scm`: (DEPRECATED) Configures source code management.
@@ -3570,6 +3583,96 @@ mod config node installation list
 | `--named` |  Filter the list of Node installations to . |
 
 
+## mod config python
+
+Configures Python options used for building LSTs and running recipes.
+
+
+Must be configured before you can run the commands that involve non-standard Python configurations.
+
+### Usage
+
+```
+mod config python [subcommands]
+```
+
+
+### Subcommands
+
+* `installation`: Configures locations of Python that can be used by build tools.
+
+## mod config python installation
+
+Configures locations of Python that can be used by build tools.
+
+
+Must be configured before you can run the build command if Python is installed in non-standard locations.
+
+### Usage
+
+```
+mod config python installation [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures locations of Python that can be used by build tools.
+* `delete`: Removes the configured Python installations. The CLI will revert to using only detectable Python installations.
+* `list`: Displays the detected and configured Python installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+## mod config python installation edit
+
+Configures locations of Python that can be used by build tools.
+
+
+Must be configured before you can run the build command if Python is installed in non-standard locations.
+
+### Usage
+
+```
+mod config python installation edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `pythonInstallations` |  The paths on disk where Python installations can be found. |
+
+
+
+## mod config python installation delete
+
+Removes the configured Python installations. The CLI will revert to using only detectable Python installations.
+
+
+### Usage
+
+```
+mod config python installation delete
+```
+
+
+
+## mod config python installation list
+
+Displays the detected and configured Python installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+
+### Usage
+
+```
+mod config python installation list
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--named` |  Filter the list of Python installations to a specific version. |
+
+
 ## mod config recipes
 
 Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
@@ -3597,6 +3700,7 @@ mod config recipes moderne sync
 * `export`: Export the recipe catalog for study by different tools.
 * `jar`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
 * `npm`: Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
+* `pip`: Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
 * `moderne`: Configures which Moderne recipes should be installed and used in the local CLI marketplace.
 * `delete`: Clear the whole recipe marketplace.
 * `list`: List the artifacts that are contributing recipes to the marketplace.
@@ -4168,6 +4272,79 @@ mod config recipes npm delete my-recipe-package
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `packageName` |  An npm package name or a compiled JavaScript file containing an OpenRewrite activate function. | `@openrewrite/recipes-nodejs` |
+
+
+
+## mod config recipes pip
+
+Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
+
+
+Allows installing and deleting recipes from pip packages.
+
+### Usage
+
+```
+mod config recipes pip [subcommands]
+```
+
+
+### Subcommands
+
+* `install`: Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
+* `delete`: Removes a pip package supplying recipes from the marketplace.
+
+## mod config recipes pip install
+
+Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
+
+
+The recipes defined by this pip package will then be available to run.
+
+### Usage
+
+```
+mod config recipes pip install [parameters]
+```
+
+### Examples
+
+```
+mod config recipes pip install rewrite-recipe-example==1.0.0
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `PACKAGE[==VERSION]` |  The pip package name or local path with an optional version in the format package==version, where ==version is optional. |
+
+
+
+## mod config recipes pip delete
+
+Removes a pip package supplying recipes from the marketplace.
+
+
+The recipes defined by this pip package will then no longer be available to run.
+
+### Usage
+
+```
+mod config recipes pip delete [parameters]
+```
+
+### Examples
+
+```
+mod config recipes pip delete rewrite-recipe-example
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `packageName` |  A pip package name. | `rewrite-recipe-example` |
 
 
 
@@ -5484,7 +5661,6 @@ mod git sync csv [parameters]
 | `--limit` |  The maximum number of repositories to clone. |
 | `--organization` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| `--refresh-organization` |  Refresh the state of the currently selected organization. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
 | `--with-lsts` |  Whether to download LSTs for the repositories. |
@@ -5526,7 +5702,6 @@ mod git sync moderne /path/to/organization --organization <ORG_NAME>
 | `--limit` |  The maximum number of repositories to clone. |
 | `--organization` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| `--refresh-organization` |  Refresh the state of the currently selected organization. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
 | `--with-lsts` |  Whether to download LSTs for the repositories. |
@@ -5578,6 +5753,7 @@ mod log [subcommands]
 
 * `builds`: Adds a set of build logs to a log aggregate.
 * `runs`: Adds a set of run logs to a log aggregate.
+* `syncs`: Adds a set of sync logs to a log aggregate.
 
 ## mod log builds
 
@@ -5671,6 +5847,52 @@ mod log runs add [parameters]
 | `--last-run` |  (DEPRECATED) use (DEPRECATED) use @|--last-recipe-run|@ instead. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--run` |  (DEPRECATED) use (DEPRECATED) use @|--recipe-run|@ instead. |
+
+
+## mod log syncs
+
+Adds a set of sync logs to a log aggregate.
+
+
+In contrast to a CI log which is designed to look at one repository at a time, a log aggregate is designed to look at many repositories at once, illuminating the common causes of failure (or success) and the overall health of a sync operation.
+
+### Usage
+
+```
+mod log syncs [subcommands]
+```
+
+
+### Subcommands
+
+* `add`: Adds a set of sync logs to a log aggregate.
+
+## mod log syncs add
+
+Adds a set of sync logs to a log aggregate.
+
+
+For each repository that has a matching sync, add its sync log to the aggregate.
+
+### Usage
+
+```
+mod log syncs add [parameters]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `logPath` |  The absolute or relative path on disk to a log aggregate (a zip file). The file need not exist, though its containing directory is expected to exist. | `log.zip` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--last-sync` |  Select whatever the last sync was, whether the sync ran fully to completion or terminated early. |
+| `--sync` |  A sync ID for a sync that has completed previously. |
 
 
 ## mod list
@@ -5981,6 +6203,7 @@ mod trace [subcommands]
 
 * `builds`: Build trace analysis tools.
 * `runs`: Run trace analysis tools.
+* `syncs`: Sync trace analysis tools.
 
 ## mod trace builds
 
@@ -6070,5 +6293,50 @@ mod trace runs analyze [parameters]
 | ---- | ----------- |
 | `--last-run` |  Select whatever the last run was, whether the run completed fully or terminated early. |
 | `--run` |  A run ID for a run that has completed previously. |
+
+
+## mod trace syncs
+
+Sync trace analysis tools.
+
+
+Analyze sync traces to understand repository synchronization patterns and results.
+
+### Usage
+
+```
+mod trace syncs [subcommands]
+```
+
+
+### Subcommands
+
+* `analyze`: Launch interactive sync trace analyzer.
+
+## mod trace syncs analyze
+
+Launch interactive sync trace analyzer.
+
+
+Launches a web-based trace analyzer for sync results. The analyzer provides an interactive interface to explore sync patterns, clone operations, and synchronization metrics.
+
+### Usage
+
+```
+mod trace syncs analyze [parameters]
+```
+
+### Parameters
+
+| Name | Description | Examples |
+| ---- | ----------- | ---------- |
+| `path` |  Path to a project directory or a log.zip file containing trace data. | • `/path/to/project`<br/>• `log.zip` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--last-sync` |  Select whatever the last sync was, whether the sync ran fully to completion or terminated early. |
+| `--sync` |  A sync ID for a sync that has completed previously. |
 
 
