@@ -1,5 +1,19 @@
 # CLI / DX changelog
 
+### CLI / DX v3.56.7 (2026-02-03)
+
+#### What's Changed
+* Add `mod log syncs add` and `mod trace syncs analyze` commands for debugging sync issues
+* Fix npm recipe installation failing with marketplace.install not a function
+* Fix mod build failing to find source code with multi-org CSV
+* Fix race condition in LST cache causing ZipException
+* Allow .moderne/context directory to be tracked by git
+* Fix multi-partition Gradle builds to only resolve dependencies for partition projects
+* Add cross-repository development skill for Claude Code
+* Add license check to mod search command
+* Add Python build step and `mod config recipes pip` support for Python recipes
+* Stay with current organization by default in mod git sync
+
 ### CLI / DX v3.56.6 (2026-02-02)
 
 #### What's Changed
