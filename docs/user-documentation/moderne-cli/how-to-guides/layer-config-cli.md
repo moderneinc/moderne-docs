@@ -25,20 +25,15 @@ The precedence order during build (highest to lowest):
 3. **Global config** (`~/.moderne/cli/moderne.yml`) – applies to all repositories
 
 :::info
-**`repos.csv` and configuration**: When you run `mod git sync csv`, build arguments from `repos.csv` are written directly into each repository's `.moderne` directory. 
+**`repos.csv` and configuration**: When you run `mod git sync csv`, build arguments from `repos.csv` are written directly into each repository's `.moderne` directory.
 
-If you provide a `--save` flag they will go to `moderne.yml`. If you don't provide one, they will go to `moderne-uncommitted.yml`. 
+If you provide a `--save` flag they will go to `moderne.yml`. If you don't provide one, they will go to `moderne-uncommitted.yml`.
 
-This means `repos.csv` values end up in a high-priority location and will **overwrite** any existing values for those settings on every sync, including any `.moderne/moderne.yml` files that repository owners may have committed to their repositories.
+This means `repos.csv` values will **overwrite** any existing values for those settings on every sync.
 
-**Limitation**: You cannot use `repos.csv` for organization-wide defaults while also allowing individual repositories to override those defaults with their own `.moderne/moderne.yml`. The `repos.csv` values will overwrite any committed `.moderne/moderne.yml` on every sync.
+**Recommendation**: We recommend managing all build argument overrides centrally in your `repos.csv` file rather than in individual repositories. The `.moderne` directory in each repository serves as a delivery mechanism for centrally-configured overrides from `repos.csv`, not as a place for individual repository customization (with the exception of [build partitions](./build-partitions.md), which are repo-specific by nature).
 
-For example, you cannot:
-
-* Skip certain build steps organization-wide via `repos.csv` (e.g., `-DskipTests`)
-* And also allow specific repository owners to add their own arguments (e.g., `-Pspecial-profile`)
-
-If you need per-repository overrides, you must omit the `mavenArgs`/`gradleArgs` columns from `repos.csv` entirely and manage all configuration through committed `.moderne/moderne.yml` files in each repository.
+If a specific repository needs different build arguments than what's defined organization-wide, update that repository's row in `repos.csv` with the appropriate `mavenArgs` or `gradleArgs` values.
 :::
 
 :::warning
@@ -135,6 +130,10 @@ mod config build gradle arguments delete --local ./path/to/your/project
 ```
 
 ## Local configuration (shared)
+
+:::tip
+If you're using `repos.csv` for mass ingest, we recommend managing build arguments centrally in `repos.csv` using the `mavenArgs` and `gradleArgs` columns rather than committing `.moderne/moderne.yml` files to individual repositories. See [configuration precedence](#configuration-precedence) for details.
+:::
 
 In order to build some projects, you may find that there are certain arguments that need to be added or included. Rather than having to tell every person to add these specific arguments and running into issues when they don't, you can save the specific build arguments you need by including the `--save` parameter at the end of your commands such as in the following example:
 
