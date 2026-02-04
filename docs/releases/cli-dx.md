@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.56.8 (2026-02-04)
+
+#### What's Changed
+- Uses OpenRewrite 8.72.6
+* Fix error with launching python from the system path
+
 ### CLI / DX v3.56.7 (2026-02-03)
 
 #### What's Changed
