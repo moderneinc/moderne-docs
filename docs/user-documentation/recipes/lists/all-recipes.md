@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5277
+Total recipes: 5331
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -179,6 +179,25 @@ _1 recipe_
 * [io.moderne.jasperreports.v5.MigrateExporterSetParameter](/user-documentation/recipes/recipe-catalog/jasperreports/v5/migrateexportersetparameter.md)
   * **Migrate JasperReports exporter setParameter to new API**
   * Migrates deprecated `setParameter` calls on JasperReports exporters to the new API using `setExporterInput` and `setExporterOutput`.
+
+## io.moderne.recipe:rewrite-java-application-server
+
+_License: Moderne Proprietary License_
+
+_4 recipes_
+
+* [io.moderne.java.server.jboss.DeleteJBossDescriptors](/user-documentation/recipes/recipe-catalog/java/server/jboss/deletejbossdescriptors.md)
+  * **Delete JBoss deployment descriptor files**
+  * Removes jboss-web.xml and jboss-deployment-structure.xml files as they are no longer needed after a migration.
+* [io.moderne.java.server.jboss.PlanJBossMigration](/user-documentation/recipes/recipe-catalog/java/server/jboss/planjbossmigration.md)
+  * **Plan JBoss migration**
+  * Analyzes the repository to plan a JBoss migration, identifying JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and recording them in a data table.
+* [io.moderne.java.server.jboss.migrate.jetty.MigrateJBossToJetty](/user-documentation/recipes/recipe-catalog/java/server/jboss/migrate/jetty/migratejbosstojetty.md)
+  * **Migrate JBoss to Jetty**
+  * Comprehensive migration from JBoss to Jetty.
+* [io.moderne.java.server.jboss.migrate.jetty.devcenter.JBossToJettyMigrationCard$Scanner](/user-documentation/recipes/recipe-catalog/java/server/jboss/migrate/jetty/devcenter/jbosstojettymigrationcard$scanner.md)
+  * **JBoss to Jetty migration scanner**
+  * Scans for JBoss and Jetty configuration files.
 
 ## io.moderne.recipe:rewrite-kafka
 
@@ -2603,6 +2622,163 @@ _8 recipes_
 * [org.openrewrite.openapi.swagger.MigrateSwaggerDefinitionToOpenAPIDefinition](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateswaggerdefinitiontoopenapidefinition.md)
   * **Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`**
   * Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`.
+
+## org.openrewrite.recipe:rewrite-prethink
+
+_License: Moderne Source Available License_
+
+_50 recipes_
+
+* [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)
+  * **Comprehend code with AI**
+  * Use an LLM to generate descriptions for classes and methods in the codebase. Descriptions are cached based on source code checksums to avoid regenerating descriptions for unchanged code.
+* [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)
+  * **Comprehend code with AI**
+  * Use an LLM to generate descriptions for classes and methods in the codebase. Descriptions are cached based on source code checksums to avoid regenerating descriptions for unchanged code.
+* [io.moderne.prethink.ComprehendCodeTokenCounter](/user-documentation/recipes/recipe-catalog/prethink/comprehendcodetokencounter.md)
+  * **Estimate comprehension token usage**
+  * Estimate the input token counts that would be sent to an LLM for method comprehension, without actually calling a model. Uses OpenAI's tokenizer locally. Outputs to the MethodDescriptions table with blank descriptions.
+* [io.moderne.prethink.ComprehendCodeTokenCounter](/user-documentation/recipes/recipe-catalog/prethink/comprehendcodetokencounter.md)
+  * **Estimate comprehension token usage**
+  * Estimate the input token counts that would be sent to an LLM for method comprehension, without actually calling a model. Uses OpenAI's tokenizer locally. Outputs to the MethodDescriptions table with blank descriptions.
+* [io.moderne.prethink.ExtractCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/extractcodingconventions.md)
+  * **Extract coding conventions**
+  * Analyze the codebase to extract coding conventions including naming patterns, import organization, and documentation patterns.
+* [io.moderne.prethink.ExtractCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/extractcodingconventions.md)
+  * **Extract coding conventions**
+  * Analyze the codebase to extract coding conventions including naming patterns, import organization, and documentation patterns.
+* [io.moderne.prethink.ExtractDependencyUsage](/user-documentation/recipes/recipe-catalog/prethink/extractdependencyusage.md)
+  * **Extract dependency usage patterns**
+  * Analyze the codebase to extract dependency usage patterns by examining which types from external libraries are actually used in the code.
+* [io.moderne.prethink.ExtractDependencyUsage](/user-documentation/recipes/recipe-catalog/prethink/extractdependencyusage.md)
+  * **Extract dependency usage patterns**
+  * Analyze the codebase to extract dependency usage patterns by examining which types from external libraries are actually used in the code.
+* [io.moderne.prethink.ExtractErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/extracterrorpatterns.md)
+  * **Extract error handling patterns**
+  * Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used.
+* [io.moderne.prethink.ExtractErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/extracterrorpatterns.md)
+  * **Extract error handling patterns**
+  * Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used.
+* [io.moderne.prethink.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/findtestcoverage.md)
+  * **Find test coverage mapping**
+  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
+* [io.moderne.prethink.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/findtestcoverage.md)
+  * **Find test coverage mapping**
+  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
+* [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
+  * **Update Prethink context (no AI)**
+  * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider - use UpdatePrethinkContextStarter if you want AI-generated code comprehension and test summaries.
+* [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
+  * **Update Prethink context (no AI)**
+  * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider - use UpdatePrethinkContextStarter if you want AI-generated code comprehension and test summaries.
+* [io.moderne.prethink.UpdatePrethinkContextStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter.md)
+  * **Update Prethink context (with AI)**
+  * Generate Moderne Prethink context files with AI-generated code comprehension, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. Maps tests to implementation methods and optionally generates AI summaries of what each test verifies when LLM provider is configured.
+* [io.moderne.prethink.UpdatePrethinkContextStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter.md)
+  * **Update Prethink context (with AI)**
+  * Generate Moderne Prethink context files with AI-generated code comprehension, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. Maps tests to implementation methods and optionally generates AI summaries of what each test verifies when LLM provider is configured.
+* [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
+  * **Find CALM relationships**
+  * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
+* [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
+  * **Find CALM relationships**
+  * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
+* [io.moderne.prethink.calm.FindDataAssets](/user-documentation/recipes/recipe-catalog/prethink/calm/finddataassets.md)
+  * **Find data assets**
+  * Identify data assets including JPA entities, MongoDB documents, Java records, and DTOs in the application.
+* [io.moderne.prethink.calm.FindDataAssets](/user-documentation/recipes/recipe-catalog/prethink/calm/finddataassets.md)
+  * **Find data assets**
+  * Identify data assets including JPA entities, MongoDB documents, Java records, and DTOs in the application.
+* [io.moderne.prethink.calm.FindDatabaseConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/finddatabaseconnections.md)
+  * **Find database connections**
+  * Identify database connections and data access patterns in the application. Detects JPA entities, Spring Data repositories, JDBC templates, and MyBatis mappers.
+* [io.moderne.prethink.calm.FindDatabaseConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/finddatabaseconnections.md)
+  * **Find database connections**
+  * Identify database connections and data access patterns in the application. Detects JPA entities, Spring Data repositories, JDBC templates, and MyBatis mappers.
+* [io.moderne.prethink.calm.FindDeploymentArtifacts](/user-documentation/recipes/recipe-catalog/prethink/calm/finddeploymentartifacts.md)
+  * **Find deployment artifacts**
+  * Identify deployment artifacts including Dockerfiles, docker-compose files, and Kubernetes manifests.
+* [io.moderne.prethink.calm.FindDeploymentArtifacts](/user-documentation/recipes/recipe-catalog/prethink/calm/finddeploymentartifacts.md)
+  * **Find deployment artifacts**
+  * Identify deployment artifacts including Dockerfiles, docker-compose files, and Kubernetes manifests.
+* [io.moderne.prethink.calm.FindExternalServiceCalls](/user-documentation/recipes/recipe-catalog/prethink/calm/findexternalservicecalls.md)
+  * **Find external service calls**
+  * Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, Apache HttpClient, OkHttp, and JAX-RS clients.
+* [io.moderne.prethink.calm.FindExternalServiceCalls](/user-documentation/recipes/recipe-catalog/prethink/calm/findexternalservicecalls.md)
+  * **Find external service calls**
+  * Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, Apache HttpClient, OkHttp, and JAX-RS clients.
+* [io.moderne.prethink.calm.FindMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findmessagingconnections.md)
+  * **Find messaging connections**
+  * Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, and AWS SQS messaging.
+* [io.moderne.prethink.calm.FindMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findmessagingconnections.md)
+  * **Find messaging connections**
+  * Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, and AWS SQS messaging.
+* [io.moderne.prethink.calm.FindProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findprojectmetadata.md)
+  * **Find project metadata**
+  * Extract project metadata (artifact ID, group ID, name, description) from Maven pom.xml files.
+* [io.moderne.prethink.calm.FindProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findprojectmetadata.md)
+  * **Find project metadata**
+  * Extract project metadata (artifact ID, group ID, name, description) from Maven pom.xml files.
+* [io.moderne.prethink.calm.FindSecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findsecurityconfiguration.md)
+  * **Find security configuration**
+  * Identify security configurations including Spring Security, OAuth2, and CORS settings.
+* [io.moderne.prethink.calm.FindSecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findsecurityconfiguration.md)
+  * **Find security configuration**
+  * Identify security configurations including Spring Security, OAuth2, and CORS settings.
+* [io.moderne.prethink.calm.FindServerConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findserverconfiguration.md)
+  * **Find server configuration**
+  * Extract server configuration (port, SSL, context path) from application.properties and application.yml files.
+* [io.moderne.prethink.calm.FindServerConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findserverconfiguration.md)
+  * **Find server configuration**
+  * Extract server configuration (port, SSL, context path) from application.properties and application.yml files.
+* [io.moderne.prethink.calm.FindServiceComponents](/user-documentation/recipes/recipe-catalog/prethink/calm/findservicecomponents.md)
+  * **Find service components**
+  * Identify service layer components (@Service, @Component, @Named) in the application. Excludes controllers and repositories which are handled by dedicated recipes.
+* [io.moderne.prethink.calm.FindServiceComponents](/user-documentation/recipes/recipe-catalog/prethink/calm/findservicecomponents.md)
+  * **Find service components**
+  * Identify service layer components (@Service, @Component, @Named) in the application. Excludes controllers and repositories which are handled by dedicated recipes.
+* [io.moderne.prethink.calm.FindServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findserviceendpoints.md)
+  * **Find service endpoints**
+  * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints.
+* [io.moderne.prethink.calm.FindServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findserviceendpoints.md)
+  * **Find service endpoints**
+  * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints.
+* [io.moderne.prethink.calm.GenerateCalmMermaidDiagram](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmmermaiddiagram.md)
+  * **Generate architecture mermaid diagram**
+  * Generate a markdown file with a mermaid architecture diagram from discovered service endpoints, database connections, external service calls, and messaging connections.
+* [io.moderne.prethink.calm.GenerateCalmMermaidDiagram](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmmermaiddiagram.md)
+  * **Generate architecture mermaid diagram**
+  * Generate a markdown file with a mermaid architecture diagram from discovered service endpoints, database connections, external service calls, and messaging connections.
+* [org.openrewrite.prethink.ExportContext](/user-documentation/recipes/recipe-catalog/prethink/exportcontext.md)
+  * **Export context files**
+  * Export DataTables to CSV files in `.moderne/context/` along with a markdown description file. The markdown file describes the context and includes schema information for each data table.
+* [org.openrewrite.prethink.ExportContext](/user-documentation/recipes/recipe-catalog/prethink/exportcontext.md)
+  * **Export context files**
+  * Export DataTables to CSV files in `.moderne/context/` along with a markdown description file. The markdown file describes the context and includes schema information for each data table.
+* [org.openrewrite.prethink.UpdateAgentConfig](/user-documentation/recipes/recipe-catalog/prethink/updateagentconfig.md)
+  * **Update agent configuration files**
+  * Update coding agent configuration files (CLAUDE.md, .cursorrules, etc.) to include references to Moderne Prethink context files in .moderne/context/.
+* [org.openrewrite.prethink.UpdateAgentConfig](/user-documentation/recipes/recipe-catalog/prethink/updateagentconfig.md)
+  * **Update agent configuration files**
+  * Update coding agent configuration files (CLAUDE.md, .cursorrules, etc.) to include references to Moderne Prethink context files in .moderne/context/.
+* [org.openrewrite.prethink.UpdateGitignore](/user-documentation/recipes/recipe-catalog/prethink/updategitignore.md)
+  * **Update .gitignore for Prethink context**
+  * Updates .gitignore to allow committing the `.moderne/context/` directory while ignoring other files in `.moderne/`. Transforms `.moderne/` into `.moderne/*` with an exception for `!.moderne/context/`.
+* [org.openrewrite.prethink.UpdateGitignore](/user-documentation/recipes/recipe-catalog/prethink/updategitignore.md)
+  * **Update .gitignore for Prethink context**
+  * Updates .gitignore to allow committing the `.moderne/context/` directory while ignoring other files in `.moderne/`. Transforms `.moderne/` into `.moderne/*` with an exception for `!.moderne/context/`.
+* [org.openrewrite.prethink.UpdatePrethinkContext](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontext.md)
+  * **Update Prethink context**
+  * Generate FINOS CALM architecture diagram and update agent configuration files. This recipe expects CALM-related data tables (ServiceEndpoints, DatabaseConnections, ExternalServiceCalls, MessagingConnections, etc.) to be populated by other recipes in a composite.
+* [org.openrewrite.prethink.UpdatePrethinkContext](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontext.md)
+  * **Update Prethink context**
+  * Generate FINOS CALM architecture diagram and update agent configuration files. This recipe expects CALM-related data tables (ServiceEndpoints, DatabaseConnections, ExternalServiceCalls, MessagingConnections, etc.) to be populated by other recipes in a composite.
+* [org.openrewrite.prethink.calm.GenerateCalmArchitecture](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmarchitecture.md)
+  * **Generate CALM architecture**
+  * Generate a FINOS CALM (Common Architecture Language Model) JSON file from discovered service endpoints, database connections, external service calls, and messaging connections.
+* [org.openrewrite.prethink.calm.GenerateCalmArchitecture](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmarchitecture.md)
+  * **Generate CALM architecture**
+  * Generate a FINOS CALM (Common Architecture Language Model) JSON file from discovered service endpoints, database connections, external service calls, and messaging connections.
 
 ## org.openrewrite.recipe:rewrite-quarkus
 

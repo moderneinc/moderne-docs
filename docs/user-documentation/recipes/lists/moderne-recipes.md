@@ -369,6 +369,22 @@ This doc includes every recipe that is exclusive to users of Moderne. For a full
   * Migrates deprecated `setParameter` calls on JasperReports exporters to the new API using `setExporterInput` and `setExporterOutput`.
 
 
+## rewrite-java-application-server
+
+* [io.moderne.java.server.jboss.DeleteJBossDescriptors](/user-documentation/recipes/recipe-catalog/java/server/jboss/deletejbossdescriptors.md)
+  * **Delete JBoss deployment descriptor files**
+  * Removes jboss-web.xml and jboss-deployment-structure.xml files as they are no longer needed after a migration.
+* [io.moderne.java.server.jboss.PlanJBossMigration](/user-documentation/recipes/recipe-catalog/java/server/jboss/planjbossmigration.md)
+  * **Plan JBoss migration**
+  * Analyzes the repository to plan a JBoss migration, identifying JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and recording them in a data table.
+* [io.moderne.java.server.jboss.migrate.jetty.MigrateJBossToJetty](/user-documentation/recipes/recipe-catalog/java/server/jboss/migrate/jetty/migratejbosstojetty.md)
+  * **Migrate JBoss to Jetty**
+  * Comprehensive migration from JBoss to Jetty.
+* [io.moderne.java.server.jboss.migrate.jetty.devcenter.JBossToJettyMigrationCard$Scanner](/user-documentation/recipes/recipe-catalog/java/server/jboss/migrate/jetty/devcenter/jbosstojettymigrationcard$scanner.md)
+  * **JBoss to Jetty migration scanner**
+  * Scans for JBoss and Jetty configuration files.
+
+
 ## rewrite-java-security
 
 * [org.openrewrite.csharp.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md)

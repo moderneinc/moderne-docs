@@ -1,33 +1,67 @@
 ---
-sidebar_label: "Dependency report"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/dependencylist"
+sidebar_label: "Update Prethink context"
+canonical_url: "https://docs.openrewrite.org/recipes/prethink/updateprethinkcontext"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Dependency report
+# Update Prethink context
 
-**org.openrewrite.java.dependencies.DependencyList**
+**org.openrewrite.prethink.UpdatePrethinkContext**
 
-_Emits a data table detailing all Gradle and Maven dependencies. This recipe makes no changes to any source file._
+_Generate FINOS CALM architecture diagram and update agent configuration files. This recipe expects CALM-related data tables (ServiceEndpoints, DatabaseConnections, ExternalServiceCalls, MessagingConnections, etc.) to be populated by other recipes in a composite._
 
 ## Recipe source
 
-[GitHub: DependencyList.java](https://github.com/openrewrite/rewrite-java-dependencies/blob/main/src/main/java/org/openrewrite/java/dependencies/DependencyList.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-java-dependencies/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-java-dependencies/)
+[GitHub: UpdatePrethinkContext.java](https://github.com/openrewrite/rewrite-prethink/blob/main/src/main/java/org/openrewrite/prethink/UpdatePrethinkContext.java),
+[Issue Tracker](https://github.com/openrewrite/rewrite-prethink/issues),
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-prethink/)
 
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+:::info
+This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
+:::
 
-## Options
+This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `Scope` | scope | *Optional*. The scope of the dependencies to include in the report.Defaults to "Compile" Valid options: `Compile`, `Runtime`, `TestRuntime` | `Compile` |
-| `boolean` | includeTransitive | *Optional*. Whether or not to include transitive dependencies in the report. Defaults to including only direct dependencies.Defaults to false. | `true` |
-| `boolean` | validateResolvable | *Optional*. When enabled the recipe will attempt to download every dependency it encounters, reporting on any failures. This can be useful for identifying dependencies that have become unavailable since an LST was produced.Defaults to false. Valid options: `true`, `false` | `true` |
 
+## Definition
+
+<Tabs groupId="recipeType">
+<TabItem value="recipe-list" label="Recipe List" >
+* [Generate CALM architecture](../prethink/calm/generatecalmarchitecture)
+* [Export context files](../prethink/exportcontext)
+  * displayName: `Architecture`
+  * shortDescription: `FINOS CALM architecture diagram`
+  * longDescription: `FINOS CALM (Common Architecture Language Model) architecture diagram showing services, databases, external integrations, and messaging connections. Use this to understand the high-level system architecture and component relationships.`
+  * dataTables: `[org.openrewrite.prethink.table.ServiceEndpoints, org.openrewrite.prethink.table.DatabaseConnections, org.openrewrite.prethink.table.ExternalServiceCalls, org.openrewrite.prethink.table.MessagingConnections, org.openrewrite.prethink.table.ServerConfiguration, org.openrewrite.prethink.table.DataAssets, org.openrewrite.prethink.table.ProjectMetadata, org.openrewrite.prethink.table.SecurityConfiguration, org.openrewrite.prethink.table.DeploymentArtifacts]`
+* [Update agent configuration files](../prethink/updateagentconfig)
+* [Update .gitignore for Prethink context](../prethink/updategitignore)
+
+</TabItem>
+
+<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.prethink.UpdatePrethinkContext
+displayName: Update Prethink context
+description: |
+  Generate FINOS CALM architecture diagram and update agent configuration files. This recipe expects CALM-related data tables (ServiceEndpoints, DatabaseConnections, ExternalServiceCalls, MessagingConnections, etc.) to be populated by other recipes in a composite.
+recipeList:
+  - org.openrewrite.prethink.calm.GenerateCalmArchitecture
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Architecture
+      shortDescription: FINOS CALM architecture diagram
+      longDescription: FINOS CALM (Common Architecture Language Model) architecture diagram showing services, databases, external integrations, and messaging connections. Use this to understand the high-level system architecture and component relationships.
+      dataTables: [org.openrewrite.prethink.table.ServiceEndpoints, org.openrewrite.prethink.table.DatabaseConnections, org.openrewrite.prethink.table.ExternalServiceCalls, org.openrewrite.prethink.table.MessagingConnections, org.openrewrite.prethink.table.ServerConfiguration, org.openrewrite.prethink.table.DataAssets, org.openrewrite.prethink.table.ProjectMetadata, org.openrewrite.prethink.table.SecurityConfiguration, org.openrewrite.prethink.table.DeploymentArtifacts]
+  - org.openrewrite.prethink.UpdateAgentConfig
+  - org.openrewrite.prethink.UpdateGitignore
+
+```
+</TabItem>
+</Tabs>
 
 ## Used by
 
@@ -39,7 +73,7 @@ This recipe is used as part of the following composite recipes:
 
 ## Usage
 
-This recipe has no required configuration options. It can be activated by adding a dependency on `org.openrewrite.recipe:rewrite-java-dependencies` in your build file or by running a shell command (in which case no build changes are needed):
+This recipe has no required configuration options. It can be activated by adding a dependency on `org.openrewrite.recipe:rewrite-prethink` in your build file or by running a shell command (in which case no build changes are needed):
 <Tabs groupId="projectType">
 <TabItem value="gradle" label="Gradle">
 
@@ -51,7 +85,7 @@ plugins {
 }
 
 rewrite {
-    activeRecipe("org.openrewrite.java.dependencies.DependencyList")
+    activeRecipe("org.openrewrite.prethink.UpdatePrethinkContext")
     setExportDatatables(true)
 }
 
@@ -60,7 +94,7 @@ repositories {
 }
 
 dependencies {
-    rewrite("org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}")
+    rewrite("org.openrewrite.recipe:rewrite-prethink:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}")
 }
 ```
 
@@ -81,10 +115,10 @@ initscript {
 rootProject {
     plugins.apply(org.openrewrite.gradle.RewritePlugin)
     dependencies {
-        rewrite("org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}")
+        rewrite("org.openrewrite.recipe:rewrite-prethink:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}")
     }
     rewrite {
-        activeRecipe("org.openrewrite.java.dependencies.DependencyList")
+        activeRecipe("org.openrewrite.prethink.UpdatePrethinkContext")
         setExportDatatables(true)
     }
     afterEvaluate {
@@ -119,14 +153,14 @@ gradle --init-script init.gradle rewriteRun
         <configuration>
           <exportDatatables>true</exportDatatables>
           <activeRecipes>
-            <recipe>org.openrewrite.java.dependencies.DependencyList</recipe>
+            <recipe>org.openrewrite.prethink.UpdatePrethinkContext</recipe>
           </activeRecipes>
         </configuration>
         <dependencies>
           <dependency>
             <groupId>org.openrewrite.recipe</groupId>
-            <artifactId>rewrite-java-dependencies</artifactId>
-            <version>{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}</version>
+            <artifactId>rewrite-prethink</artifactId>
+            <version>{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -142,7 +176,7 @@ gradle --init-script init.gradle rewriteRun
 You will need to have [Maven](https://maven.apache.org/download.cgi) installed on your machine before you can run the following command.
 
 ```shell title="shell"
-mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-java-dependencies:RELEASE -Drewrite.activeRecipes=org.openrewrite.java.dependencies.DependencyList -Drewrite.exportDatatables=true
+mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-prethink:RELEASE -Drewrite.activeRecipes=org.openrewrite.prethink.UpdatePrethinkContext -Drewrite.exportDatatables=true
 ```
 </TabItem>
 <TabItem value="moderne-cli" label="Moderne CLI">
@@ -150,12 +184,12 @@ mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCo
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe DependencyList
+mod run . --recipe UpdatePrethinkContext
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}
+mod config recipes jar install org.openrewrite.recipe:rewrite-prethink:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}
 ```
 </TabItem>
 </Tabs>
@@ -164,7 +198,7 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyList" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.prethink.UpdatePrethinkContext" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -172,46 +206,6 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.java.dependencies.table.DependencyListReport" label="DependencyListReport">
-
-### Dependency report
-**org.openrewrite.java.dependencies.table.DependencyListReport**
-
-_Lists all Gradle and Maven dependencies_
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Build tool | The build tool used to manage dependencies (Gradle or Maven). |
-| Group id | The Group ID of the Gradle project or Maven module requesting the dependency. |
-| Artifact id | The Artifact ID of the Gradle project or Maven module requesting the dependency. |
-| Version | The version of Gradle project or Maven module requesting the dependency. |
-| Dependency group id | The Group ID of the dependency. |
-| Dependency artifact id | The Artifact ID of the dependency. |
-| Dependency version | The version of the dependency. |
-| Direct Dependency | When `true` the project directly depends on the dependency. When `false` the project depends on the dependency transitively through at least one direct dependency. |
-| Resolution failure | The reason why the dependency could not be resolved. Blank when resolution was not attempted. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

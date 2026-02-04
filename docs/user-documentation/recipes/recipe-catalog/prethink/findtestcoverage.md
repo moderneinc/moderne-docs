@@ -1,32 +1,34 @@
 ---
-sidebar_label: "Dependency report"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/dependencylist"
+sidebar_label: "Find test coverage mapping"
+canonical_url: "https://docs.openrewrite.org/recipes/prethink/findtestcoverage"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Dependency report
+# Find test coverage mapping
 
-**org.openrewrite.java.dependencies.DependencyList**
+**io.moderne.prethink.FindTestCoverage**
 
-_Emits a data table detailing all Gradle and Maven dependencies. This recipe makes no changes to any source file._
+_Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured._
 
 ## Recipe source
 
-[GitHub: DependencyList.java](https://github.com/openrewrite/rewrite-java-dependencies/blob/main/src/main/java/org/openrewrite/java/dependencies/DependencyList.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-java-dependencies/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-java-dependencies/)
+[GitHub: FindTestCoverage.java](https://github.com/openrewrite/rewrite-prethink/blob/main/src/main/java/io/moderne/prethink/FindTestCoverage.java),
+[Issue Tracker](https://github.com/openrewrite/rewrite-prethink/issues),
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-prethink/)
 
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
 ## Options
 
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
-| `Scope` | scope | *Optional*. The scope of the dependencies to include in the report.Defaults to "Compile" Valid options: `Compile`, `Runtime`, `TestRuntime` | `Compile` |
-| `boolean` | includeTransitive | *Optional*. Whether or not to include transitive dependencies in the report. Defaults to including only direct dependencies.Defaults to false. | `true` |
-| `boolean` | validateResolvable | *Optional*. When enabled the recipe will attempt to download every dependency it encounters, reporting on any failures. This can be useful for identifying dependencies that have become unavailable since an LST was produced.Defaults to false. Valid options: `true`, `false` | `true` |
+| `String` | provider | *Optional*. LLM provider for generating test summaries: openai, gemini, or poolside. | `poolside` |
+| `String` | apiKey | *Optional*. API key for the LLM provider. | `sk-...` |
+| `String` | model | *Optional*. Model name to use for generating test summaries. | `malibu` |
+| `String` | baseUrl | *Optional*. Custom base URL for the LLM provider. | `https://divers.poolsi.de/openai/v1/` |
+| `Integer` | requestsPerMinute | *Optional*. Rate limit for LLM requests. | `60` |
 
 
 ## Used by
@@ -39,7 +41,7 @@ This recipe is used as part of the following composite recipes:
 
 ## Usage
 
-This recipe has no required configuration options. It can be activated by adding a dependency on `org.openrewrite.recipe:rewrite-java-dependencies` in your build file or by running a shell command (in which case no build changes are needed):
+This recipe has no required configuration options. It can be activated by adding a dependency on `org.openrewrite.recipe:rewrite-prethink` in your build file or by running a shell command (in which case no build changes are needed):
 <Tabs groupId="projectType">
 <TabItem value="gradle" label="Gradle">
 
@@ -51,7 +53,7 @@ plugins {
 }
 
 rewrite {
-    activeRecipe("org.openrewrite.java.dependencies.DependencyList")
+    activeRecipe("io.moderne.prethink.FindTestCoverage")
     setExportDatatables(true)
 }
 
@@ -60,7 +62,7 @@ repositories {
 }
 
 dependencies {
-    rewrite("org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}")
+    rewrite("org.openrewrite.recipe:rewrite-prethink:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}")
 }
 ```
 
@@ -81,10 +83,10 @@ initscript {
 rootProject {
     plugins.apply(org.openrewrite.gradle.RewritePlugin)
     dependencies {
-        rewrite("org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}")
+        rewrite("org.openrewrite.recipe:rewrite-prethink:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}")
     }
     rewrite {
-        activeRecipe("org.openrewrite.java.dependencies.DependencyList")
+        activeRecipe("io.moderne.prethink.FindTestCoverage")
         setExportDatatables(true)
     }
     afterEvaluate {
@@ -119,14 +121,14 @@ gradle --init-script init.gradle rewriteRun
         <configuration>
           <exportDatatables>true</exportDatatables>
           <activeRecipes>
-            <recipe>org.openrewrite.java.dependencies.DependencyList</recipe>
+            <recipe>io.moderne.prethink.FindTestCoverage</recipe>
           </activeRecipes>
         </configuration>
         <dependencies>
           <dependency>
             <groupId>org.openrewrite.recipe</groupId>
-            <artifactId>rewrite-java-dependencies</artifactId>
-            <version>{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}</version>
+            <artifactId>rewrite-prethink</artifactId>
+            <version>{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -142,7 +144,7 @@ gradle --init-script init.gradle rewriteRun
 You will need to have [Maven](https://maven.apache.org/download.cgi) installed on your machine before you can run the following command.
 
 ```shell title="shell"
-mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-java-dependencies:RELEASE -Drewrite.activeRecipes=org.openrewrite.java.dependencies.DependencyList -Drewrite.exportDatatables=true
+mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-prethink:RELEASE -Drewrite.activeRecipes=io.moderne.prethink.FindTestCoverage -Drewrite.exportDatatables=true
 ```
 </TabItem>
 <TabItem value="moderne-cli" label="Moderne CLI">
@@ -150,12 +152,12 @@ mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCo
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe DependencyList
+mod run . --recipe FindTestCoverage
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}
+mod config recipes jar install org.openrewrite.recipe:rewrite-prethink:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}
 ```
 </TabItem>
 </Tabs>
@@ -164,7 +166,7 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyList" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.FindTestCoverage" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -172,43 +174,26 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.java.dependencies.table.DependencyListReport" label="DependencyListReport">
+<TabItem value="io.moderne.prethink.table.TestMapping" label="TestMapping">
 
-### Dependency report
-**org.openrewrite.java.dependencies.table.DependencyListReport**
+### Test mapping
+**io.moderne.prethink.table.TestMapping**
 
-_Lists all Gradle and Maven dependencies_
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Build tool | The build tool used to manage dependencies (Gradle or Maven). |
-| Group id | The Group ID of the Gradle project or Maven module requesting the dependency. |
-| Artifact id | The Artifact ID of the Gradle project or Maven module requesting the dependency. |
-| Version | The version of Gradle project or Maven module requesting the dependency. |
-| Dependency group id | The Group ID of the dependency. |
-| Dependency artifact id | The Artifact ID of the dependency. |
-| Dependency version | The version of the dependency. |
-| Direct Dependency | When `true` the project directly depends on the dependency. When `false` the project depends on the dependency transitively through at least one direct dependency. |
-| Resolution failure | The reason why the dependency could not be resolved. Blank when resolution was not attempted. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
+_Maps test methods to implementation methods with optional AI-generated summaries and inference metrics._
 
 | Column Name | Description |
 | ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
+| Test source path | The path to the source file containing the test. |
+| Test class | The fully qualified name of the test class. |
+| Test method | The signature of the test method. |
+| Implementation source path | The path to the source file containing the implementation. |
+| Implementation class | The fully qualified name of the implementation class. |
+| Implementation method | The signature of the implementation method being tested. |
+| Test summary | AI-generated summary of what the test is verifying. |
+| Test checksum | SHA-256 checksum of the test method source code for cache validation. |
+| Inference time (ms) | Time taken for the LLM to generate the summary, in milliseconds. |
+| Input tokens | Number of tokens in the input prompt sent to the LLM. |
+| Output tokens | Number of tokens in the response generated by the LLM. |
 
 </TabItem>
 

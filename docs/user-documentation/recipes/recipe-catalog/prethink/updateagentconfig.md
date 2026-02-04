@@ -1,45 +1,42 @@
 ---
-sidebar_label: "Dependency report"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/dependencylist"
+sidebar_label: "Update agent configuration files"
+canonical_url: "https://docs.openrewrite.org/recipes/prethink/updateagentconfig"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Dependency report
+# Update agent configuration files
 
-**org.openrewrite.java.dependencies.DependencyList**
+**org.openrewrite.prethink.UpdateAgentConfig**
 
-_Emits a data table detailing all Gradle and Maven dependencies. This recipe makes no changes to any source file._
+_Update coding agent configuration files (CLAUDE.md, .cursorrules, etc.) to include references to Moderne Prethink context files in .moderne/context/._
 
 ## Recipe source
 
-[GitHub: DependencyList.java](https://github.com/openrewrite/rewrite-java-dependencies/blob/main/src/main/java/org/openrewrite/java/dependencies/DependencyList.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-java-dependencies/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-java-dependencies/)
+[GitHub: UpdateAgentConfig.java](https://github.com/openrewrite/rewrite-prethink/blob/main/src/main/java/org/openrewrite/prethink/UpdateAgentConfig.java),
+[Issue Tracker](https://github.com/openrewrite/rewrite-prethink/issues),
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-prethink/)
 
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
 ## Options
 
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
-| `Scope` | scope | *Optional*. The scope of the dependencies to include in the report.Defaults to "Compile" Valid options: `Compile`, `Runtime`, `TestRuntime` | `Compile` |
-| `boolean` | includeTransitive | *Optional*. Whether or not to include transitive dependencies in the report. Defaults to including only direct dependencies.Defaults to false. | `true` |
-| `boolean` | validateResolvable | *Optional*. When enabled the recipe will attempt to download every dependency it encounters, reporting on any failures. This can be useful for identifying dependencies that have become unavailable since an LST was produced.Defaults to false. Valid options: `true`, `false` | `true` |
+| `String` | targetConfigFile | *Optional*. Which agent config file to update. If not specified, updates all found files. | `CLAUDE.md` |
 
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Update Prethink context (no AI)](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
-* [Update Prethink context (with AI)](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter.md)
+* [Update Prethink context](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontext.md)
 
 
 ## Usage
 
-This recipe has no required configuration options. It can be activated by adding a dependency on `org.openrewrite.recipe:rewrite-java-dependencies` in your build file or by running a shell command (in which case no build changes are needed):
+This recipe has no required configuration options. It can be activated by adding a dependency on `org.openrewrite.recipe:rewrite-prethink` in your build file or by running a shell command (in which case no build changes are needed):
 <Tabs groupId="projectType">
 <TabItem value="gradle" label="Gradle">
 
@@ -51,7 +48,7 @@ plugins {
 }
 
 rewrite {
-    activeRecipe("org.openrewrite.java.dependencies.DependencyList")
+    activeRecipe("org.openrewrite.prethink.UpdateAgentConfig")
     setExportDatatables(true)
 }
 
@@ -60,7 +57,7 @@ repositories {
 }
 
 dependencies {
-    rewrite("org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}")
+    rewrite("org.openrewrite.recipe:rewrite-prethink:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}")
 }
 ```
 
@@ -81,10 +78,10 @@ initscript {
 rootProject {
     plugins.apply(org.openrewrite.gradle.RewritePlugin)
     dependencies {
-        rewrite("org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}")
+        rewrite("org.openrewrite.recipe:rewrite-prethink:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}")
     }
     rewrite {
-        activeRecipe("org.openrewrite.java.dependencies.DependencyList")
+        activeRecipe("org.openrewrite.prethink.UpdateAgentConfig")
         setExportDatatables(true)
     }
     afterEvaluate {
@@ -119,14 +116,14 @@ gradle --init-script init.gradle rewriteRun
         <configuration>
           <exportDatatables>true</exportDatatables>
           <activeRecipes>
-            <recipe>org.openrewrite.java.dependencies.DependencyList</recipe>
+            <recipe>org.openrewrite.prethink.UpdateAgentConfig</recipe>
           </activeRecipes>
         </configuration>
         <dependencies>
           <dependency>
             <groupId>org.openrewrite.recipe</groupId>
-            <artifactId>rewrite-java-dependencies</artifactId>
-            <version>{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}</version>
+            <artifactId>rewrite-prethink</artifactId>
+            <version>{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -142,7 +139,7 @@ gradle --init-script init.gradle rewriteRun
 You will need to have [Maven](https://maven.apache.org/download.cgi) installed on your machine before you can run the following command.
 
 ```shell title="shell"
-mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-java-dependencies:RELEASE -Drewrite.activeRecipes=org.openrewrite.java.dependencies.DependencyList -Drewrite.exportDatatables=true
+mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-prethink:RELEASE -Drewrite.activeRecipes=org.openrewrite.prethink.UpdateAgentConfig -Drewrite.exportDatatables=true
 ```
 </TabItem>
 <TabItem value="moderne-cli" label="Moderne CLI">
@@ -150,12 +147,12 @@ mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCo
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe DependencyList
+mod run . --recipe UpdateAgentConfig
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}
+mod config recipes jar install org.openrewrite.recipe:rewrite-prethink:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}
 ```
 </TabItem>
 </Tabs>
@@ -164,7 +161,7 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyList" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.prethink.UpdateAgentConfig" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -172,43 +169,18 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.java.dependencies.table.DependencyListReport" label="DependencyListReport">
+<TabItem value="org.openrewrite.prethink.table.ContextRegistry" label="ContextRegistry">
 
-### Dependency report
-**org.openrewrite.java.dependencies.table.DependencyListReport**
+### Context registry
+**org.openrewrite.prethink.table.ContextRegistry**
 
-_Lists all Gradle and Maven dependencies_
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Build tool | The build tool used to manage dependencies (Gradle or Maven). |
-| Group id | The Group ID of the Gradle project or Maven module requesting the dependency. |
-| Artifact id | The Artifact ID of the Gradle project or Maven module requesting the dependency. |
-| Version | The version of Gradle project or Maven module requesting the dependency. |
-| Dependency group id | The Group ID of the dependency. |
-| Dependency artifact id | The Artifact ID of the dependency. |
-| Dependency version | The version of the dependency. |
-| Direct Dependency | When `true` the project directly depends on the dependency. When `false` the project depends on the dependency transitively through at least one direct dependency. |
-| Resolution failure | The reason why the dependency could not be resolved. Blank when resolution was not attempted. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
+_Registry of available context files for coding agents._
 
 | Column Name | Description |
 | ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
+| Display name | The display name of the context. |
+| Short description | A brief description of what context this provides. |
+| Context file | Path to the markdown file describing this context. |
 
 </TabItem>
 
