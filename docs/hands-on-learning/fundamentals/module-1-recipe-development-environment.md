@@ -52,10 +52,10 @@ For a better idea about the reference recipes and tests that are included in the
 
 #### Step 3: _(Optional)_ Customize coordinates
 
-If you'd like to make the project your own and allow it to be versioned and shared without conflicts, you may customize the project's group ID and artifact ID in the `pom.xml` file (Maven), or `build.gradle.kts` and `settings.gradle.kts` files (Gradle). You'll also want to update the Java package names to reflect these changes as well. (You may consider using the 'Replace in path' feature of IntelliJ to do a search and replace of `com.yourorg` across the project.)
+To make the project your own and allow it to be versioned and shared without conflicts, customize the project's group ID and artifact ID in the `pom.xml` file (Maven), or `build.gradle.kts` and `settings.gradle.kts` files (Gradle). You'll also want to update the Java package names to reflect these changes as well. (You may consider using the `ChangePackage` OpenRewrite recipe or the 'Replace in path' feature of IntelliJ to do a search and replace of `com.yourorg` across the project.)
 
 :::note
-For the purposes of this workshop, this step isn't required, so feel free to leave it alone and continue to use `com.yourorg`. The rest of the workshop does use `com.yourorg` as a placeholder, but if you've chosen a different package name, make sure to substitute it accordingly throughout.
+For the purposes of this workshop, this step isn't required, so feel free to leave it alone and continue to use `com.yourorg`.
 :::
 
 #### Step 4: Install and verify locally
@@ -73,7 +73,7 @@ mvn install
 2. Install the recipe package to the local recipe marketplace with the Moderne CLI:
 
 ```bash
-mod config recipes jar install com.yourorg:rewrite-recipe-starter:0.1.0-SNAPSHOT
+mod config recipes jar install com.yourorg:rewrite-recipe-starter:LATEST
 ```
 
 3. To confirm that everything is set up for testing imperative recipes, open the `AssertEqualsToAssertThat` class in IntelliJ, right-click the class name, and select **Set Active Recipe**. Then open a terminal, navigate to your workshop directory, and run:
