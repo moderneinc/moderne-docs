@@ -142,6 +142,7 @@ const config: Config = {
         description: 'Large-scale automated source code refactoring',
         excludeImports: true,
         removeDuplicateHeadings: true,
+        ignoreFiles: ['**/recipe-catalog/**'],
         customLLMFiles: [
           {
             filename: 'llms-platform.txt',
