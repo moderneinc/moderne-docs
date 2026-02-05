@@ -2,6 +2,11 @@
 sidebar_label: "No whitespace before"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/format/nowhitespacebefore" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

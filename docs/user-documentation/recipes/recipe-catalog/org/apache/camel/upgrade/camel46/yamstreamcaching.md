@@ -2,6 +2,11 @@
 sidebar_label: "Renamed streamCaching to streamCache on the route"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel46/yamstreamcaching" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

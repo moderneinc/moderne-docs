@@ -2,6 +2,11 @@
 sidebar_label: "Remove empty tests without comments"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/cleanup/removeemptytests" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Update to Micronaut Email 2.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/updatemicronautemail" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

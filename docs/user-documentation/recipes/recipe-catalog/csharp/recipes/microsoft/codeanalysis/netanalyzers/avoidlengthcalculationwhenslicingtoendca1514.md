@@ -2,6 +2,11 @@
 sidebar_label: "Avoid redundant length argument"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/avoidlengthcalculationwhenslicingtoendca1514" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

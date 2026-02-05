@@ -2,6 +2,11 @@
 sidebar_label: "Apache POI use `Cell.setCellType(CellType)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/poi/replacesetcelltype" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Find YAML entries"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/yaml/search/findkey" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

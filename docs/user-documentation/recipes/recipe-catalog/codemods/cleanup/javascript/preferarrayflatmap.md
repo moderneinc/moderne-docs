@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `.flatMap()` over `.map().flat()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferarrayflatmap" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

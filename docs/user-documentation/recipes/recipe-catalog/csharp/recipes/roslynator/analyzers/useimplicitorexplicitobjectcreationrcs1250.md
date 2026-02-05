@@ -2,6 +2,11 @@
 sidebar_label: "Use implicit/explicit object creation"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useimplicitorexplicitobjectcreationrcs1250" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

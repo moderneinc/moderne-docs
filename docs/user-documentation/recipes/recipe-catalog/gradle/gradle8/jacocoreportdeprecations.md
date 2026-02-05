@@ -2,6 +2,11 @@
 sidebar_label: "Replace Gradle 8 introduced deprecations in JaCoCo report task"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/gradle8/jacocoreportdeprecations" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

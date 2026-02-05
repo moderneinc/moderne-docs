@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant 'ToString' call"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/invocationexpressionrcs1097" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

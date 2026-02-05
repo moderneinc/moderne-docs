@@ -2,6 +2,11 @@
 sidebar_label: "Replaces deprecated `HttpResponse::getStatusLine()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/newstatusline" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

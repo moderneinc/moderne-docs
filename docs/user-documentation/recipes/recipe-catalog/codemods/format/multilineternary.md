@@ -2,6 +2,11 @@
 sidebar_label: "Enforce newlines between operands of ternary expressions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/multilineternary" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

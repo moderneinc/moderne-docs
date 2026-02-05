@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJPathRules.AssertThatIsDirectory`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjpathrulesrecipes$assertthatisdirectoryrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

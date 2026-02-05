@@ -2,6 +2,11 @@
 sidebar_label: "Rename the package name from `com.nimbusds.jose.shaded.json` to `net.minidev.json`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security5/renamenimbusdsjsonobjectpackagename" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

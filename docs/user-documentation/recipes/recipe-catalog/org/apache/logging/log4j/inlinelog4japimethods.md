@@ -2,6 +2,11 @@
 sidebar_label: "Inline `log4j-api-2` methods annotated with `@InlineMe`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/logging/log4j/inlinelog4japimethods" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

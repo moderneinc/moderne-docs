@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade dependencies to Spring Cloud 2023"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/cloud2023/dependencyupgrades" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

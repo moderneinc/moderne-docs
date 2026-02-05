@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant 'sealed' modifier"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/memberdeclarationrcs1034" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

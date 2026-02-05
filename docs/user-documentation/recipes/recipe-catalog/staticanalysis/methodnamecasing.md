@@ -2,6 +2,11 @@
 sidebar_label: "Standardize method name casing"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/methodnamecasing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

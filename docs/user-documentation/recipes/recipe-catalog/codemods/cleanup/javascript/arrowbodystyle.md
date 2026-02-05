@@ -2,6 +2,11 @@
 sidebar_label: "Require braces around arrow function bodies"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/arrowbodystyle" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

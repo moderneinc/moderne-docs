@@ -2,6 +2,11 @@
 sidebar_label: "Use `org.springframework.boot.web.servlet.support.SpringBootServletInitializer`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/migratespringbootservletinitializerpackagename" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

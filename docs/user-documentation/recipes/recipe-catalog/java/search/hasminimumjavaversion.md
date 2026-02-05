@@ -2,6 +2,11 @@
 sidebar_label: "Find the oldest Java version in use"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/search/hasminimumjavaversion" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

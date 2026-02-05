@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Struts 7.0"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate7/migratestruts7" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Prefer omitting the catch binding parameter"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferoptionalcatchbinding" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

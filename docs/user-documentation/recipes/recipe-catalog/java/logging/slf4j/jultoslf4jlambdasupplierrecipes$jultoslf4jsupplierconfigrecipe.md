@@ -2,6 +2,11 @@
 sidebar_label: "Replace JUL `Logger.config(Supplier&lt;String&gt;)` with SLF4J's `Logger.atInfo().log(Supplier&lt;String&gt;)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/jultoslf4jlambdasupplierrecipes$jultoslf4jsupplierconfigrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Dynamic Method Invocation to explicit action mappings"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate6/migratedynamicmethodinvocation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

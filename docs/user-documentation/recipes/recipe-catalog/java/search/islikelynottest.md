@@ -2,6 +2,11 @@
 sidebar_label: "Find files that are likely not tests"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/search/islikelynottest" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

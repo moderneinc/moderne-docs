@@ -2,6 +2,11 @@
 sidebar_label: "Unfold YAML properties"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/yaml/unfoldproperties" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "[deprecated] Use explicit type instead of 'var' (when the type is obvious)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useexplicittypeinsteadofvarrcs1012" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

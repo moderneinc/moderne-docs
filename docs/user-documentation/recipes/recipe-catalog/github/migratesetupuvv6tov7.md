@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `astral-sh/setup-uv` from v6 to v7"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/migratesetupuvv6tov7" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Remove Hamcrest `is(Matcher)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/hamcrest/removeismatcher" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

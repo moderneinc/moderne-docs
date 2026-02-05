@@ -2,6 +2,11 @@
 sidebar_label: "Add manual workflow trigger"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/addmanualtrigger" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.jsp` packages to `jakarta.jsp`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxjsptojakartajsp" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

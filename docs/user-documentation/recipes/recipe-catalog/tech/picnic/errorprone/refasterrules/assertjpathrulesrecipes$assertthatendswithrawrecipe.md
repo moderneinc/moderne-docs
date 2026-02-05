@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJPathRules.AssertThatEndsWithRaw`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjpathrulesrecipes$assertthatendswithrawrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

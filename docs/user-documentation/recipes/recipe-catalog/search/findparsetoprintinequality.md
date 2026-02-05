@@ -2,6 +2,11 @@
 sidebar_label: "Find parse to print inequality"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/search/findparsetoprintinequality" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use 'Cast' instead of 'Select' to cast"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/optimizelinqusagema0078" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

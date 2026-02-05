@@ -2,6 +2,11 @@
 sidebar_label: "Fix documentation comment tag"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/xmlnodercs1247" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

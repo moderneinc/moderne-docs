@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade Log4j 2.x dependency version"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/log4j/upgradelog4j2dependencyversion" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

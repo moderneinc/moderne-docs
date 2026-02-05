@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade ECMAScript 5 to ECMAScript 6"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/ecmascript/5to6/ecmascript6bestpractices" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

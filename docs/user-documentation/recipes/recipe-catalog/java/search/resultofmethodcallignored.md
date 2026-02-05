@@ -2,6 +2,11 @@
 sidebar_label: "Result of method call ignored"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/search/resultofmethodcallignored" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

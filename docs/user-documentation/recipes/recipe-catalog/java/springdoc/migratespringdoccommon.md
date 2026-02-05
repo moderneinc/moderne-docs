@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from springdoc-openapi-common to springdoc-openapi-starter-common"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/springdoc/migratespringdoccommon" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

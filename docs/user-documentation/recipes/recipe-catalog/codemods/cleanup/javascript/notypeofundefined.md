@@ -2,6 +2,11 @@
 sidebar_label: "Disallow comparing `undefined` using `typeof`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/notypeofundefined" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

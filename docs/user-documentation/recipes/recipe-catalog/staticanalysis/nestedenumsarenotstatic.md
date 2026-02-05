@@ -2,6 +2,11 @@
 sidebar_label: "Nested enums are not static"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/nestedenumsarenotstatic" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Call to Mockito method &quot;verify&quot;, &quot;when&quot; or &quot;given&quot; should be simplified"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/simplifymockitoverifywhengiven" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

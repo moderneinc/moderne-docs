@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `System.getProperty(&quot;user.home&quot;)` over `System.getenv(&quot;HOME&quot;)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/prefersystemgetpropertyovergetenv" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

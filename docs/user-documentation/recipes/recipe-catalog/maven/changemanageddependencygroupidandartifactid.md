@@ -2,6 +2,11 @@
 sidebar_label: "Change Maven managed dependency groupId, artifactId and optionally the version"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/changemanageddependencygroupidandartifactid" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

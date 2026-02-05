@@ -2,6 +2,11 @@
 sidebar_label: "Avoid constant arrays as arguments"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/avoidconstarraysca1861" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

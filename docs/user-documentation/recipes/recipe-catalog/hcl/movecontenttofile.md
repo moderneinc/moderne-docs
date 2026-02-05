@@ -2,6 +2,11 @@
 sidebar_label: "Move content to another file"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/hcl/movecontenttofile" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

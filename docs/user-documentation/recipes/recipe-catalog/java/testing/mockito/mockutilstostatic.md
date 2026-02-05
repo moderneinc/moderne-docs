@@ -2,6 +2,11 @@
 sidebar_label: "Use static form of Mockito `MockUtil`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/mockutilstostatic" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

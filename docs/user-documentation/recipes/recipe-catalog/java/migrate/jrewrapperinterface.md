@@ -2,6 +2,11 @@
 sidebar_label: "Add missing `isWrapperFor` and `unwrap` methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jrewrapperinterface" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "`for` loop counters should use postfix operators"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/forloopcontrolvariablepostfixoperators" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

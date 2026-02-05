@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant explicit dependencies and versions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/removeredundantdependencyversions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

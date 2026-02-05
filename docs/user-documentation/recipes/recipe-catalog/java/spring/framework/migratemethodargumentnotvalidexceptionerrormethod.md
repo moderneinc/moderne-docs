@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/framework/migratemethodargumentnotvalidexceptionerrormethod" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to JSpecify"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jspecify/migratetojspecify" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

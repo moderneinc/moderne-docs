@@ -2,6 +2,11 @@
 sidebar_label: "JUnit 4 `@RunWith(Parameterized.class)` to JUnit Jupiter parameterized tests"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/parameterizedrunnertoparameterized" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

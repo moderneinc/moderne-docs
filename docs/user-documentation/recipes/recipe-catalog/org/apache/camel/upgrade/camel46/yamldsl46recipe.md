@@ -2,6 +2,11 @@
 sidebar_label: "Bean property to properties."
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel46/yamldsl46recipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "No double brace initialization"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/nodoublebraceinitialization" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

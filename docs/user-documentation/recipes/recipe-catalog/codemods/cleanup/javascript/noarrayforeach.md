@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `for…of` over the `forEach` method"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noarrayforeach" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

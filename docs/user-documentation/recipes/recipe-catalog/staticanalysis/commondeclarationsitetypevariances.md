@@ -2,6 +2,11 @@
 sidebar_label: "Properly use declaration-site type variance for well-known types"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/commondeclarationsitetypevariances" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

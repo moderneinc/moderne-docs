@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `String#join()` over Guava `Joiner#join()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavastringjoin" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

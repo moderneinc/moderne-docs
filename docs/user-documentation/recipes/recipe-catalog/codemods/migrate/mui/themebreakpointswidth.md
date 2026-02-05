@@ -2,6 +2,11 @@
 sidebar_label: "Updates `width` values for theme breakpoints"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/themebreakpointswidth" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

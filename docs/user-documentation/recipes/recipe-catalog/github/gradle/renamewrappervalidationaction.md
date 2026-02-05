@@ -2,6 +2,11 @@
 sidebar_label: "Rename `gradle/wrapper-validation-action` to `gradle/actions/wrapper-validation`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/gradle/renamewrappervalidationaction" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

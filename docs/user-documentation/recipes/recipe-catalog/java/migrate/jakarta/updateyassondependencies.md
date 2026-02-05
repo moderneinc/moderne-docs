@@ -2,6 +2,11 @@
 sidebar_label: "Update Eclipse Yasson Dependencies to 3.0.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updateyassondependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

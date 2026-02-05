@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Gradle 9 from Gradle 8"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/migratetogradle9" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

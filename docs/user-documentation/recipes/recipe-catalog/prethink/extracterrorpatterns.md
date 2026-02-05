@@ -2,6 +2,11 @@
 sidebar_label: "Extract error handling patterns"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/prethink/extracterrorpatterns" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

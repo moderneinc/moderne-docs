@@ -2,6 +2,11 @@
 sidebar_label: "Change SLF4J log level"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/changeloglevel" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

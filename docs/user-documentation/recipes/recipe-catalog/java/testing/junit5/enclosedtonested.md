@@ -2,6 +2,11 @@
 sidebar_label: "JUnit 4 `@RunWith(Enclosed.class)` to JUnit Jupiter `@Nested`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/enclosedtonested" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

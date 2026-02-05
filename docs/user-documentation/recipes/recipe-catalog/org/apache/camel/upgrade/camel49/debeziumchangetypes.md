@@ -2,6 +2,11 @@
 sidebar_label: "Each camel-debezium module has its own subpackage corresponding to the database type"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel49/debeziumchangetypes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

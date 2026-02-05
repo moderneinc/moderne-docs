@@ -2,6 +2,11 @@
 sidebar_label: "Unannotated collection attributes require a Transient annotation"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/addtransientannotationtocollections" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

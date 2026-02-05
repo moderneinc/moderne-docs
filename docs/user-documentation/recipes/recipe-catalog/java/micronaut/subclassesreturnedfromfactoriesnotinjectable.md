@@ -2,6 +2,11 @@
 sidebar_label: "Change factory method return types to reflect their resolved return type"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/subclassesreturnedfromfactoriesnotinjectable" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

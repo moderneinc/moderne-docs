@@ -2,6 +2,11 @@
 sidebar_label: "Prefer using `Object.fromEntries()` to transform a list of key-value pairs into an object"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferobjectfromentries" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

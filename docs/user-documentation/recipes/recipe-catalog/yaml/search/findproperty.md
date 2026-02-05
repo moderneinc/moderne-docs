@@ -2,6 +2,11 @@
 sidebar_label: "Find YAML properties"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/yaml/search/findproperty" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "All members declared in parent interfaces must have an implementation in a DynamicInterfaceCastableImplementation-attributed interface"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdynamicinterfacecastableimplementationca2256" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

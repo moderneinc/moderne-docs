@@ -2,6 +2,11 @@
 sidebar_label: "Remove unnecessary Spring `@RunWith`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/unnecessaryspringrunwith" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

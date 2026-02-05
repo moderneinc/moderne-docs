@@ -2,6 +2,11 @@
 sidebar_label: "Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/replaceapachecommonslang3validatenotnullwithobjectsrequirenonnull" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

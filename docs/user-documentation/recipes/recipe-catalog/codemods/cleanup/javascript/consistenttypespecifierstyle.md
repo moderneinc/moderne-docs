@@ -2,6 +2,11 @@
 sidebar_label: "Enforce or ban the use of inline type-only markers for named imports"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/consistenttypespecifierstyle" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

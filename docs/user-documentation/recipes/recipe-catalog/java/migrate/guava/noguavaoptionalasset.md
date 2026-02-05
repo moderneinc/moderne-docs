@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Optional.stream().collect(Collectors.toSet())`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavaoptionalasset" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

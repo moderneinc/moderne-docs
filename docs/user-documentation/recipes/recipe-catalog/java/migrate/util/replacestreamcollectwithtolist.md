@@ -2,6 +2,11 @@
 sidebar_label: "Replace `Stream.collect(Collectors.toUnmodifiableList())` with `Stream.toList()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/util/replacestreamcollectwithtolist" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

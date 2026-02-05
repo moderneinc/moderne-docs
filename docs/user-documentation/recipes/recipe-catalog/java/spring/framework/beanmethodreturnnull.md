@@ -2,6 +2,11 @@
 sidebar_label: "`@Bean` methods may not return `void`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/framework/beanmethodreturnnull" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Recommended Jest code cleanup"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/jest/recommendedjestcodecleanup" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

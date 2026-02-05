@@ -2,6 +2,11 @@
 sidebar_label: "Replace AWT `getPeer()` method"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/replaceawtgetpeermethod" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

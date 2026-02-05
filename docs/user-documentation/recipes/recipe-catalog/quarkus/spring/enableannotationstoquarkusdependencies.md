@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `@EnableXyz` annotations to Quarkus extensions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/enableannotationstoquarkusdependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

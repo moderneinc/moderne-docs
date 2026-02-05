@@ -2,6 +2,11 @@
 sidebar_label: "Use 'Order' instead of 'OrderBy'"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/optimizelinqusagema0159" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "File header should have summary"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/settingsfilesa1639" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

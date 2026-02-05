@@ -2,6 +2,11 @@
 sidebar_label: "Replace `Mockito.when` on static (non mock) with try-with-resource with MockedStatic"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/mockitowhenonstatictomockstatic" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

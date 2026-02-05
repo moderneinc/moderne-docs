@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Log4j 1.x to Log4j 2.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/log4j/log4j1tolog4j2" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

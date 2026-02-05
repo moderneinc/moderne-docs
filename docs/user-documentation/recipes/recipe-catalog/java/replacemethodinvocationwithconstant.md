@@ -2,6 +2,11 @@
 sidebar_label: "Replace method invocation with constant"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/replacemethodinvocationwithconstant" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

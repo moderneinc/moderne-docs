@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade to the latest Timefold Solver"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/ai/timefold/solver/migration/tolatest" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

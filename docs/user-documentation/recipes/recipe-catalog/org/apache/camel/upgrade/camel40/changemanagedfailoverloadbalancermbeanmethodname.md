@@ -2,6 +2,11 @@
 sidebar_label: "Change of method names brought by Camel JMX API changes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel40/changemanagedfailoverloadbalancermbeanmethodname" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

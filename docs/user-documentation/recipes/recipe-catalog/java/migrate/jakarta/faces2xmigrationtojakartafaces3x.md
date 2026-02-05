@@ -2,6 +2,11 @@
 sidebar_label: "JSF 2.x to Jakarta Faces 3.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/faces2xmigrationtojakartafaces3x" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

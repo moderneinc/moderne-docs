@@ -2,6 +2,11 @@
 sidebar_label: "Replaces a literal matching an expression"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/customrecipes/literalregexpconverterrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

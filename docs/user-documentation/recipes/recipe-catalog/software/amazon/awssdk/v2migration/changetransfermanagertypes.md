@@ -2,6 +2,11 @@
 sidebar_label: "Change SDK TransferManager types from v1 to v2"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/changetransfermanagertypes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Annotate required method parameters with `@NonNull`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/annotaterequiredparameters" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

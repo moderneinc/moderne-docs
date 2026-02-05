@@ -2,6 +2,11 @@
 sidebar_label: "Remove registrations of modules built-in to Jackson 3"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/removebuiltinmoduleregistrations" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Simplify `java.time.Duration` units"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/simplifydurationcreationunits" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

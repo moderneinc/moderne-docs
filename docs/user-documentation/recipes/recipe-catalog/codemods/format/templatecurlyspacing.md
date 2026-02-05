@@ -2,6 +2,11 @@
 sidebar_label: "Require or disallow spacing around embedded expressions of template strings"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/templatecurlyspacing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

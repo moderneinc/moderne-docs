@@ -2,6 +2,11 @@
 sidebar_label: "Replace `FileUtils.getFile(String...)` with JDK provided API"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/io/apachecommonsfileutilsrecipes$getfilerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

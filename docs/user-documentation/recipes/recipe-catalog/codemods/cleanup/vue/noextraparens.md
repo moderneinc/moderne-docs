@@ -2,6 +2,11 @@
 sidebar_label: "Disallow unnecessary parentheses in `&lt;template&gt;`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/noextraparens" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

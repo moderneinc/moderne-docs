@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.batch` packages to `jakarta.batch`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxbatchmigrationtojakartabatch" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

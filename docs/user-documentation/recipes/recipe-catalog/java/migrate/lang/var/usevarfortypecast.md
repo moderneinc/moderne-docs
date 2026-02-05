@@ -2,6 +2,11 @@
 sidebar_label: "Use `var` for variables initialized with type casts"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lang/var/usevarfortypecast" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

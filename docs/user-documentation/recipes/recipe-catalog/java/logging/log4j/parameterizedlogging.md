@@ -2,6 +2,11 @@
 sidebar_label: "Parameterize Log4j 2.x logging statements"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/log4j/parameterizedlogging" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

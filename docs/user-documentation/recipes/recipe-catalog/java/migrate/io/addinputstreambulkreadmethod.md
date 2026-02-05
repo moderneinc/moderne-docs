@@ -2,6 +2,11 @@
 sidebar_label: "Add bulk read method to `InputStream` implementations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/io/addinputstreambulkreadmethod" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

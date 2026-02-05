@@ -2,6 +2,11 @@
 sidebar_label: "Replace text block with regular string"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/replacetextblockwithstring" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Add [TemplatePart] to the type"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/addattributelistfixwpf0130" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

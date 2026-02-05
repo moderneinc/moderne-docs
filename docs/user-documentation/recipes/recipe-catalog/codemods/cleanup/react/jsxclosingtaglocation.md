@@ -2,6 +2,11 @@
 sidebar_label: "Enforce closing tag location for multiline JSX"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxclosingtaglocation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

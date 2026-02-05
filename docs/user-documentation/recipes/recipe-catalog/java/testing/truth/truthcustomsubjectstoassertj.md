@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Truth custom subjects to AssertJ"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/truth/truthcustomsubjectstoassertj" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

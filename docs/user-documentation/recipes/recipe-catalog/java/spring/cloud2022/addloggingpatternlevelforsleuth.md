@@ -2,6 +2,11 @@
 sidebar_label: "Add logging.pattern.level for traceId and spanId"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/cloud2022/addloggingpatternlevelforsleuth" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

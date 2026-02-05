@@ -2,6 +2,11 @@
 sidebar_label: "Add `org.hamcrest:hamcrest` if it is used"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/hamcrest/addhamcrestifused" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

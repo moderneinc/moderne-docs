@@ -2,6 +2,11 @@
 sidebar_label: "Prefer mock resolved/rejected shorthands for promises"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/jest/prefermockpromiseshorthand" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

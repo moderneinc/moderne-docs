@@ -2,6 +2,11 @@
 sidebar_label: "Adjust all-open directives in Kotlin plugin configuration"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/adjustkotlinallopendirectives" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

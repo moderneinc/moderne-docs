@@ -2,6 +2,11 @@
 sidebar_label: "Migrate xmlns entries in `webservices.xml` files."
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxwebservicesxmltojakarta9webservicesxml" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use coalesce expression"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usecoalesceexpressionrcs1128" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

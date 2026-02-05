@@ -2,6 +2,11 @@
 sidebar_label: "Migrates deprecated `DefaultHttpClient`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient4/migratedefaulthttpclient" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

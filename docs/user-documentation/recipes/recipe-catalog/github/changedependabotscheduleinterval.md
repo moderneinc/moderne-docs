@@ -2,6 +2,11 @@
 sidebar_label: "Change dependabot schedule interval"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/changedependabotscheduleinterval" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

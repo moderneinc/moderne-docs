@@ -2,6 +2,11 @@
 sidebar_label: "Unnecessary `String#toString`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/notostringonstringtype" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Updates props for Modal component"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/modalprops" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `PreconditionsRules.RequireNonNull`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/preconditionsrulesrecipes$requirenonnullrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

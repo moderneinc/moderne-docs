@@ -2,6 +2,11 @@
 sidebar_label: "Add `snakeyaml` dependency if needed"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/addsnakeyamldependencyifneeded" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

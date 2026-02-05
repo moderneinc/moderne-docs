@@ -2,6 +2,11 @@
 sidebar_label: "Remove class variables matching package filter"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dropwizard/general/removevariablesbypackage" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Do not use regions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/removeregionsa1124" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Enforce explicitly comparing the length or size property of a value"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/explicitlengthcheck" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Enforce specific casing for the component naming style in template"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/componentnameintemplatecasing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

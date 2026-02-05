@@ -2,6 +2,11 @@
 sidebar_label: "Unnecessary `return` as last statement in void method"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/unnecessaryreturnaslaststatement" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

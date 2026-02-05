@@ -2,6 +2,11 @@
 sidebar_label: "Transform calls to `Objects.isNull(..)` and `Objects.nonNull(..)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/removeobjectsisnull" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

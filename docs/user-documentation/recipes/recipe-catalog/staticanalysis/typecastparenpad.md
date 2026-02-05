@@ -2,6 +2,11 @@
 sidebar_label: "Typecast parenthesis padding"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/typecastparenpad" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

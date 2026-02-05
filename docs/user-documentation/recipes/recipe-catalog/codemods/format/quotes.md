@@ -2,6 +2,11 @@
 sidebar_label: "Enforce the consistent use of either backticks, double, or single quotes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/quotes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

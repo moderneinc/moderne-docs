@@ -2,6 +2,11 @@
 sidebar_label: "Replace `SSLSession.getPeerCertificateChain()` method"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/removedsslsessiongetpeercertificatechainmethodimpl" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

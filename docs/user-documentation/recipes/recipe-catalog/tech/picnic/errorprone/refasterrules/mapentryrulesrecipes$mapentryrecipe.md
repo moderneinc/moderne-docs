@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Map#entry(Object, Object)` over alternative ways to create an immutable map entry"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentryrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

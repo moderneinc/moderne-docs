@@ -2,6 +2,11 @@
 sidebar_label: "Use modernized `javax.management.monitor` APIs"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/javaxmanagementmonitorapis" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

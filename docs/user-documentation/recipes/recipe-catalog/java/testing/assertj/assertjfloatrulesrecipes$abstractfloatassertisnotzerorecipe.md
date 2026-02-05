@@ -2,6 +2,11 @@
 sidebar_label: "Replace `isNotEqualTo(0)` with `isNotZero()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisnotzerorecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

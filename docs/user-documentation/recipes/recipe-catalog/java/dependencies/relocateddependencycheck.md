@@ -2,6 +2,11 @@
 sidebar_label: "Find relocated dependencies"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dependencies/relocateddependencycheck" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

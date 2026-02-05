@@ -2,6 +2,11 @@
 sidebar_label: "Change Maven and Gradle Java version property values to 17"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/javaversion17" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

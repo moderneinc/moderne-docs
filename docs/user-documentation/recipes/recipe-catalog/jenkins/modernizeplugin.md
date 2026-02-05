@@ -2,6 +2,11 @@
 sidebar_label: "Modernize a Jenkins plugin to the latest recommended versions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/jenkins/modernizeplugin" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

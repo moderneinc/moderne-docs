@@ -2,6 +2,11 @@
 sidebar_label: "Remove deprecated API's not supported in CDI4.0"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/deprecatedcdiapisremoved40" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Add explicit Inject dependencies"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/addinjectdependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Enforce maximum of props on a single line in JSX"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/jsxmaxpropsperline" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

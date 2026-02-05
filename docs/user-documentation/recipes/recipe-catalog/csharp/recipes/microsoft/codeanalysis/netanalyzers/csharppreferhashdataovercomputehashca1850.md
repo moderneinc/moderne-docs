@@ -2,6 +2,11 @@
 sidebar_label: "Prefer static 'HashData' method over 'ComputeHash'"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharppreferhashdataovercomputehashca1850" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

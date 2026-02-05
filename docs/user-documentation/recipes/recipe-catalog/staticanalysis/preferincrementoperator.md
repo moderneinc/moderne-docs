@@ -2,6 +2,11 @@
 sidebar_label: "Prefer increment/decrement and compound assignment operators"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/preferincrementoperator" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

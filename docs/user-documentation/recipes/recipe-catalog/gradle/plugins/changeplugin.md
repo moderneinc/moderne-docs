@@ -2,6 +2,11 @@
 sidebar_label: "Change a Gradle plugin"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/plugins/changeplugin" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

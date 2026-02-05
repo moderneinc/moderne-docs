@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.annotation.security` packages to `jakarta.annotation.security`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxannotationsecuritypackagetojakarta" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

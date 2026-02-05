@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to the New Image Component"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v13_0/nextimageexperimental" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

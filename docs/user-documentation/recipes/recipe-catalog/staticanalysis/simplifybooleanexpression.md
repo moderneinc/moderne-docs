@@ -2,6 +2,11 @@
 sidebar_label: "Simplify boolean expression"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/simplifybooleanexpression" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

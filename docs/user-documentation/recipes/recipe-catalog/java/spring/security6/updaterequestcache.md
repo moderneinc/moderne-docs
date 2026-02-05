@@ -2,6 +2,11 @@
 sidebar_label: "Keep the default RequestCache querying behavior in Spring Security 5"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security6/updaterequestcache" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

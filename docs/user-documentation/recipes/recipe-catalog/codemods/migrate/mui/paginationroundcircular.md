@@ -2,6 +2,11 @@
 sidebar_label: "Updates `circular` prop to `variant=&quot;circular&quot;`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/paginationroundcircular" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

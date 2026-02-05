@@ -2,6 +2,11 @@
 sidebar_label: "Adds Mockito extensions to Mockito tests"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/addmockitoextensionifannotationsused" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

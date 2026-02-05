@@ -2,6 +2,11 @@
 sidebar_label: "Moved the camel-cloudevents api into camel-api and removed the camel-cloudevents"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel47/removeddependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

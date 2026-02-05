@@ -2,6 +2,11 @@
 sidebar_label: "Enforce or disallow spaces around equal signs in JSX attributes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxequalsspacing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJByteRules.AbstractByteAssertIsEqualTo`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisequaltorecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

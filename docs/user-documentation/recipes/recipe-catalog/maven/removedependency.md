@@ -2,6 +2,11 @@
 sidebar_label: "Remove Maven dependency"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/removedependency" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

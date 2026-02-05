@@ -2,6 +2,11 @@
 sidebar_label: "Automatically select recipe examples from the unit test cases of a recipe"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/selectrecipeexamples" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

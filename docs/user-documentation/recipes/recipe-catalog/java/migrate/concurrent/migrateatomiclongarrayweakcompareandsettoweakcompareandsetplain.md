@@ -2,6 +2,11 @@
 sidebar_label: "Use `AtomicLongArray#weakCompareAndSetPlain(int, long, long)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/concurrent/migrateatomiclongarrayweakcompareandsettoweakcompareandsetplain" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

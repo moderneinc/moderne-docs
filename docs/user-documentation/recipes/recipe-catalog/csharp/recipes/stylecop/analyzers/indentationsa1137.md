@@ -2,6 +2,11 @@
 sidebar_label: "Elements should have the same indentation"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/indentationsa1137" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

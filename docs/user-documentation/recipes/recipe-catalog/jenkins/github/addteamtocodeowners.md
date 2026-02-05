@@ -2,6 +2,11 @@
 sidebar_label: "Add plugin developer team to CODEOWNERS"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/jenkins/github/addteamtocodeowners" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

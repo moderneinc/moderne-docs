@@ -2,6 +2,11 @@
 sidebar_label: "OpenRewrite recipe best practices"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/recipes/rewrite/openrewriterecipebestpractices" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

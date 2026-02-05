@@ -2,6 +2,11 @@
 sidebar_label: "Replace constant Enum.ToString with nameof"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/replaceenumtostringwithnameofma0052" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

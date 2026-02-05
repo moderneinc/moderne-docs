@@ -2,6 +2,11 @@
 sidebar_label: "Prefer the Java 11 standard library instead of Guava"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavajava11" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Disallow using jest.mock() factories without an explicit type parameter"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/jest/nountypedmockfactory" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

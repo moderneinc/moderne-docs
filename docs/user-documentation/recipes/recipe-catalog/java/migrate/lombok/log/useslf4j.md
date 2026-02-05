@@ -2,6 +2,11 @@
 sidebar_label: "Use `@Slf4` instead of explicit fields"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lombok/log/useslf4j" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

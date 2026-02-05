@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Micrometer 1.13"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/micrometer/upgrademicrometer_1_13" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

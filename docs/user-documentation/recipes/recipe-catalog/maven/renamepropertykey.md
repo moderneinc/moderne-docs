@@ -2,6 +2,11 @@
 sidebar_label: "Rename Maven property key"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/renamepropertykey" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

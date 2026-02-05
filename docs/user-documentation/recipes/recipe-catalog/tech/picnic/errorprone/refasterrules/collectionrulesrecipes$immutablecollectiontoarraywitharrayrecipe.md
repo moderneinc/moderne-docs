@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `CollectionRules.ImmutableCollectionToArrayWithArray`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$immutablecollectiontoarraywitharrayrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

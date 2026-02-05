@@ -2,6 +2,11 @@
 sidebar_label: "URI-like parameters should not be strings"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/uriparametersshouldnotbestringsca1054" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

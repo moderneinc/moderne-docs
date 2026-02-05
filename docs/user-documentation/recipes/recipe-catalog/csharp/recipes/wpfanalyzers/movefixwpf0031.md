@@ -2,6 +2,11 @@
 sidebar_label: "DependencyPropertyKey member must be declared before DependencyProperty member"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/movefixwpf0031" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

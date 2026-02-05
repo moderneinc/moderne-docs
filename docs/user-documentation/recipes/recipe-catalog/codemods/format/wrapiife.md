@@ -2,6 +2,11 @@
 sidebar_label: "Require parentheses around immediate &amp;#x60;function&amp;#x60; invocations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/wrapiife" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

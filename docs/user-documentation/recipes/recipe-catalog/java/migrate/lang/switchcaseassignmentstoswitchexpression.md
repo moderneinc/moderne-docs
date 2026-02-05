@@ -2,6 +2,11 @@
 sidebar_label: "Convert assigning Switch statements to Switch expressions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lang/switchcaseassignmentstoswitchexpression" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

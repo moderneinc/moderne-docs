@@ -2,6 +2,11 @@
 sidebar_label: "Use Maven 4 parent inference"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/useparentinference" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

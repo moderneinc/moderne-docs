@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `MicrometerRules.TagsOf1`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof1recipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace `StringUtils.replace(String, String, String)` with JDK provided API"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/maven/shared/mavensharedstringutilsrecipes$replacerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

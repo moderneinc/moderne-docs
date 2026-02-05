@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant argument value"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/simplifycallerargumentexpressionma0108" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

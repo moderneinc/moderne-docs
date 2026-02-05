@@ -2,6 +2,11 @@
 sidebar_label: "Blank lines"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/format/linebreaks" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

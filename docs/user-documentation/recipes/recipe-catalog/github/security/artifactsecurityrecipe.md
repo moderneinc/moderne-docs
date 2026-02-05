@@ -2,6 +2,11 @@
 sidebar_label: "Find credential persistence through GitHub Actions artifacts"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/security/artifactsecurityrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

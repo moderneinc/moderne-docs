@@ -2,6 +2,11 @@
 sidebar_label: "Single `@DocumentExample` per test class"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/singledocumentexample" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

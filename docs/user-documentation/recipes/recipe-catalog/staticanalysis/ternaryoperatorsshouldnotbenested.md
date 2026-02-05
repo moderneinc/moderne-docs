@@ -2,6 +2,11 @@
 sidebar_label: "Ternary operators should not be nested"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/ternaryoperatorsshouldnotbenested" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

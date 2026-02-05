@@ -2,6 +2,11 @@
 sidebar_label: "Find uses of `@Repeatable` annotations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/search/findrepeatableannotations" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

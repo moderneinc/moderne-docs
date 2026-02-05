@@ -2,6 +2,11 @@
 sidebar_label: "Require or disallow newlines around variable declarations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/onevardeclarationperline" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Add Managed Maven plugin"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/addmanagedplugin" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

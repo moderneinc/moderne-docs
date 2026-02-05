@@ -2,6 +2,11 @@
 sidebar_label: "Updates import paths for core styles"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/corestylesimport" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Recommended vue code cleanup"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/recommendedvuecodecleanup" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

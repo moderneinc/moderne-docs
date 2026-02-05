@@ -2,6 +2,11 @@
 sidebar_label: "Remove deprecated Freemarker `?html` built-in"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate6/removefreemarkerhtmlbuiltin" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

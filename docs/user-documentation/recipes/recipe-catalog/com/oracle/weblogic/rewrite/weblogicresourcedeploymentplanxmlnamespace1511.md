@@ -2,6 +2,11 @@
 sidebar_label: "Migrate xmlns entries in `resource-deployment-plan.xml` files to WebLogic 15.1.1"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogicresourcedeploymentplanxmlnamespace1511" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

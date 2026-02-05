@@ -2,6 +2,11 @@
 sidebar_label: "Migrate xmlns entries in `persistence.xml` files"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxpersistencexmltojakartapersistencexml" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

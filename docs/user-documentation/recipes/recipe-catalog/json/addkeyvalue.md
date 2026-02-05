@@ -2,6 +2,11 @@
 sidebar_label: "Add value to JSON Object"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/json/addkeyvalue" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

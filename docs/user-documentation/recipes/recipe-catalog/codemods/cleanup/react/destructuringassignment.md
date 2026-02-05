@@ -2,6 +2,11 @@
 sidebar_label: "Enforce consistent usage of destructuring assignment of props, state, and context"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/react/destructuringassignment" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

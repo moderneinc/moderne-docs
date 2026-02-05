@@ -2,6 +2,11 @@
 sidebar_label: "Find instances of type `Quark`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/core/findquarks" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

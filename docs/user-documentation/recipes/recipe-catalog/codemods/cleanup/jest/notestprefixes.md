@@ -2,6 +2,11 @@
 sidebar_label: "Require using .only and .skip over f and x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/jest/notestprefixes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

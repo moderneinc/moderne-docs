@@ -2,6 +2,11 @@
 sidebar_label: "Use modern date/time serialization defaults"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/usemoderndatetimeserialization" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

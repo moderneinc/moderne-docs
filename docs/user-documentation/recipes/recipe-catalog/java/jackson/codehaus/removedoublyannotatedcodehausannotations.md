@@ -2,6 +2,11 @@
 sidebar_label: "Remove Codehaus Jackson annotations if doubly annotated"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/codehaus/removedoublyannotatedcodehausannotations" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJRules.AssertThatStreamContainsOnly`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsonlyrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

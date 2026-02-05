@@ -2,6 +2,11 @@
 sidebar_label: "Control flow visualization"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/analysis/controlflow/controlflowvisualization" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

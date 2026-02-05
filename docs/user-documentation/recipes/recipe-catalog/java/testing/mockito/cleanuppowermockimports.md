@@ -2,6 +2,11 @@
 sidebar_label: "Cleanup PowerMock imports"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/cleanuppowermockimports" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

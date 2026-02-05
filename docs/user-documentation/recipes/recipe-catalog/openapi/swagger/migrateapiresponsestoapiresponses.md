@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from `@ApiResponses` to `@ApiResponses`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/openapi/swagger/migrateapiresponsestoapiresponses" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

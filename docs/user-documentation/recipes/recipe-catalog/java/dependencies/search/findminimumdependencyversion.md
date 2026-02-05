@@ -2,6 +2,11 @@
 sidebar_label: "Find the oldest matching dependency version in use"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dependencies/search/findminimumdependencyversion" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

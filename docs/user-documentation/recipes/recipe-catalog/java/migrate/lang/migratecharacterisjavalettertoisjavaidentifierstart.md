@@ -2,6 +2,11 @@
 sidebar_label: "Use `Character#isJavaIdentifierStart(char)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lang/migratecharacterisjavalettertoisjavaidentifierstart" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

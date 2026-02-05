@@ -2,6 +2,11 @@
 sidebar_label: "Apache Maven best practices"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/apachemavenbestpractices" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

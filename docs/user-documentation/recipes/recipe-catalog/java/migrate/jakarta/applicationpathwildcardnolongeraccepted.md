@@ -2,6 +2,11 @@
 sidebar_label: "Remove trailing slash from `jakarta.ws.rs.ApplicationPath` values"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/applicationpathwildcardnolongeraccepted" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

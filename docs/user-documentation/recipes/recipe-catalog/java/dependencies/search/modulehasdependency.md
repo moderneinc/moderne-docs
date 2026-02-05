@@ -2,6 +2,11 @@
 sidebar_label: "Module has dependency"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dependencies/search/modulehasdependency" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

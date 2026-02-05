@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `TestNGToAssertJRules.AssertEqualSetsWithMessage`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalsetswithmessagerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

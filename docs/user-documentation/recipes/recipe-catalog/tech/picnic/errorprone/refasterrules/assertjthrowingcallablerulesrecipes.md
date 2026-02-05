@@ -2,6 +2,11 @@
 sidebar_label: "Refaster rules related to AssertJ assertions over expressions that may throw a `Throwable` subtype"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

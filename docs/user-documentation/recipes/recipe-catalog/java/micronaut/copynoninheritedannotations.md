@@ -2,6 +2,11 @@
 sidebar_label: "Copy non-inherited annotations from super class"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/copynoninheritedannotations" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

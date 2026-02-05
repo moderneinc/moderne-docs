@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant field initialization"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/variabledeclaratorrcs1129" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

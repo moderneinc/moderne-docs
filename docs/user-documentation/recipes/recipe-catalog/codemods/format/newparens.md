@@ -2,6 +2,11 @@
 sidebar_label: "Enforce or disallow parentheses when invoking a constructor with no arguments"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/newparens" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Avoid unnecessary boxing of value type"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/avoidboxingofvaluetypercs1198" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

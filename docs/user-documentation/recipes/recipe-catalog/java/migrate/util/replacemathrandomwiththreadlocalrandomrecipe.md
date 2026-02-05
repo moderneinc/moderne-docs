@@ -2,6 +2,11 @@
 sidebar_label: "Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/util/replacemathrandomwiththreadlocalrandomrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

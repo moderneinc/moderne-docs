@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `ImmutableSetRules.ImmutableSetOf4`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesetrulesrecipes$immutablesetof4recipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

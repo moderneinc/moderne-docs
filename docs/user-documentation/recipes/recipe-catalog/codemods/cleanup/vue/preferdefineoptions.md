@@ -2,6 +2,11 @@
 sidebar_label: "Enforce use of defineOptions instead of default export"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/preferdefineoptions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

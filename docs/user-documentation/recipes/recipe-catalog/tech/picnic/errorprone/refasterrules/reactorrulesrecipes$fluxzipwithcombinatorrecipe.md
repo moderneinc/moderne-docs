@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `ReactorRules.FluxZipWithCombinator`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxzipwithcombinatorrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

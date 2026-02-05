@@ -2,6 +2,11 @@
 sidebar_label: "Migrates Spring Kafka deprecated error handlers"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/kafka/upgradespringkafka_2_8_errorhandlers" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

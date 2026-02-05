@@ -2,6 +2,11 @@
 sidebar_label: "Declare using directive on top level"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/namespacedeclarationrcs1094" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

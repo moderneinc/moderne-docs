@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Spring Security 7.0"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security7/upgradespringsecurity_7_0" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

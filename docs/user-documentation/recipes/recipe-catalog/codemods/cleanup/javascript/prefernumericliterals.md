@@ -2,6 +2,11 @@
 sidebar_label: "Disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefernumericliterals" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

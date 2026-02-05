@@ -2,6 +2,11 @@
 sidebar_label: "Use Jenkins API plugin instead of libraries"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/jenkins/replacelibrarieswithapiplugin" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

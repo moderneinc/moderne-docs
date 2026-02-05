@@ -2,6 +2,11 @@
 sidebar_label: "Format TypeScript using ESLint Prettier plugin"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/ecmascript/eslinttypescriptprettier" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

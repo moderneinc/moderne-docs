@@ -2,6 +2,11 @@
 sidebar_label: "Remove deprecated `net._setSimultaneousAccepts()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/net/remove-set-simultaneous-accepts" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

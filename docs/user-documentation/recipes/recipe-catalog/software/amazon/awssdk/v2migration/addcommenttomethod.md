@@ -2,6 +2,11 @@
 sidebar_label: "Add a comment to a method"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/addcommenttomethod" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

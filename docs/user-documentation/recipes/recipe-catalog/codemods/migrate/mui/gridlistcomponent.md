@@ -2,6 +2,11 @@
 sidebar_label: "Converts GridList to use Grid component"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/gridlistcomponent" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

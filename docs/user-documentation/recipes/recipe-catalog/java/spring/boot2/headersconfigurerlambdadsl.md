@@ -2,6 +2,11 @@
 sidebar_label: "Convert `HeadersConfigurer` chained calls into Lambda DSL"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/headersconfigurerlambdadsl" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

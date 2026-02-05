@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `java.util.Base64` instead of `sun.misc`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/usejavautilbase64" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

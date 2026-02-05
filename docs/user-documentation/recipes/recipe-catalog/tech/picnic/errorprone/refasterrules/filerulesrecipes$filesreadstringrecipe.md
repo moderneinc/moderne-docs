@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `FileRules.FilesReadString`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesreadstringrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

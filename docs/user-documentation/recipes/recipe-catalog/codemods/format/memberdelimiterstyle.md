@@ -2,6 +2,11 @@
 sidebar_label: "Require a specific member delimiter style for interfaces and type literals"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/memberdelimiterstyle" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

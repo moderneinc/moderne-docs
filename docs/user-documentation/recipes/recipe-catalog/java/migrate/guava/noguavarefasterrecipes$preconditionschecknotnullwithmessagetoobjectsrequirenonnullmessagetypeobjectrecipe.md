@@ -2,6 +2,11 @@
 sidebar_label: "`Preconditions.checkNotNull` with `Object` message to `Objects.requireNonNull` with `String.valueOf`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavarefasterrecipes$preconditionschecknotnullwithmessagetoobjectsrequirenonnullmessagetypeobjectrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

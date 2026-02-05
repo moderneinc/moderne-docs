@@ -2,6 +2,11 @@
 sidebar_label: "Prefer using `Set#size` instead of `Array#length`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefersetsize" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

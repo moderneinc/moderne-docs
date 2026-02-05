@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.validation` packages to `jakarta.validation`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxvalidationmigrationtojakartavalidation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant casts"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/removeredundanttypecast" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

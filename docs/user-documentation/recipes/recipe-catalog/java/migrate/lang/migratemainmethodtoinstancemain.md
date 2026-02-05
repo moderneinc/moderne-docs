@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `public static void main(String[] args)` to instance `void main()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lang/migratemainmethodtoinstancemain" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

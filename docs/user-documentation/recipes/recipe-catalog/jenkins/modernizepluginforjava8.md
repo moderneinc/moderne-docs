@@ -2,6 +2,11 @@
 sidebar_label: "Modernize a Jenkins plugin to the latest versions supported by Java 8"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/jenkins/modernizepluginforjava8" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

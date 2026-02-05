@@ -2,6 +2,11 @@
 sidebar_label: "Use `native` profile in `quarkus-maven-plugin`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/migratequarkusmavenpluginnativeimagegoal" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

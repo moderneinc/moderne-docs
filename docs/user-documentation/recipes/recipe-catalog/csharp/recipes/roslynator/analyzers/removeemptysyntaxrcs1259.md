@@ -2,6 +2,11 @@
 sidebar_label: "Remove empty syntax"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeemptysyntaxrcs1259" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

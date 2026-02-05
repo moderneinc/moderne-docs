@@ -2,6 +2,11 @@
 sidebar_label: "Week Year (YYYY) should not be used for date formatting"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/replaceweekyearwithyear" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

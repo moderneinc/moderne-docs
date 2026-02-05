@@ -2,6 +2,11 @@
 sidebar_label: "Enforce lowercase test names"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/jest/preferlowercasetitle" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

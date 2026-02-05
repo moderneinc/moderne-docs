@@ -2,6 +2,11 @@
 sidebar_label: "Replace Spring Kafka with Quarkus Messaging Kafka"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/springkafkatoquarkusreactive" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Parameter name differs from base name"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/parameternamediffersfrombasercs1168" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

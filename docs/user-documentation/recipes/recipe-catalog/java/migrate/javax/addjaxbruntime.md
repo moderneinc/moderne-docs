@@ -2,6 +2,11 @@
 sidebar_label: "Use latest JAXB API and runtime for Jakarta EE 8"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/addjaxbruntime" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Find missing `@Option` `example` values"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/missingoptionexample" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Adds `DefaultTheme` module augmentation to typescript projects"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/themeaugment" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade Faces open source libraries"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/upgradefaces4opensourcelibraries" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

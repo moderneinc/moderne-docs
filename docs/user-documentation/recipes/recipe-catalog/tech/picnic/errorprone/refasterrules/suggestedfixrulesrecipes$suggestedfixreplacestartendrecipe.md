@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `SuggestedFixRules.SuggestedFixReplaceStartEnd`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixreplacestartendrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

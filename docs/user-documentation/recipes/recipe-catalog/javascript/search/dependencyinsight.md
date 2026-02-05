@@ -2,6 +2,11 @@
 sidebar_label: "Node.js dependency insight"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/javascript/search/dependencyinsight" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

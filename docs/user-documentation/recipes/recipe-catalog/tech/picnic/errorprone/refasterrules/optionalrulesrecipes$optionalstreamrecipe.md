@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `OptionalRules.OptionalStream`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalstreamrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

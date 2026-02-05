@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Spring Cloud 2022"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/cloud2022/upgradespringcloud_2022" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

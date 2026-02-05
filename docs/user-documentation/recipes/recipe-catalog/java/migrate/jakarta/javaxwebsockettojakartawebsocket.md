@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.websocket` packages to `jakarta.websocket`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxwebsockettojakartawebsocket" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Moves tree view to `@mui/x-tree-view`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/treeviewmovedtox" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

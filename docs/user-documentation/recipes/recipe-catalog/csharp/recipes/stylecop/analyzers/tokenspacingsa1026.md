@@ -2,6 +2,11 @@
 sidebar_label: "Code should not contain space after new or stackalloc keyword in implicitly typed array allocation"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1026" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

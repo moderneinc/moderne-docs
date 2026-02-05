@@ -2,6 +2,11 @@
 sidebar_label: "Replace `StringUtils.reverse(String)` with JDK provided API"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$reverserecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Find messaging connections"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/prethink/calm/findmessagingconnections" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Disallow extra closing tags for components without children"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/react/selfclosingcomp" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

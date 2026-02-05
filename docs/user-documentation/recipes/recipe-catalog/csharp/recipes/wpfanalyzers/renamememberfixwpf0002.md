@@ -2,6 +2,11 @@
 sidebar_label: "Backing field for a DependencyPropertyKey should match registered name"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/renamememberfixwpf0002" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

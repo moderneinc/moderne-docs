@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Hamcrest `is(Object)` to AssertJ"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/hamcrest/hamcrestismatchertoassertj" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

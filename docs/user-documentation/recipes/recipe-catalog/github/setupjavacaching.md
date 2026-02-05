@@ -2,6 +2,11 @@
 sidebar_label: "Setup Java dependency caching"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/setupjavacaching" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

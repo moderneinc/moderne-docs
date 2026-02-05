@@ -2,6 +2,11 @@
 sidebar_label: "[deprecated] Format documentation summary on multiple lines"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/singlelinedocumentationcommenttriviarcs1101" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

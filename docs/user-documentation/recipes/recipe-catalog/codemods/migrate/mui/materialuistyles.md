@@ -2,6 +2,11 @@
 sidebar_label: "Updates usage of `@mui/styles`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/materialuistyles" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

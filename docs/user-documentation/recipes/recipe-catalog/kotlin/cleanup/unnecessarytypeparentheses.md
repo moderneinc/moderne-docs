@@ -2,6 +2,11 @@
 sidebar_label: "Remove unnecessary parentheses on Kotlin types"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/kotlin/cleanup/unnecessarytypeparentheses" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

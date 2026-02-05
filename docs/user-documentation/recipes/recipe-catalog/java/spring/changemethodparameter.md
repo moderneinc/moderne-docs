@@ -2,6 +2,11 @@
 sidebar_label: "Change parameter type for a method declaration"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/changemethodparameter" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

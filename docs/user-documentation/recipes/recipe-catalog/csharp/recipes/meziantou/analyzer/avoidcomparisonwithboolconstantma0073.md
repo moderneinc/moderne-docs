@@ -2,6 +2,11 @@
 sidebar_label: "Avoid comparison with bool constant"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/avoidcomparisonwithboolconstantma0073" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

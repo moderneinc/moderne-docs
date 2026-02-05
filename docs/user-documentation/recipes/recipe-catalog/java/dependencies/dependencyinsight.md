@@ -2,6 +2,11 @@
 sidebar_label: "Dependency insight for Gradle and Maven"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dependencies/dependencyinsight" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

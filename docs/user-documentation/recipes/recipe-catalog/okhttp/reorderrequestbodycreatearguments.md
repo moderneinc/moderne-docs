@@ -2,6 +2,11 @@
 sidebar_label: "Reorder the arguments of `RequestBody.create()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/okhttp/reorderrequestbodycreatearguments" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

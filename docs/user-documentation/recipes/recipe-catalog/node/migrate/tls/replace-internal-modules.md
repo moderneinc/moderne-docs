@@ -2,6 +2,11 @@
 sidebar_label: "Replace deprecated `node:_tls_common` and `node:_tls_wrap` with `node:tls`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/tls/replace-internal-modules" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

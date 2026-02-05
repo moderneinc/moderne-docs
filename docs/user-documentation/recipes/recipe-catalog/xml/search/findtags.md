@@ -2,6 +2,11 @@
 sidebar_label: "Find XML tags"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/search/findtags" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Abstract type should not have public constructors"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/constructordeclarationrcs1160" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use `ManagementFactory#getPlatformMXBean(PlatformLoggingMXBean.class)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/logging/migrategetloggingmxbeantogetplatformmxbean" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

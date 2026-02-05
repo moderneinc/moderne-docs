@@ -2,6 +2,11 @@
 sidebar_label: "Static holder types should be Static or NotInheritable"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpstaticholdertypesca1052" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

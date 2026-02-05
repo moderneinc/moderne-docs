@@ -2,6 +2,11 @@
 sidebar_label: "Prefer modern Math APIs over legacy patterns"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefermodernmathapis" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

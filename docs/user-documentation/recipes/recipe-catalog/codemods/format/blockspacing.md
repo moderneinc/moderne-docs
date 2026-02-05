@@ -2,6 +2,11 @@
 sidebar_label: "Disallow or enforce spaces inside of blocks after opening block and before closing block"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/blockspacing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

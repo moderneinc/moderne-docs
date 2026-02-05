@@ -2,6 +2,11 @@
 sidebar_label: "Declare each type in separate file"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/extractmembertonewdocumentrcs1060" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

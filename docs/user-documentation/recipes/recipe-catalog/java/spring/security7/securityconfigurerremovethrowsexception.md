@@ -2,6 +2,11 @@
 sidebar_label: "Remove throws exception in `SecurityConfigurer` methods `init` and `configure`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security7/securityconfigurerremovethrowsexception" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

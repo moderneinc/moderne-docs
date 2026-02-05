@@ -2,6 +2,11 @@
 sidebar_label: "Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/crypto/replace-crypto-fips" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

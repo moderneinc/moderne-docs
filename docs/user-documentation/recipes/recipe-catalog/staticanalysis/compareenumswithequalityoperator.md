@@ -2,6 +2,11 @@
 sidebar_label: "Enum values should be compared with &quot;==&quot;"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/compareenumswithequalityoperator" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

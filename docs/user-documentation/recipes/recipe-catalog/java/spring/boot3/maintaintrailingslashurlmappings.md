@@ -2,6 +2,11 @@
 sidebar_label: "Maintain trailing slash URL mappings"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/maintaintrailingslashurlmappings" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

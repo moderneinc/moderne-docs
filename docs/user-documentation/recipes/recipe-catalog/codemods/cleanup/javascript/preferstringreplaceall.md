@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `String#replaceAll()` over regex searches with the global flag"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferstringreplaceall" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

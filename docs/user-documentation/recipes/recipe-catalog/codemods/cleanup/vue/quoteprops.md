@@ -2,6 +2,11 @@
 sidebar_label: "Require quotes around object literal property names in `&lt;template&gt;`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/quoteprops" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

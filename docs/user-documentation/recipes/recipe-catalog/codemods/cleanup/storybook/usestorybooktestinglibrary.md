@@ -2,6 +2,11 @@
 sidebar_label: "Do not use testing-library directly on stories"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/storybook/usestorybooktestinglibrary" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

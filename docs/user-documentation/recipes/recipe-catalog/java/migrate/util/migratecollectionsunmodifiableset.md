@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Set.of(..)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/util/migratecollectionsunmodifiableset" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

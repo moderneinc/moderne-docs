@@ -2,6 +2,11 @@
 sidebar_label: "End files with a single newline"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/format/emptynewlineatendoffile" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

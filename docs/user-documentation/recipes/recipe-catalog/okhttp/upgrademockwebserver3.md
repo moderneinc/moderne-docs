@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to MockWebServer3 (core module)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/okhttp/upgrademockwebserver3" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

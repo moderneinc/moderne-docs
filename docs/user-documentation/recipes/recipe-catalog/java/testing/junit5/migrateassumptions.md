@@ -2,6 +2,11 @@
 sidebar_label: "Use `Assertions#assume*(..)` and Hamcrest's `MatcherAssume#assume*(..)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/migrateassumptions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

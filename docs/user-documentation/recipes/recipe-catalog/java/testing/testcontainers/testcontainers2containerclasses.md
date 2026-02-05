@@ -2,6 +2,11 @@
 sidebar_label: "Testcontainers 2 container classes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/testcontainers/testcontainers2containerclasses" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

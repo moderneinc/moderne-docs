@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.annotation` to `jakarta.annotation`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxannotationmigrationtojakartaannotation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

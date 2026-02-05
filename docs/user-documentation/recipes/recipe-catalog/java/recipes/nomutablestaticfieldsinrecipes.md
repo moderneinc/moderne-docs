@@ -2,6 +2,11 @@
 sidebar_label: "Recipe classes should not have mutable `static` fields"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/nomutablestaticfieldsinrecipes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

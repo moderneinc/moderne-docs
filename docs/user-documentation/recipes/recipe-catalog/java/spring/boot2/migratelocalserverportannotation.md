@@ -2,6 +2,11 @@
 sidebar_label: "Use `org.springframework.boot.web.server.LocalServerPort`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/migratelocalserverportannotation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `setReadTimeout(java.lang.int)` to SocketConfig `setSoTimeout(..)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/framework/httpcomponentsclienthttprequestfactoryreadtimeout" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

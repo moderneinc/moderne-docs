@@ -2,6 +2,11 @@
 sidebar_label: "Use `ErrorAttributes#getErrorAttributes(WebRequest, ErrorAttributeOptions)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/geterrorattributes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

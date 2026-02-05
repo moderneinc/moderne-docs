@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Map.of(..)` in Java 9 or higher"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavaimmutablemapof" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

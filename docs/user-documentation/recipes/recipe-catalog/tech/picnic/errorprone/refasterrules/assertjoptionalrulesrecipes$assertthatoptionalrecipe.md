@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJOptionalRules.AssertThatOptional`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

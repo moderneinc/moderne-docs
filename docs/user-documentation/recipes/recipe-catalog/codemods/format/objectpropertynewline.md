@@ -2,6 +2,11 @@
 sidebar_label: "Enforce placing object properties on separate lines"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/objectpropertynewline" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

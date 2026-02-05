@@ -2,6 +2,11 @@
 sidebar_label: "Preprocessor keywords should not be preceded by space"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1006" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

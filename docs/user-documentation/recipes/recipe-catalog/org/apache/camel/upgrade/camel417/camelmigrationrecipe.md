@@ -2,6 +2,11 @@
 sidebar_label: "Migrates `camel 4.16` application to `camel 4.17`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel417/camelmigrationrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

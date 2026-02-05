@@ -2,6 +2,11 @@
 sidebar_label: "Use `Collection` interfaces"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/usecollectioninterfaces" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

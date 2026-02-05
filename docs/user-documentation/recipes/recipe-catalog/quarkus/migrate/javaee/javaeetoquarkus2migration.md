@@ -2,6 +2,11 @@
 sidebar_label: "Migrate JavaEE to Quarkus 2"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/migrate/javaee/javaeetoquarkus2migration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "MemoryStateRepository and FileStateRepository were moved to another package and library"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel43/staterepository" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

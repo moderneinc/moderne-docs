@@ -2,6 +2,11 @@
 sidebar_label: "Require static class names in template to be in a separate class attribute"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/preferseparatestaticclass" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

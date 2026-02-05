@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Jakarta EE 9.1"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakartaee9_1" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

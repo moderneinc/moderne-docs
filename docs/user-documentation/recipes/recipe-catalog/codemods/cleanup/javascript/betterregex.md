@@ -2,6 +2,11 @@
 sidebar_label: "Improve regexes by making them shorter, consistent, and safer"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/betterregex" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

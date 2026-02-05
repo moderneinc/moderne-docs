@@ -2,6 +2,11 @@
 sidebar_label: "Use `ClassLoader#defineClass(String, byte[], int, int)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lang/migrateclassloaderdefineclass" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

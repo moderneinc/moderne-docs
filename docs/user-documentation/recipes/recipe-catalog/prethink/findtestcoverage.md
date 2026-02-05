@@ -2,6 +2,11 @@
 sidebar_label: "Find test coverage mapping"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/prethink/findtestcoverage" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

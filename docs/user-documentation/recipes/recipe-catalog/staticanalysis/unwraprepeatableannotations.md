@@ -2,6 +2,11 @@
 sidebar_label: "Unwrap `@Repeatable` annotations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/unwraprepeatableannotations" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

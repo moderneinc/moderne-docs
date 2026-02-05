@@ -2,6 +2,11 @@
 sidebar_label: "Change new objects creation to Builder pattern"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/newclasstobuilderpattern" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

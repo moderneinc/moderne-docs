@@ -2,6 +2,11 @@
 sidebar_label: "Use IOUtils method that include  their charset encoding"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/io/apacheioutilsuseexplicitcharset" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

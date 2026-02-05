@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `StreamRules.StreamDistinctSortedWithComparator`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamdistinctsortedwithcomparatorrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

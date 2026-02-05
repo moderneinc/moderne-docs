@@ -2,6 +2,11 @@
 sidebar_label: "Use `actions/setup-java` `temurin` distribution"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/setupjavaadoptopenjdktotemurin" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Unused element in a documentation comment"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeelementindocumentationcommentrcs1228" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

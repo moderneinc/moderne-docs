@@ -2,6 +2,11 @@
 sidebar_label: "Migrate DTD to a specific Struts version"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migratestrutsdtd" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Positive signs should be spaced correctly"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1022" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

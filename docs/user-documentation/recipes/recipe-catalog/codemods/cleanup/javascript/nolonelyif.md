@@ -2,6 +2,11 @@
 sidebar_label: "Disallow if statements as the only statement in else blocks"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nolonelyif" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

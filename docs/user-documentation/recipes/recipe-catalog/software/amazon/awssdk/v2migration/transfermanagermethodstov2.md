@@ -2,6 +2,11 @@
 sidebar_label: "Transfer Manager Methods to V2"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/transfermanagermethodstov2" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

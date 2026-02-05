@@ -2,6 +2,11 @@
 sidebar_label: "The callback is trivial, convert to lambda"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/converttolambdafixwpf0023" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

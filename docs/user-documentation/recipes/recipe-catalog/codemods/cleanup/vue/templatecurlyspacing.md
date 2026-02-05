@@ -2,6 +2,11 @@
 sidebar_label: "Require or disallow spacing around embedded expressions of template strings in `&lt;template&gt;`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/templatecurlyspacing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

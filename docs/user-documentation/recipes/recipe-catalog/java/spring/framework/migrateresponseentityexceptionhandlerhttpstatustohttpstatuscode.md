@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `ResponseEntityExceptionHandler` from HttpStatus to HttpStatusCode"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/framework/migrateresponseentityexceptionhandlerhttpstatustohttpstatuscode" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

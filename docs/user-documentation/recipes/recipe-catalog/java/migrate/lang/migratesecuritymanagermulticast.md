@@ -2,6 +2,11 @@
 sidebar_label: "Use `SecurityManager#checkMulticast(InetAddress)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lang/migratesecuritymanagermulticast" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Hibernate 6.5.x (Community Edition)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/hibernate/migratetohibernate65" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

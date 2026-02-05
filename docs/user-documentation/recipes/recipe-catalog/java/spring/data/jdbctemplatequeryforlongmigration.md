@@ -2,6 +2,11 @@
 sidebar_label: "Convert `JdbcTemplate.queryForLong(..)` to `queryForObject(..)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/data/jdbctemplatequeryforlongmigration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

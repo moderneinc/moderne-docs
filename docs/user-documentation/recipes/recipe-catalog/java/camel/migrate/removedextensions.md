@@ -2,6 +2,11 @@
 sidebar_label: "Remove non existing camel-quarkus extensions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/camel/migrate/removedextensions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

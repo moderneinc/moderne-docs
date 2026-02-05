@@ -2,6 +2,11 @@
 sidebar_label: "Remove XML tag"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/removexmltag" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Update the Micronaut Websocket support"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/addmicronautwebsocketdependencyifneeded" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

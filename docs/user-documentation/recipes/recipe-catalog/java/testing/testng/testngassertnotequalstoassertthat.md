@@ -2,6 +2,11 @@
 sidebar_label: "TestNG `assertNotEquals` to AssertJ"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/testng/testngassertnotequalstoassertthat" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

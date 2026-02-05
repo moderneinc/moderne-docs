@@ -2,6 +2,11 @@
 sidebar_label: "Use an explicit StringComparer when possible"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/donotuseequalitycomparerdefaultofstringma0024" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.inject` packages to `jakarta.inject`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxinjectmigrationtojakartainject" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

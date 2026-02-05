@@ -2,6 +2,11 @@
 sidebar_label: "JUnit `assertFalse` to AssertJ"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/assertj/junitassertfalsetoassertthat" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

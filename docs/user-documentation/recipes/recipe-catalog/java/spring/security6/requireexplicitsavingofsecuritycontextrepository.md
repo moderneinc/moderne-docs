@@ -2,6 +2,11 @@
 sidebar_label: "Remove explicit `SecurityContextConfigurer.requireExplicitSave(true)` opt-in"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security6/requireexplicitsavingofsecuritycontextrepository" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

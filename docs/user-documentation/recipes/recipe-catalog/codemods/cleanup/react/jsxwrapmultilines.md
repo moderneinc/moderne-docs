@@ -2,6 +2,11 @@
 sidebar_label: "Disallow missing parentheses around multiline JSX"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxwrapmultilines" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

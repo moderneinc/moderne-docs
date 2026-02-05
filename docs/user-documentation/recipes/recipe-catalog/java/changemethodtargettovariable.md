@@ -2,6 +2,11 @@
 sidebar_label: "Change method target to variable"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/changemethodtargettovariable" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

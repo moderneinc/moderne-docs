@@ -2,6 +2,11 @@
 sidebar_label: "Use 'HasFlag' method or bitwise operator"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usehasflagmethodorbitwiseoperatorrcs1096" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

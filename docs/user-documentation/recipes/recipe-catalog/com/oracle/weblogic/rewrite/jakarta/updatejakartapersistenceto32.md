@@ -2,6 +2,11 @@
 sidebar_label: "Update Jakarta Persistence to 3.2"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto32" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

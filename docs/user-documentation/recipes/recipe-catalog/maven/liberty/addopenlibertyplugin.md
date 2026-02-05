@@ -2,6 +2,11 @@
 sidebar_label: "Add Liberty Maven plugin"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/liberty/addopenlibertyplugin" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Auto-format JavaScript/TypeScript code"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/javascript/format/auto-format" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

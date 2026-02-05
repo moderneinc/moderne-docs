@@ -2,6 +2,11 @@
 sidebar_label: "Find distinct methods in use"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/search/finddistinctmethods" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Spring Framework 5.3"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/framework/upgradespringframework_5_3-community-edition" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

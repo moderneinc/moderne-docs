@@ -2,6 +2,11 @@
 sidebar_label: "Remove FF4j's `check` for feature key"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/featureflags/ff4j/removecheck" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

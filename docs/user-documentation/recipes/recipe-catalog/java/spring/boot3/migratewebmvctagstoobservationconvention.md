@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `WebMvcTagsProvider` to `DefaultServerRequestObservationConvention`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/migratewebmvctagstoobservationconvention" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

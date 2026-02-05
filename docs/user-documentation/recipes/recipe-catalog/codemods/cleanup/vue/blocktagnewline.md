@@ -2,6 +2,11 @@
 sidebar_label: "Enforce line breaks after opening and before closing block-level tags"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/blocktagnewline" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

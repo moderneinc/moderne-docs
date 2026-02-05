@@ -2,6 +2,11 @@
 sidebar_label: "Operator overloads have named alternates"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/operatoroverloadshavenamedalternatesca2225" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

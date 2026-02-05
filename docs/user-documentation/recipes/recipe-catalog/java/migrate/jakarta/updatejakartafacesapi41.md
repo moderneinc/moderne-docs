@@ -2,6 +2,11 @@
 sidebar_label: "Update Jakarta EE Java Faces Dependencies to 4.1.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatejakartafacesapi41" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

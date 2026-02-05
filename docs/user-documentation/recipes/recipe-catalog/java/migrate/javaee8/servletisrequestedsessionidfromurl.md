@@ -2,6 +2,11 @@
 sidebar_label: "Replace `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` with `isRequestedSessionIdFromURL()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javaee8/servletisrequestedsessionidfromurl" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

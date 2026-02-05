@@ -2,6 +2,11 @@
 sidebar_label: "Unnecessary semicolon at the end of declaration"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/memberdeclarationrcs1055" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

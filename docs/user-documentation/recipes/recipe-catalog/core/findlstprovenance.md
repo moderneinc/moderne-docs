@@ -2,6 +2,11 @@
 sidebar_label: "Find LST provenance"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/core/findlstprovenance" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace deprecated `fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK` with `fs.constants.*`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/fs/replace-fs-access-constants" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

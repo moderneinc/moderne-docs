@@ -2,6 +2,11 @@
 sidebar_label: "Remove explicit casts on `Arrays.asList(..).toArray()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/castarraysaslisttolist" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use `QuerydslPredicateExecutor&lt;T&gt;`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/data/migratequerydsljparepository" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

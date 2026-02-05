@@ -2,6 +2,11 @@
 sidebar_label: "Require or disallow newlines between sibling tags in template"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/paddinglinebetweentags" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use logger instead of `printStackTrace()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/printstacktracetologerror" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

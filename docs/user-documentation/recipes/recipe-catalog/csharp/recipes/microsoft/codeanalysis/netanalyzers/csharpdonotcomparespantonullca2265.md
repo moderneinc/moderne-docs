@@ -2,6 +2,11 @@
 sidebar_label: "Do not compare Span&lt;T&gt; to 'null' or 'default'"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdonotcomparespantonullca2265" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

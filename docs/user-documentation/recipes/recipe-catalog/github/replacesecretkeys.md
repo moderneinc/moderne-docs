@@ -2,6 +2,11 @@
 sidebar_label: "Replace secret key names in GitHub Actions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/replacesecretkeys" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

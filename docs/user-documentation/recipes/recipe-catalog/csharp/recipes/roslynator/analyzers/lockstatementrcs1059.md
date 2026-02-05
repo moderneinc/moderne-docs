@@ -2,6 +2,11 @@
 sidebar_label: "Avoid locking on publicly accessible instance"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/lockstatementrcs1059" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

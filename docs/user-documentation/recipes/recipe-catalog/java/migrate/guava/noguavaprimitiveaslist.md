@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Arrays.asList(..)` over Guava primitives"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavaprimitiveaslist" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

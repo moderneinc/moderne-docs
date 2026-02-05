@@ -2,6 +2,11 @@
 sidebar_label: "Find dangerous GITHUB_ENV usage"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/security/githubenvrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

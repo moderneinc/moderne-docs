@@ -2,6 +2,11 @@
 sidebar_label: "Convert setter methods to annotations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lombok/uselomboksetter" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "`PlexusFileUtils` Refaster recipes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codehaus/plexus/plexusfileutilsrecipes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

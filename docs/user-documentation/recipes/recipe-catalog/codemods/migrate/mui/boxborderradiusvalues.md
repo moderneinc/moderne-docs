@@ -2,6 +2,11 @@
 sidebar_label: "Updates `borderRadius` prop values"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/boxborderradiusvalues" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

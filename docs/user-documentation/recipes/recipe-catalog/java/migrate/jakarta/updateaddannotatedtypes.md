@@ -2,6 +2,11 @@
 sidebar_label: "Replace `BeforeBeanDiscovery.addAnnotatedType(AnnotatedType)` with `addAnnotatedType(AnnotatedType, String)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updateaddannotatedtypes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

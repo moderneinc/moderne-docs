@@ -2,6 +2,11 @@
 sidebar_label: "Prepend a random name to each Log4J statement"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/log4j/prependrandomname" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

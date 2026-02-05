@@ -2,6 +2,11 @@
 sidebar_label: "Add maven jar plugin to suppress illegal reflection warnings"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/addsuppressionforillegalreflectionwarningsplugin" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

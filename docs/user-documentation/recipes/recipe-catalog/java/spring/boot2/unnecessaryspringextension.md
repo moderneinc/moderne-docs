@@ -2,6 +2,11 @@
 sidebar_label: "Remove `@SpringExtension`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/unnecessaryspringextension" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

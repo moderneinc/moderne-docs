@@ -2,6 +2,11 @@
 sidebar_label: "Avoid using the deprecated empty `finalize()` method in `java.desktop`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/deletedeprecatedfinalize" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

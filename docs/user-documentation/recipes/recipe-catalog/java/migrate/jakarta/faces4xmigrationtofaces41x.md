@@ -2,6 +2,11 @@
 sidebar_label: "Jakarta Faces 4.0 to 4.1"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/faces4xmigrationtofaces41x" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

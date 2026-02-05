@@ -2,6 +2,11 @@
 sidebar_label: "Order imports"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/javascript/cleanup/order-imports" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

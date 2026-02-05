@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `java.util.Objects#hash`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavautilobjectshashcode" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

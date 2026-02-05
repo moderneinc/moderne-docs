@@ -2,6 +2,11 @@
 sidebar_label: "Find uses of internal javax APIs"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/search/findinternaljavaxapis" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

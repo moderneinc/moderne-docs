@@ -2,6 +2,11 @@
 sidebar_label: "Update Prethink context (with AI)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/prethink/updateprethinkcontextstarter" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

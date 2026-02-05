@@ -2,6 +2,11 @@
 sidebar_label: "Use `SunJSSE` instead of `com.sun.net.ssl.internal.ssl.Provider`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/removedlegacysunjsseprovidername" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

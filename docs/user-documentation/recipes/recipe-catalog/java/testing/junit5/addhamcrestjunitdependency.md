@@ -2,6 +2,11 @@
 sidebar_label: "Add Hamcrest JUnit dependency"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/addhamcrestjunitdependency" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

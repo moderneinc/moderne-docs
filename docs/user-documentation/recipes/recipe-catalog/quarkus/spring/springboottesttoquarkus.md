@@ -2,6 +2,11 @@
 sidebar_label: "Replace Spring Boot Test with Quarkus JUnit 5"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/springboottesttoquarkus" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

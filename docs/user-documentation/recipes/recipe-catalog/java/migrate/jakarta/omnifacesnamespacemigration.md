@@ -2,6 +2,11 @@
 sidebar_label: "OmniFaces Namespace Migration"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/omnifacesnamespacemigration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

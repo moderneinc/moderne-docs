@@ -2,6 +2,11 @@
 sidebar_label: "Migrates to Apache Commons Lang 3.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/lang/upgradeapachecommonslang_2_3" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

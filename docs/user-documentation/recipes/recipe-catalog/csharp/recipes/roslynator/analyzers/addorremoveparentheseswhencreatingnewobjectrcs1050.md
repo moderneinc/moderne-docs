@@ -2,6 +2,11 @@
 sidebar_label: "Include/omit parentheses when creating new object"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/addorremoveparentheseswhencreatingnewobjectrcs1050" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

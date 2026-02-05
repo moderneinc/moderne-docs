@@ -2,6 +2,11 @@
 sidebar_label: "Remove illegal semicolons"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/removeillegalsemicolons" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Fest 2.x to AssertJ"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/assertj/festtoassertj" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

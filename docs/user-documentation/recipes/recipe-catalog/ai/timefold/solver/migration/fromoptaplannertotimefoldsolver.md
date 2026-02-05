@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from OptaPlanner to Timefold Solver"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/ai/timefold/solver/migration/fromoptaplannertotimefoldsolver" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

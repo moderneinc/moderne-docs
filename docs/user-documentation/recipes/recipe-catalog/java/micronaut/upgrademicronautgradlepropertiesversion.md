@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade gradle.properties Micronaut version"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/upgrademicronautgradlepropertiesversion" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

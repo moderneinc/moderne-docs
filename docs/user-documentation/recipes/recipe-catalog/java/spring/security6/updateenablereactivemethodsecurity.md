@@ -2,6 +2,11 @@
 sidebar_label: "Remove the `useAuthorizationManager=true` attribute from `@EnableReactiveMethodSecurity`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security6/updateenablereactivemethodsecurity" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

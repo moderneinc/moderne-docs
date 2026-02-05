@@ -2,6 +2,11 @@
 sidebar_label: "Add trailing slash to Spring routes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/addroutetrailingslash" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

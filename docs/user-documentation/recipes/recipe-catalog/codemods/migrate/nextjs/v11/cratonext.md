@@ -2,6 +2,11 @@
 sidebar_label: "Rename Next Image Imports"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v11/cratonext" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

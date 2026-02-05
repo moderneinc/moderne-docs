@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant base constructor call"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/constructordeclarationrcs1071" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

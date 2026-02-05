@@ -2,6 +2,11 @@
 sidebar_label: "Remove `Thread.countStackFrames()` method"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/deprecatedcountstackframesmethod" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

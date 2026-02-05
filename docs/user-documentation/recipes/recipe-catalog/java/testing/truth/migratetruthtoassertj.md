@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Google Truth to AssertJ"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/truth/migratetruthtoassertj" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

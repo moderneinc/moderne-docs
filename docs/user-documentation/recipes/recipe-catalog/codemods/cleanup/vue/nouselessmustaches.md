@@ -2,6 +2,11 @@
 sidebar_label: "Disallow unnecessary mustache interpolations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/nouselessmustaches" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

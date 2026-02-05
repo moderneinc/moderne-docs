@@ -2,6 +2,11 @@
 sidebar_label: "Don't use final on local variables"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/nofinalizedlocalvariables" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

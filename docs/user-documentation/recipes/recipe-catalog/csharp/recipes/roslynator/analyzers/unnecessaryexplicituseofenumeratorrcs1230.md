@@ -2,6 +2,11 @@
 sidebar_label: "Unnecessary explicit use of enumerator"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/unnecessaryexplicituseofenumeratorrcs1230" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

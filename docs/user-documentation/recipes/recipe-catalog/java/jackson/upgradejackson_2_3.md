@@ -2,6 +2,11 @@
 sidebar_label: "Migrates from Jackson 2.x to Jackson 3.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/upgradejackson_2_3" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

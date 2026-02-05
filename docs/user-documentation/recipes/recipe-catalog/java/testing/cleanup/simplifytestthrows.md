@@ -2,6 +2,11 @@
 sidebar_label: "Simplify `throws` statements of tests"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/cleanup/simplifytestthrows" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

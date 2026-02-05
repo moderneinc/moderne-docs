@@ -2,6 +2,11 @@
 sidebar_label: "Check for github-actions updates weekly"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/dependabotcheckforgithubactionsupdatesweekly" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

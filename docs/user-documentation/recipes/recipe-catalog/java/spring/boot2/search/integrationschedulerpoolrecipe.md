@@ -2,6 +2,11 @@
 sidebar_label: "Integration scheduler pool size"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/search/integrationschedulerpoolrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

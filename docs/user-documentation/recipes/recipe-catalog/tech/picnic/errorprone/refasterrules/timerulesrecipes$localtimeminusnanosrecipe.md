@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `TimeRules.LocalTimeMinusNanos`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$localtimeminusnanosrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

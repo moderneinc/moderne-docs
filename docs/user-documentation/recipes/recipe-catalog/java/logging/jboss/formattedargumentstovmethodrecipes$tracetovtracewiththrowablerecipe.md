@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `FormattedArgumentsToVMethod.TraceToVTraceWithThrowable`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/jboss/formattedargumentstovmethodrecipes$tracetovtracewiththrowablerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

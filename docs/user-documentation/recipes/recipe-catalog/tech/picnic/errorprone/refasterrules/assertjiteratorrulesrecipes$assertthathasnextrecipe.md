@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJIteratorRules.AssertThatHasNext`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjiteratorrulesrecipes$assertthathasnextrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

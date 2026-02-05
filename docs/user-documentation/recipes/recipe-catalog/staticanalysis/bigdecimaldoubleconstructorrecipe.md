@@ -2,6 +2,11 @@
 sidebar_label: "`new BigDecimal(double)` should not be used"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/bigdecimaldoubleconstructorrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

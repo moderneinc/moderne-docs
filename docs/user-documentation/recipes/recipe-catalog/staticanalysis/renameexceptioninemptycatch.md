@@ -2,6 +2,11 @@
 sidebar_label: "Rename caught exceptions in empty catch blocks to `ignored`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/renameexceptioninemptycatch" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Inline method calls"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/inlinemethodcalls" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

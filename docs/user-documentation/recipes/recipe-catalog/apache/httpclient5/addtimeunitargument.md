@@ -2,6 +2,11 @@
 sidebar_label: "Adds a TimeUnit argument to the matched method invocations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/addtimeunitargument" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

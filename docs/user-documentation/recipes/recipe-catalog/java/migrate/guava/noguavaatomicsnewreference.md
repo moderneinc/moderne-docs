@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `new AtomicReference&lt;&gt;()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavaatomicsnewreference" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

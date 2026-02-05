@@ -2,6 +2,11 @@
 sidebar_label: "Replace `StringUtils.upperCase(String)` with JDK provided API"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codehaus/plexus/plexusstringutilsrecipes$uppercaserecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

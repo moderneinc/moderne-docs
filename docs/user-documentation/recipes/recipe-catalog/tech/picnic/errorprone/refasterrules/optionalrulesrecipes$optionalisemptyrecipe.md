@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `OptionalRules.OptionalIsEmpty`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalisemptyrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

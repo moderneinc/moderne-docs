@@ -2,6 +2,11 @@
 sidebar_label: "Log exceptions as parameters rather than as string concatenations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/log4j/loggingexceptionconcatenationrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

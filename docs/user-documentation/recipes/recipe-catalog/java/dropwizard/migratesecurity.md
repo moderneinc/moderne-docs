@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Health Checks to Spring Boot"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dropwizard/migratesecurity" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

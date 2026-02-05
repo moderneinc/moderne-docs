@@ -2,6 +2,11 @@
 sidebar_label: "Replace `Char#toInt()` with `Char#code`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/kotlin/cleanup/replacechartointwithcode" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

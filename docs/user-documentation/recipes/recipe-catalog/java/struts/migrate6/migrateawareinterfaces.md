@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Struts 2.0 interceptors to action &quot;aware&quot; interfaces"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate6/migrateawareinterfaces" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

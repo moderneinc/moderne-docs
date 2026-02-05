@@ -2,6 +2,11 @@
 sidebar_label: "Use `StateManagementStrategy`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/removedstatemanagermethods" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

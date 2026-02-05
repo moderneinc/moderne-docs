@@ -2,6 +2,11 @@
 sidebar_label: "Require or disallow padding within blocks"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/paddedblocks" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

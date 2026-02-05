@@ -2,6 +2,11 @@
 sidebar_label: "Use Jakarta Swagger Artifacts"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/openapi/swagger/usejakartaswaggerartifacts" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

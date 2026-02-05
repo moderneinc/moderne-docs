@@ -2,6 +2,11 @@
 sidebar_label: "Replace Spring Boot starter dependencies with Quarkus equivalents"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/migratebootstarters" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

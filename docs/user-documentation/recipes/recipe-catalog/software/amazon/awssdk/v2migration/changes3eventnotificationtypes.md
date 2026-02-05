@@ -2,6 +2,11 @@
 sidebar_label: "Change SDK S3EventNotification types from v1 to v2"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/changes3eventnotificationtypes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

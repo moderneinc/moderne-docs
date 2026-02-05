@@ -2,6 +2,11 @@
 sidebar_label: "Remove unnecessary `use-authorization-manager` for message security in Spring security 6"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security6/removeuseauthorizationmanager" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

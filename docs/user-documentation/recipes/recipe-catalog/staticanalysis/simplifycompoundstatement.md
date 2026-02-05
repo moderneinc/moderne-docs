@@ -2,6 +2,11 @@
 sidebar_label: "Simplify compound statement"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/simplifycompoundstatement" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

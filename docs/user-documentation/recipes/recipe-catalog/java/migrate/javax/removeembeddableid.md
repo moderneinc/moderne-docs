@@ -2,6 +2,11 @@
 sidebar_label: "`@Embeddable` classes cannot have an `@Id` annotation when referenced by an `@EmbeddedId` annotation"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/removeembeddableid" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

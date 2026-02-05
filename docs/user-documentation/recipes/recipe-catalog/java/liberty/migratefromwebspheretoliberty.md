@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from WebSphere traditional to Liberty"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/liberty/migratefromwebspheretoliberty" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

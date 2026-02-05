@@ -2,6 +2,11 @@
 sidebar_label: "Move to JUnit 6"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/junitjupiterupgrade" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

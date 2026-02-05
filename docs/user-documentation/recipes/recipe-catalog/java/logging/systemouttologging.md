@@ -2,6 +2,11 @@
 sidebar_label: "Use logger instead of `System.out` print statements"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/systemouttologging" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

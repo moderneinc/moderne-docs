@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from Swagger to OpenAPI"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/openapi/swagger/swaggertoopenapi" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

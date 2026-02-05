@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade to Cucumber-JVM 5.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/cucumber/jvm/upgradecucumber5x" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

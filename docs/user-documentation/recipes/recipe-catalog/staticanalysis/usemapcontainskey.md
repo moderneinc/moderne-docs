@@ -2,6 +2,11 @@
 sidebar_label: "Use `Map#containsKey`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/usemapcontainskey" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

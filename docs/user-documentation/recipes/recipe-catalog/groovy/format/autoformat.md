@@ -2,6 +2,11 @@
 sidebar_label: "Format Groovy code"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/groovy/format/autoformat" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use Byteman JUnit 5 dependency"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/byteman/bytemanjunit4tobytemanjunit5" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

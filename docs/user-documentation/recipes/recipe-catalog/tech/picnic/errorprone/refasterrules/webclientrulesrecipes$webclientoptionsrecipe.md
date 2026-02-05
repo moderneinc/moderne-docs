@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `WebClientRules.WebClientOptions`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/webclientrulesrecipes$webclientoptionsrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

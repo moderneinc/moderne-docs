@@ -2,6 +2,11 @@
 sidebar_label: "Change method access level"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/changemethodaccesslevel" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

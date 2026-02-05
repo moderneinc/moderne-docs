@@ -2,6 +2,11 @@
 sidebar_label: "Make `@TempDir` fields non final"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/tempdirnonfinal" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

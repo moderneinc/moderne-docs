@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `SSLConnectionSocketFactory` to `DefaultClientTlsStrategy`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/migratesslconnectionsocketfactory" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

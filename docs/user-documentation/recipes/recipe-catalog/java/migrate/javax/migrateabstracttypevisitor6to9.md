@@ -2,6 +2,11 @@
 sidebar_label: "Use `javax.lang.model.util.AbstractTypeVisitor9`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/migrateabstracttypevisitor6to9" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

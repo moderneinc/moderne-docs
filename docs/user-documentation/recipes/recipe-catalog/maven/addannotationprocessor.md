@@ -2,6 +2,11 @@
 sidebar_label: "Add an annotation processor to `maven-compiler-plugin`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/addannotationprocessor" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

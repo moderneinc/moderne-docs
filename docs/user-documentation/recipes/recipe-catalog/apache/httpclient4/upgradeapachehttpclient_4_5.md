@@ -2,6 +2,11 @@
 sidebar_label: "Migrates to ApacheHttpClient 4.5.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient4/upgradeapachehttpclient_4_5" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

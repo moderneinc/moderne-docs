@@ -2,6 +2,11 @@
 sidebar_label: "Change `javax.tools.ToolProvider` methods calls to static"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/removedtoolproviderconstructor" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

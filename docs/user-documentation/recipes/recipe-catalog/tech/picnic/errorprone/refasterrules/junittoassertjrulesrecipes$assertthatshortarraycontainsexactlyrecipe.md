@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `JUnitToAssertJRules.AssertThatShortArrayContainsExactly`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatshortarraycontainsexactlyrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

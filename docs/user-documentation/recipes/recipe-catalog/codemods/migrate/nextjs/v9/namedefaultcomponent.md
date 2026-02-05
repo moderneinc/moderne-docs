@@ -2,6 +2,11 @@
 sidebar_label: "Transform Anonymous Components into Named Components"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v9/namedefaultcomponent" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

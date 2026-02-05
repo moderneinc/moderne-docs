@@ -2,6 +2,11 @@
 sidebar_label: "Disallow the use of `Math.pow` in favor of the ** operator"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferexponentiationoperator" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

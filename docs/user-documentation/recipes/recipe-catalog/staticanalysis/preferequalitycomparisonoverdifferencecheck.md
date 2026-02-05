@@ -2,6 +2,11 @@
 sidebar_label: "Prefer direct comparison of numbers"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/preferequalitycomparisonoverdifferencecheck" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

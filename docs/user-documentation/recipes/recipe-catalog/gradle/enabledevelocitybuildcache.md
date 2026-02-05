@@ -2,6 +2,11 @@
 sidebar_label: "Enable Develocity build cache"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/enabledevelocitybuildcache" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

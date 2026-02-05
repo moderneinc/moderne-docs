@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJComparableRules.AssertThatIsGreaterThanOrEqualTo`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatisgreaterthanorequaltorecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Spring Batch 5.0 from 4.3"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/batch/springbatch4to5migration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

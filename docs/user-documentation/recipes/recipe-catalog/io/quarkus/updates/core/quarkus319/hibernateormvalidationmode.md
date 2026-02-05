@@ -2,6 +2,11 @@
 sidebar_label: "io.quarkus.updates.core.quarkus319.HibernateORMValidationMode"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus319/hibernateormvalidationmode" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

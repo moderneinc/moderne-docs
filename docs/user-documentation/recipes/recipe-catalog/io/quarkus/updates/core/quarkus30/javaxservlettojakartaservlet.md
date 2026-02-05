@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.servlet` packages to `jakarta.servlet`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxservlettojakartaservlet" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

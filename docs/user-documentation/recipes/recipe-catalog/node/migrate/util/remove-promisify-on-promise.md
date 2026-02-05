@@ -2,6 +2,11 @@
 sidebar_label: "Remove unnecessary `util.promisify()` on Promise-returning functions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/util/remove-promisify-on-promise" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Update Apache Commons FileUpload2 package for EE10"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatefileupload2dependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

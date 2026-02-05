@@ -2,6 +2,11 @@
 sidebar_label: "Use `spring-boot.run.agents` configuration key in `spring-boot-maven-plugin`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/springbootmavenpluginmigrateagenttoagents" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

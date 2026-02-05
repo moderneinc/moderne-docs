@@ -2,6 +2,11 @@
 sidebar_label: "Renames `closeIcon` prop to `closeButtonIcon`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/autocompleterenamecloseicon" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

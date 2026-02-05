@@ -2,6 +2,11 @@
 sidebar_label: "Add Jakarta EE 9 Servlet Dependency"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/addjakartaee9servletdependencyifusingservletcontext" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

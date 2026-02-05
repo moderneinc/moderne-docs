@@ -2,6 +2,11 @@
 sidebar_label: "Use OkHttp 3 MockWebServer for JUnit 5"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/upgradeokhttpmockwebserver" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

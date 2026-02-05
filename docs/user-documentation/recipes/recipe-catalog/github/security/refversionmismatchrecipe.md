@@ -2,6 +2,11 @@
 sidebar_label: "Find commit SHAs with potentially mismatched version comments"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/security/refversionmismatchrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

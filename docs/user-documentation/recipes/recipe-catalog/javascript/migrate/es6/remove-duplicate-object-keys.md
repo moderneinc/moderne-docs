@@ -2,6 +2,11 @@
 sidebar_label: "Remove duplicate object keys"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/javascript/migrate/es6/remove-duplicate-object-keys" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

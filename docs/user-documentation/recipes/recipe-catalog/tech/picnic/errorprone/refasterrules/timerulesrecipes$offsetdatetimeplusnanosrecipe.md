@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `TimeRules.OffsetDateTimePlusNanos`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$offsetdatetimeplusnanosrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

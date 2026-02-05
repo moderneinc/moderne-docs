@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Instant#truncatedTo(TemporalUnit)` over less obvious alternatives"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$instanttruncatedtomillisecondsrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

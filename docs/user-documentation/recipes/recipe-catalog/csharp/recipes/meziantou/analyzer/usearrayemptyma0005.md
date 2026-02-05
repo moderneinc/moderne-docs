@@ -2,6 +2,11 @@
 sidebar_label: "Use Array.Empty&lt;T&gt;()"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usearrayemptyma0005" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

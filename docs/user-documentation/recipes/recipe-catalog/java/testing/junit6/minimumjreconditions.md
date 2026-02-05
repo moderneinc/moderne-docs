@@ -2,6 +2,11 @@
 sidebar_label: "Migrate JUnit JRE conditions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit6/minimumjreconditions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

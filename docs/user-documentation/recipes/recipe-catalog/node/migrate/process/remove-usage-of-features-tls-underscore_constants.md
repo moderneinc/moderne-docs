@@ -2,6 +2,11 @@
 sidebar_label: "Remove usage of deprecated `process.features.tls_*` properties"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/process/remove-usage-of-features-tls-underscore_constants" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate OpenSymphony classes to Struts 6.0"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate6/migrateopensymphonyclasses" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

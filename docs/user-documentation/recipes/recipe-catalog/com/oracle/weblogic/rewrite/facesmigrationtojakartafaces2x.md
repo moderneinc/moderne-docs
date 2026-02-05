@@ -2,6 +2,11 @@
 sidebar_label: "JSF 1.x to Jakarta Server Faces 2.3 on WebLogic 14.1.2 or older"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/facesmigrationtojakartafaces2x" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

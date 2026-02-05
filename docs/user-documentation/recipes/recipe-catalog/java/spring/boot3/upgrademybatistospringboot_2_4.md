@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade MyBatis to Spring Boot 2.4"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/upgrademybatistospringboot_2_4" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

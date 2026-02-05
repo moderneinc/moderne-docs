@@ -2,6 +2,11 @@
 sidebar_label: "Update relocated Micronaut Security config properties"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/updatesecuritypropertiesifneeded" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

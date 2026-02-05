@@ -2,6 +2,11 @@
 sidebar_label: "Replace `OutgoingMessage._headers` and `._headerNames` with public methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/http/replace-outgoing-message-headers" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

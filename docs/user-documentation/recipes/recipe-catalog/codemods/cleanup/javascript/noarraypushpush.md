@@ -2,6 +2,11 @@
 sidebar_label: "Enforce combining multiple `Array#push()` into one call"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noarraypushpush" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

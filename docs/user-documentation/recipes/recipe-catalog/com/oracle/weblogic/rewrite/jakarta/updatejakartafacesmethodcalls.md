@@ -2,6 +2,11 @@
 sidebar_label: "Update deprecated Faces method calls"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/updatejakartafacesmethodcalls" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

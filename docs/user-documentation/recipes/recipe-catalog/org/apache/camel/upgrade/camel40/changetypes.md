@@ -2,6 +2,11 @@
 sidebar_label: "Migrate moved types between Camel 3.x and Camel 4.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel40/changetypes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

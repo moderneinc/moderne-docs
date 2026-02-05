@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to ApacheHttpClient 5.x deprecated methods from 4.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/upgradeapachehttpclient_5_deprecatedmethods" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

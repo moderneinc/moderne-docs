@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJInstantRules.AssertThatIsAfter`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisafterrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

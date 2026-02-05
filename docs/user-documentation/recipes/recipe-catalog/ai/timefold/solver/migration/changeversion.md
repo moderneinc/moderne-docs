@@ -2,6 +2,11 @@
 sidebar_label: "Change the Timefold version"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/ai/timefold/solver/migration/changeversion" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

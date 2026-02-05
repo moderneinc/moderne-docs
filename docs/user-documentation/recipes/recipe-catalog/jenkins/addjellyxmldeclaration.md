@@ -2,6 +2,11 @@
 sidebar_label: "Add XML declaration to Jelly files"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/jenkins/addjellyxmldeclaration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

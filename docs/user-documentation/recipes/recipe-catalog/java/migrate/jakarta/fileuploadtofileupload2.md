@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `org.apache.commons.fileload` packages to `org.apache.commons.fileload.core`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/fileuploadtofileupload2" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

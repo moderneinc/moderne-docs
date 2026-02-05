@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJByteRules.AbstractByteAssertIsOne`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisonerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

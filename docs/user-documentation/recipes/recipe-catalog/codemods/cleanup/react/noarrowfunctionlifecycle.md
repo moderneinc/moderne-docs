@@ -2,6 +2,11 @@
 sidebar_label: "Lifecycle methods should be methods on the prototype, not class fields"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/react/noarrowfunctionlifecycle" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

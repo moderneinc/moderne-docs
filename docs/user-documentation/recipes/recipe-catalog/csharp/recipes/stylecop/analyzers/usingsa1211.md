@@ -2,6 +2,11 @@
 sidebar_label: "Using alias directives should be ordered alphabetically by alias name"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/usingsa1211" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

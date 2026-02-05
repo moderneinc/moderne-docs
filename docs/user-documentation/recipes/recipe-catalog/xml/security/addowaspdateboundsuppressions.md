@@ -2,6 +2,11 @@
 sidebar_label: "Add date bounds to OWASP suppressions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/security/addowaspdateboundsuppressions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

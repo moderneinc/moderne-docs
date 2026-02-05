@@ -2,6 +2,11 @@
 sidebar_label: "Method overrides should not change default values"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/methodoverridesshouldnotchangeparameterdefaultsma0061" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Do not use a `for` loop that can be replaced with a `for-of` loop"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noforloop" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Types that own disposable fields should be disposable"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/typesthatowndisposablefieldsshouldbedisposableca1001" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

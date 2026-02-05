@@ -2,6 +2,11 @@
 sidebar_label: "List effective Maven repositories"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/search/effectivemavenrepositories" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

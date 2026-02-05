@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Collection.stream().map(Function)` over `Collections2.transform`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavacollections2transform" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

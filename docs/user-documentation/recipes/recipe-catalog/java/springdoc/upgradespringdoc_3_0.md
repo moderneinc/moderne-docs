@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade to SpringDoc 3.0"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/springdoc/upgradespringdoc_3_0" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

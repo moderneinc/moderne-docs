@@ -2,6 +2,11 @@
 sidebar_label: "Use `com.sun.xml.bind.*` instead of `com.sun.xml.internal.bind.*`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/internalbindpackages" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

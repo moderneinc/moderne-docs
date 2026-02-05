@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade Gradle dependency versions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/upgradedependencyversion" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

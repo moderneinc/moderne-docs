@@ -2,6 +2,11 @@
 sidebar_label: "io.quarkus.updates.core.quarkus324.AddHibernateAnnotationProcessorIfOldJpaModelgenDependency"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus324/addhibernateannotationprocessorifoldjpamodelgendependency" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

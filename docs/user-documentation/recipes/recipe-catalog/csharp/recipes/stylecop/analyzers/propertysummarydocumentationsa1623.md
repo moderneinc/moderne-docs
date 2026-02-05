@@ -2,6 +2,11 @@
 sidebar_label: "Property summary documentation should match accessors"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/propertysummarydocumentationsa1623" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

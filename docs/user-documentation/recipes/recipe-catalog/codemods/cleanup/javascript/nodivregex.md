@@ -2,6 +2,11 @@
 sidebar_label: "Disallow equal signs explicitly at the beginning of regular expressions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nodivregex" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

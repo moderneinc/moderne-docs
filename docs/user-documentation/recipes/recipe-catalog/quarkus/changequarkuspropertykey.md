@@ -2,6 +2,11 @@
 sidebar_label: "Change Quarkus configuration property key"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/changequarkuspropertykey" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

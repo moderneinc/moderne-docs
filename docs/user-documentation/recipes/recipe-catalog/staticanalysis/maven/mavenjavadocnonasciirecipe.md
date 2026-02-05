@@ -2,6 +2,11 @@
 sidebar_label: "Remove non-ASCII characters from Javadoc"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/maven/mavenjavadocnonasciirecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

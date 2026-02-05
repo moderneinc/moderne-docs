@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade Spring dependencies"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/spring/upgradeexplicitspringbootdependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

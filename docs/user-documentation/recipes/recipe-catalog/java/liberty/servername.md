@@ -2,6 +2,11 @@
 sidebar_label: "Use `getProperty(&quot;wlp.server.name&quot;)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/liberty/servername" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

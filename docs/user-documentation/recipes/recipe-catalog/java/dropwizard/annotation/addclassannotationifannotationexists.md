@@ -2,6 +2,11 @@
 sidebar_label: "Add annotation if target annotations exist"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dropwizard/annotation/addclassannotationifannotationexists" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

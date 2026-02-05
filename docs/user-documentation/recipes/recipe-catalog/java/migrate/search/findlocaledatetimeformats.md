@@ -2,6 +2,11 @@
 sidebar_label: "Find locale-sensitive date/time formatting"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/search/findlocaledatetimeformats" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

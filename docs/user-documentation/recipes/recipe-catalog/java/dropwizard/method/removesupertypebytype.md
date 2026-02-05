@@ -2,6 +2,11 @@
 sidebar_label: "Remove supertype by fully qualified name matches"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dropwizard/method/removesupertypebytype" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

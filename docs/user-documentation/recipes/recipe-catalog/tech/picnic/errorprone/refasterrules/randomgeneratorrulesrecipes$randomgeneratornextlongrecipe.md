@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `RandomGenerator#nextLong(long)` over more contrived alternatives"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextlongrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

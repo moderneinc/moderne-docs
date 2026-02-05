@@ -2,6 +2,11 @@
 sidebar_label: "Add GitLab template"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gitlab/addtemplate" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

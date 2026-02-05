@@ -2,6 +2,11 @@
 sidebar_label: "Migrates to Apache POI 3.17"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/poi/upgradeapachepoi_3_17" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

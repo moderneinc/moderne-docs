@@ -2,6 +2,11 @@
 sidebar_label: "Use Empty Array for `Collection.toArray()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/replacecollectiontoarrayargwithemptyarray" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

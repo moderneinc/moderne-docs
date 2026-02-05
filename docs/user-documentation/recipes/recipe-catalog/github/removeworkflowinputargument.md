@@ -2,6 +2,11 @@
 sidebar_label: "Remove workflow input argument"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/removeworkflowinputargument" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

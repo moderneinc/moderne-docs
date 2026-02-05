@@ -2,6 +2,11 @@
 sidebar_label: "Instantiate argument exceptions correctly"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/instantiateargumentexceptionscorrectlyca2208" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

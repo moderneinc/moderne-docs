@@ -2,6 +2,11 @@
 sidebar_label: "ValueConversion must use correct types"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/valueconversionattributeargumentfixwpf0072" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Transform 'new' expressions to static factory methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/newclasstostaticfactory" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

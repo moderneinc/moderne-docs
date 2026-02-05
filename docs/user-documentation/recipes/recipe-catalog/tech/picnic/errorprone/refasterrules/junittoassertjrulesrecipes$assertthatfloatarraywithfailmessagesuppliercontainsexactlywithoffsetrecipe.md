@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `JUnitToAssertJRules.AssertThatFloatArrayWithFailMessageSupplierContainsExactlyWithOffset`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatfloatarraywithfailmessagesuppliercontainsexactlywithoffsetrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

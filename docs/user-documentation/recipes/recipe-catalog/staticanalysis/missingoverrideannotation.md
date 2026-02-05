@@ -2,6 +2,11 @@
 sidebar_label: "Add missing `@Override` to overriding and implementing methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/missingoverrideannotation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

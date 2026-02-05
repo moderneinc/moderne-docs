@@ -2,6 +2,11 @@
 sidebar_label: "Migrate rider-spring (JUnit4) to rider-junit5 (JUnit5)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/dbrider/migratedbriderspringtodbriderjunit5" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

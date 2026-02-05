@@ -2,6 +2,11 @@
 sidebar_label: "Replace JUL `Logger.isLoggable(Level.FINEST)` with SLF4J's `Logger.isTraceEnabled`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelfinestrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Add or update child tag"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/addorupdatechildtag" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Enforce consistent linebreaks in curly braces in JSX attributes and expressions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxcurlynewline" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

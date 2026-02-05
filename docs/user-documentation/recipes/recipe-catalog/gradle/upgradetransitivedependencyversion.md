@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade transitive Gradle dependencies"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/upgradetransitivedependencyversion" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

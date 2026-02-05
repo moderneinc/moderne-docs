@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from Java Faker to Datafaker"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/datafaker/javafakertodatafaker" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

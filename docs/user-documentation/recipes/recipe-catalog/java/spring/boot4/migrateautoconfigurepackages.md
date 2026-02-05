@@ -2,6 +2,11 @@
 sidebar_label: "Migrate packages to modular starters"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot4/migrateautoconfigurepackages" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

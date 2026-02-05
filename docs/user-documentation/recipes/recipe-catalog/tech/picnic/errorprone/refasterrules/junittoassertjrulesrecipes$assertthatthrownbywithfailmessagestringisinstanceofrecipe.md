@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `JUnitToAssertJRules.AssertThatThrownByWithFailMessageStringIsInstanceOf`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatthrownbywithfailmessagestringisinstanceofrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

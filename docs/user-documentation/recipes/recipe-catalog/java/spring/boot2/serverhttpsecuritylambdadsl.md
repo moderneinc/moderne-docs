@@ -2,6 +2,11 @@
 sidebar_label: "Convert `ServerHttpSecurity` chained calls into Lambda DSL"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/serverhttpsecuritylambdadsl" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

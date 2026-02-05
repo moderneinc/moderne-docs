@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from Hamcrest `Matcher` to JUnit 5"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/hamcrest/hamcrestmatchertojunit5" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Convert Log4j `Logger.setLevel` to Log4j2 `Configurator.setLevel`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/log4j/loggersetleveltoconfiguratorrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

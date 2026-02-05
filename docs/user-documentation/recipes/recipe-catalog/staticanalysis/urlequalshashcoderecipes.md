@@ -2,6 +2,11 @@
 sidebar_label: "URL Equals and Hash Code"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/urlequalshashcoderecipes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

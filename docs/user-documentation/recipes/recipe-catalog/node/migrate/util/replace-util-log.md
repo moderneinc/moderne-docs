@@ -2,6 +2,11 @@
 sidebar_label: "Replace deprecated `util.log()` with `console.log()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/util/replace-util-log" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

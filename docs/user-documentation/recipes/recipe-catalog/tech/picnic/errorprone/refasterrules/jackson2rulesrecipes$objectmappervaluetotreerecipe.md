@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `Jackson2Rules.ObjectMapperValueToTree`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/jackson2rulesrecipes$objectmappervaluetotreerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

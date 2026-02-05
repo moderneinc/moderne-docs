@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.decorator` packages to `jakarta.decorator`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxdecoratortojakartadecorator" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

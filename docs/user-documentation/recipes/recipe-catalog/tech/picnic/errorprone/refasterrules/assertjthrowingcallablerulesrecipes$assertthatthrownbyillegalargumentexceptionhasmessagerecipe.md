@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalArgumentExceptionHasMessage`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyillegalargumentexceptionhasmessagerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

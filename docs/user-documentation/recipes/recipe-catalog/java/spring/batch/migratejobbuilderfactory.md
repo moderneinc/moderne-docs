@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `JobBuilderFactory` to `JobBuilder`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/batch/migratejobbuilderfactory" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

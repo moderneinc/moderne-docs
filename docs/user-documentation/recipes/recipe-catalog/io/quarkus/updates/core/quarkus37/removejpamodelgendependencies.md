@@ -2,6 +2,11 @@
 sidebar_label: "io.quarkus.updates.core.quarkus37.RemoveJpaModelgenDependencies"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/removejpamodelgendependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Find static OGNL method access"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/search/findstaticognlmethodaccess" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

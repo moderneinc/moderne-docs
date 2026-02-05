@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `System.out.print` to Java 25 IO utility class"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/io/replacesystemoutwithioprint" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

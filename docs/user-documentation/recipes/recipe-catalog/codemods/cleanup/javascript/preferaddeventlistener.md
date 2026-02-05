@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `.addEventListener()` and `.removeEventListener()` over on-functions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferaddeventlistener" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

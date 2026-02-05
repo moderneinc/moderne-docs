@@ -2,6 +2,11 @@
 sidebar_label: "Normalize Spring `application*.properties` properties to kebab-case"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/propertiestokebabcaseproperties" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Remove the deprecated properties `additional-keys-to-sanitize` from the `configprops` and `env` end points"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/actuatorendpointsanitization" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

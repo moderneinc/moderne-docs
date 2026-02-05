@@ -2,6 +2,11 @@
 sidebar_label: "Replace JUL `Logger.getLogger(Some.class.getName())` with SLF4J's `LoggerFactory.getLogger(Some.class)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/julgetloggertologgerfactoryrecipes$getloggerclassnametologgerfactoryrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

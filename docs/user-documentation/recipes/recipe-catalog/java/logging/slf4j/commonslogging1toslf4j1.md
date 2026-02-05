@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Apache Commons Logging 1.x to SLF4J 1.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/commonslogging1toslf4j1" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

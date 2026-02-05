@@ -2,6 +2,11 @@
 sidebar_label: "io.quarkus.updates.core.quarkus37.ResteasyClientRenaming"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/resteasyclientrenaming" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

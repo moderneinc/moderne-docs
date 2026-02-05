@@ -2,6 +2,11 @@
 sidebar_label: "Add explicit `groupId` to Maven plugins"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/cleanup/explicitplugingroupid" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

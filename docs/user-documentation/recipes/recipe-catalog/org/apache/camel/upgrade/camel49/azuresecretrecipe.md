@@ -2,6 +2,11 @@
 sidebar_label: "The syntax for retrieving a single field of a secret has been changed"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel49/azuresecretrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

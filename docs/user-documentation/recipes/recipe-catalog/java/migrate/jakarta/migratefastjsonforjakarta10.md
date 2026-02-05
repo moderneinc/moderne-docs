@@ -2,6 +2,11 @@
 sidebar_label: "Update Fastjson for Jakarta EE 10"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/migratefastjsonforjakarta10" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

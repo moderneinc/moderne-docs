@@ -2,6 +2,11 @@
 sidebar_label: "Replace deprecated `Buffer.slice()` with `Buffer.subarray()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/buffer/replace-deprecated-slice" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

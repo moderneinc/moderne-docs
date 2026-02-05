@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `ImmutableListMultimapRules.EmptyImmutableListMultimap`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$emptyimmutablelistmultimaprecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

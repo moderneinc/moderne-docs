@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Apache HttpCore Nio Output Buffer classes to Apache HttpCore 5.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/upgradeapachehttpcore_5_niooutputbuffers" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Avoid zero-length array allocations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/avoidzerolengtharrayallocationsca1825" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

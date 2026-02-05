@@ -2,6 +2,11 @@
 sidebar_label: "Migrate multi-condition `@ConditionalOnBean` annotations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/conditionalonbeananynestedcondition" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

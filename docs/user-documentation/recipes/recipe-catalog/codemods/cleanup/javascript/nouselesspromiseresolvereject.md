@@ -2,6 +2,11 @@
 sidebar_label: "Disallow returning/yielding `Promise.resolve()`/`reject()` in `async` functions or promise callbacks"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nouselesspromiseresolvereject" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

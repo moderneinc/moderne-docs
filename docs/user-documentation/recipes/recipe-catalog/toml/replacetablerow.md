@@ -2,6 +2,11 @@
 sidebar_label: "Replace TOML table row"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/toml/replacetablerow" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

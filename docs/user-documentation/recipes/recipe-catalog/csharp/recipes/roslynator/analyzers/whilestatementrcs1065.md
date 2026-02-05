@@ -2,6 +2,11 @@
 sidebar_label: "[deprecated] Avoid usage of while statement to create an infinite loop"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/whilestatementrcs1065" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

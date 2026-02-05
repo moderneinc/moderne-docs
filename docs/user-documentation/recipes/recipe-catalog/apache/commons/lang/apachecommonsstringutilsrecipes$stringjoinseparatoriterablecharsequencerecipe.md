@@ -2,6 +2,11 @@
 sidebar_label: "Replace `StringUtils.join(Iterable&lt;? extends CharSequence&gt;, String)` with JDK provided API"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$stringjoinseparatoriterablecharsequencerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

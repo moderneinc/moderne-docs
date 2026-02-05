@@ -2,6 +2,11 @@
 sidebar_label: "Migrate SAP cloud foundry logging support to Spring Boot 3.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/migratesapcfjavaloggingsupport" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

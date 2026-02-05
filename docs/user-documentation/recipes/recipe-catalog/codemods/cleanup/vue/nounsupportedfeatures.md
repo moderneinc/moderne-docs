@@ -2,6 +2,11 @@
 sidebar_label: "Disallow unsupported Vue.js syntax on the specified version"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/nounsupportedfeatures" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

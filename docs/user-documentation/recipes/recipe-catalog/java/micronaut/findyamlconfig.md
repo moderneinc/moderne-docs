@@ -2,6 +2,11 @@
 sidebar_label: "Find Micronaut yaml config"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/findyamlconfig" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

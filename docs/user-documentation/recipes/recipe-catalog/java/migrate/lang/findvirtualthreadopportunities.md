@@ -2,6 +2,11 @@
 sidebar_label: "Find Virtual Thread opportunities"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lang/findvirtualthreadopportunities" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

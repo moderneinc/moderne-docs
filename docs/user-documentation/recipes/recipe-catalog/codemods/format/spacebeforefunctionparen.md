@@ -2,6 +2,11 @@
 sidebar_label: "Enforce consistent spacing before &amp;#x60;function&amp;#x60; definition opening parenthesis"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/spacebeforefunctionparen" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

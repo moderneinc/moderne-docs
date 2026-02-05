@@ -2,6 +2,11 @@
 sidebar_label: "Change Gradle dependency group"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/changedependencygroupid" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

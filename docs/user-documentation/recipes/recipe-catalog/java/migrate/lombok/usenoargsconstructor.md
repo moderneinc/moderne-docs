@@ -2,6 +2,11 @@
 sidebar_label: "Use `@NoArgsConstructor` where applicable"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lombok/usenoargsconstructor" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

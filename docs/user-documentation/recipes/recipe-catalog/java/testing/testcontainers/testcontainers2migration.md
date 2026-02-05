@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to testcontainers-java 2.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/testcontainers/testcontainers2migration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

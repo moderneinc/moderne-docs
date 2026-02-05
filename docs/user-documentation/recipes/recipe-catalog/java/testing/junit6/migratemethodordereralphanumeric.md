@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `MethodOrderer.Alphanumeric` to `MethodOrderer.MethodName`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit6/migratemethodordereralphanumeric" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

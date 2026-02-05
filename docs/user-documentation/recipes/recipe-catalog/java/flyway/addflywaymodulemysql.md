@@ -2,6 +2,11 @@
 sidebar_label: "Add missing Flyway module for MySQL"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/flyway/addflywaymodulemysql" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

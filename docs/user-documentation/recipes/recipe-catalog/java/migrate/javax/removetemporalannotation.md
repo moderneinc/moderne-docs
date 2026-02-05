@@ -2,6 +2,11 @@
 sidebar_label: "Remove the `@Temporal` annotation for some `java.sql` attributes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/removetemporalannotation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

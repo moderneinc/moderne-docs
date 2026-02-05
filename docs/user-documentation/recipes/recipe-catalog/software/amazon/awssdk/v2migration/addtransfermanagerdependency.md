@@ -2,6 +2,11 @@
 sidebar_label: "Add AWS SDK for Java v2 S3 Transfer Manager dependency if needed"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/addtransfermanagerdependency" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

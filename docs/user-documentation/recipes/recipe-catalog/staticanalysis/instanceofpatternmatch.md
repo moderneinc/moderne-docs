@@ -2,6 +2,11 @@
 sidebar_label: "Changes code to use Java 17's `instanceof` pattern matching"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/instanceofpatternmatch" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

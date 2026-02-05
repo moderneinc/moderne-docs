@@ -2,6 +2,11 @@
 sidebar_label: "Find external service calls"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/prethink/calm/findexternalservicecalls" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

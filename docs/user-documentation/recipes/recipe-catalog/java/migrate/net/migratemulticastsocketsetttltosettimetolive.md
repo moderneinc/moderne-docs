@@ -2,6 +2,11 @@
 sidebar_label: "Use `java.net.MulticastSocket#setTimeToLive(int)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/net/migratemulticastsocketsetttltosettimetolive" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

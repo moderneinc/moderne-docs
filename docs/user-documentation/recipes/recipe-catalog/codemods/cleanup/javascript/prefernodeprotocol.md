@@ -2,6 +2,11 @@
 sidebar_label: "Prefer using the `node:` protocol when importing Node.js builtin modules"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefernodeprotocol" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

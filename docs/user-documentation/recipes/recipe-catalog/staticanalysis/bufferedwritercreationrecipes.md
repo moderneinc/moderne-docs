@@ -2,6 +2,11 @@
 sidebar_label: "Modernize `BufferedWriter` creation &amp; prevent file descriptor leaks"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/bufferedwritercreationrecipes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

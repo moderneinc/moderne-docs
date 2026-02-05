@@ -2,6 +2,11 @@
 sidebar_label: "Adjust application.properties for jakarta.* packages"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/adjustapplicationpropertieswithjakarta" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

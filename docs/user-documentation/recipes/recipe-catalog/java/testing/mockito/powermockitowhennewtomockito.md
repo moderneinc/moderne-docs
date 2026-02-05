@@ -2,6 +2,11 @@
 sidebar_label: "Replace `PowerMockito.whenNew` with Mockito counterpart"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/powermockitowhennewtomockito" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

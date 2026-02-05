@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from Jackson Codehaus (legacy) to Jackson FasterXML"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/codehaustofasterxml" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

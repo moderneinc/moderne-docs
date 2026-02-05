@@ -2,6 +2,11 @@
 sidebar_label: "Use format alignment `ObjectMappers`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/useformatalignedobjectmappers" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

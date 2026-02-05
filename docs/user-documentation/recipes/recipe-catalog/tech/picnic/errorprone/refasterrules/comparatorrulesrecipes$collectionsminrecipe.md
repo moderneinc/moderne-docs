@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `ComparatorRules.CollectionsMin`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$collectionsminrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

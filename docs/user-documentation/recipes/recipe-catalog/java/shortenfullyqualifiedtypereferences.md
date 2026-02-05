@@ -2,6 +2,11 @@
 sidebar_label: "Add imports for fully qualified references to types"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/shortenfullyqualifiedtypereferences" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

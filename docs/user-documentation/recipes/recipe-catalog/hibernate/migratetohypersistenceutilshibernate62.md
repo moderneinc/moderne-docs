@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Hibernate Types to Hypersistence Utils 6.2 (Community Edition)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/hibernate/migratetohypersistenceutilshibernate62" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

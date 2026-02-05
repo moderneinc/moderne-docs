@@ -2,6 +2,11 @@
 sidebar_label: "Replace duplicate `String` literals"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/replaceduplicatestringliterals" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

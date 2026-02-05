@@ -2,6 +2,11 @@
 sidebar_label: "Override equals and operator equals on value types"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpoverrideequalsandoperatorequalsonvaluetypesca1815" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

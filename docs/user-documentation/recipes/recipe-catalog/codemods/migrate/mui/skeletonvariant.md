@@ -2,6 +2,11 @@
 sidebar_label: "Updates `variant` prop for Skeleton component"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/skeletonvariant" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

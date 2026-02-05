@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `FormattedArgumentsToVMethod.InfoToVInfo`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/jboss/formattedargumentstovmethodrecipes$infotovinforecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

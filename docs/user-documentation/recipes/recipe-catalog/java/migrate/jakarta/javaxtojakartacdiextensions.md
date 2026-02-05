@@ -2,6 +2,11 @@
 sidebar_label: "Rename CDI Extension to Jakarta"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxtojakartacdiextensions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJRules.AssertThatStreamContainsExactly`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsexactlyrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

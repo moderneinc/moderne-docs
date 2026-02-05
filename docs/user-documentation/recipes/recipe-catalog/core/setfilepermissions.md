@@ -2,6 +2,11 @@
 sidebar_label: "Set file permission attributes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/core/setfilepermissions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Find duplicate source files"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/core/findduplicatesourcefiles" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

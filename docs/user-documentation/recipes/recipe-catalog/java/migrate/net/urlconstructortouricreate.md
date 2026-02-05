@@ -2,6 +2,11 @@
 sidebar_label: "Convert `new URL(String)` to `URI.create(String).toURL()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/net/urlconstructortouricreate" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

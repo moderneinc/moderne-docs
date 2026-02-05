@@ -2,6 +2,11 @@
 sidebar_label: "Add missing Flyway module for SQL Server"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/flyway/addflywaymodulesqlserver" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

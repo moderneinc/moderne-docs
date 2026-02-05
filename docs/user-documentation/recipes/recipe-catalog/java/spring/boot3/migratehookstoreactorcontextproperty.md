@@ -2,6 +2,11 @@
 sidebar_label: "Use `spring.reactor.context-propagation` property"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/migratehookstoreactorcontextproperty" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

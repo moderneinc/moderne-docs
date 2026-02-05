@@ -2,6 +2,11 @@
 sidebar_label: "Calculate token length of classes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/ai/classdefinitionlength" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Order elements in documentation comment"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/orderelementsindocumentationcommentrcs1232" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `EqualityRules.ObjectsEquals`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/equalityrulesrecipes$objectsequalsrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use lambda expressions instead of anonymous classes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/uselambdaforfunctionalinterface" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

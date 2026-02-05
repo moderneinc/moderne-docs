@@ -2,6 +2,11 @@
 sidebar_label: "Use `WebServerFactoryCustomizer`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/migratetowebserverfactorycustomizer" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Remove &quot;use strict&quot; directives"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/ecmascript/5to6/nostrict" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

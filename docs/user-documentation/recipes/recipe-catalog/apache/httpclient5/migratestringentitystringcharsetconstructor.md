@@ -2,6 +2,11 @@
 sidebar_label: "Replace `new StringEntity(String, String)` with `new StringEntity(String, Charset)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/migratestringentitystringcharsetconstructor" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

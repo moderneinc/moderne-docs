@@ -2,6 +2,11 @@
 sidebar_label: "Simplify catch clauses for Jackson exceptions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/simplifyjacksonexceptioncatch" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

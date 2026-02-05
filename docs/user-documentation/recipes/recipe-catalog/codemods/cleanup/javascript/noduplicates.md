@@ -2,6 +2,11 @@
 sidebar_label: "Forbid repeated import of the same module in multiple places"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noduplicates" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

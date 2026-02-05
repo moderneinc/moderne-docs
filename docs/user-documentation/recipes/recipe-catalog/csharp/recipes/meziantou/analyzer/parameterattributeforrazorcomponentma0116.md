@@ -2,6 +2,11 @@
 sidebar_label: "Parameters with [SupplyParameterFromQuery] attributes should also be marked as [Parameter]"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/parameterattributeforrazorcomponentma0116" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

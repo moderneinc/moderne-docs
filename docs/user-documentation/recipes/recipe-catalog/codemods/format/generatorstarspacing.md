@@ -2,6 +2,11 @@
 sidebar_label: "Enforce consistent spacing around &amp;#x60;*&amp;#x60; operators in generator functions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/generatorstarspacing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrates `camel 4.10` application to `camel 4.10.4`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/camel/camel410_4/camelquarkusmigrationrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

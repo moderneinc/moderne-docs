@@ -2,6 +2,11 @@
 sidebar_label: "Require class directives instead of ternary expressions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/preferclassdirective" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

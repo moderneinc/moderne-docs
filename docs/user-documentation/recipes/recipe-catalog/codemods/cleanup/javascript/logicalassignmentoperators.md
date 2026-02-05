@@ -2,6 +2,11 @@
 sidebar_label: "Require or disallow logical assignment operator shorthand"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/logicalassignmentoperators" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

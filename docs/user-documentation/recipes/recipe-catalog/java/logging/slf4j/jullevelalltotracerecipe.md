@@ -2,6 +2,11 @@
 sidebar_label: "Replace JUL `Level.ALL` logging with SLF4J's trace level"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/jullevelalltotracerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

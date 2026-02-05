@@ -2,6 +2,11 @@
 sidebar_label: "Updates scroll buttons for Tabs component"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/tabsscrollbuttons" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

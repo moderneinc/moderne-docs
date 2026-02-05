@@ -2,6 +2,11 @@
 sidebar_label: "Use Mutiny `multi.toHotStream()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/multitransformhotstreamtomultihotstream" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

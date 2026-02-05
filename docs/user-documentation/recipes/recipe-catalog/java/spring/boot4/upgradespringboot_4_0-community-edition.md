@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Spring Boot 4.0 (Community Edition)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-community-edition" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

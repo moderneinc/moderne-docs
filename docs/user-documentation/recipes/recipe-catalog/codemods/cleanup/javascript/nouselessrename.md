@@ -2,6 +2,11 @@
 sidebar_label: "Disallow renaming import, export, and destructured assignments to the same name"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nouselessrename" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

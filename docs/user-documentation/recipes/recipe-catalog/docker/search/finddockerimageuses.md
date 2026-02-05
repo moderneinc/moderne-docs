@@ -2,6 +2,11 @@
 sidebar_label: "Find uses of docker base images"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/docker/search/finddockerimageuses" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

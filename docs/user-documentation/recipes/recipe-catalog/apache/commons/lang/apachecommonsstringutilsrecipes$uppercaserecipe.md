@@ -2,6 +2,11 @@
 sidebar_label: "Replace `StringUtils.upperCase(String)` with JDK internals"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$uppercaserecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

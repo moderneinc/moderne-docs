@@ -2,6 +2,11 @@
 sidebar_label: "`hashCode()` should not be called on array instances"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/removehashcodecallsfromarrayinstances" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

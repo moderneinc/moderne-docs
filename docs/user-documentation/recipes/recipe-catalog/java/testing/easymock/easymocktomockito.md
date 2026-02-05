@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from EasyMock to Mockito"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/easymock/easymocktomockito" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

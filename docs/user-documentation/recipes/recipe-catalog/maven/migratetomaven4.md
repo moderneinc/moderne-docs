@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Maven 4"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/migratetomaven4" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

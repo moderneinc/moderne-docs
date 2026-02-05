@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `RxJava2AdapterRules.CompletableToMono`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$completabletomonorecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

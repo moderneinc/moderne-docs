@@ -2,6 +2,11 @@
 sidebar_label: "Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/equalstocontentequals" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

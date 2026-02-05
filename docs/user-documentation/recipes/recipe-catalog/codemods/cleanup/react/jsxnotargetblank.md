@@ -2,6 +2,11 @@
 sidebar_label: "Disallow target=&quot;_blank&quot; attribute without rel=&quot;noreferrer&quot;"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxnotargetblank" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

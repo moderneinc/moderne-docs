@@ -2,6 +2,11 @@
 sidebar_label: "Set charset encoding explicitly when calling `String#getBytes`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/explicitcharsetonstringgetbytes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

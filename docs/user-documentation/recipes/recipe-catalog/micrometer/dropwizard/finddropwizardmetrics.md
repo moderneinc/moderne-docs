@@ -2,6 +2,11 @@
 sidebar_label: "Find Dropwizard metrics"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/micrometer/dropwizard/finddropwizardmetrics" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

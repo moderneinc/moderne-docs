@@ -2,6 +2,11 @@
 sidebar_label: "Use pattern matching instead of combination of 'is' operator and cast operator"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usepatternmatchinginsteadofisandcastrcs1220" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

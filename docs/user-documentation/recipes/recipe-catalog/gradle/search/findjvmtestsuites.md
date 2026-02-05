@@ -2,6 +2,11 @@
 sidebar_label: "Find Gradle JVMTestSuite plugin configuration"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/search/findjvmtestsuites" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

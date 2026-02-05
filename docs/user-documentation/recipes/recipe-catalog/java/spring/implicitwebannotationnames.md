@@ -2,6 +2,11 @@
 sidebar_label: "Remove implicit web annotation names"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/implicitwebannotationnames" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

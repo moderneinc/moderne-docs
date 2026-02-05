@@ -2,6 +2,11 @@
 sidebar_label: "Replace EasyMock `verify` calls with Mockito `verify` calls"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/easymock/easymockverifytomockitoverify" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

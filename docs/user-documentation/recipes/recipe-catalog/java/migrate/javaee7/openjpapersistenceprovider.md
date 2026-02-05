@@ -2,6 +2,11 @@
 sidebar_label: "Removed OpenJPA providers in the persistence.xml file"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javaee7/openjpapersistenceprovider" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

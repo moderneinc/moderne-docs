@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Bouncy Castle from `jdk15on` to `jdk15to18` for Java &lt; 8"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/bouncycastlefromjdk15ontojdk15to18" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

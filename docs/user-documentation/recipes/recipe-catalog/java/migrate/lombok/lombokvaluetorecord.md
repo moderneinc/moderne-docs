@@ -2,6 +2,11 @@
 sidebar_label: "Convert `@lombok.Value` class to Record"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lombok/lombokvaluetorecord" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

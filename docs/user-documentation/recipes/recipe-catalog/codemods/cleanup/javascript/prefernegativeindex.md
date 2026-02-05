@@ -2,6 +2,11 @@
 sidebar_label: "Prefer negative index over `.length - index` when possible"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefernegativeindex" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

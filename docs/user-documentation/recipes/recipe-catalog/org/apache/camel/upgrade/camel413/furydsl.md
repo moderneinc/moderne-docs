@@ -2,6 +2,11 @@
 sidebar_label: "Change dataformat fury to fury in xml/java dsl."
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel413/furydsl" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Prefer JDK methods for Maps and Sets of an expected size"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/nomapsandsetswithexpectedsize" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

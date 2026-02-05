@@ -2,6 +2,11 @@
 sidebar_label: "Enforce writing style for handlers in v-on directives"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/vonhandlerstyle" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

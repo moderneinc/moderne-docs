@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Tag Libraries to 2.0 (Jakarta EE 9)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/migratetaglibstojakartaee9" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

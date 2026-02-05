@@ -2,6 +2,11 @@
 sidebar_label: "Remove argument list from attribute"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/attributeargumentlistrcs1039" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

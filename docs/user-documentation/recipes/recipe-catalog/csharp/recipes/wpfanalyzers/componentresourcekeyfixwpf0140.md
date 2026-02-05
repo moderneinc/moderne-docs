@@ -2,6 +2,11 @@
 sidebar_label: "Use containing type when creating a ComponentResourceKey"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/componentresourcekeyfixwpf0140" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

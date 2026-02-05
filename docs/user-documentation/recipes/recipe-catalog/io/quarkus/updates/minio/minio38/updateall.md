@@ -2,6 +2,11 @@
 sidebar_label: "io.quarkus.updates.minio.minio38.UpdateAll"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/minio/minio38/updateall" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

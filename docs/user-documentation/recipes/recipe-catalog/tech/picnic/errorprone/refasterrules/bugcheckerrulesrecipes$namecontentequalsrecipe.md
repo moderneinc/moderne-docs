@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `BugCheckerRules.NameContentEquals`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/bugcheckerrulesrecipes$namecontentequalsrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

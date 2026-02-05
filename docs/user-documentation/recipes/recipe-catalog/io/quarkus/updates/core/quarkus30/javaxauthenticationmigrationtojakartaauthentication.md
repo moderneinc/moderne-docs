@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.security.auth.message` packages to `jakarta.security.auth.message`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxauthenticationmigrationtojakartaauthentication" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

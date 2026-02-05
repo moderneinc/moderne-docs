@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `.find()` and `.findLast()` over the first or last element from `.filter()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferarrayfind" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

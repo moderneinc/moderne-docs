@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Collection.stream().allMatch(Predicate)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavaiterablesall" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

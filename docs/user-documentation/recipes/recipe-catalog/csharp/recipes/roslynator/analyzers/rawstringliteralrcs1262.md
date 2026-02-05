@@ -2,6 +2,11 @@
 sidebar_label: "Unnecessary raw string literal"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/rawstringliteralrcs1262" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use `jakarta.xml.soap.SOAPFactory` to create `SOAPElements`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/removedsoapelementfactory" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

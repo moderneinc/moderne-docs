@@ -2,6 +2,11 @@
 sidebar_label: "Pad empty `for` loop components"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/format/pademptyforloopcomponents" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Add `JDeprScan` Maven Plug-in"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/addjdeprscanplugin" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

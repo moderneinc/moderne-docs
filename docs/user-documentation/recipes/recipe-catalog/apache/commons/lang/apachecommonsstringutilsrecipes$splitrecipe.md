@@ -2,6 +2,11 @@
 sidebar_label: "Replace `StringUtils.split(String)` with JDK provided API"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$splitrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

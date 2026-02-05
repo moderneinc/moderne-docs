@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Apache HttpCore Nio Classes to Apache HttpCore 5.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/upgradeapachehttpcore_5_nioclassmapping" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

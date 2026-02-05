@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.transaction` packages to `jakarta.transaction`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxtransactionmigrationtojakartatransaction" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

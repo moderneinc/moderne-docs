@@ -2,6 +2,11 @@
 sidebar_label: "Update Jackson package names from 2.x to 3.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/upgradejackson_2_3_packagechanges" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

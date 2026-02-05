@@ -2,6 +2,11 @@
 sidebar_label: "Enforce linebreaks after opening and before closing array brackets"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/arraybracketnewline" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

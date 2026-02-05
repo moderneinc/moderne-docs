@@ -2,6 +2,11 @@
 sidebar_label: "Use JUnit Jupiter `Executable`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/throwingrunnabletoexecutable" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

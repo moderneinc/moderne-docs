@@ -2,6 +2,11 @@
 sidebar_label: "Recommended svelte code cleanup"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/recommendedsveltecodecleanup" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Remove obsolete Spring JUnit runners"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/removeobsoletespringrunners" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

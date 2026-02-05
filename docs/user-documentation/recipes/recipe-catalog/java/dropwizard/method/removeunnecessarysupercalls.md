@@ -2,6 +2,11 @@
 sidebar_label: "Remove `super` calls when the class does not extend another class"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dropwizard/method/removeunnecessarysupercalls" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `java.util.Optional#orElse(null)` over `com.google.common.base.Optional#orNull()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavautiloptionalorelsenull" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

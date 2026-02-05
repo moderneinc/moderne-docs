@@ -2,6 +2,11 @@
 sidebar_label: "Simplify boolean expressions using De Morgan's laws"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/simplifybooleanexpressionwithdemorgan" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace Removed WebLogicJtaTransactionManager from Spring Framework 5.3.x to 6.2.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/spring/framework/replaceweblogicjtatransactionmanager" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Add comment before property key"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/properties/addpropertycomment" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

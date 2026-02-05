@@ -2,6 +2,11 @@
 sidebar_label: "Enforce quotes style of HTML attributes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/htmlquotes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

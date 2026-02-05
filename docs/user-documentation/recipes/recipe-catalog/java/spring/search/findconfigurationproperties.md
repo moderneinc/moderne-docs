@@ -2,6 +2,11 @@
 sidebar_label: "Find Spring `@ConfigurationProperties`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/search/findconfigurationproperties" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Require or disallow spacing between function identifiers and their invocations. Alias of &amp;#x60;function-call-spacing&amp;#x60;"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/funccallspacing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

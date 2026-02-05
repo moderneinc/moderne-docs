@@ -2,6 +2,11 @@
 sidebar_label: "Renames `gap` prop to `spacing`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/boxrenamegap" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

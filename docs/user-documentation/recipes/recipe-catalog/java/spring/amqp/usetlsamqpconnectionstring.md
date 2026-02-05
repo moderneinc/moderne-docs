@@ -2,6 +2,11 @@
 sidebar_label: "Use TLS for AMQP connection strings"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/amqp/usetlsamqpconnectionstring" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Avoid implicit culture-sensitive methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usestringcomparisonma0074" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Update the WebLogic version to 14.1.2"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/updatebuildtoweblogic1412" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

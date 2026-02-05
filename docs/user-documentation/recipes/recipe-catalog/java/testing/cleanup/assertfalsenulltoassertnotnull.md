@@ -2,6 +2,11 @@
 sidebar_label: "Replace JUnit `assertFalse(a == null)` to `assertNotNull(a)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/cleanup/assertfalsenulltoassertnotnull" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

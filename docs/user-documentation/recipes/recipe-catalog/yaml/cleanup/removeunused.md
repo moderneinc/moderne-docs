@@ -2,6 +2,11 @@
 sidebar_label: "Remove unused YAML"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/yaml/cleanup/removeunused" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

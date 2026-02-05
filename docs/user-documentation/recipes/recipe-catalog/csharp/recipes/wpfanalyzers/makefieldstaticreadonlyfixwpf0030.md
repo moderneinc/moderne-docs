@@ -2,6 +2,11 @@
 sidebar_label: "Backing field for a DependencyProperty should be static and readonly"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/makefieldstaticreadonlyfixwpf0030" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Dropwizard to Spring Boot"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dropwizard/migratedropwizardtospringboot" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

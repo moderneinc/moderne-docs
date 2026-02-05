@@ -2,6 +2,11 @@
 sidebar_label: "Find hardcoded container credentials"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/security/hardcodedcredentialsrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Add or update annotation attribute"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/addorupdateannotationattribute" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

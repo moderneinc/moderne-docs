@@ -2,6 +2,11 @@
 sidebar_label: "Use expect from @storybook/jest"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/storybook/usestorybookexpect" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

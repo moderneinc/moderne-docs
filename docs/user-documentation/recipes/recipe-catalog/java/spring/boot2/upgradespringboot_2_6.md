@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Spring Boot 2.6"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_6" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

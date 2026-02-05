@@ -2,6 +2,11 @@
 sidebar_label: "Change Guava's `Predicate` into `java.util.function.Predicate` where possible"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavapredicate" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

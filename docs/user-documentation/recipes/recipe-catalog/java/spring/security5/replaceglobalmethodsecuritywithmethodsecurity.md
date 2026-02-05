@@ -2,6 +2,11 @@
 sidebar_label: "Replace global method security with method security"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security5/replaceglobalmethodsecuritywithmethodsecurity" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

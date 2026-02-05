@@ -2,6 +2,11 @@
 sidebar_label: "Inline `guava` methods annotated with `@InlineMe`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/google/guava/inlineguavamethods" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

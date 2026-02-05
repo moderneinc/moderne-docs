@@ -2,6 +2,11 @@
 sidebar_label: "Boolean checks should not be inverted"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/booleanchecksnotinverted" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

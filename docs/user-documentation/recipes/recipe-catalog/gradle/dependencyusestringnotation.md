@@ -2,6 +2,11 @@
 sidebar_label: "Use `String` notation for Gradle dependency declarations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/dependencyusestringnotation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

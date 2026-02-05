@@ -2,6 +2,11 @@
 sidebar_label: "No primitive wrappers for #toString() or #compareTo(..)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/noprimitivewrappersfortostringorcompareto" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace `SpringClassRule` and `SpringMethodRule` with JUnit 5 `SpringExtension`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/test/springrulestojunitextension" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use correct handler type"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usecorrectdelegatefixwpf0092" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

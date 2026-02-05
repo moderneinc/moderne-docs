@@ -2,6 +2,11 @@
 sidebar_label: "Rename getter methods to fit Lombok"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lombok/adoptlombokgettermethodnames" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Forbid unnecessary path segments in import and require statements"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nouselesspathsegments" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

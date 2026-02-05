@@ -2,6 +2,11 @@
 sidebar_label: "Rewrite JMockit MockUp to Mockito statements"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/jmockit/jmockitmockuptomockito" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

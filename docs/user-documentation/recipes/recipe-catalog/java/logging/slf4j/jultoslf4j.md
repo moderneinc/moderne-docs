@@ -2,6 +2,11 @@
 sidebar_label: "Migrate JUL to SLF4J"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/jultoslf4j" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Require variables within the same declaration block to be sorted"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/sortvars" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

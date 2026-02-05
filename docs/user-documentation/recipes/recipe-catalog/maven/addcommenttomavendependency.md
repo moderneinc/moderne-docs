@@ -2,6 +2,11 @@
 sidebar_label: "Add a comment to a `Maven` dependency or plugin"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/addcommenttomavendependency" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

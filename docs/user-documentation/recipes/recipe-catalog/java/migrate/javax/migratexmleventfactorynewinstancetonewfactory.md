@@ -2,6 +2,11 @@
 sidebar_label: "Use `javax.xml.stream.XMLEventFactory#newFactory(String, ClassLoader)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/migratexmleventfactorynewinstancetonewfactory" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

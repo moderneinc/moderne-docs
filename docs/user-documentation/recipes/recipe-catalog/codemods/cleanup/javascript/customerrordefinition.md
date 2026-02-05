@@ -2,6 +2,11 @@
 sidebar_label: "Enforce correct `Error` subclassing"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/customerrordefinition" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

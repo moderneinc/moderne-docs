@@ -2,6 +2,11 @@
 sidebar_label: "Replace `StringUtils.lowerCase(String)` with JDK provided API"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codehaus/plexus/plexusstringutilsrecipes$lowercaserecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

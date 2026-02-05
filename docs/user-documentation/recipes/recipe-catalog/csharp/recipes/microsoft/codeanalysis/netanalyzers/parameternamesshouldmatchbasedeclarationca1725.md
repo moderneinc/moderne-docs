@@ -2,6 +2,11 @@
 sidebar_label: "Parameter names should match base declaration"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/parameternamesshouldmatchbasedeclarationca1725" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

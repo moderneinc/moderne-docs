@@ -2,6 +2,11 @@
 sidebar_label: "Modernize octal literals"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/javascript/migrate/es6/modernize-octal-literals" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

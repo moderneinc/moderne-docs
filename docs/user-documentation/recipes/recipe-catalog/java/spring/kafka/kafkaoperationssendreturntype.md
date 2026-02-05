@@ -2,6 +2,11 @@
 sidebar_label: "Change `KafkaOperations.send*` return type to `CompletableFuture`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/kafka/kafkaoperationssendreturntype" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Require a newline after each call in a method chain"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/newlineperchainedcall" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

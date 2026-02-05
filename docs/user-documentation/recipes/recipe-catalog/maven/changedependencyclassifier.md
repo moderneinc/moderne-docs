@@ -2,6 +2,11 @@
 sidebar_label: "Change Maven dependency classifier"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/changedependencyclassifier" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

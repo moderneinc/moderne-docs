@@ -2,6 +2,11 @@
 sidebar_label: "Replace JUL `log(Level, String, Throwable)` with corresponding SLF4J method calls"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/jultoslf4jsimplecallswiththrowablerecipes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

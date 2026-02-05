@@ -2,6 +2,11 @@
 sidebar_label: "Renames `row` prop to `flexDirection=&quot;row&quot;`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/joyrenamerowprop" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

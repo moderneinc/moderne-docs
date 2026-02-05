@@ -2,6 +2,11 @@
 sidebar_label: "Replace `StringUtils.equals(String, String)` with JDK provided API"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/maven/shared/mavensharedstringutilsrecipes$equalsrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

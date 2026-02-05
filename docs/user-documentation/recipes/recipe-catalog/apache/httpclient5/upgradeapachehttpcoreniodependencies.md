@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from httpcore-nio to ApacheHttpClient 5.x core dependency"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/upgradeapachehttpcoreniodependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

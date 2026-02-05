@@ -2,6 +2,11 @@
 sidebar_label: "Enable Virtual Threads on Java 21"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/enablevirtualthreads" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use modernized `javax.lang.model.util` APIs"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/javaxlangmodelutil" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

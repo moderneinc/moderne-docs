@@ -2,6 +2,11 @@
 sidebar_label: "Remove Spring Boot 3.x parent POM"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/removespringbootparent" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Update `fireEvent()` and `createInjectionTarget()` calls"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatebeanmanagermethods" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

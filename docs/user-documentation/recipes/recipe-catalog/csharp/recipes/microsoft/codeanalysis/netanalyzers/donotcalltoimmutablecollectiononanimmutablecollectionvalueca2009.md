@@ -2,6 +2,11 @@
 sidebar_label: "Do not call ToImmutableCollection on an ImmutableCollection value"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/donotcalltoimmutablecollectiononanimmutablecollectionvalueca2009" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

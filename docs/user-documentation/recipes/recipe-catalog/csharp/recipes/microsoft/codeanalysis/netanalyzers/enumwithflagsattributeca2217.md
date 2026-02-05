@@ -2,6 +2,11 @@
 sidebar_label: "Do not mark enums with FlagsAttribute"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/enumwithflagsattributeca2217" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

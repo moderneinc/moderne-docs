@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `MockitoRules.Never`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/mockitorulesrecipes$neverrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

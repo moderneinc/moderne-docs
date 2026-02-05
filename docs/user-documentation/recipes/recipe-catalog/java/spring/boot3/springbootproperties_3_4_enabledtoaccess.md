@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Enabled to Access Spring Boot Properties"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/springbootproperties_3_4_enabledtoaccess" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

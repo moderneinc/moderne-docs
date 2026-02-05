@@ -2,6 +2,11 @@
 sidebar_label: "Find files with a particular build tool version"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/search/hasbuildtoolversion" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

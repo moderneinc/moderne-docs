@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `RxJava2AdapterRules.FluxToObservable`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$fluxtoobservablerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

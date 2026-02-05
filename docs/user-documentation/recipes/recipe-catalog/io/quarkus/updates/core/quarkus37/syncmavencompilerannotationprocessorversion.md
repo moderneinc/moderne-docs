@@ -2,6 +2,11 @@
 sidebar_label: "Sync Maven Compiler plugin annotation processor version with the one provided by the BOM"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/syncmavencompilerannotationprocessorversion" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Camel Yaml steps not allowed as route child"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel40/yaml/camelyamlstepsinfromrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

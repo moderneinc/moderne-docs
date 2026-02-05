@@ -2,6 +2,11 @@
 sidebar_label: "Replace `getDisplayName()` and `getDescription()` methods with fields"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/usedisplaynameanddescriptionfields" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

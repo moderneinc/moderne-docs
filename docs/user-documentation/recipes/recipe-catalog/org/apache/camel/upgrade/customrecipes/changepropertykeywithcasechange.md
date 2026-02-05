@@ -2,6 +2,11 @@
 sidebar_label: "Change prefix of property with Camel case"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/customrecipes/changepropertykeywithcasechange" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

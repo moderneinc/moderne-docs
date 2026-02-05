@@ -2,6 +2,11 @@
 sidebar_label: "Enforce new lines between multi-line properties in Vue components"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/newlinebetweenmultilineproperty" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

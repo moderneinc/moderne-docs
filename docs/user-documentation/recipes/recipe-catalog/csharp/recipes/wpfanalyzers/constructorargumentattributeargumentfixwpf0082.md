@@ -2,6 +2,11 @@
 sidebar_label: "[ConstructorArgument] must match"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/constructorargumentattributeargumentfixwpf0082" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

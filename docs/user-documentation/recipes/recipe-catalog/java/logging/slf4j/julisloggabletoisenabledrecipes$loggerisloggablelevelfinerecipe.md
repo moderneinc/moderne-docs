@@ -2,6 +2,11 @@
 sidebar_label: "Replace JUL `Logger.isLoggable(Level.FINE)` with SLF4J's `Logger.isDebugEnabled()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelfinerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

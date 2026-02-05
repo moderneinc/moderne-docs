@@ -2,6 +2,11 @@
 sidebar_label: "Convert Spring `ResponseEntity` to JAX-RS `Response`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/responseentitytojaxrsresponse" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

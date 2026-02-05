@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade Maven Shared Parent"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/upgrademavensharedparent" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Forbid import of modules using absolute paths"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noabsolutepath" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

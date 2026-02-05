@@ -2,6 +2,11 @@
 sidebar_label: "Add a literal method argument"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/addliteralmethodargument" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

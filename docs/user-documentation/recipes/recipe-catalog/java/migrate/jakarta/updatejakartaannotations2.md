@@ -2,6 +2,11 @@
 sidebar_label: "Update Jakarta EE annotation Dependencies to 2.1.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatejakartaannotations2" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

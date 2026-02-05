@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.annotation` to `jakarta.annotation`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxannotationmigrationtojakarta9annotation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

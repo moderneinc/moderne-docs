@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Collection.stream().map(Function)` over `Iterables.transform`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavaiterablestransform" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

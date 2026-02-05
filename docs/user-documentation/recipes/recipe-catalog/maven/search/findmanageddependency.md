@@ -2,6 +2,11 @@
 sidebar_label: "Find Maven dependency management entry"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/search/findmanageddependency" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

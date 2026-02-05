@@ -2,6 +2,11 @@
 sidebar_label: "Replace beans.xml file"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/liberty/webbeansxmlrule" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

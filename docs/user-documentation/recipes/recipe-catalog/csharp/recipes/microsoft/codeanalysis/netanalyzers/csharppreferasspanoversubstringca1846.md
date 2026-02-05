@@ -2,6 +2,11 @@
 sidebar_label: "Prefer 'AsSpan' over 'Substring'"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharppreferasspanoversubstringca1846" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

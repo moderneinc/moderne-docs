@@ -2,6 +2,11 @@
 sidebar_label: "Use `Logger#logrb(.., ResourceBundle bundleName, ..)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/logging/migrateloggerlogrbtouseresourcebundle" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace all function expressions with only `return` statement with simple arrow"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/ecmascript/5to6/simplearrow" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

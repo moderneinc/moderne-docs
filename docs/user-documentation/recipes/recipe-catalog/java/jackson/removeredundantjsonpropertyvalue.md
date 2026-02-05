@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant `@JsonProperty` argument"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/removeredundantjsonpropertyvalue" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

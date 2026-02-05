@@ -2,6 +2,11 @@
 sidebar_label: "Replace `extends EmptyInterceptor` with `implements Interceptor` and potentially `StatementInspector` (Community Edition)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/hibernate/emptyinterceptortointerface" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

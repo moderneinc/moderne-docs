@@ -2,6 +2,11 @@
 sidebar_label: "Update GlassFish Jersey Dependencies to 3.1.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatejerseydependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

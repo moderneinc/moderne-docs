@@ -2,6 +2,11 @@
 sidebar_label: "Disallow problematic leaked values from being rendered"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxnoleakedrender" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

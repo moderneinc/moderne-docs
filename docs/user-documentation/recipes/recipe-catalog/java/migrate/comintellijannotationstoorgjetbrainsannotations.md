@@ -2,6 +2,11 @@
 sidebar_label: "Migrate com.intellij:annotations to org.jetbrains:annotations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/comintellijannotationstoorgjetbrainsannotations" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

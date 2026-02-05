@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `Jackson3Rules.ObjectMapperConvertValueWithJavaType`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/jackson3rulesrecipes$objectmapperconvertvaluewithjavatyperecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

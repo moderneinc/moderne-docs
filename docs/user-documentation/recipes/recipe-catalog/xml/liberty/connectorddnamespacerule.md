@@ -2,6 +2,11 @@
 sidebar_label: "Use correct connector namespace values"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/liberty/connectorddnamespacerule" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

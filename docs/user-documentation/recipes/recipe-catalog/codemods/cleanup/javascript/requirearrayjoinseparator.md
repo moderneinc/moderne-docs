@@ -2,6 +2,11 @@
 sidebar_label: "Enforce using the separator argument with `Array#join()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/requirearrayjoinseparator" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

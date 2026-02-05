@@ -2,6 +2,11 @@
 sidebar_label: "Remove `avro-maven-plugin`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/quarkus2/removeavromavenplugin" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

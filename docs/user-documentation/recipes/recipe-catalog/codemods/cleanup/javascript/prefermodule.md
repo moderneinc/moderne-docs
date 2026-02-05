@@ -2,6 +2,11 @@
 sidebar_label: "Prefer JavaScript modules (ESM) over CommonJS"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefermodule" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

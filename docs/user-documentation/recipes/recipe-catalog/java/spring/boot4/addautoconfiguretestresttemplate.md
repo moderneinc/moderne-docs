@@ -2,6 +2,11 @@
 sidebar_label: "Add `@AutoConfigureTestRestTemplate` if necessary"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot4/addautoconfiguretestresttemplate" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Specify a culture or use an invariant version"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpspecifyculturefortolowerandtoupperca1311" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace `context.${method}(*)` with `context.getCamelContextExtension().${method}(*)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel45/useextendedcamelcontextgetters" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

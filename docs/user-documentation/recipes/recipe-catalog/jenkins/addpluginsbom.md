@@ -2,6 +2,11 @@
 sidebar_label: "Add or correct Jenkins plugins BOM"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/jenkins/addpluginsbom" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

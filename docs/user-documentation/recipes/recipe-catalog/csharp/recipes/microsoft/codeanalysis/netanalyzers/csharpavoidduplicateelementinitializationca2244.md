@@ -2,6 +2,11 @@
 sidebar_label: "Do not duplicate indexed element initializations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpavoidduplicateelementinitializationca2244" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Configure logback logger level"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/logback/configureloggerlevel" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

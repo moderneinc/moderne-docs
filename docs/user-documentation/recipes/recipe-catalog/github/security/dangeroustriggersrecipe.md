@@ -2,6 +2,11 @@
 sidebar_label: "Find dangerous workflow triggers"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/security/dangeroustriggersrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

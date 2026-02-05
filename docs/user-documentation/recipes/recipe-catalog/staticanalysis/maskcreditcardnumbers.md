@@ -2,6 +2,11 @@
 sidebar_label: "Mask credit card numbers"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/maskcreditcardnumbers" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

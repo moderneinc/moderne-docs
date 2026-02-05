@@ -2,6 +2,11 @@
 sidebar_label: "io.quarkus.updates.core.quarkus310.UpdateConfigPackageSimpleProperties"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus310/updateconfigpackagesimpleproperties" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

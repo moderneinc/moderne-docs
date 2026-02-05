@@ -2,6 +2,11 @@
 sidebar_label: "Mark publicly visible type with DebuggerDisplay attribute"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/marktypewithdebuggerdisplayattributercs1223" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

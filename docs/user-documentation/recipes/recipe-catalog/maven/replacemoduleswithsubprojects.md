@@ -2,6 +2,11 @@
 sidebar_label: "Replace modules with subprojects"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/replacemoduleswithsubprojects" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

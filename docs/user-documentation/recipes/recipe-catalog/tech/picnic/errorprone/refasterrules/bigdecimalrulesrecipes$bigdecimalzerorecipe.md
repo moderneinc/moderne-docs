@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `BigDecimalRules.BigDecimalZero`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalzerorecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Remove `public` from `@Bean` methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/framework/beanmethodsnotpublic" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

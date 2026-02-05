@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `TimeRules.ZonedDateTimePlusWeeks`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$zoneddatetimeplusweeksrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Identifiers should not contain underscores"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpidentifiersshouldnotcontainunderscoresca1707" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

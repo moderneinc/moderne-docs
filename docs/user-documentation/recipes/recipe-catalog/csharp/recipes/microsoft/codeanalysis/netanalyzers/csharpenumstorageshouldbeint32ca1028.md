@@ -2,6 +2,11 @@
 sidebar_label: "Enum Storage should be Int32"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpenumstorageshouldbeint32ca1028" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

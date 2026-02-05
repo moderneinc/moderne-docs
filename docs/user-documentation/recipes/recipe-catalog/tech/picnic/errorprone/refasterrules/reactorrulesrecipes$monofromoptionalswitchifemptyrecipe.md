@@ -2,6 +2,11 @@
 sidebar_label: "Prefer a `Mono#justOrEmpty(Optional)` and `Mono#switchIfEmpty(Mono)` chain over more contrived alternatives"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monofromoptionalswitchifemptyrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

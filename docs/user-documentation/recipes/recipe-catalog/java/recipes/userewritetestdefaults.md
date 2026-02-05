@@ -2,6 +2,11 @@
 sidebar_label: "Refactor RewriteTest to use defaults method"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/userewritetestdefaults" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

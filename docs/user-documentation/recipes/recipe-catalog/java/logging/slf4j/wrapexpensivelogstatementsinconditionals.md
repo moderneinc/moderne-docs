@@ -2,6 +2,11 @@
 sidebar_label: "Optimize log statements"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/wrapexpensivelogstatementsinconditionals" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

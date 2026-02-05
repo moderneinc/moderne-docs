@@ -2,6 +2,11 @@
 sidebar_label: "Remove unnecessary 'else'"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeunnecessaryelsercs1211" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

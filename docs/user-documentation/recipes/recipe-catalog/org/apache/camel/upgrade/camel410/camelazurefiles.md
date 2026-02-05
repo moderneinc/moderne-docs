@@ -2,6 +2,11 @@
 sidebar_label: "Renamed constants in camel-azure-files"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel410/camelazurefiles" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

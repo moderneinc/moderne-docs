@@ -2,6 +2,11 @@
 sidebar_label: "Convert V1 setters to V2 toBuilder setters"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/setterstobuilderv2" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace `isCloseTo` with `isEqualTo`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisequaltorecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

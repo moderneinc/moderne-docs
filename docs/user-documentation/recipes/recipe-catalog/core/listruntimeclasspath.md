@@ -2,6 +2,11 @@
 sidebar_label: "List runtime classpath"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/core/listruntimeclasspath" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

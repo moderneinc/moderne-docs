@@ -2,6 +2,11 @@
 sidebar_label: "Update Gradle wrapper"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/updategradlewrapper" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

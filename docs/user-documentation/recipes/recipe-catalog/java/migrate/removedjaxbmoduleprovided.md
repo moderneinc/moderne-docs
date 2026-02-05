@@ -2,6 +2,11 @@
 sidebar_label: "Do not package `java.xml.bind` and `java.activation` modules in WebSphere Liberty applications"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/removedjaxbmoduleprovided" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

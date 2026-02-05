@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from Micronaut 3.x to 4.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/micronaut3to4migration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

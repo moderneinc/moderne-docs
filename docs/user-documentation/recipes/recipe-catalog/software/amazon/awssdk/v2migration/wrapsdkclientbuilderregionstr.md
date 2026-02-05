@@ -2,6 +2,11 @@
 sidebar_label: "Wrap the region string provided on the SDK client builder with Region.of"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/wrapsdkclientbuilderregionstr" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

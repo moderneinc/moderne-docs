@@ -2,6 +2,11 @@
 sidebar_label: "Use `org.springframework.boot.web.servlet.error.ErrorController`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/migrateerrorcontrollerpackagename" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

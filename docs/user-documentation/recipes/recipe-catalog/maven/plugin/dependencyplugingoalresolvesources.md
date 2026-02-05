@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to `maven-dependency-plugin` goal `resolve-sources`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/plugin/dependencyplugingoalresolvesources" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

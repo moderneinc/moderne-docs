@@ -2,6 +2,11 @@
 sidebar_label: "Move SAML relying party identity provider property to asserting party"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/samlrelyingpartypropertyapplicationpropertiesmove" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

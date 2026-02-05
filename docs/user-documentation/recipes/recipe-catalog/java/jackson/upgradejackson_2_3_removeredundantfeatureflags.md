@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant Jackson 3 feature flag configurations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/upgradejackson_2_3_removeredundantfeatureflags" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

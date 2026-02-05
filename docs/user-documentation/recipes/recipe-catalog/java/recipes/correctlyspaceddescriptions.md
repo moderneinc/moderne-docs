@@ -2,6 +2,11 @@
 sidebar_label: "Correctly spaced descriptions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/correctlyspaceddescriptions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

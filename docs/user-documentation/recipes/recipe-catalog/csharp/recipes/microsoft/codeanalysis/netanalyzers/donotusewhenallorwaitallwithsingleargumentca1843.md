@@ -2,6 +2,11 @@
 sidebar_label: "Do not use 'WaitAll' with a single task"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/donotusewhenallorwaitallwithsingleargumentca1843" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

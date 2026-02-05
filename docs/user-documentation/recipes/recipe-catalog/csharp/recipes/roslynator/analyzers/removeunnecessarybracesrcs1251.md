@@ -2,6 +2,11 @@
 sidebar_label: "Remove unnecessary braces from record declaration"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeunnecessarybracesrcs1251" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

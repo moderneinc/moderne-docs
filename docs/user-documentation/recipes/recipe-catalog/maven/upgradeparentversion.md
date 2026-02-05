@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade Maven parent project version"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/upgradeparentversion" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

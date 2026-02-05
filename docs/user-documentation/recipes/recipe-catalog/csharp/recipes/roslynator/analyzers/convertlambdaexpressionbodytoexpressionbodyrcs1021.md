@@ -2,6 +2,11 @@
 sidebar_label: "Convert lambda expression body to expression body"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/convertlambdaexpressionbodytoexpressionbodyrcs1021" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

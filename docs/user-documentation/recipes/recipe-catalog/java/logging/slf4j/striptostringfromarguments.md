@@ -2,6 +2,11 @@
 sidebar_label: "Strip `toString()` from arguments"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/striptostringfromarguments" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

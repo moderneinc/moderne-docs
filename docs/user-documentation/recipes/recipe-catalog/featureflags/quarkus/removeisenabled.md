@@ -2,6 +2,11 @@
 sidebar_label: "Remove Quarkus feature flag's `isEnabled` for feature key"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/featureflags/quarkus/removeisenabled" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

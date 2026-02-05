@@ -2,6 +2,11 @@
 sidebar_label: "Add missing `@BeforeEach`, `@AfterEach`, `@Test` to overriding methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/addmissingtestbeforeafterannotations" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

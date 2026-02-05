@@ -2,6 +2,11 @@
 sidebar_label: "Suggest using toHaveLength()"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/jest/prefertohavelength" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

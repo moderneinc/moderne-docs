@@ -2,6 +2,11 @@
 sidebar_label: "Use string.Create instead of FormattableString"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usestringcreateinsteadofformattablestringma0111" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

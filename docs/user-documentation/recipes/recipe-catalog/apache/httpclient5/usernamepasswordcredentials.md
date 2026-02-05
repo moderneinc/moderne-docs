@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `UsernamePasswordCredentials` to httpclient5"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/usernamepasswordcredentials" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate xmlns entries in `batch.xml` files."
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxbatchxmltojakarta9batchxml" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

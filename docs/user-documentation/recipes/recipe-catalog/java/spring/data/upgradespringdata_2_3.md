@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Spring Data 2.3"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/data/upgradespringdata_2_3" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

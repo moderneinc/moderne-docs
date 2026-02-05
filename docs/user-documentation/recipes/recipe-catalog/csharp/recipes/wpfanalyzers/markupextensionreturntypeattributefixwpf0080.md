@@ -2,6 +2,11 @@
 sidebar_label: "Add MarkupExtensionReturnType attribute"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/markupextensionreturntypeattributefixwpf0080" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrates to Apache Commons Math 3.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/math/upgradeapachecommonsmath_2_3" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Suggest using the built-in comparison matchers"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/jest/prefercomparisonmatcher" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

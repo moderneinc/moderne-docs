@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `RegExp#test()` over `String#match()` and `RegExp#exec()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferregexptest" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

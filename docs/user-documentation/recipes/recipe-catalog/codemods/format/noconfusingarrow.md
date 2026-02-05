@@ -2,6 +2,11 @@
 sidebar_label: "Disallow arrow functions where they could be confused with comparisons"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/noconfusingarrow" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

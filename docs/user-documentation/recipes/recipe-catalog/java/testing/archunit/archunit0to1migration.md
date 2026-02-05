@@ -2,6 +2,11 @@
 sidebar_label: "ArchUnit 0.x upgrade"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/archunit/archunit0to1migration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

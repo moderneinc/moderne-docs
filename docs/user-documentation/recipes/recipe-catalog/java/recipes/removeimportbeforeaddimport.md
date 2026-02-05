@@ -2,6 +2,11 @@
 sidebar_label: "Reorder `maybeRemoveImport` before `maybeAddImport`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/removeimportbeforeaddimport" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

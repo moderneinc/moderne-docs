@@ -2,6 +2,11 @@
 sidebar_label: "Update the Micronaut Security library"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/updatemicronautsecurity" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

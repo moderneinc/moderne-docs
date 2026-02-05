@@ -2,6 +2,11 @@
 sidebar_label: "Catch `TypeNotPresentException` thrown by `Class.getAnnotation()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/arraystoreexceptiontotypenotpresentexception" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

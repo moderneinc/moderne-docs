@@ -2,6 +2,11 @@
 sidebar_label: "Remove `getComment` and `getVersion` methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/servletcookiebehaviorchangerfc6265" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

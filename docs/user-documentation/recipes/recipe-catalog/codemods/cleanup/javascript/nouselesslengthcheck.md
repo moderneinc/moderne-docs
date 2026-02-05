@@ -2,6 +2,11 @@
 sidebar_label: "Disallow useless array `length` check"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nouselesslengthcheck" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

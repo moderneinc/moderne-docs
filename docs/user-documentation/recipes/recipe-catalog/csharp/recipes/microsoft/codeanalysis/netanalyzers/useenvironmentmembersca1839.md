@@ -2,6 +2,11 @@
 sidebar_label: "Use 'Environment.ProcessPath'"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/useenvironmentmembersca1839" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

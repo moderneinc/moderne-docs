@@ -2,6 +2,11 @@
 sidebar_label: "Mark attributes with AttributeUsageAttribute"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/markattributeswithattributeusageattributema0010" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

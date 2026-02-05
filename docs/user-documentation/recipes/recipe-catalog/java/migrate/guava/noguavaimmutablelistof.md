@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `List.of(..)` in Java 9 or higher"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavaimmutablelistof" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Find obfuscated GitHub Actions features"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/security/obfuscationrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

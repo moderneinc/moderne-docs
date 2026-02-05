@@ -2,6 +2,11 @@
 sidebar_label: "Exclude JUnit 4, unless Testcontainers is used"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/excludejunit4unlessusingtestcontainers" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant null check when using `StringUtils.isNotBlank(String)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$removeredundantnullcheckwithisnotblankrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

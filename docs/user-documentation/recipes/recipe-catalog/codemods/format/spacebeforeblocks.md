@@ -2,6 +2,11 @@
 sidebar_label: "Enforce consistent spacing before blocks"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/spacebeforeblocks" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

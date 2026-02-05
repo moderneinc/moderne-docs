@@ -2,6 +2,11 @@
 sidebar_label: "Find patterns that require updating for Spring Boot 2.5"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/search/findupgraderequirementsspringboot_2_5" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace JUnit `assertTrue(!&lt;boolean&gt;)` to `assertFalse(&lt;boolean&gt;)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/cleanup/asserttruenegationtoassertfalse" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

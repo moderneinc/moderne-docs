@@ -2,6 +2,11 @@
 sidebar_label: "Transform AMD style `define()` calls to ES6 `import` statements"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/ecmascript/5to6/amdtoesm" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

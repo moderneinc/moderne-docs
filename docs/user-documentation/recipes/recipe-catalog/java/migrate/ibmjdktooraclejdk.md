@@ -2,6 +2,11 @@
 sidebar_label: "Migrate from IBM Runtimes to Oracle Runtimes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/ibmjdktooraclejdk" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

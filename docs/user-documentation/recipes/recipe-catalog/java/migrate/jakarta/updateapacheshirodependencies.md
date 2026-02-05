@@ -2,6 +2,11 @@
 sidebar_label: "Update Apache Shiro Dependencies to 2.0.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updateapacheshirodependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

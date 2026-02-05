@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `ImageResponse` imports"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v14_0/nextogimport" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

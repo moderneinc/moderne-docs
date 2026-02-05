@@ -2,6 +2,11 @@
 sidebar_label: "Change XML attribute of a specific resource version"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/changenamespacevalue" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

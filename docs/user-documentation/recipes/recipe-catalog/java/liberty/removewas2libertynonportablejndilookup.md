@@ -2,6 +2,11 @@
 sidebar_label: "Removes invalid JNDI properties"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/liberty/removewas2libertynonportablejndilookup" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

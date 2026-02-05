@@ -2,6 +2,11 @@
 sidebar_label: "Use block body or expression body"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useblockbodyorexpressionbodyrcs1016" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

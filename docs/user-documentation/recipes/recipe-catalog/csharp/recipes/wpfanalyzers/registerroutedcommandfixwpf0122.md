@@ -2,6 +2,11 @@
 sidebar_label: "Register name and owning type for routed command"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/registerroutedcommandfixwpf0122" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

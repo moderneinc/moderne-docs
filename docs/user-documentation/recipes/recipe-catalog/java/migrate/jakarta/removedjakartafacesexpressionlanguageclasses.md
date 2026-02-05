@@ -2,6 +2,11 @@
 sidebar_label: "Use `jakarta.el` instead of `jakarta.faces.el` and `javax.faces.el`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/removedjakartafacesexpressionlanguageclasses" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

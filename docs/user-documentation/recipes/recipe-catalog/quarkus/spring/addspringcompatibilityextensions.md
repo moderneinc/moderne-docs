@@ -2,6 +2,11 @@
 sidebar_label: "Add Spring compatibility extensions for commonly used annotations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/addspringcompatibilityextensions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

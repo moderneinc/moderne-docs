@@ -2,6 +2,11 @@
 sidebar_label: "Rename Next Image Imports"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v13_0/nextimagetolegacyimage" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

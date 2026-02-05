@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJPathRules.AssertThatHasNoParent`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjpathrulesrecipes$assertthathasnoparentrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

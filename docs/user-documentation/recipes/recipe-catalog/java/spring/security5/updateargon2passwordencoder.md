@@ -2,6 +2,11 @@
 sidebar_label: "Use new `Argon2PasswordEncoder` factory methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security5/updateargon2passwordencoder" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

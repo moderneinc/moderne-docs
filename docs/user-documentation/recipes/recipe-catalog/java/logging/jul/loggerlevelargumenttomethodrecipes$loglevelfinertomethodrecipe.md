@@ -2,6 +2,11 @@
 sidebar_label: "Replace JUL `Logger.log(Level.FINER, String)` with `Logger.finer(String)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/jul/loggerlevelargumenttomethodrecipes$loglevelfinertomethodrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

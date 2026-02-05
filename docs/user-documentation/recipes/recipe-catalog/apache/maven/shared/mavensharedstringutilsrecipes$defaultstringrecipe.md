@@ -2,6 +2,11 @@
 sidebar_label: "Replace `StringUtils.defaultString(Object)` with JDK provided API"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/maven/shared/mavensharedstringutilsrecipes$defaultstringrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

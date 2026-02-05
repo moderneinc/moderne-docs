@@ -2,6 +2,11 @@
 sidebar_label: "Enforce consistent spacing before and after the arrow in arrow functions in `&lt;template&gt;`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/arrowspacing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

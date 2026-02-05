@@ -2,6 +2,11 @@
 sidebar_label: "Replace JUL `Logger.log(Level.WARNING, String)` with `Logger.warning(String)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/jul/loggerlevelargumenttomethodrecipes$loglevelwarningtomethodrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

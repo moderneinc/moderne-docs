@@ -2,6 +2,11 @@
 sidebar_label: "Maps deprecated classes from Apache HttpClient 4.5.x to suggested replacements"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient4/mappingdeprecatedclasses" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

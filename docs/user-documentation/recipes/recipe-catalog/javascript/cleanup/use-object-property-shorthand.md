@@ -2,6 +2,11 @@
 sidebar_label: "Use object property shorthand"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/javascript/cleanup/use-object-property-shorthand" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

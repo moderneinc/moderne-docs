@@ -2,6 +2,11 @@
 sidebar_label: "Add radix to `parseInt`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/javascript/cleanup/add-parse-int-radix" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

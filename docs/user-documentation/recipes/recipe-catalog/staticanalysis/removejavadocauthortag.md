@@ -2,6 +2,11 @@
 sidebar_label: "Remove author tags from JavaDocs"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/removejavadocauthortag" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace String literal with constant"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/replacestringliteralwithconstant" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

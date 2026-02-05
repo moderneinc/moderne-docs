@@ -2,6 +2,11 @@
 sidebar_label: "Remove unneeded `oauth2Login` config when upgrading to Spring Security 6"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security6/removeoauth2loginconfig" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

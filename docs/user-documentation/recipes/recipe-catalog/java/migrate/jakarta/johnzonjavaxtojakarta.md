@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Johnzon from javax to jakarta namespace"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/johnzonjavaxtojakarta" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

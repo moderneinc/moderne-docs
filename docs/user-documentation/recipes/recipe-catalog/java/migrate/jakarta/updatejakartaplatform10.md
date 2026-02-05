@@ -2,6 +2,11 @@
 sidebar_label: "Update Jakarta EE Platform Dependencies to 10.0.0"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatejakartaplatform10" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

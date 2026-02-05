@@ -2,6 +2,11 @@
 sidebar_label: "Use Maven compiler plugin release configuration"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/usemavencompilerpluginreleaseconfiguration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

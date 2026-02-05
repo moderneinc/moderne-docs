@@ -2,6 +2,11 @@
 sidebar_label: "Migrate xmlns entries and javax. packages in `validation.xml` files"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxbeanvalidationxmltojakartabeanvalidationxml" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

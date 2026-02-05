@@ -2,6 +2,11 @@
 sidebar_label: "Update Jakarta EE XML Web Services Dependencies for EE 10"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatejakartaxmlwsee10" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

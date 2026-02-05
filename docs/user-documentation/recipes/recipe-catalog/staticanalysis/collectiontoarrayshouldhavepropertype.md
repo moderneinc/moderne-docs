@@ -2,6 +2,11 @@
 sidebar_label: "'Collection.toArray()' should be passed an array of the proper type"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/collectiontoarrayshouldhavepropertype" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

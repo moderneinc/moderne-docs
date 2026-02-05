@@ -2,6 +2,11 @@
 sidebar_label: "Inline methods annotated with `@InlineMe`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/recipes/rewrite/inlinemethods" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

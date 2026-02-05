@@ -2,6 +2,11 @@
 sidebar_label: "Forbid namespace (a.k.a. &quot;wildcard&quot; `*`) imports"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nonamespace" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

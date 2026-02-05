@@ -2,6 +2,11 @@
 sidebar_label: "Replace `cucumber-java8` hook definition with `cucumber-java`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/cucumber/jvm/cucumberjava8hookdefinitiontocucumberjava" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

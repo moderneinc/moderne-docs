@@ -2,6 +2,11 @@
 sidebar_label: "Convert API response codes to strings"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/openapi/swagger/convertapiresponsecodestostrings" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

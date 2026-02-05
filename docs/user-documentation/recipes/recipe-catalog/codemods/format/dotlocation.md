@@ -2,6 +2,11 @@
 sidebar_label: "Enforce consistent newlines before and after dots"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/dotlocation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

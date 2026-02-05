@@ -2,6 +2,11 @@
 sidebar_label: "Update Apache Commons Email to Email2 for Jakarta"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updateapachecommonsemaildependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

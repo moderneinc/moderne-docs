@@ -2,6 +2,11 @@
 sidebar_label: "Add braces to if-else (when expression spans over multiple lines)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/addbracestoifelsercs1003" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

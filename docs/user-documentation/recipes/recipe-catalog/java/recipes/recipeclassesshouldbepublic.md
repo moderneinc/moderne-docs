@@ -2,6 +2,11 @@
 sidebar_label: "Recipe classes should be public"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/recipeclassesshouldbepublic" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Enable Gradle parallel execution"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/enablegradleparallelexecution" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

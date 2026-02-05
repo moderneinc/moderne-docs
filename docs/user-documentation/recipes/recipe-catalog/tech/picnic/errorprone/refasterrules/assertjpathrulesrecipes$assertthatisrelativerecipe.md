@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJPathRules.AssertThatIsRelative`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjpathrulesrecipes$assertthatisrelativerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

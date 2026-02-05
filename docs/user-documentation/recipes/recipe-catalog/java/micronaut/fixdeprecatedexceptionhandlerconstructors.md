@@ -2,6 +2,11 @@
 sidebar_label: "Fix deprecated no-arg `ExceptionHandler` constructors"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/fixdeprecatedexceptionhandlerconstructors" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

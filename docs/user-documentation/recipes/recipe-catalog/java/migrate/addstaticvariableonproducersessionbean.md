@@ -2,6 +2,11 @@
 sidebar_label: "Adds `static` modifier to `@Produces` fields that are in session beans"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/addstaticvariableonproducersessionbean" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

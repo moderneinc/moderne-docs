@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `NullRules.NonNullFunction`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/nullrulesrecipes$nonnullfunctionrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

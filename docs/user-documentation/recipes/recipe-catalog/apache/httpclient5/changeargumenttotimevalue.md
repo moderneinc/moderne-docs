@@ -2,6 +2,11 @@
 sidebar_label: "Changes an argument to a `TimeValue` for matched method invocations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/changeargumenttotimevalue" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

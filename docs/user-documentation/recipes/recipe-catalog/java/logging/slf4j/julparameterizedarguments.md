@@ -2,6 +2,11 @@
 sidebar_label: "Replace parameterized JUL level call with corresponding SLF4J method calls"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/julparameterizedarguments" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

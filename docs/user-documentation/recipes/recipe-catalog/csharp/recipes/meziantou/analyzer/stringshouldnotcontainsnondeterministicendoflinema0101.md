@@ -2,6 +2,11 @@
 sidebar_label: "String contains an implicit end of line character"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/stringshouldnotcontainsnondeterministicendoflinema0101" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

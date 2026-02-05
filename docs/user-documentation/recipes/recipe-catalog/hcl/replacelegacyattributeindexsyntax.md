@@ -2,6 +2,11 @@
 sidebar_label: "Replace legacy attribute index syntax"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/hcl/replacelegacyattributeindexsyntax" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

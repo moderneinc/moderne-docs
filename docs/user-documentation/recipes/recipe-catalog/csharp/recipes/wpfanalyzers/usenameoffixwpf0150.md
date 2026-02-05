@@ -2,6 +2,11 @@
 sidebar_label: "Use nameof() instead of literal"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usenameoffixwpf0150" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

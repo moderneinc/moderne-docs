@@ -2,6 +2,11 @@
 sidebar_label: "Experimental find text with multiselect"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/text/findmultiselect" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

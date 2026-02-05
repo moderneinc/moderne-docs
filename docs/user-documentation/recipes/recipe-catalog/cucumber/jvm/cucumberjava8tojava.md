@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `cucumber-java8` to `cucumber-java`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/cucumber/jvm/cucumberjava8tojava" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

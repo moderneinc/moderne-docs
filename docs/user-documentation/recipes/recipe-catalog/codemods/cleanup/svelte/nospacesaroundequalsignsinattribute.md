@@ -2,6 +2,11 @@
 sidebar_label: "Disallow spaces around equal signs in attribute"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/nospacesaroundequalsignsinattribute" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

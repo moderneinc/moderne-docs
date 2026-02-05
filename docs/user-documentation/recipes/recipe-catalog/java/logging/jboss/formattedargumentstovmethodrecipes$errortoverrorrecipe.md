@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `FormattedArgumentsToVMethod.ErrorToVError`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/jboss/formattedargumentstovmethodrecipes$errortoverrorrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

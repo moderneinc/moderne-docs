@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `ImmutableMapRules.ImmutableMapBuilderPut`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablemaprulesrecipes$immutablemapbuilderputrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

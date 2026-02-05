@@ -2,6 +2,11 @@
 sidebar_label: "Add `@Valid` to nested properties in `@ConfigurationProperties`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/addvalidtonestedconfigproperties" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

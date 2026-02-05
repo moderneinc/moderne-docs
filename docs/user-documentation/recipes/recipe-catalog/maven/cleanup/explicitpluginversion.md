@@ -2,6 +2,11 @@
 sidebar_label: "Add explicit plugin versions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/cleanup/explicitpluginversion" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace null with RewriteTest.doesNotExist()"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/replacenullwithdoesnotexist" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Remove LaunchDarkly's `intVariation` for feature key"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/featureflags/launchdarkly/removeintvariation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

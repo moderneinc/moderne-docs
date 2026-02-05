@@ -2,6 +2,11 @@
 sidebar_label: "Replace OSSRH secrets with Sonatype secrets"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/replaceossrhsecretswithsonatype" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Remove `Object.finalize()` invocations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/removecallstoobjectfinalize" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

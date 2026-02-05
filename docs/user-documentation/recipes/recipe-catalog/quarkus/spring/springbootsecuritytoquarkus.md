@@ -2,6 +2,11 @@
 sidebar_label: "Replace Spring Boot Security with Quarkus Security"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/springbootsecuritytoquarkus" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

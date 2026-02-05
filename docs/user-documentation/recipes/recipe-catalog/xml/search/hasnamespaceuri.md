@@ -2,6 +2,11 @@
 sidebar_label: "Find XML namespace URIs"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/search/hasnamespaceuri" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

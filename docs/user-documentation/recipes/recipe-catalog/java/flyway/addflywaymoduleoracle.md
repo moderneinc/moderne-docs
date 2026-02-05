@@ -2,6 +2,11 @@
 sidebar_label: "Add missing Flyway module for Oracle"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/flyway/addflywaymoduleoracle" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace `java.util.Stack` with `java.util.Deque`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/replacestackwithdeque" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

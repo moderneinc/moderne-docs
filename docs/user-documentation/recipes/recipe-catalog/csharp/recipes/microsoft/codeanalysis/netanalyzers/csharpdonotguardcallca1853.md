@@ -2,6 +2,11 @@
 sidebar_label: "Unnecessary call to 'Dictionary.ContainsKey(key)'"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdonotguardcallca1853" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

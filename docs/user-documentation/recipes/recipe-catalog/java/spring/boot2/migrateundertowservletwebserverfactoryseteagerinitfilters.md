@@ -2,6 +2,11 @@
 sidebar_label: "Use `setEagerFilterInit(boolean)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/migrateundertowservletwebserverfactoryseteagerinitfilters" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

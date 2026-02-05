@@ -2,6 +2,11 @@
 sidebar_label: "A readonly DependencyProperty must be set with DependencyPropertyKey"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usedependencypropertykeyfixwpf0040" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

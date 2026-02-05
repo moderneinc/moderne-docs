@@ -2,6 +2,11 @@
 sidebar_label: "Using directives should be ordered alphabetically by namespace"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/usingsa1210" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

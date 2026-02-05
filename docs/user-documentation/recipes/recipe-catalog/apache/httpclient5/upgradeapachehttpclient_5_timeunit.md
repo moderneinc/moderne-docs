@@ -2,6 +2,11 @@
 sidebar_label: "Adds `TimeUnit` to timeouts and duration methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/upgradeapachehttpclient_5_timeunit" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

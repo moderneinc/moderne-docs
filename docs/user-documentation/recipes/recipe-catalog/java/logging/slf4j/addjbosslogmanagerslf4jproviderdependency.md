@@ -2,6 +2,11 @@
 sidebar_label: "Add JBoss LogManager's SLF4J provider"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/addjbosslogmanagerslf4jproviderdependency" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

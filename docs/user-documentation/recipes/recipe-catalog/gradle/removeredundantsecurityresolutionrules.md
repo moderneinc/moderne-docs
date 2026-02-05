@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant security resolution rules"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/removeredundantsecurityresolutionrules" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

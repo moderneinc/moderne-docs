@@ -2,6 +2,11 @@
 sidebar_label: "Extract dependency usage patterns"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/prethink/extractdependencyusage" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

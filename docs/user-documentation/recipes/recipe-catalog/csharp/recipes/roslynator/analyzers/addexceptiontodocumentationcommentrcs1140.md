@@ -2,6 +2,11 @@
 sidebar_label: "Add exception to documentation comment"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/addexceptiontodocumentationcommentrcs1140" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Add `HttpRequest` type parameter for implemented interfaces"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/addhttprequesttypeparameter" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

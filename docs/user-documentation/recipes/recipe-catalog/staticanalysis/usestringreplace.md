@@ -2,6 +2,11 @@
 sidebar_label: "Use `String::replace()` when first parameter is not a real regular expression"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/usestringreplace" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Register containing member name as name for routed command"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usenameoffixwpf0120" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

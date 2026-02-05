@@ -2,6 +2,11 @@
 sidebar_label: "Behavior change to bean discovery in modules with `beans.xml` file with no version specified"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/beandiscovery" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

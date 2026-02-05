@@ -2,6 +2,11 @@
 sidebar_label: "Add null check to existing switch cases"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lang/nullcheckasswitchcase" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Remove JUnit `assertTrue(true)` and `assertFalse(false)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/cleanup/assertliteralbooleanremovedrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

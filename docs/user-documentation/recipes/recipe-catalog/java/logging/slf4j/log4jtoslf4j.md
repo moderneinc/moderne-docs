@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Log4j to SLF4J"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/log4jtoslf4j" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

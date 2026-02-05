@@ -2,6 +2,11 @@
 sidebar_label: "Prefer strongly-typed Append and Insert method overloads on StringBuilder"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/prefertypedstringbuilderappendoverloadsca1830" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

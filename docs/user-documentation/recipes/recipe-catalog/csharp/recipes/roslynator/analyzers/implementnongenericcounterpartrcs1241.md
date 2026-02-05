@@ -2,6 +2,11 @@
 sidebar_label: "Implement non-generic counterpart"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/implementnongenericcounterpartrcs1241" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

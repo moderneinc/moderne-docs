@@ -2,6 +2,11 @@
 sidebar_label: "Replace `System.getSecurityManager()` with `null`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/systemgetsecuritymanagertonull" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

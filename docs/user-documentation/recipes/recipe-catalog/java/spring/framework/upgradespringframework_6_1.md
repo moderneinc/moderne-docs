@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Spring Framework 6.1"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/framework/upgradespringframework_6_1" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

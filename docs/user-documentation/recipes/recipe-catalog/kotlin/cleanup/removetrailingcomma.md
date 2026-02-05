@@ -2,6 +2,11 @@
 sidebar_label: "Remove trailing comma in Kotlin"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/kotlin/cleanup/removetrailingcomma" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

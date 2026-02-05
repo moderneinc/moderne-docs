@@ -2,6 +2,11 @@
 sidebar_label: "Add `lombok-mapstruct-binding` when both MapStruct and Lombok are used"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/addlombokmapstructbinding" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

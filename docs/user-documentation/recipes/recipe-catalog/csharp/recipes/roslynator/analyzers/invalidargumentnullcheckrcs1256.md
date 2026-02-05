@@ -2,6 +2,11 @@
 sidebar_label: "Invalid argument null check"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/invalidargumentnullcheckrcs1256" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

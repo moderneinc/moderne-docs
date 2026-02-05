@@ -2,6 +2,11 @@
 sidebar_label: "XML DSL bearer from rest/securityDefinitions is renamed to bearerToken"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel412/xmldslbearer" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

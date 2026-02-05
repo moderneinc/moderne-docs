@@ -2,6 +2,11 @@
 sidebar_label: "Change the default value for feature key"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/featureflags/launchdarkly/changevariationdefault" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "The package scan classes has moved from camel-base-engine to camel-support - maven"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel412/scanclassesmovedmaven" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

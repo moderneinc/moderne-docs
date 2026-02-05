@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Spring Data JPA 3.4"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/data/upgradespringdata_3_4" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

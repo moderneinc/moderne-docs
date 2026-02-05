@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `NullRules.IsNull`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/nullrulesrecipes$isnullrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

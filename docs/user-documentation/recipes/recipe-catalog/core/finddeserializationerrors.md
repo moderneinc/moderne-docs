@@ -2,6 +2,11 @@
 sidebar_label: "Find deserialization errors"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/core/finddeserializationerrors" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

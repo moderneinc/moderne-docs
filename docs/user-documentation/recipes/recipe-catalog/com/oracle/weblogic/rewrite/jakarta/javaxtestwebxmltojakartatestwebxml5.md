@@ -2,6 +2,11 @@
 sidebar_label: "Migrate xmlns entries in `test-web.xml` files for Jakarta Server Faces 3 using test interfaces"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxtestwebxmltojakartatestwebxml5" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

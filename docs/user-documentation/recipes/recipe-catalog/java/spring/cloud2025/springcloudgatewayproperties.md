@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Spring Cloud Gateway Properties"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/cloud2025/springcloudgatewayproperties" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

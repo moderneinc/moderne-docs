@@ -2,6 +2,11 @@
 sidebar_label: "Add `@Configuration` to classes with `@EnableXXXSecurity` annotations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/configurationoverenablesecurity" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

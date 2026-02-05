@@ -2,6 +2,11 @@
 sidebar_label: "Replace `Paths.get` with `Path.of`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/nio/file/pathsgettopathof" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

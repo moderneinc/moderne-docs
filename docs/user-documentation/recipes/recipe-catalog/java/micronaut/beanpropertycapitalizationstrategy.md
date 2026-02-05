@@ -2,6 +2,11 @@
 sidebar_label: "De-capitalize `BeanIntrospection` `getProperty(..)` and `getRequiredProperty(..)` name arguments"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/beanpropertycapitalizationstrategy" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

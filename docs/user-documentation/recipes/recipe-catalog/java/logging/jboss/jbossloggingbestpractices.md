@@ -2,6 +2,11 @@
 sidebar_label: "JBoss Logging Best Practices"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/jboss/jbossloggingbestpractices" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

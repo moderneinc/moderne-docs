@@ -2,6 +2,11 @@
 sidebar_label: "Use `EnableConfigurationProperties.VALIDATOR_BEAN_NAME`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/migrateconfigurationpropertiesbindingpostprocessorvalidatorbeanname" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

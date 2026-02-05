@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Function.compose(Function)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/noguavafunctionscompose" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

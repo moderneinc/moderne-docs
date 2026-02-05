@@ -2,6 +2,11 @@
 sidebar_label: "Use new `Pbkdf2PasswordEncoder` factory methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security5/updatepbkdf2passwordencoder" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

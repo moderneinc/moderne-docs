@@ -2,6 +2,11 @@
 sidebar_label: "Replace Spring Boot ActiveMQ with Quarkus Artemis JMS"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/springbootactivemqtoquarkus" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

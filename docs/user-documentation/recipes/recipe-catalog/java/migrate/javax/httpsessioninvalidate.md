@@ -2,6 +2,11 @@
 sidebar_label: "Use HttpServletRequest `logout` method for programmatic security logout in Servlet 3.0"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/httpsessioninvalidate" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

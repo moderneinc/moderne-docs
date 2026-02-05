@@ -2,6 +2,11 @@
 sidebar_label: "Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` by `by isCloseTo(Date, long)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/assertj/isequaltoignoringmillistoisclosetorecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

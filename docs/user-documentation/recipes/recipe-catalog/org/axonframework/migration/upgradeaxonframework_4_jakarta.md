@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade to Axonframework 4.x Jakarta"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/axonframework/migration/upgradeaxonframework_4_jakarta" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

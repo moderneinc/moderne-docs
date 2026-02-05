@@ -2,6 +2,11 @@
 sidebar_label: "Migration of `ResultCheckStyle` to `Expectation` (Community Edition)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/hibernate/migrateresultcheckstyletoexpectation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

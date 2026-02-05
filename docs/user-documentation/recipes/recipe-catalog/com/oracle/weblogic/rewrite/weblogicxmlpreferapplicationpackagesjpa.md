@@ -2,6 +2,11 @@
 sidebar_label: "Add `prefer-application-packages` for JPA in `weblogic.xml`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesjpa" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

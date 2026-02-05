@@ -2,6 +2,11 @@
 sidebar_label: "Use comparison rather than equality checks in for conditions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/noequalityinforcondition" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Add `serialVersionUID` to a `Serializable` class when missing"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/addserialversionuidtoserializable" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

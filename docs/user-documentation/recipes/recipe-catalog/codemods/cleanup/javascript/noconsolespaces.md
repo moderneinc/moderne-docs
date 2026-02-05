@@ -2,6 +2,11 @@
 sidebar_label: "Do not use leading/trailing space between `console.log` parameters"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noconsolespaces" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

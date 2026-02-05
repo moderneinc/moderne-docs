@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `RxJava2AdapterRules.SingleToMono`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$singletomonorecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

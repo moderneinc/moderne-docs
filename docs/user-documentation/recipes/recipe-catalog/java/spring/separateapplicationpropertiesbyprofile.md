@@ -2,6 +2,11 @@
 sidebar_label: "Separate `application.properties` by profile"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/separateapplicationpropertiesbyprofile" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

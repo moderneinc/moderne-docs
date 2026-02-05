@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Spring Boot 2.x projects to JUnit 5 from JUnit 4"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/springboot2junit4to5migration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Convert `new BufferedWriter(new FileWriter(File, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithfileandbooleanargumentsrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

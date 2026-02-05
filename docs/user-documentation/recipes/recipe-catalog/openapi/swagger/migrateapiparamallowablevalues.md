@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `@ApiParam(allowableValues)` to `@Parameter(schema)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/openapi/swagger/migrateapiparamallowablevalues" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

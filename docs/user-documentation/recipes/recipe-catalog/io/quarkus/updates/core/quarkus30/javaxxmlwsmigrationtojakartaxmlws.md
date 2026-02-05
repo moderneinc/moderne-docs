@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.xml.ws` packages to `jakarta.xml.ws`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxxmlwsmigrationtojakartaxmlws" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Long#parseUnsignedInt`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/preferlongparseunsignedlong" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

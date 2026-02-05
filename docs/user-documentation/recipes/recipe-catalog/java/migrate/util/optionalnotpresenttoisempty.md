@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `Optional.isEmpty()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/util/optionalnotpresenttoisempty" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

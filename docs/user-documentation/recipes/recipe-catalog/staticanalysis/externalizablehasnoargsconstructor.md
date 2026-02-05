@@ -2,6 +2,11 @@
 sidebar_label: "`Externalizable` classes have no-arguments constructor"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/externalizablehasnoargsconstructor" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

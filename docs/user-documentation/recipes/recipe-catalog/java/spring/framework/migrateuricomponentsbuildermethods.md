@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `UriComponentsBuilder.fromHttpRequest` and `parseForwardedFor`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/framework/migrateuricomponentsbuildermethods" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

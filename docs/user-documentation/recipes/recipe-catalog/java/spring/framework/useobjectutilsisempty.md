@@ -2,6 +2,11 @@
 sidebar_label: "Use `ObjectUtils#isEmpty(Object)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/framework/useobjectutilsisempty" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

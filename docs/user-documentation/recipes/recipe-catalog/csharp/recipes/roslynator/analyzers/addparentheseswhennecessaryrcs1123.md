@@ -2,6 +2,11 @@
 sidebar_label: "Add parentheses when necessary"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/addparentheseswhennecessaryrcs1123" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

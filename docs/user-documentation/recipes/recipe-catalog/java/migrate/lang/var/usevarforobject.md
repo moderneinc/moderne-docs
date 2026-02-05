@@ -2,6 +2,11 @@
 sidebar_label: "Use `var` for reference-typed variables"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lang/var/usevarforobject" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

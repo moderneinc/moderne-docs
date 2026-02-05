@@ -2,6 +2,11 @@
 sidebar_label: "Simplify redundant AssertJ assertion chains"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/assertj/simplifyredundantassertjchains" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

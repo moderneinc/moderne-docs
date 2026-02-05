@@ -2,6 +2,11 @@
 sidebar_label: "Camel Yaml changes regarding route-configuration children"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel40/yaml/camelyamlrouteconfigurationsequencerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

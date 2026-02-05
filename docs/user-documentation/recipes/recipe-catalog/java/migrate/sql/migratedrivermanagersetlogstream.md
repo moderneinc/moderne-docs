@@ -2,6 +2,11 @@
 sidebar_label: "Use `DriverManager#setLogWriter(java.io.PrintWriter)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/sql/migratedrivermanagersetlogstream" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

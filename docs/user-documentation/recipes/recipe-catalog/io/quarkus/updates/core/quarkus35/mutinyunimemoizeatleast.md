@@ -2,6 +2,11 @@
 sidebar_label: "io.quarkus.updates.core.quarkus35.MutinyUniMemoizeAtLeast"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus35/mutinyunimemoizeatleast" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

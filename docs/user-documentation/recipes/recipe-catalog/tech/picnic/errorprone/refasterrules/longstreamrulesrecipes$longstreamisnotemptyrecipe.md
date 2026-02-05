@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `LongStreamRules.LongStreamIsNotEmpty`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamisnotemptyrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

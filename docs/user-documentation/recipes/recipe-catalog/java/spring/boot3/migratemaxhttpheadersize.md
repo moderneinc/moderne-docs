@@ -2,6 +2,11 @@
 sidebar_label: "Rename `server.max-http-header-size` to `server.max-http-request-header-size`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/migratemaxhttpheadersize" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use `com.ibm.jsse2` instead of `com.sun.net.ssl.internal.ssl`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jredonotusesunnetsslinternalsslprovider" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

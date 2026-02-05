@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Okio dependencies to 3.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/okio/upgradeokio3dependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

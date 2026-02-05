@@ -2,6 +2,11 @@
 sidebar_label: "Use `@ConfigMapping`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/configpropertiestoconfigmapping" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

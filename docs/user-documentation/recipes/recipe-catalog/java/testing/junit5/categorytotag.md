@@ -2,6 +2,11 @@
 sidebar_label: "JUnit 4 `@Category` to JUnit Jupiter `@Tag`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/categorytotag" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

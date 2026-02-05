@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `ImmutableSortedMultisetRules.ImmutableSortedMultisetBuilder`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$immutablesortedmultisetbuilderrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

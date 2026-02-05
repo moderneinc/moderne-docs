@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to HtmlUnit 3.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/htmlunit/upgradehtmlunit_3" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

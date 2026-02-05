@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Log4j 2.x Layout to logback-classic equivalents"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/logback/log4jlayouttologback" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

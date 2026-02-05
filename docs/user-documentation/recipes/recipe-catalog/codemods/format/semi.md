@@ -2,6 +2,11 @@
 sidebar_label: "Require or disallow semicolons instead of ASI"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/semi" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

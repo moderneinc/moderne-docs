@@ -2,6 +2,11 @@
 sidebar_label: "Convert Truth `assertWithMessage` to AssertJ"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/truth/truthassertwithmessagetoassertj" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

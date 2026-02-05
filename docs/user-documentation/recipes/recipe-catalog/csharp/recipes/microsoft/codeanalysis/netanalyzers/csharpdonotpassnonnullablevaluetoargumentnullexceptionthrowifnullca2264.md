@@ -2,6 +2,11 @@
 sidebar_label: "Do not pass a non-nullable value to 'ArgumentNullException.ThrowIfNull'"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdonotpassnonnullablevaluetoargumentnullexceptionthrowifnullca2264" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

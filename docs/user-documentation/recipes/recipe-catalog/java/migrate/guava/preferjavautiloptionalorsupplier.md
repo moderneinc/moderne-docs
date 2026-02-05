@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `java.util.Optional#or(Supplier&lt;T extends java.util.Optional&lt;T&gt;&gt;)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavautiloptionalorsupplier" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

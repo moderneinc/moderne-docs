@@ -2,6 +2,11 @@
 sidebar_label: "Remove unnecessary case label"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/caseswitchlabelrcs1069" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

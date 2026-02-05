@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `java.nio.file.Files`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/commons/io/apachefileutilstojavafiles" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

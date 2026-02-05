@@ -2,6 +2,11 @@
 sidebar_label: "Enable Spring Batch Annotation"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/removeenablebatchprocessing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

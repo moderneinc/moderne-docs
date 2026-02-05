@@ -2,6 +2,11 @@
 sidebar_label: "Convert Health Check Implementations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dropwizard/modifydropwizardhealthcheckstospringvariants" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

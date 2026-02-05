@@ -2,6 +2,11 @@
 sidebar_label: "Upgrade to Node.js 22"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/upgrade-node-22" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

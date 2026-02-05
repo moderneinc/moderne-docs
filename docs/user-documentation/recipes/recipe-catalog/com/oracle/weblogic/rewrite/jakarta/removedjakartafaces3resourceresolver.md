@@ -2,6 +2,11 @@
 sidebar_label: "Replace `ResourceResolver` with `ResourceHandler`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/removedjakartafaces3resourceresolver" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

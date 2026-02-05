@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Scala 2.12.+"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/scala/migrate/upgradescala_2_12" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

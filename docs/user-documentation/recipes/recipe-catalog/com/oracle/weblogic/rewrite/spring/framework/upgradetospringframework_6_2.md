@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Spring Framework 6.2 for WebLogic 15.1.1"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Close unclosed static mocks"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/closeunclosedstaticmocks" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

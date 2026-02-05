@@ -2,6 +2,11 @@
 sidebar_label: "Remove invocations of deprecated invocations from Deflater, Inflater, ZipFile"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/util/removefinalizerfromzip" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

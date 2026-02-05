@@ -2,6 +2,11 @@
 sidebar_label: "Convert try-catch-fail blocks to AssertJ's assertThatThrownBy"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/assertj/junittryfailtoassertthatthrownby" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

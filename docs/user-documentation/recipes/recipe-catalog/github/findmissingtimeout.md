@@ -2,6 +2,11 @@
 sidebar_label: "Find jobs missing timeout"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/findmissingtimeout" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

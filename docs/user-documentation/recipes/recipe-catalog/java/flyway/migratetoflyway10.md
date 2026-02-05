@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Flyway 10"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/flyway/migratetoflyway10" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

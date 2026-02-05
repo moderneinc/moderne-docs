@@ -2,6 +2,11 @@
 sidebar_label: "Migrate xmlns entries in `weblogic-pubsub.xml` files to WebLogic 14.1.2"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogicpubsubxmlnamespace1412" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

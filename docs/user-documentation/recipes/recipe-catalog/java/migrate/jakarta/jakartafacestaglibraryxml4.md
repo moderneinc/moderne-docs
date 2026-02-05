@@ -2,6 +2,11 @@
 sidebar_label: "Migrate xmlns entries in `taglib.xml` files"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/jakartafacestaglibraryxml4" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

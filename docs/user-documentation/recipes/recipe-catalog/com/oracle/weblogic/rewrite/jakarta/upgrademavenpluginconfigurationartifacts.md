@@ -2,6 +2,11 @@
 sidebar_label: "Change artifacts for a Maven plugin configuration"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/upgrademavenpluginconfigurationartifacts" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

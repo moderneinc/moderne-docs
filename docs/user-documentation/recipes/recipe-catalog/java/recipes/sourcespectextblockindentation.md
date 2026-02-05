@@ -2,6 +2,11 @@
 sidebar_label: "Minimal indentation for `SourceSpecs` text blocks"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/sourcespectextblockindentation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

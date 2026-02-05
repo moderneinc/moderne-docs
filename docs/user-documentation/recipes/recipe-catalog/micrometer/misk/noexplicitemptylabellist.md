@@ -2,6 +2,11 @@
 sidebar_label: "Don't use an explicit empty label list"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/micrometer/misk/noexplicitemptylabellist" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

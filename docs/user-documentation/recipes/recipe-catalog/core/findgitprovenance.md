@@ -2,6 +2,11 @@
 sidebar_label: "Show Git source control metadata"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/core/findgitprovenance" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

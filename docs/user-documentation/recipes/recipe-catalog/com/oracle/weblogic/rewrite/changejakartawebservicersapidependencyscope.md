@@ -2,6 +2,11 @@
 sidebar_label: "Change the jakarta.ws.rs-api dependency to scope provided when jakartaee-api 9.x is provided."
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/changejakartawebservicersapidependencyscope" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

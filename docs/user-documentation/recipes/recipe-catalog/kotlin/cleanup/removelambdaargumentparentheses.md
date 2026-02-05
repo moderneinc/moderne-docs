@@ -2,6 +2,11 @@
 sidebar_label: "Remove method invocation parentheses around single lambda argument"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/kotlin/cleanup/removelambdaargumentparentheses" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

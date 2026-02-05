@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `ImmutableSetMultimapRules.ImmutableSetMultimapBuilderPut`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesetmultimaprulesrecipes$immutablesetmultimapbuilderputrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

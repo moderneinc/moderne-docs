@@ -2,6 +2,11 @@
 sidebar_label: "Merge switch sections with equivalent content"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/switchsectionrcs1136" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

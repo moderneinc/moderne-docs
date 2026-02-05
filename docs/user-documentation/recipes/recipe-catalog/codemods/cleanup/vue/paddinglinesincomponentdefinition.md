@@ -2,6 +2,11 @@
 sidebar_label: "Require or disallow padding lines in component definition"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/paddinglinesincomponentdefinition" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

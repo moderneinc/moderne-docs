@@ -2,6 +2,11 @@
 sidebar_label: "Replace deprecated `fs.Stats` constructor with object literal"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/fs/replace-stats-constructor" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

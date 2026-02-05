@@ -2,6 +2,11 @@
 sidebar_label: "Update the version of core annotation processors"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/updatemavenannotationprocessors" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

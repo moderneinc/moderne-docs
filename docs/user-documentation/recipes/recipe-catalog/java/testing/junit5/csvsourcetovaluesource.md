@@ -2,6 +2,11 @@
 sidebar_label: "Replace `@CsvSource` with `@ValueSource` for single method arguments"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/csvsourcetovaluesource" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

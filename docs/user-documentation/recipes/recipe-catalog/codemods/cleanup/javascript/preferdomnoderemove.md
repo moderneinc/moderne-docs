@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `childNode.remove()` over `parentNode.removeChild(childNode)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferdomnoderemove" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

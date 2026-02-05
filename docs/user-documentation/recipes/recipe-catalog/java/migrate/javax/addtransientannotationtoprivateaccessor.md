@@ -2,6 +2,11 @@
 sidebar_label: "Private accessor methods must have a `@Transient` annotation"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/addtransientannotationtoprivateaccessor" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Drop prefixless expressions in POM"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/cleanup/prefixlessexpressions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

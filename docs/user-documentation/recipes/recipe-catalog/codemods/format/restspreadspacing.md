@@ -2,6 +2,11 @@
 sidebar_label: "Enforce spacing between rest and spread operators and their expressions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/restspreadspacing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

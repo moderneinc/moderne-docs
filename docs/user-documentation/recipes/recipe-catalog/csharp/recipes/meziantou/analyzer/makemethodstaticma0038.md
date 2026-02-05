@@ -2,6 +2,11 @@
 sidebar_label: "Make method static (deprecated, use CA1822 instead)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/makemethodstaticma0038" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

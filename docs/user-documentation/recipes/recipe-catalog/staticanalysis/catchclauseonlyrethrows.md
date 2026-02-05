@@ -2,6 +2,11 @@
 sidebar_label: "Catch clause should do more than just rethrow"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/catchclauseonlyrethrows" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

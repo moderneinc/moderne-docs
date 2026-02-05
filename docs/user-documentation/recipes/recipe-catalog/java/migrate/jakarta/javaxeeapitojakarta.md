@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javaee-api` dependencies to `jakarta.platform`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxeeapitojakarta" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

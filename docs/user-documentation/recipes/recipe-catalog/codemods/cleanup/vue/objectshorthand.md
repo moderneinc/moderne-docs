@@ -2,6 +2,11 @@
 sidebar_label: "Require or disallow method and property shorthand syntax for object literals in `&lt;template&gt;`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/objectshorthand" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

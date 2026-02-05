@@ -2,6 +2,11 @@
 sidebar_label: "Add `spring-boot-starter-flyway` if using Flyway"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot4/addspringbootstarterflyway" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

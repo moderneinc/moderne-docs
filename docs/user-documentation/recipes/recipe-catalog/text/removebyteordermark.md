@@ -2,6 +2,11 @@
 sidebar_label: "Remove byte order mark (BOM)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/text/removebyteordermark" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

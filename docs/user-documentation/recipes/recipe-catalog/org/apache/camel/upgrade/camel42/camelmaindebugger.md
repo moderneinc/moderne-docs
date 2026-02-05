@@ -2,6 +2,11 @@
 sidebar_label: "The option camel.main.debugger has been renamed"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel42/camelmaindebugger" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

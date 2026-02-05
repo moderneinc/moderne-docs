@@ -2,6 +2,11 @@
 sidebar_label: "Use `javax.net.ssl` instead of `com.sun.net.ssl`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jredonotusesunnetsslapis" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

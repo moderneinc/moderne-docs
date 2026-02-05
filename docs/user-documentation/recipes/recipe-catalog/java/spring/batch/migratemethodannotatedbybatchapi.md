@@ -2,6 +2,11 @@
 sidebar_label: "Migrate method when it annotated by Spring Batch API"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/batch/migratemethodannotatedbybatchapi" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

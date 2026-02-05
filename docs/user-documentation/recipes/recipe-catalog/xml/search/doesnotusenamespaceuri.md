@@ -2,6 +2,11 @@
 sidebar_label: "Find files without Namespace URI"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/search/doesnotusenamespaceuri" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

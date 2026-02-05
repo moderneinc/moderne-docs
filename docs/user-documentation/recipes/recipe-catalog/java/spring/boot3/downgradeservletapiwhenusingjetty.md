@@ -2,6 +2,11 @@
 sidebar_label: "Downgrade Jakarta Servlet API to 5.0 when using Jetty"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/downgradeservletapiwhenusingjetty" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

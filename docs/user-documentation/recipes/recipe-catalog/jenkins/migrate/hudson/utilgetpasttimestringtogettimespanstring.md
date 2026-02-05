@@ -2,6 +2,11 @@
 sidebar_label: "Replace `hudson.Util.getPastTimeString` with `getTimeSpanString`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/jenkins/migrate/hudson/utilgetpasttimestringtogettimespanstring" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

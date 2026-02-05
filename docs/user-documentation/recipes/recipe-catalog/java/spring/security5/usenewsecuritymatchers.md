@@ -2,6 +2,11 @@
 sidebar_label: "Use the new `securityMatcher()` method"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security5/usenewsecuritymatchers" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

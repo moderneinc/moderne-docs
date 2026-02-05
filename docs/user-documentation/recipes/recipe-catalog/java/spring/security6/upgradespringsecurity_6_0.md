@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Spring Security 6.0"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security6/upgradespringsecurity_6_0" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

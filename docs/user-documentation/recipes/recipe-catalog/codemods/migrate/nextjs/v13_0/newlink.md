@@ -2,6 +2,11 @@
 sidebar_label: "Remove `&lt;a&gt;` Tags From Link Components"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v13_0/newlink" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

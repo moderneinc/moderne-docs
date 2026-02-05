@@ -2,6 +2,11 @@
 sidebar_label: "Prefer await expect(...).resolves over expect(await ...) syntax"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/jest/preferexpectresolves" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

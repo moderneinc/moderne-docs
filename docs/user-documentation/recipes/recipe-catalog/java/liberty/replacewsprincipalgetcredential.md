@@ -2,6 +2,11 @@
 sidebar_label: "Replace `WSPrincipal.getCredential()` with `WSSubject` lookup"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/liberty/replacewsprincipalgetcredential" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

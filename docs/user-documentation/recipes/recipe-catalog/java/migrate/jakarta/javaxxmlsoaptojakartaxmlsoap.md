@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.soap` packages to `jakarta.soap`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxxmlsoaptojakartaxmlsoap" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

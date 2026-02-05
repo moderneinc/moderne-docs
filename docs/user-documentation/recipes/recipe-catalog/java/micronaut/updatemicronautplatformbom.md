@@ -2,6 +2,11 @@
 sidebar_label: "Update to Micronaut 4.x platform BOM"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/updatemicronautplatformbom" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

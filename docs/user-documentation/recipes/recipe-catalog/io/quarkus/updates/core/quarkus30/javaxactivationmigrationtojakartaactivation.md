@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.activation` packages to `jakarta.activation`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxactivationmigrationtojakartaactivation" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

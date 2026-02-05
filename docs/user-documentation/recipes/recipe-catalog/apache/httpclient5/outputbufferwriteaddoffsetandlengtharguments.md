@@ -2,6 +2,11 @@
 sidebar_label: "Adds offset and length arguments to the write method of SharedOutputBuffer"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/httpclient5/outputbufferwriteaddoffsetandlengtharguments" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

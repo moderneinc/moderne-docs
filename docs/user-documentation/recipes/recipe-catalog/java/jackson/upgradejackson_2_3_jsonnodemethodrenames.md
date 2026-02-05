@@ -2,6 +2,11 @@
 sidebar_label: "Rename Jackson 2.x methods to 3.x equivalents for JsonNode"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/upgradejackson_2_3_jsonnodemethodrenames" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

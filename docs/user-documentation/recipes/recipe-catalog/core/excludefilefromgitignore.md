@@ -2,6 +2,11 @@
 sidebar_label: "Remove ignoral of files or directories from .gitignore"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/core/excludefilefromgitignore" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

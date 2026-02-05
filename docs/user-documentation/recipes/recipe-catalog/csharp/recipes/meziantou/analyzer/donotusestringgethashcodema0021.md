@@ -2,6 +2,11 @@
 sidebar_label: "Use StringComparer.GetHashCode instead of string.GetHashCode"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/donotusestringgethashcodema0021" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

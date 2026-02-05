@@ -2,6 +2,11 @@
 sidebar_label: "Migrate javax.javaee-web-api to jakarta.jakartaee-web-api (Jakarta EE 9)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/migratejavaxwebtojakartaweb9" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

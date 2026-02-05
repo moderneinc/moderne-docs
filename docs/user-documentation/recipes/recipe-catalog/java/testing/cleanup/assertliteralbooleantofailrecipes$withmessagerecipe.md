@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertLiteralBooleanToFail.WithMessage`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/cleanup/assertliteralbooleantofailrecipes$withmessagerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Renames `Mui` classname prefix"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/joyrenameclassnameprefix" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

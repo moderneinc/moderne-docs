@@ -2,6 +2,11 @@
 sidebar_label: "SLF4J logging statements should begin with constants"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/slf4jlogshouldbeconstant" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `ReactorRules.StepVerifierFromFlux`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$stepverifierfromfluxrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

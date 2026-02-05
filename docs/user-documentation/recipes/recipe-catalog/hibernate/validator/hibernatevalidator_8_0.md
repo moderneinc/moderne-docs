@@ -2,6 +2,11 @@
 sidebar_label: "Migrate to Hibernate Validator 8.0.x (Community Edition)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/hibernate/validator/hibernatevalidator_8_0" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

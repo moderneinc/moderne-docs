@@ -2,6 +2,11 @@
 sidebar_label: "Enforce throwing `TypeError` in type checking conditions"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefertypeerror" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

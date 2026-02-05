@@ -2,6 +2,11 @@
 sidebar_label: "Replace `dirent.path` with `dirent.parentPath`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/fs/replace-dirent-path" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

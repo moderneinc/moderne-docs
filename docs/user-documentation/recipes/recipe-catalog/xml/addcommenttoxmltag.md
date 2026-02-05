@@ -2,6 +2,11 @@
 sidebar_label: "Add a comment to an XML tag"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/addcommenttoxmltag" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

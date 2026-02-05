@@ -2,6 +2,11 @@
 sidebar_label: "Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/crypto/replace-hash-constructor" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

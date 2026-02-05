@@ -2,6 +2,11 @@
 sidebar_label: "Remove redundant async/await"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeredundantasyncawaitrcs1174" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

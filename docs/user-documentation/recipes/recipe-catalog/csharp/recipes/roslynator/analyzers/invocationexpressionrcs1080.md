@@ -2,6 +2,11 @@
 sidebar_label: "Use 'Count/Length' property instead of 'Any' method"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/invocationexpressionrcs1080" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

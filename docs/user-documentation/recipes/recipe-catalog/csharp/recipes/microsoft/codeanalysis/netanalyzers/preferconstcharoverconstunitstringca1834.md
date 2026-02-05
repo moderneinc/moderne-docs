@@ -2,6 +2,11 @@
 sidebar_label: "Consider using 'StringBuilder.Append(char)' when applicable"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/preferconstcharoverconstunitstringca1834" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

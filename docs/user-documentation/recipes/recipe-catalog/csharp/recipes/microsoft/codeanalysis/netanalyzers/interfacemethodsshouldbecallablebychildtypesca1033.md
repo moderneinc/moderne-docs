@@ -2,6 +2,11 @@
 sidebar_label: "Interface methods should be callable by child types"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/interfacemethodsshouldbecallablebychildtypesca1033" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

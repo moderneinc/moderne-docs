@@ -2,6 +2,11 @@
 sidebar_label: "Find source files with `ParseExceptionResult` markers"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/core/findparsefailures" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

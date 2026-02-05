@@ -2,6 +2,11 @@
 sidebar_label: "Migrate Lombok's `@__` syntax to `onX_` for Java 8+"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lombok/lombokonxtoonx_" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

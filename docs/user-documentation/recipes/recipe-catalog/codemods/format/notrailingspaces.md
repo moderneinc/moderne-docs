@@ -2,6 +2,11 @@
 sidebar_label: "Disallow trailing whitespace at the end of lines"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/notrailingspaces" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

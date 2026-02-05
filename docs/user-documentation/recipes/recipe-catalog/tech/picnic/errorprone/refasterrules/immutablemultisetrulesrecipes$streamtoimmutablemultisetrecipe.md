@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `ImmutableMultisetRules.StreamToImmutableMultiset`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablemultisetrulesrecipes$streamtoimmutablemultisetrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

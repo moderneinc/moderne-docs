@@ -2,6 +2,11 @@
 sidebar_label: "Assertion arguments should be passed in the correct order"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/cleanup/assertionsargumentorder" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

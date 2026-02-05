@@ -2,6 +2,11 @@
 sidebar_label: "Convert `export =` to `export default`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/javascript/migrate/typescript/export-assignment-to-export-default" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Containing type should be used as registered owner"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usecontainingtypefixwpf0011" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

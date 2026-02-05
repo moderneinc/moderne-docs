@@ -2,6 +2,11 @@
 sidebar_label: "Migrates from Netty 4.1.x to Netty 4.2.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/netty/upgradenetty_4_1_to_4_2" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

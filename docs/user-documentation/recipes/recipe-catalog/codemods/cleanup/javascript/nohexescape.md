@@ -2,6 +2,11 @@
 sidebar_label: "Enforce the use of Unicode escapes instead of hexadecimal escapes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nohexescape" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

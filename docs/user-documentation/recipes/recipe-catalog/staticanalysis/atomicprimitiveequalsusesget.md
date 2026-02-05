@@ -2,6 +2,11 @@
 sidebar_label: "Atomic Boolean, Integer, and Long equality checks compare their values"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/atomicprimitiveequalsusesget" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

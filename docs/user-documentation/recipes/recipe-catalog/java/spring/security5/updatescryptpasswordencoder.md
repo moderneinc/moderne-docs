@@ -2,6 +2,11 @@
 sidebar_label: "Use new `SCryptPasswordEncoder` factory methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/security5/updatescryptpasswordencoder" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

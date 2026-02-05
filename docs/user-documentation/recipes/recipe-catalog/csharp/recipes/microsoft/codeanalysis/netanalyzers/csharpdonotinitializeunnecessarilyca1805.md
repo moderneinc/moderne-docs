@@ -2,6 +2,11 @@
 sidebar_label: "Do not initialize unnecessarily"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdonotinitializeunnecessarilyca1805" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

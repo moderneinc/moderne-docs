@@ -2,6 +2,11 @@
 sidebar_label: "Transform singlar `assumeNotNull(object)` to `assumeFalse(object == null)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/assumenotnulltoassumptionsrecipes$singleargrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

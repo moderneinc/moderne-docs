@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `LDUser` to `LDContext`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/featureflags/launchdarkly/migrateusertocontext" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

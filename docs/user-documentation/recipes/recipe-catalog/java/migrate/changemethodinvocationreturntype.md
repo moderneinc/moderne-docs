@@ -2,6 +2,11 @@
 sidebar_label: "Change method invocation return type"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/changemethodinvocationreturntype" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

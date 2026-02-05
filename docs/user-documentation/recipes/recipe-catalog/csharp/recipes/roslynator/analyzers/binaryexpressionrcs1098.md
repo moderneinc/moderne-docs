@@ -2,6 +2,11 @@
 sidebar_label: "Constant values should be placed on right side of comparisons"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1098" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

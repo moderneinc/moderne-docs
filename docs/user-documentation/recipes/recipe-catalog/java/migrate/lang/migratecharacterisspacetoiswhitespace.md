@@ -2,6 +2,11 @@
 sidebar_label: "Use `Character#isWhitespace(char)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/lang/migratecharacterisspacetoiswhitespace" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

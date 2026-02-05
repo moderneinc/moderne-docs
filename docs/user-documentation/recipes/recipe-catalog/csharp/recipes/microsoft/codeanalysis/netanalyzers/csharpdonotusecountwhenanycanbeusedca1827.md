@@ -2,6 +2,11 @@
 sidebar_label: "Do not use Count() or LongCount() when Any() can be used"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdonotusecountwhenanycanbeusedca1827" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

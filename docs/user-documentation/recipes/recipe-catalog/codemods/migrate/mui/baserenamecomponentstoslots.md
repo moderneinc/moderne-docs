@@ -2,6 +2,11 @@
 sidebar_label: "Renames base components to slots"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/mui/baserenamecomponentstoslots" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

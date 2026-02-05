@@ -2,6 +2,11 @@
 sidebar_label: "Prefer using `.dataset` on DOM elements over calling attribute methods"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferdomnodedataset" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

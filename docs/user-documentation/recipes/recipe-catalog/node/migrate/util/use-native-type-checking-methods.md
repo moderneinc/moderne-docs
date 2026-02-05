@@ -2,6 +2,11 @@
 sidebar_label: "Replace deprecated `util.isX()` methods with native JavaScript"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/node/migrate/util/use-native-type-checking-methods" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

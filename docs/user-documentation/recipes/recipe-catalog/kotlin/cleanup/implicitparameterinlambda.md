@@ -2,6 +2,11 @@
 sidebar_label: "`it` shouldn't be used as a lambda parameter name"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/kotlin/cleanup/implicitparameterinlambda" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

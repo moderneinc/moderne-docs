@@ -2,6 +2,11 @@
 sidebar_label: "Replace `fail()` in `try-catch` blocks with `Assertions.assertDoesNotThrow(() -&gt; { ... })`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/removetrycatchfailblocks" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

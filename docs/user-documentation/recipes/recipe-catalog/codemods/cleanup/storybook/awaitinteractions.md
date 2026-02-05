@@ -2,6 +2,11 @@
 sidebar_label: "Interactions should be awaited"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/storybook/awaitinteractions" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

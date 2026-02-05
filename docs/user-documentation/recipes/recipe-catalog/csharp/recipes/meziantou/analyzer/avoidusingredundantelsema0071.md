@@ -2,6 +2,11 @@
 sidebar_label: "Avoid using redundant else"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/avoidusingredundantelsema0071" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

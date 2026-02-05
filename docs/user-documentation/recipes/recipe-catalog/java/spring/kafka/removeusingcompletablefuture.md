@@ -2,6 +2,11 @@
 sidebar_label: "Remove `KafkaOperations.usingCompletableFuture()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/kafka/removeusingcompletablefuture" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

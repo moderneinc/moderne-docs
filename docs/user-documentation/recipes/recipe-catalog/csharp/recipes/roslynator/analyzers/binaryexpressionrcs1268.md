@@ -2,6 +2,11 @@
 sidebar_label: "Simplify numeric comparison"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1268" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

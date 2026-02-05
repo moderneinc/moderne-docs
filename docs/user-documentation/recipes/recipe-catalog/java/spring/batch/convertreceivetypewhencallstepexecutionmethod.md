@@ -2,6 +2,11 @@
 sidebar_label: "Convert receive type in some invocation of StepExecution.xx()"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/batch/convertreceivetypewhencallstepexecutionmethod" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

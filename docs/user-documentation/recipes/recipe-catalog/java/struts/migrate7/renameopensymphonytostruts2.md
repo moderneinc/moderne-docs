@@ -2,6 +2,11 @@
 sidebar_label: "Rename OpenSymphony / XWork classes to Struts 7 packages"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate7/renameopensymphonytostruts2" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

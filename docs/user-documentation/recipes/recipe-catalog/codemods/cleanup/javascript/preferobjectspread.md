@@ -2,6 +2,11 @@
 sidebar_label: "Disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferobjectspread" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

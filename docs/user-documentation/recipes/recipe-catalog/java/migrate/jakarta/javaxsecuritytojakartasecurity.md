@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.security.enterprise` packages to `jakarta.security.enterprise`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxsecuritytojakartasecurity" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

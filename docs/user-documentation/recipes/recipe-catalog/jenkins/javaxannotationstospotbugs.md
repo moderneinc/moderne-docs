@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `javax.annotations` to SpotBugs annotations"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/jenkins/javaxannotationstospotbugs" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

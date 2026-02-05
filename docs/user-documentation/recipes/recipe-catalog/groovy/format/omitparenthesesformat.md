@@ -2,6 +2,11 @@
 sidebar_label: "Stylize Groovy code to omit parentheses"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/groovy/format/omitparenthesesformat" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

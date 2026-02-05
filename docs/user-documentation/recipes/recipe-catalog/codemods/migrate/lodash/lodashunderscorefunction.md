@@ -2,6 +2,11 @@
 sidebar_label: "Replace lodash and underscore function functions with native JavaScript"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/migrate/lodash/lodashunderscorefunction" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

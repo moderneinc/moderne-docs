@@ -2,6 +2,11 @@
 sidebar_label: "Refaster rules related to AssertJ assertions over `BigDecimal`s"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Replace Mockito 1.x `anyString()`/`any()` with `nullable(Class)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/anytonullable" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

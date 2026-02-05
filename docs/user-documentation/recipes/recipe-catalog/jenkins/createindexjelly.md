@@ -2,6 +2,11 @@
 sidebar_label: "Create `index.jelly` if it doesn't exist"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/jenkins/createindexjelly" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

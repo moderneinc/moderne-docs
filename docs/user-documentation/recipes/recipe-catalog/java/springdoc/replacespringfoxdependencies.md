@@ -2,6 +2,11 @@
 sidebar_label: "Replace SpringFox Dependencies"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/springdoc/replacespringfoxdependencies" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

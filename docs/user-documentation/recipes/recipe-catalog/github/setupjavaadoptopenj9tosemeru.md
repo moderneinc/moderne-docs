@@ -2,6 +2,11 @@
 sidebar_label: "Use `actions/setup-java` IBM `semeru` distribution"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/setupjavaadoptopenj9tosemeru" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

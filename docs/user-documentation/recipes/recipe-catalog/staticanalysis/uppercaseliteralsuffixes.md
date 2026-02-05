@@ -2,6 +2,11 @@
 sidebar_label: "Upper case literal suffixes"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/uppercaseliteralsuffixes" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

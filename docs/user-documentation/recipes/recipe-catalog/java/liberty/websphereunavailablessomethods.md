@@ -2,6 +2,11 @@
 sidebar_label: "Use `getSSOCookieFromSSOToken` and `logout`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/liberty/websphereunavailablessomethods" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

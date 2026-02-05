@@ -2,6 +2,11 @@
 sidebar_label: "Set mutable dependency properties using SetCurrentValue"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usesetcurrentvaluefixwpf0041" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

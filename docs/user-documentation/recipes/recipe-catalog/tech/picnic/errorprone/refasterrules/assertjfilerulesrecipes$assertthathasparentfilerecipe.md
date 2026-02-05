@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `AssertJFileRules.AssertThatHasParentFile`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjfilerulesrecipes$assertthathasparentfilerecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

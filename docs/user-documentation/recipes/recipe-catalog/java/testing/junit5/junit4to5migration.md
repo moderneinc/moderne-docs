@@ -2,6 +2,11 @@
 sidebar_label: "JUnit Jupiter migration from JUnit 4.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/junit4to5migration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

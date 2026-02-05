@@ -2,6 +2,11 @@
 sidebar_label: "Disallow multiple empty lines"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/format/nomultipleemptylines" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

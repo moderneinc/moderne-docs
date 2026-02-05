@@ -2,6 +2,11 @@
 sidebar_label: "Disallow use of deprecated functions from before version 27"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/jest/nodeprecatedfunctions27" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

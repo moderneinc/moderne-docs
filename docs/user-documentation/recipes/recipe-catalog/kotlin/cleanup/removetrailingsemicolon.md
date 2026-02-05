@@ -2,6 +2,11 @@
 sidebar_label: "Remove unnecessary trailing semicolon"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/kotlin/cleanup/removetrailingsemicolon" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

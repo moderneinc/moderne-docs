@@ -2,6 +2,11 @@
 sidebar_label: "Use `indexOf(String, int)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/indexofchecksshoulduseastartposition" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

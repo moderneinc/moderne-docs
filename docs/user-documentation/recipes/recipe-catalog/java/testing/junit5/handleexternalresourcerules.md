@@ -2,6 +2,11 @@
 sidebar_label: "Handle the usage of ExternalResourceRule fields using @ExtendWith(ExternalResourceSupport.class)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/handleexternalresourcerules" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

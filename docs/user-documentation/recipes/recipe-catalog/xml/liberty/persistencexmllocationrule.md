@@ -2,6 +2,11 @@
 sidebar_label: "Move persistence.xml file"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/xml/liberty/persistencexmllocationrule" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

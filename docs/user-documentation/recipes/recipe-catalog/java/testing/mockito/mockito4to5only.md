@@ -2,6 +2,11 @@
 sidebar_label: "Mockito 4 to 5.x upgrade only"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/mockito4to5only" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

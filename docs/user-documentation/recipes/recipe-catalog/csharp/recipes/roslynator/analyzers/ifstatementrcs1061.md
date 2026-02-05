@@ -2,6 +2,11 @@
 sidebar_label: "Merge 'if' with nested 'if'"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/ifstatementrcs1061" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

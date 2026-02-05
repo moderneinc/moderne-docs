@@ -2,6 +2,11 @@
 sidebar_label: "Migrate the use of TaskExecutors with blocking IO"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/micronaut/updateblockingtaskexecutors" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

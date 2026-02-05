@@ -2,6 +2,11 @@
 sidebar_label: "Replace Spring Boot OAuth2 Client with Quarkus OIDC Client"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/springbootoauth2clienttoquarkus" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

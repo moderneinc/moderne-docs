@@ -2,6 +2,11 @@
 sidebar_label: "Replace Derby test driver with Quarkus JDBC Derby (test scope)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/derbytestdrivertoquarkus" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

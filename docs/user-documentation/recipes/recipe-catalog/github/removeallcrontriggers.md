@@ -2,6 +2,11 @@
 sidebar_label: "Remove all cron triggers"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/github/removeallcrontriggers" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

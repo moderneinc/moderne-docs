@@ -2,6 +2,11 @@
 sidebar_label: "Avoid using 'Enumerable.Any()' extension method"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharppreferlengthcountisemptyoveranyca1860" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

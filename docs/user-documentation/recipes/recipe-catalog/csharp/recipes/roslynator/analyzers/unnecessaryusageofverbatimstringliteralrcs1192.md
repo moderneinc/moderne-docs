@@ -2,6 +2,11 @@
 sidebar_label: "Unnecessary usage of verbatim string literal"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/unnecessaryusageofverbatimstringliteralrcs1192" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use `@GrpcClient`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/quarkus2/grpcserviceannotationtogrpcclient" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

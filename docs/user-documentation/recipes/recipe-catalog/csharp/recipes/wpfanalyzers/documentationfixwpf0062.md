@@ -2,6 +2,11 @@
 sidebar_label: "Property changed callback should have standard documentation text"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/documentationfixwpf0062" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

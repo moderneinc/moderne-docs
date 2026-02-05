@@ -2,6 +2,11 @@
 sidebar_label: "Unnecessary close in try-with-resources"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/unnecessarycloseintrywithresources" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

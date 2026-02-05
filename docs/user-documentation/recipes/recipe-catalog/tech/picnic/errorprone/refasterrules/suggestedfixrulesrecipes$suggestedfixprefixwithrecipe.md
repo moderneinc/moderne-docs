@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `SuggestedFixRules.SuggestedFixPrefixWith`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixprefixwithrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

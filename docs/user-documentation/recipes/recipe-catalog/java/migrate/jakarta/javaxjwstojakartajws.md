@@ -2,6 +2,11 @@
 sidebar_label: "Migrate deprecated `javax.jws` packages to `jakarta.jws`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxjwstojakartajws" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

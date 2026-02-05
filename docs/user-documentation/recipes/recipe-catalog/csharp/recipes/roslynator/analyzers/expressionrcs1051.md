@@ -2,6 +2,11 @@
 sidebar_label: "Add/remove parentheses from condition in conditional operator"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/expressionrcs1051" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

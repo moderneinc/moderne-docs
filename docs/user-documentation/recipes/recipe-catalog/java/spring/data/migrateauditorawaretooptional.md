@@ -2,6 +2,11 @@
 sidebar_label: "Make AuditorAware.getCurrentAuditor return `Optional`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/data/migrateauditorawaretooptional" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

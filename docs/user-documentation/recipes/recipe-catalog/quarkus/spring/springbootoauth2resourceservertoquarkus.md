@@ -2,6 +2,11 @@
 sidebar_label: "Replace Spring Boot OAuth2 Resource Server with Quarkus OIDC"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/spring/springbootoauth2resourceservertoquarkus" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

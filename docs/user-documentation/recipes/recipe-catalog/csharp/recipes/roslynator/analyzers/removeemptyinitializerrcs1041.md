@@ -2,6 +2,11 @@
 sidebar_label: "[deprecated] Remove empty initializer"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeemptyinitializerrcs1041" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

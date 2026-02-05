@@ -2,6 +2,11 @@
 sidebar_label: "Prefer `String#slice()` over `String#substr()` and `String#substring()`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferstringslice" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

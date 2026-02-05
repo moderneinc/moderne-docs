@@ -2,6 +2,11 @@
 sidebar_label: "Does not include dependency for Gradle and Maven"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dependencies/search/doesnotincludedependency" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

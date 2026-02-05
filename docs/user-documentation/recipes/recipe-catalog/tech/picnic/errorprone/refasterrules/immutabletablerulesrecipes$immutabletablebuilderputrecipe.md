@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `ImmutableTableRules.ImmutableTableBuilderPut`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutabletablerulesrecipes$immutabletablebuilderputrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

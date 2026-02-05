@@ -2,6 +2,11 @@
 sidebar_label: "Quarkus 2.x migration from Quarkus 1.x"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/quarkus2/quarkus1to2migration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

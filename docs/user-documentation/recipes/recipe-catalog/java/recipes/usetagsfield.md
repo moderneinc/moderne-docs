@@ -2,6 +2,11 @@
 sidebar_label: "Replace `getTags()` method with field"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/usetagsfield" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Search Quarkus profiles"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/search/findquarkusprofiles" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

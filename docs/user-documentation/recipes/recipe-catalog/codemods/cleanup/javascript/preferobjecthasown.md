@@ -2,6 +2,11 @@
 sidebar_label: "Disallow use of `Object.prototype.hasOwnProperty.call()` and prefer use of `Object.hasOwn(`)"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferobjecthasown" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

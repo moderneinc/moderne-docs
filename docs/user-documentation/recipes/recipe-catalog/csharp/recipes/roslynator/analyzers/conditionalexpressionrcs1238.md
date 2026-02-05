@@ -2,6 +2,11 @@
 sidebar_label: "Avoid nested ?: operators"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/conditionalexpressionrcs1238" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

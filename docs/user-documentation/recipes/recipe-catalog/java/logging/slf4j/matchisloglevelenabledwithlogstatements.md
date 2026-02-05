@@ -2,6 +2,11 @@
 sidebar_label: "Match `if (is*Enabled())` with logging statements"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/logging/slf4j/matchisloglevelenabledwithlogstatements" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

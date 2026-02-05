@@ -2,6 +2,11 @@
 sidebar_label: "Simplify 'default' expression"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/defaultexpressionrcs1244" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

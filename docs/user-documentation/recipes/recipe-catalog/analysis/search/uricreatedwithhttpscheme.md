@@ -2,6 +2,11 @@
 sidebar_label: "URIs created with an HTTP scheme"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/analysis/search/uricreatedwithhttpscheme" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "`assertTrue(x instanceof y)` to `assertInstanceOf(y.class, x)`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/junit5/asserttrueinstanceoftoassertinstanceof" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

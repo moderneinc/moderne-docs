@@ -2,6 +2,11 @@
 sidebar_label: "Replace deprecated setters in `RestTemplateBuilder`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot3/replaceresttemplatebuildermethods" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

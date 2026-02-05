@@ -2,6 +2,11 @@
 sidebar_label: "Use pattern matching instead of combination of 'as' operator and null check"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usepatternmatchinginsteadofasandnullcheckrcs1221" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

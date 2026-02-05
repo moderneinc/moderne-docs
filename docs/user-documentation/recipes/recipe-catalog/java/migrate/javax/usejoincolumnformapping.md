@@ -2,6 +2,11 @@
 sidebar_label: "`@JoinColumn` annotations must be used with relationship mappings"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/javax/usejoincolumnformapping" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

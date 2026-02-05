@@ -2,6 +2,11 @@
 sidebar_label: "Quarkus Updates Aggregate 3.8.0"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/quarkus/migratetoquarkus_v3_8_0" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

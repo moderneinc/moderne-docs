@@ -2,6 +2,11 @@
 sidebar_label: "Refaster template `PrimitiveRules.IntegerParseUnsignedInt`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$integerparseunsignedintrecipe" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

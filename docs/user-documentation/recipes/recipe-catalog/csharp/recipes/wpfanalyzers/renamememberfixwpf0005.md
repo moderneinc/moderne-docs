@@ -2,6 +2,11 @@
 sidebar_label: "Name of PropertyChangedCallback should match registered name"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/renamememberfixwpf0005" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

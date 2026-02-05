@@ -2,6 +2,11 @@
 sidebar_label: "Replace PowerMock with raw Mockito"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/replacepowermockito" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Migrate `PostBodyTask` and `ConfiguredCommand`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dropwizard/migratetasksandcommands" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "DevCenter for Quarkus"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/quarkusdevcenter" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Use TLS for JDBC connection strings"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/data/usetlsjdbcconnectionstring" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Enforce order of defineEmits and defineProps compiler macros"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/definemacrosorder" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

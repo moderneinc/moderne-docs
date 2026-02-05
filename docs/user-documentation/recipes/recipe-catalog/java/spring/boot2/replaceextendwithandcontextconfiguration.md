@@ -2,6 +2,11 @@
 sidebar_label: "Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJunitConfig`"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/boot2/replaceextendwithandcontextconfiguration" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

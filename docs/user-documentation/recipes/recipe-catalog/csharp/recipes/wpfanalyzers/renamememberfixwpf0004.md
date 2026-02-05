@@ -2,6 +2,11 @@
 sidebar_label: "CLR method for a DependencyProperty must match registered name"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/renamememberfixwpf0004" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -2,6 +2,11 @@
 sidebar_label: "Enforce spacing before closing bracket in JSX"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxspacebeforeclosing" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

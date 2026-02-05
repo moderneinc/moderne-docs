@@ -2,6 +2,11 @@
 sidebar_label: "Reformat private field names to camelCase"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/renameprivatefieldstocamelcase" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

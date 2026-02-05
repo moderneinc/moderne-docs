@@ -2,6 +2,11 @@
 sidebar_label: "Disallow unnecessary v-bind directives"
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/codemods/cleanup/vue/nouselessvbind" />
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
