@@ -61,6 +61,10 @@ Personal access tokens share the same permissions as your user. What this means 
 
 You can choose how long a personal access token should last when you create it. By default, the token will last for 30 days.
 
+:::note
+Your organization's administrator may have configured a maximum expiry limit for personal access tokens. If so, you will not be able to select an expiration date beyond this limit.
+:::
+
 <figure>
   ![](./assets/access-token-expiration.png)
 </figure>
