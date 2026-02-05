@@ -318,48 +318,24 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)
   * **Comprehend code with AI**
   * Use an LLM to generate descriptions for classes and methods in the codebase. Descriptions are cached based on source code checksums to avoid regenerating descriptions for unchanged code.
-* [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)
-  * **Comprehend code with AI**
-  * Use an LLM to generate descriptions for classes and methods in the codebase. Descriptions are cached based on source code checksums to avoid regenerating descriptions for unchanged code.
-* [io.moderne.prethink.ComprehendCodeTokenCounter](/user-documentation/recipes/recipe-catalog/prethink/comprehendcodetokencounter.md)
-  * **Estimate comprehension token usage**
-  * Estimate the input token counts that would be sent to an LLM for method comprehension, without actually calling a model. Uses OpenAI's tokenizer locally. Outputs to the MethodDescriptions table with blank descriptions.
 * [io.moderne.prethink.ComprehendCodeTokenCounter](/user-documentation/recipes/recipe-catalog/prethink/comprehendcodetokencounter.md)
   * **Estimate comprehension token usage**
   * Estimate the input token counts that would be sent to an LLM for method comprehension, without actually calling a model. Uses OpenAI's tokenizer locally. Outputs to the MethodDescriptions table with blank descriptions.
 * [io.moderne.prethink.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/findtestcoverage.md)
   * **Find test coverage mapping**
   * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
-* [io.moderne.prethink.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/findtestcoverage.md)
-  * **Find test coverage mapping**
-  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
-* [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
-  * **Find CALM relationships**
-  * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
 * [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
   * **Find CALM relationships**
   * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
 * [io.moderne.prethink.calm.GenerateCalmMermaidDiagram](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmmermaiddiagram.md)
   * **Generate architecture mermaid diagram**
   * Generate a markdown file with a mermaid architecture diagram from discovered service endpoints, database connections, external service calls, and messaging connections.
-* [io.moderne.prethink.calm.GenerateCalmMermaidDiagram](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmmermaiddiagram.md)
-  * **Generate architecture mermaid diagram**
-  * Generate a markdown file with a mermaid architecture diagram from discovered service endpoints, database connections, external service calls, and messaging connections.
-* [org.openrewrite.prethink.ExportContext](/user-documentation/recipes/recipe-catalog/prethink/exportcontext.md)
-  * **Export context files**
-  * Export DataTables to CSV files in `.moderne/context/` along with a markdown description file. The markdown file describes the context and includes schema information for each data table.
 * [org.openrewrite.prethink.ExportContext](/user-documentation/recipes/recipe-catalog/prethink/exportcontext.md)
   * **Export context files**
   * Export DataTables to CSV files in `.moderne/context/` along with a markdown description file. The markdown file describes the context and includes schema information for each data table.
 * [org.openrewrite.prethink.UpdateAgentConfig](/user-documentation/recipes/recipe-catalog/prethink/updateagentconfig.md)
   * **Update agent configuration files**
   * Update coding agent configuration files (CLAUDE.md, .cursorrules, etc.) to include references to Moderne Prethink context files in .moderne/context/.
-* [org.openrewrite.prethink.UpdateAgentConfig](/user-documentation/recipes/recipe-catalog/prethink/updateagentconfig.md)
-  * **Update agent configuration files**
-  * Update coding agent configuration files (CLAUDE.md, .cursorrules, etc.) to include references to Moderne Prethink context files in .moderne/context/.
-* [org.openrewrite.prethink.calm.GenerateCalmArchitecture](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmarchitecture.md)
-  * **Generate CALM architecture**
-  * Generate a FINOS CALM (Common Architecture Language Model) JSON file from discovered service endpoints, database connections, external service calls, and messaging connections.
 * [org.openrewrite.prethink.calm.GenerateCalmArchitecture](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmarchitecture.md)
   * **Generate CALM architecture**
   * Generate a FINOS CALM (Common Architecture Language Model) JSON file from discovered service endpoints, database connections, external service calls, and messaging connections.
