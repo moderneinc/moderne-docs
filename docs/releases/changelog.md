@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.30.0 (2026/02/05)
+
+- defer historical data loading in devcenter when loading page without timeline activated
+
 ### UI v12.29.0 (2026/02/04)
 
 - make Recipe ID and Rerun CTAs more discoverable
