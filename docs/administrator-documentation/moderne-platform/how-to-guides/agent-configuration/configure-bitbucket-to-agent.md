@@ -26,12 +26,12 @@ This guide will walk you through everything you need to know to get started with
 6. Click _Continue_
 7. Define a new Incoming Application with the following settings:
 
-    | Field                   | Value                                         |
-    |-------------------------|-----------------------------------------------|
-    | Name                    | `Moderne`                                     |
-    | Redirect URL            | `https://<TENANT>.moderne.io`              |
-    | Application Permissions | Repositories - Read<br/> Repositories - Write |
-    
+    | Field                   | Value                                                                                   |
+    |-------------------------|-----------------------------------------------------------------------------------------|
+    | Name                    | `Moderne`                                                                               |
+    | Redirect URL            | `https://<TENANT>.moderne.io`                                                           |
+    | Application Permissions | Repositories - Read<br/> Repositories - Write<br/> Repositories - Admin |
+
 8. Click _Save_ to complete the Application Link creation
 9. Copy the "Client ID" and "Client Secret" to use in the next step
 
