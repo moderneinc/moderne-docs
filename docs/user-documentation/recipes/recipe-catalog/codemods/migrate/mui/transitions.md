@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates usage of transitions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/transitions"
 ---
 
 import Tabs from '@theme/Tabs';

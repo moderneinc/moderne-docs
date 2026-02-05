@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Result of method call ignored"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/resultofmethodcallignored"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Create `index.jelly` if it doesn't exist"
-canonical_url: "https://docs.openrewrite.org/recipes/jenkins/createindexjelly"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Setup Spring Framework 5.3.x PetClinic for WebLogic 14.1.2"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/examples/spring/setupspringframeworkpetclinicfor1412"
 ---
 
 import Tabs from '@theme/Tabs';

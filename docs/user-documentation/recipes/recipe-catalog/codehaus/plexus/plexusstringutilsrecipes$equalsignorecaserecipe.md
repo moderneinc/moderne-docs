@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.equalsIgnoreCase(String, String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/codehaus/plexus/plexusstringutilsrecipes$equalsignorecaserecipe"
 ---
 
 import Tabs from '@theme/Tabs';

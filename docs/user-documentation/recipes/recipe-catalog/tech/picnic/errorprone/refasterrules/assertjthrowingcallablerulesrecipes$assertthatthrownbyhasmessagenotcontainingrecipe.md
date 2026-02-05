@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJThrowingCallableRules.AssertThatThrownByHasMessageNotContaining`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyhasmessagenotcontainingrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

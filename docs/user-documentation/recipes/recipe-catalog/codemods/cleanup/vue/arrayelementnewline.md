@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce line breaks after each array element in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/arrayelementnewline"
 ---
 
 import Tabs from '@theme/Tabs';

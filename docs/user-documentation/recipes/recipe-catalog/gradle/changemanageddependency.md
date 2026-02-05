@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Gradle managed dependency"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/changemanageddependency"
 ---
 
 import Tabs from '@theme/Tabs';

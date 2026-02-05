@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove empty blocks"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/emptyblock"
 ---
 
 import Tabs from '@theme/Tabs';

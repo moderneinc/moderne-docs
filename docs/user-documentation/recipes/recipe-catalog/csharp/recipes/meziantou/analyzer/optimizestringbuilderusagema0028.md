@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Optimize StringBuilder usage"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/optimizestringbuilderusagema0028"
 ---
 
 import Tabs from '@theme/Tabs';

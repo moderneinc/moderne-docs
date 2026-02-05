@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Format Kotlin code"
-canonical_url: "https://docs.openrewrite.org/recipes/kotlin/format/autoformat"
 ---
 
 import Tabs from '@theme/Tabs';

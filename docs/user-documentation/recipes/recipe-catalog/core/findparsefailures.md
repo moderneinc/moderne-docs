@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find source files with `ParseExceptionResult` markers"
-canonical_url: "https://docs.openrewrite.org/recipes/core/findparsefailures"
 ---
 
 import Tabs from '@theme/Tabs';

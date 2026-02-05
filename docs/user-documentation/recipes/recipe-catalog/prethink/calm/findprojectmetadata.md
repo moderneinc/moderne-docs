@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find project metadata"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/calm/findprojectmetadata"
 ---
 
 import Tabs from '@theme/Tabs';

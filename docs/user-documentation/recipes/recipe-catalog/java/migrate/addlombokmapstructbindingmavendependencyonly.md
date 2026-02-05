@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add `lombok-mapstruct-binding` dependency for Maven when both MapStruct and Lombok are used"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/addlombokmapstructbindingmavendependencyonly"
 ---
 
 import Tabs from '@theme/Tabs';

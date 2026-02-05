@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade group, artifact ID and version of an artifactItem, of a maven plugin execution configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/upgrademavenpluginartifactitems"
 ---
 
 import Tabs from '@theme/Tabs';

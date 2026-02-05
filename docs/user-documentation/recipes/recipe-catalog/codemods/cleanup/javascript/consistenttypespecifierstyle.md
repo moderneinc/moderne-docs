@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce or ban the use of inline type-only markers for named imports"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/consistenttypespecifierstyle"
 ---
 
 import Tabs from '@theme/Tabs';

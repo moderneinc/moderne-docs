@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TestNGToAssertJRules.AssertTrue`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$asserttruerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

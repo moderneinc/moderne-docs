@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`Stream&lt;Optional&gt;` idiom recipe"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/optionalstreamrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

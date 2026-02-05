@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Spring Security 5.4 introduces the ability to configure `HttpSecurity` by creating a `SecurityFilterChain` bean"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/security5/websecurityconfigureradapter"
 ---
 
 import Tabs from '@theme/Tabs';

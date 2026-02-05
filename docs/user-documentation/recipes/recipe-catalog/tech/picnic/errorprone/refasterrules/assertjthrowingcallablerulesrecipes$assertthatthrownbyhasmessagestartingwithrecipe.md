@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJThrowingCallableRules.AssertThatThrownByHasMessageStartingWith`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyhasmessagestartingwithrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

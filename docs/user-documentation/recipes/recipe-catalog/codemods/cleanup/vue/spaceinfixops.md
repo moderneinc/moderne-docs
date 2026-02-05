@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require spacing around infix operators in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/spaceinfixops"
 ---
 
 import Tabs from '@theme/Tabs';

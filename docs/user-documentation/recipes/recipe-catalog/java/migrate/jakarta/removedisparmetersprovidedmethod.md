@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `isParametersProvided()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/removedisparmetersprovidedmethod"
 ---
 
 import Tabs from '@theme/Tabs';

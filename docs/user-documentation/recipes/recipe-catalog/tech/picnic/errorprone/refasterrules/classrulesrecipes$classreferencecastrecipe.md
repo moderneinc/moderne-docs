@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ClassRules.ClassReferenceCast`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/classrulesrecipes$classreferencecastrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

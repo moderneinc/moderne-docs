@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find credential persistence through GitHub Actions artifacts"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/artifactsecurityrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

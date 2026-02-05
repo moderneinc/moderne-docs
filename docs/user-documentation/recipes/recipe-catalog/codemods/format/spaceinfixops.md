@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require spacing around infix operators"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/spaceinfixops"
 ---
 
 import Tabs from '@theme/Tabs';

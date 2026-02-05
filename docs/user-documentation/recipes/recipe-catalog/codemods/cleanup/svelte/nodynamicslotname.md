@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow dynamic slot name"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/nodynamicslotname"
 ---
 
 import Tabs from '@theme/Tabs';

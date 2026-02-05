@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove invocations of deprecated invocations from Deflater, Inflater, ZipFile"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/removefinalizerfromzip"
 ---
 
 import Tabs from '@theme/Tabs';

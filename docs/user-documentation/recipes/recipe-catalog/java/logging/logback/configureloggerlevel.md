@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Configure logback logger level"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/logback/configureloggerlevel"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `secrets: inherit` if possible"
-canonical_url: "https://docs.openrewrite.org/recipes/github/prefersecretsinheritworkflow"
 ---
 
 import Tabs from '@theme/Tabs';

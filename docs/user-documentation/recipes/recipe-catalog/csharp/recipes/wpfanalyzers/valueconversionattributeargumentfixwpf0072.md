@@ -1,6 +1,5 @@
 ---
 sidebar_label: "ValueConversion must use correct types"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/valueconversionattributeargumentfixwpf0072"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -446,7 +446,6 @@ const recipes = {
       items: [
         'user-documentation/recipes/lists/all-recipes',
         'user-documentation/recipes/lists/recipes-by-tag',
-        'user-documentation/recipes/lists/moderne-recipes',
         'user-documentation/recipes/lists/recipes-with-data-tables',
         'user-documentation/recipes/lists/scanning-recipes',
         'user-documentation/recipes/lists/standalone-recipes',

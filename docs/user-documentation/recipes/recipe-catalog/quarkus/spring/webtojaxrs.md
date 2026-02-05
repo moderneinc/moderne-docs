@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert Spring Web annotations to JAX-RS"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/webtojaxrs"
 ---
 
 import Tabs from '@theme/Tabs';

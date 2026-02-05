@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Core Example Properties"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/addcoreexampleproperties"
 ---
 
 import Tabs from '@theme/Tabs';

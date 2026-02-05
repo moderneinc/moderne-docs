@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unreadable array destructuring"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nounreadablearraydestructuring"
 ---
 
 import Tabs from '@theme/Tabs';

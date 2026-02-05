@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt AssertJ BigInteger Assertions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/assertjbigintegerrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

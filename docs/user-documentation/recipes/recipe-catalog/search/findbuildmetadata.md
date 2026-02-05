@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find build metadata"
-canonical_url: "https://docs.openrewrite.org/recipes/search/findbuildmetadata"
 ---
 
 import Tabs from '@theme/Tabs';

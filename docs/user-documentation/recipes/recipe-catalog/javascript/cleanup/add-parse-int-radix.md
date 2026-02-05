@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add radix to `parseInt`"
-canonical_url: "https://docs.openrewrite.org/recipes/javascript/cleanup/add-parse-int-radix"
 ---
 
 import Tabs from '@theme/Tabs';

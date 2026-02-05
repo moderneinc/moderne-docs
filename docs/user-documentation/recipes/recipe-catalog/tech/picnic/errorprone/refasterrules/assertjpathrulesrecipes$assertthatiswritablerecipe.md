@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJPathRules.AssertThatIsWritable`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjpathrulesrecipes$assertthatiswritablerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

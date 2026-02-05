@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StringRules.StringValueOfMethodReference`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringvalueofmethodreferencerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

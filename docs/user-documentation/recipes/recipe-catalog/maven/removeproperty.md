@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove Maven project property"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/removeproperty"
 ---
 
 import Tabs from '@theme/Tabs';

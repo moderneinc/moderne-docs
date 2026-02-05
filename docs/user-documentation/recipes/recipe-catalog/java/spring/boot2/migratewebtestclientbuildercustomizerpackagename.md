@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `WebTestClientBuilderCustomizer`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migratewebtestclientbuildercustomizerpackagename"
 ---
 
 import Tabs from '@theme/Tabs';

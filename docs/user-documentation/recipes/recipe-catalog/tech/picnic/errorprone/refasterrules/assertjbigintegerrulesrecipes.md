@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`AssertJBigIntegerRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

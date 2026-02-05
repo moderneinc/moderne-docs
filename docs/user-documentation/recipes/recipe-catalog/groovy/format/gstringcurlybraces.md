@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Groovy GString curly braces"
-canonical_url: "https://docs.openrewrite.org/recipes/groovy/format/gstringcurlybraces"
 ---
 
 import Tabs from '@theme/Tabs';

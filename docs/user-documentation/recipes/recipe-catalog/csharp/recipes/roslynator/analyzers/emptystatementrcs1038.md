@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Remove empty statement"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/emptystatementrcs1038"
 ---
 
 import Tabs from '@theme/Tabs';

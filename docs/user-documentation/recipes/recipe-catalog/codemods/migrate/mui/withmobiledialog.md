@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates withMobileDialog higher-order component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/withmobiledialog"
 ---
 
 import Tabs from '@theme/Tabs';

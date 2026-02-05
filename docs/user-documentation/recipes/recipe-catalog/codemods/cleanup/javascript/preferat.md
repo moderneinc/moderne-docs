@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `.at()` method for index access and `String#charAt()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferat"
 ---
 
 import Tabs from '@theme/Tabs';

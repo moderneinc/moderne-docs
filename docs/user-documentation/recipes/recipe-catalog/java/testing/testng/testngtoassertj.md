@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate TestNG assertions to AssertJ"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/testng/testngtoassertj"
 ---
 
 import Tabs from '@theme/Tabs';

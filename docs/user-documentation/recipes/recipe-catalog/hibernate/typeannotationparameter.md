@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`@Type` annotation type parameter migration (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/hibernate/typeannotationparameter"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Spring Boot 3.5 best practices](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpractices.md)
+* [Spring Boot 3.5 best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpractices)
 
 ## Example
 

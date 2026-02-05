@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.ClockInstant`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$clockinstantrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

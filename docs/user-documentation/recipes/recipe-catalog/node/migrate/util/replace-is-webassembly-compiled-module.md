@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated `util.types.isWebAssemblyCompiledModule()`"
-canonical_url: "https://docs.openrewrite.org/recipes/node/migrate/util/replace-is-webassembly-compiled-module"
 ---
 
 import Tabs from '@theme/Tabs';

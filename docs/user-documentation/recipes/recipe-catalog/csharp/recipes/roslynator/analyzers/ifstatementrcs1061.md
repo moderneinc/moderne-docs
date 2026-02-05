@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Merge 'if' with nested 'if'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/ifstatementrcs1061"
 ---
 
 import Tabs from '@theme/Tabs';

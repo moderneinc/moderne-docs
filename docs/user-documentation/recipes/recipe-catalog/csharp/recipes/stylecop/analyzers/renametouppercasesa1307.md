@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Accessible fields should begin with upper-case letter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/renametouppercasesa1307"
 ---
 
 import Tabs from '@theme/Tabs';

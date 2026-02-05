@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrates deprecated `DefaultHttpClient`"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient4/migratedefaulthttpclient"
 ---
 
 import Tabs from '@theme/Tabs';

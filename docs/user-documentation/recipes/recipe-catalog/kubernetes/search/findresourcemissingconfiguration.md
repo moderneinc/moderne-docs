@@ -31,12 +31,12 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Ensure CPU limits are set](/user-documentation/recipes/recipe-catalog/kubernetes/missingcpulimits.md)
-* [Ensure CPU request is set](/user-documentation/recipes/recipe-catalog/kubernetes/missingcpurequest.md)
-* [Ensure liveness probe is configured](/user-documentation/recipes/recipe-catalog/kubernetes/missingpodlivenessprobe.md)
-* [Ensure memory limits are set](/user-documentation/recipes/recipe-catalog/kubernetes/missingmemorylimits.md)
-* [Ensure memory request is set](/user-documentation/recipes/recipe-catalog/kubernetes/missingmemoryrequest.md)
-* [Ensure readiness probe is configured](/user-documentation/recipes/recipe-catalog/kubernetes/missingpodreadinessprobe.md)
+* [Ensure CPU limits are set](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/missingcpulimits)
+* [Ensure CPU request is set](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/missingcpurequest)
+* [Ensure liveness probe is configured](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/missingpodlivenessprobe)
+* [Ensure memory limits are set](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/missingmemorylimits)
+* [Ensure memory request is set](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/missingmemoryrequest)
+* [Ensure readiness probe is configured](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/missingpodreadinessprobe)
 
 ## Example
 

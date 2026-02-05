@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Instant#truncatedTo(TemporalUnit)` over less obvious alternatives"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$instanttruncatedtomillisecondsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

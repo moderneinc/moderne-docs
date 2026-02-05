@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent brace style for blocks in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/bracestyle"
 ---
 
 import Tabs from '@theme/Tabs';

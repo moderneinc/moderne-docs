@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TestNGToAssertJRules.FailWithMessage`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$failwithmessagerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

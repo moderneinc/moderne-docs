@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Reflect.apply()` over `Function#apply()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferreflectapply"
 ---
 
 import Tabs from '@theme/Tabs';

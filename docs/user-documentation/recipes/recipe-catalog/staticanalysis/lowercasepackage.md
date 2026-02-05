@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename packages to lowercase"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/lowercasepackage"
 ---
 
 import Tabs from '@theme/Tabs';

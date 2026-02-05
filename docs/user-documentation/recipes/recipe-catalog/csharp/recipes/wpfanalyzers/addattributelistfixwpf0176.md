@@ -1,6 +1,5 @@
 ---
 sidebar_label: "StyleTypedProperty is missing"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/addattributelistfixwpf0176"
 ---
 
 import Tabs from '@theme/Tabs';

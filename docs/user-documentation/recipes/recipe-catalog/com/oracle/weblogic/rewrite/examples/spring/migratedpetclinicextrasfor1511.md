@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add WebLogic 15.1.1 PetClinic extras"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/examples/spring/migratedpetclinicextrasfor1511"
 ---
 
 import Tabs from '@theme/Tabs';

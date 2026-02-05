@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Maven plugin version"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/upgradepluginversion"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -58,7 +57,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Boot 3.3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_3.md)
 * [Migrate to Spring Boot 3.4 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-community-edition.md)
 * [Migrate to Spring Boot 3.5 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-community-edition.md)
-* [Migrate to Spring Boot 3.5 (Moderne Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-moderne-edition.md)
+* [Migrate to Spring Boot 3.5 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-moderne-edition)
 * [Migrate to Spring Boot 4.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
 * [Migrate to WebLogic 14.1.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1411.md)
 * [Quarkus 2.x migration from Quarkus 1.x](/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/quarkus1to2migration.md)
@@ -66,7 +65,7 @@ This recipe is used as part of the following composite recipes:
 * [Update the WebLogic version to 14.1.2](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/updatebuildtoweblogic1412.md)
 * [Update the WebLogic version to 15.1.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/updatebuildtoweblogic1511.md)
 * [Upgrade JaCoCo](/user-documentation/recipes/recipe-catalog/java/migrate/jacoco/upgradejacoco.md)
-* [Upgrade Java to 17+ for Kafka broker/tools](/user-documentation/recipes/recipe-catalog/kafka/upgradejavaforkafkabroker.md)
+* [Upgrade Java to 17+ for Kafka broker/tools](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/upgradejavaforkafkabroker)
 * [Upgrade plugins to Java 11 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava11.md)
 * [Upgrade plugins to Java 17 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava17.md)
 * [Upgrade plugins to Java 21 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava21.md)

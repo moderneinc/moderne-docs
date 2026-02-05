@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add braces"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/addbracesrcs1007"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `DoubleStreamRules.DoubleStreamTakeWhile`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/doublestreamrulesrecipes$doublestreamtakewhilerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsInstanceOf`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatwithfailmessagesupplierisinstanceofrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

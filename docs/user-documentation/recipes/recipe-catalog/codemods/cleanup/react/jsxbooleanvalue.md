@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce boolean attributes notation in JSX"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxbooleanvalue"
 ---
 
 import Tabs from '@theme/Tabs';

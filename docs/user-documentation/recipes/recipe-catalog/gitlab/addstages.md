@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add GitLab stages"
-canonical_url: "https://docs.openrewrite.org/recipes/gitlab/addstages"
 ---
 
 import Tabs from '@theme/Tabs';

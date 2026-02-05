@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from `@ApiOperation` to `@Operation`"
-canonical_url: "https://docs.openrewrite.org/recipes/openapi/swagger/migrateapioperationtooperation"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `finalize` method in `java.io.FileInputStream`  and `java.io.FileOutputStream`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedfileiofinalizemethods"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `OptionalRules.OptionalStream`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalstreamrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

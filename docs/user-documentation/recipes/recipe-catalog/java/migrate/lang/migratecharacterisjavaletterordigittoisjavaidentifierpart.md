@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Character#isJavaIdentifierPart(char)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/migratecharacterisjavaletterordigittoisjavaidentifierpart"
 ---
 
 import Tabs from '@theme/Tabs';

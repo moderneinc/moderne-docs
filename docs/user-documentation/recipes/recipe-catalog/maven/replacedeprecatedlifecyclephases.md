@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated lifecycle phases"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/replacedeprecatedlifecyclephases"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `DoubleStreamRules.DoubleStreamAllMatch`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/doublestreamrulesrecipes$doublestreamallmatchrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

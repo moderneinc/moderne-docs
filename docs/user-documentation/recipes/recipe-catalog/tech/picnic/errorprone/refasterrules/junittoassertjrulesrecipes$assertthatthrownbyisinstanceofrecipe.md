@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `JUnitToAssertJRules.AssertThatThrownByIsInstanceOf`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatthrownbyisinstanceofrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

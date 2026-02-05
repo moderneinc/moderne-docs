@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StringRules.StringIsNotEmptyPredicate`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringisnotemptypredicaterecipe"
 ---
 
 import Tabs from '@theme/Tabs';

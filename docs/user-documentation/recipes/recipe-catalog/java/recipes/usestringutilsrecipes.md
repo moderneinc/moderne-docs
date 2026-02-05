@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `StringUtils` utility methods"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/usestringutilsrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

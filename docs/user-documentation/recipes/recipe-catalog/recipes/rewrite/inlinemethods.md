@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Inline methods annotated with `@InlineMe`"
-canonical_url: "https://docs.openrewrite.org/recipes/recipes/rewrite/inlinemethods"
 ---
 
 import Tabs from '@theme/Tabs';

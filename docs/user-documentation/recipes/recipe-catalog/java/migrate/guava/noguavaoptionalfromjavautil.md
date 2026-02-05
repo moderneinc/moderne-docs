@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `com.google.common.base.Optional#fromJavaUtil(java.util.Optional)` with argument"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavaoptionalfromjavautil"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `@Query` annotation by `@NativeQuery` when possible"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/data/migratequerytonativequery"
 ---
 
 import Tabs from '@theme/Tabs';

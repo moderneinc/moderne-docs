@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unannotated entity attributes require a Transient annotation"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/addtransientannotationtoentity"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Runtime.Version#interim()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/migrateruntimeversionminortointerim"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Append to text file"
-canonical_url: "https://docs.openrewrite.org/recipes/text/appendtotextfile"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace TOML table row"
-canonical_url: "https://docs.openrewrite.org/recipes/toml/replacetablerow"
 ---
 
 import Tabs from '@theme/Tabs';

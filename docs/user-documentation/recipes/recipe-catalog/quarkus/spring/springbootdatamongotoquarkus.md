@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Data MongoDB with Quarkus MongoDB Panache"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootdatamongotoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

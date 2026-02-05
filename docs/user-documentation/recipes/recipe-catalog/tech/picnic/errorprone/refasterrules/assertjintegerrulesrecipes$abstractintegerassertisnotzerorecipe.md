@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsNotZero`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertisnotzerorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

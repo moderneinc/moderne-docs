@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add a blank line around fields with annotations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/blanklinesaroundfieldswithannotations"
 ---
 
 import Tabs from '@theme/Tabs';

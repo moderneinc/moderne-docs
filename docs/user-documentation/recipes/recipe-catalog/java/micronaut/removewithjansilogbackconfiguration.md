@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove withJansi Logback configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/removewithjansilogbackconfiguration"
 ---
 
 import Tabs from '@theme/Tabs';

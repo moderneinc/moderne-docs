@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Validation with Quarkus Hibernate Validator"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootvalidationtoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

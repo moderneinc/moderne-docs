@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJRules.AssertThatListsAreEqual`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatlistsareequalrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

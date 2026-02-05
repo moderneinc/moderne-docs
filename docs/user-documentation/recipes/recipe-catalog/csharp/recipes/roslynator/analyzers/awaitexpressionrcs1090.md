@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add/remove 'ConfigureAwait(false)' call"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/awaitexpressionrcs1090"
 ---
 
 import Tabs from '@theme/Tabs';

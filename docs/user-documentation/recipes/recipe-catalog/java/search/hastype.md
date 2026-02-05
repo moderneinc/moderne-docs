@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find files that have at least one use of a type"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/hastype"
 ---
 
 import Tabs from '@theme/Tabs';

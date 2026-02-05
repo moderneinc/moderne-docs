@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated methods in`SecurityManager`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedsecuritymanagermethods"
 ---
 
 import Tabs from '@theme/Tabs';

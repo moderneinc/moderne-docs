@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus323.HibernateORMSchemaManagementProperties"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus323/hibernateormschemamanagementproperties"
 ---
 
 import Tabs from '@theme/Tabs';

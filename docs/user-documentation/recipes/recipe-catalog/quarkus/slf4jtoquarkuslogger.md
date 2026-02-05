@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate SLF4J Logger injection and usage to Quarkus static `Log`"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/slf4jtoquarkuslogger"
 ---
 
 import Tabs from '@theme/Tabs';

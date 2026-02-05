@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Parameters with [EditorRequired] attributes should also be marked as [Parameter]"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/parameterattributeforrazorcomponentma0117"
 ---
 
 import Tabs from '@theme/Tabs';

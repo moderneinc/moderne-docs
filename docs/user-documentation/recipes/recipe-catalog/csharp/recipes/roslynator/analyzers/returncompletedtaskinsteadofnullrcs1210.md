@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Return completed task instead of returning null"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/returncompletedtaskinsteadofnullrcs1210"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Tree.randomId()` in LST constructors"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/usetreerandomid"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use the latest JAX-WS API and runtime for Jakarta EE 8"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/addjaxwsruntime$addjaxwsruntimegradle"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `*taglib*.xml` files for Jakarta Server Faces 3"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxfacestaglibraryxmltojakartafaces3taglibraryxml"
 ---
 
 import Tabs from '@theme/Tabs';

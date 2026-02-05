@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add missing `@Override` to overriding and implementing methods"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/missingoverrideannotation"
 ---
 
 import Tabs from '@theme/Tabs';

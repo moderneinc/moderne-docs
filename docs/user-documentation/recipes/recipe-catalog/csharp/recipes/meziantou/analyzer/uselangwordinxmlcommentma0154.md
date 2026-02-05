@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use langword in XML comment"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/uselangwordinxmlcommentma0154"
 ---
 
 import Tabs from '@theme/Tabs';

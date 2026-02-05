@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus321.TlsRegistrySplitPackagesFix"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus321/tlsregistrysplitpackagesfix"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace removed `JsonGenerator` capability methods with `StreamWriteCapability`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/replacestreamwritecapability"
 ---
 
 import Tabs from '@theme/Tabs';

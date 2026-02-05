@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Removed OpenJPA providers in the persistence.xml file"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javaee7/openjpapersistenceprovider"
 ---
 
 import Tabs from '@theme/Tabs';

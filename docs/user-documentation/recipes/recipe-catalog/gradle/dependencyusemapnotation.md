@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Map` notation for Gradle dependency declarations"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/dependencyusemapnotation"
 ---
 
 import Tabs from '@theme/Tabs';

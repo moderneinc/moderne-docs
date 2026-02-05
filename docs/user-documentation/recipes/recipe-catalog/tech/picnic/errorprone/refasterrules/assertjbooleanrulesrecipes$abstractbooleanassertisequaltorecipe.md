@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJBooleanRules.AbstractBooleanAssertIsEqualTo`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$abstractbooleanassertisequaltorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use consistent Hamcrest matcher imports"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/hamcrest/consistenthamcrestmatcherimports"
 ---
 
 import Tabs from '@theme/Tabs';

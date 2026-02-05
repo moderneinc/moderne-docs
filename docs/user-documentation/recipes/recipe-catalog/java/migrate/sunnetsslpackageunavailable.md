@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `com.sun.net.ssl` package"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/sunnetsslpackageunavailable"
 ---
 
 import Tabs from '@theme/Tabs';

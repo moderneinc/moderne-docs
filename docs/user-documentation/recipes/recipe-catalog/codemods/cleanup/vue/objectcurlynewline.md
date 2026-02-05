@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent line breaks after opening and before closing braces in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/objectcurlynewline"
 ---
 
 import Tabs from '@theme/Tabs';

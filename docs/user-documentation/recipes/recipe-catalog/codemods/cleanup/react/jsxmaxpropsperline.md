@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce maximum of props on a single line in JSX"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxmaxpropsperline"
 ---
 
 import Tabs from '@theme/Tabs';

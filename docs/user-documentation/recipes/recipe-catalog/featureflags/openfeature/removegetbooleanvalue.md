@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove OpenFeature's `getBooleanValue` for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/openfeature/removegetbooleanvalue"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmVariousRemovedIn7"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus324/migratefromhibernateormvariousremovedin7"
 ---
 
 import Tabs from '@theme/Tabs';

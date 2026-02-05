@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates createMuiTheme usage"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/createtheme"
 ---
 
 import Tabs from '@theme/Tabs';

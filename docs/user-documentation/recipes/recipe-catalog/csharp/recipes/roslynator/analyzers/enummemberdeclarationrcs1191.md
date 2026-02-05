@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Declare enum value as combination of names"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/enummemberdeclarationrcs1191"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Joda-Time to Java time"
-canonical_url: "https://docs.openrewrite.org/recipes/java/joda/time/jodatimerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

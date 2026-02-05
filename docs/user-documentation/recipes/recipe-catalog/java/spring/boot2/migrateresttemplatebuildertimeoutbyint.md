@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `RestTemplateBuilder#setConnectTimeout(Duration)` and `RestTemplateBuilder#setReadTimeout(Duration)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migrateresttemplatebuildertimeoutbyint"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use AttributeUsageAttribute"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/classdeclarationrcs1203"
 ---
 
 import Tabs from '@theme/Tabs';

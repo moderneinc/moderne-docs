@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adds missing JDBC interface methods"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jrejdbcinterfacenewmethods"
 ---
 
 import Tabs from '@theme/Tabs';

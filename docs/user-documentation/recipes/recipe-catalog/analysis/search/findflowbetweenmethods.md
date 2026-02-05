@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Finds flow between two methods"
-canonical_url: "https://docs.openrewrite.org/recipes/analysis/search/findflowbetweenmethods"
 ---
 
 import Tabs from '@theme/Tabs';

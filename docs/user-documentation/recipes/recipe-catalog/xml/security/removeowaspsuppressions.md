@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove out-of-date OWASP suppressions"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/security/removeowaspsuppressions"
 ---
 
 import Tabs from '@theme/Tabs';

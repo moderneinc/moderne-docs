@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing inside array brackets"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/arraybracketspacing"
 ---
 
 import Tabs from '@theme/Tabs';

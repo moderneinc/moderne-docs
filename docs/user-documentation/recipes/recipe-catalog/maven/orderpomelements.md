@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Order POM elements"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/orderpomelements"
 ---
 
 import Tabs from '@theme/Tabs';

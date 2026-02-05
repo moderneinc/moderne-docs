@@ -1,6 +1,5 @@
 ---
 sidebar_label: "File name should match first type name"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/settingsfilesa1649"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Maven dependency scope"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/changedependencyscope"
 ---
 
 import Tabs from '@theme/Tabs';

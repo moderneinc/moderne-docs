@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `java.lang.ref.Reference.clone()` with constructor call"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/referenceclonemethod"
 ---
 
 import Tabs from '@theme/Tabs';

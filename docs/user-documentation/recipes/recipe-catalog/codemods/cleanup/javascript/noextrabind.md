@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unnecessary calls to `.bind()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noextrabind"
 ---
 
 import Tabs from '@theme/Tabs';

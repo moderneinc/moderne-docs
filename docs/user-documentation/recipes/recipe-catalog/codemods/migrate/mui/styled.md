@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates the usage of `styled` from `@mui/system@v5` to be compatible with` @pigment-css/react`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/styled"
 ---
 
 import Tabs from '@theme/Tabs';

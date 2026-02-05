@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove exclusion"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/removeexclusion"
 ---
 
 import Tabs from '@theme/Tabs';

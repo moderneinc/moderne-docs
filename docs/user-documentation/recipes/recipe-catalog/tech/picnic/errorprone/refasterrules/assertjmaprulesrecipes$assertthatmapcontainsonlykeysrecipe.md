@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJMapRules.AssertThatMapContainsOnlyKeys`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapcontainsonlykeysrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

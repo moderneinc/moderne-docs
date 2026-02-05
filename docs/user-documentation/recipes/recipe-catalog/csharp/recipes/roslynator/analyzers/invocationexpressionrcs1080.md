@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use 'Count/Length' property instead of 'Any' method"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/invocationexpressionrcs1080"
 ---
 
 import Tabs from '@theme/Tabs';

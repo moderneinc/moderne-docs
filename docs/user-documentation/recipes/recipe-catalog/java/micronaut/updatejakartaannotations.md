@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update jakarta annotations dependency"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/updatejakartaannotations"
 ---
 
 import Tabs from '@theme/Tabs';

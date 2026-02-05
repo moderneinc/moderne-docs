@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify `Arrays.asList(..)` with varargs"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/simplifyarraysaslist"
 ---
 
 import Tabs from '@theme/Tabs';

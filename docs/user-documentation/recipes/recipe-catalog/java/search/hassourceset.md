@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find files in a source set"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/hassourceset"
 ---
 
 import Tabs from '@theme/Tabs';

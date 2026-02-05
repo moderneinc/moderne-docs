@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert receive type in some invocation of StepExecution.xx()"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/batch/convertreceivetypewhencallstepexecutionmethod"
 ---
 
 import Tabs from '@theme/Tabs';

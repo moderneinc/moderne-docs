@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Declare type inside namespace"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/declaretypeinsidenamespacercs1110"
 ---
 
 import Tabs from '@theme/Tabs';

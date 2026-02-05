@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace text block with regular string"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replacetextblockwithstring"
 ---
 
 import Tabs from '@theme/Tabs';

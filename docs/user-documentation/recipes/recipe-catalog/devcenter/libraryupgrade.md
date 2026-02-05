@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Library upgrade"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/libraryupgrade"
 ---
 
 import Tabs from '@theme/Tabs';

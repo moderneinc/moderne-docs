@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CollectionRules.CollectionToArray`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$collectiontoarrayrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

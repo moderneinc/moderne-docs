@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use IOUtils method that include  their charset encoding"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/io/apacheioutilsuseexplicitcharset"
 ---
 
 import Tabs from '@theme/Tabs';

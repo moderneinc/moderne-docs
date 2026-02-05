@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `getEstimatedEffortPerOccurrence()` method with field"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/useestimatedeffortperoccurrencefield"
 ---
 
 import Tabs from '@theme/Tabs';

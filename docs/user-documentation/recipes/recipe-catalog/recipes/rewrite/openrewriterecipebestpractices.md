@@ -1,6 +1,5 @@
 ---
 sidebar_label: "OpenRewrite recipe best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/recipes/rewrite/openrewriterecipebestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

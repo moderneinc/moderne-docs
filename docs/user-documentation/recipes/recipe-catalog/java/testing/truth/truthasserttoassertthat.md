@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert Truth `assert_()` to AssertJ"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/truth/truthasserttoassertthat"
 ---
 
 import Tabs from '@theme/Tabs';

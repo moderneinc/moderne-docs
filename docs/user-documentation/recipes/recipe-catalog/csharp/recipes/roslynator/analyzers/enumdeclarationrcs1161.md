@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enum should declare explicit values"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/enumdeclarationrcs1161"
 ---
 
 import Tabs from '@theme/Tabs';

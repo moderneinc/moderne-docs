@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.OffsetDateTimePlusHours`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$offsetdatetimeplushoursrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

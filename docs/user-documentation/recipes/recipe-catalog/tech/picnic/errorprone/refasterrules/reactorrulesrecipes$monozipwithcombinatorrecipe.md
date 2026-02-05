@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.MonoZipWithCombinator`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monozipwithcombinatorrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

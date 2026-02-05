@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJDurationRules.AssertThatHasNanos`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathasnanosrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate thymeleaf dependencies to Spring Boot 3.x"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/migratethymeleafdependencies"
 ---
 
 import Tabs from '@theme/Tabs';

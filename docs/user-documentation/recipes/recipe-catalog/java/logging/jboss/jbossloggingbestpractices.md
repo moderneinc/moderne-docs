@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JBoss Logging Best Practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/jboss/jbossloggingbestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

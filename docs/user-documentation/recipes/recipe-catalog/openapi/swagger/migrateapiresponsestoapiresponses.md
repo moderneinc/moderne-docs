@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from `@ApiResponses` to `@ApiResponses`"
-canonical_url: "https://docs.openrewrite.org/recipes/openapi/swagger/migrateapiresponsestoapiresponses"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `JSONNode` field iterator for Jackson 3"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/jackson3jsonnodefielditerators"
 ---
 
 import Tabs from '@theme/Tabs';

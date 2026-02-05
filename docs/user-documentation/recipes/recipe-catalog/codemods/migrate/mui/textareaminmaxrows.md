@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `minRows` and `maxRows` props for TextareaAutosize component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/textareaminmaxrows"
 ---
 
 import Tabs from '@theme/Tabs';

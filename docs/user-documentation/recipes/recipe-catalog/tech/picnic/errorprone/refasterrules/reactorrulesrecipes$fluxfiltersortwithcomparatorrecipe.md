@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.FluxFilterSortWithComparator`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxfiltersortwithcomparatorrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`switch` statements should have at least 3 `case` clauses"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/minimumswitchcases"
 ---
 
 import Tabs from '@theme/Tabs';

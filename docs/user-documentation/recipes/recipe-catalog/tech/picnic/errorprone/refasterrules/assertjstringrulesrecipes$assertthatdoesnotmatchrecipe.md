@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJStringRules.AssertThatDoesNotMatch`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatdoesnotmatchrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `@MockBean` and `@SpyBean`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot4/replacemockbeanandspybean"
 ---
 
 import Tabs from '@theme/Tabs';

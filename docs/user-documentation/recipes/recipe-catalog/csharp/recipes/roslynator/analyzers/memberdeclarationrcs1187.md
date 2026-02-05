@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use constant instead of field"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/memberdeclarationrcs1187"
 ---
 
 import Tabs from '@theme/Tabs';

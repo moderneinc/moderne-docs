@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/runnertoextension"
 ---
 
 import Tabs from '@theme/Tabs';

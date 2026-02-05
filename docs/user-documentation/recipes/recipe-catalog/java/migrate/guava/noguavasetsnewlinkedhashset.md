@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `new LinkedHashSet&lt;&gt;()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavasetsnewlinkedhashset"
 ---
 
 import Tabs from '@theme/Tabs';

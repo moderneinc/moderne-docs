@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Converts base imports to use React hooks"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/basehookimports"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find cache poisoning vulnerabilities"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/cachepoisoningrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace AWT `getPeer()` method"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/replaceawtgetpeermethod"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find a FF4j feature flag"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/ff4j/search/findfeatureflag"
 ---
 
 import Tabs from '@theme/Tabs';

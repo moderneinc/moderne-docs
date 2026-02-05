@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Mitigation of Java XML Bind Deprecation in Java 11 vs WebLogic 14.1.2"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogic1412javaxmlbindmitigation"
 ---
 
 import Tabs from '@theme/Tabs';

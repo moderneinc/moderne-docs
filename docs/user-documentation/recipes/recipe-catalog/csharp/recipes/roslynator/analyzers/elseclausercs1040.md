@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Remove empty 'else' clause"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/elseclausercs1040"
 ---
 
 import Tabs from '@theme/Tabs';

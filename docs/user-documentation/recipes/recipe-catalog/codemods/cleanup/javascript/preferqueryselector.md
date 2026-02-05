@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `.querySelector()` over `.getElementById()`, `.querySelectorAll()` over `.getElementsByClassName()` and `.getElementsByTagName()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferqueryselector"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJObjectRules.AssertThatIsNotNull`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisnotnullrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

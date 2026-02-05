@@ -1,6 +1,5 @@
 ---
 sidebar_label: "XmlnsDefinitions does not map all namespaces with public types"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/xmlnsdefinitionfixwpf0052"
 ---
 
 import Tabs from '@theme/Tabs';

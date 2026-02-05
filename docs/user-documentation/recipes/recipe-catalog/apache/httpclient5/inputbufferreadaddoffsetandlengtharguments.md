@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adds offset and length arguments to the read method of SharedInputBuffer"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient5/inputbufferreadaddoffsetandlengtharguments"
 ---
 
 import Tabs from '@theme/Tabs';

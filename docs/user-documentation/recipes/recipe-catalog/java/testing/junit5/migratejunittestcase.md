@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate JUnit 4 `TestCase` to JUnit Jupiter"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/migratejunittestcase"
 ---
 
 import Tabs from '@theme/Tabs';

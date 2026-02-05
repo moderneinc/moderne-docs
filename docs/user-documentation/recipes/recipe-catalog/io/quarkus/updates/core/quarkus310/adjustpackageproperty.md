@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adjust the package properties"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus310/adjustpackageproperty"
 ---
 
 import Tabs from '@theme/Tabs';

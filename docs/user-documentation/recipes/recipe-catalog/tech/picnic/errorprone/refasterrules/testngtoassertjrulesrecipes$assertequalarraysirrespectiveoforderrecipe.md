@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TestNGToAssertJRules.AssertEqualArraysIrrespectiveOfOrder`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalarraysirrespectiveoforderrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

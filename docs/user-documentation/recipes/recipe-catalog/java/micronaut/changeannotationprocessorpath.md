@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Maven annotation processor path"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/changeannotationprocessorpath"
 ---
 
 import Tabs from '@theme/Tabs';

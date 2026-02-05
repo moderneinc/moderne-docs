@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replaces `AuthScope.ANY`"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient5/migrateauthscope"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate database drivers to Quarkus JDBC extensions"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/migratedatabasedrivers"
 ---
 
 import Tabs from '@theme/Tabs';

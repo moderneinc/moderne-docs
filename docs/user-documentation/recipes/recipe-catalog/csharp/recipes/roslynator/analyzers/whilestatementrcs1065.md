@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Avoid usage of while statement to create an infinite loop"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/whilestatementrcs1065"
 ---
 
 import Tabs from '@theme/Tabs';

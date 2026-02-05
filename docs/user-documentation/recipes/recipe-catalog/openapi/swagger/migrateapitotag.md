@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from `@Api` to `@Tag`"
-canonical_url: "https://docs.openrewrite.org/recipes/openapi/swagger/migrateapitotag"
 ---
 
 import Tabs from '@theme/Tabs';

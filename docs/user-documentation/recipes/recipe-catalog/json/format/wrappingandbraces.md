@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JSON new lines"
-canonical_url: "https://docs.openrewrite.org/recipes/json/format/wrappingandbraces"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent indentation in `&lt;script&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/scriptindent"
 ---
 
 import Tabs from '@theme/Tabs';

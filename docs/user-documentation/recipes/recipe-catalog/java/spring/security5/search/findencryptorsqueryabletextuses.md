@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Finds uses of `Encryptors.queryableText()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/security5/search/findencryptorsqueryabletextuses"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -63,8 +62,8 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Remediate OWASP A01:2021 Broken access control](/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md)
-* [Remediate OWASP A02:2021 Cryptographic failures](/user-documentation/recipes/recipe-catalog/java/security/owaspa02.md)
+* [Remediate OWASP A01:2021 Broken access control](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owaspa01)
+* [Remediate OWASP A02:2021 Cryptographic failures](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owaspa02)
 
 
 ## Usage

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce placing object properties on separate lines in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/objectpropertynewline"
 ---
 
 import Tabs from '@theme/Tabs';

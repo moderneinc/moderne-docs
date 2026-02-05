@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use logger instead of system print statements"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/systemprinttologging"
 ---
 
 import Tabs from '@theme/Tabs';

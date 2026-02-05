@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Negative signs should be spaced correctly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1021"
 ---
 
 import Tabs from '@theme/Tabs';

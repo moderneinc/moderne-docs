@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find sources that are likely tests"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/islikelytest"
 ---
 
 import Tabs from '@theme/Tabs';

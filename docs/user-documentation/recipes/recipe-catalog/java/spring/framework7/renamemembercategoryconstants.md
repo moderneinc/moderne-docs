@@ -30,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Update GraalVM native reflection hints for Spring Framework 7.0](/user-documentation/recipes/recipe-catalog/java/spring/framework7/updategraalvmnativehints.md)
+* [Update GraalVM native reflection hints for Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/updategraalvmnativehints)
 
 ## Examples
 ##### Example 1

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find methods with empty bodies"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findemptymethods"
 ---
 
 import Tabs from '@theme/Tabs';

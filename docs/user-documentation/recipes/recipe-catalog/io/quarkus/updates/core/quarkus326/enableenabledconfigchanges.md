@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus326.EnableEnabledConfigChanges"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus326/enableenabledconfigchanges"
 ---
 
 import Tabs from '@theme/Tabs';

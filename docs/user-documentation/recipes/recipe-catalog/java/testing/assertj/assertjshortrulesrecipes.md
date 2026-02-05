@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt AssertJ Short Assertions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/assertjshortrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

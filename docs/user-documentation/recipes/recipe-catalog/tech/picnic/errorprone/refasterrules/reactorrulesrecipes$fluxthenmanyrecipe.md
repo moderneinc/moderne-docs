@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.FluxThenMany`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxthenmanyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

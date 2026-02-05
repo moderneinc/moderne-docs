@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Finalize local variables"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/finalizelocalvariables"
 ---
 
 import Tabs from '@theme/Tabs';

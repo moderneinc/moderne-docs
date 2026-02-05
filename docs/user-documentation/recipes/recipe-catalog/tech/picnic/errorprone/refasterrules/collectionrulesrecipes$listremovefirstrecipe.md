@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CollectionRules.ListRemoveFirst`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$listremovefirstrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

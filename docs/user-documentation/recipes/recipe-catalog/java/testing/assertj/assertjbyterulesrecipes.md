@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt AssertJ Byte Assertions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/assertjbyterulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

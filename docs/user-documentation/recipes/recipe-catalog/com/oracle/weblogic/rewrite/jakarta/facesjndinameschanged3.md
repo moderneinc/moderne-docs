@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JNDI name `jsf/ClientSideSecretKey` has been renamed to `faces/ClientSideSecretKey`, and the `jsf/FlashSecretKey` JNDI name has been renamed to `faces/FlashSecretKey`."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/facesjndinameschanged3"
 ---
 
 import Tabs from '@theme/Tabs';

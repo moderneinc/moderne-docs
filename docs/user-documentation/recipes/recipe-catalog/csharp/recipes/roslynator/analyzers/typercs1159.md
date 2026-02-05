@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use EventHandler&lt;T&gt;"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/typercs1159"
 ---
 
 import Tabs from '@theme/Tabs';

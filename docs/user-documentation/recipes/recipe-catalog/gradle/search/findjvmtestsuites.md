@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Gradle JVMTestSuite plugin configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/search/findjvmtestsuites"
 ---
 
 import Tabs from '@theme/Tabs';

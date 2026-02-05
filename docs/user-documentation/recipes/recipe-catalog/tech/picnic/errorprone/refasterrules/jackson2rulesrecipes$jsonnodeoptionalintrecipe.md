@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `Jackson2Rules.JsonNodeOptionalInt`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/jackson2rulesrecipes$jsonnodeoptionalintrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

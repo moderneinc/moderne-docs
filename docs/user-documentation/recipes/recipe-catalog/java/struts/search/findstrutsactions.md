@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Struts actions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/struts/search/findstrutsactions"
 ---
 
 import Tabs from '@theme/Tabs';

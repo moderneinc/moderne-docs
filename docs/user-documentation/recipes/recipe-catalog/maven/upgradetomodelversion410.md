@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade to Maven model version 4.1.0"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/upgradetomodelversion410"
 ---
 
 import Tabs from '@theme/Tabs';

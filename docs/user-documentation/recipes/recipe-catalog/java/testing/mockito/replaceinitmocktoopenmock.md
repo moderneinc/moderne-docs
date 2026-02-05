@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `MockitoAnnotations.initMocks(this)` to `MockitoAnnotations.openMocks(this)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/replaceinitmocktoopenmock"
 ---
 
 import Tabs from '@theme/Tabs';

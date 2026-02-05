@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add image argument to container constructor"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/testcontainers/explicitcontainerimage"
 ---
 
 import Tabs from '@theme/Tabs';

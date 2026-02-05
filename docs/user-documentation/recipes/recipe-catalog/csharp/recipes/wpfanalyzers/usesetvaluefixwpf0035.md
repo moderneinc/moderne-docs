@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use SetValue in setter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usesetvaluefixwpf0035"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `HandlerResult.hasExceptionHandler()` to `getExceptionHandler()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migratehandlerresulthasexceptionhandlermethod"
 ---
 
 import Tabs from '@theme/Tabs';

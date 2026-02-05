@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove all cron triggers"
-canonical_url: "https://docs.openrewrite.org/recipes/github/removeallcrontriggers"
 ---
 
 import Tabs from '@theme/Tabs';

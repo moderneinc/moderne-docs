@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Guid.Empty"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/useguidemptyma0067"
 ---
 
 import Tabs from '@theme/Tabs';

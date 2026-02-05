@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Effective dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/search/effectivedependencies"
 ---
 
 import Tabs from '@theme/Tabs';

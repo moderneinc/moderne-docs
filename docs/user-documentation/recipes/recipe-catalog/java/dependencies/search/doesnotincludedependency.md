@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Does not include dependency for Gradle and Maven"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/search/doesnotincludedependency"
 ---
 
 import Tabs from '@theme/Tabs';

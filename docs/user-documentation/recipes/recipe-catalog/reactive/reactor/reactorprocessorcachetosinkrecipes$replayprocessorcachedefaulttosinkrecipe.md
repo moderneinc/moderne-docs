@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Replace various `Processor.cache` calls with their `Sinks` equivalent](/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorprocessorcachetosinkrecipes.md)
+* [Replace various `Processor.cache` calls with their `Sinks` equivalent](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorprocessorcachetosinkrecipes)
 
 
 ## Usage

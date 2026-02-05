@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Indentation for binary operators"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/indentbinaryops"
 ---
 
 import Tabs from '@theme/Tabs';

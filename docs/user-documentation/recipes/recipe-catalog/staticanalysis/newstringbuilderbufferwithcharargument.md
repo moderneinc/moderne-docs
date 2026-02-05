@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change `StringBuilder` and `StringBuffer` character constructor argument to `String`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/newstringbuilderbufferwithcharargument"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify `assertThat(collection.stream().map(...))` to `assertThat(collection).extracting(...)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/simplifystreammaptoextracting"
 ---
 
 import Tabs from '@theme/Tabs';

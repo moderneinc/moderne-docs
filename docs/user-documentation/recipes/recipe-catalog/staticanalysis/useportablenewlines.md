@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use %n instead of \n in format strings"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/useportablenewlines"
 ---
 
 import Tabs from '@theme/Tabs';

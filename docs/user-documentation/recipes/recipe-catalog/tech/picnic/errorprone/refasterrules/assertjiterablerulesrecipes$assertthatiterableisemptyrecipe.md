@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJIterableRules.AssertThatIterableIsEmpty`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterableisemptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.ChronoLocalDateIsBefore`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$chronolocaldateisbeforerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

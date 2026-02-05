@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.StepVerifierLastStepVerifyErrorSatisfiesAssertJ`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$stepverifierlaststepverifyerrorsatisfiesassertjrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

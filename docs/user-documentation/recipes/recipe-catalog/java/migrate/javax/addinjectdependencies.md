@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add explicit Inject dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/addinjectdependencies"
 ---
 
 import Tabs from '@theme/Tabs';

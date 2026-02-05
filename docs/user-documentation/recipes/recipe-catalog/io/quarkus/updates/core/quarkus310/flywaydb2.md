@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus310.FlywayDb2"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus310/flywaydb2"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Maven wrapper"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/updatemavenwrapper"
 ---
 
 import Tabs from '@theme/Tabs';

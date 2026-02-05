@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Implement exception constructors"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/classdeclarationrcs1194"
 ---
 
 import Tabs from '@theme/Tabs';

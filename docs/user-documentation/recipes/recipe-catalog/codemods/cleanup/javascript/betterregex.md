@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Improve regexes by making them shorter, consistent, and safer"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/betterregex"
 ---
 
 import Tabs from '@theme/Tabs';

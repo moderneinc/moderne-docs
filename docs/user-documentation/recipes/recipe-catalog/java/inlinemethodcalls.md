@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Inline method calls"
-canonical_url: "https://docs.openrewrite.org/recipes/java/inlinemethodcalls"
 ---
 
 import Tabs from '@theme/Tabs';

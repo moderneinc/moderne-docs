@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Delete TOML key"
-canonical_url: "https://docs.openrewrite.org/recipes/toml/deletekey"
 ---
 
 import Tabs from '@theme/Tabs';

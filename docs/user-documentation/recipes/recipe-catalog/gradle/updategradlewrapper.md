@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Gradle wrapper"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/updategradlewrapper"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -46,7 +45,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Boot 2.2](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_2.md)
 * [Migrate to Spring Boot 2.3](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_3.md)
 * [Migrate to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
-* [Upgrade Android Gradle Plugin (AGP) version](/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion.md)
+* [Upgrade Android Gradle Plugin (AGP) version](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion)
 * [Upgrade plugins to Java 17 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava17.md)
 * [Upgrade plugins to Java 21 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava21.md)
 * [Upgrade to Spring Boot 2.5](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_5.md)

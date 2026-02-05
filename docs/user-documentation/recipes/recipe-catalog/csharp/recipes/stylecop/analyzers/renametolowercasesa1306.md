@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Field names should begin with lower-case letter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/renametolowercasesa1306"
 ---
 
 import Tabs from '@theme/Tabs';

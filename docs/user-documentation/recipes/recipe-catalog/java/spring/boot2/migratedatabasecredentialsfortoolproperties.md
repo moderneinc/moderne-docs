@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate null credentials"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migratedatabasecredentialsfortoolproperties"
 ---
 
 import Tabs from '@theme/Tabs';

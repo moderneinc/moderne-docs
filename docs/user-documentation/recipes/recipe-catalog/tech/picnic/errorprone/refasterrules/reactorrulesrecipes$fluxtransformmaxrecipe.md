@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.FluxTransformMax`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxtransformmaxrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

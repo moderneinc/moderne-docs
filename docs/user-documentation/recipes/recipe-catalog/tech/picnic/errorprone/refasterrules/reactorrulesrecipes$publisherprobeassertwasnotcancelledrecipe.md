@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.PublisherProbeAssertWasNotCancelled`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$publisherprobeassertwasnotcancelledrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

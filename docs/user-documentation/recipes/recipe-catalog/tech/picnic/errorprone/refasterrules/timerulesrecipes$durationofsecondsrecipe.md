@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.DurationOfSeconds`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$durationofsecondsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

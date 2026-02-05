@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce valid titles"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/validtitle"
 ---
 
 import Tabs from '@theme/Tabs';

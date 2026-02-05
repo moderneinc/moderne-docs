@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent brace style for all control statements"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/curly"
 ---
 
 import Tabs from '@theme/Tabs';

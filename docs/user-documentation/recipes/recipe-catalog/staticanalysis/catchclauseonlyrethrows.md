@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Catch clause should do more than just rethrow"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/catchclauseonlyrethrows"
 ---
 
 import Tabs from '@theme/Tabs';

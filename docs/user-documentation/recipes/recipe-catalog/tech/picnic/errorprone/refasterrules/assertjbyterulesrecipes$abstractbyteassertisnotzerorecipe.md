@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJByteRules.AbstractByteAssertIsNotZero`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisnotzerorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

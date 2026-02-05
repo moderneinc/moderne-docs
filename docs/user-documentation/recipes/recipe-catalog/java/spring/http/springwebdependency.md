@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Spring Web dependency"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/http/springwebdependency"
 ---
 
 import Tabs from '@theme/Tabs';

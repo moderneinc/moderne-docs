@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Recipe testing best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/recipetestingbestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

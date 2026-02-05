@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `faces-config.xml` files"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/jakartafacesconfigxml4"
 ---
 
 import Tabs from '@theme/Tabs';

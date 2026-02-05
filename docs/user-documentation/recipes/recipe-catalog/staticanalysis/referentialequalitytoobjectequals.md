@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace referential equality operators with Object equals method invocations when the operands both override `Object.equals(Object obj)`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/referentialequalitytoobjectequals"
 ---
 
 import Tabs from '@theme/Tabs';

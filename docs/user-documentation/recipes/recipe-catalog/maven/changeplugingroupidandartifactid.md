@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Maven plugin group and artifact ID"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/changeplugingroupidandartifactid"
 ---
 
 import Tabs from '@theme/Tabs';

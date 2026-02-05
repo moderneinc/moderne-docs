@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce newlines between operands of ternary expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/multilineternary"
 ---
 
 import Tabs from '@theme/Tabs';

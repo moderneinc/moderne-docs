@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce better string content"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/stringcontent"
 ---
 
 import Tabs from '@theme/Tabs';

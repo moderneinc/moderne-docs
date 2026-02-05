@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.MonoDoOnError`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monodoonerrorrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

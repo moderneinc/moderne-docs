@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`ImmutableSetMultimapRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesetmultimaprulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

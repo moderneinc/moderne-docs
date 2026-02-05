@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert `HttpSecurity::apply` chained calls into `HttpSecurity::with` Lambda DSL"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/security6/applytowithlambdadsl"
 ---
 
 import Tabs from '@theme/Tabs';

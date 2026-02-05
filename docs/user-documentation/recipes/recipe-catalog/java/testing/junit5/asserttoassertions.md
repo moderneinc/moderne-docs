@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit 4 `Assert` To JUnit Jupiter `Assertions`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/asserttoassertions"
 ---
 
 import Tabs from '@theme/Tabs';

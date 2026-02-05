@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add an annotation processor to the Maven Compiler plugin configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/addmavencompilerannotationprocessor"
 ---
 
 import Tabs from '@theme/Tabs';

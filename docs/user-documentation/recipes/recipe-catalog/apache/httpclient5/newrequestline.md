@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replaces deprecated `HttpRequestBase::getRequestLine()`"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient5/newrequestline"
 ---
 
 import Tabs from '@theme/Tabs';

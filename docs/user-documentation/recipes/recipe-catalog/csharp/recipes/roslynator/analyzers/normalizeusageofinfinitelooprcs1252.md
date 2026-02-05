@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Normalize usage of infinite loop"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/normalizeusageofinfinitelooprcs1252"
 ---
 
 import Tabs from '@theme/Tabs';

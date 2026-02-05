@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJShortRules.AbstractShortAssertIsNotZero`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertisnotzerorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

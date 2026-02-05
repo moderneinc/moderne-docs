@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing before and after semicolons"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/semispacing"
 ---
 
 import Tabs from '@theme/Tabs';

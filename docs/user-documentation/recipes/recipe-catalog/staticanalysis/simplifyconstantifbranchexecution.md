@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify constant if branch execution"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/simplifyconstantifbranchexecution"
 ---
 
 import Tabs from '@theme/Tabs';

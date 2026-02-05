@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant null checks before literal equals"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removeredundantnullcheckbeforeliteralequals"
 ---
 
 import Tabs from '@theme/Tabs';

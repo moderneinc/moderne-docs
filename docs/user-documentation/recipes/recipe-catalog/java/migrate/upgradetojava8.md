@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Java 8"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/upgradetojava8"
 ---
 
 import Tabs from '@theme/Tabs';

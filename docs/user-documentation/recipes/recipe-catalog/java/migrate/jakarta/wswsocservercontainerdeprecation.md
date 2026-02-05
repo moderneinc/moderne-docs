@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `doUpgrade(..)` with `ServerContainer.upgradeHttpToWebSocket(..)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/wswsocservercontainerdeprecation"
 ---
 
 import Tabs from '@theme/Tabs';

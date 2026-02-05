@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Math#multiplyExact`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/prefermathmultiplyexact"
 ---
 
 import Tabs from '@theme/Tabs';

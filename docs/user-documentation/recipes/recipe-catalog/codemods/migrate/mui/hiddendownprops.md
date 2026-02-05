@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `down` prop for Hidden component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/hiddendownprops"
 ---
 
 import Tabs from '@theme/Tabs';

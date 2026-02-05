@@ -1,6 +1,5 @@
 ---
 sidebar_label: "React i18next internationalization"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/reacti18next"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use InvokeVoidAsync when the returned value is not used"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usejsruntimeinvokevoidasyncwhenreturnvalueisnotusedma0120"
 ---
 
 import Tabs from '@theme/Tabs';

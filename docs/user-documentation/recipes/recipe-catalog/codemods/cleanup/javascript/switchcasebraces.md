@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent brace style for case clauses"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/switchcasebraces"
 ---
 
 import Tabs from '@theme/Tabs';

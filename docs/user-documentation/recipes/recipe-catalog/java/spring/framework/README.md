@@ -15,9 +15,11 @@ description: Spring Framework OpenRewrite recipes.
 _Recipes that include further recipes, often including the individual recipes below._
 
 * [Add Spring Framework modular dependencies](./modularspringframeworkdependencies.md)
+* [Find deprecated `PathMatcher` usage](./finddeprecatedpathmatcherusage.md)
 * [Migrate Bean XML properties deprecated in Spring Framework 3.0](./migratedeprecatedbeanxmlproperties.md)
 * [Migrate `DefaultResponseErrorHandler.handleError` method signature](./migratedefaultresponseerrorhandler.md)
 * [Migrate breaking changes in `ResponseStatusException`](./migrateresponsestatusexception.md)
+* [Migrate deprecated path mapping options](./removedeprecatedpathmappingoptions.md)
 * [Migrate removed Spring `Assert` methods](./migratespringassert.md)
 * [Migrate to Spring Framework 3.x](./upgradespringframework_3_0.md)
 * [Migrate to Spring Framework 5.0](./upgradespringframework_5_0.md)
@@ -29,6 +31,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate to Spring Framework 6.1](./upgradespringframework_6_1.md)
 * [Migrate to Spring Framework 6.2](./upgradespringframework_6_2.md)
 * [Migrate to Spring Framework 7.0](./upgradespringframework_7_0.md)
+* [Migrate trailing slash matching to explicit routes](./migratetrailingslashmatch.md)
 * [Remove path extension content negotiation methods](./removepathextensioncontentnegotiation.md)
 
 ## Recipes
@@ -38,7 +41,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Add `setUseSuffixPatternMatch(true)` in Spring MVC configuration](./addsetusesuffixpatternmatch.md)
 * [Convert `InstantiationAwareBeanPostProcessorAdapter` to `SmartInstantiationAwareBeanPostProcessor`](./migrateinstantiationawarebeanpostprocessoradapter.md)
 * [Convert JAX-RS annotations to Spring Web](./jaxrstospringweb.md)
-* [Find deprecated `PathMatcher` usage](./finddeprecatedpathmatcherusage.md)
+* [Flag deprecated suffix pattern matching usage for manual review](./flagsuffixpatternmatchusage.md)
 * [Is likely a Spring Framework project](./islikelyspringframework.md)
 * [Migrate `Filter` to `OncePerRequestFilter`](./migratefiltertoonceperrequestfilter.md)
 * [Migrate `HandlerInterceptorAdapter` to `HandlerInterceptor`](./migratehandlerinterceptor.md)
@@ -57,6 +60,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate `org.springframework.web.reactive.HandlerResult.setExceptionHandler` method](./migratehandlerresultsetexceptionhandlermethod.md)
 * [Migrate `setReadTimeout(java.lang.int)` to SocketConfig `setSoTimeout(..)`](./httpcomponentsclienthttprequestfactoryreadtimeout.md)
 * [Remove deprecated `setPathMatcher()` calls](./removesetpathmatchercall.md)
+* [Remove empty path match configuration methods](./removeemptypathmatchconfiguration.md)
 * [Remove `public` from `@Bean` methods](./beanmethodsnotpublic.md)
 * [Replace `WebMvcConfigurerAdapter` with `WebMvcConfigurer`](./migratewebmvcconfigureradapter.md)
 * [Replaces deprecated `ClientHttpResponse#getRawStatusCode()`](./migrateclienthttpresponsegetrawstatuscodemethod.md)

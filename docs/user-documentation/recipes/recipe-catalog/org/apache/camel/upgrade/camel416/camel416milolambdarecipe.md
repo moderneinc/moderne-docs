@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Milo: The monitored item data value listener API has changed"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel416/camel416milolambdarecipe"
 ---
 
 import Tabs from '@theme/Tabs';

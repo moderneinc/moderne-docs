@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove FF4j's `check` for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/ff4j/removecheck"
 ---
 
 import Tabs from '@theme/Tabs';

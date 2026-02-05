@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent indentation"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/indent"
 ---
 
 import Tabs from '@theme/Tabs';

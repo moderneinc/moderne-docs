@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disables local file resolution for parent POM"
-canonical_url: "https://docs.openrewrite.org/recipes/jenkins/disablelocalresolutionforparentpom"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Ensures presets are safe to use"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/presetsafe"
 ---
 
 import Tabs from '@theme/Tabs';

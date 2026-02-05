@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Order imports"
-canonical_url: "https://docs.openrewrite.org/recipes/javascript/cleanup/order-imports"
 ---
 
 import Tabs from '@theme/Tabs';

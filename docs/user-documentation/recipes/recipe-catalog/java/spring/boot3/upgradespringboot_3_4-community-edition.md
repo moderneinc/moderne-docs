@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Spring Boot 3.4 (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/upgradespringboot_3_4-community-edition"
 ---
 
 import Tabs from '@theme/Tabs';

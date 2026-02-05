@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Loggers should be named for their enclosing classes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/slf4j/loggersnamedforenclosingclass"
 ---
 
 import Tabs from '@theme/Tabs';

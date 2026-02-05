@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove OpenFeature's `getDoubleValue` for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/openfeature/removegetdoublevalue"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJOptionalRules.AssertThatOptionalHasValueMatching`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalhasvaluematchingrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

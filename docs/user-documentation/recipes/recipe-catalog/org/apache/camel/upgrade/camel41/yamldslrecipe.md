@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Changes for creation of inlined beans."
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel41/yamldslrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

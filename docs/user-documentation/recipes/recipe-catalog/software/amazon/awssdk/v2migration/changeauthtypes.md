@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change auth related classes from v1 to v2"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/changeauthtypes"
 ---
 
 import Tabs from '@theme/Tabs';

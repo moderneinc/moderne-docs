@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unnecessary mustache interpolations"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/nouselessmustaches"
 ---
 
 import Tabs from '@theme/Tabs';

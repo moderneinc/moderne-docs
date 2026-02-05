@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Converts `rootRef` to `ref`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/rootref"
 ---
 
 import Tabs from '@theme/Tabs';

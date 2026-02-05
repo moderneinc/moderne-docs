@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJObjectRules.AssertThatIsNotSameAs`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisnotsameasrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

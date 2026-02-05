@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `IntStreamRules.IntStreamAnyMatch`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamanymatchrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

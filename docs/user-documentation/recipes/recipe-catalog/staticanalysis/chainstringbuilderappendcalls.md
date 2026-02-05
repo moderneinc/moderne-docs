@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Chain `StringBuilder.append()` calls"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/chainstringbuilderappendcalls"
 ---
 
 import Tabs from '@theme/Tabs';

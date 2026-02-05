@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `String#trimStart()` / `String#trimEnd()` over `String#trimLeft()` / `String#trimRight()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferstringtrimstartend"
 ---
 
 import Tabs from '@theme/Tabs';

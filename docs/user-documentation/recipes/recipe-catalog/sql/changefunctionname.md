@@ -30,8 +30,8 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Convert Oracle functions to PostgreSQL](/user-documentation/recipes/recipe-catalog/sql/convertoraclefunctionstopostgres.md)
-* [Convert SQL Server functions to PostgreSQL](/user-documentation/recipes/recipe-catalog/sql/convertsqlserverfunctionstopostgres.md)
+* [Convert Oracle functions to PostgreSQL](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/sql/convertoraclefunctionstopostgres)
+* [Convert SQL Server functions to PostgreSQL](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/sql/convertsqlserverfunctionstopostgres)
 
 
 ## Usage

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `SuggestedFixRules.SuggestedFixDelete`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixdeleterecipe"
 ---
 
 import Tabs from '@theme/Tabs';

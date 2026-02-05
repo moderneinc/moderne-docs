@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Is the project a Jenkins plugin?"
-canonical_url: "https://docs.openrewrite.org/recipes/jenkins/isjenkinsplugin"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Biome recommendations"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/biome"
 ---
 
 import Tabs from '@theme/Tabs';

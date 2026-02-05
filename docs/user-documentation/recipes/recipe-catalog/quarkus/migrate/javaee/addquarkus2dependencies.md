@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Quarkus 2 dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/migrate/javaee/addquarkus2dependencies"
 ---
 
 import Tabs from '@theme/Tabs';

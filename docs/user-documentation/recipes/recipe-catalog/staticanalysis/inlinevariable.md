@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Inline variable"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/inlinevariable"
 ---
 
 import Tabs from '@theme/Tabs';

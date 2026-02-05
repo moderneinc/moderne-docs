@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`PrimitiveRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/primitiverulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

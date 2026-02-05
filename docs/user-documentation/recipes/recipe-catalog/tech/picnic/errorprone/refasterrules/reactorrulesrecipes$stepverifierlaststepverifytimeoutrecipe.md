@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.StepVerifierLastStepVerifyTimeout`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$stepverifierlaststepverifytimeoutrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

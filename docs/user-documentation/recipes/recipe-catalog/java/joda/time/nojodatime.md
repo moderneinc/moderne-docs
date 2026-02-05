@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer the Java standard library instead of Joda-Time"
-canonical_url: "https://docs.openrewrite.org/recipes/java/joda/time/nojodatime"
 ---
 
 import Tabs from '@theme/Tabs';

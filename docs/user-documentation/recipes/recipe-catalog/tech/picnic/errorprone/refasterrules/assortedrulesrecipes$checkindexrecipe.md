@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssortedRules.CheckIndex`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$checkindexrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

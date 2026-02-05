@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `LDUser` to `LDContext`"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/launchdarkly/migrateusertocontext"
 ---
 
 import Tabs from '@theme/Tabs';

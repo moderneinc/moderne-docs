@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find usage of self-hosted runners"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/selfhostedrunnerrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

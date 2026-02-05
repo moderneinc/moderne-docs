@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Configuration Class"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/migrateconfigurationclass"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.split(String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/maven/shared/mavensharedstringutilsrecipes$splitrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

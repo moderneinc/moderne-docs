@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `java.lang.management.PlatformLoggingMXBean`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/logging/migrateinterfaceloggingmxbeantoplatformloggingmxbean"
 ---
 
 import Tabs from '@theme/Tabs';

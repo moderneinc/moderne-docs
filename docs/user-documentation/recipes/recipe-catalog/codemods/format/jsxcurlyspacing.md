@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce or disallow spaces inside of curly braces in JSX attributes and expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxcurlyspacing"
 ---
 
 import Tabs from '@theme/Tabs';

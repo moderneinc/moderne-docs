@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find files without Namespace URI"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/search/doesnotusenamespaceuri"
 ---
 
 import Tabs from '@theme/Tabs';

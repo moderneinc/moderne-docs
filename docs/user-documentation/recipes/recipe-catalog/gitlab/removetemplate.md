@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove GitLab template"
-canonical_url: "https://docs.openrewrite.org/recipes/gitlab/removetemplate"
 ---
 
 import Tabs from '@theme/Tabs';

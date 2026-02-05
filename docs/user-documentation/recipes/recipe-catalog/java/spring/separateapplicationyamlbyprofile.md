@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Separate application YAML by profile"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/separateapplicationyamlbyprofile"
 ---
 
 import Tabs from '@theme/Tabs';

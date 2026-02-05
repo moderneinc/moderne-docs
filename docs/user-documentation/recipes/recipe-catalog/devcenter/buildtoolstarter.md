@@ -1,6 +1,5 @@
 ---
 sidebar_label: "DevCenter for Gradle and Maven"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/buildtoolstarter"
 ---
 
 import Tabs from '@theme/Tabs';

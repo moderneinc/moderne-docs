@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.faces` packages to `jakarta.faces`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatejakartafacesapi3"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Elasticsearch with Quarkus Elasticsearch REST Client"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootelasticsearchtoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

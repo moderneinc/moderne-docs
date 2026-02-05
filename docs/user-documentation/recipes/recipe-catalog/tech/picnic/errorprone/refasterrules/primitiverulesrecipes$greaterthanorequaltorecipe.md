@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `PrimitiveRules.GreaterThanOrEqualTo`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$greaterthanorequaltorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

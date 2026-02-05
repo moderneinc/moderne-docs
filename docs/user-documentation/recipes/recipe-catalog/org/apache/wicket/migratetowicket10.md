@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Wicket 10.x"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/wicket/migratetowicket10"
 ---
 
 import Tabs from '@theme/Tabs';

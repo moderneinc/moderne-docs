@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require parentheses around immediate &amp;#x60;function&amp;#x60; invocations"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/wrapiife"
 ---
 
 import Tabs from '@theme/Tabs';

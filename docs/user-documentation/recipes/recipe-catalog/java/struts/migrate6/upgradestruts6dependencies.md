@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Struts 6.0 dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/java/struts/migrate6/upgradestruts6dependencies"
 ---
 
 import Tabs from '@theme/Tabs';

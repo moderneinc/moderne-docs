@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Optimize LINQ method call"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/optimizelinqmethodcallrcs1077"
 ---
 
 import Tabs from '@theme/Tabs';

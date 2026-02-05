@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add default field to converter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/adddefaultmemberfixwpf0070"
 ---
 
 import Tabs from '@theme/Tabs';

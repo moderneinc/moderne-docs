@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Control flow visualization"
-canonical_url: "https://docs.openrewrite.org/recipes/analysis/controlflow/controlflowvisualization"
 ---
 
 import Tabs from '@theme/Tabs';

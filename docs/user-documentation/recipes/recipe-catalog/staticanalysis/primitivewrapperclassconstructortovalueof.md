@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use primitive wrapper `valueOf` method"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/primitivewrapperclassconstructortovalueof"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change method invocation return type"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/changemethodinvocationreturntype"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -58,7 +57,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate `ConsumerGroupState` to `GroupState`](/user-documentation/recipes/recipe-catalog/kafka/migrateconsumergroupstatetogroupstate.md)
+* [Migrate `ConsumerGroupState` to `GroupState`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migrateconsumergroupstatetogroupstate)
 
 ## Example
 

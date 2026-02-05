@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `FileUtils.writeStringToFile(File, String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/io/apachecommonsfileutilsrecipes$writestringtofilerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

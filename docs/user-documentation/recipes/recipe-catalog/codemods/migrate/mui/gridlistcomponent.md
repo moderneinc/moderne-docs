@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Converts GridList to use Grid component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/gridlistcomponent"
 ---
 
 import Tabs from '@theme/Tabs';

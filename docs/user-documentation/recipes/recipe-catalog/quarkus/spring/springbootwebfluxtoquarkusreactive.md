@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot WebFlux with Quarkus REST Client"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootwebfluxtoquarkusreactive"
 ---
 
 import Tabs from '@theme/Tabs';

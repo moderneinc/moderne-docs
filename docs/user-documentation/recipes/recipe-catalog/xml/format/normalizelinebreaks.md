@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Normalize line breaks"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/format/normalizelinebreaks"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find projects affected by changes to the default error view message attribute"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/search/messagesinthedefaulterrorview"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `new ArrayList&lt;&gt;()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavalistsnewarraylist"
 ---
 
 import Tabs from '@theme/Tabs';

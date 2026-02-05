@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Remove empty namespace declaration"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/namespacedeclarationrcs1072"
 ---
 
 import Tabs from '@theme/Tabs';

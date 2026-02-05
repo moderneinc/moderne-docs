@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StreamRules.Joining`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/streamrulesrecipes$joiningrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

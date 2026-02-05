@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace DTO method parameters with data elements"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/dontoverfetchdto"
 ---
 
 import Tabs from '@theme/Tabs';

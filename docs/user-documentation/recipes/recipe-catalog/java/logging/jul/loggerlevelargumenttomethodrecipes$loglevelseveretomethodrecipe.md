@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUL `Logger.log(Level.SEVERE, String)` with `Logger.severe(String)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/jul/loggerlevelargumenttomethodrecipes$loglevelseveretomethodrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

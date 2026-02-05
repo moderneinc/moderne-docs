@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Jetty9 to Jetty12"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/jettyupgradeee9"
 ---
 
 import Tabs from '@theme/Tabs';

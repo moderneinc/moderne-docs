@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `Mockito.times(0)` and `Mockito.times(1)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/removetimeszeroandone"
 ---
 
 import Tabs from '@theme/Tabs';

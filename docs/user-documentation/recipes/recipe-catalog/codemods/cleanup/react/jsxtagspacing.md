@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce whitespace in and around the JSX opening and closing brackets"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxtagspacing"
 ---
 
 import Tabs from '@theme/Tabs';

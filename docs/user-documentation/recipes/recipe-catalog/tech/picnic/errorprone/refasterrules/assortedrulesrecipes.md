@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`AssortedRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assortedrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

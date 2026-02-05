@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change superclass"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/method/changesupertype"
 ---
 
 import Tabs from '@theme/Tabs';

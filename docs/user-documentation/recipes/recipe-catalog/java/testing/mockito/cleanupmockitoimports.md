@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Cleanup Mockito imports"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/cleanupmockitoimports"
 ---
 
 import Tabs from '@theme/Tabs';

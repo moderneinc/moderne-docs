@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableSetRules.ImmutableSetOf5`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesetrulesrecipes$immutablesetof5recipe"
 ---
 
 import Tabs from '@theme/Tabs';

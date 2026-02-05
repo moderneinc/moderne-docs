@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find a LaunchDarkly feature flag"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/launchdarkly/search/findfeatureflag"
 ---
 
 import Tabs from '@theme/Tabs';

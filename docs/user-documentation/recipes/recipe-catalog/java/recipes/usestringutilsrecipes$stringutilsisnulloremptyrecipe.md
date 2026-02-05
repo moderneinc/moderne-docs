@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `StringUtils#isNullOrEmpty(String)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/usestringutilsrecipes$stringutilsisnulloremptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

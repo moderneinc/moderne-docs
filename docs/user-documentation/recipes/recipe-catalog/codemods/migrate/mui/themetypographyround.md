@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `round` values for theme typography"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/themetypographyround"
 ---
 
 import Tabs from '@theme/Tabs';

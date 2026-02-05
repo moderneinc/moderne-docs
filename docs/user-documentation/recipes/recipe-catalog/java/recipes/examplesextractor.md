@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Extract documentation examples from tests"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/examplesextractor"
 ---
 
 import Tabs from '@theme/Tabs';

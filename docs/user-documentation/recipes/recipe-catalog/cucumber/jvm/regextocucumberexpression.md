@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `cucumber-java` step definition regexes with Cucumber expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/cucumber/jvm/regextocucumberexpression"
 ---
 
 import Tabs from '@theme/Tabs';

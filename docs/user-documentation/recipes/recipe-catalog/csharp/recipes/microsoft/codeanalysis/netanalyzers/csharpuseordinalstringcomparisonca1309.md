@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use ordinal string comparison"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpuseordinalstringcomparisonca1309"
 ---
 
 import Tabs from '@theme/Tabs';

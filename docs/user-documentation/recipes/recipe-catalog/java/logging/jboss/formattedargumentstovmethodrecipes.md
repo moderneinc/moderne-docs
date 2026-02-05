@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated JBoss Logging Logger formatted message invocations with the v-version of methods"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/jboss/formattedargumentstovmethodrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow whitespace before properties"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/nowhitespacebeforeproperty"
 ---
 
 import Tabs from '@theme/Tabs';

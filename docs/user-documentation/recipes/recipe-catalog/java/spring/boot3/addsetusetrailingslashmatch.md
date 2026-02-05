@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add `SetUseTrailingSlashMatch()` in configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/addsetusetrailingslashmatch"
 ---
 
 import Tabs from '@theme/Tabs';

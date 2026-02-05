@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from JavaX to Jakarta EE 9.1 Namespaces"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/jakartaeenamespaces9_1"
 ---
 
 import Tabs from '@theme/Tabs';

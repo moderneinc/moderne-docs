@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJRules.AssertThatStreamContainsAll`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsallrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

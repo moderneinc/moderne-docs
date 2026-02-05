@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer ternary expressions over simple `if-else` statements"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferternary"
 ---
 
 import Tabs from '@theme/Tabs';

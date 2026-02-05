@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow problematic leaked values from being rendered"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxnoleakedrender"
 ---
 
 import Tabs from '@theme/Tabs';

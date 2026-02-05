@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change method target to static"
-canonical_url: "https://docs.openrewrite.org/recipes/java/changemethodtargettostatic"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -42,7 +41,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate Log4j 1.x to Log4j 2.x](/user-documentation/recipes/recipe-catalog/java/logging/log4j/log4j1tolog4j2.md)
 * [Migrate SLF4J to Log4j 2.x API](/user-documentation/recipes/recipe-catalog/java/logging/log4j/slf4jtolog4j.md)
 * [Migrate from EasyMock to Mockito](/user-documentation/recipes/recipe-catalog/java/testing/easymock/easymocktomockito.md)
-* [Migrate to Spring ORM to 5](/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5.md)
+* [Migrate to Spring ORM to 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5)
 * [Prefer `Integer#compareUnsigned`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegercompareunsigned.md)
 * [Prefer `Integer#compare`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegercompare.md)
 * [Prefer `Integer#divideUnsigned`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegerdivideunsigned.md)

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use an explicit StringComparer when possible"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/donotuseequalitycomparerdefaultofstringma0024"
 ---
 
 import Tabs from '@theme/Tabs';

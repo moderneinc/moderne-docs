@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change text"
-canonical_url: "https://docs.openrewrite.org/recipes/text/changetext"
 ---
 
 import Tabs from '@theme/Tabs';

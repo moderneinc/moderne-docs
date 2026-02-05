@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add explicit plugin versions"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/cleanup/explicitpluginversion"
 ---
 
 import Tabs from '@theme/Tabs';

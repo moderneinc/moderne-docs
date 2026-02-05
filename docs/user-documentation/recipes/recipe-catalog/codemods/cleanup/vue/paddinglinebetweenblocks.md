@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow padding lines between blocks"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/paddinglinebetweenblocks"
 ---
 
 import Tabs from '@theme/Tabs';

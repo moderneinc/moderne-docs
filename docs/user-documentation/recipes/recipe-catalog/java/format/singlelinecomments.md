@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Single line comments begin with a whitespace"
-canonical_url: "https://docs.openrewrite.org/recipes/java/format/singlelinecomments"
 ---
 
 import Tabs from '@theme/Tabs';

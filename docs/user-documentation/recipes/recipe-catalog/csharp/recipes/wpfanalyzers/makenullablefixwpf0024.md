@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Parameter type should be nullable"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/makenullablefixwpf0024"
 ---
 
 import Tabs from '@theme/Tabs';

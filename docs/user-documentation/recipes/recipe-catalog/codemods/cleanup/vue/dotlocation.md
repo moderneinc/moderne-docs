@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent newlines before and after dots in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/dotlocation"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUL active Level check with corresponding SLF4J method calls"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/slf4j/julisloggabletoisenabledrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

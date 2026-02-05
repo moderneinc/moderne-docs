@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `PrimitiveRules.IntegerBytes`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$integerbytesrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

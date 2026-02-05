@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow use of deprecated functions from before version 27"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/nodeprecatedfunctions27"
 ---
 
 import Tabs from '@theme/Tabs';

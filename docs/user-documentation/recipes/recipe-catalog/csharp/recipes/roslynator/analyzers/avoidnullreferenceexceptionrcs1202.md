@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid NullReferenceException"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/avoidnullreferenceexceptionrcs1202"
 ---
 
 import Tabs from '@theme/Tabs';

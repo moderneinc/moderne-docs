@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`IntStreamRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/intstreamrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

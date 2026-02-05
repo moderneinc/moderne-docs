@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change S3 methods to v2."
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/s3methodstov2"
 ---
 
 import Tabs from '@theme/Tabs';

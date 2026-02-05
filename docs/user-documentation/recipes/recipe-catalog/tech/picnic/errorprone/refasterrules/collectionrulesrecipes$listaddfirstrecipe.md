@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CollectionRules.ListAddFirst`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$listaddfirstrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

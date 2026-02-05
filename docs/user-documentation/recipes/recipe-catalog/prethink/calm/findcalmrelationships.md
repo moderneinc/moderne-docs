@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find CALM relationships"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/calm/findcalmrelationships"
 ---
 
 import Tabs from '@theme/Tabs';

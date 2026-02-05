@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update OWASP suppression date bounds"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/security/updateowaspsuppressiondate"
 ---
 
 import Tabs from '@theme/Tabs';

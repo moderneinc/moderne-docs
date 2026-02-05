@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `java.nio.charset.StandardCharsets`"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/io/usestandardcharsets"
 ---
 
 import Tabs from '@theme/Tabs';

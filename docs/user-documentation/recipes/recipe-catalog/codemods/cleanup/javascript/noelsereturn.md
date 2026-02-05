@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow else blocks after return statements in if statements"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noelsereturn"
 ---
 
 import Tabs from '@theme/Tabs';

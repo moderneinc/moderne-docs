@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `DoubleStreamRules.DoubleStreamIsEmpty`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/doublestreamrulesrecipes$doublestreamisemptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate RichFaces tags in `xhtml` files](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags.md)
+* [Migrate RichFaces tags in `xhtml` files](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags)
 
 ## Example
 

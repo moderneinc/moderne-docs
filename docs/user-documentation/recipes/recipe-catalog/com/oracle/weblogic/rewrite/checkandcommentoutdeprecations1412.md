@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Check and Comment Out Deprecations removed on WebLogic version 14.1.2"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/checkandcommentoutdeprecations1412"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow to use of the store itself as an operand. Need to use $ prefix or get function"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/requirestorereactiveaccess"
 ---
 
 import Tabs from '@theme/Tabs';

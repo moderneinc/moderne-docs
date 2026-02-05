@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUnit 4 MockitoJUnitRunner with junit-jupiter MockitoExtension"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/mockitojunitrunnertoextension"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use exception filter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/ifstatementrcs1236"
 ---
 
 import Tabs from '@theme/Tabs';

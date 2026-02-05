@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Optimize Enumerable.Count() usage"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/optimizelinqusagema0031"
 ---
 
 import Tabs from '@theme/Tabs';

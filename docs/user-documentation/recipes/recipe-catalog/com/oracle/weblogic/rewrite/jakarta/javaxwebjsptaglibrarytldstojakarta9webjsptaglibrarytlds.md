@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `*.tld` files."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxwebjsptaglibrarytldstojakarta9webjsptaglibrarytlds"
 ---
 
 import Tabs from '@theme/Tabs';

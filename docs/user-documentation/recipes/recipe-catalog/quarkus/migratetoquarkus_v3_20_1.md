@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Quarkus Updates Aggregate 3.20.1"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/migratetoquarkus_v3_20_1"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Faces XHTML migration for Jakarta EE 9"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/jakartafaces3xhtml"
 ---
 
 import Tabs from '@theme/Tabs';

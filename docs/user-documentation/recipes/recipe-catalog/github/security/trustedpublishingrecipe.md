@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find manual credentials instead of trusted publishing"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/trustedpublishingrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

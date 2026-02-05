@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use ObjectDisposedException throw helper"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/useexceptionthrowhelpersca1513"
 ---
 
 import Tabs from '@theme/Tabs';

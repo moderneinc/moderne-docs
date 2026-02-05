@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Consider using 'string.Contains' instead of 'string.IndexOf'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/preferstringcontainsoverindexofca2249"
 ---
 
 import Tabs from '@theme/Tabs';

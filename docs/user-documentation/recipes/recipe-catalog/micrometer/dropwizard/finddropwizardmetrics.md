@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Dropwizard metrics"
-canonical_url: "https://docs.openrewrite.org/recipes/micrometer/dropwizard/finddropwizardmetrics"
 ---
 
 import Tabs from '@theme/Tabs';

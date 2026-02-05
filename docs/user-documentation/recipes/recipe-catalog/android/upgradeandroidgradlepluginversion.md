@@ -30,18 +30,18 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Android Gradle Plugin 7.2](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_2.md)
-* [Migrate to Android Gradle Plugin 7.3](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_3.md)
-* [Migrate to Android Gradle Plugin 7.4](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_4.md)
-* [Migrate to Android Gradle Plugin 8.0](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_0.md)
-* [Migrate to Android Gradle Plugin 8.1](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_1.md)
-* [Migrate to Android Gradle Plugin 8.2](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_2.md)
-* [Migrate to Android Gradle Plugin 8.3](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_3.md)
-* [Migrate to Android Gradle Plugin 8.4](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_4.md)
-* [Migrate to Android Gradle Plugin 8.5](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_5.md)
-* [Migrate to Android Gradle Plugin 8.6](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_6.md)
-* [Migrate to Android Gradle Plugin 8.7](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_7.md)
-* [Upgrade to Android SDK 34](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk34.md)
+* [Migrate to Android Gradle Plugin 7.2](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_2)
+* [Migrate to Android Gradle Plugin 7.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_3)
+* [Migrate to Android Gradle Plugin 7.4](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_4)
+* [Migrate to Android Gradle Plugin 8.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_0)
+* [Migrate to Android Gradle Plugin 8.1](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_1)
+* [Migrate to Android Gradle Plugin 8.2](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_2)
+* [Migrate to Android Gradle Plugin 8.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_3)
+* [Migrate to Android Gradle Plugin 8.4](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_4)
+* [Migrate to Android Gradle Plugin 8.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_5)
+* [Migrate to Android Gradle Plugin 8.6](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_6)
+* [Migrate to Android Gradle Plugin 8.7](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_7)
+* [Upgrade to Android SDK 34](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk34)
 
 
 ## Usage

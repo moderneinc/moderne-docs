@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MapEntryRules.MapEntryComparingByValue`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentrycomparingbyvaluerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

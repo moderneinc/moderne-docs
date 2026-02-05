@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid boxed boolean expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/avoidboxedbooleanexpressions"
 ---
 
 import Tabs from '@theme/Tabs';

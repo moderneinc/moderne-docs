@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Create Java class"
-canonical_url: "https://docs.openrewrite.org/recipes/java/createemptyjavaclass"
 ---
 
 import Tabs from '@theme/Tabs';

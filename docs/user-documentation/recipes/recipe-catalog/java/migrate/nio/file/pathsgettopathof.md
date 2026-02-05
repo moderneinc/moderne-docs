@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `Paths.get` with `Path.of`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/nio/file/pathsgettopathof"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Format Java code"
-canonical_url: "https://docs.openrewrite.org/recipes/java/format/autoformat"
 ---
 
 import Tabs from '@theme/Tabs';

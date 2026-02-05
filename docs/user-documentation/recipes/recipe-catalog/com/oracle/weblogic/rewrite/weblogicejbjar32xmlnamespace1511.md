@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `weblogic-ejb-jar.xml` files to WebLogic 15.1.1"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogicejbjar32xmlnamespace1511"
 ---
 
 import Tabs from '@theme/Tabs';

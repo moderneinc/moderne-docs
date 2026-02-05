@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJStreamRules.AssertThatCollection`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatcollectionrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

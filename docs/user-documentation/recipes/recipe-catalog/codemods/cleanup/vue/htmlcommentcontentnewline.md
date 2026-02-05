@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce unified line brake in HTML comments"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/htmlcommentcontentnewline"
 ---
 
 import Tabs from '@theme/Tabs';

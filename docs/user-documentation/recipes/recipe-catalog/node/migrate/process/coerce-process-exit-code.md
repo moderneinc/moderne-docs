@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Coerce `process.exit()` and `process.exitCode` to integer"
-canonical_url: "https://docs.openrewrite.org/recipes/node/migrate/process/coerce-process-exit-code"
 ---
 
 import Tabs from '@theme/Tabs';

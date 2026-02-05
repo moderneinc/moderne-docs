@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJPathRules.AssertThatIsAbsolute`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjpathrulesrecipes$assertthatisabsoluterecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Custom import order"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/customimportorder"
 ---
 
 import Tabs from '@theme/Tabs';

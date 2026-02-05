@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `String::replace()` when first parameter is not a real regular expression"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/usestringreplace"
 ---
 
 import Tabs from '@theme/Tabs';

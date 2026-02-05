@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `SuggestedFixRules.SuggestedFixPrefixWith`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixprefixwithrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

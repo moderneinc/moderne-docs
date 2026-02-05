@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant Jackson 3 feature flag configurations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/removeredundantfeatureflags"
 ---
 
 import Tabs from '@theme/Tabs';

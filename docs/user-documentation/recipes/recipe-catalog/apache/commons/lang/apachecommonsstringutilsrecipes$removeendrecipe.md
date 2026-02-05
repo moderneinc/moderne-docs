@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.removeEnd(String, String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$removeendrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

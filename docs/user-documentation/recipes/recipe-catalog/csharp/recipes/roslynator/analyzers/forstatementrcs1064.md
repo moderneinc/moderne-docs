@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Avoid usage of for statement to create an infinite loop"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/forstatementrcs1064"
 ---
 
 import Tabs from '@theme/Tabs';

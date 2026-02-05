@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Elements should have the same indentation"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/indentationsa1137"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Java API best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/javaapibestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant statement"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/statementrcs1134"
 ---
 
 import Tabs from '@theme/Tabs';

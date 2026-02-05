@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace redundant String format invocations that are wrapped with PrintStream operations"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replaceredundantformatwithprintf"
 ---
 
 import Tabs from '@theme/Tabs';

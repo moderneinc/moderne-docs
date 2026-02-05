@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Removed WebLogicLoadTimeWeaver from Spring Framework 5.3.x to 6.2.x"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/spring/framework/replaceweblogicloadtimeweaver"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require one JSX element per line"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxoneexpressionperline"
 ---
 
 import Tabs from '@theme/Tabs';

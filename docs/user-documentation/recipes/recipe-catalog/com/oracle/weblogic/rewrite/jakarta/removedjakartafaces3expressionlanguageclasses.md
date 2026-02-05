@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `jakarta.el` instead of `jakarta.faces.el` and `javax.faces.el`"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/removedjakartafaces3expressionlanguageclasses"
 ---
 
 import Tabs from '@theme/Tabs';

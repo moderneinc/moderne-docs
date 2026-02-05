@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Math#subtractExact`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/prefermathsubtractexact"
 ---
 
 import Tabs from '@theme/Tabs';

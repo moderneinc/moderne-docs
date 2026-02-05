@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add braces (when expression spans over multiple lines)"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/addbracesrcs1001"
 ---
 
 import Tabs from '@theme/Tabs';

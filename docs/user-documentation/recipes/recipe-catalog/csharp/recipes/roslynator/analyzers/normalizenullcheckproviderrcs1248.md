@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Normalize null check"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/normalizenullcheckproviderrcs1248"
 ---
 
 import Tabs from '@theme/Tabs';

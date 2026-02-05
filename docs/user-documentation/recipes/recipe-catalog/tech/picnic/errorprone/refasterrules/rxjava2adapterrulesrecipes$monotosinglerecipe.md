@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `RxJava2AdapterRules.MonoToSingle`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$monotosinglerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

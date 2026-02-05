@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unnecessary 'else'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeunnecessaryelsercs1211"
 ---
 
 import Tabs from '@theme/Tabs';

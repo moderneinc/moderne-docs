@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use nameof to express symbol names"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/usenameofinplaceofstringca1507"
 ---
 
 import Tabs from '@theme/Tabs';

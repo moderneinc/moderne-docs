@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `@OutputCaptureRule` to `@ExtendWith(OutputCaptureExtension.class)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/outputcaptureextension"
 ---
 
 import Tabs from '@theme/Tabs';

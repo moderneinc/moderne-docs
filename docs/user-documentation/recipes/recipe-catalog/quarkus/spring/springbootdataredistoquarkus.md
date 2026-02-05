@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Data Redis with Quarkus Redis Client"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootdataredistoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

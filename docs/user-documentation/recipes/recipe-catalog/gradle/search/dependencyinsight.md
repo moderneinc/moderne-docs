@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Gradle dependency insight"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/search/dependencyinsight"
 ---
 
 import Tabs from '@theme/Tabs';

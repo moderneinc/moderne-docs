@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid using the deprecated empty `finalize()` method in `java.desktop`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/deletedeprecatedfinalize"
 ---
 
 import Tabs from '@theme/Tabs';

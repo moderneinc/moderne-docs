@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `java.util.Objects#equals`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavautilobjectsequals"
 ---
 
 import Tabs from '@theme/Tabs';

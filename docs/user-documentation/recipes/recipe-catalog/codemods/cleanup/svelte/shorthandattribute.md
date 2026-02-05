@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce use of shorthand syntax in attribute"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/shorthandattribute"
 ---
 
 import Tabs from '@theme/Tabs';

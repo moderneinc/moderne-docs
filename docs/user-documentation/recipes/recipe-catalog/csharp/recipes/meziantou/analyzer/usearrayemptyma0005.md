@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Array.Empty&lt;T&gt;()"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usearrayemptyma0005"
 ---
 
 import Tabs from '@theme/Tabs';

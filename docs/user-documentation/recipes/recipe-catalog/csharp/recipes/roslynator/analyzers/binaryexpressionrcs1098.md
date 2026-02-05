@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Constant values should be placed on right side of comparisons"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1098"
 ---
 
 import Tabs from '@theme/Tabs';

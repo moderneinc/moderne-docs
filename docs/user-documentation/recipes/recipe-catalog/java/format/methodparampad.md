@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Method parameter padding"
-canonical_url: "https://docs.openrewrite.org/recipes/java/format/methodparampad"
 ---
 
 import Tabs from '@theme/Tabs';

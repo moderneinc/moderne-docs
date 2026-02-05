@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add or replace Spring Boot build plugin with Quarkus build plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/migratemavenplugin"
 ---
 
 import Tabs from '@theme/Tabs';

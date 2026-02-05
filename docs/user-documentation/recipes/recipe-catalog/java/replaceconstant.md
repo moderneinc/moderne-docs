@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace constant with literal value"
-canonical_url: "https://docs.openrewrite.org/recipes/java/replaceconstant"
 ---
 
 import Tabs from '@theme/Tabs';

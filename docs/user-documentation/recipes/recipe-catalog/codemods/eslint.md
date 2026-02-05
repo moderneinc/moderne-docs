@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Lint source code with ESLint"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/eslint"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Suggest using toHaveLength()"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/prefertohavelength"
 ---
 
 import Tabs from '@theme/Tabs';

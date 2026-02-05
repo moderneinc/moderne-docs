@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Build tool"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/buildtoolcard"
 ---
 
 import Tabs from '@theme/Tabs';

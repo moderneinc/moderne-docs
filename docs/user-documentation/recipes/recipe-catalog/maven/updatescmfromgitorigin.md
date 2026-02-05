@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update SCM with Git origin"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/updatescmfromgitorigin"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from Spring Cloud Sleuth to OpenTelemetry"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/opentelemetry/migratesleuthtoopentelemetry"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUnit `assertTrue(a == null)` to `assertNull(a)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/cleanup/asserttruenulltoassertnull"
 ---
 
 import Tabs from '@theme/Tabs';

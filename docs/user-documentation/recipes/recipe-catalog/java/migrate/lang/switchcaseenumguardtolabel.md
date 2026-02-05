@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use switch cases labels for enums"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/switchcaseenumguardtolabel"
 ---
 
 import Tabs from '@theme/Tabs';

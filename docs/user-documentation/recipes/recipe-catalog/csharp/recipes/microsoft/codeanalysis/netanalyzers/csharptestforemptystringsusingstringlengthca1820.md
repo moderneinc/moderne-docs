@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Test for empty strings using string length"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharptestforemptystringsusingstringlengthca1820"
 ---
 
 import Tabs from '@theme/Tabs';

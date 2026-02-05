@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find spoofable bot actor checks"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/botconditionsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`MavenSharedStringUtils` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/maven/shared/mavensharedstringutilsrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

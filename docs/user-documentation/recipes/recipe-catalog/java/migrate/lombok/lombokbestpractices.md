@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Lombok Best Practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lombok/lombokbestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

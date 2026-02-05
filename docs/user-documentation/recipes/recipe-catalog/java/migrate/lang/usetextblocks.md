@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use text blocks"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/usetextblocks"
 ---
 
 import Tabs from '@theme/Tabs';

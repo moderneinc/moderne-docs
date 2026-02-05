@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Integration with Camel Quarkus"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootintegrationtoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

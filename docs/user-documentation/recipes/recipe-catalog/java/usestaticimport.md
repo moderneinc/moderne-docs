@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use static import"
-canonical_url: "https://docs.openrewrite.org/recipes/java/usestaticimport"
 ---
 
 import Tabs from '@theme/Tabs';

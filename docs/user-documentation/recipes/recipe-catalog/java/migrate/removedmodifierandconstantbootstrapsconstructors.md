@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change `java.lang.reflect.Modifier` and ` java.lang.invoke.ConstantBootstraps` method calls to static"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedmodifierandconstantbootstrapsconstructors"
 ---
 
 import Tabs from '@theme/Tabs';

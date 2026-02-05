@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not pass non-read-only struct by read-only reference"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/parameterrcs1242"
 ---
 
 import Tabs from '@theme/Tabs';

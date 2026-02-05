@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Find removed APIs in Spring Framework 7.0](/user-documentation/recipes/recipe-catalog/java/spring/framework7/findremovedapis.md)
+* [Find removed APIs in Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/findremovedapis)
 
 
 ## Usage

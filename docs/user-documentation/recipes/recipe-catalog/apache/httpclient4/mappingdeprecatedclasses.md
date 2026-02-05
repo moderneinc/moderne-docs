@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Maps deprecated classes from Apache HttpClient 4.5.x to suggested replacements"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient4/mappingdeprecatedclasses"
 ---
 
 import Tabs from '@theme/Tabs';

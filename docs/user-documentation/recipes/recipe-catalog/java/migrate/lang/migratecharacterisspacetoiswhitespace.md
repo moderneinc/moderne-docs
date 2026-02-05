@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Character#isWhitespace(char)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/migratecharacterisspacetoiswhitespace"
 ---
 
 import Tabs from '@theme/Tabs';

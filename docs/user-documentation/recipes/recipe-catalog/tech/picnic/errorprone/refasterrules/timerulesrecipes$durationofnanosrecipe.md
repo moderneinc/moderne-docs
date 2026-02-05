@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.DurationOfNanos`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$durationofnanosrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

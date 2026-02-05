@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer the 'IDictionary.TryGetValue(TKey, out TValue)' method"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharppreferdictionarytrymethodsovercontainskeyguardca1854"
 ---
 
 import Tabs from '@theme/Tabs';

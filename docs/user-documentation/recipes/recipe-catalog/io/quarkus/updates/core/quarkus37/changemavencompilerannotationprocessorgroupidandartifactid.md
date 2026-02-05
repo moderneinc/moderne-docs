@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Maven Compiler plugin annotation processor groupId, artifactId and/or the version"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/changemavencompilerannotationprocessorgroupidandartifactid"
 ---
 
 import Tabs from '@theme/Tabs';

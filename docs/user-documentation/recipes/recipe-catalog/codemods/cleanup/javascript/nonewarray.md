@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow `new Array()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nonewarray"
 ---
 
 import Tabs from '@theme/Tabs';

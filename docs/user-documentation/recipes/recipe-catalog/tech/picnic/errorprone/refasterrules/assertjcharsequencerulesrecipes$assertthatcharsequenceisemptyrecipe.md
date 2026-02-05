@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceIsEmpty`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequenceisemptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

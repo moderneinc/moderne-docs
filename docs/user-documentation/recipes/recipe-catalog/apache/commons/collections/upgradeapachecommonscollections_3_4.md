@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrates to Apache Commons Collections 4.x"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/collections/upgradeapachecommonscollections_3_4"
 ---
 
 import Tabs from '@theme/Tabs';

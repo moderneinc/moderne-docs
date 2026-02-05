@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `isCloseTo` with `isEqualTo`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/assertjlongrulesrecipes$abstractlongassertisequaltorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

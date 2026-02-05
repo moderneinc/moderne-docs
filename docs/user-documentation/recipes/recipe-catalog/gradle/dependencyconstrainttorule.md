@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Dependency constraint to resolution rule"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/dependencyconstrainttorule"
 ---
 
 import Tabs from '@theme/Tabs';

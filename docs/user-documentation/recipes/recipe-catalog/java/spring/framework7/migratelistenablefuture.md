@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate deprecated APIs removed in Spring Framework 7.0](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratedeprecatedapis.md)
+* [Migrate deprecated APIs removed in Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratedeprecatedapis)
 
 ## Example
 

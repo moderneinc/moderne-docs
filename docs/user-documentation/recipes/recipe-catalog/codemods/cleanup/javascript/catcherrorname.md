@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce a specific parameter name in catch clauses"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/catcherrorname"
 ---
 
 import Tabs from '@theme/Tabs';

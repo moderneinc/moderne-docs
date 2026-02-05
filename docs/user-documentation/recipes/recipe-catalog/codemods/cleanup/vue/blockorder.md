@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce order of component top-level elements"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/blockorder"
 ---
 
 import Tabs from '@theme/Tabs';

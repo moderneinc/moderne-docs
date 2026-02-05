@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeBetween`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizebetweenrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

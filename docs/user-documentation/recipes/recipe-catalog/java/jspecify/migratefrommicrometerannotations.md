@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from Micrometer annotations to JSpecify"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jspecify/migratefrommicrometerannotations"
 ---
 
 import Tabs from '@theme/Tabs';

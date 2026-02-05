@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `PrimitiveRules.LongBytes`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$longbytesrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

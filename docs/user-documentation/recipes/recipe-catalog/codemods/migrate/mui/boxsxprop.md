@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Converts `sx` prop to `sx` style prop"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/boxsxprop"
 ---
 
 import Tabs from '@theme/Tabs';

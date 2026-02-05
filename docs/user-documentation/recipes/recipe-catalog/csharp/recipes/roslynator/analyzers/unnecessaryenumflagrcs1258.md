@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary enum flag"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/unnecessaryenumflagrcs1258"
 ---
 
 import Tabs from '@theme/Tabs';

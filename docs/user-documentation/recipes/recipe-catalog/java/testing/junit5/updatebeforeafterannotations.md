@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate JUnit 4 lifecycle annotations to JUnit Jupiter"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/updatebeforeafterannotations"
 ---
 
 import Tabs from '@theme/Tabs';

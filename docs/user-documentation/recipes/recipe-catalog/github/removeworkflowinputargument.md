@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove workflow input argument"
-canonical_url: "https://docs.openrewrite.org/recipes/github/removeworkflowinputargument"
 ---
 
 import Tabs from '@theme/Tabs';

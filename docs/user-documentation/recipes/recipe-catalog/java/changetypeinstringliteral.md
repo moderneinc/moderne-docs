@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change type in String literals"
-canonical_url: "https://docs.openrewrite.org/recipes/java/changetypeinstringliteral"
 ---
 
 import Tabs from '@theme/Tabs';

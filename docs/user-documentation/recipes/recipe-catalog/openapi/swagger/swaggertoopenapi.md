@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from Swagger to OpenAPI"
-canonical_url: "https://docs.openrewrite.org/recipes/openapi/swagger/swaggertoopenapi"
 ---
 
 import Tabs from '@theme/Tabs';

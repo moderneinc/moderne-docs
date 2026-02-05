@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Sender should be 'this' for instance events"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/eventsshouldhaveproperargumentsma0091"
 ---
 
 import Tabs from '@theme/Tabs';

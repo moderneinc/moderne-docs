@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Spring Boot Actuator Configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/addactuatorconfiguration"
 ---
 
 import Tabs from '@theme/Tabs';

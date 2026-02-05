@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove interface implementations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/removeimplements"
 ---
 
 import Tabs from '@theme/Tabs';

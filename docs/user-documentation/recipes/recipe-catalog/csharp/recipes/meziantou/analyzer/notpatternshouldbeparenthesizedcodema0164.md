@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use parentheses to make not pattern clearer"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/notpatternshouldbeparenthesizedcodema0164"
 ---
 
 import Tabs from '@theme/Tabs';

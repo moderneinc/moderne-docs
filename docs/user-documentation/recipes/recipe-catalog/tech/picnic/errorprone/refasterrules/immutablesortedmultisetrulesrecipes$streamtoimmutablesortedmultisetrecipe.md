@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableSortedMultisetRules.StreamToImmutableSortedMultiset`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$streamtoimmutablesortedmultisetrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

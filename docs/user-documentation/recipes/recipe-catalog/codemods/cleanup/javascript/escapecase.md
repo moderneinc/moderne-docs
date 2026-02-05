@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require escape sequences to use uppercase values"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/escapecase"
 ---
 
 import Tabs from '@theme/Tabs';

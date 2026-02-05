@@ -1,6 +1,5 @@
 ---
 sidebar_label: "DevCenter for Apache"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/apachedevcenter"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Finalize classes with private constructors"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/finalclass"
 ---
 
 import Tabs from '@theme/Tabs';

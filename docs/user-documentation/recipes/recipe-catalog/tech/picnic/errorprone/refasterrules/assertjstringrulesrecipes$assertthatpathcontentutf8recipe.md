@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJStringRules.AssertThatPathContentUtf8`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatpathcontentutf8recipe"
 ---
 
 import Tabs from '@theme/Tabs';

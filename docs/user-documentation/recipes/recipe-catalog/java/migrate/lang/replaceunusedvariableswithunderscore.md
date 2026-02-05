@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace unused variables with underscore"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/replaceunusedvariableswithunderscore"
 ---
 
 import Tabs from '@theme/Tabs';

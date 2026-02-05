@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Jakarta Swagger Artifacts"
-canonical_url: "https://docs.openrewrite.org/recipes/openapi/swagger/usejakartaswaggerartifacts"
 ---
 
 import Tabs from '@theme/Tabs';

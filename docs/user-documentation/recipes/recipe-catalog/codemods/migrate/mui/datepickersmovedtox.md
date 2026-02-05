@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Moves date pickers to `@mui/x-date-picker`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/datepickersmovedtox"
 ---
 
 import Tabs from '@theme/Tabs';

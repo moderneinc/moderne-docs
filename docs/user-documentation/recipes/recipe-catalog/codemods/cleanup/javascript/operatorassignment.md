@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow assignment operator shorthand where possible"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/operatorassignment"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Default label should be the last label in a switch section"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/switchsectionrcs1099"
 ---
 
 import Tabs from '@theme/Tabs';

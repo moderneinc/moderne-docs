@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find security configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/calm/findsecurityconfiguration"
 ---
 
 import Tabs from '@theme/Tabs';

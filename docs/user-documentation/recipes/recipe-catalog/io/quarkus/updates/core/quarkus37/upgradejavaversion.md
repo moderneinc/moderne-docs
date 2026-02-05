@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Java version"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/upgradejavaversion"
 ---
 
 import Tabs from '@theme/Tabs';

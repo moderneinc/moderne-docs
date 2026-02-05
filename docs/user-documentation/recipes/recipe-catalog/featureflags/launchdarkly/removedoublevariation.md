@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove LaunchDarkly's `doubleVariation` for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/launchdarkly/removedoublevariation"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Wicket best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/wicket/bestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade to SpringDoc 2.8"
-canonical_url: "https://docs.openrewrite.org/recipes/java/springdoc/upgradespringdoc_2_8"
 ---
 
 import Tabs from '@theme/Tabs';

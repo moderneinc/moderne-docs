@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change key"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/changekey"
 ---
 
 import Tabs from '@theme/Tabs';

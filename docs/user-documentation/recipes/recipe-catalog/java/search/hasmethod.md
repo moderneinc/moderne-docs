@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find files that have at least one use of a method"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/hasmethod"
 ---
 
 import Tabs from '@theme/Tabs';

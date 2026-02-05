@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find jobs missing timeout"
-canonical_url: "https://docs.openrewrite.org/recipes/github/findmissingtimeout"
 ---
 
 import Tabs from '@theme/Tabs';

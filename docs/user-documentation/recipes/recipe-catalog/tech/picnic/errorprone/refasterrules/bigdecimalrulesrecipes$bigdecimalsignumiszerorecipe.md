@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `BigDecimalRules.BigDecimalSignumIsZero`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalsignumiszerorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

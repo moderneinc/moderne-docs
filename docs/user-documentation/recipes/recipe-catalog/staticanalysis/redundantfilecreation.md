@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Redundant file creation"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/redundantfilecreation"
 ---
 
 import Tabs from '@theme/Tabs';

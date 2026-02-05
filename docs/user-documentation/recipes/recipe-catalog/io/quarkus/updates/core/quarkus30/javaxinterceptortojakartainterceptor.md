@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.interceptor` packages to `jakarta.interceptor`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxinterceptortojakartainterceptor"
 ---
 
 import Tabs from '@theme/Tabs';

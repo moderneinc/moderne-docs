@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade transitive Maven dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/upgradetransitivedependencyversion"
 ---
 
 import Tabs from '@theme/Tabs';

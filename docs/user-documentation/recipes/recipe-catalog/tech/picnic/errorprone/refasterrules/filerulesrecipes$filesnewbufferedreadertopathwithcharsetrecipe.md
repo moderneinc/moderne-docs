@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `FileRules.FilesNewBufferedReaderToPathWithCharset`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreadertopathwithcharsetrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

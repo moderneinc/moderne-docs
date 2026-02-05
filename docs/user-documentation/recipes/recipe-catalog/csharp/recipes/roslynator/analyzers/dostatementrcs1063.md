@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Avoid usage of do statement to create an infinite loop"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/dostatementrcs1063"
 ---
 
 import Tabs from '@theme/Tabs';

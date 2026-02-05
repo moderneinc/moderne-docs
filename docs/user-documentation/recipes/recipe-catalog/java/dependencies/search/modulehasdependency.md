@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Module has dependency"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/search/modulehasdependency"
 ---
 
 import Tabs from '@theme/Tabs';

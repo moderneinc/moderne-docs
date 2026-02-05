@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Dereference and access of symbols should be spaced correctly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1023"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Apache Shiro Dependencies to 2.0.x"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/updateapacheshirodependencies"
 ---
 
 import Tabs from '@theme/Tabs';

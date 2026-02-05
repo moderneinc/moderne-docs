@@ -1,6 +1,5 @@
 ---
 sidebar_label: "The header name for the List metadata has changed"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel43/kafkametadata"
 ---
 
 import Tabs from '@theme/Tabs';

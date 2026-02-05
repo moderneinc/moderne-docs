@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not package `java.xml.ws` module in WebSphere Liberty applications"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedjavaxmlwsmoduleprovided"
 ---
 
 import Tabs from '@theme/Tabs';

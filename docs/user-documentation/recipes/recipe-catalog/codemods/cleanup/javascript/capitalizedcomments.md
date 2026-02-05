@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce or disallow capitalization of the first letter of a comment"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/capitalizedcomments"
 ---
 
 import Tabs from '@theme/Tabs';

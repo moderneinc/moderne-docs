@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.security.enterprise` packages to `jakarta.security.enterprise`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxsecuritytojakartasecurity"
 ---
 
 import Tabs from '@theme/Tabs';

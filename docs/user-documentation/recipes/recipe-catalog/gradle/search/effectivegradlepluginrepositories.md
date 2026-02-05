@@ -1,6 +1,5 @@
 ---
 sidebar_label: "List effective Gradle plugin repositories"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/search/effectivegradlepluginrepositories"
 ---
 
 import Tabs from '@theme/Tabs';

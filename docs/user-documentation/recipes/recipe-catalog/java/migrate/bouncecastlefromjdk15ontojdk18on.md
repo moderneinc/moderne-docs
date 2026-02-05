@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Bouncy Castle to `jdk18on`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/bouncecastlefromjdk15ontojdk18on"
 ---
 
 import Tabs from '@theme/Tabs';

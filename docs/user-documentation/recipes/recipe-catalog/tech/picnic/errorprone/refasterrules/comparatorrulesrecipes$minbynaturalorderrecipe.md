@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ComparatorRules.MinByNaturalOrder`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$minbynaturalorderrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

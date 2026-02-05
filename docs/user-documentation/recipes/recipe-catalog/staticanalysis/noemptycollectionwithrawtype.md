@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Collections#emptyList()`, `emptyMap()`, and `emptySet()`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/noemptycollectionwithrawtype"
 ---
 
 import Tabs from '@theme/Tabs';

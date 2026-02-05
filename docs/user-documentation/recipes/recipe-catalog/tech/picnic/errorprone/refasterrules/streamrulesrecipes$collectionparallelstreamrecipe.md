@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StreamRules.CollectionParallelStream`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/streamrulesrecipes$collectionparallelstreamrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

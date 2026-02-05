@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Plugins for Jakarta EE 10"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/migratepluginsforjakarta10"
 ---
 
 import Tabs from '@theme/Tabs';

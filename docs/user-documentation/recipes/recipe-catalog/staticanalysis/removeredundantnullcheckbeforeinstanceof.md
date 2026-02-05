@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant null checks before instanceof"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removeredundantnullcheckbeforeinstanceof"
 ---
 
 import Tabs from '@theme/Tabs';

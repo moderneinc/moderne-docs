@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find XML namespace prefixes"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/search/findnamespaceprefix"
 ---
 
 import Tabs from '@theme/Tabs';

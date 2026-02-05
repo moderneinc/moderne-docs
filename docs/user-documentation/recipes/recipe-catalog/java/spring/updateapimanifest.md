@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update the API manifest"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/updateapimanifest"
 ---
 
 import Tabs from '@theme/Tabs';

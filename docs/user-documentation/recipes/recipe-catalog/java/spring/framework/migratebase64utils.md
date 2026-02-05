@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `org.springframework.util.Base64Utils` to `java.io.Base64`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migratebase64utils"
 ---
 
 import Tabs from '@theme/Tabs';

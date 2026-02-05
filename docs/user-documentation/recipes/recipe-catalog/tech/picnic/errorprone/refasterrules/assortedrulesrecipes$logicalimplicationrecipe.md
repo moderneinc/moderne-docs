@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssortedRules.LogicalImplication`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$logicalimplicationrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

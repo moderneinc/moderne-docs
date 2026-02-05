@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migration invocation of JobParameter.toString to JobParameter.getValue.toString"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/batch/jobparametertostring"
 ---
 
 import Tabs from '@theme/Tabs';

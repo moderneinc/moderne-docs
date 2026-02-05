@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change method invocation return type"
-canonical_url: "https://docs.openrewrite.org/recipes/java/changemethodinvocationreturntype"
 ---
 
 import Tabs from '@theme/Tabs';

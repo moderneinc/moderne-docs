@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `ResourceResolver` with `ResourceHandler`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/removedjakartafacesresourceresolver"
 ---
 
 import Tabs from '@theme/Tabs';

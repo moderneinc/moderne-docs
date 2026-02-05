@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require destructuring from arrays and/or objects"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferdestructuring"
 ---
 
 import Tabs from '@theme/Tabs';

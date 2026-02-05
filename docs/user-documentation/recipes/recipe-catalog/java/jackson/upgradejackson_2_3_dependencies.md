@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Jackson 2.x dependencies to 3.x"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/upgradejackson_2_3_dependencies"
 ---
 
 import Tabs from '@theme/Tabs';

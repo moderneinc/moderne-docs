@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use destructured variables over properties"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/consistentdestructuring"
 ---
 
 import Tabs from '@theme/Tabs';

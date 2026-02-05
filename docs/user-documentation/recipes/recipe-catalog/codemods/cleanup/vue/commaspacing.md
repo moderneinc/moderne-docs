@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing before and after commas in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/commaspacing"
 ---
 
 import Tabs from '@theme/Tabs';

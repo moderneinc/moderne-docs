@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Merge TOML table row"
-canonical_url: "https://docs.openrewrite.org/recipes/toml/mergetablerow"
 ---
 
 import Tabs from '@theme/Tabs';

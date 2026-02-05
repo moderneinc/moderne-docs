@@ -1,6 +1,5 @@
 ---
 sidebar_label: "List effective Maven repositories"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/search/effectivemavenrepositories"
 ---
 
 import Tabs from '@theme/Tabs';

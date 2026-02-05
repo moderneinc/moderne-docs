@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `com.google.common.base.Optional#toJavaUtil()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavaoptionaltojavautil"
 ---
 
 import Tabs from '@theme/Tabs';

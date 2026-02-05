@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to recommended constants in `LogbackLoggingSystemProperties` from deprecated values in `LoggingSystemProperties`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migrateloggingsystempropertyconstants"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `new HashMap&lt;&gt;()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavamapsnewhashmap"
 ---
 
 import Tabs from '@theme/Tabs';

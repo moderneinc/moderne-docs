@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use StringComparer.GetHashCode instead of string.GetHashCode"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/donotusestringgethashcodema0021"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Force indentation to either tabs or spaces"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/usetabsorspaces"
 ---
 
 import Tabs from '@theme/Tabs';

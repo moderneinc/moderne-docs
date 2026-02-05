@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `application-client.xml` files."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxapplicationclientxmltojakarta9applicationclientxml"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus318.RemoveFlywayCleanOnValidationError"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus318/removeflywaycleanonvalidationerror"
 ---
 
 import Tabs from '@theme/Tabs';

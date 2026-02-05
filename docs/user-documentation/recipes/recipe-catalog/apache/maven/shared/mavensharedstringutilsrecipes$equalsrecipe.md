@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.equals(String, String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/maven/shared/mavensharedstringutilsrecipes$equalsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

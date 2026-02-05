@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unnecessary braces in switch section"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/blockrcs1031"
 ---
 
 import Tabs from '@theme/Tabs';

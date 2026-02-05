@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJObjectRules.AssertThatHasToString`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthathastostringrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

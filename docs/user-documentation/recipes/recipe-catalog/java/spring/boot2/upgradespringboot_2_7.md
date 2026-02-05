@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Spring Boot 2.7"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7"
 ---
 
 import Tabs from '@theme/Tabs';

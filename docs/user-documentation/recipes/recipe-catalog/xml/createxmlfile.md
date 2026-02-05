@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Create XML file"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/createxmlfile"
 ---
 
 import Tabs from '@theme/Tabs';

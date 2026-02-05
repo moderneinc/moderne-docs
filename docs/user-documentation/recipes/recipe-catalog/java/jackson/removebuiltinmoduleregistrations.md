@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove registrations of modules built-in to Jackson 3"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/removebuiltinmoduleregistrations"
 ---
 
 import Tabs from '@theme/Tabs';

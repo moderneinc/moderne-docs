@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find an Unleash feature flag"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/unleash/search/findfeatureflag"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJDurationRules.AssertThatHasHours`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathashoursrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

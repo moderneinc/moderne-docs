@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce or disallow spaces around equal signs in JSX attributes"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxequalsspacing"
 ---
 
 import Tabs from '@theme/Tabs';

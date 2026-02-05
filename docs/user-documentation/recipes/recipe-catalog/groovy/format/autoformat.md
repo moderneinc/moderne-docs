@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Format Groovy code"
-canonical_url: "https://docs.openrewrite.org/recipes/groovy/format/autoformat"
 ---
 
 import Tabs from '@theme/Tabs';

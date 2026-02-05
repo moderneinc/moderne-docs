@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Removed deprecated property camel.main.lightweight"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel411/removedlightweight"
 ---
 
 import Tabs from '@theme/Tabs';

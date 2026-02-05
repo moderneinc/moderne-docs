@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Remove unnecessary blank line"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/whitespacetriviarcs1036"
 ---
 
 import Tabs from '@theme/Tabs';

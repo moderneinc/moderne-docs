@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StreamRules.StreamReduceWithIdentity`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamreducewithidentityrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

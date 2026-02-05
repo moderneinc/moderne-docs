@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renamed classes for API"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel49/renamedapis"
 ---
 
 import Tabs from '@theme/Tabs';

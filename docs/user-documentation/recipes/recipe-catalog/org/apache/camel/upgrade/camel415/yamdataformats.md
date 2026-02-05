@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refactored dataFormats (YAML DSL)"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel415/yamdataformats"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use --/++ operator instead of assignment"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/assignmentexpressionrcs1089"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "RewriteTest classes should not be public"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/rewritetestclassesshouldnotbepublic"
 ---
 
 import Tabs from '@theme/Tabs';

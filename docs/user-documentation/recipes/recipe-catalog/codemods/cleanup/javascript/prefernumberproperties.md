@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Number` static properties over global ones"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefernumberproperties"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Backing field for a DependencyPropertyKey should match registered name"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/renamememberfixwpf0002"
 ---
 
 import Tabs from '@theme/Tabs';

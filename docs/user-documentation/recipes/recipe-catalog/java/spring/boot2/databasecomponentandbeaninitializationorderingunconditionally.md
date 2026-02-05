@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unconditionally adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/databasecomponentandbeaninitializationorderingunconditionally"
 ---
 
 import Tabs from '@theme/Tabs';

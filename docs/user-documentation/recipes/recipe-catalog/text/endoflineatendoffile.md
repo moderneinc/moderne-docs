@@ -1,6 +1,5 @@
 ---
 sidebar_label: "End of Line @ End of File (EOL @ EOF)"
-canonical_url: "https://docs.openrewrite.org/recipes/text/endoflineatendoffile"
 ---
 
 import Tabs from '@theme/Tabs';

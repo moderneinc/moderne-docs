@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change TOML key"
-canonical_url: "https://docs.openrewrite.org/recipes/toml/changekey"
 ---
 
 import Tabs from '@theme/Tabs';

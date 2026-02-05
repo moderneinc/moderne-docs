@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Optimize StringBuilder.Append/AppendLine call"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/optimizestringbuilderappendcallrcs1197"
 ---
 
 import Tabs from '@theme/Tabs';

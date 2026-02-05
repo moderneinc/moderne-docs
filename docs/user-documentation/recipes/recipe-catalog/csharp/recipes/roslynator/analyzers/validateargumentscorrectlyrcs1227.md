@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Validate arguments correctly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/validateargumentscorrectlyrcs1227"
 ---
 
 import Tabs from '@theme/Tabs';

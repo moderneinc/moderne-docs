@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Specify marshaling for P/Invoke string arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpspecifymarshalingforpinvokestringargumentsca2101"
 ---
 
 import Tabs from '@theme/Tabs';

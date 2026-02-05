@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Make class static"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/classdeclarationrcs1102"
 ---
 
 import Tabs from '@theme/Tabs';

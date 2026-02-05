@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Combine 'Enumerable.Where' method chain"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/invocationexpressionrcs1112"
 ---
 
 import Tabs from '@theme/Tabs';

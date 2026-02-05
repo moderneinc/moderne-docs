@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `Optional#isPresent()` with `Optional#ifPresent()`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replaceoptionalispresentwithifpresent"
 ---
 
 import Tabs from '@theme/Tabs';

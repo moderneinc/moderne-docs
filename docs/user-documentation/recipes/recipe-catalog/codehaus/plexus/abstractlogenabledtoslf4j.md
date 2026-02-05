@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from Plexus `AbstractLogEnabled` to SLF4J"
-canonical_url: "https://docs.openrewrite.org/recipes/codehaus/plexus/abstractlogenabledtoslf4j"
 ---
 
 import Tabs from '@theme/Tabs';

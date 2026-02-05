@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Camel API changes in application.properties"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel40/properties/rejectedpolicy"
 ---
 
 import Tabs from '@theme/Tabs';

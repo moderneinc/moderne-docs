@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `@CommonsLog` instead of explicit fields"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lombok/log/usecommonslog"
 ---
 
 import Tabs from '@theme/Tabs';

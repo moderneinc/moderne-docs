@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade to Axonframework 4.x Javax"
-canonical_url: "https://docs.openrewrite.org/recipes/org/axonframework/migration/upgradeaxonframework_4_javax"
 ---
 
 import Tabs from '@theme/Tabs';

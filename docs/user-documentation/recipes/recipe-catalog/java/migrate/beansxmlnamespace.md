@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change `beans.xml` `schemaLocation` to match XML namespace"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/beansxmlnamespace"
 ---
 
 import Tabs from '@theme/Tabs';

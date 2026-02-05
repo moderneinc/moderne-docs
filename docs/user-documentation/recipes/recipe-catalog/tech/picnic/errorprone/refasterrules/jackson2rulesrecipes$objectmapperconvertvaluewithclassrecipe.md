@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `Jackson2Rules.ObjectMapperConvertValueWithClass`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/jackson2rulesrecipes$objectmapperconvertvaluewithclassrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

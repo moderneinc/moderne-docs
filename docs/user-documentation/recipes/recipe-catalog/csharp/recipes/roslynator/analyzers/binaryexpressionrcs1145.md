@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant 'as' operator"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1145"
 ---
 
 import Tabs from '@theme/Tabs';

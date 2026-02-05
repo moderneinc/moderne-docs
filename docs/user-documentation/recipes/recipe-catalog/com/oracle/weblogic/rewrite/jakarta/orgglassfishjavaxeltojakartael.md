@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `org.glassfish.javax.el` packages to `jakarta.el`"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/orgglassfishjavaxeltojakartael"
 ---
 
 import Tabs from '@theme/Tabs';

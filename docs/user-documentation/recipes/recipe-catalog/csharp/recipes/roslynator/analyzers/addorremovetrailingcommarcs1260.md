@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add/remove trailing comma"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/addorremovetrailingcommarcs1260"
 ---
 
 import Tabs from '@theme/Tabs';

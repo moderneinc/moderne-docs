@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find OpenRewrite recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/findrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

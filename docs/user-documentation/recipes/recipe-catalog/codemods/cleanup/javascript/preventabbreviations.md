@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prevent abbreviations"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preventabbreviations"
 ---
 
 import Tabs from '@theme/Tabs';

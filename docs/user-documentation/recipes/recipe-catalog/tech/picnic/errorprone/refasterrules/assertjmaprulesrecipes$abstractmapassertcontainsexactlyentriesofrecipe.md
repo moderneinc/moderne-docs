@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJMapRules.AbstractMapAssertContainsExactlyEntriesOf`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjmaprulesrecipes$abstractmapassertcontainsexactlyentriesofrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

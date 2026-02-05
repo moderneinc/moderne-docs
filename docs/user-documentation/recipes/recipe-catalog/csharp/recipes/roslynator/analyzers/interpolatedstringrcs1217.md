@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert interpolated string to concatenation"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/interpolatedstringrcs1217"
 ---
 
 import Tabs from '@theme/Tabs';

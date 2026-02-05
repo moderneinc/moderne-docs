@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot WebSocket with Quarkus WebSockets"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootwebsockettoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Faces `@ManagedBean` to use CDI `@Named`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatemanagedbeantonamed"
 ---
 
 import Tabs from '@theme/Tabs';

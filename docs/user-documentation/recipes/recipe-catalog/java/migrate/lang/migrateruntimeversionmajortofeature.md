@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Runtime.Version#feature()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/migrateruntimeversionmajortofeature"
 ---
 
 import Tabs from '@theme/Tabs';

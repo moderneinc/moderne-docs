@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refactor RewriteTest to use defaults method"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/userewritetestdefaults"
 ---
 
 import Tabs from '@theme/Tabs';

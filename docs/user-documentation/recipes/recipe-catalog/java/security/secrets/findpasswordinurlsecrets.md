@@ -27,7 +27,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Find secrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecrets.md)
+* [Find secrets](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecrets)
 
 ## Examples
 ##### Example 1

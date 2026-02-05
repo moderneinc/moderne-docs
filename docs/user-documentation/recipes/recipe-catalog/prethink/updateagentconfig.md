@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update agent configuration files"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/updateagentconfig"
 ---
 
 import Tabs from '@theme/Tabs';

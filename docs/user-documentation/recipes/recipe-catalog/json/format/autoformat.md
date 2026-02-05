@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Format JSON"
-canonical_url: "https://docs.openrewrite.org/recipes/json/format/autoformat"
 ---
 
 import Tabs from '@theme/Tabs';

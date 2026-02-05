@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use containing type when creating a ComponentResourceKey"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/componentresourcekeyfixwpf0140"
 ---
 
 import Tabs from '@theme/Tabs';

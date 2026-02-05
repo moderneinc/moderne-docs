@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow classes that only have static members"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nostaticonlyclass"
 ---
 
 import Tabs from '@theme/Tabs';

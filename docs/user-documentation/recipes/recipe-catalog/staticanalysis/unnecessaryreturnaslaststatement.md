@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary `return` as last statement in void method"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/unnecessaryreturnaslaststatement"
 ---
 
 import Tabs from '@theme/Tabs';

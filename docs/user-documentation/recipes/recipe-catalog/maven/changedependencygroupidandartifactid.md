@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Maven dependency"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/changedependencygroupidandartifactid"
 ---
 
 import Tabs from '@theme/Tabs';

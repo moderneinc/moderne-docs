@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Long#remainderUnsigned`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/preferlongremainderunsigned"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename CDI Extension to Jakarta"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxtojakartacdiextensions"
 ---
 
 import Tabs from '@theme/Tabs';

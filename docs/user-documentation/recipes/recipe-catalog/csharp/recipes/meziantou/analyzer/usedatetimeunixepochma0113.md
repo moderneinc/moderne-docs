@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use DateTime.UnixEpoch"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usedatetimeunixepochma0113"
 ---
 
 import Tabs from '@theme/Tabs';

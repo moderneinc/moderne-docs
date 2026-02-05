@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace removed root directory properties"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/replaceremovedrootdirectoryproperties"
 ---
 
 import Tabs from '@theme/Tabs';

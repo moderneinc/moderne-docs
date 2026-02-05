@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `DoubleStreamRules.DoubleStreamFilterSorted`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/doublestreamrulesrecipes$doublestreamfiltersortedrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

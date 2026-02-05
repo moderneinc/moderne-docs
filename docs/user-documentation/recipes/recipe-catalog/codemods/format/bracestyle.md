@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent brace style for blocks"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/bracestyle"
 ---
 
 import Tabs from '@theme/Tabs';

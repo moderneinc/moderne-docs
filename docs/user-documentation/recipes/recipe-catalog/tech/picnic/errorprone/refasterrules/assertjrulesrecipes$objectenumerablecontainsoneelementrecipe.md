@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJRules.ObjectEnumerableContainsOneElement`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$objectenumerablecontainsoneelementrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

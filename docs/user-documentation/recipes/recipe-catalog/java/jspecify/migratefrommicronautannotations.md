@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from Micronaut Framework annotations to JSpecify"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jspecify/migratefrommicronautannotations"
 ---
 
 import Tabs from '@theme/Tabs';

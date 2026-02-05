@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableSetMultimapRules.IterableToImmutableSetMultimap`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesetmultimaprulesrecipes$iterabletoimmutablesetmultimaprecipe"
 ---
 
 import Tabs from '@theme/Tabs';

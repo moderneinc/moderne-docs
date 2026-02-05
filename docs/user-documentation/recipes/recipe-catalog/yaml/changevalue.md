@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change value"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/changevalue"
 ---
 
 import Tabs from '@theme/Tabs';

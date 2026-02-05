@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from Gradle Enterprise to Develocity"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/plugins/migrategradleenterprisetodevelocity"
 ---
 
 import Tabs from '@theme/Tabs';

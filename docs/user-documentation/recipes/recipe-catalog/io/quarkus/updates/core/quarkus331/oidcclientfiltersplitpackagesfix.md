@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus331.OidcClientFilterSplitPackagesFix"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus331/oidcclientfiltersplitpackagesfix"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid nested ?: operators"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/conditionalexpressionrcs1238"
 ---
 
 import Tabs from '@theme/Tabs';

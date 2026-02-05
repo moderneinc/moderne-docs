@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `InvocationInterceptor.interceptDynamicTest`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit6/removeinterceptdynamictest"
 ---
 
 import Tabs from '@theme/Tabs';

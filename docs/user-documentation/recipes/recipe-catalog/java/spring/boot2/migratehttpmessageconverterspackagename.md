@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `org.springframework.boot.autoconfigure.http.HttpMessageConverters`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migratehttpmessageconverterspackagename"
 ---
 
 import Tabs from '@theme/Tabs';

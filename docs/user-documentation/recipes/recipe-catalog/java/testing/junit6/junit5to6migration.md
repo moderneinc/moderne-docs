@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit 6 migration from JUnit 5.x"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit6/junit5to6migration"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from OpenRewrite annotations to JSpecify"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jspecify/migratefromopenrewriteannotations"
 ---
 
 import Tabs from '@theme/Tabs';

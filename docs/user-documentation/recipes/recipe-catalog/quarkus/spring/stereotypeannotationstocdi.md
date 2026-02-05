@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Spring annotations to CDI"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/stereotypeannotationstocdi"
 ---
 
 import Tabs from '@theme/Tabs';

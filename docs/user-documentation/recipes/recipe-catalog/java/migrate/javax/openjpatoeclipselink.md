@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from OpenJPA to EclipseLink JPA"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/openjpatoeclipselink"
 ---
 
 import Tabs from '@theme/Tabs';

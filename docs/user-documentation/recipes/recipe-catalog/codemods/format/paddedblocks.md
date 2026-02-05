@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow padding within blocks"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/paddedblocks"
 ---
 
 import Tabs from '@theme/Tabs';

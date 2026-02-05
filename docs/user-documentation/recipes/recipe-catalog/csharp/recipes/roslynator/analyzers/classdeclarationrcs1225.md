@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Make class sealed"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/classdeclarationrcs1225"
 ---
 
 import Tabs from '@theme/Tabs';

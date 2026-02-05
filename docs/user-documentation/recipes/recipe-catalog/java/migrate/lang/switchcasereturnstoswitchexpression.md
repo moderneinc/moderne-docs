@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert switch cases where every case returns into a returned switch expression"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/switchcasereturnstoswitchexpression"
 ---
 
 import Tabs from '@theme/Tabs';

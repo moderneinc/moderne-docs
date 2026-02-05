@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableSetRules.SetsIntersectionMultimap`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesetrulesrecipes$setsintersectionmultimaprecipe"
 ---
 
 import Tabs from '@theme/Tabs';

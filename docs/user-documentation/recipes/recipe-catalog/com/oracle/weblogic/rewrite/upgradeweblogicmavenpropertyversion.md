@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade `weblogic.version` Maven property"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/upgradeweblogicmavenpropertyversion"
 ---
 
 import Tabs from '@theme/Tabs';

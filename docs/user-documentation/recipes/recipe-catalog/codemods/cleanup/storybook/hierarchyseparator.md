@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Deprecated hierarchy separator in title property"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/storybook/hierarchyseparator"
 ---
 
 import Tabs from '@theme/Tabs';

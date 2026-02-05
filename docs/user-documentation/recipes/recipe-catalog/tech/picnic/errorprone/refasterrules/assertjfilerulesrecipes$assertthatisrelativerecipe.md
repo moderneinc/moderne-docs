@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJFileRules.AssertThatIsRelative`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjfilerulesrecipes$assertthatisrelativerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

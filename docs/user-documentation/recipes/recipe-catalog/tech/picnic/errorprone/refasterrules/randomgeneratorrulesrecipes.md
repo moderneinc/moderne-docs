@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`RandomGeneratorRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

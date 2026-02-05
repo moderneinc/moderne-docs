@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Maven project property"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/addproperty"
 ---
 
 import Tabs from '@theme/Tabs';

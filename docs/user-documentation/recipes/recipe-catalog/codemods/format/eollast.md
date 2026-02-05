@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow newline at the end of files"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/eollast"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ComparatorRules.ThenComparingReversed`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingreversedrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

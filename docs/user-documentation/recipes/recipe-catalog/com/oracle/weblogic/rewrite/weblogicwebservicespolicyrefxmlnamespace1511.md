@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `weblogic-webservices-policy.xml` files to WebLogic 15.1.1"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogicwebservicespolicyrefxmlnamespace1511"
 ---
 
 import Tabs from '@theme/Tabs';

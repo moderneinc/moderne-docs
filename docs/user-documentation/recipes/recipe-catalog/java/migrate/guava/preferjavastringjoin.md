@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `String#join()` over Guava `Joiner#join()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavastringjoin"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Fix `String#format` and `String#formatted` expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/fixstringformatexpressions"
 ---
 
 import Tabs from '@theme/Tabs';

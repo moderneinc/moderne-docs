@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`"
-canonical_url: "https://docs.openrewrite.org/recipes/node/migrate/zlib/replace-bytes-read"
 ---
 
 import Tabs from '@theme/Tabs';

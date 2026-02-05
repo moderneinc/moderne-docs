@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify AssertJ assertions with literal arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/simplifyassertjassertion"
 ---
 
 import Tabs from '@theme/Tabs';

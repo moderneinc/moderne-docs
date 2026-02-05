@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require using .only and .skip over f and x"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/notestprefixes"
 ---
 
 import Tabs from '@theme/Tabs';

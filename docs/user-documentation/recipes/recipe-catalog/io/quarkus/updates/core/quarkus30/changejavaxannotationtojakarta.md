@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.annotation` packages to `jakarta.annotation`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/changejavaxannotationtojakarta"
 ---
 
 import Tabs from '@theme/Tabs';

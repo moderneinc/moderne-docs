@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUnit `assertTrue(false, &quot;reason&quot;)` and `assertFalse(true, &quot;reason&quot;)` with `fail(&quot;reason&quot;)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/cleanup/assertliteralbooleantofailrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

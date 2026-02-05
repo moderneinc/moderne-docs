@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replaces deprecated `ClientHttpResponse#getRawStatusCode()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migrateclienthttpresponsegetrawstatuscodemethod"
 ---
 
 import Tabs from '@theme/Tabs';

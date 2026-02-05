@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `@Nullable` and `@CheckForNull` annotations from primitives"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/unnecessaryprimitiveannotations"
 ---
 
 import Tabs from '@theme/Tabs';

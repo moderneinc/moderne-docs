@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Copy JSON value"
-canonical_url: "https://docs.openrewrite.org/recipes/json/copyvalue"
 ---
 
 import Tabs from '@theme/Tabs';

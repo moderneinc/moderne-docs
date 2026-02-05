@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant auto-property initialization"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/propertydeclarationrcs1188"
 ---
 
 import Tabs from '@theme/Tabs';

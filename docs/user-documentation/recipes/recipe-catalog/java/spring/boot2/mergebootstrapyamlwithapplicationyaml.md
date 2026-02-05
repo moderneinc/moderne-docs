@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Merge Spring `bootstrap.yml` with `application.yml`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/mergebootstrapyamlwithapplicationyaml"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `OptionalRules.OptionalOrElseThrowMethodReference`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalorelsethrowmethodreferencerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

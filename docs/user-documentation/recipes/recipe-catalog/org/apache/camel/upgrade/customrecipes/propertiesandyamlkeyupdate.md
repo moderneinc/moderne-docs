@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Apache Camel configurations keys"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate"
 ---
 
 import Tabs from '@theme/Tabs';

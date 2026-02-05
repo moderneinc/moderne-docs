@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce combining multiple `Array#push()` into one call"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noarraypushpush"
 ---
 
 import Tabs from '@theme/Tabs';

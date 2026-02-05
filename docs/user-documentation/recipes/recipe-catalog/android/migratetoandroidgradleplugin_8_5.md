@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Android Gradle Plugin 8.6](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_6.md)
+* [Migrate to Android Gradle Plugin 8.6](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_6)
 
 
 ## Usage

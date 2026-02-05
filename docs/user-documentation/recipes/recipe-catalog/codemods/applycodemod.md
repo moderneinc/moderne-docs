@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Applies a codemod to all source files"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/applycodemod"
 ---
 
 import Tabs from '@theme/Tabs';

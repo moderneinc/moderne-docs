@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Nested enums are not static"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/nestedenumsarenotstatic"
 ---
 
 import Tabs from '@theme/Tabs';

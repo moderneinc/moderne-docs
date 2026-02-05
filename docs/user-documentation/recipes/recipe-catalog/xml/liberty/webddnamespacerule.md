@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use correct web-app namespace values"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/liberty/webddnamespacerule"
 ---
 
 import Tabs from '@theme/Tabs';

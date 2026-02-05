@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary explicit use of enumerator"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/unnecessaryexplicituseofenumeratorrcs1230"
 ---
 
 import Tabs from '@theme/Tabs';

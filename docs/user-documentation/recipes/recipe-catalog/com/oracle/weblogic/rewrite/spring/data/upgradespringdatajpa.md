@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Spring Data JPA to 3.4.6"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/spring/data/upgradespringdatajpa"
 ---
 
 import Tabs from '@theme/Tabs';

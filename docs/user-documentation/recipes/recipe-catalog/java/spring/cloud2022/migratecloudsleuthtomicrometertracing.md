@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/cloud2022/migratecloudsleuthtomicrometertracing"
 ---
 
 import Tabs from '@theme/Tabs';

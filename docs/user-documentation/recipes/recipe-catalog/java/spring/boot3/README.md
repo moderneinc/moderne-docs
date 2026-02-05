@@ -11,6 +11,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Change `com.datastax.oss` to `org.apache.cassandra`](./changecassandragroupid.md)
 * [Comment deprecated methods in Spring 3.4](./commentdeprecations.md)
 * [Enable Virtual Threads on Java 21](./enablevirtualthreads.md)
+* [Migrate `@Endpoint` Security properties to 3.4](./springbootproperties_3_4-moderne-edition.md)
 * [Migrate Enabled to Access Spring Boot Properties](./springbootproperties_3_4_enabledtoaccess.md)
 * [Migrate Spring Boot 3.4 deprecated classes and methods](./springboot34deprecations.md)
 * [Migrate Spring Boot 3.5 deprecated classes and methods](./springboot35deprecations.md)
@@ -38,6 +39,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Resolve Deprecations in Spring Boot 3.3](./resolvedeprecationsspringboot_3_3.md)
 * [Spring Boot 3.3 best practices (only)](./springboot3bestpracticesonly.md)
 * [Spring Boot 3.5 best practices](./springboot3bestpractices.md)
+* [Update OpenTelemetry resource attributes](./updateopentelemetryresourceattributes.md)
 * [Upgrade Gradle 8 to 8.4+ for Spring Boot 3.4](./upgradegradle8spring34.md)
 * [Upgrade Gradle to 7.6.4+ for Spring Boot 3.4](./upgradegradle7spring34.md)
 * [Upgrade MyBatis to Spring Boot 2.1](./upgrademybatistospringboot_2_1.md)
@@ -50,6 +52,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Upgrade MyBatis to Spring Boot 3.0](./upgrademybatistospringboot_3_0.md)
 * [Upgrade MyBatis to Spring Boot 3.2](./upgrademybatistospringboot_3_2.md)
 * [Upgrade MyBatis to Spring Boot 3.4](./upgrademybatistospringboot_3_4.md)
+* [Upgrade Spring Cloud AWS to Spring Boot 3.4 compatible version](./upgradespringcloudawstospringboot_3_4.md)
 * [Use bean name `applicationTaskExecutor` instead of `taskExecutor`](./replacetaskexecutornamebyapplicationtaskexecutorname.md)
 
 ## Recipes
@@ -64,7 +67,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Downgrade Jakarta Servlet API to 5.0 when using Jetty](./downgradeservletapiwhenusingjetty.md)
 * [Enable Spring Batch Annotation](./removeenablebatchprocessing.md)
 * [Maintain trailing slash URL mappings](./maintaintrailingslashurlmappings.md)
-* [Migrate `@Endpoint` Security properties to 3.4](./springbootproperties_3_4-moderne-edition.md)
 * [Migrate `@Endpoint`s `defaultAccess` value](./migrateendpointannotationaccessvaluespring34.md)
 * [Migrate `AbstractDiscoveredEndpoint` deprecated constructor](./migrateabstractdiscoveredendpointconstructor.md)
 * [Migrate `AbstractExposableEndpoint` deprecated constructor](./migrateabstractexposableendpointconstructor.md)
@@ -87,10 +89,8 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Replace deprecated ThreadPoolTaskSchedulerBuilder 5-argument constructor](./replacedeprecatedthreadpooltaskschedulerconstructor.md)
 * [Replace `taskExecutor` with `applicationTaskExecutor`](./resolvetaskexecutorfromcontext.md)
 * [Spring Boot 3.3 best practices](./springboot33bestpractices.md)
-* [Update OpenTelemetry resource attributes](./updateopentelemetryresourceattributes.md)
 * [Update Prometheus Pushgateway Dependency Coordinates](./updateprometheuspushgateway.md)
 * [Upgrade MyBatis to Spring Boot 2.0](./upgrademybatistospringboot_2_0.md)
-* [Upgrade Spring Cloud AWS to Spring Boot 3.4 compatible version](./upgradespringcloudawstospringboot_3_4.md)
 * [Use `kafkaAwareTransactionManager` setter](./replacekafkatransactionmanagersetter.md)
 * [Use `spring.reactor.context-propagation` property](./migratehookstoreactorcontextproperty.md)
 

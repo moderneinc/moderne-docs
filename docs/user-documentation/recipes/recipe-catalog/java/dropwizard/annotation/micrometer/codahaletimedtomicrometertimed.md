@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `@Timed` (Dropwizard) with `@Timed` (Micrometer)"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/annotation/micrometer/codahaletimedtomicrometertimed"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MultimapRules.MultimapContainsValue`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapcontainsvaluerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

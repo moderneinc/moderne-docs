@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename a file example"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/renamejavaxservicefiles"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.FluxMapNotNullOrElse`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxmapnotnullorelserecipe"
 ---
 
 import Tabs from '@theme/Tabs';

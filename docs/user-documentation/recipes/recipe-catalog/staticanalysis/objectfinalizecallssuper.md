@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`finalize()` calls super"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/objectfinalizecallssuper"
 ---
 
 import Tabs from '@theme/Tabs';

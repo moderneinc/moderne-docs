@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find class hierarchy"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findclasshierarchy"
 ---
 
 import Tabs from '@theme/Tabs';

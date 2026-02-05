@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `java.util.function.Supplier`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavautilsupplier"
 ---
 
 import Tabs from '@theme/Tabs';

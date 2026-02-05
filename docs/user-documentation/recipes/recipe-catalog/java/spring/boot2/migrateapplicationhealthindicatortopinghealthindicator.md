@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `PingHealthIndicator`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migrateapplicationhealthindicatortopinghealthindicator"
 ---
 
 import Tabs from '@theme/Tabs';

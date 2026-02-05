@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use implicit/explicit object creation"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useimplicitorexplicitobjectcreationrcs1250"
 ---
 
 import Tabs from '@theme/Tabs';

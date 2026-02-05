@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add trailing slash to Spring routes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/addroutetrailingslash"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -19,6 +18,13 @@ _This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Frame
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-spring/)
 
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Migrate trailing slash matching to explicit routes](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/migratetrailingslashmatch)
 
 ## Example
 

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow strict mode directives"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/strict"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `javax.security.auth.Policy` with `java.security.Policy`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedpolicy"
 ---
 
 import Tabs from '@theme/Tabs';

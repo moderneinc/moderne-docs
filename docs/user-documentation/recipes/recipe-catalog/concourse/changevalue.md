@@ -32,7 +32,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Update git resource `source.uri` references](/user-documentation/recipes/recipe-catalog/concourse/updategitresourceuri.md)
+* [Update git resource `source.uri` references](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/concourse/updategitresourceuri)
 
 ## Example
 

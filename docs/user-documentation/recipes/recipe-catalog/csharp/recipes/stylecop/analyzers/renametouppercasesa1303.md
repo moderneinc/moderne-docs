@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Const field names should begin with upper-case letter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/renametouppercasesa1303"
 ---
 
 import Tabs from '@theme/Tabs';

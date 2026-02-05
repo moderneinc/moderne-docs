@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce the location of arrow function bodies"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/implicitarrowlinebreak"
 ---
 
 import Tabs from '@theme/Tabs';

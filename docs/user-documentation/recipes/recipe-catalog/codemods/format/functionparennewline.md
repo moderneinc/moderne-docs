@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent line breaks inside function parentheses"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/functionparennewline"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Spring Boot 4.0 modular starters"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot4/migratetomodularstarters-community-edition"
 ---
 
 import Tabs from '@theme/Tabs';

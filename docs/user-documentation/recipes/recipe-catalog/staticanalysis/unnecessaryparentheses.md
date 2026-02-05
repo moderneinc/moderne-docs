@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unnecessary parentheses"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/unnecessaryparentheses"
 ---
 
 import Tabs from '@theme/Tabs';

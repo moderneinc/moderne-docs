@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate New Relic Agent to OpenTelemetry"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/opentelemetry/migratenewrelictoopentelemetry"
 ---
 
 import Tabs from '@theme/Tabs';

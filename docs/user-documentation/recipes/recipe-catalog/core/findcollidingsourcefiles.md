@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find colliding source files"
-canonical_url: "https://docs.openrewrite.org/recipes/core/findcollidingsourcefiles"
 ---
 
 import Tabs from '@theme/Tabs';

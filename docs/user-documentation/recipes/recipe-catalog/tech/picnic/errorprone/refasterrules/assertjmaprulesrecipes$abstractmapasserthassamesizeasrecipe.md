@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJMapRules.AbstractMapAssertHasSameSizeAs`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjmaprulesrecipes$abstractmapasserthassamesizeasrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

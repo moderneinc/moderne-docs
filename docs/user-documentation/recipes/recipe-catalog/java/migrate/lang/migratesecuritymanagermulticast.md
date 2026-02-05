@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `SecurityManager#checkMulticast(InetAddress)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/migratesecuritymanagermulticast"
 ---
 
 import Tabs from '@theme/Tabs';

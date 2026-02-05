@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rewrites JUL's Logger#entering method to Log4j API"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/log4j/convertjulentering"
 ---
 
 import Tabs from '@theme/Tabs';

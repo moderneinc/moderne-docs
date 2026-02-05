@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.batch` packages to `jakarta.batch`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxbatchmigrationtojakartabatch"
 ---
 
 import Tabs from '@theme/Tabs';

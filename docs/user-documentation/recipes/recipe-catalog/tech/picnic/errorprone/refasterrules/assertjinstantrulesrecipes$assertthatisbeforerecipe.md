@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJInstantRules.AssertThatIsBefore`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisbeforerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

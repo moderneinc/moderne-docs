@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Mark publicly visible type with DebuggerDisplay attribute"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/marktypewithdebuggerdisplayattributercs1223"
 ---
 
 import Tabs from '@theme/Tabs';

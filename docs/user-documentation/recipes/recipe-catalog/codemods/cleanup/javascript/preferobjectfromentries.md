@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer using `Object.fromEntries()` to transform a list of key-value pairs into an object"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferobjectfromentries"
 ---
 
 import Tabs from '@theme/Tabs';

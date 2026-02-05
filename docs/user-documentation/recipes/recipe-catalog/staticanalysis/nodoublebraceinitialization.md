@@ -1,6 +1,5 @@
 ---
 sidebar_label: "No double brace initialization"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/nodoublebraceinitialization"
 ---
 
 import Tabs from '@theme/Tabs';

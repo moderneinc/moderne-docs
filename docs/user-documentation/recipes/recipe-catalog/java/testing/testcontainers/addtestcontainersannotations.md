@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt `@Container` and add `@Testcontainers`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/testcontainers/addtestcontainersannotations"
 ---
 
 import Tabs from '@theme/Tabs';

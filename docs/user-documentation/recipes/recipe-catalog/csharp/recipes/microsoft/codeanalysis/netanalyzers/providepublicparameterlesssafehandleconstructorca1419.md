@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Provide a parameterless constructor that is as visible as the containing type for concrete types derived from 'System.Runtime.InteropServices.SafeHandle'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/providepublicparameterlesssafehandleconstructorca1419"
 ---
 
 import Tabs from '@theme/Tabs';

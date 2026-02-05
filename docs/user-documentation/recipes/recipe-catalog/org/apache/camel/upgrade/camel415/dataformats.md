@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refactored dataFormats"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel415/dataformats"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Split variable declaration"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/variabledeclarationrcs1081"
 ---
 
 import Tabs from '@theme/Tabs';

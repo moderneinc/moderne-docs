@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `ClassLoader#defineClass(String, byte[], int, int)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/migrateclassloaderdefineclass"
 ---
 
 import Tabs from '@theme/Tabs';

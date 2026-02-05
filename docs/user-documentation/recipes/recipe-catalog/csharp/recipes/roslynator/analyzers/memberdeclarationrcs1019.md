@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Order modifiers"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/memberdeclarationrcs1019"
 ---
 
 import Tabs from '@theme/Tabs';

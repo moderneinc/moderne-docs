@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Duplicate enum value"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/enummemberdeclarationrcs1234"
 ---
 
 import Tabs from '@theme/Tabs';

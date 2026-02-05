@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use 'string.Equals'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/usestringequalsoverstringcompareca2251"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify 'default' expression"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/defaultexpressionrcs1244"
 ---
 
 import Tabs from '@theme/Tabs';

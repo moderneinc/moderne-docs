@@ -1,6 +1,5 @@
 ---
 sidebar_label: "MemoryStateRepository and FileStateRepository were moved to another package and library"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel43/staterepository"
 ---
 
 import Tabs from '@theme/Tabs';

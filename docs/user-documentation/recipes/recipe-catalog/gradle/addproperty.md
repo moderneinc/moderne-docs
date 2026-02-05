@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Gradle property"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/addproperty"
 ---
 
 import Tabs from '@theme/Tabs';

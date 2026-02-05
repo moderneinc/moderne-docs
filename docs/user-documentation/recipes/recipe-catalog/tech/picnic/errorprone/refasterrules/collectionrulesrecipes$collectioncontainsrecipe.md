@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CollectionRules.CollectionContains`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$collectioncontainsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

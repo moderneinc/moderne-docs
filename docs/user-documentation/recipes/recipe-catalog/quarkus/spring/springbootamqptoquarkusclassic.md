@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot AMQP with Quarkus Messaging RabbitMQ"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootamqptoquarkusclassic"
 ---
 
 import Tabs from '@theme/Tabs';

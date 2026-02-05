@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Extract error handling patterns"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/extracterrorpatterns"
 ---
 
 import Tabs from '@theme/Tabs';

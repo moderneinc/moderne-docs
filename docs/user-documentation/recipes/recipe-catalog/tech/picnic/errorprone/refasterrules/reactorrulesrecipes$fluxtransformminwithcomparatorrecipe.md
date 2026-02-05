@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.FluxTransformMinWithComparator`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxtransformminwithcomparatorrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

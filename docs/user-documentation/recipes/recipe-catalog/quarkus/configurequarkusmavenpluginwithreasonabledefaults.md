@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Configure `quarkus-maven-plugin` with reasonable defaults"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/configurequarkusmavenpluginwithreasonabledefaults"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add ASLv2 license header"
-canonical_url: "https://docs.openrewrite.org/recipes/java/addapache2licenseheader"
 ---
 
 import Tabs from '@theme/Tabs';

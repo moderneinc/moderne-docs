@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `SuggestedFixRules.SuggestedFixReplaceTreeStartEnd`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixreplacetreestartendrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

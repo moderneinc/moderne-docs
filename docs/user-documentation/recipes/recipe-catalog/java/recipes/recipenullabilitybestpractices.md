@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Recipe nullability best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/recipenullabilitybestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

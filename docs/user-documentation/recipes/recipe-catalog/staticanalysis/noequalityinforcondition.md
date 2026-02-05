@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use comparison rather than equality checks in for conditions"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/noequalityinforcondition"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -30,8 +29,8 @@ This recipe is available under the [Moderne Source Available License](https://do
 This recipe is used as part of the following composite recipes:
 
 * [Common static analysis issues](/user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md)
-* [Java security best practices](/user-documentation/recipes/recipe-catalog/java/security/javasecuritybestpractices.md)
-* [Remediate OWASP A03:2021 Injection](/user-documentation/recipes/recipe-catalog/java/security/owaspa03.md)
+* [Java security best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/javasecuritybestpractices)
+* [Remediate OWASP A03:2021 Injection](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owaspa03)
 
 ## Example
 

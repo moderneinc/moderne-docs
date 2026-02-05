@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Set#has()` over `Array#includes()` when checking for existence or non-existence"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefersethas"
 ---
 
 import Tabs from '@theme/Tabs';

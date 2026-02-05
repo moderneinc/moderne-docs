@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJFloatRules.AbstractFloatAssertIsZero`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertiszerorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace 'camel.main.backlogTracing' with `camel.trace.enabled'"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel45/traceproperties"
 ---
 
 import Tabs from '@theme/Tabs';

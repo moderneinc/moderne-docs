@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unnecessary dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/removeunnecessarydependencies"
 ---
 
 import Tabs from '@theme/Tabs';

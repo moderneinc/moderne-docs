@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Hibernate dependencies to 6.0.x (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/hibernate/migratetohibernatedependencies60"
 ---
 
 import Tabs from '@theme/Tabs';

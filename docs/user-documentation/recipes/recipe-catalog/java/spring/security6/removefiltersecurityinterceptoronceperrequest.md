@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unnecessary `filterSecurityInterceptorOncePerRequest(false)` when upgrading to Spring Security 6"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/security6/removefiltersecurityinterceptoronceperrequest"
 ---
 
 import Tabs from '@theme/Tabs';

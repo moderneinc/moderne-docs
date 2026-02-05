@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not use Enumerable methods on indexable collections"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdonotuseenumerablemethodsonindexablecollectionsinsteadusethecollectiondirectlyca1826"
 ---
 
 import Tabs from '@theme/Tabs';

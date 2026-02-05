@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `Docket` to `GroupedOpenAPI`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/doc/migratedocketbeantogroupedopenapibean"
 ---
 
 import Tabs from '@theme/Tabs';

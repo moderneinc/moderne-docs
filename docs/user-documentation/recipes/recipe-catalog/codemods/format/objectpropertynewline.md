@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce placing object properties on separate lines"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/objectpropertynewline"
 ---
 
 import Tabs from '@theme/Tabs';

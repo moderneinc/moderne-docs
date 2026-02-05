@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce unified spacing in mustache"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/mustachespacing"
 ---
 
 import Tabs from '@theme/Tabs';

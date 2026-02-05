@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate TaskMetadata and ThreadMetadata](/user-documentation/recipes/recipe-catalog/kafka/streams/migratetaskandthreadmetadata.md)
+* [Migrate TaskMetadata and ThreadMetadata](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/streams/migratetaskandthreadmetadata)
 
 
 ## Usage

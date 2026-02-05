@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Create TOML file"
-canonical_url: "https://docs.openrewrite.org/recipes/toml/createtomlfile"
 ---
 
 import Tabs from '@theme/Tabs';

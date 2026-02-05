@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `java.security.cert` instead of `javax.security.cert`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/deprecatedjavaxsecuritycert"
 ---
 
 import Tabs from '@theme/Tabs';

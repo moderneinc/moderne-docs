@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Collection` interfaces"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/usecollectioninterfaces"
 ---
 
 import Tabs from '@theme/Tabs';

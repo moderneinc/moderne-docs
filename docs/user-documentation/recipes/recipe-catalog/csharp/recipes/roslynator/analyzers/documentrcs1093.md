@@ -1,6 +1,5 @@
 ---
 sidebar_label: "File contains no code"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/documentrcs1093"
 ---
 
 import Tabs from '@theme/Tabs';

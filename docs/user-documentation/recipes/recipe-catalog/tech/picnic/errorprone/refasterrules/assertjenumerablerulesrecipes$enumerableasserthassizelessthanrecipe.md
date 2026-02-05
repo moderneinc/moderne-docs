@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeLessThan`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizelessthanrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

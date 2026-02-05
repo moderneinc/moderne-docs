@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove empty tests without comments"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/cleanup/removeemptytests"
 ---
 
 import Tabs from '@theme/Tabs';

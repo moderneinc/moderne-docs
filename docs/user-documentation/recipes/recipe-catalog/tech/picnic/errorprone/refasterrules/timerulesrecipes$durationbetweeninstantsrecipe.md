@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.DurationBetweenInstants`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$durationbetweeninstantsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

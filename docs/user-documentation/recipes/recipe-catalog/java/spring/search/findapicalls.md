@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find HTTP API calls via `RestTemplate`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/search/findapicalls"
 ---
 
 import Tabs from '@theme/Tabs';

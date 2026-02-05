@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce or disallow parentheses when invoking a constructor with no arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/newparens"
 ---
 
 import Tabs from '@theme/Tabs';

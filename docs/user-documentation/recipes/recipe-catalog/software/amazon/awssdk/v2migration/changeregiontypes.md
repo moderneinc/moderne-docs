@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change region related classes"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/changeregiontypes"
 ---
 
 import Tabs from '@theme/Tabs';

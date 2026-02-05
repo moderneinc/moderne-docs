@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `OptionalRules.OptionalEqualsOptional`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalequalsoptionalrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Dependency report"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/dependencylist"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unused properties"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/removeunusedproperties"
 ---
 
 import Tabs from '@theme/Tabs';

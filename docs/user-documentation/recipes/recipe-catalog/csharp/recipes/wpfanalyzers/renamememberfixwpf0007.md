@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Name of ValidateValueCallback should match registered name"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/renamememberfixwpf0007"
 ---
 
 import Tabs from '@theme/Tabs';

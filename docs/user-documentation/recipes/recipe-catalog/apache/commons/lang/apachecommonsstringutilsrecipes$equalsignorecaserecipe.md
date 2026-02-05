@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.equalsIgnoreCase(CharSequence, CharSequence)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$equalsignorecaserecipe"
 ---
 
 import Tabs from '@theme/Tabs';

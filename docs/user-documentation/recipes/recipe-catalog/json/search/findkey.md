@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find JSON object members"
-canonical_url: "https://docs.openrewrite.org/recipes/json/search/findkey"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `.includes()` over `.indexOf()` and `Array#some()` when checking for existence or non-existence"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferincludes"
 ---
 
 import Tabs from '@theme/Tabs';

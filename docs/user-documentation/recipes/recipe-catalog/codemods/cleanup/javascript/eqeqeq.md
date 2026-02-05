@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require the use of `===` and `!==`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/eqeqeq"
 ---
 
 import Tabs from '@theme/Tabs';

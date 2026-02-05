@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Transfer @JsonSerialize arguments from Codehaus to FasterXML"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/codehaus/transferjsonserializeargumentsfromcodehaustofasterxml"
 ---
 
 import Tabs from '@theme/Tabs';

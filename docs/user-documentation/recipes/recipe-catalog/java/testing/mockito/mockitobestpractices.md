@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Mockito best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/mockitobestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Combination of all deprecations"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/all"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`StringRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/stringrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

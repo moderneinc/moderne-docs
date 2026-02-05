@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Removes `component` prop from base components"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/baseremovecomponentprop"
 ---
 
 import Tabs from '@theme/Tabs';

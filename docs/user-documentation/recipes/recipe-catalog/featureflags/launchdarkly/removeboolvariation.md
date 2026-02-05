@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove LaunchDarkly's `boolVariation` for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/launchdarkly/removeboolvariation"
 ---
 
 import Tabs from '@theme/Tabs';

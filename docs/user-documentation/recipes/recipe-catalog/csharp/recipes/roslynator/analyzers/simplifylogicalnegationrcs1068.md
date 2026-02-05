@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify logical negation"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/simplifylogicalnegationrcs1068"
 ---
 
 import Tabs from '@theme/Tabs';

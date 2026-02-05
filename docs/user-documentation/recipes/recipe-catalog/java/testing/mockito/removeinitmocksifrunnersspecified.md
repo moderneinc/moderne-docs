@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `MockitoAnnotations.initMocks(this)` if specified JUnit runners"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/removeinitmocksifrunnersspecified"
 ---
 
 import Tabs from '@theme/Tabs';

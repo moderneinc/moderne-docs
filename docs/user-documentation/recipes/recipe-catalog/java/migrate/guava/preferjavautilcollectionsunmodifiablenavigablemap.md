@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `java.util.Collections#unmodifiableNavigableMap`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavautilcollectionsunmodifiablenavigablemap"
 ---
 
 import Tabs from '@theme/Tabs';

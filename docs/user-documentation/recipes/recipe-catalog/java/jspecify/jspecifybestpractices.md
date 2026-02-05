@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JSpecify best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jspecify/jspecifybestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

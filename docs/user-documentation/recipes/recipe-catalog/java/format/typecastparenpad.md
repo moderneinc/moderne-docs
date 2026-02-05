@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Typecast parentheses padding"
-canonical_url: "https://docs.openrewrite.org/recipes/java/format/typecastparenpad"
 ---
 
 import Tabs from '@theme/Tabs';

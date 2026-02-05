@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow multiple spaces between inline JSX props"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxpropsnomultispaces"
 ---
 
 import Tabs from '@theme/Tabs';

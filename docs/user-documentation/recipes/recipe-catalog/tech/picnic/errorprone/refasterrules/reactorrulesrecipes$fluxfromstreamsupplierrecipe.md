@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.FluxFromStreamSupplier`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxfromstreamsupplierrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

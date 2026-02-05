@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer optional chaining"
-canonical_url: "https://docs.openrewrite.org/recipes/javascript/cleanup/prefer-optional-chain"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate JUL to Log4j 2.x API"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/log4j/jultolog4j"
 ---
 
 import Tabs from '@theme/Tabs';

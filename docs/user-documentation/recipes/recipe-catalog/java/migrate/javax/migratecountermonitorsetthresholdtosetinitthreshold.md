@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `javax.management.monitor.CounterMonitor#setInitThreshold`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/migratecountermonitorsetthresholdtosetinitthreshold"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert 'if' to 'return' statement"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/ifstatementrcs1073"
 ---
 
 import Tabs from '@theme/Tabs';

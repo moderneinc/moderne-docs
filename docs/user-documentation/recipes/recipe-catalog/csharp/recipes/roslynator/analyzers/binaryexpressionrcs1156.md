@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use string.Length instead of comparison with empty string"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1156"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `*.xjb` files."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxbindingsschemaxjbstojakarta9bindingsschemaxjbs"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.LocalTimePlusSeconds`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$localtimeplussecondsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

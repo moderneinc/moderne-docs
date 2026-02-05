@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer 'Convert.ToHexString' and 'Convert.ToHexStringLower' over call chains based on 'BitConverter.ToString'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/preferconverttohexstringoverbitconverterca1872"
 ---
 
 import Tabs from '@theme/Tabs';

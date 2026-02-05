@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendsWith` replacement"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/removeobsoleterunners"
 ---
 
 import Tabs from '@theme/Tabs';

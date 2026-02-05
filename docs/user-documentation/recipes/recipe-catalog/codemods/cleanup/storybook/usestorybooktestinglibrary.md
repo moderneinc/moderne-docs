@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not use testing-library directly on stories"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/storybook/usestorybooktestinglibrary"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `weblogic-wsee-standaloneclient.xml` files to WebLogic 15.1.1"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogicwseestandaloneclientxmlnamespace1511"
 ---
 
 import Tabs from '@theme/Tabs';

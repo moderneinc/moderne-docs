@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove non-ASCII characters from Javadoc"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/maven/mavenjavadocnonasciirecipe"
 ---
 
 import Tabs from '@theme/Tabs';

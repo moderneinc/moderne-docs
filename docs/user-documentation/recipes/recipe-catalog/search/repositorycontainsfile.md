@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Repository contains file"
-canonical_url: "https://docs.openrewrite.org/recipes/search/repositorycontainsfile"
 ---
 
 import Tabs from '@theme/Tabs';

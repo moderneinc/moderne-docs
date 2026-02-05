@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Kotlin sources and collect data metrics"
-canonical_url: "https://docs.openrewrite.org/recipes/kotlin/findkotlinsources"
 ---
 
 import Tabs from '@theme/Tabs';

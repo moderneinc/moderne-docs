@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `WebClientRules.WebClientGet`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/webclientrulesrecipes$webclientgetrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

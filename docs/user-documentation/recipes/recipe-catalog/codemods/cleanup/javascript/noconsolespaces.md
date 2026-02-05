@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not use leading/trailing space between `console.log` parameters"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noconsolespaces"
 ---
 
 import Tabs from '@theme/Tabs';

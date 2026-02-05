@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate removed Spring `Assert` methods"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migratespringassert"
 ---
 
 import Tabs from '@theme/Tabs';

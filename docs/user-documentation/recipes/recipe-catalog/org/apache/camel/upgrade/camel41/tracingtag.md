@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Tag Enum has been deprecated"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel41/tracingtag"
 ---
 
 import Tabs from '@theme/Tabs';

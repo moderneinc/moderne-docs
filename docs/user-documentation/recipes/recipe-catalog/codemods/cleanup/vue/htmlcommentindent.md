@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent indentation in HTML comments"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/htmlcommentindent"
 ---
 
 import Tabs from '@theme/Tabs';

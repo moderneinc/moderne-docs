@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce the location of single-line statements"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/nonblockstatementbodyposition"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Merge preprocessor directives"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/directivetriviarcs1222"
 ---
 
 import Tabs from '@theme/Tabs';

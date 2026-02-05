@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `System.out#println` statements"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removesystemoutprintln"
 ---
 
 import Tabs from '@theme/Tabs';

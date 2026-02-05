@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Micrometer best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/micrometer/micrometerbestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

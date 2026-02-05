@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `A.class::isInstance`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavapredicatesinstanceof"
 ---
 
 import Tabs from '@theme/Tabs';

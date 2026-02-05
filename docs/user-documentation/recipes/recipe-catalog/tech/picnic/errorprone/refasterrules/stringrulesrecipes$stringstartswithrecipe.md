@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StringRules.StringStartsWith`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringstartswithrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`Jackson3Rules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/jackson3rulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

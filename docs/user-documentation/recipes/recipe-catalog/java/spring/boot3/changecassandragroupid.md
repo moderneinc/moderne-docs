@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change `com.datastax.oss` to `org.apache.cassandra`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/changecassandragroupid"
 ---
 
 import Tabs from '@theme/Tabs';

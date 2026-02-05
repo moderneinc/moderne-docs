@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Delete content"
-canonical_url: "https://docs.openrewrite.org/recipes/hcl/deletecontent"
 ---
 
 import Tabs from '@theme/Tabs';

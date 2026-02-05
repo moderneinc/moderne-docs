@@ -28,7 +28,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate from Elasticsearch 8 to 9](/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratetoelasticsearch9.md)
+* [Migrate from Elasticsearch 8 to 9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratetoelasticsearch9)
 
 ## Example
 

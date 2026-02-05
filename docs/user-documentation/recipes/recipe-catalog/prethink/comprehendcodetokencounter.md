@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Estimate comprehension token usage"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/comprehendcodetokencounter"
 ---
 
 import Tabs from '@theme/Tabs';

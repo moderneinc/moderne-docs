@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename methods named `hashcode`, `equal`, or `tostring`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/renamemethodsnamedhashcodeequalortostring"
 ---
 
 import Tabs from '@theme/Tabs';

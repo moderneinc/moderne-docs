@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing inside braces"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/objectcurlyspacing"
 ---
 
 import Tabs from '@theme/Tabs';

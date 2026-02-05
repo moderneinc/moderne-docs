@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find method usages"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findmethods"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,7 +31,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Find Jackson default type mapping enablement](/user-documentation/recipes/recipe-catalog/java/security/search/findjacksondefaulttypemapping.md)
+* [Find Jackson default type mapping enablement](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/search/findjacksondefaulttypemapping)
 * [Find Virtual Thread opportunities](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findvirtualthreadopportunities.md)
 * [Find non-virtual `ExecutorService` creation](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findnonvirtualexecutors.md)
 * [Finds uses of `Encryptors.queryableText()`](/user-documentation/recipes/recipe-catalog/java/spring/security5/search/findencryptorsqueryabletextuses.md)

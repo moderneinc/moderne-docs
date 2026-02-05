@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `EqualityRules.Negation`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/equalityrulesrecipes$negationrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

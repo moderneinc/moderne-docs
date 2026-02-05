@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace runners for a job"
-canonical_url: "https://docs.openrewrite.org/recipes/github/replacerunners"
 ---
 
 import Tabs from '@theme/Tabs';

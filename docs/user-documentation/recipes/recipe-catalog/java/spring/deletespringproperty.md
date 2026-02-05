@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Delete a spring configuration property"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/deletespringproperty"
 ---
 
 import Tabs from '@theme/Tabs';

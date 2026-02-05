@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Static readonly fields should begin with upper-case letter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/renametouppercasesa1311"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJInstantRules.AssertThatIsStrictlyBetween`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisstrictlybetweenrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

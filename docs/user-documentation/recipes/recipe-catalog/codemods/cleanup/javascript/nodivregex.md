@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow equal signs explicitly at the beginning of regular expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nodivregex"
 ---
 
 import Tabs from '@theme/Tabs';

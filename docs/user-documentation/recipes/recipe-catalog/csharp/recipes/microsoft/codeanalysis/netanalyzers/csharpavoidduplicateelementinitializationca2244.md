@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not duplicate indexed element initializations"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpavoidduplicateelementinitializationca2244"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -29,7 +29,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Best practices for GCP](/user-documentation/recipes/recipe-catalog/terraform/gcp/gcpbestpractices.md)
+* [Best practices for GCP](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/gcp/gcpbestpractices)
 
 
 ## Usage

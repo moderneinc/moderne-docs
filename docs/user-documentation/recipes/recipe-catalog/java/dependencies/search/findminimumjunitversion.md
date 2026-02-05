@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find minimum JUnit version"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/search/findminimumjunitversion"
 ---
 
 import Tabs from '@theme/Tabs';

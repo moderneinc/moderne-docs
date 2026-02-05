@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Apply Gradle best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/gradlebestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

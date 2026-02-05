@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use predefined type"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usepredefinedtypercs1013"
 ---
 
 import Tabs from '@theme/Tabs';

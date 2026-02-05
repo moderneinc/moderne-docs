@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.ZonedDateTimePlusSeconds`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$zoneddatetimeplussecondsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

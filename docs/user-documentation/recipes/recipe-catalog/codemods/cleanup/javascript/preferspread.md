@@ -1,12 +1,11 @@
 ---
 sidebar_label: "Prefer the spread operator over `Array.from()`, `Array#concat()`, `Array#{slice,toSpliced}()` and `String#split('')`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferspread"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Prefer the spread operator over `Array.from()`, `Array#concat()`, `Array#{slice,toSpliced}()` and `String#split('')`
+# Prefer the spread operator over `Array.from()`, `Array#concat()`, `Array#\{slice,toSpliced\}()` and `String#split('')`
 
 **org.openrewrite.codemods.cleanup.javascript.PreferSpread**
 

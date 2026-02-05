@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Jersey Configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/addjerseyconfiguration"
 ---
 
 import Tabs from '@theme/Tabs';

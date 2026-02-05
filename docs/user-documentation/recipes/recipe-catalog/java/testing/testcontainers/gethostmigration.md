@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `ContainerState.getContainerIpAddress()` with `getHost()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/testcontainers/gethostmigration"
 ---
 
 import Tabs from '@theme/Tabs';

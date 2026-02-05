@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use the Regex source generator"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/useregexsourcegeneratorma0110"
 ---
 
 import Tabs from '@theme/Tabs';

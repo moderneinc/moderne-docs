@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `Thread.countStackFrames()` method"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/deprecatedcountstackframesmethod"
 ---
 
 import Tabs from '@theme/Tabs';

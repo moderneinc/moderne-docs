@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Camel bean recipe"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel40/java/camelbeanrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

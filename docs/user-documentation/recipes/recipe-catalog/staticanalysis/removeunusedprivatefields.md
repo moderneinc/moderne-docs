@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unused private fields"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removeunusedprivatefields"
 ---
 
 import Tabs from '@theme/Tabs';

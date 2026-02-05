@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `catch(Exception)` with specific declared exceptions thrown in the try block"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/onlycatchdeclaredexceptions"
 ---
 
 import Tabs from '@theme/Tabs';

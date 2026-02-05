@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Spring Boot properties to 3.4"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/springbootproperties_3_4-community-edition"
 ---
 
 import Tabs from '@theme/Tabs';

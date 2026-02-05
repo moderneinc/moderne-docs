@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Delete property by key"
-canonical_url: "https://docs.openrewrite.org/recipes/properties/deleteproperty"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,8 +32,8 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [JUnit 6 migration from JUnit 5.x](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
-* [Migrate to Kafka 4.0](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka40.md)
-* [Migrate to Kafka 4.1](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka41.md)
+* [Migrate to Kafka 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka40)
+* [Migrate to Kafka 4.1](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka41)
 * [Removed deprecated property camel.main.lightweight](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel411/removedlightweight.md)
 
 ## Example

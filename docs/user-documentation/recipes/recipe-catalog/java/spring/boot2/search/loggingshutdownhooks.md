@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Applications using logging shutdown hooks"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/search/loggingshutdownhooks"
 ---
 
 import Tabs from '@theme/Tabs';

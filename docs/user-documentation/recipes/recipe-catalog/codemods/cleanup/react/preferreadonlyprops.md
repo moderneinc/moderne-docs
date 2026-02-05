@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce that props are read-only"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/preferreadonlyprops"
 ---
 
 import Tabs from '@theme/Tabs';

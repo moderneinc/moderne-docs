@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt AssertJ Integer Assertions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/assertjintegerrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

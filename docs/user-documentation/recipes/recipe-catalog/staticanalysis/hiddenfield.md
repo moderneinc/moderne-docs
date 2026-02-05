@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Hidden field"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/hiddenfield"
 ---
 
 import Tabs from '@theme/Tabs';

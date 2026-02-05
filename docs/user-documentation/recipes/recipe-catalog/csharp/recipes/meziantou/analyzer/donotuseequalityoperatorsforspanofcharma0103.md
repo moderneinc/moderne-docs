@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use SequenceEqual instead of equality operator"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/donotuseequalityoperatorsforspanofcharma0103"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot JDBC with Quarkus Agroal"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootjdbctoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

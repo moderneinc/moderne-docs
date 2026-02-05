@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJObjectRules.AssertThatHasSameHashCodeAs`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthathassamehashcodeasrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

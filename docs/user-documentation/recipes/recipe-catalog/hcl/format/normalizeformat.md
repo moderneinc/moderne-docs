@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Normalize format"
-canonical_url: "https://docs.openrewrite.org/recipes/hcl/format/normalizeformat"
 ---
 
 import Tabs from '@theme/Tabs';

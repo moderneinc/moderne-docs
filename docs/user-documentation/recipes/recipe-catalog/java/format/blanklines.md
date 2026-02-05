@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Blank lines"
-canonical_url: "https://docs.openrewrite.org/recipes/java/format/blanklines"
 ---
 
 import Tabs from '@theme/Tabs';

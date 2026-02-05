@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Sorted set stream should be collected to LinkedHashSet"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/sortedsetstreamtolinkedhashset"
 ---
 
 import Tabs from '@theme/Tabs';

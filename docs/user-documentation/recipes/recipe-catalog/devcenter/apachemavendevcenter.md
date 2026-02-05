@@ -1,6 +1,5 @@
 ---
 sidebar_label: "DevCenter for Apache Maven"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/apachemavendevcenter"
 ---
 
 import Tabs from '@theme/Tabs';

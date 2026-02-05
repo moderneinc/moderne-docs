@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.split(String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/codehaus/plexus/plexusstringutilsrecipes$splitrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

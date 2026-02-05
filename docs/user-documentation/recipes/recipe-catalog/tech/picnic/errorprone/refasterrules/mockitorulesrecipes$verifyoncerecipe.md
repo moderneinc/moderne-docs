@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MockitoRules.VerifyOnce`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/mockitorulesrecipes$verifyoncerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

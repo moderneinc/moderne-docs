@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Spring Batch 6.0 from 5.2"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/batch/springbatch5to6migration"
 ---
 
 import Tabs from '@theme/Tabs';

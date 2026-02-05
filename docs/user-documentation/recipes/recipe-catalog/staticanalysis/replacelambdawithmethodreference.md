@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use method references in lambda"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replacelambdawithmethodreference"
 ---
 
 import Tabs from '@theme/Tabs';

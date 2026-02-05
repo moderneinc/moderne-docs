@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find methods that only use one DTO data element"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/search/finddtooverfetching"
 ---
 
 import Tabs from '@theme/Tabs';

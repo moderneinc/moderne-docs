@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adjust configuration classes to use the `WebServerFactoryCustomizer` interface"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/changeembeddedservletcontainercustomizer"
 ---
 
 import Tabs from '@theme/Tabs';

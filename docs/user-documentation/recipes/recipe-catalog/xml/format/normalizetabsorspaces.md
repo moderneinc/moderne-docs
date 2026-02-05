@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Normalize to tabs or spaces"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/format/normalizetabsorspaces"
 ---
 
 import Tabs from '@theme/Tabs';

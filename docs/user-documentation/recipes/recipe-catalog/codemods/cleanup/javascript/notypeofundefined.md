@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow comparing `undefined` using `typeof`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/notypeofundefined"
 ---
 
 import Tabs from '@theme/Tabs';

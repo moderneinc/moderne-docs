@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Operator overloads have named alternates"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/operatoroverloadshavenamedalternatesca2225"
 ---
 
 import Tabs from '@theme/Tabs';

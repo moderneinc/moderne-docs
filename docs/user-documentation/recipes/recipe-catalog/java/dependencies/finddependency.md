@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Maven and Gradle dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/finddependency"
 ---
 
 import Tabs from '@theme/Tabs';

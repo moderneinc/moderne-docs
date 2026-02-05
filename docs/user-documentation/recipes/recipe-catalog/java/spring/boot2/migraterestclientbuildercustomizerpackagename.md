@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `RestClientBuilderCustomizer`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migraterestclientbuildercustomizerpackagename"
 ---
 
 import Tabs from '@theme/Tabs';

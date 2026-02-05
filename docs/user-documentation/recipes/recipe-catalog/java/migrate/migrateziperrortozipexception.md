@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `ZipException` instead of `ZipError`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/migrateziperrortozipexception"
 ---
 
 import Tabs from '@theme/Tabs';

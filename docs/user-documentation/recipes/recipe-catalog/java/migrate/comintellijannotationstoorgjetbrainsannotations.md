@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate com.intellij:annotations to org.jetbrains:annotations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/comintellijannotationstoorgjetbrainsannotations"
 ---
 
 import Tabs from '@theme/Tabs';

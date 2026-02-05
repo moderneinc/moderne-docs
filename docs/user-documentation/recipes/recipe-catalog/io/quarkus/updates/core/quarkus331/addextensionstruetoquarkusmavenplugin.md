@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add &lt;extensions&gt;true&lt;/extensions&gt; to quarkus-maven-plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus331/addextensionstruetoquarkusmavenplugin"
 ---
 
 import Tabs from '@theme/Tabs';

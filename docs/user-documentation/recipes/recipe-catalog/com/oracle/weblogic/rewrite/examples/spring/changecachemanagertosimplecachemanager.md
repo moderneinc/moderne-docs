@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change cacheManager to use the SimpleCacheManager"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/examples/spring/changecachemanagertosimplecachemanager"
 ---
 
 import Tabs from '@theme/Tabs';

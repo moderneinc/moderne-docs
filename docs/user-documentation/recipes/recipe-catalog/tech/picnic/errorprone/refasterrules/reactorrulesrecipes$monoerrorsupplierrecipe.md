@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.MonoErrorSupplier`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monoerrorsupplierrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

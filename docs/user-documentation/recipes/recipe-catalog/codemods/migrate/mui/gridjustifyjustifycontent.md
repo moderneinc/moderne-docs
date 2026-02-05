@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `justify` prop to `justifyContent` for Grid component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/gridjustifyjustifycontent"
 ---
 
 import Tabs from '@theme/Tabs';

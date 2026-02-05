@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Delete Quarkus configuration property"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/deletequarkusproperty"
 ---
 
 import Tabs from '@theme/Tabs';

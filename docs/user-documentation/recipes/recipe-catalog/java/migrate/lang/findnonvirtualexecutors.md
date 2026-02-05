@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find non-virtual `ExecutorService` creation"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/findnonvirtualexecutors"
 ---
 
 import Tabs from '@theme/Tabs';

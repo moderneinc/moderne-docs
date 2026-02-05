@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Spring Boot Actuator"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/migratehealthchecksandmetrics"
 ---
 
 import Tabs from '@theme/Tabs';

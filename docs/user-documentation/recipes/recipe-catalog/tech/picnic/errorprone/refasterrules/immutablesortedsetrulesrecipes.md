@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`ImmutableSortedSetRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

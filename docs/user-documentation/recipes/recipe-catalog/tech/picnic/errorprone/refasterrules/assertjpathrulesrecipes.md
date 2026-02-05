@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster rules related to AssertJ assertions over `Path`s"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjpathrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

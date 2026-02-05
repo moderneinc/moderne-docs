@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use coalesce expression"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usecoalesceexpressionrcs1128"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent linebreak style for operators"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/operatorlinebreak"
 ---
 
 import Tabs from '@theme/Tabs';

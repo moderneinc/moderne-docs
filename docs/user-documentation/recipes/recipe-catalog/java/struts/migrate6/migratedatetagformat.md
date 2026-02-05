@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Struts date tag format patterns"
-canonical_url: "https://docs.openrewrite.org/recipes/java/struts/migrate6/migratedatetagformat"
 ---
 
 import Tabs from '@theme/Tabs';

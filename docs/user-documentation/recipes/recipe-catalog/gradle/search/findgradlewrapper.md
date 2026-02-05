@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Gradle wrappers"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/search/findgradlewrapper"
 ---
 
 import Tabs from '@theme/Tabs';

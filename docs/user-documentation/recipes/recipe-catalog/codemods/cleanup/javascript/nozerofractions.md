@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow number literals with zero fractions or dangling dots"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nozerofractions"
 ---
 
 import Tabs from '@theme/Tabs';

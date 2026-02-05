@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not use a `for` loop that can be replaced with a `for-of` loop"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noforloop"
 ---
 
 import Tabs from '@theme/Tabs';

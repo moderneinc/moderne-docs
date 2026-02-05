@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus312.SyncHibernateJpaModelgenVersionWithBOM"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus312/synchibernatejpamodelgenversionwithbom"
 ---
 
 import Tabs from '@theme/Tabs';

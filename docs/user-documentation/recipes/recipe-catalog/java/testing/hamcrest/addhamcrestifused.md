@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add `org.hamcrest:hamcrest` if it is used"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/hamcrest/addhamcrestifused"
 ---
 
 import Tabs from '@theme/Tabs';

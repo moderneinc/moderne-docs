@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use &quot;&quot; or 'string.Empty'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useemptystringliteralorstringemptyrcs1078"
 ---
 
 import Tabs from '@theme/Tabs';

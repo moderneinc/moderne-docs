@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update relocated Micronaut Security config yaml keys"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/updatesecurityyamlifneeded"
 ---
 
 import Tabs from '@theme/Tabs';

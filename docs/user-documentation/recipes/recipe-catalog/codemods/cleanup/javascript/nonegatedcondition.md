@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow negated conditions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nonegatedcondition"
 ---
 
 import Tabs from '@theme/Tabs';

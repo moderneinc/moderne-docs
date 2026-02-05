@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `UserType` to Hibernate 6 (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/hibernate/migrateusertype"
 ---
 
 import Tabs from '@theme/Tabs';

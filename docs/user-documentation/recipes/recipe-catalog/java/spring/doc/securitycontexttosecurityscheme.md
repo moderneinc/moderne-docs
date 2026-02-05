@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace elements of SpringFox's security with Swagger's security models"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/doc/securitycontexttosecurityscheme"
 ---
 
 import Tabs from '@theme/Tabs';

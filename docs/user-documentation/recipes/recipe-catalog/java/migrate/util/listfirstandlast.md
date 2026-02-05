@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `List.get(int)`, `add(int, Object)`, and `remove(int)` with `SequencedCollection` `*First` and `*Last` methods"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/listfirstandlast"
 ---
 
 import Tabs from '@theme/Tabs';

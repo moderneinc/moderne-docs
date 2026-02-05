@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates theme breakpoints"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/themebreakpoints"
 ---
 
 import Tabs from '@theme/Tabs';

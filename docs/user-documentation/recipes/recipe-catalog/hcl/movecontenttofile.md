@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Move content to another file"
-canonical_url: "https://docs.openrewrite.org/recipes/hcl/movecontenttofile"
 ---
 
 import Tabs from '@theme/Tabs';

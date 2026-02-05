@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce a convention in module import order"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/order"
 ---
 
 import Tabs from '@theme/Tabs';

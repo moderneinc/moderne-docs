@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus36.JaegerSmallRyeOpenTracing"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus36/jaegersmallryeopentracing"
 ---
 
 import Tabs from '@theme/Tabs';

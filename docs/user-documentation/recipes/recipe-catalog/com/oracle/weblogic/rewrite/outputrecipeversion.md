@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Output Recipe Version"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/outputrecipeversion"
 ---
 
 import Tabs from '@theme/Tabs';

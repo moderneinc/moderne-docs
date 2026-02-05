@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use AsSpan or AsMemory instead of Range-based indexers when appropriate"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpuseasspaninsteadofrangeindexerca1833"
 ---
 
 import Tabs from '@theme/Tabs';

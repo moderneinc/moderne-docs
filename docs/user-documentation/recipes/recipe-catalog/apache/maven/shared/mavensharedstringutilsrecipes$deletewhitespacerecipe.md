@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.deleteWhitespace(String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/maven/shared/mavensharedstringutilsrecipes$deletewhitespacerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

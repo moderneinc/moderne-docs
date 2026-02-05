@@ -1,6 +1,5 @@
 ---
 sidebar_label: "ArchUnit 0.x upgrade"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/archunit/archunit0to1migration"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce location of semicolons"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/semistyle"
 ---
 
 import Tabs from '@theme/Tabs';

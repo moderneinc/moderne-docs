@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJFileRules.AssertThatDoesNotExist`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjfilerulesrecipes$assertthatdoesnotexistrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

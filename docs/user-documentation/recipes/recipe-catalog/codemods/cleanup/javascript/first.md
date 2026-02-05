@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Ensure all imports appear before other statements"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/first"
 ---
 
 import Tabs from '@theme/Tabs';

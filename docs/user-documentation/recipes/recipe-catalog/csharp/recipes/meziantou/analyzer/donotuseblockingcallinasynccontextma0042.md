@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not use blocking calls in an async method"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/donotuseblockingcallinasynccontextma0042"
 ---
 
 import Tabs from '@theme/Tabs';

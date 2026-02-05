@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove useless OrderBy call"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/optimizelinqusagema0030"
 ---
 
 import Tabs from '@theme/Tabs';

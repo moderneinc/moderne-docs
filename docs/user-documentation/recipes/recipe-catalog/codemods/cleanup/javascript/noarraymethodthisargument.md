@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow using the `this` argument in array methods"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noarraymethodthisargument"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use JUnit5's `assertSame` or `assertNotSame` instead of `assertTrue(... == ...)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/useassertsame"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Comment out property"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/commentoutproperty"
 ---
 
 import Tabs from '@theme/Tabs';

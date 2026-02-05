@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow useless `undefined`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nouselessundefined"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace lower and upper case `String` comparisons with `String.equalsIgnoreCase(String)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/stringrulesrecipes$useequalsignorecaserecipe"
 ---
 
 import Tabs from '@theme/Tabs';

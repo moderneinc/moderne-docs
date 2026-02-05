@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `FileUtils.getFile(String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/codehaus/plexus/plexusfileutilsrecipes$getfilerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

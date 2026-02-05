@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace String literals with `MediaType` constants"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/http/replacestringliteralswithmediatypeconstants"
 ---
 
 import Tabs from '@theme/Tabs';

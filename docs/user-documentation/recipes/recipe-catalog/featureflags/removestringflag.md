@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove a String feature flag for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/removestringflag"
 ---
 
 import Tabs from '@theme/Tabs';

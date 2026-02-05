@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Google Truth to AssertJ"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/truth/migratetruthtoassertj"
 ---
 
 import Tabs from '@theme/Tabs';

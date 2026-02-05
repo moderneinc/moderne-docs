@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Spring Framework 5.3"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/upgradespringframework_5_3-community-edition"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -114,7 +113,7 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 2.4](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_4.md)
-* [Migrate to Spring Framework 5.3](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-moderne-edition.md)
+* [Migrate to Spring Framework 5.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-moderne-edition)
 * [Migrate to Spring Framework 6.0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0.md)
 
 

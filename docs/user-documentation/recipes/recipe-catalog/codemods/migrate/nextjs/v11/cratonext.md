@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename Next Image Imports"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v11/cratonext"
 ---
 
 import Tabs from '@theme/Tabs';

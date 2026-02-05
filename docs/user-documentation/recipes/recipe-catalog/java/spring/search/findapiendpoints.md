@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Spring API endpoints"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/search/findapiendpoints"
 ---
 
 import Tabs from '@theme/Tabs';

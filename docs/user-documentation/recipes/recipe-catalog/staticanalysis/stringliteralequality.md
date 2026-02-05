@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `String.equals()` on `String` literals"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/stringliteralequality"
 ---
 
 import Tabs from '@theme/Tabs';

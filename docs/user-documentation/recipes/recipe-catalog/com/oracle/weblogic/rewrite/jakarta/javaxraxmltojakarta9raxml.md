@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `ra.xml` files (Connectors)."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxraxmltojakarta9raxml"
 ---
 
 import Tabs from '@theme/Tabs';

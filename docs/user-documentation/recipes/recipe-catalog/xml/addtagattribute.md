@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add new XML attribute for an Element"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/addtagattribute"
 ---
 
 import Tabs from '@theme/Tabs';

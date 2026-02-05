@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`RxJava2AdapterRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

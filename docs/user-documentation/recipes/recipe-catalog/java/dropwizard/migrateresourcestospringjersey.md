@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Resource Classes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/migrateresourcestospringjersey"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove garbage collection invocations"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removecallstosystemgc"
 ---
 
 import Tabs from '@theme/Tabs';

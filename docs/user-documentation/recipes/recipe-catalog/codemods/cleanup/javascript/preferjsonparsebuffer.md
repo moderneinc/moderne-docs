@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer reading a JSON file as a buffer"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferjsonparsebuffer"
 ---
 
 import Tabs from '@theme/Tabs';

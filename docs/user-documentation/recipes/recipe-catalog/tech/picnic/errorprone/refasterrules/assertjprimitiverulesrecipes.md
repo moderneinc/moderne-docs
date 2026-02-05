@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`AssertJPrimitiveRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjprimitiverulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

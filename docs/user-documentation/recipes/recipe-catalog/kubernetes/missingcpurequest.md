@@ -27,7 +27,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Kubernetes best practices](/user-documentation/recipes/recipe-catalog/kubernetes/kubernetesbestpractices.md)
+* [Kubernetes best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/kubernetesbestpractices)
 
 
 ## Usage

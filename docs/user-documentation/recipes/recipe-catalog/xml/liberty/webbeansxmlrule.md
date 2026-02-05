@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace beans.xml file"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/liberty/webbeansxmlrule"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Faces open source libraries"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/upgradefaces3opensourcelibraries"
 ---
 
 import Tabs from '@theme/Tabs';

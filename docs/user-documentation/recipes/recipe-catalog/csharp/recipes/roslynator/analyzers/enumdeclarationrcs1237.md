@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Use bit shift operator"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/enumdeclarationrcs1237"
 ---
 
 import Tabs from '@theme/Tabs';

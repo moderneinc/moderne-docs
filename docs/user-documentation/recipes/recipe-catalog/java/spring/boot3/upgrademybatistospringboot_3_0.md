@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade MyBatis to Spring Boot 3.0"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/upgrademybatistospringboot_3_0"
 ---
 
 import Tabs from '@theme/Tabs';

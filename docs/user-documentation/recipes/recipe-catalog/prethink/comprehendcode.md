@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Comprehend code with AI"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/comprehendcode"
 ---
 
 import Tabs from '@theme/Tabs';

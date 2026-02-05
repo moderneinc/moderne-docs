@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unconstrained type parameter checked for null"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1165"
 ---
 
 import Tabs from '@theme/Tabs';

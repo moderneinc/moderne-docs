@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames `collapsedHeight` prop to `transitionCollapsedHeight`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/collapserenamecollapsedheight"
 ---
 
 import Tabs from '@theme/Tabs';

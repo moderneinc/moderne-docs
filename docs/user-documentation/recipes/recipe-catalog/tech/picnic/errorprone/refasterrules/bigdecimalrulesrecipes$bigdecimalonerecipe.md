@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `BigDecimalRules.BigDecimalOne`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalonerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

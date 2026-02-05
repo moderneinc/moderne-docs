@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `PrimitiveRules.IntegerSignumIsNegative`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$integersignumisnegativerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

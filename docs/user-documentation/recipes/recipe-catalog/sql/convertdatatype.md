@@ -30,8 +30,8 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Convert Oracle data types to PostgreSQL](/user-documentation/recipes/recipe-catalog/sql/convertoracledatatypestopostgres.md)
-* [Convert SQL Server data types to PostgreSQL](/user-documentation/recipes/recipe-catalog/sql/convertsqlserverdatatypestopostgres.md)
+* [Convert Oracle data types to PostgreSQL](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/sql/convertoracledatatypestopostgres)
+* [Convert SQL Server data types to PostgreSQL](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/sql/convertsqlserverdatatypestopostgres)
 
 
 ## Usage

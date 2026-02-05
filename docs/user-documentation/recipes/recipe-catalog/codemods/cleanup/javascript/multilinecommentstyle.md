@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce a particular style for multiline comments"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/multilinecommentstyle"
 ---
 
 import Tabs from '@theme/Tabs';

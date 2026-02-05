@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`MockitoRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/mockitorulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

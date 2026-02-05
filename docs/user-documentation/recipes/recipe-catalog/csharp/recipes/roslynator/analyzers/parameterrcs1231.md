@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Make parameter ref read-only"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/parameterrcs1231"
 ---
 
 import Tabs from '@theme/Tabs';

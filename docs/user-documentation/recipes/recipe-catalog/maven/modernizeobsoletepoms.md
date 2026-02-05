@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Modernize obsolete Maven poms"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/modernizeobsoletepoms"
 ---
 
 import Tabs from '@theme/Tabs';

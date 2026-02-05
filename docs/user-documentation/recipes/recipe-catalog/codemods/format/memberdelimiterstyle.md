@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require a specific member delimiter style for interfaces and type literals"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/memberdelimiterstyle"
 ---
 
 import Tabs from '@theme/Tabs';

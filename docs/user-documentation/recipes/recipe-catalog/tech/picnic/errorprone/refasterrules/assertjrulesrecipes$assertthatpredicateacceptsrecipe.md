@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJRules.AssertThatPredicateAccepts`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatpredicateacceptsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

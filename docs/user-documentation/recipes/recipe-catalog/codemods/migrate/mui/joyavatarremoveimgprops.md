@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Removes `imgProps` prop from Avatar component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/joyavatarremoveimgprops"
 ---
 
 import Tabs from '@theme/Tabs';

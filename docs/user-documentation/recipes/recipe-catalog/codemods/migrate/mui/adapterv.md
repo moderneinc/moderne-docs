@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Converts components to use the v4 adapter module"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/adapterv"
 ---
 
 import Tabs from '@theme/Tabs';

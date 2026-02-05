@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CollectionRules.ImmutableCollectionContains`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$immutablecollectioncontainsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

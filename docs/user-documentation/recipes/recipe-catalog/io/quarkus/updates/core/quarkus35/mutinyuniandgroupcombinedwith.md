@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus35.MutinyUniAndGroupCombinedWith"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus35/mutinyuniandgroupcombinedwith"
 ---
 
 import Tabs from '@theme/Tabs';

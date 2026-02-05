@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Locale.of(..)` over `new Locale(..)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/uselocaleof"
 ---
 
 import Tabs from '@theme/Tabs';

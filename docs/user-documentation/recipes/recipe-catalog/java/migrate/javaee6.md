@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to JavaEE6"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javaee6"
 ---
 
 import Tabs from '@theme/Tabs';

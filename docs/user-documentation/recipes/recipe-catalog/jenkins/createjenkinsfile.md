@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Create Jenkinsfile"
-canonical_url: "https://docs.openrewrite.org/recipes/jenkins/createjenkinsfile"
 ---
 
 import Tabs from '@theme/Tabs';

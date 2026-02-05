@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertLiteralBooleanToFail.WithoutMessage`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/cleanup/assertliteralbooleantofailrecipes$withoutmessagerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce proper case for numeric literals"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/numberliteralcase"
 ---
 
 import Tabs from '@theme/Tabs';

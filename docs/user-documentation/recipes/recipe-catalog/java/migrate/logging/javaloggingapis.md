@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use modernized `java.util.logging` APIs"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/logging/javaloggingapis"
 ---
 
 import Tabs from '@theme/Tabs';

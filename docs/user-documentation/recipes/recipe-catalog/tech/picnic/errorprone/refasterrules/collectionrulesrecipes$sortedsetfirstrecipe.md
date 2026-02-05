@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CollectionRules.SortedSetFirst`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$sortedsetfirstrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

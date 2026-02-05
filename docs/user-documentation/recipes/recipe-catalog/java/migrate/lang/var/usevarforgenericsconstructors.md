@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Apply `var` to Generic Constructors"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/var/usevarforgenericsconstructors"
 ---
 
 import Tabs from '@theme/Tabs';

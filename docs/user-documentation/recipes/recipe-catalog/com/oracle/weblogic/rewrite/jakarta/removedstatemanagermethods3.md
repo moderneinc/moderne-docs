@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `StateManagementStrategy`"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/removedstatemanagermethods3"
 ---
 
 import Tabs from '@theme/Tabs';

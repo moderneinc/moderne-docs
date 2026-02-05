@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use string.Create instead of FormattableString"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usestringcreateinsteadofformattablestringma0111"
 ---
 
 import Tabs from '@theme/Tabs';

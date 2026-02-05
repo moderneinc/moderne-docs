@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `SSLSession.getPeerCertificateChain()` method"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedsslsessiongetpeercertificatechainmethodimpl"
 ---
 
 import Tabs from '@theme/Tabs';

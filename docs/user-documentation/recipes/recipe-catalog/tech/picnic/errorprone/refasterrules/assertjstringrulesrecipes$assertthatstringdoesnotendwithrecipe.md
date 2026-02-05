@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJStringRules.AssertThatStringDoesNotEndWith`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatstringdoesnotendwithrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

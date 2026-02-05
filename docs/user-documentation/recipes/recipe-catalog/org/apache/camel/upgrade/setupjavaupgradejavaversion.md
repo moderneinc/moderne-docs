@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade `actions/setup-java` `java-version`"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/setupjavaupgradejavaversion"
 ---
 
 import Tabs from '@theme/Tabs';

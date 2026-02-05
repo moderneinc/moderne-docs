@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `DiskSpaceHealthIndicator(File, DataSize)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migratediskspacehealthindicatorconstructor"
 ---
 
 import Tabs from '@theme/Tabs';

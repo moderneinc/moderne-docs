@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StringRules.Utf8EncodedLength`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/stringrulesrecipes$utf8encodedlengthrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

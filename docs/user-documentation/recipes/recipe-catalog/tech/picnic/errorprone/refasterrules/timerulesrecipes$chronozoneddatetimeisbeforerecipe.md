@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.ChronoZonedDateTimeIsBefore`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$chronozoneddatetimeisbeforerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

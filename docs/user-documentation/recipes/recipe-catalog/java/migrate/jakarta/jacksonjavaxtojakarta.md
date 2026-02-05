@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Jackson from javax to jakarta namespace"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/jacksonjavaxtojakarta"
 ---
 
 import Tabs from '@theme/Tabs';

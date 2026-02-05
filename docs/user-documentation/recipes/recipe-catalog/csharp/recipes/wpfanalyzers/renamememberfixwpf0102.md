@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Name of the event should match registered name"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/renamememberfixwpf0102"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Struts 7.0"
-canonical_url: "https://docs.openrewrite.org/recipes/java/struts/migrate7/migratestruts7"
 ---
 
 import Tabs from '@theme/Tabs';

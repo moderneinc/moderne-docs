@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `javax.lang.model.util.SimpleAnnotationValueVisitor9`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/migratesimpleannotationvaluevisitor6to9"
 ---
 
 import Tabs from '@theme/Tabs';

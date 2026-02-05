@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow spacing around the &amp;#x60;*&amp;#x60; in &amp;#x60;yield*&amp;#x60; expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/yieldstarspacing"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove a boolean feature flag for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/removebooleanflag"
 ---
 
 import Tabs from '@theme/Tabs';

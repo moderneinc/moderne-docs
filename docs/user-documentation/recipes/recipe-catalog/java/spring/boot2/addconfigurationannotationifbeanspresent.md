@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add missing `@Configuration` annotation"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/addconfigurationannotationifbeanspresent"
 ---
 
 import Tabs from '@theme/Tabs';

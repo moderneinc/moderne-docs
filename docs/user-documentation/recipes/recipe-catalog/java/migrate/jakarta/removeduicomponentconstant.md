@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` with `getCurrentComponent()` and `getCurrentCompositeComponent()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/removeduicomponentconstant"
 ---
 
 import Tabs from '@theme/Tabs';

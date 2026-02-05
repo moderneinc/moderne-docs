@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find obfuscated GitHub Actions features"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/obfuscationrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

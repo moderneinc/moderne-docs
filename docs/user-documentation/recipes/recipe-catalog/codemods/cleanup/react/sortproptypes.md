@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce propTypes declarations alphabetical sorting"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/sortproptypes"
 ---
 
 import Tabs from '@theme/Tabs';

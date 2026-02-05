@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find plain text secrets"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findsecrets"
 ---
 
 import Tabs from '@theme/Tabs';

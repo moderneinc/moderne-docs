@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add 'typeparam' element to documentation comment"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/singlelinedocumentationcommenttriviarcs1142"
 ---
 
 import Tabs from '@theme/Tabs';

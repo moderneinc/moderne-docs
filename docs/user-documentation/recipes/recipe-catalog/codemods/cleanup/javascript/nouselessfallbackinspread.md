@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow useless fallback when spreading in object literals"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nouselessfallbackinspread"
 ---
 
 import Tabs from '@theme/Tabs';

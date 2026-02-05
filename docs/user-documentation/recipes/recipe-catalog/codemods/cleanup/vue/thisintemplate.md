@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow usage of this in template"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/thisintemplate"
 ---
 
 import Tabs from '@theme/Tabs';

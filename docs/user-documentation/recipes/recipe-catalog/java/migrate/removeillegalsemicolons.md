@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove illegal semicolons"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removeillegalsemicolons"
 ---
 
 import Tabs from '@theme/Tabs';

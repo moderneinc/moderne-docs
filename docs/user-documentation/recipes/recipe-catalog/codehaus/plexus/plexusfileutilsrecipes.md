@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`PlexusFileUtils` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/codehaus/plexus/plexusfileutilsrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

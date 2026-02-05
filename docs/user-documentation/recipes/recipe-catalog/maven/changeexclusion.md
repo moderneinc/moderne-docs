@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Maven dependency exclusion"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/changeexclusion"
 ---
 
 import Tabs from '@theme/Tabs';

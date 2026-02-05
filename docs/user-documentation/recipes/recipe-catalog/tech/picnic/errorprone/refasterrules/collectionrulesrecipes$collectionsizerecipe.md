@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CollectionRules.CollectionSize`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$collectionsizerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce line breaks after each array element"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/arrayelementnewline"
 ---
 
 import Tabs from '@theme/Tabs';

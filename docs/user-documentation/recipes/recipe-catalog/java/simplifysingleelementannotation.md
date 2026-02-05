@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify single-element annotation"
-canonical_url: "https://docs.openrewrite.org/recipes/java/simplifysingleelementannotation"
 ---
 
 import Tabs from '@theme/Tabs';

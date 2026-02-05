@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to New Spring Cloud Gateway Modules and Starters"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/cloud2025/springcloudgatewaydeprecatedmodulesandstarters"
 ---
 
 import Tabs from '@theme/Tabs';

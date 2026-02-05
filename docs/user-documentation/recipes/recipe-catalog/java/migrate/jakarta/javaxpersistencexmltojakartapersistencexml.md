@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `persistence.xml` files"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxpersistencexmltojakartapersistencexml"
 ---
 
 import Tabs from '@theme/Tabs';

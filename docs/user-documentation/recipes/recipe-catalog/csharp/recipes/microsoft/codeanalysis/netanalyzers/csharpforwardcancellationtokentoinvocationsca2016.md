@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Forward the 'CancellationToken' parameter to methods"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpforwardcancellationtokentoinvocationsca2016"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to testcontainers-java 2.x"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/testcontainers/testcontainers2migration"
 ---
 
 import Tabs from '@theme/Tabs';

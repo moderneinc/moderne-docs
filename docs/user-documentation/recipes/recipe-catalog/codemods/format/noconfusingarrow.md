@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow arrow functions where they could be confused with comparisons"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/noconfusingarrow"
 ---
 
 import Tabs from '@theme/Tabs';

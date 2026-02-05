@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove class variables matching package filter"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/general/removevariablesbypackage"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJStringRules.AssertThatStringStartsWith`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatstringstartswithrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

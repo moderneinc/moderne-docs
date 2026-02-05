@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Append to sequence"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/appendtosequence"
 ---
 
 import Tabs from '@theme/Tabs';

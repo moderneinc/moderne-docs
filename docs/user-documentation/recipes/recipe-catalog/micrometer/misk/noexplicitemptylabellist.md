@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Don't use an explicit empty label list"
-canonical_url: "https://docs.openrewrite.org/recipes/micrometer/misk/noexplicitemptylabellist"
 ---
 
 import Tabs from '@theme/Tabs';

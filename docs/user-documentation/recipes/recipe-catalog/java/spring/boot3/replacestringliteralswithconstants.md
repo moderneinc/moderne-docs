@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace String literals with Spring constants"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/replacestringliteralswithconstants"
 ---
 
 import Tabs from '@theme/Tabs';

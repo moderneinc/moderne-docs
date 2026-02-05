@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `@RequestMapping` annotations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/norequestmappingannotation"
 ---
 
 import Tabs from '@theme/Tabs';

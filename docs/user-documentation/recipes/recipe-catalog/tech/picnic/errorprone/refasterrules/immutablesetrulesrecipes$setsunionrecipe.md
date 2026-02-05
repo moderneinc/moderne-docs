@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableSetRules.SetsUnion`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesetrulesrecipes$setsunionrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

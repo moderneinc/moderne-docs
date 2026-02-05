@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`"
-canonical_url: "https://docs.openrewrite.org/recipes/node/migrate/buffer/replace-slow-buffer"
 ---
 
 import Tabs from '@theme/Tabs';

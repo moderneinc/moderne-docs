@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Suggest using toContain()"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/prefertocontain"
 ---
 
 import Tabs from '@theme/Tabs';

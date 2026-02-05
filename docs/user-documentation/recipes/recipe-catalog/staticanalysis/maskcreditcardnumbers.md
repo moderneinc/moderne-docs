@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Mask credit card numbers"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/maskcreditcardnumbers"
 ---
 
 import Tabs from '@theme/Tabs';

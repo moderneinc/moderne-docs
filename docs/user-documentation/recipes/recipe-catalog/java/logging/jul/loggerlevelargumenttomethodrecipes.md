@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUL Level arguments with the corresponding method calls"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/jul/loggerlevelargumenttomethodrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

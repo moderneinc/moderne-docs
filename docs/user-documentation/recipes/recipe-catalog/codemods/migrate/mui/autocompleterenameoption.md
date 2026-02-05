@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames `option` prop to `getOptionLabel`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/autocompleterenameoption"
 ---
 
 import Tabs from '@theme/Tabs';

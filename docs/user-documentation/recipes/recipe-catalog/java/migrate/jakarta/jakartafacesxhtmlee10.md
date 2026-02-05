@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Faces XHTML migration for Jakarta EE 10"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/jakartafacesxhtmlee10"
 ---
 
 import Tabs from '@theme/Tabs';

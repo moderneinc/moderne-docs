@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StreamRules.StreamFlatMapCollect`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamflatmapcollectrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

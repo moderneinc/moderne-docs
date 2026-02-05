@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Data JPA with Quarkus Hibernate ORM Panache"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootdatajpatoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

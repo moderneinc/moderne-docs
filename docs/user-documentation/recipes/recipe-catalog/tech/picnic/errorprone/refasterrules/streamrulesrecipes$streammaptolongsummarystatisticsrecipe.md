@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StreamRules.StreamMapToLongSummaryStatistics`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streammaptolongsummarystatisticsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

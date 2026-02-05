@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use JUnit Jupiter `@Disabled`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/ignoretodisabled"
 ---
 
 import Tabs from '@theme/Tabs';

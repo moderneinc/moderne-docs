@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Forward the CancellationToken parameter to methods that take one"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/useanoverloadthathascancellationtokenfixer_argumentma0040"
 ---
 
 import Tabs from '@theme/Tabs';

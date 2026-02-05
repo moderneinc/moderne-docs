@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add `javax.validation-api` dependency"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/maybeaddjavaxvalidationapi"
 ---
 
 import Tabs from '@theme/Tabs';

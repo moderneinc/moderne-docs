@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use wiremock extension"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/usewiremockextension"
 ---
 
 import Tabs from '@theme/Tabs';

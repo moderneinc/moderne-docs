@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove a Gradle dependency"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/removedependency"
 ---
 
 import Tabs from '@theme/Tabs';

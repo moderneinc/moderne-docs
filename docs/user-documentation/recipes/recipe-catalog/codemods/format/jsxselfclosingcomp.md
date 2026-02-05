@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow extra closing tags for components without children"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxselfclosingcomp"
 ---
 
 import Tabs from '@theme/Tabs';

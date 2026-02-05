@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Jackson best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/jacksonbestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

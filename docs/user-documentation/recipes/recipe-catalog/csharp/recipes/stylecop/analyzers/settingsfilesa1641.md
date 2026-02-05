@@ -1,6 +1,5 @@
 ---
 sidebar_label: "File header company name text should match"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/settingsfilesa1641"
 ---
 
 import Tabs from '@theme/Tabs';

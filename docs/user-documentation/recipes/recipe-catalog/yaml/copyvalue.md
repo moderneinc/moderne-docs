@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Copy YAML value"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/copyvalue"
 ---
 
 import Tabs from '@theme/Tabs';

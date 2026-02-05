@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus39.Relocations"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus39/relocations"
 ---
 
 import Tabs from '@theme/Tabs';

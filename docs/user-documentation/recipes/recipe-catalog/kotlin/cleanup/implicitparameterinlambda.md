@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`it` shouldn't be used as a lambda parameter name"
-canonical_url: "https://docs.openrewrite.org/recipes/kotlin/cleanup/implicitparameterinlambda"
 ---
 
 import Tabs from '@theme/Tabs';

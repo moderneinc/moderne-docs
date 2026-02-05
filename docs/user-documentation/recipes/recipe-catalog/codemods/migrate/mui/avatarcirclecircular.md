@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `circle` prop to `variant=&quot;circular&quot;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/avatarcirclecircular"
 ---
 
 import Tabs from '@theme/Tabs';

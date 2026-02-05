@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`CharSequenceRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/charsequencerulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

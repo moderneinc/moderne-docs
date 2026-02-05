@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find data assets"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/calm/finddataassets"
 ---
 
 import Tabs from '@theme/Tabs';

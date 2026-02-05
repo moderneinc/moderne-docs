@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Expect space before the type declaration in the named tuple"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/typenamedtuplespacing"
 ---
 
 import Tabs from '@theme/Tabs';

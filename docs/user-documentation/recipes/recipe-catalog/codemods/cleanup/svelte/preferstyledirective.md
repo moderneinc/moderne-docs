@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require style directives instead of style attribute"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/preferstyledirective"
 ---
 
 import Tabs from '@theme/Tabs';

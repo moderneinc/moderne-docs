@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperIdentity`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/bugcheckerrulesrecipes$bugcheckerrefactoringtesthelperidentityrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

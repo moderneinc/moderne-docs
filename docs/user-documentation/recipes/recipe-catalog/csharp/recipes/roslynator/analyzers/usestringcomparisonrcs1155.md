@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use StringComparison when comparing strings"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usestringcomparisonrcs1155"
 ---
 
 import Tabs from '@theme/Tabs';

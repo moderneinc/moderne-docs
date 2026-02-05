@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJIterableRules.AssertThatIterableHasOneElementEqualTo`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterablehasoneelementequaltorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

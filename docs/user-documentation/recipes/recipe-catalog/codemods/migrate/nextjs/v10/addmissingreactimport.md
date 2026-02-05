@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add React imports"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v10/addmissingreactimport"
 ---
 
 import Tabs from '@theme/Tabs';

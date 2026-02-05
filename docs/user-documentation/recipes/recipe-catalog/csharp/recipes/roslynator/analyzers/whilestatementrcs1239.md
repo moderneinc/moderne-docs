@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use 'for' statement instead of 'while' statement"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/whilestatementrcs1239"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find compile errors"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findcompileerrors"
 ---
 
 import Tabs from '@theme/Tabs';

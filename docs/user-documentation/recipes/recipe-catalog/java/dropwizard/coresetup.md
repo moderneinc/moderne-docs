@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Create Spring Boot Application Entry Point"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/coresetup"
 ---
 
 import Tabs from '@theme/Tabs';

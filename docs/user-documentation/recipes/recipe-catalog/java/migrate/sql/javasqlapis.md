@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use modernized `java.sql` APIs"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/sql/javasqlapis"
 ---
 
 import Tabs from '@theme/Tabs';

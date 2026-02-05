@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Return String `jks` when  `KeyStore.getDefaultType()` is called"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/changedefaultkeystore"
 ---
 
 import Tabs from '@theme/Tabs';

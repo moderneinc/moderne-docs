@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add scope annotation to injected classes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/addscopetoinjectedclass"
 ---
 
 import Tabs from '@theme/Tabs';

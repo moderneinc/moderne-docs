@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `DequeRules.DequePollFirst`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/dequerulesrecipes$dequepollfirstrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

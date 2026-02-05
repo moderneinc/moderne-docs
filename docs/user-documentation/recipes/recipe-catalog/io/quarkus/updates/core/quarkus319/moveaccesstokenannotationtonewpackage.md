@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus319.MoveAccessTokenAnnotationToNewPackage"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus319/moveaccesstokenannotationtonewpackage"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Kafka with Quarkus Kafka Client"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springkafkatoquarkusclassic"
 ---
 
 import Tabs from '@theme/Tabs';

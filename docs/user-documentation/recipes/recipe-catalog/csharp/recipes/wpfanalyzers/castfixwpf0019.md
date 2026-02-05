@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Cast sender to correct type"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/castfixwpf0019"
 ---
 
 import Tabs from '@theme/Tabs';

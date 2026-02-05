@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce props indentation in JSX"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxindentprops"
 ---
 
 import Tabs from '@theme/Tabs';

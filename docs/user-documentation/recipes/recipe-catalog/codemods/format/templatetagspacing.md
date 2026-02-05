@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow spacing between template tags and their literals"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/templatetagspacing"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -28,7 +28,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Spring Cloud 2025.1](/user-documentation/recipes/recipe-catalog/java/spring/cloud20251/upgradespringcloud_2025_1.md)
+* [Upgrade to Spring Cloud 2025.1](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/cloud20251/upgradespringcloud_2025_1)
 
 ## Examples
 ##### Example 1

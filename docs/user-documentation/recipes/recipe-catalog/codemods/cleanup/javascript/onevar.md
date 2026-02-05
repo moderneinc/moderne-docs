@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce variables to be declared either together or separately in functions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/onevar"
 ---
 
 import Tabs from '@theme/Tabs';

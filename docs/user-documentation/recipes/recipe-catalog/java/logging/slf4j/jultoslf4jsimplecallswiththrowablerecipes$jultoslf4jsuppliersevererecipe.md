@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUL `logger.log(Level.SEVERE, String message, Throwable e)` with SLF4J's `Logger.error(message, e)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/slf4j/jultoslf4jsimplecallswiththrowablerecipes$jultoslf4jsuppliersevererecipe"
 ---
 
 import Tabs from '@theme/Tabs';

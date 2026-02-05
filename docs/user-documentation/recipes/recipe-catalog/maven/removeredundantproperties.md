@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant properties"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/removeredundantproperties"
 ---
 
 import Tabs from '@theme/Tabs';

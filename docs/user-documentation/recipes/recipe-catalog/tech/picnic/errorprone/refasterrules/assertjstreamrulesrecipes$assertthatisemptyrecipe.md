@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJStreamRules.AssertThatIsEmpty`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatisemptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

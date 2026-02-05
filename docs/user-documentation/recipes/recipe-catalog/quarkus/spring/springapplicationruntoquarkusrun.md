@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `SpringApplication.run()` with `Quarkus.run()`"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springapplicationruntoquarkusrun"
 ---
 
 import Tabs from '@theme/Tabs';

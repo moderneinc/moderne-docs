@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify lambda blocks to expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/lambdablocktoexpression"
 ---
 
 import Tabs from '@theme/Tabs';

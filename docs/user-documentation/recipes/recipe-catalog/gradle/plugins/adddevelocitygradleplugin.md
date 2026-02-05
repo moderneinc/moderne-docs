@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add the Develocity Gradle plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/plugins/adddevelocitygradleplugin"
 ---
 
 import Tabs from '@theme/Tabs';

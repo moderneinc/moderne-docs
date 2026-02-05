@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use EventArgs.Empty"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/objectcreationexpressionrcs1204"
 ---
 
 import Tabs from '@theme/Tabs';

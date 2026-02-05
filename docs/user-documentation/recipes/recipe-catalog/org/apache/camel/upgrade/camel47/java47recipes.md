@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change of headers with embedded HTTP server (consumer)"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel47/java47recipes"
 ---
 
 import Tabs from '@theme/Tabs';

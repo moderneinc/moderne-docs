@@ -1,6 +1,5 @@
 ---
 sidebar_label: "CLR method for a DependencyProperty must match registered name"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/renamememberfixwpf0004"
 ---
 
 import Tabs from '@theme/Tabs';

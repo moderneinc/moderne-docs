@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Story files should have a default export"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/storybook/defaultexports"
 ---
 
 import Tabs from '@theme/Tabs';

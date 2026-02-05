@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Converts JSS styles to styled-components"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/jsstostyled"
 ---
 
 import Tabs from '@theme/Tabs';

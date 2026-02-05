@@ -1,6 +1,5 @@
 ---
 sidebar_label: "XML style Auto-detection debug"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/style/autodetectdebug"
 ---
 
 import Tabs from '@theme/Tabs';

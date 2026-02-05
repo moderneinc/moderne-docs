@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow Jasmine globals"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/nojasmineglobals"
 ---
 
 import Tabs from '@theme/Tabs';

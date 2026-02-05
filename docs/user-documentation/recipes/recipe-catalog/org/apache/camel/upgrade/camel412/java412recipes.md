@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Camel Java DSL change for camel 4.12"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel412/java412recipes"
 ---
 
 import Tabs from '@theme/Tabs';

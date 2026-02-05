@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `WebMvcConfigurerAdapter` with `WebMvcConfigurer`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migratewebmvcconfigureradapter"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adjust application.yaml for jakarta.* packages"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/adjustapplicationyamlwithjakarta"
 ---
 
 import Tabs from '@theme/Tabs';

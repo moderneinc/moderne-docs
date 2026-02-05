@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Hibernate"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/migratehibernate"
 ---
 
 import Tabs from '@theme/Tabs';

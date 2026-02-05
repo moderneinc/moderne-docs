@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update EclipseLink Dependencies to 4.x"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/updateeclipselinkdependencies"
 ---
 
 import Tabs from '@theme/Tabs';

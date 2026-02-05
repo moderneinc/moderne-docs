@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing before and after commas"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/commaspacing"
 ---
 
 import Tabs from '@theme/Tabs';

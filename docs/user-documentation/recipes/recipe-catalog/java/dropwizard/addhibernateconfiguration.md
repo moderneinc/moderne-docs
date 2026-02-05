@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Hibernate Configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/addhibernateconfiguration"
 ---
 
 import Tabs from '@theme/Tabs';

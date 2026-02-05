@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require braces around arrow function bodies"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/arrowbodystyle"
 ---
 
 import Tabs from '@theme/Tabs';

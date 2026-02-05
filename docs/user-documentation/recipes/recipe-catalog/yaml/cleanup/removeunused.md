@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unused YAML"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/cleanup/removeunused"
 ---
 
 import Tabs from '@theme/Tabs';

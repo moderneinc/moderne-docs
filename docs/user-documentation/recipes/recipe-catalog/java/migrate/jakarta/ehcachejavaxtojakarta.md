@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Ehcache from javax to jakarta namespace"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/ehcachejavaxtojakarta"
 ---
 
 import Tabs from '@theme/Tabs';

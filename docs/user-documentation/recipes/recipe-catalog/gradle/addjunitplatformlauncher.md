@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add JUnit Platform Launcher"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/addjunitplatformlauncher"
 ---
 
 import Tabs from '@theme/Tabs';

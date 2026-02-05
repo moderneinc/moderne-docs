@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJRules.AssertThatStreamDoesNotContain`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamdoesnotcontainrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

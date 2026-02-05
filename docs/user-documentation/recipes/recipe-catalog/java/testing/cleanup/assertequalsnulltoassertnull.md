@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`assertEquals(a, null)` to `assertNull(a)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/cleanup/assertequalsnulltoassertnull"
 ---
 
 import Tabs from '@theme/Tabs';

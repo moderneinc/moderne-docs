@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert Micrometer `Timer` to `Observations`"
-canonical_url: "https://docs.openrewrite.org/recipes/micrometer/timertoobservation"
 ---
 
 import Tabs from '@theme/Tabs';

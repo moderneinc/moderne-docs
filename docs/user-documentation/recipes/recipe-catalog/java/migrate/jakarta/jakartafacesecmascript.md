@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate JSF values inside EcmaScript files"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/jakartafacesecmascript"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adds missing method implementations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/addmissingmethodimplementation"
 ---
 
 import Tabs from '@theme/Tabs';

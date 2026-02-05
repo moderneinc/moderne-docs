@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade plugins to Java 11 compatible versions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/upgradepluginsforjava11"
 ---
 
 import Tabs from '@theme/Tabs';

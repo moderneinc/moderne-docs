@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce linebreaks after opening and before closing array brackets in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/arraybracketnewline"
 ---
 
 import Tabs from '@theme/Tabs';

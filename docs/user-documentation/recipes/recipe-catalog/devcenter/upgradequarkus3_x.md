@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade to Quarkus 3.26"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/upgradequarkus3_x"
 ---
 
 import Tabs from '@theme/Tabs';

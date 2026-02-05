@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JSF 2.x to Jakarta Faces 3.x"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/faces2xmigrationtojakartafaces3x"
 ---
 
 import Tabs from '@theme/Tabs';

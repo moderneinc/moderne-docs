@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Jakarta EE 9.1"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakartaee9_1"
 ---
 
 import Tabs from '@theme/Tabs';

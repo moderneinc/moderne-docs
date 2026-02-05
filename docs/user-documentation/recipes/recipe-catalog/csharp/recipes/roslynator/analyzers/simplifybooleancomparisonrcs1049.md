@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify boolean comparison"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/simplifybooleancomparisonrcs1049"
 ---
 
 import Tabs from '@theme/Tabs';

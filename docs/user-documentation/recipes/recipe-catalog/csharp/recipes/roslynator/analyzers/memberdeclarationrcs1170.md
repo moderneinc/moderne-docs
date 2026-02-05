@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use read-only auto-implemented property"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/memberdeclarationrcs1170"
 ---
 
 import Tabs from '@theme/Tabs';

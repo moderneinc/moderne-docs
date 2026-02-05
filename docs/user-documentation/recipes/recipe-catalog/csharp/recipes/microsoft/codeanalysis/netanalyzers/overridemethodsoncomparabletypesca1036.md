@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Override methods on comparable types"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/overridemethodsoncomparabletypesca1036"
 ---
 
 import Tabs from '@theme/Tabs';

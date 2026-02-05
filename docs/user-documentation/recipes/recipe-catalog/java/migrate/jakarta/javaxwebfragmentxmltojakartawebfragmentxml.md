@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `web-fragment.xml` files"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxwebfragmentxmltojakartawebfragmentxml"
 ---
 
 import Tabs from '@theme/Tabs';

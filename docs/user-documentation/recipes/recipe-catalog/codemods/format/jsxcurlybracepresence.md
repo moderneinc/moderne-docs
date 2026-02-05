@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxcurlybracepresence"
 ---
 
 import Tabs from '@theme/Tabs';

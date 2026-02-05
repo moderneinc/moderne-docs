@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `new SimpleMongoClientDbFactory(String)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/data/refactorsimplemongodbfactory"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove Security SecurityManager"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removesecuritymanager"
 ---
 
 import Tabs from '@theme/Tabs';

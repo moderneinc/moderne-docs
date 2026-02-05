@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use nameof operator in ArgumentException"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/argumentexceptionshouldspecifyargumentnamema0043"
 ---
 
 import Tabs from '@theme/Tabs';

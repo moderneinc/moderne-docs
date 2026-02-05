@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `JpaSort.of(..)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/data/migratejpasort"
 ---
 
 import Tabs from '@theme/Tabs';

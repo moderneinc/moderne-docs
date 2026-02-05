@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `RestTemplateBuilder.requestFactory(Function)` with `requestFactoryBuilder`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/replaceresttemplatebuilderrequestfactorymethod"
 ---
 
 import Tabs from '@theme/Tabs';

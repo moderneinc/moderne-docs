@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Covariant equals"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/covariantequals"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify argument null check"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/ifstatementrcs1255"
 ---
 
 import Tabs from '@theme/Tabs';

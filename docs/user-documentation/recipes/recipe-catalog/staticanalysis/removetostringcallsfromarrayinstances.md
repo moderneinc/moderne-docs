@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `toString()` calls on arrays"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removetostringcallsfromarrayinstances"
 ---
 
 import Tabs from '@theme/Tabs';

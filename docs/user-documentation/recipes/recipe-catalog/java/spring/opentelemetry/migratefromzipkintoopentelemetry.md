@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from Zipkin to OpenTelemetry OTLP"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/opentelemetry/migratefromzipkintoopentelemetry"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use block body or expression body"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useblockbodyorexpressionbodyrcs1016"
 ---
 
 import Tabs from '@theme/Tabs';

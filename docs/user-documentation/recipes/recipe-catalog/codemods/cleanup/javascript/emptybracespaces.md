@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce no spaces between braces"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/emptybracespaces"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename final method declarations `getSuppressed()` and `addSuppressed(Throwable exception)` in classes that extend `Throwable`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jrethrowablefinalmethods"
 ---
 
 import Tabs from '@theme/Tabs';

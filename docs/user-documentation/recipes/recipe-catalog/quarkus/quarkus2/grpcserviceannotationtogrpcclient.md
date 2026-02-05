@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `@GrpcClient`"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/quarkus2/grpcserviceannotationtogrpcclient"
 ---
 
 import Tabs from '@theme/Tabs';

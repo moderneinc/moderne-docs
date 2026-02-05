@@ -1,6 +1,5 @@
 ---
 sidebar_label: "New line at the end of `SourceSpecs` text blocks"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/sourcespectextblocknewline"
 ---
 
 import Tabs from '@theme/Tabs';

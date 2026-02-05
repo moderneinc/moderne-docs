@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `permissions.xml` files."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxpermissionsxmltojakarta9permissionsxml"
 ---
 
 import Tabs from '@theme/Tabs';

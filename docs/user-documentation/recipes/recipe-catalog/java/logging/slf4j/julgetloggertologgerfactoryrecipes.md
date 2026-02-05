@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUL Logger creation with SLF4J LoggerFactory"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/slf4j/julgetloggertologgerfactoryrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Date.now()` to get the number of milliseconds since the Unix Epoch"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferdatenow"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `micrometer-spring-legacy` with `spring-boot-starter-actuator`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/maybeaddspringbootstarteractuator"
 ---
 
 import Tabs from '@theme/Tabs';

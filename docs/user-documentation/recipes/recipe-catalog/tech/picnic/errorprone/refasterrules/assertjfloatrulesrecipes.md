@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`AssertJFloatRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjfloatrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`@Bean` methods may not return `void`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/beanmethodreturnnull"
 ---
 
 import Tabs from '@theme/Tabs';

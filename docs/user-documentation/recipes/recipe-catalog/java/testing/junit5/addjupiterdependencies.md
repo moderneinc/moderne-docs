@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add JUnit Jupiter dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/addjupiterdependencies"
 ---
 
 import Tabs from '@theme/Tabs';

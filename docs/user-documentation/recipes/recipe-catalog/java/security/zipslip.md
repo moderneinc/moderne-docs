@@ -27,9 +27,9 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Java security best practices](/user-documentation/recipes/recipe-catalog/java/security/javasecuritybestpractices.md)
+* [Java security best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/javasecuritybestpractices)
 * [OWASP top ten](/user-documentation/recipes/recipe-catalog/devcenter/securitystarter.md)
-* [Remediate OWASP A01:2021 Broken access control](/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md)
+* [Remediate OWASP A01:2021 Broken access control](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owaspa01)
 
 ## Example
 

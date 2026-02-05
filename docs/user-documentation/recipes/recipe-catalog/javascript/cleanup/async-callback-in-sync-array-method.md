@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Detect async callbacks in synchronous array methods"
-canonical_url: "https://docs.openrewrite.org/recipes/javascript/cleanup/async-callback-in-sync-array-method"
 ---
 
 import Tabs from '@theme/Tabs';

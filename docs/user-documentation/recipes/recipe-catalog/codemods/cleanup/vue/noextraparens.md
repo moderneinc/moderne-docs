@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unnecessary parentheses in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/noextraparens"
 ---
 
 import Tabs from '@theme/Tabs';

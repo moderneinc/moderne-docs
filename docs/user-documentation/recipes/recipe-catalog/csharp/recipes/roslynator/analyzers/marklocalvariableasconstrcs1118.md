@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Mark local variable as const"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/marklocalvariableasconstrcs1118"
 ---
 
 import Tabs from '@theme/Tabs';

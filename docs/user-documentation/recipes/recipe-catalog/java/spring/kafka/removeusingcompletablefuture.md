@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `KafkaOperations.usingCompletableFuture()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/kafka/removeusingcompletablefuture"
 ---
 
 import Tabs from '@theme/Tabs';

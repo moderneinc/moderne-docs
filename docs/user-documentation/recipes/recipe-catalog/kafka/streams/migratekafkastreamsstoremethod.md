@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Kafka 2.5](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka25.md)
+* [Migrate to Kafka 2.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka25)
 
 ## Example
 

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Cache with Quarkus Cache"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootcachetoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

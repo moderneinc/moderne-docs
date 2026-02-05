@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Operator keyword should be followed by space"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1007"
 ---
 
 import Tabs from '@theme/Tabs';

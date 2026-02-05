@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Lint UI5 projects with UI5 linter"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/ui5"
 ---
 
 import Tabs from '@theme/Tabs';

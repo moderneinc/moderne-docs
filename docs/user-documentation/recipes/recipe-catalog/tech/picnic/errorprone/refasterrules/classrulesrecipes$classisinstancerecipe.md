@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ClassRules.ClassIsInstance`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/classrulesrecipes$classisinstancerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

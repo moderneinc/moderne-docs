@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `LongStreamRules.LongStreamFilterSorted`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamfiltersortedrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

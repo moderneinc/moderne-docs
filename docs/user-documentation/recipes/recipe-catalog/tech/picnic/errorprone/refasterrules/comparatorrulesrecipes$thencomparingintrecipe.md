@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ComparatorRules.ThenComparingInt`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparingintrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

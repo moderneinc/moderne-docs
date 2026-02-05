@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `SunJSSE` instead of `com.sun.net.ssl.internal.ssl.Provider`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/removedlegacysunjsseprovidername"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CollectionRules.CollectionRemoveAllFromCollectionExpression`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$collectionremoveallfromcollectionexpressionrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

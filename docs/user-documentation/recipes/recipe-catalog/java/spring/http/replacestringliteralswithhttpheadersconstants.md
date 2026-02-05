@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace String literals with `HttpHeaders` constants"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/http/replacestringliteralswithhttpheadersconstants"
 ---
 
 import Tabs from '@theme/Tabs';

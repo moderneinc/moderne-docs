@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Recommended ESLint Styling"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/recommendedeslintstyling"
 ---
 
 import Tabs from '@theme/Tabs';

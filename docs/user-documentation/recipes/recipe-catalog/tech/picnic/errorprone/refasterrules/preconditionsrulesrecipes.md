@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`PreconditionsRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/preconditionsrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

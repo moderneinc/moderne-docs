@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add implicit TLD with taglib 2.1"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/examples/addimplicittldfilewithtaglib2_1"
 ---
 
 import Tabs from '@theme/Tabs';

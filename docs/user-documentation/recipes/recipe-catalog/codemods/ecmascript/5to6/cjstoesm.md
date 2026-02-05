@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Transform CommonJS style `require()` calls to ES6 `import` statements"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/ecmascript/5to6/cjstoesm"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Predicate.isEqual(Object)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavapredicatesequalto"
 ---
 
 import Tabs from '@theme/Tabs';

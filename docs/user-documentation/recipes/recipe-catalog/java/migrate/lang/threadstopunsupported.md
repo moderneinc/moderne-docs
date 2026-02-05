@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `Thread.resume()`, `Thread.stop()`, and `Thread.suspend()` with `throw new UnsupportedOperationException()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/threadstopunsupported"
 ---
 
 import Tabs from '@theme/Tabs';

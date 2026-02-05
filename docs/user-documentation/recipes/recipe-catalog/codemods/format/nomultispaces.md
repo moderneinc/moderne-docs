@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow multiple spaces"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/nomultispaces"
 ---
 
 import Tabs from '@theme/Tabs';

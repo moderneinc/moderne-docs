@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing between keys and values in object literal properties"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/keyspacing"
 ---
 
 import Tabs from '@theme/Tabs';

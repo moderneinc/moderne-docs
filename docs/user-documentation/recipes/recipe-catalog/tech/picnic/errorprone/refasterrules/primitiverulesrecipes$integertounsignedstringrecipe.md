@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `PrimitiveRules.IntegerToUnsignedString`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$integertounsignedstringrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

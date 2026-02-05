@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use a cached 'SearchValues' instance"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpusesearchvaluesca1870"
 ---
 
 import Tabs from '@theme/Tabs';

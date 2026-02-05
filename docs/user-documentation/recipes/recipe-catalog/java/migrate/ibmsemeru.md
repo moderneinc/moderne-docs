@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to IBM Semeru Runtimes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/ibmsemeru"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Transform 'new' expressions to builders"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/newclasstobuilder"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "S3 POJOs to V2"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/s3pojotov2"
 ---
 
 import Tabs from '@theme/Tabs';

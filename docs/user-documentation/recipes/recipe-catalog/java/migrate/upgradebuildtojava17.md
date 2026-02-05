@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade build to Java 17"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/upgradebuildtojava17"
 ---
 
 import Tabs from '@theme/Tabs';

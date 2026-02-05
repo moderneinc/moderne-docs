@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated DefaultJsonSchemaLoader with DefaultJsonUriSchemaLoader"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel44/defaultjsonschemaloader"
 ---
 
 import Tabs from '@theme/Tabs';

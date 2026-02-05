@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade to Cucumber-JVM 7.x"
-canonical_url: "https://docs.openrewrite.org/recipes/cucumber/jvm/upgradecucumber7x"
 ---
 
 import Tabs from '@theme/Tabs';

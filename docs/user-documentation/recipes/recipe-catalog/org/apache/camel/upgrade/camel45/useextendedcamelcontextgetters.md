@@ -1,12 +1,11 @@
 ---
 sidebar_label: "Replace `context.${method}(*)` with `context.getCamelContextExtension().${method}(*)`"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel45/useextendedcamelcontextgetters"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `context.${method}(*)` with `context.getCamelContextExtension().${method}(*)`
+# Replace `context.$\{method\}(*)` with `context.getCamelContextExtension().$\{method\}(*)`
 
 **org.apache.camel.upgrade.camel45.UseExtendedCamelContextGetters**
 

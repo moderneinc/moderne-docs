@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `booleanExpression ? false : true` with `!booleanExpression`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/simplifyternaryrecipes$simplifyternaryfalsetruerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated SystemUtils constants"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/lang3/migratesystemutilsdeprecations"
 ---
 
 import Tabs from '@theme/Tabs';

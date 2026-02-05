@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace any Lombok log annotations with target logging framework annotation"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/changelomboklogannotation"
 ---
 
 import Tabs from '@theme/Tabs';

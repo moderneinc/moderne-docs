@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `List.of(..)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/migratecollectionsunmodifiablelist"
 ---
 
 import Tabs from '@theme/Tabs';

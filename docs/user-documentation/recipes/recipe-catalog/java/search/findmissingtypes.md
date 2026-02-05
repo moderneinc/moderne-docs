@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find missing type information on Java LSTs"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findmissingtypes"
 ---
 
 import Tabs from '@theme/Tabs';

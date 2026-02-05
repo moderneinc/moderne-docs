@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Log4j 2.x Appender to logback-classic equivalents"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/logback/log4jappendertologback"
 ---
 
 import Tabs from '@theme/Tabs';

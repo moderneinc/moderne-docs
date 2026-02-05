@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Spring Boot to Quarkus"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springboottoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

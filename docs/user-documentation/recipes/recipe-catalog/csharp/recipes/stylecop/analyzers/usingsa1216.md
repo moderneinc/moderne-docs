@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Using static directives should be placed at the correct location."
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/usingsa1216"
 ---
 
 import Tabs from '@theme/Tabs';

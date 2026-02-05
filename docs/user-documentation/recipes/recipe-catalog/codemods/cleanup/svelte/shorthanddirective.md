@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce use of shorthand syntax in directives"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/shorthanddirective"
 ---
 
 import Tabs from '@theme/Tabs';

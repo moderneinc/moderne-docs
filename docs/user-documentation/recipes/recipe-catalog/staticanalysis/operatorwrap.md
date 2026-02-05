@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Operator wrapping"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/operatorwrap"
 ---
 
 import Tabs from '@theme/Tabs';

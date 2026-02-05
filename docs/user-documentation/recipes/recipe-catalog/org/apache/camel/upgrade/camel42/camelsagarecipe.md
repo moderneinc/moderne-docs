@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Camel Core changes"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel42/camelsagarecipe"
 ---
 
 import Tabs from '@theme/Tabs';

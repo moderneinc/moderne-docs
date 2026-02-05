@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant delegate creation"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/assignmentexpressionrcs1114"
 ---
 
 import Tabs from '@theme/Tabs';

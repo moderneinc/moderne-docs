@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Transform classes that extend a given Class to implement the given Interface instead"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/batch/replacesupportclasswithitsinterface"
 ---
 
 import Tabs from '@theme/Tabs';

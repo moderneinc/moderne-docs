@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid using 'Enumerable.Any()' extension method"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharppreferlengthcountisemptyoveranyca1860"
 ---
 
 import Tabs from '@theme/Tabs';

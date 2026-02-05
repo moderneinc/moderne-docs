@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add explicit JAXB API dependencies and remove runtimes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/addjaxbdependencieswithoutruntime"
 ---
 
 import Tabs from '@theme/Tabs';

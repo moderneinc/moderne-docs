@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify consecutive assignments"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/simplifyconsecutiveassignments"
 ---
 
 import Tabs from '@theme/Tabs';

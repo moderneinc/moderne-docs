@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Create text file"
-canonical_url: "https://docs.openrewrite.org/recipes/text/createtextfile"
 ---
 
 import Tabs from '@theme/Tabs';

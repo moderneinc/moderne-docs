@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Spring Boot 3.3 best practices (only)"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/springboot3bestpracticesonly"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -71,7 +70,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Spring Boot 3.5 best practices](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpractices.md)
+* [Spring Boot 3.5 best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpractices)
 
 
 ## Usage

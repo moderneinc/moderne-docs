@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `AtomicReference#weakCompareAndSetPlain(T, T)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/concurrent/migrateatomicreferenceweakcompareandsettoweakcompareandsetplain"
 ---
 
 import Tabs from '@theme/Tabs';

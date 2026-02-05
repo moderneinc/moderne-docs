@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unneeded assertions"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removeunneededassertion"
 ---
 
 import Tabs from '@theme/Tabs';

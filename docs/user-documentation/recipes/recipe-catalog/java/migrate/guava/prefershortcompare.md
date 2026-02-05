@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Short#compare`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/prefershortcompare"
 ---
 
 import Tabs from '@theme/Tabs';

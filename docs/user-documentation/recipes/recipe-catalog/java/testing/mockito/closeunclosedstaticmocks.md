@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Close unclosed static mocks"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/closeunclosedstaticmocks"
 ---
 
 import Tabs from '@theme/Tabs';

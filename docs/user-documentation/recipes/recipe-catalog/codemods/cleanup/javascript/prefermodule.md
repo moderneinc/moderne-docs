@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer JavaScript modules (ESM) over CommonJS"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefermodule"
 ---
 
 import Tabs from '@theme/Tabs';

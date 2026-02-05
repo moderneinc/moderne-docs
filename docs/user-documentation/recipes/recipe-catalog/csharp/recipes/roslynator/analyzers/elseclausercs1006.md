@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Merge 'else' with nested 'if'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/elseclausercs1006"
 ---
 
 import Tabs from '@theme/Tabs';

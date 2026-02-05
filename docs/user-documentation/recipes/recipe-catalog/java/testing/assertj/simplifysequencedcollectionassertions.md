@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify AssertJ assertions on SequencedCollection"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/simplifysequencedcollectionassertions"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "ChangeJakartaFacesMethodCalls"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/changejakartafacesmethodcalls"
 ---
 
 import Tabs from '@theme/Tabs';

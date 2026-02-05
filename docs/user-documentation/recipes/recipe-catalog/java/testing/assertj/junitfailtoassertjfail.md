@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit fail to AssertJ"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/junitfailtoassertjfail"
 ---
 
 import Tabs from '@theme/Tabs';

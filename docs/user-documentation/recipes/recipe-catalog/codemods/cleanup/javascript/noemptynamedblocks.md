@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Forbid empty named import"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noemptynamedblocks"
 ---
 
 import Tabs from '@theme/Tabs';

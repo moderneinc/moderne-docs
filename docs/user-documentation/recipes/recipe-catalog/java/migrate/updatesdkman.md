@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update SDKMan Java version"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/updatesdkman"
 ---
 
 import Tabs from '@theme/Tabs';

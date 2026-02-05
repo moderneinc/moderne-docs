@@ -26,6 +26,11 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 ## Example
 
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|ignoredDependencies|`emptyList()`|
+
 
 ###### Unchanged
 ```java

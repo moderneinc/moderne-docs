@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unused type parameter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/typeparameterrcs1164"
 ---
 
 import Tabs from '@theme/Tabs';

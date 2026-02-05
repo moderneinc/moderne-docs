@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove static import"
-canonical_url: "https://docs.openrewrite.org/recipes/java/nostaticimport"
 ---
 
 import Tabs from '@theme/Tabs';

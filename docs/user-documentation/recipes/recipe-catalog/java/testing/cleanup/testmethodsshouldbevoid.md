@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Test methods should have void return type"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/cleanup/testmethodsshouldbevoid"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javaee8/apachedefaultprovider"
 ---
 
 import Tabs from '@theme/Tabs';

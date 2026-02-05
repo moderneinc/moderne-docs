@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find literals"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findliterals"
 ---
 
 import Tabs from '@theme/Tabs';

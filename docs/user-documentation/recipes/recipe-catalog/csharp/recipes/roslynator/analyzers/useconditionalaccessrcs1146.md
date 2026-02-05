@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use conditional access"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useconditionalaccessrcs1146"
 ---
 
 import Tabs from '@theme/Tabs';

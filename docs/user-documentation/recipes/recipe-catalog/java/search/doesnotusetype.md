@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Check whether a type is **not** in use"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/doesnotusetype"
 ---
 
 import Tabs from '@theme/Tabs';

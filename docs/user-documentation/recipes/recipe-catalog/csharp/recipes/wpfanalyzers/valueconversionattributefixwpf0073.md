@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add ValueConversion attribute (unknown types)"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/valueconversionattributefixwpf0073"
 ---
 
 import Tabs from '@theme/Tabs';

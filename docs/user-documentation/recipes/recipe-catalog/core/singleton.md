@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Singleton"
-canonical_url: "https://docs.openrewrite.org/recipes/core/singleton"
 ---
 
 import Tabs from '@theme/Tabs';

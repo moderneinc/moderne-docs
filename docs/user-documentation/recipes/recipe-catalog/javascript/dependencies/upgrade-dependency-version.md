@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade npm dependency version"
-canonical_url: "https://docs.openrewrite.org/recipes/javascript/dependencies/upgrade-dependency-version"
 ---
 
 import Tabs from '@theme/Tabs';

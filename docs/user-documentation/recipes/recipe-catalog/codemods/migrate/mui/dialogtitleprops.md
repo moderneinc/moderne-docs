@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates props for DialogTitle component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/dialogtitleprops"
 ---
 
 import Tabs from '@theme/Tabs';

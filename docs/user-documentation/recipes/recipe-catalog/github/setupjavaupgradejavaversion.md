@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade `actions/setup-java` `java-version`"
-canonical_url: "https://docs.openrewrite.org/recipes/github/setupjavaupgradejavaversion"
 ---
 
 import Tabs from '@theme/Tabs';

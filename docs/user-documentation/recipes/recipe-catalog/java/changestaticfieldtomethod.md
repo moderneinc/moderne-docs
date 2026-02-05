@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change static field access to static method access"
-canonical_url: "https://docs.openrewrite.org/recipes/java/changestaticfieldtomethod"
 ---
 
 import Tabs from '@theme/Tabs';

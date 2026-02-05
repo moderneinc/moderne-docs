@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Delete property"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/deleteproperty"
 ---
 
 import Tabs from '@theme/Tabs';

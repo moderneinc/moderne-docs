@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Mockito 4.x upgrade"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/mockito1to4migration"
 ---
 
 import Tabs from '@theme/Tabs';

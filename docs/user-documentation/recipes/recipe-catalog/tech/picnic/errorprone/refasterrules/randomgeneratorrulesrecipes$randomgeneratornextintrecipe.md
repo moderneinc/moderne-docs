@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `RandomGeneratorRules.RandomGeneratorNextInt`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextintrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

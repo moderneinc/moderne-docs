@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJRules.ObjectEnumerableDoesNotContainOneElement`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$objectenumerabledoesnotcontainoneelementrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

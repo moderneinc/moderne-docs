@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Resolve Deprecations in Spring Boot 3.3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/resolvedeprecationsspringboot_3_3.md)
+* [Resolve Deprecations in Spring Boot 3.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/resolvedeprecationsspringboot_3_3)
 
 ## Example
 

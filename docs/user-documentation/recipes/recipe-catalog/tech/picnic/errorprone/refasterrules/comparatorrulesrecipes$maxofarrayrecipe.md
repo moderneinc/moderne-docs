@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ComparatorRules.MaxOfArray`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$maxofarrayrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

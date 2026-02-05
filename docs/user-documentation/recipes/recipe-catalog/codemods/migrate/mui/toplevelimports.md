@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Converts all `@mui/material` submodule imports to the root module"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/toplevelimports"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename Testcontainers dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/testcontainers/testcontainers2dependencies"
 ---
 
 import Tabs from '@theme/Tabs';

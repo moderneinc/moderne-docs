@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add `@Introspected` to classes requiring a map representation"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/typerequiresintrospection"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow using jest.mock() factories without an explicit type parameter"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/nountypedmockfactory"
 ---
 
 import Tabs from '@theme/Tabs';

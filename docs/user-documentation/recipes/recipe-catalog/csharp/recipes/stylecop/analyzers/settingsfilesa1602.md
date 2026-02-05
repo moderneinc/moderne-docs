@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enumeration items should be documented"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/settingsfilesa1602"
 ---
 
 import Tabs from '@theme/Tabs';

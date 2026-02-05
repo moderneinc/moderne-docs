@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Math#clamp`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/prefermathclamp"
 ---
 
 import Tabs from '@theme/Tabs';

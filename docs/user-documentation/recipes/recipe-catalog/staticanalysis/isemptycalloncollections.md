@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Collection#isEmpty()` instead of comparing `size()`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/isemptycalloncollections"
 ---
 
 import Tabs from '@theme/Tabs';

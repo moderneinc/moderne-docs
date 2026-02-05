@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `IsLiteralNull`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/isliteralnullrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `finalize()` method"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/nofinalizer"
 ---
 
 import Tabs from '@theme/Tabs';

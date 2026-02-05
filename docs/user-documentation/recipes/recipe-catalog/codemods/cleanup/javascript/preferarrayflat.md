@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Array#flat()` over legacy techniques to flatten arrays"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferarrayflat"
 ---
 
 import Tabs from '@theme/Tabs';

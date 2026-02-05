@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adjust application.properties for jakarta.* packages"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/adjustapplicationpropertieswithjakarta"
 ---
 
 import Tabs from '@theme/Tabs';

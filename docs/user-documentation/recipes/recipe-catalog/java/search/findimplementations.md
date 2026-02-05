@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find implementing classes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findimplementations"
 ---
 
 import Tabs from '@theme/Tabs';

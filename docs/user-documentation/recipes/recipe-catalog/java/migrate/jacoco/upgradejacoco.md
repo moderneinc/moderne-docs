@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade JaCoCo"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jacoco/upgradejacoco"
 ---
 
 import Tabs from '@theme/Tabs';

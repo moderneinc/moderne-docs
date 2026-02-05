@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enable Develocity build cache"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/enabledevelocitybuildcache"
 ---
 
 import Tabs from '@theme/Tabs';

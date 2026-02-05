@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Finalize private fields"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/finalizeprivatefields"
 ---
 
 import Tabs from '@theme/Tabs';

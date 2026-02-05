@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Consider making public types internal"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpmaketypesinternalca1515"
 ---
 
 import Tabs from '@theme/Tabs';

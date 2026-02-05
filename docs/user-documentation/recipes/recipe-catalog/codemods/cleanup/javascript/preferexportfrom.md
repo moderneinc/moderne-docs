@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `export…from` when re-exporting"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferexportfrom"
 ---
 
 import Tabs from '@theme/Tabs';

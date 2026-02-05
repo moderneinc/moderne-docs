@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Modernize Jenkinsfile"
-canonical_url: "https://docs.openrewrite.org/recipes/jenkins/modernizejenkinsfile"
 ---
 
 import Tabs from '@theme/Tabs';

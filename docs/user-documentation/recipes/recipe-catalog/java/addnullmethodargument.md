@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add a `null` method argument"
-canonical_url: "https://docs.openrewrite.org/recipes/java/addnullmethodargument"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -35,7 +34,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Replace deprecated RequestMatcherProvider with new API](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedrequestmatcherprovider.md)
+* [Replace deprecated RequestMatcherProvider with new API](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedrequestmatcherprovider)
 
 
 ## Usage

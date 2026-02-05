@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.mail` packages to `jakarta.mail`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxmailtojakartamail"
 ---
 
 import Tabs from '@theme/Tabs';

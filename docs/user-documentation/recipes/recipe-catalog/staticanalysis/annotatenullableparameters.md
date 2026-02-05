@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Annotate null-checked method parameters with `@Nullable`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/annotatenullableparameters"
 ---
 
 import Tabs from '@theme/Tabs';

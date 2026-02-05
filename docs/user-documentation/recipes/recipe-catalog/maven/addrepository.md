@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add repository"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/addrepository"
 ---
 
 import Tabs from '@theme/Tabs';

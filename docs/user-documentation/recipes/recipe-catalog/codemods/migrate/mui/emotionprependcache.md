@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prepends emotion cache"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/emotionprependcache"
 ---
 
 import Tabs from '@theme/Tabs';

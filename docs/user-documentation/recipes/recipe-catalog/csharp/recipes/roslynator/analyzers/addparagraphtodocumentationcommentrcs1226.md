@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add paragraph to documentation comment"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/addparagraphtodocumentationcommentrcs1226"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from SpringFox Swagger to SpringDoc and OpenAPI"
-canonical_url: "https://docs.openrewrite.org/recipes/java/springdoc/springfoxtospringdoc"
 ---
 
 import Tabs from '@theme/Tabs';

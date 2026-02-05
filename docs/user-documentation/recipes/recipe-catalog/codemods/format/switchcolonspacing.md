@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce spacing around colons of switch statements"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/switchcolonspacing"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add a spring configuration property"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/addspringproperty"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,7 +33,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [Add MongoDB representation properties for UUID and BigDecimal](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmongodbrepresentationproperties.md)
+* [Add MongoDB representation properties for UUID and BigDecimal](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmongodbrepresentationproperties)
 * [Enable Virtual Threads on Java 21](/user-documentation/recipes/recipe-catalog/java/spring/boot3/enablevirtualthreads.md)
 
 ## Example

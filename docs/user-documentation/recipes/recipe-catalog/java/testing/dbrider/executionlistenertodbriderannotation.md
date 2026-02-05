@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate the `DBRiderTestExecutionListener` to the `@DBRider` annotation"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/dbrider/executionlistenertodbriderannotation"
 ---
 
 import Tabs from '@theme/Tabs';

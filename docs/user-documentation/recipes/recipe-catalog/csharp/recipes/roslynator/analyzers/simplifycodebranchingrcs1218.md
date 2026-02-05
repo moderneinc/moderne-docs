@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify code branching"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/simplifycodebranchingrcs1218"
 ---
 
 import Tabs from '@theme/Tabs';

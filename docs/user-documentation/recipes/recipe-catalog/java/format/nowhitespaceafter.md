@@ -1,6 +1,5 @@
 ---
 sidebar_label: "No whitespace after"
-canonical_url: "https://docs.openrewrite.org/recipes/java/format/nowhitespaceafter"
 ---
 
 import Tabs from '@theme/Tabs';

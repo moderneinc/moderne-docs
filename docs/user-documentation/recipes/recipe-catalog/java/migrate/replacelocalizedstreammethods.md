@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `getLocalizedInputStream` and `getLocalizedOutputStream` with direct assignment"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/replacelocalizedstreammethods"
 ---
 
 import Tabs from '@theme/Tabs';

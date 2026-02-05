@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename package name in String literals"
-canonical_url: "https://docs.openrewrite.org/recipes/java/changepackageinstringliteral"
 ---
 
 import Tabs from '@theme/Tabs';

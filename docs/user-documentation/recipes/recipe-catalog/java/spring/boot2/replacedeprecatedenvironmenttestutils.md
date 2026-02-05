@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `EnvironmentTestUtils` with `TestPropertyValues`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/replacedeprecatedenvironmenttestutils"
 ---
 
 import Tabs from '@theme/Tabs';

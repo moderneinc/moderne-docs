@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.jsp` packages to `jakarta.jsp`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxjsptojakartajsp"
 ---
 
 import Tabs from '@theme/Tabs';

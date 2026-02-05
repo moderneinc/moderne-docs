@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates usage of ThemeProvider"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/themeprovider"
 ---
 
 import Tabs from '@theme/Tabs';

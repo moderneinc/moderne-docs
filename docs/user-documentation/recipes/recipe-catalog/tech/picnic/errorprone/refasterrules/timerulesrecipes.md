@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`TimeRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

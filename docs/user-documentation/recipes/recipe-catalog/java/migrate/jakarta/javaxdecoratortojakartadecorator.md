@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.decorator` packages to `jakarta.decorator`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxdecoratortojakartadecorator"
 ---
 
 import Tabs from '@theme/Tabs';

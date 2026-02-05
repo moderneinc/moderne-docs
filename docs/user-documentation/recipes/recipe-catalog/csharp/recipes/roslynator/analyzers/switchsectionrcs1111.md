@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add braces to switch section with multiple statements"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/switchsectionrcs1111"
 ---
 
 import Tabs from '@theme/Tabs';

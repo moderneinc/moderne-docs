@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Built-in Font"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v13_2/builtinnextfont"
 ---
 
 import Tabs from '@theme/Tabs';

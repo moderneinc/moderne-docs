@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Common static analysis issues"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/commonstaticanalysis"
 ---
 
 import Tabs from '@theme/Tabs';

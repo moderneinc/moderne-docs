@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.defaultString(Object, String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/codehaus/plexus/plexusstringutilsrecipes$defaultstringfallbackrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

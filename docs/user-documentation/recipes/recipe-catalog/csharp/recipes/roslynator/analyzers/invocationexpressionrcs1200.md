@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Call 'Enumerable.ThenBy' instead of 'Enumerable.OrderBy'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/invocationexpressionrcs1200"
 ---
 
 import Tabs from '@theme/Tabs';

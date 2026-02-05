@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow alias methods"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/noaliasmethods"
 ---
 
 import Tabs from '@theme/Tabs';

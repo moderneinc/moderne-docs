@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to MockWebServer3 with JUnit 5"
-canonical_url: "https://docs.openrewrite.org/recipes/okhttp/upgrademockwebserver3junit5"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`Provider` implementation beans to Micronaut `@Factory`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/providerimplementationstomicronautfactories"
 ---
 
 import Tabs from '@theme/Tabs';

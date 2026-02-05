@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use indexer instead of LINQ methods"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/optimizelinqusagema0098"
 ---
 
 import Tabs from '@theme/Tabs';

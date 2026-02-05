@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `NullRules.IsNotNull`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/nullrulesrecipes$isnotnullrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Dependency resolution diagnostic"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/dependencyresolutiondiagnostic"
 ---
 
 import Tabs from '@theme/Tabs';

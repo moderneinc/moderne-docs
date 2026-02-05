@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUL `Logger.isLoggable(Level.CONFIG)` with SLF4J's `Logger.isInfoEnabled()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelconfigrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adds Mockito extensions to Mockito tests"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/addmockitoextensionifannotationsused"
 ---
 
 import Tabs from '@theme/Tabs';

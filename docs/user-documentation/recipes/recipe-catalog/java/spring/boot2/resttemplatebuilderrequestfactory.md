@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `RestTemplateBuilder`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/resttemplatebuilderrequestfactory"
 ---
 
 import Tabs from '@theme/Tabs';

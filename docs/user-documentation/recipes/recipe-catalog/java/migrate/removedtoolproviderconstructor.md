@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change `javax.tools.ToolProvider` methods calls to static"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedtoolproviderconstructor"
 ---
 
 import Tabs from '@theme/Tabs';

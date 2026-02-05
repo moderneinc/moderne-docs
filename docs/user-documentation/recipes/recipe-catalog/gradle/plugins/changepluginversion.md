@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change a Gradle plugin version by id"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/plugins/changepluginversion"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,7 +32,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Spring Boot 4.0 (Moderne Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
+* [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 
 ## Example
 

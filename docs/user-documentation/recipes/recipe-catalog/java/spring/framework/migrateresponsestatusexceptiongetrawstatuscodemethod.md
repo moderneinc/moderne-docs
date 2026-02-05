@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `ResponseStatusException#getRawStatusCode()` to `getStatusCode().value()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migrateresponsestatusexceptiongetrawstatuscodemethod"
 ---
 
 import Tabs from '@theme/Tabs';

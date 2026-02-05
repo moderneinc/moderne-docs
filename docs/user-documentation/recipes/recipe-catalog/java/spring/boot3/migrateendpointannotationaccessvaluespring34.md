@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate `@Endpoint` Security properties to 3.4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_4-moderne-edition.md)
+* [Migrate `@Endpoint` Security properties to 3.4](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_4-moderne-edition)
 
 ## Example
 

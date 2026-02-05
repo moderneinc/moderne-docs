@@ -530,42 +530,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.react.table.ReactComponentUses**: *Information about React component usages including imports, JSX tags, and other references.*
 
 
-### [io.moderne.java.spring.boot3.SpringBoot3BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpractices.md)
-  * **Spring Boot 3.5 best practices**
-  * Applies best practices to Spring Boot 3.5+ applications.
-
-#### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-### [io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-moderne-edition.md)
-  * **Migrate to Spring Boot 3.5 (Moderne Edition)**
-  * Migrate applications to the latest Spring Boot 3.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.5.
-
-#### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-### [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
-  * **Migrate to Spring Boot 4.0 (Moderne Edition)**
-  * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.0.
-
-#### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-### [io.moderne.java.spring.framework.FindDeprecatedPathMatcherUsage](/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage.md)
-  * **Find deprecated `PathMatcher` usage**
-  * In Spring Framework 7.0, `PathMatcher` and `AntPathMatcher` are deprecated in favor of `PathPatternParser`. This recipe finds usages of the deprecated `AntPathMatcher` class that may require manual migration to `PathPatternParser`.
-
-#### Data tables:
-
-  * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
-
-
 ### [io.moderne.vulncheck.FixVulnCheckVulnerabilities](/user-documentation/recipes/recipe-catalog/vulncheck/fixvulncheckvulnerabilities.md)
   * **Use VulnCheck Exploit Intelligence to fix vulnerabilities**
   * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from VulnCheck Vulnerability Intelligence. The recipe has an option to limit fixes to only those vulnerabilities that have evidence of exploitation at various levels of severity.
@@ -4000,7 +3964,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### [org.openrewrite.codemods.cleanup.javascript.PreferArrayIndexOf](/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/preferarrayindexof.md)
   * **Prefer `Array#{indexOf,lastIndexOf}()` over `Array#{findIndex,findLastIndex}()` when looking for the index of an item**
-  * Prefer `Array#{indexOf,lastIndexOf}()` over `Array#{findIndex,findLastIndex}()` when looking for the index of an item. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-index-of.md).
+  * Prefer `Array#\{indexOf,lastIndexOf\}()` over `Array#\{findIndex,findLastIndex\}()` when looking for the index of an item. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-index-of.md).
 
 #### Data tables:
 
@@ -4009,7 +3973,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### [org.openrewrite.codemods.cleanup.javascript.PreferArraySome](/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/preferarraysome.md)
   * **Prefer `.some()` over `.filter().length` check and `.{find,findLast}()`**
-  * Prefer `.some()` over `.filter().length` check and `.{find,findLast}()`. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-some.md).
+  * Prefer `.some()` over `.filter().length` check and `.\{find,findLast\}()`. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-some.md).
 
 #### Data tables:
 
@@ -4252,7 +4216,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### [org.openrewrite.codemods.cleanup.javascript.PreferSpread](/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/preferspread.md)
   * **Prefer the spread operator over `Array.from()`, `Array#concat()`, `Array#{slice,toSpliced}()` and `String#split('')`**
-  * Prefer the spread operator over `Array.from()`, `Array#concat()`, `Array#{slice,toSpliced}()` and `String#split('')`. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-spread.md).
+  * Prefer the spread operator over `Array.from()`, `Array#concat()`, `Array#\{slice,toSpliced\}()` and `String#split('')`. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-spread.md).
 
 #### Data tables:
 
@@ -4603,6 +4567,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.csharp.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
 
 
+### [org.openrewrite.java.dependencies.AddExplicitTransitiveDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/addexplicittransitivedependencies.md)
+  * **Add explicit transitive dependencies**
+  * Detects when Java source code or configuration files reference types from transitive Maven dependencies and promotes those transitive dependencies to explicit direct dependencies in the pom.xml. This ensures the build is resilient against changes in transitive dependency trees of upstream libraries.
+
+#### Data tables:
+
+  * **org.openrewrite.java.dependencies.table.PromotedTransitiveDependencies**: *Transitive dependencies that were promoted to direct dependencies because source code references types from them.*
+
+
 ### [org.openrewrite.java.dependencies.DependencyLicenseCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencylicensecheck.md)
   * **Find licenses in use in third-party dependencies**
   * Locates and reports on all licenses in use.
@@ -4614,7 +4587,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-01-19T1104.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-02-02T1114.
 
 #### Data tables:
 

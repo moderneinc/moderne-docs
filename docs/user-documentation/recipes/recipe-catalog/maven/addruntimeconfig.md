@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add a configuration option for the Maven runtime"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/addruntimeconfig"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus324.LogConsoleAsyncEnable"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus324/logconsoleasyncenable"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant cast"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeredundantcastrcs1151"
 ---
 
 import Tabs from '@theme/Tabs';

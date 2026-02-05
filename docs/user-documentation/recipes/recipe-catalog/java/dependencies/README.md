@@ -11,6 +11,7 @@ description: Dependencies OpenRewrite recipes.
 ## Recipes
 
 * [Add Gradle or Maven dependency](./adddependency.md)
+* [Add explicit transitive dependencies](./addexplicittransitivedependencies.md)
 * [Change Gradle or Maven dependency](./changedependency.md)
 * [Dependency insight for Gradle and Maven](./dependencyinsight.md)
 * [Dependency report](./dependencylist.md)

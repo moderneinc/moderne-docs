@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `java.util.Stack` with `java.util.Deque`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replacestackwithdeque"
 ---
 
 import Tabs from '@theme/Tabs';

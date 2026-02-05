@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.capitalize(String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$capitalizerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "A story should not have a redundant name property"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/storybook/noredundantstoryname"
 ---
 
 import Tabs from '@theme/Tabs';

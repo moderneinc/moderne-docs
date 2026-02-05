@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert `InstantiationAwareBeanPostProcessorAdapter` to `SmartInstantiationAwareBeanPostProcessor`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migrateinstantiationawarebeanpostprocessoradapter"
 ---
 
 import Tabs from '@theme/Tabs';

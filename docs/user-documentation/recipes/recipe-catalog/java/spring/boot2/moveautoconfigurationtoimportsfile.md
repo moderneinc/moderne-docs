@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `AutoConfiguration#imports`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/moveautoconfigurationtoimportsfile"
 ---
 
 import Tabs from '@theme/Tabs';

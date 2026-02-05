@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Map.of(..)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/usemapof"
 ---
 
 import Tabs from '@theme/Tabs';

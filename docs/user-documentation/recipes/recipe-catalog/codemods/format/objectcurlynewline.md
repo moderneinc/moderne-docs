@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent line breaks after opening and before closing braces"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/objectcurlynewline"
 ---
 
 import Tabs from '@theme/Tabs';

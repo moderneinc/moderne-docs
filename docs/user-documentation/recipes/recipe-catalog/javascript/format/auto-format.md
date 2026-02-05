@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Auto-format JavaScript/TypeScript code"
-canonical_url: "https://docs.openrewrite.org/recipes/javascript/format/auto-format"
 ---
 
 import Tabs from '@theme/Tabs';

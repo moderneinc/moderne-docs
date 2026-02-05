@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Moves tree view to `@mui/x-tree-view`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/treeviewmovedtox"
 ---
 
 import Tabs from '@theme/Tabs';

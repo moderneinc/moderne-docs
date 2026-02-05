@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit 4 `ExpectedException` To JUnit Jupiter's `assertThrows()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/expectedexceptiontoassertthrows"
 ---
 
 import Tabs from '@theme/Tabs';

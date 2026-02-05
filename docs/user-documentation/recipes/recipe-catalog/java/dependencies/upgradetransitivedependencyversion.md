@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade transitive Gradle or Maven dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/upgradetransitivedependencyversion"
 ---
 
 import Tabs from '@theme/Tabs';

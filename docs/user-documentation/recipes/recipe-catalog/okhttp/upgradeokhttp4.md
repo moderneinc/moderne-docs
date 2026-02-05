@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to OkHttp 4.x"
-canonical_url: "https://docs.openrewrite.org/recipes/okhttp/upgradeokhttp4"
 ---
 
 import Tabs from '@theme/Tabs';

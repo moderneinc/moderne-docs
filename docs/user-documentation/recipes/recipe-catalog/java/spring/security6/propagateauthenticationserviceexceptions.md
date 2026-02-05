@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove calls matching `AuthenticationEntryPointFailureHandler.setRethrowAuthenticationServiceException(true)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/security6/propagateauthenticationserviceexceptions"
 ---
 
 import Tabs from '@theme/Tabs';

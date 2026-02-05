@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJOptionalRules.AbstractOptionalAssertIsPresent`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalassertispresentrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

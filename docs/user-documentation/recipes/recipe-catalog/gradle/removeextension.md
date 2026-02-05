@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove build extension by name"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/removeextension"
 ---
 
 import Tabs from '@theme/Tabs';

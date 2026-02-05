@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Default comes last"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/defaultcomeslast"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use PlatformHttpHeaderFilterStrategy instead of HttpHeaderFilterStrategy"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel411/platformhttpfilterstrategy"
 ---
 
 import Tabs from '@theme/Tabs';

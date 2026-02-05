@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated Spring Web UTF8 `MediaType` enums"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migrateutf8mediatypes"
 ---
 
 import Tabs from '@theme/Tabs';

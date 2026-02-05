@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `IllegalArgumentException` with `AlreadyConnectedException` in `DatagramChannel.send()` method"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/illegalargumentexceptiontoalreadyconnectedexception"
 ---
 
 import Tabs from '@theme/Tabs';

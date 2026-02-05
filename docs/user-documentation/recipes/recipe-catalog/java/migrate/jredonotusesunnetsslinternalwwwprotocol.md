@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `com.ibm.net.ssl.www2.protocol` instead of `com.sun.net.ssl.internal.www.protocol`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jredonotusesunnetsslinternalwwwprotocol"
 ---
 
 import Tabs from '@theme/Tabs';

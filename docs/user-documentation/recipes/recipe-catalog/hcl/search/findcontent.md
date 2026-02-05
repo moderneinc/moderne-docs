@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find content"
-canonical_url: "https://docs.openrewrite.org/recipes/hcl/search/findcontent"
 ---
 
 import Tabs from '@theme/Tabs';

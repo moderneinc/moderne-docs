@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove OpenFeature's `getStringValue` for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/openfeature/removegetstringvalue"
 ---
 
 import Tabs from '@theme/Tabs';

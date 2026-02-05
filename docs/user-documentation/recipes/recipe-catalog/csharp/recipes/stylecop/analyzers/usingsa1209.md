@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Using alias directives should be placed after other using directives"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/usingsa1209"
 ---
 
 import Tabs from '@theme/Tabs';

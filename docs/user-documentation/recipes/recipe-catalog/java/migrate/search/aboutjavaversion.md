@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find which Java version is in use"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/search/aboutjavaversion"
 ---
 
 import Tabs from '@theme/Tabs';

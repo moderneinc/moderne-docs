@@ -1,6 +1,5 @@
 ---
 sidebar_label: "This method uses runtime marshalling even when the 'DisableRuntimeMarshallingAttribute' is applied"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdisableruntimemarshallingca1421"
 ---
 
 import Tabs from '@theme/Tabs';

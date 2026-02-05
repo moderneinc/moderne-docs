@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `verifyZeroInteractions()` with `verifyNoMoreInteractions()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/verifyzerotonomoreinteractions"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Flux#take(long)` over `Flux#take(long, boolean)` where relevant"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxtakerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add [AttachedPropertyBrowsableForType]"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/attachedpropertybrowsablefortypeattributefixwpf0033"
 ---
 
 import Tabs from '@theme/Tabs';

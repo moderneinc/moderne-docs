@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert `OncePerRequestServerFilter` extensions to `HttpServerFilter`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/onceperrequesthttpserverfiltertohttpserverfilter"
 ---
 
 import Tabs from '@theme/Tabs';

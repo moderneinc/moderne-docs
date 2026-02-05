@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Create `weblogic.xml` if it does not exist"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogicxmlcreateifnotexists1511"
 ---
 
 import Tabs from '@theme/Tabs';

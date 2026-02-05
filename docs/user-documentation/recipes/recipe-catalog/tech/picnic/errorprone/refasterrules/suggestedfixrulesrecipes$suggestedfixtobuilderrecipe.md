@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `SuggestedFixRules.SuggestedFixToBuilder`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixtobuilderrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from org.apache.httpcomponents to ApacheHttpClient 5.x dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient5/upgradeapachehttpclientdependencies"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Transform `Assume` methods to `Assumptions`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/assumenotnulltoassumptionsrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

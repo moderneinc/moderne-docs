@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unused member declaration"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/unusedmemberrcs1213"
 ---
 
 import Tabs from '@theme/Tabs';

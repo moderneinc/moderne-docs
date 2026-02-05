@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Opening parenthesis or bracket should be on declaration line"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1110"
 ---
 
 import Tabs from '@theme/Tabs';

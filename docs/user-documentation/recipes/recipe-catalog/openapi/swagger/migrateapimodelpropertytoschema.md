@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from `@ApiModelProperty` to `@Schema`"
-canonical_url: "https://docs.openrewrite.org/recipes/openapi/swagger/migrateapimodelpropertytoschema"
 ---
 
 import Tabs from '@theme/Tabs';

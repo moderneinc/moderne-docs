@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Prethink context"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/updateprethinkcontext"
 ---
 
 import Tabs from '@theme/Tabs';

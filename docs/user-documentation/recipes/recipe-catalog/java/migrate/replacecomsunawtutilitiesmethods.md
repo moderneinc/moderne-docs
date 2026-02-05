@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `com.sun.awt.AWTUtilities` static method invocations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/replacecomsunawtutilitiesmethods"
 ---
 
 import Tabs from '@theme/Tabs';

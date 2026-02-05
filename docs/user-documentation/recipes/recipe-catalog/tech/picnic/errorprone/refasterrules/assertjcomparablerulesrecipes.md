@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`AssertJComparableRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

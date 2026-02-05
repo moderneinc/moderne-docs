@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Different java type for ServerCertificateValidator in camel-milo"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel416/camelmilocertificate"
 ---
 
 import Tabs from '@theme/Tabs';

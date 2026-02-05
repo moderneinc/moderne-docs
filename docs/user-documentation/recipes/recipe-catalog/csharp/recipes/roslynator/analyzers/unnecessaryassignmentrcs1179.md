@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary assignment"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/unnecessaryassignmentrcs1179"
 ---
 
 import Tabs from '@theme/Tabs';

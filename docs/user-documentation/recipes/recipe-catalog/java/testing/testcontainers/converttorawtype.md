@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove parameterized type arguments from a Java class"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/testcontainers/converttorawtype"
 ---
 
 import Tabs from '@theme/Tabs';

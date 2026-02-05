@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert lambda expression body to expression body"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/convertlambdaexpressionbodytoexpressionbodyrcs1021"
 ---
 
 import Tabs from '@theme/Tabs';

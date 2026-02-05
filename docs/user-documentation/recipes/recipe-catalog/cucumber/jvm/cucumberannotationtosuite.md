@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `@Cucumber` with `@Suite`"
-canonical_url: "https://docs.openrewrite.org/recipes/cucumber/jvm/cucumberannotationtosuite"
 ---
 
 import Tabs from '@theme/Tabs';

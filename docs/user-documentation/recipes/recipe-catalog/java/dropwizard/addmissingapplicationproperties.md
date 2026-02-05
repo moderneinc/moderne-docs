@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add application.properties if missing"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/addmissingapplicationproperties"
 ---
 
 import Tabs from '@theme/Tabs';

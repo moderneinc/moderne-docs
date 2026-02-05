@@ -30,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate Tapestry 4 to Tapestry 5](/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5.md)
+* [Migrate Tapestry 4 to Tapestry 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5)
 
 ## Examples
 ##### Example 1

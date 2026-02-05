@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus39.GraalSDK"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus39/graalsdk"
 ---
 
 import Tabs from '@theme/Tabs';

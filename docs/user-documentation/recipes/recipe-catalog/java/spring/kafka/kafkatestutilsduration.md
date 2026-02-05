@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Duration` in `KafkaTestUtils`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/kafka/kafkatestutilsduration"
 ---
 
 import Tabs from '@theme/Tabs';

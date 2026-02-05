@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Abstract type should not have public constructors"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/constructordeclarationrcs1160"
 ---
 
 import Tabs from '@theme/Tabs';

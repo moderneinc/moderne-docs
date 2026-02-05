@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Hibernate 7.0.x (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/hibernate/migratetohibernate70-community-edition"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -69,7 +68,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Hibernate 7.0.x (Moderne Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition.md)
+* [Migrate to Hibernate 7.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition)
 * [Migrate to Hibernate 7.1.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate71-community-edition.md)
 
 

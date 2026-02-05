@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus313.UpdateTestOIDCAuthServerUrl"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus313/updatetestoidcauthserverurl"
 ---
 
 import Tabs from '@theme/Tabs';

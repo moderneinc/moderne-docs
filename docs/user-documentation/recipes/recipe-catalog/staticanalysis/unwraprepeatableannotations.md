@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unwrap `@Repeatable` annotations"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/unwraprepeatableannotations"
 ---
 
 import Tabs from '@theme/Tabs';

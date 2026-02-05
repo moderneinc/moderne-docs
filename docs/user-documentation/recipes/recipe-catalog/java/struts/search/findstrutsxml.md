@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find struts XML files"
-canonical_url: "https://docs.openrewrite.org/recipes/java/struts/search/findstrutsxml"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ComparatorRules.IsLessThanOrEqualTo`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$islessthanorequaltorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

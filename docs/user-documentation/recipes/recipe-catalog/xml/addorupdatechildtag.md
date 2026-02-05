@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add or update child tag"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/addorupdatechildtag"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Set.of(..)` in Java 9 or higher"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavaimmutablesetof"
 ---
 
 import Tabs from '@theme/Tabs';

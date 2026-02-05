@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.InstantAtOffset`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$instantatoffsetrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

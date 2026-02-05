@@ -1,6 +1,5 @@
 ---
 sidebar_label: "YAML indent"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/format/indents"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer borrowing methods from the prototype instead of the instance"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferprototypemethods"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StringRules.StringIndexOfStringBetweenIndices`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringindexofstringbetweenindicesrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.ejb` packages to `jakarta.ejb`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxejbtojakartaejb"
 ---
 
 import Tabs from '@theme/Tabs';

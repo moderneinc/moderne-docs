@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant overriding member"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/memberdeclarationrcs1132"
 ---
 
 import Tabs from '@theme/Tabs';

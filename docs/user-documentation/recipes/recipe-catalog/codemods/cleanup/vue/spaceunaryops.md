@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing before or after unary operators in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/spaceunaryops"
 ---
 
 import Tabs from '@theme/Tabs';

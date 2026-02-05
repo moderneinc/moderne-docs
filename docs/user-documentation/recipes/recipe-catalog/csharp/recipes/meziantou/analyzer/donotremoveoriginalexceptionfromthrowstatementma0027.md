@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer rethrowing an exception implicitly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/donotremoveoriginalexceptionfromthrowstatementma0027"
 ---
 
 import Tabs from '@theme/Tabs';

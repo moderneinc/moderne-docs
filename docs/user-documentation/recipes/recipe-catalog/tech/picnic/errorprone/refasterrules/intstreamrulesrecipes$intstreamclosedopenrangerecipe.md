@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `IntStreamRules.IntStreamClosedOpenRange`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamclosedopenrangerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Member access symbols should be spaced correctly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1019"
 ---
 
 import Tabs from '@theme/Tabs';

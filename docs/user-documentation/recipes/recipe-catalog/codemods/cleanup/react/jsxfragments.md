@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce shorthand or standard form for React fragments"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxfragments"
 ---
 
 import Tabs from '@theme/Tabs';

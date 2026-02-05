@@ -30,7 +30,142 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Spring Boot 4.0 (Moderne Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
+* [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
+
+## Examples
+##### Example 1
+`MigrateHazelcastSpringSessionTest#changesDependencyAndPackage`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.session.hazelcast.HazelcastIndexedSessionRepository;
+import org.springframework.session.hazelcast.config.annotation.web.http.EnableHazelcastHttpSession;
+
+@EnableHazelcastHttpSession
+class SessionConfig {
+    HazelcastIndexedSessionRepository repository;
+}
+```
+
+###### After
+```java
+import com.hazelcast.spring.session.HazelcastIndexedSessionRepository;
+import com.hazelcast.spring.session.config.annotation.web.http.EnableHazelcastHttpSession;
+
+@EnableHazelcastHttpSession
+class SessionConfig {
+    HazelcastIndexedSessionRepository repository;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import org.springframework.session.hazelcast.HazelcastIndexedSessionRepository;
+-import org.springframework.session.hazelcast.config.annotation.web.http.EnableHazelcastHttpSession;
++import com.hazelcast.spring.session.HazelcastIndexedSessionRepository;
++import com.hazelcast.spring.session.config.annotation.web.http.EnableHazelcastHttpSession;
+
+```
+</TabItem>
+</Tabs>
+
+###### Unchanged
+```mavenProject
+test
+```
+
+###### Unchanged
+```xml title="pom.xml"
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-hazelcast</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+---
+
+##### Example 2
+`MigrateHazelcastSpringSessionTest#changesDependencyAndPackage`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.session.hazelcast.HazelcastIndexedSessionRepository;
+import org.springframework.session.hazelcast.config.annotation.web.http.EnableHazelcastHttpSession;
+
+@EnableHazelcastHttpSession
+class SessionConfig {
+    HazelcastIndexedSessionRepository repository;
+}
+```
+
+###### After
+```java
+import com.hazelcast.spring.session.HazelcastIndexedSessionRepository;
+import com.hazelcast.spring.session.config.annotation.web.http.EnableHazelcastHttpSession;
+
+@EnableHazelcastHttpSession
+class SessionConfig {
+    HazelcastIndexedSessionRepository repository;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import org.springframework.session.hazelcast.HazelcastIndexedSessionRepository;
+-import org.springframework.session.hazelcast.config.annotation.web.http.EnableHazelcastHttpSession;
++import com.hazelcast.spring.session.HazelcastIndexedSessionRepository;
++import com.hazelcast.spring.session.config.annotation.web.http.EnableHazelcastHttpSession;
+
+```
+</TabItem>
+</Tabs>
+
+###### Unchanged
+```mavenProject
+test
+```
+
+###### Unchanged
+```xml title="pom.xml"
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-hazelcast</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+    </dependencies>
+</project>
+```
 
 
 ## Usage

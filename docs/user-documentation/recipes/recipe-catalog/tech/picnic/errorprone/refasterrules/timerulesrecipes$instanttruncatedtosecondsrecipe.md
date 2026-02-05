@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.InstantTruncatedToSeconds`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$instanttruncatedtosecondsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

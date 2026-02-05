@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssortedRules.SplitToStream`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$splittostreamrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

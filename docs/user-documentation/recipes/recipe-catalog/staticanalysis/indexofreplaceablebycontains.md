@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`indexOf()` replaceable by `contains()`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/indexofreplaceablebycontains"
 ---
 
 import Tabs from '@theme/Tabs';

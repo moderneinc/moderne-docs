@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove annotation attribute"
-canonical_url: "https://docs.openrewrite.org/recipes/java/removeannotationattribute"
 ---
 
 import Tabs from '@theme/Tabs';

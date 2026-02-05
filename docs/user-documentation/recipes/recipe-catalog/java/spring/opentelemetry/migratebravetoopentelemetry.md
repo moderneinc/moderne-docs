@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Brave API to OpenTelemetry API"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/opentelemetry/migratebravetoopentelemetry"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "End files with a single newline"
-canonical_url: "https://docs.openrewrite.org/recipes/java/format/emptynewlineatendoffile"
 ---
 
 import Tabs from '@theme/Tabs';

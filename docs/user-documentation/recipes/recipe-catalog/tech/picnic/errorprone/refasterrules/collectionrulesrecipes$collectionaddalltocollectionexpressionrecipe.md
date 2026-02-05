@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CollectionRules.CollectionAddAllToCollectionExpression`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$collectionaddalltocollectionexpressionrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

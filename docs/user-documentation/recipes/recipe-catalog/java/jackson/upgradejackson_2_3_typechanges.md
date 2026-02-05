@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Jackson 2.x types to 3.x"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/upgradejackson_2_3_typechanges"
 ---
 
 import Tabs from '@theme/Tabs';

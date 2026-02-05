@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `LongStreamRules.LongStreamMin`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamminrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `RxJava2AdapterRules.MaybeToMono`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$maybetomonorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

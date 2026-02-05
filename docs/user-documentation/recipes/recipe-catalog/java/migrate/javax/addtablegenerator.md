@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Attributes with automatically generated values require configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/addtablegenerator"
 ---
 
 import Tabs from '@theme/Tabs';

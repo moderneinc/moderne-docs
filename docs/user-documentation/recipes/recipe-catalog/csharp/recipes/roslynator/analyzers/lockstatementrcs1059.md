@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid locking on publicly accessible instance"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/lockstatementrcs1059"
 ---
 
 import Tabs from '@theme/Tabs';

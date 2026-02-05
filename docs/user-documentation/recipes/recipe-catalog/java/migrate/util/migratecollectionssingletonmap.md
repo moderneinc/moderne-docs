@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Map.of(..)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/migratecollectionssingletonmap"
 ---
 
 import Tabs from '@theme/Tabs';

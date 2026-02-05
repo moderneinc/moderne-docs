@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.transaction` packages to `jakarta.transaction`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxtransactionmigrationtojakartatransaction"
 ---
 
 import Tabs from '@theme/Tabs';

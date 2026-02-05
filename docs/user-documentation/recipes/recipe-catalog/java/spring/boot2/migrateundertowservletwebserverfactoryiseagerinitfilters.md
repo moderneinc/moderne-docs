@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `isEagerFilterInit()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migrateundertowservletwebserverfactoryiseagerinitfilters"
 ---
 
 import Tabs from '@theme/Tabs';

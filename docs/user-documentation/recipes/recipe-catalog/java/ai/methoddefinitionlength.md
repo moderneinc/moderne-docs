@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Calculate token length of method definitions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/ai/methoddefinitionlength"
 ---
 
 import Tabs from '@theme/Tabs';

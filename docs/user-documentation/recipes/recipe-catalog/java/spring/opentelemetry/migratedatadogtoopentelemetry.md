@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Datadog tracing to OpenTelemetry"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/opentelemetry/migratedatadogtoopentelemetry"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use switch cases refinement when possible"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/refineswitchcases"
 ---
 
 import Tabs from '@theme/Tabs';

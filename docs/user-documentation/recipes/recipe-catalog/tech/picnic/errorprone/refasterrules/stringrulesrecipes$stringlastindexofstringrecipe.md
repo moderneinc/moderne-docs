@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StringRules.StringLastIndexOfString`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringlastindexofstringrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

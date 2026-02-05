@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change the default value for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/launchdarkly/changevariationdefault"
 ---
 
 import Tabs from '@theme/Tabs';

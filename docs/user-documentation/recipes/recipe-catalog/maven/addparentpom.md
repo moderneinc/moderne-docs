@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Maven parent"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/addparentpom"
 ---
 
 import Tabs from '@theme/Tabs';

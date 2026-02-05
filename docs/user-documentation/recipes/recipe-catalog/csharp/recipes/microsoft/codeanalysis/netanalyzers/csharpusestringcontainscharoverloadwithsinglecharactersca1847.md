@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use char literal for a single character lookup"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpusestringcontainscharoverloadwithsinglecharactersca1847"
 ---
 
 import Tabs from '@theme/Tabs';

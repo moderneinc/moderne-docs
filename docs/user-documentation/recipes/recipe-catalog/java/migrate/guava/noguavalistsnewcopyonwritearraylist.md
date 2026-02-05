@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `new CopyOnWriteArrayList&lt;&gt;()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavalistsnewcopyonwritearraylist"
 ---
 
 import Tabs from '@theme/Tabs';

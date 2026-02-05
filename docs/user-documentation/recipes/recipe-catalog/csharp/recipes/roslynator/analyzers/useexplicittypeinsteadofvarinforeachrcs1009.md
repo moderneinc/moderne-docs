@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Use explicit type instead of 'var' (foreach variable)"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useexplicittypeinsteadofvarinforeachrcs1009"
 ---
 
 import Tabs from '@theme/Tabs';

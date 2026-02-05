@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `0 &lt; s.length()` with `!s.isEmpty()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/usestringisemptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

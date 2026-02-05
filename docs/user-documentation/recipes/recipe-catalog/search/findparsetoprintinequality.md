@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find parse to print inequality"
-canonical_url: "https://docs.openrewrite.org/recipes/search/findparsetoprintinequality"
 ---
 
 import Tabs from '@theme/Tabs';

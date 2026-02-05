@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unused private methods"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removeunusedprivatemethods"
 ---
 
 import Tabs from '@theme/Tabs';

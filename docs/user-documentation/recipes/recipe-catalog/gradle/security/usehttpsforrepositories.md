@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use HTTPS for repositories"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/security/usehttpsforrepositories"
 ---
 
 import Tabs from '@theme/Tabs';

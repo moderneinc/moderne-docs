@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change XML tag value"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/changetagvalue"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -37,9 +36,9 @@ This recipe is used as part of the following composite recipes:
 * [Flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references](/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/apachedefaultprovider.md)
 * [JNDI name `jsf/ClientSideSecretKey` has been renamed to `faces/ClientSideSecretKey`, and the `jsf/FlashSecretKey` JNDI name has been renamed to `faces/FlashSecretKey`.](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/facesjndinameschanged3.md)
 * [JNDI name `jsf/ClientSideSecretKey` has been renamed to `faces/ClientSideSecretKey`, and the `jsf/FlashSecretKey` JNDI name has been renamed to `faces/FlashSecretKey`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/facesjndinameschanged.md)
-* [Migrate JSF variable-resolver to el-resolver](/user-documentation/recipes/recipe-catalog/java/spring/framework/jsf23/migratefacesconfig.md)
-* [Migrate from Acegi Security 1.0.x to Spring Security 5.0](/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0.md)
-* [Migrate to Spring ORM to 5](/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5.md)
+* [Migrate JSF variable-resolver to el-resolver](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/jsf23/migratefacesconfig)
+* [Migrate from Acegi Security 1.0.x to Spring Security 5.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0)
+* [Migrate to Spring ORM to 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5)
 * [Removed OpenJPA providers in the persistence.xml file](/user-documentation/recipes/recipe-catalog/java/migrate/javaee7/openjpapersistenceprovider.md)
 * [Replace deprecated lifecycle phases](/user-documentation/recipes/recipe-catalog/maven/replacedeprecatedlifecyclephases.md)
 * [Upgrade to Maven model version 4.1.0](/user-documentation/recipes/recipe-catalog/maven/upgradetomodelversion410.md)

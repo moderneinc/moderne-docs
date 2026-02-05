@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `Runtime.traceInstructions(boolean)` and `Runtime.traceMethodCalls` methods"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedruntimetracemethods"
 ---
 
 import Tabs from '@theme/Tabs';

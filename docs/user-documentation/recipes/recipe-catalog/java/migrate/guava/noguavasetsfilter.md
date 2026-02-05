@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Collection.stream().filter(Predicate)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavasetsfilter"
 ---
 
 import Tabs from '@theme/Tabs';

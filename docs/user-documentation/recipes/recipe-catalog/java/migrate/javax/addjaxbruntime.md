@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use latest JAXB API and runtime for Jakarta EE 8"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/addjaxbruntime"
 ---
 
 import Tabs from '@theme/Tabs';

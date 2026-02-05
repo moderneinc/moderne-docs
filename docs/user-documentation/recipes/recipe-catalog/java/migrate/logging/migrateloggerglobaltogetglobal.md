@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Logger#getGlobal()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/logging/migrateloggerglobaltogetglobal"
 ---
 
 import Tabs from '@theme/Tabs';

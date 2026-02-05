@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Method overrides should not omit params keyword"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/preserveparamsonoverridema0081"
 ---
 
 import Tabs from '@theme/Tabs';

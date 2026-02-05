@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename setter methods to fit Lombok"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lombok/adoptlomboksettermethodnames"
 ---
 
 import Tabs from '@theme/Tabs';

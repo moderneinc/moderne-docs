@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce test and it usage conventions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/consistenttestit"
 ---
 
 import Tabs from '@theme/Tabs';

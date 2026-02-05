@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use correct connector namespace values"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/liberty/connectorddnamespacerule"
 ---
 
 import Tabs from '@theme/Tabs';

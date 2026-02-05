@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `actions/setup-java` `temurin` distribution"
-canonical_url: "https://docs.openrewrite.org/recipes/github/setupjavaadoptopenjdktotemurin"
 ---
 
 import Tabs from '@theme/Tabs';

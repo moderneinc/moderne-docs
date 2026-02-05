@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`"
-canonical_url: "https://docs.openrewrite.org/recipes/openapi/swagger/migrateswaggerdefinitiontoopenapidefinition"
 ---
 
 import Tabs from '@theme/Tabs';

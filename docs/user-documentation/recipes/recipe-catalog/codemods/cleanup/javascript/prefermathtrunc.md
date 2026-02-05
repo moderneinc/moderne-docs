@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce the use of `Math.trunc()` instead of bitwise operators"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefermathtrunc"
 ---
 
 import Tabs from '@theme/Tabs';

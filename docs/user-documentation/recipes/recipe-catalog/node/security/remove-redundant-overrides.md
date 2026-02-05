@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant dependency overrides"
-canonical_url: "https://docs.openrewrite.org/recipes/node/security/remove-redundant-overrides"
 ---
 
 import Tabs from '@theme/Tabs';

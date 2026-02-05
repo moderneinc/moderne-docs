@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Register containing type as owner for routed command"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usecontainingtypefixwpf0121"
 ---
 
 import Tabs from '@theme/Tabs';

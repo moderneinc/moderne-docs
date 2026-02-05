@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.DurationBetweenOffsetDateTimes`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$durationbetweenoffsetdatetimesrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

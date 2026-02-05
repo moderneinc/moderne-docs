@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit 5 inner test classes should be annotated with `@Nested`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/addmissingnested"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Preserve DynamicDestinationResolver behavior for JmsTemplate](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratejmsdestinationresolver.md)
+* [Preserve DynamicDestinationResolver behavior for JmsTemplate](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratejmsdestinationresolver)
 
 ## Example
 

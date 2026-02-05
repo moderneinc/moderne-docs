@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `A.class.isInstance(a)` with `a instanceof A`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replaceclassisinstancewithinstanceof"
 ---
 
 import Tabs from '@theme/Tabs';

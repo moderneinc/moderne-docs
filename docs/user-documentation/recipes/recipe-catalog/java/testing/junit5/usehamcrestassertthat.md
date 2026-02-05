@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `MatcherAssert#assertThat(..)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/usehamcrestassertthat"
 ---
 
 import Tabs from '@theme/Tabs';

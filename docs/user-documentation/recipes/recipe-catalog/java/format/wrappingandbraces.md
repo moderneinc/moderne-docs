@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Wrapping and braces"
-canonical_url: "https://docs.openrewrite.org/recipes/java/format/wrappingandbraces"
 ---
 
 import Tabs from '@theme/Tabs';

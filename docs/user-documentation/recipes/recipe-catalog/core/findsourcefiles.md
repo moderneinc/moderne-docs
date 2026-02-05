@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find files"
-canonical_url: "https://docs.openrewrite.org/recipes/core/findsourcefiles"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -31,7 +30,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Find AI agents configuration files](/user-documentation/recipes/recipe-catalog/ai/findagentsinuse.md)
+* [Find AI agents configuration files](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/ai/findagentsinuse)
 
 
 ## Usage

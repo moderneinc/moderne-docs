@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ComparatorRules.MaxByNaturalOrder`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$maxbynaturalorderrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

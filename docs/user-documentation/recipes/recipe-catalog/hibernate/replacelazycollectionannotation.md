@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `@LazyCollection` with `jakarta.persistence.FetchType` (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/hibernate/replacelazycollectionannotation"
 ---
 
 import Tabs from '@theme/Tabs';

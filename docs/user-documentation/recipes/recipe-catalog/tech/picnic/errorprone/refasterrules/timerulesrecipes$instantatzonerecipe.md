@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.InstantAtZone`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$instantatzonerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

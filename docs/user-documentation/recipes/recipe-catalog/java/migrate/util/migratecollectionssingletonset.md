@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Set.of(..)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/migratecollectionssingletonset"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enum values should be compared with &quot;==&quot;"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/compareenumswithequalityoperator"
 ---
 
 import Tabs from '@theme/Tabs';

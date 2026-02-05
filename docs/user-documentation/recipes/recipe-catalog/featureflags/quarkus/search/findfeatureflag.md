@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find a Quarkus feature flag"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/quarkus/search/findfeatureflag"
 ---
 
 import Tabs from '@theme/Tabs';

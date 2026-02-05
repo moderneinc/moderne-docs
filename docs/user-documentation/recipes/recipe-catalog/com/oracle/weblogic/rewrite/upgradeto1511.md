@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to WebLogic 15.1.1"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/upgradeto1511"
 ---
 
 import Tabs from '@theme/Tabs';

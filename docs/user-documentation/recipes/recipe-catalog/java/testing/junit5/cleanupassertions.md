@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Clean Up Assertions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/cleanupassertions"
 ---
 
 import Tabs from '@theme/Tabs';

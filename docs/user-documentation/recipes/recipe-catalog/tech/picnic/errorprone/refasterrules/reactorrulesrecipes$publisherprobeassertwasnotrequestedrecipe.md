@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.PublisherProbeAssertWasNotRequested`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$publisherprobeassertwasnotrequestedrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

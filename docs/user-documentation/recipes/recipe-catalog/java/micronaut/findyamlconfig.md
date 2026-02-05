@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Micronaut yaml config"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/findyamlconfig"
 ---
 
 import Tabs from '@theme/Tabs';

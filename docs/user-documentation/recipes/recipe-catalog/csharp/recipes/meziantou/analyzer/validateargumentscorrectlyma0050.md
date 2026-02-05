@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Validate arguments correctly in iterator methods"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/validateargumentscorrectlyma0050"
 ---
 
 import Tabs from '@theme/Tabs';

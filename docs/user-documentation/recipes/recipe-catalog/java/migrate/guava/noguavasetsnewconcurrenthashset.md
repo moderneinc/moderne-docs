@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `new ConcurrentHashMap&lt;&gt;()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavasetsnewconcurrenthashset"
 ---
 
 import Tabs from '@theme/Tabs';

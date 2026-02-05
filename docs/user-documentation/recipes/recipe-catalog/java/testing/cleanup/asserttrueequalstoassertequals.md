@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUnit `assertTrue(a.equals(b))` to `assertEquals(a,b)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/cleanup/asserttrueequalstoassertequals"
 ---
 
 import Tabs from '@theme/Tabs';

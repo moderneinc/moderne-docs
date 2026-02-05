@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unnecessary `@Override` annotations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/method/removeunnecessaryoverride"
 ---
 
 import Tabs from '@theme/Tabs';

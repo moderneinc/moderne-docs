@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `HandlerInterceptorAdapter` to `HandlerInterceptor`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migratehandlerinterceptor"
 ---
 
 import Tabs from '@theme/Tabs';

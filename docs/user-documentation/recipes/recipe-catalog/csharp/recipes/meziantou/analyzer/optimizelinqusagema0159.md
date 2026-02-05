@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use 'Order' instead of 'OrderBy'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/optimizelinqusagema0159"
 ---
 
 import Tabs from '@theme/Tabs';

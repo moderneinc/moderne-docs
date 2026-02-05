@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find excessive permissions"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/excessivepermissionsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

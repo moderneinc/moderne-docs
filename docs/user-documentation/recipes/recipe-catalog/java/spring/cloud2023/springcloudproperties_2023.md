@@ -28,7 +28,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate Spring Cloud properties to 2024](/user-documentation/recipes/recipe-catalog/java/spring/cloud2024/springcloudproperties_2024.md)
+* [Migrate Spring Cloud properties to 2024](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/cloud2024/springcloudproperties_2024)
 
 
 ## Usage

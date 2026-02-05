@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate serialization annotation processor"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/codehaus/replaceserializationconfigannotationintrospector"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames `color` prop to `colorOverride`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/buttoncolorprop"
 ---
 
 import Tabs from '@theme/Tabs';

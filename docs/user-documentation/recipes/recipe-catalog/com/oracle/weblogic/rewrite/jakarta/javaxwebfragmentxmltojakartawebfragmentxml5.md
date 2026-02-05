@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `web-fragment.xml` files for Jakarta Server Faces 3"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxwebfragmentxmltojakartawebfragmentxml5"
 ---
 
 import Tabs from '@theme/Tabs';

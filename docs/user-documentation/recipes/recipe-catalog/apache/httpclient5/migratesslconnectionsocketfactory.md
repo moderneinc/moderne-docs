@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `SSLConnectionSocketFactory` to `DefaultClientTlsStrategy`"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient5/migratesslconnectionsocketfactory"
 ---
 
 import Tabs from '@theme/Tabs';

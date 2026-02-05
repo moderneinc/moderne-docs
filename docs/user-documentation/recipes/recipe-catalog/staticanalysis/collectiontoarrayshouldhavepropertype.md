@@ -1,6 +1,5 @@
 ---
 sidebar_label: "'Collection.toArray()' should be passed an array of the proper type"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/collectiontoarrayshouldhavepropertype"
 ---
 
 import Tabs from '@theme/Tabs';

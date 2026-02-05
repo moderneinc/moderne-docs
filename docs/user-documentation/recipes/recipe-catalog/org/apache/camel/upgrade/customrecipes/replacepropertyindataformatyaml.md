@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames property of the component"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames `component` prop to `as`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/componentrenameprop"
 ---
 
 import Tabs from '@theme/Tabs';

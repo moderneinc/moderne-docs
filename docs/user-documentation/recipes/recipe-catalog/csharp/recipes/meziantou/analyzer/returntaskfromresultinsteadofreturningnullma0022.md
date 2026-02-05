@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Return Task.FromResult instead of returning null"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/returntaskfromresultinsteadofreturningnullma0022"
 ---
 
 import Tabs from '@theme/Tabs';

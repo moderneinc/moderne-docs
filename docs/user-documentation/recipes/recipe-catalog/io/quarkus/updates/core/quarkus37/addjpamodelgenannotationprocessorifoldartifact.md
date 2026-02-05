@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus37.AddJpaModelgenAnnotationProcessorIfOldArtifact"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/addjpamodelgenannotationprocessorifoldartifact"
 ---
 
 import Tabs from '@theme/Tabs';

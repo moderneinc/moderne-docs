@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `clear` to ApacheHttpClient 5.x `CredentialsStore`"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient5/credentialsstoreclear"
 ---
 
 import Tabs from '@theme/Tabs';

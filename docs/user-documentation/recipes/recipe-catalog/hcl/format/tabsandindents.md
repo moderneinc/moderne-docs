@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Tabs and indents"
-canonical_url: "https://docs.openrewrite.org/recipes/hcl/format/tabsandindents"
 ---
 
 import Tabs from '@theme/Tabs';

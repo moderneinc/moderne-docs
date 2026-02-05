@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Spring Kafka 3.3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringkafka_3_3.md)
+* [Migrate to Spring Kafka 3.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringkafka_3_3)
 
 ## Example
 

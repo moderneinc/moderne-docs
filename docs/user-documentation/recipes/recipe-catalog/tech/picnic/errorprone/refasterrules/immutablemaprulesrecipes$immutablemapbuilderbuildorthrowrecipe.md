@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableMapRules.ImmutableMapBuilderBuildOrThrow`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablemaprulesrecipes$immutablemapbuilderbuildorthrowrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

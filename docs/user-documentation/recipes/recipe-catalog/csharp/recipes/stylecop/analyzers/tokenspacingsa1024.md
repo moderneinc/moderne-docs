@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Colons Should Be Spaced Correctly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1024"
 ---
 
 import Tabs from '@theme/Tabs';

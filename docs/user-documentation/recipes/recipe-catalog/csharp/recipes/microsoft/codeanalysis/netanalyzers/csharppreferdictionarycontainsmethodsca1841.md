@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer Dictionary.Contains methods"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharppreferdictionarycontainsmethodsca1841"
 ---
 
 import Tabs from '@theme/Tabs';

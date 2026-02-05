@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce the casing of component name in components options"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/componentoptionsnamecasing"
 ---
 
 import Tabs from '@theme/Tabs';

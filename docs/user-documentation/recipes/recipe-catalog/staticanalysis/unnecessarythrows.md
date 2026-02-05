@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary throws"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/unnecessarythrows"
 ---
 
 import Tabs from '@theme/Tabs';

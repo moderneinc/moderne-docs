@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames `alpha` prop to `opacity`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/faderenamealpha"
 ---
 
 import Tabs from '@theme/Tabs';

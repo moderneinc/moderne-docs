@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.ConcatMapIterableIdentity`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$concatmapiterableidentityrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

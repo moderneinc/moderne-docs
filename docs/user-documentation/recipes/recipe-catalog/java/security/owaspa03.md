@@ -24,7 +24,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [OWASP top ten](/user-documentation/recipes/recipe-catalog/devcenter/securitystarter.md)
-* [Remediate vulnerabilities from the OWASP Top Ten](/user-documentation/recipes/recipe-catalog/java/security/owasptopten.md)
+* [Remediate vulnerabilities from the OWASP Top Ten](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasptopten)
 
 
 ## Usage

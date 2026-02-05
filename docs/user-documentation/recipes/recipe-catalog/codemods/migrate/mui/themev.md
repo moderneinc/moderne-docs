@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update the theme creation from `@mui/system@v5` to be compatible with `@pigment-css/react`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/themev"
 ---
 
 import Tabs from '@theme/Tabs';

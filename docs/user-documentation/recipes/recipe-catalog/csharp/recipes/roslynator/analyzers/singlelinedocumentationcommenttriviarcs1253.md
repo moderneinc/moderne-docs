@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Format documentation comment summary"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/singlelinedocumentationcommenttriviarcs1253"
 ---
 
 import Tabs from '@theme/Tabs';

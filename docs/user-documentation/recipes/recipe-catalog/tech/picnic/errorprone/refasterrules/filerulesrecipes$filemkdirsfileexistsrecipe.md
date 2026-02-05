@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `FileRules.FileMkDirsFileExists`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/filerulesrecipes$filemkdirsfileexistsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `ApiInfoBuilder` to `Info`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/doc/apiinfobuildertoinfo"
 ---
 
 import Tabs from '@theme/Tabs';

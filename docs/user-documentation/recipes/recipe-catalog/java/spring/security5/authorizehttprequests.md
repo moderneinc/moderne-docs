@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `HttpSecurity.authorizeRequests(...)` with `HttpSecurity.authorizeHttpRequests(...)` and `ExpressionUrlAuthorizationConfigurer`, `AbstractInterceptUrlConfigurer` with `AuthorizeHttpRequestsConfigurer`, etc"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/security5/authorizehttprequests"
 ---
 
 import Tabs from '@theme/Tabs';

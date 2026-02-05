@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Forbid importing packages through relative paths"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/norelativepackages"
 ---
 
 import Tabs from '@theme/Tabs';

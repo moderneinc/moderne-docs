@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change v1 Maven/Gradle dependencies to v2"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/upgradesdkdependencies"
 ---
 
 import Tabs from '@theme/Tabs';

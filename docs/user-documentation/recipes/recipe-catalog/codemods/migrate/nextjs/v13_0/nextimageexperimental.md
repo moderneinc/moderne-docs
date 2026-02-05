@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to the New Image Component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v13_0/nextimageexperimental"
 ---
 
 import Tabs from '@theme/Tabs';

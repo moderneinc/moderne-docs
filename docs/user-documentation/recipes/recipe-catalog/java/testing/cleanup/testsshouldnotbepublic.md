@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `public` visibility of JUnit 5 tests"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/cleanup/testsshouldnotbepublic"
 ---
 
 import Tabs from '@theme/Tabs';

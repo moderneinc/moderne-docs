@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer using `String`, `Number`, `BigInt`, `Boolean`, and `Symbol` directly"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefernativecoercionfunctions"
 ---
 
 import Tabs from '@theme/Tabs';

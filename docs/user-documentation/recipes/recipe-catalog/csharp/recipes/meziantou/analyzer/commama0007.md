@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add a comma after the last value"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/commama0007"
 ---
 
 import Tabs from '@theme/Tabs';

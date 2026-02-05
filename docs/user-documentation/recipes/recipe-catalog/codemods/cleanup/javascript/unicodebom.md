@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow Unicode byte order mark (BOM)"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/unicodebom"
 ---
 
 import Tabs from '@theme/Tabs';

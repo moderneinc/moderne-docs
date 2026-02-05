@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Maven plugin dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/changeplugindependencies"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Resource can be disposed asynchronously"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/disposeresourceasynchronouslyrcs1261"
 ---
 
 import Tabs from '@theme/Tabs';

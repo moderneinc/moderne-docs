@@ -1,6 +1,5 @@
 ---
 sidebar_label: "SDK Exceptions Methods to V2"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/sdkexceptiontov2"
 ---
 
 import Tabs from '@theme/Tabs';

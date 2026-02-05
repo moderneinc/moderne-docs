@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Fall through"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/fallthrough"
 ---
 
 import Tabs from '@theme/Tabs';

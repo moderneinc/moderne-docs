@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow awaiting non-promise values"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nounnecessaryawait"
 ---
 
 import Tabs from '@theme/Tabs';

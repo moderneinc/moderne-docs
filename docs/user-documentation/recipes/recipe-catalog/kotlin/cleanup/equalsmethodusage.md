@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Structural equality tests should use `==` or `!=`"
-canonical_url: "https://docs.openrewrite.org/recipes/kotlin/cleanup/equalsmethodusage"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt AssertJ Duration assertions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/adoptassertjdurationassertions"
 ---
 
 import Tabs from '@theme/Tabs';

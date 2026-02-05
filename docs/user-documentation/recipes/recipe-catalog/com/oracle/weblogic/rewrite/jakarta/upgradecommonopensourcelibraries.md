@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Common open source libraries"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/upgradecommonopensourcelibraries"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `IntStreamRules.IntStreamIsEmpty`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamisemptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

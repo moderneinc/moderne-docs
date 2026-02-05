@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow nested ternary expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nonestedternary"
 ---
 
 import Tabs from '@theme/Tabs';

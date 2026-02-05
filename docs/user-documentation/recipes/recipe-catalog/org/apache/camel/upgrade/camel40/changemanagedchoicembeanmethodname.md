@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change of method names brought by Camel JMX API changes"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel40/changemanagedchoicembeanmethodname"
 ---
 
 import Tabs from '@theme/Tabs';

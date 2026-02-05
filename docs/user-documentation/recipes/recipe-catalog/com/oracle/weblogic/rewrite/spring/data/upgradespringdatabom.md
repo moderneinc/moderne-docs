@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Spring Data BOM to 2024.1.x"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/spring/data/upgradespringdatabom"
 ---
 
 import Tabs from '@theme/Tabs';

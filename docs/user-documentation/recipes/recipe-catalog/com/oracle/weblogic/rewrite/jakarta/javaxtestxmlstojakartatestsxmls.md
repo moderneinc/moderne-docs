@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `test-*.xml` files for Jakarta EE 9.1 using test interfaces"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxtestxmlstojakartatestsxmls"
 ---
 
 import Tabs from '@theme/Tabs';

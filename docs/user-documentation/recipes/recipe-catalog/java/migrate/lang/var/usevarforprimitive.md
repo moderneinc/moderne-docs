@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `var` for primitive-typed variables"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/var/usevarforprimitive"
 ---
 
 import Tabs from '@theme/Tabs';

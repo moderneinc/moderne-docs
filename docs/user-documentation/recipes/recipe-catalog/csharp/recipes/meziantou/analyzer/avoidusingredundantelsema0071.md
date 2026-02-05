@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid using redundant else"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/avoidusingredundantelsema0071"
 ---
 
 import Tabs from '@theme/Tabs';

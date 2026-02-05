@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find forbidden action usage"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/forbiddenusesrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

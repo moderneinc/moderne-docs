@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Containing type should be used as registered owner"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usecontainingtypefixwpf0101"
 ---
 
 import Tabs from '@theme/Tabs';

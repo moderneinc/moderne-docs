@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Create YAML file"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/createyamlfile"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Parse `Jenkinsfile` as Groovy"
-canonical_url: "https://docs.openrewrite.org/recipes/jenkins/jenkinsfileasgroovy"
 ---
 
 import Tabs from '@theme/Tabs';

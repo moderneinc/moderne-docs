@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find unconditional secrets inheritance"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/secretsinheritrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

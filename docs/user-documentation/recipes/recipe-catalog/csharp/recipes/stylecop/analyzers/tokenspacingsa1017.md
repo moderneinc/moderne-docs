@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Closing attribute brackets should be spaced correctly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1017"
 ---
 
 import Tabs from '@theme/Tabs';

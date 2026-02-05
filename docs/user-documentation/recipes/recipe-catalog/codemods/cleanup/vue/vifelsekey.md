@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require key attribute for conditionally rendered repeated components"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/vifelsekey"
 ---
 
 import Tabs from '@theme/Tabs';

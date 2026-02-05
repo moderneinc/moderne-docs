@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JSON indent"
-canonical_url: "https://docs.openrewrite.org/recipes/json/format/indents"
 ---
 
 import Tabs from '@theme/Tabs';

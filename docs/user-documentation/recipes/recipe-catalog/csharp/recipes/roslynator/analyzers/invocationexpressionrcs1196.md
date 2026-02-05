@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Call extension method as instance method"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/invocationexpressionrcs1196"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `@ApiImplicitParam` to `@Parameter`"
-canonical_url: "https://docs.openrewrite.org/recipes/openapi/swagger/migrateapiimplicitparam"
 ---
 
 import Tabs from '@theme/Tabs';

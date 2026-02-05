@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove extra semicolons"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removeextrasemicolons"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `ejb-jar.xml` files."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxejbjarxmltojakarta9ejbjarxml"
 ---
 
 import Tabs from '@theme/Tabs';

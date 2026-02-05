@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Reorder method arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/java/reordermethodarguments"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Remove empty 'finally' clause"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/finallyclausercs1066"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `variant` prop usage"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/variantprop"
 ---
 
 import Tabs from '@theme/Tabs';

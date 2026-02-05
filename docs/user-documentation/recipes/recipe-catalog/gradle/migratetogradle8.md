@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Gradle 8 from Gradle 7"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/migratetogradle8"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -76,7 +75,7 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Gradle 9 from Gradle 8](/user-documentation/recipes/recipe-catalog/gradle/migratetogradle9.md)
-* [Upgrade Gradle 8 to 8.4+ for Spring Boot 3.4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradegradle8spring34.md)
+* [Upgrade Gradle 8 to 8.4+ for Spring Boot 3.4](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradegradle8spring34)
 
 
 ## Usage

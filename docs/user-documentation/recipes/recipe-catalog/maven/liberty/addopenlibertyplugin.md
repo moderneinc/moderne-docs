@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Liberty Maven plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/liberty/addopenlibertyplugin"
 ---
 
 import Tabs from '@theme/Tabs';

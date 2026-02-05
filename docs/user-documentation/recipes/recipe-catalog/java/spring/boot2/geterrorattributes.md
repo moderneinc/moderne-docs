@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `ErrorAttributes#getErrorAttributes(WebRequest, ErrorAttributeOptions)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/geterrorattributes"
 ---
 
 import Tabs from '@theme/Tabs';

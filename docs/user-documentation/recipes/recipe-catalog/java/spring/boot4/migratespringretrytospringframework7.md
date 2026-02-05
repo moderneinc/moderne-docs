@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate Spring Retry to Spring Resilience](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretry.md)
+* [Migrate Spring Retry to Spring Resilience](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretry)
 
 ## Example
 

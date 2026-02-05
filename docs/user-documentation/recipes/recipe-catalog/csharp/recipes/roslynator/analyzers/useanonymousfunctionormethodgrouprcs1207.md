@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use anonymous function or method group"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useanonymousfunctionormethodgrouprcs1207"
 ---
 
 import Tabs from '@theme/Tabs';

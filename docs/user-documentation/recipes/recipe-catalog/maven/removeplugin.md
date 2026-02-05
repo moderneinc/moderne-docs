@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove Maven plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/removeplugin"
 ---
 
 import Tabs from '@theme/Tabs';

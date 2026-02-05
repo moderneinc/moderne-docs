@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add missing `@ParameterizedTest` annotation when `@ValueSource` is used or replace `@Test` with `@ParameterizedTest`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/addparameterizedtestannotation"
 ---
 
 import Tabs from '@theme/Tabs';

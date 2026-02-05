@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent relative URL style"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/relativeurlstyle"
 ---
 
 import Tabs from '@theme/Tabs';

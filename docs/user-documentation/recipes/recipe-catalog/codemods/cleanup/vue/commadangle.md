@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow trailing commas in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/commadangle"
 ---
 
 import Tabs from '@theme/Tabs';

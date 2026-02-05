@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.upperCase(String)` with JDK internals"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$uppercaserecipe"
 ---
 
 import Tabs from '@theme/Tabs';

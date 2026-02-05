@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace PowerMock with raw Mockito"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/replacepowermockito"
 ---
 
 import Tabs from '@theme/Tabs';

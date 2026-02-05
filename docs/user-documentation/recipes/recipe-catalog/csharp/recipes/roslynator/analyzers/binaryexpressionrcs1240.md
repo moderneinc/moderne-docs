@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Operator is unnecessary"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1240"
 ---
 
 import Tabs from '@theme/Tabs';

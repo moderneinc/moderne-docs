@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace context.getExtension(ExtendedCamelContext.class).get* with PluginHelper.get*(context)"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel40/usepluginhelperforcontextgetters"
 ---
 
 import Tabs from '@theme/Tabs';

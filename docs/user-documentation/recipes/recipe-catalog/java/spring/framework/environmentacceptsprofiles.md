@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Environment#acceptsProfiles(Profiles)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/environmentacceptsprofiles"
 ---
 
 import Tabs from '@theme/Tabs';

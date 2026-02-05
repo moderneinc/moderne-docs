@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add explicit Common Annotations dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/addcommonannotationsdependencies"
 ---
 
 import Tabs from '@theme/Tabs';

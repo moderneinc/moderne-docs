@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow redundant return statements"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nouselessreturn"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeUberJar"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus310/updateconfigpackagetypeuberjar"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Expression is always equal to true/false"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/expressionrcs1215"
 ---
 
 import Tabs from '@theme/Tabs';

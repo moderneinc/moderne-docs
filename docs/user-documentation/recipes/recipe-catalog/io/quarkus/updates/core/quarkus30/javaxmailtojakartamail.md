@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.mail` packages to `jakarta.mail`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxmailtojakartamail"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Pad empty `for` loop components"
-canonical_url: "https://docs.openrewrite.org/recipes/java/format/pademptyforloopcomponents"
 ---
 
 import Tabs from '@theme/Tabs';

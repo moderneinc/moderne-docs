@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find dangerous GITHUB_ENV usage"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/githubenvrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

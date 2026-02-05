@@ -1,6 +1,5 @@
 ---
 sidebar_label: "File header file name documentation should match file name"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/settingsfilesa1638"
 ---
 
 import Tabs from '@theme/Tabs';

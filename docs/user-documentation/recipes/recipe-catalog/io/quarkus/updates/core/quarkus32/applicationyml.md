@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus32.ApplicationYml"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus32/applicationyml"
 ---
 
 import Tabs from '@theme/Tabs';

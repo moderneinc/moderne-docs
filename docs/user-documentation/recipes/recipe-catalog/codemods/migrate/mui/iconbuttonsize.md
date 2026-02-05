@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `size` prop for IconButton component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/iconbuttonsize"
 ---
 
 import Tabs from '@theme/Tabs';

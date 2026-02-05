@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow an empty line between class members"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/linesbetweenclassmembers"
 ---
 
 import Tabs from '@theme/Tabs';

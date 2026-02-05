@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit 4 `MockitoJUnit` to JUnit Jupiter `MockitoExtension`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/mockitojunittomockitoextension"
 ---
 
 import Tabs from '@theme/Tabs';

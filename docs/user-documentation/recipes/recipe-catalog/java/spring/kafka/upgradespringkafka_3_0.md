@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Spring Kafka 3.0"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/kafka/upgradespringkafka_3_0"
 ---
 
 import Tabs from '@theme/Tabs';

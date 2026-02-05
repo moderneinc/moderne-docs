@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Control flow statement indentation"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/controlflowindentation"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Composite enum value contains undefined flag"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/compositeenumvaluecontainsundefinedflagrcs1157"
 ---
 
 import Tabs from '@theme/Tabs';

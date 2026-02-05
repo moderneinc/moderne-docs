@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce order of attributes"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/attributesorder"
 ---
 
 import Tabs from '@theme/Tabs';

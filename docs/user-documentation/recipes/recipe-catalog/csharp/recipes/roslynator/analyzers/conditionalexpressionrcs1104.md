@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify conditional expression"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/conditionalexpressionrcs1104"
 ---
 
 import Tabs from '@theme/Tabs';

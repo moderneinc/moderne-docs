@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated `util._extend()` with `Object.assign()`"
-canonical_url: "https://docs.openrewrite.org/recipes/node/migrate/util/replace-util-extend"
 ---
 
 import Tabs from '@theme/Tabs';

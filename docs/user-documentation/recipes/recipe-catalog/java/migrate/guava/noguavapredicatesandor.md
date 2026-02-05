@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Predicate.and(Predicate)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavapredicatesandor"
 ---
 
 import Tabs from '@theme/Tabs';

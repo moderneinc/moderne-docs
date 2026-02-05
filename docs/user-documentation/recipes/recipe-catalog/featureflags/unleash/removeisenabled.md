@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove Unleash's `isEnabled` for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/unleash/removeisenabled"
 ---
 
 import Tabs from '@theme/Tabs';

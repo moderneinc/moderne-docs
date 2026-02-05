@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant default switch section"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/switchsectionrcs1070"
 ---
 
 import Tabs from '@theme/Tabs';

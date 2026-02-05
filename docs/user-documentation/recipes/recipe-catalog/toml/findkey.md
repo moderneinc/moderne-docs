@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find TOML keys"
-canonical_url: "https://docs.openrewrite.org/recipes/toml/findkey"
 ---
 
 import Tabs from '@theme/Tabs';

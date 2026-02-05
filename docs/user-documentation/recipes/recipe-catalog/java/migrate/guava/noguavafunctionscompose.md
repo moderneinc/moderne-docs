@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Function.compose(Function)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavafunctionscompose"
 ---
 
 import Tabs from '@theme/Tabs';

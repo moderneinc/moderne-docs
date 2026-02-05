@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `beans.xml` files for Beans 3.0."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxbeansxmltojakarta9beansxml"
 ---
 
 import Tabs from '@theme/Tabs';

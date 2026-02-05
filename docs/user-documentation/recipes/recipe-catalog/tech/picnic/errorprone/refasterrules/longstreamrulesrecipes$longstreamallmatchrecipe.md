@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `LongStreamRules.LongStreamAllMatch`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamallmatchrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

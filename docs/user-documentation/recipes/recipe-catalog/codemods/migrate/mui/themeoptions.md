@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates theme options"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/themeoptions"
 ---
 
 import Tabs from '@theme/Tabs';

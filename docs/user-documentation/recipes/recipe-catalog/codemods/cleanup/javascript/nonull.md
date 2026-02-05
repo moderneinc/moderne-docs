@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow the use of the `null` literal"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nonull"
 ---
 
 import Tabs from '@theme/Tabs';

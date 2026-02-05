@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate Spring Framework to Spring Boot](/user-documentation/recipes/recipe-catalog/java/spring/boot/springtospringboot.md)
+* [Migrate Spring Framework to Spring Boot](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot/springtospringboot)
 
 ## Example
 

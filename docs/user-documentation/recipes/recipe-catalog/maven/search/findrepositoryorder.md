@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Maven repository order"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/search/findrepositoryorder"
 ---
 
 import Tabs from '@theme/Tabs';

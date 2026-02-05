@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JBoss Logging Level arguments with the corresponding eponymous level method calls"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/jboss/loggerlevelargumenttomethod"
 ---
 
 import Tabs from '@theme/Tabs';

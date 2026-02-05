@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update the usage of the `sx` prop to be compatible with `@pigment-css/react`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/sxprop"
 ---
 
 import Tabs from '@theme/Tabs';

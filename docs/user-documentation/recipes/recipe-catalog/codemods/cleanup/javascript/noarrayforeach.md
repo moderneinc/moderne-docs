@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `for…of` over the `forEach` method"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noarrayforeach"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `RxJava2AdapterRules.FluxToFlowable`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$fluxtoflowablerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

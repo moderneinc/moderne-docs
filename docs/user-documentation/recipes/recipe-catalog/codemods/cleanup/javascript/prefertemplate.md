@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require template literals instead of string concatenation"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefertemplate"
 ---
 
 import Tabs from '@theme/Tabs';

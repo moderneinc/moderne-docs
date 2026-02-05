@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJLongRules.AbstractLongAssertIsZero`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertiszerorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit TestName @Rule to JUnit Jupiter TestInfo"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/testruletotestinfo"
 ---
 
 import Tabs from '@theme/Tabs';

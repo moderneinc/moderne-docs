@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `Font.setBoldweight(short)` with `Font.setBold(boolean)`"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/poi/replacesetboldweightwithsetbold"
 ---
 
 import Tabs from '@theme/Tabs';

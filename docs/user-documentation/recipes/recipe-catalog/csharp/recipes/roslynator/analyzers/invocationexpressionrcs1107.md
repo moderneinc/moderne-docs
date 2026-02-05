@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant 'ToCharArray' call"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/invocationexpressionrcs1107"
 ---
 
 import Tabs from '@theme/Tabs';

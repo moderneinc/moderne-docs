@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssortedRules.UnboundedSingleElementStream`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$unboundedsingleelementstreamrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

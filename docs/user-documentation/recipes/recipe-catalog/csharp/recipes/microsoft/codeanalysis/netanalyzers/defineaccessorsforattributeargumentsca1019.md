@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Define accessors for attribute arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/defineaccessorsforattributeargumentsca1019"
 ---
 
 import Tabs from '@theme/Tabs';

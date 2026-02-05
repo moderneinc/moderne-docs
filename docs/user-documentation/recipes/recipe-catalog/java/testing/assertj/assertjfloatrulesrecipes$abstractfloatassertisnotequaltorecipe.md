@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `isNotCloseTo` with `isNotEqualTo`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisnotequaltorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

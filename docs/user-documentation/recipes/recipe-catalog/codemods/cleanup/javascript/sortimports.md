@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce sorted import declarations within modules"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/sortimports"
 ---
 
 import Tabs from '@theme/Tabs';

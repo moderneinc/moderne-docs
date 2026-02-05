@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Export context files"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/exportcontext"
 ---
 
 import Tabs from '@theme/Tabs';

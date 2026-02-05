@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Normalize format of enum flag value"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/enummemberdeclarationrcs1254"
 ---
 
 import Tabs from '@theme/Tabs';

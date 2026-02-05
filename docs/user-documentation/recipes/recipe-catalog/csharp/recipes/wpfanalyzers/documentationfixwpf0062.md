@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Property changed callback should have standard documentation text"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/documentationfixwpf0062"
 ---
 
 import Tabs from '@theme/Tabs';

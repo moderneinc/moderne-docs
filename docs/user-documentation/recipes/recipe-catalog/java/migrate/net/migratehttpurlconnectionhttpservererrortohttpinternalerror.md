@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `java.net.HttpURLConnection.HTTP_INTERNAL_ERROR`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/net/migratehttpurlconnectionhttpservererrortohttpinternalerror"
 ---
 
 import Tabs from '@theme/Tabs';

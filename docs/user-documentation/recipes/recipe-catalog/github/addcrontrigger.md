@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add cron workflow trigger"
-canonical_url: "https://docs.openrewrite.org/recipes/github/addcrontrigger"
 ---
 
 import Tabs from '@theme/Tabs';

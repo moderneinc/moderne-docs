@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Removes from code Java 14's `instanceof` pattern matching"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removeinstanceofpatternmatch"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Inline lazy initialization"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/statementrcs1180"
 ---
 
 import Tabs from '@theme/Tabs';

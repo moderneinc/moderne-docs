@@ -1,6 +1,5 @@
 ---
 sidebar_label: "No C-style array declarations"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/usejavastylearraydeclarations"
 ---
 
 import Tabs from '@theme/Tabs';

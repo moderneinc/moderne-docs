@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `final var` over `lombok.val`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lombok/lombokvaltofinalvar"
 ---
 
 import Tabs from '@theme/Tabs';

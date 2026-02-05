@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade property's value to version"
-canonical_url: "https://docs.openrewrite.org/recipes/jenkins/upgradeversionproperty"
 ---
 
 import Tabs from '@theme/Tabs';

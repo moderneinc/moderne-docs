@@ -1,6 +1,5 @@
 ---
 sidebar_label: "V1 S3 PutObjectRequest, AmazonS3.putObject(PutObjectRequest), and TransferManager.upload(PutObjectRequest) to V2"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/s3putobjectrequesttov2"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Test classes that extend `org.easymock.EasyMockSupport` to use Mockito"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/easymock/removeextendseasymocksupport"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StringRules.StringIsNullOrEmpty`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringisnulloremptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "V1 Enum Casing to V2"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/enumcasingtov2"
 ---
 
 import Tabs from '@theme/Tabs';

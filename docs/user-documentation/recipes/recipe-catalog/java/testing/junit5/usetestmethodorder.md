@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from JUnit 4 `@FixedMethodOrder` to JUnit 5 `@TestMethodOrder`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/usetestmethodorder"
 ---
 
 import Tabs from '@theme/Tabs';

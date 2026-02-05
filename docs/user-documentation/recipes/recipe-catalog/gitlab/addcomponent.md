@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add GitLab component"
-canonical_url: "https://docs.openrewrite.org/recipes/gitlab/addcomponent"
 ---
 
 import Tabs from '@theme/Tabs';

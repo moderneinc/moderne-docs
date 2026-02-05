@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary `String#valueOf(..)`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/novalueofonstringtype"
 ---
 
 import Tabs from '@theme/Tabs';

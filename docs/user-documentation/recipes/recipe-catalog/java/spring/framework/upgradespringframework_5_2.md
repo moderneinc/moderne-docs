@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Spring Framework 5.2"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/upgradespringframework_5_2"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Comma should be on the same line as previous parameter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1113"
 ---
 
 import Tabs from '@theme/Tabs';

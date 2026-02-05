@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid unnecessary boxing of value type"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/avoidboxingofvaluetypercs1198"
 ---
 
 import Tabs from '@theme/Tabs';

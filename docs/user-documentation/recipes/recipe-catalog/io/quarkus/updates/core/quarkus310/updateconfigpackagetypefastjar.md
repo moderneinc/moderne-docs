@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeFastJar"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus310/updateconfigpackagetypefastjar"
 ---
 
 import Tabs from '@theme/Tabs';

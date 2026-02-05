@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require using arrow functions for callbacks"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferarrowcallback"
 ---
 
 import Tabs from '@theme/Tabs';

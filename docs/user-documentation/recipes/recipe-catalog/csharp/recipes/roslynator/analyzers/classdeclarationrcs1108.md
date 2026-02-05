@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add 'static' modifier to all partial class declarations"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/classdeclarationrcs1108"
 ---
 
 import Tabs from '@theme/Tabs';

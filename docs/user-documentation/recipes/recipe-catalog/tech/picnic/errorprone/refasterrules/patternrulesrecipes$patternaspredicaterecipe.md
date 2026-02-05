@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `PatternRules.PatternAsPredicate`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/patternrulesrecipes$patternaspredicaterecipe"
 ---
 
 import Tabs from '@theme/Tabs';

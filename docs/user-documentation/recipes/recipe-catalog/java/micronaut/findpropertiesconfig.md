@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Micronaut properties config"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/findpropertiesconfig"
 ---
 
 import Tabs from '@theme/Tabs';

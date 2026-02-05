@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Make method an extension method"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/memberdeclarationrcs1224"
 ---
 
 import Tabs from '@theme/Tabs';

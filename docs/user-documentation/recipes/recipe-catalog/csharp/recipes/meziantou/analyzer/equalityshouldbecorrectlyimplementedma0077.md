@@ -1,6 +1,5 @@
 ---
 sidebar_label: "A class that provides Equals(T) should implement IEquatable&lt;T&gt;"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/equalityshouldbecorrectlyimplementedma0077"
 ---
 
 import Tabs from '@theme/Tabs';

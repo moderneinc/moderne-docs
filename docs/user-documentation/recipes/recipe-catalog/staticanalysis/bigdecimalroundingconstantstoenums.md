@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`BigDecimal` rounding constants to `RoundingMode` enums"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/bigdecimalroundingconstantstoenums"
 ---
 
 import Tabs from '@theme/Tabs';

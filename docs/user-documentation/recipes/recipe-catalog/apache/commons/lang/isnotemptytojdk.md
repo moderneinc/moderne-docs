@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace any StringUtils#isEmpty(String) and #isNotEmpty(String)"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/lang/isnotemptytojdk"
 ---
 
 import Tabs from '@theme/Tabs';

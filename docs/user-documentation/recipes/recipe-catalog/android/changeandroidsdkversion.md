@@ -29,9 +29,9 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Android SDK 33](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk33.md)
-* [Upgrade to Android SDK 34](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk34.md)
-* [Upgrade to Android SDK 35](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk35.md)
+* [Upgrade to Android SDK 33](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk33)
+* [Upgrade to Android SDK 34](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk34)
+* [Upgrade to Android SDK 35](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk35)
 
 ## Example
 

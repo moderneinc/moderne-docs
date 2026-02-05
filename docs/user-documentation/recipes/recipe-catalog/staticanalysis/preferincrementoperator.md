@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer increment/decrement and compound assignment operators"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/preferincrementoperator"
 ---
 
 import Tabs from '@theme/Tabs';

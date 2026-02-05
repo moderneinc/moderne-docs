@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `PrimitiveRules.ArraysCompareUnsignedInts`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$arrayscompareunsignedintsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

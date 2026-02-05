@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require the use of === and !== in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/eqeqeq"
 ---
 
 import Tabs from '@theme/Tabs';

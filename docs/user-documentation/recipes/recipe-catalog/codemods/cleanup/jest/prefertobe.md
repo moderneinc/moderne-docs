@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Suggest using toBe() for primitive literals"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/prefertobe"
 ---
 
 import Tabs from '@theme/Tabs';

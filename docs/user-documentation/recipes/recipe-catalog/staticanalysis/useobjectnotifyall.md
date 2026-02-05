@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replaces `Object.notify()` with `Object.notifyAll()`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/useobjectnotifyall"
 ---
 
 import Tabs from '@theme/Tabs';

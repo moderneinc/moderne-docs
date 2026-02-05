@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Cleanup PowerMock imports"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/cleanuppowermockimports"
 ---
 
 import Tabs from '@theme/Tabs';

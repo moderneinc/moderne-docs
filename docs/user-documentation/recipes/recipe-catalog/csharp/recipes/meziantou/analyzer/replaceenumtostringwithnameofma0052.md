@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace constant Enum.ToString with nameof"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/replaceenumtostringwithnameofma0052"
 ---
 
 import Tabs from '@theme/Tabs';

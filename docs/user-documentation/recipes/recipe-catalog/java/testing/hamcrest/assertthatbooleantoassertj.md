@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Hamcrest `assertThat(boolean, Matcher)` to AssertJ"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/hamcrest/assertthatbooleantoassertj"
 ---
 
 import Tabs from '@theme/Tabs';

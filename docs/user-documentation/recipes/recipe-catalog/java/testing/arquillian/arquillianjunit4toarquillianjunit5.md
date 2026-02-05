@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Arquillian JUnit 5 Extension"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/arquillian/arquillianjunit4toarquillianjunit5"
 ---
 
 import Tabs from '@theme/Tabs';

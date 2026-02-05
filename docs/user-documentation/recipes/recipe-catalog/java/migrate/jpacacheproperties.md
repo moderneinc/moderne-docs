@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disable the persistence unit second-level cache"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jpacacheproperties"
 ---
 
 import Tabs from '@theme/Tabs';

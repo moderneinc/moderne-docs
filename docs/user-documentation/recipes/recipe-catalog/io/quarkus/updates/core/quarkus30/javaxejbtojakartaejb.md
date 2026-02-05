@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.ejb` packages to `jakarta.ejb`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxejbtojakartaejb"
 ---
 
 import Tabs from '@theme/Tabs';

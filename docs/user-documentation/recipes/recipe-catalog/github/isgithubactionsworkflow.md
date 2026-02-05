@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Is GitHub Actions Workflow"
-canonical_url: "https://docs.openrewrite.org/recipes/github/isgithubactionsworkflow"
 ---
 
 import Tabs from '@theme/Tabs';

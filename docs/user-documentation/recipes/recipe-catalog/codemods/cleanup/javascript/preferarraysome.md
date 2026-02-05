@@ -1,12 +1,11 @@
 ---
 sidebar_label: "Prefer `.some()` over `.filter().length` check and `.{find,findLast}()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferarraysome"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Prefer `.some()` over `.filter().length` check and `.{find,findLast}()`
+# Prefer `.some()` over `.filter().length` check and `.\{find,findLast\}()`
 
 **org.openrewrite.codemods.cleanup.javascript.PreferArraySome**
 

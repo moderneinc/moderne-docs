@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Overriding member should not change 'params' modifier"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/parameterrcs1193"
 ---
 
 import Tabs from '@theme/Tabs';

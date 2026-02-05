@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change XML attribute"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/changetagattribute"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -37,13 +36,13 @@ This recipe is used as part of the following composite recipes:
 
 * [Align Struts XML constants for Struts 7](/user-documentation/recipes/recipe-catalog/java/struts/migrate7/updatestruts7constants.md)
 * [Change cacheManager to use the SimpleCacheManager](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/spring/changecachemanagertosimplecachemanager.md)
-* [Migrate JSF variable-resolver to el-resolver](/user-documentation/recipes/recipe-catalog/java/spring/framework/jsf23/migratefacesconfig.md)
-* [Migrate RichFaces tags in `xhtml` files](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags.md)
+* [Migrate JSF variable-resolver to el-resolver](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/jsf23/migratefacesconfig)
+* [Migrate RichFaces tags in `xhtml` files](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags)
 * [Migrate XJC Bindings to Jakata XML](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmltojakartaxmlxjcbinding.md)
-* [Migrate from Acegi Security 1.0.x to Spring Security 5.0](/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0.md)
+* [Migrate from Acegi Security 1.0.x to Spring Security 5.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0)
 * [Migrate from OptaPlanner to Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fromoptaplannertotimefoldsolver.md)
-* [Migrate to JSF 2.3](/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md)
-* [Migrate to Spring ORM to 5](/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5.md)
+* [Migrate to JSF 2.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3)
+* [Migrate to Spring ORM to 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5)
 * [Migrate to Struts 6.0 constants](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6constants.md)
 * [Migrate xmlns entries and javax. packages in `ejb-jar.xml` files](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxejbjarxmltojakartaejbjarxml.md)
 * [Migrate xmlns entries and javax. packages in `validation.xml` files](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxbeanvalidationxmltojakartabeanvalidationxml.md)

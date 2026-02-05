@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find template injection vulnerabilities"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/templateinjectionrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

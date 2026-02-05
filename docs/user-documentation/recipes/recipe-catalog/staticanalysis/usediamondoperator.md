@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use the diamond operator"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/usediamondoperator"
 ---
 
 import Tabs from '@theme/Tabs';

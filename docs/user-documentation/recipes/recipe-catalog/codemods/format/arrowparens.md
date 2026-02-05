@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require parentheses around arrow function arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/arrowparens"
 ---
 
 import Tabs from '@theme/Tabs';

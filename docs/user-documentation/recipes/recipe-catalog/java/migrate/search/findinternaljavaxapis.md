@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find uses of internal javax APIs"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/search/findinternaljavaxapis"
 ---
 
 import Tabs from '@theme/Tabs';

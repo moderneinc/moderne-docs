@@ -1,6 +1,5 @@
 ---
 sidebar_label: "GitHub Actions security insights"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/githubactionssecurity"
 ---
 
 import Tabs from '@theme/Tabs';

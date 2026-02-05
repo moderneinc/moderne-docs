@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Parameter names should begin with lower-case letter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/renametolowercasesa1313"
 ---
 
 import Tabs from '@theme/Tabs';

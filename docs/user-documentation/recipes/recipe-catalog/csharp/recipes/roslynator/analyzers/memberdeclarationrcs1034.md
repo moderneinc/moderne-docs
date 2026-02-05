@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant 'sealed' modifier"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/memberdeclarationrcs1034"
 ---
 
 import Tabs from '@theme/Tabs';

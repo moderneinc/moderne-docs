@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `javax.annotations` to SpotBugs annotations"
-canonical_url: "https://docs.openrewrite.org/recipes/jenkins/javaxannotationstospotbugs"
 ---
 
 import Tabs from '@theme/Tabs';

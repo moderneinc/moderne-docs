@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `LogRecord#setInstant(Instant)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/logging/migratelogrecordsetmillistosetinstant"
 ---
 
 import Tabs from '@theme/Tabs';

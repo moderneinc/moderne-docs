@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Maven Java project properties"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/updatemavenprojectpropertyjavaversion"
 ---
 
 import Tabs from '@theme/Tabs';

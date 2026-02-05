@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce unified spacing in HTML comments"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/htmlcommentcontentspacing"
 ---
 
 import Tabs from '@theme/Tabs';

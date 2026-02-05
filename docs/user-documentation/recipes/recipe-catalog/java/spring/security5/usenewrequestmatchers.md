@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use the new `requestMatchers` methods"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/security5/usenewrequestmatchers"
 ---
 
 import Tabs from '@theme/Tabs';

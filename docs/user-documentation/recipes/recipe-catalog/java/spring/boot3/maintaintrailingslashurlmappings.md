@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Maintain trailing slash URL mappings"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/maintaintrailingslashurlmappings"
 ---
 
 import Tabs from '@theme/Tabs';

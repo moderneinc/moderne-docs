@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename bean"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/renamebean"
 ---
 
 import Tabs from '@theme/Tabs';

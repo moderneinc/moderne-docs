@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Non-private readonly fields should begin with upper-case letter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/renametouppercasesa1304"
 ---
 
 import Tabs from '@theme/Tabs';

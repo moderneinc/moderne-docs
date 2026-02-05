@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `String.formatted(Object...)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/stringformatted"
 ---
 
 import Tabs from '@theme/Tabs';

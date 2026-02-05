@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Closing parenthesis should be on line of last parameter"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1111"
 ---
 
 import Tabs from '@theme/Tabs';

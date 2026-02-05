@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Remove redundant comma in initializer"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/initializerrcs1035"
 ---
 
 import Tabs from '@theme/Tabs';

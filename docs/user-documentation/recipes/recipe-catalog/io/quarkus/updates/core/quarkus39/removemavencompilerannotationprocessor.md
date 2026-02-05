@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove an annotation processor from the Maven Compiler plugin configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus39/removemavencompilerannotationprocessor"
 ---
 
 import Tabs from '@theme/Tabs';

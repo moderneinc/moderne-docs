@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Gradle dependency group"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/changedependencygroupid"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,7 +33,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to JasperReports 5.6.x](/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports5.md)
+* [Migrate to JasperReports 5.6.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports5)
 * [Update the Micronaut Session support](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautsession.md)
 
 ## Example

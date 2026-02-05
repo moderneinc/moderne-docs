@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change GitLab template"
-canonical_url: "https://docs.openrewrite.org/recipes/gitlab/changetemplate"
 ---
 
 import Tabs from '@theme/Tabs';

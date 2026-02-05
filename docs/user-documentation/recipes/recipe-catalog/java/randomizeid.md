@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Randomize tree IDs"
-canonical_url: "https://docs.openrewrite.org/recipes/java/randomizeid"
 ---
 
 import Tabs from '@theme/Tabs';

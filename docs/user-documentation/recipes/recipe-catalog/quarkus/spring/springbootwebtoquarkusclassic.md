@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Web with Quarkus RESTEasy Classic"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootwebtoquarkusclassic"
 ---
 
 import Tabs from '@theme/Tabs';

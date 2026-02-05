@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce throwing `TypeError` in type checking conditions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefertypeerror"
 ---
 
 import Tabs from '@theme/Tabs';

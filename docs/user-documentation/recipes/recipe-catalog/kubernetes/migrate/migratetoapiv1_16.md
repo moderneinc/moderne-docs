@@ -27,7 +27,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Kubernetes API v1.22](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_22.md)
+* [Migrate to Kubernetes API v1.22](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_22)
 
 
 ## Usage

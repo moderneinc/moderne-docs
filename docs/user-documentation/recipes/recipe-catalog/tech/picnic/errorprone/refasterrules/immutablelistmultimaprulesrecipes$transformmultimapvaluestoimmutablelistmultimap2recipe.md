@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableListMultimapRules.TransformMultimapValuesToImmutableListMultimap2`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$transformmultimapvaluestoimmutablelistmultimap2recipe"
 ---
 
 import Tabs from '@theme/Tabs';

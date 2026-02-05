@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `fs.truncate()` with file descriptor to `fs.ftruncate()`"
-canonical_url: "https://docs.openrewrite.org/recipes/node/migrate/fs/replace-fs-truncate-fd"
 ---
 
 import Tabs from '@theme/Tabs';

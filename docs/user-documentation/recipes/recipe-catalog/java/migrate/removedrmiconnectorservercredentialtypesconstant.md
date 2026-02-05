@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `RMIConnectorServer.CREDENTIAL_TYPES` constant"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedrmiconnectorservercredentialtypesconstant"
 ---
 
 import Tabs from '@theme/Tabs';

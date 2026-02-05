@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `ActuatorMediaType` to `ApiVersion#getProducedMimeType`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migrateactuatormediatypetoapiversion"
 ---
 
 import Tabs from '@theme/Tabs';

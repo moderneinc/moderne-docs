@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `@NoArgsConstructor` where applicable"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lombok/usenoargsconstructor"
 ---
 
 import Tabs from '@theme/Tabs';

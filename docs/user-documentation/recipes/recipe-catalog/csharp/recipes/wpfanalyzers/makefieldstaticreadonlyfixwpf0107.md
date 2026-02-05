@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Backing member for a RoutedEvent should be static and readonly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/makefieldstaticreadonlyfixwpf0107"
 ---
 
 import Tabs from '@theme/Tabs';

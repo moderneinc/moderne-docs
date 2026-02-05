@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing before and after keywords"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/keywordspacing"
 ---
 
 import Tabs from '@theme/Tabs';

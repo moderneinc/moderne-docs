@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Okio dependencies to 3.x"
-canonical_url: "https://docs.openrewrite.org/recipes/okio/upgradeokio3dependencies"
 ---
 
 import Tabs from '@theme/Tabs';

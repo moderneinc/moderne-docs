@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableListRules.ImmutableListSortedCopyOf`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablelistrulesrecipes$immutablelistsortedcopyofrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

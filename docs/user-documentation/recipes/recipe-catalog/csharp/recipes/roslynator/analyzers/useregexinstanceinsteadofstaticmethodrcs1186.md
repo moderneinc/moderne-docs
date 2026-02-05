@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Regex instance instead of static method"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useregexinstanceinsteadofstaticmethodrcs1186"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find uses of deprecated methods"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/finddeprecatedmethods"
 ---
 
 import Tabs from '@theme/Tabs';

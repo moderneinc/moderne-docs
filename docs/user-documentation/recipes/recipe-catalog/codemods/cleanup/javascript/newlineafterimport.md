@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce a newline after import statements"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/newlineafterimport"
 ---
 
 import Tabs from '@theme/Tabs';

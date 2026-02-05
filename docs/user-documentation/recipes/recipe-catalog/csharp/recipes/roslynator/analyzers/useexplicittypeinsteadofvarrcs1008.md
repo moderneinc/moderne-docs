@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Use explicit type instead of 'var' (when the type is not obvious)"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useexplicittypeinsteadofvarrcs1008"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Operators should have symmetrical overloads"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/operatorsshouldhavesymmetricaloverloadsca2226"
 ---
 
 import Tabs from '@theme/Tabs';

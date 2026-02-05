@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert `export =` to `export default`"
-canonical_url: "https://docs.openrewrite.org/recipes/javascript/migrate/typescript/export-assignment-to-export-default"
 ---
 
 import Tabs from '@theme/Tabs';

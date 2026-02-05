@@ -31,7 +31,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Change numeric field types for Elasticsearch 9](/user-documentation/recipes/recipe-catalog/elastic/elastic9/changeapinumericfieldtypes.md)
+* [Change numeric field types for Elasticsearch 9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/elastic/elastic9/changeapinumericfieldtypes)
 
 
 ## Usage

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Merge YAML snippet"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/mergeyaml"
 ---
 
 import Tabs from '@theme/Tabs';

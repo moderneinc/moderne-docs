@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Maven project properties"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/search/findproperties"
 ---
 
 import Tabs from '@theme/Tabs';

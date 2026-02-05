@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require empty lines around comments"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/linesaroundcomment"
 ---
 
 import Tabs from '@theme/Tabs';

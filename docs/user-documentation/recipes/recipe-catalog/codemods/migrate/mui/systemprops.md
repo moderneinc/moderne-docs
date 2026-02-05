@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove system props and add them to the `sx` prop"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/systemprops"
 ---
 
 import Tabs from '@theme/Tabs';

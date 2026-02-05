@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert `new BufferedWriter(new FileWriter(String))` to `Files.newBufferedWriter(Path)`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithstringargumentrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

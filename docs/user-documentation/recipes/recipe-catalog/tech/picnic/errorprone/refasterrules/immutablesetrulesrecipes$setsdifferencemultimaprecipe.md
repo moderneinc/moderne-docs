@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableSetRules.SetsDifferenceMultimap`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesetrulesrecipes$setsdifferencemultimaprecipe"
 ---
 
 import Tabs from '@theme/Tabs';

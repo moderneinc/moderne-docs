@@ -30,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate Spring Boot 3.5 deprecated classes and methods](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot35deprecations.md)
+* [Migrate Spring Boot 3.5 deprecated classes and methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot35deprecations)
 
 
 ## Usage

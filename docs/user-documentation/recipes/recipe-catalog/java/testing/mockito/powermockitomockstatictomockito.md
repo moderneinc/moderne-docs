@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `PowerMock.mockStatic()` with `Mockito.mockStatic()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/powermockitomockstatictomockito"
 ---
 
 import Tabs from '@theme/Tabs';

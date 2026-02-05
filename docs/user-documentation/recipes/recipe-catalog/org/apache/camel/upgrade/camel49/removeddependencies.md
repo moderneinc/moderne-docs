@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Removed deprecated components"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel49/removeddependencies"
 ---
 
 import Tabs from '@theme/Tabs';

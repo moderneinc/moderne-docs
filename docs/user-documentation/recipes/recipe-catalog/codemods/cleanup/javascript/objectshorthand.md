@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow method and property shorthand syntax for object literals"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/objectshorthand"
 ---
 
 import Tabs from '@theme/Tabs';

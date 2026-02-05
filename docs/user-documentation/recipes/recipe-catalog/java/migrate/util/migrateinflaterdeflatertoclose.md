@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `Inflater` and `Deflater` `end()` calls with `close()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/migrateinflaterdeflatertoclose"
 ---
 
 import Tabs from '@theme/Tabs';

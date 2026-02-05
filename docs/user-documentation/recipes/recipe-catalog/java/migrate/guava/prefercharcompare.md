@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `java.lang.Char#compare`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/prefercharcompare"
 ---
 
 import Tabs from '@theme/Tabs';

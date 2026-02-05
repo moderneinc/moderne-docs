@@ -1,6 +1,5 @@
 ---
 sidebar_label: "MarkupExtensionReturnType must use correct return type"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/changetypeoffixwpf0081"
 ---
 
 import Tabs from '@theme/Tabs';

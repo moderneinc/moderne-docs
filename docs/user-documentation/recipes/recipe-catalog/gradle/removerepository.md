@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove repository"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/removerepository"
 ---
 
 import Tabs from '@theme/Tabs';

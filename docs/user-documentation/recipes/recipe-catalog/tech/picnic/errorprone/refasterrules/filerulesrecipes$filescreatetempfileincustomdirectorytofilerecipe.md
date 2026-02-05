@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Files#createTempFile(Path, String, String, FileAttribute[])` over alternatives that create files with more liberal permissions"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/filerulesrecipes$filescreatetempfileincustomdirectorytofilerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

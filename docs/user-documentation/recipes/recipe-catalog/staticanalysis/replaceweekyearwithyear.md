@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Week Year (YYYY) should not be used for date formatting"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replaceweekyearwithyear"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enable Gradle build cache"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/enablegradlebuildcache"
 ---
 
 import Tabs from '@theme/Tabs';

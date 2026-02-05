@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce the maximum number of attributes per line"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/maxattributesperline"
 ---
 
 import Tabs from '@theme/Tabs';

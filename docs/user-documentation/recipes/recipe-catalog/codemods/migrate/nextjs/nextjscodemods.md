@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Next.js Codemods for API Updates"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/nextjscodemods"
 ---
 
 import Tabs from '@theme/Tabs';

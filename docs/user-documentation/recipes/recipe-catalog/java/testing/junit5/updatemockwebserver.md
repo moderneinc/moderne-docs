@@ -1,6 +1,5 @@
 ---
 sidebar_label: "OkHttp 3.x `MockWebServer` `@Rule` To 4.x `MockWebServer`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/updatemockwebserver"
 ---
 
 import Tabs from '@theme/Tabs';

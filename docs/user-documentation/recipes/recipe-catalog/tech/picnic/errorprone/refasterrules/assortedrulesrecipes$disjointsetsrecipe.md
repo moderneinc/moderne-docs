@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssortedRules.DisjointSets`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$disjointsetsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

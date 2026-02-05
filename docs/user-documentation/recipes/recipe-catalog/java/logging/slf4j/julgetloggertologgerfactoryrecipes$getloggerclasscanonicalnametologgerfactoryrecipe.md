@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUL `Logger.getLogger(Some.class.getCanonicalName())` with SLF4J's `LoggerFactory.getLogger(Some.class)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/slf4j/julgetloggertologgerfactoryrecipes$getloggerclasscanonicalnametologgerfactoryrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

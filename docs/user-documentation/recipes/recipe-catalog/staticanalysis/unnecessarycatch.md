@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove catch for a checked exception if the try block does not throw that exception"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/unnecessarycatch"
 ---
 
 import Tabs from '@theme/Tabs';

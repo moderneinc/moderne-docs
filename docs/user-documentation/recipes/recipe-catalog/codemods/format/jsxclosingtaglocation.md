@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce closing tag location for multiline JSX"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxclosingtaglocation"
 ---
 
 import Tabs from '@theme/Tabs';

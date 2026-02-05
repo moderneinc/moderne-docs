@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove JavaDoc `@param`, `@return`, and `@throws` with no description"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removeemptyjavadocparameters"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster rules that replace TestNG assertions with equivalent AssertJ assertions"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

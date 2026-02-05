@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use char overload"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpusestringmethodcharoverloadwithsinglecharactersca1865"
 ---
 
 import Tabs from '@theme/Tabs';

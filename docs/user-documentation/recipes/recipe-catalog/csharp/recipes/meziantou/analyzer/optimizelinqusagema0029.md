@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Combine LINQ methods"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/optimizelinqusagema0029"
 ---
 
 import Tabs from '@theme/Tabs';

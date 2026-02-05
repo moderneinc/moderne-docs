@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not use CountAsync() or LongCountAsync() when AnyAsync() can be used"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdonotusecountwhenanycanbeusedca1828"
 ---
 
 import Tabs from '@theme/Tabs';

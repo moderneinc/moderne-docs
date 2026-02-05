@@ -119,7 +119,7 @@ _A list of required providers in the Terraform configuration._
 | ----------- | ----------- |
 | Configuration name | The name of the configuration, e.g. `aws`. |
 | Source | The source of the required provider, e.g. `hashicorp/aws`. |
-| Version | The version constraint for the provider, e.g. `~> 3.0`. |
+| Version | The version constraint for the provider, e.g. `~&gt; 3.0`. |
 
 </TabItem>
 

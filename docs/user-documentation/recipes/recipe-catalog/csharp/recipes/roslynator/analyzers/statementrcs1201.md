@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use method chaining"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/statementrcs1201"
 ---
 
 import Tabs from '@theme/Tabs';

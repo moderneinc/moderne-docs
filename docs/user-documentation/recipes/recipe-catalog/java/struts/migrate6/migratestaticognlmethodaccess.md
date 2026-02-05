@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate static OGNL method access to action wrapper methods"
-canonical_url: "https://docs.openrewrite.org/recipes/java/struts/migrate6/migratestaticognlmethodaccess"
 ---
 
 import Tabs from '@theme/Tabs';

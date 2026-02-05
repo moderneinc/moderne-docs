@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace lodash and underscore function functions with native JavaScript"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/lodash/lodashunderscorefunction"
 ---
 
 import Tabs from '@theme/Tabs';

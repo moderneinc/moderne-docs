@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`EqualityRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/equalityrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

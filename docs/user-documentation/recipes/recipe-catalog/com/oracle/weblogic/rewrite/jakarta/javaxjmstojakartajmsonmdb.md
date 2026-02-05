@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate javax.jms to jakarta.jms on MDB"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxjmstojakartajmsonmdb"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add the Develocity Maven extension"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/adddevelocitymavenextension"
 ---
 
 import Tabs from '@theme/Tabs';

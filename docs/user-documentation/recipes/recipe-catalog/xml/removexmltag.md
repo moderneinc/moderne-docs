@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove XML tag"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/removexmltag"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,8 +33,8 @@ This recipe is used as part of the following composite recipes:
 
 * [Change cacheManager to use the SimpleCacheManager](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/spring/changecachemanagertosimplecachemanager.md)
 * [Flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references](/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/apachedefaultprovider.md)
-* [Migrate RichFaces tags in `xhtml` files](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags.md)
-* [Migrate to Spring Boot 4.0 (Moderne Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
+* [Migrate RichFaces tags in `xhtml` files](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags)
+* [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 * [Remove withJansi Logback configuration](/user-documentation/recipes/recipe-catalog/java/micronaut/removewithjansilogbackconfiguration.md)
 * [Update Default Servlet Handler for Spring Framework if empty](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/framework/defaultservlethandler.md)
 * [Update the Micronaut Data library](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautdata.md)

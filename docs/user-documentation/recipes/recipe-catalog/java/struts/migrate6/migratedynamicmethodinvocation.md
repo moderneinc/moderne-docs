@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Dynamic Method Invocation to explicit action mappings"
-canonical_url: "https://docs.openrewrite.org/recipes/java/struts/migrate6/migratedynamicmethodinvocation"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require `Array.isArray()` instead of `instanceof Array`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noinstanceofarray"
 ---
 
 import Tabs from '@theme/Tabs';

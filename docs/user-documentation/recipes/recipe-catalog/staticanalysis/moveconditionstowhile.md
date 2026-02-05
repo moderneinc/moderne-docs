@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert `while (true)` with initial `if` break to loop condition"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/moveconditionstowhile"
 ---
 
 import Tabs from '@theme/Tabs';

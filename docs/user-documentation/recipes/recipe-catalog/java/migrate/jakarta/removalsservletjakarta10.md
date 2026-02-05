@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace  deprecated Jakarta Servlet methods and classes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/removalsservletjakarta10"
 ---
 
 import Tabs from '@theme/Tabs';

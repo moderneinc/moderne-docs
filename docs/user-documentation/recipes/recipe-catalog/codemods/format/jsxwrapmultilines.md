@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow missing parentheses around multiline JSX"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxwrapmultilines"
 ---
 
 import Tabs from '@theme/Tabs';

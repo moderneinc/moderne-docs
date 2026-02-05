@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus324.ReplaceOldJpaModelgenAnnotationProcessor"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus324/replaceoldjpamodelgenannotationprocessor"
 ---
 
 import Tabs from '@theme/Tabs';

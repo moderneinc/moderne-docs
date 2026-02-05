@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `EnumSet of(..)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/useenumsetof"
 ---
 
 import Tabs from '@theme/Tabs';

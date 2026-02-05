@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Seal internal types"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/sealinternaltypesca1852"
 ---
 
 import Tabs from '@theme/Tabs';

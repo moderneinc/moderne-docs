@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove implicit web annotation names"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/implicitwebannotationnames"
 ---
 
 import Tabs from '@theme/Tabs';

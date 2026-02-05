@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify nested using statement"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/simplifynestedusingstatementrcs1005"
 ---
 
 import Tabs from '@theme/Tabs';

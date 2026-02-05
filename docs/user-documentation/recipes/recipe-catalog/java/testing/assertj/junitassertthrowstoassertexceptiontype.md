@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit AssertThrows to AssertJ exceptionType"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/junitassertthrowstoassertexceptiontype"
 ---
 
 import Tabs from '@theme/Tabs';

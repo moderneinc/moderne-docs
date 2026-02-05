@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add `io.spring.dependency-management` plugin, if in use"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/spring/addspringdependencymanagementplugin"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -29,7 +29,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Best practices for AWS](/user-documentation/recipes/recipe-catalog/terraform/aws/awsbestpractices.md)
+* [Best practices for AWS](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/aws/awsbestpractices)
 
 
 ## Usage

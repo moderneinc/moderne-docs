@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove elements from a method declaration `throws` clause"
-canonical_url: "https://docs.openrewrite.org/recipes/java/removemethodthrows"
 ---
 
 import Tabs from '@theme/Tabs';

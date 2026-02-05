@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer direct comparison of numbers"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/preferequalitycomparisonoverdifferencecheck"
 ---
 
 import Tabs from '@theme/Tabs';

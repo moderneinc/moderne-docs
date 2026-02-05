@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add annotation if target annotations exist"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/annotation/addclassannotationifannotationexists"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `SolrAutoConfiguration`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/removesolrautoconfigurationexclude"
 ---
 
 import Tabs from '@theme/Tabs';

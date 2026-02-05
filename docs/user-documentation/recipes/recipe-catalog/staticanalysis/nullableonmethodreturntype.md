@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Move `@Nullable` method annotations to the return type"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/nullableonmethodreturntype"
 ---
 
 import Tabs from '@theme/Tabs';

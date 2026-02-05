@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update the version of core annotation processors"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/updatemavenannotationprocessors"
 ---
 
 import Tabs from '@theme/Tabs';

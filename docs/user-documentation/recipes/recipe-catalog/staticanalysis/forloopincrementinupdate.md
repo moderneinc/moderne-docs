@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`for` loop counters incremented in update"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/forloopincrementinupdate"
 ---
 
 import Tabs from '@theme/Tabs';

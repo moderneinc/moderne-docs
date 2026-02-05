@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Chain calls to builder methods"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/useasbuilder"
 ---
 
 import Tabs from '@theme/Tabs';

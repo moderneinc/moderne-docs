@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Jakarta EE 9"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxmigrationtojakarta"
 ---
 
 import Tabs from '@theme/Tabs';

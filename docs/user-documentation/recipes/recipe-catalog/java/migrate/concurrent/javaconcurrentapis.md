@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use modernized `java.util.concurrent` APIs"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/concurrent/javaconcurrentapis"
 ---
 
 import Tabs from '@theme/Tabs';

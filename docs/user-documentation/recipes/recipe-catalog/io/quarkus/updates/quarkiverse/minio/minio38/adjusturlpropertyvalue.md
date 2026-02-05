@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adust quarkus.minio.url property key"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/quarkiverse/minio/minio38/adjusturlpropertyvalue"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`AssertJMapRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjmaprulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

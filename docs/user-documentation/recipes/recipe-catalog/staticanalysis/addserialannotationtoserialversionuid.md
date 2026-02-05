@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add `@Serial` annotation to `serialVersionUID`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/addserialannotationtoserialversionuid"
 ---
 
 import Tabs from '@theme/Tabs';

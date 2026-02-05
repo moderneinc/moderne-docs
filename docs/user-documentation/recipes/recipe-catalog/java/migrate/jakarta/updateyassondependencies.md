@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Eclipse Yasson Dependencies to 3.0.x"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/updateyassondependencies"
 ---
 
 import Tabs from '@theme/Tabs';

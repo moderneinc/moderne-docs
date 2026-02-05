@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `cucumber-java8` to `cucumber-java`"
-canonical_url: "https://docs.openrewrite.org/recipes/cucumber/jvm/cucumberjava8tojava"
 ---
 
 import Tabs from '@theme/Tabs';

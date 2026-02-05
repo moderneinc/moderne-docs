@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus37.MavenPlugins"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/mavenplugins"
 ---
 
 import Tabs from '@theme/Tabs';

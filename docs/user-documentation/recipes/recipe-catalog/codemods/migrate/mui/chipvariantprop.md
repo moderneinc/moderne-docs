@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `variant` prop for Chip component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/chipvariantprop"
 ---
 
 import Tabs from '@theme/Tabs';

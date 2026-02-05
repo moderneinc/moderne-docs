@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `ErrorProperties#IncludeStacktrace.ON_PARAM`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migrateerrorpropertiesincludestacktraceconstants"
 ---
 
 import Tabs from '@theme/Tabs';

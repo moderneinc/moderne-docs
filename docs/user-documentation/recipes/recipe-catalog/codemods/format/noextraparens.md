@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unnecessary parentheses"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/noextraparens"
 ---
 
 import Tabs from '@theme/Tabs';

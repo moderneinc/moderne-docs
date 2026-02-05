@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unused workflow dispatch inputs"
-canonical_url: "https://docs.openrewrite.org/recipes/github/removeunusedworkflowdispatchinputs"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Correctly spaced descriptions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/correctlyspaceddescriptions"
 ---
 
 import Tabs from '@theme/Tabs';

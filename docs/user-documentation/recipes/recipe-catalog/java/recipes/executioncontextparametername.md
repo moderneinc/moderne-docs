@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use a standard name for `ExecutionContext`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/executioncontextparametername"
 ---
 
 import Tabs from '@theme/Tabs';

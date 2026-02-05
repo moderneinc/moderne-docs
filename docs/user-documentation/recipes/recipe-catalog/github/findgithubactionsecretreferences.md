@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find GitHub action secret references"
-canonical_url: "https://docs.openrewrite.org/recipes/github/findgithubactionsecretreferences"
 ---
 
 import Tabs from '@theme/Tabs';

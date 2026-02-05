@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Members defined on an interface with the 'DynamicInterfaceCastableImplementationAttribute' should be 'static'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdynamicinterfacecastableimplementationca2257"
 ---
 
 import Tabs from '@theme/Tabs';

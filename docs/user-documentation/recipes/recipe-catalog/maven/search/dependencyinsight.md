@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Maven dependency insight"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/search/dependencyinsight"
 ---
 
 import Tabs from '@theme/Tabs';

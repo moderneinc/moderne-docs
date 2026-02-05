@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add missing `isWrapperFor` and `unwrap` methods"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jrewrapperinterface"
 ---
 
 import Tabs from '@theme/Tabs';

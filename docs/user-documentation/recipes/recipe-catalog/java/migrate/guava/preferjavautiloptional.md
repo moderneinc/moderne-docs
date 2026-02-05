@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `java.util.Optional`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavautiloptional"
 ---
 
 import Tabs from '@theme/Tabs';

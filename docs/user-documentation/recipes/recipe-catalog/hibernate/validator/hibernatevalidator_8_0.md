@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Hibernate Validator 8.0.x (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/hibernate/validator/hibernatevalidator_8_0"
 ---
 
 import Tabs from '@theme/Tabs';

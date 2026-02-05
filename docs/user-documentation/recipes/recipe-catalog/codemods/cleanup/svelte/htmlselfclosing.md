@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce self-closing style"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/htmlselfclosing"
 ---
 
 import Tabs from '@theme/Tabs';

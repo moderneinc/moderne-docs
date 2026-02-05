@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `variant` prop for Fab component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/fabvariant"
 ---
 
 import Tabs from '@theme/Tabs';

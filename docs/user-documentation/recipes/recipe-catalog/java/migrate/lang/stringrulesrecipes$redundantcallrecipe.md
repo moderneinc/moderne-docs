@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace redundant `String` method calls with self"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/stringrulesrecipes$redundantcallrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit Jupiter best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit/jupiterbestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

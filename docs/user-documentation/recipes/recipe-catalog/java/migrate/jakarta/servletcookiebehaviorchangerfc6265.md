@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `getComment` and `getVersion` methods"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/servletcookiebehaviorchangerfc6265"
 ---
 
 import Tabs from '@theme/Tabs';

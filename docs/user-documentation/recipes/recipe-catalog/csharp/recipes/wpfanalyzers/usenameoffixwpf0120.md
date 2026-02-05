@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Register containing member name as name for routed command"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usenameoffixwpf0120"
 ---
 
 import Tabs from '@theme/Tabs';

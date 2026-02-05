@@ -1,6 +1,5 @@
 ---
 sidebar_label: "SLF4J best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/slf4j/slf4jbestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

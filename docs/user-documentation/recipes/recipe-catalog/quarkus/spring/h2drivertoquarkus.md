@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace H2 driver with Quarkus JDBC H2"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/h2drivertoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

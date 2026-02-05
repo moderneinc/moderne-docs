@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove empty syntax"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeemptysyntaxrcs1259"
 ---
 
 import Tabs from '@theme/Tabs';

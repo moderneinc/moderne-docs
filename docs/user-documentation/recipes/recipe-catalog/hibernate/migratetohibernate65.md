@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Hibernate 6.5.x (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/hibernate/migratetohibernate65"
 ---
 
 import Tabs from '@theme/Tabs';

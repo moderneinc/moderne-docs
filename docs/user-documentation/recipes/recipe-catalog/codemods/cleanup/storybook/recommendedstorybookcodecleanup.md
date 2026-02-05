@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Recommended Storybook code cleanup"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/storybook/recommendedstorybookcodecleanup"
 ---
 
 import Tabs from '@theme/Tabs';

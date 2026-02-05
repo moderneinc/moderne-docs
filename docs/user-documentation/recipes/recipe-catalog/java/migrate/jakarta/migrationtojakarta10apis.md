@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Jakarta EE 9 api dependencies to Jakarta EE 10 versions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/migrationtojakarta10apis"
 ---
 
 import Tabs from '@theme/Tabs';

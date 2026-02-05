@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove empty Finalizers"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/removeemptyfinalizersca1821"
 ---
 
 import Tabs from '@theme/Tabs';

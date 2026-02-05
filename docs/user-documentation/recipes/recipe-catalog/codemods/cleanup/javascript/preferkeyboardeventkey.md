@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `KeyboardEvent#key` over `KeyboardEvent#keyCode`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferkeyboardeventkey"
 ---
 
 import Tabs from '@theme/Tabs';

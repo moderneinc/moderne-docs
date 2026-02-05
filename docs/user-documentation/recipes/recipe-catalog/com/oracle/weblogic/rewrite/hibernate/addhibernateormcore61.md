@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Hibernate ORM Core if has dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/hibernate/addhibernateormcore61"
 ---
 
 import Tabs from '@theme/Tabs';

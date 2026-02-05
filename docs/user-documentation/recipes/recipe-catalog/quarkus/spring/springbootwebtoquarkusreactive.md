@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Web with Quarkus REST"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootwebtoquarkusreactive"
 ---
 
 import Tabs from '@theme/Tabs';

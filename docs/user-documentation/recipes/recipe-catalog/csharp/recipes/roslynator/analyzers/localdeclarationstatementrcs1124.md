@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Inline local variable"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/localdeclarationstatementrcs1124"
 ---
 
 import Tabs from '@theme/Tabs';

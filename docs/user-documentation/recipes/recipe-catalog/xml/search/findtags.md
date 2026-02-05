@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find XML tags"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/search/findtags"
 ---
 
 import Tabs from '@theme/Tabs';

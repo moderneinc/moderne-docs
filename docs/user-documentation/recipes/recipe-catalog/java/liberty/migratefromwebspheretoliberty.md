@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from WebSphere traditional to Liberty"
-canonical_url: "https://docs.openrewrite.org/recipes/java/liberty/migratefromwebspheretoliberty"
 ---
 
 import Tabs from '@theme/Tabs';

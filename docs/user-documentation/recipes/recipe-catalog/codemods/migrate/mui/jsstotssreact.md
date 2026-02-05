@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Converts JSS to TypeScript in React components"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/jsstotssreact"
 ---
 
 import Tabs from '@theme/Tabs';

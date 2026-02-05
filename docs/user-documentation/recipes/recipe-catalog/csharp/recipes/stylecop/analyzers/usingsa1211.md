@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Using alias directives should be ordered alphabetically by alias name"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/usingsa1211"
 ---
 
 import Tabs from '@theme/Tabs';

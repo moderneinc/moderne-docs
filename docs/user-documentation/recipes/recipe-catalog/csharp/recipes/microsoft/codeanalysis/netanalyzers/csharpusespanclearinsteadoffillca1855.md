@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer 'Clear' over 'Fill'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpusespanclearinsteadoffillca1855"
 ---
 
 import Tabs from '@theme/Tabs';

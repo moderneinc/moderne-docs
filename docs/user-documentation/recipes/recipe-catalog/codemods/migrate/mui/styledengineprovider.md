@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates usage of styled engine provider"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/styledengineprovider"
 ---
 
 import Tabs from '@theme/Tabs';

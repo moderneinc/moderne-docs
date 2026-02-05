@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames CSS variables"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/renamecssvariables"
 ---
 
 import Tabs from '@theme/Tabs';

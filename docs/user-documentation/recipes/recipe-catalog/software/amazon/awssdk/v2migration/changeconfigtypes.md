@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change config related classes from v1 to v2"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/changeconfigtypes"
 ---
 
 import Tabs from '@theme/Tabs';

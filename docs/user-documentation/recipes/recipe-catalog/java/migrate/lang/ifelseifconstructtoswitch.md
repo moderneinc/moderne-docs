@@ -1,6 +1,5 @@
 ---
 sidebar_label: "If-else-if-else to switch"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/ifelseifconstructtoswitch"
 ---
 
 import Tabs from '@theme/Tabs';

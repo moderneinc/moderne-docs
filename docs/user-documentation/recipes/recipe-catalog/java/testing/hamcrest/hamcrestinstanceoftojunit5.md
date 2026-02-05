@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from Hamcrest `instanceOf` matcher to JUnit 5"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/hamcrest/hamcrestinstanceoftojunit5"
 ---
 
 import Tabs from '@theme/Tabs';

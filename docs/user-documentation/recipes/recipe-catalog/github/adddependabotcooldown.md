@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add cooldown periods to Dependabot configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/github/adddependabotcooldown"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `RequestConfig` to httpclient5"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient5/migraterequestconfig"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `System.lineSeparator()`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/usesystemlineseparator"
 ---
 
 import Tabs from '@theme/Tabs';

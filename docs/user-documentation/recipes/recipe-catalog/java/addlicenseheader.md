@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add license header"
-canonical_url: "https://docs.openrewrite.org/recipes/java/addlicenseheader"
 ---
 
 import Tabs from '@theme/Tabs';

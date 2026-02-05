@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use String.Equals instead of equality operator"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usestringequalsma0006"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add entries to `.gitignore`"
-canonical_url: "https://docs.openrewrite.org/recipes/core/addtogitignore"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Moves lab modules to `@mui/material`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/movedlabmodules"
 ---
 
 import Tabs from '@theme/Tabs';

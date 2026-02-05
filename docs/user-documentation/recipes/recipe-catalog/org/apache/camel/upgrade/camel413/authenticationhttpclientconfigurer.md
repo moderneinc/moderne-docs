@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renamed BasicAuthenticationHttpClientConfigurer to  DefaultAuthenticationHttpClientConfigurer"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel413/authenticationhttpclientconfigurer"
 ---
 
 import Tabs from '@theme/Tabs';

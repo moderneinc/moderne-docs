@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `FileRules.FilesNewBufferedReaderPathOf`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreaderpathofrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

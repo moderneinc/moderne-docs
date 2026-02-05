@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `ResourceResolver` with `ResourceHandler`"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/removedjakartafaces3resourceresolver"
 ---
 
 import Tabs from '@theme/Tabs';

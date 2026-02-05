@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Spring Security 7 modularization](/user-documentation/recipes/recipe-catalog/java/spring/security7/modularizespringsecurity7.md)
+* [Spring Security 7 modularization](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security7/modularizespringsecurity7)
 
 ## Example
 

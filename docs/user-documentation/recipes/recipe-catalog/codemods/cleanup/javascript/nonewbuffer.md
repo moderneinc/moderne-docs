@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce the use of `Buffer.from()` and `Buffer.alloc()` instead of the deprecated `new Buffer()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nonewbuffer"
 ---
 
 import Tabs from '@theme/Tabs';

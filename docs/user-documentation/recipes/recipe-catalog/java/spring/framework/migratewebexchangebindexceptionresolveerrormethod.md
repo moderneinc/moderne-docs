@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `WebExchangeBindException.resolveErrorMessages`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migratewebexchangebindexceptionresolveerrormethod"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer generic overload when type is known"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpprefergenericoverloadsca2263"
 ---
 
 import Tabs from '@theme/Tabs';

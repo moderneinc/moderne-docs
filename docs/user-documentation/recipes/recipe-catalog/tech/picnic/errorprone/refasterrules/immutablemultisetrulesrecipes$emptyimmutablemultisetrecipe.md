@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableMultisetRules.EmptyImmutableMultiset`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablemultisetrulesrecipes$emptyimmutablemultisetrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

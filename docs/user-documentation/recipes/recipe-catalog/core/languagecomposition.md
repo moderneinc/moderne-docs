@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Language composition report"
-canonical_url: "https://docs.openrewrite.org/recipes/core/languagecomposition"
 ---
 
 import Tabs from '@theme/Tabs';

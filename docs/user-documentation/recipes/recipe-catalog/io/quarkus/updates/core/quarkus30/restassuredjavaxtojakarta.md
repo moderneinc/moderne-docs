@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate RestAssured from javax to jakarta namespace by upgrading to a version compatible with J2EE9"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/restassuredjavaxtojakarta"
 ---
 
 import Tabs from '@theme/Tabs';

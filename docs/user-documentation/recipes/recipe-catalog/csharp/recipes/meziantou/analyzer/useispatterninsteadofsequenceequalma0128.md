@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use 'is' operator instead of SequenceEqual"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/useispatterninsteadofsequenceequalma0128"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Equals avoids null"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/equalsavoidsnull"
 ---
 
 import Tabs from '@theme/Tabs';

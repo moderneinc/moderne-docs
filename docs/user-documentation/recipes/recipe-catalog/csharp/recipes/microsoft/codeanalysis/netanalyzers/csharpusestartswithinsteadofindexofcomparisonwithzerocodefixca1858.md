@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use 'StartsWith' instead of 'IndexOf'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpusestartswithinsteadofindexofcomparisonwithzerocodefixca1858"
 ---
 
 import Tabs from '@theme/Tabs';

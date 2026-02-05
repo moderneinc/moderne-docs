@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableListMultimapRules.EmptyImmutableListMultimap`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$emptyimmutablelistmultimaprecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use pattern matching instead of inequality operators for discrete value"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usepatternmatchingforequalitycomparisonsma0149"
 ---
 
 import Tabs from '@theme/Tabs';

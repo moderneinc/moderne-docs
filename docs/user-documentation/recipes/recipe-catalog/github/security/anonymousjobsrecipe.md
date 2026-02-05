@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find jobs without descriptive names"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/anonymousjobsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

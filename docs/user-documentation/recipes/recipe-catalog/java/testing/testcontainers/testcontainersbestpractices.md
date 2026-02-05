@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Testcontainers best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/testcontainers/testcontainersbestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

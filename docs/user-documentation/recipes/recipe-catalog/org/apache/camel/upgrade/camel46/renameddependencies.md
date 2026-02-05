@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renamed dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel46/renameddependencies"
 ---
 
 import Tabs from '@theme/Tabs';

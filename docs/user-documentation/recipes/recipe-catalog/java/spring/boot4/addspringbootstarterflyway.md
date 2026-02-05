@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add `spring-boot-starter-flyway` if using Flyway"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot4/addspringbootstarterflyway"
 ---
 
 import Tabs from '@theme/Tabs';

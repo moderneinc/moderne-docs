@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use 'ThrowIfCancellationRequested'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/usecancellationtokenthrowifcancellationrequestedca2250"
 ---
 
 import Tabs from '@theme/Tabs';

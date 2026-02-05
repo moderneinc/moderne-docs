@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.MonoFromFutureSupplierBoolean`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monofromfuturesupplierbooleanrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

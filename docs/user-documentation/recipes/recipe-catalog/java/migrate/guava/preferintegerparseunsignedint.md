@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Integer#parseUnsignedInt`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/preferintegerparseunsignedint"
 ---
 
 import Tabs from '@theme/Tabs';

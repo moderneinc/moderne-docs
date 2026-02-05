@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Each camel-debezium module has its own subpackage corresponding to the database type"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel49/debeziumchangetypes"
 ---
 
 import Tabs from '@theme/Tabs';

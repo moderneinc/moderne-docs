@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change the jakarta.inject-api dependency to scope provided when jakartaee-api 9.x is provided."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/changejakartainjectapidependencyscope"
 ---
 
 import Tabs from '@theme/Tabs';

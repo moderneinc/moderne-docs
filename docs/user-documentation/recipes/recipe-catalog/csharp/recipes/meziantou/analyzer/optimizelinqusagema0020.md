@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use direct methods instead of LINQ methods"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/optimizelinqusagema0020"
 ---
 
 import Tabs from '@theme/Tabs';

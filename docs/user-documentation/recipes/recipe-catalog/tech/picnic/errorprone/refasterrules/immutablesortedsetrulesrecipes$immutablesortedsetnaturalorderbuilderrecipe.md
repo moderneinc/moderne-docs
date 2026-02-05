@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableSortedSetRules.ImmutableSortedSetNaturalOrderBuilder`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$immutablesortedsetnaturalorderbuilderrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

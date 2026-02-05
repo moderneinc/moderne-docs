@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `PreconditionsRules.RequireNonNullWithMessage`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/preconditionsrulesrecipes$requirenonnullwithmessagerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

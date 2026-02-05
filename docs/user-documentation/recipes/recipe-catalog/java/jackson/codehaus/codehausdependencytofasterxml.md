@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate dependencies from Jackson Codehaus (legacy) to FasterXML"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/codehaus/codehausdependencytofasterxml"
 ---
 
 import Tabs from '@theme/Tabs';

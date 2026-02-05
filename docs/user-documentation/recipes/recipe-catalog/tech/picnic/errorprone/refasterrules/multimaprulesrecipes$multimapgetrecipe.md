@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Multimap#get(Object)` over more contrived alternatives"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapgetrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

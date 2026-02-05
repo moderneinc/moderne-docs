@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `BugCheckerRules.ASTHelpersGetStartPosition`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/bugcheckerrulesrecipes$asthelpersgetstartpositionrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

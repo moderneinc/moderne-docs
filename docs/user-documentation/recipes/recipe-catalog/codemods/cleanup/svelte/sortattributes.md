@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce order of attributes"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/sortattributes"
 ---
 
 import Tabs from '@theme/Tabs';

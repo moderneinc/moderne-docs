@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify WebTestClient expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/http/simplifywebtestclientcalls"
 ---
 
 import Tabs from '@theme/Tabs';

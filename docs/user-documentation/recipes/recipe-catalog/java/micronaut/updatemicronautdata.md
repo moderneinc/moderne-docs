@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update the Micronaut Data library"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/updatemicronautdata"
 ---
 
 import Tabs from '@theme/Tabs';

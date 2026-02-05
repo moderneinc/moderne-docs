@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `java.nio.charset.StandardCharsets`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavaniocharsetstandardcharsets"
 ---
 
 import Tabs from '@theme/Tabs';

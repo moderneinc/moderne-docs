@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert API response codes to strings"
-canonical_url: "https://docs.openrewrite.org/recipes/openapi/swagger/convertapiresponsecodestostrings"
 ---
 
 import Tabs from '@theme/Tabs';

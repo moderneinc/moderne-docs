@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Pin GitHub Actions to specific commits"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/unpinnedactionsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

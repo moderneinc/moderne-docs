@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Dependency insight for Gradle and Maven"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/dependencyinsight"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,7 +33,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Find AI libraries in use](/user-documentation/recipes/recipe-catalog/ai/findlibrariesinuse.md)
+* [Find AI libraries in use](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/ai/findlibrariesinuse)
 
 ## Example
 

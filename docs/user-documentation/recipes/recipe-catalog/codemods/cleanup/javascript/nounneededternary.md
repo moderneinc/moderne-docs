@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow ternary operators when simpler alternatives exist"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nounneededternary"
 ---
 
 import Tabs from '@theme/Tabs';

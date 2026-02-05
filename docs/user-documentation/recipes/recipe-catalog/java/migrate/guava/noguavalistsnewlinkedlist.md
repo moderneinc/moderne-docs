@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `new LinkedList&lt;&gt;()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavalistsnewlinkedlist"
 ---
 
 import Tabs from '@theme/Tabs';

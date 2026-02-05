@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJComparableRules.AssertThatIsNotEqualByComparingTo`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatisnotequalbycomparingtorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Removes invalid JNDI properties"
-canonical_url: "https://docs.openrewrite.org/recipes/java/liberty/removewas2libertynonportablejndilookup"
 ---
 
 import Tabs from '@theme/Tabs';

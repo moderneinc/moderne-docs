@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change import"
-canonical_url: "https://docs.openrewrite.org/recipes/javascript/change-import"
 ---
 
 import Tabs from '@theme/Tabs';

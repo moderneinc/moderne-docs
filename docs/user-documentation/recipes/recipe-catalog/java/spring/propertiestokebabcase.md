@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Normalize Spring properties to kebab-case"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/propertiestokebabcase"
 ---
 
 import Tabs from '@theme/Tabs';

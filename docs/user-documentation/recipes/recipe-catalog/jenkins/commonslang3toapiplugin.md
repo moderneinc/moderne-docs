@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use commons-lang3 API Plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/jenkins/commonslang3toapiplugin"
 ---
 
 import Tabs from '@theme/Tabs';

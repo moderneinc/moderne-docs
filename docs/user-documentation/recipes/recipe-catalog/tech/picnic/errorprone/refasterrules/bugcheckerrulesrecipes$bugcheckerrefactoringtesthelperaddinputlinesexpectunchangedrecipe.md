@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperAddInputLinesExpectUnchanged`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/bugcheckerrulesrecipes$bugcheckerrefactoringtesthelperaddinputlinesexpectunchangedrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

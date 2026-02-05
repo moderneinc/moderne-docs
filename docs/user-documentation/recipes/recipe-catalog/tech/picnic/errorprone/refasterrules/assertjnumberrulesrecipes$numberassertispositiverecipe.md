@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJNumberRules.NumberAssertIsPositive`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjnumberrulesrecipes$numberassertispositiverecipe"
 ---
 
 import Tabs from '@theme/Tabs';

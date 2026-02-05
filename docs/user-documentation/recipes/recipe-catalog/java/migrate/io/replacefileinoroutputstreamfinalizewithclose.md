@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace invocations of `finalize()` on `FileInputStream` and `FileOutputStream` with `close()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/io/replacefileinoroutputstreamfinalizewithclose"
 ---
 
 import Tabs from '@theme/Tabs';

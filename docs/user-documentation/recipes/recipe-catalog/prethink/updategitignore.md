@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update .gitignore for Prethink context"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/updategitignore"
 ---
 
 import Tabs from '@theme/Tabs';

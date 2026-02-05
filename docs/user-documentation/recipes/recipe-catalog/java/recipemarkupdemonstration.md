@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Demonstrate rendering of `Markup` markers"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipemarkupdemonstration"
 ---
 
 import Tabs from '@theme/Tabs';

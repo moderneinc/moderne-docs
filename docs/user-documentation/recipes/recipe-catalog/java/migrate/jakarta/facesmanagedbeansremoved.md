@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Substitute removed Faces Managed Beans"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/facesmanagedbeansremoved"
 ---
 
 import Tabs from '@theme/Tabs';

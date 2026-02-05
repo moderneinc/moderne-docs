@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow shorthand type conversions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noimplicitcoercion"
 ---
 
 import Tabs from '@theme/Tabs';

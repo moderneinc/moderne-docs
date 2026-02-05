@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce newlines between operands of ternary expressions in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/multilineternary"
 ---
 
 import Tabs from '@theme/Tabs';

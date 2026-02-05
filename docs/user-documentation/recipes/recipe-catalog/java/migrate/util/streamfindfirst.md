@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `getFirst()` instead of `stream().findFirst().orElseThrow()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/streamfindfirst"
 ---
 
 import Tabs from '@theme/Tabs';

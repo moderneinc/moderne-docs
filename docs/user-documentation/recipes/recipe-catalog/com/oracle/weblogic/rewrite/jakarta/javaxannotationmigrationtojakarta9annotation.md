@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.annotation` to `jakarta.annotation`"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxannotationmigrationtojakarta9annotation"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use pattern matching instead of combination of 'as' operator and null check"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usepatternmatchinginsteadofasandnullcheckrcs1221"
 ---
 
 import Tabs from '@theme/Tabs';

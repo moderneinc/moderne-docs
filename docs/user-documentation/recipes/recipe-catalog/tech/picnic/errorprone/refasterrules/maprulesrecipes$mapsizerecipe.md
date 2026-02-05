@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MapRules.MapSize`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/maprulesrecipes$mapsizerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

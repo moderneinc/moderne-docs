@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid comparison with bool constant"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/avoidcomparisonwithboolconstantma0073"
 ---
 
 import Tabs from '@theme/Tabs';

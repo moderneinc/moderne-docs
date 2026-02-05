@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Uni&lt;T extends PanacheEntityBase&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/quarkus2/usepanacheentitybaseunit"
 ---
 
 import Tabs from '@theme/Tabs';

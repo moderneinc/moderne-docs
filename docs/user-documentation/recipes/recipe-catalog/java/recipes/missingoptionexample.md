@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find missing `@Option` `example` values"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/missingoptionexample"
 ---
 
 import Tabs from '@theme/Tabs';

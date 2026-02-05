@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `test` prefix from JUnit 5 tests"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/cleanup/removetestprefix"
 ---
 
 import Tabs from '@theme/Tabs';

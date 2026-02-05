@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Is in repository"
-canonical_url: "https://docs.openrewrite.org/recipes/core/isinrepository"
 ---
 
 import Tabs from '@theme/Tabs';

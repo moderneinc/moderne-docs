@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.InstantIdentity`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$instantidentityrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

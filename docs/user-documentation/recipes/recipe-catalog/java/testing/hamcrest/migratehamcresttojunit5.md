@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Hamcrest assertions to JUnit Jupiter"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/hamcrest/migratehamcresttojunit5"
 ---
 
 import Tabs from '@theme/Tabs';

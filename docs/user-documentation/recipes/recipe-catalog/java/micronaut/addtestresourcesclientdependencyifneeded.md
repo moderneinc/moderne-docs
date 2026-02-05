@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add `micronaut-test-resources-client` if needed"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/addtestresourcesclientdependencyifneeded"
 ---
 
 import Tabs from '@theme/Tabs';

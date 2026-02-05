@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid usage of using alias directive"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usingdirectivercs1056"
 ---
 
 import Tabs from '@theme/Tabs';

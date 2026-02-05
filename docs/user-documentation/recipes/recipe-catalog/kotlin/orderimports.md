@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Order Kotlin imports"
-canonical_url: "https://docs.openrewrite.org/recipes/kotlin/orderimports"
 ---
 
 import Tabs from '@theme/Tabs';

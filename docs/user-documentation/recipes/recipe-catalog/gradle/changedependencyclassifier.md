@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change a Gradle dependency classifier"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/changedependencyclassifier"
 ---
 
 import Tabs from '@theme/Tabs';

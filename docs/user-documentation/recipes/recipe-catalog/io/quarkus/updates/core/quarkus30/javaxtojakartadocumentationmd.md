@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus30.JavaxToJakartaDocumentationMd"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxtojakartadocumentationmd"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Make lifecycle methods non private"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/lifecyclenonprivate"
 ---
 
 import Tabs from '@theme/Tabs';

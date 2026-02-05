@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.defaultString(String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$defaultstringrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

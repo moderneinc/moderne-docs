@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove a Gradle or Maven dependency"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/removedependency"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -35,7 +34,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Add Spring Framework modular dependencies](/user-documentation/recipes/recipe-catalog/java/spring/framework/modularspringframeworkdependencies.md)
+* [Add Spring Framework modular dependencies](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/modularspringframeworkdependencies)
 * [Add explicit JAX-WS dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxwsdependencies.md)
 * [Add explicit JAXB API dependencies and remove runtimes](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbdependencieswithoutruntime.md)
 * [Add explicit JAXB API dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbapidependencies.md)
@@ -50,22 +49,23 @@ This recipe is used as part of the following composite recipes:
 * [Migrate Log4j 2.x to Logback](/user-documentation/recipes/recipe-catalog/java/logging/logback/log4jtologback.md)
 * [Migrate OpenTracing API to OpenTelemetry API](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migrateopentracingtoopentelemetry.md)
 * [Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migratecloudsleuthtomicrometertracing.md)
-* [Migrate Spring Retry to Spring Resilience](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretry.md)
-* [Migrate Spring WS Axiom to SAAJ](/user-documentation/recipes/recipe-catalog/java/spring/ws/migrateaxiomtosaaj.md)
+* [Migrate Spring Retry to Spring Resilience](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretry)
+* [Migrate Spring WS Axiom to SAAJ](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/ws/migrateaxiomtosaaj)
 * [Migrate from EasyMock to Mockito](/user-documentation/recipes/recipe-catalog/java/testing/easymock/easymocktomockito.md)
 * [Migrate from JMockit to Mockito](/user-documentation/recipes/recipe-catalog/java/testing/jmockit/jmockittomockito.md)
 * [Migrate from Spring Cloud Sleuth to OpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratesleuthtoopentelemetry.md)
 * [Migrate from Zipkin to OpenTelemetry OTLP](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratefromzipkintoopentelemetry.md)
 * [Migrate from httpcore-nio to ApacheHttpClient 5.x core dependency](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcoreniodependencies.md)
 * [Migrate from org.apache.httpcomponents to ApacheHttpClient 5.x dependencies](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclientdependencies.md)
-* [Migrate to Hibernate 7.0.x (Moderne Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition.md)
+* [Migrate to Hibernate 7.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition)
 * [Migrate to Spring Boot 4.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
-* [Migrate to Spring Boot 4.0 modular starters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition.md)
+* [Migrate to Spring Boot 4.0 modular starters](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition)
 * [Migrate to Spring Framework 5.3](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-community-edition.md)
 * [Modernize a Jenkins plugin to the latest recommended versions](/user-documentation/recipes/recipe-catalog/jenkins/modernizeplugin.md)
 * [Remove JavaEE dependencies](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/removejavaeedependencies.md)
+* [Remove Spring Pulsar Reactive support](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/removespringpulsarreactive)
 * [Remove `jakarta.annotation-api` dependency when managed by Spring Boot](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removejakartaannotationdependencywhenmanagedbyspringboot.md)
-* [Remove spring-jcl dependency](/user-documentation/recipes/recipe-catalog/java/spring/framework7/removespringjcl.md)
+* [Remove spring-jcl dependency](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/removespringjcl)
 * [Remove unnecessary dependencies](/user-documentation/recipes/recipe-catalog/java/micronaut/removeunnecessarydependencies.md)
 * [Replace Derby test driver with Quarkus JDBC Derby (test scope)](/user-documentation/recipes/recipe-catalog/quarkus/spring/derbytestdrivertoquarkus.md)
 * [Replace H2 test driver with Quarkus JDBC H2 (test scope)](/user-documentation/recipes/recipe-catalog/quarkus/spring/h2testdrivertoquarkus.md)
@@ -101,7 +101,7 @@ This recipe is used as part of the following composite recipes:
 * [Replace SpringFox Dependencies](/user-documentation/recipes/recipe-catalog/java/springdoc/replacespringfoxdependencies.md)
 * [Replace `micrometer-spring-legacy` with `spring-boot-starter-actuator`](/user-documentation/recipes/recipe-catalog/java/spring/boot2/maybeaddspringbootstarteractuator.md)
 * [Update RestLet to 2.6.0](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updaterestlet2_6.md)
-* [Update Tapestry dependencies](/user-documentation/recipes/recipe-catalog/tapestry/updatetapestrydependencies.md)
+* [Update Tapestry dependencies](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/updatetapestrydependencies)
 * [Update jakarta annotations dependency](/user-documentation/recipes/recipe-catalog/java/micronaut/updatejakartaannotations.md)
 * [Update to Micronaut Validation 4.x](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautvalidation.md)
 * [Upgrade Struts 6.0 dependencies](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/upgradestruts6dependencies.md)

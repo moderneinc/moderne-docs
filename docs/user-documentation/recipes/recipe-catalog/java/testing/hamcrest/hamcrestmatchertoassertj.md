@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from Hamcrest `Matcher` to AssertJ"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/hamcrest/hamcrestmatchertoassertj"
 ---
 
 import Tabs from '@theme/Tabs';

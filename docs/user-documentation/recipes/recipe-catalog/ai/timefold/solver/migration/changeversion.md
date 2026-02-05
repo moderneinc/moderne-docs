@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change the Timefold version"
-canonical_url: "https://docs.openrewrite.org/recipes/ai/timefold/solver/migration/changeversion"
 ---
 
 import Tabs from '@theme/Tabs';

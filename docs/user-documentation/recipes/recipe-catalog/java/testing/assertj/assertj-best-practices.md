@@ -1,6 +1,5 @@
 ---
 sidebar_label: "AssertJ best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/assertj-best-practices"
 ---
 
 import Tabs from '@theme/Tabs';

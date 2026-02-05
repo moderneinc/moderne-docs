@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Transform classes that extend `*ListenerSupport` to implement the `*Listener` interfaces instead"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/batch/listenersupportclasstointerface"
 ---
 
 import Tabs from '@theme/Tabs';

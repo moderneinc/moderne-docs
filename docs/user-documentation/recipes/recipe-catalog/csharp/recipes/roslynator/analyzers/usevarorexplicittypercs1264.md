@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use 'var' or explicit type"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usevarorexplicittypercs1264"
 ---
 
 import Tabs from '@theme/Tabs';

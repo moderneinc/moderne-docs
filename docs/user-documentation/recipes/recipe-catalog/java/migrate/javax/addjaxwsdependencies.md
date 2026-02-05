@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add explicit JAX-WS dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/addjaxwsdependencies"
 ---
 
 import Tabs from '@theme/Tabs';

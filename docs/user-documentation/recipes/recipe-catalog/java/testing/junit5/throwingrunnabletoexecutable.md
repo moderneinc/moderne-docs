@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use JUnit Jupiter `Executable`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/throwingrunnabletoexecutable"
 ---
 
 import Tabs from '@theme/Tabs';

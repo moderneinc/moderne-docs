@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Property summary documentation should omit accessor with restricted access"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/propertysummarydocumentationsa1624"
 ---
 
 import Tabs from '@theme/Tabs';

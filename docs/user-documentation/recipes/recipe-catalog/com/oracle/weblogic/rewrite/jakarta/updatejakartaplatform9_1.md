@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Jakarta EE Platform Dependencies to 9.1.0"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/updatejakartaplatform9_1"
 ---
 
 import Tabs from '@theme/Tabs';

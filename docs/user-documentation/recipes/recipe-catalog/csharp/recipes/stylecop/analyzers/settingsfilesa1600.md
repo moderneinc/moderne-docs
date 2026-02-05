@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Elements should be documented"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/settingsfilesa1600"
 ---
 
 import Tabs from '@theme/Tabs';

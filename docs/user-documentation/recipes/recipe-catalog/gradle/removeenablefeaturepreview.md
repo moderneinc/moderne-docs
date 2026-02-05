@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove an enabled Gradle preview feature"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/removeenablefeaturepreview"
 ---
 
 import Tabs from '@theme/Tabs';

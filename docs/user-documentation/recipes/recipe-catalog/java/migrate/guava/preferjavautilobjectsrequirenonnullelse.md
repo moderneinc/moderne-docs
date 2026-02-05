@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `java.util.Objects#requireNonNullElse`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavautilobjectsrequirenonnullelse"
 ---
 
 import Tabs from '@theme/Tabs';

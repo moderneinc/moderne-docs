@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MockitoRules.InvocationOnMockGetArguments`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/mockitorulesrecipes$invocationonmockgetargumentsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssortedRules.IterableIsEmpty`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$iterableisemptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

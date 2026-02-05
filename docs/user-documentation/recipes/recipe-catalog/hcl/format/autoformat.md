@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Format HCL code"
-canonical_url: "https://docs.openrewrite.org/recipes/hcl/format/autoformat"
 ---
 
 import Tabs from '@theme/Tabs';

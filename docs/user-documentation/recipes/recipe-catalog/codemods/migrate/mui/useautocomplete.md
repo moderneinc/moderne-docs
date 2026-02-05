@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates usage of useAutocomplete"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/useautocomplete"
 ---
 
 import Tabs from '@theme/Tabs';

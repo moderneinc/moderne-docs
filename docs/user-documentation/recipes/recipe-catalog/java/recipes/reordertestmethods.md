@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Show `@DocumentExample`s first"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/reordertestmethods"
 ---
 
 import Tabs from '@theme/Tabs';

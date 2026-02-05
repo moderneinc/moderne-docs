@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `**/validation/*.xml` files."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxvalidationmappingxmlstojakarta9validationmappingxmls"
 ---
 
 import Tabs from '@theme/Tabs';

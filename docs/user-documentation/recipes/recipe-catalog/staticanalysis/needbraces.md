@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Fix missing braces"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/needbraces"
 ---
 
 import Tabs from '@theme/Tabs';

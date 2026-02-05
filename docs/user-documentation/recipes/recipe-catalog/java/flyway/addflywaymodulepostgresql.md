@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add missing Flyway module for PostgreSQL"
-canonical_url: "https://docs.openrewrite.org/recipes/java/flyway/addflywaymodulepostgresql"
 ---
 
 import Tabs from '@theme/Tabs';

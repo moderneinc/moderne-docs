@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Use bean name `applicationTaskExecutor` instead of `taskExecutor`](/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacetaskexecutornamebyapplicationtaskexecutorname.md)
+* [Use bean name `applicationTaskExecutor` instead of `taskExecutor`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacetaskexecutornamebyapplicationtaskexecutorname)
 
 
 ## Usage

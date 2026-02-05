@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Relocate `org.apache.commons:commons-io` to `commons-io:commons-io`"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/io/relocateapachecommonsio"
 ---
 
 import Tabs from '@theme/Tabs';

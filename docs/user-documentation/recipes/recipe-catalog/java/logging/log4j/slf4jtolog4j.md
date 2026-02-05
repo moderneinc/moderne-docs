@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate SLF4J to Log4j 2.x API"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/log4j/slf4jtolog4j"
 ---
 
 import Tabs from '@theme/Tabs';

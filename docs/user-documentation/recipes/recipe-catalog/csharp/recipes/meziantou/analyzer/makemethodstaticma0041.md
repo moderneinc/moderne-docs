@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Make property static (deprecated, use CA1822 instead)"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/makemethodstaticma0041"
 ---
 
 import Tabs from '@theme/Tabs';

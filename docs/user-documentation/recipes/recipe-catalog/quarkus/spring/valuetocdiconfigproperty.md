@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring `@Value` with CDI `@ConfigProperty`"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/valuetocdiconfigproperty"
 ---
 
 import Tabs from '@theme/Tabs';

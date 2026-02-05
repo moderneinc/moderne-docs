@@ -1,6 +1,5 @@
 ---
 sidebar_label: "System using directives should be placed before other using directives"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/usingsa1208"
 ---
 
 import Tabs from '@theme/Tabs';

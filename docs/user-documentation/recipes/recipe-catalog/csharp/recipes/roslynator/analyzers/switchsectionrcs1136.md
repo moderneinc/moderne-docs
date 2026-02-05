@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Merge switch sections with equivalent content"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/switchsectionrcs1136"
 ---
 
 import Tabs from '@theme/Tabs';

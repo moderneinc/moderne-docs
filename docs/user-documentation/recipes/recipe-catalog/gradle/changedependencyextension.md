@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change a Gradle dependency extension"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/changedependencyextension"
 ---
 
 import Tabs from '@theme/Tabs';

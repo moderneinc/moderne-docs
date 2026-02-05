@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `ItemWriter`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/batch/migrateitemwriterwrite"
 ---
 
 import Tabs from '@theme/Tabs';

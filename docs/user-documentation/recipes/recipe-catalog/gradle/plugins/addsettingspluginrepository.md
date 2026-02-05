@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add a Gradle settings repository"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/plugins/addsettingspluginrepository"
 ---
 
 import Tabs from '@theme/Tabs';

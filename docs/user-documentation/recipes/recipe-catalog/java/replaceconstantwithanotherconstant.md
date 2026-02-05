@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace constant with another constant"
-canonical_url: "https://docs.openrewrite.org/recipes/java/replaceconstantwithanotherconstant"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,21 +32,21 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Maps deprecated classes from Apache HttpClient 4.5.x to suggested replacements](/user-documentation/recipes/recipe-catalog/apache/httpclient4/mappingdeprecatedclasses.md)
-* [Migrate Hibernate CascadeType constants (Moderne Edition)](/user-documentation/recipes/recipe-catalog/hibernate/update66/migratecascadetypes.md)
-* [Migrate `HttpStatus` enum values to RFC 9110 names](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratehttpstatustorfc9110.md)
-* [Migrate `exactly_once` and `exactly_once_beta` to `exactly_once_v2`](/user-documentation/recipes/recipe-catalog/kafka/streams/processingguaranteeexactlyoncetov2.md)
-* [Migrate `exactly_once` to `exactly_once_beta`](/user-documentation/recipes/recipe-catalog/kafka/streams/processingguaranteeexactlyoncetobeta.md)
+* [Migrate Hibernate CascadeType constants (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/update66/migratecascadetypes)
+* [Migrate `HttpStatus` enum values to RFC 9110 names](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratehttpstatustorfc9110)
+* [Migrate `exactly_once` and `exactly_once_beta` to `exactly_once_v2`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/streams/processingguaranteeexactlyoncetov2)
+* [Migrate `exactly_once` to `exactly_once_beta`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/streams/processingguaranteeexactlyoncetobeta)
 * [Migrate deprecated SystemUtils constants](/user-documentation/recipes/recipe-catalog/apache/commons/lang3/migratesystemutilsdeprecations.md)
 * [Migrate packages to modular starters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateautoconfigurepackages.md)
 * [Migrate the use of TaskExecutors with blocking IO](/user-documentation/recipes/recipe-catalog/java/micronaut/updateblockingtaskexecutors.md)
 * [Migrate to ApacheHttpClient 5.x Classes Namespace from 4.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5_classmapping.md)
-* [Migrate to Kafka 2.7](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka27.md)
+* [Migrate to Kafka 2.7](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka27)
 * [Migrate to Spring Framework 6.2](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_2.md)
 * [Migrate to Spring Kafka 3.0](/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_3_0.md)
 * [Migrates to Apache POI 3.17](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_3_17.md)
 * [Prefer `java.nio.charset.StandardCharsets`](/user-documentation/recipes/recipe-catalog/apache/commons/io/usestandardcharsets.md)
-* [Rename MemberCategory field constants for Spring Framework 7.0](/user-documentation/recipes/recipe-catalog/java/spring/framework7/renamemembercategoryconstants.md)
-* [Rename `RequestContext.jstPresent` to `JSTL_PRESENT`](/user-documentation/recipes/recipe-catalog/java/spring/framework7/renamerequestcontextjstlpresent.md)
+* [Rename MemberCategory field constants for Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/renamemembercategoryconstants)
+* [Rename `RequestContext.jstPresent` to `JSTL_PRESENT`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/renamerequestcontextjstlpresent)
 * [Renamed classes for API](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel49/renamedapis.md)
 * [Renamed constants in camel-smb](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel410/camelsmb.md)
 * [Replace `CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` with `getCurrentComponent()` and `getCurrentCompositeComponent()`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removeduicomponentconstant.md)

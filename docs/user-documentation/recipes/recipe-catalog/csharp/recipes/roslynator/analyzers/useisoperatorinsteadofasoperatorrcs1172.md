@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use 'is' operator instead of 'as' operator"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useisoperatorinsteadofasoperatorrcs1172"
 ---
 
 import Tabs from '@theme/Tabs';

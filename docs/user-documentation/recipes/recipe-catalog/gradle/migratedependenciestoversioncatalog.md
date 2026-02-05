@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Gradle project dependencies to version catalog"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/migratedependenciestoversioncatalog"
 ---
 
 import Tabs from '@theme/Tabs';

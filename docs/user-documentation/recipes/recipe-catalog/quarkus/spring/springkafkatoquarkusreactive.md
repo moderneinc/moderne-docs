@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Kafka with Quarkus Messaging Kafka"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springkafkatoquarkusreactive"
 ---
 
 import Tabs from '@theme/Tabs';

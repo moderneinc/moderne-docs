@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `org.apache.ws.security` and `org.apache.ws.security.components.crypto` packages to  `org.apache.wss4j.common.ext` and `org.apache.wss4j.common.crypto` packages"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/updateapachewssecuritypackages"
 ---
 
 import Tabs from '@theme/Tabs';

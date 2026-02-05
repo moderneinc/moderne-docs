@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `PrimitiveRules.LongSignumIsNegative`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$longsignumisnegativerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

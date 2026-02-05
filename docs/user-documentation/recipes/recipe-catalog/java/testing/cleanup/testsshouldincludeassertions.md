@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Include an assertion in tests"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/cleanup/testsshouldincludeassertions"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Changed parameter in camel-netty and camel-netty-http"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel415/nettyandnettyhttp"
 ---
 
 import Tabs from '@theme/Tabs';

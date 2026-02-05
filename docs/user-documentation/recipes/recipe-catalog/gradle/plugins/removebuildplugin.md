@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove Gradle plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/plugins/removebuildplugin"
 ---
 
 import Tabs from '@theme/Tabs';

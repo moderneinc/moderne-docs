@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce using the digits argument with `Number#toFixed()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/requirenumbertofixeddigitsargument"
 ---
 
 import Tabs from '@theme/Tabs';

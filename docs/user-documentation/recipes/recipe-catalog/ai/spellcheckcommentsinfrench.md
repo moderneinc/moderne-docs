@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Fix mis-encoded French comments, javadocs and pom.xml comments](/user-documentation/recipes/recipe-catalog/ai/fixmisencodedcommentsinfrench.md)
+* [Fix mis-encoded French comments, javadocs and pom.xml comments](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/ai/fixmisencodedcommentsinfrench)
 
 ## Examples
 ##### Example 1

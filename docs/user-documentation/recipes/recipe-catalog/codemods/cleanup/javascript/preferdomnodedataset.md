@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer using `.dataset` on DOM elements over calling attribute methods"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferdomnodedataset"
 ---
 
 import Tabs from '@theme/Tabs';

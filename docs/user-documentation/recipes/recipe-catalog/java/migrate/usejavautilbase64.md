@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `java.util.Base64` instead of `sun.misc`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/usejavautilbase64"
 ---
 
 import Tabs from '@theme/Tabs';

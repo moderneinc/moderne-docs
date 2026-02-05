@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `cucumber-java8` step definitions with `cucumber-java`"
-canonical_url: "https://docs.openrewrite.org/recipes/cucumber/jvm/cucumberjava8stepdefinitiontocucumberjava"
 ---
 
 import Tabs from '@theme/Tabs';

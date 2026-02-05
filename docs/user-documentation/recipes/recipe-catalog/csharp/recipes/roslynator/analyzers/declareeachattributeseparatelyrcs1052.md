@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Declare each attribute separately"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/declareeachattributeseparatelyrcs1052"
 ---
 
 import Tabs from '@theme/Tabs';

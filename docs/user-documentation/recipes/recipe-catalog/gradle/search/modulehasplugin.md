@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Module has plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/search/modulehasplugin"
 ---
 
 import Tabs from '@theme/Tabs';

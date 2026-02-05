@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Yaml DSL bearer from rest/securityDefinitions is renamed to bearerToken"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel412/yamldslbearer"
 ---
 
 import Tabs from '@theme/Tabs';

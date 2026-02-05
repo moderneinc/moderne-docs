@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Test for NaN correctly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharptestfornancorrectlyca2242"
 ---
 
 import Tabs from '@theme/Tabs';

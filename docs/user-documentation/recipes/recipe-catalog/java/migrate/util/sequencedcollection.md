@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt `SequencedCollection`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/sequencedcollection"
 ---
 
 import Tabs from '@theme/Tabs';

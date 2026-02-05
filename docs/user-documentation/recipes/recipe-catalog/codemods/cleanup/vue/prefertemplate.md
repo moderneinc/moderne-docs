@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require template literals instead of string concatenation in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/prefertemplate"
 ---
 
 import Tabs from '@theme/Tabs';

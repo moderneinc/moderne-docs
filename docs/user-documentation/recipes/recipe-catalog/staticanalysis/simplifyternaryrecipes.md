@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify ternary expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/simplifyternaryrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

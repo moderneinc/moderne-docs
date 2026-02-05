@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Apply `var` to generic method invocations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/var/usevarforgenericmethodinvocations"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename a file"
-canonical_url: "https://docs.openrewrite.org/recipes/core/renamefile"
 ---
 
 import Tabs from '@theme/Tabs';

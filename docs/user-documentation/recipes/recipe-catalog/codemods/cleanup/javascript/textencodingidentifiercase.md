@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent case for text encoding identifiers"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/textencodingidentifiercase"
 ---
 
 import Tabs from '@theme/Tabs';

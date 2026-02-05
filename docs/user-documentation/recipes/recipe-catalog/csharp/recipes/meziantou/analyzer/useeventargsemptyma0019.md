@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use EventArgs.Empty"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/useeventargsemptyma0019"
 ---
 
 import Tabs from '@theme/Tabs';

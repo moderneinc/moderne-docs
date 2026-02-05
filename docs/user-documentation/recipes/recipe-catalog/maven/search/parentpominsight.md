@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Maven parent insight"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/search/parentpominsight"
 ---
 
 import Tabs from '@theme/Tabs';

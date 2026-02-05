@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Modernize octal escape sequences"
-canonical_url: "https://docs.openrewrite.org/recipes/javascript/migrate/es6/modernize-octal-escape-sequences"
 ---
 
 import Tabs from '@theme/Tabs';

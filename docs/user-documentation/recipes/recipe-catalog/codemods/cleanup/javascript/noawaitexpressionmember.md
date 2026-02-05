@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow member access from `await` expression"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noawaitexpressionmember"
 ---
 
 import Tabs from '@theme/Tabs';

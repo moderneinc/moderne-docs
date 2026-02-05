@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Artemis with Quarkus Artemis JMS"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootartemistoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

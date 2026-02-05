@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce Promise or callback style in nextTick"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/nexttickstyle"
 ---
 
 import Tabs from '@theme/Tabs';

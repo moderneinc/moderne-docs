@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing inside braces in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/objectcurlyspacing"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce static class names order"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/staticclassnamesorder"
 ---
 
 import Tabs from '@theme/Tabs';

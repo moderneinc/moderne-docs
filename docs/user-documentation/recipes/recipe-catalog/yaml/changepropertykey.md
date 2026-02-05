@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change property key"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/changepropertykey"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -35,7 +34,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Kubernetes API v1.29](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_29.md)
+* [Migrate to Kubernetes API v1.29](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_29)
 * [Renamed streamCaching to streamCache on the route](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel46/yamstreamcaching.md)
 * [Update Apache Camel configurations keys](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate.md)
 * [io.quarkus.updates.core.quarkus30.ApplicationYml](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus30/applicationyml.md)

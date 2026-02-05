@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Using static directives should be ordered alphabetically"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/usingsa1217"
 ---
 
 import Tabs from '@theme/Tabs';

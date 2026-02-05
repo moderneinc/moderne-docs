@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Modifier order"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/modifierorder"
 ---
 
 import Tabs from '@theme/Tabs';

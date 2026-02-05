@@ -1,6 +1,5 @@
 ---
 sidebar_label: "V1 S3 non-streaming requests to V2"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/s3nonstreamingrequesttov2complex"
 ---
 
 import Tabs from '@theme/Tabs';

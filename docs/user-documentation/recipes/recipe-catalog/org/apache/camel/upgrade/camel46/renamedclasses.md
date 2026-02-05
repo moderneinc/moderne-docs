@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renamed classes for elasticsearch,opensearch and spring regis"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel46/renamedclasses"
 ---
 
 import Tabs from '@theme/Tabs';

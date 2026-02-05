@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StringRules.NewStringFromCharArraySubSequence`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/stringrulesrecipes$newstringfromchararraysubsequencerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

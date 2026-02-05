@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `DefaultBatchConfigurer`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/batch/removedefaultbatchconfigurer"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce the consistent use of either double or single quotes in JSX attributes"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxquotes"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use conditional access instead of conditional expression"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/conditionalexpressionrcs1206"
 ---
 
 import Tabs from '@theme/Tabs';

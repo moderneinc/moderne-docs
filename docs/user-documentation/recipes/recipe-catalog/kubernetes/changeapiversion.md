@@ -31,16 +31,16 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Kubernetes API v1.16](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_16.md)
-* [Migrate to Kubernetes API v1.22](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_22.md)
-* [Migrate to Kubernetes API v1.25](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_25.md)
-* [Migrate to Kubernetes API v1.26](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_26.md)
-* [Migrate to Kubernetes API v1.27](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_27.md)
-* [Migrate to Kubernetes API v1.29](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_29.md)
-* [Migrate to Kubernetes API v1.32](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_32.md)
-* [Migrate to Kubernetes API v1.33](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_33.md)
-* [Migrate to Kubernetes API v1.34](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_34.md)
-* [Migrate to Kubernetes API v1.35](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_35.md)
+* [Migrate to Kubernetes API v1.16](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_16)
+* [Migrate to Kubernetes API v1.22](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_22)
+* [Migrate to Kubernetes API v1.25](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_25)
+* [Migrate to Kubernetes API v1.26](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_26)
+* [Migrate to Kubernetes API v1.27](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_27)
+* [Migrate to Kubernetes API v1.29](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_29)
+* [Migrate to Kubernetes API v1.32](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_32)
+* [Migrate to Kubernetes API v1.33](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_33)
+* [Migrate to Kubernetes API v1.34](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_34)
+* [Migrate to Kubernetes API v1.35](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_35)
 
 ## Example
 

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer the 'Memory'-based overloads for 'ReadAsync' and 'WriteAsync'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharppreferstreamasyncmemoryoverloadsca1835"
 ---
 
 import Tabs from '@theme/Tabs';

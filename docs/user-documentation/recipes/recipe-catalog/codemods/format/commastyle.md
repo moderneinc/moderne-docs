@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent comma style"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/commastyle"
 ---
 
 import Tabs from '@theme/Tabs';

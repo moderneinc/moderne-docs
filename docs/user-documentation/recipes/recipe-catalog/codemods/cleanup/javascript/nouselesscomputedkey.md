@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unnecessary computed property keys in objects and classes"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nouselesscomputedkey"
 ---
 
 import Tabs from '@theme/Tabs';

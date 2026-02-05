@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `StandardCharset` constants"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/usestandardcharset"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary null check"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1199"
 ---
 
 import Tabs from '@theme/Tabs';

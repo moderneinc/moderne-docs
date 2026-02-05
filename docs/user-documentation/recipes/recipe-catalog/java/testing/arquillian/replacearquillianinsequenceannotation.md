@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Arquillian JUnit 4 `@InSequence` to JUnit Jupiter `@Order`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/arquillian/replacearquillianinsequenceannotation"
 ---
 
 import Tabs from '@theme/Tabs';

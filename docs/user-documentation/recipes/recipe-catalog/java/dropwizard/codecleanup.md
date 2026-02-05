@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Clean up various issues with the code"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/codecleanup"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.MonoTimeoutPublisherMonoJust`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monotimeoutpublishermonojustrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

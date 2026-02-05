@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `RestTemplateBuilder#basicAuthentication`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migrateresttemplatebuilderbasicauthorization"
 ---
 
 import Tabs from '@theme/Tabs';

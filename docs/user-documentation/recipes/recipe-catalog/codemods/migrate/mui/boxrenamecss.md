@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames CSS properties for Box component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/boxrenamecss"
 ---
 
 import Tabs from '@theme/Tabs';

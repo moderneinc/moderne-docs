@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `getProperty(&quot;wlp.server.name&quot;)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/liberty/servername"
 ---
 
 import Tabs from '@theme/Tabs';

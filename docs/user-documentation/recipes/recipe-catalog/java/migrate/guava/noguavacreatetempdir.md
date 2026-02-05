@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Files#createTempDirectory()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavacreatetempdir"
 ---
 
 import Tabs from '@theme/Tabs';

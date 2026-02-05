@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Opening parenthesis should be spaced correctly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1008"
 ---
 
 import Tabs from '@theme/Tabs';

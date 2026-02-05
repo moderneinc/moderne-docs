@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use enum field explicitly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/castexpressionrcs1257"
 ---
 
 import Tabs from '@theme/Tabs';

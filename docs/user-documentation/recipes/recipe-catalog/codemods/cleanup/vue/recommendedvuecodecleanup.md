@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Recommended vue code cleanup"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/recommendedvuecodecleanup"
 ---
 
 import Tabs from '@theme/Tabs';

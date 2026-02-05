@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.replace(String, String, String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/codehaus/plexus/plexusstringutilsrecipes$replacerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

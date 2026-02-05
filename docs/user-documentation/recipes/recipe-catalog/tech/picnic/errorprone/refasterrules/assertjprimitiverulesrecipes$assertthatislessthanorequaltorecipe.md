@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJPrimitiveRules.AssertThatIsLessThanOrEqualTo`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatislessthanorequaltorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

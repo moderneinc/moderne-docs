@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use correct ejb-jar namespace values"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/liberty/ejbddnamespacerule"
 ---
 
 import Tabs from '@theme/Tabs';

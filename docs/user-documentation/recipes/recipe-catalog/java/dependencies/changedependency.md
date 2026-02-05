@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Gradle or Maven dependency"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dependencies/changedependency"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -59,7 +58,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate SAP cloud foundry logging support to Spring Boot 3.x](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratesapcfjavaloggingsupport.md)
 * [Migrate SLF4J to Log4j 2.x API](/user-documentation/recipes/recipe-catalog/java/logging/log4j/slf4jtolog4j.md)
 * [Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migratecloudsleuthtomicrometertracing.md)
-* [Migrate Spring Session Hazelcast to Hazelcast Spring Session](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratehazelcastspringsession.md)
+* [Migrate Spring Session Hazelcast to Hazelcast Spring Session](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratehazelcastspringsession)
 * [Migrate Tag Libraries to 2.0 (Jakarta EE 9)](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/migratetaglibstojakartaee9.md)
 * [Migrate `cucumber-java8` to `cucumber-java`](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava.md)
 * [Migrate com.intellij:annotations to org.jetbrains:annotations](/user-documentation/recipes/recipe-catalog/java/migrate/comintellijannotationstoorgjetbrainsannotations.md)
@@ -125,7 +124,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate deprecated `org.apache.commons.fileload` packages to `org.apache.commons.fileload.core`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/fileuploadtofileupload2.md)
 * [Migrate deprecated `org.glassfish.javax.el` packages to `jakarta.el`](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/orgglassfishjavaxeltojakartael.md)
 * [Migrate dropWizard dependencies to Spring Boot 3.x](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratedropwizarddependencies.md)
-* [Migrate from Acegi Security 1.0.x to Spring Security 5.0](/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0.md)
+* [Migrate from Acegi Security 1.0.x to Spring Security 5.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0)
 * [Migrate from Java Faker to Datafaker](/user-documentation/recipes/recipe-catalog/java/testing/datafaker/javafakertodatafaker.md)
 * [Migrate from Spring Boot 1.x to 2.0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
 * [Migrate from Swagger to OpenAPI](/user-documentation/recipes/recipe-catalog/openapi/swagger/swaggertoopenapi.md)
@@ -158,7 +157,7 @@ This recipe is used as part of the following composite recipes:
 * [Rename Testcontainers dependencies](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2dependencies.md)
 * [Replace Derby driver with Quarkus JDBC Derby](/user-documentation/recipes/recipe-catalog/quarkus/spring/derbydrivertoquarkus.md)
 * [Replace H2 driver with Quarkus JDBC H2](/user-documentation/recipes/recipe-catalog/quarkus/spring/h2drivertoquarkus.md)
-* [Replace Spring Framework dependencies with Spring Boot starters](/user-documentation/recipes/recipe-catalog/java/spring/boot/replacespringframeworkdepswithbootstarters.md)
+* [Replace Spring Framework dependencies with Spring Boot starters](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot/replacespringframeworkdepswithbootstarters)
 * [Update Apache Commons Email to Email2 for Jakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateapachecommonsemaildependencies.md)
 * [Update Apache Commons FileUpload2 package for EE10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatefileupload2dependencies.md)
 * [Update Apache Shiro Dependencies to 2.0.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateapacheshirodependencies.md)
@@ -167,7 +166,7 @@ This recipe is used as part of the following composite recipes:
 * [Update Jetty9 to Jetty12](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jettyupgradeee9.md)
 * [Update Prometheus Pushgateway Dependency Coordinates](/user-documentation/recipes/recipe-catalog/java/spring/boot3/updateprometheuspushgateway.md)
 * [Update RestLet to 2.6.0](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updaterestlet2_6.md)
-* [Update Tapestry dependencies](/user-documentation/recipes/recipe-catalog/tapestry/updatetapestrydependencies.md)
+* [Update Tapestry dependencies](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/updatetapestrydependencies)
 * [Upgrade Jackson 2.x dependencies to 3.x](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_dependencies.md)
 * [Upgrade Struts 6.0 dependencies](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/upgradestruts6dependencies.md)
 * [Upgrade dependencies to Spring Cloud 2022](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/dependencyupgrades.md)

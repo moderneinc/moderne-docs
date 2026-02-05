@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `overlap` prop to `variant=&quot;dot&quot;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/badgeoverlapvalue"
 ---
 
 import Tabs from '@theme/Tabs';

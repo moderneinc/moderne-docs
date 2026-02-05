@@ -470,6 +470,9 @@ Total standalone recipes: 1729
 * [org.openrewrite.csharp.dependencies.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/csharp/dependencies/upgradedependencyversion.md)
   * **Upgrade C# dependency versions**
   * Upgrades dependencies in `*.csproj` and `packages.config`.
+* [org.openrewrite.java.dependencies.AddExplicitTransitiveDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/addexplicittransitivedependencies.md)
+  * **Add explicit transitive dependencies**
+  * Detects when Java source code or configuration files reference types from transitive Maven dependencies and promotes those transitive dependencies to explicit direct dependencies in the pom.xml. This ensures the build is resilient against changes in transitive dependency trees of upstream libraries.
 * [org.openrewrite.java.dependencies.DependencyLicenseCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencylicensecheck.md)
   * **Find licenses in use in third-party dependencies**
   * Locates and reports on all licenses in use.
@@ -523,7 +526,7 @@ Total standalone recipes: 1729
   * Checks if the project is a Jenkins plugin by the presence of a managed version of `jenkins-core`.
 * [org.openrewrite.jenkins.github.AddTeamToCodeowners](/user-documentation/recipes/recipe-catalog/jenkins/github/addteamtocodeowners.md)
   * **Add plugin developer team to CODEOWNERS**
-  * Adds the `{artifactId}-plugin-developers` team to all files in `.github/CODEOWNERS` if absent.
+  * Adds the `\{artifactId\}-plugin-developers` team to all files in `.github/CODEOWNERS` if absent.
 
 ## org.openrewrite.recipe:rewrite-kubernetes
 
@@ -658,10 +661,10 @@ Total standalone recipes: 1729
   * Replace `0 &lt; s.length()` and `s.length() != 0` with `!s.isEmpty()`.
 * [org.openrewrite.java.migrate.lombok.AdoptLombokGetterMethodNames](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/adoptlombokgettermethodnames.md)
   * **Rename getter methods to fit Lombok**
-  * Rename methods that are effectively getter to the name Lombok would give them.  Limitations:  - If two methods in a class are effectively the same getter then one's name will be corrected and the others name will be left as it is.  - If the correct name for a method is already taken by another method then the name will not be corrected.  - Method name swaps or circular renaming within a class cannot be performed because the names block each other. E.g. `int getFoo() { return ba; } int getBa() { return foo; }` stays as it is.
+  * Rename methods that are effectively getter to the name Lombok would give them.  Limitations:  - If two methods in a class are effectively the same getter then one's name will be corrected and the others name will be left as it is.  - If the correct name for a method is already taken by another method then the name will not be corrected.  - Method name swaps or circular renaming within a class cannot be performed because the names block each other. E.g. `int getFoo() \{ return ba; \} int getBa() \{ return foo; \}` stays as it is.
 * [org.openrewrite.java.migrate.lombok.AdoptLombokSetterMethodNames](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/adoptlomboksettermethodnames.md)
   * **Rename setter methods to fit Lombok**
-  * Rename methods that are effectively setter to the name Lombok would give them. Limitations:  - If two methods in a class are effectively the same setter then one's name will be corrected and the others name will be left as it is.  - If the correct name for a method is already taken by another method then the name will not be corrected.  - Method name swaps or circular renaming within a class cannot be performed because the names block each other. E.g. `int getFoo() { return ba; } int getBa() { return foo; }` stays as it is.
+  * Rename methods that are effectively setter to the name Lombok would give them. Limitations:  - If two methods in a class are effectively the same setter then one's name will be corrected and the others name will be left as it is.  - If the correct name for a method is already taken by another method then the name will not be corrected.  - Method name swaps or circular renaming within a class cannot be performed because the names block each other. E.g. `int getFoo() \{ return ba; \} int getBa() \{ return foo; \}` stays as it is.
 * [org.openrewrite.java.migrate.lombok.LombokValueToRecord](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokvaluetorecord.md)
   * **Convert `@lombok.Value` class to Record**
   * Convert Lombok `@Value` annotated classes to standard Java Records.
@@ -782,9 +785,6 @@ Total standalone recipes: 1729
 * [org.openrewrite.java.spring.boot2.search.IntegrationSchedulerPoolRecipe](/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/integrationschedulerpoolrecipe.md)
   * **Integration scheduler pool size**
   * Spring Integration now reuses an available `TaskScheduler` rather than configuring its own. In a typical application setup relying on the auto-configuration, this means that Spring Integration uses the auto-configured task scheduler that has a pool size of 1. To restore Spring Integration’s default of 10 threads, use the `spring.task.scheduling.pool.size` property.
-* [org.openrewrite.java.spring.boot3.AddRouteTrailingSlash](/user-documentation/recipes/recipe-catalog/java/spring/boot3/addroutetrailingslash.md)
-  * **Add trailing slash to Spring routes**
-  * This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(&quot;/some/greeting&quot;)` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is to add declaration of additional route explicitly on the controller handler (like `@GetMapping(&quot;/some/greeting&quot;, &quot;/some/greeting/&quot;)`.
 * [org.openrewrite.java.spring.boot3.AddSetUseTrailingSlashMatch](/user-documentation/recipes/recipe-catalog/java/spring/boot3/addsetusetrailingslashmatch.md)
   * **Add `SetUseTrailingSlashMatch()` in configuration**
   * This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(&quot;/some/greeting&quot;)` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is change the default with the global Spring MVC or Webflux configuration.
@@ -1129,7 +1129,7 @@ Total standalone recipes: 1729
   * Set a file's read, write and executable permission attributes.
 * [org.openrewrite.Singleton](/user-documentation/recipes/recipe-catalog/core/singleton.md)
   * **Singleton**
-  * Used as a precondition to ensure that a recipe attempts to make changes only once. Accidentally including multiple copies/instances of the same large composite recipes is a common mistake. If those recipes are marked with this precondition the performance penalty is limited. This recipe does nothing useful run on its own.  ## Usage in YAML recipes  Add `org.openrewrite.Singleton` as a precondition:  ```yaml --- type: specs.openrewrite.org/v1beta/recipe name: com.example.Append displayName: My recipe preconditions:   - org.openrewrite.Singleton recipeList:   - org.openrewrite.text.AppendToTextFile:       relativeFileName: report.txt       content: 'Recipe executed' ```## Usage in Java recipes  Wrap visitors with `Singleton.singleton(this, visitor)` to ensure only the first *equivalent* recipe instance makes changes:  ```java @Override public TreeVisitor&lt;?, ExecutionContext&gt; getVisitor(Accumulator acc) {     return singleton(this, new TreeVisitor&lt;Tree, ExecutionContext&gt;() {         @Override         public Tree visit(@Nullable Tree tree, ExecutionContext ctx) {             // Your transformation logic             return tree;         }     }); } @Override public Collection&lt;SourceFile&gt; generate(Accumulator acc, ExecutionContext ctx) {     if (!isSingleton(this, ctx)) {         return Collections.emptyList();     }     // Generate new sources     return results; }  @Override public TreeVisitor&lt;?, ExecutionContext&gt; getVisitor(Accumulator acc) {     return singleton(this, new TreeVisitor&lt;Tree, ExecutionContext&gt;() {         // Visitor logic     }); } ```  **Note:** Singleton status is determined by the recipe's `equals()` and `hashCode()` methods. If equivalent instances of a recipe are not considered singletons, ensure your recipe class correctly implements these methods. The easiest way is to use Lombok's `@Value` annotation on your recipe class, which automatically generates correct `equals()` and `hashCode()` implementations based on all fields.
+  * Used as a precondition to ensure that a recipe attempts to make changes only once. Accidentally including multiple copies/instances of the same large composite recipes is a common mistake. If those recipes are marked with this precondition the performance penalty is limited. This recipe does nothing useful run on its own.  ## Usage in YAML recipes  Add `org.openrewrite.Singleton` as a precondition:  ```yaml --- type: specs.openrewrite.org/v1beta/recipe name: com.example.Append displayName: My recipe preconditions:   - org.openrewrite.Singleton recipeList:   - org.openrewrite.text.AppendToTextFile:       relativeFileName: report.txt       content: 'Recipe executed' ```## Usage in Java recipes  Wrap visitors with `Singleton.singleton(this, visitor)` to ensure only the first *equivalent* recipe instance makes changes:  ```java @Override public TreeVisitor&lt;?, ExecutionContext&gt; getVisitor(Accumulator acc) \{     return singleton(this, new TreeVisitor&lt;Tree, ExecutionContext&gt;() \{         @Override         public Tree visit(@Nullable Tree tree, ExecutionContext ctx) \{             // Your transformation logic             return tree;         \}     \}); \} @Override public Collection&lt;SourceFile&gt; generate(Accumulator acc, ExecutionContext ctx) \{     if (!isSingleton(this, ctx)) \{         return Collections.emptyList();     \}     // Generate new sources     return results; \}  @Override public TreeVisitor&lt;?, ExecutionContext&gt; getVisitor(Accumulator acc) \{     return singleton(this, new TreeVisitor&lt;Tree, ExecutionContext&gt;() \{         // Visitor logic     \}); \} ```  **Note:** Singleton status is determined by the recipe's `equals()` and `hashCode()` methods. If equivalent instances of a recipe are not considered singletons, ensure your recipe class correctly implements these methods. The easiest way is to use Lombok's `@Value` annotation on your recipe class, which automatically generates correct `equals()` and `hashCode()` implementations based on all fields.
 * [org.openrewrite.search.FindBuildMetadata](/user-documentation/recipes/recipe-catalog/search/findbuildmetadata.md)
   * **Find build metadata**
   * Find source files with matching build metadata.
@@ -2419,7 +2419,7 @@ Total standalone recipes: 1729
   * The keywords within the declaration of an element do not follow a standard ordering scheme.
 * [org.openrewrite.csharp.recipes.stylecop.analyzers.SA1207SA1207](/user-documentation/recipes/recipe-catalog/csharp/recipes/stylecop/analyzers/sa1207sa1207.md)
   * **Protected should come before internal**
-  * The keyword '{0}' is positioned after the keyword '{1}' within the declaration of a {0} {1} C# element.
+  * The keyword '\{0\}' is positioned after the keyword '\{1\}' within the declaration of a \{0\} \{1\} C# element.
 * [org.openrewrite.csharp.recipes.stylecop.analyzers.SA1212SA1213SA1212](/user-documentation/recipes/recipe-catalog/csharp/recipes/stylecop/analyzers/sa1212sa1213sa1212.md)
   * **Property accessors should follow order**
   * A get accessor appears after a set accessor within a property or indexer.
@@ -2902,7 +2902,7 @@ Total standalone recipes: 1729
   * Adds `buildCache` configuration to `develocity` where not yet present.
 * [org.openrewrite.gradle.MigrateDependenciesToVersionCatalog](/user-documentation/recipes/recipe-catalog/gradle/migratedependenciestoversioncatalog.md)
   * **Migrate Gradle project dependencies to version catalog**
-  * Migrates Gradle project dependencies to use the [version catalog](https://docs.gradle.org/current/userguide/platforms.html) feature. Supports migrating dependency declarations of various forms:  * `String` notation: `&quot;group:artifact:version&quot;`  * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`  * Property references: `&quot;group:artifact:$version&quot;` or `&quot;group:artifact:${version}&quot;`  The recipe will:  * Create a `gradle/libs.versions.toml` file with version declarations  * Replace dependency declarations with catalog references (e.g., `libs.springCore`)  * Migrate version properties from `gradle.properties` to the version catalog  * Preserve project dependencies unchanged  **Note:** If a version catalog already exists, the recipe will not modify it.
+  * Migrates Gradle project dependencies to use the [version catalog](https://docs.gradle.org/current/userguide/platforms.html) feature. Supports migrating dependency declarations of various forms:  * `String` notation: `&quot;group:artifact:version&quot;`  * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`  * Property references: `&quot;group:artifact:$version&quot;` or `&quot;group:artifact:$\{version\}&quot;`  The recipe will:  * Create a `gradle/libs.versions.toml` file with version declarations  * Replace dependency declarations with catalog references (e.g., `libs.springCore`)  * Migrate version properties from `gradle.properties` to the version catalog  * Preserve project dependencies unchanged  **Note:** If a version catalog already exists, the recipe will not modify it.
 * [org.openrewrite.gradle.RemoveDependency](/user-documentation/recipes/recipe-catalog/gradle/removedependency.md)
   * **Remove a Gradle dependency**
   * Removes a single dependency from the dependencies section of the `build.gradle`.
@@ -3223,7 +3223,7 @@ Total standalone recipes: 1729
   * Change the name of a given type alias.
 * [org.openrewrite.kotlin.cleanup.RemoveLambdaArgumentParentheses](/user-documentation/recipes/recipe-catalog/kotlin/cleanup/removelambdaargumentparentheses.md)
   * **Remove method invocation parentheses around single lambda argument**
-  * For example, convert `1.let({ it + 1 })` to `1.let { it + 1 }`.
+  * For example, convert `1.let(\{ it + 1 \})` to `1.let \{ it + 1 \}`.
 * [org.openrewrite.kotlin.cleanup.RemoveTrailingComma](/user-documentation/recipes/recipe-catalog/kotlin/cleanup/removetrailingcomma.md)
   * **Remove trailing comma in Kotlin**
   * Remove trailing commas in variable, parameter, and class property lists.
@@ -3784,10 +3784,10 @@ Total standalone recipes: 1729
   * Prefer `.flatMap()` over `.map().flat()`. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-flat-map.md).
 * [org.openrewrite.codemods.cleanup.javascript.PreferArrayIndexOf](/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/preferarrayindexof.md)
   * **Prefer `Array#{indexOf,lastIndexOf}()` over `Array#{findIndex,findLastIndex}()` when looking for the index of an item**
-  * Prefer `Array#{indexOf,lastIndexOf}()` over `Array#{findIndex,findLastIndex}()` when looking for the index of an item. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-index-of.md).
+  * Prefer `Array#\{indexOf,lastIndexOf\}()` over `Array#\{findIndex,findLastIndex\}()` when looking for the index of an item. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-index-of.md).
 * [org.openrewrite.codemods.cleanup.javascript.PreferArraySome](/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/preferarraysome.md)
   * **Prefer `.some()` over `.filter().length` check and `.{find,findLast}()`**
-  * Prefer `.some()` over `.filter().length` check and `.{find,findLast}()`. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-some.md).
+  * Prefer `.some()` over `.filter().length` check and `.\{find,findLast\}()`. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-some.md).
 * [org.openrewrite.codemods.cleanup.javascript.PreferArrowCallback](/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/preferarrowcallback.md)
   * **Require using arrow functions for callbacks**
   * Require using arrow functions for callbacks  See [rule details](https://eslint.org/docs/latest/rules/prefer-arrow-callback).
@@ -3889,7 +3889,7 @@ Total standalone recipes: 1729
   * Prefer using `Set#size` instead of `Array#length`. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-set-size.md).
 * [org.openrewrite.codemods.cleanup.javascript.PreferSpread](/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/preferspread.md)
   * **Prefer the spread operator over `Array.from()`, `Array#concat()`, `Array#{slice,toSpliced}()` and `String#split('')`**
-  * Prefer the spread operator over `Array.from()`, `Array#concat()`, `Array#{slice,toSpliced}()` and `String#split('')`. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-spread.md).
+  * Prefer the spread operator over `Array.from()`, `Array#concat()`, `Array#\{slice,toSpliced\}()` and `String#split('')`. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-spread.md).
 * [org.openrewrite.codemods.cleanup.javascript.PreferStringReplaceAll](/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/preferstringreplaceall.md)
   * **Prefer `String#replaceAll()` over regex searches with the global flag**
   * Prefer `String#replaceAll()` over regex searches with the global flag. See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-string-replace-all.md).
@@ -4645,7 +4645,7 @@ Total standalone recipes: 1729
   * - `_.bind(fn, obj, ...x)` -&gt; `fn.bind(obj, ...x)` - `_.partial(fn, a, b);` -&gt; `(...args) =&gt; fn(a, b, ...args)`.
 * [org.openrewrite.codemods.migrate.lodash.LodashUnderscoreObjects](/user-documentation/recipes/recipe-catalog/codemods/migrate/lodash/lodashunderscoreobjects.md)
   * **Replace lodash and underscore object functions with native JavaScript**
-  * - `_.clone(x)` -&gt; `{ ...x }` - `_.extend({}, x, y)` -&gt; `{ ...x, ...y }` - `_.extend(obj, x, y)` -&gt; `Object.assign(obj, x, y)` - `_.keys(x)` -&gt; `Object.keys(x)` - `_.pairs(x)` -&gt; `Object.entries(x)` - `_.values(x)` -&gt; `Object.values(x)`.
+  * - `_.clone(x)` -&gt; `\{ ...x \}` - `_.extend(\{\}, x, y)` -&gt; `\{ ...x, ...y \}` - `_.extend(obj, x, y)` -&gt; `Object.assign(obj, x, y)` - `_.keys(x)` -&gt; `Object.keys(x)` - `_.pairs(x)` -&gt; `Object.entries(x)` - `_.values(x)` -&gt; `Object.values(x)`.
 * [org.openrewrite.codemods.migrate.lodash.LodashUnderscoreUtil](/user-documentation/recipes/recipe-catalog/codemods/migrate/lodash/lodashunderscoreutil.md)
   * **Replace lodash and underscore utility functions with native JavaScript**
   * - `_.isArray(x)` -&gt; `Array.isArray(x)` - `_.isBoolean(x)` -&gt; `typeof(x) === 'boolean'` - `_.isFinite(x)` -&gt; `Number.isFinite(x)` - `_.isFunction(x)` -&gt; `typeof(x) === 'function'` - `_.isNull(x)` -&gt; `x === null` - `_.isString(x)` -&gt; `typeof(x) === 'string'` - `_.isUndefined(x)` -&gt; `typeof(x) === 'undefined'`.
@@ -5134,10 +5134,10 @@ Total standalone recipes: 1729
   * Converts ternary expressions like `foo ? foo.bar : undefined` to use optional chaining syntax `foo?.bar`.
 * [org.openrewrite.javascript.cleanup.use-object-property-shorthand](/user-documentation/recipes/recipe-catalog/javascript/cleanup/use-object-property-shorthand.md)
   * **Use object property shorthand**
-  * Simplifies object properties where the property name and value/variable name are the same (e.g., `{ x: x }` becomes `{ x }`). Applies to both destructuring patterns and object literals.
+  * Simplifies object properties where the property name and value/variable name are the same (e.g., `\{ x: x \}` becomes `\{ x \}`). Applies to both destructuring patterns and object literals.
 * [org.openrewrite.javascript.cleanup.use-object-property-shorthand](/user-documentation/recipes/recipe-catalog/javascript/cleanup/use-object-property-shorthand.md)
   * **Use object property shorthand**
-  * Simplifies object properties where the property name and value/variable name are the same (e.g., `{ x: x }` becomes `{ x }`). Applies to both destructuring patterns and object literals.
+  * Simplifies object properties where the property name and value/variable name are the same (e.g., `\{ x: x \}` becomes `\{ x \}`). Applies to both destructuring patterns and object literals.
 * [org.openrewrite.javascript.dependencies.add-dependency](/user-documentation/recipes/recipe-catalog/javascript/dependencies/add-dependency.md)
   * **Add npm dependency**
   * Adds a new dependency to `package.json` and updates the lock file by running the package manager.

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Suggest using the built-in comparison matchers"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/prefercomparisonmatcher"
 ---
 
 import Tabs from '@theme/Tabs';

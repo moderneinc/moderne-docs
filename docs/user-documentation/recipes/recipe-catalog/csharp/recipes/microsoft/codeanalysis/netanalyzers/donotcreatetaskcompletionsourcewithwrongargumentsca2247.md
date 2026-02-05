@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Argument passed to TaskCompletionSource constructor should be TaskCreationOptions enum instead of TaskContinuationOptions enum"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/donotcreatetaskcompletionsourcewithwrongargumentsca2247"
 ---
 
 import Tabs from '@theme/Tabs';

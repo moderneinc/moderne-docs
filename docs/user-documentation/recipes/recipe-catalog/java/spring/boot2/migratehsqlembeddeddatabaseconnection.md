@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated Spring-Boot `EmbeddedDatabaseConnection.HSQL`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migratehsqlembeddeddatabaseconnection"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.equals(CharSequence, CharSequence)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$equalsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

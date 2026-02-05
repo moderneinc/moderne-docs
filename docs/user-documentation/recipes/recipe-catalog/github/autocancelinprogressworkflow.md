@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Cancel in-progress workflow when it is triggered again"
-canonical_url: "https://docs.openrewrite.org/recipes/github/autocancelinprogressworkflow"
 ---
 
 import Tabs from '@theme/Tabs';

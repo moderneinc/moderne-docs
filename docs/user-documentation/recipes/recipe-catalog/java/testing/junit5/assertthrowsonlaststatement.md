@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Applies JUnit 5 `assertThrows` on last statement in lambda block only"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/assertthrowsonlaststatement"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing before and after the arrow in arrow functions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/arrowspacing"
 ---
 
 import Tabs from '@theme/Tabs';

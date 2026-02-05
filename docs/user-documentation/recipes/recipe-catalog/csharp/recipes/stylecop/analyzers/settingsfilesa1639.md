@@ -1,6 +1,5 @@
 ---
 sidebar_label: "File header should have summary"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/settingsfilesa1639"
 ---
 
 import Tabs from '@theme/Tabs';

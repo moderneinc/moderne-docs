@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not define a title in meta"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/storybook/notitlepropertyinmeta"
 ---
 
 import Tabs from '@theme/Tabs';

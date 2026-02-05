@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary call to 'Contains(item)'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdonotguardcallca1868"
 ---
 
 import Tabs from '@theme/Tabs';

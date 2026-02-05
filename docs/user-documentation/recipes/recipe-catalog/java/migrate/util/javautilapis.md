@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use modernized `java.util` APIs"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/javautilapis"
 ---
 
 import Tabs from '@theme/Tabs';

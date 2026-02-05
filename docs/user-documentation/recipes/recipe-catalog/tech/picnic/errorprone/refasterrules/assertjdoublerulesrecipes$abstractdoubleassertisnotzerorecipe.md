@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsNotZero`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisnotzerorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

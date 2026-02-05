@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `OptionalRules.OptionalFirstIteratorElement`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalfirstiteratorelementrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

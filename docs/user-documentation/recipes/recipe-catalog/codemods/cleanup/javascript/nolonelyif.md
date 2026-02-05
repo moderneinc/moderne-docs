@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow if statements as the only statement in else blocks"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nolonelyif"
 ---
 
 import Tabs from '@theme/Tabs';

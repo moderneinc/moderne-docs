@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `StepBuilderFactory` to `StepBuilder`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/batch/migratestepbuilderfactory"
 ---
 
 import Tabs from '@theme/Tabs';

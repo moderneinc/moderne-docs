@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use ArgumentException throw helper"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/useexceptionthrowhelpersca1511"
 ---
 
 import Tabs from '@theme/Tabs';

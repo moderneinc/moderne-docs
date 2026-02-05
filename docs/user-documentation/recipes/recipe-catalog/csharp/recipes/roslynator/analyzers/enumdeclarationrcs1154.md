@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Sort enum members"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/enumdeclarationrcs1154"
 ---
 
 import Tabs from '@theme/Tabs';

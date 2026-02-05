@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Length/Count property instead of Count() when available"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpusepropertyinsteadofcountmethodwhenavailableca1829"
 ---
 
 import Tabs from '@theme/Tabs';

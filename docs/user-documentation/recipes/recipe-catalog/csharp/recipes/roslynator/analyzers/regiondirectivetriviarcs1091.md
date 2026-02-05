@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Remove empty region"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/regiondirectivetriviarcs1091"
 ---
 
 import Tabs from '@theme/Tabs';

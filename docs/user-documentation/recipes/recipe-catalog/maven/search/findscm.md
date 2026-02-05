@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find SCM tag"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/search/findscm"
 ---
 
 import Tabs from '@theme/Tabs';

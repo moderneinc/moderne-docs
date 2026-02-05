@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Delete key"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/deletekey"
 ---
 
 import Tabs from '@theme/Tabs';

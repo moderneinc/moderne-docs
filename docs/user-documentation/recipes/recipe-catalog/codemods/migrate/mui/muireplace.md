@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replaces `@mui` imports with `@mui/material`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/muireplace"
 ---
 
 import Tabs from '@theme/Tabs';

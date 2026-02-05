@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Forward the CancellationToken using .WithCancellation()"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/useanoverloadthathascancellationtokenfixer_awaitforeachma0079"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `isEqualTo(0)` with `isZero()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/assertjbyterulesrecipes$abstractbyteassertiszerorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

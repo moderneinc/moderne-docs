@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Dispose methods should call base class dispose"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdisposemethodsshouldcallbaseclassdisposeca2215"
 ---
 
 import Tabs from '@theme/Tabs';

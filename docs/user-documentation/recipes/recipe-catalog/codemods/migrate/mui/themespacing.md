@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates theme spacing"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/themespacing"
 ---
 
 import Tabs from '@theme/Tabs';

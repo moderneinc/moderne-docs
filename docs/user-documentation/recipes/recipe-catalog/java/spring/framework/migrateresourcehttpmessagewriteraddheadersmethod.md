@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `ResourceHttpMessageWriter.addHeaders`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migrateresourcehttpmessagewriteraddheadersmethod"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates link underline on hover"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/linkunderlinehover"
 ---
 
 import Tabs from '@theme/Tabs';

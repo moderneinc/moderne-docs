@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.EpochInstant`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$epochinstantrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

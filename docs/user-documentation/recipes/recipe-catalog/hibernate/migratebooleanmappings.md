@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace boolean type mappings with converters (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/hibernate/migratebooleanmappings"
 ---
 
 import Tabs from '@theme/Tabs';

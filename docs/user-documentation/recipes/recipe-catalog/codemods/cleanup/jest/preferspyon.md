@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Suggest using jest.spyOn()"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/preferspyon"
 ---
 
 import Tabs from '@theme/Tabs';

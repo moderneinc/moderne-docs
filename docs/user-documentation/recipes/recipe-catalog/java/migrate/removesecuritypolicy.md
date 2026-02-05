@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove Security Policy"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removesecuritypolicy"
 ---
 
 import Tabs from '@theme/Tabs';

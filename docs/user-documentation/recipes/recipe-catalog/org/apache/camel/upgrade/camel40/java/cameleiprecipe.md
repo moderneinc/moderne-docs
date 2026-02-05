@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replaces removed method camel EIP"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel40/java/cameleiprecipe"
 ---
 
 import Tabs from '@theme/Tabs';

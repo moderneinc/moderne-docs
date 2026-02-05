@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Generate CALM architecture"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/calm/generatecalmarchitecture"
 ---
 
 import Tabs from '@theme/Tabs';

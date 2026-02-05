@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Removes `Unstyled` suffix from base components"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/baseremoveunstyledsuffix"
 ---
 
 import Tabs from '@theme/Tabs';

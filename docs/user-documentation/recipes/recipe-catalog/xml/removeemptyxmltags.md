@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove empty XML Tag"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/removeemptyxmltags"
 ---
 
 import Tabs from '@theme/Tabs';

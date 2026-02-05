@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Reorder annotation attributes alphabetically"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/reorderannotationattributes"
 ---
 
 import Tabs from '@theme/Tabs';

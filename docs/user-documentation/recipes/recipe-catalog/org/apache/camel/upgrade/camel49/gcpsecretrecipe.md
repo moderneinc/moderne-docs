@@ -1,6 +1,5 @@
 ---
 sidebar_label: "The syntax for retrieving a single field of a secret has been changed"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel49/gcpsecretrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

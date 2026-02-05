@@ -1,6 +1,5 @@
 ---
 sidebar_label: "OWASP top ten"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/securitystarter"
 ---
 
 import Tabs from '@theme/Tabs';

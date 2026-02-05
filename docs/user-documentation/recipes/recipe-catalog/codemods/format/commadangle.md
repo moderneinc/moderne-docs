@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow trailing commas"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/commadangle"
 ---
 
 import Tabs from '@theme/Tabs';

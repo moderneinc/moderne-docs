@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert Date to Instant"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/datetoinstant"
 ---
 
 import Tabs from '@theme/Tabs';

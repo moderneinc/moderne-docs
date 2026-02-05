@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate XJC Bindings to Jakata XML"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxxmltojakartaxmlxjcbinding"
 ---
 
 import Tabs from '@theme/Tabs';

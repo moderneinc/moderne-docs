@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add comment to method invocations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/addcommenttomethodinvocations"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,9 +33,9 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate Apache HttpCore Nio Input Buffer classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_nioinputbuffers.md)
 * [Migrate Apache HttpCore Nio Output Buffer classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_niooutputbuffers.md)
-* [Migrate `Joined.named()` to `Joined.as()`](/user-documentation/recipes/recipe-catalog/kafka/streams/migratejoinednamemethod.md)
+* [Migrate `Joined.named()` to `Joined.as()`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/streams/migratejoinednamemethod)
 * [Migrate from SpringFox Swagger to SpringDoc and OpenAPI](/user-documentation/recipes/recipe-catalog/java/springdoc/springfoxtospringdoc.md)
-* [Replace deprecated RequestMatcherProvider with new API](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedrequestmatcherprovider.md)
+* [Replace deprecated RequestMatcherProvider with new API](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedrequestmatcherprovider)
 
 ## Example
 

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `jakarta.annotation-api` dependency when managed by Spring Boot"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/removejakartaannotationdependencywhenmanagedbyspringboot"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Mail with Quarkus Mailer"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootmailtoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

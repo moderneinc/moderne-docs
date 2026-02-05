@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Set visibility of `premain` and `agentmain` methods to `public`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/jre17agentmainpremainpublic"
 ---
 
 import Tabs from '@theme/Tabs';

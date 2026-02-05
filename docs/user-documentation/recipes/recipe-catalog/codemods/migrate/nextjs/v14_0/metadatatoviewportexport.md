@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `viewport` export"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v14_0/metadatatoviewportexport"
 ---
 
 import Tabs from '@theme/Tabs';

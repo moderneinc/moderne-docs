@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate JUnit 4 `@Test` annotations to JUnit 5"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/updatetestannotation"
 ---
 
 import Tabs from '@theme/Tabs';

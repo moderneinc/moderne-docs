@@ -1,6 +1,5 @@
 ---
 sidebar_label: "AddScalarPreferStandardBasicTypesForHibernate5 (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/hibernate/addscalarpreferstandardbasictypes"
 ---
 
 import Tabs from '@theme/Tabs';

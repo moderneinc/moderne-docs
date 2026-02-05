@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer the Java standard library instead of Guava"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguava"
 ---
 
 import Tabs from '@theme/Tabs';

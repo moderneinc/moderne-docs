@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Spring Cloud Gateway Webflux Properties"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/cloud2025/springcloudgatewaywebfluxproperties"
 ---
 
 import Tabs from '@theme/Tabs';

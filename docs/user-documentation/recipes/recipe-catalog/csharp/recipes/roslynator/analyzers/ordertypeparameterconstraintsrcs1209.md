@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Order type parameter constraints"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/ordertypeparameterconstraintsrcs1209"
 ---
 
 import Tabs from '@theme/Tabs';

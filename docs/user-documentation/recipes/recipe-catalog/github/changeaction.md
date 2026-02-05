@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change GitHub Action"
-canonical_url: "https://docs.openrewrite.org/recipes/github/changeaction"
 ---
 
 import Tabs from '@theme/Tabs';

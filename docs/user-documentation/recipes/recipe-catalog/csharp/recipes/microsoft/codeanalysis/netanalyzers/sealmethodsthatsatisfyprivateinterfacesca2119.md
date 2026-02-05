@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Seal methods that satisfy private interfaces"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/sealmethodsthatsatisfyprivateinterfacesca2119"
 ---
 
 import Tabs from '@theme/Tabs';

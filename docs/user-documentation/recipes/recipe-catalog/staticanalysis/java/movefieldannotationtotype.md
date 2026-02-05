@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Move annotation to type instead of field"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/java/movefieldannotationtotype"
 ---
 
 import Tabs from '@theme/Tabs';

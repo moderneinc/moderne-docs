@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Statically import JUnit Jupiter assertions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/staticimports"
 ---
 
 import Tabs from '@theme/Tabs';

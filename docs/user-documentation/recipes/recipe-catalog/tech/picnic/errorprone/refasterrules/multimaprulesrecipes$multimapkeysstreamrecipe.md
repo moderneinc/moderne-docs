@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MultimapRules.MultimapKeysStream`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapkeysstreamrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

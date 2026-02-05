@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce dot notation whenever possible"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/dotnotation"
 ---
 
 import Tabs from '@theme/Tabs';

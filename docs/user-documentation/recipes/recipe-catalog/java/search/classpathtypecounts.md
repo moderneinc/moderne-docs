@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Study the size of the classpath by source set"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/classpathtypecounts"
 ---
 
 import Tabs from '@theme/Tabs';

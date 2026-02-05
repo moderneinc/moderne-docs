@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Sets#immutableEnumSet(Enum, Enum[])` for enum collections to take advantage of the internally used `EnumSet`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutableenumsetrulesrecipes$setsimmutableenumset2recipe"
 ---
 
 import Tabs from '@theme/Tabs';

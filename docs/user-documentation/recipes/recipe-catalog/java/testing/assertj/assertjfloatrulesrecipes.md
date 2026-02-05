@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt AssertJ Float Assertions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/assertjfloatrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

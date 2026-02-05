@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove Unnecessary `@ConstructorBinding`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/removeconstructorbindingannotation"
 ---
 
 import Tabs from '@theme/Tabs';

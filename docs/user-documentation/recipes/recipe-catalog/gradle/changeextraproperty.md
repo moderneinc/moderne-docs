@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Extra Property"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/changeextraproperty"
 ---
 
 import Tabs from '@theme/Tabs';

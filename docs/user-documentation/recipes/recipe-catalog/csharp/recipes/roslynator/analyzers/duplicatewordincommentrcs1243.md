@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Duplicate word in a comment"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/duplicatewordincommentrcs1243"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Pin Docker images to digests"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/unpinneddockerimagesrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

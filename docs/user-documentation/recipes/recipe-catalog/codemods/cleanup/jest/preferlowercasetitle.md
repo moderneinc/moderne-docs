@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce lowercase test names"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/preferlowercasetitle"
 ---
 
 import Tabs from '@theme/Tabs';

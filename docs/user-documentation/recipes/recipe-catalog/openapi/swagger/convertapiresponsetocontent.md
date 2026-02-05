@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert API response to content annotation"
-canonical_url: "https://docs.openrewrite.org/recipes/openapi/swagger/convertapiresponsetocontent"
 ---
 
 import Tabs from '@theme/Tabs';

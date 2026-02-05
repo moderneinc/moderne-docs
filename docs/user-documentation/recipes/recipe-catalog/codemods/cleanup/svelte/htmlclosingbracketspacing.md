@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow a space before tag's closing brackets"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/htmlclosingbracketspacing"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Health Checks to Spring Boot"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/migratetests"
 ---
 
 import Tabs from '@theme/Tabs';

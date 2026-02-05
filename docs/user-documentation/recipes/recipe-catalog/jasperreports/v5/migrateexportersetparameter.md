@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to JasperReports 5.6.x](/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports5.md)
+* [Migrate to JasperReports 5.6.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports5)
 
 ## Example
 

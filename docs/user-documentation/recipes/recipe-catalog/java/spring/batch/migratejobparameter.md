@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add class argument to `JobParameters`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/batch/migratejobparameter"
 ---
 
 import Tabs from '@theme/Tabs';

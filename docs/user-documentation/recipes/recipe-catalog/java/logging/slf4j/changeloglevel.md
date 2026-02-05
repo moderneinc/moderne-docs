@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change SLF4J log level"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/slf4j/changeloglevel"
 ---
 
 import Tabs from '@theme/Tabs';

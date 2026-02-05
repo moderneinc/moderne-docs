@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change SDK Exception types from v1 to v2"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/changeexceptiontypes"
 ---
 
 import Tabs from '@theme/Tabs';

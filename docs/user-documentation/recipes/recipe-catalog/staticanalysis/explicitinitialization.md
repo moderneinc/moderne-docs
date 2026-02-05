@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Explicit initialization"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/explicitinitialization"
 ---
 
 import Tabs from '@theme/Tabs';

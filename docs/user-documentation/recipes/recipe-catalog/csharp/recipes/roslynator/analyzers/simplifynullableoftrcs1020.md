@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify Nullable&lt;T&gt; to T?"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/simplifynullableoftrcs1020"
 ---
 
 import Tabs from '@theme/Tabs';

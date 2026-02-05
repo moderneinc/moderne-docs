@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Reformat local variable names to camelCase"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/renamelocalvariablestocamelcase"
 ---
 
 import Tabs from '@theme/Tabs';

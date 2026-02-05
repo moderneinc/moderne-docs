@@ -29,10 +29,10 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to .NET 6.0 using upgrade-assistant](/user-documentation/recipes/recipe-catalog/dotnet/migratetonet6.md)
-* [Upgrade to .NET 7.0 using upgrade-assistant](/user-documentation/recipes/recipe-catalog/dotnet/migratetonet7.md)
-* [Upgrade to .NET 8.0 using upgrade-assistant](/user-documentation/recipes/recipe-catalog/dotnet/migratetonet8.md)
-* [Upgrade to .NET 9.0 using upgrade-assistant](/user-documentation/recipes/recipe-catalog/dotnet/migratetonet9.md)
+* [Upgrade to .NET 6.0 using upgrade-assistant](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/dotnet/migratetonet6)
+* [Upgrade to .NET 7.0 using upgrade-assistant](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/dotnet/migratetonet7)
+* [Upgrade to .NET 8.0 using upgrade-assistant](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/dotnet/migratetonet8)
+* [Upgrade to .NET 9.0 using upgrade-assistant](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/dotnet/migratetonet9)
 
 
 ## Usage

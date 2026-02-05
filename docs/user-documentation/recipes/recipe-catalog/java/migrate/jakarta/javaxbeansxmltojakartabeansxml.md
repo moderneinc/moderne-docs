@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `beans.xml` files"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxbeansxmltojakartabeansxml"
 ---
 
 import Tabs from '@theme/Tabs';

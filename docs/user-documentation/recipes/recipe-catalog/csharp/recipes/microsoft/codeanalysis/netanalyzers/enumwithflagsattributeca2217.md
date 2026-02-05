@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not mark enums with FlagsAttribute"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/enumwithflagsattributeca2217"
 ---
 
 import Tabs from '@theme/Tabs';

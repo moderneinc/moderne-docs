@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `SunJSSE` instead of `com.sun.net.ssl.internal.ssl.Provider`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedlegacysunjsseprovidername"
 ---
 
 import Tabs from '@theme/Tabs';

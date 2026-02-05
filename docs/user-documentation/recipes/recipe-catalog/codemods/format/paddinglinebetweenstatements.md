@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow padding lines between statements"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/paddinglinebetweenstatements"
 ---
 
 import Tabs from '@theme/Tabs';

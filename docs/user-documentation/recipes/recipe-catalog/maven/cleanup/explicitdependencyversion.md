@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add explicit dependency versions"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/cleanup/explicitdependencyversion"
 ---
 
 import Tabs from '@theme/Tabs';

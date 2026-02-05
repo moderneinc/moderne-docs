@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Reader.of(CharSequence)` for non-synchronized readers"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/migratestringreadertoreaderof"
 ---
 
 import Tabs from '@theme/Tabs';

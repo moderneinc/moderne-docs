@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer default parameters over reassignment"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferdefaultparameters"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Order named arguments according to the order of parameters"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/baseargumentlistrcs1205"
 ---
 
 import Tabs from '@theme/Tabs';

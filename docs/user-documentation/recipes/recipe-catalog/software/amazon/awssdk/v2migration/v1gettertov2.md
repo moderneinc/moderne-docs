@@ -1,6 +1,5 @@
 ---
 sidebar_label: "V1 Getter to V2"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/v1gettertov2"
 ---
 
 import Tabs from '@theme/Tabs';

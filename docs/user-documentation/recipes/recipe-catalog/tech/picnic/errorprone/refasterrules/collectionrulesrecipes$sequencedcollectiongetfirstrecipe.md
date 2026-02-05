@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CollectionRules.SequencedCollectionGetFirst`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$sequencedcollectiongetfirstrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

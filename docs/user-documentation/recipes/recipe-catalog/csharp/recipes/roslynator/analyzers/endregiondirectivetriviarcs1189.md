@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add or remove region name"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/endregiondirectivetriviarcs1189"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify Micrometer meter tags"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/metrics/simplifymicrometermetertags"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Find security vulnerabilities using taint analysis](/user-documentation/recipes/recipe-catalog/analysis/java/security/findsecurityvulnerabilities.md)
+* [Find security vulnerabilities using taint analysis](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/analysis/java/security/findsecurityvulnerabilities)
 
 ## Example
 

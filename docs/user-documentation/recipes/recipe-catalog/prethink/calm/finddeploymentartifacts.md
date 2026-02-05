@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find deployment artifacts"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/calm/finddeploymentartifacts"
 ---
 
 import Tabs from '@theme/Tabs';

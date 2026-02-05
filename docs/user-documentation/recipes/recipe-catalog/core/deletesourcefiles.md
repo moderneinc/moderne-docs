@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Delete files"
-canonical_url: "https://docs.openrewrite.org/recipes/core/deletesourcefiles"
 ---
 
 import Tabs from '@theme/Tabs';

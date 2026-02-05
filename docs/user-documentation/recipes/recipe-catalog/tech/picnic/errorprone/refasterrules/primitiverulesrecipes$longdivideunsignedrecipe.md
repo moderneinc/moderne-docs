@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `PrimitiveRules.LongDivideUnsigned`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$longdivideunsignedrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Misk metrics to Micrometer"
-canonical_url: "https://docs.openrewrite.org/recipes/micrometer/misk/migratemisktomicrometer"
 ---
 
 import Tabs from '@theme/Tabs';

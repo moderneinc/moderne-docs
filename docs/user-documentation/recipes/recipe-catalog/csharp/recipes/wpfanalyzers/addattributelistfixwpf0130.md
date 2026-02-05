@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add [TemplatePart] to the type"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/addattributelistfixwpf0130"
 ---
 
 import Tabs from '@theme/Tabs';

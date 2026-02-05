@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove Quarkus feature flag's `getString` for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/quarkus/removegetstring"
 ---
 
 import Tabs from '@theme/Tabs';

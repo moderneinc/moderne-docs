@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Move getter from context to PluginHelper."
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/customrecipes/movegettertopluginhelper"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Make field read-only"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/memberdeclarationrcs1169"
 ---
 
 import Tabs from '@theme/Tabs';

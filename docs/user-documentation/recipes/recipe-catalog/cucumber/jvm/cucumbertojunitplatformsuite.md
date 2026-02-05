@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Cucumber to JUnit test `@Suite`"
-canonical_url: "https://docs.openrewrite.org/recipes/cucumber/jvm/cucumbertojunitplatformsuite"
 ---
 
 import Tabs from '@theme/Tabs';

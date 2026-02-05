@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find effective maven settings"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/search/findmavensettings"
 ---
 
 import Tabs from '@theme/Tabs';

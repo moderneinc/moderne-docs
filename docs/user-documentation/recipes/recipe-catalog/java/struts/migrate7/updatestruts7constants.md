@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Align Struts XML constants for Struts 7"
-canonical_url: "https://docs.openrewrite.org/recipes/java/struts/migrate7/updatestruts7constants"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `FormattedArgumentsToVMethod.WarnToVWarnWithThrowable`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/jboss/formattedargumentstovmethodrecipes$warntovwarnwiththrowablerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

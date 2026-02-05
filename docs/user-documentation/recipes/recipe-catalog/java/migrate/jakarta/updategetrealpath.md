@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/updategetrealpath"
 ---
 
 import Tabs from '@theme/Tabs';

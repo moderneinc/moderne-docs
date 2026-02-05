@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Uni&lt;T extends ReactivePanacheMongoEntityBase&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/quarkus2/usereactivepanachemongoentitybaseunit"
 ---
 
 import Tabs from '@theme/Tabs';

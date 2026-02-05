@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert managed dependencies to runtime dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/managedtoruntimedependencies"
 ---
 
 import Tabs from '@theme/Tabs';

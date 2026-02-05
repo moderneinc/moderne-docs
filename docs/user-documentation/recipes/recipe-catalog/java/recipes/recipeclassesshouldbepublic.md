@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Recipe classes should be public"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/recipeclassesshouldbepublic"
 ---
 
 import Tabs from '@theme/Tabs';

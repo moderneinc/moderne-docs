@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `Bean.isNullable()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/removebeanisnullable"
 ---
 
 import Tabs from '@theme/Tabs';

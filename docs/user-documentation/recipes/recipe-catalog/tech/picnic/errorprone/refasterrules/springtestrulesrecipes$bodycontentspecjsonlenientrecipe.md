@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `SpringTestRules.BodyContentSpecJsonLenient`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/springtestrulesrecipes$bodycontentspecjsonlenientrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

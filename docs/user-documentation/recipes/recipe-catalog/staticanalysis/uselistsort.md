@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace invocations of `Collections#sort(List, Comparator)` with `List#sort(Comparator)`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/uselistsort"
 ---
 
 import Tabs from '@theme/Tabs';

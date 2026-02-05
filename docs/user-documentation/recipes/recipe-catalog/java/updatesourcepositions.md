@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update source positions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/updatesourcepositions"
 ---
 
 import Tabs from '@theme/Tabs';

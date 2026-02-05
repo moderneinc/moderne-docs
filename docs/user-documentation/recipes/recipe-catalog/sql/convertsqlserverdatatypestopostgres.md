@@ -30,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate SQL Server to PostgreSQL](/user-documentation/recipes/recipe-catalog/sql/migratesqlservertopostgres.md)
+* [Migrate SQL Server to PostgreSQL](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/sql/migratesqlservertopostgres)
 
 
 ## Usage

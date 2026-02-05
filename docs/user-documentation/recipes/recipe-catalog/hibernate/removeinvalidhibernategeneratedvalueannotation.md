@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove invalid `@GeneratedValue` annotation (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/hibernate/removeinvalidhibernategeneratedvalueannotation"
 ---
 
 import Tabs from '@theme/Tabs';

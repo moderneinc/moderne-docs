@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify `else` branch if it only has a single `if`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/simplifyelsebranch"
 ---
 
 import Tabs from '@theme/Tabs';

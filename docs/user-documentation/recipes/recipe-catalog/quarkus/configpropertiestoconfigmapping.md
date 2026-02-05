@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `@ConfigMapping`"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/configpropertiestoconfigmapping"
 ---
 
 import Tabs from '@theme/Tabs';

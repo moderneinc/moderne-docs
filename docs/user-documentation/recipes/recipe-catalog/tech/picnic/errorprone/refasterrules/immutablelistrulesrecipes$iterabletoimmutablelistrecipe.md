@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableListRules.IterableToImmutableList`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablelistrulesrecipes$iterabletoimmutablelistrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

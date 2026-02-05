@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Create JSON file"
-canonical_url: "https://docs.openrewrite.org/recipes/json/createjsonfile"
 ---
 
 import Tabs from '@theme/Tabs';

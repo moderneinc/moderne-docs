@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to OkHttp 5.x"
-canonical_url: "https://docs.openrewrite.org/recipes/okhttp/upgradeokhttp5"
 ---
 
 import Tabs from '@theme/Tabs';

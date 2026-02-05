@@ -1,12 +1,11 @@
 ---
 sidebar_label: "Unpack Logger method `new Object[] {...}` into varargs"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/argumentarraytovarargs"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Unpack Logger method `new Object[] {...}` into varargs
+# Unpack Logger method `new Object[] \{...\}` into varargs
 
 **org.openrewrite.java.logging.ArgumentArrayToVarargs**
 

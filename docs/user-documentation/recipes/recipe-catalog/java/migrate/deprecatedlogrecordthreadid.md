@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt `setLongThreadID` in `java.util.logging.LogRecord`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/deprecatedlogrecordthreadid"
 ---
 
 import Tabs from '@theme/Tabs';

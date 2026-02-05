@@ -27,7 +27,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Remediate OWASP A08:2021 Software and data integrity failures](/user-documentation/recipes/recipe-catalog/java/security/owaspa08.md)
+* [Remediate OWASP A08:2021 Software and data integrity failures](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owaspa08)
 
 ## Example
 

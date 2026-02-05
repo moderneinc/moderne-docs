@@ -1,6 +1,5 @@
 ---
 sidebar_label: "URL Equals"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/urlequalshashcoderecipes$urlequalsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

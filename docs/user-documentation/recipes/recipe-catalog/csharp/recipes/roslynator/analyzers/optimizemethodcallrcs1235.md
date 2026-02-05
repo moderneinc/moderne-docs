@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Optimize method call"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/optimizemethodcallrcs1235"
 ---
 
 import Tabs from '@theme/Tabs';

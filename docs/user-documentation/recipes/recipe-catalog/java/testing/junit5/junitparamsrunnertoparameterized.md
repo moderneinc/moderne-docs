@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@Parameterized` tests"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/junitparamsrunnertoparameterized"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unused imports"
-canonical_url: "https://docs.openrewrite.org/recipes/java/removeunusedimports"
 ---
 
 import Tabs from '@theme/Tabs';

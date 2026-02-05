@@ -1,6 +1,5 @@
 ---
 sidebar_label: "All Picnic Refaster rules"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/allrefasterrules"
 ---
 
 import Tabs from '@theme/Tabs';

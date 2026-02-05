@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `String#replaceAll()` over regex searches with the global flag"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferstringreplaceall"
 ---
 
 import Tabs from '@theme/Tabs';

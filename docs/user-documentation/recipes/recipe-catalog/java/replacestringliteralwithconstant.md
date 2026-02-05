@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace String literal with constant"
-canonical_url: "https://docs.openrewrite.org/recipes/java/replacestringliteralwithconstant"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,7 +31,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Kafka 4.1](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka41.md)
+* [Migrate to Kafka 4.1](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka41)
 * [Replace String literals with `HttpHeaders` constants](/user-documentation/recipes/recipe-catalog/java/spring/http/replacestringliteralswithhttpheadersconstants.md)
 * [Replace String literals with `MediaType` constants](/user-documentation/recipes/recipe-catalog/java/spring/http/replacestringliteralswithmediatypeconstants.md)
 

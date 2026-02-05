@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate JBoss Logging to SLF4J"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/slf4j/jbossloggingtoslf4j"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Batch with Quarkus Scheduler"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootbatchtoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

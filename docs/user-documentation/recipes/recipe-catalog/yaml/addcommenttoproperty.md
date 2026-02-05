@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add comment to a YAML property"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/addcommenttoproperty"
 ---
 
 import Tabs from '@theme/Tabs';

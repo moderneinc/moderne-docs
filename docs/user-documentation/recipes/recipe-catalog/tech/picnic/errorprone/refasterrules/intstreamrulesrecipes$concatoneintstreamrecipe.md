@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `IntStreamRules.ConcatOneIntStream`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/intstreamrulesrecipes$concatoneintstreamrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

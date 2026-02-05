@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rethrow to preserve stack details"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/rethrowtopreservestackdetailsca2200"
 ---
 
 import Tabs from '@theme/Tabs';

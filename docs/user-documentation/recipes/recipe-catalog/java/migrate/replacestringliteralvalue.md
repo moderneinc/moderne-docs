@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `String` literal"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/replacestringliteralvalue"
 ---
 
 import Tabs from '@theme/Tabs';

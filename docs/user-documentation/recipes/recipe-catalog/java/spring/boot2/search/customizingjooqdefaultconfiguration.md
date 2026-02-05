@@ -1,6 +1,5 @@
 ---
 sidebar_label: "In Spring Boot 2.5 a `DefaultConfigurationCustomizer` can now be used in favour of defining one or more `*Provider` beans"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/search/customizingjooqdefaultconfiguration"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Modernize `BufferedWriter` creation &amp; prevent file descriptor leaks"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/bufferedwritercreationrecipes"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -59,7 +58,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Java security best practices](/user-documentation/recipes/recipe-catalog/java/security/javasecuritybestpractices.md)
+* [Java security best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/javasecuritybestpractices)
 
 ## Example
 

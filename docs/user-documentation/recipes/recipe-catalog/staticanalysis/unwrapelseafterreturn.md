@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unwrap else block after return or throw statement"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/unwrapelseafterreturn"
 ---
 
 import Tabs from '@theme/Tabs';

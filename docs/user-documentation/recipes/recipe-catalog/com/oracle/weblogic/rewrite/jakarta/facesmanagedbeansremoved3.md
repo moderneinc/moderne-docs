@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Substitute deprecated Faces Managed Beans"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/facesmanagedbeansremoved3"
 ---
 
 import Tabs from '@theme/Tabs';

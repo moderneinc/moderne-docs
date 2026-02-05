@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `DequeRules.DequeDescendingIterator`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/dequerulesrecipes$dequedescendingiteratorrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

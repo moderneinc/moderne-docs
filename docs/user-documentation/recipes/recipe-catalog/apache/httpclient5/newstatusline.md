@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replaces deprecated `HttpResponse::getStatusLine()`"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient5/newstatusline"
 ---
 
 import Tabs from '@theme/Tabs';

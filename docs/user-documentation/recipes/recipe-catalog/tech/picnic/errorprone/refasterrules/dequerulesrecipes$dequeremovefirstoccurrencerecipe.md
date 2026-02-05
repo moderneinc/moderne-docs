@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `DequeRules.DequeRemoveFirstOccurrence`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/dequerulesrecipes$dequeremovefirstoccurrencerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

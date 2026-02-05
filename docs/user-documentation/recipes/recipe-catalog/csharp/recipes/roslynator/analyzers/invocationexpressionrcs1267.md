@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use string interpolation instead of 'string.Concat'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/invocationexpressionrcs1267"
 ---
 
 import Tabs from '@theme/Tabs';

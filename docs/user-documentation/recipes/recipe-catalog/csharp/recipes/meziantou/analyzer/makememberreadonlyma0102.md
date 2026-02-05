@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Make member readonly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/makememberreadonlyma0102"
 ---
 
 import Tabs from '@theme/Tabs';

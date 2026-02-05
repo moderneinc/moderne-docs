@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MultimapRules.MultimapSize`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapsizerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

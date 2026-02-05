@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename caught exceptions in empty catch blocks to `ignored`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/renameexceptioninemptycatch"
 ---
 
 import Tabs from '@theme/Tabs';

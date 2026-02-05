@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Removes @Import(BeanValidatorPluginsConfiguration.class)"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/doc/removebeanvalidatorpluginsconfiguration"
 ---
 
 import Tabs from '@theme/Tabs';

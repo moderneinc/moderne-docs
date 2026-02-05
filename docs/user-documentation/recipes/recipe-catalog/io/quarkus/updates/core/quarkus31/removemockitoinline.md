@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus31.RemoveMockitoInline"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus31/removemockitoinline"
 ---
 
 import Tabs from '@theme/Tabs';

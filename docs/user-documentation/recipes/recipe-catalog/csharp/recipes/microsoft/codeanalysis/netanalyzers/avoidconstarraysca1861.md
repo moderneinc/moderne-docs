@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid constant arrays as arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/avoidconstarraysca1861"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated Jakarta Servlet methods and classes"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9"
 ---
 
 import Tabs from '@theme/Tabs';

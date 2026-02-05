@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.strip(String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/lang/apachecommonsstringutilsrecipes$striprecipe"
 ---
 
 import Tabs from '@theme/Tabs';

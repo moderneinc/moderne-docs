@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant constructor"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/constructordeclarationrcs1074"
 ---
 
 import Tabs from '@theme/Tabs';

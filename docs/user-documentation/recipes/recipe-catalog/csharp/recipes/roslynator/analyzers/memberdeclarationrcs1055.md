@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary semicolon at the end of declaration"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/memberdeclarationrcs1055"
 ---
 
 import Tabs from '@theme/Tabs';

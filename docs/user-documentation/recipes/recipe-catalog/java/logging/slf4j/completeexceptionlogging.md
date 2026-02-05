@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enhances logging of exceptions by including the full stack trace in addition to the exception message"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/slf4j/completeexceptionlogging"
 ---
 
 import Tabs from '@theme/Tabs';

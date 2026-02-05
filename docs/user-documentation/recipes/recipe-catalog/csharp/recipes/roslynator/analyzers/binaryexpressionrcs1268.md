@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify numeric comparison"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1268"
 ---
 
 import Tabs from '@theme/Tabs';

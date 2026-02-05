@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert `var` to `let`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/ecmascript/5to6/vartolet"
 ---
 
 import Tabs from '@theme/Tabs';

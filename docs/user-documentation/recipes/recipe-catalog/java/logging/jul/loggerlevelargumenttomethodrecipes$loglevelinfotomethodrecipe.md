@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUL `Logger.log(Level.INFO, String)` with `Logger.info(String)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/jul/loggerlevelargumenttomethodrecipes$loglevelinfotomethodrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

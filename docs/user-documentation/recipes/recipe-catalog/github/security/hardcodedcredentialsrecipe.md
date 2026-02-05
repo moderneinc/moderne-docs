@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find hardcoded container credentials"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/hardcodedcredentialsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

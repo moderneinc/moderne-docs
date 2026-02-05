@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Mark attributes with AttributeUsageAttribute"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/markattributeswithattributeusageattributema0010"
 ---
 
 import Tabs from '@theme/Tabs';

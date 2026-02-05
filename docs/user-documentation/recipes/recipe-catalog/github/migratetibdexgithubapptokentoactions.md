@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from tibdex/github-app-token to actions/create-github-app-token"
-canonical_url: "https://docs.openrewrite.org/recipes/github/migratetibdexgithubapptokentoactions"
 ---
 
 import Tabs from '@theme/Tabs';

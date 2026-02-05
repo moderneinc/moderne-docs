@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow newlines around variable declarations"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/onevardeclarationperline"
 ---
 
 import Tabs from '@theme/Tabs';

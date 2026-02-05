@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant boolean literal"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeredundantbooleanliteralrcs1033"
 ---
 
 import Tabs from '@theme/Tabs';

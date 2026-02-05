@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MapRules.MapKeyStream`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/maprulesrecipes$mapkeystreamrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

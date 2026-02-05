@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Camel Http Extension changes"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel40/java/camelhttprecipe"
 ---
 
 import Tabs from '@theme/Tabs';

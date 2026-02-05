@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename `gradle/wrapper-validation-action` to `gradle/actions/wrapper-validation`"
-canonical_url: "https://docs.openrewrite.org/recipes/github/gradle/renamewrappervalidationaction"
 ---
 
 import Tabs from '@theme/Tabs';

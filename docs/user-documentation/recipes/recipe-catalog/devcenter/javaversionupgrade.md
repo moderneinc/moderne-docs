@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Move to a later Java version"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/javaversionupgrade"
 ---
 
 import Tabs from '@theme/Tabs';

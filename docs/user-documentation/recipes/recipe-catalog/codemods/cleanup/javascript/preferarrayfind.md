@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `.find()` and `.findLast()` over the first or last element from `.filter()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferarrayfind"
 ---
 
 import Tabs from '@theme/Tabs';

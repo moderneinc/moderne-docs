@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated `node:_stream_*` with `node:stream`"
-canonical_url: "https://docs.openrewrite.org/recipes/node/migrate/stream/replace-internal-modules"
 ---
 
 import Tabs from '@theme/Tabs';

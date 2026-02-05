@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames `TextField` to `Input`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/joytextfieldtoinput"
 ---
 
 import Tabs from '@theme/Tabs';

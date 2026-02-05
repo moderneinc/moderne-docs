@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `FileUtils.deleteDirectory(File)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/codehaus/plexus/plexusfileutilsrecipes$deletedirectoryfilerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

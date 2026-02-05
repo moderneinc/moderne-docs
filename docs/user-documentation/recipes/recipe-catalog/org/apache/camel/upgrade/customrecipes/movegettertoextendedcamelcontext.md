@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Move getter from context to ExtendedCamelContext."
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/customrecipes/movegettertoextendedcamelcontext"
 ---
 
 import Tabs from '@theme/Tabs';

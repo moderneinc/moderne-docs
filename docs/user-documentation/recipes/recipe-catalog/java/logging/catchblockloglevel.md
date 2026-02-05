@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Catch block log level"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/catchblockloglevel"
 ---
 
 import Tabs from '@theme/Tabs';

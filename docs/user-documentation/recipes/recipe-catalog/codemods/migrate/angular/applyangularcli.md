@@ -29,13 +29,13 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Update to Angular v15](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v15.md)
-* [Update to Angular v16](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v16.md)
-* [Update to Angular v17](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v17.md)
-* [Update to Angular v18](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v18.md)
-* [Update to Angular v19](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v19.md)
-* [Update to Angular v20](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v20.md)
-* [Update to Angular v21](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v21.md)
+* [Update to Angular v15](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v15)
+* [Update to Angular v16](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v16)
+* [Update to Angular v17](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v17)
+* [Update to Angular v18](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v18)
+* [Update to Angular v19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v19)
+* [Update to Angular v20](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v20)
+* [Update to Angular v21](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v21)
 
 
 ## Usage

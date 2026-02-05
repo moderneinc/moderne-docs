@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate JAXB-WS Plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/migratejaxbwsplugin"
 ---
 
 import Tabs from '@theme/Tabs';

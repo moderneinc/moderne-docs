@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce order of properties in components"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/orderincomponents"
 ---
 
 import Tabs from '@theme/Tabs';

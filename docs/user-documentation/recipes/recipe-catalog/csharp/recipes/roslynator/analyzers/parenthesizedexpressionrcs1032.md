@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant parentheses"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/parenthesizedexpressionrcs1032"
 ---
 
 import Tabs from '@theme/Tabs';

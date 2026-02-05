@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify coalesce expression"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1143"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates usage of useTransitionProps"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/usetransitionprops"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "DevCenter"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/devcenterstarter"
 ---
 
 import Tabs from '@theme/Tabs';

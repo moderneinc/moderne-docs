@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use nameof operator"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usenameofoperatorrcs1015"
 ---
 
 import Tabs from '@theme/Tabs';

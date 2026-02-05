@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Exclude JUnit 4, unless Testcontainers is used"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/excludejunit4unlessusingtestcontainers"
 ---
 
 import Tabs from '@theme/Tabs';

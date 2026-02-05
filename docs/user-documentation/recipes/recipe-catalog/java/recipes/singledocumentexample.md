@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Single `@DocumentExample` per test class"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/singledocumentexample"
 ---
 
 import Tabs from '@theme/Tabs';

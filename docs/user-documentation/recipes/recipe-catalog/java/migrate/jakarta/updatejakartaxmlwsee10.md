@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Jakarta EE XML Web Services Dependencies for EE 10"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatejakartaxmlwsee10"
 ---
 
 import Tabs from '@theme/Tabs';

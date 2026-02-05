@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Maven profile"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/addprofile"
 ---
 
 import Tabs from '@theme/Tabs';

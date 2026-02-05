@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Java 17"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/upgradetojava17"
 ---
 
 import Tabs from '@theme/Tabs';

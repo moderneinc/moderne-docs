@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Set file permission attributes"
-canonical_url: "https://docs.openrewrite.org/recipes/core/setfilepermissions"
 ---
 
 import Tabs from '@theme/Tabs';

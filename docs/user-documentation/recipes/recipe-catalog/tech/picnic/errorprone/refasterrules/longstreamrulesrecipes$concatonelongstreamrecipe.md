@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `LongStreamRules.ConcatOneLongStream`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/longstreamrulesrecipes$concatonelongstreamrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

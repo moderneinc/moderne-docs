@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `withRouter`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v6/urltowithrouter"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce closing bracket location in JSX"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxclosingbracketlocation"
 ---
 
 import Tabs from '@theme/Tabs';

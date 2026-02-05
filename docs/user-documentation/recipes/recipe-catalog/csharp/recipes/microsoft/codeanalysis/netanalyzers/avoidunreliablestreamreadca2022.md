@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid inexact read with 'Stream.Read'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/avoidunreliablestreamreadca2022"
 ---
 
 import Tabs from '@theme/Tabs';

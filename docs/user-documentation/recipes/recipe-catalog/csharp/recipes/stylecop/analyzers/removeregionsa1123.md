@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not place regions within elements"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/removeregionsa1123"
 ---
 
 import Tabs from '@theme/Tabs';

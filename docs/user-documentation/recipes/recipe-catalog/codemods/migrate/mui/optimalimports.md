@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Optimizes imports"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/optimalimports"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -28,7 +28,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Spring WS 4.0](/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_4_0.md)
+* [Migrate to Spring WS 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_4_0)
 
 ## Examples
 ##### Example 1

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find instances of type `Quark`"
-canonical_url: "https://docs.openrewrite.org/recipes/core/findquarks"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary null-forgiving operator"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/tokenrcs1249"
 ---
 
 import Tabs from '@theme/Tabs';

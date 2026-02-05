@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find OWASP vulnerability suppression XML files"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/security/isowaspsuppressionsfile"
 ---
 
 import Tabs from '@theme/Tabs';

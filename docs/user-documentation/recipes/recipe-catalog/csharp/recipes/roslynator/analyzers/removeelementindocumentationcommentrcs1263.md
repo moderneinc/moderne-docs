@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Invalid reference in a documentation comment"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeelementindocumentationcommentrcs1263"
 ---
 
 import Tabs from '@theme/Tabs';

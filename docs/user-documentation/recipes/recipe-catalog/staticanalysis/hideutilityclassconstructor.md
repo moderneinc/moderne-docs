@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Hide utility class constructor"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/hideutilityclassconstructor"
 ---
 
 import Tabs from '@theme/Tabs';

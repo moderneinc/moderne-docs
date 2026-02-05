@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Gradle `Test` use JUnit Jupiter"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/gradleusejunitjupiter"
 ---
 
 import Tabs from '@theme/Tabs';

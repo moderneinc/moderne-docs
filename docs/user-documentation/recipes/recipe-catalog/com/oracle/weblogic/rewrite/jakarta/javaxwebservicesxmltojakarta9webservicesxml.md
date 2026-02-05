@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `webservices.xml` files."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxwebservicesxmltojakarta9webservicesxml"
 ---
 
 import Tabs from '@theme/Tabs';

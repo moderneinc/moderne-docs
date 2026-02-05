@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade `slackapi/slack-github-action`"
-canonical_url: "https://docs.openrewrite.org/recipes/github/upgradeslacknotificationversion2"
 ---
 
 import Tabs from '@theme/Tabs';

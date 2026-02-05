@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade to Spring Boot 2.5"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_5"
 ---
 
 import Tabs from '@theme/Tabs';

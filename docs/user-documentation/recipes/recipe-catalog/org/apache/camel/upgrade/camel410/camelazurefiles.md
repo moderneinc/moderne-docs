@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renamed constants in camel-azure-files"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel410/camelazurefiles"
 ---
 
 import Tabs from '@theme/Tabs';

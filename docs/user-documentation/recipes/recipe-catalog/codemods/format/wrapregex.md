@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require parenthesis around regex literals"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/wrapregex"
 ---
 
 import Tabs from '@theme/Tabs';

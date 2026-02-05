@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames components to slots"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/joyrenamecomponentstoslots"
 ---
 
 import Tabs from '@theme/Tabs';

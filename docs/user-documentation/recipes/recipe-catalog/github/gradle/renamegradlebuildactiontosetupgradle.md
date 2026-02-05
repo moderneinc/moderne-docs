@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename `gradle/gradle-build-action` to `gradle/actions/setup-gradle`"
-canonical_url: "https://docs.openrewrite.org/recipes/github/gradle/renamegradlebuildactiontosetupgradle"
 ---
 
 import Tabs from '@theme/Tabs';

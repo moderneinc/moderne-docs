@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MicrometerRules.TagsOf3`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof3recipe"
 ---
 
 import Tabs from '@theme/Tabs';

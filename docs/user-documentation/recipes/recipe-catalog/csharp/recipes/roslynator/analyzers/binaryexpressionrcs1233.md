@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use short-circuiting operator"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1233"
 ---
 
 import Tabs from '@theme/Tabs';

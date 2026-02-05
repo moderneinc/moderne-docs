@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `InputStreamRules.InputStreamSkipNBytes`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamskipnbytesrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

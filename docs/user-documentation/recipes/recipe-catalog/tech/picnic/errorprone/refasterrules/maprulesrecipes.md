@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`MapRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/maprulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

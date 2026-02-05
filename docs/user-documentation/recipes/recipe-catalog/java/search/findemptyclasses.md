@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find empty classes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findemptyclasses"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssortedRules.IteratorGetNextOrDefault`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$iteratorgetnextordefaultrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace calls to `Thread.run()` with `Thread.start()`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replacethreadrunwiththreadstart"
 ---
 
 import Tabs from '@theme/Tabs';

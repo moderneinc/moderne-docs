@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedsubjectmethods"
 ---
 
 import Tabs from '@theme/Tabs';

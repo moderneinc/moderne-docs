@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Gradle dependency versions"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/upgradedependencyversion"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -37,7 +36,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade Android Gradle Plugin (AGP) version](/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion.md)
+* [Upgrade Android Gradle Plugin (AGP) version](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion)
 
 ## Examples
 ##### Example 1

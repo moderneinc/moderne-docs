@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Backing field for a RoutedCommand should be static and readonly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/makefieldstaticreadonlyfixwpf0123"
 ---
 
 import Tabs from '@theme/Tabs';

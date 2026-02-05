@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from Jakarta annotation API to JSpecify"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jspecify/migratefromjakartaannotationapi"
 ---
 
 import Tabs from '@theme/Tabs';

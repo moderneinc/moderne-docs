@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Create Properties file"
-canonical_url: "https://docs.openrewrite.org/recipes/properties/createpropertiesfile"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing inside array brackets in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/arraybracketspacing"
 ---
 
 import Tabs from '@theme/Tabs';

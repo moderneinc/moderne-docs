@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove JavaEE dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/migrate/javaee/removejavaeedependencies"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus39.UpdateConfigRoots"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus39/updateconfigroots"
 ---
 
 import Tabs from '@theme/Tabs';

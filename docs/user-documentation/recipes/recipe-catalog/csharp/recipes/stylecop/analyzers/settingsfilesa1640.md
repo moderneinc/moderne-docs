@@ -1,6 +1,5 @@
 ---
 sidebar_label: "File header should have valid company text"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/settingsfilesa1640"
 ---
 
 import Tabs from '@theme/Tabs';

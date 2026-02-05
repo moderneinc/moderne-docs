@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Name of CoerceValueCallback should match registered name"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/renamememberfixwpf0006"
 ---
 
 import Tabs from '@theme/Tabs';

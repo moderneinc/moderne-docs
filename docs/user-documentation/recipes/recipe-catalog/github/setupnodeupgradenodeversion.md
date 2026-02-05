@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade `actions/setup-node` `node-version`"
-canonical_url: "https://docs.openrewrite.org/recipes/github/setupnodeupgradenodeversion"
 ---
 
 import Tabs from '@theme/Tabs';

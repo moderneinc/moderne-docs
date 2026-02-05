@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce props with default values to be optional"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/norequiredpropwithdefault"
 ---
 
 import Tabs from '@theme/Tabs';

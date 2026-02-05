@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StreamRules.StreamFindAnyIsPresent`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamfindanyispresentrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

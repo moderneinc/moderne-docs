@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Reduce 'if' nesting"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/ifstatementrcs1208"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove annotation"
-canonical_url: "https://docs.openrewrite.org/recipes/java/removeannotation"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,10 +32,10 @@ This recipe is used as part of the following composite recipes:
 
 * [Java Recipe best practices](/user-documentation/recipes/recipe-catalog/java/recipes/javarecipebestpractices.md)
 * [Migrate JavaEE Code to Quarkus 2](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2codemigration.md)
-* [Migrate Tapestry 4 to Tapestry 5](/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5.md)
+* [Migrate Tapestry 4 to Tapestry 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5)
 * [Migrate `@EnableXyz` annotations to Quarkus extensions](/user-documentation/recipes/recipe-catalog/quarkus/spring/enableannotationstoquarkusdependencies.md)
 * [Migrate from Swagger to SpringDoc and OpenAPI](/user-documentation/recipes/recipe-catalog/java/springdoc/swaggertospringdoc.md)
-* [Migrate to Hibernate 7.0.x (Moderne Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition.md)
+* [Migrate to Hibernate 7.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition)
 * [Mockito best practices](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitobestpractices.md)
 * [Modernize a Jenkins plugin to the latest recommended versions](/user-documentation/recipes/recipe-catalog/jenkins/modernizeplugin.md)
 * [Recipe nullability best practices](/user-documentation/recipes/recipe-catalog/java/recipes/recipenullabilitybestpractices.md)

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find method declaration"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findmethoddeclaration"
 ---
 
 import Tabs from '@theme/Tabs';

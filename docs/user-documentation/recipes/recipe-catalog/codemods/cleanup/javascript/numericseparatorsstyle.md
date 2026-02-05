@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce the style of numeric separators by correctly grouping digits"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/numericseparatorsstyle"
 ---
 
 import Tabs from '@theme/Tabs';

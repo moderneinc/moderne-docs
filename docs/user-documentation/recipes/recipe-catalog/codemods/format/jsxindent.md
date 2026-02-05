@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce JSX indentation"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxindent"
 ---
 
 import Tabs from '@theme/Tabs';

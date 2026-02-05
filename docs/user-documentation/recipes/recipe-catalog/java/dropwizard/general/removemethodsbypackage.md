@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove methods referencing specified package"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/general/removemethodsbypackage"
 ---
 
 import Tabs from '@theme/Tabs';

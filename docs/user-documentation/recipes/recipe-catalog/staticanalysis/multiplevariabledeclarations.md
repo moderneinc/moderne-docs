@@ -1,6 +1,5 @@
 ---
 sidebar_label: "No multiple variable declarations"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/multiplevariabledeclarations"
 ---
 
 import Tabs from '@theme/Tabs';

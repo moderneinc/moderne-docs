@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade dependencies to Spring Cloud 2025"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/cloud2025/dependencyupgrades"
 ---
 
 import Tabs from '@theme/Tabs';

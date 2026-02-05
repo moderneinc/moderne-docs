@@ -1,12 +1,11 @@
 ---
 sidebar_label: "Prefer `Array#{indexOf,lastIndexOf}()` over `Array#{findIndex,findLastIndex}()` when looking for the index of an item"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferarrayindexof"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Prefer `Array#{indexOf,lastIndexOf}()` over `Array#{findIndex,findLastIndex}()` when looking for the index of an item
+# Prefer `Array#\{indexOf,lastIndexOf\}()` over `Array#\{findIndex,findLastIndex\}()` when looking for the index of an item
 
 **org.openrewrite.codemods.cleanup.javascript.PreferArrayIndexOf**
 

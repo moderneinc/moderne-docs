@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Backing member for DependencyProperty should have standard documentation text"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/documentationfixwpf0060"
 ---
 
 import Tabs from '@theme/Tabs';

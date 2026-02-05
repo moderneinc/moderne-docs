@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Avoid unused private fields"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/avoidunusedprivatefieldsca1823"
 ---
 
 import Tabs from '@theme/Tabs';

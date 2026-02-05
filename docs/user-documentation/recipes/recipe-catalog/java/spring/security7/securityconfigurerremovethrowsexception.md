@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove throws exception in `SecurityConfigurer` methods `init` and `configure`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/security7/securityconfigurerremovethrowsexception"
 ---
 
 import Tabs from '@theme/Tabs';

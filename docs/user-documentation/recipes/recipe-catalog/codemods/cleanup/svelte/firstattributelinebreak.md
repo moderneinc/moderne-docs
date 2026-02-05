@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce the location of first attribute"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/firstattributelinebreak"
 ---
 
 import Tabs from '@theme/Tabs';

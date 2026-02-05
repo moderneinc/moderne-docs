@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require quotes around object literal property names"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/quoteprops"
 ---
 
 import Tabs from '@theme/Tabs';

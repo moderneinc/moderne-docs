@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use of `@EqualsAndHashCode` on `Recipe`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/recipeequalsandhashcodecallsuper"
 ---
 
 import Tabs from '@theme/Tabs';

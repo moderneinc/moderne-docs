@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates props for Table component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/tableprops"
 ---
 
 import Tabs from '@theme/Tabs';

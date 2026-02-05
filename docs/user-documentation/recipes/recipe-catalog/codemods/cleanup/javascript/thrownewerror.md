@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require `new` when throwing an error"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/thrownewerror"
 ---
 
 import Tabs from '@theme/Tabs';

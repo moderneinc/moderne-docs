@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringBuilder#append` with `String`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replacestringbuilderwithstring"
 ---
 
 import Tabs from '@theme/Tabs';

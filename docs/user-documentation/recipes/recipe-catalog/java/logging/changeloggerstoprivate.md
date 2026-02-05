@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change logger fields to `private`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/changeloggerstoprivate"
 ---
 
 import Tabs from '@theme/Tabs';

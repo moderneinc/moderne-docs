@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`SpringTestRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/springtestrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

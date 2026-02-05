@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unneeded block"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removeunneededblock"
 ---
 
 import Tabs from '@theme/Tabs';

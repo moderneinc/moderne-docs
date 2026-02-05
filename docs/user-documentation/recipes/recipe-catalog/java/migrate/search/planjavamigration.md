@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Plan a Java version migration"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/search/planjavamigration"
 ---
 
 import Tabs from '@theme/Tabs';

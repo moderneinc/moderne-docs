@@ -31,17 +31,17 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Javascript UI library insights](/user-documentation/recipes/recipe-catalog/nodejs/search/uiinsights.md)
-* [Javascript database interaction library insights](/user-documentation/recipes/recipe-catalog/nodejs/search/databaseinteractioninsights.md)
-* [Javascript form handling library insights](/user-documentation/recipes/recipe-catalog/nodejs/search/formhandlinginsights.md)
-* [Javascript linting &amp; formatting library insights](/user-documentation/recipes/recipe-catalog/nodejs/search/lintingformattinginsights.md)
-* [Javascript real-time communication library insights](/user-documentation/recipes/recipe-catalog/nodejs/search/realtimecommunicationinsights.md)
-* [Javascript security library insights](/user-documentation/recipes/recipe-catalog/nodejs/search/securityinsights.md)
-* [Javascript server-side frameworks insights](/user-documentation/recipes/recipe-catalog/nodejs/search/serversideframeworksinsights.md)
-* [Javascript state management library insights](/user-documentation/recipes/recipe-catalog/nodejs/search/statemanagementinsights.md)
-* [Javascript task runners &amp; build tools insights](/user-documentation/recipes/recipe-catalog/nodejs/search/taskrunnersbuildtoolsinsights.md)
-* [Javascript testing library insights](/user-documentation/recipes/recipe-catalog/nodejs/search/testinginsights.md)
-* [Javascript utility library insights](/user-documentation/recipes/recipe-catalog/nodejs/search/utilityinsights.md)
+* [Javascript UI library insights](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nodejs/search/uiinsights)
+* [Javascript database interaction library insights](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nodejs/search/databaseinteractioninsights)
+* [Javascript form handling library insights](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nodejs/search/formhandlinginsights)
+* [Javascript linting &amp; formatting library insights](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nodejs/search/lintingformattinginsights)
+* [Javascript real-time communication library insights](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nodejs/search/realtimecommunicationinsights)
+* [Javascript security library insights](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nodejs/search/securityinsights)
+* [Javascript server-side frameworks insights](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nodejs/search/serversideframeworksinsights)
+* [Javascript state management library insights](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nodejs/search/statemanagementinsights)
+* [Javascript task runners &amp; build tools insights](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nodejs/search/taskrunnersbuildtoolsinsights)
+* [Javascript testing library insights](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nodejs/search/testinginsights)
+* [Javascript utility library insights](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/nodejs/search/utilityinsights)
 
 ## Example
 

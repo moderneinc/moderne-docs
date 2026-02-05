@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/addcolumnannotation"
 ---
 
 import Tabs from '@theme/Tabs';

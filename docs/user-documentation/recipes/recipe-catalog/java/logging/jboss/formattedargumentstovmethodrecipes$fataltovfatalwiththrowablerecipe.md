@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `FormattedArgumentsToVMethod.FatalToVFatalWithThrowable`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/jboss/formattedargumentstovmethodrecipes$fataltovfatalwiththrowablerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

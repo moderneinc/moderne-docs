@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJRules.AssertThatMultisetsAreEqual`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatmultisetsareequalrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

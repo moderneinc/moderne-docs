@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Jackson `@JsonInclude`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/codehaus/jsonincludeannotation"
 ---
 
 import Tabs from '@theme/Tabs';

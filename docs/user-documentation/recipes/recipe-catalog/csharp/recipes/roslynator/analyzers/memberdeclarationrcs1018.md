@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add/remove accessibility modifiers"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/memberdeclarationrcs1018"
 ---
 
 import Tabs from '@theme/Tabs';

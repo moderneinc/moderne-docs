@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add annotation if target supertypes exist"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/annotation/addclassannotationifsupertypeexists"
 ---
 
 import Tabs from '@theme/Tabs';

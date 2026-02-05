@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change AWS SDK for Java v1 types to v2 equivalents"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/changesdktype"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not pass a nullable struct to 'ArgumentNullException.ThrowIfNull'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdonotpassnonnullablevaluetoargumentnullexceptionthrowifnullca1871"
 ---
 
 import Tabs from '@theme/Tabs';

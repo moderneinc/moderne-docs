@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `String#startsWith()` &amp; `String#endsWith()` over `RegExp#test()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferstringstartsendswith"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus310.FlywayPostgreSQL"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus310/flywaypostgresql"
 ---
 
 import Tabs from '@theme/Tabs';

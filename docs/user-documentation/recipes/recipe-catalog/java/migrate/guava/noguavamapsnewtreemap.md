@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `new TreeMap&lt;&gt;()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavamapsnewtreemap"
 ---
 
 import Tabs from '@theme/Tabs';

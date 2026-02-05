@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit 6 best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit/junit6bestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

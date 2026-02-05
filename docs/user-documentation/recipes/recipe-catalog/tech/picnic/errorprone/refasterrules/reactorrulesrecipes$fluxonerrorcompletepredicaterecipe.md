@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.FluxOnErrorCompletePredicate`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxonerrorcompletepredicaterecipe"
 ---
 
 import Tabs from '@theme/Tabs';

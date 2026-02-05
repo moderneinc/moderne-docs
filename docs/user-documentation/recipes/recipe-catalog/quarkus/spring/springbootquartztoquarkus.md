@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Quartz with Quarkus Quartz"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootquartztoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

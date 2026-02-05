@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Increment Maven project version"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/incrementprojectversion"
 ---
 
 import Tabs from '@theme/Tabs';

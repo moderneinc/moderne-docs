@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Declare using directive on top level"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/namespacedeclarationrcs1094"
 ---
 
 import Tabs from '@theme/Tabs';

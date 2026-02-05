@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use async/await when necessary"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useasyncawaitrcs1229"
 ---
 
 import Tabs from '@theme/Tabs';

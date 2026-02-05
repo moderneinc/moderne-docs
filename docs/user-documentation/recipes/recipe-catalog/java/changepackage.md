@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename package name"
-canonical_url: "https://docs.openrewrite.org/recipes/java/changepackage"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,7 +33,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [ArchUnit 0.x upgrade](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
-* [Change Tapestry 4 packages to Tapestry 5](/user-documentation/recipes/recipe-catalog/tapestry/changetapestrypackages.md)
+* [Change Tapestry 4 packages to Tapestry 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/changetapestrypackages)
 * [Migrate Fest 2.x to AssertJ](/user-documentation/recipes/recipe-catalog/java/testing/assertj/festtoassertj.md)
 * [Migrate Hibernate Types to Hypersistence Utils 6.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate60.md)
 * [Migrate Jackson from javax to jakarta namespace](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus30/jacksonjavaxtojakarta.md)
@@ -42,7 +41,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate Log4j 1.x to Log4j 2.x](/user-documentation/recipes/recipe-catalog/java/logging/log4j/log4j1tolog4j2.md)
 * [Migrate OpenTracing API to OpenTelemetry API](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migrateopentracingtoopentelemetry.md)
 * [Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migratecloudsleuthtomicrometertracing.md)
-* [Migrate Spring Session Hazelcast to Hazelcast Spring Session](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratehazelcastspringsession.md)
+* [Migrate Spring Session Hazelcast to Hazelcast Spring Session](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratehazelcastspringsession)
 * [Migrate `WordUtils` to Apache Commons Text](/user-documentation/recipes/recipe-catalog/apache/commons/lang/wordutilstocommonstext.md)
 * [Migrate `cucumber-java8` to `cucumber-java`](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava.md)
 * [Migrate `javax.annotations` to SpotBugs annotations](/user-documentation/recipes/recipe-catalog/jenkins/javaxannotationstospotbugs.md)
@@ -120,8 +119,8 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to MockWebServer3 with JUnit 4](/user-documentation/recipes/recipe-catalog/okhttp/upgrademockwebserver3junit4.md)
 * [Migrate to MockWebServer3 with JUnit 5](/user-documentation/recipes/recipe-catalog/okhttp/upgrademockwebserver3junit5.md)
 * [Migrate to Spring Batch 6.0 from 5.2](/user-documentation/recipes/recipe-catalog/java/spring/batch/springbatch5to6migration.md)
-* [Migrate to Spring Boot 4.0 (Moderne Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
-* [Migrate to Spring ORM to 5](/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5.md)
+* [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
+* [Migrate to Spring ORM to 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5)
 * [Migrates from Netty 4.1.x to Netty 4.2.x](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_4_1_to_4_2.md)
 * [Migrates to Apache Commons Collections 4.x](/user-documentation/recipes/recipe-catalog/apache/commons/collections/upgradeapachecommonscollections_3_4.md)
 * [Migrates to Apache Commons Lang 3.x](/user-documentation/recipes/recipe-catalog/apache/commons/lang/upgradeapachecommonslang_2_3.md)
@@ -132,8 +131,8 @@ This recipe is used as part of the following composite recipes:
 * [Rename OpenSymphony / XWork classes to Struts 7 packages](/user-documentation/recipes/recipe-catalog/java/struts/migrate7/renameopensymphonytostruts2.md)
 * [Rename the package name from `com.nimbusds.jose.shaded.json` to `net.minidev.json`](/user-documentation/recipes/recipe-catalog/java/spring/security5/renamenimbusdsjsonobjectpackagename.md)
 * [Replace `com.sun.net.ssl` package](/user-documentation/recipes/recipe-catalog/java/migrate/sunnetsslpackageunavailable.md)
-* [Replace deprecated `org.springframework.boot.autoconfigure.mongo` API](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedautoconfiguremongoapi.md)
-* [Spring Boot 4.0 Module Starter Relocations](/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulestarterrelocations.md)
+* [Replace deprecated `org.springframework.boot.autoconfigure.mongo` API](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedautoconfiguremongoapi)
+* [Spring Boot 4.0 Module Starter Relocations](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulestarterrelocations)
 * [Update Apache Commons Email to Email2 for Jakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateapachecommonsemaildependencies.md)
 * [Update Apache Commons FileUpload2 package for EE10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatefileupload2dependencies.md)
 * [Update Apache Shiro Dependencies to 2.0.x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateapacheshirodependencies.md)

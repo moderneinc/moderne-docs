@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use auto-implemented property"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useautopropertyrcs1085"
 ---
 
 import Tabs from '@theme/Tabs';

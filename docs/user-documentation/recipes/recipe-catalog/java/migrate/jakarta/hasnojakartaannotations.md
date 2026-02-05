@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Project has no Jakarta annotations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/hasnojakartaannotations"
 ---
 
 import Tabs from '@theme/Tabs';

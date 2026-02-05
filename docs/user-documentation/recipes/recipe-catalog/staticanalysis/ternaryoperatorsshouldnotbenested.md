@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Ternary operators should not be nested"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/ternaryoperatorsshouldnotbenested"
 ---
 
 import Tabs from '@theme/Tabs';

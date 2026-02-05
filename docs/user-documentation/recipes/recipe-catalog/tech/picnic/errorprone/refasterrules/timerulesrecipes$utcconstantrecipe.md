@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.UtcConstant`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$utcconstantrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

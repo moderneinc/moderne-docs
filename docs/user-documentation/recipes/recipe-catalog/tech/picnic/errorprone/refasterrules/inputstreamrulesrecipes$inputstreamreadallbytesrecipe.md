@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `InputStreamRules.InputStreamReadAllBytes`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamreadallbytesrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

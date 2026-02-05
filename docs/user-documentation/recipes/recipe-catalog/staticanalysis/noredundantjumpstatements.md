@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Jump statements should not be redundant"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/noredundantjumpstatements"
 ---
 
 import Tabs from '@theme/Tabs';

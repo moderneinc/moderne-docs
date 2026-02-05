@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `revokeSSOCookies` with `logout`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/liberty/websphereunavailablessocookiemethod"
 ---
 
 import Tabs from '@theme/Tabs';

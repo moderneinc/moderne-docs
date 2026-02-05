@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Class#getDeclaredConstructor().newInstance()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/migrateclassnewinstancetogetdeclaredconstructornewinstance"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "V1 client builder variations to builder()"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/v1buildervariationstov2builder"
 ---
 
 import Tabs from '@theme/Tabs';

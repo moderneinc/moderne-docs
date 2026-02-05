@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Parent POM upgrade"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/parentpomupgrade"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing before and after keywords in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/keywordspacing"
 ---
 
 import Tabs from '@theme/Tabs';

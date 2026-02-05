@@ -1,6 +1,5 @@
 ---
 sidebar_label: "CaseInsensitive comparisons do not alter case"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/caseinsensitivecomparisonsdonotchangecase"
 ---
 
 import Tabs from '@theme/Tabs';

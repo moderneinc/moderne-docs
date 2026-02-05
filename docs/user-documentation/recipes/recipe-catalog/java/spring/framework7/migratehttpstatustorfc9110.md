@@ -28,7 +28,98 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Spring Framework 7.0](/user-documentation/recipes/recipe-catalog/java/spring/framework7/upgradespringframework_7_0.md)
+* [Migrate to Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/upgradespringframework_7_0)
+
+## Examples
+##### Example 1
+`MigrateHttpStatusToRfc9110Test#replacePayloadTooLargeWithContentTooLarge`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.http.HttpStatus;
+
+class MyController {
+    HttpStatus getStatus() {
+        return HttpStatus.PAYLOAD_TOO_LARGE;
+    }
+}
+```
+
+###### After
+```java
+import org.springframework.http.HttpStatus;
+
+class MyController {
+    HttpStatus getStatus() {
+        return HttpStatus.CONTENT_TOO_LARGE;
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -5,1 +5,1 @@
+class MyController {
+    HttpStatus getStatus() {
+-       return HttpStatus.PAYLOAD_TOO_LARGE;
++       return HttpStatus.CONTENT_TOO_LARGE;
+    }
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`MigrateHttpStatusToRfc9110Test#replacePayloadTooLargeWithContentTooLarge`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.http.HttpStatus;
+
+class MyController {
+    HttpStatus getStatus() {
+        return HttpStatus.PAYLOAD_TOO_LARGE;
+    }
+}
+```
+
+###### After
+```java
+import org.springframework.http.HttpStatus;
+
+class MyController {
+    HttpStatus getStatus() {
+        return HttpStatus.CONTENT_TOO_LARGE;
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -5,1 +5,1 @@
+class MyController {
+    HttpStatus getStatus() {
+-       return HttpStatus.PAYLOAD_TOO_LARGE;
++       return HttpStatus.CONTENT_TOO_LARGE;
+    }
+```
+</TabItem>
+</Tabs>
 
 
 ## Usage

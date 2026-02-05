@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.interceptor` packages to `jakarta.interceptor`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/javaxinterceptortojakartainterceptor"
 ---
 
 import Tabs from '@theme/Tabs';

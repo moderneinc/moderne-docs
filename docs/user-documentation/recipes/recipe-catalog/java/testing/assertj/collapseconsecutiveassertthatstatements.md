@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Collapse consecutive `assertThat` statements"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/collapseconsecutiveassertthatstatements"
 ---
 
 import Tabs from '@theme/Tabs';

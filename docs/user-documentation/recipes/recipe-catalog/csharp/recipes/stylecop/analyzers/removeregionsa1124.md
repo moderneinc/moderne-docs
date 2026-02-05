@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Do not use regions"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/removeregionsa1124"
 ---
 
 import Tabs from '@theme/Tabs';

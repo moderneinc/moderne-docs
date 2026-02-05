@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `WordUtils` to Apache Commons Text"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/lang/wordutilstocommonstext"
 ---
 
 import Tabs from '@theme/Tabs';

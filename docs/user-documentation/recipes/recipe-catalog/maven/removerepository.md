@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove repository"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/removerepository"
 ---
 
 import Tabs from '@theme/Tabs';

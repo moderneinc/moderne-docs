@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove the `@Autowired` annotation on inferred constructor"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/noautowiredonconstructor"
 ---
 
 import Tabs from '@theme/Tabs';

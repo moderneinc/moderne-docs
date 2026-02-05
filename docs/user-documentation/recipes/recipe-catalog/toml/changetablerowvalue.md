@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change TOML table row value"
-canonical_url: "https://docs.openrewrite.org/recipes/toml/changetablerowvalue"
 ---
 
 import Tabs from '@theme/Tabs';

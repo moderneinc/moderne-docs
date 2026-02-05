@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.MonoFlatMapIterableIdentity`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monoflatmapiterableidentityrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

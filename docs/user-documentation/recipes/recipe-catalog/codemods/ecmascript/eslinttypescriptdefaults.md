@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Lint TypeScript code using ESLint"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/ecmascript/eslinttypescriptdefaults"
 ---
 
 import Tabs from '@theme/Tabs';

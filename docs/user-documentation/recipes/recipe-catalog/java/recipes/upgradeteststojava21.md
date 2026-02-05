@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate tests to Java 21"
-canonical_url: "https://docs.openrewrite.org/recipes/java/recipes/upgradeteststojava21"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames base components to slots"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/baserenamecomponentstoslots"
 ---
 
 import Tabs from '@theme/Tabs';

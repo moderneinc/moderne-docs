@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Spring Cloud 2023"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/cloud2023/upgradespringcloud_2023"
 ---
 
 import Tabs from '@theme/Tabs';

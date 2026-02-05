@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary call to 'Dictionary.ContainsKey(key)'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpdonotguardcallca1853"
 ---
 
 import Tabs from '@theme/Tabs';

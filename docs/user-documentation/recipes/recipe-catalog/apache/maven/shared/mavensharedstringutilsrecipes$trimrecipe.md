@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `StringUtils.trim(String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/maven/shared/mavensharedstringutilsrecipes$trimrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

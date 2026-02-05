@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`@Entity` objects with constructors must also have a default constructor"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/adddefaultconstructortoentityclass"
 ---
 
 import Tabs from '@theme/Tabs';

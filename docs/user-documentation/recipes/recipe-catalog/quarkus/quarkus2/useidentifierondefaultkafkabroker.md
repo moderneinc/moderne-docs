@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `@Identifier(&quot;default-kafka-broker&quot;)`"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/quarkus2/useidentifierondefaultkafkabroker"
 ---
 
 import Tabs from '@theme/Tabs';

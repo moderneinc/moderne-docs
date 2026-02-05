@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MapRules.MapContainsKey`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/maprulesrecipes$mapcontainskeyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

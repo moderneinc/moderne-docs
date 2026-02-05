@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Invalid argument null check"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/invalidargumentnullcheckrcs1256"
 ---
 
 import Tabs from '@theme/Tabs';

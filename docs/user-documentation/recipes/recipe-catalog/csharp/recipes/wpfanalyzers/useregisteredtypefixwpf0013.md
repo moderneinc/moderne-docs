@@ -1,6 +1,5 @@
 ---
 sidebar_label: "CLR accessor for attached property must match registered type"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/useregisteredtypefixwpf0013"
 ---
 
 import Tabs from '@theme/Tabs';

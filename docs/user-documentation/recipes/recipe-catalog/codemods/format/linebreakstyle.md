@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent linebreak style"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/linebreakstyle"
 ---
 
 import Tabs from '@theme/Tabs';

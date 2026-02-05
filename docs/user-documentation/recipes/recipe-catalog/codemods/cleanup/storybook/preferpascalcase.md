@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Stories should use PascalCase"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/storybook/preferpascalcase"
 ---
 
 import Tabs from '@theme/Tabs';

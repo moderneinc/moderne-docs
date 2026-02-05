@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use modernized `java.net` APIs"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/net/javanetapis"
 ---
 
 import Tabs from '@theme/Tabs';

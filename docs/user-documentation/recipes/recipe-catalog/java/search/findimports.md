@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find source files with imports"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findimports"
 ---
 
 import Tabs from '@theme/Tabs';

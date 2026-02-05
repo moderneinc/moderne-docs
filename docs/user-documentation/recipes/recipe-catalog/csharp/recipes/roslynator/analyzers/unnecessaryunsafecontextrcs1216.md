@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary unsafe context"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/unnecessaryunsafecontextrcs1216"
 ---
 
 import Tabs from '@theme/Tabs';

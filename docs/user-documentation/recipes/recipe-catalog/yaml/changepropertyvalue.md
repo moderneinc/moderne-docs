@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change YAML property"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/changepropertyvalue"
 ---
 
 import Tabs from '@theme/Tabs';

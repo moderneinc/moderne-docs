@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Move a closure which is the last argument of a method invocation out of parentheses"
-canonical_url: "https://docs.openrewrite.org/recipes/groovy/format/omitparenthesesforlastargumentlambda"
 ---
 
 import Tabs from '@theme/Tabs';

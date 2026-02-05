@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Thymeleaf with Quarkus Qute"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootthymeleaftoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

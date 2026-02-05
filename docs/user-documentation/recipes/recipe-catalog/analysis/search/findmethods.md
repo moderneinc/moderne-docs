@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find method usages"
-canonical_url: "https://docs.openrewrite.org/recipes/analysis/search/findmethods"
 ---
 
 import Tabs from '@theme/Tabs';

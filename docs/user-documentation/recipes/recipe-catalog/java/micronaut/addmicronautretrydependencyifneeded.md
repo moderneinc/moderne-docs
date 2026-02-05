@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update the Micronaut Retry support"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/addmicronautretrydependencyifneeded"
 ---
 
 import Tabs from '@theme/Tabs';

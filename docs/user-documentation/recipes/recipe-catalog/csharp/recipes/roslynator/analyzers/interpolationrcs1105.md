@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary interpolation"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/interpolationrcs1105"
 ---
 
 import Tabs from '@theme/Tabs';

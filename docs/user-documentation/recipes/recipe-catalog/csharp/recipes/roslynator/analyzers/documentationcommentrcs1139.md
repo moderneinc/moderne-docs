@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add summary element to documentation comment"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/documentationcommentrcs1139"
 ---
 
 import Tabs from '@theme/Tabs';

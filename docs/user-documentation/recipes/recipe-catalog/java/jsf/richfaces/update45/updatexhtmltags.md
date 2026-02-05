@@ -28,7 +28,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate RichFaces 3.x to 4.5](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/migraterichfaces_4_5.md)
+* [Migrate RichFaces 3.x to 4.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/migraterichfaces_4_5)
 
 
 ## Usage

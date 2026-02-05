@@ -1,6 +1,5 @@
 ---
 sidebar_label: "IEqualityComparer&lt;string&gt; or IComparer&lt;string&gt; is missing"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usestringcomparerma0002"
 ---
 
 import Tabs from '@theme/Tabs';

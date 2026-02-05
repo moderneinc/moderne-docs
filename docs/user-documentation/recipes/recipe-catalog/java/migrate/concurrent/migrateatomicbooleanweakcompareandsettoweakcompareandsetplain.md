@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `AtomicBoolean#weakCompareAndSetPlain(boolean, boolean)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/concurrent/migrateatomicbooleanweakcompareandsettoweakcompareandsetplain"
 ---
 
 import Tabs from '@theme/Tabs';

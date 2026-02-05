@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `&lt;a&gt;` Tags From Link Components"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v13_0/newlink"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CollectionRules.ImmutableCollectionStream`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$immutablecollectionstreamrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

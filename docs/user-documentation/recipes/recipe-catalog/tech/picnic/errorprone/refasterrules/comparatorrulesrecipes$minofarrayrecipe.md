@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ComparatorRules.MinOfArray`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$minofarrayrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow the use of `Math.pow` in favor of the ** operator"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferexponentiationoperator"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enums should have zero value"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpenumsshouldhavezerovalueca1008"
 ---
 
 import Tabs from '@theme/Tabs';

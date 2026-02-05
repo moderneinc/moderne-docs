@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce proper position of the first property in JSX"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxfirstpropnewline"
 ---
 
 import Tabs from '@theme/Tabs';

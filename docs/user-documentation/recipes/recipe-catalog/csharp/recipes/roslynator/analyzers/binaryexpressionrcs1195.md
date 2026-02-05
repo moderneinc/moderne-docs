@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use ^ operator"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1195"
 ---
 
 import Tabs from '@theme/Tabs';

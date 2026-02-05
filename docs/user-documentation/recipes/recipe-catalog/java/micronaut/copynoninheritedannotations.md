@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Copy non-inherited annotations from super class"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/copynoninheritedannotations"
 ---
 
 import Tabs from '@theme/Tabs';

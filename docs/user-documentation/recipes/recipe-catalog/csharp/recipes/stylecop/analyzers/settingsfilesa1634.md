@@ -1,6 +1,5 @@
 ---
 sidebar_label: "File header should show copyright"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/settingsfilesa1634"
 ---
 
 import Tabs from '@theme/Tabs';

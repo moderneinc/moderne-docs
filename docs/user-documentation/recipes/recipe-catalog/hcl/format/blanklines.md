@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Blank lines"
-canonical_url: "https://docs.openrewrite.org/recipes/hcl/format/blanklines"
 ---
 
 import Tabs from '@theme/Tabs';

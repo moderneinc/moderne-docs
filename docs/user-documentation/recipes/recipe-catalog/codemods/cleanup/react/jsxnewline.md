@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or prevent a new line after jsx elements and expressions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxnewline"
 ---
 
 import Tabs from '@theme/Tabs';

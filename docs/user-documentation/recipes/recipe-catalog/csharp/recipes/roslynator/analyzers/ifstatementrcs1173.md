@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use coalesce expression instead of 'if'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/ifstatementrcs1173"
 ---
 
 import Tabs from '@theme/Tabs';

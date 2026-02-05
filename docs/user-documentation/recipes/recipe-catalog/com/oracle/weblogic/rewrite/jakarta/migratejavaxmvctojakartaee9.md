@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate javax.mvc to 2.0 (Jakarta EE 9)"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/migratejavaxmvctojakartaee9"
 ---
 
 import Tabs from '@theme/Tabs';

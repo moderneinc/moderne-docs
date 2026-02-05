@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJOptionalRules.AbstractOptionalAssertIsEmpty`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalassertisemptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

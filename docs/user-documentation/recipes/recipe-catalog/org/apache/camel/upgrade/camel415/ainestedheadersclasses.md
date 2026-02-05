@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Changed types of camel AI nested headers classes"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel415/ainestedheadersclasses"
 ---
 
 import Tabs from '@theme/Tabs';

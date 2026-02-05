@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove trailing white-space"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/whitespacetriviarcs1037"
 ---
 
 import Tabs from '@theme/Tabs';

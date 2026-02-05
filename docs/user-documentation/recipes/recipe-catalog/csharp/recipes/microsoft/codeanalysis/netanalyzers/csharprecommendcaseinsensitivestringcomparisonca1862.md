@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use the 'StringComparison' method overloads to perform case-insensitive string comparisons"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharprecommendcaseinsensitivestringcomparisonca1862"
 ---
 
 import Tabs from '@theme/Tabs';

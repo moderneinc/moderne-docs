@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary interpolated string"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/interpolatedstringrcs1214"
 ---
 
 import Tabs from '@theme/Tabs';

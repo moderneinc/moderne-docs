@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce line breaks between arguments of a function call"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/functioncallargumentnewline"
 ---
 
 import Tabs from '@theme/Tabs';

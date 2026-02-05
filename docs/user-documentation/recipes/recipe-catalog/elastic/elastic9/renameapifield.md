@@ -36,7 +36,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Rename API fields for Elasticsearch 9](/user-documentation/recipes/recipe-catalog/elastic/elastic9/renameapifields.md)
+* [Rename API fields for Elasticsearch 9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/elastic/elastic9/renameapifields)
 
 
 ## Usage

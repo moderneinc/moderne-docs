@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce dot notation whenever possible in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/dotnotation"
 ---
 
 import Tabs from '@theme/Tabs';

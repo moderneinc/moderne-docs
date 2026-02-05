@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer modern Math APIs over legacy patterns"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/prefermodernmathapis"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate WebLogic Schemas to 14.1.2"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/migrateweblogicschemasto1412"
 ---
 
 import Tabs from '@theme/Tabs';

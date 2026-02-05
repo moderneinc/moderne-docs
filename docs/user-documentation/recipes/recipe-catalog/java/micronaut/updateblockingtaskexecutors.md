@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate the use of TaskExecutors with blocking IO"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/updateblockingtaskexecutors"
 ---
 
 import Tabs from '@theme/Tabs';

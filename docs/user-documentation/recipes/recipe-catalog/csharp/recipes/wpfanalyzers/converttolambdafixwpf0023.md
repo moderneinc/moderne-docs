@@ -1,6 +1,5 @@
 ---
 sidebar_label: "The callback is trivial, convert to lambda"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/converttolambdafixwpf0023"
 ---
 
 import Tabs from '@theme/Tabs';

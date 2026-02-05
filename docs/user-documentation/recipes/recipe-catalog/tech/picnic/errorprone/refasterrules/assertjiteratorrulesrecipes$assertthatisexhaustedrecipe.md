@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJIteratorRules.AssertThatIsExhausted`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjiteratorrulesrecipes$assertthatisexhaustedrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

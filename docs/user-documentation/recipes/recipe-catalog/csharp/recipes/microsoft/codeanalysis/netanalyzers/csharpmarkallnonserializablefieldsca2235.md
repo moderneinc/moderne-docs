@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Mark all non-serializable fields"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpmarkallnonserializablefieldsca2235"
 ---
 
 import Tabs from '@theme/Tabs';

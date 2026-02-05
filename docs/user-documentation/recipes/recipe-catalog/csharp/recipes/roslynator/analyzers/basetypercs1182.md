@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant base interface"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/basetypercs1182"
 ---
 
 import Tabs from '@theme/Tabs';

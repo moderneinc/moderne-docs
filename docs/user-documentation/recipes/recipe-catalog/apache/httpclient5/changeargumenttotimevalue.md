@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Changes an argument to a `TimeValue` for matched method invocations"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient5/changeargumenttotimevalue"
 ---
 
 import Tabs from '@theme/Tabs';

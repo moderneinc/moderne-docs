@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Write octal values as decimal"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/writeoctalvaluesasdecimal"
 ---
 
 import Tabs from '@theme/Tabs';

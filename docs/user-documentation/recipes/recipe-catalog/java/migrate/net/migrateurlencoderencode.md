@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `java.net.URLEncoder#encode(String, StandardCharsets.UTF_8)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/net/migrateurlencoderencode"
 ---
 
 import Tabs from '@theme/Tabs';

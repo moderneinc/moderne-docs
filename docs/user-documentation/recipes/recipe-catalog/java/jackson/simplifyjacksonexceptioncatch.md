@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify catch clauses for Jackson exceptions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/simplifyjacksonexceptioncatch"
 ---
 
 import Tabs from '@theme/Tabs';

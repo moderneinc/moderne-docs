@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow multiple empty lines"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/nomultipleemptylines"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Make class static"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/makeclassstaticma0036"
 ---
 
 import Tabs from '@theme/Tabs';

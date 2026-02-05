@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unused local variables"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/removeunusedlocalvariables"
 ---
 
 import Tabs from '@theme/Tabs';

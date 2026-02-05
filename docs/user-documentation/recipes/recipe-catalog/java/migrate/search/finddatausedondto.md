@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find data used on DTOs"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/search/finddatausedondto"
 ---
 
 import Tabs from '@theme/Tabs';

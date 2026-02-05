@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate JUnit 4 environmentVariables rule to JUnit 5 system stubs extension"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/environmentvariables"
 ---
 
 import Tabs from '@theme/Tabs';

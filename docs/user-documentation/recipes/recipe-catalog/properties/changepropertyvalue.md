@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change property value"
-canonical_url: "https://docs.openrewrite.org/recipes/properties/changepropertyvalue"
 ---
 
 import Tabs from '@theme/Tabs';

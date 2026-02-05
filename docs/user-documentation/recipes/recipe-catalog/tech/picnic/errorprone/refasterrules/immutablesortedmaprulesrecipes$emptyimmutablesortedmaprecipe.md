@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableSortedMapRules.EmptyImmutableSortedMap`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$emptyimmutablesortedmaprecipe"
 ---
 
 import Tabs from '@theme/Tabs';

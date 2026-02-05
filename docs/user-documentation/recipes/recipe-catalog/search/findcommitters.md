@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find committers on repositories"
-canonical_url: "https://docs.openrewrite.org/recipes/search/findcommitters"
 ---
 
 import Tabs from '@theme/Tabs';

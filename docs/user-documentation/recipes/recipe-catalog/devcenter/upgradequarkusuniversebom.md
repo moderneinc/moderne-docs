@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Quarkus Universe BOM"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/upgradequarkusuniversebom"
 ---
 
 import Tabs from '@theme/Tabs';

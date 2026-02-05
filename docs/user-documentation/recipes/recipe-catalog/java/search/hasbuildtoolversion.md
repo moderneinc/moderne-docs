@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find files with a particular build tool version"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/hasbuildtoolversion"
 ---
 
 import Tabs from '@theme/Tabs';

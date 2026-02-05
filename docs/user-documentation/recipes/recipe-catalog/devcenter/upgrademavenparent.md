@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Apache Maven Parent"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/upgrademavenparent"
 ---
 
 import Tabs from '@theme/Tabs';

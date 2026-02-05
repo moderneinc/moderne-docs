@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Maven compiler plugin release configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/maven/usemavencompilerpluginreleaseconfiguration"
 ---
 
 import Tabs from '@theme/Tabs';

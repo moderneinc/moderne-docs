@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `OptionalRules.MapOptionalToBoolean`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/optionalrulesrecipes$mapoptionaltobooleanrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

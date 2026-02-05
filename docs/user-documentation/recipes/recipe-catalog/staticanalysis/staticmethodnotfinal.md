@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Static methods need not be final"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/staticmethodnotfinal"
 ---
 
 import Tabs from '@theme/Tabs';

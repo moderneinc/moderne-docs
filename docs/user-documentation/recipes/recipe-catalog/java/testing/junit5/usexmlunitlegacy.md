@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use XMLUnit Legacy for JUnit 5"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/usexmlunitlegacy"
 ---
 
 import Tabs from '@theme/Tabs';

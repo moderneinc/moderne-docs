@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert the method parameter from numeric type to duration"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/numbertoduration"
 ---
 
 import Tabs from '@theme/Tabs';

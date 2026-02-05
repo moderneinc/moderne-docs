@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `CharSequenceRules.CharSequenceIsEmpty`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/charsequencerulesrecipes$charsequenceisemptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

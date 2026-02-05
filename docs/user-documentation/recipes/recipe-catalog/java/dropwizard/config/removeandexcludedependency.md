@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Combined dependency management to remove and exclude"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/config/removeandexcludedependency"
 ---
 
 import Tabs from '@theme/Tabs';

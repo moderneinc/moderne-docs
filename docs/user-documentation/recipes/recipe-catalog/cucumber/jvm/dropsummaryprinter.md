@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Drop `SummaryPrinter`"
-canonical_url: "https://docs.openrewrite.org/recipes/cucumber/jvm/dropsummaryprinter"
 ---
 
 import Tabs from '@theme/Tabs';

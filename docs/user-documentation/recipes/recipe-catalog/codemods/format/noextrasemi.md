@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unnecessary semicolons"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/noextrasemi"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates scroll buttons for Tabs component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/tabsscrollbuttons"
 ---
 
 import Tabs from '@theme/Tabs';

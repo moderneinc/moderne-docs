@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add npm dependency"
-canonical_url: "https://docs.openrewrite.org/recipes/javascript/dependencies/add-dependency"
 ---
 
 import Tabs from '@theme/Tabs';

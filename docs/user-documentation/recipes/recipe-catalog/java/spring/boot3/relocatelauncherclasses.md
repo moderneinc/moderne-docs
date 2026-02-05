@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Relocate Launcher Classes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/relocatelauncherclasses"
 ---
 
 import Tabs from '@theme/Tabs';

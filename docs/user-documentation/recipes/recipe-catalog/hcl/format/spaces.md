@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Spaces"
-canonical_url: "https://docs.openrewrite.org/recipes/hcl/format/spaces"
 ---
 
 import Tabs from '@theme/Tabs';

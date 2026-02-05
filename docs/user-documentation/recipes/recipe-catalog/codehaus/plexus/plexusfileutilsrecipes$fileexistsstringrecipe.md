@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `FileUtils.fileExists(String)` with JDK provided API"
-canonical_url: "https://docs.openrewrite.org/recipes/codehaus/plexus/plexusfileutilsrecipes$fileexistsstringrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

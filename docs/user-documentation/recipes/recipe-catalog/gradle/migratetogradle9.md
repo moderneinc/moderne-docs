@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Gradle 9 from Gradle 8"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/migratetogradle9"
 ---
 
 import Tabs from '@theme/Tabs';

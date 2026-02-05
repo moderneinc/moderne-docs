@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find uses of deprecated fields"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/finddeprecatedfields"
 ---
 
 import Tabs from '@theme/Tabs';

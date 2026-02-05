@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Run Putout"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/putout"
 ---
 
 import Tabs from '@theme/Tabs';

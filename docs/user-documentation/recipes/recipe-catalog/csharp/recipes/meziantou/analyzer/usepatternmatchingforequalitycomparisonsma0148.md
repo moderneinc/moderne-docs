@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use pattern matching instead of equality operators for discrete value"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usepatternmatchingforequalitycomparisonsma0148"
 ---
 
 import Tabs from '@theme/Tabs';

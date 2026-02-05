@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Name the invoked method OnEventName"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/renamememberfixwpf0090"
 ---
 
 import Tabs from '@theme/Tabs';

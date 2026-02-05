@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow leading or trailing decimal points in numeric literals"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/nofloatingdecimal"
 ---
 
 import Tabs from '@theme/Tabs';

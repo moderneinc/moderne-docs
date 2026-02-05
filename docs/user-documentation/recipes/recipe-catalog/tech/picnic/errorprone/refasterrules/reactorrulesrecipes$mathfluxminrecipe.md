@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.MathFluxMin`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$mathfluxminrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Annotate methods which may return `null` with `@Nullable`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/annotatenullablemethods"
 ---
 
 import Tabs from '@theme/Tabs';

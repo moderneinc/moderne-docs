@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Lombok logger annotations instead of explicit fields"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lombok/log/uselomboklogannotations"
 ---
 
 import Tabs from '@theme/Tabs';

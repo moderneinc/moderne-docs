@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates theme palette mode"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/themepalettemode"
 ---
 
 import Tabs from '@theme/Tabs';

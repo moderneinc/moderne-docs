@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add a Quarkus configuration property"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/addquarkusproperty"
 ---
 
 import Tabs from '@theme/Tabs';

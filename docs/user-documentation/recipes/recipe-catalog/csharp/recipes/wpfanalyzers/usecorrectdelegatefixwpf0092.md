@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use correct handler type"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usecorrectdelegatefixwpf0092"
 ---
 
 import Tabs from '@theme/Tabs';

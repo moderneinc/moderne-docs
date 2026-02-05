@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `@JBossLog` instead of explicit fields"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lombok/log/usejbosslog"
 ---
 
 import Tabs from '@theme/Tabs';

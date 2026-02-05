@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `@Slf4` instead of explicit fields"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lombok/log/useslf4j"
 ---
 
 import Tabs from '@theme/Tabs';

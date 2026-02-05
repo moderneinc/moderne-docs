@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use local variable type inference"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/usevar"
 ---
 
 import Tabs from '@theme/Tabs';

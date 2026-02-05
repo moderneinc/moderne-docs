@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use 'Environment.ProcessId'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/useenvironmentmembersca1837"
 ---
 
 import Tabs from '@theme/Tabs';

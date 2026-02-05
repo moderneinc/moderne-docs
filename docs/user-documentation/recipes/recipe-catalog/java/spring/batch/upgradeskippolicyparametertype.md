@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change the type of `skipCount` parameter in `SkipPolicy` from `int` to `long`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/batch/upgradeskippolicyparametertype"
 ---
 
 import Tabs from '@theme/Tabs';

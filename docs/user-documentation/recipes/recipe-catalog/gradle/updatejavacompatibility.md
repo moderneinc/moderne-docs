@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Gradle project Java compatibility"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/updatejavacompatibility"
 ---
 
 import Tabs from '@theme/Tabs';

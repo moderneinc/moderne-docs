@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unnecessary `@Repository` annotation from Spring Data `Repository` sub-interface"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/norepoannotationonrepointerface"
 ---
 
 import Tabs from '@theme/Tabs';

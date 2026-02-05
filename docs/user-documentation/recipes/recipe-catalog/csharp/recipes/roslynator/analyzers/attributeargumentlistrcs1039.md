@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove argument list from attribute"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/attributeargumentlistrcs1039"
 ---
 
 import Tabs from '@theme/Tabs';

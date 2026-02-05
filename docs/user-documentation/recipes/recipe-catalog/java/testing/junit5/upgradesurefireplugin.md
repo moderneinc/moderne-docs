@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Surefire Plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/upgradesurefireplugin"
 ---
 
 import Tabs from '@theme/Tabs';

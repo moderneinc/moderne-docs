@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `Process#waitFor(Duration)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/migrateprocesswaitforduration"
 ---
 
 import Tabs from '@theme/Tabs';

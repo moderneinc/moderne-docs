@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `java.util.Set#removeAll(java.util.Collection)` with `java.util.Collection#forEach(Set::remove)`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/useforeachremoveinsteadofsetremoveall"
 ---
 
 import Tabs from '@theme/Tabs';

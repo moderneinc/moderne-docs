@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `EqualityRules.IndirectDoubleNegation`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/equalityrulesrecipes$indirectdoublenegationrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

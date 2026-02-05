@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace annotation"
-canonical_url: "https://docs.openrewrite.org/recipes/java/replaceannotation"
 ---
 
 import Tabs from '@theme/Tabs';

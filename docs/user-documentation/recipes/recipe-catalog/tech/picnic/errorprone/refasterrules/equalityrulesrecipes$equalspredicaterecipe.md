@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `EqualityRules.EqualsPredicate`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/equalityrulesrecipes$equalspredicaterecipe"
 ---
 
 import Tabs from '@theme/Tabs';

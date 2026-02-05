@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Optional.stream().collect(Collectors.toSet())`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavaoptionalasset"
 ---
 
 import Tabs from '@theme/Tabs';

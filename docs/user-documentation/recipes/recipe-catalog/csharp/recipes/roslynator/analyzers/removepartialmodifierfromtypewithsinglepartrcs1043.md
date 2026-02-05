@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove 'partial' modifier from type with a single part"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removepartialmodifierfromtypewithsinglepartrcs1043"
 ---
 
 import Tabs from '@theme/Tabs';

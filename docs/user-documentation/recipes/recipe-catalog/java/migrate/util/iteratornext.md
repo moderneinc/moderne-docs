@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `iterator().next()` with `getFirst()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/util/iteratornext"
 ---
 
 import Tabs from '@theme/Tabs';

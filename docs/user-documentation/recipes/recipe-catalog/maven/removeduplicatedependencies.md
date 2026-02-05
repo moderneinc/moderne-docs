@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove duplicate Maven dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/removeduplicatedependencies"
 ---
 
 import Tabs from '@theme/Tabs';

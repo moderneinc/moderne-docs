@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert v1 AmazonS3URI to v2 S3Uri"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/s3uritov2"
 ---
 
 import Tabs from '@theme/Tabs';

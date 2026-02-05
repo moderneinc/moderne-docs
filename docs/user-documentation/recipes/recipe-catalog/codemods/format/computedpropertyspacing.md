@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing inside computed property brackets"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/computedpropertyspacing"
 ---
 
 import Tabs from '@theme/Tabs';

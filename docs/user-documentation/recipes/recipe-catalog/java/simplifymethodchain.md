@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify a call chain"
-canonical_url: "https://docs.openrewrite.org/recipes/java/simplifymethodchain"
 ---
 
 import Tabs from '@theme/Tabs';

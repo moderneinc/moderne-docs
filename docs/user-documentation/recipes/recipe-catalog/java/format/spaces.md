@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Spaces"
-canonical_url: "https://docs.openrewrite.org/recipes/java/format/spaces"
 ---
 
 import Tabs from '@theme/Tabs';

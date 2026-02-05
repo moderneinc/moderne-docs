@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find within comments and literals"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findcomments"
 ---
 
 import Tabs from '@theme/Tabs';

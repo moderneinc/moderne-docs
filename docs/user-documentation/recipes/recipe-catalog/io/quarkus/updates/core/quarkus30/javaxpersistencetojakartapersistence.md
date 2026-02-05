@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.persistence` packages to `jakarta.persistence`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxpersistencetojakartapersistence"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify boolean return"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/simplifybooleanreturn"
 ---
 
 import Tabs from '@theme/Tabs';

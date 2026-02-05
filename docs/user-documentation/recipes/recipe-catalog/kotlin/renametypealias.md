@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename type alias"
-canonical_url: "https://docs.openrewrite.org/recipes/kotlin/renametypealias"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert switch expression yield to arrow"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/switchexpressionyieldtoarrow"
 ---
 
 import Tabs from '@theme/Tabs';

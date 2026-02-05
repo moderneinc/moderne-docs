@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer IsEmpty over Count"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharppreferisemptyovercountca1836"
 ---
 
 import Tabs from '@theme/Tabs';

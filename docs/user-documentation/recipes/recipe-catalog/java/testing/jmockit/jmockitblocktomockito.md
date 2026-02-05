@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rewrite JMockit Expectations, NonStrictExpectations, Verifications, VerificationsInOrder, FullVerifications"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/jmockit/jmockitblocktomockito"
 ---
 
 import Tabs from '@theme/Tabs';

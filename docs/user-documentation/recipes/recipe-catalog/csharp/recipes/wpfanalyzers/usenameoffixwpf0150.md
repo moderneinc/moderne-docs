@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use nameof() instead of literal"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usenameoffixwpf0150"
 ---
 
 import Tabs from '@theme/Tabs';

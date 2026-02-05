@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[ConstructorArgument] must match"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/constructorargumentattributeargumentfixwpf0082"
 ---
 
 import Tabs from '@theme/Tabs';

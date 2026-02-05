@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`ImmutableEnumSetRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutableenumsetrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

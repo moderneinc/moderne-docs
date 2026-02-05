@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate from Java Faker to Datafaker"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/datafaker/javafakertodatafaker"
 ---
 
 import Tabs from '@theme/Tabs';

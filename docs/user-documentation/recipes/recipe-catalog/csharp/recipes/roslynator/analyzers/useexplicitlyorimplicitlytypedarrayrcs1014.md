@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use explicitly/implicitly typed array"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/useexplicitlyorimplicitlytypedarrayrcs1014"
 ---
 
 import Tabs from '@theme/Tabs';

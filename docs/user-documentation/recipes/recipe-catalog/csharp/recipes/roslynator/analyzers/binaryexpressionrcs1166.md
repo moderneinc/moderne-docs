@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Value type object is never equal to null"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/binaryexpressionrcs1166"
 ---
 
 import Tabs from '@theme/Tabs';

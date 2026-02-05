@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow &quot;Yoda&quot; conditions"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/yoda"
 ---
 
 import Tabs from '@theme/Tabs';

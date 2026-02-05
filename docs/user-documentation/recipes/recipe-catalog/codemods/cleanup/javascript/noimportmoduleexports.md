@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Forbid import statements with CommonJS module.exports"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noimportmoduleexports"
 ---
 
 import Tabs from '@theme/Tabs';

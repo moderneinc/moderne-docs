@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce props alphabetical sorting"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxsortprops"
 ---
 
 import Tabs from '@theme/Tabs';

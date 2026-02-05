@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant explicit dependency and plugin versions"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/removeredundantdependencyversions"
 ---
 
 import Tabs from '@theme/Tabs';

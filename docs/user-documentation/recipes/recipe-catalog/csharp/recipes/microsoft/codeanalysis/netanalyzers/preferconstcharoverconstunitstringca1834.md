@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Consider using 'StringBuilder.Append(char)' when applicable"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/preferconstcharoverconstunitstringca1834"
 ---
 
 import Tabs from '@theme/Tabs';

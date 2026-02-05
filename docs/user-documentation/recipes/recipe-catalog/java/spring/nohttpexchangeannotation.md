@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `HttpExchange` annotations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/nohttpexchangeannotation"
 ---
 
 import Tabs from '@theme/Tabs';

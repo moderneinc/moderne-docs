@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Consider calling ConfigureAwait on the awaited task"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/donotdirectlyawaitataskca2007"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates base imports to use named exports"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/baseusenamedexports"
 ---
 
 import Tabs from '@theme/Tabs';

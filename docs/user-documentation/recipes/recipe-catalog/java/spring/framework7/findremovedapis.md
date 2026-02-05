@@ -29,7 +29,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Spring Framework 7.0](/user-documentation/recipes/recipe-catalog/java/spring/framework7/upgradespringframework_7_0.md)
+* [Migrate to Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/upgradespringframework_7_0)
 
 
 ## Usage

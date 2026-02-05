@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Coalesce YAML properties"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/coalesceproperties"
 ---
 
 import Tabs from '@theme/Tabs';

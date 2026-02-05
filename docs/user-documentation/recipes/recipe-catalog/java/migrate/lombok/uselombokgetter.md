@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert getter methods to annotations"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lombok/uselombokgetter"
 ---
 
 import Tabs from '@theme/Tabs';

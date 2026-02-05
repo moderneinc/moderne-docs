@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Implement IEquatable when overriding Object.Equals"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/equatableca1066"
 ---
 
 import Tabs from '@theme/Tabs';

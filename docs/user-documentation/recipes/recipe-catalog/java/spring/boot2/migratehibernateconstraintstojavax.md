@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `javax.validation.constraints`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migratehibernateconstraintstojavax"
 ---
 
 import Tabs from '@theme/Tabs';

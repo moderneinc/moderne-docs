@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate JUnit asserts to AssertJ"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/junittoassertj"
 ---
 
 import Tabs from '@theme/Tabs';

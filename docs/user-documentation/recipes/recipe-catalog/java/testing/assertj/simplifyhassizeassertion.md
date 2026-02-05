@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify AssertJ assertions with `hasSize` argument"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/simplifyhassizeassertion"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Fest 2.x to AssertJ"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/festtoassertj"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "XSLT transformation"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/xslttransformation"
 ---
 
 import Tabs from '@theme/Tabs';

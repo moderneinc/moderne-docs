@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing after the &lt;!-- and before the --&gt; in a HTML comment"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/spacedhtmlcomment"
 ---
 
 import Tabs from '@theme/Tabs';

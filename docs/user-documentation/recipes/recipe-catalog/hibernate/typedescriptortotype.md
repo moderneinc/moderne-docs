@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename `JavaTypeDescriptor` and `SqlTypeDescriptor` to `JavaType` and `SqlType` (Community Edition)"
-canonical_url: "https://docs.openrewrite.org/recipes/hibernate/typedescriptortotype"
 ---
 
 import Tabs from '@theme/Tabs';

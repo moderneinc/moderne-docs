@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer mock resolved/rejected shorthands for promises"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/prefermockpromiseshorthand"
 ---
 
 import Tabs from '@theme/Tabs';

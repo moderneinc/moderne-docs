@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Transform variadic `assumeNotNull(objects...)` to a stream of `assumeFalse(object == null)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/assumenotnulltoassumptionsrecipes$varargsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

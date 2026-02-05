@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `@SpringBootApplication` with Quarkus equivalent"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/replacespringbootapplication"
 ---
 
 import Tabs from '@theme/Tabs';

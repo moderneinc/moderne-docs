@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove &quot;use strict&quot; directives"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/ecmascript/5to6/nostrict"
 ---
 
 import Tabs from '@theme/Tabs';

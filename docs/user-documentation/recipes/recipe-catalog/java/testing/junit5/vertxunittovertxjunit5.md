@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Vert.x JUnit 5 Extension"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/vertxunittovertxjunit5"
 ---
 
 import Tabs from '@theme/Tabs';

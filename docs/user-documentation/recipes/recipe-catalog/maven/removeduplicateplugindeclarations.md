@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove duplicate plugin declarations"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/removeduplicateplugindeclarations"
 ---
 
 import Tabs from '@theme/Tabs';

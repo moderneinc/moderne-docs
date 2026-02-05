@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Default Servlet Handler for Spring Framework if empty"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/spring/framework/defaultservlethandler"
 ---
 
 import Tabs from '@theme/Tabs';

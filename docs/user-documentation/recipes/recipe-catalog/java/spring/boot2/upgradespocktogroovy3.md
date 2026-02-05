@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade Spock to a Groovy 3 compatible variant"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespocktogroovy3"
 ---
 
 import Tabs from '@theme/Tabs';

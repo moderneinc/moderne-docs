@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Expand Spring YAML properties"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/expandproperties"
 ---
 
 import Tabs from '@theme/Tabs';

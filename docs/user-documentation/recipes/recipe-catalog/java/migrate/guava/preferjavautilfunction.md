@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `java.util.function.Function`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/preferjavautilfunction"
 ---
 
 import Tabs from '@theme/Tabs';

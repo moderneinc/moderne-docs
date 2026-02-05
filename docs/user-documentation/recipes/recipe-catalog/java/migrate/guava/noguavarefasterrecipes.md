@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster style Guava to Java migration recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/noguavarefasterrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

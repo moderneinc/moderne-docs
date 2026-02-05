@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Complete migration to OpenTelemetry"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/opentelemetry/migratetoopentelemetry"
 ---
 
 import Tabs from '@theme/Tabs';

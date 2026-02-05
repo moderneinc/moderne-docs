@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing before or after unary operators"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/spaceunaryops"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Finalize method arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/finalizemethodarguments"
 ---
 
 import Tabs from '@theme/Tabs';

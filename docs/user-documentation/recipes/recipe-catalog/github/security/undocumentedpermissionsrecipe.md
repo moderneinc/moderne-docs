@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Document permissions usage"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/undocumentedpermissionsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Constructors of an `abstract` class should not be declared `public`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/abstractclasspublicconstructor"
 ---
 
 import Tabs from '@theme/Tabs';

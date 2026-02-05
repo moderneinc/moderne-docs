@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Transform AMP HOC into page config"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/nextjs/v8/withamptoconfig"
 ---
 
 import Tabs from '@theme/Tabs';

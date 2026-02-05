@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change S3 method constructors to fluent builder calls"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/s3methodsconstructortofluent"
 ---
 
 import Tabs from '@theme/Tabs';

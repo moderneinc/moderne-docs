@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.minio.minio38.UpdateAll"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/minio/minio38/updateall"
 ---
 
 import Tabs from '@theme/Tabs';

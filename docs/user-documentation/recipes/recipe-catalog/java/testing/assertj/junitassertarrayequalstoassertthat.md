@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit `assertArrayEquals` to assertJ"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/junitassertarrayequalstoassertthat"
 ---
 
 import Tabs from '@theme/Tabs';

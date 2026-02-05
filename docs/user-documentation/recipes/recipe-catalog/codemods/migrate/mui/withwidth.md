@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates withWidth higher-order component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/withwidth"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Camel YML DSL changes"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel47/yamldsl47recipe"
 ---
 
 import Tabs from '@theme/Tabs';

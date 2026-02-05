@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace String concatenation with `String.valueOf()`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replacestringconcatenationwithstringvalueof"
 ---
 
 import Tabs from '@theme/Tabs';

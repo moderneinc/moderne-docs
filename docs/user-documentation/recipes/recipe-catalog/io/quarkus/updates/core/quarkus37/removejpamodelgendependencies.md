@@ -1,6 +1,5 @@
 ---
 sidebar_label: "io.quarkus.updates.core.quarkus37.RemoveJpaModelgenDependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/removejpamodelgendependencies"
 ---
 
 import Tabs from '@theme/Tabs';

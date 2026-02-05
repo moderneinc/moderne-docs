@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find YAML entries"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/search/findkey"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,8 +32,8 @@ This recipe is used as part of the following composite recipes:
 
 * [Find GitLab Component](/user-documentation/recipes/recipe-catalog/gitlab/search/findcomponent.md)
 * [Find GitLab Template](/user-documentation/recipes/recipe-catalog/gitlab/search/findtemplate.md)
-* [Find pinned resources by type](/user-documentation/recipes/recipe-catalog/concourse/search/findpinnedresource.md)
-* [Find privileged `resource_type` definitions](/user-documentation/recipes/recipe-catalog/concourse/search/findprivilegedresourcetype.md)
+* [Find pinned resources by type](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/concourse/search/findpinnedresource)
+* [Find privileged `resource_type` definitions](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/concourse/search/findprivilegedresourcetype)
 
 ## Example
 

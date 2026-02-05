@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `actions/setup-python` with `astral-sh/setup-uv`"
-canonical_url: "https://docs.openrewrite.org/recipes/github/setuppythontouv"
 ---
 
 import Tabs from '@theme/Tabs';

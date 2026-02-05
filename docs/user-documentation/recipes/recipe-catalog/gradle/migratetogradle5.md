@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Gradle 5 from Gradle 4"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/migratetogradle5"
 ---
 
 import Tabs from '@theme/Tabs';

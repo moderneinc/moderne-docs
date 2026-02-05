@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Spring Data JPA 2.5"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/data/upgradespringdata_2_5"
 ---
 
 import Tabs from '@theme/Tabs';

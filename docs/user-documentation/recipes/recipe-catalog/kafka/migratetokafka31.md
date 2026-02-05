@@ -27,7 +27,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Kafka 3.2](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka32.md)
+* [Migrate to Kafka 3.2](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka32)
 
 
 ## Usage

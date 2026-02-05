@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`StreamRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/streamrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

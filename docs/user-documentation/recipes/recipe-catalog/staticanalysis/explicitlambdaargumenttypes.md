@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use explicit types on lambda arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/explicitlambdaargumenttypes"
 ---
 
 import Tabs from '@theme/Tabs';

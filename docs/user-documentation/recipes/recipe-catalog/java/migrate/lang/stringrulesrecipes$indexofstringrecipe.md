@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `String.indexOf(String, 0)` with `String.indexOf(String)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/stringrulesrecipes$indexofstringrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

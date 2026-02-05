@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `FileRules.PathOfUri`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/filerulesrecipes$pathofurirecipe"
 ---
 
 import Tabs from '@theme/Tabs';

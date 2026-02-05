@@ -1,6 +1,5 @@
 ---
 sidebar_label: "JUnit 4 MockitoJUnitRunner.Silent to JUnit Jupiter MockitoExtension with LENIENT settings"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/mockito/mockitojunitrunnersilenttoextension"
 ---
 
 import Tabs from '@theme/Tabs';

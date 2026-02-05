@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Task.ConfigureAwait"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/useconfigureawaitma0004"
 ---
 
 import Tabs from '@theme/Tabs';

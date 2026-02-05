@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove an integer feature flag for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/removeintegerflag"
 ---
 
 import Tabs from '@theme/Tabs';

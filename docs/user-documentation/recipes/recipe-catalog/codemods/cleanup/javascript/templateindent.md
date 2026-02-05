@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Fix whitespace-insensitive template indentation"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/templateindent"
 ---
 
 import Tabs from '@theme/Tabs';

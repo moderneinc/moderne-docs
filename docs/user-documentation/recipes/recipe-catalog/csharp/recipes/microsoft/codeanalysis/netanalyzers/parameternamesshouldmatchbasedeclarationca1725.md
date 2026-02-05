@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Parameter names should match base declaration"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/parameternamesshouldmatchbasedeclarationca1725"
 ---
 
 import Tabs from '@theme/Tabs';

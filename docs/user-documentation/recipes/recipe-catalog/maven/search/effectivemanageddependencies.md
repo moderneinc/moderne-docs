@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Effective managed dependencies"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/search/effectivemanageddependencies"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unsupported Vue.js syntax on the specified version"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/nounsupportedfeatures"
 ---
 
 import Tabs from '@theme/Tabs';

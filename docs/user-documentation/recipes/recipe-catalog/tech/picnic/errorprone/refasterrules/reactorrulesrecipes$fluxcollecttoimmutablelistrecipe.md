@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.FluxCollectToImmutableList`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxcollecttoimmutablelistrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

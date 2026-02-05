@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Annotate required method parameters with `@NonNull`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/annotaterequiredparameters"
 ---
 
 import Tabs from '@theme/Tabs';

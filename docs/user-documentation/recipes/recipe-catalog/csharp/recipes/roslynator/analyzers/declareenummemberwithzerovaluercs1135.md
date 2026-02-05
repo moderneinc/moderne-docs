@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Declare enum member with zero value (when enum has FlagsAttribute)"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/declareenummemberwithzerovaluercs1135"
 ---
 
 import Tabs from '@theme/Tabs';

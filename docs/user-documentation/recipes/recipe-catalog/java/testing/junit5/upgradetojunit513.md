@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade to JUnit 5.13"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/upgradetojunit513"
 ---
 
 import Tabs from '@theme/Tabs';

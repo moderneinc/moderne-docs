@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Set Maven project packaging"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/changepackaging"
 ---
 
 import Tabs from '@theme/Tabs';

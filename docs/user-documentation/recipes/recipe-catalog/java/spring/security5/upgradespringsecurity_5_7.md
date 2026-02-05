@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Spring Security 5.7"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/security5/upgradespringsecurity_5_7"
 ---
 
 import Tabs from '@theme/Tabs';

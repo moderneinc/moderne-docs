@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change XML tag name"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/changetagname"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,8 +33,8 @@ This recipe is used as part of the following composite recipes:
 
 * [Change dataformat fury to fury in xml/java dsl.](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel413/furydsl.md)
 * [Migrate JAXB-WS Plugin](/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratejaxbwsplugin.md)
-* [Migrate JSF variable-resolver to el-resolver](/user-documentation/recipes/recipe-catalog/java/spring/framework/jsf23/migratefacesconfig.md)
-* [Migrate RichFaces tags in `xhtml` files](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags.md)
+* [Migrate JSF variable-resolver to el-resolver](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/jsf23/migratefacesconfig)
+* [Migrate RichFaces tags in `xhtml` files](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags)
 * [Replace global method security with method security](/user-documentation/recipes/recipe-catalog/java/spring/security5/replaceglobalmethodsecuritywithmethodsecurityxml.md)
 * [Replace modules with subprojects](/user-documentation/recipes/recipe-catalog/maven/replacemoduleswithsubprojects.md)
 * [XML DSL bearer from rest/securityDefinitions is renamed to bearerToken](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel412/xmldslbearer.md)

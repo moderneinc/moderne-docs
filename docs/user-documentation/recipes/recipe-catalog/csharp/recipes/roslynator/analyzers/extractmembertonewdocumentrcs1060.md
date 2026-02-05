@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Declare each type in separate file"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/extractmembertonewdocumentrcs1060"
 ---
 
 import Tabs from '@theme/Tabs';

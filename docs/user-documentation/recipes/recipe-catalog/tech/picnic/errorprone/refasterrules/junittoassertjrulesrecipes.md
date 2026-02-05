@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster rules to replace JUnit assertions with AssertJ equivalents"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

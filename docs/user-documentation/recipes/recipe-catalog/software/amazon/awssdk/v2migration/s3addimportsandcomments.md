@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add imports and comments to unsupported S3 transforms."
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/s3addimportsandcomments"
 ---
 
 import Tabs from '@theme/Tabs';

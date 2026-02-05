@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use coalesce expression instead of conditional expression"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/conditionalexpressionrcs1084"
 ---
 
 import Tabs from '@theme/Tabs';

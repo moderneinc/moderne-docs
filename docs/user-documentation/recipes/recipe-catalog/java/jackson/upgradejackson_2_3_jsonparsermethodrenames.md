@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename Jackson 2.x methods to 3.x equivalents for JsonParser"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/upgradejackson_2_3_jsonparsermethodrenames"
 ---
 
 import Tabs from '@theme/Tabs';

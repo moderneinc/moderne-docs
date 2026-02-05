@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Keywords should be spaced correctly"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/tokenspacingsa1000"
 ---
 
 import Tabs from '@theme/Tabs';

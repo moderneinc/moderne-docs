@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce a specific function type for function components"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/functioncomponentdefinition"
 ---
 
 import Tabs from '@theme/Tabs';

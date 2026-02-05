@@ -32,16 +32,16 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Ensure image pull policy is `Always`](/user-documentation/recipes/recipe-catalog/kubernetes/imagepullpolicyalways.md)
-* [Ensure lifecycle rule on `StorageBucket`](/user-documentation/recipes/recipe-catalog/kubernetes/lifecycleruleonstoragebucket.md)
-* [Limit root capabilities in a container](/user-documentation/recipes/recipe-catalog/kubernetes/limitcontainercapabilities.md)
-* [No host IPC sharing](/user-documentation/recipes/recipe-catalog/kubernetes/nohostipcsharing.md)
-* [No host network sharing](/user-documentation/recipes/recipe-catalog/kubernetes/nohostnetworksharing.md)
-* [No host process ID sharing](/user-documentation/recipes/recipe-catalog/kubernetes/nohostprocessidsharing.md)
-* [No privilege escalation](/user-documentation/recipes/recipe-catalog/kubernetes/noprivilegeescalation.md)
-* [No privileged containers](/user-documentation/recipes/recipe-catalog/kubernetes/noprivilegedcontainers.md)
-* [No root containers](/user-documentation/recipes/recipe-catalog/kubernetes/norootcontainers.md)
-* [Read-only root filesystem](/user-documentation/recipes/recipe-catalog/kubernetes/readonlyrootfilesystem.md)
+* [Ensure image pull policy is `Always`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/imagepullpolicyalways)
+* [Ensure lifecycle rule on `StorageBucket`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/lifecycleruleonstoragebucket)
+* [Limit root capabilities in a container](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/limitcontainercapabilities)
+* [No host IPC sharing](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/nohostipcsharing)
+* [No host network sharing](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/nohostnetworksharing)
+* [No host process ID sharing](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/nohostprocessidsharing)
+* [No privilege escalation](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/noprivilegeescalation)
+* [No privileged containers](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/noprivilegedcontainers)
+* [No root containers](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/norootcontainers)
+* [Read-only root filesystem](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/readonlyrootfilesystem)
 
 ## Example
 

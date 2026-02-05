@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Dropwizard to Spring Boot"
-canonical_url: "https://docs.openrewrite.org/recipes/java/dropwizard/migratedropwizardtospringboot"
 ---
 
 import Tabs from '@theme/Tabs';

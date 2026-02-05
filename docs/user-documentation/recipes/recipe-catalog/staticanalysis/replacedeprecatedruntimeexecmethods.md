@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated `Runtime#exec()` methods"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replacedeprecatedruntimeexecmethods"
 ---
 
 import Tabs from '@theme/Tabs';

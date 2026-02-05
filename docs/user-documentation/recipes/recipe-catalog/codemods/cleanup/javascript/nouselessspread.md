@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unnecessary spread"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nouselessspread"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StringRules.SubstringRemainder`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/stringrulesrecipes$substringremainderrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

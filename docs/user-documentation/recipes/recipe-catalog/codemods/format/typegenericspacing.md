@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforces consistent spacing inside TypeScript type generics"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/typegenericspacing"
 ---
 
 import Tabs from '@theme/Tabs';

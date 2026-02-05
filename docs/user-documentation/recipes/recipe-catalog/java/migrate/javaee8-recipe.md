@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to JavaEE8"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javaee8-recipe"
 ---
 
 import Tabs from '@theme/Tabs';

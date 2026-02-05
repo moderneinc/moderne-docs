@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Maven dependency example"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel413/furydependency"
 ---
 
 import Tabs from '@theme/Tabs';

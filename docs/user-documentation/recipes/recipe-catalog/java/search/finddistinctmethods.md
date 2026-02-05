@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find distinct methods in use"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/finddistinctmethods"
 ---
 
 import Tabs from '@theme/Tabs';

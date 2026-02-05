@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Camel Resequence DSL changes"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel43/camelresequenceeipxmlrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

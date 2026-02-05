@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Catch `TypeNotPresentException` thrown by `Class.getAnnotation()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/arraystoreexceptiontotypenotpresentexception"
 ---
 
 import Tabs from '@theme/Tabs';

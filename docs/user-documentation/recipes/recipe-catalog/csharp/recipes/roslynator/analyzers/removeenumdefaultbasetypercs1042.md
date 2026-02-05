@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove enum default underlying type"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeenumdefaultbasetypercs1042"
 ---
 
 import Tabs from '@theme/Tabs';

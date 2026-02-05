@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Implement standard exception constructors"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/implementstandardexceptionconstructorsca1032"
 ---
 
 import Tabs from '@theme/Tabs';

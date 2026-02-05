@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add AWS SDK for Java v2 S3 Event Notification dependency if needed"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/adds3eventnotificationdependency"
 ---
 
 import Tabs from '@theme/Tabs';

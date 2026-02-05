@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify unnecessary `MediaType.parseMediaType()` and `MediaType.valueOf()` calls"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/http/simplifymediatypeparsecalls"
 ---
 
 import Tabs from '@theme/Tabs';

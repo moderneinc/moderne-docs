@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Inline `guava` methods annotated with `@InlineMe`"
-canonical_url: "https://docs.openrewrite.org/recipes/com/google/guava/inlineguavamethods"
 ---
 
 import Tabs from '@theme/Tabs';

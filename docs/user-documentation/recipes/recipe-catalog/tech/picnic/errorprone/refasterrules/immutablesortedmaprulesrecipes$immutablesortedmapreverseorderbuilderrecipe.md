@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ImmutableSortedMapRules.ImmutableSortedMapReverseOrderBuilder`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$immutablesortedmapreverseorderbuilderrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

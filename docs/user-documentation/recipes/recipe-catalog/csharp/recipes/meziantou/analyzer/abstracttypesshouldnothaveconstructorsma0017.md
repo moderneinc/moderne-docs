@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Abstract types should not have public or internal constructors"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/abstracttypesshouldnothaveconstructorsma0017"
 ---
 
 import Tabs from '@theme/Tabs';

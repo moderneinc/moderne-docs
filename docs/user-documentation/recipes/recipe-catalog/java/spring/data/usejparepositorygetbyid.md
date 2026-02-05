@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `JpaRepository#getById(ID id)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/data/usejparepositorygetbyid"
 ---
 
 import Tabs from '@theme/Tabs';

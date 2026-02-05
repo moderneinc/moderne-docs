@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove original exception from throw statement"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeoriginalexceptionrcs1044"
 ---
 
 import Tabs from '@theme/Tabs';

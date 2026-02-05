@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove duplicates uses of @TestTemplate implementations for a single method"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/removeduplicatetesttemplates"
 ---
 
 import Tabs from '@theme/Tabs';

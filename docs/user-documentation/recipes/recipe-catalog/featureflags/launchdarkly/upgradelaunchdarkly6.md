@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to LaunchDarkly 6.x"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/launchdarkly/upgradelaunchdarkly6"
 ---
 
 import Tabs from '@theme/Tabs';

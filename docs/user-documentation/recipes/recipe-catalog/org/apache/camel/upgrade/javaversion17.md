@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change Maven Java version property values to 17"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/javaversion17"
 ---
 
 import Tabs from '@theme/Tabs';

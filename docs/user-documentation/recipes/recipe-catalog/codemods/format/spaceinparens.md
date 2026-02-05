@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent spacing inside parentheses"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/spaceinparens"
 ---
 
 import Tabs from '@theme/Tabs';

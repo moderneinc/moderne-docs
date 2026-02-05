@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unnecessary fragments"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/jsxnouselessfragment"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rename Maven property key"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/renamepropertykey"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,7 +33,7 @@ This recipe is used as part of the following composite recipes:
 
 * [Drop prefixless expressions in POM](/user-documentation/recipes/recipe-catalog/maven/cleanup/prefixlessexpressions.md)
 * [Migrate from OptaPlanner to Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fromoptaplannertotimefoldsolver.md)
-* [Migrate to Spring Boot 4.0 (Moderne Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
+* [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 * [Replace removed root directory properties](/user-documentation/recipes/recipe-catalog/maven/replaceremovedrootdirectoryproperties.md)
 
 ## Example

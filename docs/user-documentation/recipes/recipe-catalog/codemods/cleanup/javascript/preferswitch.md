@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `switch` over multiple `else-if`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferswitch"
 ---
 
 import Tabs from '@theme/Tabs';

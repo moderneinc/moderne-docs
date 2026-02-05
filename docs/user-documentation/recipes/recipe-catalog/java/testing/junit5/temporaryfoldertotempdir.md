@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use JUnit Jupiter `@TempDir`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/junit5/temporaryfoldertotempdir"
 ---
 
 import Tabs from '@theme/Tabs';

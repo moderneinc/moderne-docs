@@ -1,6 +1,5 @@
 ---
 sidebar_label: "MBean and MXBean interfaces must be public"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/mxbeanrule"
 ---
 
 import Tabs from '@theme/Tabs';

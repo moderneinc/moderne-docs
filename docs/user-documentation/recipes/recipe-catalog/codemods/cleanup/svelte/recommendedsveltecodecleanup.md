@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Recommended svelte code cleanup"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/svelte/recommendedsveltecodecleanup"
 ---
 
 import Tabs from '@theme/Tabs';

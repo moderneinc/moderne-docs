@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `application-client.xml` files to WebLogic 15.1.1"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogicapplicationclientxmlnamespace1511"
 ---
 
 import Tabs from '@theme/Tabs';

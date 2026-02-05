@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate flyway and liquibase credentials"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migratedatabasecredentials"
 ---
 
 import Tabs from '@theme/Tabs';

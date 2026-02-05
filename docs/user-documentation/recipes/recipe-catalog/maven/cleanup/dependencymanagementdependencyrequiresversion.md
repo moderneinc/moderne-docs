@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Dependency management dependencies should have a version"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/cleanup/dependencymanagementdependencyrequiresversion"
 ---
 
 import Tabs from '@theme/Tabs';

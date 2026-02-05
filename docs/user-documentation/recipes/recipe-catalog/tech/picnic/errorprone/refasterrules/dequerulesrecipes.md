@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`DequeRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/dequerulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

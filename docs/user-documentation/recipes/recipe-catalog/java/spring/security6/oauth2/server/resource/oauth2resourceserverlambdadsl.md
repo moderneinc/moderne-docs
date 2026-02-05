@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert `OAuth2ResourceServerConfigurer` chained calls into Lambda DSL"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/security6/oauth2/server/resource/oauth2resourceserverlambdadsl"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`ClassRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/classrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove braces from if-else"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removebracesfromifelsercs1004"
 ---
 
 import Tabs from '@theme/Tabs';

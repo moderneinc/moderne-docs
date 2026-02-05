@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace 'camel.main.routeController' with `camel.routecontroller'"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel44/routecontrollerproperties"
 ---
 
 import Tabs from '@theme/Tabs';

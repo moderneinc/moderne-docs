@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade jenkins java version"
-canonical_url: "https://docs.openrewrite.org/recipes/jenkins/upgradejavaversion"
 ---
 
 import Tabs from '@theme/Tabs';

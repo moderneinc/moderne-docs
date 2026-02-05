@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add imports and comments to unsupported S3 transfer manager transforms."
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/s3tmaddcomments"
 ---
 
 import Tabs from '@theme/Tabs';

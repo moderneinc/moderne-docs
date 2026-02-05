@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow or enforce spaces inside of blocks after opening block and before closing block in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/blockspacing"
 ---
 
 import Tabs from '@theme/Tabs';

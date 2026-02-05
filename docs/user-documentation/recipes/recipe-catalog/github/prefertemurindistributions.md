@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `actions/setup-java` `temurin` distribution as they are cached in hosted runners"
-canonical_url: "https://docs.openrewrite.org/recipes/github/prefertemurindistributions"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use span-based 'string.Concat'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/csharpusespanbasedstringconcatca1845"
 ---
 
 import Tabs from '@theme/Tabs';

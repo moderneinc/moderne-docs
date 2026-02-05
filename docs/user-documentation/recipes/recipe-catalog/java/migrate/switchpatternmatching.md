@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt switch pattern matching (JEP 441)"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/switchpatternmatching"
 ---
 
 import Tabs from '@theme/Tabs';

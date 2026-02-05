@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace deprecated `fs.Stats` constructor with object literal"
-canonical_url: "https://docs.openrewrite.org/recipes/node/migrate/fs/replace-stats-constructor"
 ---
 
 import Tabs from '@theme/Tabs';

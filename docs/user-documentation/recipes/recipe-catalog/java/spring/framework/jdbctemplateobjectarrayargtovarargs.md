@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use varargs equivalents for deprecated JdbcTemplate signatures"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/jdbctemplateobjectarrayargtovarargs"
 ---
 
 import Tabs from '@theme/Tabs';

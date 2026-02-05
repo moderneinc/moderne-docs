@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update configuration of serialization inclusion in ObjectMapper for Jackson 3"
-canonical_url: "https://docs.openrewrite.org/recipes/java/jackson/updateserializationinclusionconfiguration"
 ---
 
 import Tabs from '@theme/Tabs';

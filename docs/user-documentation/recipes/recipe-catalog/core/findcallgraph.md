@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find call graph"
-canonical_url: "https://docs.openrewrite.org/recipes/core/findcallgraph"
 ---
 
 import Tabs from '@theme/Tabs';

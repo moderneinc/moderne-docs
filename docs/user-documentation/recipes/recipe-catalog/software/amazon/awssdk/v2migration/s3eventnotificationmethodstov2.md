@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change S3EventNotification methods to v2."
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/s3eventnotificationmethodstov2"
 ---
 
 import Tabs from '@theme/Tabs';

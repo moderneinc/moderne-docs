@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert SdkBytes to ByteBuffer"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/sdkbytestobytebuffer"
 ---
 
 import Tabs from '@theme/Tabs';

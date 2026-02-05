@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Report as security issues"
-canonical_url: "https://docs.openrewrite.org/recipes/devcenter/reportassecurityissues"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,7 +32,7 @@ This recipe is used as part of the following composite recipes:
 
 * [Apache Maven best practices](/user-documentation/recipes/recipe-catalog/devcenter/apachemavenbestpractices.md)
 * [OWASP top ten](/user-documentation/recipes/recipe-catalog/devcenter/securitystarter.md)
-* [Post quantum cryptography](/user-documentation/recipes/recipe-catalog/cryptography/postquantumcryptography.md)
+* [Post quantum cryptography](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/cryptography/postquantumcryptography)
 
 
 ## Usage

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate Lombok to a Java 11 compatible version"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lombok/updatelomboktojava11"
 ---
 
 import Tabs from '@theme/Tabs';

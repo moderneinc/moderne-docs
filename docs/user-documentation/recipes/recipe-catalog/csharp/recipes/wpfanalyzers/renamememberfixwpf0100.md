@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Backing field for a RoutedEvent should match registered name"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/renamememberfixwpf0100"
 ---
 
 import Tabs from '@theme/Tabs';

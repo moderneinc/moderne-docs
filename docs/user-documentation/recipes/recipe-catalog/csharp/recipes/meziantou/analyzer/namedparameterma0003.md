@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add parameter name to improve readability"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/namedparameterma0003"
 ---
 
 import Tabs from '@theme/Tabs';

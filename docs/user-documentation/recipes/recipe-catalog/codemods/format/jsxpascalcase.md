@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce PascalCase for user-defined JSX components"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/jsxpascalcase"
 ---
 
 import Tabs from '@theme/Tabs';

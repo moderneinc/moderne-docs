@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Kotlin test methods should have return type `Unit`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/cleanup/kotlintestmethodsshouldreturnunit"
 ---
 
 import Tabs from '@theme/Tabs';

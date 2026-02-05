@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Integer#remainderUnsigned`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/guava/preferintegerremainderunsigned"
 ---
 
 import Tabs from '@theme/Tabs';

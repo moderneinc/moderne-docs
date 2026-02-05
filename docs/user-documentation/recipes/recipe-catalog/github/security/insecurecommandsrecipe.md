@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find insecure commands configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/github/security/insecurecommandsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

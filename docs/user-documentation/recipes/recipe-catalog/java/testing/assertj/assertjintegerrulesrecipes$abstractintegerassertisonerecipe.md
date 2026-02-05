@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `isEqualTo(1)` with `isOne()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/assertjintegerrulesrecipes$abstractintegerassertisonerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

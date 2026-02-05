@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Move a file"
-canonical_url: "https://docs.openrewrite.org/recipes/core/movefile"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add a new property"
-canonical_url: "https://docs.openrewrite.org/recipes/properties/addproperty"
 ---
 
 import Tabs from '@theme/Tabs';

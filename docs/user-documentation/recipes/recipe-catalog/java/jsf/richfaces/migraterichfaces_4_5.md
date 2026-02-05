@@ -28,7 +28,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to JSF 2.3](/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md)
+* [Migrate to JSF 2.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3)
 
 ## Examples
 ##### Example 1

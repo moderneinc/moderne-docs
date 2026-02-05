@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow unnecessary labels"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noextralabel"
 ---
 
 import Tabs from '@theme/Tabs';

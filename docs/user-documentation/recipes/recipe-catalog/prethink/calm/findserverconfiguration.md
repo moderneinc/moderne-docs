@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find server configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/calm/findserverconfiguration"
 ---
 
 import Tabs from '@theme/Tabs';

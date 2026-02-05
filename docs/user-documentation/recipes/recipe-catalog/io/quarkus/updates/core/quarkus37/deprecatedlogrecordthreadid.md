@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt `setLongThreadID` in `java.util.logging.LogRecord`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus37/deprecatedlogrecordthreadid"
 ---
 
 import Tabs from '@theme/Tabs';

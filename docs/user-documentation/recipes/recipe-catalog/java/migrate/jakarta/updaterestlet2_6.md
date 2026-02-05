@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update RestLet to 2.6.0"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/updaterestlet2_6"
 ---
 
 import Tabs from '@theme/Tabs';

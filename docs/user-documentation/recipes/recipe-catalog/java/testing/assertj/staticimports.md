@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Statically import AssertJ's `assertThat`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/staticimports"
 ---
 
 import Tabs from '@theme/Tabs';

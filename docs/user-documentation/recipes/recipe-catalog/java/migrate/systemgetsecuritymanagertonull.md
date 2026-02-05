@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `System.getSecurityManager()` with `null`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/systemgetsecuritymanagertonull"
 ---
 
 import Tabs from '@theme/Tabs';

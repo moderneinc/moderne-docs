@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find and replace"
-canonical_url: "https://docs.openrewrite.org/recipes/text/findandreplace"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -42,12 +41,12 @@ This recipe is used as part of the following composite recipes:
 * [Faces XHTML migration for Jakarta EE 9](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/jakartafaces3xhtml.md)
 * [Faces XHTML migration for Jakarta EE 9](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartafacesxhtmlee9.md)
 * [Migrate JSF values inside EcmaScript files](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartafacesecmascript.md)
-* [Migrate JSF variable-resolver to el-resolver](/user-documentation/recipes/recipe-catalog/java/spring/framework/jsf23/migratefacesconfig.md)
-* [Migrate RichFaces tags in `xhtml` files](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags.md)
+* [Migrate JSF variable-resolver to el-resolver](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/jsf23/migratefacesconfig)
+* [Migrate RichFaces tags in `xhtml` files](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags)
 * [Migrate deprecated `javax.validation` packages to `jakarta.validation`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxvalidationmigrationtojakartavalidation.md)
 * [Migrate javax.jms to jakarta.jms on MDB](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/javaxjmstojakartajmsonmdb.md)
-* [Migrate to JSF 2.3](/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md)
-* [Migrate to Spring Boot 4.0 (Moderne Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
+* [Migrate to JSF 2.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3)
+* [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 * [Migrate xmlns entries and javax. packages in `ejb-jar.xml` files](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxejbjarxmltojakartaejbjarxml.md)
 * [Migrate xmlns entries and javax. packages in `validation.xml` files](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxbeanvalidationxmltojakartabeanvalidationxml.md)
 * [Migrate xmlns entries in `**/validation/*.xml` files.](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/javaxvalidationmappingxmlstojakarta9validationmappingxmls.md)

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use modernized `javax.xml.stream` APIs"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/javaxxmlstreamapis"
 ---
 
 import Tabs from '@theme/Tabs';

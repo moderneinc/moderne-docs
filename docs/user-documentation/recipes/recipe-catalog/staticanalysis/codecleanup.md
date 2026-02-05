@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Code cleanup"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/codecleanup"
 ---
 
 import Tabs from '@theme/Tabs';

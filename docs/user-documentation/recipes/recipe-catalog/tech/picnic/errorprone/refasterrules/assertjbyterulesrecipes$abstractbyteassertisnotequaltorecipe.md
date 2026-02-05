@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJByteRules.AbstractByteAssertIsNotEqualTo`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisnotequaltorecipe"
 ---
 
 import Tabs from '@theme/Tabs';

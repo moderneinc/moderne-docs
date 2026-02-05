@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add explicit import for `Record` classes"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/explicitrecordimport"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find fields"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findfields"
 ---
 
 import Tabs from '@theme/Tabs';

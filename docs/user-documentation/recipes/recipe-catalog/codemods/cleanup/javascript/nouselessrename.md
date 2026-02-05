@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow renaming import, export, and destructured assignments to the same name"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/nouselessrename"
 ---
 
 import Tabs from '@theme/Tabs';

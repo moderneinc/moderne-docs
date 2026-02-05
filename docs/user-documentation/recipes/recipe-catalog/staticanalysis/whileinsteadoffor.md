@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `while` over `for` loops"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/whileinsteadoffor"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Print Maven dependency hierarchy in DOT format"
-canonical_url: "https://docs.openrewrite.org/recipes/maven/utilities/printmavenasdot"
 ---
 
 import Tabs from '@theme/Tabs';

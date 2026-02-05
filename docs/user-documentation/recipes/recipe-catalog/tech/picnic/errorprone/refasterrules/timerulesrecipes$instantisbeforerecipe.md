@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `TimeRules.InstantIsBefore`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/timerulesrecipes$instantisbeforerecipe"
 ---
 
 import Tabs from '@theme/Tabs';

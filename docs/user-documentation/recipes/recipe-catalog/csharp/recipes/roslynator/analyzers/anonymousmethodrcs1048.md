@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use lambda expression instead of anonymous method"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/anonymousmethodrcs1048"
 ---
 
 import Tabs from '@theme/Tabs';

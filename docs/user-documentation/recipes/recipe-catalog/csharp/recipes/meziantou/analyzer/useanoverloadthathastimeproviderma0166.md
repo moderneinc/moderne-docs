@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Forward the TimeProvider to methods that take one"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/useanoverloadthathastimeproviderma0166"
 ---
 
 import Tabs from '@theme/Tabs';

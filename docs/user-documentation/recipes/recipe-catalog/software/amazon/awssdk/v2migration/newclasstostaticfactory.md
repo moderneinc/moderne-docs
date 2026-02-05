@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Transform 'new' expressions to static factory methods"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/newclasstostaticfactory"
 ---
 
 import Tabs from '@theme/Tabs';

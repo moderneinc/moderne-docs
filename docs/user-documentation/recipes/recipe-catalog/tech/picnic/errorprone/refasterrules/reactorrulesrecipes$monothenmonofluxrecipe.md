@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.MonoThenMonoFlux`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monothenmonofluxrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

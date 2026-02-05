@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `EqualityRules.EnumReferenceEqualityLambda`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/equalityrulesrecipes$enumreferenceequalitylambdarecipe"
 ---
 
 import Tabs from '@theme/Tabs';

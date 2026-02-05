@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`ApacheCommonsFileUtils` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/commons/io/apachecommonsfileutilsrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

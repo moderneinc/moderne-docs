@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update properties and yaml configurations file because of Http management vs business separation"
-canonical_url: "https://docs.openrewrite.org/recipes/org/apache/camel/upgrade/camel414/httpbusinessvsmanagementservicesseparationproperties"
 ---
 
 import Tabs from '@theme/Tabs';

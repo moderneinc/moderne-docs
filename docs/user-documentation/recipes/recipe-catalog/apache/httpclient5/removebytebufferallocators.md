@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove ByteBufferAllocator implementations"
-canonical_url: "https://docs.openrewrite.org/recipes/apache/httpclient5/removebytebufferallocators"
 ---
 
 import Tabs from '@theme/Tabs';

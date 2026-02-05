@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate `@RequestMapping` on `FeignClient` to `@FeignClient` path attribute"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/cloud2022/migraterequestmappingonfeignclient"
 ---
 
 import Tabs from '@theme/Tabs';

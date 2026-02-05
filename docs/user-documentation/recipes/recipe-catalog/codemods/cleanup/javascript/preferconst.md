@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require const declarations for variables that are never reassigned after declared"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferconst"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow spacing around embedded expressions of template strings in `&lt;template&gt;`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/templatecurlyspacing"
 ---
 
 import Tabs from '@theme/Tabs';

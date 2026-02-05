@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate to Struts 6.0 constants"
-canonical_url: "https://docs.openrewrite.org/recipes/java/struts/migrate6/migratestruts6constants"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate deprecated `javax.activation` packages to `jakarta.activation`"
-canonical_url: "https://docs.openrewrite.org/recipes/io/quarkus/updates/core/quarkus30/javaxactivationmigrationtojakartaactivation"
 ---
 
 import Tabs from '@theme/Tabs';

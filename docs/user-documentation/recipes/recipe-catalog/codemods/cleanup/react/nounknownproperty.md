@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow usage of unknown DOM property"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/nounknownproperty"
 ---
 
 import Tabs from '@theme/Tabs';

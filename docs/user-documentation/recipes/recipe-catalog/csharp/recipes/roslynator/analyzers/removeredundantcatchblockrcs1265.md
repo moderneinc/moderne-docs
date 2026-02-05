@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant catch block"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeredundantcatchblockrcs1265"
 ---
 
 import Tabs from '@theme/Tabs';

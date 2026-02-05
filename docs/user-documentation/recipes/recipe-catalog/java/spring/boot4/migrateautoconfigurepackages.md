@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate packages to modular starters"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot4/migrateautoconfigurepackages"
 ---
 
 import Tabs from '@theme/Tabs';

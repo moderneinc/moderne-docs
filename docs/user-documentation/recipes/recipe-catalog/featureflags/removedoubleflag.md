@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove a double feature flag for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/removedoubleflag"
 ---
 
 import Tabs from '@theme/Tabs';

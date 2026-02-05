@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Extract coding conventions"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/extractcodingconventions"
 ---
 
 import Tabs from '@theme/Tabs';

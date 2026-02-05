@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use 'Environment.CurrentManagedThreadId'"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/microsoft/codeanalysis/netanalyzers/useenvironmentmembersca1840"
 ---
 
 import Tabs from '@theme/Tabs';

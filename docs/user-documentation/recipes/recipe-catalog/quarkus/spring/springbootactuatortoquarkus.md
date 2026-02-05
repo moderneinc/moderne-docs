@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring Boot Actuator with Quarkus SmallRye Health"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbootactuatortoquarkus"
 ---
 
 import Tabs from '@theme/Tabs';

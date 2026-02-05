@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Spring `@ConfigurationProperties`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/search/findconfigurationproperties"
 ---
 
 import Tabs from '@theme/Tabs';

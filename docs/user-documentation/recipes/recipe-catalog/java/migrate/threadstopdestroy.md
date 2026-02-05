@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove `Thread.destroy()` and `Thread.stop(Throwable)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/threadstopdestroy"
 ---
 
 import Tabs from '@theme/Tabs';

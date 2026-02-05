@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use compound assignment"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/usecompoundassignmentrcs1058"
 ---
 
 import Tabs from '@theme/Tabs';

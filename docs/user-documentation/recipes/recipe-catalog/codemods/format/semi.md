@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require or disallow semicolons instead of ASI"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/semi"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove trailing whitespace"
-canonical_url: "https://docs.openrewrite.org/recipes/java/format/removetrailingwhitespace"
 ---
 
 import Tabs from '@theme/Tabs';

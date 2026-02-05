@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove Security AccessController"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/accesscontroller"
 ---
 
 import Tabs from '@theme/Tabs';

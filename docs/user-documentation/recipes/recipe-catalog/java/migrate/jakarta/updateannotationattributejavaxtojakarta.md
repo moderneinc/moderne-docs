@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update annotation attributes using `javax` to `jakarta`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/jakarta/updateannotationattributejavaxtojakarta"
 ---
 
 import Tabs from '@theme/Tabs';

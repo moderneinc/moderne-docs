@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsCloseToWithOffset`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisclosetowithoffsetrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

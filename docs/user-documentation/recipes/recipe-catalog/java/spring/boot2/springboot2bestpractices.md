@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Spring Boot 2.x best practices"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/springboot2bestpractices"
 ---
 
 import Tabs from '@theme/Tabs';

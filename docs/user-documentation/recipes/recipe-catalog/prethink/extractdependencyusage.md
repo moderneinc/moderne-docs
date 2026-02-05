@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Extract dependency usage patterns"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/extractdependencyusage"
 ---
 
 import Tabs from '@theme/Tabs';

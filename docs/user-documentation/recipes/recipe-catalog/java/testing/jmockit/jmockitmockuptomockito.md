@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Rewrite JMockit MockUp to Mockito statements"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/jmockit/jmockitmockuptomockito"
 ---
 
 import Tabs from '@theme/Tabs';

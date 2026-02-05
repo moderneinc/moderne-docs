@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Adopt AssertJ Double Assertions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/assertj/assertjdoublerulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

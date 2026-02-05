@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find GitLab Template"
-canonical_url: "https://docs.openrewrite.org/recipes/gitlab/search/findtemplate"
 ---
 
 import Tabs from '@theme/Tabs';

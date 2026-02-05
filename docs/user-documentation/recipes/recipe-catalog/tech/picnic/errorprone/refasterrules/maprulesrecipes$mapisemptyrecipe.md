@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MapRules.MapIsEmpty`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/maprulesrecipes$mapisemptyrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

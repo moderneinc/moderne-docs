@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `finalize` method in `java.util.zip.ZipFile`, `java.util.zip.Inflater` and `java.util.zip.Deflater`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/removedzipfinalizemethods"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "StringComparison is missing"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usestringcomparisonma0001"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert `new URL(String, ..)` to `new URI(String, ..).toURL()`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/net/urlconstructorstonewuri"
 ---
 
 import Tabs from '@theme/Tabs';

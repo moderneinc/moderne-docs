@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce the use of `new` for all builtins, except `String`, `Number`, `Boolean`, `Symbol`, and `BigInt`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/newforbuiltins"
 ---
 
 import Tabs from '@theme/Tabs';

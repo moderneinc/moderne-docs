@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace JUL `Logger.log(Level.CONFIG, String)` with `Logger.config(String)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/jul/loggerlevelargumenttomethodrecipes$loglevelconfigtomethodrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Forbid repeated import of the same module in multiple places"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noduplicates"
 ---
 
 import Tabs from '@theme/Tabs';

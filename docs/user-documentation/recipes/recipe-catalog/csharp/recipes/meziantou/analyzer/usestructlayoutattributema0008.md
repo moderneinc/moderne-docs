@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add StructLayoutAttribute"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/usestructlayoutattributema0008"
 ---
 
 import Tabs from '@theme/Tabs';

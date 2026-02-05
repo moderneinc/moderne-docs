@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Mitigate Unaffected Non-EE Jakarta 9 Packages"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/mitigateunaffectednoneejakarta9packages"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find YAML properties"
-canonical_url: "https://docs.openrewrite.org/recipes/yaml/search/findproperty"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,7 +32,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Find AI models in use](/user-documentation/recipes/recipe-catalog/ai/findmodelsinuse.md)
+* [Find AI models in use](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/ai/findmodelsinuse)
 
 ## Example
 

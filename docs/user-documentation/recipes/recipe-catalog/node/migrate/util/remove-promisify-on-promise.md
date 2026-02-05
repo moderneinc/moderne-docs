@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove unnecessary `util.promisify()` on Promise-returning functions"
-canonical_url: "https://docs.openrewrite.org/recipes/node/migrate/util/remove-promisify-on-promise"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Spring components"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/search/findspringcomponents"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace `LocalEventLoopGroup` with `MultiThreadIoEventLoopGroup`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/netty/eventloopgrouptomultithreadioeventloopgrouprecipes$localeventloopgroupfactoryrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

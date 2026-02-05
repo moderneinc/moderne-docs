@@ -1,6 +1,5 @@
 ---
 sidebar_label: "A collection of `String` rules"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/lang/stringrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

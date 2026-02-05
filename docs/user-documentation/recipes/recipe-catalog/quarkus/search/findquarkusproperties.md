@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Quarkus property"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/search/findquarkusproperties"
 ---
 
 import Tabs from '@theme/Tabs';

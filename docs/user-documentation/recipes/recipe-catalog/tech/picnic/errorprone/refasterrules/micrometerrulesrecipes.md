@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`MicrometerRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/micrometerrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

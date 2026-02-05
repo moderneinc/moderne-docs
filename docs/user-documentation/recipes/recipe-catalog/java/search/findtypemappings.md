@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find type mappings"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findtypemappings"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Move HTTP settings from the ClientOverrideConfiguration to ApacheHttpClient for sync and NettyNioAsyncHttpClient for async"
-canonical_url: "https://docs.openrewrite.org/recipes/software/amazon/awssdk/v2migration/httpsettingstohttpclient"
 ---
 
 import Tabs from '@theme/Tabs';

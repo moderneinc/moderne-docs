@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require `let` or `const` instead of `var`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/novar"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Register name and owning type for routed command"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/registerroutedcommandfixwpf0122"
 ---
 
 import Tabs from '@theme/Tabs';

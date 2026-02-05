@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Suggest using test.todo"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/jest/prefertodo"
 ---
 
 import Tabs from '@theme/Tabs';

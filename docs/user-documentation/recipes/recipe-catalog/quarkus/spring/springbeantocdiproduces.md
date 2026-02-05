@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Replace Spring `@Bean` with CDI `@Produces`"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/springbeantocdiproduces"
 ---
 
 import Tabs from '@theme/Tabs';

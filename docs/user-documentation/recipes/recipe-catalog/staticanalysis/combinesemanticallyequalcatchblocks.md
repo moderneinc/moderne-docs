@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Combine semantically equal catch blocks"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/combinesemanticallyequalcatchblocks"
 ---
 
 import Tabs from '@theme/Tabs';

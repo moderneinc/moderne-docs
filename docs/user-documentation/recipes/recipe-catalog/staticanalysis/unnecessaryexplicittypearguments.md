@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary explicit type arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/unnecessaryexplicittypearguments"
 ---
 
 import Tabs from '@theme/Tabs';

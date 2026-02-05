@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Converts ExpansionPanel to use ExpansionPanel component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/expansionpanelcomponent"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Spring Framework 3.x](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_3_0.md)
+* [Migrate to Spring Framework 3.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_3_0)
 
 ## Examples
 ##### Example 1

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Bean methods should return concrete types"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/precisebeantype"
 ---
 
 import Tabs from '@theme/Tabs';

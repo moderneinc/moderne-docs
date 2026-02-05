@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find types"
-canonical_url: "https://docs.openrewrite.org/recipes/java/search/findtypes"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,7 +31,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Find deprecated `PathMatcher` usage](/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage.md)
+* [Find deprecated `PathMatcher` usage](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage)
 
 
 ## Usage

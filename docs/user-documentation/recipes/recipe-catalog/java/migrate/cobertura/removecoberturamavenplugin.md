@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove Cobertura Maven plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/cobertura/removecoberturamavenplugin"
 ---
 
 import Tabs from '@theme/Tabs';

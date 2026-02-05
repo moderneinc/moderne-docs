@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add Quarkus Maven plugin"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/spring/addquarkusmavenplugin"
 ---
 
 import Tabs from '@theme/Tabs';

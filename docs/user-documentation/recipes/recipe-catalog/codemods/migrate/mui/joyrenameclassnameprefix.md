@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Renames `Mui` classname prefix"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/joyrenameclassnameprefix"
 ---
 
 import Tabs from '@theme/Tabs';

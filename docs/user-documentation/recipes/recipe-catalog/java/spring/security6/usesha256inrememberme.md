@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove explicit configuration of SHA-256 as encoding and matching algorithm for `TokenBasedRememberMeServices`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/security6/usesha256inrememberme"
 ---
 
 import Tabs from '@theme/Tabs';

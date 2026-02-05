@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Format XML"
-canonical_url: "https://docs.openrewrite.org/recipes/xml/format/autoformat"
 ---
 
 import Tabs from '@theme/Tabs';

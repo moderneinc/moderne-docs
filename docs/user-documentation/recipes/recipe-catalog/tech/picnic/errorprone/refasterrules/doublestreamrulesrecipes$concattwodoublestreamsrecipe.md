@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `DoubleStreamRules.ConcatTwoDoubleStreams`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/doublestreamrulesrecipes$concattwodoublestreamsrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

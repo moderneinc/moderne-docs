@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Disallow initializing variables to undefined"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/noundefinit"
 ---
 
 import Tabs from '@theme/Tabs';

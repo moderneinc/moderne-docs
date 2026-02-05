@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Simplify compound statement"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/simplifycompoundstatement"
 ---
 
 import Tabs from '@theme/Tabs';

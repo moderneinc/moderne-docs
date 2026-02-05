@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove braces"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removebracesrcs1002"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant Dispose/Close call"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/statementrcs1133"
 ---
 
 import Tabs from '@theme/Tabs';

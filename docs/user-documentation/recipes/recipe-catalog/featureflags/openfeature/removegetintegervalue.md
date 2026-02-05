@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove OpenFeature's `getIntegerValue` for feature key"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/openfeature/removegetintegervalue"
 ---
 
 import Tabs from '@theme/Tabs';

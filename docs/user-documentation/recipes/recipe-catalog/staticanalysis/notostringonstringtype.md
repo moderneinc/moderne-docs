@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Unnecessary `String#toString`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/notostringonstringtype"
 ---
 
 import Tabs from '@theme/Tabs';

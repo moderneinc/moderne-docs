@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate breaking changes in `ResponseStatusException`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/framework/migrateresponsestatusexception"
 ---
 
 import Tabs from '@theme/Tabs';

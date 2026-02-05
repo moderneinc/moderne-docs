@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`indexOf` should not compare greater than zero"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/indexofshouldnotcomparegreaterthanzero"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find text"
-canonical_url: "https://docs.openrewrite.org/recipes/text/find"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -38,9 +37,9 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Find AI models in use](/user-documentation/recipes/recipe-catalog/ai/findmodelsinuse.md)
+* [Find AI models in use](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/ai/findmodelsinuse)
 * [Find GitHub action secret references](/user-documentation/recipes/recipe-catalog/github/findgithubactionsecretreferences.md)
-* [Find hardcoded IP addresses](/user-documentation/recipes/recipe-catalog/kubernetes/search/findharcodedipaddresses.md)
+* [Find hardcoded IP addresses](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kubernetes/search/findharcodedipaddresses)
 
 
 ## Usage

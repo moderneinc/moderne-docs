@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `JpaRepository#deleteAllInBatch(Iterable&lt;T&gt; entities)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/data/usejparepositorydeleteallinbatch"
 ---
 
 import Tabs from '@theme/Tabs';

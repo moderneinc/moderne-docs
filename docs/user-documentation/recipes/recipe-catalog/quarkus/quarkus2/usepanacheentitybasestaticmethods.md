@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `PanacheEntityBase` static methods"
-canonical_url: "https://docs.openrewrite.org/recipes/quarkus/quarkus2/usepanacheentitybasestaticmethods"
 ---
 
 import Tabs from '@theme/Tabs';

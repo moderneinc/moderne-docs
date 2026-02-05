@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Generate architecture mermaid diagram"
-canonical_url: "https://docs.openrewrite.org/recipes/prethink/calm/generatecalmmermaiddiagram"
 ---
 
 import Tabs from '@theme/Tabs';

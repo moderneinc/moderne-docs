@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove redundant assignment"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/removeredundantassignmentrcs1212"
 ---
 
 import Tabs from '@theme/Tabs';

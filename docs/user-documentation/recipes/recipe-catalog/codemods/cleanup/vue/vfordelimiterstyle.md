@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce v-for directive's delimiter style"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/vue/vfordelimiterstyle"
 ---
 
 import Tabs from '@theme/Tabs';

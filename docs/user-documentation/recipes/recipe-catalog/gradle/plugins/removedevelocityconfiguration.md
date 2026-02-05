@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove Develocity configuration"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/plugins/removedevelocityconfiguration"
 ---
 
 import Tabs from '@theme/Tabs';

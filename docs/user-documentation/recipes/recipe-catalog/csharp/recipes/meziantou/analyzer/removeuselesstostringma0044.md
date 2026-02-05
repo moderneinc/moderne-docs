@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Remove useless ToString call"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/meziantou/analyzer/removeuselesstostringma0044"
 ---
 
 import Tabs from '@theme/Tabs';

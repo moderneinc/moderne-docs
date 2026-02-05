@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`ReactorRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -265,7 +264,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Reactor Best Practices](/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorbestpractices.md)
+* [Reactor Best Practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorbestpractices)
 
 
 ## Usage

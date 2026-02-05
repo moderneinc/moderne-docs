@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `javax.xml.stream.XMLInputFactory#newFactory(String, ClassLoader)`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/javax/migratexmlinputfactorynewinstancetonewfactory"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `StringRules.StringIdentity`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringidentityrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

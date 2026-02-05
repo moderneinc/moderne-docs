@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ReactorRules.MonoJustOrEmptyObject`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monojustoremptyobjectrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

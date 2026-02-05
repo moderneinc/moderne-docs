@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add `prefer-application-packages` for SLF4J in `weblogic.xml`"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesslf4j"
 ---
 
 import Tabs from '@theme/Tabs';

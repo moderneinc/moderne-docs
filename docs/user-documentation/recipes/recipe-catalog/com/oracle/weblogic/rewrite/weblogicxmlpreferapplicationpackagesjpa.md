@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Add `prefer-application-packages` for JPA in `weblogic.xml`"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesjpa"
 ---
 
 import Tabs from '@theme/Tabs';

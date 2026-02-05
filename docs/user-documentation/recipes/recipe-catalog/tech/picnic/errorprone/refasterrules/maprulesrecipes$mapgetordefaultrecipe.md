@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `MapRules.MapGetOrDefault`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/maprulesrecipes$mapgetordefaultrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

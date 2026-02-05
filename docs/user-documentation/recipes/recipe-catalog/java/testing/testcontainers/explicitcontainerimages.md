@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Explicit container images and versions"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/testcontainers/explicitcontainerimages"
 ---
 
 import Tabs from '@theme/Tabs';

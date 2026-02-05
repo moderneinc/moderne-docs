@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Updates `variant` prop for CircularProgress component"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/migrate/mui/circularprogressvariant"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update Prometheus Pushgateway Dependency Coordinates"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot3/updateprometheuspushgateway"
 ---
 
 import Tabs from '@theme/Tabs';

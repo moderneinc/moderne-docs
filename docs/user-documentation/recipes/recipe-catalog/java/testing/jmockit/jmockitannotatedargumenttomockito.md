@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Convert JMockit `@Mocked` and `@Injectable` annotated arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/jmockit/jmockitannotatedargumenttomockito"
 ---
 
 import Tabs from '@theme/Tabs';

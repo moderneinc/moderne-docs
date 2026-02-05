@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Upgrade `micronaut.version` Maven property"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/upgrademicronautmavenpropertyversion"
 ---
 
 import Tabs from '@theme/Tabs';

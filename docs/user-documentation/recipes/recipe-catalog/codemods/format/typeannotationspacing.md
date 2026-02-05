@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Require consistent spacing around type annotations"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/format/typeannotationspacing"
 ---
 
 import Tabs from '@theme/Tabs';

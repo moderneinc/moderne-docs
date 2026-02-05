@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Refaster template `ComparatorRules.ComparatorsMax`"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$comparatorsmaxrecipe"
 ---
 
 import Tabs from '@theme/Tabs';

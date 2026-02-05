@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Prefer `Node#append()` over `Node#appendChild()`"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/javascript/preferdomnodeappend"
 ---
 
 import Tabs from '@theme/Tabs';

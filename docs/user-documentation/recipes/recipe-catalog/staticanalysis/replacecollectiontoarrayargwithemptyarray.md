@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use Empty Array for `Collection.toArray()`"
-canonical_url: "https://docs.openrewrite.org/recipes/staticanalysis/replacecollectiontoarrayargwithemptyarray"
 ---
 
 import Tabs from '@theme/Tabs';

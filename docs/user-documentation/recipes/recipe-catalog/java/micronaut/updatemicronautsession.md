@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Update the Micronaut Session support"
-canonical_url: "https://docs.openrewrite.org/recipes/java/micronaut/updatemicronautsession"
 ---
 
 import Tabs from '@theme/Tabs';

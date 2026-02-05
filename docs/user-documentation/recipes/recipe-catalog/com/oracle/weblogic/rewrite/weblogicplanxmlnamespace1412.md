@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `plan.xml` files to WebLogic 14.1.2"
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/weblogicplanxmlnamespace1412"
 ---
 
 import Tabs from '@theme/Tabs';

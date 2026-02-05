@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Change `net.wasdev.maven.parent:java8-parent` to `:parent`"
-canonical_url: "https://docs.openrewrite.org/recipes/java/migrate/wasdevmvnchangeparentartifactid"
 ---
 
 import Tabs from '@theme/Tabs';

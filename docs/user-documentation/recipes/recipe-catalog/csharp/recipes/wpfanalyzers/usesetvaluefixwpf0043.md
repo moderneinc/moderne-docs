@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Don't set DataContext and Style using SetCurrentValue"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/usesetvaluefixwpf0043"
 ---
 
 import Tabs from '@theme/Tabs';

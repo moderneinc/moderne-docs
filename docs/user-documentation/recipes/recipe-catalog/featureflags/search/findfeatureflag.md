@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find a feature flag"
-canonical_url: "https://docs.openrewrite.org/recipes/featureflags/search/findfeatureflag"
 ---
 
 import Tabs from '@theme/Tabs';

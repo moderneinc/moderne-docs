@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find Gradle repository"
-canonical_url: "https://docs.openrewrite.org/recipes/gradle/search/findrepository"
 ---
 
 import Tabs from '@theme/Tabs';

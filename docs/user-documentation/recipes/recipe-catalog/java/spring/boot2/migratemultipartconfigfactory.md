@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Use `MultipartConfigFactory` with `DataSize` arguments"
-canonical_url: "https://docs.openrewrite.org/recipes/java/spring/boot2/migratemultipartconfigfactory"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "[deprecated] Remove empty destructor"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/roslynator/analyzers/destructordeclarationrcs1106"
 ---
 
 import Tabs from '@theme/Tabs';

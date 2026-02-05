@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Migrate xmlns entries in `handler.xml` files."
-canonical_url: "https://docs.openrewrite.org/recipes/com/oracle/weblogic/rewrite/jakarta/javaxwebhandlerxmltojakarta9handlerxml"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,5 @@
 ---
 sidebar_label: "TestNG `assertEquals` to AssertJ"
-canonical_url: "https://docs.openrewrite.org/recipes/java/testing/testng/testngassertequalstoassertthat"
 ---
 
 import Tabs from '@theme/Tabs';

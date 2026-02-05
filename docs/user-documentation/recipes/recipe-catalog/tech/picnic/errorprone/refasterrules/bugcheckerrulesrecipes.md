@@ -1,6 +1,5 @@
 ---
 sidebar_label: "`BugCheckerRules` Refaster recipes"
-canonical_url: "https://docs.openrewrite.org/recipes/tech/picnic/errorprone/refasterrules/bugcheckerrulesrecipes"
 ---
 
 import Tabs from '@theme/Tabs';

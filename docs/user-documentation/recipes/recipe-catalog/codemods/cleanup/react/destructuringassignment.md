@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Enforce consistent usage of destructuring assignment of props, state, and context"
-canonical_url: "https://docs.openrewrite.org/recipes/codemods/cleanup/react/destructuringassignment"
 ---
 
 import Tabs from '@theme/Tabs';

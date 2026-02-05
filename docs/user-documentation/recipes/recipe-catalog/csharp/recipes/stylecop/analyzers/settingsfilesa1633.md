@@ -1,6 +1,5 @@
 ---
 sidebar_label: "File should have header"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/stylecop/analyzers/settingsfilesa1633"
 ---
 
 import Tabs from '@theme/Tabs';

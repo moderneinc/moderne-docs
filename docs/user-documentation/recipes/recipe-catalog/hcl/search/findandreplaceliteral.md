@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Find and replace literals in HCL files"
-canonical_url: "https://docs.openrewrite.org/recipes/hcl/search/findandreplaceliteral"
 ---
 
 import Tabs from '@theme/Tabs';

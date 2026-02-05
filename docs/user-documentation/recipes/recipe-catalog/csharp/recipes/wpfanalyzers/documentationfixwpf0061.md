@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Accessor method for attached property should have standard documentation text"
-canonical_url: "https://docs.openrewrite.org/recipes/csharp/recipes/wpfanalyzers/documentationfixwpf0061"
 ---
 
 import Tabs from '@theme/Tabs';

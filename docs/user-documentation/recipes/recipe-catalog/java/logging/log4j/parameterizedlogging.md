@@ -1,6 +1,5 @@
 ---
 sidebar_label: "Parameterize Log4j 2.x logging statements"
-canonical_url: "https://docs.openrewrite.org/recipes/java/logging/log4j/parameterizedlogging"
 ---
 
 import Tabs from '@theme/Tabs';
