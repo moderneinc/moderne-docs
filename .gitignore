@@ -39,3 +39,7 @@ rewrite-docs/
 storybook-static
 .env
 .env*.local
+
+# Moderne CLI
+.moderne/*
+!.moderne/context/
