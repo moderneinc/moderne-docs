@@ -48,8 +48,7 @@ const DocSidebarDesktopContent: FunctionComponent<DocSidebarDesktopContentProps>
         styles.menu,
         showAnnouncementBar && styles.menuWithAnnouncementBar,
         className,
-      )}
-      key={path}>
+      )}>
       <ul className={clsx(ThemeClassNames.docs.docSidebarMenu, 'menu__list')}>
         <DocSidebarItems items={sidebar} activePath={path} level={1} />
       </ul>
