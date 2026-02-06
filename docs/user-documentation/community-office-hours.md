@@ -14,9 +14,13 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### Mod with Claude: Upskill your agent (February 5th, 2026)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=Yts-m6pspHY' controls="true" />
+
 ### AutoFormat + styling: The secret to faster reviews and cleaner diffs (January 28th, 2026)
 
-<ReactPlayer className="reactPlayer" url='hhttps://www.youtube.com/watch?v=2B_CojEVO2w' controls="true" />
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=2B_CojEVO2w' controls="true" />
 
 ### Smart code search: When CTRL + F isn't enough (January 21st, 2026)
 
