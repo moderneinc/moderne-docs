@@ -10,6 +10,34 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## February 5, 2026
+
+#### rewrite-java-security - 3.26.1
+
+* Fix InputStream closure / IOException issue + cache advisories between FFVD runs
+* Inline deprecated constructors
+* Filter out pre-release versions when selecting vulnerability fix
+* Add recipe to promote transitive dependencies to direct
+* Fix NPE and StringIndexOutOfBoundsException in RemoveUnusedDependencies
+
+#### rewrite-spring - v0.24.0
+
+* Remove Spring Pulsar Reactive dependencies in Boot 4.0 migration
+* Handle multi-arg AntPathRequestMatcher migration
+* Add DispatcherServletAutoConfiguration package migration for Spring Boot 4
+* Fixing tests outdated as of `2025.1.1` release of Spring Cloud Dependencies
+* Extracting dropping of Spring Pulsar Reactive into separate recipe, additionally removing pulsar properties
+* Make declarative recipes singletons
+* Add recipe to adopt PropertyMapper API changes for Spring Boot 4.0
+* `spring-boot-starter-webmvc` conditional on wrong package
+* Migrate deprecated path mapping options for Spring Framework 7.0
+* Reverting pulsar property removal, but removing the non-existant dependency getting removed
+* Handle ObjectMapper migration after Jackson package change
+* Add TODO comment to OAuth2 password grant usages
+* Fallback to PlainText on parse error in AddSpringBootApplication
+* Convert RestTemplate arguments to RestClient in OAuth2 migration
+* Also removing `spring-boot-autoconfigure` after we've introduced the modular starters
+
 ## January 28, 2026
 
 #### rewrite-spring - v0.23.0
