@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.30.1 (2026/02/06)
+
+- Bug fixes and other improvements.
+
 ### UI v12.30.0 (2026/02/05)
 
 - defer historical data loading in devcenter when loading page without timeline activated
