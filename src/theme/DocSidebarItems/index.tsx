@@ -75,7 +75,7 @@ const DocSidebarItemsWrapper: FunctionComponent<Props> = (props) => {
           <PlatformToggle />
         </li>
       )}
-      <DocSidebarItems {...props} items={filteredItems} key={currentPath} />
+      <DocSidebarItems {...props} items={filteredItems} />
     </>
   );
 };
