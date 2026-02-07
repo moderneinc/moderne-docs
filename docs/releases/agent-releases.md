@@ -7,15 +7,18 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.245.0         |
+| Agent (recommended to use **latest**) | 0.246.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.245.0/moderne-agent-0.245.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.246.0/moderne-agent-0.246.0.jar)
 
 
 ## Changelog
 
+### v0.246.0 - 2026-02-07
+
+* Fix S3 LST listing blocking Netty event loop
 ### v0.245.0 - 2026-02-04
 
 * Add personal access token configuration support
