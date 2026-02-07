@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5298
+Total recipes: 5299
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -10576,7 +10576,7 @@ _570 recipes_
 
 _License: Apache License Version 2.0_
 
-_52 recipes_
+_53 recipes_
 
 * [org.openrewrite.gradle.AddDependency](/user-documentation/recipes/recipe-catalog/gradle/adddependency.md)
   * **Add Gradle dependency**
@@ -10619,7 +10619,7 @@ _52 recipes_
   * In Gradle, dependencies can be expressed as a `String` like `&quot;groupId:artifactId:version&quot;`, or equivalently as a `Map` like `group: 'groupId', name: 'artifactId', version: 'version'` (groovy) or `group = &quot;groupId&quot;, name = &quot;artifactId&quot;, version = &quot;version&quot;` (kotlin). This recipe replaces dependencies represented as `Strings` with an equivalent dependency represented as a `Map`.
 * [org.openrewrite.gradle.DependencyUseStringNotation](/user-documentation/recipes/recipe-catalog/gradle/dependencyusestringnotation.md)
   * **Use `String` notation for Gradle dependency declarations**
-  * In Gradle, dependencies can be expressed as a `String` like `&quot;groupId:artifactId:version&quot;`, or equivalently as a `Map` like `group: 'groupId', name: 'artifactId', version: 'version'`. This recipe replaces dependencies represented as `Maps` with an equivalent dependency represented as a `String`, as recommended per the [Gradle best practices for dependencies to use a single GAV](https://docs.gradle.org/8.14.2/userguide/best_practices_dependencies.html#single-gav-string).
+  * In Gradle, dependencies can be expressed as a `String` like `&quot;groupId:artifactId:version&quot;`, or equivalently as a `Map` like `group: 'groupId', name: 'artifactId', version: 'version'`, or as positional parameters like `(&quot;groupId&quot;, &quot;artifactId&quot;, &quot;version&quot;)`. This recipe replaces dependencies represented as `Maps` or positional parameters with an equivalent dependency represented as a `String`, as recommended per the [Gradle best practices for dependencies to use a single GAV](https://docs.gradle.org/8.14.2/userguide/best_practices_dependencies.html#single-gav-string).
 * [org.openrewrite.gradle.EnableDevelocityBuildCache](/user-documentation/recipes/recipe-catalog/gradle/enabledevelocitybuildcache.md)
   * **Enable Develocity build cache**
   * Adds `buildCache` configuration to `develocity` where not yet present.
@@ -10725,6 +10725,9 @@ _52 recipes_
 * [org.openrewrite.gradle.search.FindRepository](/user-documentation/recipes/recipe-catalog/gradle/search/findrepository.md)
   * **Find Gradle repository**
   * Find a Gradle repository by url.
+* [org.openrewrite.gradle.search.FindRepositoryOrder](/user-documentation/recipes/recipe-catalog/gradle/search/findrepositoryorder.md)
+  * **Gradle repository order**
+  * Determine the order in which dependencies will be resolved for each `build.gradle` based on its defined repositories as determined when the LST was produced.
 * [org.openrewrite.gradle.search.ModuleHasDependency](/user-documentation/recipes/recipe-catalog/gradle/search/modulehasdependency.md)
   * **Module has dependency**
   * Searches for Gradle Projects (modules) that have a dependency matching the specified id or implementing class. Places a `SearchResult` marker on all sources within a project with a matching dependency. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a spring boot migration to only projects that use spring-boot-starter, limiting unnecessary upgrading. If the search result you want is instead just the build.gradle(.kts) file that use the dependency, use the `FindDependency` recipe instead.

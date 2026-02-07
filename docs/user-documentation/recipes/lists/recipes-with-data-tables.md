@@ -732,6 +732,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.gradle.table.JVMTestSuitesDefined**: *The Gradle `JVMTestSuites` that are configured in a build.*
 
 
+### [org.openrewrite.gradle.search.FindRepositoryOrder](/user-documentation/recipes/recipe-catalog/gradle/search/findrepositoryorder.md)
+  * **Gradle repository order**
+  * Determine the order in which dependencies will be resolved for each `build.gradle` based on its defined repositories as determined when the LST was produced.
+
+#### Data tables:
+
+  * **org.openrewrite.maven.table.MavenRepositoryOrder**: *The order in which dependencies will be resolved for each `pom.xml` based on its defined repositories and effective `settings.xml`.*
+
+
 ### [org.openrewrite.gradle.AddDependency](/user-documentation/recipes/recipe-catalog/gradle/adddependency.md)
   * **Add Gradle dependency**
   * Add a gradle dependency to a `build.gradle` file in the correct configuration based on where it is used.
