@@ -18,9 +18,9 @@ If you get stuck or have questions, feel free to ask in the [OpenRewrite Slack](
 * Setting up a recipe development environment
 * Creating your own declarative YAML recipes
 * Scoping recipes using preconditions
-* Testing and validating recipe logic
 * Using Refaster for pattern-based Java transformations
 * How to write and run imperative Java-based recipes
+* Testing and validating recipe logic
 
 ## Prerequisites
 
@@ -30,3 +30,10 @@ To get the most out of this workshop, you should at least be familiar with:
 * Using build tools like Maven or Gradle
 
 If you haven’t been through the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop yet, we recommend completing it first before returning here.
+
+## Outline and agenda
+
+1. [Module 1: Environment setup](./module-1-recipe-development-environment)
+2. [Module 2: Declarative YAML recipes & preconditions](./module-2-declarative-yaml-recipes)
+3. [Module 3: Refaster recipes](./module-3-refaster-recipes)
+4. [Module 4: Imperative recipes and testing](./module-4-imperative-recipes)
