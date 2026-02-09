@@ -10,6 +10,12 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## February 9, 2026
+
+#### rewrite-spring - v0.24.1
+
+* Upstream changes only -&gt; bringing in patched versions of core components
+
 ## February 5, 2026
 
 #### rewrite-java-security - 3.26.1
@@ -2008,51 +2014,4 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-terraform - 3.1.2
 
 * Updated repository to use OpenRewrite version v8.47.1
-
-## February 7, 2025
-
-#### rewrite-android - v0.7.2
-
-* Updated repository to use OpenRewrite version v8.45.0
-
-#### rewrite-codemods-ng - 0.7.2
-
-* Updated repository to use OpenRewrite version v8.45.0
-
-#### rewrite-compiled-analysis - 0.2.4
-
-* Updated repository to use OpenRewrite version v8.45.0
-
-#### rewrite-comprehension - 0.3.0
-
-* Feat feed unit tests examples for ai description
-
-#### rewrite-concourse - 3.1.1
-
-* Updated repository to use OpenRewrite version v8.45.0
-
-#### rewrite-dotnet - 0.7.1
-
-* Updated repository to use OpenRewrite version v8.45.0
-
-#### rewrite-hibernate - 0.1.1
-
-* Updated repository to use OpenRewrite version v8.45.0
-
-#### rewrite-reactive-streams - 0.9.1
-
-* Updated repository to use OpenRewrite version v8.45.0
-
-#### rewrite-spring - 0.2.0
-
-* Add source set to Test
-* Add a Gradle test to SpringBootVersionUpgradeTest
-
-#### rewrite-sql - 2.1.1
-
-* Updated repository to use OpenRewrite version v8.45.0
-
-#### rewrite-terraform - 3.1.1
-
-* Updated repository to use OpenRewrite version v8.45.0
 
