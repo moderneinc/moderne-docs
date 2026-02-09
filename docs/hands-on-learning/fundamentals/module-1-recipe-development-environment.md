@@ -38,7 +38,7 @@ If you have not already completed the [Introduction to OpenRewrite course](../in
 1. Clone or fork the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project or [use it as a template](https://github.com/new?template_name=rewrite-recipe-starter&template_owner=moderneinc).
 2. Open the project in IntelliJ IDEA.
 3. If prompted, choose Maven or Gradle import (your preference).
-4. _(Optional)_ Enable annotation processing if IntelliJ suggests it.
+4. Enable annotation processing if IntelliJ suggests it.
 
 :::tip
 For a better idea about the reference recipes and tests that are included in the starter project, review the [`README.md`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/README.md) there. Many of them will be referenced later in this workshop.

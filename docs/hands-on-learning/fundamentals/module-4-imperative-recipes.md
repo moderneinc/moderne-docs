@@ -152,7 +152,7 @@ public class UseIntegerValueOf extends Recipe {
     private static final MethodMatcher INTEGER_CONSTRUCTOR = new MethodMatcher("java.lang.Integer#<init>(*)");
 
     @Getter
-    final String displayName = "Use Integer.valueOf(x) or Integer.parseInt(x) instead of new Integer(x)";
+    final String displayName = "Use `Integer.valueOf(x)` or `Integer.parseInt(x)` instead of `new Integer(x)`";
 
     @Getter
     final String description = "Replaces unnecessary boxing constructor calls with the more efficient Integer.valueOf(x) for int values, or Integer.parseInt(x) for String values.";
