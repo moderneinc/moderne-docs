@@ -1,11 +1,11 @@
 ---
-sidebar_label: Prethink
-description: Generate structured context for AI coding agents with Prethink recipes.
+sidebar_label: Moderne Prethink
+description: Generate structured context for AI coding agents with Moderne Prethink recipes.
 ---
 
-# Prethink recipes
+# Moderne Prethink recipes
 
-Prethink recipes generate structured context that gives AI coding agents a clear, accurate understanding of your entire codebase. Instead of forcing AI agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
+Moderne Prethink recipes generate structured context that gives AI coding agents a clear, accurate understanding of your entire codebase. Instead of forcing AI agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
 
 ## Why use Prethink
 

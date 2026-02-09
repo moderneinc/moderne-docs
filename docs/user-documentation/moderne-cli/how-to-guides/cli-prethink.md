@@ -1,13 +1,13 @@
 ---
-sidebar_label: Generating Prethink context locally
-description: How to generate Prethink context for AI agents using the Moderne CLI.
+sidebar_label: Generating Moderne Prethink context locally
+description: How to generate Moderne Prethink context for AI agents using the Moderne CLI.
 ---
 
-# How to generate Prethink context with the CLI
+# How to generate Moderne Prethink context with the CLI
 
-Prethink recipes generate structured context that gives AI coding agents a clear, accurate understanding of your entire codebase. In this guide, we will walk you through how to generate this Prethink context locally using the Moderne CLI.
+Moderne Prethink recipes generate structured context that gives AI coding agents a clear, accurate understanding of your entire codebase. In this guide, we will walk you through how to generate this Prethink context locally using the Moderne CLI.
 
-For more background on what Prethink is and the available recipes, please check out our [Prethink documentation](../../recipes/prethink.md).
+For more background on what Moderne Prethink is and the available recipes, please check out our [Moderne Prethink documentation](../../recipes/prethink.md).
 
 ## Prerequisites
 
