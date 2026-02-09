@@ -14,8 +14,8 @@ You'll want to have the following installed:
 * Java 21, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks.
   * The [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project expects JDK 21. (Temurin JDK 21.0.7 (`temurin-21.0.7`), for example, has been specified in the `.sdkmanrc` file, but other version 21 JDKs may work as well.)
   * Recipes use Java 8 source level, so they can run on Java 8 and higher.
-* IntelliJ IDEA Ultimate (required for the OpenRewrite plugin; Community Edition is not supported).
-* The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes (this comes pre-installed with  IntelliJ Ultimate).
+* IntelliJ IDEA (2025.3+ recommended)
+* The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes.
 * [The Moderne plugin](../../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md), for faster recipe development and to help debug recipes.
 * [The Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs.
 
@@ -86,19 +86,6 @@ mod config recipes jar install com.yourorg:rewrite-recipe-starter:LATEST
 :::note
 This requires the Moderne plugin; if it is not installed, the **Set Active Recipe** option will not appear. You can still run the recipe with the `mod` CLI if you refer to the recipe by name (as in the next step).
 :::
-
-4. Now confirm that everything is set up for testing declarative recipes. In a terminal, navigate to `src/main/resources/META-INF/rewrite` inside the `rewrite-recipe-starter` repo and run:
-
-```bash
-mod config recipes yaml install stringutils.yml
-```
-
-Then, from your workshop directory, run the recipe:
-
-```bash
-cd ~/moderne-workshop
-mod run . --recipe=com.yourorg.UseApacheStringUtils
-```
 
 ### Takeaways
 

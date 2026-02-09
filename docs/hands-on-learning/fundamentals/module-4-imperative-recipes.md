@@ -118,7 +118,7 @@ The return value of `visitMethodInvocation` controls traversal: when nothing mat
 
 1. Open [src/main/java/com/yourorg/UseIntegerValueOf.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/UseIntegerValueOf.java).
 2. Using the requirements from the tests you just reviewed, write an imperative recipe that uses `JavaTemplate` to match the `Integer` boxing constructors and replace them with the correct method calls. Here are some hints to get you started:
-   * Start by filling in `getDisplayName()` and `getDescription()`.
+   * Start by setting the `displayName` and `description` fields and adding the `@Getter` annotation.
    * Implement `getVisitor()` and add the transformation logic.
    * Consider a precondition so the recipe only visits files using the constructor.
    * Choose `JavaVisitor` or `JavaIsoVisitor` based on the nodes you need.

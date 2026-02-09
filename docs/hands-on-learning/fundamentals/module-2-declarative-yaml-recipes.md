@@ -23,10 +23,6 @@ In this exercise, you'll build upon a custom migration recipe that replaces Spri
 
 ### Steps
 
-:::warning
-If you don't have IntelliJ IDEA Ultimate, you'll lack bundled editor support for writing and running recipes. Some of the below steps will not work for you without this.
-:::
-
 #### Step 1: Add the `ChangeMethodName` recipe
 
 A declarative YAML recipe consists of [at least] metadata fields (`type`, `name`, `displayName`, `description`) and a `recipeList` field that lists the fully qualified class names of recipes to include, along with their options (if any exist). 

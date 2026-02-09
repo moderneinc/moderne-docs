@@ -77,7 +77,7 @@ Now that you've seen how Refaster template recipes work, you can create your own
 2. Re-run the tests and use the remaining failures to decide the next template. (This iterative pattern is a common method for recipe development.)
 
 :::tip
-If you have the Moderne plugin installed, you can generate a Refaster template from the IDE (see the "Creating recipes" guide in the Moderne plugin docs).
+With the Moderne plugin installed, you can generate a new Refaster recipe from any method invocation by right-clicking the invocation, selecting "Refactor", then "Create OpenRewrite Recipe", then "Create Recipe (Refaster Style)". For example, you could generate a Refaster template to convert `StringUtils.trim(..)` to `StringUtils.strip(..)` as you did in the previous module using a declarative recipe.
 :::
 
 #### Step 4: Complete coverage
