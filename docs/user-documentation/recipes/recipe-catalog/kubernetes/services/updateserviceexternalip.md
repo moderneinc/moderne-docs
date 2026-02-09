@@ -94,7 +94,7 @@ spec:
 ## Usage
 
 This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options. 
+To run this recipe, you will need to provide the Moderne CLI run command with the required options.
 Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
 
 ```yaml title="rewrite.yml"
@@ -103,7 +103,7 @@ type: specs.openrewrite.org/v1beta/recipe
 name: com.yourorg.UpdateServiceExternalIPExample
 displayName: Update `Service` `externalIP` example
 recipeList:
-  - org.openrewrite.kubernetes.services.UpdateServiceExternalIP: 
+  - org.openrewrite.kubernetes.services.UpdateServiceExternalIP:
       ipToFind: 192.168.0.1
       ipToUpdate: 10.10.0.1
       fileMatcher: '**/pod-*.yml'

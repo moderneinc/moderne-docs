@@ -108,7 +108,7 @@ spec:
 ## Usage
 
 This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options. 
+To run this recipe, you will need to provide the Moderne CLI run command with the required options.
 Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
 
 ```yaml title="rewrite.yml"
@@ -117,7 +117,7 @@ type: specs.openrewrite.org/v1beta/recipe
 name: com.yourorg.FindImageExample
 displayName: Find image by name example
 recipeList:
-  - org.openrewrite.kubernetes.search.FindImage: 
+  - org.openrewrite.kubernetes.search.FindImage:
       repository: gcr.io
       imageName: nginx
       imageTag: v1.2.3

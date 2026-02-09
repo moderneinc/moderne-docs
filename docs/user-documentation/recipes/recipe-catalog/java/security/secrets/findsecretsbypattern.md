@@ -60,7 +60,7 @@ This recipe is used as part of the following composite recipes:
 ## Usage
 
 This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options. 
+To run this recipe, you will need to provide the Moderne CLI run command with the required options.
 Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
 
 ```yaml title="rewrite.yml"
@@ -69,7 +69,7 @@ type: specs.openrewrite.org/v1beta/recipe
 name: com.yourorg.FindSecretsByPatternExample
 displayName: Find secrets with regular expressions example
 recipeList:
-  - org.openrewrite.java.security.secrets.FindSecretsByPattern: 
+  - org.openrewrite.java.security.secrets.FindSecretsByPattern:
       secretName: AWS Access Key
       keyPattern: '[a-zA-Z0-9+\/=]{88}'
       valuePattern: '[a-zA-Z0-9+\/=]{88}'

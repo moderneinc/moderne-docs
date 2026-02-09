@@ -632,6 +632,51 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.table.TextMatches**: *Lines matching simple text search.*
 
 
+### [org.openrewrite.docker.search.FindBaseImages](/user-documentation/recipes/recipe-catalog/docker/search/findbaseimages.md)
+  * **Find Docker base images**
+  * Find all base images (`FROM` instructions) in Dockerfiles.
+
+#### Data tables:
+
+  * **org.openrewrite.docker.table.BaseImages**: *Records the base images found in Dockerfiles.*
+
+
+### [org.openrewrite.docker.search.FindEndOfLifeImages](/user-documentation/recipes/recipe-catalog/docker/search/findendoflifeimages.md)
+  * **Find end-of-life Docker base images**
+  * Identifies Docker base images that have reached end-of-life. Using EOL images poses security risks as they no longer receive security updates. Detected images include EOL versions of Debian, Ubuntu, Alpine, Python, and Node.js.
+
+#### Data tables:
+
+  * **org.openrewrite.docker.table.EolDockerImages**: *Records Docker base images that have reached end-of-life.*
+
+
+### [org.openrewrite.docker.search.FindExposedPorts](/user-documentation/recipes/recipe-catalog/docker/search/findexposedports.md)
+  * **Find exposed ports**
+  * Find all `EXPOSE` instructions in Dockerfiles and report the exposed ports.
+
+#### Data tables:
+
+  * **org.openrewrite.docker.table.ExposedPorts**: *Records all ports exposed in EXPOSE instructions in Dockerfiles.*
+
+
+### [org.openrewrite.docker.DockerBestPractices](/user-documentation/recipes/recipe-catalog/docker/dockerbestpractices.md)
+  * **Apply Docker best practices**
+  * Apply a set of Docker best practices to Dockerfiles. This recipe applies security hardening, build optimization, and maintainability improvements based on CIS Docker Benchmark and industry best practices.
+
+#### Data tables:
+
+  * **org.openrewrite.docker.table.EolDockerImages**: *Records Docker base images that have reached end-of-life.*
+
+
+### [org.openrewrite.docker.DockerSecurityBestPractices](/user-documentation/recipes/recipe-catalog/docker/dockersecuritybestpractices.md)
+  * **Apply Docker security best practices**
+  * Apply security-focused Docker best practices to Dockerfiles. This includes running as a non-root user (CIS 4.1) and using COPY instead of ADD where appropriate (CIS 4.9).
+
+#### Data tables:
+
+  * **org.openrewrite.docker.table.EolDockerImages**: *Records Docker base images that have reached end-of-life.*
+
+
 ### [org.openrewrite.gradle.ChangeDependency](/user-documentation/recipes/recipe-catalog/gradle/changedependency.md)
   * **Change Gradle dependency**
   * Change a Gradle dependency coordinates. The `newGroupId` or `newArtifactId` **MUST** be different from before.
@@ -4383,15 +4428,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### Data tables:
 
   * **io.moderne.compiled.table.ABITraces**: *ASM trace of the ABI of types needed to perform compile verification.*
-
-
-### [org.openrewrite.docker.search.FindDockerImageUses](/user-documentation/recipes/recipe-catalog/docker/search/finddockerimageuses.md)
-  * **Find uses of docker base images**
-  * Produce an impact analysis of base images used in Dockerfiles, .gitlab-ci files, Kubernetes Deployment file, etc.
-
-#### Data tables:
-
-  * **org.openrewrite.docker.table.DockerBaseImages**: *Records the `FROM` block of Dockerfiles.*
 
 
 ### [org.openrewrite.dotnet.UpgradeAssistantAnalyze](/user-documentation/recipes/recipe-catalog/dotnet/upgradeassistantanalyze.md)

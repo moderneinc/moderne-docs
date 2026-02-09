@@ -90,7 +90,7 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI:
+This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
 <Tabs groupId="projectType">
 
 

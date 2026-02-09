@@ -76,7 +76,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 ## Usage
 
 This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options. 
+To run this recipe, you will need to provide the Moderne CLI run command with the required options.
 Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
 
 ```yaml title="rewrite.yml"
@@ -85,7 +85,7 @@ type: specs.openrewrite.org/v1beta/recipe
 name: com.yourorg.UpgradeDependencyVersionExample
 displayName: Upgrade C# dependency versions example
 recipeList:
-  - org.openrewrite.csharp.dependencies.UpgradeDependencyVersion: 
+  - org.openrewrite.csharp.dependencies.UpgradeDependencyVersion:
       packagePattern: Microsoft*
       newVersion: 12.3
 ```

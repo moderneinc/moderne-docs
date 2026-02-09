@@ -84,7 +84,7 @@ resources:
 ## Usage
 
 This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options. 
+To run this recipe, you will need to provide the Moderne CLI run command with the required options.
 Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
 
 ```yaml title="rewrite.yml"
@@ -93,7 +93,7 @@ type: specs.openrewrite.org/v1beta/recipe
 name: com.yourorg.UpdateGitResourceUriExample
 displayName: Update git resource `source.uri` references example
 recipeList:
-  - org.openrewrite.concourse.UpdateGitResourceUri: 
+  - org.openrewrite.concourse.UpdateGitResourceUri:
       oldURIPattern: https://github.com/openrewrite/rewrite
       newURI: git@gitlab.com:openrewrite/rewrite.git
       fileMatcher: '**/pipeline*.yml'

@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5299
+Total recipes: 5316
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -981,16 +981,6 @@ _5 recipes_
 * [org.openrewrite.cucumber.jvm.RegexToCucumberExpression](/user-documentation/recipes/recipe-catalog/cucumber/jvm/regextocucumberexpression.md)
   * **Replace `cucumber-java` step definition regexes with Cucumber expressions**
   * Strip regex prefix and suffix from step annotation expressions arguments where possible.
-
-## org.openrewrite.recipe:rewrite-docker
-
-_License: Moderne Source Available License_
-
-_1 recipe_
-
-* [org.openrewrite.docker.search.FindDockerImageUses](/user-documentation/recipes/recipe-catalog/docker/search/finddockerimageuses.md)
-  * **Find uses of docker base images**
-  * Produce an impact analysis of base images used in Dockerfiles, .gitlab-ci files, Kubernetes Deployment file, etc.
 
 ## org.openrewrite.recipe:rewrite-dotnet
 
@@ -10572,6 +10562,58 @@ _570 recipes_
   * **XmlnsDefinitions does not map all namespaces with public types**
   * XmlnsDefinitions does not map all namespaces with public types.
 
+## org.openrewrite:rewrite-docker
+
+_License: Apache License Version 2.0_
+
+_15 recipes_
+
+* [org.openrewrite.docker.AddAptGetCleanup](/user-documentation/recipes/recipe-catalog/docker/addaptgetcleanup.md)
+  * **Add apt-get cleanup**
+  * Adds cleanup commands to apt-get RUN instructions to reduce Docker image size. By default, adds 'rm -rf /var/lib/apt/lists/*' to remove cached package lists.
+* [org.openrewrite.docker.AddOciLabels](/user-documentation/recipes/recipe-catalog/docker/addocilabels.md)
+  * **Add OCI image labels**
+  * Adds standard OCI (Open Container Initiative) image labels to a Dockerfile. These labels provide metadata about the image such as title, version, source, and license information. See https://github.com/opencontainers/image-spec/blob/main/annotations.md for the specification.
+* [org.openrewrite.docker.AddOrUpdateLabel](/user-documentation/recipes/recipe-catalog/docker/addorupdatelabel.md)
+  * **Add Docker LABEL instruction**
+  * Adds or updates a LABEL instruction in a Dockerfile. By default, adds to the final stage only.
+* [org.openrewrite.docker.AddUserInstruction](/user-documentation/recipes/recipe-catalog/docker/adduserinstruction.md)
+  * **Add `USER` instruction**
+  * Adds a `USER` instruction to run the container as a non-root user (CIS Docker Benchmark 4.1). By default, adds to the final stage only and skips if a `USER` instruction already exists.
+* [org.openrewrite.docker.ChangeFrom](/user-documentation/recipes/recipe-catalog/docker/changefrom.md)
+  * **Change Docker FROM**
+  * Change the base image in a Dockerfile FROM instruction.
+* [org.openrewrite.docker.CombineRunInstructions](/user-documentation/recipes/recipe-catalog/docker/combineruninstructions.md)
+  * **Combine consecutive `RUN` instructions**
+  * Combines consecutive `RUN` instructions into a single instruction to reduce image layers. Only shell form `RUN` instructions without flags are combined.
+* [org.openrewrite.docker.NormalizeDockerHubImageName](/user-documentation/recipes/recipe-catalog/docker/normalizedockerhubimagename.md)
+  * **Normalize Docker Hub image names**
+  * Normalizes Docker Hub image names to their canonical short form by removing redundant registry prefixes like `docker.io/library/` or `index.docker.io/`.
+* [org.openrewrite.docker.ReplaceAddWithCopy](/user-documentation/recipes/recipe-catalog/docker/replaceaddwithcopy.md)
+  * **Replace `ADD` with `COPY`**
+  * Replaces `ADD` instructions with `COPY` where appropriate. `ADD` is only kept when the source is a URL or a tar archive that should be auto-extracted. Using `COPY` is preferred for transparency (CIS Docker Benchmark 4.9).
+* [org.openrewrite.docker.UseExecFormEntrypoint](/user-documentation/recipes/recipe-catalog/docker/useexecformentrypoint.md)
+  * **Use exec form for `ENTRYPOINT` and `CMD`**
+  * Converts shell form `ENTRYPOINT` and `CMD` instructions to exec form (JSON array). Exec form is preferred because it runs the command as PID 1, allowing it to receive Unix signals properly. Shell form wraps commands in `/bin/sh -c` which can cause signal handling issues.
+* [org.openrewrite.docker.search.FindBaseImages](/user-documentation/recipes/recipe-catalog/docker/search/findbaseimages.md)
+  * **Find Docker base images**
+  * Find all base images (`FROM` instructions) in Dockerfiles.
+* [org.openrewrite.docker.search.FindEndOfLifeImages](/user-documentation/recipes/recipe-catalog/docker/search/findendoflifeimages.md)
+  * **Find end-of-life Docker base images**
+  * Identifies Docker base images that have reached end-of-life. Using EOL images poses security risks as they no longer receive security updates. Detected images include EOL versions of Debian, Ubuntu, Alpine, Python, and Node.js.
+* [org.openrewrite.docker.search.FindExposedPorts](/user-documentation/recipes/recipe-catalog/docker/search/findexposedports.md)
+  * **Find exposed ports**
+  * Find all `EXPOSE` instructions in Dockerfiles and report the exposed ports.
+* [org.openrewrite.docker.search.FindMissingHealthcheck](/user-documentation/recipes/recipe-catalog/docker/search/findmissinghealthcheck.md)
+  * **Find missing `HEALTHCHECK`**
+  * Finds Dockerfiles where the final stage is missing a `HEALTHCHECK` instruction (CIS Docker Benchmark 4.6). Health checks help container orchestrators determine if a container is healthy and ready to receive traffic.
+* [org.openrewrite.docker.search.FindRootUser](/user-documentation/recipes/recipe-catalog/docker/search/findrootuser.md)
+  * **Find containers running as root**
+  * Finds containers that run as root user (CIS Docker Benchmark 4.1). This includes explicit `USER root` or `USER 0` instructions, and optionally containers with no `USER` instruction in the final stage (which default to root).
+* [org.openrewrite.docker.search.FindUnpinnedBaseImages](/user-documentation/recipes/recipe-catalog/docker/search/findunpinnedbaseimages.md)
+  * **Find unpinned base images**
+  * Finds FROM instructions that use unpinned base images (CIS Docker Benchmark 4.2). Images without an explicit tag default to 'latest', which is not reproducible. Images pinned by digest are considered acceptable.
+
 ## org.openrewrite:rewrite-gradle
 
 _License: Apache License Version 2.0_
@@ -11641,7 +11683,7 @@ _18 recipes_
 
 _License: Unknown_
 
-_1591 recipes_
+_1594 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -13518,6 +13560,15 @@ _1591 recipes_
 * [org.openrewrite.cucumber.jvm.UpgradeCucumber7x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber7x.md)
   * **Upgrade to Cucumber-JVM 7.x**
   * Upgrade to Cucumber-JVM 7.x from any previous version.
+* [org.openrewrite.docker.DockerBestPractices](/user-documentation/recipes/recipe-catalog/docker/dockerbestpractices.md)
+  * **Apply Docker best practices**
+  * Apply a set of Docker best practices to Dockerfiles. This recipe applies security hardening, build optimization, and maintainability improvements based on CIS Docker Benchmark and industry best practices.
+* [org.openrewrite.docker.DockerBuildOptimization](/user-documentation/recipes/recipe-catalog/docker/dockerbuildoptimization.md)
+  * **Optimize Docker builds**
+  * Apply build optimization best practices to Dockerfiles. This includes combining RUN instructions to reduce layers and adding cleanup commands to reduce image size.
+* [org.openrewrite.docker.DockerSecurityBestPractices](/user-documentation/recipes/recipe-catalog/docker/dockersecuritybestpractices.md)
+  * **Apply Docker security best practices**
+  * Apply security-focused Docker best practices to Dockerfiles. This includes running as a non-root user (CIS 4.1) and using COPY instead of ADD where appropriate (CIS 4.9).
 * [org.openrewrite.dotnet.MigrateToNet6](/user-documentation/recipes/recipe-catalog/dotnet/migratetonet6.md)
   * **Upgrade to .NET 6.0 using upgrade-assistant**
   * Run [upgrade-assistant upgrade](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) across a repository to upgrade projects to .NET 6.0.

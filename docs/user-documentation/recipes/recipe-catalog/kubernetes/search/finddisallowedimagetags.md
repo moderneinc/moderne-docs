@@ -102,7 +102,7 @@ spec:
 ## Usage
 
 This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options. 
+To run this recipe, you will need to provide the Moderne CLI run command with the required options.
 Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
 
 ```yaml title="rewrite.yml"
@@ -111,7 +111,7 @@ type: specs.openrewrite.org/v1beta/recipe
 name: com.yourorg.FindDisallowedImageTagsExample
 displayName: Find disallowed image tags example
 recipeList:
-  - org.openrewrite.kubernetes.search.FindDisallowedImageTags: 
+  - org.openrewrite.kubernetes.search.FindDisallowedImageTags:
       disallowedTags: latest
       includeInitContainers: false
       fileMatcher: '**/pod-*.yml'

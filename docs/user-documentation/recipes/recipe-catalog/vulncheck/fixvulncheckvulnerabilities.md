@@ -32,7 +32,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 ## Usage
 
 This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options. 
+To run this recipe, you will need to provide the Moderne CLI run command with the required options.
 Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
 
 ```yaml title="rewrite.yml"
@@ -41,7 +41,7 @@ type: specs.openrewrite.org/v1beta/recipe
 name: com.yourorg.FixVulnCheckVulnerabilitiesExample
 displayName: Use VulnCheck Exploit Intelligence to fix vulnerabilities example
 recipeList:
-  - io.moderne.vulncheck.FixVulnCheckVulnerabilities: 
+  - io.moderne.vulncheck.FixVulnCheckVulnerabilities:
       apiToken: A_TOKEN_GENERATED_FROM_VULNCHECK
       scope: compile
       overrideTransitive: false
