@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.30.2 (2026/02/10)
+
+- Bug fixes and other improvements.
+
 ### UI v12.30.1 (2026/02/06)
 
 - Bug fixes and other improvements.
