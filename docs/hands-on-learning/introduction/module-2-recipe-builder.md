@@ -91,7 +91,7 @@ In this exercise, you'll create a custom migration recipe that replaces Spring's
 
 #### Step 3: Add the dependency recipe
 
-First, we need to add the Apache Commons Lang dependency:
+First, you need to add the Apache Commons Lang dependency:
 
 1. Mouse over the root node in the recipe list on the right and click the `+` button. The root node should match the display name you entered in the previous step (`Use Apache StringUtils`).
 
@@ -118,7 +118,7 @@ First, we need to add the Apache Commons Lang dependency:
 
 #### Step 4: Add the change type recipe
 
-Now we'll add a recipe to change the import from Spring to Apache:
+Now you'll add a recipe to change the import from Spring to Apache:
 
 1. Click the `+` button on the root node again.
 2. Now search for `Change type (java)` and select it.
@@ -141,7 +141,7 @@ Spring's `StringUtils` has some methods with different names than Apache's versi
 5. Click `Update` to add this recipe.
 
 :::info
-Notice that the method pattern uses `org.apache.commons.lang3.StringUtils` even though we're changing from Spring's method. This is because recipes run in order, so by the time this recipe runs, the `ChangeType` recipe has already changed the import and type references.
+Notice that the method pattern uses `org.apache.commons.lang3.StringUtils` even though you're changing from Spring's method. This is because recipes run in order, so by the time this recipe runs, the `ChangeType` recipe has already changed the import and type references.
 :::
 
 #### Step 6: Preview and download the YAML
