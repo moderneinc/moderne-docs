@@ -69,7 +69,7 @@ mod git sync moderne $WORKSPACE --organization "Moderne - Training" --with-sourc
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.0
 
 ⏺ Retrieving organization from Moderne
 
@@ -219,7 +219,7 @@ mod run-history $WORKSPACE
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.0
 
 ⏺ Reading organization
 

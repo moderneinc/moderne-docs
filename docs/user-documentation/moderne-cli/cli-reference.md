@@ -70,9 +70,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build maven timeout delete**](#mod-config-build-maven-timeout-delete)
 * [**mod config build maven timeout edit**](#mod-config-build-maven-timeout-edit)
 * [**mod config build maven timeout show**](#mod-config-build-maven-timeout-show)
-* [**mod config claude**](#mod-config-claude)
-* [**mod config claude plugin**](#mod-config-claude-plugin)
-* [**mod config claude plugin update**](#mod-config-claude-plugin-update)
+* ~~[**mod config claude**](#mod-config-claude-deprecated)~~ (deprecated)
+* ~~[**mod config claude plugin**](#mod-config-claude-plugin-deprecated)~~ (deprecated)
+* ~~[**mod config claude plugin update**](#mod-config-claude-plugin-update-deprecated)~~ (deprecated)
 * [**mod config clone**](#mod-config-clone)
 * ~~[**mod config clone protocol**](#mod-config-clone-protocol-deprecated)~~ (deprecated)
 * ~~[**mod config clone protocol delete**](#mod-config-clone-protocol-delete-deprecated)~~ (deprecated)
@@ -133,12 +133,14 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config lsts**](#mod-config-lsts)
 * [**mod config lsts artifacts**](#mod-config-lsts-artifacts)
 * [**mod config lsts artifacts artifactory**](#mod-config-lsts-artifacts-artifactory)
-* [**mod config lsts artifacts artifactory edit**](#mod-config-lsts-artifacts-artifactory-edit)
+* [**mod config lsts artifacts artifactory add**](#mod-config-lsts-artifacts-artifactory-add)
+* ~~[**mod config lsts artifacts artifactory edit**](#mod-config-lsts-artifacts-artifactory-edit-deprecated)~~ (deprecated)
 * [**mod config lsts artifacts artifactory delete**](#mod-config-lsts-artifacts-artifactory-delete)
 * [**mod config lsts artifacts artifactory show**](#mod-config-lsts-artifacts-artifactory-show)
 * [**mod config lsts artifacts show**](#mod-config-lsts-artifacts-show)
 * [**mod config lsts artifacts maven**](#mod-config-lsts-artifacts-maven)
-* [**mod config lsts artifacts maven edit**](#mod-config-lsts-artifacts-maven-edit)
+* [**mod config lsts artifacts maven add**](#mod-config-lsts-artifacts-maven-add)
+* ~~[**mod config lsts artifacts maven edit**](#mod-config-lsts-artifacts-maven-edit-deprecated)~~ (deprecated)
 * [**mod config lsts artifacts maven delete**](#mod-config-lsts-artifacts-maven-delete)
 * [**mod config lsts artifacts maven show**](#mod-config-lsts-artifacts-maven-show)
 * [**mod config lsts artifacts s3**](#mod-config-lsts-artifacts-s3)
@@ -157,6 +159,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config moderne show**](#mod-config-moderne-show)
 * [**mod config moderne organizations**](#mod-config-moderne-organizations)
 * [**mod config moderne organizations show**](#mod-config-moderne-organizations-show)
+* [**mod config moderne skills**](#mod-config-moderne-skills)
+* [**mod config moderne skills update**](#mod-config-moderne-skills-update)
 * [**mod config node**](#mod-config-node)
 * [**mod config node installation**](#mod-config-node-installation)
 * [**mod config node installation edit**](#mod-config-node-installation-edit)
@@ -174,7 +178,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes active delete**](#mod-config-recipes-active-delete)
 * [**mod config recipes artifacts**](#mod-config-recipes-artifacts)
 * [**mod config recipes artifacts artifactory**](#mod-config-recipes-artifacts-artifactory)
-* [**mod config recipes artifacts artifactory edit**](#mod-config-recipes-artifacts-artifactory-edit)
+* [**mod config recipes artifacts artifactory add**](#mod-config-recipes-artifacts-artifactory-add)
+* ~~[**mod config recipes artifacts artifactory edit**](#mod-config-recipes-artifacts-artifactory-edit-deprecated)~~ (deprecated)
 * [**mod config recipes artifacts artifactory delete**](#mod-config-recipes-artifacts-artifactory-delete)
 * [**mod config recipes artifacts artifactory show**](#mod-config-recipes-artifacts-artifactory-show)
 * [**mod config recipes artifacts show**](#mod-config-recipes-artifacts-show)
@@ -183,7 +188,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * ~~[**mod config recipes artifacts default-repositories disable**](#mod-config-recipes-artifacts-default-repositories-disable-deprecated)~~ (deprecated)
 * ~~[**mod config recipes artifacts default-repositories show**](#mod-config-recipes-artifacts-default-repositories-show-deprecated)~~ (deprecated)
 * [**mod config recipes artifacts maven**](#mod-config-recipes-artifacts-maven)
-* [**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit)
+* [**mod config recipes artifacts maven add**](#mod-config-recipes-artifacts-maven-add)
+* ~~[**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit-deprecated)~~ (deprecated)
 * [**mod config recipes artifacts maven delete**](#mod-config-recipes-artifacts-maven-delete)
 * [**mod config recipes artifacts maven show**](#mod-config-recipes-artifacts-maven-show)
 * [**mod config recipes export**](#mod-config-recipes-export)
@@ -677,7 +683,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 ### Subcommands
 
 * `build`: Configures build tools used to produce LSTs.
-* `claude`: Configure Claude AI integration.
+* `claude`: (DEPRECATED) Configure Claude AI integration. Use 'mod config moderne skills update' instead.
 * `clone`: Configures cloning behavior.
 * `dotnet`: Configures DotNet options used for building LSTs and running recipes.
 * `environment`: The build environment that the CLI is running in.
@@ -1745,9 +1751,9 @@ mod config build maven timeout show
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
-## mod config claude
+## mod config claude (deprecated)
 
-Configure Claude AI integration.
+(DEPRECATED) Configure Claude AI integration. Use 'mod config moderne skills update' instead.
 
 
 Manage the Moderne plugin for Claude Code.
@@ -1761,17 +1767,17 @@ mod config claude [subcommands]
 ### Examples
 
 ```
-mod config claude plugin update
+mod config moderne skills update
 ```
 
 
 ### Subcommands
 
-* `plugin`: Manage the Moderne plugin for Claude Code.
+* `plugin`: (DEPRECATED) Manage the Moderne plugin for Claude Code. Use 'mod config moderne skills update' instead.
 
-## mod config claude plugin
+## mod config claude plugin (deprecated)
 
-Manage the Moderne plugin for Claude Code.
+(DEPRECATED) Manage the Moderne plugin for Claude Code. Use 'mod config moderne skills update' instead.
 
 
 The Moderne plugin provides skills for recipe development, testing, and impact analysis.
@@ -1785,11 +1791,11 @@ mod config claude plugin [subcommands]
 
 ### Subcommands
 
-* `update`: Creates or updates the Moderne plugin for Claude Code.
+* `update`: (DEPRECATED) Creates or updates the Moderne plugin for Claude Code. Use 'mod config moderne skills update' instead.
 
-## mod config claude plugin update
+## mod config claude plugin update (deprecated)
 
-Creates or updates the Moderne plugin for Claude Code.
+(DEPRECATED) Creates or updates the Moderne plugin for Claude Code. Use 'mod config moderne skills update' instead.
 
 
 Installs the Moderne plugin as a Claude marketplace at ~/.claude/marketplaces/moderne/
@@ -1803,7 +1809,7 @@ mod config claude plugin update
 ### Examples
 
 ```
-mod config claude plugin update
+mod config moderne skills update
 ```
 
 
@@ -2982,16 +2988,53 @@ mod config lsts artifacts artifactory [subcommands]
 
 ### Subcommands
 
-* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `add`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `edit`: (DEPRECATED) Use mod config lsts artifacts artifactory add instead.
 * `delete`: Removes the Artifactory repository configuration. The publish command will no longer function until another artifact source is configured.
 * `show`: Displays the Artifactory repository configuration.
 
-## mod config lsts artifacts artifactory edit
+## mod config lsts artifacts artifactory add
 
 Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
 
 
 All subsequent publish and download commands will use this artifact repository.
+
+### Usage
+
+```
+mod config lsts artifacts artifactory add [parameters]
+```
+
+### Examples
+
+```
+mod config lsts artifacts artifactory add https://artifactory.company.com --user lstuser --password secret1
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `url` |  The URL of the artifact repository that LSTs will be published to. | `https://artifactory.company-name.com/artifactory/moderne-ingest` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--authorization` |  The authorization header value to use. | `Bearer XXXXX` |
+| `--jfrog-api-token` |  The JFrog API token to use. |  |
+| `--password` |  The password to authenticate with. |  |
+| `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
+| `--user` |  The user to authenticate with. |  |
+
+
+## mod config lsts artifacts artifactory edit (deprecated)
+
+(DEPRECATED) Use mod config lsts artifacts artifactory add instead.
+
+
+This command is deprecated. Use **mod config lsts artifacts artifactory add** instead.
 
 ### Usage
 
@@ -3002,7 +3045,7 @@ mod config lsts artifacts artifactory edit [parameters]
 ### Examples
 
 ```
-mod config lsts artifacts artifactory edit https://artifactory.company.com --user lstuser --password secret1
+mod config lsts artifacts artifactory add https://artifactory.company.com --user lstuser --password secret1
 ```
 
 ### Parameters
@@ -3083,16 +3126,54 @@ mod config lsts artifacts maven [subcommands]
 
 ### Subcommands
 
-* `edit`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `add`: Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `edit`: (DEPRECATED) Use mod config lsts artifacts maven add instead.
 * `delete`: Removes the Maven artifact repository repository configuration. The publish command will no longer function until another artifact source is configured.
 * `show`: Displays the Maven artifact repository repository configuration.
 
-## mod config lsts artifacts maven edit
+## mod config lsts artifacts maven add
 
 Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
 
 
 All subsequent publish and download commands will use this artifact repository.
+
+### Usage
+
+```
+mod config lsts artifacts maven add [parameters]
+```
+
+### Examples
+
+```
+mod config lsts artifacts maven add <artifact-repository-url> --user <user> --password <password>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `url` |  The URL of the artifact repository that LSTs will be published to. | `https://repo.company-name.com/repository/moderne-ingest` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--authorization` |  The authorization header value to use. | `Bearer XXXXX` |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |  |
+| `--password` |  The password to authenticate with. |  |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |  |
+| `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
+| `--user` |  The user to authenticate with. |  |
+
+
+## mod config lsts artifacts maven edit (deprecated)
+
+(DEPRECATED) Use mod config lsts artifacts maven add instead.
+
+
+This command is deprecated. Use **mod config lsts artifacts maven add** instead.
 
 ### Usage
 
@@ -3103,7 +3184,7 @@ mod config lsts artifacts maven edit [parameters]
 ### Examples
 
 ```
-mod config lsts artifacts edit <artifact-repository-url> --user <user> --password <password>
+mod config lsts artifacts maven add <artifact-repository-url> --user <user> --password <password>
 ```
 
 ### Parameters
@@ -3350,6 +3431,7 @@ mod config moderne edit <host>
 * `login`: Logs the CLI into Moderne
 * `show`: Displays the Moderne tenant configuration.
 * `organizations`: (INCUBATING) The organizational hierarchy of repository ownership.
+* `skills`: Manage Moderne skills for coding agents.
 
 ## mod config moderne delete
 
@@ -3491,6 +3573,51 @@ mod config moderne organizations show
 | Name | Description |
 | ---- | ----------- |
 | `--json` |  |
+
+
+## mod config moderne skills
+
+Manage Moderne skills for coding agents.
+
+
+Install and update Moderne skills for Claude Code, Windsurf, Cursor, GitHub Copilot, Sourcegraph Amp, and OpenAI Codex.
+
+### Usage
+
+```
+mod config moderne skills [subcommands]
+```
+
+### Examples
+
+```
+mod config moderne skills update
+```
+
+
+### Subcommands
+
+* `update`: Creates or updates Moderne skills for coding agents.
+
+## mod config moderne skills update
+
+Creates or updates Moderne skills for coding agents.
+
+
+Installs skills to all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, Sourcegraph Amp, OpenAI Codex).
+
+### Usage
+
+```
+mod config moderne skills update
+```
+
+### Examples
+
+```
+mod config moderne skills update
+```
+
 
 
 ## mod config node
@@ -3832,16 +3959,53 @@ mod config recipes artifacts artifactory [subcommands]
 
 ### Subcommands
 
-* `edit`: Configures the artifact repository to resolve recipes from.
+* `add`: Configures the artifact repository to resolve recipes from.
+* `edit`: (DEPRECATED) Use mod config recipes artifacts artifactory add instead.
 * `delete`: Removes the Artifactory repository configuration.
 * `show`: Displays the Artifactory repository configuration.
 
-## mod config recipes artifacts artifactory edit
+## mod config recipes artifacts artifactory add
 
 Configures the artifact repository to resolve recipes from.
 
 
 All subsequent recipe installation commands will use this artifact repository.
+
+### Usage
+
+```
+mod config recipes artifacts artifactory add [parameters]
+```
+
+### Examples
+
+```
+mod config recipes artifacts artifactory add <artifact-repository-url> --user <user> --password <password>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `url` |  The URL of the artifact repository that recipes will be resolved from. | `https://artifactory.company-name.com/artifactory/moderne-recipes` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--authorization` |  The authorization header value to use. | `Bearer XXXXX` |
+| `--jfrog-api-token` |  The JFrog API token to use. |  |
+| `--password` |  The password to authenticate with. |  |
+| `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
+| `--user` |  The user to authenticate with. |  |
+
+
+## mod config recipes artifacts artifactory edit (deprecated)
+
+(DEPRECATED) Use mod config recipes artifacts artifactory add instead.
+
+
+This command is deprecated. Use **mod config recipes artifacts artifactory add** instead.
 
 ### Usage
 
@@ -3852,7 +4016,7 @@ mod config recipes artifacts artifactory edit [parameters]
 ### Examples
 
 ```
-mod config recipes artifacts artifactory edit <artifact-repository-url> --user <user> --password <password>
+mod config recipes artifacts artifactory add <artifact-repository-url> --user <user> --password <password>
 ```
 
 ### Parameters
@@ -3992,16 +4156,52 @@ mod config recipes artifacts maven [subcommands]
 
 ### Subcommands
 
-* `edit`: Configures the repository that recipes will be resolved from.
+* `add`: Configures a repository that recipes will be resolved from.
+* `edit`: (DEPRECATED) Use mod config recipes artifacts maven add instead.
 * `delete`: Removes the Maven artifact repository repository configuration.
 * `show`: Displays the Maven artifact repository repository configuration.
 
-## mod config recipes artifacts maven edit
+## mod config recipes artifacts maven add
 
-Configures the repository that recipes will be resolved from.
+Configures a repository that recipes will be resolved from.
 
 
-All subsequent recipe installation commands will use this artifact repository.
+If a repository with the same URL already exists, it will be updated. Otherwise, the repository will be added to the list of Maven repositories.
+
+### Usage
+
+```
+mod config recipes artifacts maven add [parameters]
+```
+
+### Examples
+
+```
+mod config recipes artifacts maven add <artifact-repository-url> --user <user> --password <password>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `url` |  The URL of the artifact repository that recipes will be resolved from. | `https://artifactory.company-name.com/artifactory/moderne-recipes` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--authorization` |  The authorization header value to use. | `Bearer XXXXX` |
+| `--password` |  The password to authenticate with. |  |
+| `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
+| `--user` |  The user to authenticate with. |  |
+
+
+## mod config recipes artifacts maven edit (deprecated)
+
+(DEPRECATED) Use mod config recipes artifacts maven add instead.
+
+
+This command is deprecated. Use **mod config recipes artifacts maven add** instead.
 
 ### Usage
 
@@ -4012,7 +4212,7 @@ mod config recipes artifacts maven edit [parameters]
 ### Examples
 
 ```
-mod config recipes artifacts maven edit <artifact-repository-url> --user <user> --password <password>
+mod config recipes artifacts maven add <artifact-repository-url> --user <user> --password <password>
 ```
 
 ### Parameters
@@ -4036,13 +4236,19 @@ mod config recipes artifacts maven edit <artifact-repository-url> --user <user> 
 Removes the Maven artifact repository repository configuration.
 
 
-
+If a URL is provided, only that repository is removed. Otherwise, all Maven repositories are removed.
 
 ### Usage
 
 ```
-mod config recipes artifacts maven delete
+mod config recipes artifacts maven delete [parameters]
 ```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `url` |  The URL of the Maven repository to remove. If not provided, all Maven repositories are removed. |
 
 
 
@@ -5076,7 +5282,9 @@ mod devcenter /path/to/organization
 | Name | Description |
 | ---- | ----------- |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `--search` |  A search run ID to filter repositories to only those with matches. |
 
 
 ## mod exec
@@ -5125,8 +5333,10 @@ mod exec /path/to/project rm *.hprof
 | Name | Description |
 | ---- | ----------- |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `-o`, `--out`, `--output` |  The output type for the command. Accepts `Console` and `File`. If not specified, the output will be printed to a file. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `--search` |  A search run ID to filter repositories to only those with matches. |
 
 
 ## mod generate-completion
@@ -5207,7 +5417,9 @@ mod git add /path/to/project --recipe-run <recipe-run-id>
 | Name | Description |
 | ---- | ----------- |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `--search` |  A search run ID to filter repositories to only those with matches. |
 
 
 ## mod git apply
@@ -5240,7 +5452,9 @@ mod git apply /path/to/project --recipe-run 20230903164310-2qVRM
 | Name | Description |
 | ---- | ----------- |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `--search` |  A search run ID to filter repositories to only those with matches. |
 
 
 ## mod git checkout
@@ -5275,7 +5489,9 @@ mod git checkout /path/to/project
 | ---- | ----------- |
 | `-b`, `-B` |  Causes a new branch to be created as if git-branch were called and then checked out. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `--search` |  A search run ID to filter repositories to only those with matches. |
 
 
 ## mod git clone (deprecated)
@@ -5400,8 +5616,10 @@ mod git commit /path/to/project -m "commit message"
 | ---- | ----------- |
 | `--allow-empty` |  Whether or not to allow making empty commits. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `-m`, `--message` |  The commit message to use. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `--search` |  A search run ID to filter repositories to only those with matches. |
 
 
 ## mod git pull
@@ -5469,7 +5687,9 @@ mod git push /path/to/project -u origin feature-branch
 | ---- | ----------- |
 | `-f`, `--force` |  Same as corresponding flag in `git`. Overwrites the remote branch with your local branch, even if it would result in losing commits that exist on the remote. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `--search` |  A search run ID to filter repositories to only those with matches. |
 | `-u`, `--set-upstream` |  For every branch that is up to date or successfully pushed, add upstream (tracking) reference. |
 
 
@@ -5845,8 +6065,10 @@ mod log runs add [parameters]
 | ---- | ----------- |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `--last-run` |  (DEPRECATED) use (DEPRECATED) use @|--last-recipe-run|@ instead. |
+| `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--run` |  (DEPRECATED) use (DEPRECATED) use @|--recipe-run|@ instead. |
+| `--search` |  A search run ID to filter repositories to only those with matches. |
 
 
 ## mod log syncs
@@ -5988,7 +6210,7 @@ mod postbuild zoekt [subcommands]
 Generate search indexes from existing LSTs.
 
 
-Generates Zoekt-compatible trigram search indexes for repositories that have LST artifacts but were built without search indexing enabled. The indexes are written to **.moderne/search/** in each repository.
+Generates Zoekt-compatible trigram search indexes for repositories that have LST artifacts but were built without search indexing enabled. The indexes are written to **.moderne/search/** in each repository. Executed on multiple repositories in parallel by default, but can be opted out with **--parallel=1**.
 
 ### Usage
 
@@ -6013,6 +6235,7 @@ mod postbuild zoekt update /path/to/organization
 | Name | Description |
 | ---- | ----------- |
 | `--force`, `-f` |  Regenerate index even if one already exists |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 
 
 ## mod publish
@@ -6078,11 +6301,13 @@ mod run /path/to/project \
 | `--active-recipe` |  If this flag is included, the recipe specified as the active recipe in your IDE will be run (assuming you have the Moderne plugin installed and configured). Executes the recipe in parallel by default. |  |
 | `--jvm-debug` |  Start a JDWP server on this port and pause for a remote debug connection. |  |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
+| `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |  |
 | `--no-patch` |  (INCUBATING) Do not generate patch files on disk at the conclusion of a recipe run that makes changes. This is useful when you are looking to only use data table outputs and don't wish to incur the cost of writing patch files when they will be unused. |  |
 | `-P`, `--recipe-option` |  Recipe options, if any. If a recipe accepts more than one option, you can include this argument multiple times. | `mod run . --recipe=<recipe> -P methodPattern='java.util.List add(..)' -P moreOptions='moreOptions'` |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
 | `--recipe` |  The recipe ID of the recipe that should be run. Executes recipes in sequential mode, unless --parallel is specified. | `org.openrewrite.java.search.FindMethods` |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
+| `--search` |  A search run ID to filter repositories to only those with matches. |  |
 | `--streaming` |  (INCUBATING) Stream results from the recipe run to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. Executes the recipe in parallel by default. |  |
 
 
@@ -6180,8 +6405,10 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 | `--data-table` |  The name of the data table to study. |
 | `--json` |  Output the data table in JSON format with the specified fields. If no value is provided, all columns from the data table will be kept. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `-o`, `--output-file` |  The location to output the data table. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `--search` |  A search run ID to filter repositories to only those with matches. |
 | `--template` |  |
 
 
