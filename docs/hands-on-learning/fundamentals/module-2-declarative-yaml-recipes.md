@@ -1,17 +1,19 @@
 ---
 sidebar_label: "Module 2: Declarative recipes"
-description: How to write a declarative YAML recipe.
+description: How to write a declarative YAML recipe and scope it with preconditions.
 ---
 
-# Module 2: Declarative YAML recipes
+# Module 2: Declarative YAML recipes & preconditions
 
 As a best practice, if your recipe can be declarative (meaning it can be built out of other recipes), then you should make it declarative. You can make some truly powerful migration recipes by combining many tiny recipes together (which have been vetted to handle specific tasks correctly, such as only adding dependencies as needed).
 
-If you completed the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop, you've already built a declarative recipe in [Module 2](../introduction/module-2-recipe-builder.md) when you used the Recipe Builder to combine existing recipes using Moderne. The YAML file you downloaded is a declarative recipe. Now you'll learn how to write or modify one yourself.
+If you completed the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop, you've already built a declarative recipe in [Module 2](../introduction/module-2-recipe-builder.md) when you used the Recipe Builder to combine existing recipes using Moderne. The YAML file you downloaded is a declarative recipe. Now you'll learn how to write or modify one yourself, and then scope it with preconditions.
 
-## Exercise 2: Write a declarative YAML recipe
+If you get stuck, you can reference the [workshop-solutions branch](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/) of the starter repo for completed examples (and you’ll also see code embedded inline throughout the steps).
 
-Let's have a look at a simple declarative YAML recipe, and expand that to cover an additional use case.
+## Exercise 2-1: Write a declarative YAML recipe
+
+In this exercise, you'll build upon a custom migration recipe that replaces Spring's `StringUtils` with Apache Commons `StringUtils`.
 
 ### Goals for this exercise
 
@@ -21,29 +23,258 @@ Let's have a look at a simple declarative YAML recipe, and expand that to cover 
 
 ### Steps
 
-:::warning
-If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor support for writing and running recipes. Some of the below steps will not work for you without this.
+#### Step 1: Add the `ChangeMethodName` recipe
+
+A declarative YAML recipe consists of [at least] metadata fields (`type`, `name`, `displayName`, `description`) and a `recipeList` field that lists the fully qualified class names of recipes to include, along with their options (if any exist). 
+
+The recipe starter project already contains a migration recipe for replacing Spring string utilities with Apache string utilities, but it's just a start and is missing some cases that still need to be covered. For one, you'll want change from Spring's `trimWhitepace(String)` to Apache Common's `StringUtils.strip(String)`.
+
+1. Open [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml) from your project in IntelliJ.
+2. Add [`org.openrewrite.java.ChangeMethodName`](https://docs.openrewrite.org/recipes/java/changemethodname) to the end of `recipeList`.
+3. Set the options for this recipe as follows:
+    * `methodPattern: org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)`
+    * `newMethodName: strip`
+<details>
+<summary>Reference example: stringutils.yml</summary>
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.yourorg.UseApacheStringUtils
+displayName: Use Apache `StringUtils`
+description: Replace Spring string utilities with Apache string utilities.
+recipeList:
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: org.apache.commons
+      artifactId: commons-lang3
+      version: latest.release
+      onlyIfUsing: org.springframework.util.StringUtils
+      configuration: implementation
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: org.springframework.util.StringUtils
+      newFullyQualifiedTypeName: org.apache.commons.lang3.StringUtils
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)
+      newMethodName: strip
+```
+</details>
+
+You may notice that [the method pattern](https://docs.openrewrite.org/reference/method-patterns) actually refers to a method that does not exist. Apache Commons does not have a `trimWhitespace` method, but Spring does. However, because recipes in the `recipeList` are executed in order and the `ChangeType` recipe comes before the new `ChangeMethodName` recipe, when `ChangeMethodName` runs, the type will already be Apache Commons and there will no longer be a Spring `trimWhitespace` method. This is an important point to keep in mind when chaining recipes together.
+
+:::tip
+IntelliJ can suggest recipe options. Place your cursor between `description` and `recipeList`, then trigger auto-complete (Ctrl/Cmd + Space) to see optional fields that may be missing (like `estimatedEffortPerOccurrence` in this example).
+
+You can also click through in IntelliJ on a recipe name (like `AddDependency` or `ChangeType`) to open its definition using Ctrl/Cmd + Click.
 :::
 
-1. With the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) still open in IntelliJ, open the `UseApacheStringUtils` recipe which is defined in a YAML file: [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml).
-   * Notice how the file is structured, with a `type`, `name`, `displayName`, `description`, and `recipeList` fields.
-   * Comment out the `type:` and see how that disables the OpenRewrite support.
-2. Note how the `recipeList` field is a list of fully qualified class names of recipes along with their options (if any exist).
-   * Click through on the `AddDependency` and `ChangeType` recipes to open their definition. (You can click through in IntelliJ using a Ctrl + click combination, or Cmd + click on macOS.)
-   * Have your IDE suggest additional options to include in the recipes by adding a new line between the `description` and `recipeList` fields, then triggering auto-completion (Ctrl + Space by default). You should see that the recipe doesn't include every option by default (e.g., it's missing `estimatedEffortPerOccurrence` and others).
-3. The migration recipe is a great start, but far from complete. Let's add a recipe to change from [Spring's `trimWhitepace(String)`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/StringUtils.html#trimWhitespace\(java.lang.String\)) to [Apache Common's `StringUtils.strip(String)`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html#strip-java.lang.String-).
-   * Begin by adding the [org.openrewrite.java.ChangeMethodName](https://docs.openrewrite.org/recipes/java/changemethodname) recipe to the end of the `recipeList` field.
-   * Make sure to pass in `methodPattern: org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)` and `newMethodName: strip` such as in [this example gist](https://gist.github.com/mike-solomon/4e1271c92c07665725d77beedd3ae1f9).
-   * Please note that [the method pattern](https://docs.openrewrite.org/reference/method-patterns) refers to a method that does not exist. Apache Commons does not have a `trimWhitespace` method, but Spring _does_. That's because recipes in the `recipeList` are executed in order. The [ChangeType recipe](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml#L29-L31) comes before our new `ChangeMethodName` recipe. That means that when our `ChangeMethodName` recipe is run, there will no longer be a Spring `trimWhitespace` method. This is important to keep in mind when chaining recipes together.
-4. Open the unit test [src/test/java/com/yourorg/UseApacheStringUtilsTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/UseApacheStringUtilsTest.java).
-   * Notice how we implement `RewriteTest`, override `defaults(RecipeSpec)` to run our recipe, and configure a classpath for the tests that has `spring-core` on it. (A comment in the code here explains why we only need `spring-core` and not `commons-lang3` in the classpath because only dependencies to compile the `before` code are required, not the `after` code.)
-   * Run the first test. You can use the green play icon to the left of the test method (`replacesStringEquals` in this case) to run the test. Note that we invoke `rewriteRun(SourceSpecs...)` and pass in a single `java(String, String)` source specification, that takes in a before and after text block.
-   * The `//language=java` [language injection](https://www.jetbrains.com/help/idea/using-language-injections.html) enables syntax highlighting and code completion in the text block.
-   * All together, this asserts that when we run the recipe, code that matches the `before` block will be converted to code that matches the `after` block.
-5. Add a unit test for the `ChangeMethodName` recipe we added that converts `trimWhitespace` to `strip`.
-   * [Here is an example of what this trimWhitespace() test might look like](https://gist.github.com/mike-solomon/b56bcc2d07cb7ada646b0a60dad119e1)
-   * Run the new unit test, and verify that the correct changes are indeed made.
-6. Feel free to test the recipe against the `Default` repositories. Just remember you'll need to let the CLI know the recipe has been updated by running `mod config recipes yaml install stringutils.yml` again (from the `/rewrite-recipe-starter/src/main/resources/META-INF/rewrite` directory).
+#### Step 2: Add a unit test
+
+Even for declarative recipes, you should always write tests. Make sure you expand the tests to cover each case as you add functionality.
+
+1. Open [src/test/java/com/yourorg/UseApacheStringUtilsTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/UseApacheStringUtilsTest.java). There are some important things to note in this file that will help you understand how to write effective tests for OpenRewrite:
+     * This class implements `RewriteTest`, overrides `defaults(RecipeSpec)` to run the recipe, and configures a classpath that includes `spring-core`.
+     * The tests only need dependencies required to compile the "before" code, so `spring-core` is enough and `commons-lang3` is not needed in the test classpath.
+     * The existing `replacesStringEquals` test uses `rewriteRun(SourceSpecs...)` with a single `java(String, String)` before/after text block, which asserts the recipe transforms the "before" code into the "after" code.
+     * The `noChangeWhenAlreadyUsingCommonsLang3` test only includes a before block, which as the comment mentions, indicates that the after code block should be the same as the before code block.
+     * The `//language=java` injection on the text blocks enables IntelliJ syntax highlighting and code completion.
+2. Now run the existing `replacesStringEquals` test (use the green play icon to the left of the test method) to confirm it passes. This takes care of that particular case, but now you need to cover the method name change that you just implemented.
+3. Add a unit test that validates `trimWhitespace` is converted to `strip`.
+<details>
+<summary>Reference example: trimWhitespace test</summary>
+
+```java
+@Test
+void useTrimWhitespace() {
+    rewriteRun(
+      //language=java
+      java(
+        """
+          import org.springframework.util.StringUtils;
+          
+          class A {
+              boolean test(String s) {
+                  return StringUtils.trimWhitespace(s);
+              }
+          }
+          """,
+        """
+          import org.apache.commons.lang3.StringUtils;
+          
+          class A {
+              boolean test(String s) {
+                  return StringUtils.strip(s);
+              }
+          }
+          """
+      )
+    );
+}
+```
+
+</details>
+
+4. Run the tests and verify that they pass.
+
+#### Step 3: Reinstall the YAML recipe and validate run
+
+Now that the recipe has been modified, you'll need to reinstall before running it:
+
+```bash
+mod config recipes yaml install stringutils.yml
+cd ~/moderne-workshop
+mod run . --recipe=com.yourorg.UseApacheStringUtils
+```
+
+## Exercise 2-2: Add preconditions to the declarative recipe
+
+You may not necessarily always want recipes to affect every file in a codebase. For example, a recipe intended for test code should only run on files that are tests, and a recipe that updates `ArrayList` usage should only run where `ArrayList` appears. Preconditions are recipes themselves, used to narrow the scope of another recipe so it only runs where it makes sense. This keeps runs focused and fast while also making the recipe easier to understand, debug, and maintain. For additional guidance, see [Use preconditions](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-preconditions).
+
+In this exercise, you will update the `stringutils.yml` recipe to only run on sources that are likely tests by adding a precondition that uses [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://docs.openrewrite.org/recipes/java/search/islikelytest).
+
+### Goals for this exercise
+
+* Discover common preconditions, and learn how to combine those with recipes.
+
+### Steps
+
+#### Step 1: Add a precondition
+
+1. In [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml), add a `preconditions` field between `description` and `recipeList`.
+2. Under the new `preconditions` field, add a list with a single `org.openrewrite.java.search.IsLikelyTest` recipe. You don't need to provide any options for this recipe.
+
+<details>
+<summary>Reference example: stringutils.yml with preconditions</summary>
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.yourorg.UseApacheStringUtils
+displayName: Use Apache `StringUtils`
+description: Replace Spring string utilities with Apache string utilities.
+//highlight-start
+preconditions:
+  - org.openrewrite.java.search.IsLikelyTest
+//highlight-end
+recipeList:
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: org.apache.commons
+      artifactId: commons-lang3
+      version: latest.release
+      onlyIfUsing: org.springframework.util.StringUtils
+      configuration: implementation
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: org.springframework.util.StringUtils
+      newFullyQualifiedTypeName: org.apache.commons.lang3.StringUtils
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)
+      newMethodName: strip
+```
+
+</details>
+
+:::note
+A precondition is considered "met" for a file if it would make a change to that file. When you list multiple preconditions, all must match.
+:::
+3. From the [src/test/java/com/yourorg/UseApacheStringUtilsTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/UseApacheStringUtilsTest.java) file, run the tests again as you did in the previous exercise. Though they passed before, now you should notice that they fail and don't make any changes. This is because of the precondition you added. It has not been met because the sources are not identified as tests.
+
+#### Step 2: Mark sources as test code
+
+To satisfy the test-only precondition, you need to explicitly mark the test inputs in your `RewriteTest` sources as test code:
+
+1. In [src/test/java/com/yourorg/UseApacheStringUtilsTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/UseApacheStringUtilsTest.java), add a static import for `org.openrewrite.java.Assertions.srcTestJava`.
+2. Now, wrap all `java(String, String)` sources with `srcTestJava()`. This explicitly identifies them as tests.
+3. Re-run the tests and confirm they now pass.
+
+<details>
+<summary>Reference example: UseApacheStringUtilsTest.java</summary>
+
+```java
+package com.yourorg;
+
+import org.junit.jupiter.api.Test;
+import org.openrewrite.DocumentExample;
+import org.openrewrite.java.JavaParser;
+import org.openrewrite.test.RecipeSpec;
+import org.openrewrite.test.RewriteTest;
+
+import static org.openrewrite.java.Assertions.java;
+import static org.openrewrite.java.Assertions.srcTestJava;
+
+class UseApacheStringUtilsTest implements RewriteTest {
+    @Override
+    public void defaults(RecipeSpec spec) {
+        spec.recipeFromResources("com.yourorg.UseApacheStringUtils")
+          .parser(JavaParser.fromJavaVersion().classpath("commons-lang3", "spring-core"));
+    }
+
+    @DocumentExample
+    @Test
+    void replacesStringEquals() {
+        rewriteRun(
+          //language=java
+          srcTestJava(
+              java(
+                """
+                  import org.springframework.util.StringUtils;
+                  
+                  class A {
+                      boolean test(String s) {
+                          return StringUtils.containsWhitespace(s);
+                      }
+                  }
+                  """,
+                """
+                  import org.apache.commons.lang3.StringUtils;
+                  
+                  class A {
+                      boolean test(String s) {
+                          return StringUtils.containsWhitespace(s);
+                      }
+                  }
+                  """
+              )
+          )
+        );
+    }
+
+    @Test
+    void trimWhitespace() {
+        rewriteRun(
+          //language=java
+          srcTestJava(
+              java(
+                """
+                  import org.springframework.util.StringUtils;
+                  
+                  class A {
+                      boolean test(String s) {
+                          return StringUtils.trimWhitespace(s);
+                      }
+                  }
+                  """,
+                """
+                  import org.apache.commons.lang3.StringUtils;
+                  
+                  class A {
+                      boolean test(String s) {
+                          return StringUtils.strip(s);
+                      }
+                  }
+                  """
+              )
+          )
+        );
+    }
+}
+```
+</details>
+
+#### Step 3: _(Optional)_ Experiment with other preconditions
+
+You may be interested in exploring other Find recipes in the OpenRewrite recipe catalog. These are often used as preconditions for recipes:
+* [org.openrewrite.FindSourceFiles](https://docs.openrewrite.org/recipes/core/findsourcefiles), to match specific files or directories.
+* [org.openrewrite.java.migrate.search.FindJavaVersion](https://docs.openrewrite.org/recipes/java/migrate/search/findjavaversion), to match specific Java versions.
+* [org.openrewrite.java.search.FindTypes](https://docs.openrewrite.org/recipes/java/search/findtypes), to find type references by name.
 
 ### Takeaways
 
@@ -52,3 +283,4 @@ If you don't have IntelliJ IDEA 2024.1 Ultimate, you'll lack bundled editor supp
 * Recipes can be chained together, to make multiple changes to your code in a single run.
 * When changing types, keep in mind the order of recipes as subsequent recipes in the `recipeList` will need to use the new type.
 * Unit tests are a great way to ensure your recipe behaves as expected.
+* Preconditions can be used to limit which source files a recipe is run on.
