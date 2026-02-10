@@ -294,6 +294,11 @@ figure figcaption {
   overflow: clip;
 }
 
+/* Offset anchor targets so they land below the fixed navbar */
+html {
+  scroll-padding-top: calc(var(--ifm-navbar-height) + var(--neo-spacing_2));
+}
+
 /* Push main content below fixed navbar */
 .main-wrapper {
   margin-top: calc(var(--ifm-navbar-height) + var(--neo-spacing_2));
