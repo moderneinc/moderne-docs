@@ -378,7 +378,11 @@ The response will either be "pending" or "success":
 
 ### Creating a pull request
 
-1. Next, we will perform the `pullRequest` mutation to create a pull request with our changes. We will be using the`id` from [recipe execution ](#recipe-execution)and the response from the previous step to construct the mutation variables for committing a pull request. See the mutation variables tab below.
+1. Next, we will perform the `pullRequest` mutation to create a pull request with our changes. We will be using the `id` from [recipe execution](#recipe-execution) and the response from the previous step to construct the mutation variables for committing a pull request. See the mutation variables tab below.
+
+:::info
+The `scmAccessTokens` field inside `commitInput` is required for programmatic pull request creation. If you don't provide this token, the API will initiate an OAuth browser flow, which is not suitable for automation or scripting. Make sure you've [created an SCM access token](../references/create-scm-access-tokens.md) and include it in your request as shown in the mutation variables example.
+:::
 
 <Tabs>
 <TabItem value="pull-request-mutation" label="Pull Request Mutation">
