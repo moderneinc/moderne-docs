@@ -8,7 +8,9 @@ description: Boot4 OpenRewrite recipes.
 
 _Recipes that include further recipes, often including the individual recipes below._
 
+* [Add Flyway starters](./addflywaystarters.md)
 * [Add Jackson2 for Jersey using JSON](./addjackson2forjerseyjson.md)
+* [Add Liquibase starters](./addliquibasestarters.md)
 * [Add MongoDB representation properties for UUID and BigDecimal](./addmongodbrepresentationproperties.md)
 * [Add Spring Boot 4.0 modular starters](./addmodularstarters.md)
 * [Add `spring-boot-starter-flyway` if using Flyway](./addspringbootstarterflyway.md)
@@ -22,6 +24,8 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate to Spring Boot 4.0 (Community Edition)](./upgradespringboot_4_0-community-edition.md)
 * [Migrate to Spring Boot 4.0 modular starters](./migratetomodularstarters-moderne-edition.md)
 * [Migrate to Spring Boot 4.0 modular starters](./migratetomodularstarters-community-edition.md)
+* [Module uses Flyway](./moduleusesflyway.md)
+* [Module uses Liquibase](./moduleusesliquibase.md)
 * [Remove Spring Pulsar Reactive support](./removespringpulsarreactive.md)
 * [Replace `@MockBean` and `@SpyBean`](./replacemockbeanandspybean.md)
 * [Replace deprecated RequestMatcherProvider with new API](./replacedeprecatedrequestmatcherprovider.md)
@@ -31,10 +35,12 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`](./addautoconfiguremockmvc.md)
 * [Add `@AutoConfigureTestRestTemplate` if necessary](./addautoconfiguretestresttemplate.md)
+* [Add `@AutoConfigureWebTestClient` if necessary](./addautoconfigurewebtestclient.md)
 * [Flag deprecated ReactorNettyHttpClientMapper for migration](./flagdeprecatedreactornettyhttpclientmapper.md)
 * [Migrate `spring-retry` to Spring Framework resilience](./migratespringretrytospringframework7.md)
 * [Preserve `PropertyMapper` null-passing behavior](./insertpropertymapperalwaysmethodinvocation.md)
 * [Remove `ContentNegotiationConfigurer.favorPathExtension()` calls](./removecontentnegotiationfavorpathextension.md)
+* [Remove `HttpMessageConvertersAutoConfiguration` references](./removehttpmessageconvertersautoconfigurationreferences.md)
 * [Remove `loaderImplementation` from Gradle](./removegradleuberjarloaderimplementationconfig.md)
 * [Replace deprecated `DockerApi`](./replacedeprecateddockerapi.md)
 * [Replace deprecated `ThreadPoolTaskSchedulerBuilder` constructor](./replacedeprecatedthreadpooltaskschedulerbuilderapi.md)

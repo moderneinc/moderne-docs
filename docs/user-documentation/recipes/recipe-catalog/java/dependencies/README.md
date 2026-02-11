@@ -20,6 +20,7 @@ description: Dependencies OpenRewrite recipes.
 * [Find and fix vulnerable dependencies](./dependencyvulnerabilitycheck.md)
 * [Find licenses in use in third-party dependencies](./dependencylicensecheck.md)
 * [Find relocated dependencies](./relocateddependencycheck.md)
+* [Maven repository order](./findrepositoryorder.md)
 * [Remove a Gradle or Maven dependency](./removedependency.md)
 * [Remove redundant explicit dependencies](./removeredundantdependencies.md)
 * [Remove unused dependencies](./removeunuseddependencies.md)

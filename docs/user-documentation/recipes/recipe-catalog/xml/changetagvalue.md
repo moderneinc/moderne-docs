@@ -44,6 +44,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate JSF variable-resolver to el-resolver](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/jsf23/migratefacesconfig)
 * [Migrate from Acegi Security 1.0.x to Spring Security 5.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0)
 * [Migrate to Spring ORM to 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5)
+* [Migrate to Struts 6.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6)
 * [Removed OpenJPA providers in the persistence.xml file](/user-documentation/recipes/recipe-catalog/java/migrate/javaee7/openjpapersistenceprovider.md)
 * [Replace deprecated lifecycle phases](/user-documentation/recipes/recipe-catalog/maven/replacedeprecatedlifecyclephases.md)
 * [Upgrade to Maven model version 4.1.0](/user-documentation/recipes/recipe-catalog/maven/upgradetomodelversion410.md)

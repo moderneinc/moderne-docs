@@ -40,9 +40,10 @@ This recipe is available under the [Moderne Source Available License](https://do
 <TabItem value="recipe-list" label="Recipe List" >
 * [Migrate Hamcrest assertions to JUnit Jupiter](../../../java/testing/hamcrest/migratehamcresttojunit5)
 * [Statically import JUnit Jupiter assertions](../../../java/testing/junit5/staticimports)
+* [Remove JUnit 5 static Assertions imports in Kotlin when wildcard import is present](../../../java/testing/junit5/cleanupkotlinjunit5assertionimports)
 * [Clean Up Assertions](../../../java/testing/junit5/cleanupassertions)
 * [Replace `@CsvSource` with `@ValueSource` for single method arguments](../../../java/testing/junit5/csvsourcetovaluesource)
-* [Replace JUnit `assertTrue(false, &quot;reason&quot;)` and `assertFalse(true, &quot;reason&quot;)` with `fail(&quot;reason&quot;)`](../../../java/testing/cleanup/assertliteralbooleantofailrecipes)
+* [Replace JUnit `assertTrue(false)` and `assertFalse(true)` with `fail()`](../../../java/testing/cleanup/assertliteralbooleantofailrecipes)
 * [Remove JUnit `assertTrue(true)` and `assertFalse(false)`](../../../java/testing/cleanup/assertliteralbooleanremovedrecipe)
 * [Kotlin test methods should have return type `Unit`](../../../java/testing/cleanup/kotlintestmethodsshouldreturnunit)
 * [Remove `test` prefix from JUnit 5 tests](../../../java/testing/cleanup/removetestprefix)
@@ -51,7 +52,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Test methods should have void return type](../../../java/testing/cleanup/testmethodsshouldbevoid)
 * [Add missing `@ParameterizedTest` annotation when `@ValueSource` is used or replace `@Test` with `@ParameterizedTest`](../../../java/testing/junit5/addparameterizedtestannotation)
 * [Remove duplicates uses of @TestTemplate implementations for a single method](../../../java/testing/junit5/removeduplicatetesttemplates)
-* [Replace `fail()` in `try-catch` blocks with `Assertions.assertDoesNotThrow(() -&gt; { ... })`](../../../java/testing/junit5/removetrycatchfailblocks)
+* [Replace `fail()` in `try-catch` blocks with `Assertions.assertDoesNotThrow(() -&gt; \{ ... \})`](../../../java/testing/junit5/removetrycatchfailblocks)
 * [Make lifecycle methods non private](../../../java/testing/junit5/lifecyclenonprivate)
 * [Applies JUnit 5 `assertThrows` on last statement in lambda block only](../../../java/testing/junit5/assertthrowsonlaststatement)
 * [`assertTrue(x instanceof y)` to `assertInstanceOf(y.class, x)`](../../../java/testing/junit5/asserttrueinstanceoftoassertinstanceof)
@@ -74,6 +75,7 @@ tags:
 recipeList:
   - org.openrewrite.java.testing.hamcrest.MigrateHamcrestToJUnit5
   - org.openrewrite.java.testing.junit5.StaticImports
+  - org.openrewrite.java.testing.junit5.CleanupKotlinJUnit5AssertionImports
   - org.openrewrite.java.testing.junit5.CleanupAssertions
   - org.openrewrite.java.testing.junit5.CsvSourceToValueSource
   - org.openrewrite.java.testing.cleanup.AssertLiteralBooleanToFailRecipes

@@ -2,11 +2,6 @@
 sidebar_label: "Align Struts XML constants for Struts 7"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate7/updatestruts7constants" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,74 +13,17 @@ _Updates Struts XML constants that were renamed or tightened in Struts 7._
 
 ## Recipe source
 
-[GitHub: struts7.yml](https://github.com/openrewrite/rewrite-struts/blob/main/src/main/resources/META-INF/rewrite/struts7.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-struts/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-struts/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Change XML attribute](../../../xml/changetagattribute)
-  * elementName: `constant`
-  * attributeName: `name`
-  * newValue: `struts.chaining.copyErrors`
-  * oldValue: `struts.xwork.chaining.copyErrors`
-* [Change XML attribute](../../../xml/changetagattribute)
-  * elementName: `constant`
-  * attributeName: `name`
-  * newValue: `struts.chaining.copyFieldErrors`
-  * oldValue: `struts.xwork.chaining.copyFieldErrors`
-* [Change XML attribute](../../../xml/changetagattribute)
-  * elementName: `constant`
-  * attributeName: `name`
-  * newValue: `struts.chaining.copyMessages`
-  * oldValue: `struts.xwork.chaining.copyMessages`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.struts.migrate7.UpdateStruts7Constants
-displayName: Align Struts XML constants for Struts 7
-description: |
-  Updates Struts XML constants that were renamed or tightened in Struts 7.
-recipeList:
-  - org.openrewrite.xml.ChangeTagAttribute:
-      elementName: constant
-      attributeName: name
-      newValue: struts.chaining.copyErrors
-      oldValue: struts.xwork.chaining.copyErrors
-  - org.openrewrite.xml.ChangeTagAttribute:
-      elementName: constant
-      attributeName: name
-      newValue: struts.chaining.copyFieldErrors
-      oldValue: struts.xwork.chaining.copyFieldErrors
-  - org.openrewrite.xml.ChangeTagAttribute:
-      elementName: constant
-      attributeName: name
-      newValue: struts.chaining.copyMessages
-      oldValue: struts.xwork.chaining.copyMessages
-
-```
-</TabItem>
-</Tabs>
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Struts 7.0](/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7.md)
+* [Migrate to Struts 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7)
 
 
 ## Usage

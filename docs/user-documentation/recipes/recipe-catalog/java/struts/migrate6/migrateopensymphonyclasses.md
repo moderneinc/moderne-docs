@@ -2,11 +2,6 @@
 sidebar_label: "Migrate OpenSymphony classes to Struts 6.0"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate6/migrateopensymphonyclasses" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,62 +13,17 @@ _Migrate classes from `com.opensymphony.xwork2` to their replacements in `org.ap
 
 ## Recipe source
 
-[GitHub: struts6.yml](https://github.com/openrewrite/rewrite-struts/blob/main/src/main/resources/META-INF/rewrite/struts6.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-struts/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-struts/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.config.providers.XmlConfigurationProvider`
-  * newFullyQualifiedTypeName: `org.apache.struts2.config.StrutsXmlConfigurationProvider`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.conversion.TypeConversionException`
-  * newFullyQualifiedTypeName: `org.apache.struts2.conversion.TypeConversionException`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.XWorkException`
-  * newFullyQualifiedTypeName: `org.apache.struts2.StrutsException`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.struts.migrate6.MigrateOpenSymphonyClasses
-displayName: Migrate OpenSymphony classes to Struts 6.0
-description: |
-  Migrate classes from `com.opensymphony.xwork2` to their replacements in `org.apache.struts2`.
-recipeList:
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.config.providers.XmlConfigurationProvider
-      newFullyQualifiedTypeName: org.apache.struts2.config.StrutsXmlConfigurationProvider
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.conversion.TypeConversionException
-      newFullyQualifiedTypeName: org.apache.struts2.conversion.TypeConversionException
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.XWorkException
-      newFullyQualifiedTypeName: org.apache.struts2.StrutsException
-
-```
-</TabItem>
-</Tabs>
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Struts 6.0](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6.md)
+* [Migrate to Struts 6.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6)
 
 
 ## Usage

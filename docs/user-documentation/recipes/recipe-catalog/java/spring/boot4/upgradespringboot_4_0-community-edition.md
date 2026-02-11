@@ -69,6 +69,9 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Update a Gradle plugin by id](../../../gradle/plugins/upgradepluginversion)
   * pluginIdPattern: `org.springframework.boot`
   * newVersion: `4.0.x`
+* [Update Gradle wrapper](../../../gradle/updategradlewrapper)
+  * version: `^8.14`
+  * addIfMissing: `false`
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `org.springframework.boot`
   * oldArtifactId: `spring-boot-starter-oauth2-authorization-server`
@@ -114,6 +117,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * newVersion: `5.0.x`
   * overrideManagedVersion: `true`
 * [Add `@AutoConfigureTestRestTemplate` if necessary](../../../java/spring/boot4/addautoconfiguretestresttemplate)
+* [Add `@AutoConfigureWebTestClient` if necessary](../../../java/spring/boot4/addautoconfigurewebtestclient)
 
 </TabItem>
 
@@ -161,6 +165,9 @@ recipeList:
   - org.openrewrite.gradle.plugins.UpgradePluginVersion:
       pluginIdPattern: org.springframework.boot
       newVersion: 4.0.x
+  - org.openrewrite.gradle.UpdateGradleWrapper:
+      version: ^8.14
+      addIfMissing: false
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.springframework.boot
       oldArtifactId: spring-boot-starter-oauth2-authorization-server
@@ -206,6 +213,7 @@ recipeList:
       newVersion: 5.0.x
       overrideManagedVersion: true
   - org.openrewrite.java.spring.boot4.AddAutoConfigureTestRestTemplate
+  - org.openrewrite.java.spring.boot4.AddAutoConfigureWebTestClient
 
 ```
 </TabItem>

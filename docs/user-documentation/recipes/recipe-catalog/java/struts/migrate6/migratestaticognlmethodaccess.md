@@ -2,11 +2,6 @@
 sidebar_label: "Migrate static OGNL method access to action wrapper methods"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate6/migratestaticognlmethodaccess" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,18 +13,69 @@ _Migrates OGNL expressions using static method access (e.g., `@com.app.Util@make
 
 ## Recipe source
 
-[GitHub: MigrateStaticOgnlMethodAccess.java](https://github.com/openrewrite/rewrite-struts/blob/main/src/main/java/org/openrewrite/java/struts/migrate6/MigrateStaticOgnlMethodAccess.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-struts/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-struts/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Struts 6.0](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6.md)
+* [Migrate to Struts 6.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6)
+
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="dashboard.jsp" label="dashboard.jsp">
+
+
+###### Before
+```xml title="dashboard.jsp"
+<html>
+    <body>
+        <s:property value="@com.app.Util@makeCode()" />
+    </body>
+</html>
+```
+
+###### After
+```xml title="dashboard.jsp"
+<html>
+    <body>
+        <s:property <!--~~>-->value="utilMakeCode" />
+    </body>
+</html>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- dashboard.jsp
++++ dashboard.jsp
+@@ -3,1 +3,1 @@
+<html>
+    <body>
+-       <s:property value="@com.app.Util@makeCode()" />
++       <s:property <!--~~>-->value="utilMakeCode" />
+    </body>
+```
+</TabItem>
+</Tabs>
+
+###### Unchanged
+```xml title="struts.xml"
+<struts>
+    <package name="app" extends="struts-default">
+        <action name="dashboard" class="com.example.DashboardAction">
+            <result>/dashboard.jsp</result>
+        </action>
+    </package>
+</struts>
+```
 
 
 ## Usage

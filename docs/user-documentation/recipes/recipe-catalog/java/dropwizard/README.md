@@ -11,6 +11,7 @@ _Recipes for upgrading and patching [Dropwizard](https://dropwizard.io/) applica
 * [Annotation](/user-documentation/recipes/recipe-catalog/java/dropwizard/annotation)
 * [Config](/user-documentation/recipes/recipe-catalog/java/dropwizard/config)
 * [General](/user-documentation/recipes/recipe-catalog/java/dropwizard/general)
+* [Jetty](/user-documentation/recipes/recipe-catalog/java/dropwizard/jetty)
 * [Method](/user-documentation/recipes/recipe-catalog/java/dropwizard/method)
 
 ## Composite Recipes
@@ -31,6 +32,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate Health Checks to Spring Boot](./migratesecurity.md)
 * [Migrate Hibernate](./migratehibernate.md)
 * [Migrate Resource Classes](./migrateresourcestospringjersey.md)
+* [Migrate to Dropwizard 5.0.x from 4.x](./migratetodropwizard5.md)
 
 ## Recipes
 

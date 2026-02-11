@@ -7,6 +7,7 @@ description: Hibernate OpenRewrite recipes.
 ## Categories
 
 * [Search](/user-documentation/recipes/recipe-catalog/hibernate/search)
+* [Update40](/user-documentation/recipes/recipe-catalog/hibernate/update40)
 * [Update66](/user-documentation/recipes/recipe-catalog/hibernate/update66)
 * [Update70](/user-documentation/recipes/recipe-catalog/hibernate/update70)
 * [Validator](/user-documentation/recipes/recipe-catalog/hibernate/validator)
@@ -17,6 +18,7 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Migrate Hibernate Types to Hypersistence Utils 6.0 (Community Edition)](./migratetohypersistenceutilshibernate60.md)
 * [Migrate Hibernate dependencies to 6.0.x (Community Edition)](./migratetohibernatedependencies60.md)
+* [Migrate to Hibernate 4.0.x (Moderne Edition)](./migratetohibernate40.md)
 * [Migrate to Hibernate 6.0.x (Community Edition)](./migratetohibernate60.md)
 * [Migrate to Hibernate 6.1.x (Community Edition)](./migratetohibernate61.md)
 * [Migrate to Hibernate 6.2.x (Community Edition)](./migratetohibernate62.md)

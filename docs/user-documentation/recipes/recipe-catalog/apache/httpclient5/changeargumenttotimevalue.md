@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Changes an argument to a `TimeValue` for matched method invocations"
+sidebar_label: "Changes an argument (or pair of arguments) to a `TimeValue` for matched method invocations"
 ---
 
 
@@ -10,11 +10,11 @@ sidebar_label: "Changes an argument to a `TimeValue` for matched method invocati
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Changes an argument to a `TimeValue` for matched method invocations
+# Changes an argument (or pair of arguments) to a `TimeValue` for matched method invocations
 
 **org.openrewrite.apache.httpclient5.ChangeArgumentToTimeValue**
 
-_In Apache Http Client 5.x migration, some methods that previously took a single long argument have changed to take a `TimeValue`. Previously in 4.x, all these methods were implicitly having the value expressed in milliseconds. By default this recipe uses `TimeUnit.MILLISECONDS` for the `TimeUnit` when creating a `TimeValue`. It is possible to specify this as a parameter. Since all affected methods of the Apache Http Client 5.x migration only have one long argument, the recipe applies with matched method invocations of exactly one parameter._
+_In Apache Http Client 5.x migration, some methods that previously took a single `long` argument, or a pair of arguments of type `long` and `TimeUnit` respectively, have changed to take a `TimeValue`. Previously in 4.x, all these single `long` argument methods were implicitly having the value expressed in milliseconds. By default this recipe uses `TimeUnit.MILLISECONDS` for the `TimeUnit` when creating a `TimeValue`. It is possible to specify this as a option. The `timeUnit` option will be ignored for cases matching `*(long, TimeUnit)._
 
 ## Recipe source
 
@@ -36,6 +36,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
+* [Migrate Apache HttpAsyncClient 4.x classes to HttpClient 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5_asyncclientclassmapping.md)
 * [Migrate to Apache HttpCore Nio Classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_nioclassmapping.md)
 
 ## Example
@@ -106,7 +107,7 @@ Or, if you'd like to create a declarative recipe, please see the below example o
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: com.yourorg.ChangeArgumentToTimeValueExample
-displayName: Changes an argument to a `TimeValue` for matched method invocations example
+displayName: Changes an argument (or pair of arguments) to a `TimeValue` for matched method invocations example
 recipeList:
   - org.openrewrite.apache.httpclient5.ChangeArgumentToTimeValue:
       methodPattern: org.apache.http.impl.nio.reactor.IOReactorConfig.Builder setSelectInterval(long)

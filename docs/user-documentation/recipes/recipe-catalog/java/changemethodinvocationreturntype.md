@@ -44,6 +44,7 @@ This recipe is used as part of the following composite recipes:
 * [Change method invocation return type](/user-documentation/recipes/recipe-catalog/java/migrate/changemethodinvocationreturntype.md)
 * [Migrate to Apache HttpCore Nio Classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_nioclassmapping.md)
 * [Migrates to Apache POI 3.17](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_3_17.md)
+* [OkHttp `MockWebServer` `MockResponse` to 5.x `MockWebServer3` `MockResponse`](/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatemockwebservermockresponse.md)
 
 ## Example
 

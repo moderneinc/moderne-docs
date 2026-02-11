@@ -24,6 +24,13 @@ _Class having `@Bean` annotation over any methods but missing `@Configuration` a
 
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Spring Boot 2.x best practices](/user-documentation/recipes/recipe-catalog/java/spring/boot2/springboot2bestpractices.md)
+
 ## Example
 
 

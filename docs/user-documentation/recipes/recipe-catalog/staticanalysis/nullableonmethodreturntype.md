@@ -53,7 +53,6 @@ class Test {
 ```java
 import org.openrewrite.internal.lang.Nullable;
 class Test {
-
     public @Nullable String test() {
     }
 }
@@ -63,12 +62,11 @@ class Test {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -3,2 +3,2 @@
+@@ -3,2 +3,1 @@
 import org.openrewrite.internal.lang.Nullable;
 class Test {
 -   @Nullable
 -   public String test() {
-+
 +   public @Nullable String test() {
     }
 ```

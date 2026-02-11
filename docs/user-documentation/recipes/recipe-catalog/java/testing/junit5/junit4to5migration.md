@@ -60,6 +60,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * newMethodName: `assertArrayEquals`
 * [JUnit 4 `Assert` To JUnit Jupiter `Assertions`](../../../java/testing/junit5/asserttoassertions)
 * [JUnit 4 `@Category` to JUnit Jupiter `@Tag`](../../../java/testing/junit5/categorytotag)
+* [Migrate JUnit 4 assertion failure exceptions to JUnit Jupiter](../../../java/testing/junit5/migrateassertionfailederror)
 * [Cleanup JUnit imports](../../../java/testing/junit5/cleanupjunitimports)
 * [Use JUnit Jupiter `@TempDir`](../../../java/testing/junit5/temporaryfoldertotempdir)
 * [Make `@TempDir` fields non final](../../../java/testing/junit5/tempdirnonfinal)
@@ -151,6 +152,7 @@ recipeList:
       newMethodName: assertArrayEquals
   - org.openrewrite.java.testing.junit5.AssertToAssertions
   - org.openrewrite.java.testing.junit5.CategoryToTag
+  - org.openrewrite.java.testing.junit5.MigrateAssertionFailedError
   - org.openrewrite.java.testing.junit5.CleanupJUnitImports
   - org.openrewrite.java.testing.junit5.TemporaryFolderToTempDir
   - org.openrewrite.java.testing.junit5.TempDirNonFinal
@@ -812,6 +814,25 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
+
+### Maven metadata failures
+**org.openrewrite.maven.table.MavenMetadataFailures**
+
+_Attempts to resolve maven metadata that failed._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Group id | The groupId of the artifact for which the metadata download failed. |
+| Artifact id | The artifactId of the artifact for which the metadata download failed. |
+| Version | The version of the artifact for which the metadata download failed. |
+| Maven repository | The URL of the Maven repository that the metadata download failed on. |
+| Snapshots | Does the repository support snapshots. |
+| Releases | Does the repository support releases. |
+| Failure | The reason the metadata download failed. |
 
 </TabItem>
 

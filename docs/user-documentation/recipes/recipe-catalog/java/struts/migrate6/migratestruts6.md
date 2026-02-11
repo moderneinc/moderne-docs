@@ -2,11 +2,6 @@
 sidebar_label: "Migrate to Struts 6.0"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate6/migratestruts6" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,58 +13,250 @@ _Migrate Struts 2.x to Struts 6.0._
 
 ## Recipe source
 
-[GitHub: struts6.yml](https://github.com/openrewrite/rewrite-struts/blob/main/src/main/resources/META-INF/rewrite/struts6.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-struts/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-struts/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Migrate Struts 2.0 interceptors to action &quot;aware&quot; interfaces](../../../java/struts/migrate6/migrateawareinterfaces)
-* [Migrate Dynamic Method Invocation to explicit action mappings](../../../java/struts/migrate6/migratedynamicmethodinvocation)
-* [Migrate OpenSymphony classes to Struts 6.0](../../../java/struts/migrate6/migrateopensymphonyclasses)
-* [Upgrade Struts 6.0 dependencies](../../../java/struts/migrate6/upgradestruts6dependencies)
-* [Migrate to Struts 6.0 constants](../../../java/struts/migrate6/migratestruts6constants)
-* [Migrate Struts date tag format patterns](../../../java/struts/migrate6/migratedatetagformat)
-* [Remove deprecated Freemarker `?html` built-in](../../../java/struts/migrate6/removefreemarkerhtmlbuiltin)
-* [Migrate DTD to a specific Struts version](../../../java/struts/migratestrutsdtd)
-  * strutsVersion: `6.0`
-* [Migrate static OGNL method access to action wrapper methods](../../../java/struts/migrate6/migratestaticognlmethodaccess)
+## Examples
+##### Example 1
+`MigrateInterceptorDisabledParamTest#migrateExcludeMethodsToDisabled`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="xml" label="xml">
+
+
+###### Before
+```xml
+<struts>
+    <package name="default" extends="struts-default">
+        <action name="save" class="com.example.SaveAction">
+            <interceptor-ref name="defaultStack">
+                <param name="validation.excludeMethods">input,back,cancel</param>
+            </interceptor-ref>
+            <result>/success.jsp</result>
+        </action>
+    </package>
+</struts>
+```
+
+###### After
+```xml
+<struts>
+    <package name="default" extends="struts-default">
+        <action name="save" class="com.example.SaveAction">
+            <interceptor-ref name="defaultStack">
+                <param name="validation.disabled">input,back,cancel</param>
+            </interceptor-ref>
+            <result>/success.jsp</result>
+        </action>
+    </package>
+</struts>
+```
 
 </TabItem>
+<TabItem value="diff" label="Diff" >
 
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.struts.migrate6.MigrateStruts6
-displayName: Migrate to Struts 6.0
-description: |
-  Migrate Struts 2.x to Struts 6.0.
-recipeList:
-  - org.openrewrite.java.struts.migrate6.MigrateAwareInterfaces
-  - org.openrewrite.java.struts.migrate6.MigrateDynamicMethodInvocation
-  - org.openrewrite.java.struts.migrate6.MigrateOpenSymphonyClasses
-  - org.openrewrite.java.struts.migrate6.UpgradeStruts6Dependencies
-  - org.openrewrite.java.struts.migrate6.MigrateStruts6Constants
-  - org.openrewrite.java.struts.migrate6.MigrateDateTagFormat
-  - org.openrewrite.java.struts.migrate6.RemoveFreemarkerHtmlBuiltin
-  - org.openrewrite.java.struts.MigrateStrutsDtd:
-      strutsVersion: 6.0
-  - org.openrewrite.java.struts.migrate6.MigrateStaticOgnlMethodAccess
-
+```diff
+@@ -5,1 +5,1 @@
+        <action name="save" class="com.example.SaveAction">
+            <interceptor-ref name="defaultStack">
+-               <param name="validation.excludeMethods">input,back,cancel</param>
++               <param name="validation.disabled">input,back,cancel</param>
+            </interceptor-ref>
 ```
 </TabItem>
 </Tabs>
+
+---
+
+##### Example 2
+`MigrateTilesListenerTest#migrateTilesListener`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="web.xml" label="web.xml">
+
+
+###### Before
+```xml title="web.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <listener>
+        <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+
+</web-app>
+```
+
+###### After
+```xml title="web.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <listener>
+        <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+
+</web-app>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- web.xml
++++ web.xml
+@@ -9,1 +9,1 @@
+
+    <listener>
+-       <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
++       <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
+    </listener>
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 3
+`MigrateInterceptorDisabledParamTest#migrateExcludeMethodsToDisabled`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="xml" label="xml">
+
+
+###### Before
+```xml
+<struts>
+    <package name="default" extends="struts-default">
+        <action name="save" class="com.example.SaveAction">
+            <interceptor-ref name="defaultStack">
+                <param name="validation.excludeMethods">input,back,cancel</param>
+            </interceptor-ref>
+            <result>/success.jsp</result>
+        </action>
+    </package>
+</struts>
+```
+
+###### After
+```xml
+<struts>
+    <package name="default" extends="struts-default">
+        <action name="save" class="com.example.SaveAction">
+            <interceptor-ref name="defaultStack">
+                <param name="validation.disabled">input,back,cancel</param>
+            </interceptor-ref>
+            <result>/success.jsp</result>
+        </action>
+    </package>
+</struts>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -5,1 +5,1 @@
+        <action name="save" class="com.example.SaveAction">
+            <interceptor-ref name="defaultStack">
+-               <param name="validation.excludeMethods">input,back,cancel</param>
++               <param name="validation.disabled">input,back,cancel</param>
+            </interceptor-ref>
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 4
+`MigrateTilesListenerTest#migrateTilesListener`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="web.xml" label="web.xml">
+
+
+###### Before
+```xml title="web.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <listener>
+        <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+
+</web-app>
+```
+
+###### After
+```xml title="web.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <listener>
+        <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+
+</web-app>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- web.xml
++++ web.xml
+@@ -9,1 +9,1 @@
+
+    <listener>
+-       <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
++       <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
+    </listener>
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

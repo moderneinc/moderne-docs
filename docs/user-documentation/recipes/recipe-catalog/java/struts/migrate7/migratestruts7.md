@@ -2,11 +2,6 @@
 sidebar_label: "Migrate to Struts 7.0"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate7/migratestruts7" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,56 +13,11 @@ _Migrate Struts 6.x to Struts 7.x._
 
 ## Recipe source
 
-[GitHub: struts7.yml](https://github.com/openrewrite/rewrite-struts/blob/main/src/main/resources/META-INF/rewrite/struts7.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-struts/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-struts/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Upgrade Maven dependency version](../../../maven/upgradedependencyversion)
-  * groupId: `org.apache.struts`
-  * artifactId: `*`
-  * newVersion: `7.x`
-  * overrideManagedVersion: `true`
-* [Rename OpenSymphony / XWork classes to Struts 7 packages](../../../java/struts/migrate7/renameopensymphonytostruts2)
-* [Align Struts XML constants for Struts 7](../../../java/struts/migrate7/updatestruts7constants)
-* [Migrate to Java 17](../../../java/migrate/upgradetojava17)
-* [Migrate to Jakarta EE 10](../../../java/migrate/jakarta/jakartaee10)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.struts.migrate7.MigrateStruts7
-displayName: Migrate to Struts 7.0
-description: |
-  Migrate Struts 6.x to Struts 7.x.
-recipeList:
-  - org.openrewrite.maven.UpgradeDependencyVersion:
-      groupId: org.apache.struts
-      artifactId: "*"
-      newVersion: 7.x
-      overrideManagedVersion: true
-  - org.openrewrite.java.struts.migrate7.RenameOpenSymphonyToStruts2
-  - org.openrewrite.java.struts.migrate7.UpdateStruts7Constants
-  - org.openrewrite.java.migrate.UpgradeToJava17
-  - org.openrewrite.java.migrate.jakarta.JakartaEE10
-
-```
-</TabItem>
-</Tabs>
 
 ## Usage
 

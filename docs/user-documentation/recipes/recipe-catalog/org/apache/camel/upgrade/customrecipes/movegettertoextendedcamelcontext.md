@@ -35,7 +35,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Replace `context.${method}(*)` with `context.getCamelContextExtension().${method}(*)`](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel45/useextendedcamelcontextgetters.md)
+* [Replace `context.$\{method\}(*)` with `context.getCamelContextExtension().$\{method\}(*)`](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel45/useextendedcamelcontextgetters.md)
 
 
 ## Usage

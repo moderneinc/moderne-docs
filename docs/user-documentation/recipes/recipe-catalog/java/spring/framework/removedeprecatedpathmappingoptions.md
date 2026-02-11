@@ -30,6 +30,109 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 
+## Examples
+##### Example 1
+`RemoveDeprecatedPathMappingOptionsTest#removeSetUseTrailingSlashMatchFromWebMvcConfigurer`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class MyWebConfiguration implements WebMvcConfigurer {
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+        configurer.setUseTrailingSlashMatch(true);
+    }
+}
+```
+
+###### After
+```java
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class MyWebConfiguration implements WebMvcConfigurer {
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -7,4 +7,0 @@
+@Configuration
+public class MyWebConfiguration implements WebMvcConfigurer {
+-   @Override
+-   public void configurePathMatch(PathMatchConfigurer configurer) {
+-       configurer.setUseTrailingSlashMatch(true);
+-   }
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`RemoveDeprecatedPathMappingOptionsTest#removeSetUseTrailingSlashMatchFromWebMvcConfigurer`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class MyWebConfiguration implements WebMvcConfigurer {
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+        configurer.setUseTrailingSlashMatch(true);
+    }
+}
+```
+
+###### After
+```java
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class MyWebConfiguration implements WebMvcConfigurer {
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -7,4 +7,0 @@
+@Configuration
+public class MyWebConfiguration implements WebMvcConfigurer {
+-   @Override
+-   public void configurePathMatch(PathMatchConfigurer configurer) {
+-       configurer.setUseTrailingSlashMatch(true);
+-   }
+}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

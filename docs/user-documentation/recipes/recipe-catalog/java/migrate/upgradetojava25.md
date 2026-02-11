@@ -53,6 +53,8 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Remove Security SecurityManager](../../java/migrate/removesecuritymanager)
 * [Replace `System.getSecurityManager()` with `null`](../../java/migrate/systemgetsecuritymanagertonull)
 * [Use `ZipException` instead of `ZipError`](../../java/migrate/migrateziperrortozipexception)
+* [Enable Lombok annotation processor](../../java/migrate/enablelombokannotationprocessor)
+* [Migrate GraalVM resource-config.json to glob patterns](../../java/migrate/migrategraalvmresourceconfig)
 
 </TabItem>
 
@@ -84,10 +86,111 @@ recipeList:
   - org.openrewrite.java.migrate.RemoveSecurityManager
   - org.openrewrite.java.migrate.SystemGetSecurityManagerToNull
   - org.openrewrite.java.migrate.MigrateZipErrorToZipException
+  - org.openrewrite.java.migrate.EnableLombokAnnotationProcessor
+  - org.openrewrite.java.migrate.MigrateGraalVMResourceConfig
 
 ```
 </TabItem>
 </Tabs>
+## Examples
+##### Example 1
+`UpgradeToJava25Test#updateCompilerVersion`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="pom.xml" label="pom.xml">
+
+
+###### Before
+```xml title="pom.xml"
+<project>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1</version>
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+    </properties>
+</project>
+```
+
+###### After
+```xml title="pom.xml"
+<project>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1</version>
+    <properties>
+        <maven.compiler.release>25</maven.compiler.release>
+    </properties>
+</project>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- pom.xml
++++ pom.xml
+@@ -6,1 +6,1 @@
+    <version>1</version>
+    <properties>
+-       <maven.compiler.release>17</maven.compiler.release>
++       <maven.compiler.release>25</maven.compiler.release>
+    </properties>
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`UpgradeToJava25Test#updateCompilerVersion`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="pom.xml" label="pom.xml">
+
+
+###### Before
+```xml title="pom.xml"
+<project>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1</version>
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+    </properties>
+</project>
+```
+
+###### After
+```xml title="pom.xml"
+<project>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1</version>
+    <properties>
+        <maven.compiler.release>25</maven.compiler.release>
+    </properties>
+</project>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- pom.xml
++++ pom.xml
+@@ -6,1 +6,1 @@
+    <version>1</version>
+    <properties>
+-       <maven.compiler.release>17</maven.compiler.release>
++       <maven.compiler.release>25</maven.compiler.release>
+    </properties>
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

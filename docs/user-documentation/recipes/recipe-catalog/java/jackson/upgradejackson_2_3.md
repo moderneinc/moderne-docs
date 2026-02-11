@@ -40,7 +40,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
-* [Update configuration of serialization inclusion in ObjectMapper for Jackson 3](../../java/jackson/updateserializationinclusionconfiguration)
+* [Update configuration of serialization inclusion in `ObjectMapper` for Jackson 3](../../java/jackson/updateserializationinclusionconfiguration)
 * [Use format alignment `ObjectMappers`](../../java/jackson/useformatalignedobjectmappers)
 * [Upgrade Jackson 2.x dependencies to 3.x](../../java/jackson/upgradejackson_2_3_dependencies)
 * [Update Jackson 2.x types to 3.x](../../java/jackson/upgradejackson_2_3_typechanges)
@@ -125,7 +125,7 @@ This recipe is used as part of the following composite recipes:
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.20</version>
+            <version>2.21</version>
         </dependency>
     </dependencies>
 </project>
@@ -141,7 +141,7 @@ This recipe is used as part of the following composite recipes:
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
 -           <version>2.19.0</version>
-+           <version>2.20</version>
++           <version>2.21</version>
         </dependency>
 ```
 </TabItem>
@@ -394,7 +394,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.20</version>
+            <version>2.21</version>
         </dependency>
     </dependencies>
 </project>
@@ -410,7 +410,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
 -           <version>2.19.0</version>
-+           <version>2.20</version>
++           <version>2.21</version>
         </dependency>
 ```
 </TabItem>

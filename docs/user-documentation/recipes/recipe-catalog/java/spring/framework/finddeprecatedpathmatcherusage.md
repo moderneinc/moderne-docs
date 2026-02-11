@@ -127,4 +127,19 @@ _Statistics used in analyzing the performance of recipes._
 
 </TabItem>
 
+<TabItem value="org.openrewrite.java.table.TypeUses" label="TypeUses">
+
+### Type uses
+**org.openrewrite.java.table.TypeUses**
+
+_The source code of matching type uses._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source file | The source file that the method call occurred in. |
+| Source | The source code of the type use. |
+| Concrete type | The concrete type in use, which may be a subtype of a searched type. |
+
+</TabItem>
+
 </Tabs>

@@ -25,6 +25,55 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.context.properties.PropertyMapper;
+
+class Config {
+    void configure() {
+        PropertyMapper map = PropertyMapper.get();
+        map.from(this::getValue).to(this::setValue);
+    }
+    String getValue() { return ""; }
+    void setValue(String v) {}
+}
+```
+
+###### After
+```java
+import org.springframework.boot.context.properties.PropertyMapper;
+
+class Config {
+    void configure() {
+        PropertyMapper map = PropertyMapper.get();
+        map.from(this::getValue).always().to(this::setValue);
+    }
+    String getValue() { return ""; }
+    void setValue(String v) {}
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -6,1 +6,1 @@
+    void configure() {
+        PropertyMapper map = PropertyMapper.get();
+-       map.from(this::getValue).to(this::setValue);
++       map.from(this::getValue).always().to(this::setValue);
+    }
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 
