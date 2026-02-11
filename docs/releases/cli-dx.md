@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.57.1 (2026-02-10)
+
+#### What's Changed
+* Handle null NodeInstallation in JavaScriptBuildStep.getVersion()
+* Include skills resources in native image
+
 ### CLI / DX v3.57.0 (2026-02-10)
 
 #### What's Changed
