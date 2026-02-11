@@ -1,5 +1,10 @@
 # CLI / DX changelog
 
+### CLI / DX v3.57.3 (2026-02-11)
+
+#### What's Changed
+* Fix issue with `mod config (recipes|lsts) (artifactory|maven) (add|delete)` causing `ClassCastException`s in places that still expected the old map style
+
 ### CLI / DX v3.57.2 (2026-02-10)
 
 #### What's Changed
