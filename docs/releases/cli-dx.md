@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.57.2 (2026-02-10)
+
+#### What's Changed
+- Based on OpenRewrite 8.73.0
+* Fix ZipException by validating cached LST files
+
 ### CLI / DX v3.57.1 (2026-02-10)
 
 #### What's Changed
