@@ -76,8 +76,8 @@ When you've seen enough, you can stop the agent (`Escape` in Claude Code) since 
 
 ### Takeaways
 
-* The Moderne Skills give your AI coding agent specialized, procedural knowledge about OpenRewrite recipe development and usage
-* Human judgment is still essential at every step (the agent proposes, you guide it)
+* The Moderne Skills give your AI coding agent specialized, procedural knowledge about OpenRewrite recipe development and usage.
+* Human judgment is still essential at every step (the agent proposes, you guide it).
 
 ---
 
@@ -123,8 +123,6 @@ claude  # or launch your preferred agent
 
 This is where your recipe project will live for the rest of the workshop.
 
-<!-- TODO maybe start with a repo they can clone...that includes settings.local.json and what else though? -->
-
 #### Step 2: Research the migration
 
 Invoke the `create-recipe` skill, then ask your agent to research the migration. Point it at the source documentation and ask it to propose automatable changes. A few tips for crafting your prompt:
@@ -153,9 +151,9 @@ Throughout this workshop, you'll find **suggested prompts** in collapsible secti
 
 #### Step 3: Scope it down
 
-It will take several minutes to analyze the migration guide and come up with a plan. The agent will likely write the plan to a file (e.g., `PLAN.md`) for reference later. That's helpful, since the plan serves as context for the build phase.
+It will take several minutes to analyze the migration guide and come up with a plan. The agent may even write the plan to a file (e.g., `PLAN.md`) for reference later. That's helpful, since the plan serves as context for the build phase.
 
-Once it's done, you'll likely have dozens of proposed changes across many categories. The agent may even organize them into phases on its own. Either way, the full list is too broad to tackle at once. For this workshop, you'll focus on a first phase of high-impact changes. This phased approach is useful in practice too: start with the most impactful operations, validate them against real code, then expand coverage over time.
+Once it's done, the agent may be eager to keep going and start building. It's a good idea to pause it here so you can evaluate the plan first. You'll likely have dozens of proposed changes across many categories. The agent may even organize them into phases on its own. You could ask the agent to build the entire migration recipe at once, and in practice that's a valid approach. For this workshop, you'll scope down to a first phase of high-impact changes so you can focus on learning the workflow. A phased approach is also useful in practice: start with the most impactful operations, validate them against real code, then expand coverage over time.
 
 If the agent already proposed phases, review the first phase and refine it. If not, ask it to prioritize. Either way, you want a scoped subset of 8-10 operations with a mix of recipe types, including at least one that requires a custom imperative recipe (not just declarative primitives).
 
@@ -168,11 +166,12 @@ If the agent already proposed phases, review the first phase and refine it. If n
 
 #### Step 4: Review the subset
 
-Your results will vary, and that's expected. Most of the first phase will likely be declarative recipes, which is a good sign. The skill encourages using the simplest recipe type possible. But there is often the need for a transformation that requires something more, so one or two imperative recipes should show up as well (especially since you asked it to include at least one). Review the agent's proposed subset and recipe type suggestions. Key things to check:
+Your results will vary, and that's expected. Most of the first phase will likely be declarative recipes, which is a good sign. The skill encourages using the simplest recipe type possible. But there is often the need for a transformation that requires something more, so one or two Refaster and/or imperative recipes will likely be proposed as well (especially since you asked for it to). Review the agent's proposed subset and recipe type suggestions. Key things to check:
 
 * Package renames, type renames, method renames, and dependency changes should all be **declarative YAML** using existing OpenRewrite primitives
+* Expression-level replacements (e.g., replacing one method chain with another) are a good fit for **Refaster templates**
 * Transformations that require inspecting method arguments or conditionally removing statements genuinely require an **imperative** recipe
-* If the agent suggests writing an imperative recipe for something that could be declarative, push back
+* If the agent suggests a more complex recipe type for something that could be handled by a simpler one, push back
 
 If you disagree with a choice, ask the agent to explain its reasoning and consider alternatives. If the agent wrote the full plan to a file like `PLAN.md`, you can review it yourself to confirm you agree with what was included and what was left out.
 
@@ -181,28 +180,28 @@ For reference, here's what a reasonable subset might look like:
 <details>
 <summary>Reference: example scoped subset</summary>
 
-| Change | Type | Recipe approach |
-|--------|------|----------------|
-| Package rename: `com.fasterxml.jackson` → `tools.jackson` | Package | `ChangePackage` (declarative) |
-| Dependency: `com.fasterxml.jackson.core:jackson-core` → `tools.jackson.core:jackson-core` | Dependency | `ChangeDependency` (declarative) |
-| Dependency: `com.fasterxml.jackson.core:jackson-databind` → `tools.jackson.core:jackson-databind` | Dependency | `ChangeDependency` (declarative) |
-| Exception: `JsonProcessingException` → `JacksonException` | Type rename | `ChangeType` (declarative) |
-| Exception: `JsonMappingException` → `DatabindException` | Type rename | `ChangeType` (declarative) |
-| Class: `JsonDeserializer` → `ValueDeserializer` | Type rename | `ChangeType` (declarative) |
-| Class: `JsonSerializer` → `ValueSerializer` | Type rename | `ChangeType` (declarative) |
-| Method: `writeObject()` → `writePOJO()` | Method rename | `ChangeMethodName` (declarative) |
-| Method: `getCurrentValue()` → `currentValue()` | Method rename | `ChangeMethodName` (declarative) |
-| Remove `registerModule(new JavaTimeModule())` | Module removal | Custom imperative recipe |
+| Change (old → new) | Recipe type |
+|---------------------|-------------|
+| `com.fasterxml.jackson` → `tools.jackson` (package) | Declarative (`ChangePackage`) |
+| `com.fasterxml.jackson.*` → `tools.jackson.*` (dependencies, version 3.x) | Declarative (`ChangeDependency`) |
+| `JsonProcessingException` → `JacksonException` | Declarative (`ChangeType`) |
+| `JsonSerializer` → `ValueSerializer` | Declarative (`ChangeType`) |
+| `JsonDeserializer` → `ValueDeserializer` | Declarative (`ChangeType`) |
+| `SerializerProvider` → `SerializationContext` | Declarative (`ChangeType`) |
+| `JsonToken.FIELD_NAME` → `JsonToken.PROPERTY_NAME` | Refaster template |
+| `SerializationFeature` constants → `DateTimeFeature` / `EnumFeature` | Refaster template |
+| Java 8 module deps + `registerModule()` calls → removed | Declarative (`RemoveDependency` + `RemoveMethodInvocations`) |
+| `new ObjectMapper()` → `JsonMapper.builder().build()` | Imperative Java recipe |
 
 </details>
 
 #### Step 5: Agree on the plan
 
-You should now have a clear list of ~8-10 changes, each with a recipe type. This is your blueprint for Module 2.
+Once you and the agent have settled on the subset, you should have a clear list of ~8-10 changes, each with a recipe type. This is your blueprint for Module 2.
 
 ### Takeaways
 
-* The agent is excellent at reading documentation and proposing comprehensive change lists
-* Human judgment is critical for scoping. The agent will propose everything; you pick what matters most
-* The recipe type hierarchy (declarative > Refaster > imperative) should always guide your choices
-* Starting with a plan prevents the agent from going off-track during implementation
+* The agent is excellent at reading documentation and proposing comprehensive change lists.
+* Human judgment is critical for scoping. The agent will propose everything; you pick what matters most.
+* The recipe type hierarchy (declarative > Refaster > imperative) should always guide your choices.
+* Starting with a plan prevents the agent from going off-track during implementation.

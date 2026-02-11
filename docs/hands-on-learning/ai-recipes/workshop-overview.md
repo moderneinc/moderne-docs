@@ -34,15 +34,23 @@ To get the most out of this workshop, you should be familiar with:
 * Using build tools like Maven or Gradle
 * Basic OpenRewrite concepts (recipes, visitors, LSTs)
 
-If you haven't been through the [Fundamentals of recipe development](../fundamentals/workshop-overview.md) workshop yet, consider completing it first before returning here.
+If you haven't been through the [Fundamentals of recipe development](../fundamentals/workshop-overview.md) workshop yet, consider completing it first before returning here. Even though the agent will be writing the recipes in this workshop, working knowledge of how to write OpenRewrite recipes is helpful for reviewing and understanding the agent's output.
 
 You will also need:
 
-* [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) (version 3.57 or higher recommended)
+* [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) (version 3.57.3 or higher recommended)
 * A JDK installed locally (Java 17 or higher recommended)
 * An AI coding agent (the instructor will demo with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), but the exercises work with other agents)
 
 This workshop uses **Moderne Skills**, specialized instructions that ship with the Moderne CLI and teach AI coding agents how to create, run, and test OpenRewrite recipes effectively. You'll install and try the skills in [Exercise 1-1](./module-1-plan.md#exercise-1-1-try-the-moderne-skills). For full documentation, see [Skills for AI coding agents](../../user-documentation/moderne-cli/how-to-guides/coding-agent-skills.md).
+
+:::warning
+Agents don't always respond the same way. Your results will differ from the examples shown here, and that's expected. Treat the exercises as a guide, not a script. You may need to adjust your prompts, skip steps the agent already completed, or steer the agent back on track. That's part of working with AI.
+:::
+
+:::note
+Most agents ask for your approval before running tools (reading files, executing commands, writing code, etc.). The exercises don't call out these approval steps explicitly. It's up to you whether to approve each action individually or configure your agent to proceed automatically.
+:::
 
 ## Workshop modules
 

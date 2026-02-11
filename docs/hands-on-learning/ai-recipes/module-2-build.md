@@ -13,21 +13,18 @@ You'll follow a test-driven development (TDD) approach: write tests first, valid
 The agent will often try to do multiple steps at once. The exercises below break things into separate steps, and the suggested prompts ask the agent to stop between them. If you're comfortable letting the agent run further, use your own prompts or tell it to go ahead when it asks if it can proceed. Agents typically list tasks as they go, so you can follow along and review at natural checkpoints.
 :::
 
-<!-- TODO try with and without the explicit scaffold instructions in the skill -->
-<!-- fix the recipes.csv thing...? -->
-
 ## Exercise 2-1: Scaffold the recipe project
 
 ### Goals for this exercise
 
-* Set up a recipe development project using the Moderne recipe starter
+* Set up a recipe development project
 * Understand the project structure
 
 ### Steps
 
 #### Step 1: Scaffold the project
 
-Ask the agent to set up the project. The skill knows how to clone and customize the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter), including removing example recipes, updating the package name, and adding the right test dependencies.
+Ask the agent to set up the project. The skill includes the project structure, build configuration, and dependencies needed for recipe development, so it can scaffold a project from scratch.
 
 <details>
 <summary>Suggested prompt</summary>
@@ -44,35 +41,37 @@ The agent should have set up:
 * `src/test/java/com/yourorg/jackson/` for tests
 * `build.gradle.kts` with OpenRewrite dependencies and Jackson 2.x `testRuntimeOnly` dependencies
 
-If example recipes from the starter are still present, ask the agent to remove them.
-
 #### Step 3: Verify the project builds
 
-Build the project before making any changes:
+The agent may have already built the project. If not, or if you want to confirm for sure, verify the project compiles before moving on:
 
 ```bash
 ./gradlew build
 ```
 
+:::tip
+If you're not already working in an IDE, now is a good time to open the project in one so you can review the files as the agent creates them.
+:::
+
 ### Takeaways
 
-* The recipe starter provides all the build infrastructure you need
-* The skill guides the agent through proper project setup
-* Always verify the project builds before you start adding code
+* The skill includes the build configuration and project structure, so the agent can scaffold from scratch.
+* Always verify the project builds before you start adding code.
 
 ---
 
-## Exercise 2-2: Write tests first (TDD)
+## Exercise 2-2: Build the declarative transformations
 
 ### Goals for this exercise
 
-* Write before/after test cases for each planned transformation
-* Validate AI-generated test cases against the migration guide
-* Understand why TDD is a natural fit for AI-generated recipes
+* See how the skill drives test-first development
+* Validate AI-generated test cases and recipe output
+* Create a composite YAML recipe using existing OpenRewrite primitives
+* Iterate on test failures
 
 ### Context
 
-OpenRewrite's testing framework uses a before/after pattern that works exceptionally well with an agent:
+The skill's workflow guides the agent to write tests first, then implement. OpenRewrite's testing framework uses a before/after pattern that works exceptionally well with this approach:
 * **Before**: The code as it looks today (Jackson 2.x)
 * **After**: The code as it should look after migration (Jackson 3.x)
 
@@ -80,38 +79,27 @@ This is exactly the kind of paired example that an agent is good at generating, 
 
 ### Steps
 
-#### Step 1: Ask the agent to write test cases
+#### Step 1: Start building
 
-Ask the agent to write test cases for the declarative transformations from your plan.
+Tell the agent to start on the declarative transformations. The skill's workflow already specifies that the agent should write tests first. The suggested prompt reinforces this, which can't hurt (especially when prompting step by step). If you want to see how the agent acts without that reinforced instruction, try without it, but watch it and make sure it writes tests first.
 
 <details>
 <summary>Suggested prompt</summary>
 
-> Now let's write tests first. Create a test class `UpgradeJackson2To3Test` that implements `RewriteTest`. Write before/after test cases for these transformations:
->
-> 1. Package rename: `com.fasterxml.jackson` → `tools.jackson`
-> 2. Type rename: `JsonProcessingException` → `JacksonException`
-> 3. Type rename: `JsonMappingException` → `DatabindException`
-> 4. Type rename: `JsonDeserializer` → `ValueDeserializer`
-> 5. Method rename: `writeObject()` → `writePOJO()` on JsonGenerator
-> 6. Method rename: `getCurrentValue()` → `currentValue()` on JsonParser
->
-> For each test, write a small but realistic Java class that uses the Jackson 2.x API in the "before" and the Jackson 3.x API in the "after". Don't write the recipe yet. Just the tests.
+> Let's start building the declarative transformations from our plan. Write tests first, then implement the recipes.
 
 </details>
 
-:::note
-The agent may try to write the recipe implementation along with the tests. If it does, you can let it finish, but review the tests separately before looking at the recipe. The goal is to validate that the test cases are correct *before* building on top of them.
-:::
+The agent should write tests using the `RewriteTest` before/after pattern, then implement a declarative YAML recipe composing existing OpenRewrite primitives like `ChangePackage`, `ChangeType`, `ChangeMethodName`, and `ChangeDependency`. It will likely build, run the tests, and iterate on failures. Watch for the agent "fixing" a test failure by changing the test's expected output rather than fixing the recipe. The tests define what correct looks like. If a test fails, the recipe should change, not the test (unless the test itself is wrong, which is why validating the tests in Step 2 matters).
 
-#### Step 2: Review the agent's test cases
+#### Step 2: Review the test cases
 
-This is a critical human validation step. Check:
-* Are the **fully qualified class names** correct? (e.g., `com.fasterxml.jackson.core.JsonProcessingException`, not just `JsonProcessingException`)
+Whether the agent wrote tests first or after the recipe, review them carefully. This is a critical human validation step. Check:
 * Are the **import statements** included and correct in both before and after?
 * Are the **before examples** realistic? (Would someone actually write this code?)
 * Are the **after examples** accurate per the migration guide?
 * Does each test focus on **one transformation** so failures are easy to diagnose?
+* Are there reasonable **no-change tests** that verify unrelated code is left untouched?
 
 <details>
 <summary>Reference: What a good test case looks like</summary>
@@ -155,71 +143,11 @@ void renamesJsonProcessingException() {
 
 </details>
 
-#### Step 3: Write a "no change" test
-
-Verify the recipe doesn't modify code that shouldn't be touched:
-
-<details>
-<summary>Suggested prompt</summary>
-
-> Also write a test case that verifies the recipe does NOT modify code that doesn't use Jackson. For example, a class that only uses standard Java libraries should be unchanged.
-
-</details>
-
-#### Step 4: Run the tests
-
-They should all **fail** at this point (the recipe doesn't exist yet). If any test has a compilation error, fix it now.
-
-```bash
-./gradlew test
-```
-
-:::warning
-**Expect failures, not errors.** Test failures mean the tests are correct but the recipe doesn't exist yet. Compilation errors mean the test code itself has problems (wrong class names, bad syntax, etc.) and needs to be fixed before proceeding.
-:::
-
-### Takeaways
-
-* The before/after test pattern is a natural fit for agents: they generate paired examples that humans can validate quickly
-* **Always validate AI-generated test cases.** Wrong fully qualified names and import mismatches are the most common errors
-* Writing tests first gives you confidence that the recipe works before you test against real repositories
-
----
-
-## Exercise 2-3: Build the declarative YAML recipe
-
-### Goals for this exercise
-
-* Create a composite YAML recipe that uses existing OpenRewrite primitives
-* Learn the declarative-first principle: use existing recipes when possible
-* Iterate on test failures
-
-### Steps
-
-#### Step 1: Create the declarative YAML recipe
-
-If the agent already created the YAML recipe in the previous exercise, skip to Step 2 and review it. Otherwise, ask the agent to create it based on your plan.
-
-<details>
-<summary>Suggested prompt</summary>
-
-> Now create the declarative YAML recipe file at `src/main/resources/META-INF/rewrite/jackson-2-3.yml`. It should be a composite recipe named `com.yourorg.jackson.UpgradeJackson2To3` that uses these existing OpenRewrite recipes:
->
-> - `org.openrewrite.java.ChangePackage` for the package rename
-> - `org.openrewrite.java.dependencies.ChangeDependency` for Maven/Gradle dependency updates
-> - `org.openrewrite.java.ChangeType` for class/exception renames
-> - `org.openrewrite.java.ChangeMethodName` for method renames
->
-> Use the plan you created in Module 1. Remember to include the fully qualified type names for all ChangeType operations.
-
-</details>
-
-#### Step 2: Review the YAML recipe
+#### Step 3: Review the YAML recipe
 
 Key things to check:
-* Is the `type: specs.openrewrite.org/v1beta/recipe` header present?
-* Are all **fully qualified type names** correct? This is where the agent most commonly makes mistakes.
-* Are the `ChangeMethodName` method patterns correct? They should use the format `fully.qualified.Type methodName(..)`.
+* Are all **fully qualified type names** correct? (You may want to double-check these against the migration guide.)
+* Are the `ChangeMethodName` method patterns correct? (They should use the format `fully.qualified.Type methodName(..)`.)
 * Are dependency coordinates correct? (`groupId:artifactId` format)
 
 <details>
@@ -280,51 +208,28 @@ recipeList:
 
 </details>
 
-#### Step 3: Update the test class
+#### Step 4: Iterate on failures
 
-Make sure the `defaults` method loads the recipe by name:
-
-```java
-@Override
-public void defaults(RecipeSpec spec) {
-    spec.recipeFromResources("com.yourorg.jackson.UpgradeJackson2To3");
-}
-```
-
-#### Step 4: Build and run the tests
+If the agent hasn't already run the tests, build and run them:
 
 ```bash
 ./gradlew test
 ```
 
-#### Step 5: Iterate on failures
-
-If tests fail:
-* Read the failure output carefully. It shows the expected vs. actual transformation
-* Common issues: wrong fully qualified names, missing `recursive: true` on `ChangePackage`, wrong method pattern format
-* Ask the agent to help diagnose and fix failures
-
-<details>
-<summary>Suggested prompt (when tests fail)</summary>
-
-> The test `renamesJsonProcessingException` is failing. Here's the output:
->
-> [paste the test failure output]
->
-> Can you diagnose the issue and fix the recipe?
-
-</details>
+If tests fail and the agent doesn't automatically iterate and fix them, ask the agent to help diagnose and fix failures. The failure output shows the expected vs. actual transformation.
 
 ### Takeaways
 
-* Declarative YAML recipes are powerful. Most migration operations compose existing primitives
-* **Fully qualified type names** are the most common source of errors in AI-generated recipes
-* Method patterns for `ChangeMethodName` use the format `fully.qualified.Type methodName(..)`
-* Iterate quickly: fix → build → test → repeat
+* Many migration operations can be expressed as declarative YAML composing existing primitives.
+* Always validate both the tests and the recipe. The agent can get things wrong in either.
 
 ---
 
-## Exercise 2-4: Add an imperative recipe
+:::note
+Your plan may include Refaster templates in addition to declarative and imperative recipes. The workflow is similar for all types: write tests, implement, review, iterate. If the agent builds Refaster templates or included them as part of the plan, apply the same review process.
+:::
+
+## Exercise 2-3: Add an imperative recipe
 
 ### Goals for this exercise
 
@@ -334,160 +239,49 @@ If tests fail:
 
 ### Context
 
-Some Jackson 2→3 changes can't be expressed with existing declarative primitives. For example, Jackson 3 makes several modules built-in that previously required explicit registration:
-
-```java
-// Jackson 2.x: these are necessary
-ObjectMapper mapper = new ObjectMapper();
-mapper.registerModule(new JavaTimeModule());        // java.time support
-mapper.registerModule(new ParameterNamesModule());  // parameter name reflection
-mapper.registerModule(new Jdk8Module());            // Optional, etc.
-
-// Jackson 3.x: these modules are built-in, so the registerModule() calls should be removed
-ObjectMapper mapper = new ObjectMapper();
-// (no registration needed)
-```
-
-This requires an imperative recipe because:
-* The recipe needs to **inspect the method argument** to determine if it's one of the built-in modules
-* It needs to **remove the entire statement**, not just rename something
-* The logic is conditional: only remove `registerModule()` calls for specific module types
+Some Jackson 2→3 changes can't be expressed with existing declarative primitives or Refaster templates. These typically involve conditional logic: inspecting method arguments, removing or restructuring statements, or transforming patterns that depend on context. Your plan should include at least one transformation like this.
 
 ### Steps
 
-#### Step 1: Write the test first
+#### Step 1: Build the imperative recipe
 
-Ask the agent to write a before/after test for removing built-in module registrations.
+The agent has the plan and knows which transformation requires an imperative recipe. Tell it to continue.
 
 <details>
 <summary>Suggested prompt</summary>
 
-> Now let's write an imperative recipe. In Jackson 3, the `JavaTimeModule`, `ParameterNamesModule`, and `Jdk8Module` are built-in, so calls to `mapper.registerModule(new JavaTimeModule())` etc. should be removed.
->
-> First, write a test case. The "before" should show an ObjectMapper with registerModule calls for these three modules. The "after" should show the same code with those calls removed. Also include a test case where a registerModule call for a *non-built-in* module (like a custom module) should NOT be removed. Don't write the recipe implementation yet, just the tests.
+> Now let's build the imperative recipes from our plan. Write tests first, then implement.
 
 </details>
+
+As before, the agent should write tests first and then implement the recipe, iterating and fixing on its own. Monitor it as it goes to make sure the tests and recipe logic look correct. If you see something going in the wrong direction, interrupt and guide it. This will likely take several minutes.
 
 #### Step 2: Review the test cases
 
-Verify the before/after examples are accurate. If the agent also wrote the recipe implementation, review the tests first before looking at the recipe code.
+Just as before, verify the before/after examples are accurate and that there's a test for the negative case (code that should *not* be modified).
 
-#### Step 3: Write the imperative recipe
+#### Step 3: Review the imperative recipe
 
-If the agent already wrote the recipe in the previous step, skip to Step 4 and review it. Otherwise, ask the agent to write the imperative recipe class.
+The skill covers imperative recipe patterns, so the agent should follow best practices. Key things to verify:
+* Does it call `super.visitX()` to continue tree traversal?
+* Is the matching logic correct for the specific transformation?
+* Does it handle edge cases (e.g., the negative case from your tests)?
 
-<details>
-<summary>Suggested prompt</summary>
+#### Step 4: Add the imperative recipe to your YAML composite recipe
 
-> Now write the imperative recipe class `RemoveBuiltInModuleRegistrations` that extends `Recipe`. It should:
->
-> - Use a `JavaIsoVisitor`
-> - Match calls to `ObjectMapper.registerModule(..)` using a `MethodMatcher`
-> - Check if the argument is `new JavaTimeModule()`, `new ParameterNamesModule()`, or `new Jdk8Module()`
-> - If it matches, remove the entire statement
-> - If it doesn't match (e.g., a custom module), leave it alone
->
-> Follow OpenRewrite best practices: don't mutate LST nodes directly, always call super.visitX(), return new visitor instances from getVisitor().
+Make sure the imperative recipe is included in your top-level composite YAML recipe so it runs as part of the overall migration. The agent may have already done this. Check that the ordering makes sense. For example, if the imperative recipe removes code that other recipes also transform, it may need to run first.
 
-</details>
-
-#### Step 4: Review the agent's imperative recipe
-
-Key things to check:
-* Does it extend `Recipe` and override `getDisplayName()`, `getDescription()`, and `getVisitor()`?
-* Does the `MethodMatcher` use the correct pattern? (e.g., `com.fasterxml.jackson.databind.ObjectMapper registerModule(..)`)
-* Does it call `super.visitMethodInvocation()` (or the appropriate `super.visitX()` method)?
-* Does it return new visitor instances from `getVisitor()` (not a cached field)?
-* Is the argument inspection logic correct?
-
-<details>
-<summary>Reference: What the imperative recipe should look like</summary>
-
-```java
-@Value
-@EqualsAndHashCode(callSuper = false)
-public class RemoveBuiltInModuleRegistrations extends Recipe {
-
-    private static final MethodMatcher REGISTER_MODULE =
-        new MethodMatcher("com.fasterxml.jackson.databind.ObjectMapper registerModule(..)");
-
-    private static final Set<String> BUILT_IN_MODULES = Set.of(
-        "com.fasterxml.jackson.datatype.jsr310.JavaTimeModule",
-        "com.fasterxml.jackson.module.paramnames.ParameterNamesModule",
-        "com.fasterxml.jackson.datatype.jdk8.Jdk8Module"
-    );
-
-    @Override
-    public String getDisplayName() {
-        return "Remove built-in Jackson 3 module registrations";
-    }
-
-    @Override
-    public String getDescription() {
-        return "Jackson 3 includes JavaTimeModule, ParameterNamesModule, and " +
-               "Jdk8Module by default. Explicit registerModule() calls for " +
-               "these modules can be removed.";
-    }
-
-    @Override
-    public TreeVisitor<?, ExecutionContext> getVisitor() {
-        return new JavaIsoVisitor<ExecutionContext>() {
-            @Override
-            public J.MethodInvocation visitMethodInvocation(
-                    J.MethodInvocation method, ExecutionContext ctx) {
-                J.MethodInvocation m = super.visitMethodInvocation(method, ctx);
-                if (REGISTER_MODULE.matches(m) && isBuiltInModule(m)) {
-                    //noinspection DataFlowIssue
-                    return null; // removes the statement
-                }
-                return m;
-            }
-
-            private boolean isBuiltInModule(J.MethodInvocation method) {
-                if (method.getArguments().size() != 1) {
-                    return false;
-                }
-                Expression arg = method.getArguments().get(0);
-                if (arg instanceof J.NewClass) {
-                    JavaType type = ((J.NewClass) arg).getType();
-                    if (type instanceof JavaType.FullyQualified) {
-                        return BUILT_IN_MODULES.contains(
-                            ((JavaType.FullyQualified) type).getFullyQualifiedName()
-                        );
-                    }
-                }
-                return false;
-            }
-        };
-    }
-}
-```
-
-</details>
-
-#### Step 5: Add the imperative recipe to your YAML composite recipe
-
-So it runs as part of the overall migration:
-
-```yaml
-# In jackson-2-3.yml, add to the recipeList:
-  - com.yourorg.jackson.RemoveBuiltInModuleRegistrations
-```
-
-#### Step 6: Build and run tests
+#### Step 5: Build and run tests
 
 ```bash
 ./gradlew test
 ```
 
-#### Step 7: Iterate on failures
-
-Iterate on failures as needed.
+Adding a new recipe to the composite can sometimes cause existing tests to need updates, since recipes now run together and interact. If tests that previously passed now fail, check whether the composite ordering or the new recipe's changes affect the expected output of earlier tests. Iterate on failures as needed. The agent may already do this for you too.
 
 ### Takeaways
 
-* Imperative recipes are necessary when you need to inspect arguments, conditionally modify code, or remove statements
-* The `JavaIsoVisitor` + `MethodMatcher` pattern handles most imperative recipe needs
-* Always call `super.visitX()`. Forgetting this is the most common imperative recipe bug
-* The agent can generate reasonable visitor logic, but **human review of the matching logic is critical**
+* Imperative recipes are necessary when you need to inspect arguments, conditionally modify code, or remove statements.
+* The agent can generate reasonable visitor logic, but **human review of the matching logic is critical**.
+* Composing recipes together can cause interactions. Adding a new recipe to the composite may require updating existing tests.
 
