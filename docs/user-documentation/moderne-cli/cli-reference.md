@@ -3070,13 +3070,19 @@ mod config lsts artifacts artifactory add https://artifactory.company.com --user
 Removes the Artifactory repository configuration. The publish command will no longer function until another artifact source is configured.
 
 
-
+If a URL is provided, only that repository is removed. Otherwise, all Artifactory repositories are removed.
 
 ### Usage
 
 ```
-mod config lsts artifacts artifactory delete
+mod config lsts artifacts artifactory delete [parameters]
 ```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `url` |  The URL of the Artifactory repository to remove. If not provided, all Artifactory repositories are removed. |
 
 
 
@@ -3210,13 +3216,19 @@ mod config lsts artifacts maven add <artifact-repository-url> --user <user> --pa
 Removes the Maven artifact repository repository configuration. The publish command will no longer function until another artifact source is configured.
 
 
-
+If a URL is provided, only that repository is removed. Otherwise, all Maven repositories are removed.
 
 ### Usage
 
 ```
-mod config lsts artifacts maven delete
+mod config lsts artifacts maven delete [parameters]
 ```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `url` |  The URL of the Maven repository to remove. If not provided, all Maven repositories are removed. |
 
 ### Options
 
@@ -4041,13 +4053,19 @@ mod config recipes artifacts artifactory add <artifact-repository-url> --user <u
 Removes the Artifactory repository configuration.
 
 
-
+If a URL is provided, only that repository is removed. Otherwise, all Artifactory repositories are removed.
 
 ### Usage
 
 ```
-mod config recipes artifacts artifactory delete
+mod config recipes artifacts artifactory delete [parameters]
 ```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `url` |  The URL of the Artifactory repository to remove. If not provided, all Artifactory repositories are removed. |
 
 
 
