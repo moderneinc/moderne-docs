@@ -27,7 +27,7 @@ _Migrate deprecated APIs and detect legacy patterns for Python 3.8 compatibility
 This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
 :::
 
-The license for this recipe is unknown.
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 
 ## Definition

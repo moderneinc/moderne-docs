@@ -25,7 +25,7 @@ _Replace `typing.Match` with `re.Match`. Available in Python 3.9+ (PEP 585)._
 [Issue Tracker](),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-python/)
 
-The license for this recipe is unknown.
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 
 ## Used by

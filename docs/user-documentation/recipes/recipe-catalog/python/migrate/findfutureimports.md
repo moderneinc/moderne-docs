@@ -22,7 +22,7 @@ _Find `__future__` imports and add a search marker._
 [Issue Tracker](),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-python/)
 
-The license for this recipe is unknown.
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 
 ## Usage

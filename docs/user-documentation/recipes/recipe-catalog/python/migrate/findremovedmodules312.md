@@ -17,7 +17,7 @@ _Find imports of modules that were removed in Python 3.12, including asynchat, a
 [Issue Tracker](),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-python/)
 
-The license for this recipe is unknown.
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 
 ## Used by

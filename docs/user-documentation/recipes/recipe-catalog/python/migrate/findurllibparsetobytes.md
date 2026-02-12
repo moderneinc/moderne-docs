@@ -24,7 +24,7 @@ _Find usage of `urllib.parse.to_bytes()` which was deprecated in Python 3.8 and 
 [Issue Tracker](),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-python/)
 
-The license for this recipe is unknown.
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 
 ## Used by

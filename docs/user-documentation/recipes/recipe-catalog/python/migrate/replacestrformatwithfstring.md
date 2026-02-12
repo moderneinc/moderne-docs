@@ -24,7 +24,7 @@ _Replace `"...".format(...)` calls with f-strings (Python 3.6+). Only converts c
 [Issue Tracker](),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-python/)
 
-The license for this recipe is unknown.
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 
 ## Used by

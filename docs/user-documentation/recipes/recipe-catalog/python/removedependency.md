@@ -22,7 +22,7 @@ _Remove a dependency from the `[project].dependencies` array in `pyproject.toml`
 [Issue Tracker](),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-python/)
 
-The license for this recipe is unknown.
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 ## Options
 

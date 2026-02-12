@@ -22,7 +22,7 @@ _Find direct and transitive Python dependencies matching a package name pattern.
 [Issue Tracker](),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-python/)
 
-The license for this recipe is unknown.
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 ## Options
 
