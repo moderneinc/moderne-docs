@@ -191,6 +191,7 @@ const platform = {
         items: [
           'administrator-documentation/moderne-platform/references/authentication',
           'administrator-documentation/moderne-platform/references/reporting',
+          'administrator-documentation/moderne-platform/references/audit-logging',
           'administrator-documentation/moderne-platform/references/architecture',
           'administrator-documentation/moderne-platform/references/ai-architecture',
           'administrator-documentation/moderne-platform/references/flow',
