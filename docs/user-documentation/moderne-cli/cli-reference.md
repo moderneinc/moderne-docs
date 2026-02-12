@@ -166,6 +166,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config node installation edit**](#mod-config-node-installation-edit)
 * [**mod config node installation delete**](#mod-config-node-installation-delete)
 * [**mod config node installation list**](#mod-config-node-installation-list)
+* [**mod config node version**](#mod-config-node-version)
+* [**mod config node version edit**](#mod-config-node-version-edit)
+* [**mod config node version delete**](#mod-config-node-version-delete)
+* [**mod config node version show**](#mod-config-node-version-show)
 * [**mod config python**](#mod-config-python)
 * [**mod config python installation**](#mod-config-python-installation)
 * [**mod config python installation edit**](#mod-config-python-installation-edit)
@@ -3649,6 +3653,7 @@ mod config node [subcommands]
 ### Subcommands
 
 * `installation`: Configures locations of Node that can be used by build tools.
+* `version`: Configures the Node.js version to use.
 
 ## mod config node installation
 
@@ -3720,6 +3725,91 @@ mod config node installation list
 | Name | Description |
 | ---- | ----------- |
 | `--named` |  Filter the list of Node installations to . |
+
+
+## mod config node version
+
+Configures the Node.js version to use.
+
+
+Configure a name like "18", "18.0.0", or "22" depending on the degree of control needed.
+
+### Usage
+
+```
+mod config node version [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the Node.js version to use.
+* `delete`: Reverts to auto-detection of a Node.js version to use when building a repository.
+* `show`: Displays the configured Node.js version.
+
+## mod config node version edit
+
+Configures the Node.js version to use.
+
+
+Configure a name like "18", "18.0.0", or "22" depending on the degree of control needed.
+
+### Usage
+
+```
+mod config node version edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `selectedNode` |  The named Node.js version to use. If set to "auto", the CLI will revert to detecting the correct Node.js version to use from signals available in the repository. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config node version delete
+
+Reverts to auto-detection of a Node.js version to use when building a repository.
+
+
+### Usage
+
+```
+mod config node version delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config node version show
+
+Displays the configured Node.js version.
+
+
+### Usage
+
+```
+mod config node version show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config python
