@@ -7,7 +7,7 @@ description: How to write recipes that analyze files before applying changes.
 
 [Scanning recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) are used when a recipe needs to generate new source files or inspect all source files before making any changes. This is especially useful when a transformation in one file depends on content or structure in another. For example, a scanning recipe may examine a Maven `pom.xml` to check for a particular dependency and, based on its presence, update a YAML configuration file. This cross-file reasoning is a powerful capability unique to scanning recipes.
 
-Before moving on to the following exercise, you should review the [OpenRewrite documentation](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) for more details about how the different phases of scanning recipes work and how they work.
+Before moving on to the following exercise, you should review the [OpenRewrite documentation](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) for more details about the different phases of scanning recipes and how they work.
 
 ## Exercise 3a: Explore a scanning recipe
 
