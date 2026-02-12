@@ -90,7 +90,11 @@ Tell the agent to start on the declarative transformations. The skill's workflow
 
 </details>
 
-The agent should write tests using the `RewriteTest` before/after pattern, then implement a declarative YAML recipe composing existing OpenRewrite primitives like `ChangePackage`, `ChangeType`, `ChangeMethodName`, and `ChangeDependency`. It will likely build, run the tests, and iterate on failures. Watch for the agent "fixing" a test failure by changing the test's expected output rather than fixing the recipe. The tests define what correct looks like. If a test fails, the recipe should change, not the test (unless the test itself is wrong, which is why validating the tests in Step 2 matters).
+The agent should write tests using the `RewriteTest` before/after pattern, then implement a declarative YAML recipe composing existing OpenRewrite primitives like `ChangePackage`, `ChangeType`, `ChangeMethodName`, and `ChangeDependency`. 
+
+It will likely build, run the tests, and iterate on failures. Watch for the agent "fixing" a test failure by changing the test's expected output rather than fixing the recipe. The tests define what "correct" looks like. 
+
+If a test fails, the recipe should change, not the test (unless the test itself is wrong, which is why validating the tests in Step 2 matters).
 
 #### Step 2: Review the test cases
 

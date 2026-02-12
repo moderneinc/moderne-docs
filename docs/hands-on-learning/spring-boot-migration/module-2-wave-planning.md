@@ -45,7 +45,7 @@ cd $PROJECTS
 git clone https://github.com/modernetraining/moderne-migration-practice
 ```
 
-2. Now you'll create a workspace directory to house our code repositories:
+2. Now you'll create a workspace directory to house your code repositories:
 
 ```bash
 mkdir -p $WORKSPACE

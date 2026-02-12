@@ -5,7 +5,7 @@ description: Install the Moderne Skills, try them out, and plan a Jackson 2→3 
 
 # Module 1: Plan
 
-In this module, you'll learn the Moderne Skills workflow for AI-assisted recipe development and use AI to research and plan a Jackson 2.x → 3.x migration recipe. The key takeaway: **start with a plan, not with code.**
+In this module, you'll learn about the Moderne Skills workflow for AI-assisted recipe development. After that, you'll learn how to use AI to research and plan a Jackson 2.x → 3.x migration recipe.The key takeaway: **start with a plan, not with code.**
 
 ## Exercise 1-1: Try the Moderne Skills
 
@@ -64,7 +64,7 @@ When prompted, give it a simple task:
 
 Watch how the agent responds. Don't worry about the output. Just notice how the skill shapes the agent's approach:
 
-* The agent should choose a recipe type *before* writing any code (declarative vs Refaster vs imperative)
+* The agent should choose a [recipe type](https://docs.openrewrite.org/authoring-recipes/types-of-recipes) *before* writing any code (declarative vs Refaster vs imperative)
 * The skill writes **tests** using OpenRewrite's `RewriteTest` framework with before/after code snippets
 * It follows a structured project layout rather than just dumping code (or YAML) in a single file
 
