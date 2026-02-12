@@ -17,7 +17,7 @@ Learn how OpenRewrite works and get hands-on experience running recipes using th
 * Key concepts of OpenRewrite: LSTs, visitors, and recipes
 * How to set up and run recipes using the Moderne CLI
 * How to use the Moderne recipe builder to compose and customize declarative YAML recipes
-* What search markers, data tables, and visualizations and how to use them
+* What search markers, data tables, and visualizations are and how to use them
 * How to use DevCenter to track migrations and upgrades
 
 **Prerequisites:** Basic Java knowledge and command line familiarity.

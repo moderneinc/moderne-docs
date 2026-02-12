@@ -9,7 +9,7 @@ The Moderne DevCenter provides you with high-level details about the state of al
 
 In this guide, we'll walk you through how to do that.
 
-## Prerequisities
+## Prerequisites
 
 This guide assumes that you have already [installed and configured the CLI](../getting-started/cli-intro.md#installation-and-configuration).
 

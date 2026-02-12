@@ -28,7 +28,7 @@ In this exercise, you'll use the `Annotated.Matcher` trait that the [`FindSpring
 3. Now open the unit tests for `FindSpringBeans`.
    * You can find them in [src/test/java/com/yourorg/FindSpringBeansTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/FindSpringBeansTest.java).
    * See what the special comments that the `SearchResult` add look like in the expected after code: `/*~~(bean)~~>*/`.
-   * You will also see an additional `RecipeSpec` provided to with an `assertThat` statement. This is testing for the presence of the expected data table. You will learn more about how to test data tables in the next module.
+   * You will also see an additional `RecipeSpec` provided with an `assertThat` statement. This is testing for the presence of the expected data table. You will learn more about how to test data tables in the next module.
 
 ### Takeaways
 

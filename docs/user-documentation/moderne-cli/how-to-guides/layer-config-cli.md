@@ -113,11 +113,11 @@ working-set/
     spring-boot/
       .git/
       .moderne/
-        moderne-uncommited.yml <-- arguments will be saved here
+        moderne-uncommitted.yml <-- arguments will be saved here
     spring-framework/
       .git/
       .moderne/
-        moderne-uncommited.yml <-- arguments will be saved here
+        moderne-uncommitted.yml <-- arguments will be saved here
 ```
 
 The Moderne CLI will add the `.moderne` directory to the `.git/info/exclude` in each repository (which is then added by Git to the repository's `.gitignore` and global `.gitignore` to decide what to ignore). This prevents this file and these arguments from being checked in. However, when you go to build LSTs, the arguments specified here will be used.
@@ -141,7 +141,7 @@ In order to build some projects, you may find that there are certain arguments t
 mod config build maven arguments edit "-Pmdep.skip" --local ./working-set --save
 ```
 
-After running that, a `.moderne/moderne.yml` file will be created that includes the arguments you specified. The CLI will add `!.moderne/moderne.yml` to `.git/info/exclude` so that this single file in the `.moderne` folder is eligible for commiting to the repository. You can check these files in by running:
+After running that, a `.moderne/moderne.yml` file will be created that includes the arguments you specified. The CLI will add `!.moderne/moderne.yml` to `.git/info/exclude` so that this single file in the `.moderne` folder is eligible for committing to the repository. You can check these files in by running:
 
 ```bash
 mod add ./working-set

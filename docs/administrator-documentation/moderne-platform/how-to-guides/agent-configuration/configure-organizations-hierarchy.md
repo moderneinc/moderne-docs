@@ -38,7 +38,7 @@ recommend establishing an organization hierarchy to improve structure and scalab
 
 ## How is an organizational hierarchy defined?
 
-Organizational structure is a configured via a `repos.csv` file, accessible to the Agent via the file system or network.
+Organizational structure is configured via a `repos.csv` file, accessible to the Agent via the file system or network.
 
 Please see our [creating a repos.csv guide](../../../../user-documentation/moderne-cli/references/repos-csv.md) for details into how to create and format this file.
 

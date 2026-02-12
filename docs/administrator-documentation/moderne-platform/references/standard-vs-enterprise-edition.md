@@ -47,9 +47,9 @@ After that, you will then create and share with us a file that contains a list o
 
 #### Data storage
 
-LSTs can be stored in either your's or Moderne's artifact repository. In either case they will be unencrypted in the artifact repository.
+LSTs can be stored in either yours or Moderne's artifact repository. In either case they will be unencrypted in the artifact repository.
 
-At the time they're ingested in to the Moderne platform, they will be encrypted by the Moderne agent. This means the LSTs will be encrypted in transit and at rest in Moderne's systems.
+At the time they're ingested into the Moderne platform, they will be encrypted by the Moderne agent. This means the LSTs will be encrypted in transit and at rest in Moderne's systems.
 
 Moderne also maintains audit logs for all actions performed within the system under your tenant.
 

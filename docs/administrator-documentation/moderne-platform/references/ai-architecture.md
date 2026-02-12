@@ -114,7 +114,7 @@ Uses [QwenCoder](https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B) for generative 
 
 #### State management
 
-Recipe recommendation results are stored on the worker, similar other recipe runs. No data is permanently saved.
+Recipe recommendation results are stored on the worker, similar to other recipe runs. No data is permanently saved.
 
 ## Frequently asked questions
 
