@@ -12,7 +12,7 @@ This guide assumes you've read the [Introduction to Taint Analysis](./introducti
 
 ## How taint analysis works
 
-Think of taint analysis like tracking a drop of food coloring through water. When untrusted data (the food coloring) enters your program, taint analysis follows it as it flows through variables, method calls, and operations. It does this by marking data as tained or clean. Here's how this looks in practice:
+Think of taint analysis like tracking a drop of food coloring through water. When untrusted data (the food coloring) enters your program, taint analysis follows it as it flows through variables, method calls, and operations. It does this by marking data as tainted or clean. Here's how this looks in practice:
 
 ```java
 // Taint flows through assignments

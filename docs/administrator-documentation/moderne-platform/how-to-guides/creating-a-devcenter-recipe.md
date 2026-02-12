@@ -119,7 +119,7 @@ recipeList:
       fixRecipe: org.openrewrite.java.security.OwaspTopTen
 ```
 
-This security recipe differs slightly from a traditional YAML recipe. In the recipe list, there is a special recipe called `io.moderne.devcenter.ReportAsSecurityIssues`. By adding that recipe to the list, it will detect the number of issues found in the above recipes and generate a card that display them all.
+This security recipe differs slightly from a traditional YAML recipe. In the recipe list, there is a special recipe called `io.moderne.devcenter.ReportAsSecurityIssues`. By adding that recipe to the list, it will detect the number of issues found in the above recipes and generate a card that displays them all.
 
 This recipe takes in a `fixRecipe` property that defines the recipe that can be run to fix the issues reported by the above security recipes.
 

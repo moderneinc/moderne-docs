@@ -62,7 +62,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=Ut_yyT-mgso' controls="true" />
 
-### GitHub actions hardening tipes & recipes (October 15th, 2025)
+### GitHub actions hardening tips & recipes (October 15th, 2025)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=JMUW97Whw-0' controls="true" />
 
@@ -141,7 +141,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * This week we welcomed Mark Heckler. He spoke about Spring AI and how it provides a unified interface to interact with various AI models (similar to how Spring Data works with different backend stores). He then demonstrated practical use cases for Spring AI. These include:
     * **Text generation** – Generating a summary or even a haiku based on a provided topic using an AI template.
     * **Retrieval augmented generation (RAG)** – Enhancing AI responses by integrating internal documents with a vector store. This allows for specific, fact-based answers relevant to the user's data.
-    * **Conversational AI** – Maintining separate conversation contexts using a conversation AI to prevent data cross-pollination between different user interactions
+    * **Conversational AI** – Maintaining separate conversation contexts using a conversation AI to prevent data cross-pollination between different user interactions
     * **MCP / Tool calling** – Integrating AI with deterministic external tools, like a weather service, to provide real-time, context-aware information.
     * **Multimodal AI** – Explaining an image and extracting information from it. Often combined with RAG to provide contextually relevant results.
   * While AI offers immense potential, it's crucial to understand that AI has weaknesses – especially regarding determinism vs. non-determinism. Mark advocated for combining AI's capabilities with deterministic options for best results.
@@ -288,7 +288,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * **Training**
     * You can now sign up for [an introduction to OpenRewrite](https://www.moderne.ai/content-library/introduction-to-openrewrite) and [advanced OpenRewrite training](https://www.moderne.ai/content-library/advanced-openrewrite-training) courses that we are offering.
   * **Events**
-    * [Tim will be be presenting about trusting AI to modernize software in Devoxx in Luxembourg on June 19th](https://mobile.devoxx.com/events/voxxedlu2025/talks/3593/details)
+    * [Tim will be presenting about trusting AI to modernize software in Devoxx in Luxembourg on June 19th](https://mobile.devoxx.com/events/voxxedlu2025/talks/3593/details)
 
 ### OpenRewrite and C#: A match made in .NET heaven (June 4th, 2025)
 
@@ -305,7 +305,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * [For a short summary of the big new features in our releases, check out our BlueSky page](https://bsky.app/profile/openrewrite.github.io/post/3lqbdoju5uk2r)
   * **Events**
     * [Tim will be speaking at JFokus in Stockholm on June 10th about trusting AI to modernize software](https://www.jfokus.se/ai-fokus/talks/2557)
-    * [Tim will be also be presenting on the same topic for Devoxx in Luxembourg on June 19th](https://mobile.devoxx.com/events/voxxedlu2025/talks/3593/details)
+    * [Tim will also be presenting on the same topic for Devoxx in Luxembourg on June 19th](https://mobile.devoxx.com/events/voxxedlu2025/talks/3593/details)
 
 ### Don't migrate to Spring Boot 3.5 until you watch this (May 28th, 2025)
 
@@ -341,7 +341,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 * **Announcements for the week**
   * [We've partnered with Azul to boost Java developer productivity](https://www.businesswire.com/news/home/20250513241025/en/Azul-and-Moderne-Announce-Partnership-to-Boost-Java-Developer-Productivity)
-  * [We've also parnetered with DiffBlue to combine their AI powered unit test writing with OpenRewrite](https://siliconangle.com/2025/05/13/moderne-diffblue-team-use-ai-faster-cost-effective-app-modernization/)
+  * [We've also partnered with DiffBlue to combine their AI powered unit test writing with OpenRewrite](https://siliconangle.com/2025/05/13/moderne-diffblue-team-use-ai-faster-cost-effective-app-modernization/)
   * [Tim will be presenting about AssertJ at SpringIO this week](https://2025.springio.net/sessions/better-assertions-with-assertj/)
   * [We released a new version of OpenRewrite which includes a JavaScript parser](https://github.com/openrewrite/rewrite/releases/tag/v8.53.0)
     * Also, the [rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin) now supports TypeTables. For more information check out the [OpenRewrite TypeTable documentation](https://docs.openrewrite.org/authoring-recipes/multiple-versions#typetable-generation-for-maven-projects).
@@ -545,7 +545,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 #### Summary and related links
 
 * **Announcements for the week**
-  * [We have secured $30M in Series B funding to transform enterprise code moernization](https://techcrunch.com/2025/02/11/moderne-raises-30m-to-solve-technical-debt-across-complex-codebases/)!
+  * [We have secured $30M in Series B funding to transform enterprise code modernization](https://techcrunch.com/2025/02/11/moderne-raises-30m-to-solve-technical-debt-across-complex-codebases/)!
   * **Events**:
     * [We've finalized the lineup for the code remix summit](https://coderemix.ai/speakers)
       * If you haven't registered yet, consider using the code `MODERNE3VIP` to get a substantial discount: [register here](https://coderemix.ai/app/ticket/event/557).
@@ -724,7 +724,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * [We did a patch release of OpenRewrite to fix some bugs from last time](https://github.com/openrewrite/rewrite/releases/tag/v8.40.3)
     * [We've done a UI overhaul of the Moderne Platform marketplace](https://app.moderne.io/marketplace)
 * **Main topic for the week**
-  * Tim started off by walking through a recipe he created for a Kubrnetes deprecation.
+  * Tim started off by walking through a recipe he created for a Kubernetes deprecation.
   * He then showed off how he used Copilot to jump start recipe development.
   * After that we went into Kubernetes best practice recipes.
   * Sam then showed off the [MergeYaml recipe](https://app.moderne.io/recipes/org.openrewrite.yaml.MergeYaml). He talked through how it works and how you can use it.
@@ -853,7 +853,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
   * **Moderne updates**:
     * [We added an OpenAI integration throughout the Moderne platform to help with things like recipe or recipe run summaries](https://docs.moderne.io/releases/changelog/#ui-v101600-20241015). This isn't enabled by default and requires you to add your own OpenAI key to function.
   * **Community**:
-    * [LangChaing4j is now using OpenRewrite to automatically review PRs](https://github.com/langchain4j/langchain4j/pull/1904)
+    * [LangChain4j is now using OpenRewrite to automatically review PRs](https://github.com/langchain4j/langchain4j/pull/1904)
     * [Apache releases their first version of the Apache camel upgrade recipes](https://camel.apache.org/blog/2024/10/camel-upgrade-recipes-release-4.8.0/)
   * **Events**:
     * [Tim will present at JavaBin in Oslo on October 17th](https://www.meetup.com/javabin/events/)
@@ -908,7 +908,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 
 #### Summary and related links
 
-* **Anouncements for the week**:
+* **Announcements for the week**:
   * **Releases**:
     * [We released a new version of OpenRewrite this week](https://x.com/OpenRewrite/status/1838703757330387052). Highlights include:
       * [Support for Java 23](https://github.com/openrewrite/rewrite/compare/v8.35.0...v8.36.0)
@@ -945,7 +945,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * [We released a new version of the Moderne IntelliJ plugin](https://plugins.jetbrains.com/plugin/17565-moderne/versions/stable)
       * With the new version, you'll be able to debug Scanning recipes and generated Refaster recipes. We also support the latest IntelliJ release and allow you to generate recipes from XML tags.
     * [We overhauled the find and fix vulnerable dependencies recipe](https://github.com/openrewrite/rewrite-java-dependencies/compare/v1.18.1...main)
-    * There were a variety of subtle fixes in the latest snapshots – such as adjustements to the OrderImports and RemoveUnusedImports recipes.
+    * There were a variety of subtle fixes in the latest snapshots – such as adjustments to the OrderImports and RemoveUnusedImports recipes.
   * **Events**
     * [Mike's webinar on CI/CD for your docs was yesterday. You can watch a recording here](https://www.youtube.com/watch?v=A8jEzp8d3qU)
     * [Jonathan and Olga will be at JConf in Dallas on September 24th](https://2024.jconf.dev/)
@@ -1203,7 +1203,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
 * Announcements for the week:
   * **Content**:
     * We launched a new website with bright new colors and fresh content! Check it out: [https://www.moderne.ai](https://www.moderne.ai/)
-    * [We recently related a blog post summarizing the Code Remix session with Jente](https://www.moderne.ai/blog/jente-sondervorst-software-engineer-at-colruyt-moving-code-forward-with-openrewrite-recipes)
+    * [We recently released a blog post summarizing the Code Remix session with Jente](https://www.moderne.ai/blog/jente-sondervorst-software-engineer-at-colruyt-moving-code-forward-with-openrewrite-recipes)
   * **Releases**:
     * We did a new full release of OpenRewrite (8.30.0).
       * Notable changes include adding traits to support flexible new use cases with minimal API, 30+ new recipes, and 11 new contributors.
@@ -1401,7 +1401,7 @@ You can find each of the Code Remix sessions below along with a summary of what 
     * Yet, even when the recipe does not produce code changes, we can still give you insight into additional vulnerabilities.
       * For that, we ran the suggested `mod study` to produce an Excel file showing exactly which dependencies are vulnerable.
       * This can be used to inform your team, and to prioritize your next steps based on severity, and mitigation options available to you.
-    * Having these insights across repositories, and the tools to affect changes at scale, means you're in great shape when a new distruptive vulnerability might appear.
+    * Having these insights across repositories, and the tools to affect changes at scale, means you're in great shape when a new disruptive vulnerability might appear.
   * Next Sam demoed how you can run a recipe using the CLI, to then attach a debugger in IntelliJ.
     * This allows you to step through existing recipes, to better understand where they match, and what changes they produce.
     * We use this frequently to help harden our recipes, as there's always more variability in practice than you had thought of in advance in your unit tests.

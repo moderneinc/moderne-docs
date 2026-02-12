@@ -293,7 +293,7 @@ MOD SUCCEEDED in 1m 15s
 
 ### Steps
 
-Now that your repositories are upgraded to on Java 17, you can run another quick smoke test to see how far the Spring Boot 4 upgrade gets after the baselining work. You still aren't trying to finish the upgrade yet, just looking for the narrower set of specific failures so you can plan the fixes and build the right composite recipe.
+Now that your repositories are upgraded to Java 17, you can run another quick smoke test to see how far the Spring Boot 4 upgrade gets after the baselining work. You still aren't trying to finish the upgrade yet, just looking for the narrower set of specific failures so you can plan the fixes and build the right composite recipe.
 
 #### Step 1: Run the upgrade recipe
 

@@ -7,7 +7,7 @@ description: How to write recipes that analyze files before applying changes.
 
 [Scanning recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) are used when a recipe needs to generate new source files or inspect all source files before making any changes. This is especially useful when a transformation in one file depends on content or structure in another. For example, a scanning recipe may examine a Maven `pom.xml` to check for a particular dependency and, based on its presence, update a YAML configuration file. This cross-file reasoning is a powerful capability unique to scanning recipes.
 
-Before moving on to the following exercise, you should review the [OpenRewrite documentation](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) for more details about the different phases of scanning recipes work and how they work.
+Before moving on to the following exercise, you should review the [OpenRewrite documentation](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) for more details about how the different phases of scanning recipes work and how they work.
 
 ## Exercise 3a: Explore a scanning recipe
 
@@ -69,7 +69,7 @@ In this exercise, you'll write a scanning recipe to find any comments in Java so
    * For every comment that you find, you'll want to store it in the list defined in your `TodoComments` accumulator class.
 4. Add code inside `generate()` to create the `TODO.md` file if it doesn't already exist.
    * Use the `generate()` code from the `AppendToReleaseNotes` example in the previous exercise as a reference. This code will be extremely similar to that.
-5. Finally, write the code for the `getVisitor()` method to transform write the collected comments to the markdown file.
+5. Finally, write the code for the `getVisitor()` method to transform the collected comments to the markdown file.
    * Again, this will be similar to the previous example since you are also writing to a plain text file.
    * You can use the `.withText(...)` method to return a plain text file with a given `String`, but you'll need to build the `String` from the list of comments in your accumulator. It should contain the full contents of the markdown to write to the file.
 6. Build your project and run the tests.

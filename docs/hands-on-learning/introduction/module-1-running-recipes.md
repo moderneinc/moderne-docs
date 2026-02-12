@@ -281,7 +281,7 @@ mod git sync moderne . --organization "Default" --with-sources
 ```
 
 :::info
-This command will download LSTs any pre-built LSTs from the platform for the given organization. If you don't include the `--with-sources` flag, the CLI only downloads LSTs, not the source code itself. With the LSTs, you will still be able to run recipes, but once you're ready to apply changes to the code, you'll need to sync the source as well. 
+This command will download any pre-built LSTs from the platform for the given organization. If you don't include the `--with-sources` flag, the CLI only downloads LSTs, not the source code itself. With the LSTs, you will still be able to run recipes, but once you're ready to apply changes to the code, you'll need to sync the source as well. 
 
 You'll also need the source if there are no pre-existing LSTs to download. In this case, you will need to explicitly build LSTs with the CLI. We will see how to do this in a later module.
 :::
@@ -448,7 +448,7 @@ Now you're ready to run your first recipe! Let's run a recipe that fixes common 
 mod run . --recipe CommonStaticAnalysis
 ```
 :::tip
-If you don't know the exact name of recipe you want to run, you can use `mod config recipes search <query>` to search for available recipes.
+If you don't know the exact name of the recipe you want to run, you can use `mod config recipes search <query>` to search for available recipes.
 :::
 
 <details>
@@ -663,7 +663,7 @@ MOD SUCCEEDED in 2s
 
 </details>
 
-3. Now you can navigate to any repository folder and run `git status`, or use `mod git status .` to check all repositories at once, to confirm there are local unstaged, uncommitted modifications. Before committing, you would normally make sure the changes didn't break the build and that all tests still pass successfully. In this exercise, we'll assume that is the case and move on to adding and commiting the changes in each repository:
+3. Now you can navigate to any repository folder and run `git status`, or use `mod git status .` to check all repositories at once, to confirm there are local unstaged, uncommitted modifications. Before committing, you would normally make sure the changes didn't break the build and that all tests still pass successfully. In this exercise, we'll assume that is the case and move on to adding and committing the changes in each repository:
 
 :::tip
  If you want to verify the builds locally you can use `mod exec . --last-recipe-run MODERNE_BUILD_TOOL_CHECK` to trigger the same Gradle/Maven checks CI would run across all the affected repositories.

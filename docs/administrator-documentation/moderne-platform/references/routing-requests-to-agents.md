@@ -32,4 +32,4 @@ Depending on the action, requests to these agents are routed differently. Modern
 
 For multi-tenant customers, Moderne runs an agent that connects to your artifact repositories. For instance, if you work for a company whose email addresses end with `@mycompany.com`, Moderne configures an agent for you with a `tenantDomain` of `mycompany.com`.
 
-If a user is logged into Moderne with an `@mycompany.com` email address, they will find that their requests (e.g., Maven resolution requests) are made to the `mycompony.com` artifact repositories.
+If a user is logged into Moderne with an `@mycompany.com` email address, they will find that their requests (e.g., Maven resolution requests) are made to the `mycompany.com` artifact repositories.
