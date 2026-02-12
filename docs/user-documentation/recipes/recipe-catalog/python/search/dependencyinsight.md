@@ -2,11 +2,6 @@
 sidebar_label: "Python dependency insight"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/python/search/dependencyinsight" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,9 +13,8 @@ _Find direct and transitive Python dependencies matching a package name pattern.
 
 ## Recipe source
 
-[GitHub: DependencyInsight.java](/src/main/java/org/openrewrite/python/search/DependencyInsight.java),
-[Issue Tracker](),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-python/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 

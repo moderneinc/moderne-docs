@@ -1246,6 +1246,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+### [org.openrewrite.python.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/python/search/dependencyinsight.md)
+  * **Python dependency insight**
+  * Find direct and transitive Python dependencies matching a package name pattern. Results include dependencies that either directly match or transitively include a matching dependency.
+
+#### Data tables:
+
+  * **org.openrewrite.python.table.PythonDependenciesInUse**: *Direct and transitive dependencies in use in Python projects.*
+
+
 ### [org.openrewrite.xml.style.AutodetectDebug](/user-documentation/recipes/recipe-catalog/xml/style/autodetectdebug.md)
   * **XML style Auto-detection debug**
   * Runs XML Autodetect and records the results in data tables and search markers. A debugging tool for figuring out why XML documents get styled the way they do.

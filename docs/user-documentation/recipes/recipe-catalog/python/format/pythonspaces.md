@@ -2,11 +2,6 @@
 sidebar_label: "Formats spaces in Python code"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/python/format/pythonspaces" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,9 +13,8 @@ _Standardizes spaces in Python code. Currently limited to formatting method argu
 
 ## Recipe source
 
-[GitHub: PythonSpaces.java](/src/main/java/org/openrewrite/python/format/PythonSpaces.java),
-[Issue Tracker](),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-python/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 

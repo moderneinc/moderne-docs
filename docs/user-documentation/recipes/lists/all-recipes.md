@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5369
+Total recipes: 5374
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -11609,6 +11609,28 @@ _7 recipes_
 * [org.openrewrite.properties.search.FindProperties](/user-documentation/recipes/recipe-catalog/properties/search/findproperties.md)
   * **Find property**
   * Finds occurrences of a property key.
+
+## org.openrewrite:rewrite-python
+
+_License: Moderne Proprietary License_
+
+_5 recipes_
+
+* [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
+  * **Add Python dependency**
+  * Add a dependency to the `[project].dependencies` array in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
+* [org.openrewrite.python.RemoveDependency](/user-documentation/recipes/recipe-catalog/python/removedependency.md)
+  * **Remove Python dependency**
+  * Remove a dependency from the `[project].dependencies` array in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
+* [org.openrewrite.python.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradedependencyversion.md)
+  * **Upgrade Python dependency version**
+  * Upgrade the version constraint for a dependency in `[project].dependencies` in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
+* [org.openrewrite.python.format.PythonSpaces](/user-documentation/recipes/recipe-catalog/python/format/pythonspaces.md)
+  * **Formats spaces in Python code**
+  * Standardizes spaces in Python code. Currently limited to formatting method arguments.
+* [org.openrewrite.python.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/python/search/dependencyinsight.md)
+  * **Python dependency insight**
+  * Find direct and transitive Python dependencies matching a package name pattern. Results include dependencies that either directly match or transitively include a matching dependency.
 
 ## org.openrewrite:rewrite-toml
 

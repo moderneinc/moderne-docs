@@ -2305,6 +2305,18 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
   * **Create Properties file**
   * Create a new Properties file.
 
+## org.openrewrite:rewrite-python
+
+* [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
+  * **Add Python dependency**
+  * Add a dependency to the `[project].dependencies` array in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
+* [org.openrewrite.python.RemoveDependency](/user-documentation/recipes/recipe-catalog/python/removedependency.md)
+  * **Remove Python dependency**
+  * Remove a dependency from the `[project].dependencies` array in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
+* [org.openrewrite.python.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradedependencyversion.md)
+  * **Upgrade Python dependency version**
+  * Upgrade the version constraint for a dependency in `[project].dependencies` in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
+
 ## org.openrewrite:rewrite-toml
 
 * [org.openrewrite.toml.CreateTomlFile](/user-documentation/recipes/recipe-catalog/toml/createtomlfile.md)

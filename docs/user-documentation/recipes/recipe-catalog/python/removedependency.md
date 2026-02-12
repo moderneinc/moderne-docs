@@ -2,11 +2,6 @@
 sidebar_label: "Remove Python dependency"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/python/removedependency" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,9 +13,8 @@ _Remove a dependency from the `[project].dependencies` array in `pyproject.toml`
 
 ## Recipe source
 
-[GitHub: RemoveDependency.java](/src/main/java/org/openrewrite/python/RemoveDependency.java),
-[Issue Tracker](),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-python/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 

@@ -2,11 +2,6 @@
 sidebar_label: "Upgrade Python dependency version"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/python/upgradedependencyversion" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,9 +13,8 @@ _Upgrade the version constraint for a dependency in `[project].dependencies` in 
 
 ## Recipe source
 
-[GitHub: UpgradeDependencyVersion.java](/src/main/java/org/openrewrite/python/UpgradeDependencyVersion.java),
-[Issue Tracker](),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-python/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
