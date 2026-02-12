@@ -1,5 +1,11 @@
 # CLI / DX changelog
 
+### CLI / DX v3.57.4 (2026-02-11)
+
+#### What's Changed
+* Fix ClassCastException when running COBOL recipes
+* Add `mod config node version` command for Node.js version selection
+
 ### CLI / DX v3.57.3 (2026-02-11)
 
 #### What's Changed
