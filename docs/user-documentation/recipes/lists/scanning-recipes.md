@@ -2310,12 +2310,18 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
   * **Add Python dependency**
   * Add a dependency to the `[project].dependencies` array in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
+* [org.openrewrite.python.ChangeDependency](/user-documentation/recipes/recipe-catalog/python/changedependency.md)
+  * **Change Python dependency**
+  * Change a dependency to a different package in `pyproject.toml`. Searches all dependency arrays. When `uv` is available, the `uv.lock` file is regenerated.
 * [org.openrewrite.python.RemoveDependency](/user-documentation/recipes/recipe-catalog/python/removedependency.md)
   * **Remove Python dependency**
   * Remove a dependency from the `[project].dependencies` array in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
 * [org.openrewrite.python.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradedependencyversion.md)
   * **Upgrade Python dependency version**
   * Upgrade the version constraint for a dependency in `[project].dependencies` in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
+* [org.openrewrite.python.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradetransitivedependencyversion.md)
+  * **Upgrade transitive Python dependency version**
+  * Pin a transitive dependency version using the appropriate strategy for the detected package manager: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency.
 
 ## org.openrewrite:rewrite-toml
 

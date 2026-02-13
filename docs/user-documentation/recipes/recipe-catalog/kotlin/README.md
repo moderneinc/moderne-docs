@@ -10,6 +10,7 @@ _Recipes to search and transform Kotlin._
 
 * [Cleanup](/user-documentation/recipes/recipe-catalog/kotlin/cleanup)
 * [Format](/user-documentation/recipes/recipe-catalog/kotlin/format)
+* [Replace](/user-documentation/recipes/recipe-catalog/kotlin/replace)
 
 ## Recipes
 
