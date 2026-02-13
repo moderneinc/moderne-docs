@@ -1,5 +1,53 @@
 # CLI / DX changelog
 
+### CLI / DX v3.57.4 (2026-02-11)
+
+#### What's Changed
+* Fix ClassCastException when running COBOL recipes
+* Add `mod config node version` command for Node.js version selection
+
+### CLI / DX v3.57.3 (2026-02-11)
+
+#### What's Changed
+* Fix issue with `mod config (recipes|lsts) (artifactory|maven) (add|delete)` causing `ClassCastException`s in places that still expected the old map style
+
+### CLI / DX v3.57.2 (2026-02-10)
+
+#### What's Changed
+- Based on OpenRewrite 8.73.0
+* Fix ZipException by validating cached LST files
+
+### CLI / DX v3.57.1 (2026-02-10)
+
+#### What's Changed
+* Handle null NodeInstallation in JavaScriptBuildStep.getVersion()
+* Include skills resources in native image
+
+### CLI / DX v3.57.0 (2026-02-10)
+
+#### What's Changed
+#### # New Features
+* `mod config moderne skills update` (f.k.a. `mod config claude plugin update`)
+* Support multiple repositories for recipe dependency resolution and LSTs download (adds new commands `mod config recipes artifacts artifactory add`, `mod config recipes artifacts maven add`, `mod config lsts artifacts artifactory add`, and `mod config lsts artifacts maven add`)
+#### # Fixes
+* Fix trace files not to set irrelevant tool versions
+* Allow using `mod search` as a prefilter to a `mod run`
+* Ensure `mod build` always prints absolute paths to its log files to make it easier to access them (#3162)
+* Fix issue where `mod config node installation list` might sometimes fail with a StackOverflowException
+* Fix `mod search` license check to accept lease keys from Moderne SaaS tenants
+* Increase recipe installation timeout to 5 minutes for pip and NPM
+* Ensure command prompt subprocess executions are always quoted
+* Fix `mod postbuild zoekt update` in native binaries
+* Fix `mod config recipes active set` in native binaries
+* Ensure branch is always present in `repos-lock.csv` when changeset is present
+* Update `mod list` to show partitions instead of just repositories
+* Only read available JDKs from central moderne CLI `moderne.yml` (i.e. don't allow it to be overridden by a repo or org-local `moderne.yml`)
+* Add warning comment at the top of `moderne.yml` to recommend not editing by hand
+* Fix loading of recipes that originate from multiple recipeJars when used within a declarative YAML recipe
+* Fix issue preventing partitions with a very long inclusion list from building
+* Fix `repos-lock.csv` error handling during `mod publish`
+* Fix publish error message which previously rendered a raw byte array
+
 ### CLI / DX v3.56.8 (2026-02-04)
 
 #### What's Changed

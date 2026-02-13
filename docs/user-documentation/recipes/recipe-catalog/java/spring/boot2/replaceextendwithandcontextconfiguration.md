@@ -51,7 +51,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = ExampleClass.ExampleConfiguration.class)
 public class ExampleClass {
     @Configuration
-    static class ExampleConfiguration {
+    public static class ExampleConfiguration {
     }
 }
 ```
@@ -66,7 +66,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 @SpringJUnitConfig(classes = ExampleClass.ExampleConfiguration.class)
 public class ExampleClass {
     @Configuration
-    static class ExampleConfiguration {
+    public static class ExampleConfiguration {
     }
 }
 ```

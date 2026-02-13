@@ -46,6 +46,7 @@ This recipe is used as part of the following composite recipes:
 
 * [Add JUnit Platform Launcher](/user-documentation/recipes/recipe-catalog/gradle/addjunitplatformlauncher.md)
 * [Add `lombok-mapstruct-binding` when both MapStruct and Lombok are used](/user-documentation/recipes/recipe-catalog/java/migrate/addlombokmapstructbinding.md)
+* [Enable Lombok annotation processor](/user-documentation/recipes/recipe-catalog/java/migrate/enablelombokannotationprocessor.md)
 * [Update to Micronaut Validation 4.x](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautvalidation.md)
 
 

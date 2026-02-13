@@ -55,7 +55,7 @@ Regardless of which one you pick, you'll want a minimum system spec of 2 CPU cor
 
 If you deploy to Kubernetes or any other containerized environment like AWS ECS, you'll want to use the OCI image to run the agent.
 
-If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) environment such Cloud Foundry, you'll want to use the JAR to run the agent.
+If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) environment such as Cloud Foundry, you'll want to use the JAR to run the agent.
 
 The table below provides the core command for running the agent. However, in order for the agent to function correctly, additional variables will need to be added based on your environment (such as what SCM(s) your company uses, what artifact repositories you have configured). We'll walk through each of those in the following steps.
 

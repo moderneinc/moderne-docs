@@ -5,7 +5,7 @@ description: How to create your own recipes and how to deploy them to the Modern
 
 # Writing and installing recipes
 
-As a user of the Moderne Platform, you're probably run quite a few [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes). However, what if you none of the recipes in [the catalog](https://docs.openrewrite.org/recipes) do what you want to do? In that case, you will need to write your own. 
+As a user of the Moderne Platform, you've probably run quite a few [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes). However, what if none of the recipes in [the catalog](https://docs.openrewrite.org/recipes) do what you want to do? In that case, you will need to write your own. 
 
 In this short guide, we will walk through how to get started with writing recipes, and the steps you need to take after to make them appear in your Moderne Platform instance.
 

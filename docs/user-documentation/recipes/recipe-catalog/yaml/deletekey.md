@@ -37,6 +37,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Migrate `astral-sh/setup-uv` from v6 to v7](/user-documentation/recipes/recipe-catalog/github/migratesetupuvv6tov7.md)
+* [Migrate to Dropwizard 5.0.x from 4.x](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5.md)
 * [Update relocated Micronaut Security config yaml keys](/user-documentation/recipes/recipe-catalog/java/micronaut/updatesecurityyamlifneeded.md)
 
 ## Example

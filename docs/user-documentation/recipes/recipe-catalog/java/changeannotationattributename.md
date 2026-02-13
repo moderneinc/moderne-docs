@@ -42,6 +42,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate from `@ApiOperation` to `@Operation`](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapioperationtooperation.md)
 * [Migrate from `@ApiParam` to `@Parameter`](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiparamtoparameter.md)
 * [Migrate from `@ApiResponses` to `@ApiResponses`](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiresponsestoapiresponses.md)
+* [Migrate to Hibernate 4.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40)
 * [Replace `@MockBean` and `@SpyBean`](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacemockbeanandspybean.md)
 * [Replace `@Timed` (Dropwizard) with `@Timed` (Micrometer)](/user-documentation/recipes/recipe-catalog/java/dropwizard/annotation/micrometer/codahaletimedtomicrometertimed.md)
 * [Substitute deprecated Faces Managed Beans](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/facesmanagedbeansremoved3.md)

@@ -10,6 +10,86 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## February 11, 2026
+
+#### rewrite-ai-search - 0.32.6
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-android - 0.15.5
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-circleci - 3.9.6
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-codemods-ng - 0.17.1
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-compiled-analysis - 0.11.5
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-concourse - 3.9.6
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-dotnet - 0.14.6
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-elastic - 0.5.2
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-hibernate - 0.18.0
+
+* Hibernate 4 Collections
+* Use Hibernate 4.0 `StandardBasicTypes`
+
+#### rewrite-java-security - 3.26.2
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-kafka - 0.4.6
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-kubernetes - 3.15.2
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-nodejs - 0.38.0
+
+* Fix test failure after new CVE
+* Inline deprecated constructors
+
+#### rewrite-program-analysis - 0.9.2
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-reactive-streams - 0.18.6
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-spring - 0.25.0
+
+* Fix artifact ID for spring-boot-starter-web-services
+* Derive Application.java path from source files, not project name
+* Close gaps in JSF 2.3 and Spring 3.0 migration recipes
+* Add recipe to handle `HttpMessageConvertersAutoConfiguration` removal
+* Add Flyway and Liquibase starter dependency recipes for Spring Boot 4
+
+#### rewrite-sql - 2.10.1
+
+* Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-terraform - 3.11.6
+
+* Updated repository to use OpenRewrite version v8.73.0
+
 ## February 9, 2026
 
 #### rewrite-spring - v0.24.1

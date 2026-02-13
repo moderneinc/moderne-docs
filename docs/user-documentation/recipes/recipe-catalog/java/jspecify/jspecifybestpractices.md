@@ -147,7 +147,6 @@ public class Test {
     public String field1;
     @Nullable
     public String field2;
-
     public Foo.@Nullable Bar foobar;
 }
 
@@ -175,15 +174,14 @@ public class Test {
 -   @Nonnull
 +   @NonNull
     public String field1;
-@@ -9,2 +9,2 @@
+@@ -9,2 +9,1 @@
     @Nullable
     public String field2;
 -   @Nullable
 -   public Foo.Bar foobar;
-+
 +   public Foo.@Nullable Bar foobar;
 }
-@@ -15,1 +15,1 @@
+@@ -15,1 +14,1 @@
 interface Foo {
   class Bar {
 -   @Nonnull
@@ -342,7 +340,6 @@ public class Test {
     public String field1;
     @Nullable
     public String field2;
-
     public Foo.@Nullable Bar foobar;
 }
 
@@ -370,15 +367,14 @@ public class Test {
 -   @Nonnull
 +   @NonNull
     public String field1;
-@@ -9,2 +9,2 @@
+@@ -9,2 +9,1 @@
     @Nullable
     public String field2;
 -   @Nullable
 -   public Foo.Bar foobar;
-+
 +   public Foo.@Nullable Bar foobar;
 }
-@@ -15,1 +15,1 @@
+@@ -15,1 +14,1 @@
 interface Foo {
   class Bar {
 -   @Nonnull

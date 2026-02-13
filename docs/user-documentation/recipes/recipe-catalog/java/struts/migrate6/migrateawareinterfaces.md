@@ -2,11 +2,6 @@
 sidebar_label: "Migrate Struts 2.0 interceptors to action &quot;aware&quot; interfaces"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate6/migrateawareinterfaces" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,184 +13,17 @@ _These types have moved to a new package in Struts 6.0 and their methods have be
 
 ## Recipe source
 
-[GitHub: struts6.yml](https://github.com/openrewrite/rewrite-struts/blob/main/src/main/resources/META-INF/rewrite/struts6.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-struts/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-struts/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Change method name](../../../java/changemethodname)
-  * methodPattern: `org.apache.struts2.interceptor.ApplicationAware setApplication(java.util.Map)`
-  * newMethodName: `withApplication`
-  * matchOverrides: `true`
-* [Change method name](../../../java/changemethodname)
-  * methodPattern: `org.apache.struts2.interceptor.SessionAware setSession(java.util.Map)`
-  * newMethodName: `withSession`
-  * matchOverrides: `true`
-* [Change method name](../../../java/changemethodname)
-  * methodPattern: `org.apache.struts2.interceptor.ParameterAware setParameters(java.util.Map)`
-  * newMethodName: `withParameters`
-  * matchOverrides: `true`
-* [Change method name](../../../java/changemethodname)
-  * methodPattern: `org.apache.struts2.interceptor.HttpParametersAware setParameters(org.apache.struts2.dispatcher.HttpParameters)`
-  * newMethodName: `withParameters`
-  * matchOverrides: `true`
-* [Change method name](../../../java/changemethodname)
-  * methodPattern: `org.apache.struts2.interceptor.PrincipalAware setPrincipalProxy(org.apache.struts2.interceptor.PrincipalProxy)`
-  * newMethodName: `withPrincipalProxy`
-  * matchOverrides: `true`
-* [Change method name](../../../java/changemethodname)
-  * methodPattern: `org.apache.struts2.interceptor.ServletRequestAware setServletRequest(javax.servlet.http.HttpServletRequest)`
-  * newMethodName: `withServletRequest`
-  * matchOverrides: `true`
-* [Change method name](../../../java/changemethodname)
-  * methodPattern: `org.apache.struts2.interceptor.ServletResponseAware setServletResponse(javax.servlet.http.HttpServletResponse)`
-  * newMethodName: `withServletResponse`
-  * matchOverrides: `true`
-* [Change method name](../../../java/changemethodname)
-  * methodPattern: `org.apache.struts2.util.ServletContextAware setServletContext(javax.servlet.ServletContext)`
-  * newMethodName: `withServletContext`
-  * matchOverrides: `true`
-* [Change method name](../../../java/changemethodname)
-  * methodPattern: `org.apache.struts2.interceptor.CookiesAware setCookiesMap(java.util.Map)`
-  * newMethodName: `withCookiesMap`
-  * matchOverrides: `true`
-* [Change method name](../../../java/changemethodname)
-  * methodPattern: `org.apache.struts2.interceptor.RequestAware setRequest(java.util.Map)`
-  * newMethodName: `withRequest`
-  * matchOverrides: `true`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.struts2.interceptor.ApplicationAware`
-  * newFullyQualifiedTypeName: `org.apache.struts2.action.ApplicationAware`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.struts2.interceptor.CookiesAware`
-  * newFullyQualifiedTypeName: `org.apache.struts2.action.CookiesAware`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.struts2.interceptor.HttpParametersAware`
-  * newFullyQualifiedTypeName: `org.apache.struts2.action.ParametersAware`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.struts2.interceptor.ParameterAware`
-  * newFullyQualifiedTypeName: `org.apache.struts2.action.ParametersAware`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.struts2.interceptor.PrincipalAware`
-  * newFullyQualifiedTypeName: `org.apache.struts2.action.PrincipalAware`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.struts2.interceptor.RequestAware`
-  * newFullyQualifiedTypeName: `org.apache.struts2.action.ServletRequestAware`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.struts2.interceptor.ServletRequestAware`
-  * newFullyQualifiedTypeName: `org.apache.struts2.action.ServletRequestAware`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.struts2.interceptor.ServletResponseAware`
-  * newFullyQualifiedTypeName: `org.apache.struts2.action.ServletResponseAware`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.struts2.interceptor.SessionAware`
-  * newFullyQualifiedTypeName: `org.apache.struts2.action.SessionAware`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.apache.struts2.util.ServletContextAware`
-  * newFullyQualifiedTypeName: `org.apache.struts2.action.ServletContextAware`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.struts.migrate6.MigrateAwareInterfaces
-displayName: Migrate Struts 2.0 interceptors to action &quot;aware&quot; interfaces
-description: |
-  These types have moved to a new package in Struts 6.0 and their methods have been renamed from set* to with*.
-recipeList:
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.apache.struts2.interceptor.ApplicationAware setApplication(java.util.Map)
-      newMethodName: withApplication
-      matchOverrides: true
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.apache.struts2.interceptor.SessionAware setSession(java.util.Map)
-      newMethodName: withSession
-      matchOverrides: true
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.apache.struts2.interceptor.ParameterAware setParameters(java.util.Map)
-      newMethodName: withParameters
-      matchOverrides: true
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.apache.struts2.interceptor.HttpParametersAware setParameters(org.apache.struts2.dispatcher.HttpParameters)
-      newMethodName: withParameters
-      matchOverrides: true
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.apache.struts2.interceptor.PrincipalAware setPrincipalProxy(org.apache.struts2.interceptor.PrincipalProxy)
-      newMethodName: withPrincipalProxy
-      matchOverrides: true
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.apache.struts2.interceptor.ServletRequestAware setServletRequest(javax.servlet.http.HttpServletRequest)
-      newMethodName: withServletRequest
-      matchOverrides: true
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.apache.struts2.interceptor.ServletResponseAware setServletResponse(javax.servlet.http.HttpServletResponse)
-      newMethodName: withServletResponse
-      matchOverrides: true
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.apache.struts2.util.ServletContextAware setServletContext(javax.servlet.ServletContext)
-      newMethodName: withServletContext
-      matchOverrides: true
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.apache.struts2.interceptor.CookiesAware setCookiesMap(java.util.Map)
-      newMethodName: withCookiesMap
-      matchOverrides: true
-  - org.openrewrite.java.ChangeMethodName:
-      methodPattern: org.apache.struts2.interceptor.RequestAware setRequest(java.util.Map)
-      newMethodName: withRequest
-      matchOverrides: true
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.struts2.interceptor.ApplicationAware
-      newFullyQualifiedTypeName: org.apache.struts2.action.ApplicationAware
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.struts2.interceptor.CookiesAware
-      newFullyQualifiedTypeName: org.apache.struts2.action.CookiesAware
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.struts2.interceptor.HttpParametersAware
-      newFullyQualifiedTypeName: org.apache.struts2.action.ParametersAware
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.struts2.interceptor.ParameterAware
-      newFullyQualifiedTypeName: org.apache.struts2.action.ParametersAware
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.struts2.interceptor.PrincipalAware
-      newFullyQualifiedTypeName: org.apache.struts2.action.PrincipalAware
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.struts2.interceptor.RequestAware
-      newFullyQualifiedTypeName: org.apache.struts2.action.ServletRequestAware
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.struts2.interceptor.ServletRequestAware
-      newFullyQualifiedTypeName: org.apache.struts2.action.ServletRequestAware
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.struts2.interceptor.ServletResponseAware
-      newFullyQualifiedTypeName: org.apache.struts2.action.ServletResponseAware
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.struts2.interceptor.SessionAware
-      newFullyQualifiedTypeName: org.apache.struts2.action.SessionAware
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.struts2.util.ServletContextAware
-      newFullyQualifiedTypeName: org.apache.struts2.action.ServletContextAware
-
-```
-</TabItem>
-</Tabs>
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Struts 6.0](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6.md)
+* [Migrate to Struts 6.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6)
 
 ## Examples
 ##### Example 1

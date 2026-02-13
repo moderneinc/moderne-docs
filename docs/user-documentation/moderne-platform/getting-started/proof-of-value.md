@@ -126,7 +126,7 @@ This is possible because Moderne treats your code like a data warehouse. Our typ
 
 One of the most powerful applications of search is **impact analysis** – understanding what will be affected before you make changes. The search recipes below help you assess the scope and impact of potential transformations, giving you confidence before running large-scale refactors or migrations.
 
-To see learn more about impact analysis and how to automate it, check out this video:
+To learn more about impact analysis and how to automate it, check out this video:
 
 <ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
 
@@ -307,7 +307,7 @@ mod study . --last-recipe-run --data-table TaintFlowTable
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![](./assets/post-quantum.png)
-  <figcaption>_Identifying code that will be affected by post quantum crypytography._</figcaption>
+  <figcaption>_Identifying code that will be affected by post quantum cryptography._</figcaption>
 </figure>
 
 ### [Dependency insight for Gradle and Maven](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight)

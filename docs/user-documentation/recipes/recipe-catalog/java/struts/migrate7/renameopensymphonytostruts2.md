@@ -2,11 +2,6 @@
 sidebar_label: "Rename OpenSymphony / XWork classes to Struts 7 packages"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate7/renameopensymphonytostruts2" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,148 +13,50 @@ _Updates classes moved from com.opensymphony.xwork2.* to their new org.apache.st
 
 ## Recipe source
 
-[GitHub: struts7.yml](https://github.com/openrewrite/rewrite-struts/blob/main/src/main/resources/META-INF/rewrite/struts7.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-struts/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-struts/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.Action`
-  * newFullyQualifiedTypeName: `org.apache.struts2.action.Action`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.ActionChainResult`
-  * newFullyQualifiedTypeName: `org.apache.struts2.result.ActionChainResult`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.TextProvider`
-  * newFullyQualifiedTypeName: `org.apache.struts2.text.TextProvider`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.CompositeTextProvider`
-  * newFullyQualifiedTypeName: `org.apache.struts2.text.CompositeTextProvider`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.DefaultTextProvider`
-  * newFullyQualifiedTypeName: `org.apache.struts2.text.DefaultTextProvider`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.LocalizedTextProvider`
-  * newFullyQualifiedTypeName: `org.apache.struts2.text.LocalizedTextProvider`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.ResourceBundleTextProvider`
-  * newFullyQualifiedTypeName: `org.apache.struts2.text.ResourceBundleTextProvider`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.TextProviderFactory`
-  * newFullyQualifiedTypeName: `org.apache.struts2.text.TextProviderFactory`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.TextProviderSupport`
-  * newFullyQualifiedTypeName: `org.apache.struts2.text.TextProviderSupport`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.util.AbstractLocalizedTextProvider`
-  * newFullyQualifiedTypeName: `org.apache.struts2.text.AbstractLocalizedTextProvider`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.util.GlobalLocalizedTextProvider`
-  * newFullyQualifiedTypeName: `org.apache.struts2.text.GlobalLocalizedTextProvider`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.util.StrutsLocalizedTextProvider`
-  * newFullyQualifiedTypeName: `org.apache.struts2.text.StrutsLocalizedTextProvider`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.DefaultLocaleProvider`
-  * newFullyQualifiedTypeName: `org.apache.struts2.locale.DefaultLocaleProvider`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.DefaultLocaleProviderFactory`
-  * newFullyQualifiedTypeName: `org.apache.struts2.locale.DefaultLocaleProviderFactory`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.LocaleProvider`
-  * newFullyQualifiedTypeName: `org.apache.struts2.locale.LocaleProvider`
-* [Change type](../../../java/changetype)
-  * oldFullyQualifiedTypeName: `com.opensymphony.xwork2.LocaleProviderFactory`
-  * newFullyQualifiedTypeName: `org.apache.struts2.locale.LocaleProviderFactory`
-* [Rename package name](../../../java/changepackage)
-  * oldPackageName: `com.opensymphony.xwork2`
-  * newPackageName: `org.apache.struts2`
-  * recursive: `true`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.struts.migrate7.RenameOpenSymphonyToStruts2
-displayName: Rename OpenSymphony / XWork classes to Struts 7 packages
-description: |
-  Updates classes moved from com.opensymphony.xwork2.* to their new org.apache.struts2.* packages in Struts 7.
-recipeList:
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.Action
-      newFullyQualifiedTypeName: org.apache.struts2.action.Action
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.ActionChainResult
-      newFullyQualifiedTypeName: org.apache.struts2.result.ActionChainResult
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.TextProvider
-      newFullyQualifiedTypeName: org.apache.struts2.text.TextProvider
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.CompositeTextProvider
-      newFullyQualifiedTypeName: org.apache.struts2.text.CompositeTextProvider
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.DefaultTextProvider
-      newFullyQualifiedTypeName: org.apache.struts2.text.DefaultTextProvider
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.LocalizedTextProvider
-      newFullyQualifiedTypeName: org.apache.struts2.text.LocalizedTextProvider
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.ResourceBundleTextProvider
-      newFullyQualifiedTypeName: org.apache.struts2.text.ResourceBundleTextProvider
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.TextProviderFactory
-      newFullyQualifiedTypeName: org.apache.struts2.text.TextProviderFactory
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.TextProviderSupport
-      newFullyQualifiedTypeName: org.apache.struts2.text.TextProviderSupport
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.util.AbstractLocalizedTextProvider
-      newFullyQualifiedTypeName: org.apache.struts2.text.AbstractLocalizedTextProvider
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.util.GlobalLocalizedTextProvider
-      newFullyQualifiedTypeName: org.apache.struts2.text.GlobalLocalizedTextProvider
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.util.StrutsLocalizedTextProvider
-      newFullyQualifiedTypeName: org.apache.struts2.text.StrutsLocalizedTextProvider
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.DefaultLocaleProvider
-      newFullyQualifiedTypeName: org.apache.struts2.locale.DefaultLocaleProvider
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.DefaultLocaleProviderFactory
-      newFullyQualifiedTypeName: org.apache.struts2.locale.DefaultLocaleProviderFactory
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.LocaleProvider
-      newFullyQualifiedTypeName: org.apache.struts2.locale.LocaleProvider
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: com.opensymphony.xwork2.LocaleProviderFactory
-      newFullyQualifiedTypeName: org.apache.struts2.locale.LocaleProviderFactory
-  - org.openrewrite.java.ChangePackage:
-      oldPackageName: com.opensymphony.xwork2
-      newPackageName: org.apache.struts2
-      recursive: true
-
-```
-</TabItem>
-</Tabs>
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Struts 7.0](/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7.md)
+* [Migrate to Struts 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7)
+
+## Examples
+##### Example 1
+`RenameOpenSymphonyToStruts2Test#migrateCoreActionAndContextTypes`
+
+
+###### Unchanged
+```java
+import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ActionChainResult;
+
+class MyAction extends ActionSupport implements Action {
+    ActionChainResult result;
+}
+```
+
+---
+
+##### Example 2
+`RenameOpenSymphonyToStruts2Test#migrateCoreActionAndContextTypes`
+
+
+###### Unchanged
+```java
+import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ActionChainResult;
+
+class MyAction extends ActionSupport implements Action {
+    ActionChainResult result;
+}
+```
 
 
 ## Usage

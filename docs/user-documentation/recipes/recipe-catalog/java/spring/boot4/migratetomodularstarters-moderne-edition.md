@@ -76,6 +76,10 @@ test
             <artifactId>spring-boot-starter-test-classic</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
     </dependencies>
 </project>
 ```
@@ -125,6 +129,14 @@ test
 -           <artifactId>spring-boot-starter-test-classic</artifactId>
 +           <artifactId>spring-boot-starter-ldap-test</artifactId>
             <scope>test</scope>
+@@ -22,4 +22,0 @@
+            <scope>test</scope>
+        </dependency>
+-       <dependency>
+-           <groupId>org.springframework.boot</groupId>
+-           <artifactId>spring-boot-autoconfigure</artifactId>
+-       </dependency>
+    </dependencies>
 ```
 </TabItem>
 </Tabs>
@@ -176,6 +188,10 @@ test
             <artifactId>spring-boot-starter-test-classic</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
     </dependencies>
 </project>
 ```
@@ -225,6 +241,14 @@ test
 -           <artifactId>spring-boot-starter-test-classic</artifactId>
 +           <artifactId>spring-boot-starter-ldap-test</artifactId>
             <scope>test</scope>
+@@ -22,4 +22,0 @@
+            <scope>test</scope>
+        </dependency>
+-       <dependency>
+-           <groupId>org.springframework.boot</groupId>
+-           <artifactId>spring-boot-autoconfigure</artifactId>
+-       </dependency>
+    </dependencies>
 ```
 </TabItem>
 </Tabs>

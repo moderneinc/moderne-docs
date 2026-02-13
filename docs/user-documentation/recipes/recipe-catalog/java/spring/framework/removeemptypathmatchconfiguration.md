@@ -25,6 +25,53 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate deprecated path mapping options](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/removedeprecatedpathmappingoptions)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class MyWebConfiguration implements WebMvcConfigurer {
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+    }
+}
+```
+
+###### After
+```java
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class MyWebConfiguration implements WebMvcConfigurer {
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -7,3 +7,0 @@
+@Configuration
+public class MyWebConfiguration implements WebMvcConfigurer {
+-   @Override
+-   public void configurePathMatch(PathMatchConfigurer configurer) {
+-   }
+}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

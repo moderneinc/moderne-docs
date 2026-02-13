@@ -2,11 +2,6 @@
 sidebar_label: "Find Struts actions"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/search/findstrutsactions" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,11 +13,10 @@ _Find actions and their associated definitions._
 
 ## Recipe source
 
-[GitHub: FindStrutsActions.java](https://github.com/openrewrite/rewrite-struts/blob/main/src/main/java/org/openrewrite/java/struts/search/FindStrutsActions.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-struts/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-struts/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 ## Example
 

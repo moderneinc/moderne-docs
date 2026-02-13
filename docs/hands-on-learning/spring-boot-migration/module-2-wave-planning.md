@@ -69,7 +69,7 @@ mod git sync moderne $WORKSPACE --organization "Moderne - Training" --with-sourc
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Retrieving organization from Moderne
 
@@ -219,7 +219,7 @@ mod run-history $WORKSPACE
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Reading organization
 
@@ -330,7 +330,7 @@ If neither option works for you or you don't have a Python environment, don't wo
 open $PROJECTS/Release-Train-Metro-Plan/src/main/static/metro-plan.html
 ```
 
-4. Now that you have a wave plan, you need a way to target a specific wave with recipe runs and releases. Instead of syncing with the organization in the platform as you did before, you will now use the `repos.csv` method to group repositories by wave. There are a few ways could do that:
+4. Now that you have a wave plan, you need a way to target a specific wave with recipe runs and releases. Instead of syncing with the organization in the platform as you did before, you will now use the `repos.csv` method to group repositories by wave. There are a few ways you could do that:
 
 * Run `mod` commands inside each repository manually (fine for a few repos, painful at scale)
 * Create separate `repos.csv` files per wave and sync each into its own workspace

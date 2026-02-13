@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 **org.openrewrite.java.recipes.NoMutableStaticFieldsInRecipes**
 
-_Remove mutable static fields from Recipe classes to discourage their use._
+_Add the `final` keyword to mutable static fields in Recipe classes._
 
 ## Recipe source
 
@@ -54,6 +54,7 @@ import org.openrewrite.Recipe;
 
 public class A extends Recipe {
     static final int immutable = 0;
+    static final int mutable = 0;
 }
 ```
 
@@ -61,10 +62,11 @@ public class A extends Recipe {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -5,1 +5,0 @@
+@@ -5,1 +5,1 @@
 public class A extends Recipe {
     static final int immutable = 0;
 -   static int mutable = 0;
++   static final int mutable = 0;
 }
 ```
 </TabItem>

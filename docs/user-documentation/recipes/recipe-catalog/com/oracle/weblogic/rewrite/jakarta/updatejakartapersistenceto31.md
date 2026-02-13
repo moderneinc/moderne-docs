@@ -65,6 +65,13 @@ recipeList:
 </TabItem>
 </Tabs>
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Upgrade Jakarta JPA to 3.1 and Hibernate 6.6](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradejpato31hibernateto66.md)
+
+
 ## Usage
 
 This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.

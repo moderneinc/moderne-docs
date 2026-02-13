@@ -27,7 +27,7 @@ In this exercise, you'll build upon a custom migration recipe that replaces Spri
 
 A declarative YAML recipe consists of [at least] metadata fields (`type`, `name`, `displayName`, `description`) and a `recipeList` field that lists the fully qualified class names of recipes to include, along with their options (if any exist). 
 
-The recipe starter project already contains a migration recipe for replacing Spring string utilities with Apache string utilities, but it's just a start and is missing some cases that still need to be covered. For one, you'll want change from Spring's `trimWhitepace(String)` to Apache Common's `StringUtils.strip(String)`.
+The recipe starter project already contains a migration recipe for replacing Spring string utilities with Apache string utilities, but it's just a start and is missing some cases that still need to be covered. For one, you'll want to change from Spring's `trimWhitespace(String)` to Apache Common's `StringUtils.strip(String)`.
 
 1. Open [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml) from your project in IntelliJ.
 2. Add [`org.openrewrite.java.ChangeMethodName`](https://docs.openrewrite.org/recipes/java/changemethodname) to the end of `recipeList`.

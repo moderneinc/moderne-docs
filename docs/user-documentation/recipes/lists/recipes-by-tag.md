@@ -127,7 +127,7 @@ _2 recipes_
 
 ## apache
 
-_17 recipes_
+_18 recipes_
 
 * [org.openrewrite.apache.commons.codec.ApacheBase64ToJavaBase64](/user-documentation/recipes/recipe-catalog/apache/commons/codec/apachebase64tojavabase64.md)
   * **Prefer `java.util.Base64`**
@@ -174,6 +174,9 @@ _17 recipes_
 * [org.openrewrite.apache.httpclient5.UpgradeApacheHttpClient_5](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5.md)
   * **Migrate to ApacheHttpClient 5.x**
   * Migrate applications to the latest Apache HttpClient 5.x release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+* [org.openrewrite.apache.httpclient5.UpgradeApacheHttpClient_5_AsyncClientClassMapping](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5_asyncclientclassmapping.md)
+  * **Migrate Apache HttpAsyncClient 4.x classes to HttpClient 5.x**
+  * Migrates classes from Apache HttpAsyncClient 4.x `httpasyncclient` to their equivalents in HttpClient 5.x.
 * [org.openrewrite.apache.httpclient5.UpgradeApacheHttpCoreNioDependencies](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcoreniodependencies.md)
   * **Migrate from httpcore-nio to ApacheHttpClient 5.x core dependency**
   * Adopt `org.apache.httpcomponents.core5:httpcore5` from `org.apache.httpcomponents:httpcore-nio`.
@@ -3714,14 +3717,20 @@ _1 recipe_
 
 ## hibernate
 
-_4 recipes_
+_6 recipes_
 
+* [com.oracle.weblogic.rewrite.UpgradeJPATo31HibernateTo66](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradejpato31hibernateto66.md)
+  * **Upgrade Jakarta JPA to 3.1 and Hibernate 6.6**
+  * This recipe upgrades Jakarta JPA to 3.1 and Hibernate to 6.6 (compatible with Jakarta EE 10).
 * [com.oracle.weblogic.rewrite.hibernate.AddHibernateOrmCore61](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/addhibernateormcore61.md)
   * **Add Hibernate ORM Core if has dependencies**
   * This recipe will add Hibernate ORM Core if has dependencies.
 * [com.oracle.weblogic.rewrite.hibernate.MigrateHibernateToJakartaEE9](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/migratehibernatetojakartaee9.md)
   * **Migrate to Hibernate for Jakarta EE 9**
   * Upgrade hibernate libraries to Jakarta EE9 versions.
+* [com.oracle.weblogic.rewrite.hibernate.UpgradeHibernateTo66](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/upgradehibernateto66.md)
+  * **Upgrade Hibernate to 6.6**
+  * This recipe upgrades Hibernate to version 6.6, which is compatible with Jakarta EE 10 and JPA 3.1. It also upgrades a few of the commonly used Hibernate add-ons.
 * [com.oracle.weblogic.rewrite.jakarta.UpgradeCommonOpenSourceLibraries](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/upgradecommonopensourcelibraries.md)
   * **Upgrade Common open source libraries**
   * Upgrade Common open source libraries libraries to Jakarta EE9 versions.
@@ -3731,7 +3740,7 @@ _4 recipes_
 
 ## httpclient
 
-_4 recipes_
+_5 recipes_
 
 * [org.openrewrite.apache.httpclient4.UpgradeApacheHttpClient_4_5](/user-documentation/recipes/recipe-catalog/apache/httpclient4/upgradeapachehttpclient_4_5.md)
   * **Migrates to ApacheHttpClient 4.5.x**
@@ -3742,6 +3751,9 @@ _4 recipes_
 * [org.openrewrite.apache.httpclient5.UpgradeApacheHttpClient_5](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5.md)
   * **Migrate to ApacheHttpClient 5.x**
   * Migrate applications to the latest Apache HttpClient 5.x release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+* [org.openrewrite.apache.httpclient5.UpgradeApacheHttpClient_5_AsyncClientClassMapping](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5_asyncclientclassmapping.md)
+  * **Migrate Apache HttpAsyncClient 4.x classes to HttpClient 5.x**
+  * Migrates classes from Apache HttpAsyncClient 4.x `httpasyncclient` to their equivalents in HttpClient 5.x.
 * [org.openrewrite.apache.httpclient5.UpgradeApacheHttpCoreNioDependencies](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcoreniodependencies.md)
   * **Migrate from httpcore-nio to ApacheHttpClient 5.x core dependency**
   * Adopt `org.apache.httpcomponents.core5:httpcore5` from `org.apache.httpcomponents:httpcore-nio`.
@@ -3805,7 +3817,7 @@ _19 recipes_
   * **Simplify catch clauses for Jackson exceptions**
   * In Jackson 3, `JacksonException` and its subtypes extend `RuntimeException`. This recipe simplifies multi-catch clauses by removing Jackson exception types when `RuntimeException` is also caught, since catching both is redundant. For example, `catch (JacksonException | RuntimeException e)` becomes `catch (RuntimeException e)`.
 * [org.openrewrite.java.jackson.UpdateSerializationInclusionConfiguration](/user-documentation/recipes/recipe-catalog/java/jackson/updateserializationinclusionconfiguration.md)
-  * **Update configuration of serialization inclusion in ObjectMapper for Jackson 3**
+  * **Update configuration of serialization inclusion in `ObjectMapper` for Jackson 3**
   * In Jackson 3, `mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL)` is no longer supported and should be replaced by `changeDefaultPropertyInclusion()` for both `valueInclusion` and `contentInclusion`.
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3.md)
   * **Migrates from Jackson 2.x to Jackson 3.x**
@@ -3848,7 +3860,7 @@ _1 recipe_
 
 ## jakarta
 
-_100 recipes_
+_101 recipes_
 
 * [com.oracle.weblogic.rewrite.FacesMigrationToJakartaFaces2x](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/facesmigrationtojakartafaces2x.md)
   * **JSF 1.x to Jakarta Server Faces 2.3 on WebLogic 14.1.2 or older**
@@ -3856,6 +3868,9 @@ _100 recipes_
 * [com.oracle.weblogic.rewrite.JakartaEE9_1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakartaee9_1.md)
   * **Migrate to Jakarta EE 9.1**
   * These recipes help with Migration to Jakarta EE 9.1, flagging and updating deprecated methods.
+* [com.oracle.weblogic.rewrite.UpgradeJPATo31HibernateTo66](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradejpato31hibernateto66.md)
+  * **Upgrade Jakarta JPA to 3.1 and Hibernate 6.6**
+  * This recipe upgrades Jakarta JPA to 3.1 and Hibernate to 6.6 (compatible with Jakarta EE 10).
 * [com.oracle.weblogic.rewrite.hibernate.AddHibernateOrmCore61](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/addhibernateormcore61.md)
   * **Add Hibernate ORM Core if has dependencies**
   * This recipe will add Hibernate ORM Core if has dependencies.
@@ -4856,8 +4871,11 @@ _1 recipe_
 
 ## jpa
 
-_1 recipe_
+_2 recipes_
 
+* [com.oracle.weblogic.rewrite.UpgradeJPATo31HibernateTo66](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradejpato31hibernateto66.md)
+  * **Upgrade Jakarta JPA to 3.1 and Hibernate 6.6**
+  * This recipe upgrades Jakarta JPA to 3.1 and Hibernate to 6.6 (compatible with Jakarta EE 10).
 * [org.openrewrite.quarkus.spring.SpringBootDataJpaToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootdatajpatoquarkus.md)
   * **Replace Spring Boot Data JPA with Quarkus Hibernate ORM Panache**
   * Migrates `spring-boot-starter-data-jpa` to `quarkus-hibernate-orm-panache`.
@@ -5000,7 +5018,7 @@ _1 recipe_
 
 ## junit
 
-_21 recipes_
+_22 recipes_
 
 * [org.openrewrite.java.spring.boot2.SpringBoot2JUnit4to5Migration](/user-documentation/recipes/recipe-catalog/java/spring/boot2/springboot2junit4to5migration.md)
   * **Migrate Spring Boot 2.x projects to JUnit 5 from JUnit 4**
@@ -5032,6 +5050,9 @@ _21 recipes_
 * [org.openrewrite.java.testing.junit5.JUnit5BestPractices](/user-documentation/recipes/recipe-catalog/java/testing/junit5/junit5bestpractices.md)
   * **JUnit 5 best practices**
   * Applies best practices to tests.
+* [org.openrewrite.java.testing.junit5.MigrateAssertionFailedError](/user-documentation/recipes/recipe-catalog/java/testing/junit5/migrateassertionfailederror.md)
+  * **Migrate JUnit 4 assertion failure exceptions to JUnit Jupiter**
+  * Replace JUnit 4's `junit.framework.AssertionFailedError` and `org.junit.ComparisonFailure` with JUnit Jupiter's `org.opentest4j.AssertionFailedError`.
 * [org.openrewrite.java.testing.junit5.MigrateAssumptions](/user-documentation/recipes/recipe-catalog/java/testing/junit5/migrateassumptions.md)
   * **Use `Assertions#assume*(..)` and Hamcrest's `MatcherAssume#assume*(..)`**
   * Many of JUnit 4's `Assume#assume(..)` methods have no direct counterpart in JUnit 5 and require Hamcrest JUnit's `MatcherAssume`.
@@ -6413,14 +6434,20 @@ _1 recipe_
 
 ## persistence
 
-_5 recipes_
+_7 recipes_
 
+* [com.oracle.weblogic.rewrite.UpgradeJPATo31HibernateTo66](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradejpato31hibernateto66.md)
+  * **Upgrade Jakarta JPA to 3.1 and Hibernate 6.6**
+  * This recipe upgrades Jakarta JPA to 3.1 and Hibernate to 6.6 (compatible with Jakarta EE 10).
 * [com.oracle.weblogic.rewrite.WebLogicPersistenceConfigurationXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicpersistenceconfigurationxmlnamespace1412.md)
   * **Migrate xmlns entries in `persistence-configuration.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic EJB 3.2 Persistence Configuration schema files to WebLogic 14.1.2
 * [com.oracle.weblogic.rewrite.WebLogicPersistenceConfigurationXmlNamespace1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicpersistenceconfigurationxmlnamespace1511.md)
   * **Migrate xmlns entries in `persistence-configuration.xml` files to WebLogic 15.1.1**
   * This recipe will update the `xmlns` entries in `persistence-configuration.xml` files to WebLogic 15.1.1
+* [com.oracle.weblogic.rewrite.hibernate.UpgradeHibernateTo66](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/upgradehibernateto66.md)
+  * **Upgrade Hibernate to 6.6**
+  * This recipe upgrades Hibernate to version 6.6, which is compatible with Jakarta EE 10 and JPA 3.1. It also upgrades a few of the commonly used Hibernate add-ons.
 * [com.oracle.weblogic.rewrite.jakarta.UpdateJakartaPersistenceTo31](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto31.md)
   * **Update Jakarta Persistence to 3.1**
   * Update Jakarta Persistence to 3.1.
@@ -6846,7 +6873,7 @@ _195 recipes_
   * **JUnit 5 inner test classes should be annotated with `@Nested`**
   * Adds `@Nested` to inner classes that contain JUnit 5 tests.
 * [org.openrewrite.java.testing.junit5.RemoveTryCatchFailBlocks](/user-documentation/recipes/recipe-catalog/java/testing/junit5/removetrycatchfailblocks.md)
-  * **Replace `fail()` in `try-catch` blocks with `Assertions.assertDoesNotThrow(() -&gt; { ... })`**
+  * **Replace `fail()` in `try-catch` blocks with `Assertions.assertDoesNotThrow(() -&gt; \{ ... \})`**
   * Replace `try-catch` blocks where `catch` merely contains a `fail()` for `fail(String)` statement with `Assertions.assertDoesNotThrow(() -&gt; \{ ... \})`.
 * [org.openrewrite.java.testing.mockito.SimplifyMockitoVerifyWhenGiven](/user-documentation/recipes/recipe-catalog/java/testing/mockito/simplifymockitoverifywhengiven.md)
   * **Call to Mockito method &quot;verify&quot;, &quot;when&quot; or &quot;given&quot; should be simplified**
@@ -7528,7 +7555,7 @@ _1 recipe_
 
 ## security
 
-_67 recipes_
+_68 recipes_
 
 * [io.moderne.java.spring.security.MigrateAcegiToSpringSecurity_5_0](/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0.md)
   * **Migrate from Acegi Security 1.0.x to Spring Security 5.0**
@@ -7677,6 +7704,9 @@ _67 recipes_
 * [org.openrewrite.java.security.secrets.FindTwitterSecrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/findtwittersecrets.md)
   * **Find Twitter secrets**
   * Locates Twitter secrets stored in plain text in code.
+* [org.openrewrite.java.spring.security.SpringSecurityBestPractices](/user-documentation/recipes/recipe-catalog/java/spring/security/springsecuritybestpractices.md)
+  * **Spring security best practices**
+  * Applies security best practices to Spring applications, including TLS for database and message broker connections.
 * [org.openrewrite.java.spring.security5.RenameNimbusdsJsonObjectPackageName](/user-documentation/recipes/recipe-catalog/java/spring/security5/renamenimbusdsjsonobjectpackagename.md)
   * **Rename the package name from `com.nimbusds.jose.shaded.json` to `net.minidev.json`**
   * Rename the package name from `com.nimbusds.jose.shaded.json` to `net.minidev.json`.
@@ -7802,7 +7832,7 @@ _12 recipes_
 
 ## spring
 
-_179 recipes_
+_180 recipes_
 
 * [io.moderne.java.spring.boot.ReplaceSpringFrameworkDepsWithBootStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot/replacespringframeworkdepswithbootstarters.md)
   * **Replace Spring Framework dependencies with Spring Boot starters**
@@ -8176,6 +8206,9 @@ _179 recipes_
 * [org.openrewrite.java.spring.opentelemetry.MigrateToOpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratetoopentelemetry.md)
   * **Complete migration to OpenTelemetry**
   * Comprehensive migration to OpenTelemetry including dependencies, configuration properties, and Java code changes. This recipe handles migration from Spring Cloud Sleuth, Brave/Zipkin, and OpenTracing to OpenTelemetry.
+* [org.openrewrite.java.spring.security.SpringSecurityBestPractices](/user-documentation/recipes/recipe-catalog/java/spring/security/springsecuritybestpractices.md)
+  * **Spring security best practices**
+  * Applies security best practices to Spring applications, including TLS for database and message broker connections.
 * [org.openrewrite.java.spring.security5.RenameNimbusdsJsonObjectPackageName](/user-documentation/recipes/recipe-catalog/java/spring/security5/renamenimbusdsjsonobjectpackagename.md)
   * **Rename the package name from `com.nimbusds.jose.shaded.json` to `net.minidev.json`**
   * Rename the package name from `com.nimbusds.jose.shaded.json` to `net.minidev.json`.
@@ -9284,7 +9317,7 @@ _5 recipes_
 
 ## testing
 
-_46 recipes_
+_47 recipes_
 
 * [org.openrewrite.cucumber.jvm.CucumberJava8ToJava](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava.md)
   * **Migrate `cucumber-java8` to `cucumber-java`**
@@ -9367,6 +9400,9 @@ _46 recipes_
 * [org.openrewrite.java.testing.junit5.JUnit5BestPractices](/user-documentation/recipes/recipe-catalog/java/testing/junit5/junit5bestpractices.md)
   * **JUnit 5 best practices**
   * Applies best practices to tests.
+* [org.openrewrite.java.testing.junit5.MigrateAssertionFailedError](/user-documentation/recipes/recipe-catalog/java/testing/junit5/migrateassertionfailederror.md)
+  * **Migrate JUnit 4 assertion failure exceptions to JUnit Jupiter**
+  * Replace JUnit 4's `junit.framework.AssertionFailedError` and `org.junit.ComparisonFailure` with JUnit Jupiter's `org.opentest4j.AssertionFailedError`.
 * [org.openrewrite.java.testing.junit5.MigrateAssumptions](/user-documentation/recipes/recipe-catalog/java/testing/junit5/migrateassumptions.md)
   * **Use `Assertions#assume*(..)` and Hamcrest's `MatcherAssume#assume*(..)`**
   * Many of JUnit 4's `Assume#assume(..)` methods have no direct counterpart in JUnit 5 and require Hamcrest JUnit's `MatcherAssume`.

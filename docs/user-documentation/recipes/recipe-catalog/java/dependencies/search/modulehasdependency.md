@@ -35,6 +35,14 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 | `Boolean` | invertMarking | *Optional*. If `true`, will invert the check for whether to mark a file. Defaults to `false`. |  |
 
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Module uses Flyway](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesflyway)
+* [Module uses Liquibase](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesliquibase)
+
+
 ## Usage
 
 This recipe has required configuration parameters and can only be run by users of Moderne.

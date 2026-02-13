@@ -49,13 +49,13 @@ class SecurityConfig {
 ###### After
 ```java
 import org.springframework.security.oauth2.client.endpoint.DefaultClientCredentialsTokenResponseClient;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestClient;
 
 class SecurityConfig {
     void configure() {
         DefaultClientCredentialsTokenResponseClient client =
                 new DefaultClientCredentialsTokenResponseClient();
-        client.setRestClient(new RestTemplate());
+        client.setRestClient(RestClient.create());
     }
 }
 ```
@@ -64,11 +64,16 @@ class SecurityConfig {
 <TabItem value="diff" label="Diff" >
 
 ```diff
+@@ -2,1 +2,1 @@
+import org.springframework.security.oauth2.client.endpoint.DefaultClientCredentialsTokenResponseClient;
+-import org.springframework.web.client.RestTemplate;
++import org.springframework.web.client.RestClient;
+
 @@ -8,1 +8,1 @@
         DefaultClientCredentialsTokenResponseClient client =
                 new DefaultClientCredentialsTokenResponseClient();
 -       client.setRestOperations(new RestTemplate());
-+       client.setRestClient(new RestTemplate());
++       client.setRestClient(RestClient.create());
     }
 ```
 </TabItem>

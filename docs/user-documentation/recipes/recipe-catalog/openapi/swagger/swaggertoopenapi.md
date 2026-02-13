@@ -208,6 +208,16 @@ class Example {
       <artifactId>swagger-core</artifactId>
       <version>1.6.14</version>
     </dependency>
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-jersey2-jaxrs</artifactId>
+      <version>1.6.14</version>
+    </dependency>
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-jaxrs</artifactId>
+      <version>1.6.14</version>
+    </dependency>
   </dependencies>
 </project>
 ```
@@ -291,6 +301,16 @@ class Example {
     <dependency>
       <groupId>io.swagger</groupId>
       <artifactId>swagger-core</artifactId>
+      <version>1.6.14</version>
+    </dependency>
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-jersey2-jaxrs</artifactId>
+      <version>1.6.14</version>
+    </dependency>
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-jaxrs</artifactId>
       <version>1.6.14</version>
     </dependency>
   </dependencies>

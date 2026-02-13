@@ -47,6 +47,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Add explicit import for `Record` classes](../../java/migrate/lang/explicitrecordimport)
 * [Use text blocks](../../java/migrate/lang/usetextblocks)
   * convertStringsWithoutNewlines: `false`
+  * avoidLineContinuations: `false`
 * [Prefer `String.formatted(Object...)`](../../java/migrate/lang/stringformatted)
   * addParentheses: `false`
 * [Use `java.security.cert` instead of `javax.security.cert`](../../java/migrate/deprecatedjavaxsecuritycert)
@@ -106,6 +107,7 @@ recipeList:
   - org.openrewrite.java.migrate.lang.ExplicitRecordImport
   - org.openrewrite.java.migrate.lang.UseTextBlocks:
       convertStringsWithoutNewlines: false
+      avoidLineContinuations: false
   - org.openrewrite.java.migrate.lang.StringFormatted:
       addParentheses: false
   - org.openrewrite.java.migrate.DeprecatedJavaxSecurityCert
@@ -149,9 +151,10 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
+* [Migrate to Dropwizard 5.0.x from 4.x](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5.md)
 * [Migrate to Java 21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava21.md)
 * [Migrate to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
-* [Migrate to Struts 7.0](/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7.md)
+* [Migrate to Struts 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7)
 * [Migrate to Wicket 10.x](/user-documentation/recipes/recipe-catalog/org/apache/wicket/migratetowicket10.md)
 
 ## Examples

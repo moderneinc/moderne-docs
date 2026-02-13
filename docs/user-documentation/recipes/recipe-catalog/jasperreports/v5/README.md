@@ -6,6 +6,7 @@ description: V5 OpenRewrite recipes.
 
 ## Recipes
 
+* [Migrate JRPrintServiceExporterParameter to SimplePrintServiceExporterConfiguration](./migrateprintserviceexporterconfiguration.md)
 * [Migrate JasperReports exporter setParameter to new API](./migrateexportersetparameter.md)
 
 

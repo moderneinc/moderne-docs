@@ -112,7 +112,7 @@ mod git status $WORKSPACE
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Reading organization
 
@@ -185,7 +185,7 @@ Build complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Reading organization
 
@@ -233,7 +233,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Reading organization
 
@@ -280,7 +280,7 @@ MOD SUCCEEDED in 1s
 
 </details>
 
-3. Now the the code has been modified and committed, you can run the first release, then rebuild LSTs so the CLI sees the updated code state:
+3. Now the code has been modified and committed, you can run the first release, then rebuild LSTs so the CLI sees the updated code state:
 
 ```bash
 $WORKSHOP/release.sh
@@ -405,7 +405,7 @@ Mass Release Complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Reading organization
 

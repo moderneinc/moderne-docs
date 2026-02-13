@@ -25,6 +25,59 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate deprecated path mapping options](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/removedeprecatedpathmappingoptions)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class MyWebConfiguration implements WebMvcConfigurer {
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+        configurer.setUseSuffixPatternMatch(true);
+    }
+}
+```
+
+###### After
+```java
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class MyWebConfiguration implements WebMvcConfigurer {
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+        // TODO: Suffix pattern matching has been removed in Spring Framework 7.0. If your application relies on URL extensions like /users.json or /users.xml, migrate to content negotiation via Accept headers or use favorParameter(true) with a query parameter. See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-7.0-Release-Notes
+/*~~(Suffix pattern matching has been removed in Spring Framework 7.0. This configuration requires manual migration.)~~>*/configurer.setUseSuffixPatternMatch(true);
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -9,1 +9,2 @@
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+-       configurer.setUseSuffixPatternMatch(true);
++       // TODO: Suffix pattern matching has been removed in Spring Framework 7.0. If your application relies on URL extensions like /users.json or /users.xml, migrate to content negotiation via Accept headers or use favorParameter(true) with a query parameter. See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-7.0-Release-Notes
++/*~~(Suffix pattern matching has been removed in Spring Framework 7.0. This configuration requires manual migration.)~~>*/configurer.setUseSuffixPatternMatch(true);
+    }
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

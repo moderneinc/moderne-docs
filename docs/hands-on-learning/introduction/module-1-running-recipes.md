@@ -87,7 +87,7 @@ mod --help
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 Usage:
 
@@ -154,7 +154,7 @@ mod config moderne edit https://app.moderne.io
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Configuring tenant https://app.moderne.io
 
@@ -182,7 +182,7 @@ mod config moderne login
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 Opening a browser to complete authentication...
 
@@ -220,7 +220,7 @@ mod config recipes jar install \
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Installing recipes from JAR artifacts
 
@@ -281,7 +281,7 @@ mod git sync moderne . --organization "Default" --with-sources
 ```
 
 :::info
-This command will download LSTs any pre-built LSTs from the platform for the given organization. If you don't include the `--with-sources` flag, the CLI only downloads LSTs, not the source code itself. With the LSTs, you will still be able to run recipes, but once you're ready to apply changes to the code, you'll need to sync the source as well. 
+This command will download any pre-built LSTs from the platform for the given organization. If you don't include the `--with-sources` flag, the CLI only downloads LSTs, not the source code itself. With the LSTs, you will still be able to run recipes, but once you're ready to apply changes to the code, you'll need to sync the source as well. 
 
 You'll also need the source if there are no pre-existing LSTs to download. In this case, you will need to explicitly build LSTs with the CLI. You will see how to do this in a later module.
 :::
@@ -295,7 +295,7 @@ You'll also need the source if there are no pre-existing LSTs to download. In th
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Retrieving organization from Moderne
 
@@ -412,7 +412,7 @@ mod list .
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Reading organization
 
@@ -448,7 +448,7 @@ Now you're ready to run your first recipe! Let's run a recipe that fixes common 
 mod run . --recipe CommonStaticAnalysis
 ```
 :::tip
-If you don't know the exact name of recipe you want to run, you can use `mod config recipes search <query>` to search for available recipes.
+If you don't know the exact name of the recipe you want to run, you can use `mod config recipes search <query>` to search for available recipes.
 :::
 
 <details>
@@ -460,7 +460,7 @@ If you don't know the exact name of recipe you want to run, you can use `mod con
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Reading organization
 
@@ -554,7 +554,7 @@ mod git checkout . -b refactor/common-static-analysis --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Reading organization
 
@@ -616,7 +616,7 @@ mod git apply . --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Reading organization
 
@@ -683,7 +683,7 @@ mod git commit . -m "Test common static analysis changes" --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Reading organization
 
@@ -734,7 +734,7 @@ MOD SUCCEEDED in 6s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 3.56.8
+Moderne CLI 3.57.4
 
 ⏺ Reading organization
 

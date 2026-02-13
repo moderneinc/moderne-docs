@@ -2,11 +2,6 @@
 sidebar_label: "Remove deprecated Freemarker `?html` built-in"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate6/removefreemarkerhtmlbuiltin" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,48 +13,17 @@ _Removes the deprecated `?html` built-in from Freemarker templates. After migrat
 
 ## Recipe source
 
-[GitHub: struts6.yml](https://github.com/openrewrite/rewrite-struts/blob/main/src/main/resources/META-INF/rewrite/struts6.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-struts/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-struts/)
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Find and replace](../../../text/findandreplace)
-  * find: `?html`
-  * replace: ``
-  * filePattern: `**/*.ftl`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.struts.migrate6.RemoveFreemarkerHtmlBuiltin
-displayName: Remove deprecated Freemarker `?html` built-in
-description: |
-  Removes the deprecated `?html` built-in from Freemarker templates. After migrating to Struts 6 with the latest Freemarker (which enables auto-escaping by default), the `?html` built-in is no longer needed and should be removed. See the [Struts 2.5 to 6.0 migration guide](https://cwiki.apache.org/confluence/display/WW/Struts+2.5+to+6.0.0+migration#Struts2.5to6.0.0migration-Tagescapebehaviour).
-recipeList:
-  - org.openrewrite.text.FindAndReplace:
-      find: ?html
-      replace: 
-      filePattern: **/*.ftl
-
-```
-</TabItem>
-</Tabs>
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Struts 6.0](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6.md)
+* [Migrate to Struts 6.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6)
 
 
 ## Usage

@@ -2,11 +2,6 @@
 sidebar_label: "Upgrade Struts 6.0 dependencies"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/struts/migrate6/upgradestruts6dependencies" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -18,68 +13,17 @@ _Upgrade Struts 2.x dependencies to Struts 6.0._
 
 ## Recipe source
 
-[GitHub: struts6.yml](https://github.com/openrewrite/rewrite-struts/blob/main/src/main/resources/META-INF/rewrite/struts6.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-struts/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-struts/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
-  * oldGroupId: `org.apache.struts`
-  * oldArtifactId: `struts-core`
-  * newArtifactId: `struts2-core`
-  * newVersion: `6.x`
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `org.apache.struts`
-  * artifactId: `*`
-  * newVersion: `6.x`
-* [Remove a Gradle or Maven dependency](../../../java/dependencies/removedependency)
-  * groupId: `org.apache.struts`
-  * artifactId: `struts2-sitegraph-plugin`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.struts.migrate6.UpgradeStruts6Dependencies
-displayName: Upgrade Struts 6.0 dependencies
-description: |
-  Upgrade Struts 2.x dependencies to Struts 6.0.
-recipeList:
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.apache.struts
-      oldArtifactId: struts-core
-      newArtifactId: struts2-core
-      newVersion: 6.x
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: org.apache.struts
-      artifactId: "*"
-      newVersion: 6.x
-  - org.openrewrite.java.dependencies.RemoveDependency:
-      groupId: org.apache.struts
-      artifactId: struts2-sitegraph-plugin
-
-```
-</TabItem>
-</Tabs>
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Struts 6.0](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6.md)
+* [Migrate to Struts 6.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6)
 
 ## Examples
 ##### Example 1

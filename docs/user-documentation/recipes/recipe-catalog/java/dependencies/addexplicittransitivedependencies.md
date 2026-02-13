@@ -24,6 +24,88 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | --- | --- | --- | --- |
 | `List` | ignoredDependencies | *Optional*. A list of `groupId:artifactId` glob patterns for dependencies that should not be promoted, even if they appear to be used transitively. For example, `com.google.*:*` would ignore all Google dependencies, and `*:lombok` would ignore Lombok regardless of group ID. | `org.projectlombok:lombok,com.google.*:*` |
 
+## Example
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|ignoredDependencies|`emptyList()`|
+
+
+###### Unchanged
+```java
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class A {
+    ObjectMapper objectMapper = new ObjectMapper();
+}
+```
+
+###### Unchanged
+```mavenProject
+project
+```
+
+<Tabs groupId="beforeAfter">
+<TabItem value="pom.xml" label="pom.xml">
+
+
+###### Before
+```xml title="pom.xml"
+<project>
+    <groupId>com.mycompany</groupId>
+    <artifactId>app</artifactId>
+    <version>1</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.openrewrite</groupId>
+            <artifactId>rewrite-core</artifactId>
+            <version>8.56.0</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+###### After
+```xml title="pom.xml"
+<project>
+    <groupId>com.mycompany</groupId>
+    <artifactId>app</artifactId>
+    <version>1</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.17.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openrewrite</groupId>
+            <artifactId>rewrite-core</artifactId>
+            <version>8.56.0</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- pom.xml
++++ pom.xml
+@@ -7,0 +7,5 @@
+    <dependencies>
+        <dependency>
++           <groupId>com.fasterxml.jackson.core</groupId>
++           <artifactId>jackson-databind</artifactId>
++           <version>2.17.2</version>
++       </dependency>
++       <dependency>
+            <groupId>org.openrewrite</groupId>
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

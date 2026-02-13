@@ -190,4 +190,18 @@ _Statistics used in analyzing the performance of recipes._
 
 </TabItem>
 
+<TabItem value="org.openrewrite.table.TextMatches" label="TextMatches">
+
+### Text matches
+**org.openrewrite.table.TextMatches**
+
+_Lines matching simple text search._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source path | The path to the source file. |
+| Match | The text of the match. |
+
+</TabItem>
+
 </Tabs>

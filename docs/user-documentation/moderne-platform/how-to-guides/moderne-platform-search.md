@@ -40,7 +40,7 @@ Describe what you want to accomplish:
 
 ## Precise search techniques
 
-When you know exactly what you're looking for or want to filter results more precisely, you can use do the following:
+When you know exactly what you're looking for or want to filter results more precisely, you can do the following:
 
 ### Search by recipe ID
 
