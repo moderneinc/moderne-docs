@@ -41,7 +41,7 @@ In order to run Python recipes, you will need to use the [Moderne CLI](https://d
 Once the CLI is installed, you can install this Python recipe package by running the following command:
 
 ```shell title="Install the recipe package"
-mod config recipes pip install openrewrite
+mod config recipes pip install openrewrite-migrate-python
 ```
 
 Then, you can run the recipe via:
