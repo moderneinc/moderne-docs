@@ -91,18 +91,12 @@ When you've seen enough, you can stop the agent since you won't be using this ou
 
 ### Context
 
-The skills you just tried form an iterative development loop. Take a look at the **Workflow** section at the bottom of the `create-recipe` skill to see the steps:
+The skills you just tried form an iterative development loop. Open the `create-recipe` skill file on your machine to see the full workflow (see [Skills for AI coding agents](../../user-documentation/moderne-cli/how-to-guides/coding-agent-skills.md#supported-agents) for install locations). At a high level, the workflow follows these steps: identify the transformation, choose the recipe type, write tests, implement the recipe, and test with `run-recipe`.
 
-1. **Identify the transformation** (what code pattern should change to what?)
-2. **Choose recipe type** (declarative > Refaster > imperative)
-3. **Write tests first** (define before/after expectations)
-4. **Implement the recipe**
-5. **Test with `run-recipe`** (run against real repositories to validate)
-
-Here's how this maps to the rest of the workshop:
-* **This exercise:** Steps 1 and 2. Plan what the recipe should do, scope it down, confirm recipe type(s)
-* **Module 2:** Steps 3 and 4. Build the recipe with AI assistance, writing tests first to validate output
-* **Module 3:** Step 5. Run the recipe against real repos, compare to desired results, iterate
+Here's how that maps to the rest of the workshop:
+* **This exercise:** Plan what the recipe should do, scope it down, and confirm recipe type(s)
+* **Module 2:** Build the recipe with AI assistance, writing tests first to validate output
+* **Module 3:** Run the recipe against real repos, compare to desired results, and iterate
 
 Jackson 3.x is a major release with significant breaking changes: package renames (`com.fasterxml.jackson` → `tools.jackson`), class renames, method renames, dependency coordinate changes, and behavioral differences. The [official migration guide](https://github.com/FasterXML/jackson/blob/main/jackson3/MIGRATING_TO_JACKSON_3.md) documents these changes comprehensively.
 
