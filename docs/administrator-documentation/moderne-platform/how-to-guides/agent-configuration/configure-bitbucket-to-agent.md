@@ -35,6 +35,64 @@ This guide will walk you through everything you need to know to get started with
 8. Click _Save_ to complete the Application Link creation
 9. Copy the "Client ID" and "Client Secret" to use in the next step
 
+#### Understanding the required permissions
+
+The Application Link requests the following permissions. Each permission is used for a specific set of operations:
+
+| Permission            | Required | Purpose                                                                                                                                    |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Repositories - Read   | Yes      | Used to verify the user has access to repositories, retrieve repository metadata, and read pull request details and build statuses.        |
+| Repositories - Write  | Yes      | Used to create and update pull requests, create forks, approve and merge pull requests, and push commits.                                  |
+| Repositories - Admin  | Yes      | Used to delete branches after merge, enable fork synchronization, and recreate failed forks.                                               |
+
+<details>
+<summary>Detailed list of Bitbucket Data Center API calls Moderne makes</summary>
+
+**User identity:**
+
+| API endpoint                                    | Method | Purpose                        |
+| ----------------------------------------------- | ------ | ------------------------------ |
+| `/plugins/servlet/applinks/whoami`              | GET    | Get current username           |
+| `/rest/api/1.0/users/{userSlug}`                | GET    | Get user display name and email |
+
+**Repository access checks** (Repositories - Read):
+
+| API endpoint                                                 | Method | Purpose                               |
+| ------------------------------------------------------------ | ------ | ------------------------------------- |
+| `/rest/api/1.0/projects/{projectKey}`                        | GET    | Check whether a project exists        |
+| `/rest/api/1.0/projects/{project}/repos?start={start}`       | GET    | List repositories to verify access    |
+| `/rest/api/1.0/{path}/repos/{repositorySlug}`                | GET    | Retrieve repository details           |
+
+**Pull request operations** (Repositories - Write):
+
+| API endpoint                                                                           | Method | Purpose               |
+| -------------------------------------------------------------------------------------- | ------ | --------------------- |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests?state=ALL&direction=OUTGOING` | GET    | Find existing PR      |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}`                         | GET    | Get PR details        |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests`                              | POST   | Create pull request   |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}`                         | PUT    | Update pull request   |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/approve`                 | POST   | Approve pull request  |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/decline`                 | POST   | Close pull request    |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/merge`                   | GET    | Get merge status      |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/merge`                   | POST   | Merge pull request    |
+| `/rest/build-status/1.0/commits/stats/{commitId}`                                      | GET    | Get CI build status   |
+| `/rest/default-reviewers/latest/{path}/reviewers`                                      | GET    | Get default reviewers |
+
+**Fork and branch operations** (Repositories - Write / Admin):
+
+| API endpoint                                                         | Method | Purpose               |
+| -------------------------------------------------------------------- | ------ | --------------------- |
+| `/rest/api/1.0/projects/{key}/repos/{slug}`                          | POST   | Create fork           |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/recreate`                 | POST   | Recreate failed fork  |
+| `/rest/sync/1.0/projects/{key}/repos/{slug}`                         | POST   | Enable fork sync      |
+| `/rest/branch-utils/latest/projects/{key}/repos/{slug}/branches`     | DELETE | Delete branch         |
+
+</details>
+
+:::tip
+The OAuth token is scoped to the individual user who authorizes it — Moderne can only perform actions that the user already has permission to do. The token does not grant Moderne any additional access beyond what the user themselves can do in Bitbucket.
+:::
+
 
 <details>
 <summary>OAuth1.0a (deprecated)</summary>

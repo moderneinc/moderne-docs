@@ -43,6 +43,62 @@ The consumer should have these permissions:
 * Repositories - Write
 * Pull requests - Write
 
+#### Understanding the required permissions
+
+The OAuth consumer requests the following permissions. Each permission is used for a specific set of operations:
+
+| Permission             | Required | Purpose                                                                                                                                      |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Projects - Read        | Yes      | Used to verify the user has access to workspaces and list available repositories.                                                            |
+| Repositories - Write   | Yes      | Used to retrieve repository metadata, create forks, and push commits via Git-over-HTTP.                                                     |
+| Pull requests - Write  | Yes      | Used to create, update, close, merge, and approve pull requests, and to read pull request status and build results.                          |
+| Account - Read         | Yes      | Used to retrieve the authenticated user's identity (username and display name) so that Moderne can associate commits with the correct user.  |
+| Email - Read           | Yes      | Used to read the user's email address for commit attribution.                                                                                |
+
+<details>
+<summary>Detailed list of Bitbucket Cloud API calls Moderne makes</summary>
+
+**User identity** (Account and Email permissions):
+
+| API endpoint        | Method | Purpose                                   |
+| -------------------- | ------ | ----------------------------------------- |
+| `/2.0/user`          | GET    | Retrieve the authenticated user's profile |
+| `/2.0/user/emails`   | GET    | Retrieve the user's email addresses       |
+
+**Repository access checks** (Projects - Read / Repositories):
+
+| API endpoint                                                       | Method | Purpose                            |
+| ------------------------------------------------------------------ | ------ | ---------------------------------- |
+| `/2.0/workspaces/{workspace}`                                      | GET    | Check whether a workspace exists   |
+| `/2.0/repositories/{workspace}?page={page}&pagelen=100`            | GET    | List repositories to verify access |
+| `/2.0/repositories/{workspace}/{repo}`                             | GET    | Retrieve repository details        |
+
+**Pull request operations** (Pull requests - Write):
+
+| API endpoint                                                                   | Method | Purpose               |
+| ------------------------------------------------------------------------------ | ------ | --------------------- |
+| `/2.0/repositories/{workspace}/{repo}/pullrequests?state=...&q=...`            | GET    | Find existing PR      |
+| `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}`                       | GET    | Get PR details        |
+| `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}/statuses`              | GET    | Get PR build statuses |
+| `/2.0/repositories/{workspace}/{repo}/pullrequests`                            | POST   | Create pull request   |
+| `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}`                       | PUT    | Update pull request   |
+| `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}/approve`               | POST   | Approve pull request  |
+| `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}/decline`               | POST   | Close pull request    |
+| `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}/merge`                 | POST   | Merge pull request    |
+| `/2.0/repositories/{workspace}/{repo}/effective-default-reviewers`             | GET    | Get default reviewers |
+
+**Fork operations** (Repositories - Write):
+
+| API endpoint                                              | Method | Purpose     |
+| --------------------------------------------------------- | ------ | ----------- |
+| `/2.0/repositories/{workspace}/{repo}/forks`              | POST   | Create fork |
+
+</details>
+
+:::tip
+The OAuth token is scoped to the individual user who authorizes it — Moderne can only perform actions that the user already has permission to do. The token does not grant Moderne any additional access beyond what the user themselves can do in Bitbucket.
+:::
+
 Once your consumer has been created, you should see a `key` and a `secret`:
 
 <figure>

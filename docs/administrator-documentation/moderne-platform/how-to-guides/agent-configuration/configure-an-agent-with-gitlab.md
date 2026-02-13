@@ -32,6 +32,63 @@ To assist with that, this guide will:
 
     ![](./assets/gl-scopes.png)
 
+#### Understanding the required scopes
+
+Moderne requests the following OAuth scopes. Each scope is used for a specific set of operations:
+
+| Scope              | Required | Purpose                                                                                                                                                                                                                                                                |
+| ------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `api`              | Yes      | Required for **write operations only**: creating, updating, closing, merging, and approving merge requests, and forking repositories. GitLab does not offer a narrower write scope for merge request operations. This scope is only exercised when a user commits recipe results. |
+| `read_api`         | No       | Included as a fallback. All read operations are already covered by the `api` scope.                                                                                                                                                                                    |
+| `read_user`        | Yes      | Used to retrieve the authenticated user's identity (username, display name, and email) so that Moderne can associate commits with the correct user.                                                                                                                    |
+| `write_repository` | Yes      | Used to push commits to repositories via Git-over-HTTP. This scope does **not** grant API write access — it only allows `git push`.                                                                                                                                    |
+| `email`            | Yes      | Used to read the user's primary email address for commit attribution.                                                                                                                                                                                                  |
+
+<details>
+<summary>Detailed list of GitLab API calls Moderne makes</summary>
+
+**User identity** (uses `read_user` and `email` scopes):
+
+| API endpoint      | Method | Purpose                                  |
+| ------------------ | ------ | ---------------------------------------- |
+| `/api/v4/user`     | GET    | Retrieve the authenticated user's profile |
+
+**Repository access checks** (uses `api` scope, read-only):
+
+| API endpoint                     | Method | Purpose                                              |
+| -------------------------------- | ------ | ---------------------------------------------------- |
+| `/api/graphql` (projects query)  | POST   | Batch-verify that the user has access to repositories |
+| `/api/v4/namespaces/{id}/exists` | GET    | Check whether a namespace or group exists             |
+| `/api/v4/projects/{path}`        | GET    | Retrieve project metadata                             |
+
+**Merge request operations** (uses `api` scope, write):
+
+| API endpoint                                                     | Method | Purpose               |
+| ---------------------------------------------------------------- | ------ | --------------------- |
+| `/api/v4/projects/{path}/merge_requests`                         | GET    | Find existing MR      |
+| `/api/v4/projects/{path}/merge_requests`                         | POST   | Create merge request  |
+| `/api/v4/projects/{path}/merge_requests/{iid}`                   | PUT    | Update MR title/body  |
+| `/api/v4/projects/{path}/merge_requests/{iid}`                   | PUT    | Close merge request   |
+| `/api/v4/projects/{path}/merge_requests/{iid}/merge`             | PUT    | Merge a merge request |
+| `/api/v4/projects/{path}/merge_requests/{iid}/approve`           | POST   | Approve merge request |
+| `/api/v4/projects/{path}/merge_requests/{iid}/approvals`         | GET    | Get approval status   |
+
+**Fork operations** (uses `api` scope, write):
+
+| API endpoint                           | Method | Purpose     |
+| -------------------------------------- | ------ | ----------- |
+| `/api/v4/projects/{path}/fork`         | POST   | Create fork |
+
+</details>
+
+:::tip
+The OAuth token is scoped to the individual user who authorizes it — Moderne can only perform actions that the user already has permission to do. The `api` scope does not grant Moderne any additional access beyond what the user themselves can do in GitLab.
+:::
+
+:::note
+You may create the OAuth application at the **group level** rather than the instance level. Navigate to your group's **Settings > Applications** to register it there. The OAuth flow works identically regardless of where the application is registered.
+:::
+
 4. Click the Save application button
 5.  Copy the `Application ID` and `Secret` from this page; they will be used as arguments for the Moderne Agent:
 
