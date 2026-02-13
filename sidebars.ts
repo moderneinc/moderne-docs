@@ -332,6 +332,7 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/cli-prethink',
         'user-documentation/moderne-cli/how-to-guides/coding-agent-skills',
         'user-documentation/moderne-cli/how-to-guides/javascript',
+        'user-documentation/moderne-cli/how-to-guides/python',
         'user-documentation/moderne-cli/how-to-guides/parallelism',
         'user-documentation/moderne-cli/how-to-guides/afterburner',
         'user-documentation/moderne-cli/how-to-guides/ssh-key',
