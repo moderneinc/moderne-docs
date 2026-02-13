@@ -73,6 +73,51 @@ Moderne requires a select number of OAuth scopes necessary to help you transform
 | Workflow                              | Read/write | Recipes that alter GitHub Action workflow files require this permission to make commits to them.                                                                                                                                                                                                                       |
 | Personal user data                    | Read-only  | Recognize your account as a new or returning user. Email and Profile are included by default with OpenID Connect through OAuth.                                                                                                                                                                                        |
 
+<details>
+<summary>Detailed list of GitHub API calls Moderne makes</summary>
+
+**User identity** (uses `read:user` and `user:email` scopes / Email Address permission):
+
+| API endpoint       | Method | Purpose                           |
+| ------------------- | ------ | --------------------------------- |
+| `/user`             | GET    | Retrieve the authenticated user's profile |
+| `/user/emails`      | GET    | Retrieve the user's email addresses       |
+| `/user/orgs`        | GET    | List the user's organization memberships  |
+
+**Repository access checks** (uses `repo` or `public_repo` scope / Contents permission):
+
+| API endpoint                                                                 | Method | Purpose                                               |
+| ---------------------------------------------------------------------------- | ------ | ----------------------------------------------------- |
+| GraphQL `repository(owner, name) { isPrivate, viewerPermission }`            | POST   | Batch-verify that the user has access to repositories |
+| `/orgs/{org}`                                                                | GET    | Check whether an organization exists                  |
+| `/repos/{org}/{repo}`                                                        | GET    | Retrieve repository metadata                          |
+| `/repos/{org}/{repo}/git/refs/heads/{branch}`                                | GET    | Check whether a branch exists                         |
+
+**Pull request operations** (uses `repo` or `public_repo` scope / Pull Requests permission):
+
+| API endpoint                                            | Method | Purpose                   |
+| ------------------------------------------------------- | ------ | ------------------------- |
+| `/repos/{org}/{repo}/pulls?base={branch}&state=all`     | GET    | Find existing pull request          |
+| `/repos/{org}/{repo}/pulls`                             | POST   | Create pull request                 |
+| `/repos/{org}/{repo}/pulls/{number}`                    | PATCH  | Update or close pull request        |
+| `/repos/{org}/{repo}/pulls/{number}/merge`              | PUT    | Merge pull request                  |
+| `/repos/{org}/{repo}/pulls/{number}/reviews`            | POST   | Approve pull request                |
+| GraphQL `EnablePullRequestAutoMerge`                     | POST   | Enable auto-merge on pull request   |
+| GraphQL `pullRequest { reviewDecision, statusCheckRollup, mergeable, ... }`  | POST   | Get pull request status and CI state |
+
+**Fork and branch operations** (uses `repo` or `public_repo` scope / Contents permission):
+
+| API endpoint                                        | Method | Purpose        |
+| --------------------------------------------------- | ------ | -------------- |
+| `/repos/{org}/{repo}/forks`                         | POST   | Create fork    |
+| `/repos/{org}/{repo}/git/refs/heads/{branch}`       | DELETE | Delete branch  |
+
+</details>
+
+:::tip
+The OAuth token is scoped to the individual user who authorizes it — Moderne can only perform actions that the user already has permission to do. The token does not grant Moderne any additional access beyond what the user themselves can do in GitHub.
+:::
+
 ## GitHub applications vs. GitHub OAuth applications
 
 We recommend using GitHub Apps, which align with GitHub's best practices. GitHub Apps provide several significant security advantages over OAuth Apps:
