@@ -22,8 +22,6 @@ Please read the full STYLE_GUIDE.md for all formatting rules.
 
 This validation step is non-negotiable and ensures documentation quality.
 
-Note: Do not run `yarn build`; there is no additional benefit beyond `yarn start`, and it can take up to 10 minutes, thus wasting your time.
-
 ## Claude Instructions: Quality Assurance
 
 After making ANY changes to documentation files, you MUST:
