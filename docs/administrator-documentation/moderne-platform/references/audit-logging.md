@@ -1,11 +1,11 @@
 ---
 sidebar_label: Audit logging
-description: Describes how the Moderne platform records and manages audit logs.
+description: Describes how the Moderne Platform records and manages audit logs.
 ---
 
 # Audit logging
 
-The Moderne platform records a structured audit log of every user-initiated and system-initiated action. All audit events are persisted to a dedicated PostgreSQL database with a retention period of one year. Events are categorized by a CRUD action type (Create, Read, Update, Delete), tagged with the acting user's identity (or identified as a system-initiated action when performed automatically by the platform), timestamped in UTC, and marked with an outcome of Success or Failed.
+The Moderne Platform records a structured audit log of every user-initiated and system-initiated action. All audit events are persisted to a dedicated PostgreSQL database with a retention period of one year. Events are categorized by a CRUD action type (Create, Read, Update, Delete), tagged with the acting user's identity (or identified as a system-initiated action when performed automatically by the platform), timestamped in UTC, and marked with an outcome of Success or Failed.
 
 Tenant administrators (users in your organization that have been granted the `admin` role) can query audit logs through the Moderne UI, a paginated GraphQL API, or export them in CEF (Common Event Format) or CSV for ingestion into a SIEM or other log aggregation system. Access to the audit log is itself audited.
 
