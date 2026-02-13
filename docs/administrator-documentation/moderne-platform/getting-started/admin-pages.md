@@ -51,6 +51,8 @@ In the top-left hand corner of the page, there is a filter dropdown that lets yo
 
 For information about how to add/remove columns or how to add custom filters on individual columns, please see the [filtering section](#filtering) at the bottom of this doc.
 
+For a detailed overview of what is logged, how entries are structured, retention policies, and confidential data exclusions, see the [audit logging reference](../references/audit-logging.md).
+
 For information about how to download or export audit logs in CEF or CSV format, see the [reporting documentation](../references/reporting.md#audit-logs).
 
 ## Workers page
