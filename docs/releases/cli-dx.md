@@ -1,5 +1,16 @@
 # CLI / DX changelog
 
+### CLI / DX v3.57.5 (2026-02-13)
+
+#### What's Changed
+* Show all artifact repositories in artifacts show command
+* Remove JDK path validation from `mod config java jdk edit`
+* Dynamically compute `mod exec` variables from repository source instead of LST
+* Use configurable run timeout for JavaScript/Python RPC calls
+* Fix JavaScript build to use configured Node installation instead of system `PATH`
+* Fix partition matching to use git root instead of Gradle root
+* Fix recipe execution failure on Apple Silicon Macs using homebrew install
+
 ### CLI / DX v3.57.4 (2026-02-11)
 
 #### What's Changed
