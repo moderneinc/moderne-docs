@@ -145,8 +145,148 @@ The retention period (days) should at least match how often you build LSTs:
 * **Weekly ingestion**: 10 days retention
 * **Less frequent ingestion**: Adjust accordingly, but ensure retention exceeds your build frequency
 
+#### Custom cleanup script
+
+For cases where lifecycle rules are insufficient (e.g., keeping LSTs for specific branches longer or targeting cleanup to specific date ranges), you can use the following script with the AWS CLI. It leverages the [date-based key structure](./agent-configuration/configure-an-agent-with-s3-access.md#s3-bucket-structure) used by the Moderne CLI when publishing to S3.
+
+:::warning
+Always run the script in dry run mode first (the default) to verify which objects will be deleted before performing actual deletion.
+:::
+
+```bash title="s3-lst-cleanup.sh"
+#!/bin/bash
+
+# S3 LST Cleanup Script
+# Deletes LST artifacts older than the specified retention period.
+# Only targets date-prefixed objects (YYYY/MM/DD/HH/); files like
+# repos.csv and repos-lock.csv at the bucket root are not affected.
+
+set -euo pipefail
+export AWS_PAGER=""
+
+# --- Configuration ---
+BUCKET="${BUCKET:-s3://my-lst-bucket}"
+RETENTION_DAYS="${RETENTION_DAYS:-3}"
+DRY_RUN="${DRY_RUN:-true}"
+
+# Strip the s3:// prefix for API calls
+BUCKET_NAME="${BUCKET#s3://}"
+
+# --- Validate bucket ---
+if ! aws s3api head-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
+  echo "Error: Bucket '$BUCKET' not found or not accessible."
+  exit 1
+fi
+
+# --- Calculate cutoff date ---
+if date -v -1d > /dev/null 2>&1; then
+  # macOS
+  CUTOFF_DATE=$(date -v "-${RETENTION_DAYS}d" +%Y/%m/%d)
+else
+  # Linux
+  CUTOFF_DATE=$(date -d "-${RETENTION_DAYS} days" +%Y/%m/%d)
+fi
+
+echo "Bucket:         $BUCKET"
+echo "Retention days: $RETENTION_DAYS"
+echo "Cutoff date:    $CUTOFF_DATE"
+echo "Dry run:        $DRY_RUN"
+echo "---"
+echo "Searching for objects older than $CUTOFF_DATE ..."
+
+# --- List and filter objects ---
+KEYS_TO_DELETE=()
+
+while read -r line; do
+  # Each line: 2024-03-15 14:22:01  12345678 2024/03/15/14/01ARZ3NDEKTSV4RRFFQ69G5FAV.jar
+  object_key=$(echo "$line" | awk '{print $4}')
+
+  # Only process date-prefixed keys (YYYY/MM/DD/)
+  if [[ ! "$object_key" =~ ^[0-9]{4}/[0-9]{2}/[0-9]{2}/ ]]; then
+    continue
+  fi
+
+  # Extract the date prefix (YYYY/MM/DD)
+  object_date="${object_key:0:10}"
+
+  # Compare dates lexicographically (works because of YYYY/MM/DD format)
+  if [[ "$object_date" < "$CUTOFF_DATE" ]]; then
+    KEYS_TO_DELETE+=("$object_key")
+  fi
+done < <(aws s3 ls "$BUCKET/" --recursive)
+
+TOTAL=${#KEYS_TO_DELETE[@]}
+echo "Found $TOTAL object(s) to delete."
+
+if [[ "$TOTAL" -eq 0 ]]; then
+  echo "Nothing to clean up."
+  exit 0
+fi
+
+# --- Delete objects in batches of 1000 (S3 API limit) ---
+BATCH_SIZE=1000
+DELETED=0
+
+for ((i = 0; i < TOTAL; i += BATCH_SIZE)); do
+  BATCH=("${KEYS_TO_DELETE[@]:i:BATCH_SIZE}")
+
+  if [[ "$DRY_RUN" == "true" ]]; then
+    for key in "${BATCH[@]}"; do
+      echo "[dry run] Would delete: $BUCKET/$key"
+    done
+  else
+    # Build the JSON delete request
+    OBJECTS_JSON=$(printf '{"Key":"%s"},' "${BATCH[@]}")
+    OBJECTS_JSON="{\"Objects\":[${OBJECTS_JSON%,}],\"Quiet\":true}"
+
+    aws s3api delete-objects \
+      --bucket "$BUCKET_NAME" \
+      --delete "$OBJECTS_JSON"
+
+    echo "Deleted batch of ${#BATCH[@]} object(s)."
+  fi
+
+  DELETED=$((DELETED + ${#BATCH[@]}))
+done
+
+echo "---"
+if [[ "$DRY_RUN" == "true" ]]; then
+  echo "Dry run complete. $TOTAL object(s) would be deleted."
+  echo "Set DRY_RUN=false to perform actual deletion."
+else
+  echo "Cleanup complete. $DELETED object(s) deleted."
+fi
+```
+
+##### Usage
+
+First, do a dry run to preview what would be deleted:
+
+```bash
+BUCKET=s3://my-lst-bucket RETENTION_DAYS=3 ./s3-lst-cleanup.sh
+```
+
+When you are satisfied with the results, set `DRY_RUN=false` to perform the actual cleanup:
+
+```bash
+BUCKET=s3://my-lst-bucket RETENTION_DAYS=3 DRY_RUN=false ./s3-lst-cleanup.sh
+```
+
+##### Scheduling
+
+To run this cleanup automatically, add it to a cron job:
+
+```bash
+# Run daily at 2 AM, deleting LSTs older than 3 days
+0 2 * * * BUCKET=s3://my-lst-bucket RETENTION_DAYS=3 DRY_RUN=false /path/to/s3-lst-cleanup.sh >> /var/log/lst-cleanup.log 2>&1
+```
+
+:::note
+This script requires `s3:ListBucket`, `s3:DeleteObject`, and `s3:HeadBucket` permissions on your S3 bucket. The `s3:DeleteObject` and `s3:HeadBucket` permissions are in addition to the [permissions required by the Moderne agent](./agent-configuration/configure-an-agent-with-s3-access.md#prerequisites).
+:::
+
 :::tip
-If you need more complex cleanup logic (e.g., keeping LSTs for specific branches longer), you may need to implement a custom script using the AWS SDK instead of lifecycle rules.
+This script only targets objects stored under date-prefixed keys (`YYYY/MM/DD/HH/`). Files at the bucket root such as `repos.csv` and `repos-lock.csv` are not affected.
 :::
 
 </TabItem>
