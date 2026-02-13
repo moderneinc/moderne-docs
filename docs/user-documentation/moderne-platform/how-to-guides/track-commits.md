@@ -55,6 +55,10 @@ Moderne supports five different commit strategies:
 4. Creating a pull request
 5. Creating a pull request from a fork
 
+:::info
+The commit strategies available to you depend on what your tenant administrator has configured. By default, all options are available, but administrators can restrict which options are shown. For more details, see the [agent configuration documentation](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md).
+:::
+
 For each of those, there are a wide variety of options that you can configure to meet your needs:
 
 <Tabs groupId="commit-type">
