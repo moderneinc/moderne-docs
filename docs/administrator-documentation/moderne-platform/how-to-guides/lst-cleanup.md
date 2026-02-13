@@ -150,7 +150,7 @@ The retention period (days) should at least match how often you build LSTs:
 For cases where lifecycle rules are insufficient (e.g., keeping LSTs for specific branches longer or targeting cleanup to specific date ranges), you can use the following script with the AWS CLI. It leverages the [date-based key structure](./agent-configuration/configure-an-agent-with-s3-access.md#s3-bucket-structure) used by the Moderne CLI when publishing to S3.
 
 :::warning
-Always run the script in dry-run mode first (the default) to verify which objects will be deleted before performing actual deletion.
+Always run the script in dry run mode first (the default) to verify which objects will be deleted before performing actual deletion.
 :::
 
 ```bash title="s3-lst-cleanup.sh"
@@ -162,11 +162,21 @@ Always run the script in dry-run mode first (the default) to verify which object
 # repos.csv and repos-lock.csv at the bucket root are not affected.
 
 set -euo pipefail
+export AWS_PAGER=""
 
 # --- Configuration ---
 BUCKET="${BUCKET:-s3://my-lst-bucket}"
 RETENTION_DAYS="${RETENTION_DAYS:-3}"
 DRY_RUN="${DRY_RUN:-true}"
+
+# Strip the s3:// prefix for API calls
+BUCKET_NAME="${BUCKET#s3://}"
+
+# --- Validate bucket ---
+if ! aws s3api head-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
+  echo "Error: Bucket '$BUCKET' not found or not accessible."
+  exit 1
+fi
 
 # --- Calculate cutoff date ---
 if date -v -1d > /dev/null 2>&1; then
@@ -185,7 +195,7 @@ echo "---"
 echo "Searching for objects older than $CUTOFF_DATE ..."
 
 # --- List and filter objects ---
-DELETED_COUNT=0
+KEYS_TO_DELETE=()
 
 while read -r line; do
   # Each line: 2024-03-15 14:22:01  12345678 2024/03/15/14/01ARZ3NDEKTSV4RRFFQ69G5FAV.jar
@@ -201,22 +211,50 @@ while read -r line; do
 
   # Compare dates lexicographically (works because of YYYY/MM/DD format)
   if [[ "$object_date" < "$CUTOFF_DATE" ]]; then
-    if [[ "$DRY_RUN" == "true" ]]; then
-      echo "[DRY RUN] Would delete: $BUCKET/$object_key"
-    else
-      aws s3 rm "$BUCKET/$object_key"
-      echo "Deleted: $BUCKET/$object_key"
-    fi
-    DELETED_COUNT=$((DELETED_COUNT + 1))
+    KEYS_TO_DELETE+=("$object_key")
   fi
 done < <(aws s3 ls "$BUCKET/" --recursive)
 
+TOTAL=${#KEYS_TO_DELETE[@]}
+echo "Found $TOTAL object(s) to delete."
+
+if [[ "$TOTAL" -eq 0 ]]; then
+  echo "Nothing to clean up."
+  exit 0
+fi
+
+# --- Delete objects in batches of 1000 (S3 API limit) ---
+BATCH_SIZE=1000
+DELETED=0
+
+for ((i = 0; i < TOTAL; i += BATCH_SIZE)); do
+  BATCH=("${KEYS_TO_DELETE[@]:i:BATCH_SIZE}")
+
+  if [[ "$DRY_RUN" == "true" ]]; then
+    for key in "${BATCH[@]}"; do
+      echo "[dry run] Would delete: $BUCKET/$key"
+    done
+  else
+    # Build the JSON delete request
+    OBJECTS_JSON=$(printf '{"Key":"%s"},' "${BATCH[@]}")
+    OBJECTS_JSON="{\"Objects\":[${OBJECTS_JSON%,}],\"Quiet\":true}"
+
+    aws s3api delete-objects \
+      --bucket "$BUCKET_NAME" \
+      --delete "$OBJECTS_JSON"
+
+    echo "Deleted batch of ${#BATCH[@]} object(s)."
+  fi
+
+  DELETED=$((DELETED + ${#BATCH[@]}))
+done
+
 echo "---"
 if [[ "$DRY_RUN" == "true" ]]; then
-  echo "Dry run complete. $DELETED_COUNT object(s) would be deleted."
+  echo "Dry run complete. $TOTAL object(s) would be deleted."
   echo "Set DRY_RUN=false to perform actual deletion."
 else
-  echo "Cleanup complete. $DELETED_COUNT object(s) deleted."
+  echo "Cleanup complete. $DELETED object(s) deleted."
 fi
 ```
 
@@ -244,7 +282,7 @@ To run this cleanup automatically, add it to a cron job:
 ```
 
 :::note
-This script requires `s3:ListBucket` and `s3:DeleteObject` permissions on your S3 bucket. The `s3:DeleteObject` permission is in addition to the [permissions required by the Moderne agent](./agent-configuration/configure-an-agent-with-s3-access.md#prerequisites).
+This script requires `s3:ListBucket`, `s3:DeleteObject`, and `s3:HeadBucket` permissions on your S3 bucket. The `s3:DeleteObject` and `s3:HeadBucket` permissions are in addition to the [permissions required by the Moderne agent](./agent-configuration/configure-an-agent-with-s3-access.md#prerequisites).
 :::
 
 :::tip
