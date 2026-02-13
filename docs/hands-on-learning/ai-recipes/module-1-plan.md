@@ -1,17 +1,17 @@
 ---
 sidebar_label: "Module 1: Plan"
-description: Install the Moderne Skills, try them out, and plan a Jackson 2→3 migration recipe with AI assistance.
+description: Install the Moderne skills, try them out, and plan a Jackson 2→3 migration recipe with AI assistance.
 ---
 
 # Module 1: Plan
 
-In this module, you'll learn about the Moderne Skills workflow for AI-assisted recipe development. After that, you'll learn how to use AI to research and plan a Jackson 2.x → 3.x migration recipe.The key takeaway: **start with a plan, not with code.**
+In this module, you'll learn about the Moderne skills workflow for AI-assisted recipe development. After that, you'll learn how to use AI to research and plan a Jackson 2.x → 3.x migration recipe. The key takeaway: **start with a plan, not with code.**
 
-## Exercise 1-1: Try the Moderne Skills
+## Exercise 1-1: Try the Moderne skills
 
 ### Goals for this exercise
 
-* Install the Moderne Skills and verify they work
+* Install the Moderne skills and verify they work
 * See firsthand how skills change the agent's behavior
 
 ### Key concepts
@@ -34,9 +34,9 @@ This workshop demos with **Claude Code**, but skills are also supported for Wind
 
 ### Steps
 
-#### Step 1: Install the Moderne Skills
+#### Step 1: Install the Moderne skills
 
-If you haven't already, install the Moderne Skills for all detected coding agents using the CLI:
+If you haven't already, install the Moderne skills for all detected coding agents using the CLI:
 
 ```bash
 mod config moderne skills update
@@ -71,12 +71,12 @@ Watch how the agent responds. Don't worry about the output. Just notice how the 
 Without the skill, you may have only gotten a single YAML recipe file with no tests.
 
 :::tip
-When you've seen enough, you can stop the agent (`Escape` in Claude Code) since you won't be using this output.
+When you've seen enough, you can stop the agent since you won't be using this output.
 :::
 
 ### Takeaways
 
-* The Moderne Skills give your AI coding agent specialized, procedural knowledge about OpenRewrite recipe development and usage.
+* The Moderne skills give your AI coding agent specialized, procedural knowledge about OpenRewrite recipe development and usage.
 * Human judgment is still essential at every step (the agent proposes, you guide it).
 
 ---
@@ -125,7 +125,7 @@ This is where your recipe project will live for the rest of the workshop.
 
 #### Step 2: Research the migration
 
-Invoke the `create-recipe` skill, then ask your agent to research the migration. Point it at the source documentation and ask it to propose automatable changes. A few tips for crafting your prompt:
+Invoke the `create-recipe` skill, then ask your agent to research the migration. Point it at the [source documentation](https://github.com/FasterXML/jackson/blob/main/jackson3/MIGRATING_TO_JACKSON_3.md) and ask it to propose automatable changes. A few tips for crafting your prompt:
 
 * **Give it a primary source.** Point the agent at the [migration guide URL](https://github.com/FasterXML/jackson/blob/main/jackson3/MIGRATING_TO_JACKSON_3.md) so it works from authoritative documentation, not its own training data.
 * **Ask for structured output.** Request a list with specific information that you can use to validate the plan and guide the process (e.g. what changed, recipe type, priority) so the output is easy to review and scope in Step 3.
@@ -197,7 +197,7 @@ For reference, here's what a reasonable subset might look like:
 
 #### Step 5: Agree on the plan
 
-Once you and the agent have settled on the subset, you should have a clear list of ~8-10 changes, each with a recipe type. This is your blueprint for Module 2.
+Once you and the agent have settled on the subset, you should have a clear list of ~8-10 changes, each with a recipe type. This is your blueprint for [Module 2](./module-2-build.md).
 
 ### Takeaways
 

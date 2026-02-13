@@ -5,7 +5,7 @@ description: Build a Jackson 2→3 migration recipe with AI using test-driven de
 
 # Module 2: Build
 
-In this module, you'll build the Jackson 2→3 migration recipe with AI assistance. You should still be in the same agent session from Module 1, with the `create-recipe` skill active and your plan in context. If you need to start a new session, re-invoke the skill and point the agent at your plan file before continuing.
+In this module, you'll build the Jackson 2→3 migration recipe with AI assistance. You should still be in the same agent session from [Module 1](./module-1-plan.md), with the `create-recipe` skill active and your plan in context. If you need to start a new session, re-invoke the skill and point the agent at your plan file before continuing.
 
 You'll follow a test-driven development (TDD) approach: write tests first, validate them, then implement the recipe. Along the way, you'll create a declarative YAML recipe and an imperative Java recipe.
 
@@ -229,10 +229,6 @@ If tests fail and the agent doesn't automatically iterate and fix them, ask the 
 
 ---
 
-:::note
-Your plan may include Refaster templates in addition to declarative and imperative recipes. The workflow is similar for all types: write tests, implement, review, iterate. If the agent builds Refaster templates or included them as part of the plan, apply the same review process.
-:::
-
 ## Exercise 2-3: Add an imperative recipe
 
 ### Goals for this exercise
@@ -240,6 +236,10 @@ Your plan may include Refaster templates in addition to declarative and imperati
 * Write an imperative Java recipe for a transformation that can't be done declaratively
 * Understand when and why imperative recipes are necessary
 * Practice reviewing AI-generated visitor logic
+
+:::note
+Your plan may include Refaster templates in addition to declarative and imperative recipes. The workflow is similar for all types: write tests, implement, review, iterate. If the agent builds Refaster templates or included them as part of the plan, apply the same review process.
+:::
 
 ### Context
 

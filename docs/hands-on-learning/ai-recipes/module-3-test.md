@@ -125,7 +125,7 @@ If the skill finds mismatches or gaps, it may iterate on its own: fixing the rec
 
 ### Context
 
-This is the "payoff" moment. The existing `org.openrewrite.java.jackson.UpgradeJackson_2_3` recipe is a production-quality recipe with 11 sub-recipes covering 100+ transformations. Your recipe covers a scoped subset. Comparing the two answers two key questions:
+This is the "payoff" moment. The existing [`org.openrewrite.java.jackson.UpgradeJackson_2_3`](https://app.moderne.io/recipes/org.openrewrite.java.jackson.UpgradeJackson_2_3) recipe is a production-quality recipe with 11 sub-recipes covering 100+ transformations. Your recipe covers a scoped subset. Comparing the two answers two key questions:
 
 1. **What did your recipe get right?** These are the transformations where your approach matched the production recipe.
 2. **What did it miss?** These are the gaps, and understanding them teaches you what the agent needs to do better next time.
