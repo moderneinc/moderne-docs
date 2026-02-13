@@ -3,6 +3,7 @@ import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 import remarkTokenReplacer from "./src/plugins/replace-tokens";
 import latestVersions from "./src/plugins/latest-versions";
+import pluginNoIndexRecipes from "./src/plugins/noindex-recipes";
 
 const config: Config = {
   title: 'Moderne Docs',
@@ -165,6 +166,15 @@ const config: Config = {
             title: 'Moderne DX Documentation',
             description: 'On-premise deployment solution',
           },
+        ],
+      },
+    ],
+    [
+      pluginNoIndexRecipes,
+      {
+        noIndexPatterns: [
+          '/user-documentation/recipes/recipe-catalog/',
+          '/user-documentation/recipes/lists/',
         ],
       },
     ],
