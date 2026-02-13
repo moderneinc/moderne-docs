@@ -315,7 +315,7 @@ mod [subcommands]
 * `clean`: Clean build and run artifacts produced by the CLI.
 * `config`: Global configuration options that are required by some CLI commands.
 * `devcenter`: Generate DevCenter dashboards.
-* `exec`: Execute an arbitrary shell command recursively on selected repository roots.
+* `exec`: Execute an arbitrary shell command on selected repositories and partitions.
 * `generate-completion`
 * `git`: Multi-repository git operations.
 * `log`: Manages a log aggregate.
@@ -5397,12 +5397,14 @@ mod devcenter /path/to/organization
 
 ## mod exec
 
-Execute an arbitrary shell command recursively on selected repository roots.
+Execute an arbitrary shell command on selected repositories and partitions.
 
 
 If you want to execute a command that contains positional parameters, please ensure that you use the end-of-options POSIX delimiter (**--**) before your command.
 
-Commands can take advantage of a set of variables computed by **mod exec** specific to the repository the command is executed on. These precomputed variables are added to the environment which include **JAVA_HOME**, **MODERNE_JAVA_HOME**, **MODERNE_JAVA_VERSION**, **MODERNE_JAVA_JDK**, **MODERNE_BUILD_TOOL**, **MODERNE_BUILD_TOOL_COMPILE**, **MODERNE_BUILD_TOOL_CHECK**, and **MODERNE_BUILD_TOOL_DIR**.
+When a repository has a detected build tool (Maven, Gradle, Bazel), the command is executed from the build tool's project directory. For partitioned repositories, the command runs once per partition in each partition's build tool directory. Partitions without a detected build tool are skipped in multi-partition repositories, they lack an execution directory.
+
+Commands can use a set of precomputed environment variables specific to each repository or partition: **JAVA_HOME**, **MODERNE_JAVA_HOME**, **MODERNE_JAVA_VERSION**, **MODERNE_JAVA_JDK**, **MODERNE_BUILD_TOOL**, **MODERNE_BUILD_TOOL_COMPILE**, **MODERNE_BUILD_TOOL_CHECK**, **MODERNE_BUILD_TOOL_DIR** and **MODERNE_BUILD_TOOL_EXECUTABLE**.These variables can be used as literal command arguments (they will be substituted) or as standalone commands that expand to a full build tool invocation.
 
 Open a GitHub Pull Request
   **mod exec /path/to/project -- gh pr create --title "Test PR" --body "Test PR"**
