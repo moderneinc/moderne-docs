@@ -67,14 +67,14 @@ The Application Link requests the following permissions. Each permission is used
 
 | API endpoint                                                                           | Method | Purpose               |
 | -------------------------------------------------------------------------------------- | ------ | --------------------- |
-| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests?state=ALL&direction=OUTGOING` | GET    | Find existing PR      |
-| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}`                         | GET    | Get PR details        |
-| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests`                              | POST   | Create pull request   |
-| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}`                         | PUT    | Update pull request   |
-| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/approve`                 | POST   | Approve pull request  |
-| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/decline`                 | POST   | Close pull request    |
-| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/merge`                   | GET    | Get merge status      |
-| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/merge`                   | POST   | Merge pull request    |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests?state=ALL&direction=OUTGOING` | GET    | Find existing pull request      |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}`                         | GET    | Get pull request details        |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests`                              | POST   | Create pull request             |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}`                         | PUT    | Update pull request             |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/approve`                 | POST   | Approve pull request            |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/decline`                 | POST   | Close pull request              |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/merge`                   | GET    | Get merge status                |
+| `/rest/api/1.0/projects/{key}/repos/{slug}/pull-requests/{id}/merge`                   | POST   | Merge pull request              |
 | `/rest/build-status/1.0/commits/stats/{commitId}`                                      | GET    | Get CI build status   |
 | `/rest/default-reviewers/latest/{path}/reviewers`                                      | GET    | Get default reviewers |
 

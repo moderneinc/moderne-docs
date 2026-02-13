@@ -77,9 +77,9 @@ The OAuth consumer requests the following permissions. Each permission is used f
 
 | API endpoint                                                                   | Method | Purpose               |
 | ------------------------------------------------------------------------------ | ------ | --------------------- |
-| `/2.0/repositories/{workspace}/{repo}/pullrequests?state=...&q=...`            | GET    | Find existing PR      |
-| `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}`                       | GET    | Get PR details        |
-| `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}/statuses`              | GET    | Get PR build statuses |
+| `/2.0/repositories/{workspace}/{repo}/pullrequests?state=...&q=...`            | GET    | Find existing pull request      |
+| `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}`                       | GET    | Get pull request details        |
+| `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}/statuses`              | GET    | Get pull request build statuses |
 | `/2.0/repositories/{workspace}/{repo}/pullrequests`                            | POST   | Create pull request   |
 | `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}`                       | PUT    | Update pull request   |
 | `/2.0/repositories/{workspace}/{repo}/pullrequests/{id}/approve`               | POST   | Approve pull request  |

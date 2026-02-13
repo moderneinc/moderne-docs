@@ -65,13 +65,13 @@ Moderne requests the following OAuth scopes. Each scope is used for a specific s
 
 | API endpoint                                                     | Method | Purpose               |
 | ---------------------------------------------------------------- | ------ | --------------------- |
-| `/api/v4/projects/{path}/merge_requests`                         | GET    | Find existing MR      |
-| `/api/v4/projects/{path}/merge_requests`                         | POST   | Create merge request  |
-| `/api/v4/projects/{path}/merge_requests/{iid}`                   | PUT    | Update MR title/body  |
-| `/api/v4/projects/{path}/merge_requests/{iid}`                   | PUT    | Close merge request   |
-| `/api/v4/projects/{path}/merge_requests/{iid}/merge`             | PUT    | Merge a merge request |
-| `/api/v4/projects/{path}/merge_requests/{iid}/approve`           | POST   | Approve merge request |
-| `/api/v4/projects/{path}/merge_requests/{iid}/approvals`         | GET    | Get approval status   |
+| `/api/v4/projects/{path}/merge_requests`                         | GET    | Find existing merge request      |
+| `/api/v4/projects/{path}/merge_requests`                         | POST   | Create merge request             |
+| `/api/v4/projects/{path}/merge_requests/{iid}`                   | PUT    | Update merge request title/body  |
+| `/api/v4/projects/{path}/merge_requests/{iid}`                   | PUT    | Close merge request              |
+| `/api/v4/projects/{path}/merge_requests/{iid}/merge`             | PUT    | Merge a merge request            |
+| `/api/v4/projects/{path}/merge_requests/{iid}/approve`           | POST   | Approve merge request            |
+| `/api/v4/projects/{path}/merge_requests/{iid}/approvals`         | GET    | Get approval status              |
 
 **Fork operations** (uses `api` scope, write):
 

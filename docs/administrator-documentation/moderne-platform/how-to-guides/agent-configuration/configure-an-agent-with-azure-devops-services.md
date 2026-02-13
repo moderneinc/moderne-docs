@@ -66,7 +66,7 @@ The OAuth app requests the following API permissions. Each permission is used fo
 
 | Permission       | Required | Purpose                                                                                                                                                                                                        |
 | ---------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `vso.code_manage` | Yes      | Covers all repository operations: listing repositories, creating forks, managing branches, and creating, updating, merging, and approving pull requests. Also used to read build and policy statuses on PRs. |
+| `vso.code_manage` | Yes      | Covers all repository operations: listing repositories, creating forks, managing branches, and creating, updating, merging, and approving pull requests. Also used to read build statuses and evaluate branch policies (such as minimum reviewer counts and required builds) to determine whether a pull request is ready to merge. |
 | `vso.graph`       | Yes      | Used to retrieve the authenticated user's profile (display name and email) so that Moderne can associate commits with the correct user.                                                                      |
 | `offline_access`  | Yes      | Allows Moderne to refresh the access token without requiring the user to re-authorize. Requested automatically during the OAuth flow.                                                                        |
 
@@ -92,20 +92,22 @@ The OAuth app requests the following API permissions. Each permission is used fo
 
 | API endpoint                                                                               | Method | Purpose                  |
 | ------------------------------------------------------------------------------------------ | ------ | ------------------------ |
-| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests`                              | GET    | Find existing PR         |
-| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests`                              | POST   | Create pull request      |
-| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests/{id}`                         | GET    | Get PR details           |
-| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests/{id}`                         | PATCH  | Update, merge, or close PR |
-| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests/{id}/statuses`                | GET    | Get PR status checks     |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests`                              | GET    | Find existing pull request         |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests`                              | POST   | Create pull request                |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests/{id}`                         | GET    | Get pull request details           |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests/{id}`                         | PATCH  | Update, merge, or close pull request |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests/{id}/statuses`                | GET    | Get pull request status checks     |
 | `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests/{id}/reviewers/{reviewerId}`  | PUT    | Approve pull request     |
 
-**Policy checks** (uses `vso.code_manage` permission):
+**Branch policy checks** (uses `vso.code_manage` permission):
 
-| API endpoint                                                                | Method | Purpose                        |
-| --------------------------------------------------------------------------- | ------ | ------------------------------ |
-| `/{org}/{project}/_apis/policy/types`                                       | GET    | Get available policy types     |
-| `/{org}/{project}/_apis/policy/configurations?policyType={type}`            | GET    | Get policy configurations      |
-| `/{org}/{project}/_apis/policy/evaluations?artifactId={id}`                 | GET    | Get policy evaluation status   |
+Azure DevOps uses [branch policies](https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies) to enforce rules before a pull request can be merged — such as requiring a minimum number of reviewers, mandatory build validation, or specific required reviewers. Moderne reads these policies to accurately report whether a pull request is blocked or ready to merge.
+
+| API endpoint                                                                | Method | Purpose                                                                   |
+| --------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------- |
+| `/{org}/{project}/_apis/policy/types`                                       | GET    | List available policy types (e.g., minimum reviewers, required build)     |
+| `/{org}/{project}/_apis/policy/configurations?policyType={type}`            | GET    | Read policy configurations for a specific type                            |
+| `/{org}/{project}/_apis/policy/evaluations?artifactId={id}`                 | GET    | Check whether branch policies are satisfied for a given pull request      |
 
 **Fork and branch operations** (uses `vso.code_manage` permission):
 

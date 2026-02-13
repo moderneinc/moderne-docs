@@ -97,13 +97,13 @@ Moderne requires a select number of OAuth scopes necessary to help you transform
 
 | API endpoint                                            | Method | Purpose                   |
 | ------------------------------------------------------- | ------ | ------------------------- |
-| `/repos/{org}/{repo}/pulls?base={branch}&state=all`     | GET    | Find existing PR          |
-| `/repos/{org}/{repo}/pulls`                             | POST   | Create pull request       |
-| `/repos/{org}/{repo}/pulls/{number}`                    | PATCH  | Update or close PR        |
-| `/repos/{org}/{repo}/pulls/{number}/merge`              | PUT    | Merge pull request        |
-| `/repos/{org}/{repo}/pulls/{number}/reviews`            | POST   | Approve pull request      |
-| GraphQL `EnablePullRequestAutoMerge`                     | POST   | Enable auto-merge on PR   |
-| GraphQL `pullRequest { reviewDecision, statusCheckRollup, mergeable, ... }`  | POST   | Get PR status and CI state |
+| `/repos/{org}/{repo}/pulls?base={branch}&state=all`     | GET    | Find existing pull request          |
+| `/repos/{org}/{repo}/pulls`                             | POST   | Create pull request                 |
+| `/repos/{org}/{repo}/pulls/{number}`                    | PATCH  | Update or close pull request        |
+| `/repos/{org}/{repo}/pulls/{number}/merge`              | PUT    | Merge pull request                  |
+| `/repos/{org}/{repo}/pulls/{number}/reviews`            | POST   | Approve pull request                |
+| GraphQL `EnablePullRequestAutoMerge`                     | POST   | Enable auto-merge on pull request   |
+| GraphQL `pullRequest { reviewDecision, statusCheckRollup, mergeable, ... }`  | POST   | Get pull request status and CI state |
 
 **Fork and branch operations** (uses `repo` or `public_repo` scope / Contents permission):
 
