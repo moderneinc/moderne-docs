@@ -150,7 +150,7 @@ A migration dry run plus the `Verify compilation` recipe ([`io.moderne.compiled.
 You won't see any diff results when running this recipe. It only generates data tables that you can access from the `Data tables` tab.
 :::
 
-This helps you confirm the baseline Java versions and build tooling in use so you know what you are starting from. For this example, you'll notice we're using Java 8 and Maven across the board. 
+This helps you confirm the baseline Java versions and build tooling in use so you know what you are starting from. For this example, you're using Java 8 and Maven across the board. 
 
 #### Step 2: Inspect Spring Boot versions
 

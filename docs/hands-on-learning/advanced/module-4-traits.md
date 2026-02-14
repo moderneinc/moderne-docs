@@ -7,7 +7,7 @@ description: How to use traits to match semantically related elements.
 
 Traits are a powerful abstraction that allow you to define higher-level semantic groupings in OpenRewrite’s LSTs (Lossless Syntax Trees). They let you build reusable logic for elements that are semantically similar but structurally different. Instead of embedding utility logic in unrelated classes or expanding the core LST APIs, traits act as opt-in behavior layers. This keeps your recipes modular, discoverable, and semantically rich.
 
-For example, if you want to operate on all classes annotated with `@Bean`, regardless of their structure or placement, traits allow you to define a matcher that groups those together. We will look at this example in this module.
+For example, if you want to operate on all classes annotated with `@Bean`, regardless of their structure or placement, traits allow you to define a matcher that groups those together. You will look at this example in this module.
 
 ## Exercise 4a: Explore a recipe that uses Traits
 

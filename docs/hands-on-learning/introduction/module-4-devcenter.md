@@ -157,7 +157,7 @@ mod config recipes jar install io.moderne.recipe:rewrite-devcenter
 You can run the DevCenter starter recipe as-is using `mod run . --recipe io.moderne.devcenter.DevCenterStarter`, but you should expect a dashboard similar to what you saw in the Platform. For the CLI workflow, let's customize it to:
 
   * Track a different library that’s more likely to show up across the Default organization.
-  * Remove some of the vulnerabilities from the security list that we might not want to track, and add one that we do.
+  * Remove some of the vulnerabilities from the security list that you might not want to track, and add one that you do.
 
 1. Create a file called `mydevcenter.yml` with the following contents:
 

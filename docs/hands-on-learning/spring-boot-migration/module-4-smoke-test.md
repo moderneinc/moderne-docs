@@ -315,7 +315,7 @@ You may wish to open the diffs to inspect the changes before applying them. Use 
 
 #### Step 2: Build wave 0 and wave 1
 
-Now, you can run your build wave by wave. Expect Wave 0 to build cleanly and Wave 1 to fail due to the QueryDSL issues we saw in Module 1.
+Now, you can run your build wave by wave. Expect Wave 0 to build cleanly and Wave 1 to fail due to the QueryDSL issues you saw in Module 1.
 
 ```bash
 $WORKSHOP/build.sh 0

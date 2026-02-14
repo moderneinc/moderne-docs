@@ -259,7 +259,7 @@ MOD SUCCEEDED in 52s
 If you are on a corporate network that blocks access to Maven Central, this step may fail. See [Using the CLI with internal tools and artifact repositories](../../user-documentation/moderne-cli/getting-started/cli-internal-tools.md) for how to configure the CLI to use your organization's internal Maven Central mirror (Artifactory/Nexus/etc.).
 :::
 
-Each JAR includes a collection of related recipes, so these four artifacts cover everything we need for now.
+Each JAR includes a collection of related recipes, so these four artifacts cover everything you need for now.
 
 :::tip
 If you only need a _single_ recipe, use `mod config recipes moderne install <search term>` (for example, `mod config recipes moderne install DependencyVulnerabilityCheck`). The CLI will list the closest matches for you to choose from.
@@ -283,7 +283,7 @@ mod git sync moderne . --organization "Default" --with-sources
 :::info
 This command will download any pre-built LSTs from the platform for the given organization. If you don't include the `--with-sources` flag, the CLI only downloads LSTs, not the source code itself. With the LSTs, you will still be able to run recipes, but once you're ready to apply changes to the code, you'll need to sync the source as well. 
 
-You'll also need the source if there are no pre-existing LSTs to download. In this case, you will need to explicitly build LSTs with the CLI. We will see how to do this in a later module.
+You'll also need the source if there are no pre-existing LSTs to download. In this case, you will need to explicitly build LSTs with the CLI. You will see how to do this in a later module.
 :::
 
 <details>
@@ -663,7 +663,7 @@ MOD SUCCEEDED in 2s
 
 </details>
 
-3. Now you can navigate to any repository folder and run `git status`, or use `mod git status .` to check all repositories at once, to confirm there are local unstaged, uncommitted modifications. Before committing, you would normally make sure the changes didn't break the build and that all tests still pass successfully. In this exercise, we'll assume that is the case and move on to adding and committing the changes in each repository:
+3. Now you can navigate to any repository folder and run `git status`, or use `mod git status .` to check all repositories at once, to confirm there are local unstaged, uncommitted modifications. Before committing, you would normally make sure the changes didn't break the build and that all tests still pass successfully. In this exercise, assume that is the case and move on to adding and committing the changes in each repository:
 
 :::tip
  If you want to verify the builds locally you can use `mod exec . --last-recipe-run MODERNE_BUILD_TOOL_CHECK` to trigger the same Gradle/Maven checks CI would run across all the affected repositories.
@@ -781,7 +781,7 @@ Committed changes for 8 repositories.
 
 #### Wrap-up: Pushing changes at scale
 
-If this code were in repositories that you own or have write access to, you could now push the changes and submit PRs if you wanted to. However, since these are public open-source repositories that we are working with, we don't want to go any further than this. The following section is for reference only.
+If this code were in repositories that you own or have write access to, you could now push the changes and submit PRs if you wanted to. However, since these are public open-source repositories that you are working with, you don't want to go any further than this. The following section is for reference only.
 
 :::warning
 **Do not run any of the following commands on these example repositories. They are for reference only.**
@@ -852,14 +852,14 @@ In the Moderne Platform, `Dry Run` is conceptually similar to what you did with 
 
 ![](./assets/commit-strategy-dropdown.png)
 
-3. Since these are open-source repositories and we don't want to commit any changes, click `Cancel` to get out of the workflow.
+3. Since these are open-source repositories and you don't want to commit any changes, click `Cancel` to get out of the workflow.
 
 :::warning
 **Do not create commits or open pull requests against these public example repositories. This step is only to show you what the workflow looks like.**
 :::
 
 :::info
-Depending on the run, you may also see additional tabs (for example, data tables or visualizations). We'll revisit those capabilities in a future module.
+Depending on the run, you may also see additional tabs (for example, data tables or visualizations). You'll revisit those capabilities in a future module.
 :::
 
 ### Takeaways
