@@ -180,6 +180,136 @@ Then follow up with explanation of why this matters.
 * `taint_analysis.md`
 * `TaintAnalysis.md`
 
+## Writing style rules
+
+### 11. Conversational and instructional tone
+
+**Rule**: Write as if you are guiding the reader through a task. Use "you will need to", "you should", and "you can" instead of impersonal or declarative phrasing.
+
+**Correct examples:**
+
+    You will need to create a `category.yml` file that maps your package structure.
+    Each entry should have the type `specs.openrewrite.org/v1beta/category`.
+    This task will scan your recipe JAR and generate a CSV file.
+
+**Incorrect examples:**
+
+    A `category.yml` file is created that maps the package structure.
+    Each entry has the type `specs.openrewrite.org/v1beta/category`.
+    The task scans the recipe JAR and generates a CSV file.
+
+### 12. Section headers should use gerund form
+
+**Rule**: Use the gerund (present participle) form for section headers, especially in how-to guides. This matches the pattern used across existing documentation (e.g., "Running the recipe", "Viewing the visualization").
+
+**Correct examples:**
+
+    ## Defining categories for your own recipes
+    ### Creating the `category.yml` file
+    ### Generating and validating the `recipes.csv` file
+
+**Incorrect examples:**
+
+    ## Define categories for your own recipes
+    ### Create the `category.yml` file
+    ### Generate and validate the `recipes.csv` file
+
+### 13. Add "file" after filenames in prose
+
+**Rule**: When referencing a filename inline within a sentence, add "file" after it for readability.
+
+**Correct examples:**
+
+    When generating the `recipes.csv` file, each recipe's name is compared...
+    Once the `category.yml` file is ready, you will need to generate the CSV file.
+
+**Incorrect examples:**
+
+    When generating `recipes.csv`, each recipe's name is compared...
+    Once the `category.yml` is ready, you will need to generate the CSV.
+
+### 14. Use inline linking, not "see" or "click here"
+
+**Rule**: Place links on descriptive text that tells the reader where the link goes. Do not use signpost phrases like "see", "click here", or "check out this link".
+
+**Correct examples:**
+
+    Once validation passes, you can [publish and deploy the artifact to the Moderne Platform](#deploying-recipe-artifacts).
+    An administrator should have [configured this when onboarding the agent](./path/to/doc.md).
+
+**Incorrect examples:**
+
+    Once validation passes, you can publish the artifact — see [Deploying to the Moderne Platform](#deploying-recipe-artifacts).
+    For more information, [click here](./path/to/doc.md).
+
+### 15. Keep paragraphs focused and concise
+
+**Rule**: Each paragraph should cover one concept or idea. If a paragraph contains more than two or three sentences, consider whether it is doing too much and should be split. Dense walls of text are harder to scan and understand.
+
+**Correct example:**
+
+    Recipes are assigned to categories based on their package names. When generating
+    the `recipes.csv` file, each recipe's fully qualified name is compared against the
+    entries in your `category.yml` file.
+
+    For example, a recipe at `com.myorg.UpgradeFramework` would match the
+    `com.myorg` entry and appear under **Framework Upgrades**.
+
+**Incorrect example:**
+
+    Recipes are assigned to categories based on their package names. When generating
+    the `recipes.csv` file, each recipe's fully qualified name is compared against the
+    entries in your `category.yml` file. For example, a recipe at
+    `com.myorg.UpgradeFramework` would match the `com.myorg` entry and appear under
+    **Framework Upgrades**. Any package segments without an explicit entry will
+    automatically generate a fallback category from the capitalized package name.
+
+### 16. How-to guide introduction structure
+
+**Rule**: How-to guide introductions should follow a consistent pattern: start with the problem or scenario the reader faces, briefly explain what solves it, and end with a sentence previewing what the guide covers.
+
+**Correct example:**
+
+    When you publish recipes to the Moderne Platform, organizing them into meaningful
+    categories helps users in your organization discover and run them.
+
+    In this guide, we will walk you through how to define categories for your own
+    recipes and how to re-categorize existing recipes under a custom structure.
+
+**Incorrect example:**
+
+    Using `recipes.csv` and the `category.yml`, you can define your own category
+    structure. In this article, you see three things: how to create categories,
+    how to sort recipes, and how to deploy.
+
+### 17. Use Docusaurus admonitions, not blockquotes
+
+**Rule**: Use Docusaurus admonition syntax (`:::tip`, `:::info`, `:::warning`, `:::danger`) for callouts instead of blockquote formatting with bold labels. This renders properly in the Docusaurus theme and matches existing documentation.
+
+**Correct example:**
+
+    :::warning
+    `recipeCsvGenerate` only scans your own JAR — recipes from dependencies are not included.
+    :::
+
+**Incorrect examples:**
+
+    > **Important:** `recipeCsvGenerate` only scans your own JAR.
+
+    > **Reference:** [Some link](./path.md)
+
+### 18. No absolute URLs for internal documentation pages
+
+**Rule**: Never use absolute `https://docs.moderne.io/...` URLs to link to pages that exist in this repository. Always use relative paths instead. This extends Rule 9 and ensures links work correctly across environments (local dev, staging, production).
+
+**Correct example:**
+
+    For more details, check out the [`recipes.csv` reference](../../moderne-cli/references/recipes-csv.md).
+
+**Incorrect example:**
+
+    For more details, check out the [`recipes.csv` reference](https://docs.moderne.io/user-documentation/moderne-cli/references/recipes-csv/).
+
 ## Complete example
 
 Here's what properly formatted documentation looks like:
@@ -240,6 +370,14 @@ When editing documentation, verify:
 * [ ] Link paths use explicit relative paths (`./`, `../`) (Rule 9)
 * [ ] File names use kebab-case (Rule 10)
 * [ ] No unintended changes to code, comments, or technical terms
+* [ ] Conversational, instructional tone throughout (Rule 11)
+* [ ] Section headers use gerund form (Rule 12)
+* [ ] Filenames in prose are followed by "file" (Rule 13)
+* [ ] Links are inline on descriptive text, no "see X" patterns (Rule 14)
+* [ ] Paragraphs are focused and concise, one concept each (Rule 15)
+* [ ] How-to guide intros follow problem → solution → preview structure (Rule 16)
+* [ ] Callouts use Docusaurus admonitions, not blockquotes (Rule 17)
+* [ ] Internal links use relative paths, not absolute URLs (Rule 18)
 
 ---
 
