@@ -60,6 +60,70 @@ Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth an
       <figcaption></figcaption>
     </figure>
 
+#### Understanding the required permissions
+
+The OAuth app requests the following API permissions. Each permission is used for a specific set of operations:
+
+| Permission       | Required | Purpose                                                                                                                                                                                                        |
+| ---------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `vso.code_manage` | Yes      | Covers all repository operations: listing repositories, creating forks, managing branches, and creating, updating, merging, and approving pull requests. Also used to read build statuses and evaluate branch policies (such as minimum reviewer counts and required builds) to determine whether a pull request is ready to merge. |
+| `vso.graph`       | Yes      | Used to retrieve the authenticated user's profile (display name and email) so that Moderne can associate commits with the correct user.                                                                      |
+| `offline_access`  | Yes      | Allows Moderne to refresh the access token without requiring the user to re-authorize. Requested automatically during the OAuth flow.                                                                        |
+
+<details>
+<summary>Detailed list of Azure DevOps API calls Moderne makes</summary>
+
+**User identity** (uses `vso.graph` permission):
+
+| API endpoint                                                       | Method | Purpose                            |
+| ------------------------------------------------------------------ | ------ | ---------------------------------- |
+| `/{organization}/_apis/connectionData`                             | GET    | Get authenticated user info        |
+| `/{organization}/_apis/graph/users/{descriptor}` (vssps.dev.azure.com) | GET | Get user profile details           |
+
+**Repository access checks** (uses `vso.code_manage` permission):
+
+| API endpoint                                                     | Method | Purpose                            |
+| ---------------------------------------------------------------- | ------ | ---------------------------------- |
+| `/{organization}/_apis/git/repositories`                         | GET    | List repositories to verify access |
+| `/{organization}/{project}/_apis/git/repositories`               | GET    | List repositories in a project     |
+| `/{organization}/{project}/_apis/git/repositories/{repository}`  | GET    | Retrieve repository details        |
+
+**Pull request operations** (uses `vso.code_manage` permission):
+
+| API endpoint                                                                               | Method | Purpose                  |
+| ------------------------------------------------------------------------------------------ | ------ | ------------------------ |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests`                              | GET    | Find existing pull request         |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests`                              | POST   | Create pull request                |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests/{id}`                         | GET    | Get pull request details           |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests/{id}`                         | PATCH  | Update, merge, or close pull request |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests/{id}/statuses`                | GET    | Get pull request status checks     |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pullRequests/{id}/reviewers/{reviewerId}`  | PUT    | Approve pull request     |
+
+**Branch policy checks** (uses `vso.code_manage` permission):
+
+Azure DevOps uses [branch policies](https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies) to enforce rules before a pull request can be merged — such as requiring a minimum number of reviewers, mandatory build validation, or specific required reviewers. Moderne reads these policies to accurately report whether a pull request is blocked or ready to merge.
+
+| API endpoint                                                                | Method | Purpose                                                                   |
+| --------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------- |
+| `/{org}/{project}/_apis/policy/types`                                       | GET    | List available policy types (e.g., minimum reviewers, required build)     |
+| `/{org}/{project}/_apis/policy/configurations?policyType={type}`            | GET    | Read policy configurations for a specific type                            |
+| `/{org}/{project}/_apis/policy/evaluations?artifactId={id}`                 | GET    | Check whether branch policies are satisfied for a given pull request      |
+
+**Fork and branch operations** (uses `vso.code_manage` permission):
+
+| API endpoint                                                                          | Method | Purpose                |
+| ------------------------------------------------------------------------------------- | ------ | ---------------------- |
+| `/{org}/{project}/_apis/git/repositories`                                             | POST   | Create fork repository |
+| `/{org}/{project}/_apis/git/repositories/{repo}`                                      | DELETE | Delete fork repository (only forks created by Moderne are deleted — the original repository is never modified or deleted) |
+| `/{org}/{project}/_apis/git/repositories/{repo}/refs?filter=heads/{branch}`           | GET    | Get branch ref         |
+| `/{org}/{project}/_apis/git/repositories/{repo}/pushes`                               | POST   | Create branch          |
+
+</details>
+
+:::tip
+The OAuth token is scoped to the individual user who authorizes it — Moderne can only perform actions that the user already has permission to do. The token does not grant Moderne any additional access beyond what the user themselves can do in Azure DevOps.
+:::
+
 ## Agent configuration
 
 ### Step 2: Configure the Moderne Agent
