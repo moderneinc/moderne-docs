@@ -73,7 +73,7 @@ result in a build error.
 > automatic-validation)
 
 If everything is green, you can publish the artifact and deploy it to the Moderne Platform — more on this
-in [Section 3](#3-deploying-recipe-artifacts-to-the-modern-platform).
+in [Section 3](#3-deploying-recipe-artifacts-to-the-moderne-platform).
 
 ## Sort existing recipes into your own categories
 
