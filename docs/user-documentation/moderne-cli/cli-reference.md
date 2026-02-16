@@ -8,7 +8,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 ## Table of contents
 
 * [**mod**](#mod)
-* [**mod afterburner**](#mod-afterburner)
 * [**mod audit**](#mod-audit)
 * [**mod audit builds**](#mod-audit-builds)
 * [**mod audit builds list**](#mod-audit-builds-list)
@@ -49,10 +48,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
 * [**mod config build gradle arguments edit**](#mod-config-build-gradle-arguments-edit)
 * [**mod config build gradle arguments show**](#mod-config-build-gradle-arguments-show)
-* ~~[**mod config build gradle root**](#mod-config-build-gradle-root-deprecated)~~ (deprecated)
-* ~~[**mod config build gradle root delete**](#mod-config-build-gradle-root-delete-deprecated)~~ (deprecated)
-* ~~[**mod config build gradle root edit**](#mod-config-build-gradle-root-edit-deprecated)~~ (deprecated)
-* ~~[**mod config build gradle root show**](#mod-config-build-gradle-root-show-deprecated)~~ (deprecated)
 * [**mod config build gradle timeout**](#mod-config-build-gradle-timeout)
 * [**mod config build gradle timeout delete**](#mod-config-build-gradle-timeout-delete)
 * [**mod config build gradle timeout edit**](#mod-config-build-gradle-timeout-edit)
@@ -187,10 +182,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes artifacts artifactory delete**](#mod-config-recipes-artifacts-artifactory-delete)
 * [**mod config recipes artifacts artifactory show**](#mod-config-recipes-artifacts-artifactory-show)
 * [**mod config recipes artifacts show**](#mod-config-recipes-artifacts-show)
-* ~~[**mod config recipes artifacts default-repositories**](#mod-config-recipes-artifacts-default-repositories-deprecated)~~ (deprecated)
-* ~~[**mod config recipes artifacts default-repositories enable**](#mod-config-recipes-artifacts-default-repositories-enable-deprecated)~~ (deprecated)
-* ~~[**mod config recipes artifacts default-repositories disable**](#mod-config-recipes-artifacts-default-repositories-disable-deprecated)~~ (deprecated)
-* ~~[**mod config recipes artifacts default-repositories show**](#mod-config-recipes-artifacts-default-repositories-show-deprecated)~~ (deprecated)
 * [**mod config recipes artifacts maven**](#mod-config-recipes-artifacts-maven)
 * [**mod config recipes artifacts maven add**](#mod-config-recipes-artifacts-maven-add)
 * ~~[**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit-deprecated)~~ (deprecated)
@@ -223,20 +214,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config run timeout edit**](#mod-config-run-timeout-edit)
 * [**mod config run timeout show**](#mod-config-run-timeout-show)
 * ~~[**mod config scm**](#mod-config-scm-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab**](#mod-config-scm-gitlab-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-url**](#mod-config-scm-gitlab-base-url-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-url delete**](#mod-config-scm-gitlab-base-url-delete-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-url edit**](#mod-config-scm-gitlab-base-url-edit-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-url show**](#mod-config-scm-gitlab-base-url-show-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-urls**](#mod-config-scm-gitlab-base-urls-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-urls delete**](#mod-config-scm-gitlab-base-urls-delete-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-urls edit**](#mod-config-scm-gitlab-base-urls-edit-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-urls show**](#mod-config-scm-gitlab-base-urls-show-deprecated)~~ (deprecated)
-* ~~[**mod config scm bitbucket**](#mod-config-scm-bitbucket-deprecated)~~ (deprecated)
-* ~~[**mod config scm bitbucket base-urls**](#mod-config-scm-bitbucket-base-urls-deprecated)~~ (deprecated)
-* ~~[**mod config scm bitbucket base-urls delete**](#mod-config-scm-bitbucket-base-urls-delete-deprecated)~~ (deprecated)
-* ~~[**mod config scm bitbucket base-urls edit**](#mod-config-scm-bitbucket-base-urls-edit-deprecated)~~ (deprecated)
-* ~~[**mod config scm bitbucket base-urls show**](#mod-config-scm-bitbucket-base-urls-show-deprecated)~~ (deprecated)
 * ~~[**mod config scm moderne**](#mod-config-scm-moderne-deprecated)~~ (deprecated)
 * ~~[**mod config scm moderne sync**](#mod-config-scm-moderne-sync-deprecated)~~ (deprecated)
 * ~~[**mod config scm add**](#mod-config-scm-add-deprecated)~~ (deprecated)
@@ -274,8 +251,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod list**](#mod-list)
 * [**mod monitor**](#mod-monitor)
 * [**mod postbuild**](#mod-postbuild)
-* [**mod postbuild zoekt**](#mod-postbuild-zoekt)
-* [**mod postbuild zoekt update**](#mod-postbuild-zoekt-update)
+* [**mod postbuild trigrep**](#mod-postbuild-trigrep)
+* [**mod postbuild trigrep update**](#mod-postbuild-trigrep-update)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
 * [**mod run-history**](#mod-run-history)
@@ -308,7 +285,6 @@ mod [subcommands]
 
 ### Subcommands
 
-* `afterburner`: (INCUBATING) Indexes built LSTs to accelerate recipe execution.
 * `audit`: (INCUBATING) Perform an audit of recent activity.
 * `batch`: Add batch changes to the Moderne platform.
 * `build`: Generates LST artifacts for one or more repositories.
@@ -328,40 +304,6 @@ mod [subcommands]
 * `search`: Search repositories using trigram indexes.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
 * `trace`: Manages trace analysis tools.
-
-## mod afterburner
-
-(INCUBATING) Indexes built LSTs to accelerate recipe execution.
-
-
-This command indexes certain parts of the LST in order to speed up repeated recipe runs against the same LST. While not all recipes can benefit from this optimization, common ones — especially those frequently used in IDE integrations — often will. 
-
-Note: The generated indexes are internal to the CLI and may change between versions. They are intended solely for use by the CLI in subsequent run commands. Executed on multiple repositories in parallel by default, but can be opted out with **--parallel=1**.
-
-### Usage
-
-```
-mod afterburner [parameters]
-```
-
-### Examples
-
-```
-mod afterburner /path/to/project
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-
 
 ## mod audit
 
@@ -1208,7 +1150,6 @@ mod config build gradle arguments edit --refresh-dependencies
 ### Subcommands
 
 * `arguments`: Configure Gradle build arguments.
-* `root`: (DEPRECATED) Configure the directory containing the Gradle root build. This could be `.` to force the CLI to use the root directory of the repository as the Gradle build and look no deeper.
 * `timeout`: Configure the build timeout.
 
 ## mod config build gradle arguments
@@ -1280,95 +1221,6 @@ Displays the configured Gradle additional build arguments.
 
 ```
 mod config build gradle arguments show
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
-| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
-
-
-## mod config build gradle root (deprecated)
-
-(DEPRECATED) Configure the directory containing the Gradle root build. This could be `.` to force the CLI to use the root directory of the repository as the Gradle build and look no deeper.
-
-
-Use builds steps configuration instead. When this is set, the CLI does not attempt to find root Gradle builds in subdirectories or siblings recursively.
-
-### Usage
-
-```
-mod config build gradle root [subcommands]
-```
-
-
-### Subcommands
-
-* `delete`: (DEPRECATED) Removes the configured directory containing the Gradle root build.
-* `edit`: (DEPRECATED) Configure the directory containing the Gradle root build.
-* `show`: (DEPRECATED) Displays the configured directory containing the Gradle root build.
-
-## mod config build gradle root delete (deprecated)
-
-(DEPRECATED) Removes the configured directory containing the Gradle root build.
-
-
-(DEPRECATED) Use builds steps configuration instead.
-
-### Usage
-
-```
-mod config build gradle root delete
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
-| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
-
-
-## mod config build gradle root edit (deprecated)
-
-(DEPRECATED) Configure the directory containing the Gradle root build.
-
-
-Use builds steps configuration instead. When this is set, the CLI does not attempt to find root Gradle builds in subdirectories or siblings recursively.
-
-### Usage
-
-```
-mod config build gradle root edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `root` |  The directory containing the Gradle root build. |
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
-| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
-
-
-## mod config build gradle root show (deprecated)
-
-(DEPRECATED) Displays the configured directory containing the Gradle root build.
-
-
-Use build steps configuration instead.
-
-### Usage
-
-```
-mod config build gradle root show
 ```
 
 ### Options
@@ -2186,7 +2038,7 @@ mod config features no-maven-central
 (DEPRECATED) Configure trigram-based code search.
 
 
-This command is deprecated. Search indexes are now generated using **mod postbuild zoekt update** and do not require a feature flag.
+This command is deprecated. Search indexes are now generated using **mod postbuild trigrep update** and do not require a feature flag.
 
 ### Usage
 
@@ -4042,7 +3894,6 @@ mod config recipes artifacts [subcommands]
 
 * `artifactory`: Configures the artifact repository to resolve recipes from.
 * `show`: Displays the recipe artifacts repository configuration.
-* `default-repositories`: (DEPRECATED) Configure the availability of maven central repositories.
 * `maven`: Configures a Maven-formatted artifact repository that recipes will be resolved from.
 
 ## mod config recipes artifacts artifactory
@@ -4185,65 +4036,6 @@ Displays the recipe artifacts repository configuration.
 
 ```
 mod config recipes artifacts show
-```
-
-
-
-## mod config recipes artifacts default-repositories (deprecated)
-
-(DEPRECATED) Configure the availability of maven central repositories.
-
-
-Use `mod config features no-maven-central` to disable/enable Maven Central and OSS Sonatype Snapshots.
-
-### Usage
-
-```
-mod config recipes artifacts default-repositories [subcommands]
-```
-
-
-### Subcommands
-
-* `enable`
-* `disable`
-* `show`
-
-## mod config recipes artifacts default-repositories enable (deprecated)
-
-
-(INCUBATING) Enable default repositories.
-
-### Usage
-
-```
-mod config recipes artifacts default-repositories enable
-```
-
-
-
-## mod config recipes artifacts default-repositories disable (deprecated)
-
-
-(INCUBATING) Disable default repositories.
-
-### Usage
-
-```
-mod config recipes artifacts default-repositories disable
-```
-
-
-
-## mod config recipes artifacts default-repositories show (deprecated)
-
-
-(INCUBATING) Show the current configuration of default repositories.
-
-### Usage
-
-```
-mod config recipes artifacts default-repositories show
 ```
 
 
@@ -5000,268 +4792,10 @@ mod config scm [subcommands]
 
 ### Subcommands
 
-* `gitlab`: (DEPRECATED) Configures GitLab.
-* `bitbucket`: (DEPRECATED) Configures Bitbucket.
 * `moderne`: (DEPRECATED) Configures the SCM configuration with Moderne
 * `add`
 * `remove`
 * `show`: (DEPRECATED) Displays the configured SCMs
-
-## mod config scm gitlab (deprecated)
-
-(DEPRECATED) Configures GitLab.
-
-
-Use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm gitlab [subcommands]
-```
-
-
-### Subcommands
-
-* `base-url`: (DEPRECATED) Configure the base URL.
-* `base-urls`: (DEPRECATED) Configure the base URLs.
-
-## mod config scm gitlab base-url (deprecated)
-
-(DEPRECATED) Configure the base URL.
-
-
-(DEPRECATED) use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm gitlab base-url [subcommands]
-```
-
-### Examples
-
-```
-mod config scm gitlab base-url edit "https://acme.com/gitlab-ee/"
-```
-
-
-### Subcommands
-
-* `delete`: (DEPRECATED) Removes base URL customization.
-* `edit`: (DEPRECATED) Configure the base URL.
-* `show`: (DEPRECATED) Displays the configured base URLs.
-
-## mod config scm gitlab base-url delete (deprecated)
-
-(DEPRECATED) Removes base URL customization.
-
-
-### Usage
-
-```
-mod config scm gitlab base-url delete
-```
-
-
-
-## mod config scm gitlab base-url edit (deprecated)
-
-(DEPRECATED) Configure the base URL.
-
-
-(DEPRECATED) use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm gitlab base-url edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `baseUrl` |  The base URL to use when determining paths. |
-
-
-
-## mod config scm gitlab base-url show (deprecated)
-
-(DEPRECATED) Displays the configured base URLs.
-
-
-### Usage
-
-```
-mod config scm gitlab base-url show
-```
-
-
-
-## mod config scm gitlab base-urls (deprecated)
-
-(DEPRECATED) Configure the base URLs.
-
-
-(DEPRECATED) use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm gitlab base-urls [subcommands]
-```
-
-### Examples
-
-```
-mod config scm gitlab base-urls edit "https://acme.com/gitlab-ee/"
-```
-
-
-### Subcommands
-
-* `delete`: (DEPRECATED) Removes base URL customization.
-* `edit`: (DEPRECATED) Configure one or more base URLs.
-* `show`: (DEPRECATED) Displays the configured base URLs.
-
-## mod config scm gitlab base-urls delete (deprecated)
-
-(DEPRECATED) Removes base URL customization.
-
-
-### Usage
-
-```
-mod config scm gitlab base-urls delete
-```
-
-
-
-## mod config scm gitlab base-urls edit (deprecated)
-
-(DEPRECATED) Configure one or more base URLs.
-
-
-
-
-### Usage
-
-```
-mod config scm gitlab base-urls edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `baseUrls` |  The base URLs to use when determining paths. |
-
-
-
-## mod config scm gitlab base-urls show (deprecated)
-
-(DEPRECATED) Displays the configured base URLs.
-
-
-### Usage
-
-```
-mod config scm gitlab base-urls show
-```
-
-
-
-## mod config scm bitbucket (deprecated)
-
-(DEPRECATED) Configures Bitbucket.
-
-
-(DEPRECATED) use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm bitbucket [subcommands]
-```
-
-
-### Subcommands
-
-* `base-urls`: (DEPRECATED) Configure the base URLs.
-
-## mod config scm bitbucket base-urls (deprecated)
-
-(DEPRECATED) Configure the base URLs.
-
-
-(DEPRECATED) use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm bitbucket base-urls [subcommands]
-```
-
-### Examples
-
-```
-mod config scm bitbucket base-urls edit "https://bitbucket.acme.com/stash/"
-```
-
-
-### Subcommands
-
-* `delete`: (DEPRECATED) Removes base URL customization.
-* `edit`: (DEPRECATED) Configure one or more base URLs.
-* `show`: (DEPRECATED) Displays the configured base URLs.
-
-## mod config scm bitbucket base-urls delete (deprecated)
-
-(DEPRECATED) Removes base URL customization.
-
-
-### Usage
-
-```
-mod config scm bitbucket base-urls delete
-```
-
-
-
-## mod config scm bitbucket base-urls edit (deprecated)
-
-(DEPRECATED) Configure one or more base URLs.
-
-
-
-
-### Usage
-
-```
-mod config scm bitbucket base-urls edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `baseUrls` |  The base URLs to use when determining paths. |
-
-
-
-## mod config scm bitbucket base-urls show (deprecated)
-
-(DEPRECATED) Displays the configured base URLs.
-
-
-### Usage
-
-```
-mod config scm bitbucket base-urls show
-```
-
-
 
 ## mod config scm moderne (deprecated)
 
@@ -6295,19 +5829,19 @@ mod postbuild [subcommands]
 
 ### Subcommands
 
-* `zoekt`: Zoekt search index operations.
+* `trigrep`: Trigram search index operations.
 
-## mod postbuild zoekt
+## mod postbuild trigrep
 
-Zoekt search index operations.
+Trigram search index operations.
 
 
-Manage Zoekt-compatible trigram search indexes for repositories.
+Manage trigram search indexes for repositories.
 
 ### Usage
 
 ```
-mod postbuild zoekt [subcommands]
+mod postbuild trigrep [subcommands]
 ```
 
 
@@ -6315,23 +5849,23 @@ mod postbuild zoekt [subcommands]
 
 * `update`: Generate search indexes from existing LSTs.
 
-## mod postbuild zoekt update
+## mod postbuild trigrep update
 
 Generate search indexes from existing LSTs.
 
 
-Generates Zoekt-compatible trigram search indexes for repositories that have LST artifacts but were built without search indexing enabled. The indexes are written to **.moderne/search/** in each repository. Executed on multiple repositories in parallel by default, but can be opted out with **--parallel=1**.
+Generates trigram search indexes for repositories that have LST artifacts but were built without search indexing enabled. The indexes are written to **.moderne/search/** in each repository. Executed on multiple repositories in parallel by default, but can be opted out with **--parallel=1**.
 
 ### Usage
 
 ```
-mod postbuild zoekt update [parameters]
+mod postbuild trigrep update [parameters]
 ```
 
 ### Examples
 
 ```
-mod postbuild zoekt update /path/to/organization
+mod postbuild trigrep update /path/to/organization
 ```
 
 ### Parameters
