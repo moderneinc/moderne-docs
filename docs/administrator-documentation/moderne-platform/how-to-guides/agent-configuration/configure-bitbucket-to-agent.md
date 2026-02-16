@@ -48,7 +48,7 @@ The Application Link requests the following permissions. Each permission is used
 <details>
 <summary>Detailed list of Bitbucket Data Center API calls Moderne makes</summary>
 
-**User identity:**
+**User identity** (no additional permissions required — these endpoints are accessible to any authenticated user):
 
 | API endpoint                                    | Method | Purpose                        |
 | ----------------------------------------------- | ------ | ------------------------------ |

@@ -42,6 +42,8 @@ The consumer should have these permissions:
 * Projects - Read
 * Repositories - Write
 * Pull requests - Write
+* Account - Read
+* Email - Read
 
 #### Understanding the required permissions
 

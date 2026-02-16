@@ -114,7 +114,7 @@ Azure DevOps uses [branch policies](https://learn.microsoft.com/en-us/azure/devo
 | API endpoint                                                                          | Method | Purpose                |
 | ------------------------------------------------------------------------------------- | ------ | ---------------------- |
 | `/{org}/{project}/_apis/git/repositories`                                             | POST   | Create fork repository |
-| `/{org}/{project}/_apis/git/repositories/{repo}`                                      | DELETE | Delete repository      |
+| `/{org}/{project}/_apis/git/repositories/{repo}`                                      | DELETE | Delete fork repository (only forks created by Moderne are deleted — the original repository is never modified or deleted) |
 | `/{org}/{project}/_apis/git/repositories/{repo}/refs?filter=heads/{branch}`           | GET    | Get branch ref         |
 | `/{org}/{project}/_apis/git/repositories/{repo}/pushes`                               | POST   | Create branch          |
 
