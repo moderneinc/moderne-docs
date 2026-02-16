@@ -48,7 +48,7 @@ The Application Link requests the following permissions. Each permission is used
 <details>
 <summary>Detailed list of Bitbucket Data Center API calls Moderne makes</summary>
 
-**User identity** (no additional permissions required — these endpoints are accessible to any authenticated user):
+**User identity** (accessible with any authenticated OAuth session — Bitbucket Data Center does not define a separate [user identity scope](https://confluence.atlassian.com/bitbucketserver095/oauth-2-0-scopes-for-incoming-links-1528535624.html)):
 
 | API endpoint                                    | Method | Purpose                        |
 | ----------------------------------------------- | ------ | ------------------------------ |
