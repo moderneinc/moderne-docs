@@ -478,7 +478,7 @@ https://bitbucket.your.place/stash/scm/~sjungling/demo_private.git,main
 Create a directory somewhere on your machine where you'd like the CLI to clone the repositories to. Then navigate to that directory, copy the `repos.csv` file to it, and run the following command:
 
 ```bash
-mod git sync csv . repos.csv
+mod git sync csv . repos.csv --with-sources
 ```
 
 ### Step 9: Build your repositories
