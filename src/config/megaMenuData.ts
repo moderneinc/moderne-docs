@@ -112,7 +112,7 @@ export const learningItems: LearningItem[] = [
   },
   {
     name: 'Code Remix',
-    href: '/user-documentation/community-office-hours',
+    href: '/user-documentation/code-remix-sessions/2026',
     external: false,
   },
   {
@@ -195,7 +195,7 @@ export const trainingItems: NavLink[] = [
   },
   {
     name: 'Code Remix',
-    href: '/user-documentation/community-office-hours',
+    href: '/user-documentation/code-remix-sessions/2026',
     external: false,
   },
   {
@@ -268,7 +268,7 @@ export const startExploringColumns: StartExploringColumn[] = [
       },
       {
         name: 'Code Remix',
-        href: '/user-documentation/community-office-hours',
+        href: '/user-documentation/code-remix-sessions/2026',
         external: false,
       },
     ],

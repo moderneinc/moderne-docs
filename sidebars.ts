@@ -744,7 +744,15 @@ const sidebars: SidebarsConfig = {
     moddy,
     jetbrainsPlugin,
     recipes,
-    'user-documentation/community-office-hours',
+    {
+      type: 'category',
+      label: 'Code Remix sessions',
+      items: [
+        'user-documentation/code-remix-sessions/2026',
+        'user-documentation/code-remix-sessions/2025',
+        'user-documentation/code-remix-sessions/2024',
+      ],
+    },
     handsOnLearning,
     openRewriteAdvanced,
     platform.admin,
