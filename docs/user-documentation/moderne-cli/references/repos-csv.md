@@ -145,7 +145,7 @@ All
 The following CSV file would represent this organizational structure:
 
 ```bash showLineNumbers
-cloneUrl,branch,origin,path,org1,org2,org3
+"cloneUrl","branch","origin","path","org1","org2","org3"
 "https://github.com/apache/maven-doxia","master","github.com","apache/maven-doxia","Team 1","Director A","ALL"
 "https://github.com/Netflix/photon","main","github.com","Netflix/photon","Team 2","Director A","ALL"
 "https://github.com/Netflix/ribbon","master","github.com","Netflix/ribbon","Director A","ALL"
