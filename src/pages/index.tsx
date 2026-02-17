@@ -67,7 +67,10 @@ export const WhatIsModerneSection: FunctionComponent = () => {
       <div className={styles.sectionHeader}>
         <h2 className={styles.sectionTitle} id='what-is-moderne'>What is Moderne?</h2>
         <p className={styles.sectionDescription}>
-          With Moderne, you can fix security vulnerabilities, standardize code quality, and automate maintenance processes such as framework migrations. Code refactoring work and security vulnerability remediations that used to take months and teams of developers can be done in minutes. This can not only save your company millions of dollars in software maintenance costs, but it can also give developers substantially more time to focus on delivering business value.
+          Moderne builds the knowledge, discovery, and execution tools coding agents rely on to operate faster, more accurately, and at far lower cost across real-world software systems. Powered by the <Link href="https://docs.openrewrite.org/">OpenRewrite</Link> <Link href="/administrator-documentation/moderne-platform/references/lossless-semantic-trees">Lossless Semantic Tree (LST)</Link>, the industry's most comprehensive context model for understanding and transforming your code at scale.
+        </p>
+        <p className={styles.sectionDescription}>  
+          With Moderne, organizations can automate framework migrations, remediate security vulnerabilities, perform organization-wide code search, and standardize code quality across thousands of repositories.
         </p>
       </div>
       <div className={styles.videoGrid}>
@@ -81,22 +84,34 @@ export const WhatIsModerneSection: FunctionComponent = () => {
   );
 }
 
-export const PlatformDetailsSection: FunctionComponent = () => {
+export const AboutModerneSection: FunctionComponent = () => {
   return (
     <section className={styles.platformSection}>
-      <h2 className={styles.sectionTitle}>More about our platform</h2>
+      <h2 className={styles.sectionTitle}>More about Moderne</h2>
       <div className={styles.platformContent}>
         <p>
-          The Moderne Platform is an enterprise-ready, private Software as a Service (SaaS) solution that provides automated code remediation at scale. The platform asynchronously ingests detailed artifacts of your codebase (<Link href="/administrator-documentation/moderne-platform/references/lossless-semantic-trees">Lossless Semantic Trees</Link>) that can be quickly and precisely searched. Then, your organization's source code can be transformed by running "<Link href="https://docs.openrewrite.org/concepts-and-explanations/recipes">recipes</Link>" across repositories of your choosing. These recipes can be created by your team, or you can take advantage of the hundreds of recipes already defined in <Link href="https://docs.openrewrite.org/">OpenRewrite</Link> - an open-source project managed by Moderne.
+          Moderne delivers a coordinated set of tools that coding agents and developers use to understand software systems, discover relevant code, and safely execute large-scale engineering changes. Your organization can run <Link href="/user-documentation/recipes/recipe-catalog">existing recipes</Link> from our extensive catalog or create your own. Moderne offers several tools to help you do this:
         </p>
         <p>
-          The platform offers a clean UI that enables anyone in your organization to run recipes, create PRs, or generate detailed reports about your codebase - all without writing a line of code. It also provides a recommendation engine to help you discover new recipes based on an analysis of your code.
+          The <Link href="/user-documentation/moderne-platform/getting-started/running-your-first-recipe"><strong>Moderne Platform</strong></Link> is an enterprise-ready, private SaaS solution that enables anyone in your organization to run recipes, create pull requests, and generate detailed reports across all of your repositories - all without writing a line of code.
         </p>
         <p>
-          Moderne is SOC 2 Type 2 compliant, so you can be confident that your code is secure. Furthermore, a private SaaS can be created for your team in any major cloud provider or region of your choice.
+          The <Link href="/user-documentation/moderne-cli/getting-started/cli-intro"><strong>Moderne CLI</strong></Link> is a command line tool that complements the Platform, enabling you to build LST artifacts across many repositories and run recipes against all of them from your local machine. It also provides substantial benefits for creating and testing your own recipes.
         </p>
         <p>
-          Moderne currently supports numerous languages, data formats, build tools, and frameworks - with more being routinely added over time. Moderne also currently supports <Link href="/administrator-documentation/moderne-platform/references/supported-scms">most Git-based source code management tools</Link>.
+          <Link href="/administrator-documentation/moderne-dx/getting-started/overview"><strong>Moderne DX</strong></Link> brings the power of large-scale code insights and remediations into air-gapped or highly secure environments. It gives you the tools to build as much or as little as you need while ensuring all of your code and data remains under your own security controls.
+        </p>
+        <p>
+          <Link href="/user-documentation/moddy/moddy-platform"><strong>Moddy</strong></Link> is a multi-repo AI agent that combines natural language with the accuracy and scalability of Moderne and OpenRewrite. You can ask it questions like "Help me upgrade to Spring Boot 3.5" and it will find and execute the appropriate recipes for you.
+        </p>
+        <p>
+          <Link href="/user-documentation/recipes/prethink"><strong>Moderne Prethink</strong></Link> recipes generate structured context that gives coding agents a clear, accurate understanding of your entire codebase. Instead of forcing agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
+        </p>
+        <p>
+          Moderne also offers an <Link href="/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install"><strong>IntelliJ IDEA plugin</strong></Link> that helps you create and debug recipes while allowing you to search for code across all of your repositories at once.
+        </p>
+        <p>
+          Moderne is SOC 2 Type 2 compliant, so you can be confident that your code is secure. Furthermore, a private SaaS can be created for your team in any major cloud provider or region of your choice. Moderne currently supports numerous languages, data formats, build tools, and frameworks - with more being routinely added over time. Moderne also supports <Link href="/administrator-documentation/moderne-platform/references/supported-scms">most Git-based source code management tools</Link>.
         </p>
       </div>
     </section>
@@ -139,7 +154,7 @@ const Home: FunctionComponent = () => {
             <HeroSection />
             <ProductCardsGrid products={homepageProducts} />
             <WhatIsModerneSection />
-            <PlatformDetailsSection />
+            <AboutModerneSection />
           </div>
         </main>
       </Layout>
