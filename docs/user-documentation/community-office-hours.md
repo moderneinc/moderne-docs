@@ -14,6 +14,10 @@ Every week we [host a live Code Remix session](https://www.youtube.com/@Moderne-
 
 You can find each of the Code Remix sessions below along with a summary of what was discussed and the key links you might find helpful.
 
+### How to run 100,000 rules in parallel with Java 21+ (February 12th, 2026)
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=IFG2RB1OYH8' controls="true" />
+
 ### Mod with Claude: Upskill your agent (February 5th, 2026)
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=Yts-m6pspHY' controls="true" />
