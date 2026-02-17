@@ -145,11 +145,11 @@ All
 The following CSV file would represent this organizational structure:
 
 ```bash showLineNumbers
-cloneUrl,branch,org1,org2,org3
-"https://github.com/apache/maven-doxia","master","Team 1","Director A","ALL"
-"https://github.com/Netflix/photon","main","Team 2","Director A","ALL"
-"https://github.com/Netflix/ribbon","master","Director A","ALL"
-"https://github.com/apache/maven-doxia","master","Director B","ALL"
+"cloneUrl","branch","origin","path","org1","org2","org3"
+"https://github.com/apache/maven-doxia","master","github.com","apache/maven-doxia","Team 1","Director A","ALL"
+"https://github.com/Netflix/photon","main","github.com","Netflix/photon","Team 2","Director A","ALL"
+"https://github.com/Netflix/ribbon","master","github.com","Netflix/ribbon","Director A","ALL"
+"https://github.com/apache/maven-doxia","master","github.com","apache/maven-doxia","Director B","ALL"
 ```
 
 In the above file, we define 5 organizations (ALL, Director A, Director B, Team 1, and Team 2) and 3 repositories. Notice that one repository can be defined multiple times if you want two distinct organizations to have access to it.

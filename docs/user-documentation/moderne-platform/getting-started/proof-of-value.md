@@ -58,7 +58,7 @@ The recipes below progress from simple to complex. Links go to the [public Moder
 2. **Clone repos to your local machine** – In order for the CLI to run recipes against your code, you will need to provide it with [a repos.csv file](../../moderne-cli/references/repos-csv.md).
     * Once you've created the `repos.csv` file, create a directory somewhere on your machine and run the following command:
         ```bash
-        mod git sync csv . repos.csv
+        mod git sync csv . repos.csv --with-sources
         ```
 
 3. **Build LSTs for the repos you cloned** – With all of the repositories cloned to your machine, you'll need to build the LSTs for them by running the following command:

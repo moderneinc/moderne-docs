@@ -110,9 +110,9 @@ When cloning using `mod git sync csv`, it is possible to add a `"java"` column t
 In the below configuration, `rewrite-maven-plugin` is explicitly configured to use Java 8. Because the `"java"` column is blank for `rewrite-spring`, that repository will use the JDK auto-detection logic.
 
 ```csv
-"cloneUrl","branch","java"
-"https://github.com/openrewrite/rewrite-maven-plugin","main",8
-"https://github.com/openrewrite/rewrite-spring","main"
+"cloneUrl","branch","origin","path","java"
+"https://github.com/openrewrite/rewrite-maven-plugin","main","github.com","openrewrite/rewrite-maven-plugin",8
+"https://github.com/openrewrite/rewrite-spring","main","github.com","openrewrite/rewrite-spring"
 ```
 
 The CLI uses `mod config java version edit <VERSION> --local <REPO>` for each row in the repository that has a value for that column, so it is possible to verify that the column was enforced by subsequently running:
