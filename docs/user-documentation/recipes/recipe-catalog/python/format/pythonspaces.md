@@ -18,6 +18,51 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="python" label="python">
+
+
+###### Before
+```python
+class Foo:
+    def foo(
+        a ,
+        b ,
+        c
+    ):
+        pass
+```
+
+###### After
+```python
+class Foo:
+    def foo(
+        a,
+        b,
+        c
+    ):
+        pass
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -3,2 +3,2 @@
+class Foo:
+    def foo(
+-       a ,
+-       b ,
++       a,
++       b,
+        c
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

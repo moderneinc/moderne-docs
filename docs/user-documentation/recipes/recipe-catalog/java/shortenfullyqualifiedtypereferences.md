@@ -34,6 +34,45 @@ This recipe is used as part of the following composite recipes:
 * [Migrate SLF4J to Log4j 2.x API](/user-documentation/recipes/recipe-catalog/java/logging/log4j/slf4jtolog4j.md)
 * [Migrate classes from Jackson Codehaus (legacy) to Jackson FasterXML](/user-documentation/recipes/recipe-catalog/java/jackson/codehausclassestofasterxml.md)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import java.util.List;
+
+class T {
+    java.util.List<String> list;
+}
+```
+
+###### After
+```java
+import java.util.List;
+
+class T {
+    List<String> list;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -4,1 +4,1 @@
+
+class T {
+-   java.util.List<String> list;
++   List<String> list;
+}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

@@ -37,6 +37,39 @@ This recipe is used as part of the following composite recipes:
 * [OpenRewrite recipe best practices](/user-documentation/recipes/recipe-catalog/recipes/rewrite/openrewriterecipebestpractices.md)
 * [Upgrade to the latest Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import java.util.List;
+class A {}
+```
+
+###### After
+```java
+class A {}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,0 @@
+-import java.util.List;
+class A {}
+@@ -3,1 +2,0 @@
+import java.util.List;
+class A {}
+-
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

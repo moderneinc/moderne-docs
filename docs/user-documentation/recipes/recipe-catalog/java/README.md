@@ -8,7 +8,7 @@ _Basic building blocks for transforming Java code._
 
 ## Categories
 
-* [Ai](/user-documentation/recipes/recipe-catalog/java/ai)
+* [AI](/user-documentation/recipes/recipe-catalog/java/ai)
 * [Camel](/user-documentation/recipes/recipe-catalog/java/camel)
 * [Dependencies](/user-documentation/recipes/recipe-catalog/java/dependencies)
 * [Dropwizard](/user-documentation/recipes/recipe-catalog/java/dropwizard)

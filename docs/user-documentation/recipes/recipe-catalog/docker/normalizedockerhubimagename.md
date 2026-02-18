@@ -31,6 +31,37 @@ This recipe is used as part of the following composite recipes:
 
 * [Apply Docker best practices](/user-documentation/recipes/recipe-catalog/docker/dockerbestpractices.md)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="docker" label="docker">
+
+
+###### Before
+```docker
+FROM docker.io/library/ubuntu:22.04
+RUN apt-get update
+```
+
+###### After
+```docker
+FROM ubuntu:22.04
+RUN apt-get update
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-FROM docker.io/library/ubuntu:22.04
++FROM ubuntu:22.04
+RUN apt-get update
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 
