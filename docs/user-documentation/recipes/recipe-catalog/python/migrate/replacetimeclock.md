@@ -16,7 +16,7 @@ _Replace `time.clock()` with `time.perf_counter()`. time.clock() was deprecated 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 * [time](/user-documentation/recipes/lists/recipes-by-tag#time)
-* [3.8](/user-documentation/recipes/lists/recipes-by-tag#3.8)
+* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
 
 ## Recipe source
 

@@ -14,7 +14,7 @@ _Migrate legacy chain, retriever, and indexing imports from `langchain` to `lang
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [1.0](/user-documentation/recipes/lists/recipes-by-tag#1.0)
+* [1.0](/user-documentation/recipes/lists/recipes-by-tag#10)
 * [langchain](/user-documentation/recipes/lists/recipes-by-tag#langchain)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 

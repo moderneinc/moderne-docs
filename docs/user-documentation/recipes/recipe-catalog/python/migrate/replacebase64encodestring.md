@@ -16,7 +16,7 @@ _Replace `base64.encodestring()` with `base64.encodebytes()`. The encodestring()
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 * [base64](/user-documentation/recipes/lists/recipes-by-tag#base64)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#3.9)
+* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
 
 ## Recipe source
 

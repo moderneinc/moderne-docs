@@ -15,7 +15,7 @@ _Replace `import imp` with `import importlib` for code that only uses imp.reload
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.12](/user-documentation/recipes/lists/recipes-by-tag#3.12)
+* [3.12](/user-documentation/recipes/lists/recipes-by-tag#312)
 
 ## Recipe source
 

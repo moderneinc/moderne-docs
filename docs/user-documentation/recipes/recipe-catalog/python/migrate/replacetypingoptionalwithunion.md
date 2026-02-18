@@ -16,7 +16,7 @@ _PEP 604 introduced the `|` operator for union types in Python 3.10. Replace `Op
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 * [typing](/user-documentation/recipes/lists/recipes-by-tag#typing)
-* [3.10](/user-documentation/recipes/lists/recipes-by-tag#3.10)
+* [3.10](/user-documentation/recipes/lists/recipes-by-tag#310)
 * [pep604](/user-documentation/recipes/lists/recipes-by-tag#pep604)
 
 ## Recipe source

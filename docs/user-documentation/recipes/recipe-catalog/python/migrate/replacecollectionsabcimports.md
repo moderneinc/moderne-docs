@@ -16,7 +16,7 @@ _Migrate deprecated abstract base class imports from `collections` to `collectio
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [collections](/user-documentation/recipes/lists/recipes-by-tag#collections)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.10](/user-documentation/recipes/lists/recipes-by-tag#3.10)
+* [3.10](/user-documentation/recipes/lists/recipes-by-tag#310)
 
 ## Recipe source
 

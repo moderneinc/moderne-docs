@@ -45,6 +45,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * newGroupId: `jakarta.xml.bind`
   * newArtifactId: `jakarta.xml.bind-api`
   * newVersion: `3.0.x`
+* [Retain `javax.xml.bind:jaxb-api` when `jackson-module-jaxb-annotations` is present](../../../java/migrate/jakarta/retainjaxbapiforjackson)
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `jakarta.xml.bind`
   * artifactId: `jakarta.xml.bind-api`
@@ -95,6 +96,7 @@ recipeList:
       newGroupId: jakarta.xml.bind
       newArtifactId: jakarta.xml.bind-api
       newVersion: 3.0.x
+  - org.openrewrite.java.migrate.jakarta.RetainJaxbApiForJackson
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
       groupId: jakarta.xml.bind
       artifactId: jakarta.xml.bind-api

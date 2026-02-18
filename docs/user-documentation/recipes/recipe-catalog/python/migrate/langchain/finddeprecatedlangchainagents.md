@@ -14,7 +14,7 @@ _Find usage of deprecated LangChain agent patterns including `initialize_agent`,
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [1.0](/user-documentation/recipes/lists/recipes-by-tag#1.0)
+* [1.0](/user-documentation/recipes/lists/recipes-by-tag#10)
 * [langchain](/user-documentation/recipes/lists/recipes-by-tag#langchain)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 

@@ -15,7 +15,7 @@ _Migrate deprecated and removed APIs for Python 3.11 compatibility. This include
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.11](/user-documentation/recipes/lists/recipes-by-tag#3.11)
+* [3.11](/user-documentation/recipes/lists/recipes-by-tag#311)
 
 ## Recipe source
 

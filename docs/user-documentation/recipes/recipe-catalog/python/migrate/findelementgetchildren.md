@@ -16,7 +16,7 @@ _Find usage of `getchildren()` method on XML Element objects. Deprecated in Pyth
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [xml](/user-documentation/recipes/lists/recipes-by-tag#xml)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#3.9)
+* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
 
 ## Recipe source
 

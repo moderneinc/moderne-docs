@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5525
+Total recipes: 5544
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -317,7 +317,7 @@ _2 recipes_
 
 _License: Moderne Proprietary License_
 
-_67 recipes_
+_68 recipes_
 
 * [io.moderne.java.jsf.richfaces.ConvertExtendedDataTableHeightToStyle](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/convertextendeddatatableheighttostyle.md)
   * **Convert height/width attributes to `extendedDataTable` style**
@@ -397,6 +397,9 @@ _67 recipes_
 * [io.moderne.java.spring.boot4.AddAutoConfigureMockMvc](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addautoconfiguremockmvc.md)
   * **Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`**
   * Adds `@AutoConfigureMockMvc` annotation to classes annotated with `@SpringBootTest` that use `MockMvc`.
+* [io.moderne.java.spring.boot4.AddMssqlKerberosJaasConfig](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmssqlkerberosjaasconfig.md)
+  * **Add `useDefaultJaasConfig=true` to MSSQL Kerberos JDBC URLs**
+  * For MSSQL JDBC connections using Kerberos authentication (`authenticationScheme=JavaKerberos` or `integratedSecurity=true`), adds `useDefaultJaasConfig=true` to the connection string. This is required for compatibility with Keycloak 26.4+ which changes JAAS configuration handling.
 * [io.moderne.java.spring.boot4.FlagDeprecatedReactorNettyHttpClientMapper](/user-documentation/recipes/recipe-catalog/java/spring/boot4/flagdeprecatedreactornettyhttpclientmapper.md)
   * **Flag deprecated ReactorNettyHttpClientMapper for migration**
   * Adds a TODO comment to classes implementing the deprecated `ReactorNettyHttpClientMapper` interface. Migration to `ClientHttpConnectorBuilderCustomizer&lt;ReactorClientHttpConnectorBuilder&gt;` requires wrapping the HttpClient configuration in `builder.withHttpClientCustomizer(...)`.
@@ -444,7 +447,7 @@ _67 recipes_
   * Migrates classes that implement `javax.servlet.Filter` (or `jakarta.servlet.Filter`) to extend `org.springframework.web.filter.OncePerRequestFilter`. This transformation renames `doFilter` to `doFilterInternal`, changes parameter types to HTTP variants, removes manual casting, and removes empty `init()` and `destroy()` methods.
 * [io.moderne.java.spring.framework.MigrateHandleErrorMethodInvocations](/user-documentation/recipes/recipe-catalog/java/spring/framework/migratehandleerrormethodinvocations.md)
   * **Migrate `handleError` method invocations to new signature**
-  * Updates invocations of `handleError(ClientHttpResponse)` to the new `handleError(URI, HttpMethod, ClientHttpResponse)` signature introduced in Spring Framework 7.0. Callers are updated to pass `null` for the `URI` and `HttpMethod` parameters when the actual values are not available.
+  * Updates invocations of `handleError(ClientHttpResponse)` to the new `handleError(URI, HttpMethod, ClientHttpResponse)` signature introduced in Spring Framework 7.0. In test sources, example values are used. In main sources, `null` is passed with a TODO comment.
 * [io.moderne.java.spring.framework.MigrateHttpHeadersMultiValueMapMethods](/user-documentation/recipes/recipe-catalog/java/spring/framework/migratehttpheadersmultivaluemapmethods.md)
   * **Migrate `HttpHeaders` methods removed when `MultiValueMap` contract was dropped**
   * Spring Framework 7.0 changed `HttpHeaders` to no longer implement `MultiValueMap`. This recipe replaces removed inherited method calls: `containsKey()` with `containsHeader()`, `keySet()` with `headerNames()`, and `entrySet()` with `headerSet()`.
@@ -4009,11 +4012,17 @@ _12 recipes_
 
 _License: Moderne Proprietary License_
 
-_4 recipes_
+_11 recipes_
 
 * [org.openrewrite.terraform.AddConfiguration](/user-documentation/recipes/recipe-catalog/terraform/addconfiguration.md)
   * **Add Terraform configuration**
   * If the configuration has a different value, leave it alone. If it is missing, add it.
+* [org.openrewrite.terraform.ChangeResourceAttribute](/user-documentation/recipes/recipe-catalog/terraform/changeresourceattribute.md)
+  * **Change Terraform resource attribute**
+  * Change the value of a Terraform resource attribute if it matches a given pattern.
+* [org.openrewrite.terraform.MoveProviderVersionToRequiredProviders](/user-documentation/recipes/recipe-catalog/terraform/moveproviderversiontorequiredproviders.md)
+  * **Move provider version to `required_providers`**
+  * In Terraform 0.13+, version constraints should be specified in the `terraform \{ required_providers \{ ... \} \}` block instead of the `provider` block. This recipe removes the `version` attribute from `provider` blocks and adds it to `required_providers`.
 * [org.openrewrite.terraform.SecureRandom](/user-documentation/recipes/recipe-catalog/terraform/securerandom.md)
   * **Use a long enough byte length for `random` resources**
   * Use a long enough byte length for `random` resources.
@@ -4023,6 +4032,21 @@ _4 recipes_
 * [org.openrewrite.terraform.search.FindResource](/user-documentation/recipes/recipe-catalog/terraform/search/findresource.md)
   * **Find Terraform resource**
   * Find a Terraform resource by resource type.
+* [org.openrewrite.terraform.terraform012.RemoveInterpolationOnlyExpressions](/user-documentation/recipes/recipe-catalog/terraform/terraform012/removeinterpolationonlyexpressions.md)
+  * **Remove interpolation-only expressions**
+  * Remove unnecessary interpolation expressions like `&quot;$\{var.foo\}&quot;` in favor of first-class expression syntax `var.foo`, as supported in Terraform 0.12+.
+* [org.openrewrite.terraform.terraform012.ReplaceDeprecatedCollectionFunctions](/user-documentation/recipes/recipe-catalog/terraform/terraform012/replacedeprecatedcollectionfunctions.md)
+  * **Replace deprecated `list()` and `map()` functions**
+  * In Terraform 0.12+, the `list()` function is replaced by `[...]` tuple syntax and the `map()` function is replaced by `\{...\}` object syntax.
+* [org.openrewrite.terraform.terraform012.UnquoteTypeConstraints](/user-documentation/recipes/recipe-catalog/terraform/terraform012/unquotetypeconstraints.md)
+  * **Unquote variable type constraints**
+  * In Terraform 0.12+, variable type constraints should be bare types instead of quoted strings. For example, `type = &quot;string&quot;` becomes `type = string`.
+* [org.openrewrite.terraform.terraform013.UpgradeRequiredProvidersSyntax](/user-documentation/recipes/recipe-catalog/terraform/terraform013/upgraderequiredproviderssyntax.md)
+  * **Upgrade `required_providers` to object syntax**
+  * In Terraform 0.13+, `required_providers` entries should use the object syntax with explicit `source` and `version` attributes instead of a plain version string. For example, `aws = &quot;~&gt; 3.0&quot;` becomes `aws = \{ source = &quot;hashicorp/aws&quot;, version = &quot;~&gt; 3.0&quot; \}`.
+* [org.openrewrite.terraform.terraform015.FindRemovedProvisioners](/user-documentation/recipes/recipe-catalog/terraform/terraform015/findremovedprovisioners.md)
+  * **Find removed provisioners**
+  * Find usage of provisioners that were removed in Terraform 0.15: `chef`, `habitat`, `puppet`, and `salt-masterless`.
 
 ## org.openrewrite.recipe:rewrite-testing-frameworks
 
@@ -11834,7 +11858,7 @@ _18 recipes_
 
 _License: Unknown_
 
-_1755 recipes_
+_1766 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -12040,6 +12064,9 @@ _1755 recipes_
 * [io.moderne.java.spring.boot4.MigrateToModularStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition.md)
   * **Migrate to Spring Boot 4.0 modular starters**
   * Remove monolithic starters and adds the necessary Spring Boot 4.0 starter dependencies based on package usage, where any spring-boot-starter was used previously.
+* [io.moderne.java.spring.boot4.ModuleHasMonolithicStarter](/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulehasmonolithicstarter.md)
+  * **Module has monolithic Spring Boot starter**
+  * Precondition that matches modules with the monolithic Spring Boot starters that need to be migrated to modular starters. Matches the production monolithic spring-boot-starter and spring-boot-starter-classic, but not specific modular starters like spring-boot-starter-test or spring-boot-starter-ldap.
 * [io.moderne.java.spring.boot4.ModuleStarterRelocations](/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulestarterrelocations.md)
   * **Spring Boot 4.0 Module Starter Relocations**
   * Relocate types and packages for Spring Boot 4.0 modular starters.
@@ -14257,6 +14284,9 @@ _1755 recipes_
 * [org.openrewrite.java.migrate.UpgradePluginsForJava21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava21.md)
   * **Upgrade plugins to Java 21 compatible versions**
   * Updates plugins and dependencies to version compatible with Java 21.
+* [org.openrewrite.java.migrate.UpgradePluginsForJava25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava25.md)
+  * **Upgrade plugins to Java 25 compatible versions**
+  * Updates plugins and dependencies to versions compatible with Java 25.
 * [org.openrewrite.java.migrate.UpgradeToJava17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17.md)
   * **Migrate to Java 17**
   * This recipe will apply changes commonly needed when migrating to Java 17. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 17 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 17.
@@ -14617,6 +14647,9 @@ _1755 recipes_
 * [org.openrewrite.java.migrate.jakarta.RestAssuredJavaxToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/restassuredjavaxtojakarta.md)
   * **Migrate RestAssured from javax to jakarta namespace by upgrading to a version compatible with J2EE9**
   * Java EE has been rebranded to Jakarta EE.  This recipe replaces existing RestAssured dependencies with their counterparts that are compatible with Jakarta EE 9.
+* [org.openrewrite.java.migrate.jakarta.RetainJaxbApiForJackson](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/retainjaxbapiforjackson.md)
+  * **Retain `javax.xml.bind:jaxb-api` when `jackson-module-jaxb-annotations` is present**
+  * When migrating from `javax.xml.bind` to `jakarta.xml.bind` 3.0+, the `javax.xml.bind:jaxb-api` dependency is normally replaced. However, if `jackson-module-jaxb-annotations` is on the classpath (and still uses the `javax.xml.bind` namespace), this recipe ensures `javax.xml.bind:jaxb-api` remains available as a runtime dependency to prevent `NoClassDefFoundError`.
 * [org.openrewrite.java.migrate.jakarta.ServletCookieBehaviorChangeRFC6265](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/servletcookiebehaviorchangerfc6265.md)
   * **Remove `getComment` and `getVersion` methods**
   * Jakarta Servlet methods have been deprecated for removal in Jakarta Servlet 6.0 to align with RFC 6265. In addition, the behavior of these methods has been changed so the setters no longer have any effect, the getComment methods return null, and the getVersion method returns 0. The deprecated methods are removed.
@@ -16693,6 +16726,9 @@ _1755 recipes_
 * [org.openrewrite.tapestry.UpdateTapestryDependencies](/user-documentation/recipes/recipe-catalog/tapestry/updatetapestrydependencies.md)
   * **Update Tapestry dependencies**
   * Updates dependencies from Tapestry 4 to Tapestry 5.
+* [org.openrewrite.terraform.UpgradeTerraformTo0_14](/user-documentation/recipes/recipe-catalog/terraform/upgradeterraformto0_14.md)
+  * **Upgrade Terraform to 0.14**
+  * Migrate Terraform configuration from 0.13 to 0.14. Moves version constraints from `provider` blocks to `terraform \{ required_providers \{ ... \} \}`.
 * [org.openrewrite.terraform.aws.AWSBestPractices](/user-documentation/recipes/recipe-catalog/terraform/aws/awsbestpractices.md)
   * **Best practices for AWS**
   * Securely operate on Amazon Web Services.
@@ -16840,6 +16876,18 @@ _1755 recipes_
 * [org.openrewrite.terraform.aws.ImmutableECRTags](/user-documentation/recipes/recipe-catalog/terraform/aws/immutableecrtags.md)
   * **Make ECR tags immutable**
   * Amazon ECR supports immutable tags, preventing image tags from being overwritten. In the past, ECR tags could have been overwritten, this could be overcome by requiring users to uniquely identify an image using a naming convention.
+* [org.openrewrite.terraform.aws.UpgradeAwsAuroraMySqlToV3](/user-documentation/recipes/recipe-catalog/terraform/aws/upgradeawsauroramysqltov3.md)
+  * **Upgrade AWS Aurora MySQL to version 3 (MySQL 8.0)**
+  * Upgrade `engine_version` to Aurora MySQL version 3 (MySQL 8.0 compatible) on `aws_rds_cluster` resources and set `allow_major_version_upgrade = true` to permit the major version change.
+* [org.openrewrite.terraform.aws.UpgradeAwsAuroraPostgresToV17](/user-documentation/recipes/recipe-catalog/terraform/aws/upgradeawsaurorapostgrestov17.md)
+  * **Upgrade AWS Aurora PostgreSQL to 17**
+  * Upgrade `engine_version` to Aurora PostgreSQL 17 on `aws_rds_cluster` resources and set `allow_major_version_upgrade = true` to permit the major version change.
+* [org.openrewrite.terraform.aws.UpgradeAwsRdsMySqlToV8_4](/user-documentation/recipes/recipe-catalog/terraform/aws/upgradeawsrdsmysqltov8_4.md)
+  * **Upgrade AWS RDS MySQL to 8.4**
+  * Upgrade `engine_version` to MySQL 8.4 on `aws_db_instance` resources and set `allow_major_version_upgrade = true` to permit the major version change.
+* [org.openrewrite.terraform.aws.UpgradeAwsRdsPostgresToV17](/user-documentation/recipes/recipe-catalog/terraform/aws/upgradeawsrdspostgrestov17.md)
+  * **Upgrade AWS RDS PostgreSQL to 17**
+  * Upgrade `engine_version` to PostgreSQL 17 on `aws_db_instance` resources and set `allow_major_version_upgrade = true` to permit the major version change.
 * [org.openrewrite.terraform.aws.UseHttpsForCloudfrontDistribution](/user-documentation/recipes/recipe-catalog/terraform/aws/usehttpsforcloudfrontdistribution.md)
   * **Use HTTPS for Cloudfront distribution**
   * Secure communication by default.
@@ -17035,6 +17083,15 @@ _1755 recipes_
 * [org.openrewrite.terraform.gcp.GCPBestPractices](/user-documentation/recipes/recipe-catalog/terraform/gcp/gcpbestpractices.md)
   * **Best practices for GCP**
   * Securely operate on Google Cloud Platform.
+* [org.openrewrite.terraform.terraform012.UpgradeTerraformTo0_12](/user-documentation/recipes/recipe-catalog/terraform/terraform012/upgradeterraformto0_12.md)
+  * **Upgrade Terraform to 0.12**
+  * Migrate Terraform configuration from 0.11 (HCL1) to 0.12 (HCL2) syntax. Removes interpolation-only expressions, unquotes type constraints, replaces deprecated collection functions, and fixes legacy index syntax.
+* [org.openrewrite.terraform.terraform013.UpgradeTerraformTo0_13](/user-documentation/recipes/recipe-catalog/terraform/terraform013/upgradeterraformto0_13.md)
+  * **Upgrade Terraform to 0.13**
+  * Migrate Terraform configuration from 0.12 to 0.13 syntax. Upgrades `required_providers` entries from shorthand version strings to the object syntax with explicit `source` and `version` attributes.
+* [org.openrewrite.terraform.terraform015.UpgradeTerraformTo0_15](/user-documentation/recipes/recipe-catalog/terraform/terraform015/upgradeterraformto0_15.md)
+  * **Upgrade Terraform to 0.15**
+  * Migrate Terraform configuration from 0.14 to 0.15. Finds usage of provisioners that were removed in Terraform 0.15: `chef`, `habitat`, `puppet`, and `salt-masterless`.
 * [org.openrewrite.xml.liberty.AppDDNamespaceRule](/user-documentation/recipes/recipe-catalog/xml/liberty/appddnamespacerule.md)
   * **Use correct application namespace values**
   * Namespace values in application.xml must be consistent with the descriptor version.

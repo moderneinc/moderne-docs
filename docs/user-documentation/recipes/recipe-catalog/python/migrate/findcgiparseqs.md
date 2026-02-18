@@ -16,7 +16,7 @@ _`cgi.parse_qs()` was removed in Python 3.8. Use `urllib.parse.parse_qs()` inste
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [cgi](/user-documentation/recipes/lists/recipes-by-tag#cgi)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.8](/user-documentation/recipes/lists/recipes-by-tag#3.8)
+* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
 
 ## Recipe source
 

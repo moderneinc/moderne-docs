@@ -14,9 +14,9 @@ _Replace `cgi.escape()` with `html.escape()`. cgi.escape() was deprecated in Pyt
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [3.2](/user-documentation/recipes/lists/recipes-by-tag#3.2)
+* [3.2](/user-documentation/recipes/lists/recipes-by-tag#32)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.8](/user-documentation/recipes/lists/recipes-by-tag#3.8)
+* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
 
 ## Recipe source
 

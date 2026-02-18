@@ -415,6 +415,12 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
   * **Migrate static OGNL method access to action wrapper methods**
   * Migrates OGNL expressions using static method access (e.g., `@com.app.Util@makeCode()`) to use action wrapper methods instead. Static method access is disabled by default in Struts 6 for security reasons.
 
+## org.openrewrite.recipe:rewrite-terraform
+
+* [org.openrewrite.terraform.MoveProviderVersionToRequiredProviders](/user-documentation/recipes/recipe-catalog/terraform/moveproviderversiontorequiredproviders.md)
+  * **Move provider version to `required_providers`**
+  * In Terraform 0.13+, version constraints should be specified in the `terraform \{ required_providers \{ ... \} \}` block instead of the `provider` block. This recipe removes the `version` attribute from `provider` blocks and adds it to `required_providers`.
+
 ## org.openrewrite.recipe:rewrite-testing-frameworks
 
 * [org.openrewrite.java.testing.cleanup.TestsShouldNotBePublic](/user-documentation/recipes/recipe-catalog/java/testing/cleanup/testsshouldnotbepublic.md)

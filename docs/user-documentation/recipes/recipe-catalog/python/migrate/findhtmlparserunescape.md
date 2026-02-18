@@ -16,7 +16,7 @@ _`HTMLParser.unescape()` was removed in Python 3.9. Use `html.unescape()` instea
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 * [html](/user-documentation/recipes/lists/recipes-by-tag#html)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#3.9)
+* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
 
 ## Recipe source
 

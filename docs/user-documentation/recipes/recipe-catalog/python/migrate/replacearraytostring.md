@@ -16,7 +16,7 @@ _Replace `tostring()` with `tobytes()` on array objects. The tostring() method w
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [array](/user-documentation/recipes/lists/recipes-by-tag#array)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.14](/user-documentation/recipes/lists/recipes-by-tag#3.14)
+* [3.14](/user-documentation/recipes/lists/recipes-by-tag#314)
 
 ## Recipe source
 

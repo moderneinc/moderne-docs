@@ -16,7 +16,7 @@ _Replace `fromstring()` with `frombytes()` on array objects. The fromstring() me
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [array](/user-documentation/recipes/lists/recipes-by-tag#array)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.14](/user-documentation/recipes/lists/recipes-by-tag#3.14)
+* [3.14](/user-documentation/recipes/lists/recipes-by-tag#314)
 
 ## Recipe source
 

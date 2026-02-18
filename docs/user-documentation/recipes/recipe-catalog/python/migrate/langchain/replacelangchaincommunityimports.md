@@ -14,7 +14,7 @@ _Migrate third-party integration imports from `langchain` to `langchain_communit
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [0.2](/user-documentation/recipes/lists/recipes-by-tag#0.2)
+* [0.2](/user-documentation/recipes/lists/recipes-by-tag#02)
 * [langchain](/user-documentation/recipes/lists/recipes-by-tag#langchain)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 

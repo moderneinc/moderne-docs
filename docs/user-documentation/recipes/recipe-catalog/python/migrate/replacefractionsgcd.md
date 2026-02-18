@@ -16,7 +16,7 @@ _Replace `fractions.gcd()` with `math.gcd()`. fractions.gcd() was deprecated in 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 * [fractions](/user-documentation/recipes/lists/recipes-by-tag#fractions)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#3.9)
+* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
 
 ## Recipe source
 

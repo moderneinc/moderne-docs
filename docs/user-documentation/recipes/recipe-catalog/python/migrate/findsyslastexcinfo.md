@@ -15,7 +15,7 @@ _`sys.last_type`, `sys.last_value`, and `sys.last_traceback` were deprecated in 
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.12](/user-documentation/recipes/lists/recipes-by-tag#3.12)
+* [3.12](/user-documentation/recipes/lists/recipes-by-tag#312)
 * [sys](/user-documentation/recipes/lists/recipes-by-tag#sys)
 
 ## Recipe source

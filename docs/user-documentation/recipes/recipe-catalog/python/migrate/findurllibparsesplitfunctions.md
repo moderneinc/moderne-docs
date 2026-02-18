@@ -16,7 +16,7 @@ _Find usage of deprecated urllib.parse split functions (splithost, splitport, et
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [urllib](/user-documentation/recipes/lists/recipes-by-tag#urllib)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.14](/user-documentation/recipes/lists/recipes-by-tag#3.14)
+* [3.14](/user-documentation/recipes/lists/recipes-by-tag#314)
 
 ## Recipe source
 

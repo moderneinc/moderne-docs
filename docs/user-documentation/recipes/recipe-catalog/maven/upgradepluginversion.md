@@ -74,6 +74,7 @@ This recipe is used as part of the following composite recipes:
 * [Upgrade plugins to Java 11 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava11.md)
 * [Upgrade plugins to Java 17 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava17.md)
 * [Upgrade plugins to Java 21 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava21.md)
+* [Upgrade plugins to Java 25 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava25.md)
 * [Upgrade to Spring Boot 2.5](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_5.md)
 * [io.quarkus.updates.core.quarkus37.MavenPlugins](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus37/mavenplugins.md)
 

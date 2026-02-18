@@ -15,7 +15,7 @@ _Replace `warn()` calls with `warning()`. The warn() method was deprecated in Py
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.3](/user-documentation/recipes/lists/recipes-by-tag#3.3)
+* [3.3](/user-documentation/recipes/lists/recipes-by-tag#33)
 * [logging](/user-documentation/recipes/lists/recipes-by-tag#logging)
 
 ## Recipe source

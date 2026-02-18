@@ -15,7 +15,7 @@ _Migrate deprecated APIs for Python 3.9 compatibility. This includes PEP 585 bui
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#3.9)
+* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
 
 ## Recipe source
 

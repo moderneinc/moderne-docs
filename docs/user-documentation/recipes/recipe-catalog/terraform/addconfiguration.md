@@ -140,6 +140,10 @@ This recipe is used as part of the following composite recipes:
 * [Make ECR tags immutable](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/aws/immutableecrtags)
 * [Scan images pushed to ECR](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/aws/enableecrscanonpush)
 * [Set Azure Storage Account default network access to deny](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/azure/setazurestorageaccountdefaultnetworkaccesstodeny)
+* [Upgrade AWS Aurora MySQL to version 3 (MySQL 8.0)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/aws/upgradeawsauroramysqltov3)
+* [Upgrade AWS Aurora PostgreSQL to 17](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/aws/upgradeawsaurorapostgrestov17)
+* [Upgrade AWS RDS MySQL to 8.4](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/aws/upgradeawsrdsmysqltov8_4)
+* [Upgrade AWS RDS PostgreSQL to 17](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/aws/upgradeawsrdspostgrestov17)
 * [Use HTTPS for Cloudfront distribution](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/aws/usehttpsforcloudfrontdistribution)
 
 ## Example

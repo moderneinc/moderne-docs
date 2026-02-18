@@ -15,7 +15,7 @@ _Migrate deprecated APIs and detect legacy patterns for Python 3.8 compatibility
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.8](/user-documentation/recipes/lists/recipes-by-tag#3.8)
+* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
 
 ## Recipe source
 

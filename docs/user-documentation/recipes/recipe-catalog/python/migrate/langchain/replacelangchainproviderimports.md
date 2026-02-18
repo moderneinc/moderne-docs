@@ -14,7 +14,7 @@ _Migrate provider-specific imports from `langchain_community` to dedicated provi
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [0.2](/user-documentation/recipes/lists/recipes-by-tag#0.2)
+* [0.2](/user-documentation/recipes/lists/recipes-by-tag#02)
 * [langchain](/user-documentation/recipes/lists/recipes-by-tag#langchain)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 

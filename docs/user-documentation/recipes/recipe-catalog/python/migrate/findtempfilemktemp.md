@@ -17,7 +17,7 @@ _Find usage of `tempfile.mktemp()` which is deprecated due to security concerns 
 * [security](/user-documentation/recipes/lists/recipes-by-tag#security)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 * [tempfile](/user-documentation/recipes/lists/recipes-by-tag#tempfile)
-* [3.14](/user-documentation/recipes/lists/recipes-by-tag#3.14)
+* [3.14](/user-documentation/recipes/lists/recipes-by-tag#314)
 
 ## Recipe source
 

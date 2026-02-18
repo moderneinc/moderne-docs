@@ -15,7 +15,7 @@ _Replace `"..." % (...)` expressions with f-strings (Python 3.6+). Only converts
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.6](/user-documentation/recipes/lists/recipes-by-tag#3.6)
+* [3.6](/user-documentation/recipes/lists/recipes-by-tag#36)
 * [f-string](/user-documentation/recipes/lists/recipes-by-tag#f)
 
 ## Recipe source

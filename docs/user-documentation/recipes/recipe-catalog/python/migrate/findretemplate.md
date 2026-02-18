@@ -16,7 +16,7 @@ _`re.template()` and `re.TEMPLATE` were deprecated in Python 3.11 and removed in
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [re](/user-documentation/recipes/lists/recipes-by-tag#re)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.11](/user-documentation/recipes/lists/recipes-by-tag#3.11)
+* [3.11](/user-documentation/recipes/lists/recipes-by-tag#311)
 
 ## Recipe source
 

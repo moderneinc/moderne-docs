@@ -17,7 +17,7 @@ _Replace `typing.Dict` with the built-in `dict` type. Available in Python 3.9+ (
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 * [typing](/user-documentation/recipes/lists/recipes-by-tag#typing)
 * [PEP 585](/user-documentation/recipes/lists/recipes-by-tag#pep-585)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#3.9)
+* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
 
 ## Recipe source
 

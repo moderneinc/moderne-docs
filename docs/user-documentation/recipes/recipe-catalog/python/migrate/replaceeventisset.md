@@ -16,8 +16,8 @@ _Replace `isSet()` method calls with `is_set()`. The camelCase version was depre
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 * [threading](/user-documentation/recipes/lists/recipes-by-tag#threading)
-* [3.12](/user-documentation/recipes/lists/recipes-by-tag#3.12)
-* [3.10](/user-documentation/recipes/lists/recipes-by-tag#3.10)
+* [3.12](/user-documentation/recipes/lists/recipes-by-tag#312)
+* [3.10](/user-documentation/recipes/lists/recipes-by-tag#310)
 
 ## Recipe source
 

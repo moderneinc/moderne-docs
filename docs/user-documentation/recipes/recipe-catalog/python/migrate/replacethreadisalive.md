@@ -16,7 +16,7 @@ _Replace `isAlive()` method calls with `is_alive()`. Deprecated in Python 3.1 an
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 * [threading](/user-documentation/recipes/lists/recipes-by-tag#threading)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#3.9)
+* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
 
 ## Recipe source
 

@@ -15,7 +15,7 @@ _The `aifc` module was deprecated in Python 3.11 and removed in Python 3.13. Use
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.13](/user-documentation/recipes/lists/recipes-by-tag#3.13)
+* [3.13](/user-documentation/recipes/lists/recipes-by-tag#313)
 * [PEP 594](/user-documentation/recipes/lists/recipes-by-tag#pep-594)
 
 ## Recipe source

@@ -49,11 +49,7 @@ class MySecClass {
 project
 ```
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
+###### Unchanged
 ```xml title="pom.xml"
 <project>
     <modelVersion>4.0.0</modelVersion>
@@ -69,47 +65,6 @@ project
     </dependencies>
 </project>
 ```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.example</groupId>
-    <artifactId>example</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-access</artifactId>
-            <version>7.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>6.5.1</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -9,0 +9,5 @@
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-+           <artifactId>spring-security-access</artifactId>
-+           <version>7.0.2</version>
-+       </dependency>
-+       <dependency>
-+           <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-```
-</TabItem>
-</Tabs>
 
 ---
 
@@ -131,11 +86,7 @@ class MySecClass {
 project
 ```
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
+###### Unchanged
 ```xml title="pom.xml"
 <project>
     <modelVersion>4.0.0</modelVersion>
@@ -151,47 +102,6 @@ project
     </dependencies>
 </project>
 ```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.example</groupId>
-    <artifactId>example</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-access</artifactId>
-            <version>7.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>6.5.1</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -9,0 +9,5 @@
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-+           <artifactId>spring-security-access</artifactId>
-+           <version>7.0.2</version>
-+       </dependency>
-+       <dependency>
-+           <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-```
-</TabItem>
-</Tabs>
 
 
 ## Usage

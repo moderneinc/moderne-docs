@@ -16,7 +16,7 @@ _Replace `getiterator()` with `iter()` on XML Element objects. The getiterator()
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [xml](/user-documentation/recipes/lists/recipes-by-tag#xml)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#3.9)
+* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
 
 ## Recipe source
 

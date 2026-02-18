@@ -15,7 +15,7 @@ _Migrate deprecated and removed APIs for Python 3.13 compatibility. This include
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.13](/user-documentation/recipes/lists/recipes-by-tag#3.13)
+* [3.13](/user-documentation/recipes/lists/recipes-by-tag#313)
 
 ## Recipe source
 

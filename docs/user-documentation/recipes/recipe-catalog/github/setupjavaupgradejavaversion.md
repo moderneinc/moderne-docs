@@ -36,9 +36,9 @@ This recipe is available under the [Moderne Source Available License](https://do
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Java 21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava21.md)
-* [Migrate to Java 25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava25.md)
 * [Upgrade plugins to Java 11 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava11.md)
 * [Upgrade plugins to Java 17 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava17.md)
+* [Upgrade plugins to Java 25 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava25.md)
 
 ## Example
 

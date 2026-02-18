@@ -15,7 +15,7 @@ _Replace `imp.reload()` with `importlib.reload()`. This is a direct 1:1 replacem
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.12](/user-documentation/recipes/lists/recipes-by-tag#3.12)
+* [3.12](/user-documentation/recipes/lists/recipes-by-tag#312)
 
 ## Recipe source
 

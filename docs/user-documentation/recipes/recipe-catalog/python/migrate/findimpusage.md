@@ -15,7 +15,7 @@ _Find imports of the deprecated `imp` module which was removed in Python 3.12. M
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.12](/user-documentation/recipes/lists/recipes-by-tag#3.12)
+* [3.12](/user-documentation/recipes/lists/recipes-by-tag#312)
 
 ## Recipe source
 

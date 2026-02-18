@@ -25,6 +25,126 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 ## Examples
 ##### Example 1
+`MigrateBootstrapRegistryPackageTest#migrateBootstrapClassImports`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.BootstrapContext;
+import org.springframework.boot.BootstrapContextClosedEvent;
+
+class A {
+    void configure(BootstrapContext context, BootstrapContextClosedEvent event) {}
+}
+```
+
+###### After
+```java
+import org.springframework.boot.bootstrap.BootstrapContext;
+import org.springframework.boot.bootstrap.BootstrapContextClosedEvent;
+
+class A {
+    void configure(BootstrapContext context, BootstrapContextClosedEvent event) {}
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import org.springframework.boot.BootstrapContext;
+-import org.springframework.boot.BootstrapContextClosedEvent;
++import org.springframework.boot.bootstrap.BootstrapContext;
++import org.springframework.boot.bootstrap.BootstrapContextClosedEvent;
+
+```
+</TabItem>
+</Tabs>
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.BootstrapRegistry;
+import org.springframework.boot.BootstrapRegistryInitializer;
+
+class B {
+    void configure(BootstrapRegistry registry, BootstrapRegistryInitializer initializer) {}
+}
+```
+
+###### After
+```java
+import org.springframework.boot.bootstrap.BootstrapRegistry;
+import org.springframework.boot.bootstrap.BootstrapRegistryInitializer;
+
+class B {
+    void configure(BootstrapRegistry registry, BootstrapRegistryInitializer initializer) {}
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import org.springframework.boot.BootstrapRegistry;
+-import org.springframework.boot.BootstrapRegistryInitializer;
++import org.springframework.boot.bootstrap.BootstrapRegistry;
++import org.springframework.boot.bootstrap.BootstrapRegistryInitializer;
+
+```
+</TabItem>
+</Tabs>
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.ConfigurableBootstrapContext;
+import org.springframework.boot.DefaultBootstrapContext;
+
+class C {
+    void configure(ConfigurableBootstrapContext configurableContext, DefaultBootstrapContext defaultContext) {}
+}
+```
+
+###### After
+```java
+import org.springframework.boot.bootstrap.ConfigurableBootstrapContext;
+import org.springframework.boot.bootstrap.DefaultBootstrapContext;
+
+class C {
+    void configure(ConfigurableBootstrapContext configurableContext, DefaultBootstrapContext defaultContext) {}
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import org.springframework.boot.ConfigurableBootstrapContext;
+-import org.springframework.boot.DefaultBootstrapContext;
++import org.springframework.boot.bootstrap.ConfigurableBootstrapContext;
++import org.springframework.boot.bootstrap.DefaultBootstrapContext;
+
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
 `MigrateEnvironmentPostProcessorPackageTest#migrateEnvironmentPostProcessorImport`
 
 
@@ -66,7 +186,127 @@ class MyConfig {
 
 ---
 
-##### Example 2
+##### Example 3
+`MigrateBootstrapRegistryPackageTest#migrateBootstrapClassImports`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.BootstrapContext;
+import org.springframework.boot.BootstrapContextClosedEvent;
+
+class A {
+    void configure(BootstrapContext context, BootstrapContextClosedEvent event) {}
+}
+```
+
+###### After
+```java
+import org.springframework.boot.bootstrap.BootstrapContext;
+import org.springframework.boot.bootstrap.BootstrapContextClosedEvent;
+
+class A {
+    void configure(BootstrapContext context, BootstrapContextClosedEvent event) {}
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import org.springframework.boot.BootstrapContext;
+-import org.springframework.boot.BootstrapContextClosedEvent;
++import org.springframework.boot.bootstrap.BootstrapContext;
++import org.springframework.boot.bootstrap.BootstrapContextClosedEvent;
+
+```
+</TabItem>
+</Tabs>
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.BootstrapRegistry;
+import org.springframework.boot.BootstrapRegistryInitializer;
+
+class B {
+    void configure(BootstrapRegistry registry, BootstrapRegistryInitializer initializer) {}
+}
+```
+
+###### After
+```java
+import org.springframework.boot.bootstrap.BootstrapRegistry;
+import org.springframework.boot.bootstrap.BootstrapRegistryInitializer;
+
+class B {
+    void configure(BootstrapRegistry registry, BootstrapRegistryInitializer initializer) {}
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import org.springframework.boot.BootstrapRegistry;
+-import org.springframework.boot.BootstrapRegistryInitializer;
++import org.springframework.boot.bootstrap.BootstrapRegistry;
++import org.springframework.boot.bootstrap.BootstrapRegistryInitializer;
+
+```
+</TabItem>
+</Tabs>
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.ConfigurableBootstrapContext;
+import org.springframework.boot.DefaultBootstrapContext;
+
+class C {
+    void configure(ConfigurableBootstrapContext configurableContext, DefaultBootstrapContext defaultContext) {}
+}
+```
+
+###### After
+```java
+import org.springframework.boot.bootstrap.ConfigurableBootstrapContext;
+import org.springframework.boot.bootstrap.DefaultBootstrapContext;
+
+class C {
+    void configure(ConfigurableBootstrapContext configurableContext, DefaultBootstrapContext defaultContext) {}
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import org.springframework.boot.ConfigurableBootstrapContext;
+-import org.springframework.boot.DefaultBootstrapContext;
++import org.springframework.boot.bootstrap.ConfigurableBootstrapContext;
++import org.springframework.boot.bootstrap.DefaultBootstrapContext;
+
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 4
 `MigrateEnvironmentPostProcessorPackageTest#migrateEnvironmentPostProcessorImport`
 
 

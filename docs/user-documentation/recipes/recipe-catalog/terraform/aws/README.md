@@ -9,6 +9,10 @@ description: AWS OpenRewrite recipes.
 _Recipes that include further recipes, often including the individual recipes below._
 
 * [Best practices for AWS](./awsbestpractices.md)
+* [Upgrade AWS Aurora MySQL to version 3 (MySQL 8.0)](./upgradeawsauroramysqltov3.md)
+* [Upgrade AWS Aurora PostgreSQL to 17](./upgradeawsaurorapostgrestov17.md)
+* [Upgrade AWS RDS MySQL to 8.4](./upgradeawsrdsmysqltov8_4.md)
+* [Upgrade AWS RDS PostgreSQL to 17](./upgradeawsrdspostgrestov17.md)
 
 ## Recipes
 

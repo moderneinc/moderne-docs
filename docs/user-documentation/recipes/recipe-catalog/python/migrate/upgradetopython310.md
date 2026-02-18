@@ -15,7 +15,7 @@ _Migrate deprecated APIs and adopt new syntax for Python 3.10 compatibility. Thi
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.10](/user-documentation/recipes/lists/recipes-by-tag#3.10)
+* [3.10](/user-documentation/recipes/lists/recipes-by-tag#310)
 
 ## Recipe source
 

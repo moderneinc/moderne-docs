@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 **io.moderne.java.spring.framework.MigrateHandleErrorMethodInvocations**
 
-_Updates invocations of `handleError(ClientHttpResponse)` to the new `handleError(URI, HttpMethod, ClientHttpResponse)` signature introduced in Spring Framework 7.0. Callers are updated to pass `null` for the `URI` and `HttpMethod` parameters when the actual values are not available._
+_Updates invocations of `handleError(ClientHttpResponse)` to the new `handleError(URI, HttpMethod, ClientHttpResponse)` signature introduced in Spring Framework 7.0. In test sources, example values are used. In main sources, `null` is passed with a TODO comment._
 
 ## Recipe source
 

@@ -15,7 +15,7 @@ _`tarfile.filemode` was removed in Python 3.8. Use `stat.filemode()` instead._
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.8](/user-documentation/recipes/lists/recipes-by-tag#3.8)
+* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
 * [tarfile](/user-documentation/recipes/lists/recipes-by-tag#tarfile)
 
 ## Recipe source
