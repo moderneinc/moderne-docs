@@ -91,14 +91,14 @@ Presuming everything has been set up correctly, you should see output similar to
 ```bash
 ▶ psf/requests@main
     Build output will be written to build.log
-    // highlight-start
+    # highlight-start
     > Step 1 - build with Python
         Selected Python 3.12.0
         Processing Python project: .
         Started project parsing: /Users/someuser/repos/psf/requests
         Discovered 42 files to parse
     ✓ Built requests-20260213120000000-ast.jar
-    // highlight-end
+    # highlight-end
     Cleaned 1 older builds
 ```
 
@@ -143,9 +143,9 @@ mod run . --active-recipe
 Many recipes will also produce useful data tables that you can access via the `mod study` command such as in:
 
 ```bash
-// highlight-start
+# highlight-start
 mod study . --last-recipe-run --data-table SourcesFileResults
-// highlight-end
+# highlight-end
 
 Moderne CLI 3.57.6
 
