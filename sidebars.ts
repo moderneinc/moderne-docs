@@ -421,7 +421,7 @@ const recipes = {
       ],
     },
     'user-documentation/recipes/prethink',
-    'user-documentation/recipes/code-search',
+    'user-documentation/recipes/moderne-trigrep',
     {
       type: 'category' as const,
       label: 'Catalog',
