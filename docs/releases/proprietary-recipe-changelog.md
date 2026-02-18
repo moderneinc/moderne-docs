@@ -10,6 +10,13 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## February 17, 2026
+
+#### rewrite-terraform - v3.12.0
+
+* Add RDS engine version upgrade recipes
+* Add Terraform upgrade recipes for 0.12 through 0.15
+
 ## February 11, 2026
 
 #### rewrite-ai-search - 0.32.6
