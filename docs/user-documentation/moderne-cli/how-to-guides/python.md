@@ -147,7 +147,7 @@ Many recipes will also produce useful data tables that you can access via the `m
 mod study . --last-recipe-run --data-table SourcesFileResults
 # highlight-end
 
-Moderne CLI 3.57.6
+Moderne CLI 3.57.8
 
 ⏺ Reading organization
 
