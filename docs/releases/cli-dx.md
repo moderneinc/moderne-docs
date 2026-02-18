@@ -1,14 +1,14 @@
 # CLI / DX changelog
 
-### CLI / DX v3.57.6 (2026-02-13)
+### CLI / DX v3.57.8 (2026-02-18)
 
 #### What's Changed
-* Fix partition matching sibling false positives
+* Pass marketplace resolvers to JS and Python RPC factories
 
-### CLI / DX v3.57.6 (2026-02-13)
+### CLI / DX v3.57.7 (2026-02-18)
 
 #### What's Changed
-* Fix partition matching sibling false positives
+* Fall back to root org when current org not found in CSV
 
 ### CLI / DX v3.57.6 (2026-02-13)
 
