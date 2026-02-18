@@ -45,14 +45,14 @@ cd $PROJECTS
 git clone https://github.com/modernetraining/moderne-migration-practice
 ```
 
-2. Now we'll create a workspace directory to house our code repositories:
+2. Now you'll create a workspace directory to house your code repositories:
 
 ```bash
 mkdir -p $WORKSPACE
 cd $WORKSPACE
 ```
 
-3. There are two ways to pull repositories with the Moderne CLI: sync directly from a Moderne Platform organization or sync from a local `repos.csv` file. We'll start by pulling from the platform organization, which downloads both the source code and the LSTs (Lossless Semantic Trees). The LST is OpenRewrite's rich code model that recipes use to make accurate, safe changes. Use the following command to sync the repositories:
+3. There are two ways to pull repositories with the Moderne CLI: sync directly from a Moderne Platform organization or sync from a local `repos.csv` file. You'll start by pulling from the platform organization, which downloads both the source code and the LSTs (Lossless Semantic Trees). The LST is OpenRewrite's rich code model that recipes use to make accurate, safe changes. Use the following command to sync the repositories:
 
 ```bash
 mod git sync moderne $WORKSPACE --organization "Moderne - Training" --with-sources

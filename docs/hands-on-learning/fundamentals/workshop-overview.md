@@ -31,7 +31,7 @@ To get the most out of this workshop, you should at least be familiar with:
 
 If you haven’t been through the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop yet, we recommend completing it first before returning here.
 
-## Outline and agenda
+## Workshop modules
 
 1. [Module 1: Environment setup](./module-1-recipe-development-environment)
 2. [Module 2: Declarative YAML recipes & preconditions](./module-2-declarative-yaml-recipes)

@@ -595,6 +595,23 @@ const handsOnLearning = {
       ],
     },
     {
+      type: 'category' as const,
+      label: 'AI-assisted recipe authoring',
+      link: {
+        type: 'generated-index' as const,
+        title: 'Teaching AI to write better OpenRewrite recipes',
+        description: 'Learn to use AI as a co-author for building OpenRewrite migration recipes, using the Moderne CLI\'s built-in AI skills.',
+        slug: '/hands-on-learning/ai-recipes',
+        keywords: ['ai', 'recipes', 'skills'],
+      },
+      items: [
+        'hands-on-learning/ai-recipes/workshop-overview',
+        'hands-on-learning/ai-recipes/module-1-plan',
+        'hands-on-learning/ai-recipes/module-2-build',
+        'hands-on-learning/ai-recipes/module-3-test',
+      ],
+    },
+    {
       type: 'link' as const,
       label: 'Live OpenRewrite training',
       description: 'Hands-on sessions for both newcomers and advanced practitioners.',
