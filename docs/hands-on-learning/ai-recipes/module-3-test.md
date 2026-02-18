@@ -20,32 +20,19 @@ In this module, you'll run your recipe against real-world repositories, compare 
 
 To run your recipe against real repositories, you need a `repos.csv` that lists the repos to test against. You have two options:
 
-<!--
-  OPEN QUESTION: How should attendees get their pre-built working set?
-
-  Attendees can try the create-organization skill on their own (Option B below), but we need
-  a pre-built option so they can move forward quickly. The question is how to provide it.
-
-  Option 1 (current): Pre-built repos.csv + mod git sync csv. Attendees clone repos and
-  build LSTs locally. Works without platform access but mod build can take a long time
-  in a workshop setting.
-
-  Option 2: Pre-configured organization on the Moderne platform with LSTs already built.
-  Attendees sync with `mod git sync moderne working-set --organization "<name>" --with-sources`
-  which downloads pre-built LSTs. Much faster, but means we need to set up a separate org in the 
-  app.moderne.io,  and also requires platform access as a prerequisite.
-
-  If Option 1, we also need to decide where to host the repos.csv (gist, repo, docs, inline).
--->
-
 **Option A: Use the pre-built repos.csv (recommended for the workshop)**
 
-Download the curated repos.csv with Jackson 2.x repositories and sync the working set:
+Download the curated [repos.csv](/ai-recipes-workshop/repos.csv) with Jackson 2.x repositories into your working set directory:
 
 ```bash
 mkdir -p working-set
 grep -q "working-set" .gitignore || echo "working-set*/" >> .gitignore
-curl -o working-set/repos.csv <DOWNLOAD_URL>
+curl -o working-set/repos.csv https://docs.moderne.io/ai-recipes-workshop/repos.csv
+```
+
+Then sync the working set:
+
+```bash
 mod git sync csv working-set working-set/repos.csv --with-sources
 ```
 
@@ -60,7 +47,7 @@ The `create-organization` skill helps find repos by technology. It uses `gh sear
 
 > /moderne:create-organization
 >
-> Find 15-20 small-to-medium Java repositories on GitHub that use Jackson 2.x (com.fasterxml.jackson). I need a mix of Maven and Gradle projects. Create a repos.csv for testing a Jackson 2→3 migration recipe.
+> Find 5-10 small-to-medium Java repositories on GitHub that use Jackson 2.x (com.fasterxml.jackson). I need a mix of Maven and Gradle projects. Create a repos.csv for testing a Jackson 2→3 migration recipe.
 
 </details>
 

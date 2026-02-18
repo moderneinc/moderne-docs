@@ -5,7 +5,7 @@ description: Extract structured insights from source code using data tables.
 
 # Module 2: Data tables
 
-Data tables allow you to extract structured insights from a codebase without modifying the code itself. Instead of applying transformations, you collect data and present it in tabular form that can easily be used for reporting, analytics, or (as you'll see later) visualizations. Every recipe automatically emits some core metadata (like source path, project info, etc.), but you can also define custom data table columns to capture additional information.
+Data tables allow you to extract structured insights from a codebase without modifying the code itself. Instead of applying transformations, you collect data and present it in tabular form that can easily be used for reporting, analytics, or (as you'll see later) visualizations. Every recipe run produces some default data tables (such as which source files had results), and every data table includes some common columns by default (like source path). Beyond these defaults, you can also define custom data tables with their own columns to capture additional information.
 
 ## Exercise 2a: Exploring data tables
 

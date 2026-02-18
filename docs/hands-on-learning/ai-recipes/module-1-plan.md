@@ -89,19 +89,24 @@ When you've seen enough, you can stop the agent since you won't be using this ou
 * Practice scoping agent output with human judgment
 * Understand the recipe type hierarchy: declarative YAML > Refaster > imperative
 
-### Context
+### How this maps to the workshop
 
-The skills you just tried form an iterative development loop. Open the `create-recipe` skill file on your machine to see the full workflow (see [Skills for AI coding agents](../../user-documentation/moderne-cli/how-to-guides/coding-agent-skills.md#supported-agents) for install locations). At a high level, the workflow follows these steps: identify the transformation, choose the recipe type, write tests, implement the recipe, and test with `run-recipe`.
+The skills you tried in Exercise 1-1 form an iterative development loop: identify the transformation, choose the recipe type, write tests, implement the recipe, and test with `run-recipe`. Each module in this workshop maps to a phase of that loop:
 
-Here's how that maps to the rest of the workshop:
 * **This exercise:** Plan what the recipe should do, scope it down, and confirm recipe type(s)
 * **Module 2:** Build the recipe with AI assistance, writing tests first to validate output
 * **Module 3:** Run the recipe against real repos, compare to desired results, and iterate
 
+:::tip
+You can open the `create-recipe` skill file on your machine to see the full workflow. See [Skills for AI coding agents](../../user-documentation/moderne-cli/how-to-guides/coding-agent-skills.md#supported-agents) for install locations.
+:::
+
+### About the Jackson 2→3 migration
+
 Jackson 3.x is a major release with significant breaking changes: package renames (`com.fasterxml.jackson` → `tools.jackson`), class renames, method renames, dependency coordinate changes, and behavioral differences. The [official migration guide](https://github.com/FasterXML/jackson/blob/main/jackson3/MIGRATING_TO_JACKSON_3.md) documents these changes comprehensively.
 
 :::note
-A production-quality Jackson 2→3 recipe already exists in OpenRewrite (`org.openrewrite.java.jackson.UpgradeJackson_2_3`). You're building our own version as a learning exercise. At the end, you can compare your output to the existing recipe to see how close you got.
+A production-quality Jackson 2→3 recipe already exists in OpenRewrite (`org.openrewrite.java.jackson.UpgradeJackson_2_3`). You're building your own version as a learning exercise. At the end, you can compare your output to the existing recipe to see how close you got.
 :::
 
 ### Steps
@@ -154,7 +159,7 @@ If the agent already proposed phases, review the first phase and refine it. If n
 <details>
 <summary>Suggested prompt</summary>
 
-> Good list. Let's focus on a first phase of 8-10 of the highest-impact operations. I want a mix of recipe types, including at least one that would require a custom imperative recipe (not just declarative primitives). Summarize the picks in a table with: what the change is, the recipe type, and why it's high priority.
+> Good list. Let's focus on a first phase of 8-10 of the highest-impact operations. Summarize the picks in a table with: what the change is, the recipe type, and why it's high priority.
 
 </details>
 
