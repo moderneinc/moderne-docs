@@ -5,6 +5,11 @@
 #### What's Changed
 * Fix partition matching sibling false positives
 
+### CLI / DX v3.57.6 (2026-02-13)
+
+#### What's Changed
+* Fix partition matching sibling false positives
+
 ### CLI / DX v3.57.5 (2026-02-13)
 
 #### What's Changed
