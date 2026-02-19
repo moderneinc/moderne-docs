@@ -17,7 +17,7 @@ Before starting a Moderne SaaS proof of value (PoV), your team will need to prep
 | 4 | [SCM OAuth application](#source-control-access) (GitHub App, GitLab OAuth, etc.)            | Allows users to view code and commit changes through Moderne                                       |
 | 5 | [Dedicated LST artifact repository](#artifact-repository) with read/write access            | New Maven 2 repo (Artifactory/Nexus) or dedicated S3 bucket                                        |
 | 6 | [Repository list](#preparing-your-repository-list) (repos.csv)                              | Generated with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers) |
-| 7 | [Network egress](#network-requirements) from the agent to `https://api.TENANT.moderne.io`   | Only outbound HTTPS required; mass ingest is internal only                                         |
+| 7 | [Network egress](#network-requirements) from the agent to `https://api.TENANT.moderne.io`   | Outbound HTTPS required; mass ingest may also need outbound access to cloud SCMs                   |
 
 ## Environments
 
@@ -25,7 +25,7 @@ You will need two separate environments provisioned and ready:
 
 ### Mass ingest
 
-The mass ingest environment builds all of your repositories and creates the [LST artifacts](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) that recipes run against. It runs as a Docker container and operates **entirely within your network** — no external ingress or egress is required.
+The mass ingest environment builds all of your repositories and creates the [LST artifacts](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) that recipes run against. It runs as a Docker container. When using a self-hosted SCM, it operates entirely within your network. When using a cloud SCM (github.com, gitlab.com, etc.), it requires outbound HTTPS to that service.
 
 | Resource | Minimum |
 |----------|---------|
@@ -105,7 +105,7 @@ The agent also needs read access to any artifact repositories that contain **dep
 | Developer machines | `https://login.TENANT.moderne.io`  | Outbound HTTPS             | Yes      |
 | Developer machines | `https://api.TENANT.moderne.io`    | Outbound HTTPS             | Yes      |
 
-**Mass ingest** operates entirely within your network when using a self-hosted SCM (e.g., GitHub Enterprise, GitLab self-managed). If your repositories are hosted on a cloud SCM (github.com, bitbucket.org, gitlab.com, or dev.azure.com), mass ingest requires outbound HTTPS to that service.
+**Mass ingest** requires egress access to all SCMs that live outside your network (if any), but otherwise requires no ingress or egress access.
 
 **The Moderne agent** requires outbound HTTPS to your Moderne tenant's API at `https://api.TENANT.moderne.io`. If your repositories are hosted on a cloud SCM, the agent also requires outbound HTTPS to that service. Moderne never initiates inbound connections to the agent — the agent establishes the connection using the [RSocket](https://rsocket.io/) protocol over HTTPS.
 
