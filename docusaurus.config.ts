@@ -1,8 +1,8 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
-import remarkTokenReplacer from "./src/plugins/replace-tokens";
 import latestVersions from "./src/plugins/latest-versions";
+import remarkTokenReplacer from "./src/plugins/replace-tokens";
 
 const config: Config = {
   title: 'Moderne Docs',
@@ -181,7 +181,7 @@ const config: Config = {
       apiKey: "15eb9c9f6f3147b1cf82b1b7f93cace8",
       indexName: "moderne",
       searchParameters: {
-        facetFilters: ["category:-recipe"],
+        facetFilters: ["-category:recipes"],
       },
     },
     // announcementBar: {
