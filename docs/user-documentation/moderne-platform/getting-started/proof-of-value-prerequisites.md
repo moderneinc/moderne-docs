@@ -94,20 +94,20 @@ The agent also needs read access to any artifact repositories that contain **dep
 
 ## Network requirements
 
-| Component          | Destination                        | Direction      | Required |
-|--------------------|------------------------------------|----------------|----------|
-| Mass ingest        | Your SCM (e.g., GitHub Enterprise) | Internal only  | Yes      |
-| Mass ingest        | Your artifact repository           | Internal only  | Yes      |
-| Agent              | `https://api.TENANT.moderne.io`    | Outbound HTTPS | Yes      |
-| Agent              | Your SCM                           | Internal       | Yes      |
-| Agent              | Your artifact repository           | Internal       | Yes      |
-| Developer machines | `https://TENANT.moderne.io`        | Outbound HTTPS | Yes      |
-| Developer machines | `https://login.TENANT.moderne.io`  | Outbound HTTPS | Yes      |
-| Developer machines | `https://api.TENANT.moderne.io`    | Outbound HTTPS | Yes      |
+| Component          | Destination                        | Direction                  | Required |
+|--------------------|------------------------------------|----------------------------|----------|
+| Mass ingest        | Your SCM (e.g., GitHub Enterprise) | Internal or outbound HTTPS | Yes      |
+| Mass ingest        | Your artifact repository           | Internal only              | Yes      |
+| Agent              | `https://api.TENANT.moderne.io`    | Outbound HTTPS             | Yes      |
+| Agent              | Your SCM                           | Internal or outbound HTTPS | Yes      |
+| Agent              | Your artifact repository           | Internal                   | Yes      |
+| Developer machines | `https://TENANT.moderne.io`        | Outbound HTTPS             | Yes      |
+| Developer machines | `https://login.TENANT.moderne.io`  | Outbound HTTPS             | Yes      |
+| Developer machines | `https://api.TENANT.moderne.io`    | Outbound HTTPS             | Yes      |
 
-**Mass ingest** requires egress access to all SCMs that live outside your network (if any), but otherwise requires no ingress or egress access.
+**Mass ingest** operates entirely within your network when using a self-hosted SCM (e.g., GitHub Enterprise, GitLab self-managed). If your repositories are hosted on a cloud SCM (github.com, bitbucket.org, gitlab.com, or dev.azure.com), mass ingest requires outbound HTTPS to that service.
 
-**The Moderne agent** only requires outbound HTTPS to your Moderne tenant's API at `https://api.TENANT.moderne.io`. Moderne never initiates inbound connections to the agent — the agent establishes the connection using the [RSocket](https://rsocket.io/) protocol over HTTPS.
+**The Moderne agent** requires outbound HTTPS to your Moderne tenant's API at `https://api.TENANT.moderne.io`. If your repositories are hosted on a cloud SCM, the agent also requires outbound HTTPS to that service. Moderne never initiates inbound connections to the agent — the agent establishes the connection using the [RSocket](https://rsocket.io/) protocol over HTTPS.
 
 If your environment requires an HTTP proxy for outbound traffic, the agent supports [proxy configuration](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-to-connect-to-moderne-via-an-http-proxy.md).
 
