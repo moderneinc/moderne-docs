@@ -33,7 +33,7 @@ The mass ingest environment builds all of your repositories and creates the [LST
 | Memory | 16 GB |
 | Disk | 32 GB |
 
-These resources are sufficient for up to around 1,000 repositories. For larger organizations, mass ingest can be scaled using cloud batch services like AWS Batch or Azure Batch. See the [mass ingest repository](https://github.com/moderneinc/mass-ingest-example) for scaling tiers and detailed setup instructions.
+These resources are sufficient for up to around 1,000 repositories. For larger organizations, mass ingest can be scaled using cloud batch services like AWS Batch or Azure Batch. The [mass ingest repository](https://github.com/moderneinc/mass-ingest-example) has scaling tiers and detailed setup instructions.
 
 :::tip
 If you have a standard base image that includes your existing certificates or other configuration, we can build on top of that. If you don't, we'll build from standard open-source base images and configure it with any certificates, credentials, and build tool settings during the first few days of the engagement.
@@ -49,13 +49,13 @@ The Moderne agent is responsible for communicating between your environment and 
 | Memory | 8 GB |
 | Storage | 10 GB (persistent or local) |
 
-For detailed configuration options and deployment instructions, see the [agent configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md).
+The [agent configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md) covers detailed configuration options and deployment instructions.
 
 ## Source control access
 
 Both environments need access to your source control management system (SCM), but for different purposes:
 
-* **Mass ingest** needs a service account with **read access** to all in-scope repositories. This is used to clone repositories and build LSTs. Credentials are mounted at runtime and never baked into images. See the [mass ingest source control credentials documentation](https://github.com/moderneinc/mass-ingest-example#source-control-credentials) for setup details.
+* **Mass ingest** needs a service account with **read access** to all in-scope repositories. This is used to clone repositories and build LSTs. Credentials are mounted at runtime and never baked into images. The [mass ingest source control credentials documentation](https://github.com/moderneinc/mass-ingest-example#source-control-credentials) has setup details.
 
 * **The Moderne agent** needs an **OAuth application** configured in your SCM. This enables users to authenticate through the Moderne platform to view code and commit changes back to your repositories. You will need to set up an OAuth app with a callback URL of `https://TENANT.moderne.io`.
 
@@ -82,11 +82,11 @@ You need a dedicated location for storing and retrieving LST artifacts. Mass ing
 Create a **new Maven 2 type repository** dedicated to LST artifacts. We strongly recommend keeping LSTs in their own repository rather than mixing them into an existing one — this makes indexing, cleanup, and troubleshooting much easier.
 
 * For **Artifactory**, the agent uses [Artifactory Query Language (AQL)](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access.md) for near real-time artifact discovery.
-* For **Nexus 3** or other Maven repositories, you must [enable Maven Indexer publishing](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md#configure-the-maven-indexer) on the LST repository so the agent can discover new artifacts. See the [Maven repository configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md) for full setup instructions.
+* For **Nexus 3** or other Maven repositories, you must [enable Maven Indexer publishing](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md#configure-the-maven-indexer) on the LST repository so the agent can discover new artifacts. The [Maven repository configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md) has full setup instructions.
 
 ### Option 2: Amazon S3 (or S3-compatible storage)
 
-Create a **dedicated S3 bucket** for LST artifacts. The bucket must only contain LST artifacts — other objects in the bucket will slow down indexing as the agent scans all objects on every sync. See the [S3 configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-s3-access.md) for authentication options (IAM role, AWS profile, or access keys) and setup instructions.
+Create a **dedicated S3 bucket** for LST artifacts. The bucket must only contain LST artifacts — other objects in the bucket will slow down indexing as the agent scans all objects on every sync. The [S3 configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-s3-access.md) covers authentication options (IAM role, AWS profile, or access keys) and setup instructions.
 
 :::info
 The agent also needs read access to any artifact repositories that contain **dependencies** for the projects you will be running recipes against.
