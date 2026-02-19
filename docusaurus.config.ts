@@ -180,6 +180,9 @@ const config: Config = {
       appId: "MEFFK0HGO6",
       apiKey: "15eb9c9f6f3147b1cf82b1b7f93cace8",
       indexName: "moderne",
+      searchParameters: {
+        facetFilters: ["category:-recipe"],
+      },
     },
     // announcementBar: {
     //   id: "code_remix",
