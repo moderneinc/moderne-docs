@@ -179,7 +179,10 @@ const config: Config = {
     algolia: {
       appId: "MEFFK0HGO6",
       apiKey: "15eb9c9f6f3147b1cf82b1b7f93cace8",
-      indexName: "moderne"
+      indexName: "moderne",
+      searchParameters: {
+        filters: "NOT category:recipes",
+      },
     },
     // announcementBar: {
     //   id: "code_remix",
