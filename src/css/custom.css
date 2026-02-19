@@ -115,6 +115,11 @@ html[data-theme=light] {
   --docsearch-muted-color: rgba(4, 24, 52, 0.75);
 }
 
+/* Algolia DocSearch - Reduce dropdown height for facet tabs row */
+.DocSearch-Dropdown {
+  max-height: calc(var(--docsearch-modal-height) - var(--docsearch-spacing) - var(--docsearch-footer-height) - 48px);
+}
+
 /* Algolia DocSearch - Pill Shape Styling */
 .DocSearch-Button {
   width: 232px;
