@@ -77,7 +77,7 @@ The easiest way to generate this file is with our [repository fetcher scripts](h
 
 You need a dedicated location for storing and retrieving LST artifacts. Mass ingest needs **write access** to publish LST artifacts, and the Moderne agent needs **read access** to index and retrieve them. Choose one of the following options:
 
-### Option 1: Maven-formatted repository (Artifactory, Nexus, or Azure Artifacts)
+### Option 1: Maven-formatted repository (Artifactory or Nexus)
 
 Create a **new Maven 2 type repository** dedicated to LST artifacts. We strongly recommend keeping LSTs in their own repository rather than mixing them into an existing one — this makes indexing, cleanup, and troubleshooting much easier.
 
