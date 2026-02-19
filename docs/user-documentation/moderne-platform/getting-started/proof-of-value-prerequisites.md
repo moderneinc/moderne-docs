@@ -9,15 +9,15 @@ Before starting a Moderne SaaS proof of value (PoV), your team will need to prep
 
 ## Checklist
 
-| # | Requirement | Details |
-|---|-------------|---------|
-| 1 | VM for [mass ingest](#mass-ingest) (2 CPU, 16 GB RAM, 32 GB disk) | Builds your repositories and publishes LST artifacts |
-| 2 | VM for the [Moderne agent](#moderne-agent) (2 CPU, 8 GB RAM, 10 GB storage) | Connects your environment to the Moderne SaaS tenant |
-| 3 | [SCM service account](#source-control-access) with read access to all in-scope repositories | Used by mass ingest to clone and build repositories |
-| 4 | [SCM OAuth application](#source-control-access) (GitHub App, GitLab OAuth, etc.) | Allows users to view code and commit changes through Moderne |
-| 5 | [Dedicated LST artifact repository](#artifact-repository) with read/write access | New Maven 2 repo (Artifactory/Nexus) or dedicated S3 bucket |
-| 6 | [Repository list](#preparing-your-repository-list) (repos.csv) | Generated with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers) |
-| 7 | [Network egress](#network-requirements) from the agent to `https://api.TENANT.moderne.io` | Only outbound HTTPS required; mass ingest is internal only |
+| # | Requirement                                                                                 | Details                                                                                            |
+|---|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| 1 | VM for [mass ingest](#mass-ingest) (2 CPU, 16 GB RAM, 32 GB disk)                           | Builds your repositories and publishes LST artifacts                                               |
+| 2 | VM for the [Moderne agent](#moderne-agent) (2 CPU, 8 GB RAM, 10 GB storage)                 | Connects your environment to the Moderne SaaS tenant                                               |
+| 3 | [SCM service account](#source-control-access) with read access to all in-scope repositories | Used by mass ingest to clone and build repositories                                                |
+| 4 | [SCM OAuth application](#source-control-access) (GitHub App, GitLab OAuth, etc.)            | Allows users to view code and commit changes through Moderne                                       |
+| 5 | [Dedicated LST artifact repository](#artifact-repository) with read/write access            | New Maven 2 repo (Artifactory/Nexus) or dedicated S3 bucket                                        |
+| 6 | [Repository list](#preparing-your-repository-list) (repos.csv)                              | Generated with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers) |
+| 7 | [Network egress](#network-requirements) from the agent to `https://api.TENANT.moderne.io`   | Only outbound HTTPS required; mass ingest is internal only                                         |
 
 ## Environments
 
@@ -29,9 +29,9 @@ The mass ingest environment builds all of your repositories and creates the [LST
 
 | Resource | Minimum |
 |----------|---------|
-| CPU | 2 cores |
-| Memory | 16 GB |
-| Disk | 32 GB |
+| CPU      | 2 cores |
+| Memory   | 16 GB   |
+| Disk     | 32 GB   |
 
 These resources are sufficient for up to around 1,000 repositories. For larger organizations, mass ingest can be scaled using cloud batch services like AWS Batch or Azure Batch. The [mass ingest repository](https://github.com/moderneinc/mass-ingest-example) has scaling tiers and detailed setup instructions.
 
@@ -43,11 +43,11 @@ If you have a standard base image that includes your existing certificates or ot
 
 The Moderne agent is responsible for communicating between your environment and your Moderne SaaS tenant. It runs as an OCI container (Docker/Podman) or a Spring Boot executable JAR.
 
-| Resource | Minimum |
-|----------|---------|
-| CPU | 2 cores |
-| Memory | 8 GB |
-| Storage | 10 GB (persistent or local) |
+| Resource | Minimum                     |
+|----------|-----------------------------|
+| CPU      | 2 cores                     |
+| Memory   | 8 GB                        |
+| Storage  | 10 GB (persistent or local) |
 
 The [agent configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md) covers detailed configuration options and deployment instructions.
 
@@ -94,16 +94,16 @@ The agent also needs read access to any artifact repositories that contain **dep
 
 ## Network requirements
 
-| Component | Destination | Direction | Required |
-|-----------|-------------|-----------|----------|
-| Mass ingest | Your SCM (e.g., GitHub Enterprise) | Internal only | Yes |
-| Mass ingest | Your artifact repository | Internal only | Yes |
-| Agent | `https://api.TENANT.moderne.io` | Outbound HTTPS | Yes |
-| Agent | Your SCM | Internal | Yes |
-| Agent | Your artifact repository | Internal | Yes |
-| Developer machines | `https://TENANT.moderne.io` | Outbound HTTPS | Yes |
-| Developer machines | `https://login.TENANT.moderne.io` | Outbound HTTPS | Yes |
-| Developer machines | `https://api.TENANT.moderne.io` | Outbound HTTPS | Yes |
+| Component          | Destination                        | Direction      | Required |
+|--------------------|------------------------------------|----------------|----------|
+| Mass ingest        | Your SCM (e.g., GitHub Enterprise) | Internal only  | Yes      |
+| Mass ingest        | Your artifact repository           | Internal only  | Yes      |
+| Agent              | `https://api.TENANT.moderne.io`    | Outbound HTTPS | Yes      |
+| Agent              | Your SCM                           | Internal       | Yes      |
+| Agent              | Your artifact repository           | Internal       | Yes      |
+| Developer machines | `https://TENANT.moderne.io`        | Outbound HTTPS | Yes      |
+| Developer machines | `https://login.TENANT.moderne.io`  | Outbound HTTPS | Yes      |
+| Developer machines | `https://api.TENANT.moderne.io`    | Outbound HTTPS | Yes      |
 
 **Mass ingest** does not require any external ingress or egress and operates entirely within your network.
 
