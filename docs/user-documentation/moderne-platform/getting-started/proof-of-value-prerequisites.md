@@ -1,11 +1,17 @@
 ---
-sidebar_label: PoV prerequisites
-description: What your team needs to prepare before starting a Moderne SaaS proof of value.
+sidebar_label: Proof of value prerequisites
+description: What your team needs to prepare before starting the Moderne SaaS proof of value process.
 ---
 
-# Proof of value prerequisites
+# Proof of value (POV) prerequisites
 
-Before starting a Moderne SaaS proof of value (PoV), your team will need to prepare two environments, set up source control and artifact repository access, and open a small number of network paths. This page consolidates everything you need so nothing is missed.
+Before starting the Moderne SaaS proof of value process, your team will need to:
+
+* Prepare two environments
+* Set up source control and artifact repository access
+* Open a small number of network paths
+
+This page covers everything you need to do so nothing is missed on day one.
 
 ## Checklist
 
@@ -33,7 +39,7 @@ The mass ingest environment builds all of your repositories and creates the [LST
 | Memory   | 16 GB   |
 | Disk     | 32 GB   |
 
-These resources are sufficient for up to around 1,000 repositories. For larger organizations, mass ingest can be scaled using cloud batch services like AWS Batch or Azure Batch. The [mass ingest repository](https://github.com/moderneinc/mass-ingest-example) has scaling tiers and detailed setup instructions.
+These resources are sufficient for up to ~1,000 repositories. For larger organizations, mass ingest can be scaled using cloud batch services like AWS Batch or Azure Batch. The [mass ingest repository](https://github.com/moderneinc/mass-ingest-example) has scaling tiers and detailed setup instructions.
 
 :::tip
 If you have a standard base image that includes your existing certificates or other configuration, we can build on top of that. If you don't, we'll build from standard open-source base images and configure it with any certificates, credentials, and build tool settings during the first few days of the engagement.
@@ -69,7 +75,7 @@ SCM-specific configuration guides:
 
 ### Preparing your repository list
 
-You will need a [repos.csv file](../../moderne-cli/references/repos-csv.md) that lists the repositories to ingest. The more repositories you include, the more value you will see from the PoV — Moderne's strength is working across repositories at scale. We recommend including as many repositories as a single mass ingest container can build in a day.
+You will need a [repos.csv file](../../moderne-cli/references/repos-csv.md) that lists the repositories to ingest. The more repositories you include, the more value you will see from the POV — Moderne's strength is working across repositories at scale. We recommend including as many repositories as a single mass ingest container can build in a day.
 
 The easiest way to generate this file is with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers), which are available for GitHub, GitLab, Bitbucket (Data Center and Cloud), and Azure DevOps. These scripts query your SCM's API and produce a ready-to-use `repos.csv` file.
 
@@ -113,7 +119,7 @@ If your environment requires an HTTP proxy for outbound traffic, the agent suppo
 
 ## What Moderne provides
 
-During the PoV engagement, Moderne will provide:
+During the POV process, Moderne will provide:
 
 * A **dedicated SaaS tenant** provisioned in your chosen cloud provider and region (takes approximately 1 hour)
 * An **agent token** for authenticating the agent with the Moderne platform
