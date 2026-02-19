@@ -9,6 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # Proof of value (POV) process
 
+:::info
+Before starting the PoV process, make sure your team has completed the [prerequisites checklist](./proof-of-value-prerequisites.md).
+:::
+
 Moderne automates code maintenance tasks like framework migrations, security vulnerability fixes, and code quality improvements. Work that traditionally takes months can be completed in minutes, freeing developers to focus on delivering business value.
 
 This guide walks through a typical proof of value (POV) process to help you evaluate Moderne's capabilities. To demonstrate Moderne's value, we start with lower-complexity tasks like code quality improvements and then explore what happens with more complex migrations. It's important to note that we won't try to complete an entire migration during the proof of value phase. The goal is to demonstrate to you and your leadership that your developers, armed with the Moderne toolset (the CLI and Platform), _can_ get you all the way over the line. This applies not just to a specific migration, but to all future security and modernization efforts.
