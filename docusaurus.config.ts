@@ -98,6 +98,8 @@ const config: Config = {
             '**/*.stories.ts',
             '**/*.stories.jsx',
             '**/*.stories.js',
+            // DEV ONLY: skip 5,700+ recipe-catalog pages for faster rebuilds
+            ...(process.env.NODE_ENV === 'production' ? [] : ['user-documentation/recipes/recipe-catalog/**']),
           ],
           remarkPlugins: [
             [
@@ -180,9 +182,7 @@ const config: Config = {
       appId: "MEFFK0HGO6",
       apiKey: "15eb9c9f6f3147b1cf82b1b7f93cace8",
       indexName: "moderne",
-      searchParameters: {
-        filters: "NOT category:recipes",
-      },
+      // Search filtering is handled by SearchFacetTabs (src/theme/SearchBar)
     },
     // announcementBar: {
     //   id: "code_remix",
