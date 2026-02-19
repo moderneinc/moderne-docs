@@ -1,9 +1,9 @@
 # CLI / DX changelog
 
-### CLI / DX v3.57.6 (2026-02-13)
+### CLI / DX v3.57.9 (2026-02-19)
 
 #### What's Changed
-* Fix partition matching sibling false positives
+* Don't require Python and JS RPC to run unless running a Python/JS recipe
 
 ### CLI / DX v3.57.8 (2026-02-18)
 
