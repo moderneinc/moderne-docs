@@ -105,7 +105,7 @@ The agent also needs read access to any artifact repositories that contain **dep
 | Developer machines | `https://login.TENANT.moderne.io`  | Outbound HTTPS | Yes      |
 | Developer machines | `https://api.TENANT.moderne.io`    | Outbound HTTPS | Yes      |
 
-**Mass ingest** does not require any external ingress or egress and operates entirely within your network.
+**Mass ingest** requires egress access to all SCMs that live outside your network (if any), but otherwise requires no ingress or egress access.
 
 **The Moderne agent** only requires outbound HTTPS to your Moderne tenant's API at `https://api.TENANT.moderne.io`. Moderne never initiates inbound connections to the agent — the agent establishes the connection using the [RSocket](https://rsocket.io/) protocol over HTTPS.
 
