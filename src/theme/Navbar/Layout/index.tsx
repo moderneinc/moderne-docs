@@ -17,6 +17,7 @@ import {useHideableNavbar, useNavbarMobileSidebar} from '@docusaurus/theme-commo
 import {translate} from '@docusaurus/Translate';
 import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar';
 import type {Props} from '@theme/Navbar/Layout';
+import {AnnouncementBarInline} from '@theme/AnnouncementBar';
 import { SecondaryNav } from '@site/src/components/SecondaryNav';
 import { products, releasesItems, trainingItems } from '@site/src/config/megaMenuData';
 import styles from './styles.module.css';
@@ -47,6 +48,7 @@ const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
 
   return (
     <div className={styles.navbarWrapper}>
+      <AnnouncementBarInline />
       <nav
         ref={navbarRef}
         aria-label={translate({
