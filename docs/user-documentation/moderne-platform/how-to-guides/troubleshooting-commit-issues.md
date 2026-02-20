@@ -39,7 +39,6 @@ Commit failures related to authentication typically appear as permission denied 
 ### Root causes
 
 * **OAuth token expired.** SCM tokens obtained through the Moderne UI have a limited lifespan. For GitHub, OAuth tokens expire after 8 hours. If your session has been open longer than that, your token may no longer be valid.
-* **Session expired.** Moderne uses Keycloak for session management. Session tokens expire after 1 hour, refresh tokens after 8 hours, and the maximum session length is 10 hours. After these limits, you must re-authenticate.
 * **Insufficient SCM permissions.** Your SCM account may not have write or push access to the target repository.
 
 ### Troubleshooting steps
