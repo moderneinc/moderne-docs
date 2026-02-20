@@ -29,7 +29,7 @@ const VideoPlayer: FunctionComponent<VideoPlayerProps> = ({
   };
 
   return (
-    <BrowserOnly fallback={<div style={style} />}>
+    <BrowserOnly fallback={<div className={className} style={style} />}>
       {() => {
         const ReactPlayer = require('react-player').default;
         return (
