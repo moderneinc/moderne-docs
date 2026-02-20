@@ -61,8 +61,9 @@
   --ifm-navbar-padding-vertical: 0;
   --ifm-navbar-padding-horizontal: 32px;
   --ifm-navbar-item-padding-horizontal: 1.4rem;
-  --ifm-navbar-height: 37px;
+  --ifm-navbar-height: calc(37px + var(--ifm-announcement-bar-height));
   --ifm-secondary-nav-height: 48px;
+  --ifm-announcement-bar-height: 30px;
 
   /* Neo-Design: Typography family and weights */
   --ifm-font-family-base: var(--neo-font-family-body), sans-serif;
@@ -102,6 +103,11 @@
 
   /* Hover overlay for light mode */
   --ifm-hover-overlay: rgba(0, 0, 0, 0.05);
+}
+
+/* Zero out announcement bar height when dismissed */
+html[data-announcement-bar-initially-dismissed='true'] {
+  --ifm-announcement-bar-height: 0px;
 }
 
 /* Use selector for specificity */
@@ -409,7 +415,7 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 @media(min-width: 997px) {
   /* On desktop, account for secondary nav in total navbar height */
   :root {
-    --ifm-navbar-height: calc(37px + var(--ifm-secondary-nav-height));
+    --ifm-navbar-height: calc(37px + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height));
   }
 
   .theme-doc-sidebar-container {
