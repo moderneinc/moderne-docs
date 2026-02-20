@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.31.0 (2026/02/20)
+
+- add S3Configuration support
+
 ### UI v12.30.2 (2026/02/10)
 
 - Bug fixes and other improvements.
