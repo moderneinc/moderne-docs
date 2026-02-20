@@ -307,20 +307,20 @@ figure figcaption {
 
 /* Offset anchor targets so they land below the fixed navbar */
 html {
-  scroll-padding-top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_2));
+  scroll-padding-top: calc(var(--ifm-navbar-height) + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_2));
 }
 
 /* Push main content below fixed navbar */
 .main-wrapper {
-  margin-top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_2));
-  min-height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-announcement-bar-height) - var(--neo-spacing_2));
+  margin-top: calc(var(--ifm-navbar-height) + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_2));
+  min-height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-secondary-nav-height) - var(--ifm-announcement-bar-height) - var(--neo-spacing_2));
 }
 
 /* Ensure sidebar container has correct height calculation */
 .theme-doc-sidebar-container {
   position: sticky;
-  top: var(--neo-spacing_3);
-  height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-announcement-bar-height));
+  top: calc(var(--ifm-navbar-height) + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height));
+  height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-secondary-nav-height) - var(--ifm-announcement-bar-height));
   align-self: flex-start;
 }
 
