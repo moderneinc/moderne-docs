@@ -61,7 +61,7 @@
   --ifm-navbar-padding-vertical: 0;
   --ifm-navbar-padding-horizontal: 32px;
   --ifm-navbar-item-padding-horizontal: 1.4rem;
-  --ifm-navbar-height: calc(37px + var(--ifm-announcement-bar-height));
+  --ifm-navbar-height: 37px;
   --ifm-secondary-nav-height: 48px;
   --ifm-announcement-bar-height: 30px;
 
@@ -307,20 +307,20 @@ figure figcaption {
 
 /* Offset anchor targets so they land below the fixed navbar */
 html {
-  scroll-padding-top: calc(var(--ifm-navbar-height) + var(--neo-spacing_2));
+  scroll-padding-top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_2));
 }
 
 /* Push main content below fixed navbar */
 .main-wrapper {
-  margin-top: calc(var(--ifm-navbar-height) + var(--neo-spacing_2));
-  min-height: calc(100vh - var(--ifm-navbar-height) - var(--neo-spacing_2));
+  margin-top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_2));
+  min-height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-announcement-bar-height) - var(--neo-spacing_2));
 }
 
 /* Ensure sidebar container has correct height calculation */
 .theme-doc-sidebar-container {
   position: sticky;
   top: var(--neo-spacing_3);
-  height: calc(100vh - var(--ifm-navbar-height));
+  height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-announcement-bar-height));
   align-self: flex-start;
 }
 
@@ -409,13 +409,13 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 
 /* TOC position - below full navbar wrapper */
 [class*="tableOfContents"] {
-  top: calc(var(--ifm-navbar-height) + var(--neo-spacing_7));
+  top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_7));
 }
 
 @media(min-width: 997px) {
   /* On desktop, account for secondary nav in total navbar height */
   :root {
-    --ifm-navbar-height: calc(37px + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height));
+    --ifm-navbar-height: calc(37px + var(--ifm-secondary-nav-height));
   }
 
   .theme-doc-sidebar-container {
