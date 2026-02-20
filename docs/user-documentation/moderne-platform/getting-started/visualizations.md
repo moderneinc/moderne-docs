@@ -3,7 +3,7 @@ sidebar_label: Generating visualizations
 description: A guide on the different types of visualizations.
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # Getting started with visualizations
 

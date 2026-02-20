@@ -3,7 +3,7 @@ sidebar_label: Type-aware code search
 description: An introduction into type-aware code searching in Moderne.
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # Introduction to type-aware code search
 

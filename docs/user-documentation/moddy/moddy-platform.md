@@ -2,7 +2,7 @@
 sidebar_label: Moddy in the Moderne Platform
 description: Getting started with Moddy in the Moderne Platform.
 ---
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # Getting started with Moddy
 
