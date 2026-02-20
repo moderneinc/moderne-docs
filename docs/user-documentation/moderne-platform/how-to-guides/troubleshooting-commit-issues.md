@@ -32,15 +32,29 @@ You will see an error like:
 3. **Re-ingest the LST and try again.** Trigger a fresh LST build so that it captures the current state of the repository, then rerun the recipe and commit.
 4. **Make your build deterministic.** Ensure that running the build twice on the same source produces identical output. Disable timestamp injection in code generators, pin formatter versions, and avoid build plugins that inject non-deterministic values into source files. If certain generated files don't need recipe changes, exclude those directories from LST ingestion.
 
-## SCM authentication and token issues
+## SCM authentication and token issues (UI and API)
 
-Commit failures related to authentication typically appear as permission denied errors, 401/403 HTTP responses, or provider-specific error messages.
+Commit failures related to authentication typically appear as permission denied errors, 401/403 HTTP responses, or provider-specific error messages. These issues can occur whether you commit through the Moderne UI or the GraphQL API.
 
 ### Root causes
 
 * **OAuth token expired.** SCM tokens obtained through the Moderne UI have a limited lifespan. For GitHub, OAuth tokens expire after 8 hours. If your session has been open longer than that, your token may no longer be valid.
 * **Session expired.** Moderne uses Keycloak for session management. Session tokens expire after 1 hour, refresh tokens after 8 hours, and the maximum session length is 10 hours. After these limits, you must re-authenticate.
-* **Azure DevOps service principal not supported.** If you see the error:
+* **Insufficient SCM permissions.** Your SCM account may not have write or push access to the target repository.
+
+### Troubleshooting steps
+
+1. **Re-authorize your SCM connection** through the Moderne UI. Navigate to your user settings and reconnect your SCM provider to obtain a fresh token.
+2. **Verify your SCM account has write permissions** to the target repository. Try pushing a test commit directly through your SCM provider to confirm access.
+
+## SCM authentication issues (API only)
+
+When committing through the [GraphQL API](./recipe-execution-and-commits-with-graphql.md), there are additional authentication issues that don't apply to the UI.
+
+### Root causes
+
+* **Missing SCM token.** The `scmAccessTokens` input is required when using the GraphQL mutation to create commits. Without it, the commit will fail with a permissions error.
+* **Azure DevOps service principal not supported.** If you pass a service principal token to the API, you may see errors like:
 
   > TF401019: The Git repository with name or identifier does not exist or you do not have permissions
 
@@ -48,16 +62,12 @@ Commit failures related to authentication typically appear as permission denied 
 
   > VS860045: Provided subject type 'aadsp' is not supported
 
-  This means a service principal token is being used. Azure DevOps requires a User-type personal access token (PAT), not a service principal token.
-* **Insufficient SCM permissions.** Your SCM account may not have write or push access to the target repository.
-* **Missing SCM token for GraphQL API commits.** When using the GraphQL mutation to create commits, the `scmAccessTokens` input is required. See [Recipe execution and commits with GraphQL](./recipe-execution-and-commits-with-graphql.md) for details.
+  Azure DevOps requires a User-type personal access token (PAT), not a service principal token.
 
 ### Troubleshooting steps
 
-1. **Re-authorize your SCM connection** through the Moderne UI. Navigate to your user settings and reconnect your SCM provider to obtain a fresh token.
+1. **Ensure `scmAccessTokens` is provided** in the commit mutation. See [Creating SCM access tokens](../references/create-scm-access-tokens.md) for setup instructions.
 2. **For Azure DevOps:** Use a User-type PAT, not a service principal token. Ensure the PAT has `Code (Read & Write)` scope at minimum.
-3. **Verify your SCM account has write permissions** to the target repository. Try pushing a test commit directly through your SCM provider to confirm access.
-4. **For GraphQL API usage:** Ensure `scmAccessTokens` is provided in the commit mutation. See [Creating SCM access tokens](../references/create-scm-access-tokens.md) for setup instructions.
 
 ## Rate limiting
 
