@@ -44,7 +44,7 @@ Commit failures related to authentication typically appear as permission denied 
 ### Troubleshooting steps
 
 1. **Re-authorize your SCM connection** through the Moderne UI. Navigate to your user settings and reconnect your SCM provider to obtain a fresh token.
-2. **Verify your SCM account has write permissions** to the target repository. Try pushing a test commit directly through your SCM provider to confirm access.
+2. **Verify your SCM account has write permissions** to the target repository. Try pushing a test commit directly through your SCM provider to confirm access. Depending on your organization's policies, you may only have permission to push to a fork or to specific branches. If you intend to create a pull request, confirm that your account can push to the branch Moderne will use as the PR source.
 
 ## SCM authentication issues (API only)
 
