@@ -7,6 +7,17 @@ description: Calm OpenRewrite recipes.
 ## Recipes
 
 * [Find CALM relationships](./findcalmrelationships.md)
+* [Find Express endpoints](./findexpressendpoints.md)
+* [Find Mongoose schemas](./findmongooseschemas.md)
+* [Find NestJS endpoints](./findnestjsendpoints.md)
+* [Find Node.js HTTP clients](./findnodehttpclients.md)
+* [Find Node.js error patterns](./findnodeerrorpatterns.md)
+* [Find Node.js messaging](./findnodemessaging.md)
+* [Find Node.js project metadata](./findnodeprojectmetadata.md)
+* [Find Node.js security configuration](./findnodesecurityconfig.md)
+* [Find Node.js test coverage](./findnodetestcoverage.md)
+* [Find Prisma usage](./findprismausage.md)
+* [Find TypeORM entities](./findtypeormentities.md)
 * [Find data assets](./finddataassets.md)
 * [Find database connections](./finddatabaseconnections.md)
 * [Find deployment artifacts](./finddeploymentartifacts.md)

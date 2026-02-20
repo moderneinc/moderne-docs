@@ -29,6 +29,125 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate Tapestry 4 to Tapestry 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5)
 
+## Examples
+##### Example 1
+`UpdateTapestryDependenciesTest#updatesTapestryFrameworkToCore`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="pom.xml" label="pom.xml">
+
+
+###### Before
+```xml title="pom.xml"
+<project>
+    <groupId>com.example</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1.0.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.tapestry</groupId>
+            <artifactId>tapestry-framework</artifactId>
+            <version>4.1.6</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+###### After
+```xml title="pom.xml"
+<project>
+    <groupId>com.example</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1.0.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.tapestry</groupId>
+            <artifactId>tapestry-core</artifactId>
+            <version>5.9.0</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- pom.xml
++++ pom.xml
+@@ -8,2 +8,2 @@
+        <dependency>
+            <groupId>org.apache.tapestry</groupId>
+-           <artifactId>tapestry-framework</artifactId>
+-           <version>4.1.6</version>
++           <artifactId>tapestry-core</artifactId>
++           <version>5.9.0</version>
+        </dependency>
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`UpdateTapestryDependenciesTest#updatesTapestryFrameworkToCore`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="pom.xml" label="pom.xml">
+
+
+###### Before
+```xml title="pom.xml"
+<project>
+    <groupId>com.example</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1.0.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.tapestry</groupId>
+            <artifactId>tapestry-framework</artifactId>
+            <version>4.1.6</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+###### After
+```xml title="pom.xml"
+<project>
+    <groupId>com.example</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1.0.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.tapestry</groupId>
+            <artifactId>tapestry-core</artifactId>
+            <version>5.9.0</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- pom.xml
++++ pom.xml
+@@ -8,2 +8,2 @@
+        <dependency>
+            <groupId>org.apache.tapestry</groupId>
+-           <artifactId>tapestry-framework</artifactId>
+-           <version>4.1.6</version>
++           <artifactId>tapestry-core</artifactId>
++           <version>5.9.0</version>
+        </dependency>
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

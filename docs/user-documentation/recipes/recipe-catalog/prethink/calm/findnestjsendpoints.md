@@ -1,15 +1,15 @@
 ---
-sidebar_label: "Remove obsolete Tapestry form types"
+sidebar_label: "Find NestJS endpoints"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Remove obsolete Tapestry form types
+# Find NestJS endpoints
 
-**org.openrewrite.tapestry.RemoveObsoleteFormTypes**
+**io.moderne.prethink.calm.FindNestJSEndpoints**
 
-_Removes field declarations and imports for Tapestry 4 form component types (`IPropertySelectionModel`, `StringPropertySelectionModel`, etc.) that don't exist in Tapestry 5. Code using these types will need manual refactoring to use Tapestry 5's `SelectModel` pattern._
+_Identify REST/HTTP endpoints in NestJS controllers. Detects @Controller, @Get, @Post, @Put, @Delete, and @Patch decorators and populates the ServiceEndpoints data table._
 
 ## Recipe source
 
@@ -23,56 +23,8 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate Tapestry 4 to Tapestry 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5)
-
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.apache.tapestry5.form.IPropertySelectionModel;
-
-public class MyPage {
-
-    private IPropertySelectionModel selectionModel;
-
-    public void doSomething() {
-        // some code
-    }
-}
-```
-
-###### After
-```java
-public class MyPage {
-
-    public void doSomething() {
-        // some code
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,0 @@
--import org.apache.tapestry5.form.IPropertySelectionModel;
--
-public class MyPage {
-@@ -5,2 +3,0 @@
-public class MyPage {
-
--   private IPropertySelectionModel selectionModel;
--
-    public void doSomething() {
-```
-</TabItem>
-</Tabs>
+* [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
+* [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
 
 ## Usage
@@ -86,12 +38,12 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe RemoveObsoleteFormTypes
+mod run . --recipe FindNestJSEndpoints
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install io.moderne.recipe:rewrite-tapestry:{{VERSION_IO_MODERNE_RECIPE_REWRITE_TAPESTRY}}
+mod config recipes jar install io.moderne.recipe:rewrite-prethink:{{VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK}}
 ```
 </TabItem>
 </Tabs>
@@ -100,7 +52,7 @@ mod config recipes jar install io.moderne.recipe:rewrite-tapestry:{{VERSION_IO_M
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.tapestry.RemoveObsoleteFormTypes" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.calm.FindNestJSEndpoints" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -108,6 +60,28 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="org.openrewrite.prethink.table.ServiceEndpoints" label="ServiceEndpoints">
+
+### Service endpoints
+**org.openrewrite.prethink.table.ServiceEndpoints**
+
+_REST/HTTP endpoints exposed by the application._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Entity ID | Unique identifier for this endpoint entity (format: endpoint:\{className\}#\{methodSignature\}). |
+| Source path | The path to the source file containing the endpoint. |
+| Service class | The fully qualified name of the controller or resource class. |
+| Method name | The name of the endpoint method. |
+| HTTP method | The HTTP method (GET, POST, PUT, DELETE, PATCH, etc.). |
+| Path | The URL path pattern for the endpoint. |
+| Produces | Content types the endpoint produces (e.g., application/json). |
+| Consumes | Content types the endpoint consumes (e.g., application/json). |
+| Framework | The web framework used (Spring, JAX-RS, Micronaut, Quarkus). |
+| Method signature | The full method signature for linking to method descriptions. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

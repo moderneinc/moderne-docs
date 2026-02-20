@@ -27,6 +27,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | `String` | model | *Optional*. Model name to use for generating test summaries. | `Malibu-v2.20251021` |
 | `String` | baseUrl | *Optional*. Custom base URL for the LLM provider. | `https://divers.poolsi.de/openai/v1/` |
 | `Integer` | requestsPerMinute | *Optional*. Rate limit for LLM requests. | `60` |
+| `String` | targetConfigFile | *Optional*. Which agent config file to update. If not specified, updates all found files. | `CLAUDE.md` |
 
 
 ## Usage

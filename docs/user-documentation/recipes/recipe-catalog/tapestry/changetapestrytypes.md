@@ -29,6 +29,109 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate Tapestry 4 to Tapestry 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5)
 
+## Examples
+##### Example 1
+`ChangeTapestryTypesTest#changesValidatorException`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.apache.tapestry.valid.ValidatorException;
+
+class MyValidator {
+    void validate() throws ValidatorException {
+        throw new ValidatorException("error");
+    }
+}
+```
+
+###### After
+```java
+import org.apache.tapestry5.ValidationException;
+
+class MyValidator {
+    void validate() throws ValidationException {
+        throw new ValidationException("error");
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.apache.tapestry.valid.ValidatorException;
++import org.apache.tapestry5.ValidationException;
+
+@@ -4,2 +4,2 @@
+
+class MyValidator {
+-   void validate() throws ValidatorException {
+-       throw new ValidatorException("error");
++   void validate() throws ValidationException {
++       throw new ValidationException("error");
+    }
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`ChangeTapestryTypesTest#changesValidatorException`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.apache.tapestry.valid.ValidatorException;
+
+class MyValidator {
+    void validate() throws ValidatorException {
+        throw new ValidatorException("error");
+    }
+}
+```
+
+###### After
+```java
+import org.apache.tapestry5.ValidationException;
+
+class MyValidator {
+    void validate() throws ValidationException {
+        throw new ValidationException("error");
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.apache.tapestry.valid.ValidatorException;
++import org.apache.tapestry5.ValidationException;
+
+@@ -4,2 +4,2 @@
+
+class MyValidator {
+-   void validate() throws ValidatorException {
+-       throw new ValidatorException("error");
++   void validate() throws ValidationException {
++       throw new ValidationException("error");
+    }
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

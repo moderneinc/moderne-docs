@@ -18,6 +18,12 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
+## Options
+
+| Type | Name | Description | Example |
+| --- | --- | --- | --- |
+| `String` | targetConfigFile | *Optional*. Which agent config file to update. If not specified, updates all found files. | `CLAUDE.md` |
+
 
 ## Usage
 

@@ -36,6 +36,49 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|provider|`null`|
+|apiKey|`null`|
+|model|`null`|
+|baseUrl|`null`|
+|requestsPerMinute|`null`|
+
+
+###### Unchanged
+```java
+package com.example;
+
+import org.junit.jupiter.api.Test;
+
+public class FooTest {
+    @Test
+    void testDoSomething() {
+        Foo foo = new Foo();
+        foo.doSomething();
+    }
+}
+```
+
+###### Unchanged
+```java
+package com.example;
+
+public class Foo {
+    public String doSomething() {
+        return "hello";
+    }
+}
+```
+
+###### Unchanged
+```mavenProject
+test-project
+```
+
 
 ## Usage
 

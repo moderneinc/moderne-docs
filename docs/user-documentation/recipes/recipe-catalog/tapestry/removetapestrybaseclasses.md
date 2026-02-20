@@ -34,8 +34,6 @@ This recipe is used as part of the following composite recipes:
 
 ###### Before
 ```java
-package com.example;
-
 import org.apache.tapestry.html.BasePage;
 
 public abstract class Home extends BasePage {
@@ -47,8 +45,6 @@ public abstract class Home extends BasePage {
 
 ###### After
 ```java
-package com.example;
-
 public class Home {
     public String getMessage() {
         return "Hello";
@@ -60,9 +56,7 @@ public class Home {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -3,3 +3,1 @@
-package com.example;
-
+@@ -1,3 +1,1 @@
 -import org.apache.tapestry.html.BasePage;
 -
 -public abstract class Home extends BasePage {

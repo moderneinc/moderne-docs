@@ -26,6 +26,40 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```java
+package com.example;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+    public String findAll() {
+        return "users";
+    }
+}
+```
+
+###### Unchanged
+```java
+package com.example;
+
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+public class UserController {
+    private UserService userService;
+
+    @GetMapping("/users")
+    public String getUsers() {
+        return userService.findAll();
+    }
+}
+```
+
 
 ## Usage
 

@@ -1,15 +1,15 @@
 ---
-sidebar_label: "Remove obsolete Tapestry form types"
+sidebar_label: "Find Node.js messaging"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Remove obsolete Tapestry form types
+# Find Node.js messaging
 
-**org.openrewrite.tapestry.RemoveObsoleteFormTypes**
+**io.moderne.prethink.calm.FindNodeMessaging**
 
-_Removes field declarations and imports for Tapestry 4 form component types (`IPropertySelectionModel`, `StringPropertySelectionModel`, etc.) that don't exist in Tapestry 5. Code using these types will need manual refactoring to use Tapestry 5's `SelectModel` pattern._
+_Identify messaging patterns in Node.js applications. Detects KafkaJS, amqplib, and Bull/BullMQ usage._
 
 ## Recipe source
 
@@ -23,56 +23,8 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate Tapestry 4 to Tapestry 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5)
-
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.apache.tapestry5.form.IPropertySelectionModel;
-
-public class MyPage {
-
-    private IPropertySelectionModel selectionModel;
-
-    public void doSomething() {
-        // some code
-    }
-}
-```
-
-###### After
-```java
-public class MyPage {
-
-    public void doSomething() {
-        // some code
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,0 @@
--import org.apache.tapestry5.form.IPropertySelectionModel;
--
-public class MyPage {
-@@ -5,2 +3,0 @@
-public class MyPage {
-
--   private IPropertySelectionModel selectionModel;
--
-    public void doSomething() {
-```
-</TabItem>
-</Tabs>
+* [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
+* [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
 
 ## Usage
@@ -86,12 +38,12 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe RemoveObsoleteFormTypes
+mod run . --recipe FindNodeMessaging
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install io.moderne.recipe:rewrite-tapestry:{{VERSION_IO_MODERNE_RECIPE_REWRITE_TAPESTRY}}
+mod config recipes jar install io.moderne.recipe:rewrite-prethink:{{VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK}}
 ```
 </TabItem>
 </Tabs>
@@ -100,7 +52,7 @@ mod config recipes jar install io.moderne.recipe:rewrite-tapestry:{{VERSION_IO_M
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.tapestry.RemoveObsoleteFormTypes" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.calm.FindNodeMessaging" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -108,6 +60,26 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="org.openrewrite.prethink.table.MessagingConnections" label="MessagingConnections">
+
+### Messaging connections
+**org.openrewrite.prethink.table.MessagingConnections**
+
+_Message queue producers and consumers in the application._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Entity ID | Unique identifier for this messaging entity (format: messaging:\{className\}#\{methodName\}:\{role\}). |
+| Source path | The path to the source file containing the messaging component. |
+| Class name | The fully qualified name of the class containing the listener/producer. |
+| Method name | The name of the method that handles or sends messages. |
+| Destination | The topic or queue name. |
+| Role | Whether this is a producer, consumer, or both. |
+| Messaging type | The messaging system (Kafka, RabbitMQ, JMS, etc.). |
+| Method signature | The full method signature for linking to method descriptions. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

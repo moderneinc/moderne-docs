@@ -1,15 +1,15 @@
 ---
-sidebar_label: "Remove obsolete Tapestry form types"
+sidebar_label: "Find Node.js security configuration"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Remove obsolete Tapestry form types
+# Find Node.js security configuration
 
-**org.openrewrite.tapestry.RemoveObsoleteFormTypes**
+**io.moderne.prethink.calm.FindNodeSecurityConfig**
 
-_Removes field declarations and imports for Tapestry 4 form component types (`IPropertySelectionModel`, `StringPropertySelectionModel`, etc.) that don't exist in Tapestry 5. Code using these types will need manual refactoring to use Tapestry 5's `SelectModel` pattern._
+_Identify security middleware in Node.js applications. Detects cors, helmet, passport, and JWT middleware usage._
 
 ## Recipe source
 
@@ -23,56 +23,8 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate Tapestry 4 to Tapestry 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5)
-
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.apache.tapestry5.form.IPropertySelectionModel;
-
-public class MyPage {
-
-    private IPropertySelectionModel selectionModel;
-
-    public void doSomething() {
-        // some code
-    }
-}
-```
-
-###### After
-```java
-public class MyPage {
-
-    public void doSomething() {
-        // some code
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,2 +1,0 @@
--import org.apache.tapestry5.form.IPropertySelectionModel;
--
-public class MyPage {
-@@ -5,2 +3,0 @@
-public class MyPage {
-
--   private IPropertySelectionModel selectionModel;
--
-    public void doSomething() {
-```
-</TabItem>
-</Tabs>
+* [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
+* [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
 
 ## Usage
@@ -86,12 +38,12 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe RemoveObsoleteFormTypes
+mod run . --recipe FindNodeSecurityConfig
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install io.moderne.recipe:rewrite-tapestry:{{VERSION_IO_MODERNE_RECIPE_REWRITE_TAPESTRY}}
+mod config recipes jar install io.moderne.recipe:rewrite-prethink:{{VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK}}
 ```
 </TabItem>
 </Tabs>
@@ -100,7 +52,7 @@ mod config recipes jar install io.moderne.recipe:rewrite-tapestry:{{VERSION_IO_M
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.tapestry.RemoveObsoleteFormTypes" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.calm.FindNodeSecurityConfig" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -108,6 +60,23 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="org.openrewrite.prethink.table.SecurityConfiguration" label="SecurityConfiguration">
+
+### Security configuration
+**org.openrewrite.prethink.table.SecurityConfiguration**
+
+_Security configuration including authentication methods, CORS settings, and OAuth2 configuration._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source path | The path to the source file containing the security configuration. |
+| Configuration type | The type of security configuration (WebSecurity, OAuth2, CORS, etc.). |
+| Auth method | Authentication method if detected (Basic, OAuth2, JWT, etc.). |
+| Allowed origins | CORS allowed origins if configured. |
+| Description | Description of the security configuration. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

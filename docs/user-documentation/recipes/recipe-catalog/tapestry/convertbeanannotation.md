@@ -34,8 +34,6 @@ This recipe is used as part of the following composite recipes:
 
 ###### Before
 ```java
-package com.example;
-
 import org.apache.tapestry.annotations.Bean;
 
 public abstract class MyPage {
@@ -46,8 +44,6 @@ public abstract class MyPage {
 
 ###### After
 ```java
-package com.example;
-
 import org.apache.tapestry5.annotations.Property;
 
 public abstract class MyPage {
@@ -60,13 +56,11 @@ public abstract class MyPage {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -3,1 +3,1 @@
-package com.example;
-
+@@ -1,1 +1,1 @@
 -import org.apache.tapestry.annotations.Bean;
 +import org.apache.tapestry5.annotations.Property;
 
-@@ -6,2 +6,2 @@
+@@ -4,2 +4,2 @@
 
 public abstract class MyPage {
 -   @Bean

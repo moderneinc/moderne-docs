@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 **org.openrewrite.tapestry.ConvertAnnotatedMethodToField**
 
-_Converts abstract getter methods annotated with `sourceAnnotation` to private fields annotated with `targetAnnotation`._
+_Converts abstract getter methods annotated with `sourceAnnotation` to private fields annotated with `targetAnnotation`. Also removes corresponding abstract setter methods._
 
 ## Recipe source
 
@@ -24,6 +24,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | --- | --- | --- | --- |
 | `String` | sourceAnnotation | The fully qualified name of the annotation to find on abstract getter methods. | `org.apache.tapestry.annotations.InjectObject` |
 | `String` | targetAnnotation | The fully qualified name of the annotation to add to the generated field. | `org.apache.tapestry5.ioc.annotations.Inject` |
+| `Boolean` | preserveAnnotationArguments | *Optional*. When true, copies the source annotation's arguments to the target annotation. Use this when the annotation arguments carry semantic meaning in the target framework (e.g., @Persist("session"), @Parameter(required=true)). | `true` |
 
 
 ## Used by
@@ -41,6 +42,7 @@ This recipe is used as part of the following composite recipes:
 | --- | --- |
 |sourceAnnotation|`org.apache.tapestry.annotations.InjectObject`|
 |targetAnnotation|`org.apache.tapestry5.ioc.annotations.Inject`|
+|preserveAnnotationArguments||
 
 
 <Tabs groupId="beforeAfter">
@@ -49,8 +51,6 @@ This recipe is used as part of the following composite recipes:
 
 ###### Before
 ```java
-package com.example;
-
 import org.apache.tapestry.annotations.InjectObject;
 
 public abstract class MyPage {
@@ -66,8 +66,6 @@ public abstract class MyPage {
 
 ###### After
 ```java
-package com.example;
-
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 public abstract class MyPage {
@@ -83,18 +81,16 @@ public abstract class MyPage {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -3,1 +3,1 @@
-package com.example;
-
+@@ -1,1 +1,1 @@
 -import org.apache.tapestry.annotations.InjectObject;
 +import org.apache.tapestry5.ioc.annotations.Inject;
 
-@@ -6,0 +6,1 @@
+@@ -4,0 +4,1 @@
 
 public abstract class MyPage {
 +   @Inject private MyService myService;
 
-@@ -7,3 +8,0 @@
+@@ -5,3 +6,0 @@
 public abstract class MyPage {
 
 -   @InjectObject("service:myService")
@@ -115,6 +111,7 @@ public abstract class MyPage {
 | --- | --- |
 |sourceAnnotation|`org.apache.tapestry.annotations.InjectState`|
 |targetAnnotation|`org.apache.tapestry5.annotations.SessionState`|
+|preserveAnnotationArguments||
 
 
 <Tabs groupId="beforeAfter">
@@ -123,8 +120,6 @@ public abstract class MyPage {
 
 ###### Before
 ```java
-package com.example;
-
 import org.apache.tapestry.annotations.InjectState;
 
 public abstract class MyPage {
@@ -140,8 +135,6 @@ public abstract class MyPage {
 
 ###### After
 ```java
-package com.example;
-
 import org.apache.tapestry5.annotations.SessionState;
 
 public abstract class MyPage {
@@ -157,24 +150,193 @@ public abstract class MyPage {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -3,1 +3,1 @@
-package com.example;
-
+@@ -1,1 +1,1 @@
 -import org.apache.tapestry.annotations.InjectState;
 +import org.apache.tapestry5.annotations.SessionState;
 
-@@ -6,0 +6,1 @@
+@@ -4,0 +4,1 @@
 
 public abstract class MyPage {
 +   @SessionState private Visit visit;
 
-@@ -7,3 +8,0 @@
+@@ -5,3 +6,0 @@
 public abstract class MyPage {
 
 -   @InjectState("visit")
 -   public abstract Visit getVisit();
 -
     public void doWork() {
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 3
+`ConvertPersistAnnotationTest#convertsPersistGetterToField`
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|sourceAnnotation|`org.apache.tapestry.annotations.Persist`|
+|targetAnnotation|`org.apache.tapestry5.annotations.Persist`|
+|preserveAnnotationArguments|`true`|
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.apache.tapestry.annotations.Persist;
+
+public abstract class MyPage {
+
+    @Persist
+    public abstract String getMessage();
+}
+```
+
+###### After
+```java
+import org.apache.tapestry5.annotations.Persist;
+
+public abstract class MyPage {
+    @Persist private String message;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.apache.tapestry.annotations.Persist;
++import org.apache.tapestry5.annotations.Persist;
+
+@@ -4,3 +4,1 @@
+
+public abstract class MyPage {
+-
+-   @Persist
+-   public abstract String getMessage();
++   @Persist private String message;
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 4
+`ConvertParameterAnnotationTest#convertsParameterGetterToField`
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|sourceAnnotation|`org.apache.tapestry.annotations.Parameter`|
+|targetAnnotation|`org.apache.tapestry5.annotations.Parameter`|
+|preserveAnnotationArguments|`true`|
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.apache.tapestry.annotations.Parameter;
+
+public abstract class MyComponent {
+
+    @Parameter
+    public abstract String getValue();
+}
+```
+
+###### After
+```java
+import org.apache.tapestry5.annotations.Parameter;
+
+public abstract class MyComponent {
+    @Parameter private String value;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.apache.tapestry.annotations.Parameter;
++import org.apache.tapestry5.annotations.Parameter;
+
+@@ -4,3 +4,1 @@
+
+public abstract class MyComponent {
+-
+-   @Parameter
+-   public abstract String getValue();
++   @Parameter private String value;
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 5
+`ConvertInjectPageAnnotationTest#convertsInjectPageGetterToField`
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|sourceAnnotation|`org.apache.tapestry.annotations.InjectPage`|
+|targetAnnotation|`org.apache.tapestry5.annotations.InjectPage`|
+|preserveAnnotationArguments|`true`|
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.apache.tapestry.annotations.InjectPage;
+
+public abstract class MyPage {
+
+    @InjectPage
+    public abstract OtherPage getOtherPage();
+}
+```
+
+###### After
+```java
+import org.apache.tapestry5.annotations.InjectPage;
+
+public abstract class MyPage {
+    @InjectPage private OtherPage otherPage;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.apache.tapestry.annotations.InjectPage;
++import org.apache.tapestry5.annotations.InjectPage;
+
+@@ -4,3 +4,1 @@
+
+public abstract class MyPage {
+-
+-   @InjectPage
+-   public abstract OtherPage getOtherPage();
++   @InjectPage private OtherPage otherPage;
+}
 ```
 </TabItem>
 </Tabs>
@@ -195,6 +357,7 @@ recipeList:
   - org.openrewrite.tapestry.ConvertAnnotatedMethodToField:
       sourceAnnotation: org.apache.tapestry.annotations.InjectObject
       targetAnnotation: org.apache.tapestry5.ioc.annotations.Inject
+      preserveAnnotationArguments: true
 ```
 
 <Tabs groupId="projectType">
@@ -203,7 +366,7 @@ recipeList:
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe ConvertAnnotatedMethodToField --recipe-option "sourceAnnotation=org.apache.tapestry.annotations.InjectObject" --recipe-option "targetAnnotation=org.apache.tapestry5.ioc.annotations.Inject"
+mod run . --recipe ConvertAnnotatedMethodToField --recipe-option "sourceAnnotation=org.apache.tapestry.annotations.InjectObject" --recipe-option "targetAnnotation=org.apache.tapestry5.ioc.annotations.Inject" --recipe-option "preserveAnnotationArguments=true"
 ```
 
 If the recipe is not available locally, then you can install it using:

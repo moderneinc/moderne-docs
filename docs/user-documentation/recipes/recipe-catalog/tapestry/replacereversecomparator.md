@@ -34,8 +34,6 @@ This recipe is used as part of the following composite recipes:
 
 ###### Before
 ```java
-package com.example;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
@@ -50,8 +48,6 @@ public class MyClass {
 
 ###### After
 ```java
-package com.example;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
@@ -67,12 +63,12 @@ public class MyClass {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -6,1 +6,0 @@
+@@ -4,1 +4,0 @@
 import java.util.List;
 import java.util.ArrayList;
 -import org.apache.tapestry.contrib.table.model.common.ReverseComparator;
 
-@@ -10,1 +9,1 @@
+@@ -8,1 +7,1 @@
 public class MyClass {
     public void sortReverse(List<String> items) {
 -       Collections.sort(items, new ReverseComparator<>(new NameComparator()));

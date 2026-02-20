@@ -340,6 +340,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.DeploymentArtifacts**: *Deployment configuration files (Dockerfile, Kubernetes manifests, docker-compose).*
 
 
+### [io.moderne.prethink.calm.FindExpressEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findexpressendpoints.md)
+  * **Find Express endpoints**
+  * Identify REST/HTTP endpoints in Express and Fastify applications. Detects app.get(), router.post(), and similar route definition patterns.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
 ### [io.moderne.prethink.calm.FindExternalServiceCalls](/user-documentation/recipes/recipe-catalog/prethink/calm/findexternalservicecalls.md)
   * **Find external service calls**
   * Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, Apache HttpClient, OkHttp, and JAX-RS clients.
@@ -356,6 +365,87 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### Data tables:
 
   * **org.openrewrite.prethink.table.MessagingConnections**: *Message queue producers and consumers in the application.*
+
+
+### [io.moderne.prethink.calm.FindMongooseSchemas](/user-documentation/recipes/recipe-catalog/prethink/calm/findmongooseschemas.md)
+  * **Find Mongoose schemas**
+  * Identify Mongoose models and schemas in Node.js applications. Detects mongoose.model() calls and populates the DatabaseConnections table.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
+
+
+### [io.moderne.prethink.calm.FindNestJSEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findnestjsendpoints.md)
+  * **Find NestJS endpoints**
+  * Identify REST/HTTP endpoints in NestJS controllers. Detects @Controller, @Get, @Post, @Put, @Delete, and @Patch decorators and populates the ServiceEndpoints data table.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
+### [io.moderne.prethink.calm.FindNodeErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodeerrorpatterns.md)
+  * **Find Node.js error patterns**
+  * Identify error handling patterns in Node.js applications. Detects try/catch blocks and identifies logging frameworks used.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
+
+
+### [io.moderne.prethink.calm.FindNodeHttpClients](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodehttpclients.md)
+  * **Find Node.js HTTP clients**
+  * Identify HTTP client usage in Node.js applications. Detects axios, fetch, got, and superagent call patterns.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.ExternalServiceCalls**: *Outbound HTTP/REST calls to external services.*
+
+
+### [io.moderne.prethink.calm.FindNodeMessaging](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodemessaging.md)
+  * **Find Node.js messaging**
+  * Identify messaging patterns in Node.js applications. Detects KafkaJS, amqplib, and Bull/BullMQ usage.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.MessagingConnections**: *Message queue producers and consumers in the application.*
+
+
+### [io.moderne.prethink.calm.FindNodeProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodeprojectmetadata.md)
+  * **Find Node.js project metadata**
+  * Extract project metadata (name, version, description) from Node.js package.json files.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.ProjectMetadata**: *Project identification including artifact ID, group ID, and name.*
+
+
+### [io.moderne.prethink.calm.FindNodeSecurityConfig](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodesecurityconfig.md)
+  * **Find Node.js security configuration**
+  * Identify security middleware in Node.js applications. Detects cors, helmet, passport, and JWT middleware usage.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.SecurityConfiguration**: *Security configuration including authentication methods, CORS settings, and OAuth2 configuration.*
+
+
+### [io.moderne.prethink.calm.FindNodeTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodetestcoverage.md)
+  * **Find Node.js test coverage**
+  * Identify test methods in Jest, Mocha, and Vitest test files. Detects describe(), it(), and test() blocks and populates the TestMapping table.
+
+#### Data tables:
+
+  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
+
+
+### [io.moderne.prethink.calm.FindPrismaUsage](/user-documentation/recipes/recipe-catalog/prethink/calm/findprismausage.md)
+  * **Find Prisma usage**
+  * Identify Prisma ORM usage in Node.js applications. Detects prisma.model.findMany() and similar Prisma Client query patterns.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
 
 
 ### [io.moderne.prethink.calm.FindProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findprojectmetadata.md)
@@ -401,6 +491,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### Data tables:
 
   * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
+### [io.moderne.prethink.calm.FindTypeORMEntities](/user-documentation/recipes/recipe-catalog/prethink/calm/findtypeormentities.md)
+  * **Find TypeORM entities**
+  * Identify TypeORM entities in Node.js applications. Detects @Entity() decorator on classes and populates the DatabaseConnections table.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
 
 
 ### [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)

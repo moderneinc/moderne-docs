@@ -34,8 +34,6 @@ This recipe is used as part of the following composite recipes:
 
 ###### Before
 ```java
-package com.example;
-
 import org.apache.tapestry.IRequestCycle;
 
 public class MyPage {
@@ -48,8 +46,6 @@ public class MyPage {
 
 ###### After
 ```java
-package com.example;
-
 public class MyPage {
 
     public void onActionFromSubmit() {
@@ -62,13 +58,11 @@ public class MyPage {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -3,2 +3,0 @@
-package com.example;
-
+@@ -1,2 +1,0 @@
 -import org.apache.tapestry.IRequestCycle;
 -
 public class MyPage {
-@@ -7,1 +5,1 @@
+@@ -5,1 +3,1 @@
 public class MyPage {
 
 -   public void onActionFromSubmit(IRequestCycle cycle) {

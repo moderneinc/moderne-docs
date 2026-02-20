@@ -34,8 +34,6 @@ This recipe is used as part of the following composite recipes:
 
 ###### Before
 ```java
-package com.example;
-
 import org.apache.tapestry.event.PageBeginRenderListener;
 import org.apache.tapestry.event.PageEvent;
 
@@ -49,8 +47,6 @@ public class MyPage implements PageBeginRenderListener {
 
 ###### After
 ```java
-package com.example;
-
 import org.apache.tapestry5.annotations.SetupRender;
 
 public class MyPage {
@@ -65,20 +61,18 @@ public class MyPage {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -3,2 +3,1 @@
-package com.example;
-
+@@ -1,2 +1,1 @@
 -import org.apache.tapestry.event.PageBeginRenderListener;
 -import org.apache.tapestry.event.PageEvent;
 +import org.apache.tapestry5.annotations.SetupRender;
 
-@@ -6,1 +5,1 @@
+@@ -4,1 +3,1 @@
 import org.apache.tapestry.event.PageEvent;
 
 -public class MyPage implements PageBeginRenderListener {
 +public class MyPage {
 
-@@ -8,1 +7,1 @@
+@@ -6,1 +5,1 @@
 public class MyPage implements PageBeginRenderListener {
 
 -   public void pageBeginRender(PageEvent event) {
