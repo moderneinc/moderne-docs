@@ -3,7 +3,7 @@ sidebar_label: Upgrading transitive dependencies
 description: How to upgrade transitive dependencies – especially useful for security fixes.
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # How to upgrade transitive dependencies
 

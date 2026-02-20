@@ -2,7 +2,7 @@
 description: A brief introduction to the Moderne platform and what it can do for you.
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # Quickstart: Using the Moderne Platform
 

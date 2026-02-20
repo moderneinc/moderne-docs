@@ -3,7 +3,7 @@ sidebar_label: Publishing batch change results
 description: How to publish batch change results to the Moderne platform.
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # How to publish batch change results to the Moderne platform
 

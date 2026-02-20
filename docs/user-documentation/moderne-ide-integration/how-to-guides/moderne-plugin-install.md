@@ -3,7 +3,7 @@ sidebar_label: Installation and configuration
 description: How to install and configure the Moderne plugin.
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # How to install and configure the Moderne plugin
 

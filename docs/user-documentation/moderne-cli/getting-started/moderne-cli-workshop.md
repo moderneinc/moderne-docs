@@ -3,7 +3,7 @@ sidebar_label: Moderne CLI workshop
 description: Hands-on workshop for learning how to effectively use the Moderne CLI.
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # Moderne CLI workshop
 

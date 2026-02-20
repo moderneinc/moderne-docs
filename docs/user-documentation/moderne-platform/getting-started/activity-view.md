@@ -2,7 +2,7 @@
 description: Describes what the activity view is, where to find it, and what each part does
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # Using the activity view
 

@@ -3,7 +3,7 @@ sidebar_label: Finding PII and secrets
 description: How to find personally identifiable information (PII) and secrets exposed by your APIs.
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # How to find personally identifiable information (PII) and secrets exposed by your APIs
 

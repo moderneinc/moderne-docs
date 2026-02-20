@@ -3,7 +3,7 @@ sidebar_label: Proof of value process
 description: Describes what a typical proof of value process looks like.
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

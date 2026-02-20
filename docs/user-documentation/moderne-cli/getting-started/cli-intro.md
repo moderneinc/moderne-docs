@@ -3,7 +3,7 @@ sidebar_label: Using the Moderne CLI
 description: How to install, configure, and use the Moderne CLI. Includes real-world examples to follow along with.
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

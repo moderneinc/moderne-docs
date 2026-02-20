@@ -7,7 +7,7 @@ import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import { ArrowRight } from 'lucide-react';
 import type { FunctionComponent } from 'react';
-import ReactPlayer from 'react-player';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import styles from './index.module.css';
 
 export const HeroSection: FunctionComponent = () => {
@@ -75,9 +75,20 @@ export const WhatIsModerneSection: FunctionComponent = () => {
       </div>
       <div className={styles.videoGrid}>
         {videos.map((video) => (
-          <ReactPlayer className={styles.videoThumbnail} url={video.url} controls={true} key={video.id}
-          width={300} height={168}
-          />
+          <BrowserOnly key={video.id} fallback={<div style={{width: 300, height: 168}} />}>
+            {() => {
+              const ReactPlayer = require('react-player').default;
+              return (
+                <ReactPlayer
+                  className={styles.videoThumbnail}
+                  url={video.url}
+                  controls={true}
+                  width={300}
+                  height={168}
+                />
+              );
+            }}
+          </BrowserOnly>
         ))}
       </div>
     </section>

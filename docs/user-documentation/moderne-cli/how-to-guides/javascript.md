@@ -4,7 +4,7 @@ description: How to set up and use JavaScript LSTs with the Moderne CLI.
 keywords: [javascript, js, typescript, ts, javascript lsts, javascript refactoring, javascript recipes]
 ---
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # How to set up and use JavaScript LSTs with the Moderne CLI
 
