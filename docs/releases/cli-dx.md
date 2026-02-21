@@ -1,9 +1,9 @@
 # CLI / DX changelog
 
-### CLI / DX v3.57.6 (2026-02-13)
+### CLI / DX v3.57.10 (2026-02-20)
 
 #### What's Changed
-* Fix partition matching sibling false positives
+* References latest release of `org.openrewrite:rewrite-cobol`, providing parsing improvements
 
 ### CLI / DX v3.57.9 (2026-02-19)
 
