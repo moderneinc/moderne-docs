@@ -7,15 +7,19 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.250.0         |
+| Agent (recommended to use **latest**) | 0.251.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.250.0/moderne-agent-0.250.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.251.0/moderne-agent-0.251.0.jar)
 
 
 ## Changelog
 
+### v0.251.0 - 2026-02-21
+
+* Async Maven cache with request coalescing
+* Fix basic auth on RSocket WebSocket upgrade through reverse proxy
 ### v0.250.0 - 2026-02-20
 
 * Remove PR suggestions bot which tends to overwhelm review comments
