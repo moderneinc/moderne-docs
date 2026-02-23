@@ -38,6 +38,10 @@ Once we have a serialized LST for a particular source file, and since it also co
 If you want to see specific examples of Java LSTs, please read our [Java LST Examples doc](https://docs.openrewrite.org/concepts-and-explanations/lst-examples).
 :::
 
+:::info
+You may notice that serialized LST artifacts on disk use the file extension `-ast.jar` (e.g., `my-project-20240917092845-ast.jar`) rather than `-lst.jar`. This is a historical naming convention carried over from earlier versions of OpenRewrite, where these artifacts were referred to as ASTs. Although the trees OpenRewrite produces are technically LSTs — because they preserve formatting and carry type attribution — the `-ast.jar` file naming was never updated to reflect the distinction. Both terms refer to the same artifact; if you see a file ending in `-ast.jar`, it contains a serialized LST.
+:::
+
 ## LST lifecycle
 
 ### With the Moderne CLI
