@@ -98,8 +98,9 @@ const config: Config = {
             '**/*.stories.ts',
             '**/*.stories.jsx',
             '**/*.stories.js',
-            // DEV ONLY: skip 5,700+ recipe-catalog pages for faster rebuilds
-            ...(process.env.NODE_ENV === 'production' ? [] : ['user-documentation/recipes/recipe-catalog/**']),
+            // Skip 5,700+ recipe-catalog pages for faster local rebuilds.
+            // Use `yarn start:fast` to enable this; `yarn start` includes everything.
+            ...(process.env.SKIP_RECIPE_CATALOG ? ['user-documentation/recipes/recipe-catalog/**'] : []),
           ],
           remarkPlugins: [
             [
