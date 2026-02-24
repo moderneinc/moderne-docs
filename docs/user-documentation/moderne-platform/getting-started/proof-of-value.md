@@ -663,7 +663,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 ## AI agent context
 
-AI coding agents like Claude Code, Cursor, and GitHub Copilot work better when they have structured knowledge about your codebase rather than inferring architecture from raw code. Prethink recipes generate this context automatically, mapping service endpoints, dependencies, test coverage, and architecture so agents reason over facts instead of guessing. To learn more, see the [Prethink documentation](../../agent-tools/prethink.md).
+AI coding agents like Claude Code, Cursor, and GitHub Copilot work better when they have structured knowledge about your codebase rather than inferring architecture from raw code. Prethink recipes generate this context automatically, mapping service endpoints, dependencies, test coverage, and architecture so agents reason over facts instead of guessing. To learn more, please [check out our Prethink documentation](../../agent-tools/prethink.md).
 
 ### [Update Prethink context (no AI)](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextNoAiStarter)
 
@@ -672,7 +672,7 @@ AI coding agents like Claude Code, Cursor, and GitHub Copilot work better when t
 #### CLI commands
 
 ```bash
-mod run . --recipe UpdatePrethinkContextNoAiStarter
+mod run . --recipe io.moderne.prethink.UpdatePrethinkContextNoAiStarter
 
 mod git apply . --last-recipe-run
 ```
