@@ -50,7 +50,7 @@ The Moderne CLI was not designed to run multiple commands simultaneously. In the
 For this exercise, we've prepared a list of open-source repositories for you to use. These repositories have been added to the Moderne Platform and put inside the `Default` organization. Clone these repositories by running the following command from inside your `workshop` directory:
 
 ```bash
-mod git sync moderne . "Default" --with-sources
+mod git sync moderne . --organization "Default" --with-sources
 ```
 
 <details>

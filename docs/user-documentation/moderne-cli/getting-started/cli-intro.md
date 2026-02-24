@@ -424,7 +424,7 @@ Moderne CLI 3.57.11
 Once you've decided what organization you want to clone, you can download the LSTs and code to your machine by running the following command:
 
 ```bash
-mod git sync moderne /path/to/your/workspace "<organization-name>" --with-sources
+mod git sync moderne /path/to/your/workspace --organization "<organization-name>" --with-sources
 ```
 
 Make sure to replace the path and organization with the one you want. If you don't want to download the code and just want to download the LSTs, you can remove the `--with-sources` flag.
@@ -496,7 +496,7 @@ Moderne CLI 3.57.11
 Once you've decided what organization you want to clone, you can download the LSTs and code to your machine by running the following command:
 
 ```bash
-mod git sync moderne /path/to/your/workspace "<organization-name>" --with-sources
+mod git sync moderne /path/to/your/workspace --organization "<organization-name>" --with-sources
 ```
 
 Make sure to replace the path and organization with the one you want. If you don't want to download the code and just want to download the LSTs, you can remove the `--with-sources` flag.
