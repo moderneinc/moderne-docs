@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.32.0 (2026/02/24)
+
+- utilize new precondition field returned on Recipe type
+
 ### UI v12.31.0 (2026/02/20)
 
 - add S3Configuration support
