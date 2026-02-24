@@ -7,7 +7,7 @@ description: Fast trigram-indexed code search for finding patterns across reposi
 
 Moderne Trigrep provides fast, indexed search across your entire codebase, delivering sub-second search times even across thousands of repositories. It operates within the context of a Moderne organization, so you can scope searches to specific business units, teams, or application portfolios.
 
-Moderne Trigrep supports [Sourcegraph query syntax](https://docs.sourcegraph.com/code_search/reference/queries) and [Comby structural patterns](https://comby.dev/docs/syntax-reference), so AI models already trained on those tools can use Moderne Trigrep without learning a new query language. Beyond standard Sourcegraph filters, Moderne Trigrep adds Java-specific semantic filters like `visibility:`, `extends:`, and `implements:` powered by Lossless Semantic Tree (LST) metadata.
+Moderne Trigrep supports [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) and [Comby structural patterns](https://comby.dev/docs/syntax-reference), so AI models already trained on those tools can use Moderne Trigrep without learning a new query language. Beyond standard Sourcegraph filters, Moderne Trigrep adds Java-specific semantic filters like `visibility:`, `extends:`, and `implements:` powered by Lossless Semantic Tree (LST) metadata.
 
 Search results can feed directly into OpenRewrite recipe execution, allowing you to use cheap text searches as prefilters for expensive code transformations.
 
@@ -333,7 +333,7 @@ The index files use the `.zoekt` extension and live in the `.moderne/search/` di
 
 Since Moderne Trigrep uses Sourcegraph-compatible query syntax and Comby-style structural patterns, documentation for those tools applies directly here:
 
-* [Sourcegraph query syntax](https://docs.sourcegraph.com/code_search/reference/queries) covers the full query language including boolean operators, filters, and regex patterns.
+* [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) covers the full query language including boolean operators, filters, and regex patterns.
 * [Comby documentation](https://comby.dev/docs/syntax-reference) explains hole types and matching semantics in depth. The [Comby playground](https://comby.live/) lets you experiment with patterns interactively.
 * [How Trigram Indexing Works](https://swtch.com/~rsc/regexp/regexp4.html) by Russ Cox explains the theory behind trigram indexes.
 * [Zoekt](https://github.com/google/zoekt) is the open-source trigram search engine whose index format Moderne Trigrep is compatible with.
