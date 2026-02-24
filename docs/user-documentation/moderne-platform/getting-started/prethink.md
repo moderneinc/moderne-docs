@@ -10,7 +10,7 @@ Moderne Prethink recipes generate structured context that gives AI coding agents
 In this guide, we will walk you through everything you need to know to get started with them in the Moderne Platform.
 
 :::tip
-For a deeper understanding of what Moderne Prethink is and how it works, see our [Moderne Prethink recipes documentation](../../recipes/prethink.md).
+For a deeper understanding of what Moderne Prethink is and how it works, see our [Moderne Prethink recipes documentation](../../agent-tools/prethink.md).
 :::
 
 ## Prerequisites
@@ -69,5 +69,5 @@ Once you're satisfied with the generated context, [commit the changes to your re
 
 ## Next steps
 
-* [Read more about how Prethink works](../../recipes/prethink.md)
-* [Create your own Prethink recipe](../../recipes/prethink.md#creating-custom-prethink-recipes)
+* [Read more about how Prethink works](../../agent-tools/prethink.md)
+* [Create your own Prethink recipe](../../agent-tools/prethink.md#creating-custom-prethink-recipes)

@@ -7,11 +7,11 @@ description: How to generate Moderne Prethink context for AI agents using the Mo
 
 Moderne Prethink recipes generate structured context that gives AI coding agents a clear, accurate understanding of your entire codebase. In this guide, we will walk you through how to generate this Prethink context locally using the Moderne CLI.
 
-For more background on what Moderne Prethink is and the available recipes, please check out our [Moderne Prethink documentation](../../recipes/prethink.md).
+For more background on what Moderne Prethink is and the available recipes, please check out our [Moderne Prethink documentation](../../agent-tools/prethink.md).
 
 ## Prerequisites
 
-This guide assumes that you have already [installed and configured the CLI](../getting-started/cli-intro.md#installation-and-configuration) and you are aware of [what Moderne Prethink is](../../recipes/prethink.md).
+This guide assumes that you have already [installed and configured the CLI](../getting-started/cli-intro.md#installation-and-configuration) and you are aware of [what Moderne Prethink is](../../agent-tools/prethink.md).
 
 ## Step 1: Clone the repositories
 
@@ -78,7 +78,7 @@ After you've run the recipe, make sure to apply the changes so the generated fil
 mod git apply prethink-demo --last-recipe-run
 ```
 
-You'll find the generated context in each repository's `.moderne/context/` directory. For details on what files are generated, see our documentation on [what Prethink generates](../../recipes/prethink.md#what-prethink-generates).
+You'll find the generated context in each repository's `.moderne/context/` directory. For details on what files are generated, see our documentation on [what Prethink generates](../../agent-tools/prethink.md#what-prethink-generates).
 
 ## Step 5: Commit and push your changes
 
@@ -98,7 +98,7 @@ Once pushed, create pull requests through your git provider (GitHub, GitLab, etc
 
 ## Creating custom Prethink recipes
 
-If you want to customize which context is generated, you can create your own Prethink recipe. See [creating custom Prethink recipes](../../recipes/prethink.md#creating-custom-prethink-recipes) for examples and guidance.
+If you want to customize which context is generated, you can create your own Prethink recipe. See [creating custom Prethink recipes](../../agent-tools/prethink.md#creating-custom-prethink-recipes) for examples and guidance.
 
 Once you have a custom recipe, install and run it with:
 

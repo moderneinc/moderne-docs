@@ -46,6 +46,7 @@ const derivedProducts = deriveProductsFromSidebars();
 const secondaryNavOrder = [
   'Platform',
   'CLI',
+  'Agent tools',
   'Recipes',
   'DX',
   'Moddy',
@@ -57,10 +58,11 @@ const secondaryNavOrder = [
  */
 const homepageCardOrder = [
   'Platform',
-  'DX',
   'CLI',
-  'Moddy',
+  'Agent tools',
   'Recipes',
+  'DX',
+  'Moddy',
   'IDE plugins',
 ];
 

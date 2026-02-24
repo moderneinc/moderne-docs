@@ -26,7 +26,7 @@ The three skills you'll use today:
 | **run-recipe** | Handles compiling the recipe, setting up a working set of real repositories, running the recipe, and diagnosing results |
 | **create-organization** | Helps find and assemble a curated set of repositories to test against |
 
-These skills are supported across multiple agents. See [Skills for AI coding agents](../../user-documentation/moderne-cli/how-to-guides/coding-agent-skills.md) for details on supported agents and how to invoke skills in each one.
+These skills are supported across multiple agents. See [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) for details on supported agents and how to invoke skills in each one.
 
 :::note
 This workshop demos with **Claude Code**, but skills are also supported for Windsurf, Sourcegraph Amp, Cursor, GitHub Copilot, and Codex. Results may vary across agents, but the workflow and principles are the same.
@@ -44,7 +44,7 @@ mod config moderne skills update
 
 #### Step 2: Verify the skills are available
 
-In Claude Code, type `/` and you should see the Moderne skills listed (e.g., `/moderne:create-recipe`). (For other agents, see [Skills for AI coding agents](../../user-documentation/moderne-cli/how-to-guides/coding-agent-skills.md) for how to verify installation and invoke the skills.)
+In Claude Code, type `/` and you should see the Moderne skills listed (e.g., `/moderne:create-recipe`). (For other agents, see [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) for how to verify installation and invoke the skills.)
 
 #### Step 3: Try it out
 
@@ -55,7 +55,7 @@ Invoke the `create-recipe` skill with a simple, throwaway request to see what it
 ```
 
 :::tip
-If you're using a different agent, invoke the skill using the method described in [Skills for AI coding agents](../../user-documentation/moderne-cli/how-to-guides/coding-agent-skills.md). For example, in Cursor use `@moderne-create-recipe`, or in Windsurf reference the skill by name in your prompt.
+If you're using a different agent, invoke the skill using the method described in [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md). For example, in Cursor use `@moderne-create-recipe`, or in Windsurf reference the skill by name in your prompt.
 :::
 
 When prompted, give it a simple task:
@@ -98,7 +98,7 @@ The skills you tried in Exercise 1-1 form an iterative development loop: identif
 * **Module 3:** Run the recipe against real repos, compare to desired results, and iterate
 
 :::tip
-You can open the `create-recipe` skill file on your machine to see the full workflow. See [Skills for AI coding agents](../../user-documentation/moderne-cli/how-to-guides/coding-agent-skills.md#supported-agents) for install locations.
+You can open the `create-recipe` skill file on your machine to see the full workflow. See [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md#supported-agents) for install locations.
 :::
 
 ### About the Jackson 2→3 migration
