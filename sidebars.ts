@@ -387,7 +387,7 @@ const agentTools = {
   },
   items: [
     'user-documentation/agent-tools/prethink',
-    'user-documentation/agent-tools/code-search',
+    'user-documentation/agent-tools/trigrep',
     'user-documentation/agent-tools/skills',
   ],
 };
