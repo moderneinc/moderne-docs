@@ -262,6 +262,10 @@ As mentioned earlier, the CLI automatically aggregates CSV files to the `$MODERN
 
 You can publish these files with every command run, or you can collect them on a scheduled cadence.
 
+:::tip
+If your organization uses AWS, you can [automate S3 export with Hive-style partitioning](./cli-telemetry-s3-export.md) for direct Athena querying.
+:::
+
 ### Wrapping the CLI to publish telemetry
 
 Due to the fact every organization's BI system is different, we strongly recommend that you wrap the Moderne CLI in a script that handles telemetry publishing and any necessary data transformation.

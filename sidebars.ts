@@ -345,7 +345,8 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/build-partitions',
         'user-documentation/moderne-cli/how-to-guides/batch-changes',
         'user-documentation/moderne-cli/how-to-guides/repos-lock-csv',
-        'user-documentation/moderne-cli/how-to-guides/cli-telemetry'
+        'user-documentation/moderne-cli/how-to-guides/cli-telemetry',
+        'user-documentation/moderne-cli/how-to-guides/cli-telemetry-s3-export'
       ],
     },
     'user-documentation/moderne-cli/cli-reference',
