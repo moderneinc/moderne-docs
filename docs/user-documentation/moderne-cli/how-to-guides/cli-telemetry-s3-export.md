@@ -35,9 +35,8 @@ Instead of calling `mod` directly, you call a wrapper script (`mod.sh`) that han
 flowchart LR
     A["Run mod.sh build ."] --> B["Execute mod build ."]
     B --> C{"Trace CSVs found?"}
-    C -->|Yes| D["Upload CSVs to S3"]
-    C -->|No| E["Return original exit code"]
-    D --> E
+    C -->|Yes| D["Upload CSVs to S3"] --> E["Return original exit code"]
+    C -->|No| E
 ```
 
 The wrapper calls the real `mod` command and captures its exit code. After the command completes, the CLI will have written trace CSV files to its local trace directory. The wrapper finds those files and uploads each one to S3 with Hive-style partitioning. The original exit code is always returned — if the telemetry upload fails for any reason, it does not affect your CLI workflow.
