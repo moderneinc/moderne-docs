@@ -170,3 +170,7 @@ This project uses **Docusaurus 3.9.1** and has customized several theme componen
   * Gem icon display on DocCards
 * Clear the Docusaurus cache after any swizzle changes: `rm -rf .docusaurus`
 * If a swizzled component has breaking changes, consider re-swizzling or migrating to a safer wrapper approach
+
+## Never post PR comments without approval
+
+NEVER post comments, reviews, or any content on GitHub PRs/issues without explicit user confirmation first. Always show the draft comment and ask for approval before posting.
