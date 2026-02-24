@@ -1,9 +1,10 @@
 # CLI / DX changelog
 
-### CLI / DX v3.57.6 (2026-02-13)
+### CLI / DX v3.57.11 (2026-02-23)
 
 #### What's Changed
-* Fix partition matching sibling false positives
+* Fix `mod search` in native binary throwing an error deserializing `IndexData$IndexMetadata`
+* Drop Copybook absolute path mitigation following fix in `rewrite-cobol`
 
 ### CLI / DX v3.57.10 (2026-02-20)
 
