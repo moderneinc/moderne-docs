@@ -332,7 +332,6 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/cli-upgrade',
         'user-documentation/moderne-cli/how-to-guides/cli-dev-center',
         'user-documentation/moderne-cli/how-to-guides/cli-prethink',
-        'user-documentation/moderne-cli/how-to-guides/coding-agent-skills',
         'user-documentation/moderne-cli/how-to-guides/javascript',
         'user-documentation/moderne-cli/how-to-guides/python',
         'user-documentation/moderne-cli/how-to-guides/parallelism',
@@ -371,6 +370,28 @@ const cli = {
   ],
 };
 
+const agentTools = {
+  type: 'category' as const,
+  label: 'Agent tools',
+  customProps: {
+    gemIcon: 'purple',
+    megaMenu: true,
+    homepageHref: '/user-documentation/agent-tools/prethink',
+  },
+  link: {
+    type: 'generated-index' as const,
+    title: 'Agent tools',
+    description: 'Tools and context that make AI coding agents faster, more accurate, and more effective across enterprise codebases.',
+    slug: '/user-documentation/agent-tools',
+    keywords: ['agent', 'tools', 'ai', 'prethink', 'trigrep', 'skills'],
+  },
+  items: [
+    'user-documentation/agent-tools/prethink',
+    'user-documentation/agent-tools/code-search',
+    'user-documentation/agent-tools/skills',
+  ],
+};
+
 const moddy = {
   type: 'category' as const,
   label: 'Moddy',
@@ -398,7 +419,7 @@ const recipes = {
   customProps: {
     gemIcon: 'yellow-block',
     megaMenu: true,
-    homepageHref: '/user-documentation/recipes/prethink',
+    homepageHref: '/user-documentation/recipes/how-to-guides',
   },
   link: {
     type: 'generated-index' as const,
@@ -423,8 +444,6 @@ const recipes = {
         'user-documentation/recipes/managing-gradle-lock-files',
       ],
     },
-    'user-documentation/recipes/prethink',
-    'user-documentation/recipes/moderne-trigrep',
     {
       type: 'category' as const,
       label: 'Catalog',
@@ -762,6 +781,7 @@ const sidebars: SidebarsConfig = {
   docs: [
     platform.practitioner,
     cli,
+    agentTools,
     moddy,
     jetbrainsPlugin,
     recipes,

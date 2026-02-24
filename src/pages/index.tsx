@@ -110,7 +110,7 @@ export const AboutModerneSection: FunctionComponent = () => {
           <Link href="/user-documentation/moddy/moddy-platform"><strong>Moddy</strong></Link> is a multi-repo AI agent that combines natural language with the accuracy and scalability of Moderne and OpenRewrite. You can ask it questions like "Help me upgrade to Spring Boot 3.5" and it will find and execute the appropriate recipes for you.
         </p>
         <p>
-          <Link href="/user-documentation/recipes/prethink"><strong>Moderne Prethink</strong></Link> recipes generate structured context that gives coding agents a clear, accurate understanding of your entire codebase. Instead of forcing agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
+          <Link href="/user-documentation/agent-tools/prethink"><strong>Moderne Prethink</strong></Link> recipes generate structured context that gives coding agents a clear, accurate understanding of your entire codebase. Instead of forcing agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
         </p>
         <p>
           Moderne also offers an <Link href="/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install"><strong>IntelliJ IDEA plugin</strong></Link> that helps you create and debug recipes while allowing you to search for code across all of your repositories at once.
