@@ -1,5 +1,5 @@
 /**
- * ProductCardsGrid - Displays products in a responsive 3x2 grid
+ * ProductCardsGrid - Displays products in a responsive 4-column grid
  */
 
 .browseByProduct {
@@ -17,7 +17,7 @@
 
 .productGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--neo-spacing_3);
 }
 

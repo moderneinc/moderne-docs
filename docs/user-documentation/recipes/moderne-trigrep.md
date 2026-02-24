@@ -6,4 +6,4 @@ slug: /user-documentation/recipes/moderne-trigrep
 
 import { Redirect } from '@docusaurus/router';
 
-<Redirect to="/user-documentation/agent-tools/code-search" />
+<Redirect to="/user-documentation/agent-tools/trigrep" />
