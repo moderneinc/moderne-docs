@@ -41,22 +41,22 @@ flowchart LR
     C -->|No| E
 ```
 
-The upload won't interfere with your workflow. If it fails for any reason, the original exit code is still returned.
+The upload won't interfere with your workflow. If it fails for any reason, the original exit code is still returned. For commands that don't produce trace data, the wrapper simply runs `mod` and returns.
 
-Not every `mod` command produces trace data. The following commands do:
+<details>
+<summary>Commands that produce trace data</summary>
 
 * `mod build`
 * `mod run`
 * `mod exec`
-* `mod git sync csv`
-* `mod git sync moderne`
+* `mod git sync`
 * `mod git apply`
 * `mod git add`
 * `mod git commit`
 * `mod git push`
 * `mod git checkout`
 
-For any other command, the wrapper simply runs `mod` and returns.
+</details>
 
 ## Setting up the wrapper script
 
@@ -92,7 +92,6 @@ MOD_JAR="${MOD_JAR:-$SCRIPT_DIR/mod.jar}"
 get_trace_directory() {
     case "$1" in
         build)    echo "build" ;;
-        publish)  echo "publish" ;;
         git)
             # The deprecated "mod git clone" still writes to the "sync" trace directory
             if [[ "${2:-}" == "clone" ]]; then
