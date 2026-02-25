@@ -82,7 +82,7 @@ If you then add organization structure to that CSV and sync again, the directory
 
 ### `mod git sync moderne`
 
-`mod git sync` works similarly but starts with a request to an endpoint in either the Moderne SaaS or DX microservice to fetch the effective `repos.csv` for an organization. It saves that `repos.csv` to the `.moderne` directory and then delegates to `mod git sync csv`.
+`mod git sync` works similarly but starts with a request to the Moderne SaaS to fetch the effective `repos.csv` for an organization. It saves that `repos.csv` to the `.moderne` directory and then delegates to `mod git sync csv`.
 
 <figure>
   <Zoom>
