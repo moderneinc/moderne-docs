@@ -9,7 +9,7 @@ toc_max_heading_level: 4
 
 The Moderne CLI [generates telemetry data](./cli-telemetry.md) for every sync, build, and run operation. While you could manually read the resulting trace CSV files from your local directories, it is much better to upload them into a centralized, queryable storage system.
 
-In this guide, we'll walk you through how to set up a wrapper script that automatically uploads all of your telemetry files to S3 after every CLI command.
+In this guide, we'll walk you through how to set up a wrapper script that automatically uploads trace CSV files to S3 after each command that produces telemetry.
 
 :::tip
 While the examples in this guide use Amazon S3 and AWS Athena, the CSV files and Hive partition layout are compatible with any BI system that reads from object storage (e.g., Snowflake, Databricks, and Google BigQuery).
@@ -41,7 +41,22 @@ flowchart LR
     C -->|No| E
 ```
 
-The upload runs after every command and won't interfere with your workflow. If it fails for any reason, the original exit code is still returned.
+The upload won't interfere with your workflow. If it fails for any reason, the original exit code is still returned.
+
+Not every `mod` command produces trace data. The following commands do:
+
+* `mod build`
+* `mod run`
+* `mod exec`
+* `mod git sync csv`
+* `mod git sync moderne`
+* `mod git apply`
+* `mod git add`
+* `mod git commit`
+* `mod git push`
+* `mod git checkout`
+
+For any other command, the wrapper simply runs `mod` and returns.
 
 ## Setting up the wrapper script
 
