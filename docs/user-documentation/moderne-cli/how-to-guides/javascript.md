@@ -43,6 +43,9 @@ build:
     - type: gradle
     - type: bazel
     - type: javascript
+    - type: resource
+      inclusion: |-
+        **/*
 // highlight-end
 ```
 
