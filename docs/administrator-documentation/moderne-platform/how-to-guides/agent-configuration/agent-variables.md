@@ -860,13 +860,14 @@ java -jar moderne-agent-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                         | Required | Default | Description                                 |
-|---------------------------------------|----------|---------|---------------------------------------------|
-| `MODERNE_AGENT_APIGATEWAY_PROXY_HOST` | `false`  |         | Host (without scheme) for the proxy server. |
-| `MODERNE_AGENT_APIGATEWAY_PROXY_PORT` | `false`  |         | Port for the proxy server.                  |
+| Variable Name                          | Required | Default | Description                                                                      |
+|----------------------------------------|----------|---------|----------------------------------------------------------------------------------|
+| `MODERNE_AGENT_APIGATEWAY_PROXY_HOST`  | `false`  |         | Host (without scheme) for the proxy server.                                      |
+| `MODERNE_AGENT_APIGATEWAY_PROXY_PORT`  | `false`  |         | Port for the proxy server.                                                       |
+| `MODERNE_AGENT_APIGATEWAY_BEARERTOKEN` | `false`  |         | Bearer token sent as an `Authorization` header on the WebSocket upgrade request. |
 
 :::info
-If you include either a host or port, you must include both.
+If you include either a host or port, you must include both. The bearer token is independent of the proxy host/port and is used for reverse proxy authentication.
 :::
 
 **Example:**
@@ -878,19 +879,21 @@ docker run \
 -e MODERNE_AGENT_APIGATEWAY_PROXY_PORT=8179 \
 # ... Additional variables
 ```
+
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Arguments:**
 
-| Argument Name                           | Required | Default | Description                                 |
-|-----------------------------------------|----------|---------|---------------------------------------------|
-| `--moderne.agent.apiGateway.proxy.host` | `false`  |         | Host (without scheme) for the proxy server. |
-| `--moderne.agent.apiGateway.proxy.port` | `false`  |         | Port for the proxy server.                  |
+| Argument Name                            | Required | Default | Description                                                                      |
+|------------------------------------------|----------|---------|----------------------------------------------------------------------------------|
+| `--moderne.agent.apiGateway.proxy.host`  | `false`  |         | Host (without scheme) for the proxy server.                                      |
+| `--moderne.agent.apiGateway.proxy.port`  | `false`  |         | Port for the proxy server.                                                       |
+| `--moderne.agent.apiGateway.bearerToken` | `false`  |         | Bearer token sent as an `Authorization` header on the WebSocket upgrade request. |
 
 :::info
-If you include either a host or port, you must include both.
+If you include either a host or port, you must include both. The bearer token is independent of the proxy host/port and is used for reverse proxy authentication.
 :::
 
 **Example:**
@@ -902,6 +905,7 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGateway.proxy.port=8179 \
 # ... Additional arguments
 ```
+
 </TabItem>
 </Tabs>
 
