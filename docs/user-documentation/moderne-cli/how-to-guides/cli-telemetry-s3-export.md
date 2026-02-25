@@ -7,19 +7,21 @@ toc_max_heading_level: 4
 
 # Exporting CLI telemetry to Amazon S3
 
-When the Moderne CLI runs across hundreds or thousands of repositories, it generates detailed telemetry about every sync, build, and run operation. While this data is available locally as CSV files, getting it into a centralized, queryable store is what makes it useful at an organizational level.
+The Moderne CLI [generates telemetry data](./cli-telemetry.md) for every sync, build, and run operation. While you could manually read the resulting trace CSV files from your local directories, it is much better to upload them into a centralized, queryable storage system.
 
-A lightweight wrapper script can automatically upload these trace CSV files to Amazon S3 after every CLI command, using Hive-style partitioning so the data is immediately queryable by any columnar query engine.
+In this guide, we'll walk you through how to set up a wrapper script that automatically uploads all of your telemetry files to S3 after every CLI command.
 
-The examples in this guide use Amazon S3 and AWS Athena, but the exported CSV files and Hive partition layout are compatible with any BI system that reads from object storage — including Snowflake, Databricks, and Google BigQuery. This guide covers setting up the wrapper script, configuring S3 export, and optionally querying with Athena.
+:::tip
+While the examples in this guide use Amazon S3 and AWS Athena, the CSV files and Hive partition layout are compatible with any BI system that reads from object storage (e.g., Snowflake, Databricks, and Google BigQuery).
+:::
 
 ## Prerequisites
 
-Before you begin, make sure you have the following:
+This guide assumes that you have:
 
-* Familiarity with [how CLI telemetry works](./cli-telemetry.md) — specifically the trace CSV files and the `$MODERNE_HOME/cli/trace` directory
+* Read the [Measuring CLI usage guide](./cli-telemetry.md)
 * The [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed and configured with credentials
-* An S3 bucket dedicated to telemetry storage
+* An S3 bucket for storing telemetry data
 * An IAM policy granting `s3:PutObject` on the target bucket
 
 If you plan to query the data with Athena, you will also need:
@@ -27,9 +29,9 @@ If you plan to query the data with Athena, you will also need:
 * AWS Athena access
 * AWS Glue Catalog permissions to create databases and tables
 
-## How it works
+## The wrapper script approach
 
-Instead of calling `mod` directly, you call a wrapper script (`mod.sh`) that handles telemetry export transparently:
+The simplest way to automate telemetry uploads is to wrap the `mod` command. Rather than changing how the CLI itself works, you create a small shell script that calls `mod` as usual and then uploads any new trace CSV files to S3 before returning. Your workflow stays exactly the same — you just call `mod.sh` instead of `mod`:
 
 ```mermaid
 flowchart LR
@@ -39,35 +41,18 @@ flowchart LR
     C -->|No| E
 ```
 
-The wrapper calls the real `mod` command and captures its exit code. After the command completes, the CLI will have written trace CSV files to its local trace directory. The wrapper finds those files and uploads each one to S3 with Hive-style partitioning. The original exit code is always returned — if the telemetry upload fails for any reason, it does not affect your CLI workflow.
+The upload runs after every command and won't interfere with your workflow. If it fails for any reason, the original exit code is still returned.
 
 ## Setting up the wrapper script
 
-### Configuring environment variables
+To get started, you’ll need two files: the wrapper script itself (`mod.sh`) and a small configuration file (`modsh.env`) that tells it where to upload your telemetry.
 
-The wrapper script reads its configuration from a `modsh.env` file. The following environment variables control its behavior:
+### Creating the wrapper
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `BI_ENDPOINT` | *(none)* | S3 bucket URI (e.g., `s3://my-telemetry-bucket`). |
-| `BI_ORG` | *(none)* | Organization name used as the first Hive partition key. |
-| `MODERNE_CLI_WRAPPER_CONFIG` | `modsh.env` next to script | Path to the configuration file. |
-| `MODERNE_CLI_HOME` | `$HOME/.moderne/cli` | CLI home directory. |
-| `MODERNE_CLI_TELEMETRY_DIR` | `$MODERNE_CLI_HOME/trace` | Directory where the CLI writes trace CSV files. |
+Create a `mod.sh` file that looks like:
 
-Create a `modsh.env` file with your S3 bucket and organization name:
-
-```bash title="modsh.env"
-# S3 destination for telemetry publishing
-BI_ENDPOINT=s3://my-company-cli-telemetry
-
-# Organization identifier used for Hive-style partitioning
-BI_ORG=my-company
-```
-
-### Installing the wrapper
-
-1. Create the `mod.sh` file with the following content:
+<details>
+<summary>mod.sh</summary>
 
 ```bash title="mod.sh"
 #!/usr/bin/env bash
@@ -94,7 +79,7 @@ get_trace_directory() {
         build)    echo "build" ;;
         publish)  echo "publish" ;;
         git)
-            # "mod git clone" maps to the "sync" trace directory
+            # The deprecated "mod git clone" still writes to the "sync" trace directory
             if [[ "${2:-}" == "clone" ]]; then
                 echo "sync"
             else
@@ -178,15 +163,39 @@ main() {
 main "$@"
 ```
 
-2. Make the script executable:
+</details>
+
+Then make it executable:
 
 ```bash
 chmod +x mod.sh
 ```
 
-3. Place the `modsh.env` file in the same directory as `mod.sh`, or set `MODERNE_CLI_WRAPPER_CONFIG` to point to it.
+### Configuring environment variables
 
-4. Use `mod.sh` in place of `mod` for all CLI commands:
+The wrapper script reads from a `modsh.env` file in the same directory. Create one with your S3 bucket and organization name:
+
+```bash title="modsh.env"
+# S3 destination for telemetry publishing
+BI_ENDPOINT=s3://my-company-cli-telemetry
+
+# Organization identifier used for Hive-style partitioning
+BI_ORG=my-company
+```
+
+Those two variables are all you need to get started. That being said, there are other variables you can configure based on your needs:
+
+| Variable                     | Default                    | Description                                             |
+|------------------------------|----------------------------|---------------------------------------------------------|
+| `BI_ENDPOINT`                | *(none)*                   | S3 bucket URI (e.g., `s3://my-telemetry-bucket`).       |
+| `BI_ORG`                     | *(none)*                   | Organization name used as the first Hive partition key. |
+| `MODERNE_CLI_WRAPPER_CONFIG` | `modsh.env` next to script | Path to the configuration file.                         |
+| `MODERNE_CLI_HOME`           | `$HOME/.moderne/cli`       | CLI home directory.                                     |
+| `MODERNE_CLI_TELEMETRY_DIR`  | `$MODERNE_CLI_HOME/trace`  | Directory where the CLI writes trace CSV files.         |
+
+### Running commands through the wrapper
+
+Use `mod.sh` in place of `mod` for all CLI commands:
 
 ```bash
 ./mod.sh build .
@@ -210,15 +219,13 @@ The wrapper uploads each CSV file to an S3 path that follows Hive-style partitio
 s3://{bucket}/org={org}/type={type}/year={YYYY}/month={MM}/day={DD}/{filename}.csv
 ```
 
-Each partition key serves a specific purpose:
+Here’s what each key means:
 
-| Partition key | Source | Example | Purpose |
-|---------------|--------|---------|---------|
-| `org` | `BI_ORG` environment variable | `my-company` | Isolates data by organization. |
-| `type` | CLI command name | `build`, `sync`, `publish` | Separates command types for targeted queries. |
-| `year` | Date at upload time | `2026` | Enables time-range filtering. |
-| `month` | Date at upload time | `02` | Enables time-range filtering. |
-| `day` | Date at upload time | `24` | Enables time-range filtering. |
+| Partition key          | Source                        | Example                    | Purpose                                       |
+|------------------------|-------------------------------|----------------------------|-----------------------------------------------|
+| `org`                  | `BI_ORG` environment variable | `my-company`               | Isolates data by organization.                |
+| `type`                 | CLI command name              | `build`, `sync`, `publish` | Separates command types for targeted queries. |
+| `year`, `month`, `day` | Date at upload time           | `2026`, `02`, `24`               | Date-based filtering.                         |
 
 For example, a build trace uploaded on February 24, 2026 for the `my-company` organization would land at:
 
@@ -227,16 +234,12 @@ s3://my-company-cli-telemetry/org=my-company/type=build/year=2026/month=02/day=2
 ```
 
 :::tip
-The partition keys shown here are a starting point. If you need finer-grained time slicing — for instance, partitioning by hour for high-volume environments — you can add additional keys like `hour` to both the S3 path in the wrapper script and the table's partition projection configuration.
-:::
-
-:::note
-The `mod git clone` command maps to the `sync` trace directory, so its telemetry is uploaded under `type=sync`. All other commands map directly by name.
+You can add additional partition keys (like `hour`) to the wrapper script and table definition if you need finer-grained time slicing.
 :::
 
 ## Verifying the setup
 
-After installing the wrapper, run a CLI command and confirm the CSV files appear in S3:
+After creating the wrapper, run a CLI command and confirm the CSV files appear in S3:
 
 ```bash
 # Run a build through the wrapper
@@ -255,7 +258,7 @@ You should see output similar to:
 ## Querying telemetry with AWS Athena
 
 :::info
-This section is optional. If you use a different BI tool, you can point it at your S3 bucket directly. The Hive-style partition layout is a widely supported standard compatible with most columnar query engines.
+This section is optional. If you use a different BI tool, you can point it directly at your S3 bucket.
 :::
 
 Once your telemetry data is flowing to S3, you can use AWS Athena to run SQL queries against it without loading the data into a database. Athena reads the CSV files directly from S3.
@@ -269,7 +272,13 @@ CREATE DATABASE IF NOT EXISTS moderne_bi
 LOCATION 's3://my-company-cli-telemetry/';
 ```
 
-Then create an external table that maps to your CSV data. The table uses the OpenCSV SerDe to parse the CSV files and defines all columns as `string` type — you can cast to other types at query time.
+Next, create an external table that tells Athena how to read your CSV files. All columns are defined as strings, but many of them contain numeric data like elapsed time or file counts. You can cast these to the appropriate types in your queries to enable sorting, filtering, and aggregation.
+
+The table properties include [partition projection](https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html), so Athena automatically discovers new partitions as data arrives. You don't need to run `MSCK REPAIR TABLE` or manually add partitions each day.
+
+:::info
+The `org` and `type` partitions are _injected_, which means you must include them in the `WHERE` clause of every query. The `year`, `month`, and `day` partitions are range-based and optional but recommended to limit the amount of data scanned.
+:::
 
 <details>
 
@@ -349,23 +358,11 @@ TBLPROPERTIES (
 
 </details>
 
-### Enabling partition projection
-
-The `CREATE TABLE` statement above includes `TBLPROPERTIES` that enable [Athena partition projection](https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html). This means Athena automatically discovers new partitions as data arrives — you do not need to run `MSCK REPAIR TABLE` or manually add partitions each day.
-
-There are two types of projected partitions in this table:
-
-* **Injected partitions** (`org`, `type`) — these must appear in the `WHERE` clause of every query. Athena does not enumerate their values; instead, it uses the values you specify to construct the S3 path.
-* **Range partitions** (`year`, `month`, `day`) — Athena automatically generates all valid combinations within the defined ranges. You can filter on these to limit the amount of data scanned.
-
 ### Setting up an Athena workgroup
 
-We recommend creating a dedicated Athena workgroup for telemetry queries. This allows you to set a query result location and enforce scan limits to control costs:
+Athena requires a location to store query results. Creating a dedicated workgroup keeps telemetry query results organized and lets you set a scan limit to control costs.
 
-* **Query result location**: `s3://my-company-cli-telemetry/athena-results/`
-* **Per-query scan limit**: 100 GB (adjust based on your data volume)
-
-You can create a workgroup through the [Athena console](https://console.aws.amazon.com/athena/home#/workgroups) or with the AWS CLI:
+You can create one through the [Athena console](https://console.aws.amazon.com/athena/home#/workgroups) or with the AWS CLI:
 
 ```bash
 aws athena create-work-group \
@@ -379,11 +376,15 @@ aws athena create-work-group \
     }'
 ```
 
+:::note
+The example above stores Athena results in the same bucket under `athena-results/`. This prefix is outside the partition structure, so it won't interfere with your telemetry data. The scan limit is set to 100 GB per query — adjust this based on your data volume.
+:::
+
 ### Example queries
 
 The following queries demonstrate common ways to analyze your CLI telemetry. Each query must include `org` and `type` in the `WHERE` clause because those partitions use injected projection.
 
-**Listing traces for a specific day:**
+**Listing all build traces for a specific day:**
 
 ```sql
 SELECT origin, path, branch,
@@ -398,7 +399,9 @@ WHERE org = 'my-company'
 ORDER BY build_ms DESC;
 ```
 
-**Build success rates:**
+**Build success rates for the past month:**
+
+This is useful for spotting trends in build reliability over time.
 
 ```sql
 SELECT buildoutcome, COUNT(*) AS total
@@ -407,12 +410,13 @@ WHERE org = 'my-company'
   AND type = 'build'
   AND year = '2026'
   AND month = '02'
-  AND day = '24'
 GROUP BY buildoutcome
 ORDER BY total DESC;
 ```
 
 **Slowest builds (top 25):**
+
+Helps identify repositories that take the longest to build, which may need attention.
 
 ```sql
 SELECT path, origin,
@@ -431,6 +435,8 @@ LIMIT 25;
 ```
 
 **Repository count by organization:**
+
+Useful if your `BI_ORG` partition covers multiple internal organizations.
 
 ```sql
 SELECT organization, COUNT(DISTINCT path) AS repo_count
