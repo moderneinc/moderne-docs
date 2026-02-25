@@ -17,9 +17,9 @@ This proxy will be used for egress, and then the API gateway will establish the 
   <figcaption></figcaption>
 </figure>
 
-## Agent configuration
+## HTTP CONNECT proxy
 
-The following table contains all the variables/arguments you need to add to your Moderne Agent run command to work with your HTTP proxy. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+If your organization uses an HTTP CONNECT proxy for outbound traffic, configure the agent with the proxy host and port. The following variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -44,6 +44,7 @@ docker run \
 -e MODERNE_AGENT_APIGATEWAY_PROXY_PORT=8179 \
 # ... Additional variables
 ```
+
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
@@ -68,5 +69,54 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.apiGateway.proxy.port=8179 \
 # ... Additional arguments
 ```
+
+</TabItem>
+</Tabs>
+
+## Reverse proxy with bearer token authentication
+
+If your organization uses a reverse proxy that sits in front of the Moderne API gateway and requires bearer token authentication on incoming requests, you can configure the agent to send an `Authorization: Bearer <token>` header on the WebSocket upgrade request.
+
+In this setup, `MODERNE_AGENT_APIGATEWAYRSOCKETURI` points directly at your reverse proxy URL, and the bearer token authenticates the agent to the proxy.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                          | Required | Default | Description                                                                      |
+|----------------------------------------|----------|---------|----------------------------------------------------------------------------------|
+| `MODERNE_AGENT_APIGATEWAY_BEARERTOKEN` | `false`  |         | Bearer token sent as an `Authorization` header on the WebSocket upgrade request. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_AGENT_APIGATEWAYRSOCKETURI=wss://your-reverse-proxy.mycompany.com/rsocket \
+-e MODERNE_AGENT_APIGATEWAY_BEARERTOKEN=your-bearer-token \
+# ... Additional variables
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                            | Required | Default | Description                                                                      |
+|------------------------------------------|----------|---------|----------------------------------------------------------------------------------|
+| `--moderne.agent.apiGateway.bearerToken` | `false`  |         | Bearer token sent as an `Authorization` header on the WebSocket upgrade request. |
+
+**Example:**
+
+```bash
+java -jar moderne-agent-{version}.jar \
+# ... Existing arguments
+--moderne.agent.apiGatewayRsocketUri=wss://your-reverse-proxy.mycompany.com/rsocket \
+--moderne.agent.apiGateway.bearerToken=your-bearer-token \
+# ... Additional arguments
+```
+
 </TabItem>
 </Tabs>
