@@ -40,6 +40,9 @@ build:
     - type: gradle
     - type: bazel
     - type: python
+    - type: resource
+      inclusion: |-
+        **/*
 // highlight-end
 ```
 
