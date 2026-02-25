@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5513
+Total recipes: 5621
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -42,7 +42,7 @@ _4 recipes_
 
 _License: Moderne Source Available License_
 
-_7 recipes_
+_8 recipes_
 
 * [io.moderne.devcenter.BuildToolCard](/user-documentation/recipes/recipe-catalog/devcenter/buildtoolcard.md)
   * **Build tool**
@@ -50,6 +50,9 @@ _7 recipes_
 * [io.moderne.devcenter.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck.md)
   * **Vulnerabilities status**
   * Determine the current state of a repository relative to its vulnerabilities.
+* [io.moderne.devcenter.FindOrganizationStatistics](/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics.md)
+  * **Find organization statistics**
+  * Counts lines of code per repository for organization-level statistics.
 * [io.moderne.devcenter.JUnitJupiterUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/junitjupiterupgrade.md)
   * **Move to JUnit 6**
   * Move to JUnit Jupiter.
@@ -190,18 +193,27 @@ _2 recipes_
 
 _License: Moderne Proprietary License_
 
-_4 recipes_
+_7 recipes_
 
-* [io.moderne.java.server.jboss.DeleteJBossDescriptors](/user-documentation/recipes/recipe-catalog/java/server/jboss/deletejbossdescriptors.md)
-  * **Delete JBoss deployment descriptor files**
-  * Removes jboss-web.xml and jboss-deployment-structure.xml files as they are no longer needed after a migration.
+* [io.moderne.java.server.jboss.ModuleHasJBossDescriptor](/user-documentation/recipes/recipe-catalog/java/server/jboss/modulehasjbossdescriptor.md)
+  * **Module has JBoss descriptor**
+  * Searches for modules containing JBoss descriptor files (`jboss-web.xml`, `jboss-deployment-structure.xml`). Places a `SearchResult` marker on all source files within a module with a JBoss descriptor. This recipe is intended to be used as a precondition for other recipes.
+* [io.moderne.java.server.jboss.MoveWebXml](/user-documentation/recipes/recipe-catalog/java/server/jboss/movewebxml.md)
+  * **Move `web.xml` to resources**
+  * Moves `src/main/webapp/WEB-INF/web.xml` to `src/main/resources/web.xml`.
 * [io.moderne.java.server.jboss.PlanJBossMigration](/user-documentation/recipes/recipe-catalog/java/server/jboss/planjbossmigration.md)
   * **Plan JBoss migration**
   * Analyzes the repository to plan a JBoss migration, identifying JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and recording them in a data table.
-* [io.moderne.java.server.jboss.migrate.jetty.MigrateJBossToJetty](/user-documentation/recipes/recipe-catalog/java/server/jboss/migrate/jetty/migratejbosstojetty.md)
+* [io.moderne.java.server.jboss.jetty.CreateJettyEnvXml](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/createjettyenvxml.md)
+  * **Create Jetty environment XML**
+  * Creates a `jetty-env.xml` file for projects containing JBoss descriptor files.
+* [io.moderne.java.server.jboss.jetty.CreateJettyFilesInPath](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/createjettyfilesinpath.md)
   * **Migrate JBoss to Jetty**
   * Comprehensive migration from JBoss to Jetty.
-* [io.moderne.java.server.jboss.migrate.jetty.devcenter.JBossToJettyMigrationCard$Scanner](/user-documentation/recipes/recipe-catalog/java/server/jboss/migrate/jetty/devcenter/jbosstojettymigrationcard$scanner.md)
+* [io.moderne.java.server.jboss.jetty.CreateJettySourceFile](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/createjettysourcefile.md)
+  * **Create Jetty server source file**
+  * Creates a `JettyServer.java` source file for projects containing JBoss descriptor files.
+* [io.moderne.java.server.jboss.jetty.devcenter.JBossToJettyMigrationCard$Scanner](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/devcenter/jbosstojettymigrationcard$scanner.md)
   * **JBoss to Jetty migration scanner**
   * Scans for JBoss and Jetty configuration files.
 
@@ -247,6 +259,106 @@ _12 recipes_
 * [io.moderne.kafka.streams.RemovePartitionGrouperConfiguration](/user-documentation/recipes/recipe-catalog/kafka/streams/removepartitiongrouperconfiguration.md)
   * **Remove `PartitionGrouper` configuration**
   * Starting with Kafka Streams 2.4, the `PartitionGrouper` API was deprecated and partition grouping is now fully handled internally by the library. This recipe removes the deprecated `PARTITION_GROUPER_CLASS_CONFIG` configuration.
+
+## io.moderne.recipe:rewrite-prethink
+
+_License: Moderne Proprietary License_
+
+_31 recipes_
+
+* [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)
+  * **Comprehend code with AI**
+  * Use an LLM to generate descriptions for classes and methods in the codebase. Descriptions are cached based on source code checksums to avoid regenerating descriptions for unchanged code.
+* [io.moderne.prethink.ComprehendCodeTokenCounter](/user-documentation/recipes/recipe-catalog/prethink/comprehendcodetokencounter.md)
+  * **Estimate comprehension token usage**
+  * Estimate the input token counts that would be sent to an LLM for method comprehension, without actually calling a model. Uses OpenAI's tokenizer locally. Outputs to the MethodDescriptions table with blank descriptions.
+* [io.moderne.prethink.ExtractCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/extractcodingconventions.md)
+  * **Extract coding conventions**
+  * Analyze the codebase to extract coding conventions including naming patterns, import organization, and documentation patterns.
+* [io.moderne.prethink.ExtractDependencyUsage](/user-documentation/recipes/recipe-catalog/prethink/extractdependencyusage.md)
+  * **Extract dependency usage patterns**
+  * Analyze the codebase to extract dependency usage patterns by examining which types from external libraries are actually used in the code.
+* [io.moderne.prethink.ExtractErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/extracterrorpatterns.md)
+  * **Extract error handling patterns**
+  * Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used.
+* [io.moderne.prethink.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/findtestcoverage.md)
+  * **Find test coverage mapping**
+  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
+* [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
+  * **Update Prethink context (no AI)**
+  * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider - use UpdatePrethinkContextStarter if you want AI-generated code comprehension and test summaries.
+* [io.moderne.prethink.UpdatePrethinkContextStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter.md)
+  * **Update Prethink context (with AI)**
+  * Generate Moderne Prethink context files with AI-generated code comprehension, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. Maps tests to implementation methods and optionally generates AI summaries of what each test verifies when LLM provider is configured.
+* [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
+  * **Find CALM relationships**
+  * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
+* [io.moderne.prethink.calm.FindDataAssets](/user-documentation/recipes/recipe-catalog/prethink/calm/finddataassets.md)
+  * **Find data assets**
+  * Identify data assets including JPA entities, MongoDB documents, Java records, and DTOs in the application.
+* [io.moderne.prethink.calm.FindDatabaseConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/finddatabaseconnections.md)
+  * **Find database connections**
+  * Identify database connections and data access patterns in the application. Detects JPA entities, Spring Data repositories, JDBC templates, and MyBatis mappers.
+* [io.moderne.prethink.calm.FindDeploymentArtifacts](/user-documentation/recipes/recipe-catalog/prethink/calm/finddeploymentartifacts.md)
+  * **Find deployment artifacts**
+  * Identify deployment artifacts including Dockerfiles, docker-compose files, and Kubernetes manifests.
+* [io.moderne.prethink.calm.FindExpressEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findexpressendpoints.md)
+  * **Find Express endpoints**
+  * Identify REST/HTTP endpoints in Express and Fastify applications. Detects app.get(), router.post(), and similar route definition patterns.
+* [io.moderne.prethink.calm.FindExternalServiceCalls](/user-documentation/recipes/recipe-catalog/prethink/calm/findexternalservicecalls.md)
+  * **Find external service calls**
+  * Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, Apache HttpClient, OkHttp, and JAX-RS clients.
+* [io.moderne.prethink.calm.FindMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findmessagingconnections.md)
+  * **Find messaging connections**
+  * Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, and AWS SQS messaging.
+* [io.moderne.prethink.calm.FindMongooseSchemas](/user-documentation/recipes/recipe-catalog/prethink/calm/findmongooseschemas.md)
+  * **Find Mongoose schemas**
+  * Identify Mongoose models and schemas in Node.js applications. Detects mongoose.model() calls and populates the DatabaseConnections table.
+* [io.moderne.prethink.calm.FindNestJSEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findnestjsendpoints.md)
+  * **Find NestJS endpoints**
+  * Identify REST/HTTP endpoints in NestJS controllers. Detects @Controller, @Get, @Post, @Put, @Delete, and @Patch decorators and populates the ServiceEndpoints data table.
+* [io.moderne.prethink.calm.FindNodeErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodeerrorpatterns.md)
+  * **Find Node.js error patterns**
+  * Identify error handling patterns in Node.js applications. Detects try/catch blocks and identifies logging frameworks used.
+* [io.moderne.prethink.calm.FindNodeHttpClients](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodehttpclients.md)
+  * **Find Node.js HTTP clients**
+  * Identify HTTP client usage in Node.js applications. Detects axios, fetch, got, and superagent call patterns.
+* [io.moderne.prethink.calm.FindNodeMessaging](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodemessaging.md)
+  * **Find Node.js messaging**
+  * Identify messaging patterns in Node.js applications. Detects KafkaJS, amqplib, and Bull/BullMQ usage.
+* [io.moderne.prethink.calm.FindNodeProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodeprojectmetadata.md)
+  * **Find Node.js project metadata**
+  * Extract project metadata (name, version, description) from Node.js package.json files.
+* [io.moderne.prethink.calm.FindNodeSecurityConfig](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodesecurityconfig.md)
+  * **Find Node.js security configuration**
+  * Identify security middleware in Node.js applications. Detects cors, helmet, passport, and JWT middleware usage.
+* [io.moderne.prethink.calm.FindNodeTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodetestcoverage.md)
+  * **Find Node.js test coverage**
+  * Identify test methods in Jest, Mocha, and Vitest test files. Detects describe(), it(), and test() blocks and populates the TestMapping table.
+* [io.moderne.prethink.calm.FindPrismaUsage](/user-documentation/recipes/recipe-catalog/prethink/calm/findprismausage.md)
+  * **Find Prisma usage**
+  * Identify Prisma ORM usage in Node.js applications. Detects prisma.model.findMany() and similar Prisma Client query patterns.
+* [io.moderne.prethink.calm.FindProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findprojectmetadata.md)
+  * **Find project metadata**
+  * Extract project metadata (artifact ID, group ID, name, description) from Maven pom.xml files.
+* [io.moderne.prethink.calm.FindSecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findsecurityconfiguration.md)
+  * **Find security configuration**
+  * Identify security configurations including Spring Security, OAuth2, and CORS settings.
+* [io.moderne.prethink.calm.FindServerConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findserverconfiguration.md)
+  * **Find server configuration**
+  * Extract server configuration (port, SSL, context path) from application.properties and application.yml files.
+* [io.moderne.prethink.calm.FindServiceComponents](/user-documentation/recipes/recipe-catalog/prethink/calm/findservicecomponents.md)
+  * **Find service components**
+  * Identify service layer components (@Service, @Component, @Named) in the application. Excludes controllers and repositories which are handled by dedicated recipes.
+* [io.moderne.prethink.calm.FindServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findserviceendpoints.md)
+  * **Find service endpoints**
+  * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints.
+* [io.moderne.prethink.calm.FindTypeORMEntities](/user-documentation/recipes/recipe-catalog/prethink/calm/findtypeormentities.md)
+  * **Find TypeORM entities**
+  * Identify TypeORM entities in Node.js applications. Detects @Entity() decorator on classes and populates the DatabaseConnections table.
+* [io.moderne.prethink.calm.GenerateCalmMermaidDiagram](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmmermaiddiagram.md)
+  * **Generate architecture mermaid diagram**
+  * Generate a markdown file with a mermaid architecture diagram from discovered service endpoints, database connections, external service calls, and messaging connections.
 
 ## io.moderne.recipe:rewrite-program-analysis
 
@@ -317,7 +429,7 @@ _2 recipes_
 
 _License: Moderne Proprietary License_
 
-_68 recipes_
+_72 recipes_
 
 * [io.moderne.java.jsf.richfaces.ConvertExtendedDataTableHeightToStyle](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/convertextendeddatatableheighttostyle.md)
   * **Convert height/width attributes to `extendedDataTable` style**
@@ -409,6 +521,15 @@ _68 recipes_
 * [io.moderne.java.spring.boot4.MigrateSpringRetryToSpringFramework7](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretrytospringframework7.md)
   * **Migrate `spring-retry` to Spring Framework resilience**
   * Migrate `spring-retry`s `@Retryable` and `@Backoff` annotation to Spring Framework 7 Resilience annotations.
+* [io.moderne.java.spring.boot4.MockMvcAssertionsToAssertJ](/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvcassertionstoassertj.md)
+  * **Migrate MockMvc `andExpect()` chains to AssertJ assertions**
+  * Converts MockMvc Hamcrest-style `andExpect()` assertion chains to AssertJ-style fluent assertions using `assertThat()`. Handles status, content, JSON path, header, redirect, and forward assertions.
+* [io.moderne.java.spring.boot4.MockMvcRequestBuildersToMockMvcTester](/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvcrequestbuilderstomockmvctester.md)
+  * **Migrate `MockMvcRequestBuilders` to `MockMvcTester` request methods**
+  * Converts `mockMvcTester.perform(get(&quot;/api&quot;).param(&quot;k&quot;,&quot;v&quot;))` to `mockMvcTester.get().uri(&quot;/api&quot;).param(&quot;k&quot;,&quot;v&quot;)`, removing the `perform()` wrapper and `MockMvcRequestBuilders` static method calls.
+* [io.moderne.java.spring.boot4.MockMvcToMockMvcTester](/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvctomockmvctester.md)
+  * **Migrate `MockMvc` to `MockMvcTester`**
+  * Converts `MockMvc` fields and initialization to `MockMvcTester`. Changes field types, renames fields from `mockMvc` to `mockMvcTester`, and converts `MockMvcBuilders.standaloneSetup().build()` to `MockMvcTester.of()` and `MockMvcBuilders.webAppContextSetup().build()` to `MockMvcTester.from()`.
 * [io.moderne.java.spring.boot4.RemoveContentNegotiationFavorPathExtension](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removecontentnegotiationfavorpathextension.md)
   * **Remove `ContentNegotiationConfigurer.favorPathExtension()` calls**
   * Spring Framework 7 removed `favorPathExtension()` from `ContentNegotiationConfigurer`. Path extension content negotiation is no longer supported. This recipe removes calls to `favorPathExtension()`.
@@ -418,6 +539,9 @@ _68 recipes_
 * [io.moderne.java.spring.boot4.RemoveHttpMessageConvertersAutoConfigurationReferences](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removehttpmessageconvertersautoconfigurationreferences.md)
   * **Remove `HttpMessageConvertersAutoConfiguration` references**
   * Removes references to the deprecated `HttpMessageConvertersAutoConfiguration` class which was removed in Spring Boot 4.0. For `@AutoConfigureAfter` and `@AutoConfigureBefore` annotations, the reference is removed. For `@Import` annotations, a TODO comment is added since manual migration may be required.
+* [io.moderne.java.spring.boot4.RemoveZipkinAutoConfigurationExclude](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removezipkinautoconfigurationexclude.md)
+  * **Remove `ZipkinAutoConfiguration`**
+  * Zipkin is no longer auto-configured by default in Spring Boot 4.0; remove references to it from exclusions on annotations.
 * [io.moderne.java.spring.boot4.ReplaceDeprecatedAutoconfigureMongoApi](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedautoconfiguremongoapi.md)
   * **Replace deprecated `org.springframework.boot.autoconfigure.mongo` API**
   * Replace deprecated `org.springframework.boot.autoconfigure.mongo` API.
@@ -1017,7 +1141,7 @@ _2 recipes_
 
 _License: Apache License Version 2.0_
 
-_10 recipes_
+_14 recipes_
 
 * [org.openrewrite.java.dropwizard.annotation.AddClassAnnotationIfAnnotationExists](/user-documentation/recipes/recipe-catalog/java/dropwizard/annotation/addclassannotationifannotationexists.md)
   * **Add annotation if target annotations exist**
@@ -1049,6 +1173,18 @@ _10 recipes_
 * [org.openrewrite.java.dropwizard.method.RemoveUnnecessarySuperCalls](/user-documentation/recipes/recipe-catalog/java/dropwizard/method/removeunnecessarysupercalls.md)
   * **Remove `super` calls when the class does not extend another class**
   * Removes calls to `super(...)` or `super.someMethod(...)` if the class does not have a real superclass besides `java.lang.Object`.
+* [org.openrewrite.java.dropwizard.test.DropwizardRulesJUnit4ToSpringBoot](/user-documentation/recipes/recipe-catalog/java/dropwizard/test/dropwizardrulesjunit4tospringboot.md)
+  * **Replace Dropwizard rules with Spring Boot test configuration**
+  * Remove Dropwizard JUnit4 rules and add Spring Boot test annotations and extensions.
+* [org.openrewrite.java.dropwizard.test.MethodLambdaExtractor](/user-documentation/recipes/recipe-catalog/java/dropwizard/test/methodlambdaextractor.md)
+  * **Extract lambda expressions**
+  * Extracts the body of lambda expressions and inlines them into the surrounding code.
+* [org.openrewrite.java.dropwizard.test.MockitoVariableToMockBean](/user-documentation/recipes/recipe-catalog/java/dropwizard/test/mockitovariabletomockbean.md)
+  * **Convert Mockito mock() to @MockBean**
+  * Converts static final Mockito mock fields to Spring Boot @MockBean fields.
+* [org.openrewrite.java.dropwizard.test.TransformDropwizardRuleInvocations](/user-documentation/recipes/recipe-catalog/java/dropwizard/test/transformdropwizardruleinvocations.md)
+  * **Convert dropwizard appRule to restTemplate**
+  * Transforms Dropwizard AppRule testing calls to their equivalent RestTemplate calls.
 
 ## org.openrewrite.recipe:rewrite-feature-flags
 
@@ -1269,7 +1405,7 @@ _42 recipes_
 
 _License: Moderne Source Available License_
 
-_8 recipes_
+_10 recipes_
 
 * [org.openrewrite.gitlab.AddComponent](/user-documentation/recipes/recipe-catalog/gitlab/addcomponent.md)
   * **Add GitLab component**
@@ -1292,6 +1428,12 @@ _8 recipes_
 * [org.openrewrite.gitlab.search.FindComponent](/user-documentation/recipes/recipe-catalog/gitlab/search/findcomponent.md)
   * **Find GitLab Component**
   * Find a GitLab Component in use.
+* [org.openrewrite.gitlab.search.FindDeprecatedExcept](/user-documentation/recipes/recipe-catalog/gitlab/search/finddeprecatedexcept.md)
+  * **Find deprecated `except` keyword**
+  * Find usages of the deprecated `except` keyword in `.gitlab-ci.yml`. The `except` keyword is deprecated in favor of `rules`.
+* [org.openrewrite.gitlab.search.FindDeprecatedOnly](/user-documentation/recipes/recipe-catalog/gitlab/search/finddeprecatedonly.md)
+  * **Find deprecated `only` keyword**
+  * Find usages of the deprecated `only` keyword in `.gitlab-ci.yml`. The `only` keyword is deprecated in favor of `rules`.
 * [org.openrewrite.gitlab.search.FindTemplate](/user-documentation/recipes/recipe-catalog/gitlab/search/findtemplate.md)
   * **Find GitLab Template**
   * Find a GitLab Template in use.
@@ -1331,8 +1473,11 @@ _8 recipes_
 
 _License: Apache License Version 2.0_
 
-_14 recipes_
+_16 recipes_
 
+* [org.openrewrite.java.jackson.IOExceptionToJacksonException](/user-documentation/recipes/recipe-catalog/java/jackson/ioexceptiontojacksonexception.md)
+  * **Replace `IOException` with `JacksonException` in catch clauses**
+  * In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`.
 * [org.openrewrite.java.jackson.Jackson3JsonNodeFieldIterators](/user-documentation/recipes/recipe-catalog/java/jackson/jackson3jsonnodefielditerators.md)
   * **Migrate `JSONNode` field iterator for Jackson 3**
   * `JSONNode` fields are using `Collections` instead of `Iterator` singe Jackson 3. To mimic Jackson 2s behavior an additional call to `Collection#iterator()`is needed.
@@ -1345,6 +1490,9 @@ _14 recipes_
 * [org.openrewrite.java.jackson.RemoveRedundantJsonPropertyValue](/user-documentation/recipes/recipe-catalog/java/jackson/removeredundantjsonpropertyvalue.md)
   * **Remove redundant `@JsonProperty` argument**
   * Remove `@JsonProperty` annotation or value attribute when the value matches the argument name.
+* [org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter](/user-documentation/recipes/recipe-catalog/java/jackson/replacejsonignorewithjsonsetter.md)
+  * **Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields**
+  * In Jackson 3, `@JsonIgnore` on fields initialized with empty collections causes the field value to become `null` instead of maintaining the empty collection. This recipe replaces `@JsonIgnore` with `@JsonSetter(nulls = Nulls.AS_EMPTY)` on `Map` and `Collection` fields that have an empty collection initializer.
 * [org.openrewrite.java.jackson.ReplaceStreamWriteCapability](/user-documentation/recipes/recipe-catalog/java/jackson/replacestreamwritecapability.md)
   * **Replace removed `JsonGenerator` capability methods with `StreamWriteCapability`**
   * In Jackson 3, `JsonGenerator.canWriteBinaryNatively()` and `canWriteFormattedNumbers()` were removed and replaced with the `StreamWriteCapability` enum. This recipe updates these method calls to use `getWriteCapabilities().isEnabled(StreamWriteCapability.*)` instead.
@@ -1596,11 +1744,41 @@ _10 recipes_
 
 _License: Moderne Source Available License_
 
-_1 recipe_
+_11 recipes_
 
-* [org.openrewrite.java.joda.time.JodaTimeRecipe](/user-documentation/recipes/recipe-catalog/java/joda/time/jodatimerecipe.md)
-  * **Migrate Joda-Time to Java time**
-  * Prefer the Java standard library over third-party usage of Joda Time.
+* [org.openrewrite.java.joda.time.JodaAbstractInstantToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodaabstractinstanttojavatime.md)
+  * **Migrate Joda-Time `AbstractInstant` to Java time**
+  * Migrates Joda-Time `AbstractInstant` method calls to their Java time equivalents.
+* [org.openrewrite.java.joda.time.JodaDateMidnightToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodadatemidnighttojavatime.md)
+  * **Migrate Joda-Time `DateMidnight` to Java time**
+  * Migrates `org.joda.time.DateMidnight` constructor and `now()` calls to `java.time.LocalDate.now().atStartOfDay(...)`.
+* [org.openrewrite.java.joda.time.JodaDateTimeToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodadatetimetojavatime.md)
+  * **Migrate Joda-Time `DateTime` to `java.time.ZonedDateTime`**
+  * Migrates Joda-Time `DateTime` constructors and instance methods to the equivalent `java.time.ZonedDateTime` calls.
+* [org.openrewrite.java.joda.time.JodaDateTimeZoneToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodadatetimezonetojavatime.md)
+  * **Migrate Joda-Time `DateTimeZone` to Java time**
+  * Migrates `org.joda.time.DateTimeZone` method calls to `java.time.ZoneOffset` and `java.time.ZoneId`.
+* [org.openrewrite.java.joda.time.JodaDurationToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodadurationtojavatime.md)
+  * **Migrate Joda-Time `Duration` to Java time**
+  * Migrates `org.joda.time.Duration` constructor and method calls to `java.time.Duration`.
+* [org.openrewrite.java.joda.time.JodaFormatterToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodaformattertojavatime.md)
+  * **Migrate Joda-Time formatter to Java time**
+  * Migrates Joda-Time `DateTimeFormatter` and `DateTimeFormat` method calls to their Java time equivalents.
+* [org.openrewrite.java.joda.time.JodaInstantToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodainstanttojavatime.md)
+  * **Migrate Joda-Time `Instant` to Java time**
+  * Migrates `org.joda.time.Instant` constructor calls to `java.time.Instant.now()`.
+* [org.openrewrite.java.joda.time.JodaIntervalToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodaintervaltojavatime.md)
+  * **Migrate Joda-Time `Interval` to Java time**
+  * Migrates `org.joda.time.Interval` constructors and methods to their Java time equivalents using ThreeTen-Extra.
+* [org.openrewrite.java.joda.time.JodaLocalDateToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodalocaldatetojavatime.md)
+  * **Migrate Joda-Time `LocalDate` to `java.time.LocalDate`**
+  * Migrates Joda-Time `LocalDate` constructors and instance methods to the equivalent `java.time.LocalDate` calls.
+* [org.openrewrite.java.joda.time.JodaLocalTimeToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodalocaltimetojavatime.md)
+  * **Migrate Joda-Time `LocalTime` to `java.time.LocalTime`**
+  * Migrates Joda-Time `LocalTime` constructors and instance methods to the equivalent `java.time.LocalTime` calls.
+* [org.openrewrite.java.joda.time.JodaTimePeriodToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodatimeperiodtojavatime.md)
+  * **Migrate Joda-Time `Days`, `Hours`, `Minutes`, `Seconds` to Java time**
+  * Migrates `org.joda.time.Days`, `Hours`, `Minutes`, and `Seconds` to `java.time.temporal.ChronoUnit` and `java.time.Duration`.
 
 ## org.openrewrite.recipe:rewrite-kubernetes
 
@@ -1692,7 +1870,7 @@ _6 recipes_
 
 _License: Moderne Source Available License_
 
-_101 recipes_
+_99 recipes_
 
 * [org.openrewrite.java.logging.ArgumentArrayToVarargs](/user-documentation/recipes/recipe-catalog/java/logging/argumentarraytovarargs.md)
   * **Unpack Logger method `new Object[] \{...\}` into varargs**
@@ -1838,15 +2016,9 @@ _101 recipes_
 * [org.openrewrite.java.logging.slf4j.CompleteExceptionLogging](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/completeexceptionlogging.md)
   * **Enhances logging of exceptions by including the full stack trace in addition to the exception message**
   * It is a common mistake to call `Exception.getMessage()` when passing an exception into a log method. Not all exception types have useful messages, and even if the message is useful this omits the stack trace. Including a complete stack trace of the error along with the exception message in the log allows developers to better understand the context of the exception and identify the source of the error more quickly and accurately.  If the method invocation includes any call to `Exception.getMessage()` or `Exception.getLocalizedMessage()` and not an exception is already passed as the last parameter to the log method, then we will append the exception as the last parameter in the log method.
-* [org.openrewrite.java.logging.slf4j.JulGetLoggerToLoggerFactoryRecipes](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julgetloggertologgerfactoryrecipes.md)
+* [org.openrewrite.java.logging.slf4j.JulGetLoggerToLoggerFactory](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julgetloggertologgerfactory.md)
   * **Replace JUL Logger creation with SLF4J LoggerFactory**
-  * Replace calls to `Logger.getLogger` with `LoggerFactory.getLogger`.
-* [org.openrewrite.java.logging.slf4j.JulGetLoggerToLoggerFactoryRecipes$GetLoggerClassCanonicalNameToLoggerFactoryRecipe](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julgetloggertologgerfactoryrecipes$getloggerclasscanonicalnametologgerfactoryrecipe.md)
-  * **Replace JUL `Logger.getLogger(Some.class.getCanonicalName())` with SLF4J's `LoggerFactory.getLogger(Some.class)`**
-  * Replace calls to `java.util.logging.Logger.getLogger(Some.class.getCanonicalName())` with `org.slf4j.LoggerFactory.getLogger(Some.class)`.
-* [org.openrewrite.java.logging.slf4j.JulGetLoggerToLoggerFactoryRecipes$GetLoggerClassNameToLoggerFactoryRecipe](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julgetloggertologgerfactoryrecipes$getloggerclassnametologgerfactoryrecipe.md)
-  * **Replace JUL `Logger.getLogger(Some.class.getName())` with SLF4J's `LoggerFactory.getLogger(Some.class)`**
-  * Replace calls to `java.util.logging.Logger.getLogger(Some.class.getName())` with `org.slf4j.LoggerFactory.getLogger(Some.class)`.
+  * Replace calls to `Logger.getLogger(Some.class.getName())` and `Logger.getLogger(Some.class.getCanonicalName())` with `LoggerFactory.getLogger(Some.class)`.
 * [org.openrewrite.java.logging.slf4j.JulIsLoggableToIsEnabledRecipes](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes.md)
   * **Replace JUL active Level check with corresponding SLF4J method calls**
   * Replace calls to `Logger.isLoggable(Level)` with the corresponding SLF4J method calls.
@@ -2607,6 +2779,35 @@ _173 recipes_
   * **Prefer `Set.of(..)`**
   * Prefer `Set.of(..)` instead of using `java.util.Set#add(..)` in anonymous HashSet initializers in Java 10 or higher. This recipe will not modify code where the Set is later mutated since `Set.of` returns an immutable set.
 
+## org.openrewrite.recipe:rewrite-migrate-kotlin
+
+_License: Moderne Proprietary License_
+
+_3 recipes_
+
+* [org.openrewrite.kotlin.migrate.ReplaceEnumValuesWithEntries](/user-documentation/recipes/recipe-catalog/kotlin/migrate/replaceenumvalueswithentries.md)
+  * **Replace `Enum.values()` with `Enum.entries`**
+  * Replace calls to `Enum.values()` with the `Enum.entries` property. The `entries` property returns an efficient immutable list instead of creating a new array on each call. Deprecated since Kotlin 1.9, recommended replacement for Kotlin 2.x.
+* [org.openrewrite.kotlin.migrate.ReplaceKotlinOptionsWithCompilerOptions](/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacekotlinoptionswithcompileroptions.md)
+  * **Replace `kotlinOptions` with `compilerOptions` in Gradle build files**
+  * Rename the deprecated `kotlinOptions` DSL block to `compilerOptions` in Gradle build files. The `kotlinOptions` DSL was deprecated in Kotlin 2.0 and removed in Kotlin 2.2.
+* [org.openrewrite.kotlin.replace.ReplaceKotlinMethod](/user-documentation/recipes/recipe-catalog/kotlin/replace/replacekotlinmethod.md)
+  * **Replace Kotlin method**
+  * Replaces Kotlin method calls based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
+
+## org.openrewrite.recipe:rewrite-migrate-python
+
+_License: Moderne Proprietary License_
+
+_2 recipes_
+
+* [org.openrewrite.python.migrate.FindFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/findfutureimports.md)
+  * **Find `__future__` imports**
+  * Find `__future__` imports and add a search marker.
+* [org.openrewrite.python.migrate.MigrateToPyprojectToml](/user-documentation/recipes/recipe-catalog/python/migrate/migratetopyprojecttoml.md)
+  * **Migrate to `pyproject.toml`**
+  * Migrate Python projects from `requirements.txt` and/or `setup.cfg` to `pyproject.toml` with `hatchling` build backend.
+
 ## org.openrewrite.recipe:rewrite-netty
 
 _License: Apache License Version 2.0_
@@ -2683,101 +2884,8 @@ _9 recipes_
 
 _License: Moderne Source Available License_
 
-_36 recipes_
+_5 recipes_
 
-* [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)
-  * **Comprehend code with AI**
-  * Use an LLM to generate descriptions for classes and methods in the codebase. Descriptions are cached based on source code checksums to avoid regenerating descriptions for unchanged code.
-* [io.moderne.prethink.ComprehendCodeTokenCounter](/user-documentation/recipes/recipe-catalog/prethink/comprehendcodetokencounter.md)
-  * **Estimate comprehension token usage**
-  * Estimate the input token counts that would be sent to an LLM for method comprehension, without actually calling a model. Uses OpenAI's tokenizer locally. Outputs to the MethodDescriptions table with blank descriptions.
-* [io.moderne.prethink.ExtractCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/extractcodingconventions.md)
-  * **Extract coding conventions**
-  * Analyze the codebase to extract coding conventions including naming patterns, import organization, and documentation patterns.
-* [io.moderne.prethink.ExtractDependencyUsage](/user-documentation/recipes/recipe-catalog/prethink/extractdependencyusage.md)
-  * **Extract dependency usage patterns**
-  * Analyze the codebase to extract dependency usage patterns by examining which types from external libraries are actually used in the code.
-* [io.moderne.prethink.ExtractErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/extracterrorpatterns.md)
-  * **Extract error handling patterns**
-  * Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used.
-* [io.moderne.prethink.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/findtestcoverage.md)
-  * **Find test coverage mapping**
-  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
-* [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
-  * **Update Prethink context (no AI)**
-  * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider - use UpdatePrethinkContextStarter if you want AI-generated code comprehension and test summaries.
-* [io.moderne.prethink.UpdatePrethinkContextStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter.md)
-  * **Update Prethink context (with AI)**
-  * Generate Moderne Prethink context files with AI-generated code comprehension, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. Maps tests to implementation methods and optionally generates AI summaries of what each test verifies when LLM provider is configured.
-* [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
-  * **Find CALM relationships**
-  * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
-* [io.moderne.prethink.calm.FindDataAssets](/user-documentation/recipes/recipe-catalog/prethink/calm/finddataassets.md)
-  * **Find data assets**
-  * Identify data assets including JPA entities, MongoDB documents, Java records, and DTOs in the application.
-* [io.moderne.prethink.calm.FindDatabaseConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/finddatabaseconnections.md)
-  * **Find database connections**
-  * Identify database connections and data access patterns in the application. Detects JPA entities, Spring Data repositories, JDBC templates, and MyBatis mappers.
-* [io.moderne.prethink.calm.FindDeploymentArtifacts](/user-documentation/recipes/recipe-catalog/prethink/calm/finddeploymentartifacts.md)
-  * **Find deployment artifacts**
-  * Identify deployment artifacts including Dockerfiles, docker-compose files, and Kubernetes manifests.
-* [io.moderne.prethink.calm.FindExpressEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findexpressendpoints.md)
-  * **Find Express endpoints**
-  * Identify REST/HTTP endpoints in Express and Fastify applications. Detects app.get(), router.post(), and similar route definition patterns.
-* [io.moderne.prethink.calm.FindExternalServiceCalls](/user-documentation/recipes/recipe-catalog/prethink/calm/findexternalservicecalls.md)
-  * **Find external service calls**
-  * Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, Apache HttpClient, OkHttp, and JAX-RS clients.
-* [io.moderne.prethink.calm.FindMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findmessagingconnections.md)
-  * **Find messaging connections**
-  * Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, and AWS SQS messaging.
-* [io.moderne.prethink.calm.FindMongooseSchemas](/user-documentation/recipes/recipe-catalog/prethink/calm/findmongooseschemas.md)
-  * **Find Mongoose schemas**
-  * Identify Mongoose models and schemas in Node.js applications. Detects mongoose.model() calls and populates the DatabaseConnections table.
-* [io.moderne.prethink.calm.FindNestJSEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findnestjsendpoints.md)
-  * **Find NestJS endpoints**
-  * Identify REST/HTTP endpoints in NestJS controllers. Detects @Controller, @Get, @Post, @Put, @Delete, and @Patch decorators and populates the ServiceEndpoints data table.
-* [io.moderne.prethink.calm.FindNodeErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodeerrorpatterns.md)
-  * **Find Node.js error patterns**
-  * Identify error handling patterns in Node.js applications. Detects try/catch blocks and identifies logging frameworks used.
-* [io.moderne.prethink.calm.FindNodeHttpClients](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodehttpclients.md)
-  * **Find Node.js HTTP clients**
-  * Identify HTTP client usage in Node.js applications. Detects axios, fetch, got, and superagent call patterns.
-* [io.moderne.prethink.calm.FindNodeMessaging](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodemessaging.md)
-  * **Find Node.js messaging**
-  * Identify messaging patterns in Node.js applications. Detects KafkaJS, amqplib, and Bull/BullMQ usage.
-* [io.moderne.prethink.calm.FindNodeProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodeprojectmetadata.md)
-  * **Find Node.js project metadata**
-  * Extract project metadata (name, version, description) from Node.js package.json files.
-* [io.moderne.prethink.calm.FindNodeSecurityConfig](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodesecurityconfig.md)
-  * **Find Node.js security configuration**
-  * Identify security middleware in Node.js applications. Detects cors, helmet, passport, and JWT middleware usage.
-* [io.moderne.prethink.calm.FindNodeTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodetestcoverage.md)
-  * **Find Node.js test coverage**
-  * Identify test methods in Jest, Mocha, and Vitest test files. Detects describe(), it(), and test() blocks and populates the TestMapping table.
-* [io.moderne.prethink.calm.FindPrismaUsage](/user-documentation/recipes/recipe-catalog/prethink/calm/findprismausage.md)
-  * **Find Prisma usage**
-  * Identify Prisma ORM usage in Node.js applications. Detects prisma.model.findMany() and similar Prisma Client query patterns.
-* [io.moderne.prethink.calm.FindProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findprojectmetadata.md)
-  * **Find project metadata**
-  * Extract project metadata (artifact ID, group ID, name, description) from Maven pom.xml files.
-* [io.moderne.prethink.calm.FindSecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findsecurityconfiguration.md)
-  * **Find security configuration**
-  * Identify security configurations including Spring Security, OAuth2, and CORS settings.
-* [io.moderne.prethink.calm.FindServerConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findserverconfiguration.md)
-  * **Find server configuration**
-  * Extract server configuration (port, SSL, context path) from application.properties and application.yml files.
-* [io.moderne.prethink.calm.FindServiceComponents](/user-documentation/recipes/recipe-catalog/prethink/calm/findservicecomponents.md)
-  * **Find service components**
-  * Identify service layer components (@Service, @Component, @Named) in the application. Excludes controllers and repositories which are handled by dedicated recipes.
-* [io.moderne.prethink.calm.FindServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findserviceendpoints.md)
-  * **Find service endpoints**
-  * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints.
-* [io.moderne.prethink.calm.FindTypeORMEntities](/user-documentation/recipes/recipe-catalog/prethink/calm/findtypeormentities.md)
-  * **Find TypeORM entities**
-  * Identify TypeORM entities in Node.js applications. Detects @Entity() decorator on classes and populates the DatabaseConnections table.
-* [io.moderne.prethink.calm.GenerateCalmMermaidDiagram](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmmermaiddiagram.md)
-  * **Generate architecture mermaid diagram**
-  * Generate a markdown file with a mermaid architecture diagram from discovered service endpoints, database connections, external service calls, and messaging connections.
 * [org.openrewrite.prethink.ExportContext](/user-documentation/recipes/recipe-catalog/prethink/exportcontext.md)
   * **Export context files**
   * Export DataTables to CSV files in `.moderne/context/` along with a markdown description file. The markdown file describes the context and includes schema information for each data table.
@@ -3032,7 +3140,7 @@ _31 recipes_
 
 _License: Moderne Source Available License_
 
-_143 recipes_
+_145 recipes_
 
 * [org.openrewrite.gradle.spring.AddSpringDependencyManagementPlugin](/user-documentation/recipes/recipe-catalog/gradle/spring/addspringdependencymanagementplugin.md)
   * **Add `io.spring.dependency-management` plugin, if in use**
@@ -3240,7 +3348,7 @@ _143 recipes_
   * This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(&quot;/some/greeting&quot;)` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is to maintain trailing slash in all HTTP url mappings.
 * [org.openrewrite.java.spring.boot3.MigrateHooksToReactorContextProperty](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratehookstoreactorcontextproperty.md)
   * **Use `spring.reactor.context-propagation` property**
-  * Replace `Hooks.enableAutomaticContextPropagation()` with `spring.reactor.context-propagation=true`.
+  * Replace `Hooks.enableAutomaticContextPropagation()` with `spring.reactor.context-propagation=auto`.
 * [org.openrewrite.java.spring.boot3.MigrateWebMvcTagsToObservationConvention](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratewebmvctagstoobservationconvention.md)
   * **Migrate `WebMvcTagsProvider` to `DefaultServerRequestObservationConvention`**
   * Migrate `WebMvcTagsProvider` to `DefaultServerRequestObservationConvention` as part of Spring Boot 3.2 removals.
@@ -3286,6 +3394,9 @@ _143 recipes_
 * [org.openrewrite.java.spring.data.MigrateQuerydslJpaRepository](/user-documentation/recipes/recipe-catalog/java/spring/data/migratequerydsljparepository.md)
   * **Use `QuerydslPredicateExecutor&lt;T&gt;`**
   * `QuerydslJpaRepository&lt;T, ID extends Serializable&gt;` was deprecated in Spring Data 2.1.
+* [org.openrewrite.java.spring.data.MigrateRepositoryRestConfigurerAdapter](/user-documentation/recipes/recipe-catalog/java/spring/data/migraterepositoryrestconfigureradapter.md)
+  * **Replace `RepositoryRestConfigurerAdapter` with `RepositoryRestConfigurer`**
+  * Since 3.1, implement RepositoryRestConfigurer directly.
 * [org.openrewrite.java.spring.data.RefactorSimpleMongoDbFactory](/user-documentation/recipes/recipe-catalog/java/spring/data/refactorsimplemongodbfactory.md)
   * **Use `new SimpleMongoClientDbFactory(String)`**
   * Replace usage of deprecated `new SimpleMongoDbFactory(new MongoClientURI(String))` with `new SimpleMongoClientDbFactory(String)`.
@@ -3403,6 +3514,9 @@ _143 recipes_
 * [org.openrewrite.java.spring.security5.AuthorizeHttpRequests](/user-documentation/recipes/recipe-catalog/java/spring/security5/authorizehttprequests.md)
   * **Replace `HttpSecurity.authorizeRequests(...)` with `HttpSecurity.authorizeHttpRequests(...)` and `ExpressionUrlAuthorizationConfigurer`, `AbstractInterceptUrlConfigurer` with `AuthorizeHttpRequestsConfigurer`, etc**
   * Replace `HttpSecurity.authorizeRequests(...)` deprecated in Spring Security 6 with `HttpSecurity.authorizeHttpRequests(...)` and all method calls on the resultant object respectively. Replace deprecated `AbstractInterceptUrlConfigurer` and its deprecated subclasses with `AuthorizeHttpRequestsConfigurer` and its corresponding subclasses.
+* [org.openrewrite.java.spring.security5.ConvertSecurityMatchersToSecurityMatcher](/user-documentation/recipes/recipe-catalog/java/spring/security5/convertsecuritymatcherstosecuritymatcher.md)
+  * **Convert `requestMatchers` chain to `securityMatcher`**
+  * Converts `HttpSecurity.requestMatchers().antMatchers(...)` and similar patterns to `HttpSecurity.securityMatcher(...)`. The no-arg `requestMatchers()` method returns a `RequestMatcherConfigurer` that is not a configurer in the lambda DSL sense, so it should be replaced with the `securityMatcher()` method introduced in Spring Security 5.8.
 * [org.openrewrite.java.spring.security5.ReplaceGlobalMethodSecurityWithMethodSecurity](/user-documentation/recipes/recipe-catalog/java/spring/security5/replaceglobalmethodsecuritywithmethodsecurity.md)
   * **Replace global method security with method security**
   * `@EnableGlobalMethodSecurity` and `&lt;global-method-security&gt;` are deprecated in favor of `@EnableMethodSecurity` and `&lt;method-security&gt;`, respectively. The new annotation and XML element activate Spring’s pre-post annotations by default and use AuthorizationManager internally.
@@ -3468,11 +3582,14 @@ _143 recipes_
 
 _License: Moderne Source Available License_
 
-_7 recipes_
+_10 recipes_
 
 * [org.openrewrite.quarkus.spring.AddQuarkusMavenPlugin](/user-documentation/recipes/recipe-catalog/quarkus/spring/addquarkusmavenplugin.md)
   * **Add Quarkus Maven plugin**
   * Adds the Quarkus Maven plugin using the same version as the quarkus-bom in dependency management.
+* [org.openrewrite.quarkus.spring.JpaEntityToPanacheEntity](/user-documentation/recipes/recipe-catalog/quarkus/spring/jpaentitytopanacheentity.md)
+  * **Convert JPA Entity to Panache Entity**
+  * Transforms standard JPA entities to extend Quarkus PanacheEntity, enabling the Active Record pattern with built-in CRUD operations.
 * [org.openrewrite.quarkus.spring.RemoveSpringBootParent](/user-documentation/recipes/recipe-catalog/quarkus/spring/removespringbootparent.md)
   * **Remove Spring Boot 3.x parent POM**
   * Removes the Spring Boot 3.x starter parent POM from Maven projects.
@@ -3485,6 +3602,12 @@ _7 recipes_
 * [org.openrewrite.quarkus.spring.SpringBeanToCdiProduces](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbeantocdiproduces.md)
   * **Replace Spring `@Bean` with CDI `@Produces`**
   * Transform Spring `@Bean` methods to CDI `@Produces` methods with appropriate scope annotations.
+* [org.openrewrite.quarkus.spring.SpringEventListenerToObserves](/user-documentation/recipes/recipe-catalog/quarkus/spring/springeventlistenertoobserves.md)
+  * **Convert Spring @EventListener to CDI @Observes**
+  * Transforms Spring's @EventListener method annotation to CDI's @Observes parameter annotation pattern.
+* [org.openrewrite.quarkus.spring.SpringHealthIndicatorToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springhealthindicatortoquarkus.md)
+  * **Convert Spring HealthIndicator to Quarkus HealthCheck**
+  * Transforms Spring Boot Actuator `HealthIndicator` implementations to MicroProfile Health `HealthCheck` pattern used by Quarkus.
 * [org.openrewrite.quarkus.spring.ValueToCdiConfigProperty](/user-documentation/recipes/recipe-catalog/quarkus/spring/valuetocdiconfigproperty.md)
   * **Replace Spring `@Value` with CDI `@ConfigProperty`**
   * Transform Spring `@Value` annotations to MicroProfile `@ConfigProperty` with proper parameter mapping.
@@ -3518,7 +3641,7 @@ _5 recipes_
 
 _License: Moderne Source Available License_
 
-_163 recipes_
+_164 recipes_
 
 * [org.openrewrite.staticanalysis.AbstractClassPublicConstructor](/user-documentation/recipes/recipe-catalog/staticanalysis/abstractclasspublicconstructor.md)
   * **Constructors of an `abstract` class should not be declared `public`**
@@ -3592,9 +3715,6 @@ _163 recipes_
 * [org.openrewrite.staticanalysis.CovariantEquals](/user-documentation/recipes/recipe-catalog/staticanalysis/covariantequals.md)
   * **Covariant equals**
   * Checks that classes and records which define a covariant `equals()` method also override method `equals(Object)`. Covariant `equals()` means a method that is similar to `equals(Object)`, but with a covariant parameter type (any subtype of `Object`).
-* [org.openrewrite.staticanalysis.CustomImportOrder](/user-documentation/recipes/recipe-catalog/staticanalysis/customimportorder.md)
-  * **Custom import order**
-  * Updates and reorders Java import declarations according to group and order settings compatible with the Checkstyle 'CustomImportOrder' check.
 * [org.openrewrite.staticanalysis.DeclarationSiteTypeVariance](/user-documentation/recipes/recipe-catalog/staticanalysis/declarationsitetypevariance.md)
   * **Properly use declaration-site type variance**
   * Currently, Java requires use-site type variance, so if someone has `Function&lt;IN, OUT&gt;` method parameter, it should rather be `Function&lt;? super IN, ? extends OUT&gt;`. Unfortunately, it is not easy to notice that `? super` and `? extends` is missing, so this recipe adds it where that would improve the situation.
@@ -3799,6 +3919,9 @@ _163 recipes_
 * [org.openrewrite.staticanalysis.RemoveToStringCallsFromArrayInstances](/user-documentation/recipes/recipe-catalog/staticanalysis/removetostringcallsfromarrayinstances.md)
   * **Remove `toString()` calls on arrays**
   * The result from `toString()` calls on arrays is largely useless. The output does not actually reflect the contents of the array. `Arrays.toString(array)` should be used instead as it gives the contents of the array.
+* [org.openrewrite.staticanalysis.RemoveTrailingWhitespace](/user-documentation/recipes/recipe-catalog/staticanalysis/removetrailingwhitespace.md)
+  * **Remove trailing whitespace**
+  * Remove trailing whitespace from the end of each line. Trailing whitespace is simply useless and should not stay in code. It may generate noise when comparing different versions of the same file.
 * [org.openrewrite.staticanalysis.RemoveUnneededAssertion](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunneededassertion.md)
   * **Remove unneeded assertions**
   * Remove unneeded assertions like `assert true`, `assertTrue(true)`, or `assertFalse(false)`.
@@ -3898,6 +4021,9 @@ _163 recipes_
 * [org.openrewrite.staticanalysis.SimplifyElseBranch](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyelsebranch.md)
   * **Simplify `else` branch if it only has a single `if`**
   * Simplify `else` branch if it only has a single `if`.
+* [org.openrewrite.staticanalysis.SimplifyForLoopBoundaryComparison](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyforloopboundarycomparison.md)
+  * **Simplify for loop boundary comparisons**
+  * Replace `&lt;=` with `&lt;` in for loop conditions by adjusting the comparison operands. For example, `i &lt;= n - 1` simplifies to `i &lt; n`, and `i &lt;= n` becomes `i &lt; n + 1`.
 * [org.openrewrite.staticanalysis.SimplifyTernaryRecipes](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyternaryrecipes.md)
   * **Simplify ternary expressions**
   * Simplifies various types of ternary expressions to improve code readability.
@@ -4097,7 +4223,7 @@ _11 recipes_
 
 _License: Moderne Source Available License_
 
-_173 recipes_
+_176 recipes_
 
 * [org.openrewrite.java.testing.arquillian.ReplaceArquillianInSequenceAnnotation](/user-documentation/recipes/recipe-catalog/java/testing/arquillian/replacearquillianinsequenceannotation.md)
   * **Arquillian JUnit 4 `@InSequence` to JUnit Jupiter `@Order`**
@@ -4378,6 +4504,15 @@ _173 recipes_
 * [org.openrewrite.java.testing.hamcrest.AssertThatBooleanToAssertJ](/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/assertthatbooleantoassertj.md)
   * **Migrate Hamcrest `assertThat(boolean, Matcher)` to AssertJ**
   * Replace Hamcrest `assertThat(String, boolean)` with AssertJ `assertThat(boolean).as(String).isTrue()`.
+* [org.openrewrite.java.testing.hamcrest.HamcrestEveryItemToAssertJ](/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcresteveryitemtoassertj.md)
+  * **Migrate Hamcrest `everyItem` to AssertJ**
+  * Migrate Hamcrest `everyItem` to AssertJ `allSatisfy` or `hasOnlyElementsOfType`.
+* [org.openrewrite.java.testing.hamcrest.HamcrestHasItemMatcherToAssertJ](/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcresthasitemmatchertoassertj.md)
+  * **Migrate Hamcrest `hasItem(Matcher)` to AssertJ**
+  * Migrate Hamcrest `hasItem(Matcher)` to AssertJ `hasAtLeastOneElementOfType` or `anySatisfy`.
+* [org.openrewrite.java.testing.hamcrest.HamcrestHasPropertyToAssertJ](/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcresthaspropertytoassertj.md)
+  * **Migrate Hamcrest `hasProperty` to AssertJ**
+  * Migrate Hamcrest `hasProperty` to AssertJ `hasFieldOrProperty` and `hasFieldOrPropertyWithValue`.
 * [org.openrewrite.java.testing.hamcrest.HamcrestInstanceOfToJUnit5](/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcrestinstanceoftojunit5.md)
   * **Migrate from Hamcrest `instanceOf` matcher to JUnit 5**
   * Migrate from Hamcrest `instanceOf` and `isA` matcher to JUnit5 `assertInstanceOf` assertion.
@@ -4623,7 +4758,7 @@ _173 recipes_
 
 _License: Apache License Version 2.0_
 
-_1437 recipes_
+_1439 recipes_
 
 * [com.oracle.weblogic.rewrite.ChangeJAXBBindAPIDependencyScope](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/changejaxbbindapidependencyscope.md)
   * **Change the jakarta.xml.bind-api dependency to scope provided when jakartaee-api 9.x is provided.**
@@ -5006,6 +5141,9 @@ _1437 recipes_
 * [io.quarkus.updates.camel.camel417.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel417/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.16` application to `camel 4.17`**
   * Migrates `camel 4.16` Quarkus application to `camel 4.17`.
+* [io.quarkus.updates.camel.camel418.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel418/camelquarkusmigrationrecipe.md)
+  * **Migrates `camel 4.17` application to `camel 4.18`**
+  * Migrates `camel 4.17` Quarkus application to `camel 4.18`.
 * [io.quarkus.updates.camel.camel44.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel44/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.0` application to `camel 4.4`**
   * Migrates `camel 4.0` quarkus application to `camel 4.4`.
@@ -5412,8 +5550,8 @@ _1437 recipes_
   * **Migrate to 4.10.6**
   * Migrates Apache Camel application to 4.10.6.
 * [org.apache.camel.upgrade.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
-  * **Migrate to 4.14.0**
-  * Migrates Apache Camel application to 4.14.0.
+  * **Migrate to 4.18.0**
+  * Migrates Apache Camel application to 4.18.0.
 * [org.apache.camel.upgrade.JavaVersion17](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/javaversion17.md)
   * **Change Maven Java version property values to 17**
   * Change maven.compiler.source and maven.compiler.target values to 17.
@@ -5585,6 +5723,9 @@ _1437 recipes_
 * [org.apache.camel.upgrade.camel417.YamlTransform417Recipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel417/yamltransform417recipe.md)
   * **Camel YML transform changes**
   * Apache Camel YML DSL migration from version 4.16 o 4.17.
+* [org.apache.camel.upgrade.camel418.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel418/camelmigrationrecipe.md)
+  * **Migrates `camel 4.17` application to `camel 4.18`**
+  * Migrates `camel 4.17` application to `camel 4.18`.
 * [org.apache.camel.upgrade.camel42.CamelMainDebugger](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel42/camelmaindebugger.md)
   * **The option camel.main.debugger has been renamed**
   * The option camel.main.debugger has been renamed to camel.debug.enabled.
@@ -8937,6 +9078,31 @@ _1437 recipes_
   * **Refaster template `WebClientRules.WebClientPut`**
   * Prefer `WebClient#put()` over `WebClient#method(HttpMethod)` with `HttpMethod#PUT`.
 
+## org.openrewrite:rewrite-cobol
+
+_License: Moderne Source Available License_
+
+_6 recipes_
+
+* [org.openrewrite.cobol.cleanup.RemoveWithDebuggingMode](/user-documentation/recipes/recipe-catalog/cobol/cleanup/removewithdebuggingmode.md)
+  * **Remove with debugging mode**
+  * Remove debugging mode from SOURCE-COMPUTER paragraphs.
+* [org.openrewrite.cobol.search.FindCopybook](/user-documentation/recipes/recipe-catalog/cobol/search/findcopybook.md)
+  * **Find copybook usage**
+  * Find all copy statements with the copybook name.
+* [org.openrewrite.cobol.search.FindIndicators](/user-documentation/recipes/recipe-catalog/cobol/search/findindicators.md)
+  * **Find indicators**
+  * Find matching indicators. Currently, this recipe will not mark indicators on copybook code.
+* [org.openrewrite.cobol.search.FindReference](/user-documentation/recipes/recipe-catalog/cobol/search/findreference.md)
+  * **Find matching identifiers in COBOL, copybooks, and JCL**
+  * Finds an identifier by an exact match or regex pattern in COBOL, copybooks, and/or JCL.
+* [org.openrewrite.cobol.search.FindRelationships](/user-documentation/recipes/recipe-catalog/cobol/search/findrelationships.md)
+  * **Find COBOL relationships**
+  * Build a list of relationships for diagramming and exploration.
+* [org.openrewrite.cobol.search.FindWord](/user-documentation/recipes/recipe-catalog/cobol/search/findword.md)
+  * **Find matching words in the source code**
+  * Search for COBOL words based on a search term.
+
 ## org.openrewrite:rewrite-core
 
 _License: Apache License Version 2.0_
@@ -11463,7 +11629,7 @@ _78 recipes_
   * Add or alter the classifier of the specified dependency.
 * [org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId](/user-documentation/recipes/recipe-catalog/maven/changedependencygroupidandartifactid.md)
   * **Change Maven dependency**
-  * Change a Maven dependency coordinates. The `newGroupId` or `newArtifactId` **MUST** be different from before. Matching `&lt;dependencyManagement&gt;` coordinates are also updated if a `newVersion` or `versionPattern` is provided. Exclusions that reference the old dependency coordinates will also be updated to match the new coordinates.
+  * Change a Maven dependency coordinates. The `newGroupId` or `newArtifactId` **MUST** be different from before. Matching `&lt;dependencyManagement&gt;` coordinates are also updated if a `newVersion` or `versionPattern` is provided. Exclusions that reference the old dependency coordinates are preserved, and a sibling exclusion for the new coordinates is added alongside them.
 * [org.openrewrite.maven.ChangeDependencyScope](/user-documentation/recipes/recipe-catalog/maven/changedependencyscope.md)
   * **Change Maven dependency scope**
   * Add or alter the scope of the specified dependency.
@@ -11520,7 +11686,7 @@ _78 recipes_
   * Order POM elements according to the [recommended](https://maven.apache.org/developers/conventions/code.html#pom-code-convention) order.
 * [org.openrewrite.maven.RemoveDependency](/user-documentation/recipes/recipe-catalog/maven/removedependency.md)
   * **Remove Maven dependency**
-  * Removes a single dependency from the &lt;dependencies&gt; section of the pom.xml.
+  * Removes a single dependency from the &lt;dependencies&gt; section of the pom.xml. Does not remove usage of the dependency classes, nor guard against the resulting compilation errors.
 * [org.openrewrite.maven.RemoveDuplicateDependencies](/user-documentation/recipes/recipe-catalog/maven/removeduplicatedependencies.md)
   * **Remove duplicate Maven dependencies**
   * Removes duplicated dependencies in the `&lt;dependencies&gt;` and `&lt;dependencyManagement&gt;` sections of the `pom.xml`.
@@ -11903,7 +12069,7 @@ _18 recipes_
 
 _License: Unknown_
 
-_1720 recipes_
+_1782 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -11914,6 +12080,18 @@ _1720 recipes_
 * [ai.timefold.solver.migration.ToLatest](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
   * **Upgrade to the latest Timefold Solver**
   * Replace all your calls to deleted/deprecated types and methods of Timefold Solver with their proper alternatives.
+* [androidx.compose.animation.ReplaceDeprecatedAnimationCore1Methods](/user-documentation/recipes/recipe-catalog/androidx/compose/animation/replacedeprecatedanimationcore1methods.md)
+  * **Replace deprecated `animation-core` methods**
+  * Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
+* [androidx.compose.material.ReplaceDeprecatedMaterial1Methods](/user-documentation/recipes/recipe-catalog/androidx/compose/material/replacedeprecatedmaterial1methods.md)
+  * **Replace deprecated `material` methods**
+  * Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
+* [androidx.compose.material3.ReplaceDeprecatedMaterial31Methods](/user-documentation/recipes/recipe-catalog/androidx/compose/material3/replacedeprecatedmaterial31methods.md)
+  * **Replace deprecated `material3` methods**
+  * Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
+* [androidx.compose.runtime.ReplaceDeprecatedRuntime1Methods](/user-documentation/recipes/recipe-catalog/androidx/compose/runtime/replacedeprecatedruntime1methods.md)
+  * **Replace deprecated `runtime` methods**
+  * Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
 * [com.google.guava.InlineGuavaMethods](/user-documentation/recipes/recipe-catalog/com/google/guava/inlineguavamethods.md)
   * **Inline `guava` methods annotated with `@InlineMe`**
   * Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table.
@@ -11986,6 +12164,9 @@ _1720 recipes_
 * [io.moderne.hibernate.MigrateToHibernate40](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40.md)
   * **Migrate to Hibernate 4.0.x (Moderne Edition)**
   * This recipe will apply changes commonly needed when migrating from Hibernate 3.x to 4.0.x, including migration of collection annotations to their JPA 2.0 equivalents.
+* [io.moderne.hibernate.MigrateToHibernate60](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-moderne-edition.md)
+  * **Migrate to Hibernate 6.0.x (Moderne Edition)**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 6.0.x.
 * [io.moderne.hibernate.MigrateToHibernate66](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate66-moderne-edition.md)
   * **Migrate to Hibernate 6.6.x (Moderne Edition)**
   * This recipe will apply changes commonly needed when migrating to Hibernate 6.6.x.
@@ -12025,6 +12206,9 @@ _1720 recipes_
 * [io.moderne.java.jsf.richfaces.update45.UpdateXHTMLTags](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags.md)
   * **Migrate RichFaces tags in `xhtml` files**
   * Migrate RichFaces tags in `xhtml` files to RichFaces 4.
+* [io.moderne.java.server.jboss.jetty.MigrateJBossToJetty](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/migratejbosstojetty.md)
+  * **Migrate JBoss to Jetty**
+  * Comprehensive migration from JBoss to Jetty.
 * [io.moderne.java.spring.boot.ReplaceSpringFrameworkDepsWithBootStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot/replacespringframeworkdepswithbootstarters.md)
   * **Replace Spring Framework dependencies with Spring Boot starters**
   * Replace common Spring Framework dependencies with their Spring Boot starter equivalents. This recipe handles the direct dependency replacement; any remaining Spring Framework dependencies that become transitively available through starters are cleaned up separately by RemoveRedundantDependencies.
@@ -12103,9 +12287,15 @@ _1720 recipes_
 * [io.moderne.java.spring.boot4.MigrateHazelcastSpringSession](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratehazelcastspringsession.md)
   * **Migrate Spring Session Hazelcast to Hazelcast Spring Session**
   * Spring Boot 4.0 removed direct support for Spring Session Hazelcast. The Hazelcast team now maintains their own Spring Session integration. This recipe changes the dependency from `org.springframework.session:spring-session-hazelcast` to `com.hazelcast.spring:hazelcast-spring-session` and updates the package from `org.springframework.session.hazelcast` to `com.hazelcast.spring.session`.
+* [io.moderne.java.spring.boot4.MigrateMockMvcToAssertJ](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratemockmvctoassertj.md)
+  * **Migrate MockMvc to AssertJ assertions**
+  * Migrates Spring MockMvc tests from Hamcrest-style `andExpect()` assertions to AssertJ-style fluent assertions. Changes `MockMvc` to `MockMvcTester` and converts assertion chains.
+* [io.moderne.java.spring.boot4.MigrateRestAssured](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migraterestassured.md)
+  * **Add explicit version for REST Assured**
+  * REST Assured is no longer managed by Spring Boot 4.0. This recipe adds an explicit version to REST Assured dependencies.
 * [io.moderne.java.spring.boot4.MigrateSpringRetry](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretry.md)
   * **Migrate Spring Retry to Spring Resilience**
-  * Handle spring-retry not longer managed by Spring Boot and the possible migration to Spring Core Resilience.
+  * Handle spring-retry no longer managed by Spring Boot and the possible migration to Spring Core Resilience.
 * [io.moderne.java.spring.boot4.MigrateToModularStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition.md)
   * **Migrate to Spring Boot 4.0 modular starters**
   * Remove monolithic starters and adds the necessary Spring Boot 4.0 starter dependencies based on package usage, where any spring-boot-starter was used previously.
@@ -12121,6 +12311,9 @@ _1720 recipes_
 * [io.moderne.java.spring.boot4.ModuleUsesLiquibase](/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesliquibase.md)
   * **Module uses Liquibase**
   * Precondition that marks all files in a module if Liquibase usage is detected. Detection is based on having a Liquibase dependency, using Liquibase types, or having changelog files.
+* [io.moderne.java.spring.boot4.RemoveKafkaPropertiesSslBundlesParameter](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removekafkapropertiessslbundlesparameter.md)
+  * **Remove `SslBundles` parameter from `KafkaProperties` build methods**
+  * In Spring Boot 4.0, the `SslBundles` parameter was removed from `KafkaProperties.buildProducerProperties`, `buildConsumerProperties`, `buildAdminProperties`, and `buildStreamsProperties`. This recipe removes the argument from method calls.
 * [io.moderne.java.spring.boot4.RemoveSpringPulsarReactive](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removespringpulsarreactive.md)
   * **Remove Spring Pulsar Reactive support**
   * Spring Boot 4.0 removed support for Spring Pulsar Reactive as it is no longer maintained. This recipe removes the Spring Pulsar Reactive dependencies.
@@ -12151,6 +12344,9 @@ _1720 recipes_
 * [io.moderne.java.spring.cloud20251.UpgradeSpringCloud_2025_1](/user-documentation/recipes/recipe-catalog/java/spring/cloud20251/upgradespringcloud_2025_1.md)
   * **Upgrade to Spring Cloud 2025.1**
   * Upgrade to Spring Cloud 2025.1 (Oakwood). This release is based on Spring Framework 7 and Spring Boot 4. Each Spring Cloud project has been updated to version 5.0.0.
+* [io.moderne.java.spring.framework.AddSetUseSuffixPatternMatchIfPreSpring53](/user-documentation/recipes/recipe-catalog/java/spring/framework/addsetusesuffixpatternmatchifprespring53.md)
+  * **Add `setUseSuffixPatternMatch(true)` for pre-Spring Framework 5.3 projects**
+  * Only adds `setUseSuffixPatternMatch(true)` when the project is on Spring Framework &lt; 5.3, where suffix pattern matching was enabled by default. Projects already on 5.3+ have been running with the new default (false) and should not get this configuration added.
 * [io.moderne.java.spring.framework.FindDeprecatedPathMatcherUsage](/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage.md)
   * **Find deprecated `PathMatcher` usage**
   * In Spring Framework 7.0, `PathMatcher` and `AntPathMatcher` are deprecated in favor of `PathPatternParser`. This recipe finds usages of the deprecated `AntPathMatcher` class that may require manual migration to `PathPatternParser`.
@@ -12283,9 +12479,12 @@ _1720 recipes_
 * [io.moderne.kafka.streams.ProcessingGuaranteeExactlyOnceToV2](/user-documentation/recipes/recipe-catalog/kafka/streams/processingguaranteeexactlyoncetov2.md)
   * **Migrate `exactly_once` and `exactly_once_beta` to `exactly_once_v2`**
   * Kafka Streams 2.6 introduces the exactly-once semantics v2, which is a more efficient implementation with improved internal handling. Starting from 3.0, it becomes the default &quot;exactly_once_v2&quot;.
+* [io.moderne.recipe.rewrite-program-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-program-analysis/inlinedeprecatedmethods.md)
+  * **Inline deprecated delegating methods**
+  * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
 * [org.apache.logging.log4j.InlineLog4jApiMethods](/user-documentation/recipes/recipe-catalog/org/apache/logging/log4j/inlinelog4japimethods.md)
   * **Inline `log4j-api-2` methods annotated with `@InlineMe`**
-  * Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table.preconditions: - org.openrewrite.Singleton
+  * Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table.
 * [org.apache.wicket.BestPractices](/user-documentation/recipes/recipe-catalog/org/apache/wicket/bestpractices.md)
   * **Wicket best practices**
   * Applies Wicket best practices such as minimizing anonymous inner classes and upgrading to the latest version.
@@ -12298,6 +12497,21 @@ _1720 recipes_
 * [org.axonframework.migration.UpgradeAxonFramework_4_Javax](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_javax.md)
   * **Upgrade to Axonframework 4.x Javax**
   * Migration file to upgrade an Axon Framework Javax-specific project and remain on Javax.
+* [org.jetbrains.kotlinx.ReplaceDeprecatedKotlinxCollectionsImmutable0Methods](/user-documentation/recipes/recipe-catalog/org/jetbrains/kotlinx/replacedeprecatedkotlinxcollectionsimmutable0methods.md)
+  * **Replace deprecated `kotlinx-collections-immutable` methods**
+  * Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
+* [org.jetbrains.kotlinx.ReplaceDeprecatedKotlinxCoroutinesCore1Methods](/user-documentation/recipes/recipe-catalog/org/jetbrains/kotlinx/replacedeprecatedkotlinxcoroutinescore1methods.md)
+  * **Replace deprecated `kotlinx-coroutines-core` methods**
+  * Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
+* [org.jetbrains.kotlinx.ReplaceDeprecatedKotlinxDatetime0Methods](/user-documentation/recipes/recipe-catalog/org/jetbrains/kotlinx/replacedeprecatedkotlinxdatetime0methods.md)
+  * **Replace deprecated `kotlinx-datetime` methods**
+  * Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
+* [org.jetbrains.kotlinx.ReplaceDeprecatedKotlinxIoCore0Methods](/user-documentation/recipes/recipe-catalog/org/jetbrains/kotlinx/replacedeprecatedkotlinxiocore0methods.md)
+  * **Replace deprecated `kotlinx-io-core` methods**
+  * Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
+* [org.jetbrains.kotlinx.ReplaceDeprecatedKotlinxSerializationCore1Methods](/user-documentation/recipes/recipe-catalog/org/jetbrains/kotlinx/replacedeprecatedkotlinxserializationcore1methods.md)
+  * **Replace deprecated `kotlinx-serialization-core` methods**
+  * Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
 * [org.openrewrite.android.MigrateToAndroidGradlePlugin_7_2](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_2.md)
   * **Migrate to Android Gradle Plugin 7.2**
   * Recipes to migrate to Android Gradle Plugin version 7.2.
@@ -12418,6 +12632,12 @@ _1720 recipes_
 * [org.openrewrite.apache.poi.UpgradeApachePoi_3_17](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_3_17.md)
   * **Migrates to Apache POI 3.17**
   * Migrates to the last Apache POI 3.x release. This recipe modifies build files and makes changes to deprecated/preferred APIs that have changed between versions.
+* [org.openrewrite.apache.poi.UpgradeApachePoi_4_1](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_4_1.md)
+  * **Migrates to Apache POI 4.1.2**
+  * Migrates to the last Apache POI 4.x release. This recipe modifies build files and makes changes to deprecated/preferred APIs that have changed between versions.
+* [org.openrewrite.apache.poi.UpgradeApachePoi_5](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_5.md)
+  * **Migrates to Apache POI 5.x**
+  * Migrates to the latest Apache POI 5.x release. This recipe modifies build files to account for artifact renames and upgrades dependency versions. It also chains the 4.1 recipe to handle all prior API migrations.
 * [org.openrewrite.codemods.cleanup.javascript.ArrowBodyStyle](/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/arrowbodystyle.md)
   * **Require braces around arrow function bodies**
   * Require braces around arrow function bodies See [rule details](https://eslint.org/docs/latest/rules/arrow-body-style).
@@ -13858,6 +14078,9 @@ _1720 recipes_
 * [org.openrewrite.github.security.GitHubActionsSecurity](/user-documentation/recipes/recipe-catalog/github/security/githubactionssecurity.md)
   * **GitHub Actions security insights**
   * Finds potential security issues in GitHub Actions workflows, based on [Zizmor](https://docs.zizmor.sh) security analysis rules.
+* [org.openrewrite.gitlab.search.FindDeprecatedSyntax](/user-documentation/recipes/recipe-catalog/gitlab/search/finddeprecatedsyntax.md)
+  * **Find deprecated GitLab CI syntax**
+  * Find usages of deprecated `only` and `except` keywords in `.gitlab-ci.yml`. These keywords are deprecated in favor of `rules`.
 * [org.openrewrite.gradle.AddJUnitPlatformLauncher](/user-documentation/recipes/recipe-catalog/gradle/addjunitplatformlauncher.md)
   * **Add JUnit Platform Launcher**
   * Add the JUnit Platform Launcher to the buildscript dependencies.
@@ -13888,7 +14111,7 @@ _1720 recipes_
 * [org.openrewrite.gradle.plugins.RemoveDevelocity](/user-documentation/recipes/recipe-catalog/gradle/plugins/removedevelocity.md)
   * **Remove Develocity**
   * Remove the Develocity plugin and configuration from the Gradle build and settings files.
-* [org.openrewrite.hibernate.MigrateToHibernate60](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60.md)
+* [org.openrewrite.hibernate.MigrateToHibernate60](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-community-edition.md)
   * **Migrate to Hibernate 6.0.x (Community Edition)**
   * This recipe will apply changes commonly needed when migrating to Hibernate 6.0.x. The hibernate dependencies will be updated to use the new `org.hibernate.orm` group ID and the recipe will make changes necessary to use Hibernate with Jakarta EE 9.0.
 * [org.openrewrite.hibernate.MigrateToHibernate61](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate61.md)
@@ -15472,6 +15695,9 @@ _1720 recipes_
 * [org.openrewrite.java.spring.ws.UpgradeSpringWs_4_0](/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_4_0.md)
   * **Migrate to Spring WS 4.0**
   * Migrate applications to Spring WS 4.0. This recipe handles the removal of Apache Axiom support in Spring WS 4.0.x by migrating Axiom-based SOAP message handling to SAAJ (SOAP with Attachments API for Java). Note that Spring WS 4.1+ restores Axiom support if upgrading to that version is preferred.
+* [org.openrewrite.java.springdoc.CleanupRemainingSpringfox](/user-documentation/recipes/recipe-catalog/java/springdoc/cleanupremainingspringfox.md)
+  * **Remove remaining Springfox dead code**
+  * Removes unused private methods left behind after SpringFoxToSpringDoc migration. When Docket beans are removed, private helper methods (e.g., `appInfo()`) become dead code but are not cleaned up, causing compilation errors.
 * [org.openrewrite.java.springdoc.MigrateSpringdocCommon](/user-documentation/recipes/recipe-catalog/java/springdoc/migratespringdoccommon.md)
   * **Migrate from springdoc-openapi-common to springdoc-openapi-starter-common**
   * Migrate from springdoc-openapi-common to springdoc-openapi-starter-common.
@@ -15757,6 +15983,60 @@ _1720 recipes_
 * [org.openrewrite.jenkins.migrate.hudson.UtilGetPastTimeStringToGetTimeSpanString](/user-documentation/recipes/recipe-catalog/jenkins/migrate/hudson/utilgetpasttimestringtogettimespanstring.md)
   * **Replace `hudson.Util.getPastTimeString` with `getTimeSpanString`**
   * `hudson.Util.getPastTimeString` has been [deprecated](https://github.com/jenkinsci/jenkins/pull/4174) since the [2.204.1 LTS release](https://www.jenkins.io/changelog-stable/#v2.204.1) on 2019-12-18.
+* [org.openrewrite.kotlin.compose.ReplaceDeprecatedComposeMethods](/user-documentation/recipes/recipe-catalog/kotlin/compose/replacedeprecatedcomposemethods.md)
+  * **Replace deprecated Jetpack Compose methods**
+  * Replace deprecated Jetpack Compose method calls with their recommended replacements, based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
+* [org.openrewrite.kotlin.exposed.ExposedChangeMethodNames](/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedchangemethodnames.md)
+  * **Rename Exposed deprecated methods for 1.0**
+  * Rename deprecated Exposed method and property references to their 1.0 replacements.
+* [org.openrewrite.kotlin.exposed.ExposedChangeTypes](/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedchangetypes.md)
+  * **Migrate Exposed type references to 1.0 packages**
+  * Change fully qualified type references from Exposed 0.x packages to Exposed 1.0 packages. The 1.0 release reorganized all packages under `org.jetbrains.exposed.v1.*` and split classes across `core`, `jdbc`, and `dao` modules.
+* [org.openrewrite.kotlin.exposed.ExposedUpgradeGradleDependencies](/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedupgradegradledependencies.md)
+  * **Upgrade Exposed Gradle dependencies to 1.0**
+  * Update JetBrains Exposed Gradle dependencies for the 1.0.0 migration. Upgrades dependency versions and handles the `exposed-migration` module split.
+* [org.openrewrite.kotlin.exposed.UpgradeToExposed_1](/user-documentation/recipes/recipe-catalog/kotlin/exposed/upgradetoexposed_1.md)
+  * **Migrate to JetBrains Exposed 1.0**
+  * Migrate from JetBrains Exposed 0.x to 1.0.0. This includes package reorganization (adding `v1` prefix), type moves between modules, class renames, method renames, and Gradle dependency updates. Some changes require manual intervention and are not covered by this recipe: `Table.uuid()` should be changed to `Table.javaUUID()` for `java.util.UUID` values, `DateColumnType` with constructor parameter `time=false` or `time=true` should be split into `JodaLocalDateColumnType` or `JodaLocalDateTimeColumnType`, `SqlExpressionBuilder.*` usages should be replaced with top-level function imports, and `Statement.execute()` calls should use `BlockingExecutable` wrapping.
+* [org.openrewrite.kotlin.kotlinx.ReplaceDeprecatedKotlinxMethods](/user-documentation/recipes/recipe-catalog/kotlin/kotlinx/replacedeprecatedkotlinxmethods.md)
+  * **Replace deprecated `kotlinx` methods**
+  * Replace deprecated Kotlin extension library method calls with their recommended replacements, based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
+* [org.openrewrite.kotlin.migrate.RemoveDeprecatedKotlinGradleProperties](/user-documentation/recipes/recipe-catalog/kotlin/migrate/removedeprecatedkotlingradleproperties.md)
+  * **Remove deprecated Kotlin Gradle properties**
+  * Remove deprecated Kotlin Gradle properties from `gradle.properties`. `kotlin.experimental.coroutines` was removed in Kotlin 2.x.
+* [org.openrewrite.kotlin.migrate.RemoveRedundantKotlinStdlib](/user-documentation/recipes/recipe-catalog/kotlin/migrate/removeredundantkotlinstdlib.md)
+  * **Remove redundant kotlin-stdlib dependencies**
+  * Remove explicit `kotlin-stdlib`, `kotlin-stdlib-jdk7`, `kotlin-stdlib-jdk8`, and `kotlin-stdlib-common` dependencies. The Kotlin Gradle plugin has automatically included the stdlib since Kotlin 1.4, making explicit declarations redundant.
+* [org.openrewrite.kotlin.migrate.ReplaceDeprecatedAppendln](/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedappendln.md)
+  * **Replace deprecated `appendln` with `appendLine`**
+  * Replace `appendln()` with `appendLine()`. This was deprecated in Kotlin 1.4 and becomes an error in Kotlin 2.1.
+* [org.openrewrite.kotlin.migrate.ReplaceDeprecatedCapitalizeAndDecapitalize](/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedcapitalizeanddecapitalize.md)
+  * **Replace deprecated `capitalize` and `decapitalize`**
+  * Replace `String.capitalize()` with `String.replaceFirstChar \{ if (it.isLowerCase()) it.titlecase() else it.toString() \}` and `String.decapitalize()` with `String.replaceFirstChar \{ it.lowercase() \}`. These were deprecated in Kotlin 1.5 and become errors in Kotlin 2.1.
+* [org.openrewrite.kotlin.migrate.ReplaceDeprecatedCharCaseConversions](/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedcharcaseconversions.md)
+  * **Replace deprecated Char case conversions**
+  * Replace `Char.toLowerCase()` with `Char.lowercaseChar()` and `Char.toUpperCase()` with `Char.uppercaseChar()`. These were deprecated in Kotlin 1.5 and become errors in Kotlin 2.1.
+* [org.openrewrite.kotlin.migrate.ReplaceDeprecatedStringCaseConversions](/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedstringcaseconversions.md)
+  * **Replace deprecated String case conversions**
+  * Replace `String.toLowerCase()` with `String.lowercase()` and `String.toUpperCase()` with `String.uppercase()`. These were deprecated in Kotlin 1.5 and become errors in Kotlin 2.1.
+* [org.openrewrite.kotlin.migrate.ReplaceEnumValuesFunctionWithEnumEntries](/user-documentation/recipes/recipe-catalog/kotlin/migrate/replaceenumvaluesfunctionwithenumentries.md)
+  * **Replace `enumValues&lt;T&gt;()` with `enumEntries&lt;T&gt;()`**
+  * Replace calls to `enumValues&lt;T&gt;()` with `enumEntries&lt;T&gt;()`. The `enumEntries` function returns an efficient immutable list instead of creating a new array. Deprecated since Kotlin 1.9, recommended replacement for Kotlin 2.x.
+* [org.openrewrite.kotlin.migrate.UpgradeKotlinGradlePlugins](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlingradleplugins.md)
+  * **Upgrade Kotlin Gradle plugins to 2.x**
+  * Upgrade all `org.jetbrains.kotlin.*` Gradle plugins to Kotlin 2.x. This includes the core kotlin-jvm plugin as well as all official Kotlin Gradle plugins such as serialization, Spring, allopen, noarg, JPA, and parcelize.
+* [org.openrewrite.kotlin.migrate.UpgradeKotlinxCoroutines_1_10](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxcoroutines_1_10.md)
+  * **Upgrade to `kotlinx-coroutines` 1.10**
+  * Upgrade kotlinx-coroutines to 1.10.x and replace deprecated method calls.
+* [org.openrewrite.kotlin.migrate.UpgradeKotlinxDatetime_0_7](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxdatetime_0_7.md)
+  * **Migrate to `kotlinx-datetime` 0.7**
+  * Migrate from kotlinx-datetime 0.6.x to 0.7.x. This includes replacing `kotlinx.datetime.Instant` and `kotlinx.datetime.Clock` with their `kotlin.time` equivalents and replacing deprecated method calls.
+* [org.openrewrite.kotlin.migrate.UpgradeKotlinxSerialization_1_8](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxserialization_1_8.md)
+  * **Upgrade to `kotlinx-serialization` 1.8**
+  * Upgrade kotlinx-serialization to 1.8.x and replace deprecated method calls.
+* [org.openrewrite.kotlin.migrate.UpgradeToKotlin2](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradetokotlin2.md)
+  * **Migrate to Kotlin 2**
+  * Migrate deprecated Kotlin 1.x APIs to their Kotlin 2.x replacements and update Gradle build files for Kotlin 2.x compatibility. Deprecated APIs were deprecated in Kotlin 1.4-1.5 and become errors in Kotlin 2.1.
 * [org.openrewrite.kubernetes.ImagePullPolicyAlways](/user-documentation/recipes/recipe-catalog/kubernetes/imagepullpolicyalways.md)
   * **Ensure image pull policy is `Always`**
   * Ensures the latest version of a tag is deployed each time.
@@ -16036,9 +16316,30 @@ _1720 recipes_
 * [org.openrewrite.openapi.swagger.UseJakartaSwaggerArtifacts](/user-documentation/recipes/recipe-catalog/openapi/swagger/usejakartaswaggerartifacts.md)
   * **Use Jakarta Swagger Artifacts**
   * Migrate from javax Swagger artifacts to Jakarta versions.
+* [org.openrewrite.python.AddLiteralMethodArgument](/user-documentation/recipes/recipe-catalog/python/addliteralmethodargument.md)
+  * **Add literal method argument**
+  * Add a literal argument to method invocations matching a pattern.
+* [org.openrewrite.python.ChangeImport](/user-documentation/recipes/recipe-catalog/python/changeimport.md)
+  * **Change import**
+  * Change a Python import from one module/name to another, updating all type attributions.
+* [org.openrewrite.python.ChangeMethodName](/user-documentation/recipes/recipe-catalog/python/changemethodname.md)
+  * **Change method name**
+  * Rename method invocations matching a pattern.
+* [org.openrewrite.python.ChangePackage](/user-documentation/recipes/recipe-catalog/python/changepackage.md)
+  * **Change package**
+  * Change package/module references from one name to another.
+* [org.openrewrite.python.ChangeType](/user-documentation/recipes/recipe-catalog/python/changetype.md)
+  * **Change type**
+  * Change a type reference from one fully qualified name to another.
+* [org.openrewrite.python.DeleteMethodArgument](/user-documentation/recipes/recipe-catalog/python/deletemethodargument.md)
+  * **Delete method argument**
+  * Remove an argument from method invocations matching a pattern.
 * [org.openrewrite.python.RemovePass](/user-documentation/recipes/recipe-catalog/python/removepass.md)
   * **Remove redundant pass statements**
   * Remove redundant `pass` statements from Python code when there are other executable statements in the block.
+* [org.openrewrite.python.ReorderMethodArguments](/user-documentation/recipes/recipe-catalog/python/reordermethodarguments.md)
+  * **Reorder method arguments**
+  * Reorder arguments in method invocations matching a pattern.
 * [org.openrewrite.python.migrate.FindAifcModule](/user-documentation/recipes/recipe-catalog/python/migrate/findaifcmodule.md)
   * **Find deprecated `aifc` module usage**
   * The `aifc` module was deprecated in Python 3.11 and removed in Python 3.13. Use third-party audio libraries instead.
@@ -16396,6 +16697,9 @@ _1720 recipes_
 * [org.openrewrite.quarkus.MigrateToQuarkus_v3_31_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_31_0.md)
   * **Quarkus Updates Aggregate 3.31.0**
   * Quarkus update recipes to upgrade your application to 3.31.0.
+* [org.openrewrite.quarkus.MigrateToQuarkus_v3_32_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_32_0.md)
+  * **Quarkus Updates Aggregate 3.32.0**
+  * Quarkus update recipes to upgrade your application to 3.32.0.
 * [org.openrewrite.quarkus.MigrateToQuarkus_v3_3_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_3_0.md)
   * **Quarkus Updates Aggregate 3.3.0**
   * Quarkus update recipes to upgrade your application to 3.3.0.
@@ -16441,6 +16745,15 @@ _1720 recipes_
 * [org.openrewrite.quarkus.spring.AddSpringCompatibilityExtensions](/user-documentation/recipes/recipe-catalog/quarkus/spring/addspringcompatibilityextensions.md)
   * **Add Spring compatibility extensions for commonly used annotations**
   * Adds Quarkus Spring compatibility extensions when Spring annotations are detected in the codebase.
+* [org.openrewrite.quarkus.spring.ConfigureNativeBuild](/user-documentation/recipes/recipe-catalog/quarkus/spring/configurenativebuild.md)
+  * **Configure Quarkus Native Build Support**
+  * Adds configuration and dependencies required for Quarkus native image compilation with GraalVM. Includes native profile configuration and reflection hints where needed.
+* [org.openrewrite.quarkus.spring.CustomizeQuarkusPluginGoals](/user-documentation/recipes/recipe-catalog/quarkus/spring/customizequarkusplugingoals.md)
+  * **Customize Quarkus Maven Plugin Goals**
+  * Allows customization of Quarkus Maven plugin goals. Adds or modifies the executions and goals for the quarkus-maven-plugin.
+* [org.openrewrite.quarkus.spring.CustomizeQuarkusVersion](/user-documentation/recipes/recipe-catalog/quarkus/spring/customizequarkusversion.md)
+  * **Customize Quarkus BOM Version**
+  * Allows customization of the Quarkus BOM version used in the migration. By default uses 3.x (latest 3.x version), but can be configured to use a specific version.
 * [org.openrewrite.quarkus.spring.DerbyDriverToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/derbydrivertoquarkus.md)
   * **Replace Derby driver with Quarkus JDBC Derby**
   * Migrates `org.apache.derby:derby` or `derbyclient` to `io.quarkus:quarkus-jdbc-derby` (excludes test scope).
@@ -16459,12 +16772,48 @@ _1720 recipes_
 * [org.openrewrite.quarkus.spring.MigrateBootStarters](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratebootstarters.md)
   * **Replace Spring Boot starter dependencies with Quarkus equivalents**
   * Migrates Spring Boot starter dependencies to their Quarkus equivalents, removing version tags as Quarkus manages versions through its BOM.
+* [org.openrewrite.quarkus.spring.MigrateConfigurationProperties](/user-documentation/recipes/recipe-catalog/quarkus/spring/migrateconfigurationproperties.md)
+  * **Migrate @ConfigurationProperties to Quarkus @ConfigMapping**
+  * Migrates Spring Boot @ConfigurationProperties to Quarkus @ConfigMapping. This recipe converts configuration property classes to the native Quarkus pattern.
 * [org.openrewrite.quarkus.spring.MigrateDatabaseDrivers](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratedatabasedrivers.md)
   * **Migrate database drivers to Quarkus JDBC extensions**
   * Replaces Spring Boot database driver dependencies with their Quarkus JDBC extension equivalents.
+* [org.openrewrite.quarkus.spring.MigrateEntitiesToPanache](/user-documentation/recipes/recipe-catalog/quarkus/spring/migrateentitiestopanache.md)
+  * **Migrate JPA Entities to Panache Entities**
+  * Converts standard JPA entities to Quarkus Panache entities using the Active Record pattern. Entities will extend PanacheEntity and gain built-in CRUD operations.
 * [org.openrewrite.quarkus.spring.MigrateMavenPlugin](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratemavenplugin.md)
   * **Add or replace Spring Boot build plugin with Quarkus build plugin**
   * Remove Spring Boot Maven plugin if present and add Quarkus Maven plugin using the same version as the quarkus-bom.
+* [org.openrewrite.quarkus.spring.MigrateRequestParameterEdgeCases](/user-documentation/recipes/recipe-catalog/quarkus/spring/migraterequestparameteredgecases.md)
+  * **Migrate Additional Spring Web Parameter Annotations**
+  * Migrates additional Spring Web parameter annotations not covered by the main WebToJaxRs recipe. Includes @MatrixVariable, @CookieValue, and other edge cases.
+* [org.openrewrite.quarkus.spring.MigrateSpringActuator](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringactuator.md)
+  * **Migrate Spring Boot Actuator to Quarkus Health and Metrics**
+  * Migrates Spring Boot Actuator to Quarkus SmallRye Health and Metrics extensions. Converts HealthIndicator implementations to Quarkus HealthCheck pattern.
+* [org.openrewrite.quarkus.spring.MigrateSpringBootDevTools](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringbootdevtools.md)
+  * **Remove Spring Boot DevTools**
+  * Removes Spring Boot DevTools dependency and configuration. Quarkus has built-in dev mode with hot reload that replaces DevTools functionality.
+* [org.openrewrite.quarkus.spring.MigrateSpringCloudConfig](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudconfig.md)
+  * **Migrate Spring Cloud Config Client to Quarkus Config**
+  * Migrates Spring Cloud Config Client to Quarkus configuration sources. Converts bootstrap.yml/properties patterns to Quarkus config.
+* [org.openrewrite.quarkus.spring.MigrateSpringCloudServiceDiscovery](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudservicediscovery.md)
+  * **Migrate Spring Cloud Service Discovery to Quarkus**
+  * Migrates Spring Cloud Service Discovery annotations and configurations to Quarkus equivalents. Converts @EnableDiscoveryClient and related patterns to Quarkus Stork service discovery.
+* [org.openrewrite.quarkus.spring.MigrateSpringDataMongodb](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringdatamongodb.md)
+  * **Migrate Spring Data MongoDB to Quarkus Panache MongoDB**
+  * Migrates Spring Data MongoDB repositories to Quarkus MongoDB with Panache. Converts MongoRepository interfaces to PanacheMongoRepository pattern.
+* [org.openrewrite.quarkus.spring.MigrateSpringEvents](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringevents.md)
+  * **Migrate Spring Events to CDI Events**
+  * Migrates Spring's event mechanism to CDI events. Converts ApplicationEventPublisher to CDI Event and @EventListener to @Observes.
+* [org.openrewrite.quarkus.spring.MigrateSpringTesting](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringtesting.md)
+  * **Migrate Spring Boot Testing to Quarkus Testing**
+  * Migrates Spring Boot test annotations and utilities to Quarkus test equivalents. Converts @SpringBootTest to @QuarkusTest, @MockBean to @InjectMock, etc.
+* [org.openrewrite.quarkus.spring.MigrateSpringTransactional](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringtransactional.md)
+  * **Migrate Spring @Transactional to Jakarta @Transactional**
+  * Migrates Spring's @Transactional annotation to Jakarta's @Transactional. Maps propagation attributes to TxType and removes Spring-specific attributes.
+* [org.openrewrite.quarkus.spring.MigrateSpringValidation](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringvalidation.md)
+  * **Migrate Spring Validation to Quarkus**
+  * Migrates Spring Boot validation to Quarkus Hibernate Validator. Adds the quarkus-hibernate-validator dependency and handles validation annotation imports.
 * [org.openrewrite.quarkus.spring.ReplaceSpringBootApplication](/user-documentation/recipes/recipe-catalog/quarkus/spring/replacespringbootapplication.md)
   * **Replace `@SpringBootApplication` with Quarkus equivalent**
   * Replace `@SpringBootApplication` annotation with `@QuarkusMain`, `SpringApplication.run()` calls.
@@ -16568,6 +16917,9 @@ _1720 recipes_
   * **Inline deprecated delegating methods**
   * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
 * [org.openrewrite.recipe.rewrite-nodejs.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-nodejs/inlinedeprecatedmethods.md)
+  * **Inline deprecated delegating methods**
+  * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
+* [org.openrewrite.recipe.rewrite-static-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-static-analysis/inlinedeprecatedmethods.md)
   * **Inline deprecated delegating methods**
   * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
 * [org.openrewrite.recipes.rewrite.InlineMethods](/user-documentation/recipes/recipe-catalog/recipes/rewrite/inlinemethods.md)
