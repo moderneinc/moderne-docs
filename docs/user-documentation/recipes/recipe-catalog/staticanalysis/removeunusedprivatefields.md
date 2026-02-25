@@ -34,6 +34,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 This recipe is used as part of the following composite recipes:
 
 * [OpenRewrite recipe best practices](/user-documentation/recipes/recipe-catalog/recipes/rewrite/openrewriterecipebestpractices.md)
+* [Remove remaining Springfox dead code](/user-documentation/recipes/recipe-catalog/java/springdoc/cleanupremainingspringfox.md)
 
 ## Example
 

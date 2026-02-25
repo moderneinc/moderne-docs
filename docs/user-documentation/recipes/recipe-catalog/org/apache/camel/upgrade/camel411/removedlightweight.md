@@ -22,10 +22,6 @@ _Removed deprecated configuration properties (camel.main.lightweight)._
 [Issue Tracker](https://github.com/openrewrite/rewrite-third-party/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-third-party/)
 
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
 This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 
@@ -33,8 +29,6 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
-* [Delete property](../../../../../yaml/deleteproperty)
-  * propertyKey: `camel.main.lightweight`
 * [Delete property by key](../../../../../properties/deleteproperty)
   * propertyKey: `camel.main.lightweight`
 
@@ -50,8 +44,6 @@ displayName: Removed deprecated property camel.main.lightweight
 description: |
   Removed deprecated configuration properties (camel.main.lightweight).
 recipeList:
-  - org.openrewrite.yaml.DeleteProperty:
-      propertyKey: camel.main.lightweight
   - org.openrewrite.properties.DeleteProperty:
       propertyKey: camel.main.lightweight
 

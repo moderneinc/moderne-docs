@@ -1,37 +1,40 @@
 ---
-sidebar_label: "Rename package name"
+sidebar_label: "Change package"
 ---
-
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/changepackage" />
-</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Rename package name
+# Change package
 
-**org.openrewrite.java.ChangePackage**
+**org.openrewrite.python.ChangePackage**
 
-_A recipe that will rename a package name in package statements, imports, and fully-qualified types._
-
-:::info
-This Java recipe works on Python code.
-:::
+_Change package/module references from one name to another._
 
 ## Recipe source
 
-[GitHub: ChangePackage.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/ChangePackage.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-java/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-## Options
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
+
+## Usage
+
+In order to run Python recipes, you will need to use the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro).
+
+Once the CLI is installed, you can install this Python recipe package by running the following command:
+
+```shell title="Install the recipe package"
+mod config recipes pip install openrewrite
+```
+
+Then, you can run the recipe via:
+
+```shell title="Run the recipe"
+mod run . --recipe org.openrewrite.python.ChangePackage
+```
+--- | --- |
 | `String` | oldPackageName | The package name to replace. | `com.yourorg.foo` |
 | `String` | newPackageName | New package name to replace the old package name with. | `com.yourorg.bar` |
 | `Boolean` | recursive | *Optional*. Recursively change subpackage names |  |
@@ -51,6 +54,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate OpenTracing API to OpenTelemetry API](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migrateopentracingtoopentelemetry.md)
 * [Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migratecloudsleuthtomicrometertracing.md)
 * [Migrate Spring Session Hazelcast to Hazelcast Spring Session](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratehazelcastspringsession)
+* [Migrate Spring Validation to Quarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringvalidation.md)
 * [Migrate `WordUtils` to Apache Commons Text](/user-documentation/recipes/recipe-catalog/apache/commons/lang/wordutilstocommonstext.md)
 * [Migrate `cucumber-java8` to `cucumber-java`](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava.md)
 * [Migrate `javax.annotations` to SpotBugs annotations](/user-documentation/recipes/recipe-catalog/jenkins/javaxannotationstospotbugs.md)
@@ -130,6 +134,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Batch 6.0 from 5.2](/user-documentation/recipes/recipe-catalog/java/spring/batch/springbatch5to6migration.md)
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 * [Migrate to Spring ORM to 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5)
+* [Migrates `camel 4.16` application to `camel 4.17`](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel417/camelquarkusmigrationrecipe.md)
 * [Migrates from Netty 4.1.x to Netty 4.2.x](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_4_1_to_4_2.md)
 * [Migrates to Apache Commons Collections 4.x](/user-documentation/recipes/recipe-catalog/apache/commons/collections/upgradeapachecommonscollections_3_4.md)
 * [Migrates to Apache Commons Lang 3.x](/user-documentation/recipes/recipe-catalog/apache/commons/lang/upgradeapachecommonslang_2_3.md)

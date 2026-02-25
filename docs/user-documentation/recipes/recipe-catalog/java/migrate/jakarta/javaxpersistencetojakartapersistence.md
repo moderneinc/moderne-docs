@@ -96,7 +96,7 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [Migrate from Micronaut 3.x to 4.x](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut3to4migration.md)
-* [Migrate to Hibernate 6.0.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60.md)
+* [Migrate to Hibernate 6.0.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-community-edition.md)
 * [Migrate to Jakarta EE 9](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxmigrationtojakarta.md)
 
 

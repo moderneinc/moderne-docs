@@ -30,6 +30,93 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 4.0 modular starters](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition)
 
+## Examples
+##### Example 1
+`ModuleStarterRelocationsTest#renameAutoConfigureWebClientToAutoConfigureRestClient`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.restclient.test.autoconfigure.AutoConfigureWebClient;
+
+@AutoConfigureWebClient
+class MyTest {}
+```
+
+###### After
+```java
+import org.springframework.boot.restclient.test.autoconfigure.AutoConfigureRestClient;
+
+@AutoConfigureRestClient
+class MyTest {}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.boot.restclient.test.autoconfigure.AutoConfigureWebClient;
++import org.springframework.boot.restclient.test.autoconfigure.AutoConfigureRestClient;
+
+@@ -3,1 +3,1 @@
+import org.springframework.boot.restclient.test.autoconfigure.AutoConfigureWebClient;
+
+-@AutoConfigureWebClient
++@AutoConfigureRestClient
+class MyTest {}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`ModuleStarterRelocationsTest#renameAutoConfigureWebClientToAutoConfigureRestClient`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.restclient.test.autoconfigure.AutoConfigureWebClient;
+
+@AutoConfigureWebClient
+class MyTest {}
+```
+
+###### After
+```java
+import org.springframework.boot.restclient.test.autoconfigure.AutoConfigureRestClient;
+
+@AutoConfigureRestClient
+class MyTest {}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.boot.restclient.test.autoconfigure.AutoConfigureWebClient;
++import org.springframework.boot.restclient.test.autoconfigure.AutoConfigureRestClient;
+
+@@ -3,1 +3,1 @@
+import org.springframework.boot.restclient.test.autoconfigure.AutoConfigureWebClient;
+
+-@AutoConfigureWebClient
++@AutoConfigureRestClient
+class MyTest {}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

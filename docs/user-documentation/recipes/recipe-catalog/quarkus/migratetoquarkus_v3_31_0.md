@@ -65,6 +65,13 @@ recipeList:
 </TabItem>
 </Tabs>
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Quarkus Updates Aggregate 3.32.0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_32_0.md)
+
+
 ## Usage
 
 This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.

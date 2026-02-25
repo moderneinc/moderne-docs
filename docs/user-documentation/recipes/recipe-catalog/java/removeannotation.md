@@ -36,7 +36,12 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Java Recipe best practices](/user-documentation/recipes/recipe-catalog/java/recipes/javarecipebestpractices.md)
+* [Migrate @ConfigurationProperties to Quarkus @ConfigMapping](/user-documentation/recipes/recipe-catalog/quarkus/spring/migrateconfigurationproperties.md)
+* [Migrate Additional Spring Web Parameter Annotations](/user-documentation/recipes/recipe-catalog/quarkus/spring/migraterequestparameteredgecases.md)
 * [Migrate JavaEE Code to Quarkus 2](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2codemigration.md)
+* [Migrate Spring Boot Testing to Quarkus Testing](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringtesting.md)
+* [Migrate Spring Cloud Config Client to Quarkus Config](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudconfig.md)
+* [Migrate Spring Cloud Service Discovery to Quarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudservicediscovery.md)
 * [Migrate Tapestry 4 to Tapestry 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5)
 * [Migrate `@EnableXyz` annotations to Quarkus extensions](/user-documentation/recipes/recipe-catalog/quarkus/spring/enableannotationstoquarkusdependencies.md)
 * [Migrate from Swagger to SpringDoc and OpenAPI](/user-documentation/recipes/recipe-catalog/java/springdoc/swaggertospringdoc.md)

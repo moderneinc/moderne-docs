@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 **io.moderne.java.spring.boot4.MigrateSpringRetry**
 
-_Handle spring-retry not longer managed by Spring Boot and the possible migration to Spring Core Resilience._
+_Handle spring-retry no longer managed by Spring Boot and the possible migration to Spring Core Resilience._
 
 ### Tags
 
@@ -29,6 +29,89 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
+
+## Examples
+##### Example 1
+`MigrateSpringRetryTest#pinVersionWhenManagedByParentPom`
+
+
+###### Unchanged
+```java
+import org.springframework.retry.RetryCallback;
+
+public class MyService {
+    private RetryCallback<String, Exception> callback;
+}
+```
+
+###### Unchanged
+```mavenProject
+project
+```
+
+###### Unchanged
+```xml title="pom.xml"
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.0</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+---
+
+##### Example 2
+`MigrateSpringRetryTest#pinVersionWhenManagedByParentPom`
+
+
+###### Unchanged
+```java
+import org.springframework.retry.RetryCallback;
+
+public class MyService {
+    private RetryCallback<String, Exception> callback;
+}
+```
+
+###### Unchanged
+```mavenProject
+project
+```
+
+###### Unchanged
+```xml title="pom.xml"
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.0</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+        </dependency>
+    </dependencies>
+</project>
+```
 
 
 ## Usage

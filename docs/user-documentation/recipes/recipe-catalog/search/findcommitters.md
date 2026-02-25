@@ -31,6 +31,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 | `String` | fromDate | *Optional*. Optional. Take into account only commits since this date (inclusive). Default will be the entire history. | `2023-01-01` |
 
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [DevCenter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
+
+
 ## Usage
 
 This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.

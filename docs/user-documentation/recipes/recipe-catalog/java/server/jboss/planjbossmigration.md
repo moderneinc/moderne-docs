@@ -18,6 +18,43 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="xml" label="xml">
+
+
+###### Before
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+    <context-root>/myapp</context-root>
+    <virtual-host>default-host</virtual-host>
+</jboss-web>
+```
+
+###### After
+```xml
+<!--~~>--><?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+    <context-root>/myapp</context-root>
+    <virtual-host>default-host</virtual-host>
+</jboss-web>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-<?xml version="1.0" encoding="UTF-8"?>
++<!--~~>--><?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 
@@ -54,7 +91,7 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 <Tabs groupId="data-tables">
 <TabItem value="io.moderne.java.server.jboss.PlanJBossMigration$JBossProjects" label="PlanJBossMigration$JBossProjects">
 
-### JBoss Projects
+### JBoss projects
 **io.moderne.java.server.jboss.PlanJBossMigration$JBossProjects**
 
 _Summary of JBoss descriptor files found in the repository._

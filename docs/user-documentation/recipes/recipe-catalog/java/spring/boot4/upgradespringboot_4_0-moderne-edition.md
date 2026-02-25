@@ -187,6 +187,52 @@ class MyConfig {
 ---
 
 ##### Example 3
+`MigrateTracingRenamesTest#renameScheduledTasksObservabilityAutoConfiguration`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.actuate.autoconfigure.scheduling.ScheduledTasksObservabilityAutoConfiguration;
+
+class A {
+    void configure(ScheduledTasksObservabilityAutoConfiguration config) {}
+}
+```
+
+###### After
+```java
+import org.springframework.boot.micrometer.observation.autoconfigure.ScheduledTasksObservationAutoConfiguration;
+
+class A {
+    void configure(ScheduledTasksObservationAutoConfiguration config) {}
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.boot.actuate.autoconfigure.scheduling.ScheduledTasksObservabilityAutoConfiguration;
++import org.springframework.boot.micrometer.observation.autoconfigure.ScheduledTasksObservationAutoConfiguration;
+
+@@ -4,1 +4,1 @@
+
+class A {
+-   void configure(ScheduledTasksObservabilityAutoConfiguration config) {}
++   void configure(ScheduledTasksObservationAutoConfiguration config) {}
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 4
 `MigrateBootstrapRegistryPackageTest#migrateBootstrapClassImports`
 
 
@@ -306,7 +352,7 @@ class C {
 
 ---
 
-##### Example 4
+##### Example 5
 `MigrateEnvironmentPostProcessorPackageTest#migrateEnvironmentPostProcessorImport`
 
 
@@ -342,6 +388,52 @@ class MyConfig {
 -import org.springframework.boot.env.EnvironmentPostProcessor;
 +import org.springframework.boot.EnvironmentPostProcessor;
 
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 6
+`MigrateTracingRenamesTest#renameScheduledTasksObservabilityAutoConfiguration`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.actuate.autoconfigure.scheduling.ScheduledTasksObservabilityAutoConfiguration;
+
+class A {
+    void configure(ScheduledTasksObservabilityAutoConfiguration config) {}
+}
+```
+
+###### After
+```java
+import org.springframework.boot.micrometer.observation.autoconfigure.ScheduledTasksObservationAutoConfiguration;
+
+class A {
+    void configure(ScheduledTasksObservationAutoConfiguration config) {}
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.boot.actuate.autoconfigure.scheduling.ScheduledTasksObservabilityAutoConfiguration;
++import org.springframework.boot.micrometer.observation.autoconfigure.ScheduledTasksObservationAutoConfiguration;
+
+@@ -4,1 +4,1 @@
+
+class A {
+-   void configure(ScheduledTasksObservabilityAutoConfiguration config) {}
++   void configure(ScheduledTasksObservationAutoConfiguration config) {}
+}
 ```
 </TabItem>
 </Tabs>

@@ -36,6 +36,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [Common static analysis issues](/user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md)
 * [OpenRewrite recipe best practices](/user-documentation/recipes/recipe-catalog/recipes/rewrite/openrewriterecipebestpractices.md)
 
 ## Example

@@ -25,6 +25,40 @@ This recipe is used as part of the following composite recipes:
 
 * [Upgrade Terraform to 0.12](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/terraform012/upgradeterraformto0_12)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="hcl" label="hcl">
+
+
+###### Before
+```hcl
+resource "aws_instance" "example" {
+  security_groups = list("sg-1234", "sg-5678")
+}
+```
+
+###### After
+```hcl
+resource "aws_instance" "example" {
+  security_groups = ["sg-1234", "sg-5678"]
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -2,1 +2,1 @@
+resource "aws_instance" "example" {
+- security_groups = list("sg-1234", "sg-5678")
++ security_groups = ["sg-1234", "sg-5678"]
+}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

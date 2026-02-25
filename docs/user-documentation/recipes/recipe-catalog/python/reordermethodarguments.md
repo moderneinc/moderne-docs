@@ -2,37 +2,39 @@
 sidebar_label: "Reorder method arguments"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/reordermethodarguments" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Reorder method arguments
 
-**org.openrewrite.java.ReorderMethodArguments**
+**org.openrewrite.python.ReorderMethodArguments**
 
-_Reorder method arguments into the specified order._
-
-:::info
-This Java recipe works on Python code.
-:::
+_Reorder arguments in method invocations matching a pattern._
 
 ## Recipe source
 
-[GitHub: ReorderMethodArguments.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/ReorderMethodArguments.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-java/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-## Options
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | methodPattern | A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results. | `com.yourorg.A foo(String, Integer, Integer)` |
+
+## Usage
+
+In order to run Python recipes, you will need to use the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro).
+
+Once the CLI is installed, you can install this Python recipe package by running the following command:
+
+```shell title="Install the recipe package"
+mod config recipes pip install openrewrite
+```
+
+Then, you can run the recipe via:
+
+```shell title="Run the recipe"
+mod run . --recipe org.openrewrite.python.ReorderMethodArguments
+```
+ [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results. | `com.yourorg.A foo(String, Integer, Integer)` |
 | `String[]` | newParameterNames | An array of parameter names that indicates the new order in which those arguments should be arranged. | `[foo, bar, baz]` |
 | `String[]` | oldParameterNames | *Optional*. If the original method signature is not type-attributed, this is an optional list that indicates the original order in which the arguments were arranged. | `[baz, bar, foo]` |
 | `Boolean` | ignoreDefinition | *Optional*. When set to `true` the definition of the old type will be left untouched. This is useful when you're replacing usage of a class but don't want to rename it. |  |

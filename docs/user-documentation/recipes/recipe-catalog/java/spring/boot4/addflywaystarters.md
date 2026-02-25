@@ -42,11 +42,7 @@ public class App {}
 test
 ```
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
+###### Unchanged
 ```xml title="pom.xml"
 <project>
     <modelVersion>4.0.0</modelVersion>
@@ -62,59 +58,6 @@ test
     </dependencies>
 </project>
 ```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>11.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-flyway</artifactId>
-            <version>4.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-flyway-test</artifactId>
-            <version>4.0.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -12,0 +12,11 @@
-            <version>11.0.0</version>
-        </dependency>
-+       <dependency>
-+           <groupId>org.springframework.boot</groupId>
-+           <artifactId>spring-boot-starter-flyway</artifactId>
-+           <version>4.0.2</version>
-+       </dependency>
-+       <dependency>
-+           <groupId>org.springframework.boot</groupId>
-+           <artifactId>spring-boot-starter-flyway-test</artifactId>
-+           <version>4.0.2</version>
-+           <scope>test</scope>
-+       </dependency>
-    </dependencies>
-```
-</TabItem>
-</Tabs>
 
 ---
 
@@ -134,11 +77,7 @@ public class App {}
 test
 ```
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
+###### Unchanged
 ```xml title="pom.xml"
 <project>
     <modelVersion>4.0.0</modelVersion>
@@ -154,59 +93,6 @@ test
     </dependencies>
 </project>
 ```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>11.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-flyway</artifactId>
-            <version>4.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-flyway-test</artifactId>
-            <version>4.0.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -12,0 +12,11 @@
-            <version>11.0.0</version>
-        </dependency>
-+       <dependency>
-+           <groupId>org.springframework.boot</groupId>
-+           <artifactId>spring-boot-starter-flyway</artifactId>
-+           <version>4.0.2</version>
-+       </dependency>
-+       <dependency>
-+           <groupId>org.springframework.boot</groupId>
-+           <artifactId>spring-boot-starter-flyway-test</artifactId>
-+           <version>4.0.2</version>
-+           <scope>test</scope>
-+       </dependency>
-    </dependencies>
-```
-</TabItem>
-</Tabs>
 
 
 ## Usage

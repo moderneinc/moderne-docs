@@ -16,6 +16,7 @@ description: Camel OpenRewrite recipes.
 * [Camel415](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel415)
 * [Camel416](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel416)
 * [Camel417](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel417)
+* [Camel418](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel418)
 * [Camel44](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel44)
 * [Camel47](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel47)
 * [Camel49](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel49)

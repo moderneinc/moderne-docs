@@ -54,7 +54,7 @@ import java.net.URI;
 
 class MyTest {
     void test(DefaultResponseErrorHandler handler, ClientHttpResponse response) throws Exception {
-        handler.handleError((URI) null, (HttpMethod) null, response);
+        handler.handleError(URI.create("http://example.com"), HttpMethod.GET, response);
     }
 }
 ```
@@ -76,7 +76,7 @@ class MyTest {
 class MyTest {
     void test(DefaultResponseErrorHandler handler, ClientHttpResponse response) throws Exception {
 -       handler.handleError(response);
-+       handler.handleError((URI) null, (HttpMethod) null, response);
++       handler.handleError(URI.create("http://example.com"), HttpMethod.GET, response);
     }
 ```
 </TabItem>

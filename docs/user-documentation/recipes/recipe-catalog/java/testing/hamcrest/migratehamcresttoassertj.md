@@ -47,6 +47,9 @@ This recipe is available under the [Moderne Source Available License](https://do
   * acceptTransitive: `true`
 * [Use consistent Hamcrest matcher imports](../../../java/testing/hamcrest/consistenthamcrestmatcherimports)
 * [Migrate `anyOf` Hamcrest Matcher to AssertJ](../../../java/testing/hamcrest/hamcrestofmatcherstoassertj)
+* [Migrate Hamcrest `hasProperty` to AssertJ](../../../java/testing/hamcrest/hamcresthaspropertytoassertj)
+* [Migrate Hamcrest `everyItem` to AssertJ](../../../java/testing/hamcrest/hamcresteveryitemtoassertj)
+* [Migrate Hamcrest `hasItem(Matcher)` to AssertJ](../../../java/testing/hamcrest/hamcresthasitemmatchertoassertj)
 * [Migrate Hamcrest `is(Object)` to AssertJ](../../../java/testing/hamcrest/hamcrestismatchertoassertj)
 * [Migrate Hamcrest `assertThat(boolean, Matcher)` to AssertJ](../../../java/testing/hamcrest/assertthatbooleantoassertj)
 * [Migrate from Hamcrest `Matcher` to AssertJ](../../../java/testing/hamcrest/hamcrestmatchertoassertj)
@@ -289,6 +292,27 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Migrate Hamcrest `not(Matcher)` to AssertJ](../../../java/testing/hamcrest/hamcrestnotmatchertoassertj)
   * notMatcher: `empty`
   * assertion: `isNotEmpty`
+* [Migrate Hamcrest `not(Matcher)` to AssertJ](../../../java/testing/hamcrest/hamcrestnotmatchertoassertj)
+  * notMatcher: `hasKey`
+  * assertion: `doesNotContainKey`
+* [Migrate Hamcrest `not(Matcher)` to AssertJ](../../../java/testing/hamcrest/hamcrestnotmatchertoassertj)
+  * notMatcher: `hasValue`
+  * assertion: `doesNotContainValue`
+* [Migrate Hamcrest `not(Matcher)` to AssertJ](../../../java/testing/hamcrest/hamcrestnotmatchertoassertj)
+  * notMatcher: `hasEntry`
+  * assertion: `doesNotContainEntry`
+* [Migrate Hamcrest `not(Matcher)` to AssertJ](../../../java/testing/hamcrest/hamcrestnotmatchertoassertj)
+  * notMatcher: `anEmptyMap`
+  * assertion: `isNotEmpty`
+* [Migrate Hamcrest `not(Matcher)` to AssertJ](../../../java/testing/hamcrest/hamcrestnotmatchertoassertj)
+  * notMatcher: `isEmptyOrNullString`
+  * assertion: `isNotEmpty`
+* [Migrate Hamcrest `not(Matcher)` to AssertJ](../../../java/testing/hamcrest/hamcrestnotmatchertoassertj)
+  * notMatcher: `emptyOrNullString`
+  * assertion: `isNotEmpty`
+* [Migrate Hamcrest `not(Matcher)` to AssertJ](../../../java/testing/hamcrest/hamcrestnotmatchertoassertj)
+  * notMatcher: `isA`
+  * assertion: `isNotInstanceOf`
 
 </TabItem>
 
@@ -314,6 +338,9 @@ recipeList:
       acceptTransitive: true
   - org.openrewrite.java.testing.hamcrest.ConsistentHamcrestMatcherImports
   - org.openrewrite.java.testing.hamcrest.HamcrestOfMatchersToAssertJ
+  - org.openrewrite.java.testing.hamcrest.HamcrestHasPropertyToAssertJ
+  - org.openrewrite.java.testing.hamcrest.HamcrestEveryItemToAssertJ
+  - org.openrewrite.java.testing.hamcrest.HamcrestHasItemMatcherToAssertJ
   - org.openrewrite.java.testing.hamcrest.HamcrestIsMatcherToAssertJ
   - org.openrewrite.java.testing.hamcrest.AssertThatBooleanToAssertJ
   - org.openrewrite.java.testing.hamcrest.HamcrestMatcherToAssertJ:
@@ -556,6 +583,27 @@ recipeList:
   - org.openrewrite.java.testing.hamcrest.HamcrestNotMatcherToAssertJ:
       notMatcher: empty
       assertion: isNotEmpty
+  - org.openrewrite.java.testing.hamcrest.HamcrestNotMatcherToAssertJ:
+      notMatcher: hasKey
+      assertion: doesNotContainKey
+  - org.openrewrite.java.testing.hamcrest.HamcrestNotMatcherToAssertJ:
+      notMatcher: hasValue
+      assertion: doesNotContainValue
+  - org.openrewrite.java.testing.hamcrest.HamcrestNotMatcherToAssertJ:
+      notMatcher: hasEntry
+      assertion: doesNotContainEntry
+  - org.openrewrite.java.testing.hamcrest.HamcrestNotMatcherToAssertJ:
+      notMatcher: anEmptyMap
+      assertion: isNotEmpty
+  - org.openrewrite.java.testing.hamcrest.HamcrestNotMatcherToAssertJ:
+      notMatcher: isEmptyOrNullString
+      assertion: isNotEmpty
+  - org.openrewrite.java.testing.hamcrest.HamcrestNotMatcherToAssertJ:
+      notMatcher: emptyOrNullString
+      assertion: isNotEmpty
+  - org.openrewrite.java.testing.hamcrest.HamcrestNotMatcherToAssertJ:
+      notMatcher: isA
+      assertion: isNotInstanceOf
 
 ```
 </TabItem>

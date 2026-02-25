@@ -28,6 +28,70 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | `UpgradeDelta` | maximumUpgradeDelta | *Optional*. The maximum difference to allow when suggesting a dependency version upgrade. Patch version upgrades are the default and safest option, as patch releases assert full backwards compatibility with no breaking changes. Minor version upgrades can introduce new features but do not _typically_ include breaking changes. Major version upgrades will typically require code changes above and beyond this recipe.  Valid options: `patch`, `minor`, `major` | `patch` |
 | `String` | exploitMaturity | *Optional*. Fix only those vulnerabilities that have an exploit maturity level equal to or greater than the specified level. Valid options: `public`, `commercial`, `weaponized` | `weaponized` |
 
+## Example
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|apiToken|`vulncheck_93a74420e799d42d3c74b947dc7c729a873034543bc5bf20391278d9b2e94d80`|
+|scope|`null`|
+|overrideTransitive|`null`|
+|maximumUpgradeDelta|`null`|
+|exploitMaturity|`null`|
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="pom.xml" label="pom.xml">
+
+
+###### Before
+```xml title="pom.xml"
+<project>
+  <groupId>com.example</groupId>
+  <artifactId>demo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>3.2.1</version>
+    </dependency>
+  </dependencies>
+</project>
+```
+
+###### After
+```xml title="pom.xml"
+<project>
+  <groupId>com.example</groupId>
+  <artifactId>demo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>3.2.2</version>
+    </dependency>
+  </dependencies>
+</project>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- pom.xml
++++ pom.xml
+@@ -9,1 +9,1 @@
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+-     <version>3.2.1</version>
++     <version>3.2.2</version>
+    </dependency>
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

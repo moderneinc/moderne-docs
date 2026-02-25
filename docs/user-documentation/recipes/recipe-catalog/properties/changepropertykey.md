@@ -38,6 +38,8 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [Migrate Spring Boot Actuator to Quarkus Health and Metrics](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringactuator.md)
+* [Migrate Spring Cloud Config Client to Quarkus Config](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudconfig.md)
 * [Migrate from OptaPlanner to Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fromoptaplannertotimefoldsolver.md)
 * [Quarkus 1.13 migration from Quarkus 1.11](/user-documentation/recipes/recipe-catalog/quarkus/quarkus1to1_13migration.md)
 * [Quarkus 2.x migration from Quarkus 1.x](/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/quarkus1to2migration.md)
