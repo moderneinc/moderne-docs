@@ -410,6 +410,8 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 /* TOC position - below full navbar wrapper */
 [class*="tableOfContents"] {
   top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_7));
+  max-height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-announcement-bar-height) - 128px);
+  overflow-y: auto;
 }
 
 @media(min-width: 997px) {
