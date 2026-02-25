@@ -70,7 +70,7 @@
 }
 
 .productCardTitle {
-  font-size: var(--neo-font-size-sm);
+  font-size: var(--neo-font-size-default);
   font-weight: var(--neo-font-weight-semi-bold);
   color: var(--ifm-heading-color);
   margin: 0;
@@ -78,7 +78,7 @@
 }
 
 .productCardDescription {
-  font-size: var(--neo-font-size-xs);
+  font-size: var(--neo-font-size-sm);
   font-weight: var(--neo-font-weight-regular);
   color: var(--neo-typography-body-secondary);
   margin: 0;
