@@ -10,6 +10,85 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## February 25, 2026
+
+#### rewrite-ai-search - 0.32.7
+
+* Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-android - 0.15.6
+
+* Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-circleci - 3.9.7
+
+* Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-codemods-ng - 0.18.0
+
+* Remove trailing whitespace
+
+#### rewrite-compiled-analysis - 0.12.0
+
+* Update SDKMan Java version
+
+#### rewrite-concourse - 3.9.7
+
+* Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-dotnet - 0.14.7
+
+* Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-elastic - 0.5.3
+
+* Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-kafka - 0.4.7
+
+* Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-kubernetes - 3.15.3
+
+* Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-nodejs - 0.38.1
+
+* Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-program-analysis - 0.10.0
+
+* Add missing InlineDeprecatedMethods to recipes.csv
+* Rebuild recipe catalog
+* Remove trailing whitespace
+* Handle exception paths in dead store analysis for try/catch blocks
+* Update Prethink context
+
+#### rewrite-reactive-streams - 0.18.7
+
+* Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-sql - 2.10.2
+
+* Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-terraform - 3.13.0
+
+* Update Prethink context
+
+## February 24, 2026
+
+#### rewrite-java-security - 3.26.3
+
+* Add OWASP A01:2025 Broken Access Control recipe
+* Add OWASP A02:2025 Security Misconfiguration recipe
+* Migrate CookieSetHttpOnly to rewrite-program-analysis dataflow
+* Fixing test for dependency vulnerability check version upgrading.
+* Add Directory.Packages.props support to csharp UpgradeDependencyVersion recipe
+* Add Python/PyPI dependency vulnerability check recipe
+* Fix transitive dependencies and standalone scripts
+* Skip uv test when uv is not installed
+
 ## February 17, 2026
 
 #### rewrite-terraform - v3.12.0
