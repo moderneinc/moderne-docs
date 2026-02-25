@@ -23,6 +23,329 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
+## Examples
+##### Example 1
+`ConvertInjectPageAnnotationTest#convertsInjectPageGetterToField`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.apache.tapestry.annotations.InjectPage;
+
+public abstract class MyPage {
+
+    @InjectPage
+    public abstract OtherPage getOtherPage();
+}
+```
+
+###### After
+```java
+import org.apache.tapestry5.annotations.InjectPage;
+
+public abstract class MyPage {
+    @InjectPage private OtherPage otherPage;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.apache.tapestry.annotations.InjectPage;
++import org.apache.tapestry5.annotations.InjectPage;
+
+@@ -4,3 +4,1 @@
+
+public abstract class MyPage {
+-
+-   @InjectPage
+-   public abstract OtherPage getOtherPage();
++   @InjectPage private OtherPage otherPage;
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`ConvertInjectStateToSessionStateTest#convertsInjectStateToSessionState`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.apache.tapestry.annotations.InjectState;
+
+public abstract class MyPage {
+
+    @InjectState("visit")
+    public abstract Visit getVisit();
+
+    public void doWork() {
+        getVisit().getUserId();
+    }
+}
+```
+
+###### After
+```java
+import org.apache.tapestry5.annotations.SessionState;
+
+public abstract class MyPage {
+    @SessionState private Visit visit;
+
+    public void doWork() {
+        getVisit().getUserId();
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.apache.tapestry.annotations.InjectState;
++import org.apache.tapestry5.annotations.SessionState;
+
+@@ -4,0 +4,1 @@
+
+public abstract class MyPage {
++   @SessionState private Visit visit;
+
+@@ -5,3 +6,0 @@
+public abstract class MyPage {
+
+-   @InjectState("visit")
+-   public abstract Visit getVisit();
+-
+    public void doWork() {
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 3
+`ConvertParameterAnnotationTest#convertsParameterGetterToField`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.apache.tapestry.annotations.Parameter;
+
+public abstract class MyComponent {
+
+    @Parameter
+    public abstract String getValue();
+}
+```
+
+###### After
+```java
+import org.apache.tapestry5.annotations.Parameter;
+
+public abstract class MyComponent {
+    @Parameter private String value;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.apache.tapestry.annotations.Parameter;
++import org.apache.tapestry5.annotations.Parameter;
+
+@@ -4,3 +4,1 @@
+
+public abstract class MyComponent {
+-
+-   @Parameter
+-   public abstract String getValue();
++   @Parameter private String value;
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 4
+`ConvertInjectPageAnnotationTest#convertsInjectPageGetterToField`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.apache.tapestry.annotations.InjectPage;
+
+public abstract class MyPage {
+
+    @InjectPage
+    public abstract OtherPage getOtherPage();
+}
+```
+
+###### After
+```java
+import org.apache.tapestry5.annotations.InjectPage;
+
+public abstract class MyPage {
+    @InjectPage private OtherPage otherPage;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.apache.tapestry.annotations.InjectPage;
++import org.apache.tapestry5.annotations.InjectPage;
+
+@@ -4,3 +4,1 @@
+
+public abstract class MyPage {
+-
+-   @InjectPage
+-   public abstract OtherPage getOtherPage();
++   @InjectPage private OtherPage otherPage;
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 5
+`ConvertInjectStateToSessionStateTest#convertsInjectStateToSessionState`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.apache.tapestry.annotations.InjectState;
+
+public abstract class MyPage {
+
+    @InjectState("visit")
+    public abstract Visit getVisit();
+
+    public void doWork() {
+        getVisit().getUserId();
+    }
+}
+```
+
+###### After
+```java
+import org.apache.tapestry5.annotations.SessionState;
+
+public abstract class MyPage {
+    @SessionState private Visit visit;
+
+    public void doWork() {
+        getVisit().getUserId();
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.apache.tapestry.annotations.InjectState;
++import org.apache.tapestry5.annotations.SessionState;
+
+@@ -4,0 +4,1 @@
+
+public abstract class MyPage {
++   @SessionState private Visit visit;
+
+@@ -5,3 +6,0 @@
+public abstract class MyPage {
+
+-   @InjectState("visit")
+-   public abstract Visit getVisit();
+-
+    public void doWork() {
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 6
+`ConvertParameterAnnotationTest#convertsParameterGetterToField`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.apache.tapestry.annotations.Parameter;
+
+public abstract class MyComponent {
+
+    @Parameter
+    public abstract String getValue();
+}
+```
+
+###### After
+```java
+import org.apache.tapestry5.annotations.Parameter;
+
+public abstract class MyComponent {
+    @Parameter private String value;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.apache.tapestry.annotations.Parameter;
++import org.apache.tapestry5.annotations.Parameter;
+
+@@ -4,3 +4,1 @@
+
+public abstract class MyComponent {
+-
+-   @Parameter
+-   public abstract String getValue();
++   @Parameter private String value;
+}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

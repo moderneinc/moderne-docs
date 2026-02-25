@@ -24,6 +24,8 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | --- | --- | --- | --- |
 | `String` | packageName | The PyPI package name to update. | `requests` |
 | `String` | newVersion | The new PEP 508 version constraint (e.g., `>=2.31.0`). | `>=2.31.0` |
+| `String` | scope | *Optional*. The dependency scope to update in. Defaults to `project.dependencies`. Valid options: `project.dependencies`, `project.optional-dependencies`, `dependency-groups`, `tool.uv.constraint-dependencies`, `tool.uv.override-dependencies` | `project.dependencies` |
+| `String` | groupName | *Optional*. The group name, required when scope is `project.optional-dependencies` or `dependency-groups`. | `dev` |
 
 
 ## Usage
@@ -41,6 +43,8 @@ recipeList:
   - org.openrewrite.python.UpgradeDependencyVersion:
       packageName: requests
       newVersion: >=2.31.0
+      scope: project.dependencies
+      groupName: dev
 ```
 
 <Tabs groupId="projectType">
@@ -49,7 +53,7 @@ recipeList:
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe UpgradeDependencyVersion --recipe-option "packageName=requests" --recipe-option "newVersion=>=2.31.0"
+mod run . --recipe UpgradeDependencyVersion --recipe-option "packageName=requests" --recipe-option "newVersion=>=2.31.0" --recipe-option "scope=project.dependencies" --recipe-option "groupName=dev"
 ```
 
 If the recipe is not available locally, then you can install it using:

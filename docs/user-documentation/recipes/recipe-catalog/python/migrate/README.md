@@ -22,6 +22,7 @@ _Recipes that include further recipes, often including the individual recipes be
 
 ## Recipes
 
+* [Find `__future__` imports](./findfutureimports.md)
 * [Find deprecated `@asyncio.coroutine` decorator](./findasynciocoroutinedecorator.md)
 * [Find deprecated `Element.getchildren()` usage](./findelementgetchildren.md)
 * [Find deprecated `Path.link_to()` usage](./findpathliblinkto.md)
@@ -67,6 +68,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find removed `tarfile.filemode` usage](./findtarfilefilemode.md)
 * [Find `socket.getfqdn()` usage](./findsocketgetfqdn.md)
 * [Migrate `@asyncio.coroutine` to `async def`](./migrateasynciocoroutine.md)
+* [Migrate to `pyproject.toml`](./migratetopyprojecttoml.md)
 * [Replace `%` formatting with f-string](./replacepercentformatwithfstring.md)
 * [Replace `Condition.notifyAll()` with `Condition.notify_all()`](./replaceconditionnotifyall.md)
 * [Replace `ConfigParser.readfp()` with `read_file()`](./replaceconfigparserreadfp.md)

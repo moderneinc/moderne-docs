@@ -34,7 +34,9 @@ This recipe is used as part of the following composite recipes:
 ```java
 package com.example;
 
-public class App {}
+public class App {
+    public static void main(String... args) {}
+}
 ```
 
 ###### Unchanged
@@ -42,11 +44,7 @@ public class App {}
 test
 ```
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
+###### Unchanged
 ```xml title="pom.xml"
 <project>
     <modelVersion>4.0.0</modelVersion>
@@ -62,59 +60,6 @@ test
     </dependencies>
 </project>
 ```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>4.25.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-liquibase</artifactId>
-            <version>4.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-liquibase-test</artifactId>
-            <version>4.0.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -12,0 +12,11 @@
-            <version>4.25.0</version>
-        </dependency>
-+       <dependency>
-+           <groupId>org.springframework.boot</groupId>
-+           <artifactId>spring-boot-starter-liquibase</artifactId>
-+           <version>4.0.2</version>
-+       </dependency>
-+       <dependency>
-+           <groupId>org.springframework.boot</groupId>
-+           <artifactId>spring-boot-starter-liquibase-test</artifactId>
-+           <version>4.0.2</version>
-+           <scope>test</scope>
-+       </dependency>
-    </dependencies>
-```
-</TabItem>
-</Tabs>
 
 ---
 
@@ -126,7 +71,9 @@ test
 ```java
 package com.example;
 
-public class App {}
+public class App {
+    public static void main(String... args) {}
+}
 ```
 
 ###### Unchanged
@@ -134,11 +81,7 @@ public class App {}
 test
 ```
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
+###### Unchanged
 ```xml title="pom.xml"
 <project>
     <modelVersion>4.0.0</modelVersion>
@@ -154,59 +97,6 @@ test
     </dependencies>
 </project>
 ```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>4.25.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-liquibase</artifactId>
-            <version>4.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-liquibase-test</artifactId>
-            <version>4.0.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -12,0 +12,11 @@
-            <version>4.25.0</version>
-        </dependency>
-+       <dependency>
-+           <groupId>org.springframework.boot</groupId>
-+           <artifactId>spring-boot-starter-liquibase</artifactId>
-+           <version>4.0.2</version>
-+       </dependency>
-+       <dependency>
-+           <groupId>org.springframework.boot</groupId>
-+           <artifactId>spring-boot-starter-liquibase-test</artifactId>
-+           <version>4.0.2</version>
-+           <scope>test</scope>
-+       </dependency>
-    </dependencies>
-```
-</TabItem>
-</Tabs>
 
 
 ## Usage

@@ -437,6 +437,13 @@ recipeList:
 </TabItem>
 </Tabs>
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Migrates to Apache POI 4.1.2](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_4_1.md)
+
+
 ## Usage
 
 This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.

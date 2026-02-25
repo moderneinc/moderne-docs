@@ -2,37 +2,39 @@
 sidebar_label: "Change method name"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/changemethodname" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Change method name
 
-**org.openrewrite.java.ChangeMethodName**
+**org.openrewrite.python.ChangeMethodName**
 
-_Rename a method._
-
-:::info
-This Java recipe works on Python code.
-:::
+_Rename method invocations matching a pattern._
 
 ## Recipe source
 
-[GitHub: ChangeMethodName.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/ChangeMethodName.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-java/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-## Options
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | methodPattern | A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results. | `org.mockito.Matchers anyVararg()` |
+
+## Usage
+
+In order to run Python recipes, you will need to use the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro).
+
+Once the CLI is installed, you can install this Python recipe package by running the following command:
+
+```shell title="Install the recipe package"
+mod config recipes pip install openrewrite
+```
+
+Then, you can run the recipe via:
+
+```shell title="Run the recipe"
+mod run . --recipe org.openrewrite.python.ChangeMethodName
+```
+penrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results. | `org.mockito.Matchers anyVararg()` |
 | `String` | newMethodName | The method name that will replace the existing name. | `any` |
 | `Boolean` | matchOverrides | *Optional*. When enabled, find methods that are overrides of the method pattern. |  |
 | `Boolean` | ignoreDefinition | *Optional*. When set to `true` the definition of the old type will be left untouched. This is useful when you're replacing usage of a class but don't want to rename it. |  |
@@ -76,6 +78,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate RichFaces 3.x to 4.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/migraterichfaces_4_5)
 * [Migrate SLF4J to Log4j 2.x API](/user-documentation/recipes/recipe-catalog/java/logging/log4j/slf4jtolog4j.md)
 * [Migrate Spring Boot 3.5 deprecated classes and methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot35deprecations)
+* [Migrate Spring Events to CDI Events](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringevents.md)
 * [Migrate Struts 2.0 interceptors to action &quot;aware&quot; interfaces](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migrateawareinterfaces)
 * [Migrate `Admin.listConsumerGroups()` to `listGroups()`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migrateadminlistconsumergroups)
 * [Migrate `ApiInfoBuilder` to `Info`](/user-documentation/recipes/recipe-catalog/java/spring/doc/apiinfobuildertoinfo.md)
@@ -111,9 +114,11 @@ This recipe is used as part of the following composite recipes:
 * [Prefer `java.util.Objects#hash`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautilobjectshashcode.md)
 * [Prefer `java.util.Objects#requireNonNullElse`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautilobjectsrequirenonnullelse.md)
 * [Prefer `java.util.Optional`](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautiloptional.md)
+* [Prefer the Java standard library instead of Joda-Time](/user-documentation/recipes/recipe-catalog/java/joda/time/nojodatime.md)
 * [Quarkus 1.13 migration from Quarkus 1.11](/user-documentation/recipes/recipe-catalog/quarkus/quarkus1to1_13migration.md)
 * [Recipe testing best practices](/user-documentation/recipes/recipe-catalog/java/recipes/recipetestingbestpractices.md)
 * [Refactored dataFormats](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel415/dataformats.md)
+* [Rename Exposed deprecated methods for 1.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedchangemethodnames)
 * [Rename Jackson 2.x methods to 3.x equivalents for JsonGenerator](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsongeneratormethodrenames.md)
 * [Rename Jackson 2.x methods to 3.x equivalents for JsonNode](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsonnodemethodrenames.md)
 * [Rename Jackson 2.x methods to 3.x equivalents for JsonParser](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsonparsermethodrenames.md)
@@ -124,12 +129,16 @@ This recipe is used as part of the following composite recipes:
 * [Replace `Paths.get` with `Path.of`](/user-documentation/recipes/recipe-catalog/java/migrate/nio/file/pathsgettopathof.md)
 * [Replace `SSLSession.getPeerCertificateChain()` method](/user-documentation/recipes/recipe-catalog/java/migrate/removedsslsessiongetpeercertificatechainmethodimpl.md)
 * [Replace `doUpgrade(..)` with `ServerContainer.upgradeHttpToWebSocket(..)`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/wswsocservercontainerdeprecation.md)
+* [Replace `enumValues&lt;T&gt;()` with `enumEntries&lt;T&gt;()`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/replaceenumvaluesfunctionwithenumentries)
 * [Replace `finalize` method in `java.io.FileInputStream`  and `java.io.FileOutputStream`](/user-documentation/recipes/recipe-catalog/java/migrate/removedfileiofinalizemethods.md)
 * [Replace `finalize` method in `java.util.zip.ZipFile`, `java.util.zip.Inflater` and `java.util.zip.Deflater`](/user-documentation/recipes/recipe-catalog/java/migrate/removedzipfinalizemethods.md)
 * [Replace `hudson.Util.getPastTimeString` with `getTimeSpanString`](/user-documentation/recipes/recipe-catalog/jenkins/migrate/hudson/utilgetpasttimestringtogettimespanstring.md)
 * [Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`](/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingsingleargwithobjectsrequirenonnull.md)
 * [Replace calls to `Thread.run()` with `Thread.start()`](/user-documentation/recipes/recipe-catalog/staticanalysis/replacethreadrunwiththreadstart.md)
+* [Replace deprecated Char case conversions](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedcharcaseconversions)
 * [Replace deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md)
+* [Replace deprecated String case conversions](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedstringcaseconversions)
+* [Replace deprecated `appendln` with `appendLine`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedappendln)
 * [Replace deprecated setters in `RestTemplateBuilder`](/user-documentation/recipes/recipe-catalog/java/spring/boot3/replaceresttemplatebuildermethods.md)
 * [The header name for the List metadata has changed](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel43/kafkametadata.md)
 * [Upgrade to JUnit 5.14](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit514.md)

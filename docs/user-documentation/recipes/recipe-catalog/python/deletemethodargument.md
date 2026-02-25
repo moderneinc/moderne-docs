@@ -2,37 +2,39 @@
 sidebar_label: "Delete method argument"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/deletemethodargument" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Delete method argument
 
-**org.openrewrite.java.DeleteMethodArgument**
+**org.openrewrite.python.DeleteMethodArgument**
 
-_Delete an argument from method invocations._
-
-:::info
-This Java recipe works on Python code.
-:::
+_Remove an argument from method invocations matching a pattern._
 
 ## Recipe source
 
-[GitHub: DeleteMethodArgument.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/DeleteMethodArgument.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-java/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-## Options
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | methodPattern | A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results. | `com.yourorg.A foo(int, int)` |
+
+## Usage
+
+In order to run Python recipes, you will need to use the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro).
+
+Once the CLI is installed, you can install this Python recipe package by running the following command:
+
+```shell title="Install the recipe package"
+mod config recipes pip install openrewrite
+```
+
+Then, you can run the recipe via:
+
+```shell title="Run the recipe"
+mod run . --recipe org.openrewrite.python.DeleteMethodArgument
+```
+rn](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results. | `com.yourorg.A foo(int, int)` |
 | `int` | argumentIndex | A zero-based index that indicates which argument will be removed from the method invocation. | `0` |
 
 
@@ -46,6 +48,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Hibernate 7.2.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate72)
 * [Migrate to Kafka 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka40)
 * [Mockito 3.x migration from 1.x](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration.md)
+* [Remove `SslBundles` parameter from `KafkaProperties` build methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/removekafkapropertiessslbundlesparameter)
 * [Replace  deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removalsservletjakarta10.md)
 * [Replace deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md)
 

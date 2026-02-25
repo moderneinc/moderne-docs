@@ -37,6 +37,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Add or replace Spring Boot build plugin with Quarkus build plugin](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratemavenplugin.md)
+* [Migrate JBoss to Jetty](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/migratejbosstojetty)
 * [Migrate JavaEE Maven Dependencies to Quarkus 2](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2mavenplugins.md)
 * [Remove Cobertura Maven plugin](/user-documentation/recipes/recipe-catalog/java/migrate/cobertura/removecoberturamavenplugin.md)
 

@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 **org.openrewrite.java.spring.boot3.MigrateHooksToReactorContextProperty**
 
-_Replace `Hooks.enableAutomaticContextPropagation()` with `spring.reactor.context-propagation=true`._
+_Replace `Hooks.enableAutomaticContextPropagation()` with `spring.reactor.context-propagation=auto`._
 
 ## Recipe source
 
@@ -90,7 +90,7 @@ project
 
 ###### New file
 ```properties title="application.properties"
-spring.reactor.context-propagation=true
+spring.reactor.context-propagation=auto
 ```
 
 

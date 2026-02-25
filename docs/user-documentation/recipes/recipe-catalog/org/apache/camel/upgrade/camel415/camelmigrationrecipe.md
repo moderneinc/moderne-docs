@@ -65,7 +65,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to 4.14.0](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
+* [Migrate to 4.18.0](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
 * [Migrates `camel 4.14` application to `camel 4.15`](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/camel/camel415/camelquarkusmigrationrecipe.md)
 
 

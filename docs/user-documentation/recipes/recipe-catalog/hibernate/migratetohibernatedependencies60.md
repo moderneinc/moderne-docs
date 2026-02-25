@@ -373,7 +373,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Hibernate 6.0.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60.md)
+* [Migrate to Hibernate 6.0.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-community-edition.md)
 
 
 ## Usage

@@ -15,7 +15,6 @@ description: Spring Framework OpenRewrite recipes.
 _Recipes that include further recipes, often including the individual recipes below._
 
 * [Add Spring Framework modular dependencies](./modularspringframeworkdependencies.md)
-* [Find deprecated `PathMatcher` usage](./finddeprecatedpathmatcherusage.md)
 * [Migrate Bean XML properties deprecated in Spring Framework 3.0](./migratedeprecatedbeanxmlproperties.md)
 * [Migrate `DefaultResponseErrorHandler.handleError` method signature](./migratedefaultresponseerrorhandler.md)
 * [Migrate breaking changes in `ResponseStatusException`](./migrateresponsestatusexception.md)
@@ -33,15 +32,16 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate to Spring Framework 7.0](./upgradespringframework_7_0.md)
 * [Migrate trailing slash matching to explicit routes](./migratetrailingslashmatch.md)
 * [Remove path extension content negotiation methods](./removepathextensioncontentnegotiation.md)
-* [Use `ObjectUtils#isEmpty(Object)`](./useobjectutilsisempty.md)
 
 ## Recipes
 
 * [`@Bean` methods may not return `void`](./beanmethodreturnnull.md)
 * [Add `@Nullable` to optional Spring web parameters](./nullablespringwebparameters.md)
+* [Add `setUseSuffixPatternMatch(true)` for pre-Spring Framework 5.3 projects](./addsetusesuffixpatternmatchifprespring53.md)
 * [Add `setUseSuffixPatternMatch(true)` in Spring MVC configuration](./addsetusesuffixpatternmatch.md)
 * [Convert `InstantiationAwareBeanPostProcessorAdapter` to `SmartInstantiationAwareBeanPostProcessor`](./migrateinstantiationawarebeanpostprocessoradapter.md)
 * [Convert JAX-RS annotations to Spring Web](./jaxrstospringweb.md)
+* [Find deprecated `PathMatcher` usage](./finddeprecatedpathmatcherusage.md)
 * [Flag deprecated suffix pattern matching usage for manual review](./flagsuffixpatternmatchusage.md)
 * [Is likely a Spring Framework project](./islikelyspringframework.md)
 * [Migrate `Filter` to `OncePerRequestFilter`](./migratefiltertoonceperrequestfilter.md)
@@ -67,6 +67,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Replace `WebMvcConfigurerAdapter` with `WebMvcConfigurer`](./migratewebmvcconfigureradapter.md)
 * [Replaces deprecated `ClientHttpResponse#getRawStatusCode()`](./migrateclienthttpresponsegetrawstatuscodemethod.md)
 * [Use `Environment#acceptsProfiles(Profiles)`](./environmentacceptsprofiles.md)
+* [Use `ObjectUtils#isEmpty(Object)`](./useobjectutilsisempty.md)
 * [Use varargs equivalents for deprecated JdbcTemplate signatures](./jdbctemplateobjectarrayargtovarargs.md)
 
 

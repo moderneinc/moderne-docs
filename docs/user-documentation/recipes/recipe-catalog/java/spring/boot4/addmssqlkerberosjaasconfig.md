@@ -25,6 +25,41 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="yaml" label="yaml">
+
+
+###### Before
+```yaml
+spring:
+  datasource:
+    url: 'jdbc:sqlserver://server:1433;databaseName=mydb;authenticationScheme=JavaKerberos'
+```
+
+###### After
+```yaml
+spring:
+  datasource:
+    url: 'jdbc:sqlserver://server:1433;databaseName=mydb;authenticationScheme=JavaKerberos;useDefaultJaasConfig=true'
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -3,1 +3,1 @@
+spring:
+  datasource:
+-   url: 'jdbc:sqlserver://server:1433;databaseName=mydb;authenticationScheme=JavaKerberos'
++   url: 'jdbc:sqlserver://server:1433;databaseName=mydb;authenticationScheme=JavaKerberos;useDefaultJaasConfig=true'
+
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

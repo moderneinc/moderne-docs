@@ -25,6 +25,49 @@ This recipe is used as part of the following composite recipes:
 
 * [Upgrade Terraform to 0.15](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/terraform015/upgradeterraformto0_15)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="hcl" label="hcl">
+
+
+###### Before
+```hcl
+resource "aws_instance" "example" {
+  ami = "abc-123"
+
+  provisioner "chef" {
+    server_url = "https://chef.example.com"
+  }
+}
+```
+
+###### After
+```hcl
+resource "aws_instance" "example" {
+  ami = "abc-123"
+
+  /*~~(Provisioner 'chef' was removed in Terraform 0.15)~~>*/provisioner "chef" {
+    server_url = "https://chef.example.com"
+  }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -4,1 +4,1 @@
+  ami = "abc-123"
+
+- provisioner "chef" {
++ /*~~(Provisioner 'chef' was removed in Terraform 0.15)~~>*/provisioner "chef" {
+    server_url = "https://chef.example.com"
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

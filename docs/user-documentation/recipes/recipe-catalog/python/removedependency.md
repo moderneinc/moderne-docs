@@ -23,6 +23,8 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
 | `String` | packageName | The PyPI package name to remove. | `requests` |
+| `String` | scope | *Optional*. The dependency scope to remove from. Defaults to `project.dependencies`. Valid options: `project.dependencies`, `project.optional-dependencies`, `dependency-groups`, `tool.uv.constraint-dependencies`, `tool.uv.override-dependencies` | `project.dependencies` |
+| `String` | groupName | *Optional*. The group name, required when scope is `project.optional-dependencies` or `dependency-groups`. | `dev` |
 
 
 ## Usage
@@ -39,6 +41,8 @@ displayName: Remove Python dependency example
 recipeList:
   - org.openrewrite.python.RemoveDependency:
       packageName: requests
+      scope: project.dependencies
+      groupName: dev
 ```
 
 <Tabs groupId="projectType">
@@ -47,7 +51,7 @@ recipeList:
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe RemoveDependency --recipe-option "packageName=requests"
+mod run . --recipe RemoveDependency --recipe-option "packageName=requests" --recipe-option "scope=project.dependencies" --recipe-option "groupName=dev"
 ```
 
 If the recipe is not available locally, then you can install it using:

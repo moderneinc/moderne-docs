@@ -26,7 +26,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate to Kafka 3.3](./migratetokafka33.md)
 * [Migrate to Kafka 4.0](./migratetokafka40.md)
 * [Migrate to Kafka 4.1](./migratetokafka41.md)
-* [Upgrade Java to 11+ for Kafka clients](./upgradejavaforkafkaclients.md)
 * [Upgrade Java to 17+ for Kafka broker/tools](./upgradejavaforkafkabroker.md)
 
 ## Recipes
@@ -36,5 +35,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate `KafkaConsumer.poll(long)` to `poll(Duration)`](./migrateconsumerpolltoduration.md)
 * [Migrate deprecated `sendOffsetsToTransaction` to use `ConsumerGroupMetadata`](./migratesendoffsetstotransaction.md)
 * [Remove deprecated Kafka property](./removedeprecatedkafkaproperties.md)
+* [Upgrade Java to 11+ for Kafka clients](./upgradejavaforkafkaclients.md)
 
 

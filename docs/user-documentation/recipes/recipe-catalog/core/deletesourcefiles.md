@@ -35,6 +35,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [Migrate JBoss to Jetty](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/migratejbosstojetty)
 * [Remove Maven wrapper](/user-documentation/recipes/recipe-catalog/maven/removemavenwrapper.md)
 
 

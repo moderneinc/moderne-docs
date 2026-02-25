@@ -42,7 +42,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate from Micronaut 2.x to 3.x](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut2to3migration.md)
 * [Migrate from Spring Boot 1.x to 2.0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
 * [Migrate to 4.10.6](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel410ltsmigrationrecipe.md)
-* [Migrate to 4.14.0](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
+* [Migrate to 4.18.0](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
 * [Migrate to Spring Boot 2.1](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_1.md)
 * [Migrate to Spring Boot 2.2](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_2.md)
 * [Migrate to Spring Boot 2.3](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_3.md)

@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
 | `String` | packageNamePattern | A glob pattern to match Python package names (PEP 503 normalized). Use `*` as a wildcard. | `requests*` |
-| `String` | scope | *Optional*. Match dependencies in the specified scope. All scopes are searched by default. Valid options: `dependencies`, `buildRequires`, `optionalDependencies`, `dependencyGroups` | `dependencies` |
+| `String` | scope | *Optional*. Match dependencies in the specified scope. All scopes are searched by default. Valid options: `project.dependencies`, `build-system.requires`, `project.optional-dependencies`, `dependency-groups`, `tool.uv.constraint-dependencies`, `tool.uv.override-dependencies`, `tool.pdm.overrides` | `project.dependencies` |
 | `Boolean` | onlyDirect | *Optional*. If enabled, transitive dependencies will not be considered. All dependencies are searched by default. | `true` |
 
 
@@ -41,7 +41,7 @@ displayName: Python dependency insight example
 recipeList:
   - org.openrewrite.python.search.DependencyInsight:
       packageNamePattern: requests*
-      scope: dependencies
+      scope: project.dependencies
       onlyDirect: true
 ```
 
@@ -51,7 +51,7 @@ recipeList:
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe DependencyInsight --recipe-option "packageNamePattern=requests*" --recipe-option "scope=dependencies" --recipe-option "onlyDirect=true"
+mod run . --recipe DependencyInsight --recipe-option "packageNamePattern=requests*" --recipe-option "scope=project.dependencies" --recipe-option "onlyDirect=true"
 ```
 
 If the recipe is not available locally, then you can install it using:

@@ -31,6 +31,68 @@ This recipe is used as part of the following composite recipes:
 
 * [Upgrade Terraform to 0.14](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/terraform/upgradeterraformto0_14)
 
+## Example
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|defaultNamespace|`null`|
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="hcl" label="hcl">
+
+
+###### Before
+```hcl
+terraform {
+  required_providers {
+  }
+}
+
+provider "aws" {
+  region  = "us-east-1"
+  version = "~> 3.0"
+}
+```
+
+###### After
+```hcl
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}
+
+provider "aws" {
+  region  = "us-east-1"
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -3,0 +3,4 @@
+terraform {
+  required_providers {
++   aws = {
++     source  = "hashicorp/aws"
++     version = "~> 3.0"
++   }
+  }
+@@ -8,1 +12,0 @@
+provider "aws" {
+  region  = "us-east-1"
+- version = "~> 3.0"
+}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

@@ -6,11 +6,12 @@ description: Jboss OpenRewrite recipes.
 
 ## Categories
 
-* [Migrate](/user-documentation/recipes/recipe-catalog/java/server/jboss/migrate)
+* [Jetty](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty)
 
 ## Recipes
 
-* [Delete JBoss deployment descriptor files](./deletejbossdescriptors.md)
+* [Module has JBoss descriptor](./modulehasjbossdescriptor.md)
+* [Move `web.xml` to resources](./movewebxml.md)
 * [Plan JBoss migration](./planjbossmigration.md)
 
 
