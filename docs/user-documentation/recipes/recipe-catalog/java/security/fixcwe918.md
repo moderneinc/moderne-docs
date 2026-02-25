@@ -1,19 +1,19 @@
 ---
-sidebar_label: "Enable CSRF attack prevention"
+sidebar_label: "Remediate server-side request forgery (SSRF)"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Enable CSRF attack prevention
+# Remediate server-side request forgery (SSRF)
 
-**org.openrewrite.java.security.spring.CsrfProtection**
+**org.openrewrite.java.security.FixCwe918**
 
-_Cross-Site Request Forgery (CSRF) is a type of attack that occurs when a malicious web site, email, blog, instant message, or program causes a user's web browser to perform an unwanted action on a trusted site when the user is authenticated. See the full [OWASP cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)._
+_Inserts a guard that validates URLs constructed from user-controlled input do not target internal network addresses, blocking server-side request forgery (SSRF) attacks._
 
 ### Tags
 
-* [CWE-352](/user-documentation/recipes/lists/recipes-by-tag#cwe)
+* [CWE-918](/user-documentation/recipes/lists/recipes-by-tag#cwe)
 
 ## Recipe source
 
@@ -22,19 +22,82 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-## Options
-
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `Boolean` | onlyIfSecurityConfig | *Optional*. Only patch existing implementations of `WebSecurityConfigurerAdapter`. |  |
+## Example
 
 
-## Used by
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
 
-This recipe is used as part of the following composite recipes:
 
-* [Remediate OWASP A01:2025 Broken access control](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a01)
-* [Remediate OWASP A08:2021 Software and data integrity failures](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owaspa08)
+###### Before
+```java
+import javax.servlet.http.HttpServletRequest;
+
+import java.net.URL;
+
+class Test {
+    void handleRequest(HttpServletRequest request) throws Exception {
+        String target = request.getParameter("url");
+        URL url = new URL(target);
+        url.openConnection();
+    }
+}
+```
+
+###### After
+```java
+import javax.servlet.http.HttpServletRequest;
+
+import java.net.InetAddress;
+import java.net.URL;
+import java.net.UnknownHostException;
+
+class Test {
+    void handleRequest(HttpServletRequest request) throws Exception {
+        String target = request.getParameter("url");
+        URL url = new URL(target);
+        try {
+            InetAddress ssrfAddr = InetAddress.getByName(url.getHost());
+            if (ssrfAddr.isLoopbackAddress() || ssrfAddr.isSiteLocalAddress() || ssrfAddr.isLinkLocalAddress()) {
+                throw new SecurityException("Blocked request to internal address");
+            }
+        } catch (UnknownHostException e) {
+            throw new SecurityException("Unable to resolve host", e);
+        }
+        url.openConnection();
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -3,0 +3,1 @@
+import javax.servlet.http.HttpServletRequest;
+
++import java.net.InetAddress;
+import java.net.URL;
+@@ -4,0 +5,1 @@
+
+import java.net.URL;
++import java.net.UnknownHostException;
+
+@@ -9,0 +11,8 @@
+        String target = request.getParameter("url");
+        URL url = new URL(target);
++       try {
++           InetAddress ssrfAddr = InetAddress.getByName(url.getHost());
++           if (ssrfAddr.isLoopbackAddress() || ssrfAddr.isSiteLocalAddress() || ssrfAddr.isLinkLocalAddress()) {
++               throw new SecurityException("Blocked request to internal address");
++           }
++       } catch (UnknownHostException e) {
++           throw new SecurityException("Unable to resolve host", e);
++       }
+        url.openConnection();
+```
+</TabItem>
+</Tabs>
 
 
 ## Usage
@@ -48,7 +111,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe CsrfProtection
+mod run . --recipe FixCwe918
 ```
 
 If the recipe is not available locally, then you can install it using:
@@ -62,7 +125,7 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-java-security:{{VE
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.security.spring.CsrfProtection" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.security.FixCwe918" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 

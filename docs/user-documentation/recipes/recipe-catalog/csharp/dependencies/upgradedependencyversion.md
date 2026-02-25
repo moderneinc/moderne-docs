@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 **org.openrewrite.csharp.dependencies.UpgradeDependencyVersion**
 
-_Upgrades dependencies in `*.csproj` and `packages.config`._
+_Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`._
 
 ## Recipe source
 

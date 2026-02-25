@@ -24,6 +24,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [OWASP top ten](/user-documentation/recipes/recipe-catalog/devcenter/securitystarter.md)
+* [Remediate OWASP A01:2025 Broken access control](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a01)
 * [Remediate vulnerabilities from the OWASP Top Ten](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasptopten)
 
 

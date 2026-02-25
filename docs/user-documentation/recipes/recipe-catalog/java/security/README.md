@@ -20,7 +20,9 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Java security best practices](./javasecuritybestpractices.md)
 * [Remediate OWASP A01:2021 Broken access control](./owaspa01.md)
+* [Remediate OWASP A01:2025 Broken access control](./owasp2025a01.md)
 * [Remediate OWASP A02:2021 Cryptographic failures](./owaspa02.md)
+* [Remediate OWASP A02:2025 Security misconfiguration](./owasp2025a02.md)
 * [Remediate OWASP A03:2021 Injection](./owaspa03.md)
 * [Remediate OWASP A08:2021 Software and data integrity failures](./owaspa08.md)
 * [Remediate vulnerabilities from the OWASP Top Ten](./owasptopten.md)
@@ -34,6 +36,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Regular Expression Denial of Service (ReDOS)](./regularexpressiondenialofservice.md)
 * [Remediate OWASP A05:2021 Security misconfiguration](./owaspa05.md)
 * [Remediate OWASP A06:2021 Vulnerable and outdated components](./owaspa06.md)
+* [Remediate server-side request forgery (SSRF)](./fixcwe918.md)
 * [Secure random](./securerandom.md)
 * [SecureRandom seeds are not constant or predictable](./securerandomprefersdefaultseed.md)
 * [Use `Files#createTempDirectory`](./usefilescreatetempdirectory.md)

@@ -1,31 +1,26 @@
 ---
-sidebar_label: "Replace Kotlin method"
+sidebar_label: "Find symbols"
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/kotlin/replace/replacekotlinmethod" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/search/findsymbols" />
 </head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace Kotlin method
+# Find symbols
 
-**org.openrewrite.kotlin.replace.ReplaceKotlinMethod**
+**org.openrewrite.java.search.FindSymbols**
 
-_Replaces Kotlin method calls based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations._
-
-### Tags
-
-* [deprecated](/user-documentation/recipes/lists/recipes-by-tag#deprecated)
-* [kotlin](/user-documentation/recipes/lists/recipes-by-tag#kotlin)
+_Lists all symbols (classes, methods, fields, etc.) declared in the codebase. Results are emitted into a data table with symbol kind, name, parent type, signature, and visibility._
 
 ## Recipe source
 
-[GitHub: ReplaceKotlinMethod.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-kotlin/src/main/java/org/openrewrite/kotlin/replace/ReplaceKotlinMethod.java),
+[GitHub: FindSymbols.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/search/FindSymbols.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-kotlin/)
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-java/)
 
 This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
@@ -33,93 +28,26 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
-| `String` | methodPattern | A method pattern that is used to find matching method invocations. | `arrow.core.MapKt mapOrAccumulate(kotlin.Function2)` |
-| `String` | replacement | The replacement expression from `@Deprecated(replaceWith=ReplaceWith(...))`. Parameter names from the original method can be used directly. | `mapValuesOrAccumulate(transform)` |
-| `List` | imports | *Optional*. List of imports to add when the replacement is made. | `["arrow.core.Either"]` |
-| `List` | classpathFromResources | *Optional*. List of classpath resource names for parsing the replacement template. | `["arrow-core-2"]` |
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Replace deprecated `kotlinx-coroutines-core` methods](/user-documentation/recipes/recipe-catalog/org/jetbrains/kotlinx/replacedeprecatedkotlinxcoroutinescore1methods.md)
-* [Replace deprecated `kotlinx-serialization-core` methods](/user-documentation/recipes/recipe-catalog/org/jetbrains/kotlinx/replacedeprecatedkotlinxserializationcore1methods.md)
-
-## Example
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|methodPattern|`kotlin.Char toInt()`|
-|replacement|`code`|
-|imports|`null`|
-|classpathFromResources|`null`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="kotlin" label="kotlin">
-
-
-###### Before
-```kotlin
-fun test(c: Char): Int {
-    return c.toInt()
-}
-```
-
-###### After
-```kotlin
-fun test(c: Char): Int {
-    return c.code
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -2,1 +2,1 @@
-fun test(c: Char): Int {
--   return c.toInt()
-+   return c.code
-}
-```
-</TabItem>
-</Tabs>
+| `String` | sourcePath | *Optional*. Optional source path to limit the search to a single file. | `src/main/java/com/example/MyClass.java` |
 
 
 ## Usage
 
-This recipe has required configuration parameters and can only be run by users of Moderne.
-To run this recipe, you will need to provide the Moderne CLI run command with the required options.
-Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
-
-```yaml title="rewrite.yml"
----
-type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.ReplaceKotlinMethodExample
-displayName: Replace Kotlin method example
-recipeList:
-  - org.openrewrite.kotlin.replace.ReplaceKotlinMethod:
-      methodPattern: arrow.core.MapKt mapOrAccumulate(kotlin.Function2)
-      replacement: mapValuesOrAccumulate(transform)
-      imports: ["arrow.core.Either"]
-      classpathFromResources: ["arrow-core-2"]
-```
-
+This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
 <Tabs groupId="projectType">
+
+
 <TabItem value="moderne-cli" label="Moderne CLI">
 
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe ReplaceKotlinMethod --recipe-option "methodPattern=arrow.core.MapKt mapOrAccumulate(kotlin.Function2)" --recipe-option "replacement=mapValuesOrAccumulate(transform)" --recipe-option "imports=["arrow.core.Either"]" --recipe-option "classpathFromResources=["arrow-core-2"]"
+mod run . --recipe FindSymbols
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install org.openrewrite:rewrite-kotlin:{{VERSION_ORG_OPENREWRITE_REWRITE_KOTLIN}}
+mod config recipes jar install org.openrewrite:rewrite-java:{{VERSION_ORG_OPENREWRITE_REWRITE_JAVA}}
 ```
 </TabItem>
 </Tabs>
@@ -128,7 +56,7 @@ mod config recipes jar install org.openrewrite:rewrite-kotlin:{{VERSION_ORG_OPEN
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.kotlin.replace.ReplaceKotlinMethod" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.search.FindSymbols" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -136,6 +64,24 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="org.openrewrite.java.table.SymbolsTable" label="SymbolsTable">
+
+### Symbols overview
+**org.openrewrite.java.table.SymbolsTable**
+
+_All symbols (classes, methods, fields) declared in the codebase._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source path | The path to the source file containing this symbol. |
+| Symbol kind | The kind of symbol: CLASS, INTERFACE, ENUM, RECORD, ANNOTATION, METHOD, CONSTRUCTOR, or FIELD. |
+| Name | The simple name of the symbol. |
+| Parent type | The fully qualified name of the enclosing type, if any. |
+| Signature | For methods: the method signature. For fields: the field type. |
+| Visibility | The access modifier: PUBLIC, PROTECTED, PRIVATE, or PACKAGE_PRIVATE. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

@@ -8,6 +8,5 @@ description: Org OpenRewrite recipes.
 
 * [Apache](/user-documentation/recipes/recipe-catalog/org/apache)
 * [Axonframework](/user-documentation/recipes/recipe-catalog/org/axonframework)
-* [Jetbrains](/user-documentation/recipes/recipe-catalog/org/jetbrains)
 
 

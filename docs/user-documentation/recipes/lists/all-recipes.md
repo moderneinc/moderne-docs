@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5508
+Total recipes: 5513
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -1441,7 +1441,7 @@ _18 recipes_
 
 _License: Moderne Proprietary License_
 
-_33 recipes_
+_37 recipes_
 
 * [org.openrewrite.csharp.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md)
   * **Dependency insight for C#**
@@ -1451,7 +1451,7 @@ _33 recipes_
   * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe **only** upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this recipe will not make any changes. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
 * [org.openrewrite.csharp.dependencies.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/csharp/dependencies/upgradedependencyversion.md)
   * **Upgrade C# dependency versions**
-  * Upgrades dependencies in `*.csproj` and `packages.config`.
+  * Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`.
 * [org.openrewrite.java.dependencies.AddExplicitTransitiveDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/addexplicittransitivedependencies.md)
   * **Add explicit transitive dependencies**
   * Detects when Java source code or configuration files reference types from transitive Maven dependencies and promotes those transitive dependencies to explicit direct dependencies in the pom.xml. This ensures the build is resilient against changes in transitive dependency trees of upstream libraries.
@@ -1460,7 +1460,7 @@ _33 recipes_
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-02-09T1116.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-02-23T1115.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
@@ -1473,6 +1473,9 @@ _33 recipes_
 * [org.openrewrite.java.security.FixCwe338](/user-documentation/recipes/recipe-catalog/java/security/fixcwe338.md)
   * **Fix CWE-338 with `SecureRandom`**
   * Use a cryptographically strong pseudo-random number generator (PRNG).
+* [org.openrewrite.java.security.FixCwe918](/user-documentation/recipes/recipe-catalog/java/security/fixcwe918.md)
+  * **Remediate server-side request forgery (SSRF)**
+  * Inserts a guard that validates URLs constructed from user-controlled input do not target internal network addresses, blocking server-side request forgery (SSRF) attacks.
 * [org.openrewrite.java.security.ImproperPrivilegeManagement](/user-documentation/recipes/recipe-catalog/java/security/improperprivilegemanagement.md)
   * **Improper privilege management**
   * Marking code as privileged enables a piece of trusted code to temporarily enable access to more resources than are available directly to the code that called it.
@@ -1509,6 +1512,9 @@ _33 recipes_
 * [org.openrewrite.java.security.marshalling.SecureSnakeYamlConstructor](/user-documentation/recipes/recipe-catalog/java/security/marshalling/securesnakeyamlconstructor.md)
   * **Secure the use of SnakeYAML's constructor**
   * See the [paper](https://github.com/mbechler/marshalsec) on this subject.
+* [org.openrewrite.java.security.search.FindPermissiveCorsConfiguration](/user-documentation/recipes/recipe-catalog/java/security/search/findpermissivecorsconfiguration.md)
+  * **Find permissive CORS configuration**
+  * Finds overly permissive CORS configurations that allow all origins, which can expose the application to cross-domain attacks.
 * [org.openrewrite.java.security.search.FindSensitiveApiEndpoints](/user-documentation/recipes/recipe-catalog/java/security/search/findsensitiveapiendpoints.md)
   * **Find sensitive API endpoints**
   * Find data models exposed by REST APIs that contain sensitive information like PII and secrets.
@@ -1521,6 +1527,9 @@ _33 recipes_
 * [org.openrewrite.java.security.secrets.FindSlackSecrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/findslacksecrets.md)
   * **Find Slack secrets**
   * Locates Slack secrets stored in plain text in code.
+* [org.openrewrite.java.security.servlet.CookieSetHttpOnly](/user-documentation/recipes/recipe-catalog/java/security/servlet/cookiesethttponly.md)
+  * **Cookies missing HttpOnly flag**
+  * Check for use of cookies without the HttpOnly flag. Cookies should be marked as HttpOnly to prevent client-side scripts from accessing them, reducing the risk of cross-site scripting (XSS) attacks.
 * [org.openrewrite.java.security.servlet.CookieSetSecure](/user-documentation/recipes/recipe-catalog/java/security/servlet/cookiesetsecure.md)
   * **Insecure cookies**
   * Check for use of insecure cookies. Cookies should be marked as secure. This ensures that the cookie is sent only over HTTPS to prevent cross-site scripting attacks.
@@ -1533,6 +1542,9 @@ _33 recipes_
 * [org.openrewrite.java.security.spring.PreventClickjacking](/user-documentation/recipes/recipe-catalog/java/security/spring/preventclickjacking.md)
   * **Prevent clickjacking**
   * The `frame-ancestors` directive can be used in a Content-Security-Policy HTTP response header to indicate whether or not a browser should be allowed to render a page in a `&lt;frame&gt;` or `&lt;iframe&gt;`. Sites can use this to avoid Clickjacking attacks by ensuring that their content is not embedded into other sites.
+* [org.openrewrite.python.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/python/dependencies/dependencyvulnerabilitycheck.md)
+  * **Find and fix vulnerable PyPI dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
 * [org.openrewrite.text.FindHardcodedLoopbackAddresses](/user-documentation/recipes/recipe-catalog/text/findhardcodedloopbackaddresses.md)
   * **Find hard-coded loopback IPv4 addresses**
   * Locates mentions of hard-coded IPv4 addresses from the loopback IP range. The loopback IP range includes `127.0.0.0` to `127.255.255.255`. This detects the entire localhost/loopback subnet range, not just the commonly used `127.0.0.1`.
@@ -11014,7 +11026,7 @@ _11 recipes_
 
 _License: Apache License Version 2.0_
 
-_98 recipes_
+_99 recipes_
 
 * [org.openrewrite.java.AddCommentToImport](/user-documentation/recipes/recipe-catalog/java/addcommenttoimport.md)
   * **Add comment to import statement**
@@ -11271,6 +11283,9 @@ _98 recipes_
 * [org.openrewrite.java.search.FindRepeatableAnnotations](/user-documentation/recipes/recipe-catalog/java/search/findrepeatableannotations.md)
   * **Find uses of `@Repeatable` annotations**
   * Java 8 introduced the concept of `@Repeatable` annotations.
+* [org.openrewrite.java.search.FindSymbols](/user-documentation/recipes/recipe-catalog/java/search/findsymbols.md)
+  * **Find symbols**
+  * Lists all symbols (classes, methods, fields, etc.) declared in the codebase. Results are emitted into a data table with symbol kind, name, parent type, signature, and visibility.
 * [org.openrewrite.java.search.FindTypeMappings](/user-documentation/recipes/recipe-catalog/java/search/findtypemappings.md)
   * **Find type mappings**
   * Study the frequency of `J` types and their `JavaType` type attribution.
@@ -11362,7 +11377,7 @@ _10 recipes_
 
 _License: Apache License Version 2.0_
 
-_12 recipes_
+_11 recipes_
 
 * [org.openrewrite.kotlin.FindKotlinSources](/user-documentation/recipes/recipe-catalog/kotlin/findkotlinsources.md)
   * **Find Kotlin sources and collect data metrics**
@@ -11397,9 +11412,6 @@ _12 recipes_
 * [org.openrewrite.kotlin.format.AutoFormat](/user-documentation/recipes/recipe-catalog/kotlin/format/autoformat.md)
   * **Format Kotlin code**
   * Format Kotlin code using a standard comprehensive set of Kotlin formatting recipes.
-* [org.openrewrite.kotlin.replace.ReplaceKotlinMethod](/user-documentation/recipes/recipe-catalog/kotlin/replace/replacekotlinmethod.md)
-  * **Replace Kotlin method**
-  * Replaces Kotlin method calls based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
 
 ## org.openrewrite:rewrite-maven
 
@@ -11891,7 +11903,7 @@ _18 recipes_
 
 _License: Unknown_
 
-_1719 recipes_
+_1720 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -12286,12 +12298,6 @@ _1719 recipes_
 * [org.axonframework.migration.UpgradeAxonFramework_4_Javax](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_javax.md)
   * **Upgrade to Axonframework 4.x Javax**
   * Migration file to upgrade an Axon Framework Javax-specific project and remain on Javax.
-* [org.jetbrains.kotlinx.ReplaceDeprecatedKotlinxCoroutinesCore1Methods](/user-documentation/recipes/recipe-catalog/org/jetbrains/kotlinx/replacedeprecatedkotlinxcoroutinescore1methods.md)
-  * **Replace deprecated `kotlinx-coroutines-core` methods**
-  * Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
-* [org.jetbrains.kotlinx.ReplaceDeprecatedKotlinxSerializationCore1Methods](/user-documentation/recipes/recipe-catalog/org/jetbrains/kotlinx/replacedeprecatedkotlinxserializationcore1methods.md)
-  * **Replace deprecated `kotlinx-serialization-core` methods**
-  * Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
 * [org.openrewrite.android.MigrateToAndroidGradlePlugin_7_2](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_2.md)
   * **Migrate to Android Gradle Plugin 7.2**
   * Recipes to migrate to Android Gradle Plugin version 7.2.
@@ -14917,6 +14923,12 @@ _1719 recipes_
 * [org.openrewrite.java.security.JavaSecurityBestPractices](/user-documentation/recipes/recipe-catalog/java/security/javasecuritybestpractices.md)
   * **Java security best practices**
   * Applies security best practices to Java code.
+* [org.openrewrite.java.security.Owasp2025A01](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a01.md)
+  * **Remediate OWASP A01:2025 Broken access control**
+  * OWASP [A01:2025](https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/) describes failures related to broken access control.
+* [org.openrewrite.java.security.Owasp2025A02](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a02.md)
+  * **Remediate OWASP A02:2025 Security misconfiguration**
+  * OWASP [A02:2025](https://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/) describes failures related to security misconfiguration. Previously A05:2021, this category moved up to #2 in 2025.
 * [org.openrewrite.java.security.OwaspA01](/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md)
   * **Remediate OWASP A01:2021 Broken access control**
   * OWASP [A01:2021](https://owasp.org/Top10/A01_2021-Broken_Access_Control/) describes failures related to broken access control.
@@ -15019,6 +15031,9 @@ _1719 recipes_
 * [org.openrewrite.java.security.secrets.FindTwitterSecrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/findtwittersecrets.md)
   * **Find Twitter secrets**
   * Locates Twitter secrets stored in plain text in code.
+* [org.openrewrite.java.security.spring.RemoveEnableWebSecurityDebug](/user-documentation/recipes/recipe-catalog/java/security/spring/removeenablewebsecuritydebug.md)
+  * **Remove debug mode from Spring Security**
+  * Removes the debug attribute from @EnableWebSecurity annotations to prevent sensitive security information from being logged in production.
 * [org.openrewrite.java.spring.PropertiesToKebabCase](/user-documentation/recipes/recipe-catalog/java/spring/propertiestokebabcase.md)
   * **Normalize Spring properties to kebab-case**
   * Normalize Spring properties to use lowercase and hyphen-separated syntax.  For example, changing `spring.main.showBanner` to `spring.main.show-banner`.  With [Spring's relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding),  `kebab-case` may be used in properties files and still be converted to configuration beans.  Note, an exception to this is the case of `@Value`, which is match-sensitive. For example, `@Value(&quot;$\{anExampleValue\}&quot;)` will not match `an-example-value`.  [The Spring reference documentation recommends using `kebab-case` for properties where possible](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding).

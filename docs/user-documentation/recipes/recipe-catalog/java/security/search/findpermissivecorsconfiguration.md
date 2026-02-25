@@ -1,19 +1,19 @@
 ---
-sidebar_label: "Enable CSRF attack prevention"
+sidebar_label: "Find permissive CORS configuration"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Enable CSRF attack prevention
+# Find permissive CORS configuration
 
-**org.openrewrite.java.security.spring.CsrfProtection**
+**org.openrewrite.java.security.search.FindPermissiveCorsConfiguration**
 
-_Cross-Site Request Forgery (CSRF) is a type of attack that occurs when a malicious web site, email, blog, instant message, or program causes a user's web browser to perform an unwanted action on a trusted site when the user is authenticated. See the full [OWASP cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)._
+_Finds overly permissive CORS configurations that allow all origins, which can expose the application to cross-domain attacks._
 
 ### Tags
 
-* [CWE-352](/user-documentation/recipes/lists/recipes-by-tag#cwe)
+* [CWE-942](/user-documentation/recipes/lists/recipes-by-tag#cwe)
 
 ## Recipe source
 
@@ -22,19 +22,61 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-## Options
-
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `Boolean` | onlyIfSecurityConfig | *Optional*. Only patch existing implementations of `WebSecurityConfigurerAdapter`. |  |
-
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Remediate OWASP A01:2025 Broken access control](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a01)
-* [Remediate OWASP A08:2021 Software and data integrity failures](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owaspa08)
+* [Remediate OWASP A02:2025 Security misconfiguration](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a02)
+
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+
+class TestController {
+    @CrossOrigin(origins = "*")
+    @GetMapping("/api")
+    String api() {
+        return "data";
+    }
+}
+```
+
+###### After
+```java
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+
+class TestController {
+    /*~~(Permissive CORS: allows all origins)~~>*/@CrossOrigin(origins = "*")
+    @GetMapping("/api")
+    String api() {
+        return "data";
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -5,1 +5,1 @@
+
+class TestController {
+-   @CrossOrigin(origins = "*")
++   /*~~(Permissive CORS: allows all origins)~~>*/@CrossOrigin(origins = "*")
+    @GetMapping("/api")
+```
+</TabItem>
+</Tabs>
 
 
 ## Usage
@@ -48,7 +90,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe CsrfProtection
+mod run . --recipe FindPermissiveCorsConfiguration
 ```
 
 If the recipe is not available locally, then you can install it using:
@@ -62,7 +104,7 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-java-security:{{VE
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.security.spring.CsrfProtection" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindPermissiveCorsConfiguration" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 

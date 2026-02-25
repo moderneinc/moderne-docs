@@ -27,7 +27,9 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
+* [Remediate OWASP A01:2025 Broken access control](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a01)
 * [Remediate OWASP A02:2021 Cryptographic failures](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owaspa02)
+* [Remediate OWASP A02:2025 Security misconfiguration](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a02)
 * [Remediate OWASP A03:2021 Injection](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owaspa03)
 
 ## Example

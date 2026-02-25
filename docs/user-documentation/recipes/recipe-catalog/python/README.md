@@ -6,6 +6,7 @@ description: Python OpenRewrite recipes.
 
 ## Categories
 
+* [Dependencies](/user-documentation/recipes/recipe-catalog/python/dependencies)
 * [Format](/user-documentation/recipes/recipe-catalog/python/format)
 * [Migrate](/user-documentation/recipes/recipe-catalog/python/migrate)
 * [Search](/user-documentation/recipes/recipe-catalog/python/search)

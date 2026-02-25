@@ -6,6 +6,7 @@ description: Servlet OpenRewrite recipes.
 
 ## Recipes
 
+* [Cookies missing HttpOnly flag](./cookiesethttponly.md)
 * [Insecure cookies](./cookiesetsecure.md)
 
 

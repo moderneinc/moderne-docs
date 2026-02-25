@@ -8,6 +8,7 @@ description: Spring OpenRewrite recipes.
 
 * [Enable CSRF attack prevention](./csrfprotection.md)
 * [Prevent clickjacking](./preventclickjacking.md)
+* [Remove debug mode from Spring Security](./removeenablewebsecuritydebug.md)
 * [Secure Spring service exporters](./insecurespringserviceexporter.md)
 
 

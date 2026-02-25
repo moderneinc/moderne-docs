@@ -42,6 +42,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate from `@ApiModelProperty` to `@Schema`](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapimodelpropertytoschema.md)
 * [Migrate from `@ApiOperation` to `@Operation`](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapioperationtooperation.md)
 * [Migrate from `@ApiParam` to `@Parameter`](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiparamtoparameter.md)
+* [Remove debug mode from Spring Security](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/spring/removeenablewebsecuritydebug)
 * [Replace `@MockBean` and `@SpyBean`](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacemockbeanandspybean.md)
 * [Replace `@Timed` (Dropwizard) with `@Timed` (Micrometer)](/user-documentation/recipes/recipe-catalog/java/dropwizard/annotation/micrometer/codahaletimedtomicrometertimed.md)
 
