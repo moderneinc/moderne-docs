@@ -122,19 +122,23 @@ Then follow up with explanation of why this matters.
 
 ### 7. Document titles and headers
 
-**Rule**: Use sentence case for document titles and headers, and do not end with a period.
+**Rule**: Use sentence case for document titles and headers, and do not end with a period. Proper nouns, product names, and established technical terms keep their standard capitalization.
 
 **Correct examples:**
 
     # Introduction to taint analysis
     ## Core concepts
     ### Finding vulnerabilities
+    ## Configuring the Moderne Agent
+    ## Lossless Semantic Tree (LST) overview
+    ## Personal access tokens
 
 **Incorrect examples:**
 
     # Introduction To Taint Analysis    <!-- Title case -->
     ## Core Concepts.                   <!-- Period at end -->
     ### Finding Vulnerabilities         <!-- Title case -->
+    ## Personal Access Tokens           <!-- "Access Tokens" is not a proper noun -->
 
 ### 8. Acronym definitions
 
@@ -186,6 +190,10 @@ Then follow up with explanation of why this matters.
 
 **Rule**: Write as if you are guiding the reader through a task. Use "you will need to", "you should", and "you can" instead of impersonal or declarative phrasing.
 
+**Applies to**: Guides, tutorials, getting-started pages, and reference documentation.
+
+**Exempt**: Release notes, changelogs, and auto-generated content. These naturally use declarative phrasing (e.g., "Added support for..." or "The security card has been updated...") and do not need to address the reader directly.
+
 **Correct examples:**
 
     You will need to create a `category.yml` file that maps your package structure.
@@ -198,35 +206,40 @@ Then follow up with explanation of why this matters.
     Each entry has the type `specs.openrewrite.org/v1beta/category`.
     The task scans the recipe JAR and generates a CSV file.
 
-### 12. Section headers should use gerund form
+### 12. Section headers should use gerund form for procedural sections
 
-**Rule**: Use the gerund (present participle) form for section headers, especially in how-to guides. This matches the pattern used across existing documentation (e.g., "Running the recipe", "Viewing the visualization").
+**Rule**: Use the gerund (present participle) form for section headers that describe steps or procedures, especially in how-to guides. This matches the pattern used across existing documentation (e.g., "Running the recipe", "Viewing the visualization").
+
+Conceptual or structural headers like "Prerequisites", "Next steps", "Core concepts", or "Overview" do not need gerund form.
 
 **Correct examples:**
 
     ## Defining categories for your own recipes
     ### Creating the `category.yml` file
     ### Generating and validating the `recipes.csv` file
+    ## Prerequisites
+    ## Next steps
 
 **Incorrect examples:**
 
-    ## Define categories for your own recipes
-    ### Create the `category.yml` file
+    ## Define categories for your own recipes   <!-- Imperative in a how-to guide -->
+    ### Create the `category.yml` file          <!-- Should be "Creating..." -->
     ### Generate and validate the `recipes.csv` file
 
-### 13. Add "file" after filenames in prose
+### 13. Add "file" after filenames in prose when it aids clarity
 
-**Rule**: When referencing a filename inline within a sentence, add "file" after it for readability.
+**Rule**: When referencing a filename inline within a sentence, consider adding "file" after it for readability. This is recommended when the filename is the subject or object of a sentence, but optional in short references where the context is already clear.
 
-**Correct examples:**
+**Recommended:**
 
     When generating the `recipes.csv` file, each recipe's name is compared...
     Once the `category.yml` file is ready, you will need to generate the CSV file.
+    You should update your `build.gradle` file to include the dependency.
 
-**Incorrect examples:**
+**Acceptable without "file":**
 
-    When generating `recipes.csv`, each recipe's name is compared...
-    Once the `category.yml` is ready, you will need to generate the CSV.
+    Add the dependency to `build.gradle`.
+    The configuration lives in `moderne.yml`.
 
 ### 14. Use inline linking, not "see" or "click here"
 
@@ -310,6 +323,61 @@ Then follow up with explanation of why this matters.
 
     For more details, check out the [`recipes.csv` reference](https://docs.moderne.io/user-documentation/moderne-cli/references/recipes-csv/).
 
+### 19. Image alt text
+
+**Rule**: Every image must have meaningful, descriptive alt text. Empty alt text (`![]()`) and generic placeholders like `![image]()` or `![screenshot]()` are not acceptable. Alt text should briefly describe what the image shows to support accessibility and provide context when images fail to load.
+
+**Correct examples:**
+
+    ![The recipe results page showing three repositories with changes](./assets/recipe-results.png)
+    ![Organization selector dropdown in the top navigation bar](./assets/org-selector.png)
+
+**Incorrect examples:**
+
+    ![](./assets/recipe-results.png)            <!-- Empty alt text -->
+    ![image](./assets/org-selector.png)          <!-- Generic placeholder -->
+    ![screenshot](./assets/recipe-results.png)   <!-- Not descriptive -->
+
+### 20. UI element formatting
+
+**Rule**: Use **bold** for UI elements that the reader needs to interact with, such as button labels, menu items, tab names, and field labels. Use backticks for values the reader types or selects, and for non-interactive UI labels like page titles or status indicators.
+
+**Correct examples:**
+
+    Click **Save** to apply your changes.
+    Select **Recipes** from the navigation menu.
+    Enter `admin` in the **Username** field.
+    The page title shows `Organization settings`.
+
+**Incorrect examples:**
+
+    Click `Save` to apply your changes.       <!-- Interactive element should be bold -->
+    Select "Recipes" from the navigation menu. <!-- Should be bold, not quoted -->
+    Click the Save button.                     <!-- Should be bold -->
+
+### 21. No excessive blank lines
+
+**Rule**: Use at most one blank line between sections, paragraphs, or other content blocks. Multiple consecutive blank lines add unnecessary whitespace and make the raw markdown harder to scan.
+
+**Correct:**
+
+    ## First section
+
+    Content here.
+
+    ## Second section
+
+**Incorrect:**
+
+    ## First section
+
+
+    Content here.
+
+
+
+    ## Second section
+
 ## Complete example
 
 Here's what properly formatted documentation looks like:
@@ -365,19 +433,22 @@ When editing documentation, verify:
 * [ ] Blank line before bullet lists (Rule 4)
 * [ ] Description lines end with exactly one period (Rule 5)
 * [ ] Code examples have proper context and explanations (Rule 6)
-* [ ] Document titles and headers use sentence case, no periods (Rule 7)
+* [ ] Headers use sentence case with proper nouns capitalized, no periods (Rule 7)
 * [ ] Acronyms defined on first use (Rule 8)
 * [ ] Link paths use explicit relative paths (`./`, `../`) (Rule 9)
 * [ ] File names use kebab-case (Rule 10)
 * [ ] No unintended changes to code, comments, or technical terms
-* [ ] Conversational, instructional tone throughout (Rule 11)
-* [ ] Section headers use gerund form (Rule 12)
-* [ ] Filenames in prose are followed by "file" (Rule 13)
+* [ ] Conversational tone in guides; declarative tone acceptable in release notes (Rule 11)
+* [ ] Gerund form for procedural headers; conceptual headers exempt (Rule 12)
+* [ ] Filenames in prose followed by "file" when it aids clarity (Rule 13)
 * [ ] Links are inline on descriptive text, no "see X" patterns (Rule 14)
 * [ ] Paragraphs are focused and concise, one concept each (Rule 15)
 * [ ] How-to guide intros follow problem → solution → preview structure (Rule 16)
 * [ ] Callouts use Docusaurus admonitions, not blockquotes (Rule 17)
 * [ ] Internal links use relative paths, not absolute URLs (Rule 18)
+* [ ] All images have meaningful, descriptive alt text (Rule 19)
+* [ ] UI elements use bold for interactive items, backticks for typed values (Rule 20)
+* [ ] No multiple consecutive blank lines (Rule 21)
 
 ---
 
