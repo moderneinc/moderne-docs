@@ -44,6 +44,14 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.74.1
 
+#### rewrite-hibernate - 0.19.0
+
+* Migrate jackson-datatype-hibernate dependencies for Hibernate 6.x and 7.x
+
+#### rewrite-java-security - 3.26.4
+
+* Updated repository to use OpenRewrite version v8.74.1
+
 #### rewrite-kafka - 0.4.7
 
 * Updated repository to use OpenRewrite version v8.74.1
@@ -67,6 +75,19 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-reactive-streams - 0.18.7
 
 * Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-spring - 0.26.0
+
+* Remove ZipkinAutoConfiguration from @SpringBootApplication exclude
+* Add managed dependency version pinning for rest-assured and spring-retry
+* Fix unit tests to handle updating to 4.0.x versions
+* Add ChangeType for Spring Boot 4.0 tracing/observation class renames
+* Remove SslBundles parameter from KafkaProperties build methods
+* Add onlyIfUsing to Liquibase starter AddDependency entries
+* Add Rest5ClientBuilderCustomizer migration for Spring Boot 4.0
+* Don't add configurePathMatch when it doesn't already exist
+* Add MockMvc to MockMvcTester migration recipes for Spring Boot 4.0
+* Default to 'app' package in AddSpringBootApplication for default-package projects
 
 #### rewrite-sql - 2.10.2
 
