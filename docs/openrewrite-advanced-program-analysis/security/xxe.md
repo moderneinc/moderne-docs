@@ -6,11 +6,11 @@ description: Detect and prevent XML External Entity (XXE) vulnerabilities in XML
 
 XML External Entity (XXE) vulnerabilities occur when XML parsers process untrusted XML input containing external entity references. Attackers can exploit XXE to read local files, perform server-side request forgery (SSRF), cause denial of service, or even achieve remote code execution in some cases.
 
-## Understanding XXE Vulnerabilities
+## Understanding XXE vulnerabilities
 
 Think of XML entities like variables in programming. External entities are like variables that fetch their values from outside sources - files, URLs, or system resources. XXE attacks trick your application into fetching and exposing content it shouldn't access, like asking a librarian to fetch a book but secretly including instructions to also bring the library's financial records.
 
-### How XXE Works
+### How XXE works
 
 ```xml
 <!-- Normal XML -->
@@ -31,7 +31,7 @@ Think of XML entities like variables in programming. External entities are like 
 <!-- The parser replaces &xxe; with contents of /etc/passwd -->
 ```
 
-## How OpenRewrite Detects XXE
+## How OpenRewrite detects XXE
 
 The `FindXxeVulnerability` recipe identifies unsafe XML parser configurations:
 
@@ -63,7 +63,7 @@ Schema.newValidator()
 SAXReader (dom4j)
 ```
 
-### 2. Attack Vectors
+### 2. Attack vectors
 
 ```xml
 <!-- File Disclosure -->
@@ -86,9 +86,9 @@ SAXReader (dom4j)
 %exfil;
 ```
 
-## Vulnerable Patterns
+## Vulnerable patterns
 
-### Basic XXE Vulnerability
+### Basic XXE vulnerability
 
 ```java
 // VULNERABLE - Default parser configuration
@@ -105,7 +105,7 @@ public User parseUser(String xmlData) throws Exception {
 // Returns: User with name containing password file contents!
 ```
 
-### JAXB Unmarshalling
+### JAXB unmarshalling
 
 ```java
 // VULNERABLE - JAXB with external entities
@@ -125,7 +125,7 @@ public Response importData(@RequestBody String xml) {
 }
 ```
 
-### SAX Parser Vulnerability
+### SAX parser vulnerability
 
 ```java
 // VULNERABLE - SAX parser without security features
@@ -144,7 +144,7 @@ public void parseXML(InputStream xmlStream) throws Exception {
 }
 ```
 
-### XPath Injection with XXE
+### XPath injection with XXE
 
 ```java
 // VULNERABLE - XPath evaluation on untrusted XML
@@ -166,9 +166,9 @@ public List<String> searchXML(String xml, String xpath) throws Exception {
 }
 ```
 
-## Safe Patterns and Remediation
+## Safe patterns and remediation
 
-### Disable External Entities - DOM
+### Disable external entities - DOM
 
 ```java
 // SAFE - Properly configured DOM parser
@@ -194,7 +194,7 @@ public Document parseXMLSafely(String xml) throws Exception {
 }
 ```
 
-### Disable External Entities - SAX
+### Disable external entities - SAX
 
 ```java
 // SAFE - Secured SAX parser
@@ -214,7 +214,7 @@ public void parseSAXSafely(InputStream xml) throws Exception {
 }
 ```
 
-### Disable External Entities - StAX
+### Disable external entities - StAX
 
 ```java
 // SAFE - Secured StAX parser
@@ -233,7 +233,7 @@ public void parseStAXSafely(InputStream xml) throws Exception {
 }
 ```
 
-### Secure JAXB Configuration
+### Secure JAXB configuration
 
 ```java
 // SAFE - JAXB with secure unmarshalling
@@ -258,7 +258,7 @@ public class SecureXMLProcessor {
 }
 ```
 
-### Central XML Security Configuration
+### Central XML security configuration
 
 Create a centralized XML security utility.
 ```java
@@ -309,9 +309,9 @@ public class XMLSecurityConfig {
 }
 ```
 
-## Advanced XXE Prevention
+## Advanced XXE prevention
 
-### Content Validation
+### Content validation
 
 Validate XML content before parsing.
 ```java
@@ -346,7 +346,7 @@ public class XMLValidator {
 }
 ```
 
-### Schema Validation
+### Schema validation
 
 Use XML Schema validation as additional protection.
 
@@ -389,7 +389,7 @@ public class SchemaValidatingParser {
 }
 ```
 
-### Framework-Specific Configurations
+### Framework-specific configurations
 
 #### Spring Boot
 
@@ -429,9 +429,9 @@ public class XMLConfig {
 }
 ```
 
-## Testing XXE Detection
+## Testing XXE detection
 
-### Unit Tests
+### Unit tests
 
 ```java
 @Test
@@ -490,9 +490,9 @@ void detectsJAXBVulnerability() {
 }
 ```
 
-## Common XXE Attack Scenarios
+## Common XXE attack scenarios
 
-### File Disclosure
+### File disclosure
 
 ```xml
 <!DOCTYPE foo [
@@ -501,7 +501,7 @@ void detectsJAXBVulnerability() {
 <user><name>&xxe;</name></user>
 ```
 
-### SSRF Attack
+### SSRF attack
 
 ```xml
 <!DOCTYPE foo [
@@ -510,7 +510,7 @@ void detectsJAXBVulnerability() {
 <data>&xxe;</data>
 ```
 
-### Denial of Service
+### Denial of service
 
 ```xml
 <!DOCTYPE lolz [
@@ -522,7 +522,7 @@ void detectsJAXBVulnerability() {
 <lolz>&lol3;</lolz>
 ```
 
-### Blind XXE (Out-of-Band)
+### Blind XXE (out-of-band)
 
 ```xml
 <!DOCTYPE foo [
@@ -533,9 +533,9 @@ void detectsJAXBVulnerability() {
 ]>
 ```
 
-## Monitoring and Detection
+## Monitoring and detection
 
-### Runtime Detection
+### Runtime detection
 
 ```java
 @Aspect
@@ -567,7 +567,7 @@ public class XXEDetectionAspect {
 }
 ```
 
-## Next Steps
+## Next steps
 
 * [SQL Injection](./sql-injection.md) - Database query injection
 * [Command Injection](./command-injection.md) - OS command injection

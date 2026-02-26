@@ -59,7 +59,7 @@ description: >-
   It includes a combination of upgrades, migrations, and security fixes.
   You can customize this configuration to suit your needs.
   
-  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/dev-center/).
+  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](../../../user-documentation/moderne-platform/getting-started/dev-center.md).
 ```
 
 ### Recipe list
@@ -104,7 +104,7 @@ description: >-
   This recipe is a starter card to reveal common OWASP Top 10 issues in your source code.
   You can customize this configuration to suit your needs.
   
-  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/dev-center/).
+  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](../../../user-documentation/moderne-platform/getting-started/dev-center.md).
 recipeList:
   - org.openrewrite.java.security.OwaspA01
   - org.openrewrite.java.security.OwaspA02

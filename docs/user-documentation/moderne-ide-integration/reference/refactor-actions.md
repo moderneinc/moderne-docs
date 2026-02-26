@@ -1,6 +1,6 @@
 ---
 sidebar_label: Refactor actions
-description: Refactor action reference documentation. To be created at a later time. 
+description: Refactor action reference documentation. To be created at a later time.
 ---
 
 # Refactor actions

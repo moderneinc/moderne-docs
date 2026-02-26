@@ -33,7 +33,7 @@ You can use the [upgrade transitive Gradle dependencies recipe](https://app.mode
 
 ![](./assets/upgrade-trans-gradle-dep.png)
 
-Press `Dry Run` to begin the recipe run. After this runs, if we take a look at the code changes, you can see that a `constraints` section was added that ensures the transitive dependency is secure. You can also see that there is a clear explanation in the code for why this happened:
+Press **Dry Run** to begin the recipe run. After this runs, if we take a look at the code changes, you can see that a `constraints` section was added that ensures the transitive dependency is secure. You can also see that there is a clear explanation in the code for why this happened:
 
 ![](./assets/upgraded-dep.png)
 

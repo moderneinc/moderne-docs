@@ -200,7 +200,7 @@ This recipe is useful as an example for the purposes of this workshop, but it ac
 * Visitors and templates let you traverse LSTs and build replacements while preserving formatting.
 * Type information and tests help keep changes correct and scoped to the right cases.
 
-## Learn More
+## Learn more
 
 Now that you've learned all the basics of building recipes, you may:
 

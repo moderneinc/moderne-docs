@@ -35,4 +35,4 @@ Clicking on a batch change run will display the run's results page. From there, 
 
 ## Additional information
 
-* [Learn how to commit results and issue PRs in Moderne](https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides/track-commits)
+* [Learn how to commit results and issue PRs in Moderne](../../moderne-platform/how-to-guides/track-commits.md)
