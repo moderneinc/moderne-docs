@@ -49,7 +49,7 @@ If you are an admin, tokens you create can only be used if you've logged into th
 
 Login tokens expire after one hour.
 
-## Personal Access Tokens
+## Personal access tokens
 
 Personal access tokens are used to make queries against the [Moderne GraphQL API](https://api.app.moderne.io/).
 
@@ -75,7 +75,7 @@ For instructions on how to revoke personal access tokens, please see our [managi
 
 For instructions on how to create, view, or revoke personal access tokens, please read the [managing personal access tokens doc](../how-to-guides/create-api-access-tokens.md).
 
-## Source Code Management (SCM) OAuth token
+## Source code management (SCM) OAuth token
 
 In order for users to see or interact with source code, an SCM token needs to be created. These tokens are created when a user clicks on one of the SCM logos in the top right corner of the screen OR when an action is performed that requires this token such as viewing a diff or committing code.
 

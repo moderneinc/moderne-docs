@@ -8,7 +8,7 @@ The CLI executes `bazel query` to find Bazel rules of type `java_library` or `kt
 
 ## Partitioning Bazel repositories
 
-To control the scope of the `bazel query` step, you can customize the CLI's [build steps](build-steps.md). For Bazel repositories, generally you will want to go one step further and introduce build partitions to carve up the repository into business functional units, with an LST being produced for each unit.
+To control the scope of the `bazel query` step, you can customize the CLI's [build steps](./build-steps.md). For Bazel repositories, generally you will want to go one step further and introduce build partitions to carve up the repository into business functional units, with an LST being produced for each unit.
 
 The `bazel` build step type has a configurable `targetExpression` configuration (that defaults to `//:all`). Any Bazel query [expression](https://bazel.build/query/language#expressions) is valid here, allowing a wide range of options for how to partition the repository. For example:
 

@@ -37,7 +37,7 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
   <figcaption></figcaption>
 </figure>
 
-* Press `Apply` to add the method pattern to the text box.
+* Press **Apply** to add the method pattern to the text box.
 
 :::tip
 The combination of the fully qualified receiver type, the method name, and the argument types make up a "method pattern".
@@ -48,7 +48,7 @@ For extensive documentation on each of these components and more examples of dif
 * Your window should look like:
 
     ![](./assets/find-method-usage-full.png)
-* Press `Dry Run` to begin the search. You will be redirected to a page that looks like:
+* Press **Dry Run** to begin the search. You will be redirected to a page that looks like:
 
     ![](./assets/find-method-usage-results.png)
 

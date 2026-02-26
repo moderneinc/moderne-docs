@@ -23,7 +23,7 @@ In this module, you will raise the Java baseline to 17 and run a controlled Spri
 
 <figure>
   ![](./assets/run-composite-recipe-results-visualization.png)
-  <figcaption>_Click `Run visualization` to view_</figcaption>
+  <figcaption>_Click **Run visualization** to view_</figcaption>
 </figure>
 
 The `Composite recipe results` view breaks the run down by recipe so you can see which parts of the composite generated changes. The Spring Boot and Spring Framework recipes may still show larger chunks, but Java 17 is the biggest independent migration you can complete (Spring Boot 3 and 4 require Java 17, but a Java 17 upgrade does not require Spring Boot). That makes Java 17 the right first target because it removes a cross-cutting prerequisite and establishes a consistent baseline before tackling Spring Boot fixes in waves.

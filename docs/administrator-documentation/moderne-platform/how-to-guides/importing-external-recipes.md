@@ -29,7 +29,7 @@ From your Moderne tenant, click on _Deploy_ in the left-hand menu:
 
 ### Step 2: Upload the recipe artifacts
 
-1. Click `Add` to open the form to import a recipe:
+1. Click **Add** to open the form to import a recipe:
 
 <figure>
   ![](./assets/add-recipe-button.png)

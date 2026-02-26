@@ -834,7 +834,7 @@ In addition to the CLI, you can run recipes using the Moderne Platform.
 
 #### Step 2: Run a dry run and review results
 
-1. Click `Dry Run` to run the recipe against the Default organization's repositories.
+1. Click **Dry Run** to run the recipe against the Default organization's repositories.
 
 ![](./assets/csa-dry-run.png)
 

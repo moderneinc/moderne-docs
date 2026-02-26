@@ -56,6 +56,8 @@ This document outlines the formatting and style conventions for all Moderne docu
     - Incorrect bullet point format
     - These should use asterisks instead
 
+**Exempt**: Release notes and changelogs (`docs/releases/`) may use dashes, as this is conventional for changelog formats.
+
 **Important**: Only change dashes to asterisks when they are actual bullet points at the beginning of lines. Do NOT change:
 
 * Dashes in code comments: `// This is a comment - explanation`
@@ -241,19 +243,22 @@ Conceptual or structural headers like "Prerequisites", "Next steps", "Core conce
     Add the dependency to `build.gradle`.
     The configuration lives in `moderne.yml`.
 
-### 14. Use inline linking, not "see" or "click here"
+### 14. Use descriptive link text
 
-**Rule**: Place links on descriptive text that tells the reader where the link goes. Do not use signpost phrases like "see", "click here", or "check out this link".
+**Rule**: Link text should describe where the link goes so readers (and screen readers) can understand the destination without surrounding context. Conversational phrasing around links is fine — the focus is on making the link text itself meaningful.
 
 **Correct examples:**
 
     Once validation passes, you can [publish and deploy the artifact to the Moderne Platform](#deploying-recipe-artifacts).
+    Please read the [reporting reference](./reporting.md) for instructions on exporting audit logs.
+    For more details, check out the [getting started guide](./getting-started.md).
     An administrator should have [configured this when onboarding the agent](./path/to/doc.md).
 
 **Incorrect examples:**
 
-    Once validation passes, you can publish the artifact — see [Deploying to the Moderne Platform](#deploying-recipe-artifacts).
-    For more information, [click here](./path/to/doc.md).
+    For more information, [click here](./path/to/doc.md).        <!-- "click here" is not descriptive -->
+    You can find it [here](./reporting.md).                       <!-- "here" tells reader nothing -->
+    Check out [this link](./getting-started.md) to get started.  <!-- "this link" is not descriptive -->
 
 ### 15. Keep paragraphs focused and concise
 
@@ -441,7 +446,7 @@ When editing documentation, verify:
 * [ ] Conversational tone in guides; declarative tone acceptable in release notes (Rule 11)
 * [ ] Gerund form for procedural headers; conceptual headers exempt (Rule 12)
 * [ ] Filenames in prose followed by "file" when it aids clarity (Rule 13)
-* [ ] Links are inline on descriptive text, no "see X" patterns (Rule 14)
+* [ ] Link text is descriptive, no "click here" or "here" (Rule 14)
 * [ ] Paragraphs are focused and concise, one concept each (Rule 15)
 * [ ] How-to guide intros follow problem → solution → preview structure (Rule 16)
 * [ ] Callouts use Docusaurus admonitions, not blockquotes (Rule 17)
