@@ -7,15 +7,20 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.252.0         |
+| Agent (recommended to use **latest**) | 0.253.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.252.0/moderne-agent-0.252.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.253.0/moderne-agent-0.253.0.jar)
 
 
 ## Changelog
 
+### v0.253.0 - 2026-02-26
+
+* Update Prethink context (no AI)
+* Update Gradle wrapper to 9.3.1
+* Support bearer token auth on API gateway WebSocket connection
 ### v0.252.0 - 2026-02-24
 
 * Add 256MB weight limit to in-memory Maven cache
