@@ -44,7 +44,7 @@ mod config moderne skills update
 
 #### Step 2: Verify the skills are available
 
-In Claude Code, type `/` and you should see the Moderne skills listed (e.g., `/moderne:create-recipe`). (For other agents, see [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) for how to verify installation and invoke the skills.)
+In Claude Code, type `/` and you should see the Moderne skills listed (e.g., `/moderne:create-recipe`). (For other agents, see the [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) docs for how to verify installation and invoke the skills.)
 
 #### Step 3: Try it out
 

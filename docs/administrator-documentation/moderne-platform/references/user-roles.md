@@ -39,20 +39,20 @@ The repository insights page provides details about a repository such as what la
 You can find repository insights by clicking on the repositories link in the navigation bar:
 
 <figure>
-  ![](./assets/repos-link.png)
+  ![Moderne left sidebar with Repositories option highlighted](./assets/repos-link.png)
   <figcaption>_Repositories link_</figcaption>
 </figure>
 
 Then find the repository you want to learn more about in the list of repositories and click on the repository name:
 
 <figure>
-  ![](./assets/repo-insight-link.png)
+  ![Repositories list with arrow pointing to a clickable repository name](./assets/repo-insight-link.png)
   <figcaption>_Repository insight link_</figcaption>
 </figure>
 
 You'll then be taken to the repository insights page:
 
 <figure>
-  ![](./assets/repo-insight-details.png)
+  ![Repository insights page showing language composition pie chart and file count table](./assets/repo-insight-details.png)
   <figcaption>_Repository insights_</figcaption>
 </figure>

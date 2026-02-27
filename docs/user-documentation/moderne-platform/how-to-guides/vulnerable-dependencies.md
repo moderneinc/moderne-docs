@@ -49,7 +49,7 @@ Patch updates typically have no breaking changes, so this should ensure the reci
 
 ## Step 4: Run the recipe
 
-Press `Dry Run` at the bottom of the page and wait for the recipe to run. Once the recipe finishes running, you will see a page that looks like this:
+Press **Dry Run** at the bottom of the page and wait for the recipe to run. Once the recipe finishes running, you will see a page that looks like this:
 
 <figure>
   ![Find and fix vulnerable dependencies recipe results](./assets/find-fix-results.png)

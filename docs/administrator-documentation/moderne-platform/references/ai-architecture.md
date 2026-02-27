@@ -28,7 +28,7 @@ Moddy integrates with your AI LLMs to interpret natural language queries, search
 Moddy does not use generative AI to make changes to your code. All code changes are made by deterministic OpenRewrite recipes. Developers must still review diffs and issue PRs themselves (just like using the Moderne Platform without Moddy).
 
 <figure>
-  ![](./assets/moddy.png)
+  ![Moddy AI agent chat interface with prompt suggestions and input field](./assets/moddy.png)
   <figcaption>_A preview of Moddy_</figcaption>
 </figure>
 
@@ -47,7 +47,7 @@ Conversation history is stored locally in the browser (e.g., cookies/local stora
 #### Workflow
 
 <figure>
-  ![](./assets/moddy-steps.png)
+  ![Sequence diagram showing Moddy workflow between user, LLM, and recipe execution](./assets/moddy-steps.png)
   <figcaption>_AI model interactions_</figcaption>
 </figure>
 
@@ -56,7 +56,7 @@ Conversation history is stored locally in the browser (e.g., cookies/local stora
 The Moderne Platform search uses AI capabilities to help you find recipes using natural language. This makes it easy to discover recipes even when you don't know their exact names. For more details, check out our [guide on how to search for recipes](../../../user-documentation/moderne-platform/how-to-guides/moderne-platform-search.md).
 
 <figure>
-  ![](./assets/ai-search-example.png)
+  ![Natural language recipe search results for "How can I make my code more secure?"](./assets/ai-search-example.png)
   <figcaption>_Searching for recipes using AI_</figcaption>
 </figure>
 

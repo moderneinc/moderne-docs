@@ -70,7 +70,7 @@ Use the Staging version for local development purposes. The Stable release is on
 
 3. Either click the download button for your appropriate OS, or select one of the other installation methods like Homebrew (macOS), Chocolatey (Windows), or curl (Linux), then run the provided commands. (If you chose to install the CLI without a package manager, save it somewhere that your terminal can access by updating your `PATH`.)
 
-![](../../user-documentation/moderne-cli/getting-started/assets/cli-download.gif)
+![Moderne Platform Marketplace page with CLI download options](../../user-documentation/moderne-cli/getting-started/assets/cli-download.gif)
 
 4. Verify the installation by opening a terminal and typing:
 
@@ -190,9 +190,9 @@ Login successful, the token is valid for 365 days, until 2027-01-05T15:27:34-08:
 
 MOD SUCCEEDED in 20s
 ```
-![](./assets/grant-access.png)
+![Grant Access to Moderne CLI dialog requesting email, profile, and PAT permissions](./assets/grant-access.png)
 
-![](./assets/login-success.png)
+![Browser confirmation showing successful Moderne CLI authentication](./assets/login-success.png)
 
 </details>
 
@@ -819,7 +819,7 @@ In addition to the CLI, you can run recipes using the Moderne Platform.
 2. Make sure the `Default` organization is selected in the organization dropdown. If this is your first time logging in, this should already be selected.
 
 <figure>
-![](./assets/default-org.png)
+![Organization selector showing Default selected](./assets/default-org.png)
 <figcaption>_The organization selector in the upper left of the screen._</figcaption>
 </figure>
 
@@ -827,16 +827,16 @@ In addition to the CLI, you can run recipes using the Moderne Platform.
 4. Search for `CommonStaticAnalysis` and click on the recipe to see available actions.
 
 <figure>
-![](./assets/marketplace-search-csa.png)
+![Marketplace search for CommonStaticAnalysis showing one matching recipe](./assets/marketplace-search-csa.png)
 <figcaption>_Search the marketplace to find the recipe you're looking for._</figcaption>
 </figure>
 
 
 #### Step 2: Run a dry run and review results
 
-1. Click `Dry Run` to run the recipe against the Default organization's repositories.
+1. Click **Dry Run** to run the recipe against the Default organization's repositories.
 
-![](./assets/csa-dry-run.png)
+![Common static analysis issues recipe with Dry run button and action options](./assets/csa-dry-run.png)
 
 :::note
 In the Moderne Platform, `Dry Run` is conceptually similar to what you did with the CLI earlier: it computes results and shows you diffs, but it does not commit changes. In both cases, you review the patch first and then explicitly choose to apply/commit via a separate action.
@@ -850,7 +850,7 @@ In the Moderne Platform, `Dry Run` is conceptually similar to what you did with 
 1. Click the `Commit all results` button at the bottom of the summary pane to explore how the Platform would help you apply changes. (You can also use the checkboxes next to each repository and commit only those selected results.)
 2. Notice the different strategies provided in the dropdown, including "Create a Pull Request", "Create a Branch", etc.
 
-![](./assets/commit-strategy-dropdown.png)
+![Commit strategy dropdown with options for direct commit, branch, fork, and pull request](./assets/commit-strategy-dropdown.png)
 
 3. Since these are open-source repositories and you don't want to commit any changes, click `Cancel` to get out of the workflow.
 

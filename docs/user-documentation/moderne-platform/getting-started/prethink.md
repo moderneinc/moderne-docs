@@ -22,7 +22,7 @@ This doc assumes that you are familiar with [finding and running recipes in the 
 There are two key Prethink recipes in the Moderne Platform:
 
 <figure>
-  ![](./assets/prethink-recipes.png)
+  ![Two Prethink recipes listed: Update Prethink context with AI and without AI](./assets/prethink-recipes.png)
   <figcaption>_Prethink recipes_</figcaption>
 </figure>
 
@@ -49,17 +49,17 @@ Use this for a quick start or when AI comprehension isn't needed.
 ## Example results
 
 <figure>
-  ![](./assets/prethink-claude.png)
+  ![Generated CLAUDE.md file diff showing Prethink context with repository summary](./assets/prethink-claude.png)
   <figcaption>_A CLAUDE.md file summarizing the repo._</figcaption>
 </figure>
 
 <figure>
-  ![](./assets/prethink-calm-architecture.png)
+  ![Diff of a generated CALM architecture JSON file describing service nodes and endpoints](./assets/prethink-calm-architecture.png)
   <figcaption>_A CALM architecture file to describe the service._</figcaption>
 </figure>
 
 <figure>
-  ![](./assets/prethink-artifacts.png)
+  ![Generated deployment artifacts CSV and server configuration files in the diff view](./assets/prethink-artifacts.png)
   <figcaption>_Artifact and server configuration files._</figcaption>
 </figure>
 

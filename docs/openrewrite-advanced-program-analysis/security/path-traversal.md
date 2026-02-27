@@ -6,11 +6,11 @@ description: Detect and prevent path traversal vulnerabilities in file system op
 
 Path traversal (also known as directory traversal) vulnerabilities allow attackers to access files and directories outside of the intended directory. By manipulating file paths with sequences like `../`, attackers can read sensitive files, overwrite critical system files, or execute unauthorized code.
 
-## Understanding Path Traversal
+## Understanding path traversal
 
 Imagine a hotel where guests should only access their own rooms. Path traversal is like a guest saying "I want to go to room 101/..//..//manager-office" and gaining access to restricted areas. The `../` sequences allow "climbing up" the directory structure to reach unintended locations.
 
-### The Attack Illustrated
+### The attack illustrated
 
 ```java
 // VULNERABLE: Direct use of user input in file path
@@ -24,11 +24,11 @@ String content = Files.readString(file.toPath());
 // Result: Exposes system password file!
 ```
 
-## How OpenRewrite Detects Path Traversal
+## How OpenRewrite detects path traversal
 
 The `FindPathTraversal` recipe tracks untrusted data flowing into file system operations:
 
-### 1. File System Sinks
+### 1. File system sinks
 
 ```java
 // File operations
@@ -52,7 +52,7 @@ path.resolve(other)
 path.resolveSibling(other)
 ```
 
-### 2. Dangerous Path Sequences
+### 2. Dangerous path sequences
 
 ```java
 // Path traversal sequences
@@ -70,9 +70,9 @@ C:\           // Windows absolute path
 file://       // File URL
 ```
 
-## Vulnerable Patterns
+## Vulnerable patterns
 
-### Basic File Reading
+### Basic file reading
 
 ```java
 // VULNERABLE - Direct concatenation
@@ -86,7 +86,7 @@ public ResponseEntity<byte[]> downloadFile(@RequestParam String filename) {
 // Exposes shadow password file
 ```
 
-### File Upload with Path Traversal
+### File upload with path traversal
 
 ```java
 // VULNERABLE - User controls destination
@@ -101,7 +101,7 @@ public String uploadFile(@RequestParam("file") MultipartFile file,
 // Uploads shell to web root!
 ```
 
-### Template/View Rendering
+### Template/view rendering
 
 ```java
 // VULNERABLE - Dynamic template selection
@@ -113,7 +113,7 @@ public String renderPage(@RequestParam String template) {
 // Renders unauthorized admin template
 ```
 
-### Log File Access
+### Log file access
 
 ```java
 // VULNERABLE - Log file injection
@@ -126,7 +126,7 @@ public String viewLog(@RequestParam String date) {
 // Reads system hosts file instead
 ```
 
-### ZIP File Extraction (Zip Slip)
+### ZIP file extraction (Zip Slip)
 
 ```java
 // VULNERABLE - Zip slip attack
@@ -148,9 +148,9 @@ public void extractZip(File zipFile, File destDir) throws IOException {
 // Extracts malicious cron job!
 ```
 
-## Safe Patterns and Remediation
+## Safe patterns and remediation
 
-### Canonical Path Validation
+### Canonical path validation
 
 Always resolve and validate canonical paths.
 ```java
@@ -176,7 +176,7 @@ public ResponseEntity<byte[]> downloadFile(@RequestParam String filename)
 }
 ```
 
-### Path Normalization and Validation
+### Path normalization and validation
 
 ```java
 public class PathValidator {
@@ -212,7 +212,7 @@ public class PathValidator {
 }
 ```
 
-### Whitelist Approach
+### Whitelist approach
 
 When possible, use a whitelist of allowed files.
 ```java
@@ -239,7 +239,7 @@ public class FileAccessController {
 }
 ```
 
-### Safe ZIP Extraction
+### Safe ZIP extraction
 
 Protect against Zip Slip attacks.
 ```java
@@ -275,7 +275,7 @@ public class SafeZipExtractor {
 }
 ```
 
-### Input Sanitization
+### Input sanitization
 
 Remove dangerous sequences from paths.
 ```java
@@ -320,9 +320,9 @@ public class PathSanitizer {
 }
 ```
 
-## Advanced Protection Techniques
+## Advanced protection techniques
 
-### Chroot/Jail Environments
+### Chroot/jail environments
 
 Use OS-level restrictions when possible.
 ```java
@@ -356,7 +356,7 @@ public class SecureFileService {
 }
 ```
 
-### Content-Based Validation
+### Content-based validation
 
 Validate file content, not just paths.
 ```java
@@ -391,9 +391,9 @@ public class FileContentValidator {
 }
 ```
 
-## Testing Path Traversal Detection
+## Testing path traversal detection
 
-### Unit Tests
+### Unit tests
 
 ```java
 @Test
@@ -453,9 +453,9 @@ void detectsZipSlip() {
 }
 ```
 
-## Platform-Specific Considerations
+## Platform-specific considerations
 
-### Windows Path Traversal
+### Windows path traversal
 
 Windows has additional considerations.
 ```java
@@ -496,7 +496,7 @@ public class WindowsPathValidator {
 }
 ```
 
-### URL Path Traversal
+### URL path traversal
 
 Web applications need URL-specific validation.
 ```java
@@ -525,29 +525,29 @@ public class UrlPathValidator {
 }
 ```
 
-## Common Attack Scenarios
+## Common attack scenarios
 
-### Configuration File Access
+### Configuration file access
 ```
 ../../../etc/passwd                    # Unix password file
 ..\..\..\..\windows\system32\config\sam # Windows SAM file
 ../../../../../../etc/shadow           # Shadow passwords
 ```
 
-### Source Code Disclosure
+### Source code disclosure
 ```
 ../../../src/main/resources/application.properties  # App config
 ../WEB-INF/web.xml                                  # Web config
 ../../.git/config                                   # Git config
 ```
 
-### Log Injection for Path Traversal
+### Log injection for path traversal
 ```
 ../../../var/log/apache2/access.log%00  # Null byte injection
 ../../logs/../../etc/passwd             # Double traversal
 ```
 
-## Next Steps
+## Next steps
 
 * [Command Injection](./command-injection.md) - OS command execution
 * [XXE Vulnerabilities](./xxe.md) - XML external entity attacks

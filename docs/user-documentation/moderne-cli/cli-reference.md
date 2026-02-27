@@ -8,7 +8,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 ## Table of contents
 
 * [**mod**](#mod)
-* [**mod afterburner**](#mod-afterburner)
 * [**mod audit**](#mod-audit)
 * [**mod audit builds**](#mod-audit-builds)
 * [**mod audit builds list**](#mod-audit-builds-list)
@@ -21,6 +20,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod clean builds**](#mod-clean-builds)
 * [**mod clean runs**](#mod-clean-runs)
 * [**mod config**](#mod-config)
+* [**mod config agent-tools**](#mod-config-agent-tools)
+* [**mod config agent-tools install**](#mod-config-agent-tools-install)
+* [**mod config agent-tools uninstall**](#mod-config-agent-tools-uninstall)
 * [**mod config build**](#mod-config-build)
 * [**mod config build bazel**](#mod-config-build-bazel)
 * [**mod config build bazel arguments**](#mod-config-build-bazel-arguments)
@@ -49,10 +51,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
 * [**mod config build gradle arguments edit**](#mod-config-build-gradle-arguments-edit)
 * [**mod config build gradle arguments show**](#mod-config-build-gradle-arguments-show)
-* ~~[**mod config build gradle root**](#mod-config-build-gradle-root-deprecated)~~ (deprecated)
-* ~~[**mod config build gradle root delete**](#mod-config-build-gradle-root-delete-deprecated)~~ (deprecated)
-* ~~[**mod config build gradle root edit**](#mod-config-build-gradle-root-edit-deprecated)~~ (deprecated)
-* ~~[**mod config build gradle root show**](#mod-config-build-gradle-root-show-deprecated)~~ (deprecated)
 * [**mod config build gradle timeout**](#mod-config-build-gradle-timeout)
 * [**mod config build gradle timeout delete**](#mod-config-build-gradle-timeout-delete)
 * [**mod config build gradle timeout edit**](#mod-config-build-gradle-timeout-edit)
@@ -70,9 +68,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build maven timeout delete**](#mod-config-build-maven-timeout-delete)
 * [**mod config build maven timeout edit**](#mod-config-build-maven-timeout-edit)
 * [**mod config build maven timeout show**](#mod-config-build-maven-timeout-show)
-* ~~[**mod config claude**](#mod-config-claude-deprecated)~~ (deprecated)
-* ~~[**mod config claude plugin**](#mod-config-claude-plugin-deprecated)~~ (deprecated)
-* ~~[**mod config claude plugin update**](#mod-config-claude-plugin-update-deprecated)~~ (deprecated)
+* [**mod config build parsers**](#mod-config-build-parsers)
+* [**mod config build parsers add**](#mod-config-build-parsers-add)
+* [**mod config build parsers delete**](#mod-config-build-parsers-delete)
+* [**mod config build parsers show**](#mod-config-build-parsers-show)
 * [**mod config clone**](#mod-config-clone)
 * ~~[**mod config clone protocol**](#mod-config-clone-protocol-deprecated)~~ (deprecated)
 * ~~[**mod config clone protocol delete**](#mod-config-clone-protocol-delete-deprecated)~~ (deprecated)
@@ -92,6 +91,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config features**](#mod-config-features)
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
 * [**mod config features inline-diff**](#mod-config-features-inline-diff)
+* [**mod config features lst**](#mod-config-features-lst)
 * [**mod config features no-maven-central**](#mod-config-features-no-maven-central)
 * [**mod config features search**](#mod-config-features-search)
 * [**mod config http**](#mod-config-http)
@@ -159,8 +159,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config moderne show**](#mod-config-moderne-show)
 * [**mod config moderne organizations**](#mod-config-moderne-organizations)
 * [**mod config moderne organizations show**](#mod-config-moderne-organizations-show)
-* [**mod config moderne skills**](#mod-config-moderne-skills)
-* [**mod config moderne skills update**](#mod-config-moderne-skills-update)
 * [**mod config node**](#mod-config-node)
 * [**mod config node installation**](#mod-config-node-installation)
 * [**mod config node installation edit**](#mod-config-node-installation-edit)
@@ -187,10 +185,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes artifacts artifactory delete**](#mod-config-recipes-artifacts-artifactory-delete)
 * [**mod config recipes artifacts artifactory show**](#mod-config-recipes-artifacts-artifactory-show)
 * [**mod config recipes artifacts show**](#mod-config-recipes-artifacts-show)
-* ~~[**mod config recipes artifacts default-repositories**](#mod-config-recipes-artifacts-default-repositories-deprecated)~~ (deprecated)
-* ~~[**mod config recipes artifacts default-repositories enable**](#mod-config-recipes-artifacts-default-repositories-enable-deprecated)~~ (deprecated)
-* ~~[**mod config recipes artifacts default-repositories disable**](#mod-config-recipes-artifacts-default-repositories-disable-deprecated)~~ (deprecated)
-* ~~[**mod config recipes artifacts default-repositories show**](#mod-config-recipes-artifacts-default-repositories-show-deprecated)~~ (deprecated)
 * [**mod config recipes artifacts maven**](#mod-config-recipes-artifacts-maven)
 * [**mod config recipes artifacts maven add**](#mod-config-recipes-artifacts-maven-add)
 * ~~[**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit-deprecated)~~ (deprecated)
@@ -199,6 +193,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes export**](#mod-config-recipes-export)
 * [**mod config recipes export json**](#mod-config-recipes-export-json)
 * [**mod config recipes export csv**](#mod-config-recipes-export-csv)
+* [**mod config recipes import**](#mod-config-recipes-import)
+* [**mod config recipes import csv**](#mod-config-recipes-import-csv)
 * [**mod config recipes jar**](#mod-config-recipes-jar)
 * [**mod config recipes jar install**](#mod-config-recipes-jar-install)
 * [**mod config recipes jar delete**](#mod-config-recipes-jar-delete)
@@ -223,20 +219,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config run timeout edit**](#mod-config-run-timeout-edit)
 * [**mod config run timeout show**](#mod-config-run-timeout-show)
 * ~~[**mod config scm**](#mod-config-scm-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab**](#mod-config-scm-gitlab-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-url**](#mod-config-scm-gitlab-base-url-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-url delete**](#mod-config-scm-gitlab-base-url-delete-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-url edit**](#mod-config-scm-gitlab-base-url-edit-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-url show**](#mod-config-scm-gitlab-base-url-show-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-urls**](#mod-config-scm-gitlab-base-urls-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-urls delete**](#mod-config-scm-gitlab-base-urls-delete-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-urls edit**](#mod-config-scm-gitlab-base-urls-edit-deprecated)~~ (deprecated)
-* ~~[**mod config scm gitlab base-urls show**](#mod-config-scm-gitlab-base-urls-show-deprecated)~~ (deprecated)
-* ~~[**mod config scm bitbucket**](#mod-config-scm-bitbucket-deprecated)~~ (deprecated)
-* ~~[**mod config scm bitbucket base-urls**](#mod-config-scm-bitbucket-base-urls-deprecated)~~ (deprecated)
-* ~~[**mod config scm bitbucket base-urls delete**](#mod-config-scm-bitbucket-base-urls-delete-deprecated)~~ (deprecated)
-* ~~[**mod config scm bitbucket base-urls edit**](#mod-config-scm-bitbucket-base-urls-edit-deprecated)~~ (deprecated)
-* ~~[**mod config scm bitbucket base-urls show**](#mod-config-scm-bitbucket-base-urls-show-deprecated)~~ (deprecated)
 * ~~[**mod config scm moderne**](#mod-config-scm-moderne-deprecated)~~ (deprecated)
 * ~~[**mod config scm moderne sync**](#mod-config-scm-moderne-sync-deprecated)~~ (deprecated)
 * ~~[**mod config scm add**](#mod-config-scm-add-deprecated)~~ (deprecated)
@@ -257,6 +239,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod git push**](#mod-git-push)
 * [**mod git reset**](#mod-git-reset)
 * [**mod git rev-parse**](#mod-git-rev-parse)
+* [**mod git rm**](#mod-git-rm)
 * [**mod git stashset**](#mod-git-stashset)
 * [**mod git stashset apply**](#mod-git-stashset-apply)
 * [**mod git stashset push**](#mod-git-stashset-push)
@@ -272,10 +255,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod log syncs**](#mod-log-syncs)
 * [**mod log syncs add**](#mod-log-syncs-add)
 * [**mod list**](#mod-list)
+* [**mod mcp**](#mod-mcp)
 * [**mod monitor**](#mod-monitor)
 * [**mod postbuild**](#mod-postbuild)
-* [**mod postbuild zoekt**](#mod-postbuild-zoekt)
-* [**mod postbuild zoekt update**](#mod-postbuild-zoekt-update)
+* [**mod postbuild search**](#mod-postbuild-search)
+* [**mod postbuild search index**](#mod-postbuild-search-index)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
 * [**mod run-history**](#mod-run-history)
@@ -308,7 +292,6 @@ mod [subcommands]
 
 ### Subcommands
 
-* `afterburner`: (INCUBATING) Indexes built LSTs to accelerate recipe execution.
 * `audit`: (INCUBATING) Perform an audit of recent activity.
 * `batch`: Add batch changes to the Moderne platform.
 * `build`: Generates LST artifacts for one or more repositories.
@@ -320,6 +303,7 @@ mod [subcommands]
 * `git`: Multi-repository git operations.
 * `log`: Manages a log aggregate.
 * `list`: Lists the repositories that can be built and published.
+* `mcp`: Starts an MCP server for code intelligence.
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
 * `postbuild`: Post-build operations on LST artifacts.
 * `publish`: Publishes the LST artifacts for one or more projects.
@@ -328,40 +312,6 @@ mod [subcommands]
 * `search`: Search repositories using trigram indexes.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
 * `trace`: Manages trace analysis tools.
-
-## mod afterburner
-
-(INCUBATING) Indexes built LSTs to accelerate recipe execution.
-
-
-This command indexes certain parts of the LST in order to speed up repeated recipe runs against the same LST. While not all recipes can benefit from this optimization, common ones — especially those frequently used in IDE integrations — often will. 
-
-Note: The generated indexes are internal to the CLI and may change between versions. They are intended solely for use by the CLI in subsequent run commands. Executed on multiple repositories in parallel by default, but can be opted out with **--parallel=1**.
-
-### Usage
-
-```
-mod afterburner [parameters]
-```
-
-### Examples
-
-```
-mod afterburner /path/to/project
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-
 
 ## mod audit
 
@@ -686,8 +636,8 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 
 ### Subcommands
 
+* `agent-tools`: Manage Moderne agent tools for coding agents.
 * `build`: Configures build tools used to produce LSTs.
-* `claude`: (DEPRECATED) Configure Claude AI integration. Use 'mod config moderne skills update' instead.
 * `clone`: Configures cloning behavior.
 * `dotnet`: Configures DotNet options used for building LSTs and running recipes.
 * `environment`: The build environment that the CLI is running in.
@@ -702,6 +652,73 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `run`: Configures recipe run behavior.
 * `scm`: (DEPRECATED) Configures source code management.
+
+## mod config agent-tools
+
+Manage Moderne agent tools for coding agents.
+
+
+Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, and OpenAI Codex.
+
+### Usage
+
+```
+mod config agent-tools [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools install
+```
+
+
+### Subcommands
+
+* `install`: Creates or updates Moderne agent tools for coding agents.
+* `uninstall`: Removes Moderne agent tools from coding agents.
+
+## mod config agent-tools install
+
+Creates or updates Moderne agent tools for coding agents.
+
+
+Installs agent tools to all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex).
+
+### Usage
+
+```
+mod config agent-tools install
+```
+
+### Examples
+
+```
+mod config agent-tools install
+```
+
+
+
+## mod config agent-tools uninstall
+
+Removes Moderne agent tools from coding agents.
+
+
+Uninstalls agent tools from all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex).
+
+### Usage
+
+```
+mod config agent-tools uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools uninstall
+```
+
+
 
 ## mod config build
 
@@ -724,6 +741,7 @@ mod config build [subcommands]
 * `environment`: Configure environment variables to apply to build tool when building LSTs.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
+* `parsers`: Configure custom file-extension-to-parser mappings.
 
 ## mod config build bazel
 
@@ -1208,7 +1226,6 @@ mod config build gradle arguments edit --refresh-dependencies
 ### Subcommands
 
 * `arguments`: Configure Gradle build arguments.
-* `root`: (DEPRECATED) Configure the directory containing the Gradle root build. This could be `.` to force the CLI to use the root directory of the repository as the Gradle build and look no deeper.
 * `timeout`: Configure the build timeout.
 
 ## mod config build gradle arguments
@@ -1280,95 +1297,6 @@ Displays the configured Gradle additional build arguments.
 
 ```
 mod config build gradle arguments show
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
-| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
-
-
-## mod config build gradle root (deprecated)
-
-(DEPRECATED) Configure the directory containing the Gradle root build. This could be `.` to force the CLI to use the root directory of the repository as the Gradle build and look no deeper.
-
-
-Use builds steps configuration instead. When this is set, the CLI does not attempt to find root Gradle builds in subdirectories or siblings recursively.
-
-### Usage
-
-```
-mod config build gradle root [subcommands]
-```
-
-
-### Subcommands
-
-* `delete`: (DEPRECATED) Removes the configured directory containing the Gradle root build.
-* `edit`: (DEPRECATED) Configure the directory containing the Gradle root build.
-* `show`: (DEPRECATED) Displays the configured directory containing the Gradle root build.
-
-## mod config build gradle root delete (deprecated)
-
-(DEPRECATED) Removes the configured directory containing the Gradle root build.
-
-
-(DEPRECATED) Use builds steps configuration instead.
-
-### Usage
-
-```
-mod config build gradle root delete
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
-| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
-
-
-## mod config build gradle root edit (deprecated)
-
-(DEPRECATED) Configure the directory containing the Gradle root build.
-
-
-Use builds steps configuration instead. When this is set, the CLI does not attempt to find root Gradle builds in subdirectories or siblings recursively.
-
-### Usage
-
-```
-mod config build gradle root edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `root` |  The directory containing the Gradle root build. |
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
-| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
-
-
-## mod config build gradle root show (deprecated)
-
-(DEPRECATED) Displays the configured directory containing the Gradle root build.
-
-
-Use build steps configuration instead.
-
-### Usage
-
-```
-mod config build gradle root show
 ```
 
 ### Options
@@ -1755,67 +1683,104 @@ mod config build maven timeout show
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
-## mod config claude (deprecated)
+## mod config build parsers
 
-(DEPRECATED) Configure Claude AI integration. Use 'mod config moderne skills update' instead.
+Configure custom file-extension-to-parser mappings.
 
 
-Manage the Moderne plugin for Claude Code.
+Manages which file extensions are parsed by which parser type when building LSTs. Supports resource/structural file types such as XML, JSON, and YAML. File extensions for compiled language types (Java, Kotlin, etc.) are enforced by their respective toolchains and cannot be customized here.
 
 ### Usage
 
 ```
-mod config claude [subcommands]
-```
-
-### Examples
-
-```
-mod config moderne skills update
+mod config build parsers [subcommands]
 ```
 
 
 ### Subcommands
 
-* `plugin`: (DEPRECATED) Manage the Moderne plugin for Claude Code. Use 'mod config moderne skills update' instead.
+* `add`: Add a parser mapping for a file type.
+* `delete`: Removes configured parser mappings.
+* `show`: Displays configured parser mappings.
 
-## mod config claude plugin (deprecated)
+## mod config build parsers add
 
-(DEPRECATED) Manage the Moderne plugin for Claude Code. Use 'mod config moderne skills update' instead.
-
-
-The Moderne plugin provides skills for recipe development, testing, and impact analysis.
-
-### Usage
-
-```
-mod config claude plugin [subcommands]
-```
+Add a parser mapping for a file type.
 
 
-### Subcommands
-
-* `update`: (DEPRECATED) Creates or updates the Moderne plugin for Claude Code. Use 'mod config moderne skills update' instead.
-
-## mod config claude plugin update (deprecated)
-
-(DEPRECATED) Creates or updates the Moderne plugin for Claude Code. Use 'mod config moderne skills update' instead.
-
-
-Installs the Moderne plugin as a Claude marketplace at ~/.claude/marketplaces/moderne/
+Associates glob patterns with a parser type so matching files are parsed accordingly.
 
 ### Usage
 
 ```
-mod config claude plugin update
+mod config build parsers add [parameters]
 ```
 
 ### Examples
 
 ```
-mod config moderne skills update
+mod config build parsers add xml "**/*.mst" "**/*.xbind"
+
+mod config build parsers add json "**/*.cfg"
 ```
 
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `type` |  The parser type. Supported: docker, gradle, groovy, hcl, json, plaintext, properties, proto, toml, xml, yaml. |
+| `patterns` |  Glob patterns for files to parse with this type (e.g. **/*.mst **/*.xbind). |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build parsers delete
+
+Removes configured parser mappings.
+
+
+### Usage
+
+```
+mod config build parsers delete [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `type` |  Optional parser type to delete. If omitted, all mappings are removed. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build parsers show
+
+Displays configured parser mappings.
+
+
+### Usage
+
+```
+mod config build parsers show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config clone
@@ -2120,6 +2085,7 @@ mod config features [subcommands]
 
 * `index-recipes`
 * `inline-diff`: Configure inline diff rendering in the terminal.
+* `lst`: Configure the LST serialization format version.
 * `no-maven-central`: (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
 * `search`: (DEPRECATED) Configure trigram-based code search.
 
@@ -2161,6 +2127,26 @@ mod config features inline-diff
 | `--enabled` |  |
 
 
+## mod config features lst
+
+Configure the LST serialization format version.
+
+
+Controls the on-disk LST format. Version 3 uses a binary format with lazy deserialization and Zstd compression. When set to 3, v2 LSTs downloaded by mod git sync are automatically converted before recipe runs, and mod build produces v3 LSTs directly.
+
+### Usage
+
+```
+mod config features lst
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--version` |  LST format version (2 or 3) |
+
+
 ## mod config features no-maven-central
 
 (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
@@ -2186,7 +2172,7 @@ mod config features no-maven-central
 (DEPRECATED) Configure trigram-based code search.
 
 
-This command is deprecated. Search indexes are now generated using **mod postbuild zoekt update** and do not require a feature flag.
+This command is deprecated. Search indexes are now generated using **mod postbuild trigrep update** and do not require a feature flag.
 
 ### Usage
 
@@ -3447,7 +3433,6 @@ mod config moderne edit <host>
 * `login`: Logs the CLI into Moderne
 * `show`: Displays the Moderne tenant configuration.
 * `organizations`: (INCUBATING) The organizational hierarchy of repository ownership.
-* `skills`: Manage Moderne skills for coding agents.
 
 ## mod config moderne delete
 
@@ -3589,51 +3574,6 @@ mod config moderne organizations show
 | Name | Description |
 | ---- | ----------- |
 | `--json` |  |
-
-
-## mod config moderne skills
-
-Manage Moderne skills for coding agents.
-
-
-Install and update Moderne skills for Claude Code, Windsurf, Cursor, GitHub Copilot, Sourcegraph Amp, and OpenAI Codex.
-
-### Usage
-
-```
-mod config moderne skills [subcommands]
-```
-
-### Examples
-
-```
-mod config moderne skills update
-```
-
-
-### Subcommands
-
-* `update`: Creates or updates Moderne skills for coding agents.
-
-## mod config moderne skills update
-
-Creates or updates Moderne skills for coding agents.
-
-
-Installs skills to all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, Sourcegraph Amp, OpenAI Codex).
-
-### Usage
-
-```
-mod config moderne skills update
-```
-
-### Examples
-
-```
-mod config moderne skills update
-```
-
 
 
 ## mod config node
@@ -3927,6 +3867,7 @@ mod config recipes moderne sync
 * `active`: Manage the active recipe configuration.
 * `artifacts`: Configures artifact repositories to resolve recipes from.
 * `export`: Export the recipe catalog for study by different tools.
+* `import`: Import recipes into the marketplace from different formats.
 * `jar`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
 * `npm`: Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
 * `pip`: Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -4042,7 +3983,6 @@ mod config recipes artifacts [subcommands]
 
 * `artifactory`: Configures the artifact repository to resolve recipes from.
 * `show`: Displays the recipe artifacts repository configuration.
-* `default-repositories`: (DEPRECATED) Configure the availability of maven central repositories.
 * `maven`: Configures a Maven-formatted artifact repository that recipes will be resolved from.
 
 ## mod config recipes artifacts artifactory
@@ -4185,65 +4125,6 @@ Displays the recipe artifacts repository configuration.
 
 ```
 mod config recipes artifacts show
-```
-
-
-
-## mod config recipes artifacts default-repositories (deprecated)
-
-(DEPRECATED) Configure the availability of maven central repositories.
-
-
-Use `mod config features no-maven-central` to disable/enable Maven Central and OSS Sonatype Snapshots.
-
-### Usage
-
-```
-mod config recipes artifacts default-repositories [subcommands]
-```
-
-
-### Subcommands
-
-* `enable`
-* `disable`
-* `show`
-
-## mod config recipes artifacts default-repositories enable (deprecated)
-
-
-(INCUBATING) Enable default repositories.
-
-### Usage
-
-```
-mod config recipes artifacts default-repositories enable
-```
-
-
-
-## mod config recipes artifacts default-repositories disable (deprecated)
-
-
-(INCUBATING) Disable default repositories.
-
-### Usage
-
-```
-mod config recipes artifacts default-repositories disable
-```
-
-
-
-## mod config recipes artifacts default-repositories show (deprecated)
-
-
-(INCUBATING) Show the current configuration of default repositories.
-
-### Usage
-
-```
-mod config recipes artifacts default-repositories show
 ```
 
 
@@ -4392,7 +4273,7 @@ mod config recipes export [subcommands]
 ### Subcommands
 
 * `json`: (DEPRECATED) Export recipe details as JSON.
-* `csv`: (DEPRECATED) Export recipe details as CSV.
+* `csv`: Export recipe details as CSV.
 
 ## mod config recipes export json
 
@@ -4417,10 +4298,10 @@ mod config recipes export json [parameters]
 
 ## mod config recipes export csv
 
-(DEPRECATED) Export recipe details as CSV.
+Export recipe details as CSV.
 
 
-This format has been superseded by the standard Recipe Marketplace CSV format.
+
 
 ### Usage
 
@@ -4433,6 +4314,45 @@ mod config recipes export csv [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `output` |  The path to the output CSV file. |
+
+
+
+## mod config recipes import
+
+Import recipes into the marketplace from different formats.
+
+
+
+
+### Usage
+
+```
+mod config recipes import [subcommands]
+```
+
+
+### Subcommands
+
+* `csv`: Import recipes from a CSV file into the marketplace.
+
+## mod config recipes import csv
+
+Import recipes from a CSV file into the marketplace.
+
+
+Reads recipes from the specified CSV file and merges them into the existing recipe marketplace. Recipes with the same name will be replaced by the imported version. See https://docs.moderne.io/user-documentation/moderne-cli/references/recipes-csv/#csv-format for the CSV format.
+
+### Usage
+
+```
+mod config recipes import csv [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `input` |  The path to the CSV file to import. |
 
 
 
@@ -4466,7 +4386,7 @@ mod config recipes jar install org.openrewrite:rewrite-java:LATEST
 Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
 
 
-The recipes defined by this artifact will then be available to run. Installs the provided GAVs sequential by default, but can be installed in parallel with the --parallel option.
+The recipes defined by this artifact will then be available to run.
 
 ### Usage
 
@@ -5000,268 +4920,10 @@ mod config scm [subcommands]
 
 ### Subcommands
 
-* `gitlab`: (DEPRECATED) Configures GitLab.
-* `bitbucket`: (DEPRECATED) Configures Bitbucket.
 * `moderne`: (DEPRECATED) Configures the SCM configuration with Moderne
 * `add`
 * `remove`
 * `show`: (DEPRECATED) Displays the configured SCMs
-
-## mod config scm gitlab (deprecated)
-
-(DEPRECATED) Configures GitLab.
-
-
-Use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm gitlab [subcommands]
-```
-
-
-### Subcommands
-
-* `base-url`: (DEPRECATED) Configure the base URL.
-* `base-urls`: (DEPRECATED) Configure the base URLs.
-
-## mod config scm gitlab base-url (deprecated)
-
-(DEPRECATED) Configure the base URL.
-
-
-(DEPRECATED) use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm gitlab base-url [subcommands]
-```
-
-### Examples
-
-```
-mod config scm gitlab base-url edit "https://acme.com/gitlab-ee/"
-```
-
-
-### Subcommands
-
-* `delete`: (DEPRECATED) Removes base URL customization.
-* `edit`: (DEPRECATED) Configure the base URL.
-* `show`: (DEPRECATED) Displays the configured base URLs.
-
-## mod config scm gitlab base-url delete (deprecated)
-
-(DEPRECATED) Removes base URL customization.
-
-
-### Usage
-
-```
-mod config scm gitlab base-url delete
-```
-
-
-
-## mod config scm gitlab base-url edit (deprecated)
-
-(DEPRECATED) Configure the base URL.
-
-
-(DEPRECATED) use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm gitlab base-url edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `baseUrl` |  The base URL to use when determining paths. |
-
-
-
-## mod config scm gitlab base-url show (deprecated)
-
-(DEPRECATED) Displays the configured base URLs.
-
-
-### Usage
-
-```
-mod config scm gitlab base-url show
-```
-
-
-
-## mod config scm gitlab base-urls (deprecated)
-
-(DEPRECATED) Configure the base URLs.
-
-
-(DEPRECATED) use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm gitlab base-urls [subcommands]
-```
-
-### Examples
-
-```
-mod config scm gitlab base-urls edit "https://acme.com/gitlab-ee/"
-```
-
-
-### Subcommands
-
-* `delete`: (DEPRECATED) Removes base URL customization.
-* `edit`: (DEPRECATED) Configure one or more base URLs.
-* `show`: (DEPRECATED) Displays the configured base URLs.
-
-## mod config scm gitlab base-urls delete (deprecated)
-
-(DEPRECATED) Removes base URL customization.
-
-
-### Usage
-
-```
-mod config scm gitlab base-urls delete
-```
-
-
-
-## mod config scm gitlab base-urls edit (deprecated)
-
-(DEPRECATED) Configure one or more base URLs.
-
-
-
-
-### Usage
-
-```
-mod config scm gitlab base-urls edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `baseUrls` |  The base URLs to use when determining paths. |
-
-
-
-## mod config scm gitlab base-urls show (deprecated)
-
-(DEPRECATED) Displays the configured base URLs.
-
-
-### Usage
-
-```
-mod config scm gitlab base-urls show
-```
-
-
-
-## mod config scm bitbucket (deprecated)
-
-(DEPRECATED) Configures Bitbucket.
-
-
-(DEPRECATED) use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm bitbucket [subcommands]
-```
-
-
-### Subcommands
-
-* `base-urls`: (DEPRECATED) Configure the base URLs.
-
-## mod config scm bitbucket base-urls (deprecated)
-
-(DEPRECATED) Configure the base URLs.
-
-
-(DEPRECATED) use **mod config scm show|add|remove** in stead
-
-### Usage
-
-```
-mod config scm bitbucket base-urls [subcommands]
-```
-
-### Examples
-
-```
-mod config scm bitbucket base-urls edit "https://bitbucket.acme.com/stash/"
-```
-
-
-### Subcommands
-
-* `delete`: (DEPRECATED) Removes base URL customization.
-* `edit`: (DEPRECATED) Configure one or more base URLs.
-* `show`: (DEPRECATED) Displays the configured base URLs.
-
-## mod config scm bitbucket base-urls delete (deprecated)
-
-(DEPRECATED) Removes base URL customization.
-
-
-### Usage
-
-```
-mod config scm bitbucket base-urls delete
-```
-
-
-
-## mod config scm bitbucket base-urls edit (deprecated)
-
-(DEPRECATED) Configure one or more base URLs.
-
-
-
-
-### Usage
-
-```
-mod config scm bitbucket base-urls edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `baseUrls` |  The base URLs to use when determining paths. |
-
-
-
-## mod config scm bitbucket base-urls show (deprecated)
-
-(DEPRECATED) Displays the configured base URLs.
-
-
-### Usage
-
-```
-mod config scm bitbucket base-urls show
-```
-
-
 
 ## mod config scm moderne (deprecated)
 
@@ -5492,6 +5154,7 @@ mod git [subcommands]
 * `push`: Performs the equivalent of **git push** on multiple repositories.
 * `reset`: Performs the equivalent of **git reset** on multiple repositories.
 * `rev-parse`: Performs the equivalent of **git rev-parse** on multiple repositories.
+* `rm`: Performs the equivalent of **git rm** on multiple repositories.
 * `stashset`: Performs the equivalent of **git stash** on multiple repositories.
 * `stashset`: Performs the equivalent of **git stash** on multiple repositories.
 * `sync`: Synchronizing the state of an organization on disk.
@@ -5725,10 +5388,14 @@ mod git commit /path/to/project -m "commit message"
 | Name | Description |
 | ---- | ----------- |
 | `--allow-empty` |  Whether or not to allow making empty commits. |
+| `--gpg-passphrase-path` |  Path to a file containing the passphrase for the GPG private key. |
+| `--gpg-private-key-path` |  Path to an armored PGP private key file for signing. Implies **--gpg-sign**. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `-m`, `--message` |  The commit message to use. |
+| `--no-gpg-sign` |  Override **commit.gpgsign** configuration and create an unsigned commit. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `-S`, `--gpg-sign` |  GPG sign the commit. Uses the local GPG keyring, or a key file if **--gpg-private-key-path** is provided. |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 
 
@@ -5861,6 +5528,39 @@ mod git rev-parse /path/to/project -- --show-toplevel
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 | `args` |  |  |
 
+
+
+## mod git rm
+
+Performs the equivalent of **git rm** on multiple repositories.
+
+
+Rather than applying **git rm** one at a time, this operates on multiple repositories.
+
+### Usage
+
+```
+mod git rm [parameters]
+```
+
+### Examples
+
+```
+mod git rm /path/to/project .DS_Store
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `file` |  File patterns to remove. |  |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--cached` |  Only remove from the index, leaving working tree files in place. |
 
 
 ## mod git stashset
@@ -6259,6 +5959,21 @@ mod list /path/to/project
 | `--json` |  (INCUBATING) Output the repository listing in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
 
 
+## mod mcp
+
+Starts an MCP server for code intelligence.
+
+
+Launches a Model Context Protocol (MCP) server over stdio that exposes code intelligence tools backed by OpenRewrite LST data and zoekt search indices. Intended to be launched automatically by Claude Code via .mcp.json configuration.
+
+### Usage
+
+```
+mod mcp
+```
+
+
+
 ## mod monitor
 
 (INCUBATING) Launches an HTTP server used to monitor the CLI.
@@ -6295,43 +6010,43 @@ mod postbuild [subcommands]
 
 ### Subcommands
 
-* `zoekt`: Zoekt search index operations.
+* `search`: Trigram search index operations.
 
-## mod postbuild zoekt
+## mod postbuild search
 
-Zoekt search index operations.
+Trigram search index operations.
 
 
-Manage Zoekt-compatible trigram search indexes for repositories.
+Manage Trigrep search indexes for repositories.
 
 ### Usage
 
 ```
-mod postbuild zoekt [subcommands]
+mod postbuild search [subcommands]
 ```
 
 
 ### Subcommands
 
-* `update`: Generate search indexes from existing LSTs.
+* `index`: Generate search indexes from existing LSTs.
 
-## mod postbuild zoekt update
+## mod postbuild search index
 
 Generate search indexes from existing LSTs.
 
 
-Generates Zoekt-compatible trigram search indexes for repositories that have LST artifacts but were built without search indexing enabled. The indexes are written to **.moderne/search/** in each repository. Executed on multiple repositories in parallel by default, but can be opted out with **--parallel=1**.
+Generates Trigrep search indexes for repositories that have LST artifacts but were built without search indexing enabled. The indexes are written to **.moderne/mcp/search/** in each repository. Executed on multiple repositories in parallel by default, but can be opted out with **--parallel=1**.
 
 ### Usage
 
 ```
-mod postbuild zoekt update [parameters]
+mod postbuild search index [parameters]
 ```
 
 ### Examples
 
 ```
-mod postbuild zoekt update /path/to/organization
+mod postbuild search index /path/to/organization
 ```
 
 ### Parameters
@@ -6409,7 +6124,6 @@ mod run /path/to/project \
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `--active-recipe` |  If this flag is included, the recipe specified as the active recipe in your IDE will be run (assuming you have the Moderne plugin installed and configured). Executes the recipe in parallel by default. |  |
-| `--jvm-debug` |  Start a JDWP server on this port and pause for a remote debug connection. |  |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |  |
 | `--no-patch` |  (INCUBATING) Do not generate patch files on disk at the conclusion of a recipe run that makes changes. This is useful when you are looking to only use data table outputs and don't wish to incur the cost of writing patch files when they will be unused. |  |

@@ -41,31 +41,31 @@ Please follow the below instructions to configure the indexer for your Maven for
 <TabItem value="artifactory" label="Artifactory">
 
 :::warning
-If you are using Artifactory to publish LST artifacts, it is _highly_ recommended that you follow the instructions in the [configuring an agent with Artifactory doc](configure-an-agent-with-artifactory-access.md) instead as that will result in faster artifact consumption while also avoiding substantial load on your Artifactory instance. The following instructions should only be followed if you can not use [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) for some reason.
+If you are using Artifactory to publish LST artifacts, it is _highly_ recommended that you follow the instructions in the [configuring an agent with Artifactory doc](./configure-an-agent-with-artifactory-access.md) instead as that will result in faster artifact consumption while also avoiding substantial load on your Artifactory instance. The following instructions should only be followed if you can not use [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) for some reason.
 :::
 
 In Artifactory, select the `Artifactory` link on the left nav and then select `Maven Indexer` under Services:
 
-![](./assets/artifactory.png)
+![Artifactory Administration panel with Maven Indexer highlighted under Services](./assets/artifactory.png)
 
 For a repository to be a source of LSTs, it must be included in the list of repositories that are indexed:
 
-![](./assets/maven-indexer.png)
+![Maven Indexer settings with cron expression, available repositories, and included repository list](./assets/maven-indexer.png)
 </TabItem>
 
 <TabItem value="nexus-repository" label="Nexus Repository">
 
 Under the administration view, select `Settings` --> `System` --> `Tasks` on the left nav:
 
-![](./assets/sona-tasks.png)
+![Nexus Repository Settings menu with System expanded and Tasks selected](./assets/sona-tasks.png)
 
-Select `Create task` and create a `Maven - Publish Maven Indexer files` task:
+Select **Create task** and create a `Maven - Publish Maven Indexer files` task:
 
-![](./assets/maven-publish.png)
+![Nexus task type list with Maven - Publish Maven Indexer files highlighted](./assets/maven-publish.png)
 
 Select the repository that will serve LST artifacts and specify a frequency with which this index should be updated:
 
-![](./assets/maven-publish-index.png)
+![Create Maven Publish Indexer files task form with repository and frequency fields](./assets/maven-publish-index.png)
 </TabItem>
 </Tabs>
 

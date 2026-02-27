@@ -24,7 +24,7 @@ Let's walk through how to find and use this recipe so you can be more confident 
 * Once there, you'll want to come up with a list of field names that represent PII or secrets for your company. For the purposes of this guide, let's go with [these options](https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindSensitiveApiEndpoints?defaults=W3sibmFtZSI6ImZpZWxkTmFtZXMiLCJ2YWx1ZSI6WyJiaXJ0aGRhdGUiLCJzc24iLCJkb2IiLCJkYXRlT2ZCaXJ0aCIsInN0cmVldEFkZHJlc3MiLCJmaXJzdE5hbWUiLCJsYXN0TmFtZSJdfSx7Im5hbWUiOiJ0cmFuc2l0aXZlIiwidmFsdWUiOiJUcnVlIn1d):
 
 <figure>
-  ![](./assets/find-sensitive-recipe.png)
+  ![Find sensitive API endpoints recipe with PII field names configured](./assets/find-sensitive-recipe.png)
   <figcaption>_Sensitive recipe options_</figcaption>
 </figure>
 
@@ -33,21 +33,21 @@ Let's walk through how to find and use this recipe so you can be more confident 
 * Once you've configured the recipe as you want, press the `Dry run` button and Moderne will begin searching for sensitive APIs. You'll be redirected to a page that looks like this. On the right side of the page, you'll see what APIs returned sensitive information.
 
 <figure>
-  ![](./assets/find-sensitive-results.png)
+  ![Recipe results showing repositories with sensitive API endpoints detected](./assets/find-sensitive-results.png)
   <figcaption>_Recipe results_</figcaption>
 </figure>
 
 * Clicking on the text that is highlighted will provide you with context about what sensitive data is exposed:
 
 <figure>
-  ![](./assets/sensitive-pet-example.png)
+  ![Code diff popup showing Pet class with sensitive getBirthDate method](./assets/sensitive-pet-example.png)
   <figcaption>_Example context_</figcaption>
 </figure>
 
 * If you enabled a transitive search, you may find results that step through multiple classes such as in the `Owner` -> `Pet` example we discussed above:
 
 <figure>
-  ![](./assets/owner-transitive-example.png)
+  ![Transitive search result tracing Owner to Pet to sensitive field path](./assets/owner-transitive-example.png)
   <figcaption>_Transitive example_</figcaption>
 </figure>
 

@@ -37,21 +37,21 @@ Let's take a look at a recipe that attempts to fix security vulnerabilities and 
 
 To get started, make sure you've selected the `Default` organization and then run the [check for dependency vulnerabilities](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck?) recipe:
 
-![](./assets/check-dep-1.png)
+![Find and fix vulnerable dependencies recipe page with description and options](./assets/check-dep-1.png)
 
 You will then be taken to the recipe results page:
 
-![](./assets/find-vuln-dep-results.png)
+![Recipe results showing a pom.xml diff upgrading netty-handler version to fix a vulnerability](./assets/find-vuln-dep-results.png)
 
 If the recipe can fix a security vulnerability, it will do so. You can view the diffs and commit the results as you would in any other recipe. In most situations, however, this recipe will identify that there is a security vulnerability rather than fix it. If there are security vulnerabilities identified, the recipe will produce a detailed data table.
 
 To see the data table, wait until the recipe has finished running and then click on the `Data Tables` tab:
 
-![](./assets/data-tables-tab.png)
+![Arrow pointing to the Data tables tab in the recipe results navigation](./assets/data-tables-tab.png)
 
 You should now be on a page that lists all of the data tables available for this recipe:
 
-![](./assets/data-tables-list.png)
+![Data tables list showing Vulnerability report, Source files, and Recipe performance tables](./assets/data-tables-list.png)
 
 As the `recipe performance` and `source files that had results` tables are primarily for the people who wrote the recipe, let's ignore them and focus on the `vulnerability report` data table instead (feel free to download them and look at them, though). The `vulnerability report` table was specifically coded into the `check for dependency vulnerabilities` recipe and it will have data relevant to our needs.
 
@@ -59,7 +59,7 @@ To view it, click the download button next to the vulnerability report and save 
 
 You should see that the data table contains critical information about the vulnerabilities found in the repository. Your team can then use this information to prioritize which security issues should be addressed first:
 
-![](./assets/check-dep-5.png)
+![Spreadsheet with vulnerability data including CVE IDs, severity scores, and affected repositories](./assets/check-dep-5.png)
 
 ## When you should create data tables
 

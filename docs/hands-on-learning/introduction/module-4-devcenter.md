@@ -80,14 +80,14 @@ In this exercise, you'll explore a DevCenter dashboard in the Moderne Platform.
 3. Click on `DevCenter` in the left navigation.
 
 <figure>
-  ![](../../user-documentation/moderne-platform/getting-started/assets/devcenter-nav.png)
+  ![Left sidebar with DevCenter navigation link highlighted](../../user-documentation/moderne-platform/getting-started/assets/devcenter-nav.png)
   <figcaption>_DevCenter navigation link_</figcaption>
 </figure>
 
 4. If the organization has a DevCenter dashboard configured, you'll see organizational metrics, change campaign cards, and security information.
 
 <figure>
-  ![](./assets/devcenter-example-default.png)
+  ![DevCenter dashboard showing org metrics, change campaign cards, and security section](./assets/devcenter-example-default.png)
   <figcaption>_DevCenter example for Default organization_</figcaption>
 </figure>
 
@@ -123,7 +123,7 @@ Look at the security section at the bottom:
 
 1. The security card shows a list of vulnerabilities identified in the DevCenter recipe along with a radar chart indicating how many occurrences of each vulnerability appear in the codebase.
 2. Click on a vulnerability in the list or on a section of the radar chart to get more information about the vulnerability and the number of occurrences.
-3. Click `Dry Run` to run the security recipe identified in the DevCenter recipe to fix the vulnerabilities.
+3. Click **Dry Run** to run the security recipe identified in the DevCenter recipe to fix the vulnerabilities.
 4. Review the results to see what vulnerabilities were found/fixed.
 
 ### Takeaways

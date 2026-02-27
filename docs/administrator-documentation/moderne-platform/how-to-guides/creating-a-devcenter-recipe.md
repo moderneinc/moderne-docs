@@ -59,7 +59,7 @@ description: >-
   It includes a combination of upgrades, migrations, and security fixes.
   You can customize this configuration to suit your needs.
   
-  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/dev-center/).
+  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](../../../user-documentation/moderne-platform/getting-started/dev-center.md).
 ```
 
 ### Recipe list
@@ -87,7 +87,7 @@ DevCenter recipes have two notable properties worth calling out:
 * `upgradeRecipe` is a property that defines the recipe that should be run to upgrade your repositories. It is the recipe that will get executed when you press the `Upgrade` button on a card.
 
 <figure>
-  ![](./assets/example-card.png)
+  ![DevCenter card for Move to Java 21 showing a donut chart with repo categories and an Upgrade button](./assets/example-card.png)
   <figcaption>_An example of a DevCenter card._</figcaption>
 </figure>
 
@@ -104,7 +104,7 @@ description: >-
   This recipe is a starter card to reveal common OWASP Top 10 issues in your source code.
   You can customize this configuration to suit your needs.
   
-  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/user-documentation/moderne-platform/getting-started/dev-center/).
+  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](../../../user-documentation/moderne-platform/getting-started/dev-center.md).
 recipeList:
   - org.openrewrite.java.security.OwaspA01
   - org.openrewrite.java.security.OwaspA02
@@ -124,7 +124,7 @@ This security recipe differs slightly from a traditional YAML recipe. In the rec
 This recipe takes in a `fixRecipe` property that defines the recipe that can be run to fix the issues reported by the above security recipes.
 
 <figure>
-  ![](./assets/example-security.png)
+  ![DevCenter Security section listing OWASP vulnerabilities with a radar chart and occurrence details](./assets/example-security.png)
   <figcaption>_An example of a security section in a DevCenter._</figcaption>
 </figure>
 

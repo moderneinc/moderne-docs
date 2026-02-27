@@ -73,7 +73,7 @@ In this exercise, you'll create a custom migration recipe that replaces Spring's
 4. Now click the `+ New recipe` at the bottom of the "Manage my recipes" screen, or if the Builder is already showing a recipe, click the recipe name in the upper left and select `New`.
 
 <figure>
-![](./assets/recipe-builder-start.png)
+![Recipe builder welcome screen with New recipe and Import from YAML buttons](./assets/recipe-builder-start.png)
 <figcaption>_Recipe builder start screen_</figcaption>
 </figure>
 
@@ -82,10 +82,10 @@ In this exercise, you'll create a custom migration recipe that replaces Spring's
 1. Enter the name `Use Apache StringUtils` for your recipe.
 2. The system will auto-generate an ID like `com.yourorg.UseApacheStringUtils`. You can customize this if you want by toggling "Auto-generate ID from name" to "Manually enter ID".
 3. Add a description: `Migrate from Spring StringUtils to Apache Commons StringUtils`.
-4. Click `Save`.
+4. Click **Save**.
 
 <figure>
-![](./assets/recipe-builder-new.png)
+![New recipe form with Name, ID, and Description fields filled in](./assets/recipe-builder-new.png)
 <figcaption>_Recipe builder New Recipe screen_</figcaption>
 </figure>
 
@@ -96,15 +96,15 @@ First, you need to add the Apache Commons Lang dependency:
 1. Mouse over the root node in the recipe list on the right and click the `+` button. The root node should match the display name you entered in the previous step (`Use Apache StringUtils`).
 
 <figure>
-![](./assets/recipe-builder-root-node.png)
+![Root recipe node with tooltip showing Add recipe to this recipe node](./assets/recipe-builder-root-node.png)
 <figcaption>_Hovering over the root node shows options to add or edit._</figcaption>
 </figure>
 
 2. Search for `Add Gradle or Maven dependency (java)` and select it.
-3. Click `Add recipe` in the lower right of the screen.
+3. Click **Add recipe** in the lower right of the screen.
 
 <figure>
-![](./assets/recipe-builder-add-recipe.png)
+![Add a recipe dialog with search results for Add Gradle or Maven dependency](./assets/recipe-builder-add-recipe.png)
 <figcaption>_Select the recipe you want to add_</figcaption>
 </figure>
 
@@ -114,7 +114,7 @@ First, you need to add the Apache Commons Lang dependency:
    * **Version:** `3.x`
    * **Only if using:** `org.springframework.util.StringUtils`
    * You can leave all of the other options blank/default.
-5. Scroll down and click `Update` to add the configured recipe.
+5. Scroll down and click **Update** to add the configured recipe.
 
 #### Step 4: Add the change type recipe
 
@@ -122,11 +122,11 @@ Now you'll add a recipe to change the import from Spring to Apache:
 
 1. Click the `+` button on the root node again.
 2. Now search for `Change type (java)` and select it.
-3. Click `Add recipe` in the lower right of the screen.
+3. Click **Add recipe** in the lower right of the screen.
 4. Configure the options:
    * **Old fully-qualified type name:** `org.springframework.util.StringUtils`
    * **New fully-qualified type name:** `org.apache.commons.lang3.StringUtils`
-5. Click `Update` to add the recipe.
+5. Click **Update** to add the recipe.
 
 #### Step 5: Add method name changes (optional)
 
@@ -134,11 +134,11 @@ Spring's `StringUtils` has some methods with different names than Apache's versi
 
 1. Click the `+` button on the root node once again.
 2. This time, search for `Change method name (java)`.
-3. Click `Add recipe` in the lower right of the screen as before. 
+3. Click **Add recipe** in the lower right of the screen as before.
 4. Configure the options:
    * **Method pattern:** `org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)`
    * **New method name:** `strip`
-5. Click `Update` to add this recipe.
+5. Click **Update** to add this recipe.
 
 :::info
 Notice that the method pattern uses `org.apache.commons.lang3.StringUtils` even though you're changing from Spring's method. This is because recipes run in order, so by the time this recipe runs, the `ChangeType` recipe has already changed the import and type references.
@@ -149,16 +149,16 @@ Notice that the method pattern uses `org.apache.commons.lang3.StringUtils` even 
 1. Your recipe should now have three sub-recipes in the list.
 
 <figure>
-![](./assets/recipe-builder-complete.png)
+![Recipe list with three sub-recipes: Add dependency, Change type, and Change method name](./assets/recipe-builder-complete.png)
 <figcaption>_Recipe builder with configured recipes_</figcaption>
 </figure>
 
 2. From the recipe builder, click `Dry Run` at the top of the screen to quickly test your custom recipe against the currently selected organization.
 3. Once the recipe run completes you can verify the results. Then return to the recipe builder and click on the recipe name in the upper left corner.
-4. Select `Download YAML` to save the recipe file. Alternatively, you can use `Copy as YAML to clipboard` and paste into a new YAML document on your computer.
+4. Select **Download YAML** to save the recipe file. Alternatively, you can use **Copy as YAML to clipboard** and paste into a new YAML document on your computer.
 
 <figure>
-![](./assets/recipe-builder-download-yaml.png)
+![Recipe dropdown menu with Download YAML option highlighted](./assets/recipe-builder-download-yaml.png)
 <figcaption>_Download declarative recipe in YAML format_</figcaption>
 </figure>
 

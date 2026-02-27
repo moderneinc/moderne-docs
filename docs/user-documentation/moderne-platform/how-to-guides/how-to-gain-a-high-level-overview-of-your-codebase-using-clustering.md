@@ -10,7 +10,7 @@ Recipes and visualizations that use AI may produce incorrect or incomplete resul
 :::
 
 <figure>
-  ![](./assets/clustering_methods.gif)
+  ![Animated demo of AI-powered method clustering visualization](./assets/clustering_methods.gif)
   <figcaption></figcaption>
 </figure>
 
@@ -29,7 +29,7 @@ It also allows developers to quickly spot method names that don’t follow estab
 Embeddings are numerical representations of data concepts that AI models can operate on. A data concept can be an image, a word, a document, chunks of a document, or even a method declaration. Since embeddings are vectors of floats, they can be used to do arithmetics. With the basis that embeddings represent entities, if two entities’ embeddings are close to each other numerically, the two entities will be similar. For example, you might think that “love” and “hate” would be far from each other, but they tend to have similar embeddings. They both are emotions that people use to define a relationship in regard to something or someone else.
 
 <figure>
-    ![](./assets/ai-relationship.png)
+    ![Embedding space with hate, love, and adore clustered together, table separate](./assets/ai-relationship.png)
     <figcaption></figcaption>
 </figure>
 
@@ -42,21 +42,21 @@ Clustering is the process of grouping similar objects together based on their fe
 Before starting the visualization, you must first [run a recipe which collects the embeddings for each method or class](https://app.moderne.io/recipes/io.moderne.ai.research.GetCodeEmbedding) (depending on your preference). Select `methods` or `classes` depending on which one you want to analyze.
 
 <figure>
-  ![](./assets/ai-embeddings.png)
+  ![GetCodeEmbedding recipe page with methods and classes snippet type options](./assets/ai-embeddings.png)
   <figcaption></figcaption>
 </figure>
 
 Once the recipe has finished running, click on the visualization tab and run the "clustering code snippets" visualization.
 
 <figure>
-  ![](./assets/ai-clustering.png)
+  ![Clustering methods or classes visualization with Run Visualization button](./assets/ai-clustering.png)
   <figcaption></figcaption>
 </figure>
 
 As a result you will get a 2D scatter plot, where each dot represents either a method or a class depending on what you selected. You can hover over any dot to reveal the name of the method or class. The closer two dots are, the more likely their contents are similar. For instance, you can expect to find methods that read, write, or delete files near each other.
 
 <figure>
-  ![](./assets/ai-clustering-graph.png)
+  ![2D scatter plot with color-coded clusters of method declarations](./assets/ai-clustering-graph.png)
   <figcaption></figcaption>
 </figure>
 

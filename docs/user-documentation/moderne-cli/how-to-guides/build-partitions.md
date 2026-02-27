@@ -143,7 +143,7 @@ On the Moderne Platform, recipe results from different partitions are currently 
 When performing a `mod build`, notice that the Moderne CLI still selects one repository (i.e. there is only one Git root), but there are separate entries in the output for each partition. The partition name is appended to the repository's path with a `!`.
 
 <figure>
-  ![](./assets/mod-build-partition.png)
+  ![CLI output showing mod build with three partitions: client, everything-else, and service, each built separately](./assets/mod-build-partition.png)
   <figcaption>_`mod build` on a repository with two defined partitions_</figcaption>
 </figure>
 
@@ -157,7 +157,7 @@ mod run . --recipe org.openrewrite.java.search.FindMethods \
 ```
 
 <figure>
-  ![](./assets/mod-run-partition.png)
+  ![CLI output showing mod run executing FindMethods recipe on three partitions with completion status](./assets/mod-run-partition.png)
   <figcaption>_`mod run` on a partitioned repository_</figcaption>
 </figure>
 

@@ -315,15 +315,15 @@ In this exercise, you'll run recipes in the Moderne Platform and use the `Data T
    * You can leave all of the other options blank/default.
 
 <figure>
-![](./assets/dependency-insight-configure.png)
+![Dependency insight recipe options with group pattern and artifact pattern fields](./assets/dependency-insight-configure.png)
 <figcaption>_Configuring the Dependency Insight recipe_</figcaption>
 </figure>
 
-5. Click `Dry Run` to kick off the recipe.
+5. Click **Dry Run** to kick off the recipe.
 6. When it's finished, notice the results don't show a diff with the usual red/green styling, but rather highlight the search results in yellow. The code still includes the markers as you saw in the previous exercise (e.g. `/*~~>*/`), but the UI renders them as highlighted code to make it easier to see and understand. If you mouseover a highlighted portion, you will see some additional detail.
 
 <figure>
-![](./assets/search-results-ui.png)
+![Diff view with Jackson dependencies highlighted in yellow and search result tooltip](./assets/search-results-ui.png)
 <figcaption>_Highlighted search results in the platform_</figcaption>
 </figure>
 
@@ -332,15 +332,15 @@ In this exercise, you'll run recipes in the Moderne Platform and use the `Data T
 1. From the recipe results page, open the `Visualizations` tab and run the `Dependency usage` visualization.
 
 <figure>
-![](./assets/run-dependency-usage-visualization.png)
-<figcaption>_Click `Run Visualization` to see the violin chart._</figcaption>
+![Visualizations tab with Dependency usage violin chart and Run visualization button](./assets/run-dependency-usage-visualization.png)
+<figcaption>_Click **Run Visualization** to see the violin chart._</figcaption>
 </figure>
 
 2. Once it renders, you will see a **violin chart** showing the version distribution for the specified libraries across repositories.
 3. Now return to the results screen and open the `Data Tables` tab. Download the `Dependencies in use` table as a CSV or Excel file and open it in your preferred application for deeper analysis. This table is what's driving the underlying data for the visualization you just saw.
 
 <figure>
-![](./assets/download-dependency-usage-data-table.png)
+![Data tables tab listing Dependencies in use with CSV and XLS download options](./assets/download-dependency-usage-data-table.png)
 <figcaption>_Click on CSV or XLS to download the data table in the desired format._</figcaption>
 </figure>
 

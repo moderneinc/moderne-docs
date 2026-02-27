@@ -65,7 +65,7 @@ For each of those, there are a wide variety of options that you can configure to
 <TabItem value="direct-commit" label="Committing directly">
 
 <figure>
-  ![](./assets/direct-commit.png)
+  ![Commit directly modal with commit title, extended message, and GPG signature options](./assets/direct-commit.png)
   <figcaption>_Options when committing directly_</figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ For each of those, there are a wide variety of options that you can configure to
 <TabItem value="branch" label="Creating a branch">
 
 <figure>
-  ![](./assets/create-branch.png)
+  ![Create a branch modal with branch name, commit title, and extended message fields](./assets/create-branch.png)
   <figcaption>_Options when creating a branch_</figcaption>
 </figure>
 
@@ -83,7 +83,7 @@ For each of those, there are a wide variety of options that you can configure to
 <TabItem value="fork" label="Creating a fork">
 
 <figure>
-  ![](./assets/create-fork.png)
+  ![Create a fork modal with commit options and fork organization and namespace settings](./assets/create-fork.png)
   <figcaption>_Options when creating a fork_</figcaption>
 </figure>
 
@@ -92,7 +92,7 @@ For each of those, there are a wide variety of options that you can configure to
 <TabItem value="pull-request" label="Creating a PR">
 
 <figure>
-  ![](./assets/create-pr.png)
+  ![Create a pull request modal with PR title, body, draft option, and auto merge settings](./assets/create-pr.png)
   <figcaption>_Options when creating a pull request_</figcaption>
 </figure>
 
@@ -101,7 +101,7 @@ For each of those, there are a wide variety of options that you can configure to
 <TabItem value="pull-request-fork" label="Creating a PR from a fork">
 
 <figure>
-  ![](./assets/create-pr-fork.png)
+  ![Create PR from fork modal with fork options, PR title, and maintainer modify checkbox](./assets/create-pr-fork.png)
   <figcaption>_Options when creating a pull request from a fork_</figcaption>
 </figure>
 
@@ -129,7 +129,7 @@ There are two ways to get to the page that tracks the status of commits or PRs:
 2. **Manually**: If you didn't run a recipe – or you ran one and wanted to get back to the commit view page, you can navigate there from the [activity view](../getting-started/activity-view.md).
 
 <figure>
-  ![](./assets/commit-activity-view.png)
+  ![Activity view showing commit job linked to its parent recipe run](./assets/commit-activity-view.png)
   <figcaption>_A link to the commit view in the activity view._</figcaption>
 </figure>
 
@@ -140,7 +140,7 @@ From the commit view, you can take various actions depending on whether or not y
 #### If you opened PRs
 
 <figure>
-  ![](./assets/commit-view-prs.png)
+  ![Commit view showing PR status with Approve, Merge, Close, and Re-run failed buttons](./assets/commit-view-prs.png)
   <figcaption>_What the commit view looks like if you've opened PRs._</figcaption>
 </figure>
 
@@ -153,7 +153,7 @@ If opening a PR failed for some reason, you can see the details of why on this s
 You might also see a PR status of `Blocked` if a review is required but the PR hasn't been reviewed yet. Likewise, you might see `Blocked` if the CI pipeline needs to complete before merging but it hasn't finished yet. If you mouse over the `Blocked` status, you'll get more information about it:
 
 <figure>
-  ![](./assets/blocked.png)
+  ![PR status popup showing Mergeable Blocked, CI In progress, and Reviews Review required](./assets/blocked.png)
   <figcaption>_An example of a commit being blocked._</figcaption>
 </figure>
 
@@ -162,7 +162,7 @@ Lastly, you can download all of this information as a data table by clicking on 
 #### If you committed directly
 
 <figure>
-  ![](./assets/commit-view-commits.png)
+  ![Commit view showing completed direct commits with repository names and Re-run failed button](./assets/commit-view-commits.png)
   <figcaption>_What the commit view looks like if you've committed directly._</figcaption>
 </figure>
 

@@ -161,7 +161,7 @@ Also note that organizations on the left are children of organizations on the ri
 Comma-separated files (CSV) are best manipulated using a dedicated editor such as Microsoft Excel, Google Sheets, or Apple Numbers. Here is what the above CSV would look like on Apple Numbers:
 
 <figure>
-  ![](./assets/numbers-csv-screenshot.png)
+  ![Spreadsheet view of repos.csv with cloneUrl, branch, org1, org2, and org3 columns defining the hierarchy](./assets/numbers-csv-screenshot.png)
   <figcaption></figcaption>
 </figure>
 :::
@@ -175,6 +175,6 @@ Comma-separated files (CSV) are best manipulated using a dedicated editor such a
 * You can order columns in any way.
 
 <figure>
-  ![](./assets/repos-csv-example.png)
+  ![Spreadsheet showing repos.csv with repositories assigned to multiple org levels including AWS, FINOS, Netflix, and Spring](./assets/repos-csv-example.png)
   <figcaption>_An example demonstrating various orgs lining up with blanks in between_.</figcaption>
 </figure>

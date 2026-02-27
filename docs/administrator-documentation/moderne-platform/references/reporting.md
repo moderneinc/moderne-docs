@@ -30,7 +30,7 @@ Audit logs can be exported in two formats:
 ### Exporting via the UI
 
 <figure>
-  ![](./assets/audit-logs.png)
+  ![Audit logs table showing user actions, targets, action types, and timestamps](./assets/audit-logs.png)
   <figcaption></figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ To download audit logs from the UI:
 2. (Optionally) Use the date range picker to limit the export to a specific time period.
 3. Click on "Export to CEF" or "Export to CSV" depending on your desired format.
 
-![](./assets/audit-log-download.png)
+![Export to CEF button](./assets/audit-log-download.png)
 
 ### Exporting via the GraphQL API
 
@@ -114,11 +114,11 @@ curl -H "Authorization: Bearer <YOUR_MODERNE_PAT>" "<download-url>"
 To access non-audit-log reports, navigate to `https://<TENANT>.moderne.io/admin/reports`.
 
 <figure>
-  ![](./assets/reports.png)
+  ![Reports table listing Recipe runs, Commits, and Usage reports with download actions](./assets/reports.png)
   <figcaption></figcaption>
 </figure>
 
-These reports can be downloaded using the download button: ![](./assets/report-download.png)
+These reports can be downloaded using the download button: ![Cloud download icon in the Actions column](./assets/report-download.png)
 
 ## Usage report
 
@@ -155,6 +155,6 @@ The output of `secondDownloadRecipeRunReport` will include a URL which you can t
 **Note:** These actions require admin access, and Moderne tokens do not provide admin access (even for platform administrators). You must use your current JWT, accessible by accessing `https://<TENANT>.moderne.io/graphql` and copying the authorization:
 
 <figure>
-  ![](./assets/admin-access.png)
+  ![GraphQL explorer Request Headers tab showing Authorization Bearer token](./assets/admin-access.png)
   <figcaption></figcaption>
 </figure>

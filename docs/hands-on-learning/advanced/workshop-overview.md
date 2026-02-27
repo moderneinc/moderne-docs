@@ -13,7 +13,7 @@ Be sure to also follow the links to the [OpenRewrite documentation](https://docs
 
 If you get stuck or have questions, feel free to ask in the [OpenRewrite Slack](https://join.slack.com/t/rewriteoss/shared_invite/zt-nj42n3ea-b\~62rIHzb3Vo0E1APKCXEA) or [Discord](https://discord.gg/xk3ZKrhWAb).
 
-## What You'll Learn
+## What you'll learn
 
 * How to set up and optimize your development environment for recipe authoring
 * Debugging techniques using both the CLI and the IntelliJ plugin

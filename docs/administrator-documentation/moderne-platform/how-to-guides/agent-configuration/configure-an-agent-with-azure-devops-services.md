@@ -14,19 +14,19 @@ In order to view recipe results and commit changes from a recipe back to Azure D
 Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth and the legacy Azure DevOps OAuth 2.0 models. The Moderne platform only supports the Microsoft Entra ID OAuth model.
 :::
 
-## Azure DevOps Services Configuration
+## Azure DevOps Services configuration
 
 ### Step 1: Create a Microsoft Entra ID OAuth App registration
 
 1. Navigate to https://portal.azure.com
 2. Under Azure services, click on **Microsoft Entra ID**
     <figure>
-      ![](./assets/azure_services_entra_id.png)
+      ![Azure services panel with Microsoft Entra ID highlighted](./assets/azure_services_entra_id.png)
       <figcaption></figcaption>
     </figure>
 3. Click on **App registrations**
     <figure>
-      ![](./assets/azure_entra_id_app_registrations.png)
+      ![Microsoft Entra ID sidebar menu showing App registrations option](./assets/azure_entra_id_app_registrations.png)
       <figcaption></figcaption>
     </figure>
 4. Click on **New registration**
@@ -35,13 +35,13 @@ Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth an
     2. Select **Single Tenant** under **Supported account types**
     3. In the **Redirect URI** section, enter a Web platform entry with the URL `https://<TENANT>.moderne.io`
     <figure>
-      ![](./assets/azure_entra_id_register_an_application.png)
+      ![Register an application form with name, supported account types, and redirect URI fields](./assets/azure_entra_id_register_an_application.png)
       <figcaption></figcaption>
     </figure>
 6. Click **Register**
 7. In the app's Overview page click **Add a certificate or secret**
     <figure>
-      ![](./assets/azure_oauth_add_client_secret.png)
+      ![App overview showing Client credentials with Add a certificate or secret link](./assets/azure_oauth_add_client_secret.png)
       <figcaption></figcaption>
     </figure>
 8. Click **New client secret**
@@ -49,14 +49,14 @@ Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth an
     1. Enter "Moderne client OAuth app client secret" or similar in the **Description** field
     2. Optionally set a non-default secret expiration in the **Expires** field
         <figure>
-          ![](./assets/azure_oauth_add_client_secret_form.png)
+          ![Add a client secret form with description and expiration fields](./assets/azure_oauth_add_client_secret_form.png)
           <figcaption></figcaption>
         </figure>
     3. Click **Add**
 10. Under Manage, click on **API permissions**
     1. Add Azure DevOps permissions for **vso.code_manage** and **vso.graph**
     <figure>
-      ![](./assets/azure_oauth_add_api_permissions.png)
+      ![Configured API permissions showing vso.code_manage and vso.graph for Azure DevOps](./assets/azure_oauth_add_api_permissions.png)
       <figcaption></figcaption>
     </figure>
 
@@ -131,7 +131,7 @@ The OAuth token is scoped to the individual user who authorizes it — Moderne c
 The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Azure DevOps Services instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
 
 Values for client ID, client secret and tenant ID can be found in the Overview page for your OAuth app's registration:
-![](./assets/azure_oauth_app_registration_overview.png)
+![OAuth app registration overview showing client ID, tenant ID, and client credentials](./assets/azure_oauth_app_registration_overview.png)
 
 :::info
 You can configure multiple Azure DevOps OAuth apps by including multiple entries, each with a different `{index}`.

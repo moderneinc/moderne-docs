@@ -16,7 +16,7 @@ Let's walk through how to use this feature.
 To begin, find some API that you're interested in searching for. Then right-click on one of its usages and select `Find Usages on All Repos`.
 
 <figure>
-  ![](./assets/find-usages.png)
+  ![IntelliJ right-click context menu with Find Usages on All Repos option highlighted](./assets/find-usages.png)
   <figcaption>_The `Find Usages on All Repos` action is available next to the `Find Usages` action that the IDE provides._</figcaption>
 </figure>
 
@@ -31,13 +31,13 @@ For more information about creating search recipes using the Moderne plugin, che
 :::
 
 <figure>
-  ![](./assets/run-find-recipe.png)
+  ![Options to Initiate Search popup with Run Find Recipe, Create Recipe Refaster Style, and Visitor Style](./assets/run-find-recipe.png)
   <figcaption>_`Run Find Recipe` kicks off a recipe run using OpenRewrite's `Find method usages`._</figcaption>
 </figure>
 
 If you choose to initiate the search via `Run Find Recipe`, you will immediately see a new Usages window open in the IDE, and a progress bar that shows which repository in the multi-repo the recipe is currently running on. Amazingly, the results of this OpenRewrite recipe have been brought directly back into the IDE and surfaced in the Usages view that engineers are already familiar with.
 
 <figure>
-  ![](./assets/usages-view.png)
+  ![IntelliJ Usages panel showing search results grouped by repository with matching code references](./assets/usages-view.png)
   <figcaption>_No need to learn another user interface. Engineers are already familiar with the Usages view._</figcaption>
 </figure>

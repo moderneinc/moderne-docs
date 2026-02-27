@@ -34,7 +34,7 @@ Choose the installation path that matches your setup:
 2. Click on `?` in the top right-hand corner and select the version of the CLI you want to download (Stable or Staging). In general, you should use _staging_ when working with the CLI locally, and you should use _stable_ for crucial mass-ingest process runs.
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
-![](./assets/cli-download.gif)
+![Moderne Platform help menu showing CLI download options for different operating systems](./assets/cli-download.gif)
 
 4. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location – or this could involve putting it in a directory that's already on your `PATH` (such as a `/user/bin` directory).
    * Remember to refresh any open terminals if you modify the `PATH`.
@@ -97,7 +97,7 @@ Commands:
 
 The Moderne CLI offers a command which generates a completion script that can be used to set up auto-completion in your terminal. After initializing this script, you can type `mod config` and press tab and then your terminal will offer suggestions for the sub-commands or parameters:
 
-![](./assets/cli-auto-complete.png)
+![Terminal showing mod config auto-complete suggestions such as build, java, moderne, and recipes](./assets/cli-auto-complete.png)
 
 To configure this for the terminal you're using, please enter the following command in your terminal:
 
@@ -172,7 +172,7 @@ This will grab _all_ of the recipes from the tenant you specified in `mod config
 2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging). In general, you should use _staging_ when working with the CLI locally, and you should use _stable_ for crucial mass-ingest process runs.
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
-![](./assets/cli-download.gif)
+![Moderne Platform help menu showing CLI download options for different operating systems](./assets/cli-download.gif)
 
 4. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location – or this could involve putting it in a directory that's already on your `PATH` (such as a `/user/bin` directory).
    * Remember to refresh any open terminals if you modify the `PATH`.
@@ -235,7 +235,7 @@ Commands:
 
 The Moderne CLI offers a command which generates a completion script that can be used to set up auto-completion in your terminal. After initializing this script, you can type `mod config` and press tab and then your terminal will offer suggestions for the sub-commands or parameters:
 
-![](./assets/cli-auto-complete.png)
+![Terminal showing mod config auto-complete suggestions such as build, java, moderne, and recipes](./assets/cli-auto-complete.png)
 
 To configure this for the terminal you're using, please enter the following command in your terminal:
 
@@ -294,7 +294,7 @@ If you're configuring the CLI in a non-interactive environment (such as CI/CD pi
 
 1. Navigate to `https://<TENANT>.moderne.io/settings/access-token` (replace `<TENANT>` with your tenant name)
 2. Enter a human-readable name for the token (e.g., cli-token)
-3. Press `Generate`
+3. Press **Generate**
 4. Copy the generated token and use it with the login command:
 
 ```bash
@@ -545,7 +545,7 @@ mod trace builds analyze . --last-build
 ```
 
 <figure>
-  ![](./assets/mod-trace-analyze-build.png)
+  ![Build Trace Analysis dashboard with build tool charts, success rates, and build time metrics](./assets/mod-trace-analyze-build.png)
   <figcaption>_Build telemetry dashboard view_</figcaption>
 </figure>
 

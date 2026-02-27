@@ -28,13 +28,13 @@ This token _is not_ used for accessing or viewing source code. That is done via 
 Users can find this token by clicking on the GraphQL icon in the top middle of the Moderne Platform once they are logged in:
 
 <figure>
-  ![](./assets/graphql-link.png)
+  ![Moderne Platform help menu with API explorer link highlighted](./assets/graphql-link.png)
 </figure>
 
 From there, at the bottom of the GraphQL Explorer, there is a `request headers` tag that includes this token:
 
 <figure>
-  ![](./assets/request-headers-token.png)
+  ![GraphQL API Explorer showing Authorization Bearer token in Headers tab](./assets/request-headers-token.png)
 </figure>
 
 This token can be used to make general GraphQL API calls. Please note, though, that it is preferable to create a [Personal Access Token](#personal-access-tokens) for interacting with the APIs as Personal Access Tokens do not expire.
@@ -49,7 +49,7 @@ If you are an admin, tokens you create can only be used if you've logged into th
 
 Login tokens expire after one hour.
 
-## Personal Access Tokens
+## Personal access tokens
 
 Personal access tokens are used to make queries against the [Moderne GraphQL API](https://api.app.moderne.io/).
 
@@ -66,7 +66,7 @@ Your organization's administrator may have configured a maximum expiry limit for
 :::
 
 <figure>
-  ![](./assets/access-token-expiration.png)
+  ![Access token creation form with expiration duration dropdown options](./assets/access-token-expiration.png)
 </figure>
 
 For instructions on how to revoke personal access tokens, please see our [managing personal access tokens doc](../how-to-guides/create-api-access-tokens.md#how-to-revoke-an-access-token)
@@ -75,7 +75,7 @@ For instructions on how to revoke personal access tokens, please see our [managi
 
 For instructions on how to create, view, or revoke personal access tokens, please read the [managing personal access tokens doc](../how-to-guides/create-api-access-tokens.md).
 
-## Source Code Management (SCM) OAuth token
+## Source code management (SCM) OAuth token
 
 In order for users to see or interact with source code, an SCM token needs to be created. These tokens are created when a user clicks on one of the SCM logos in the top right corner of the screen OR when an action is performed that requires this token such as viewing a diff or committing code.
 

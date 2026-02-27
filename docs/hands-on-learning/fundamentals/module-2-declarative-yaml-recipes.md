@@ -127,7 +127,7 @@ mod run . --recipe=com.yourorg.UseApacheStringUtils
 
 ## Exercise 2-2: Add preconditions to the declarative recipe
 
-You may not necessarily always want recipes to affect every file in a codebase. For example, a recipe intended for test code should only run on files that are tests, and a recipe that updates `ArrayList` usage should only run where `ArrayList` appears. Preconditions are recipes themselves, used to narrow the scope of another recipe so it only runs where it makes sense. This keeps runs focused and fast while also making the recipe easier to understand, debug, and maintain. For additional guidance, see [Use preconditions](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-preconditions).
+You may not necessarily always want recipes to affect every file in a codebase. For example, a recipe intended for test code should only run on files that are tests, and a recipe that updates `ArrayList` usage should only run where `ArrayList` appears. Preconditions are recipes themselves, used to narrow the scope of another recipe so it only runs where it makes sense. This keeps runs focused and fast while also making the recipe easier to understand, debug, and maintain. For additional guidance, check out the [Use preconditions](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-preconditions) section of the recipe conventions guide.
 
 In this exercise, you will update the `stringutils.yml` recipe to only run on sources that are likely tests by adding a precondition that uses [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://docs.openrewrite.org/recipes/java/search/islikelytest).
 

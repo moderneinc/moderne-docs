@@ -28,14 +28,14 @@ Follow [this Atlassian guide](https://support.atlassian.com/bitbucket-cloud/docs
 Once that's done, configure the callback URL to point at your Moderne tenant:
 
 <figure>
-  ![](./assets/callback.png)
+  ![Bitbucket Add OAuth consumer form with Name and Callback URL fields](./assets/callback.png)
   <figcaption></figcaption>
 </figure>
 
 The consumer should have these permissions:
 
 <figure>
-  ![](./assets/bitbucket-cloud-permissions.png)
+  ![Bitbucket OAuth consumer permissions with Account, Projects, Repositories, and Pull requests selected](./assets/bitbucket-cloud-permissions.png)
   <figcaption></figcaption>
 </figure>
 
@@ -104,7 +104,7 @@ The OAuth token is scoped to the individual user who authorizes it — Moderne c
 Once your consumer has been created, you should see a `key` and a `secret`:
 
 <figure>
-  ![](./assets/key-secret.png)
+  ![Bitbucket OAuth consumer details showing Key and Secret values](./assets/key-secret.png)
   <figcaption></figcaption>
 </figure>
 

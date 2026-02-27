@@ -16,12 +16,12 @@ In this module, you will run the Spring Boot 4 migration recipe in the Moderne P
 ### Steps
 
 1. Ensure `Moderne - Training` is still selected in the org dropdown.
-2. Click `DevCenter` in the left nav.
+2. Click **DevCenter** in the left nav.
 3. Note the current status of Java and Spring Boot versions.
 4. Keep this page handy so you can compare after upgrading each group of repositories.
 
 <figure>
-  ![](./assets/dev-center-baseline.png)
+  ![DevCenter baseline showing Spring Boot, Java, and JUnit upgrade status across 11 repos](./assets/dev-center-baseline.png)
   <figcaption>_DevCenter baseline_</figcaption>
 </figure>
 
@@ -37,61 +37,61 @@ In this module, you will run the Spring Boot 4 migration recipe in the Moderne P
 #### Step 1: Open the Moderne Platform
 
 1. Navigate to [app.moderne.io](https://app.moderne.io/) and sign in.
-2. Select `Moderne - Training` from the organization dropdown.
+2. Select **Moderne - Training** from the organization dropdown.
 
 <figure>
-  ![](./assets/moderne-training-org.png)
+  ![Organization dropdown with Moderne - Training selected](./assets/moderne-training-org.png)
   <figcaption>_'Moderne - Training' org_</figcaption>
 </figure>
 
 #### Step 2: Create a migration recipe
 
-1. Click `Builder` in the left navigation.
+1. Click **Builder** in the left navigation.
 
 <figure>
-  ![](../../user-documentation/moderne-platform/how-to-guides/assets/builder-link.png)
+  ![Left sidebar with Builder navigation link highlighted](../../user-documentation/moderne-platform/how-to-guides/assets/builder-link.png)
   <figcaption>_Builder link_</figcaption>
 </figure>
 
 2. Click `+ New recipe` at the bottom of the "Manage my recipes" screen. If the builder already has a recipe open, click the recipe name in the upper left and select `New`.
 
 <figure>
-  ![](../../user-documentation/moderne-platform/how-to-guides/assets/recipe-welcome-modal.png)
+  ![Recipe builder welcome modal with New recipe button highlighted](../../user-documentation/moderne-platform/how-to-guides/assets/recipe-welcome-modal.png)
   <figcaption>_Welcome modal_</figcaption>
 </figure>
 
 <figure>
-  ![](../../user-documentation/moderne-platform/how-to-guides/assets/new-recipe-menu.gif)
+  ![Recipe name dropdown opening to show the New option](../../user-documentation/moderne-platform/how-to-guides/assets/new-recipe-menu.gif)
   <figcaption>_New recipe menu_</figcaption>
 </figure>
 
 3. Enter the name `Try Spring Boot 4 Upgrade` and save.
 
 <figure>
-  ![](./assets/try-spring-boot-4.png)
+  ![New recipe modal with name set to Try Spring Boot 4](./assets/try-spring-boot-4.png)
   <figcaption>_New recipe modal_</figcaption>
 </figure>
 
 4. Mouse over the root node in the recipe list and click the `+` button.
 
 <figure>
-  ![](../../user-documentation/moderne-platform/how-to-guides/assets/list-recipe-details.gif)
+  ![Recipe builder showing the root node with an empty recipe list and search field](../../user-documentation/moderne-platform/how-to-guides/assets/list-recipe-details.gif)
   <figcaption>_Add recipes from the recipe list_</figcaption>
 </figure>
 
 
 5. Search for `Migrate to Spring Boot 4.0` ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition)) and select it.
-6. Click `Add recipe`.
+6. Click **Add recipe**.
 
 <figure>
-  ![](./assets/add-spring-boot-4-recipe.png)
+  ![Add a recipe dialog with Migrate to Spring Boot 4.0 selected](./assets/add-spring-boot-4-recipe.png)
   <figcaption>_Add 'Migrate to Spring Boot 4.0' recipe_</figcaption>
 </figure>
 
-7. Click the `+` next to the root node in the recipe list again and search for `Verify compilation` ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) this time. Click `Add recipe` to add it.
+7. Click the `+` next to the root node in the recipe list again and search for `Verify compilation` ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) this time. Click **Add recipe** to add it.
 
 <figure>
-  ![](./assets/try-spring-boot-4-custom-recipe.png)
+  ![Recipe list with Migrate to Spring Boot 4.0 and Verify compilation sub-recipes](./assets/try-spring-boot-4-custom-recipe.png)
   <figcaption>_Custom recipe to run Spring Boot migration and then verify compilation_</figcaption>
 </figure>
 
@@ -117,7 +117,7 @@ In this workshop, you will likely see:
 These are common migration speed bumps. The rest of the workshop is structured to handle them methodically.
 
 <figure>
-  ![](./assets/build-failure-querydsl.png)
+  ![Recipe results showing compilation errors from QueryDSL generated classes](./assets/build-failure-querydsl.png)
   <figcaption>_One example of a compilation error is caused by the QueryDSL code generator._</figcaption>
 </figure>
 
@@ -142,7 +142,7 @@ A migration dry run plus the `Verify compilation` recipe ([`io.moderne.compiled.
 3. After the recipe run, click on the `Data tables` tab. Then download and open the `Java version migration plan` data table as a CSV or Excel file.
 
 <figure>
-  ![](./assets/java-version-migration-plan-data-table.png)
+  ![Data tables tab with Java version migration plan available for download](./assets/java-version-migration-plan-data-table.png)
   <figcaption>_Download the 'Java version migration plan' data table_</figcaption>
 </figure>
 
@@ -159,11 +159,11 @@ This helps you confirm the baseline Java versions and build tooling in use so yo
    - **Group pattern:** `org.springframework.boot`
    - **Artifact pattern:** `*`
    - **Scope:** `runtime`
-3. Click `Dry run` and wait for the recipe run to complete. Now open the `Dependencies in use` data table and download the CSV.
+3. Click **Dry run** and wait for the recipe run to complete. Now open the `Dependencies in use` data table and download the CSV.
 4. On the `Visualizations` tab, run the `Dependency usage visualization`.
 
 <figure>
-  ![](./assets/dependency-usage-visualization.png)
+  ![Dependency usage visualization with Run visualization button](./assets/dependency-usage-visualization.png)
   <figcaption>_'Dependency usage' visualization_</figcaption>
 </figure>
 
@@ -176,7 +176,7 @@ While you can run libraries compiled with an older version of Java in newer vers
 1. From the Marketplace, search for and select `Find types` ([`org.openrewrite.java.search.FindTypes`](https://docs.openrewrite.org/recipes/java/search/findtypes)).
 2. Configure the option:
    - **Fully qualified type name:** `javax..*`
-3. Click `Dry run`.
+3. Click **Dry run**.
 4. Open the `Type uses` data table and note the top usage hotspots.
 
 You can see that some of these projects use the validation and persistence APIs. This is something to keep an eye on to make sure that migration recipes upgrade to the new packages.
@@ -189,7 +189,7 @@ Code generators like QueryDSL are often the hardest blockers because they can em
 2. Configure the options:
    - **Group ID:** `com.mysema.maven`
    - **Artifact ID:** `apt-maven-plugin`
-3. Click `Dry run`.
+3. Click **Dry run**.
 4. Open the `SearchResults` data table and note which repos use QueryDSL.
 
 You should see four services that are using QueryDSL as part of their persistence layer.

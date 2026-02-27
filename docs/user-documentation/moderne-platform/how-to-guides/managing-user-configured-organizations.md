@@ -16,28 +16,28 @@ To help you get started with user-configured organizations, in this guide you wi
 ## How to create a user-configured organization
 
 <figure style={{maxWidth: '800px'}}>
-  ![](./assets/CreateUserOrg.gif)
+  ![Animated demo of creating a new user-configured organization](./assets/CreateUserOrg.gif)
   <figcaption>_A gif showing the whole process described below._</figcaption>
 </figure>
 
 1. In the top nav bar, you will see an organization selector:
 
 <figure style={{maxWidth: '800px'}}>
-  ![](./assets/org-selector.png)
+  ![Marketplace page with Default organization selector highlighted in the top nav bar](./assets/org-selector.png)
   <figcaption></figcaption>
 </figure>
 
 2. If you click on that, the Organizations modal will appear. Press the `Create User Organization` button in the bottom-left corner:
 
 <figure style={{maxWidth: '800px'}}>
-  ![](./assets/create-org-button.png)
+  ![Organizations modal with arrow pointing to Create user organization button](./assets/create-org-button.png)
   <figcaption></figcaption>
 </figure>
 
 3. You will be taken to the user-configured organization creation page:
 
 <figure style={{maxWidth: '800px'}}>
-  ![](./assets/create-org.png)
+  ![New user organization page with name field, repository search, and selection panels](./assets/create-org.png)
   <figcaption></figcaption>
 </figure>
 
@@ -46,7 +46,7 @@ To help you get started with user-configured organizations, in this guide you wi
 6. Once you've selected all the repositories you want to be in the organization, click on the `Save` button in the bottom right to create the user-configured organization. You will be redirected back to the Organizations page. At the bottom of that page, you will find your organizations under the `My organizations` heading.
 
 <figure>
-  ![](./assets/user-org.png)
+  ![Organizations list with My organizations section expanded showing custom organization](./assets/user-org.png)
   <figcaption></figcaption>
 </figure>
 
@@ -57,21 +57,21 @@ To help you get started with user-configured organizations, in this guide you wi
 1. From any page, click on the organization box under the search box:
 
 <figure>
-  ![](./assets/org-selector.png)
+  ![Marketplace page with Default organization selector highlighted in the top nav bar](./assets/org-selector.png)
   <figcaption></figcaption>
 </figure>
 
 2. This will take you to the list of organizations or user-configured organizations to select:
 
 <figure>
-  ![](./assets/organizations.png)
+  ![Organizations modal listing available organizations and custom user organizations](./assets/organizations.png)
   <figcaption></figcaption>
 </figure>
 
 3. To modify a user-configured organization, click on the triple dots next to the organization you want to modify and then select `Update organization`:
 
 <figure>
-  ![](./assets/update-org.png)
+  ![Context menu with Update, Copy, Delete, and Export organization options](./assets/update-org.png)
   <figcaption></figcaption>
 </figure>
 

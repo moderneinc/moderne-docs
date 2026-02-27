@@ -12,7 +12,7 @@ To help you understand how Moddy handles security and privacy, this doc will exp
 Moddy uses a bring-your-own-model (BYOM) approach, which means you choose the AI model. All traffic to the model is routed via an on-prem agent (not to be confused with an AI agent). Any generative model is supported with this approach.
 
 <figure>
-  ![](./assets/data-flow.png)
+  ![Sequence diagram showing data flow from user to LLM to OpenRewrite recipe and back](./assets/data-flow.png)
   <figcaption>_The flow of data from you to the LLM to an OpenRewrite recipe._</figcaption>
 </figure>
 

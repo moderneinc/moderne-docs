@@ -24,7 +24,7 @@ To help you understand how to automate recipe execution and commits, we'll walk 
 This guide assumes that you:
 
 1. Know how to use and interact with GraphQL APIs.
-2. [Have created a Moderne personal access token](create-api-access-tokens.md).
+2. [Have created a Moderne personal access token](./create-api-access-tokens.md).
 3. [Have created an SCM access token.](../references/create-scm-access-tokens.md)
 
 ### Recipe execution
@@ -36,7 +36,7 @@ This guide assumes that you:
 3. In the top right corner of the page, click on `API examples` and select `Run a recipe`. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your organization selection from step 1.
 
 <figure>
-  ![](./assets/api-link.png)
+  ![API examples dropdown with Run a recipe option highlighted](./assets/api-link.png)
   <figcaption></figcaption>
 </figure>
 

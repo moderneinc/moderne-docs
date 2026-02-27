@@ -32,7 +32,7 @@ mod config license edit <license-you-were-provided>
 The following diagram shows the flow of what checks will happen when you attempt to run a recipe with the CLI:
 
 <figure>
-  ![](./assets/license-flow.png)
+  ![Flowchart showing license verification: checks for license key, lease key, DX/Moderne connection, and public repo status](./assets/license-flow.png)
   <figcaption></figcaption>
 </figure>
 
