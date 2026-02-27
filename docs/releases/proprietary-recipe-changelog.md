@@ -2138,12 +2138,3 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.48.0
 
-## February 27, 2025
-
-#### rewrite-spring - v0.3.1
-
-* Update with rewrite-logging-frameworks 3.3.0 which uses type tables so this shouldn't end up blocked by security scanners anymore
-* Add mybatis upgrade for SpringBoot 3.4
-* Upgrade spring-security-oauth2-authorization-server
-* Rename package for better categorization
-
