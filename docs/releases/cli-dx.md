@@ -1,5 +1,10 @@
 # CLI / DX changelog
 
+### CLI / DX v4.0.2 (2026-02-27)
+
+#### What's Changed
+* Fix documentation publishing for release
+
 ### CLI / DX v3.57.12 (2026-02-26)
 
 #### What's Changed

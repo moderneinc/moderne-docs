@@ -55,6 +55,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build gradle timeout delete**](#mod-config-build-gradle-timeout-delete)
 * [**mod config build gradle timeout edit**](#mod-config-build-gradle-timeout-edit)
 * [**mod config build gradle timeout show**](#mod-config-build-gradle-timeout-show)
+* [**mod config build javascript**](#mod-config-build-javascript)
+* [**mod config build javascript nodeoptions**](#mod-config-build-javascript-nodeoptions)
+* [**mod config build javascript nodeoptions delete**](#mod-config-build-javascript-nodeoptions-delete)
+* [**mod config build javascript nodeoptions edit**](#mod-config-build-javascript-nodeoptions-edit)
+* [**mod config build javascript nodeoptions show**](#mod-config-build-javascript-nodeoptions-show)
 * [**mod config build maven**](#mod-config-build-maven)
 * [**mod config build maven arguments**](#mod-config-build-maven-arguments)
 * [**mod config build maven arguments delete**](#mod-config-build-maven-arguments-delete)
@@ -272,6 +277,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod trace runs analyze**](#mod-trace-runs-analyze)
 * [**mod trace syncs**](#mod-trace-syncs)
 * [**mod trace syncs analyze**](#mod-trace-syncs-analyze)
+* [**mod wrapper**](#mod-wrapper)
 
 ## mod
 
@@ -312,6 +318,7 @@ mod [subcommands]
 * `search`: Search repositories using trigram indexes.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
 * `trace`: Manages trace analysis tools.
+* `wrapper`: Create or configure a Moderne wrapper.
 
 ## mod audit
 
@@ -740,6 +747,7 @@ mod config build [subcommands]
 * `dotnet`: Configures dotnet as it is used for LST production.
 * `environment`: Configure environment variables to apply to build tool when building LSTs.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
+* `javascript`: Configures JavaScript/TypeScript as it is used to produce LSTs.
 * `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
 * `parsers`: Configure custom file-extension-to-parser mappings.
 
@@ -1382,6 +1390,109 @@ Displays the configured build timeout.
 
 ```
 mod config build gradle timeout show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build javascript
+
+Configures JavaScript/TypeScript as it is used to produce LSTs.
+
+
+
+
+### Usage
+
+```
+mod config build javascript [subcommands]
+```
+
+### Examples
+
+```
+mod config build javascript nodeoptions edit "--max-old-space-size=8192"
+```
+
+
+### Subcommands
+
+* `nodeoptions`: Configure Node.js options.
+
+## mod config build javascript nodeoptions
+
+Configure Node.js options.
+
+
+Node options are set via the NODE_OPTIONS environment variable when building LSTs and running recipes.
+
+### Usage
+
+```
+mod config build javascript nodeoptions [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes configured Node.js options.
+* `edit`: Configure Node.js options.
+* `show`: Displays the configured Node.js options.
+
+## mod config build javascript nodeoptions delete
+
+Removes configured Node.js options.
+
+
+### Usage
+
+```
+mod config build javascript nodeoptions delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build javascript nodeoptions edit
+
+Configure Node.js options.
+
+
+Node options are set via the NODE_OPTIONS environment variable when building LSTs and running recipes.
+
+### Usage
+
+```
+mod config build javascript nodeoptions edit
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build javascript nodeoptions show
+
+Displays the configured Node.js options.
+
+
+### Usage
+
+```
+mod config build javascript nodeoptions show
 ```
 
 ### Options
@@ -6389,5 +6500,29 @@ mod trace syncs analyze [parameters]
 | ---- | ----------- |
 | `--last-sync` |  Select whatever the last sync was, whether the sync ran fully to completion or terminated early. |
 | `--sync` |  A sync ID for a sync that has completed previously. |
+
+
+## mod wrapper
+
+Create or configure a Moderne wrapper.
+
+
+Creates a project-local wrapper (modw, modw.cmd, moderne/wrapper/moderne-wrapper.properties) or configures the global CLI installation with --global.
+
+### Usage
+
+```
+mod wrapper
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--auto-update` |  Set version to RELEASE (track latest stable release from Maven Central). |
+| `--auto-update-snapshot` |  Set version to LATEST (track latest snapshot from Maven Central Snapshots). |
+| `--distribution-url` |  Custom URL template for downloading the CLI distribution. Supports null and null placeholders. |
+| `--global` |  Configure the global CLI installation instead of creating a project-local wrapper. |
+| `--version` |  CLI version to pin in the wrapper properties. Defaults to the currently-running CLI version. |
 
 
